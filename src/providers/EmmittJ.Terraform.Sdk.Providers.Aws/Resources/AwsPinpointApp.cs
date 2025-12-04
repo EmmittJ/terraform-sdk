@@ -18,7 +18,7 @@ public class AwsPinpointAppCampaignHookBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LambdaFunctionName
     {
-        get => new TerraformReference<string>(this, "lambda_function_name");
+        get => GetArgument<TerraformValue<string>>("lambda_function_name");
         set => SetArgument("lambda_function_name", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsPinpointAppCampaignHookBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsPinpointAppCampaignHookBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? WebUrl
     {
-        get => new TerraformReference<string>(this, "web_url");
+        get => GetArgument<TerraformValue<string>>("web_url");
         set => SetArgument("web_url", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsPinpointAppLimitsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Daily
     {
-        get => new TerraformReference<double>(this, "daily");
+        get => GetArgument<TerraformValue<double>>("daily");
         set => SetArgument("daily", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsPinpointAppLimitsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaximumDuration
     {
-        get => new TerraformReference<double>(this, "maximum_duration");
+        get => GetArgument<TerraformValue<double>>("maximum_duration");
         set => SetArgument("maximum_duration", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsPinpointAppLimitsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MessagesPerSecond
     {
-        get => new TerraformReference<double>(this, "messages_per_second");
+        get => GetArgument<TerraformValue<double>>("messages_per_second");
         set => SetArgument("messages_per_second", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsPinpointAppLimitsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Total
     {
-        get => new TerraformReference<double>(this, "total");
+        get => GetArgument<TerraformValue<double>>("total");
         set => SetArgument("total", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsPinpointAppQuietTimeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? End
     {
-        get => new TerraformReference<string>(this, "end");
+        get => GetArgument<TerraformValue<string>>("end");
         set => SetArgument("end", value);
     }
 
@@ -118,7 +118,7 @@ public class AwsPinpointAppQuietTimeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Start
     {
-        get => new TerraformReference<string>(this, "start");
+        get => GetArgument<TerraformValue<string>>("start");
         set => SetArgument("start", value);
     }
 
@@ -134,36 +134,36 @@ public partial class AwsPinpointApp(string name) : TerraformResource("aws_pinpoi
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -172,16 +172,16 @@ public partial class AwsPinpointApp(string name) : TerraformResource("aws_pinpoi
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -189,17 +189,13 @@ public partial class AwsPinpointApp(string name) : TerraformResource("aws_pinpoi
     /// The application_id attribute.
     /// </summary>
     public TerraformValue<string> ApplicationId
-    {
-        get => new TerraformReference<string>(this, "application_id");
-    }
+        => AsReference("application_id");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// CampaignHook block (nesting mode: list).

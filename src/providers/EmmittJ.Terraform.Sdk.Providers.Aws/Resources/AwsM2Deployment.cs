@@ -18,7 +18,7 @@ public class AwsM2DeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsM2DeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsM2DeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsM2Deployment(string name) : TerraformResource("aws_m2_de
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => new TerraformReference<string>(this, "application_id");
+        get => GetArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsM2Deployment(string name) : TerraformResource("aws_m2_de
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationVersion is required")]
     public required TerraformValue<double> ApplicationVersion
     {
-        get => new TerraformReference<double>(this, "application_version");
+        get => GetArgument<TerraformValue<double>>("application_version");
         set => SetArgument("application_version", value);
     }
 
@@ -75,7 +75,7 @@ public partial class AwsM2Deployment(string name) : TerraformResource("aws_m2_de
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     public required TerraformValue<string> EnvironmentId
     {
-        get => new TerraformReference<string>(this, "environment_id");
+        get => GetArgument<TerraformValue<string>>("environment_id");
         set => SetArgument("environment_id", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AwsM2Deployment(string name) : TerraformResource("aws_m2_de
     /// </summary>
     public TerraformValue<bool>? ForceStop
     {
-        get => new TerraformReference<bool>(this, "force_stop");
+        get => GetArgument<TerraformValue<bool>>("force_stop");
         set => SetArgument("force_stop", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AwsM2Deployment(string name) : TerraformResource("aws_m2_de
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformValue<bool> Start
     {
-        get => new TerraformReference<bool>(this, "start");
+        get => GetArgument<TerraformValue<bool>>("start");
         set => SetArgument("start", value);
     }
 
@@ -111,17 +111,13 @@ public partial class AwsM2Deployment(string name) : TerraformResource("aws_m2_de
     /// The deployment_id attribute.
     /// </summary>
     public TerraformValue<string> DeploymentId
-    {
-        get => new TerraformReference<string>(this, "deployment_id");
-    }
+        => AsReference("deployment_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -19,7 +19,7 @@ public class AzurermAutomationModuleModuleLinkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermAutomationModuleModuleLinkBlockHashBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
     public required TerraformValue<string> Algorithm
     {
-        get => new TerraformReference<string>(this, "algorithm");
+        get => GetArgument<TerraformValue<string>>("algorithm");
         set => SetArgument("algorithm", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermAutomationModuleModuleLinkBlockHashBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermAutomationModuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermAutomationModuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermAutomationModuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermAutomationModuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -131,16 +131,16 @@ public partial class AzurermAutomationModule(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     public required TerraformValue<string> AutomationAccountName
     {
-        get => new TerraformReference<string>(this, "automation_account_name");
+        get => GetArgument<TerraformValue<string>>("automation_account_name");
         set => SetArgument("automation_account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AzurermAutomationModule(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -160,7 +160,7 @@ public partial class AzurermAutomationModule(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

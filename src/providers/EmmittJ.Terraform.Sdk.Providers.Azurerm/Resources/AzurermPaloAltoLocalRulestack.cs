@@ -18,7 +18,7 @@ public class AzurermPaloAltoLocalRulestackTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermPaloAltoLocalRulestackTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermPaloAltoLocalRulestackTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermPaloAltoLocalRulestackTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermPaloAltoLocalRulestack(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? AntiSpywareProfile
     {
-        get => new TerraformReference<string>(this, "anti_spyware_profile");
+        get => GetArgument<TerraformValue<string>>("anti_spyware_profile");
         set => SetArgument("anti_spyware_profile", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermPaloAltoLocalRulestack(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? AntiVirusProfile
     {
-        get => new TerraformReference<string>(this, "anti_virus_profile");
+        get => GetArgument<TerraformValue<string>>("anti_virus_profile");
         set => SetArgument("anti_virus_profile", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermPaloAltoLocalRulestack(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AzurermPaloAltoLocalRulestack(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? DnsSubscription
     {
-        get => new TerraformReference<string>(this, "dns_subscription");
+        get => GetArgument<TerraformValue<string>>("dns_subscription");
         set => SetArgument("dns_subscription", value);
     }
 
@@ -99,16 +99,16 @@ public partial class AzurermPaloAltoLocalRulestack(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? FileBlockingProfile
     {
-        get => new TerraformReference<string>(this, "file_blocking_profile");
+        get => GetArgument<TerraformValue<string>>("file_blocking_profile");
         set => SetArgument("file_blocking_profile", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermPaloAltoLocalRulestack(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermPaloAltoLocalRulestack(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzurermPaloAltoLocalRulestack(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AzurermPaloAltoLocalRulestack(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? UrlFilteringProfile
     {
-        get => new TerraformReference<string>(this, "url_filtering_profile");
+        get => GetArgument<TerraformValue<string>>("url_filtering_profile");
         set => SetArgument("url_filtering_profile", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AzurermPaloAltoLocalRulestack(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? VulnerabilityProfile
     {
-        get => new TerraformReference<string>(this, "vulnerability_profile");
+        get => GetArgument<TerraformValue<string>>("vulnerability_profile");
         set => SetArgument("vulnerability_profile", value);
     }
 

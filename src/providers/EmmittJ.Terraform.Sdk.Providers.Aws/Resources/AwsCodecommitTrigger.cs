@@ -18,7 +18,7 @@ public class AwsCodecommitTriggerTriggerBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Branches
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "branches").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("branches");
         set => SetArgument("branches", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsCodecommitTriggerTriggerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CustomData
     {
-        get => new TerraformReference<string>(this, "custom_data");
+        get => GetArgument<TerraformValue<string>>("custom_data");
         set => SetArgument("custom_data", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsCodecommitTriggerTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformValue<string> DestinationArn
     {
-        get => new TerraformReference<string>(this, "destination_arn");
+        get => GetArgument<TerraformValue<string>>("destination_arn");
         set => SetArgument("destination_arn", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsCodecommitTriggerTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
     public TerraformList<string>? Events
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "events").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("events");
         set => SetArgument("events", value);
     }
 
@@ -57,7 +57,7 @@ public class AwsCodecommitTriggerTriggerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -73,18 +73,18 @@ public partial class AwsCodecommitTrigger(string name) : TerraformResource("aws_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AwsCodecommitTrigger(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformValue<string> RepositoryName
     {
-        get => new TerraformReference<string>(this, "repository_name");
+        get => GetArgument<TerraformValue<string>>("repository_name");
         set => SetArgument("repository_name", value);
     }
 
@@ -102,9 +102,7 @@ public partial class AwsCodecommitTrigger(string name) : TerraformResource("aws_
     /// The configuration_id attribute.
     /// </summary>
     public TerraformValue<string> ConfigurationId
-    {
-        get => new TerraformReference<string>(this, "configuration_id");
-    }
+        => AsReference("configuration_id");
 
     /// <summary>
     /// Trigger block (nesting mode: set).

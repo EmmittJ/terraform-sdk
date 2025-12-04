@@ -11,18 +11,18 @@ public partial class AwsVerifiedaccessInstanceTrustProviderAttachment(string nam
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsVerifiedaccessInstanceTrustProviderAttachment(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifiedaccessInstanceId is required")]
     public required TerraformValue<string> VerifiedaccessInstanceId
     {
-        get => new TerraformReference<string>(this, "verifiedaccess_instance_id");
+        get => GetArgument<TerraformValue<string>>("verifiedaccess_instance_id");
         set => SetArgument("verifiedaccess_instance_id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsVerifiedaccessInstanceTrustProviderAttachment(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifiedaccessTrustProviderId is required")]
     public required TerraformValue<string> VerifiedaccessTrustProviderId
     {
-        get => new TerraformReference<string>(this, "verifiedaccess_trust_provider_id");
+        get => GetArgument<TerraformValue<string>>("verifiedaccess_trust_provider_id");
         set => SetArgument("verifiedaccess_trust_provider_id", value);
     }
 

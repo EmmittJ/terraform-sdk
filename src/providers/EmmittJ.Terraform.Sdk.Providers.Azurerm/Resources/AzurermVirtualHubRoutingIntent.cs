@@ -19,7 +19,7 @@ public class AzurermVirtualHubRoutingIntentRoutingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destinations is required")]
     public TerraformList<string>? Destinations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "destinations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("destinations");
         set => SetArgument("destinations", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermVirtualHubRoutingIntentRoutingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermVirtualHubRoutingIntentRoutingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextHop is required")]
     public required TerraformValue<string> NextHop
     {
-        get => new TerraformReference<string>(this, "next_hop");
+        get => GetArgument<TerraformValue<string>>("next_hop");
         set => SetArgument("next_hop", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermVirtualHubRoutingIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -71,7 +71,7 @@ public class AzurermVirtualHubRoutingIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -80,7 +80,7 @@ public class AzurermVirtualHubRoutingIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -89,7 +89,7 @@ public class AzurermVirtualHubRoutingIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -105,9 +105,9 @@ public partial class AzurermVirtualHubRoutingIntent(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AzurermVirtualHubRoutingIntent(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzurermVirtualHubRoutingIntent(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformValue<string> VirtualHubId
     {
-        get => new TerraformReference<string>(this, "virtual_hub_id");
+        get => GetArgument<TerraformValue<string>>("virtual_hub_id");
         set => SetArgument("virtual_hub_id", value);
     }
 

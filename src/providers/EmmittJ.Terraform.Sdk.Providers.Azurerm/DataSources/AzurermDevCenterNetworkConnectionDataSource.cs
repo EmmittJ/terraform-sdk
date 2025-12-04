@@ -18,7 +18,7 @@ public class AzurermDevCenterNetworkConnectionDataSourceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermDevCenterNetworkConnectionDataSource(string name) : 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermDevCenterNetworkConnectionDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermDevCenterNetworkConnectionDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,57 +64,43 @@ public partial class AzurermDevCenterNetworkConnectionDataSource(string name) : 
     /// The domain_join_type attribute.
     /// </summary>
     public TerraformValue<string> DomainJoinType
-    {
-        get => new TerraformReference<string>(this, "domain_join_type");
-    }
+        => AsReference("domain_join_type");
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     public TerraformValue<string> DomainName
-    {
-        get => new TerraformReference<string>(this, "domain_name");
-    }
+        => AsReference("domain_name");
 
     /// <summary>
     /// The domain_username attribute.
     /// </summary>
     public TerraformValue<string> DomainUsername
-    {
-        get => new TerraformReference<string>(this, "domain_username");
-    }
+        => AsReference("domain_username");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The organization_unit attribute.
     /// </summary>
     public TerraformValue<string> OrganizationUnit
-    {
-        get => new TerraformReference<string>(this, "organization_unit");
-    }
+        => AsReference("organization_unit");
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     public TerraformValue<string> SubnetId
-    {
-        get => new TerraformReference<string>(this, "subnet_id");
-    }
+        => AsReference("subnet_id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

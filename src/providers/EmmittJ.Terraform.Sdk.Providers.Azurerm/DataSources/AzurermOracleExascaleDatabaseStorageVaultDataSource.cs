@@ -18,7 +18,7 @@ public class AzurermOracleExascaleDatabaseStorageVaultDataSourceTimeoutsBlock : 
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermOracleExascaleDatabaseStorageVaultDataSource(string 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermOracleExascaleDatabaseStorageVaultDataSource(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermOracleExascaleDatabaseStorageVaultDataSource(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,97 +64,73 @@ public partial class AzurermOracleExascaleDatabaseStorageVaultDataSource(string 
     /// The additional_flash_cache_percentage attribute.
     /// </summary>
     public TerraformValue<double> AdditionalFlashCachePercentage
-    {
-        get => new TerraformReference<double>(this, "additional_flash_cache_percentage");
-    }
+        => AsReference("additional_flash_cache_percentage");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The high_capacity_database_storage attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> HighCapacityDatabaseStorage
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "high_capacity_database_storage").ResolveNodes(ctx));
-    }
+        => AsReference("high_capacity_database_storage");
 
     /// <summary>
     /// The lifecycle_details attribute.
     /// </summary>
     public TerraformValue<string> LifecycleDetails
-    {
-        get => new TerraformReference<string>(this, "lifecycle_details");
-    }
+        => AsReference("lifecycle_details");
 
     /// <summary>
     /// The lifecycle_state attribute.
     /// </summary>
     public TerraformValue<string> LifecycleState
-    {
-        get => new TerraformReference<string>(this, "lifecycle_state");
-    }
+        => AsReference("lifecycle_state");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The oci_url attribute.
     /// </summary>
     public TerraformValue<string> OciUrl
-    {
-        get => new TerraformReference<string>(this, "oci_url");
-    }
+        => AsReference("oci_url");
 
     /// <summary>
     /// The ocid attribute.
     /// </summary>
     public TerraformValue<string> Ocid
-    {
-        get => new TerraformReference<string>(this, "ocid");
-    }
+        => AsReference("ocid");
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
     public TerraformValue<string> TimeZone
-    {
-        get => new TerraformReference<string>(this, "time_zone");
-    }
+        => AsReference("time_zone");
 
     /// <summary>
     /// The virtual_machine_cluster_count attribute.
     /// </summary>
     public TerraformValue<double> VirtualMachineClusterCount
-    {
-        get => new TerraformReference<double>(this, "virtual_machine_cluster_count");
-    }
+        => AsReference("virtual_machine_cluster_count");
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     public TerraformList<string> Zones
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "zones").ResolveNodes(ctx));
-    }
+        => AsReference("zones");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

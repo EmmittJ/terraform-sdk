@@ -16,9 +16,9 @@ public class AzurermPimEligibleRoleAssignmentScheduleBlock : TerraformBlock
     /// <summary>
     /// The start date/time
     /// </summary>
-    public TerraformValue<string> StartDateTime
+    public TerraformValue<string>? StartDateTime
     {
-        get => new TerraformReference<string>(this, "start_date_time");
+        get => GetArgument<TerraformValue<string>>("start_date_time");
         set => SetArgument("start_date_time", value);
     }
 
@@ -48,27 +48,27 @@ public class AzurermPimEligibleRoleAssignmentScheduleBlockExpirationBlock : Terr
     /// <summary>
     /// The duration of the eligible role assignment in days
     /// </summary>
-    public TerraformValue<double> DurationDays
+    public TerraformValue<double>? DurationDays
     {
-        get => new TerraformReference<double>(this, "duration_days");
+        get => GetArgument<TerraformValue<double>>("duration_days");
         set => SetArgument("duration_days", value);
     }
 
     /// <summary>
     /// The duration of the eligible role assignment in hours
     /// </summary>
-    public TerraformValue<double> DurationHours
+    public TerraformValue<double>? DurationHours
     {
-        get => new TerraformReference<double>(this, "duration_hours");
+        get => GetArgument<TerraformValue<double>>("duration_hours");
         set => SetArgument("duration_hours", value);
     }
 
     /// <summary>
     /// The end date/time of the eligible role assignment
     /// </summary>
-    public TerraformValue<string> EndDateTime
+    public TerraformValue<string>? EndDateTime
     {
-        get => new TerraformReference<string>(this, "end_date_time");
+        get => GetArgument<TerraformValue<string>>("end_date_time");
         set => SetArgument("end_date_time", value);
     }
 
@@ -91,7 +91,7 @@ public class AzurermPimEligibleRoleAssignmentTicketBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Number
     {
-        get => new TerraformReference<string>(this, "number");
+        get => GetArgument<TerraformValue<string>>("number");
         set => SetArgument("number", value);
     }
 
@@ -100,7 +100,7 @@ public class AzurermPimEligibleRoleAssignmentTicketBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? System
     {
-        get => new TerraformReference<string>(this, "system");
+        get => GetArgument<TerraformValue<string>>("system");
         set => SetArgument("system", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermPimEligibleRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermPimEligibleRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermPimEligibleRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AzurermPimEligibleRoleAssignment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Condition
     {
-        get => new TerraformReference<string>(this, "condition");
+        get => GetArgument<TerraformValue<string>>("condition");
         set => SetArgument("condition", value);
     }
 
@@ -168,25 +168,25 @@ public partial class AzurermPimEligibleRoleAssignment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? ConditionVersion
     {
-        get => new TerraformReference<string>(this, "condition_version");
+        get => GetArgument<TerraformValue<string>>("condition_version");
         set => SetArgument("condition_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The justification for this eligible role assignment
     /// </summary>
-    public TerraformValue<string> Justification
+    public TerraformValue<string>? Justification
     {
-        get => new TerraformReference<string>(this, "justification");
+        get => GetArgument<TerraformValue<string>>("justification");
         set => SetArgument("justification", value);
     }
 
@@ -196,7 +196,7 @@ public partial class AzurermPimEligibleRoleAssignment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformValue<string> PrincipalId
     {
-        get => new TerraformReference<string>(this, "principal_id");
+        get => GetArgument<TerraformValue<string>>("principal_id");
         set => SetArgument("principal_id", value);
     }
 
@@ -206,7 +206,7 @@ public partial class AzurermPimEligibleRoleAssignment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     public required TerraformValue<string> RoleDefinitionId
     {
-        get => new TerraformReference<string>(this, "role_definition_id");
+        get => GetArgument<TerraformValue<string>>("role_definition_id");
         set => SetArgument("role_definition_id", value);
     }
 
@@ -216,7 +216,7 @@ public partial class AzurermPimEligibleRoleAssignment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -224,9 +224,7 @@ public partial class AzurermPimEligibleRoleAssignment(string name) : TerraformRe
     /// Type of principal to which the role will be assigned
     /// </summary>
     public TerraformValue<string> PrincipalType
-    {
-        get => new TerraformReference<string>(this, "principal_type");
-    }
+        => AsReference("principal_type");
 
     /// <summary>
     /// Schedule block (nesting mode: list).

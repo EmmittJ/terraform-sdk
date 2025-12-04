@@ -13,7 +13,7 @@ public partial class GoogleBillingSubaccount(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? DeletionPolicy
     {
-        get => new TerraformReference<string>(this, "deletion_policy");
+        get => GetArgument<TerraformValue<string>>("deletion_policy");
         set => SetArgument("deletion_policy", value);
     }
 
@@ -23,16 +23,16 @@ public partial class GoogleBillingSubaccount(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleBillingSubaccount(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MasterBillingAccount is required")]
     public required TerraformValue<string> MasterBillingAccount
     {
-        get => new TerraformReference<string>(this, "master_billing_account");
+        get => GetArgument<TerraformValue<string>>("master_billing_account");
         set => SetArgument("master_billing_account", value);
     }
 
@@ -50,24 +50,18 @@ public partial class GoogleBillingSubaccount(string name) : TerraformResource("g
     /// The billing_account_id attribute.
     /// </summary>
     public TerraformValue<string> BillingAccountId
-    {
-        get => new TerraformReference<string>(this, "billing_account_id");
-    }
+        => AsReference("billing_account_id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The open attribute.
     /// </summary>
     public TerraformValue<bool> Open
-    {
-        get => new TerraformReference<bool>(this, "open");
-    }
+        => AsReference("open");
 
 }

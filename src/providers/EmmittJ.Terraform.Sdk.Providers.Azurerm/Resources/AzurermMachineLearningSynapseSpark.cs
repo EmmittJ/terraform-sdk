@@ -18,7 +18,7 @@ public class AzurermMachineLearningSynapseSparkIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -26,17 +26,13 @@ public class AzurermMachineLearningSynapseSparkIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -44,7 +40,7 @@ public class AzurermMachineLearningSynapseSparkIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -67,7 +63,7 @@ public class AzurermMachineLearningSynapseSparkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -76,7 +72,7 @@ public class AzurermMachineLearningSynapseSparkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -85,7 +81,7 @@ public class AzurermMachineLearningSynapseSparkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -103,16 +99,16 @@ public partial class AzurermMachineLearningSynapseSpark(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -121,7 +117,7 @@ public partial class AzurermMachineLearningSynapseSpark(string name) : Terraform
     /// </summary>
     public TerraformValue<bool>? LocalAuthEnabled
     {
-        get => new TerraformReference<bool>(this, "local_auth_enabled");
+        get => GetArgument<TerraformValue<bool>>("local_auth_enabled");
         set => SetArgument("local_auth_enabled", value);
     }
 
@@ -131,7 +127,7 @@ public partial class AzurermMachineLearningSynapseSpark(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -141,7 +137,7 @@ public partial class AzurermMachineLearningSynapseSpark(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineLearningWorkspaceId is required")]
     public required TerraformValue<string> MachineLearningWorkspaceId
     {
-        get => new TerraformReference<string>(this, "machine_learning_workspace_id");
+        get => GetArgument<TerraformValue<string>>("machine_learning_workspace_id");
         set => SetArgument("machine_learning_workspace_id", value);
     }
 
@@ -151,7 +147,7 @@ public partial class AzurermMachineLearningSynapseSpark(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -161,7 +157,7 @@ public partial class AzurermMachineLearningSynapseSpark(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseSparkPoolId is required")]
     public required TerraformValue<string> SynapseSparkPoolId
     {
-        get => new TerraformReference<string>(this, "synapse_spark_pool_id");
+        get => GetArgument<TerraformValue<string>>("synapse_spark_pool_id");
         set => SetArgument("synapse_spark_pool_id", value);
     }
 
@@ -170,7 +166,7 @@ public partial class AzurermMachineLearningSynapseSpark(string name) : Terraform
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

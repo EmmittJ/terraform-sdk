@@ -18,7 +18,7 @@ public class GoogleApigeeEndpointAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleApigeeEndpointAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,16 +46,16 @@ public partial class GoogleApigeeEndpointAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointAttachmentId is required")]
     public required TerraformValue<string> EndpointAttachmentId
     {
-        get => new TerraformReference<string>(this, "endpoint_attachment_id");
+        get => GetArgument<TerraformValue<string>>("endpoint_attachment_id");
         set => SetArgument("endpoint_attachment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleApigeeEndpointAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -76,7 +76,7 @@ public partial class GoogleApigeeEndpointAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => new TerraformReference<string>(this, "org_id");
+        get => GetArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -86,7 +86,7 @@ public partial class GoogleApigeeEndpointAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAttachment is required")]
     public required TerraformValue<string> ServiceAttachment
     {
-        get => new TerraformReference<string>(this, "service_attachment");
+        get => GetArgument<TerraformValue<string>>("service_attachment");
         set => SetArgument("service_attachment", value);
     }
 
@@ -94,26 +94,20 @@ public partial class GoogleApigeeEndpointAttachment(string name) : TerraformReso
     /// State of the endpoint attachment connection to the service attachment.
     /// </summary>
     public TerraformValue<string> ConnectionState
-    {
-        get => new TerraformReference<string>(this, "connection_state");
-    }
+        => AsReference("connection_state");
 
     /// <summary>
     /// Host that can be used in either HTTP Target Endpoint directly, or as the host in Target Server.
     /// </summary>
     public TerraformValue<string> Host
-    {
-        get => new TerraformReference<string>(this, "host");
-    }
+        => AsReference("host");
 
     /// <summary>
     /// Name of the Endpoint Attachment in the following format:
     /// organizations/{organization}/endpointAttachments/{endpointAttachment}.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     /// </summary>
     public TerraformValue<double>? BufferingInterval
     {
-        get => new TerraformReference<double>(this, "buffering_interval");
+        get => GetArgument<TerraformValue<double>>("buffering_interval");
         set => SetArgument("buffering_interval", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     /// </summary>
     public TerraformValue<double>? BufferingSize
     {
-        get => new TerraformReference<double>(this, "buffering_size");
+        get => GetArgument<TerraformValue<double>>("buffering_size");
         set => SetArgument("buffering_size", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     /// </summary>
     public TerraformValue<string>? ClusterEndpoint
     {
-        get => new TerraformReference<string>(this, "cluster_endpoint");
+        get => GetArgument<TerraformValue<string>>("cluster_endpoint");
         set => SetArgument("cluster_endpoint", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     /// </summary>
     public TerraformValue<string>? DomainArn
     {
-        get => new TerraformReference<string>(this, "domain_arn");
+        get => GetArgument<TerraformValue<string>>("domain_arn");
         set => SetArgument("domain_arn", value);
     }
 
@@ -55,7 +55,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     public required TerraformValue<string> IndexName
     {
-        get => new TerraformReference<string>(this, "index_name");
+        get => GetArgument<TerraformValue<string>>("index_name");
         set => SetArgument("index_name", value);
     }
 
@@ -64,7 +64,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     /// </summary>
     public TerraformValue<string>? IndexRotationPeriod
     {
-        get => new TerraformReference<string>(this, "index_rotation_period");
+        get => GetArgument<TerraformValue<string>>("index_rotation_period");
         set => SetArgument("index_rotation_period", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     /// </summary>
     public TerraformValue<double>? RetryDuration
     {
-        get => new TerraformReference<double>(this, "retry_duration");
+        get => GetArgument<TerraformValue<double>>("retry_duration");
         set => SetArgument("retry_duration", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     /// </summary>
     public TerraformValue<string>? S3BackupMode
     {
-        get => new TerraformReference<string>(this, "s3_backup_mode");
+        get => GetArgument<TerraformValue<string>>("s3_backup_mode");
         set => SetArgument("s3_backup_mode", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : T
     /// </summary>
     public TerraformValue<string>? TypeName
     {
-        get => new TerraformReference<string>(this, "type_name");
+        get => GetArgument<TerraformValue<string>>("type_name");
         set => SetArgument("type_name", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockClou
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockClou
     /// </summary>
     public TerraformValue<string>? LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -184,7 +184,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockClou
     /// </summary>
     public TerraformValue<string>? LogStreamName
     {
-        get => new TerraformReference<string>(this, "log_stream_name");
+        get => GetArgument<TerraformValue<string>>("log_stream_name");
         set => SetArgument("log_stream_name", value);
     }
 
@@ -206,7 +206,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockProc
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -238,7 +238,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockProc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -270,7 +270,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockProc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformValue<string> ParameterName
     {
-        get => new TerraformReference<string>(this, "parameter_name");
+        get => GetArgument<TerraformValue<string>>("parameter_name");
         set => SetArgument("parameter_name", value);
     }
 
@@ -280,7 +280,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockProc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformValue<string> ParameterValue
     {
-        get => new TerraformReference<string>(this, "parameter_value");
+        get => GetArgument<TerraformValue<string>>("parameter_value");
         set => SetArgument("parameter_value", value);
     }
 
@@ -303,7 +303,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockS3Co
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => new TerraformReference<string>(this, "bucket_arn");
+        get => GetArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -312,7 +312,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockS3Co
     /// </summary>
     public TerraformValue<double>? BufferingInterval
     {
-        get => new TerraformReference<double>(this, "buffering_interval");
+        get => GetArgument<TerraformValue<double>>("buffering_interval");
         set => SetArgument("buffering_interval", value);
     }
 
@@ -321,7 +321,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockS3Co
     /// </summary>
     public TerraformValue<double>? BufferingSize
     {
-        get => new TerraformReference<double>(this, "buffering_size");
+        get => GetArgument<TerraformValue<double>>("buffering_size");
         set => SetArgument("buffering_size", value);
     }
 
@@ -330,7 +330,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockS3Co
     /// </summary>
     public TerraformValue<string>? CompressionFormat
     {
-        get => new TerraformReference<string>(this, "compression_format");
+        get => GetArgument<TerraformValue<string>>("compression_format");
         set => SetArgument("compression_format", value);
     }
 
@@ -339,7 +339,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockS3Co
     /// </summary>
     public TerraformValue<string>? ErrorOutputPrefix
     {
-        get => new TerraformReference<string>(this, "error_output_prefix");
+        get => GetArgument<TerraformValue<string>>("error_output_prefix");
         set => SetArgument("error_output_prefix", value);
     }
 
@@ -348,7 +348,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockS3Co
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -357,7 +357,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockS3Co
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -367,7 +367,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockS3Co
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -399,7 +399,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockS3Co
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -408,7 +408,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockS3Co
     /// </summary>
     public TerraformValue<string>? LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -417,7 +417,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockS3Co
     /// </summary>
     public TerraformValue<string>? LogStreamName
     {
-        get => new TerraformReference<string>(this, "log_stream_name");
+        get => GetArgument<TerraformValue<string>>("log_stream_name");
         set => SetArgument("log_stream_name", value);
     }
 
@@ -440,7 +440,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockVpcC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -450,7 +450,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockVpcC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -460,7 +460,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockVpcC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -468,9 +468,7 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlockVpcC
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-    {
-        get => new TerraformReference<string>(this, "vpc_id");
-    }
+        => AsReference("vpc_id");
 
 }
 
@@ -492,7 +490,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => new TerraformReference<string>(this, "bucket_arn");
+        get => GetArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -501,7 +499,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<double>? BufferingInterval
     {
-        get => new TerraformReference<double>(this, "buffering_interval");
+        get => GetArgument<TerraformValue<double>>("buffering_interval");
         set => SetArgument("buffering_interval", value);
     }
 
@@ -510,7 +508,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<double>? BufferingSize
     {
-        get => new TerraformReference<double>(this, "buffering_size");
+        get => GetArgument<TerraformValue<double>>("buffering_size");
         set => SetArgument("buffering_size", value);
     }
 
@@ -519,7 +517,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<string>? CompressionFormat
     {
-        get => new TerraformReference<string>(this, "compression_format");
+        get => GetArgument<TerraformValue<string>>("compression_format");
         set => SetArgument("compression_format", value);
     }
 
@@ -528,7 +526,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<string>? CustomTimeZone
     {
-        get => new TerraformReference<string>(this, "custom_time_zone");
+        get => GetArgument<TerraformValue<string>>("custom_time_zone");
         set => SetArgument("custom_time_zone", value);
     }
 
@@ -537,7 +535,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<string>? ErrorOutputPrefix
     {
-        get => new TerraformReference<string>(this, "error_output_prefix");
+        get => GetArgument<TerraformValue<string>>("error_output_prefix");
         set => SetArgument("error_output_prefix", value);
     }
 
@@ -546,7 +544,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<string>? FileExtension
     {
-        get => new TerraformReference<string>(this, "file_extension");
+        get => GetArgument<TerraformValue<string>>("file_extension");
         set => SetArgument("file_extension", value);
     }
 
@@ -555,7 +553,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -564,7 +562,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -574,7 +572,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -583,7 +581,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<string>? S3BackupMode
     {
-        get => new TerraformReference<string>(this, "s3_backup_mode");
+        get => GetArgument<TerraformValue<string>>("s3_backup_mode");
         set => SetArgument("s3_backup_mode", value);
     }
 
@@ -655,7 +653,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockCloudwa
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -664,7 +662,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockCloudwa
     /// </summary>
     public TerraformValue<string>? LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -673,7 +671,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockCloudwa
     /// </summary>
     public TerraformValue<string>? LogStreamName
     {
-        get => new TerraformReference<string>(this, "log_stream_name");
+        get => GetArgument<TerraformValue<string>>("log_stream_name");
         set => SetArgument("log_stream_name", value);
     }
 
@@ -695,7 +693,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -815,7 +813,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformList<string>? TimestampFormats
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "timestamp_formats").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("timestamp_formats");
         set => SetArgument("timestamp_formats", value);
     }
 
@@ -837,7 +835,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformValue<bool>? CaseInsensitive
     {
-        get => new TerraformReference<bool>(this, "case_insensitive");
+        get => GetArgument<TerraformValue<bool>>("case_insensitive");
         set => SetArgument("case_insensitive", value);
     }
 
@@ -846,7 +844,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformMap<string>? ColumnToJsonKeyMappings
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "column_to_json_key_mappings").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("column_to_json_key_mappings");
         set => SetArgument("column_to_json_key_mappings", value);
     }
 
@@ -855,7 +853,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformValue<bool>? ConvertDotsInJsonKeysToUnderscores
     {
-        get => new TerraformReference<bool>(this, "convert_dots_in_json_keys_to_underscores");
+        get => GetArgument<TerraformValue<bool>>("convert_dots_in_json_keys_to_underscores");
         set => SetArgument("convert_dots_in_json_keys_to_underscores", value);
     }
 
@@ -936,7 +934,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformValue<double>? BlockSizeBytes
     {
-        get => new TerraformReference<double>(this, "block_size_bytes");
+        get => GetArgument<TerraformValue<double>>("block_size_bytes");
         set => SetArgument("block_size_bytes", value);
     }
 
@@ -945,7 +943,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformList<string>? BloomFilterColumns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "bloom_filter_columns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("bloom_filter_columns");
         set => SetArgument("bloom_filter_columns", value);
     }
 
@@ -954,7 +952,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformValue<double>? BloomFilterFalsePositiveProbability
     {
-        get => new TerraformReference<double>(this, "bloom_filter_false_positive_probability");
+        get => GetArgument<TerraformValue<double>>("bloom_filter_false_positive_probability");
         set => SetArgument("bloom_filter_false_positive_probability", value);
     }
 
@@ -963,7 +961,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformValue<string>? Compression
     {
-        get => new TerraformReference<string>(this, "compression");
+        get => GetArgument<TerraformValue<string>>("compression");
         set => SetArgument("compression", value);
     }
 
@@ -972,7 +970,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformValue<double>? DictionaryKeyThreshold
     {
-        get => new TerraformReference<double>(this, "dictionary_key_threshold");
+        get => GetArgument<TerraformValue<double>>("dictionary_key_threshold");
         set => SetArgument("dictionary_key_threshold", value);
     }
 
@@ -981,7 +979,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformValue<bool>? EnablePadding
     {
-        get => new TerraformReference<bool>(this, "enable_padding");
+        get => GetArgument<TerraformValue<bool>>("enable_padding");
         set => SetArgument("enable_padding", value);
     }
 
@@ -990,7 +988,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformValue<string>? FormatVersion
     {
-        get => new TerraformReference<string>(this, "format_version");
+        get => GetArgument<TerraformValue<string>>("format_version");
         set => SetArgument("format_version", value);
     }
 
@@ -999,7 +997,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformValue<double>? PaddingTolerance
     {
-        get => new TerraformReference<double>(this, "padding_tolerance");
+        get => GetArgument<TerraformValue<double>>("padding_tolerance");
         set => SetArgument("padding_tolerance", value);
     }
 
@@ -1008,7 +1006,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformValue<double>? RowIndexStride
     {
-        get => new TerraformReference<double>(this, "row_index_stride");
+        get => GetArgument<TerraformValue<double>>("row_index_stride");
         set => SetArgument("row_index_stride", value);
     }
 
@@ -1017,7 +1015,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformValue<double>? StripeSizeBytes
     {
-        get => new TerraformReference<double>(this, "stripe_size_bytes");
+        get => GetArgument<TerraformValue<double>>("stripe_size_bytes");
         set => SetArgument("stripe_size_bytes", value);
     }
 
@@ -1039,7 +1037,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformValue<double>? BlockSizeBytes
     {
-        get => new TerraformReference<double>(this, "block_size_bytes");
+        get => GetArgument<TerraformValue<double>>("block_size_bytes");
         set => SetArgument("block_size_bytes", value);
     }
 
@@ -1048,7 +1046,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformValue<string>? Compression
     {
-        get => new TerraformReference<string>(this, "compression");
+        get => GetArgument<TerraformValue<string>>("compression");
         set => SetArgument("compression", value);
     }
 
@@ -1057,7 +1055,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformValue<bool>? EnableDictionaryCompression
     {
-        get => new TerraformReference<bool>(this, "enable_dictionary_compression");
+        get => GetArgument<TerraformValue<bool>>("enable_dictionary_compression");
         set => SetArgument("enable_dictionary_compression", value);
     }
 
@@ -1066,7 +1064,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformValue<double>? MaxPaddingBytes
     {
-        get => new TerraformReference<double>(this, "max_padding_bytes");
+        get => GetArgument<TerraformValue<double>>("max_padding_bytes");
         set => SetArgument("max_padding_bytes", value);
     }
 
@@ -1075,7 +1073,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformValue<double>? PageSizeBytes
     {
-        get => new TerraformReference<double>(this, "page_size_bytes");
+        get => GetArgument<TerraformValue<double>>("page_size_bytes");
         set => SetArgument("page_size_bytes", value);
     }
 
@@ -1084,7 +1082,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformValue<string>? WriterVersion
     {
-        get => new TerraformReference<string>(this, "writer_version");
+        get => GetArgument<TerraformValue<string>>("writer_version");
         set => SetArgument("writer_version", value);
     }
 
@@ -1104,9 +1102,9 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformValue<string> CatalogId
+    public TerraformValue<string>? CatalogId
     {
-        get => new TerraformReference<string>(this, "catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -1116,16 +1114,16 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -1135,7 +1133,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1145,7 +1143,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -1154,7 +1152,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDataFor
     /// </summary>
     public TerraformValue<string>? VersionId
     {
-        get => new TerraformReference<string>(this, "version_id");
+        get => GetArgument<TerraformValue<string>>("version_id");
         set => SetArgument("version_id", value);
     }
 
@@ -1176,7 +1174,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDynamic
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1185,7 +1183,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockDynamic
     /// </summary>
     public TerraformValue<double>? RetryDuration
     {
-        get => new TerraformReference<double>(this, "retry_duration");
+        get => GetArgument<TerraformValue<double>>("retry_duration");
         set => SetArgument("retry_duration", value);
     }
 
@@ -1207,7 +1205,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockProcess
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1239,7 +1237,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockProcess
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1271,7 +1269,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockProcess
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformValue<string> ParameterName
     {
-        get => new TerraformReference<string>(this, "parameter_name");
+        get => GetArgument<TerraformValue<string>>("parameter_name");
         set => SetArgument("parameter_name", value);
     }
 
@@ -1281,7 +1279,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockProcess
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformValue<string> ParameterValue
     {
-        get => new TerraformReference<string>(this, "parameter_value");
+        get => GetArgument<TerraformValue<string>>("parameter_value");
         set => SetArgument("parameter_value", value);
     }
 
@@ -1304,7 +1302,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockS3Backu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => new TerraformReference<string>(this, "bucket_arn");
+        get => GetArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -1313,7 +1311,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockS3Backu
     /// </summary>
     public TerraformValue<double>? BufferingInterval
     {
-        get => new TerraformReference<double>(this, "buffering_interval");
+        get => GetArgument<TerraformValue<double>>("buffering_interval");
         set => SetArgument("buffering_interval", value);
     }
 
@@ -1322,7 +1320,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockS3Backu
     /// </summary>
     public TerraformValue<double>? BufferingSize
     {
-        get => new TerraformReference<double>(this, "buffering_size");
+        get => GetArgument<TerraformValue<double>>("buffering_size");
         set => SetArgument("buffering_size", value);
     }
 
@@ -1331,7 +1329,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockS3Backu
     /// </summary>
     public TerraformValue<string>? CompressionFormat
     {
-        get => new TerraformReference<string>(this, "compression_format");
+        get => GetArgument<TerraformValue<string>>("compression_format");
         set => SetArgument("compression_format", value);
     }
 
@@ -1340,7 +1338,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockS3Backu
     /// </summary>
     public TerraformValue<string>? ErrorOutputPrefix
     {
-        get => new TerraformReference<string>(this, "error_output_prefix");
+        get => GetArgument<TerraformValue<string>>("error_output_prefix");
         set => SetArgument("error_output_prefix", value);
     }
 
@@ -1349,7 +1347,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockS3Backu
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -1358,7 +1356,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockS3Backu
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -1368,7 +1366,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockS3Backu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1400,7 +1398,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockS3Backu
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1409,7 +1407,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockS3Backu
     /// </summary>
     public TerraformValue<string>? LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -1418,7 +1416,7 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlockS3Backu
     /// </summary>
     public TerraformValue<string>? LogStreamName
     {
-        get => new TerraformReference<string>(this, "log_stream_name");
+        get => GetArgument<TerraformValue<string>>("log_stream_name");
         set => SetArgument("log_stream_name", value);
     }
 
@@ -1441,7 +1439,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock : Te
     /// </summary>
     public TerraformValue<string>? AccessKey
     {
-        get => new TerraformReference<string>(this, "access_key");
+        get => GetArgument<TerraformValue<string>>("access_key");
         set => SetArgument("access_key", value);
     }
 
@@ -1450,7 +1448,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock : Te
     /// </summary>
     public TerraformValue<double>? BufferingInterval
     {
-        get => new TerraformReference<double>(this, "buffering_interval");
+        get => GetArgument<TerraformValue<double>>("buffering_interval");
         set => SetArgument("buffering_interval", value);
     }
 
@@ -1459,7 +1457,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock : Te
     /// </summary>
     public TerraformValue<double>? BufferingSize
     {
-        get => new TerraformReference<double>(this, "buffering_size");
+        get => GetArgument<TerraformValue<double>>("buffering_size");
         set => SetArgument("buffering_size", value);
     }
 
@@ -1468,7 +1466,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock : Te
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1477,7 +1475,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock : Te
     /// </summary>
     public TerraformValue<double>? RetryDuration
     {
-        get => new TerraformReference<double>(this, "retry_duration");
+        get => GetArgument<TerraformValue<double>>("retry_duration");
         set => SetArgument("retry_duration", value);
     }
 
@@ -1486,7 +1484,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock : Te
     /// </summary>
     public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1495,7 +1493,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock : Te
     /// </summary>
     public TerraformValue<string>? S3BackupMode
     {
-        get => new TerraformReference<string>(this, "s3_backup_mode");
+        get => GetArgument<TerraformValue<string>>("s3_backup_mode");
         set => SetArgument("s3_backup_mode", value);
     }
 
@@ -1505,7 +1503,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -1580,7 +1578,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockCloud
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1589,7 +1587,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockCloud
     /// </summary>
     public TerraformValue<string>? LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -1598,7 +1596,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockCloud
     /// </summary>
     public TerraformValue<string>? LogStreamName
     {
-        get => new TerraformReference<string>(this, "log_stream_name");
+        get => GetArgument<TerraformValue<string>>("log_stream_name");
         set => SetArgument("log_stream_name", value);
     }
 
@@ -1620,7 +1618,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockProce
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1652,7 +1650,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockProce
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1684,7 +1682,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockProce
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformValue<string> ParameterName
     {
-        get => new TerraformReference<string>(this, "parameter_name");
+        get => GetArgument<TerraformValue<string>>("parameter_name");
         set => SetArgument("parameter_name", value);
     }
 
@@ -1694,7 +1692,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockProce
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformValue<string> ParameterValue
     {
-        get => new TerraformReference<string>(this, "parameter_value");
+        get => GetArgument<TerraformValue<string>>("parameter_value");
         set => SetArgument("parameter_value", value);
     }
 
@@ -1716,7 +1714,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockReque
     /// </summary>
     public TerraformValue<string>? ContentEncoding
     {
-        get => new TerraformReference<string>(this, "content_encoding");
+        get => GetArgument<TerraformValue<string>>("content_encoding");
         set => SetArgument("content_encoding", value);
     }
 
@@ -1748,7 +1746,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockReque
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1758,7 +1756,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockReque
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1781,7 +1779,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockS3Con
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => new TerraformReference<string>(this, "bucket_arn");
+        get => GetArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -1790,7 +1788,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockS3Con
     /// </summary>
     public TerraformValue<double>? BufferingInterval
     {
-        get => new TerraformReference<double>(this, "buffering_interval");
+        get => GetArgument<TerraformValue<double>>("buffering_interval");
         set => SetArgument("buffering_interval", value);
     }
 
@@ -1799,7 +1797,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockS3Con
     /// </summary>
     public TerraformValue<double>? BufferingSize
     {
-        get => new TerraformReference<double>(this, "buffering_size");
+        get => GetArgument<TerraformValue<double>>("buffering_size");
         set => SetArgument("buffering_size", value);
     }
 
@@ -1808,7 +1806,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockS3Con
     /// </summary>
     public TerraformValue<string>? CompressionFormat
     {
-        get => new TerraformReference<string>(this, "compression_format");
+        get => GetArgument<TerraformValue<string>>("compression_format");
         set => SetArgument("compression_format", value);
     }
 
@@ -1817,7 +1815,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockS3Con
     /// </summary>
     public TerraformValue<string>? ErrorOutputPrefix
     {
-        get => new TerraformReference<string>(this, "error_output_prefix");
+        get => GetArgument<TerraformValue<string>>("error_output_prefix");
         set => SetArgument("error_output_prefix", value);
     }
 
@@ -1826,7 +1824,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockS3Con
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -1835,7 +1833,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockS3Con
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -1845,7 +1843,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockS3Con
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1877,7 +1875,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockS3Con
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1886,7 +1884,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockS3Con
     /// </summary>
     public TerraformValue<string>? LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -1895,7 +1893,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockS3Con
     /// </summary>
     public TerraformValue<string>? LogStreamName
     {
-        get => new TerraformReference<string>(this, "log_stream_name");
+        get => GetArgument<TerraformValue<string>>("log_stream_name");
         set => SetArgument("log_stream_name", value);
     }
 
@@ -1915,9 +1913,9 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockSecre
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool> Enabled
+    public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1926,7 +1924,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockSecre
     /// </summary>
     public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1935,7 +1933,7 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlockSecre
     /// </summary>
     public TerraformValue<string>? SecretArn
     {
-        get => new TerraformReference<string>(this, "secret_arn");
+        get => GetArgument<TerraformValue<string>>("secret_arn");
         set => SetArgument("secret_arn", value);
     }
 
@@ -1956,9 +1954,9 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : Terrafo
     /// <summary>
     /// The append_only attribute.
     /// </summary>
-    public TerraformValue<bool> AppendOnly
+    public TerraformValue<bool>? AppendOnly
     {
-        get => new TerraformReference<bool>(this, "append_only");
+        get => GetArgument<TerraformValue<bool>>("append_only");
         set => SetArgument("append_only", value);
     }
 
@@ -1967,7 +1965,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? BufferingInterval
     {
-        get => new TerraformReference<double>(this, "buffering_interval");
+        get => GetArgument<TerraformValue<double>>("buffering_interval");
         set => SetArgument("buffering_interval", value);
     }
 
@@ -1976,7 +1974,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? BufferingSize
     {
-        get => new TerraformReference<double>(this, "buffering_size");
+        get => GetArgument<TerraformValue<double>>("buffering_size");
         set => SetArgument("buffering_size", value);
     }
 
@@ -1986,7 +1984,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogArn is required")]
     public required TerraformValue<string> CatalogArn
     {
-        get => new TerraformReference<string>(this, "catalog_arn");
+        get => GetArgument<TerraformValue<string>>("catalog_arn");
         set => SetArgument("catalog_arn", value);
     }
 
@@ -1995,7 +1993,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? RetryDuration
     {
-        get => new TerraformReference<double>(this, "retry_duration");
+        get => GetArgument<TerraformValue<double>>("retry_duration");
         set => SetArgument("retry_duration", value);
     }
 
@@ -2005,7 +2003,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2014,7 +2012,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? S3BackupMode
     {
-        get => new TerraformReference<string>(this, "s3_backup_mode");
+        get => GetArgument<TerraformValue<string>>("s3_backup_mode");
         set => SetArgument("s3_backup_mode", value);
     }
 
@@ -2078,7 +2076,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockCloudwatch
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -2087,7 +2085,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockCloudwatch
     /// </summary>
     public TerraformValue<string>? LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -2096,7 +2094,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockCloudwatch
     /// </summary>
     public TerraformValue<string>? LogStreamName
     {
-        get => new TerraformReference<string>(this, "log_stream_name");
+        get => GetArgument<TerraformValue<string>>("log_stream_name");
         set => SetArgument("log_stream_name", value);
     }
 
@@ -2119,7 +2117,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockDestinatio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -2128,7 +2126,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockDestinatio
     /// </summary>
     public TerraformValue<string>? S3ErrorOutputPrefix
     {
-        get => new TerraformReference<string>(this, "s3_error_output_prefix");
+        get => GetArgument<TerraformValue<string>>("s3_error_output_prefix");
         set => SetArgument("s3_error_output_prefix", value);
     }
 
@@ -2138,7 +2136,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockDestinatio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -2147,7 +2145,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockDestinatio
     /// </summary>
     public TerraformList<string>? UniqueKeys
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "unique_keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("unique_keys");
         set => SetArgument("unique_keys", value);
     }
 
@@ -2169,7 +2167,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockProcessing
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -2201,7 +2199,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockProcessing
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -2233,7 +2231,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockProcessing
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformValue<string> ParameterName
     {
-        get => new TerraformReference<string>(this, "parameter_name");
+        get => GetArgument<TerraformValue<string>>("parameter_name");
         set => SetArgument("parameter_name", value);
     }
 
@@ -2243,7 +2241,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockProcessing
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformValue<string> ParameterValue
     {
-        get => new TerraformReference<string>(this, "parameter_value");
+        get => GetArgument<TerraformValue<string>>("parameter_value");
         set => SetArgument("parameter_value", value);
     }
 
@@ -2266,7 +2264,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockS3Configur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => new TerraformReference<string>(this, "bucket_arn");
+        get => GetArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -2275,7 +2273,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockS3Configur
     /// </summary>
     public TerraformValue<double>? BufferingInterval
     {
-        get => new TerraformReference<double>(this, "buffering_interval");
+        get => GetArgument<TerraformValue<double>>("buffering_interval");
         set => SetArgument("buffering_interval", value);
     }
 
@@ -2284,7 +2282,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockS3Configur
     /// </summary>
     public TerraformValue<double>? BufferingSize
     {
-        get => new TerraformReference<double>(this, "buffering_size");
+        get => GetArgument<TerraformValue<double>>("buffering_size");
         set => SetArgument("buffering_size", value);
     }
 
@@ -2293,7 +2291,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockS3Configur
     /// </summary>
     public TerraformValue<string>? CompressionFormat
     {
-        get => new TerraformReference<string>(this, "compression_format");
+        get => GetArgument<TerraformValue<string>>("compression_format");
         set => SetArgument("compression_format", value);
     }
 
@@ -2302,7 +2300,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockS3Configur
     /// </summary>
     public TerraformValue<string>? ErrorOutputPrefix
     {
-        get => new TerraformReference<string>(this, "error_output_prefix");
+        get => GetArgument<TerraformValue<string>>("error_output_prefix");
         set => SetArgument("error_output_prefix", value);
     }
 
@@ -2311,7 +2309,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockS3Configur
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -2320,7 +2318,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockS3Configur
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -2330,7 +2328,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockS3Configur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2362,7 +2360,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockS3Configur
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -2371,7 +2369,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockS3Configur
     /// </summary>
     public TerraformValue<string>? LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -2380,7 +2378,7 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlockS3Configur
     /// </summary>
     public TerraformValue<string>? LogStreamName
     {
-        get => new TerraformReference<string>(this, "log_stream_name");
+        get => GetArgument<TerraformValue<string>>("log_stream_name");
         set => SetArgument("log_stream_name", value);
     }
 
@@ -2404,7 +2402,7 @@ public class AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KinesisStreamArn is required")]
     public required TerraformValue<string> KinesisStreamArn
     {
-        get => new TerraformReference<string>(this, "kinesis_stream_arn");
+        get => GetArgument<TerraformValue<string>>("kinesis_stream_arn");
         set => SetArgument("kinesis_stream_arn", value);
     }
 
@@ -2414,7 +2412,7 @@ public class AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2438,7 +2436,7 @@ public class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MskClusterArn is required")]
     public required TerraformValue<string> MskClusterArn
     {
-        get => new TerraformReference<string>(this, "msk_cluster_arn");
+        get => GetArgument<TerraformValue<string>>("msk_cluster_arn");
         set => SetArgument("msk_cluster_arn", value);
     }
 
@@ -2447,7 +2445,7 @@ public class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock : Terra
     /// </summary>
     public TerraformValue<string>? ReadFromTimestamp
     {
-        get => new TerraformReference<string>(this, "read_from_timestamp");
+        get => GetArgument<TerraformValue<string>>("read_from_timestamp");
         set => SetArgument("read_from_timestamp", value);
     }
 
@@ -2457,7 +2455,7 @@ public class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicName is required")]
     public required TerraformValue<string> TopicName
     {
-        get => new TerraformReference<string>(this, "topic_name");
+        get => GetArgument<TerraformValue<string>>("topic_name");
         set => SetArgument("topic_name", value);
     }
 
@@ -2493,7 +2491,7 @@ public class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlockAuthenti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Connectivity is required")]
     public required TerraformValue<string> Connectivity
     {
-        get => new TerraformReference<string>(this, "connectivity");
+        get => GetArgument<TerraformValue<string>>("connectivity");
         set => SetArgument("connectivity", value);
     }
 
@@ -2503,7 +2501,7 @@ public class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlockAuthenti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2526,7 +2524,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<double>? BufferingInterval
     {
-        get => new TerraformReference<double>(this, "buffering_interval");
+        get => GetArgument<TerraformValue<double>>("buffering_interval");
         set => SetArgument("buffering_interval", value);
     }
 
@@ -2535,7 +2533,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<double>? BufferingSize
     {
-        get => new TerraformReference<double>(this, "buffering_size");
+        get => GetArgument<TerraformValue<double>>("buffering_size");
         set => SetArgument("buffering_size", value);
     }
 
@@ -2544,7 +2542,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<string>? ClusterEndpoint
     {
-        get => new TerraformReference<string>(this, "cluster_endpoint");
+        get => GetArgument<TerraformValue<string>>("cluster_endpoint");
         set => SetArgument("cluster_endpoint", value);
     }
 
@@ -2553,7 +2551,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<string>? DomainArn
     {
-        get => new TerraformReference<string>(this, "domain_arn");
+        get => GetArgument<TerraformValue<string>>("domain_arn");
         set => SetArgument("domain_arn", value);
     }
 
@@ -2563,7 +2561,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     public required TerraformValue<string> IndexName
     {
-        get => new TerraformReference<string>(this, "index_name");
+        get => GetArgument<TerraformValue<string>>("index_name");
         set => SetArgument("index_name", value);
     }
 
@@ -2572,7 +2570,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<string>? IndexRotationPeriod
     {
-        get => new TerraformReference<string>(this, "index_rotation_period");
+        get => GetArgument<TerraformValue<string>>("index_rotation_period");
         set => SetArgument("index_rotation_period", value);
     }
 
@@ -2581,7 +2579,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<double>? RetryDuration
     {
-        get => new TerraformReference<double>(this, "retry_duration");
+        get => GetArgument<TerraformValue<double>>("retry_duration");
         set => SetArgument("retry_duration", value);
     }
 
@@ -2591,7 +2589,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2600,7 +2598,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<string>? S3BackupMode
     {
-        get => new TerraformReference<string>(this, "s3_backup_mode");
+        get => GetArgument<TerraformValue<string>>("s3_backup_mode");
         set => SetArgument("s3_backup_mode", value);
     }
 
@@ -2609,7 +2607,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<string>? TypeName
     {
-        get => new TerraformReference<string>(this, "type_name");
+        get => GetArgument<TerraformValue<string>>("type_name");
         set => SetArgument("type_name", value);
     }
 
@@ -2684,7 +2682,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockCloudwa
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -2693,7 +2691,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockCloudwa
     /// </summary>
     public TerraformValue<string>? LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -2702,7 +2700,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockCloudwa
     /// </summary>
     public TerraformValue<string>? LogStreamName
     {
-        get => new TerraformReference<string>(this, "log_stream_name");
+        get => GetArgument<TerraformValue<string>>("log_stream_name");
         set => SetArgument("log_stream_name", value);
     }
 
@@ -2725,7 +2723,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockDocumen
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultDocumentIdFormat is required")]
     public required TerraformValue<string> DefaultDocumentIdFormat
     {
-        get => new TerraformReference<string>(this, "default_document_id_format");
+        get => GetArgument<TerraformValue<string>>("default_document_id_format");
         set => SetArgument("default_document_id_format", value);
     }
 
@@ -2747,7 +2745,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockProcess
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -2779,7 +2777,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockProcess
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -2811,7 +2809,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockProcess
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformValue<string> ParameterName
     {
-        get => new TerraformReference<string>(this, "parameter_name");
+        get => GetArgument<TerraformValue<string>>("parameter_name");
         set => SetArgument("parameter_name", value);
     }
 
@@ -2821,7 +2819,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockProcess
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformValue<string> ParameterValue
     {
-        get => new TerraformReference<string>(this, "parameter_value");
+        get => GetArgument<TerraformValue<string>>("parameter_value");
         set => SetArgument("parameter_value", value);
     }
 
@@ -2844,7 +2842,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockS3Confi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => new TerraformReference<string>(this, "bucket_arn");
+        get => GetArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -2853,7 +2851,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockS3Confi
     /// </summary>
     public TerraformValue<double>? BufferingInterval
     {
-        get => new TerraformReference<double>(this, "buffering_interval");
+        get => GetArgument<TerraformValue<double>>("buffering_interval");
         set => SetArgument("buffering_interval", value);
     }
 
@@ -2862,7 +2860,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockS3Confi
     /// </summary>
     public TerraformValue<double>? BufferingSize
     {
-        get => new TerraformReference<double>(this, "buffering_size");
+        get => GetArgument<TerraformValue<double>>("buffering_size");
         set => SetArgument("buffering_size", value);
     }
 
@@ -2871,7 +2869,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockS3Confi
     /// </summary>
     public TerraformValue<string>? CompressionFormat
     {
-        get => new TerraformReference<string>(this, "compression_format");
+        get => GetArgument<TerraformValue<string>>("compression_format");
         set => SetArgument("compression_format", value);
     }
 
@@ -2880,7 +2878,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockS3Confi
     /// </summary>
     public TerraformValue<string>? ErrorOutputPrefix
     {
-        get => new TerraformReference<string>(this, "error_output_prefix");
+        get => GetArgument<TerraformValue<string>>("error_output_prefix");
         set => SetArgument("error_output_prefix", value);
     }
 
@@ -2889,7 +2887,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockS3Confi
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -2898,7 +2896,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockS3Confi
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -2908,7 +2906,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockS3Confi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2940,7 +2938,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockS3Confi
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -2949,7 +2947,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockS3Confi
     /// </summary>
     public TerraformValue<string>? LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -2958,7 +2956,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockS3Confi
     /// </summary>
     public TerraformValue<string>? LogStreamName
     {
-        get => new TerraformReference<string>(this, "log_stream_name");
+        get => GetArgument<TerraformValue<string>>("log_stream_name");
         set => SetArgument("log_stream_name", value);
     }
 
@@ -2981,7 +2979,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockVpcConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2991,7 +2989,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockVpcConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -3001,7 +2999,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockVpcConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -3009,9 +3007,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlockVpcConf
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-    {
-        get => new TerraformReference<string>(this, "vpc_id");
-    }
+        => AsReference("vpc_id");
 
 }
 
@@ -3032,7 +3028,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// </summary>
     public TerraformValue<double>? BufferingInterval
     {
-        get => new TerraformReference<double>(this, "buffering_interval");
+        get => GetArgument<TerraformValue<double>>("buffering_interval");
         set => SetArgument("buffering_interval", value);
     }
 
@@ -3041,7 +3037,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// </summary>
     public TerraformValue<double>? BufferingSize
     {
-        get => new TerraformReference<double>(this, "buffering_size");
+        get => GetArgument<TerraformValue<double>>("buffering_size");
         set => SetArgument("buffering_size", value);
     }
 
@@ -3051,7 +3047,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionEndpoint is required")]
     public required TerraformValue<string> CollectionEndpoint
     {
-        get => new TerraformReference<string>(this, "collection_endpoint");
+        get => GetArgument<TerraformValue<string>>("collection_endpoint");
         set => SetArgument("collection_endpoint", value);
     }
 
@@ -3061,7 +3057,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     public required TerraformValue<string> IndexName
     {
-        get => new TerraformReference<string>(this, "index_name");
+        get => GetArgument<TerraformValue<string>>("index_name");
         set => SetArgument("index_name", value);
     }
 
@@ -3070,7 +3066,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// </summary>
     public TerraformValue<double>? RetryDuration
     {
-        get => new TerraformReference<double>(this, "retry_duration");
+        get => GetArgument<TerraformValue<double>>("retry_duration");
         set => SetArgument("retry_duration", value);
     }
 
@@ -3080,7 +3076,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -3089,7 +3085,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// </summary>
     public TerraformValue<string>? S3BackupMode
     {
-        get => new TerraformReference<string>(this, "s3_backup_mode");
+        get => GetArgument<TerraformValue<string>>("s3_backup_mode");
         set => SetArgument("s3_backup_mode", value);
     }
 
@@ -3154,7 +3150,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -3163,7 +3159,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// </summary>
     public TerraformValue<string>? LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -3172,7 +3168,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// </summary>
     public TerraformValue<string>? LogStreamName
     {
-        get => new TerraformReference<string>(this, "log_stream_name");
+        get => GetArgument<TerraformValue<string>>("log_stream_name");
         set => SetArgument("log_stream_name", value);
     }
 
@@ -3194,7 +3190,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -3226,7 +3222,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -3258,7 +3254,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformValue<string> ParameterName
     {
-        get => new TerraformReference<string>(this, "parameter_name");
+        get => GetArgument<TerraformValue<string>>("parameter_name");
         set => SetArgument("parameter_name", value);
     }
 
@@ -3268,7 +3264,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformValue<string> ParameterValue
     {
-        get => new TerraformReference<string>(this, "parameter_value");
+        get => GetArgument<TerraformValue<string>>("parameter_value");
         set => SetArgument("parameter_value", value);
     }
 
@@ -3291,7 +3287,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => new TerraformReference<string>(this, "bucket_arn");
+        get => GetArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -3300,7 +3296,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// </summary>
     public TerraformValue<double>? BufferingInterval
     {
-        get => new TerraformReference<double>(this, "buffering_interval");
+        get => GetArgument<TerraformValue<double>>("buffering_interval");
         set => SetArgument("buffering_interval", value);
     }
 
@@ -3309,7 +3305,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// </summary>
     public TerraformValue<double>? BufferingSize
     {
-        get => new TerraformReference<double>(this, "buffering_size");
+        get => GetArgument<TerraformValue<double>>("buffering_size");
         set => SetArgument("buffering_size", value);
     }
 
@@ -3318,7 +3314,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// </summary>
     public TerraformValue<string>? CompressionFormat
     {
-        get => new TerraformReference<string>(this, "compression_format");
+        get => GetArgument<TerraformValue<string>>("compression_format");
         set => SetArgument("compression_format", value);
     }
 
@@ -3327,7 +3323,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// </summary>
     public TerraformValue<string>? ErrorOutputPrefix
     {
-        get => new TerraformReference<string>(this, "error_output_prefix");
+        get => GetArgument<TerraformValue<string>>("error_output_prefix");
         set => SetArgument("error_output_prefix", value);
     }
 
@@ -3336,7 +3332,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -3345,7 +3341,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -3355,7 +3351,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -3387,7 +3383,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -3396,7 +3392,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// </summary>
     public TerraformValue<string>? LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -3405,7 +3401,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// </summary>
     public TerraformValue<string>? LogStreamName
     {
-        get => new TerraformReference<string>(this, "log_stream_name");
+        get => GetArgument<TerraformValue<string>>("log_stream_name");
         set => SetArgument("log_stream_name", value);
     }
 
@@ -3428,7 +3424,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -3438,7 +3434,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -3448,7 +3444,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -3456,9 +3452,7 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-    {
-        get => new TerraformReference<string>(this, "vpc_id");
-    }
+        => AsReference("vpc_id");
 
 }
 
@@ -3480,7 +3474,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterJdbcurl is required")]
     public required TerraformValue<string> ClusterJdbcurl
     {
-        get => new TerraformReference<string>(this, "cluster_jdbcurl");
+        get => GetArgument<TerraformValue<string>>("cluster_jdbcurl");
         set => SetArgument("cluster_jdbcurl", value);
     }
 
@@ -3489,7 +3483,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? CopyOptions
     {
-        get => new TerraformReference<string>(this, "copy_options");
+        get => GetArgument<TerraformValue<string>>("copy_options");
         set => SetArgument("copy_options", value);
     }
 
@@ -3498,7 +3492,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? DataTableColumns
     {
-        get => new TerraformReference<string>(this, "data_table_columns");
+        get => GetArgument<TerraformValue<string>>("data_table_columns");
         set => SetArgument("data_table_columns", value);
     }
 
@@ -3508,7 +3502,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataTableName is required")]
     public required TerraformValue<string> DataTableName
     {
-        get => new TerraformReference<string>(this, "data_table_name");
+        get => GetArgument<TerraformValue<string>>("data_table_name");
         set => SetArgument("data_table_name", value);
     }
 
@@ -3517,7 +3511,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -3526,7 +3520,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<double>? RetryDuration
     {
-        get => new TerraformReference<double>(this, "retry_duration");
+        get => GetArgument<TerraformValue<double>>("retry_duration");
         set => SetArgument("retry_duration", value);
     }
 
@@ -3536,7 +3530,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -3545,7 +3539,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? S3BackupMode
     {
-        get => new TerraformReference<string>(this, "s3_backup_mode");
+        get => GetArgument<TerraformValue<string>>("s3_backup_mode");
         set => SetArgument("s3_backup_mode", value);
     }
 
@@ -3554,7 +3548,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -3629,7 +3623,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockCloudwatc
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -3638,7 +3632,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockCloudwatc
     /// </summary>
     public TerraformValue<string>? LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -3647,7 +3641,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockCloudwatc
     /// </summary>
     public TerraformValue<string>? LogStreamName
     {
-        get => new TerraformReference<string>(this, "log_stream_name");
+        get => GetArgument<TerraformValue<string>>("log_stream_name");
         set => SetArgument("log_stream_name", value);
     }
 
@@ -3669,7 +3663,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockProcessin
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -3701,7 +3695,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockProcessin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -3733,7 +3727,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockProcessin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformValue<string> ParameterName
     {
-        get => new TerraformReference<string>(this, "parameter_name");
+        get => GetArgument<TerraformValue<string>>("parameter_name");
         set => SetArgument("parameter_name", value);
     }
 
@@ -3743,7 +3737,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockProcessin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformValue<string> ParameterValue
     {
-        get => new TerraformReference<string>(this, "parameter_value");
+        get => GetArgument<TerraformValue<string>>("parameter_value");
         set => SetArgument("parameter_value", value);
     }
 
@@ -3766,7 +3760,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3BackupC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => new TerraformReference<string>(this, "bucket_arn");
+        get => GetArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -3775,7 +3769,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3BackupC
     /// </summary>
     public TerraformValue<double>? BufferingInterval
     {
-        get => new TerraformReference<double>(this, "buffering_interval");
+        get => GetArgument<TerraformValue<double>>("buffering_interval");
         set => SetArgument("buffering_interval", value);
     }
 
@@ -3784,7 +3778,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3BackupC
     /// </summary>
     public TerraformValue<double>? BufferingSize
     {
-        get => new TerraformReference<double>(this, "buffering_size");
+        get => GetArgument<TerraformValue<double>>("buffering_size");
         set => SetArgument("buffering_size", value);
     }
 
@@ -3793,7 +3787,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3BackupC
     /// </summary>
     public TerraformValue<string>? CompressionFormat
     {
-        get => new TerraformReference<string>(this, "compression_format");
+        get => GetArgument<TerraformValue<string>>("compression_format");
         set => SetArgument("compression_format", value);
     }
 
@@ -3802,7 +3796,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3BackupC
     /// </summary>
     public TerraformValue<string>? ErrorOutputPrefix
     {
-        get => new TerraformReference<string>(this, "error_output_prefix");
+        get => GetArgument<TerraformValue<string>>("error_output_prefix");
         set => SetArgument("error_output_prefix", value);
     }
 
@@ -3811,7 +3805,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3BackupC
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -3820,7 +3814,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3BackupC
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -3830,7 +3824,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3BackupC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -3862,7 +3856,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3BackupC
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -3871,7 +3865,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3BackupC
     /// </summary>
     public TerraformValue<string>? LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -3880,7 +3874,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3BackupC
     /// </summary>
     public TerraformValue<string>? LogStreamName
     {
-        get => new TerraformReference<string>(this, "log_stream_name");
+        get => GetArgument<TerraformValue<string>>("log_stream_name");
         set => SetArgument("log_stream_name", value);
     }
 
@@ -3903,7 +3897,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3Configu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => new TerraformReference<string>(this, "bucket_arn");
+        get => GetArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -3912,7 +3906,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3Configu
     /// </summary>
     public TerraformValue<double>? BufferingInterval
     {
-        get => new TerraformReference<double>(this, "buffering_interval");
+        get => GetArgument<TerraformValue<double>>("buffering_interval");
         set => SetArgument("buffering_interval", value);
     }
 
@@ -3921,7 +3915,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3Configu
     /// </summary>
     public TerraformValue<double>? BufferingSize
     {
-        get => new TerraformReference<double>(this, "buffering_size");
+        get => GetArgument<TerraformValue<double>>("buffering_size");
         set => SetArgument("buffering_size", value);
     }
 
@@ -3930,7 +3924,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3Configu
     /// </summary>
     public TerraformValue<string>? CompressionFormat
     {
-        get => new TerraformReference<string>(this, "compression_format");
+        get => GetArgument<TerraformValue<string>>("compression_format");
         set => SetArgument("compression_format", value);
     }
 
@@ -3939,7 +3933,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3Configu
     /// </summary>
     public TerraformValue<string>? ErrorOutputPrefix
     {
-        get => new TerraformReference<string>(this, "error_output_prefix");
+        get => GetArgument<TerraformValue<string>>("error_output_prefix");
         set => SetArgument("error_output_prefix", value);
     }
 
@@ -3948,7 +3942,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3Configu
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -3957,7 +3951,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3Configu
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -3967,7 +3961,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3Configu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -3999,7 +3993,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3Configu
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -4008,7 +4002,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3Configu
     /// </summary>
     public TerraformValue<string>? LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -4017,7 +4011,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockS3Configu
     /// </summary>
     public TerraformValue<string>? LogStreamName
     {
-        get => new TerraformReference<string>(this, "log_stream_name");
+        get => GetArgument<TerraformValue<string>>("log_stream_name");
         set => SetArgument("log_stream_name", value);
     }
 
@@ -4037,9 +4031,9 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockSecretsMa
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool> Enabled
+    public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -4048,7 +4042,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockSecretsMa
     /// </summary>
     public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -4057,7 +4051,7 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlockSecretsMa
     /// </summary>
     public TerraformValue<string>? SecretArn
     {
-        get => new TerraformReference<string>(this, "secret_arn");
+        get => GetArgument<TerraformValue<string>>("secret_arn");
         set => SetArgument("secret_arn", value);
     }
 
@@ -4080,7 +4074,7 @@ public class AwsKinesisFirehoseDeliveryStreamServerSideEncryptionBlock : Terrafo
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -4089,7 +4083,7 @@ public class AwsKinesisFirehoseDeliveryStreamServerSideEncryptionBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? KeyArn
     {
-        get => new TerraformReference<string>(this, "key_arn");
+        get => GetArgument<TerraformValue<string>>("key_arn");
         set => SetArgument("key_arn", value);
     }
 
@@ -4098,7 +4092,7 @@ public class AwsKinesisFirehoseDeliveryStreamServerSideEncryptionBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? KeyType
     {
-        get => new TerraformReference<string>(this, "key_type");
+        get => GetArgument<TerraformValue<string>>("key_type");
         set => SetArgument("key_type", value);
     }
 
@@ -4122,7 +4116,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountUrl is required")]
     public required TerraformValue<string> AccountUrl
     {
-        get => new TerraformReference<string>(this, "account_url");
+        get => GetArgument<TerraformValue<string>>("account_url");
         set => SetArgument("account_url", value);
     }
 
@@ -4131,7 +4125,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     /// </summary>
     public TerraformValue<double>? BufferingInterval
     {
-        get => new TerraformReference<double>(this, "buffering_interval");
+        get => GetArgument<TerraformValue<double>>("buffering_interval");
         set => SetArgument("buffering_interval", value);
     }
 
@@ -4140,7 +4134,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     /// </summary>
     public TerraformValue<double>? BufferingSize
     {
-        get => new TerraformReference<double>(this, "buffering_size");
+        get => GetArgument<TerraformValue<double>>("buffering_size");
         set => SetArgument("buffering_size", value);
     }
 
@@ -4149,7 +4143,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     /// </summary>
     public TerraformValue<string>? ContentColumnName
     {
-        get => new TerraformReference<string>(this, "content_column_name");
+        get => GetArgument<TerraformValue<string>>("content_column_name");
         set => SetArgument("content_column_name", value);
     }
 
@@ -4158,7 +4152,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     /// </summary>
     public TerraformValue<string>? DataLoadingOption
     {
-        get => new TerraformReference<string>(this, "data_loading_option");
+        get => GetArgument<TerraformValue<string>>("data_loading_option");
         set => SetArgument("data_loading_option", value);
     }
 
@@ -4168,7 +4162,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -4177,7 +4171,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     /// </summary>
     public TerraformValue<string>? KeyPassphrase
     {
-        get => new TerraformReference<string>(this, "key_passphrase");
+        get => GetArgument<TerraformValue<string>>("key_passphrase");
         set => SetArgument("key_passphrase", value);
     }
 
@@ -4186,7 +4180,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     /// </summary>
     public TerraformValue<string>? MetadataColumnName
     {
-        get => new TerraformReference<string>(this, "metadata_column_name");
+        get => GetArgument<TerraformValue<string>>("metadata_column_name");
         set => SetArgument("metadata_column_name", value);
     }
 
@@ -4195,7 +4189,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     /// </summary>
     public TerraformValue<string>? PrivateKey
     {
-        get => new TerraformReference<string>(this, "private_key");
+        get => GetArgument<TerraformValue<string>>("private_key");
         set => SetArgument("private_key", value);
     }
 
@@ -4204,7 +4198,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     /// </summary>
     public TerraformValue<double>? RetryDuration
     {
-        get => new TerraformReference<double>(this, "retry_duration");
+        get => GetArgument<TerraformValue<double>>("retry_duration");
         set => SetArgument("retry_duration", value);
     }
 
@@ -4214,7 +4208,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -4223,7 +4217,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     /// </summary>
     public TerraformValue<string>? S3BackupMode
     {
-        get => new TerraformReference<string>(this, "s3_backup_mode");
+        get => GetArgument<TerraformValue<string>>("s3_backup_mode");
         set => SetArgument("s3_backup_mode", value);
     }
 
@@ -4233,7 +4227,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => new TerraformReference<string>(this, "schema");
+        get => GetArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -4243,7 +4237,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -4252,7 +4246,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : Terra
     /// </summary>
     public TerraformValue<string>? User
     {
-        get => new TerraformReference<string>(this, "user");
+        get => GetArgument<TerraformValue<string>>("user");
         set => SetArgument("user", value);
     }
 
@@ -4337,7 +4331,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockCloudwat
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -4346,7 +4340,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockCloudwat
     /// </summary>
     public TerraformValue<string>? LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -4355,7 +4349,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockCloudwat
     /// </summary>
     public TerraformValue<string>? LogStreamName
     {
-        get => new TerraformReference<string>(this, "log_stream_name");
+        get => GetArgument<TerraformValue<string>>("log_stream_name");
         set => SetArgument("log_stream_name", value);
     }
 
@@ -4377,7 +4371,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockProcessi
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -4409,7 +4403,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockProcessi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -4441,7 +4435,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockProcessi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformValue<string> ParameterName
     {
-        get => new TerraformReference<string>(this, "parameter_name");
+        get => GetArgument<TerraformValue<string>>("parameter_name");
         set => SetArgument("parameter_name", value);
     }
 
@@ -4451,7 +4445,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockProcessi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformValue<string> ParameterValue
     {
-        get => new TerraformReference<string>(this, "parameter_value");
+        get => GetArgument<TerraformValue<string>>("parameter_value");
         set => SetArgument("parameter_value", value);
     }
 
@@ -4474,7 +4468,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockS3Config
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => new TerraformReference<string>(this, "bucket_arn");
+        get => GetArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -4483,7 +4477,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockS3Config
     /// </summary>
     public TerraformValue<double>? BufferingInterval
     {
-        get => new TerraformReference<double>(this, "buffering_interval");
+        get => GetArgument<TerraformValue<double>>("buffering_interval");
         set => SetArgument("buffering_interval", value);
     }
 
@@ -4492,7 +4486,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockS3Config
     /// </summary>
     public TerraformValue<double>? BufferingSize
     {
-        get => new TerraformReference<double>(this, "buffering_size");
+        get => GetArgument<TerraformValue<double>>("buffering_size");
         set => SetArgument("buffering_size", value);
     }
 
@@ -4501,7 +4495,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockS3Config
     /// </summary>
     public TerraformValue<string>? CompressionFormat
     {
-        get => new TerraformReference<string>(this, "compression_format");
+        get => GetArgument<TerraformValue<string>>("compression_format");
         set => SetArgument("compression_format", value);
     }
 
@@ -4510,7 +4504,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockS3Config
     /// </summary>
     public TerraformValue<string>? ErrorOutputPrefix
     {
-        get => new TerraformReference<string>(this, "error_output_prefix");
+        get => GetArgument<TerraformValue<string>>("error_output_prefix");
         set => SetArgument("error_output_prefix", value);
     }
 
@@ -4519,7 +4513,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockS3Config
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -4528,7 +4522,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockS3Config
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -4538,7 +4532,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockS3Config
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -4570,7 +4564,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockS3Config
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -4579,7 +4573,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockS3Config
     /// </summary>
     public TerraformValue<string>? LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -4588,7 +4582,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockS3Config
     /// </summary>
     public TerraformValue<string>? LogStreamName
     {
-        get => new TerraformReference<string>(this, "log_stream_name");
+        get => GetArgument<TerraformValue<string>>("log_stream_name");
         set => SetArgument("log_stream_name", value);
     }
 
@@ -4608,9 +4602,9 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockSecretsM
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool> Enabled
+    public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -4619,7 +4613,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockSecretsM
     /// </summary>
     public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -4628,7 +4622,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockSecretsM
     /// </summary>
     public TerraformValue<string>? SecretArn
     {
-        get => new TerraformReference<string>(this, "secret_arn");
+        get => GetArgument<TerraformValue<string>>("secret_arn");
         set => SetArgument("secret_arn", value);
     }
 
@@ -4650,7 +4644,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockSnowflak
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -4659,7 +4653,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockSnowflak
     /// </summary>
     public TerraformValue<string>? SnowflakeRole
     {
-        get => new TerraformReference<string>(this, "snowflake_role");
+        get => GetArgument<TerraformValue<string>>("snowflake_role");
         set => SetArgument("snowflake_role", value);
     }
 
@@ -4682,7 +4676,7 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlockSnowflak
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateLinkVpceId is required")]
     public required TerraformValue<string> PrivateLinkVpceId
     {
-        get => new TerraformReference<string>(this, "private_link_vpce_id");
+        get => GetArgument<TerraformValue<string>>("private_link_vpce_id");
         set => SetArgument("private_link_vpce_id", value);
     }
 
@@ -4705,7 +4699,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? BufferingInterval
     {
-        get => new TerraformReference<double>(this, "buffering_interval");
+        get => GetArgument<TerraformValue<double>>("buffering_interval");
         set => SetArgument("buffering_interval", value);
     }
 
@@ -4714,7 +4708,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? BufferingSize
     {
-        get => new TerraformReference<double>(this, "buffering_size");
+        get => GetArgument<TerraformValue<double>>("buffering_size");
         set => SetArgument("buffering_size", value);
     }
 
@@ -4723,7 +4717,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? HecAcknowledgmentTimeout
     {
-        get => new TerraformReference<double>(this, "hec_acknowledgment_timeout");
+        get => GetArgument<TerraformValue<double>>("hec_acknowledgment_timeout");
         set => SetArgument("hec_acknowledgment_timeout", value);
     }
 
@@ -4733,7 +4727,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HecEndpoint is required")]
     public required TerraformValue<string> HecEndpoint
     {
-        get => new TerraformReference<string>(this, "hec_endpoint");
+        get => GetArgument<TerraformValue<string>>("hec_endpoint");
         set => SetArgument("hec_endpoint", value);
     }
 
@@ -4742,7 +4736,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? HecEndpointType
     {
-        get => new TerraformReference<string>(this, "hec_endpoint_type");
+        get => GetArgument<TerraformValue<string>>("hec_endpoint_type");
         set => SetArgument("hec_endpoint_type", value);
     }
 
@@ -4751,7 +4745,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? HecToken
     {
-        get => new TerraformReference<string>(this, "hec_token");
+        get => GetArgument<TerraformValue<string>>("hec_token");
         set => SetArgument("hec_token", value);
     }
 
@@ -4760,7 +4754,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? RetryDuration
     {
-        get => new TerraformReference<double>(this, "retry_duration");
+        get => GetArgument<TerraformValue<double>>("retry_duration");
         set => SetArgument("retry_duration", value);
     }
 
@@ -4769,7 +4763,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? S3BackupMode
     {
-        get => new TerraformReference<string>(this, "s3_backup_mode");
+        get => GetArgument<TerraformValue<string>>("s3_backup_mode");
         set => SetArgument("s3_backup_mode", value);
     }
 
@@ -4834,7 +4828,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockCloudwatchL
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -4843,7 +4837,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockCloudwatchL
     /// </summary>
     public TerraformValue<string>? LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -4852,7 +4846,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockCloudwatchL
     /// </summary>
     public TerraformValue<string>? LogStreamName
     {
-        get => new TerraformReference<string>(this, "log_stream_name");
+        get => GetArgument<TerraformValue<string>>("log_stream_name");
         set => SetArgument("log_stream_name", value);
     }
 
@@ -4874,7 +4868,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockProcessingC
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -4906,7 +4900,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockProcessingC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -4938,7 +4932,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockProcessingC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformValue<string> ParameterName
     {
-        get => new TerraformReference<string>(this, "parameter_name");
+        get => GetArgument<TerraformValue<string>>("parameter_name");
         set => SetArgument("parameter_name", value);
     }
 
@@ -4948,7 +4942,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockProcessingC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformValue<string> ParameterValue
     {
-        get => new TerraformReference<string>(this, "parameter_value");
+        get => GetArgument<TerraformValue<string>>("parameter_value");
         set => SetArgument("parameter_value", value);
     }
 
@@ -4971,7 +4965,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockS3Configura
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => new TerraformReference<string>(this, "bucket_arn");
+        get => GetArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -4980,7 +4974,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockS3Configura
     /// </summary>
     public TerraformValue<double>? BufferingInterval
     {
-        get => new TerraformReference<double>(this, "buffering_interval");
+        get => GetArgument<TerraformValue<double>>("buffering_interval");
         set => SetArgument("buffering_interval", value);
     }
 
@@ -4989,7 +4983,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockS3Configura
     /// </summary>
     public TerraformValue<double>? BufferingSize
     {
-        get => new TerraformReference<double>(this, "buffering_size");
+        get => GetArgument<TerraformValue<double>>("buffering_size");
         set => SetArgument("buffering_size", value);
     }
 
@@ -4998,7 +4992,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockS3Configura
     /// </summary>
     public TerraformValue<string>? CompressionFormat
     {
-        get => new TerraformReference<string>(this, "compression_format");
+        get => GetArgument<TerraformValue<string>>("compression_format");
         set => SetArgument("compression_format", value);
     }
 
@@ -5007,7 +5001,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockS3Configura
     /// </summary>
     public TerraformValue<string>? ErrorOutputPrefix
     {
-        get => new TerraformReference<string>(this, "error_output_prefix");
+        get => GetArgument<TerraformValue<string>>("error_output_prefix");
         set => SetArgument("error_output_prefix", value);
     }
 
@@ -5016,7 +5010,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockS3Configura
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -5025,7 +5019,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockS3Configura
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -5035,7 +5029,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockS3Configura
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -5067,7 +5061,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockS3Configura
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -5076,7 +5070,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockS3Configura
     /// </summary>
     public TerraformValue<string>? LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -5085,7 +5079,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockS3Configura
     /// </summary>
     public TerraformValue<string>? LogStreamName
     {
-        get => new TerraformReference<string>(this, "log_stream_name");
+        get => GetArgument<TerraformValue<string>>("log_stream_name");
         set => SetArgument("log_stream_name", value);
     }
 
@@ -5105,9 +5099,9 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockSecretsMana
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool> Enabled
+    public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -5116,7 +5110,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockSecretsMana
     /// </summary>
     public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -5125,7 +5119,7 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlockSecretsMana
     /// </summary>
     public TerraformValue<string>? SecretArn
     {
-        get => new TerraformReference<string>(this, "secret_arn");
+        get => GetArgument<TerraformValue<string>>("secret_arn");
         set => SetArgument("secret_arn", value);
     }
 
@@ -5148,7 +5142,7 @@ public class AwsKinesisFirehoseDeliveryStreamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -5157,7 +5151,7 @@ public class AwsKinesisFirehoseDeliveryStreamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -5166,7 +5160,7 @@ public class AwsKinesisFirehoseDeliveryStreamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -5182,9 +5176,9 @@ public partial class AwsKinesisFirehoseDeliveryStream(string name) : TerraformRe
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformValue<string> Arn
+    public TerraformValue<string>? Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -5194,25 +5188,25 @@ public partial class AwsKinesisFirehoseDeliveryStream(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformValue<string> Destination
     {
-        get => new TerraformReference<string>(this, "destination");
+        get => GetArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
     /// <summary>
     /// The destination_id attribute.
     /// </summary>
-    public TerraformValue<string> DestinationId
+    public TerraformValue<string>? DestinationId
     {
-        get => new TerraformReference<string>(this, "destination_id");
+        get => GetArgument<TerraformValue<string>>("destination_id");
         set => SetArgument("destination_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -5222,16 +5216,16 @@ public partial class AwsKinesisFirehoseDeliveryStream(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -5240,25 +5234,25 @@ public partial class AwsKinesisFirehoseDeliveryStream(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
-    public TerraformValue<string> VersionId
+    public TerraformValue<string>? VersionId
     {
-        get => new TerraformReference<string>(this, "version_id");
+        get => GetArgument<TerraformValue<string>>("version_id");
         set => SetArgument("version_id", value);
     }
 

@@ -19,7 +19,7 @@ public class GoogleCloudAssetOrganizationFeedConditionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleCloudAssetOrganizationFeedConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -39,7 +39,7 @@ public class GoogleCloudAssetOrganizationFeedConditionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -49,7 +49,7 @@ public class GoogleCloudAssetOrganizationFeedConditionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleCloudAssetOrganizationFeedFeedOutputConfigBlockPubsubDestinat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformValue<string> Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -122,7 +122,7 @@ public class GoogleCloudAssetOrganizationFeedTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -131,7 +131,7 @@ public class GoogleCloudAssetOrganizationFeedTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -140,7 +140,7 @@ public class GoogleCloudAssetOrganizationFeedTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -161,7 +161,7 @@ public partial class GoogleCloudAssetOrganizationFeed(string name) : TerraformRe
     /// </summary>
     public TerraformList<string>? AssetNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "asset_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("asset_names");
         set => SetArgument("asset_names", value);
     }
 
@@ -174,7 +174,7 @@ public partial class GoogleCloudAssetOrganizationFeed(string name) : TerraformRe
     /// </summary>
     public TerraformList<string>? AssetTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "asset_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("asset_types");
         set => SetArgument("asset_types", value);
     }
 
@@ -186,7 +186,7 @@ public partial class GoogleCloudAssetOrganizationFeed(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingProject is required")]
     public required TerraformValue<string> BillingProject
     {
-        get => new TerraformReference<string>(this, "billing_project");
+        get => GetArgument<TerraformValue<string>>("billing_project");
         set => SetArgument("billing_project", value);
     }
 
@@ -195,7 +195,7 @@ public partial class GoogleCloudAssetOrganizationFeed(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? ContentType
     {
-        get => new TerraformReference<string>(this, "content_type");
+        get => GetArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -205,16 +205,16 @@ public partial class GoogleCloudAssetOrganizationFeed(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeedId is required")]
     public required TerraformValue<string> FeedId
     {
-        get => new TerraformReference<string>(this, "feed_id");
+        get => GetArgument<TerraformValue<string>>("feed_id");
         set => SetArgument("feed_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -224,7 +224,7 @@ public partial class GoogleCloudAssetOrganizationFeed(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => new TerraformReference<string>(this, "org_id");
+        get => GetArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -232,9 +232,7 @@ public partial class GoogleCloudAssetOrganizationFeed(string name) : TerraformRe
     /// The format will be organizations/{organization_number}/feeds/{client-assigned_feed_identifier}.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Condition block (nesting mode: list).

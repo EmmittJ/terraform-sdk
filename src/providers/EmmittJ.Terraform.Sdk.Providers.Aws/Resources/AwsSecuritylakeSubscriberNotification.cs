@@ -49,7 +49,7 @@ public class AwsSecuritylakeSubscriberNotificationConfigurationBlockHttpsNotific
     /// </summary>
     public TerraformValue<string>? AuthorizationApiKeyName
     {
-        get => new TerraformReference<string>(this, "authorization_api_key_name");
+        get => GetArgument<TerraformValue<string>>("authorization_api_key_name");
         set => SetArgument("authorization_api_key_name", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsSecuritylakeSubscriberNotificationConfigurationBlockHttpsNotific
     /// </summary>
     public TerraformValue<string>? AuthorizationApiKeyValue
     {
-        get => new TerraformReference<string>(this, "authorization_api_key_value");
+        get => GetArgument<TerraformValue<string>>("authorization_api_key_value");
         set => SetArgument("authorization_api_key_value", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsSecuritylakeSubscriberNotificationConfigurationBlockHttpsNotific
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformValue<string> Endpoint
     {
-        get => new TerraformReference<string>(this, "endpoint");
+        get => GetArgument<TerraformValue<string>>("endpoint");
         set => SetArgument("endpoint", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsSecuritylakeSubscriberNotificationConfigurationBlockHttpsNotific
     /// </summary>
     public TerraformValue<string>? HttpMethod
     {
-        get => new TerraformReference<string>(this, "http_method");
+        get => GetArgument<TerraformValue<string>>("http_method");
         set => SetArgument("http_method", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsSecuritylakeSubscriberNotificationConfigurationBlockHttpsNotific
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRoleArn is required")]
     public required TerraformValue<string> TargetRoleArn
     {
-        get => new TerraformReference<string>(this, "target_role_arn");
+        get => GetArgument<TerraformValue<string>>("target_role_arn");
         set => SetArgument("target_role_arn", value);
     }
 
@@ -116,9 +116,9 @@ public partial class AwsSecuritylakeSubscriberNotification(string name) : Terraf
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AwsSecuritylakeSubscriberNotification(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriberId is required")]
     public required TerraformValue<string> SubscriberId
     {
-        get => new TerraformReference<string>(this, "subscriber_id");
+        get => GetArgument<TerraformValue<string>>("subscriber_id");
         set => SetArgument("subscriber_id", value);
     }
 
@@ -137,25 +137,19 @@ public partial class AwsSecuritylakeSubscriberNotification(string name) : Terraf
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> EndpointId
-    {
-        get => new TerraformReference<string>(this, "endpoint_id");
-    }
+        => AsReference("endpoint_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The subscriber_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SubscriberEndpoint
-    {
-        get => new TerraformReference<string>(this, "subscriber_endpoint");
-    }
+        => AsReference("subscriber_endpoint");
 
     /// <summary>
     /// Configuration block (nesting mode: list).

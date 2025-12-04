@@ -13,16 +13,16 @@ public partial class GoogleCloudAssetSearchAllResourcesDataSource(string name) :
     /// </summary>
     public TerraformList<string>? AssetTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "asset_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("asset_types");
         set => SetArgument("asset_types", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleCloudAssetSearchAllResourcesDataSource(string name) :
     /// </summary>
     public TerraformValue<string>? Query
     {
-        get => new TerraformReference<string>(this, "query");
+        get => GetArgument<TerraformValue<string>>("query");
         set => SetArgument("query", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleCloudAssetSearchAllResourcesDataSource(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -49,8 +49,6 @@ public partial class GoogleCloudAssetSearchAllResourcesDataSource(string name) :
     /// The results attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Results
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "results").ResolveNodes(ctx));
-    }
+        => AsReference("results");
 
 }

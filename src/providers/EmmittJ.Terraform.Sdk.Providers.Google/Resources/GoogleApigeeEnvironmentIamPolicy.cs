@@ -14,16 +14,16 @@ public partial class GoogleApigeeEnvironmentIamPolicy(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
     public required TerraformValue<string> EnvId
     {
-        get => new TerraformReference<string>(this, "env_id");
+        get => GetArgument<TerraformValue<string>>("env_id");
         set => SetArgument("env_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleApigeeEnvironmentIamPolicy(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => new TerraformReference<string>(this, "org_id");
+        get => GetArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -43,7 +43,7 @@ public partial class GoogleApigeeEnvironmentIamPolicy(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformValue<string> PolicyData
     {
-        get => new TerraformReference<string>(this, "policy_data");
+        get => GetArgument<TerraformValue<string>>("policy_data");
         set => SetArgument("policy_data", value);
     }
 
@@ -51,8 +51,6 @@ public partial class GoogleApigeeEnvironmentIamPolicy(string name) : TerraformRe
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
 }

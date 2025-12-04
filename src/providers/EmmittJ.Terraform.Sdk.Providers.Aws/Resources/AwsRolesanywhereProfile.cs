@@ -11,9 +11,9 @@ public partial class AwsRolesanywhereProfile(string name) : TerraformResource("a
     /// <summary>
     /// The duration_seconds attribute.
     /// </summary>
-    public TerraformValue<double> DurationSeconds
+    public TerraformValue<double>? DurationSeconds
     {
-        get => new TerraformReference<double>(this, "duration_seconds");
+        get => GetArgument<TerraformValue<double>>("duration_seconds");
         set => SetArgument("duration_seconds", value);
     }
 
@@ -22,16 +22,16 @@ public partial class AwsRolesanywhereProfile(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsRolesanywhereProfile(string name) : TerraformResource("a
     /// </summary>
     public TerraformSet<string>? ManagedPolicyArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "managed_policy_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("managed_policy_arns");
         set => SetArgument("managed_policy_arns", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsRolesanywhereProfile(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsRolesanywhereProfile(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? RequireInstanceProperties
     {
-        get => new TerraformReference<bool>(this, "require_instance_properties");
+        get => GetArgument<TerraformValue<bool>>("require_instance_properties");
         set => SetArgument("require_instance_properties", value);
     }
 
@@ -68,7 +68,7 @@ public partial class AwsRolesanywhereProfile(string name) : TerraformResource("a
     /// </summary>
     public TerraformSet<string>? RoleArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "role_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("role_arns");
         set => SetArgument("role_arns", value);
     }
 
@@ -77,7 +77,7 @@ public partial class AwsRolesanywhereProfile(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? SessionPolicy
     {
-        get => new TerraformReference<string>(this, "session_policy");
+        get => GetArgument<TerraformValue<string>>("session_policy");
         set => SetArgument("session_policy", value);
     }
 
@@ -86,16 +86,16 @@ public partial class AwsRolesanywhereProfile(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -103,8 +103,6 @@ public partial class AwsRolesanywhereProfile(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

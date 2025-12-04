@@ -18,7 +18,7 @@ public class AwsAcmCertificateValidationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -37,25 +37,25 @@ public partial class AwsAcmCertificateValidation(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateArn is required")]
     public required TerraformValue<string> CertificateArn
     {
-        get => new TerraformReference<string>(this, "certificate_arn");
+        get => GetArgument<TerraformValue<string>>("certificate_arn");
         set => SetArgument("certificate_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsAcmCertificateValidation(string name) : TerraformResourc
     /// </summary>
     public TerraformSet<string>? ValidationRecordFqdns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "validation_record_fqdns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("validation_record_fqdns");
         set => SetArgument("validation_record_fqdns", value);
     }
 

@@ -19,7 +19,7 @@ public class AwsLambdaFunctionDeadLetterConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
     public required TerraformValue<string> TargetArn
     {
-        get => new TerraformReference<string>(this, "target_arn");
+        get => GetArgument<TerraformValue<string>>("target_arn");
         set => SetArgument("target_arn", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsLambdaFunctionEnvironmentBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Variables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("variables");
         set => SetArgument("variables", value);
     }
 
@@ -63,9 +63,9 @@ public class AwsLambdaFunctionEphemeralStorageBlock : TerraformBlock
     /// <summary>
     /// The size attribute.
     /// </summary>
-    public TerraformValue<double> Size
+    public TerraformValue<double>? Size
     {
-        get => new TerraformReference<double>(this, "size");
+        get => GetArgument<TerraformValue<double>>("size");
         set => SetArgument("size", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsLambdaFunctionFileSystemConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsLambdaFunctionFileSystemConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalMountPath is required")]
     public required TerraformValue<string> LocalMountPath
     {
-        get => new TerraformReference<string>(this, "local_mount_path");
+        get => GetArgument<TerraformValue<string>>("local_mount_path");
         set => SetArgument("local_mount_path", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsLambdaFunctionImageConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Command
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "command").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("command");
         set => SetArgument("command", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsLambdaFunctionImageConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? EntryPoint
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "entry_point").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("entry_point");
         set => SetArgument("entry_point", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsLambdaFunctionImageConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? WorkingDirectory
     {
-        get => new TerraformReference<string>(this, "working_directory");
+        get => GetArgument<TerraformValue<string>>("working_directory");
         set => SetArgument("working_directory", value);
     }
 
@@ -163,7 +163,7 @@ public class AwsLambdaFunctionLoggingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ApplicationLogLevel
     {
-        get => new TerraformReference<string>(this, "application_log_level");
+        get => GetArgument<TerraformValue<string>>("application_log_level");
         set => SetArgument("application_log_level", value);
     }
 
@@ -173,16 +173,16 @@ public class AwsLambdaFunctionLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogFormat is required")]
     public required TerraformValue<string> LogFormat
     {
-        get => new TerraformReference<string>(this, "log_format");
+        get => GetArgument<TerraformValue<string>>("log_format");
         set => SetArgument("log_format", value);
     }
 
     /// <summary>
     /// The log_group attribute.
     /// </summary>
-    public TerraformValue<string> LogGroup
+    public TerraformValue<string>? LogGroup
     {
-        get => new TerraformReference<string>(this, "log_group");
+        get => GetArgument<TerraformValue<string>>("log_group");
         set => SetArgument("log_group", value);
     }
 
@@ -191,7 +191,7 @@ public class AwsLambdaFunctionLoggingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SystemLogLevel
     {
-        get => new TerraformReference<string>(this, "system_log_level");
+        get => GetArgument<TerraformValue<string>>("system_log_level");
         set => SetArgument("system_log_level", value);
     }
 
@@ -215,7 +215,7 @@ public class AwsLambdaFunctionSnapStartBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplyOn is required")]
     public required TerraformValue<string> ApplyOn
     {
-        get => new TerraformReference<string>(this, "apply_on");
+        get => GetArgument<TerraformValue<string>>("apply_on");
         set => SetArgument("apply_on", value);
     }
 
@@ -223,9 +223,7 @@ public class AwsLambdaFunctionSnapStartBlock : TerraformBlock
     /// The optimization_status attribute.
     /// </summary>
     public TerraformValue<string> OptimizationStatus
-    {
-        get => new TerraformReference<string>(this, "optimization_status");
-    }
+        => AsReference("optimization_status");
 
 }
 
@@ -246,7 +244,7 @@ public class AwsLambdaFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -255,7 +253,7 @@ public class AwsLambdaFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -264,7 +262,7 @@ public class AwsLambdaFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -288,7 +286,7 @@ public class AwsLambdaFunctionTracingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -311,7 +309,7 @@ public class AwsLambdaFunctionVpcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Ipv6AllowedForDualStack
     {
-        get => new TerraformReference<bool>(this, "ipv6_allowed_for_dual_stack");
+        get => GetArgument<TerraformValue<bool>>("ipv6_allowed_for_dual_stack");
         set => SetArgument("ipv6_allowed_for_dual_stack", value);
     }
 
@@ -321,7 +319,7 @@ public class AwsLambdaFunctionVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -331,7 +329,7 @@ public class AwsLambdaFunctionVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -339,9 +337,7 @@ public class AwsLambdaFunctionVpcConfigBlock : TerraformBlock
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-    {
-        get => new TerraformReference<string>(this, "vpc_id");
-    }
+        => AsReference("vpc_id");
 
 }
 
@@ -355,9 +351,9 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// <summary>
     /// The architectures attribute.
     /// </summary>
-    public TerraformList<string> Architectures
+    public TerraformList<string>? Architectures
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "architectures").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("architectures");
         set => SetArgument("architectures", value);
     }
 
@@ -366,7 +362,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformValue<string>? CodeSigningConfigArn
     {
-        get => new TerraformReference<string>(this, "code_signing_config_arn");
+        get => GetArgument<TerraformValue<string>>("code_signing_config_arn");
         set => SetArgument("code_signing_config_arn", value);
     }
 
@@ -375,7 +371,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -384,7 +380,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformValue<string>? Filename
     {
-        get => new TerraformReference<string>(this, "filename");
+        get => GetArgument<TerraformValue<string>>("filename");
         set => SetArgument("filename", value);
     }
 
@@ -394,7 +390,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformValue<string> FunctionName
     {
-        get => new TerraformReference<string>(this, "function_name");
+        get => GetArgument<TerraformValue<string>>("function_name");
         set => SetArgument("function_name", value);
     }
 
@@ -403,16 +399,16 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformValue<string>? Handler
     {
-        get => new TerraformReference<string>(this, "handler");
+        get => GetArgument<TerraformValue<string>>("handler");
         set => SetArgument("handler", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -421,7 +417,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformValue<string>? ImageUri
     {
-        get => new TerraformReference<string>(this, "image_uri");
+        get => GetArgument<TerraformValue<string>>("image_uri");
         set => SetArgument("image_uri", value);
     }
 
@@ -430,7 +426,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -439,7 +435,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformList<string>? Layers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "layers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("layers");
         set => SetArgument("layers", value);
     }
 
@@ -448,7 +444,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformValue<double>? MemorySize
     {
-        get => new TerraformReference<double>(this, "memory_size");
+        get => GetArgument<TerraformValue<double>>("memory_size");
         set => SetArgument("memory_size", value);
     }
 
@@ -457,7 +453,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformValue<string>? PackageType
     {
-        get => new TerraformReference<string>(this, "package_type");
+        get => GetArgument<TerraformValue<string>>("package_type");
         set => SetArgument("package_type", value);
     }
 
@@ -466,16 +462,16 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformValue<bool>? Publish
     {
-        get => new TerraformReference<bool>(this, "publish");
+        get => GetArgument<TerraformValue<bool>>("publish");
         set => SetArgument("publish", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -484,7 +480,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformValue<bool>? ReplaceSecurityGroupsOnDestroy
     {
-        get => new TerraformReference<bool>(this, "replace_security_groups_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("replace_security_groups_on_destroy");
         set => SetArgument("replace_security_groups_on_destroy", value);
     }
 
@@ -493,7 +489,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformSet<string>? ReplacementSecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "replacement_security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("replacement_security_group_ids");
         set => SetArgument("replacement_security_group_ids", value);
     }
 
@@ -502,7 +498,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformValue<double>? ReservedConcurrentExecutions
     {
-        get => new TerraformReference<double>(this, "reserved_concurrent_executions");
+        get => GetArgument<TerraformValue<double>>("reserved_concurrent_executions");
         set => SetArgument("reserved_concurrent_executions", value);
     }
 
@@ -512,7 +508,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => new TerraformReference<string>(this, "role");
+        get => GetArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 
@@ -521,7 +517,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformValue<string>? Runtime
     {
-        get => new TerraformReference<string>(this, "runtime");
+        get => GetArgument<TerraformValue<string>>("runtime");
         set => SetArgument("runtime", value);
     }
 
@@ -530,7 +526,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformValue<string>? S3Bucket
     {
-        get => new TerraformReference<string>(this, "s3_bucket");
+        get => GetArgument<TerraformValue<string>>("s3_bucket");
         set => SetArgument("s3_bucket", value);
     }
 
@@ -539,7 +535,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformValue<string>? S3Key
     {
-        get => new TerraformReference<string>(this, "s3_key");
+        get => GetArgument<TerraformValue<string>>("s3_key");
         set => SetArgument("s3_key", value);
     }
 
@@ -548,7 +544,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformValue<string>? S3ObjectVersion
     {
-        get => new TerraformReference<string>(this, "s3_object_version");
+        get => GetArgument<TerraformValue<string>>("s3_object_version");
         set => SetArgument("s3_object_version", value);
     }
 
@@ -557,16 +553,16 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformValue<bool>? SkipDestroy
     {
-        get => new TerraformReference<bool>(this, "skip_destroy");
+        get => GetArgument<TerraformValue<bool>>("skip_destroy");
         set => SetArgument("skip_destroy", value);
     }
 
     /// <summary>
     /// The source_code_hash attribute.
     /// </summary>
-    public TerraformValue<string> SourceCodeHash
+    public TerraformValue<string>? SourceCodeHash
     {
-        get => new TerraformReference<string>(this, "source_code_hash");
+        get => GetArgument<TerraformValue<string>>("source_code_hash");
         set => SetArgument("source_code_hash", value);
     }
 
@@ -575,7 +571,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformValue<string>? SourceKmsKeyArn
     {
-        get => new TerraformReference<string>(this, "source_kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("source_kms_key_arn");
         set => SetArgument("source_kms_key_arn", value);
     }
 
@@ -584,16 +580,16 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -602,7 +598,7 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// </summary>
     public TerraformValue<double>? Timeout
     {
-        get => new TerraformReference<double>(this, "timeout");
+        get => GetArgument<TerraformValue<double>>("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -610,81 +606,61 @@ public partial class AwsLambdaFunction(string name) : TerraformResource("aws_lam
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The code_sha256 attribute.
     /// </summary>
     public TerraformValue<string> CodeSha256
-    {
-        get => new TerraformReference<string>(this, "code_sha256");
-    }
+        => AsReference("code_sha256");
 
     /// <summary>
     /// The invoke_arn attribute.
     /// </summary>
     public TerraformValue<string> InvokeArn
-    {
-        get => new TerraformReference<string>(this, "invoke_arn");
-    }
+        => AsReference("invoke_arn");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
     public TerraformValue<string> LastModified
-    {
-        get => new TerraformReference<string>(this, "last_modified");
-    }
+        => AsReference("last_modified");
 
     /// <summary>
     /// The qualified_arn attribute.
     /// </summary>
     public TerraformValue<string> QualifiedArn
-    {
-        get => new TerraformReference<string>(this, "qualified_arn");
-    }
+        => AsReference("qualified_arn");
 
     /// <summary>
     /// The qualified_invoke_arn attribute.
     /// </summary>
     public TerraformValue<string> QualifiedInvokeArn
-    {
-        get => new TerraformReference<string>(this, "qualified_invoke_arn");
-    }
+        => AsReference("qualified_invoke_arn");
 
     /// <summary>
     /// The signing_job_arn attribute.
     /// </summary>
     public TerraformValue<string> SigningJobArn
-    {
-        get => new TerraformReference<string>(this, "signing_job_arn");
-    }
+        => AsReference("signing_job_arn");
 
     /// <summary>
     /// The signing_profile_version_arn attribute.
     /// </summary>
     public TerraformValue<string> SigningProfileVersionArn
-    {
-        get => new TerraformReference<string>(this, "signing_profile_version_arn");
-    }
+        => AsReference("signing_profile_version_arn");
 
     /// <summary>
     /// The source_code_size attribute.
     /// </summary>
     public TerraformValue<double> SourceCodeSize
-    {
-        get => new TerraformReference<double>(this, "source_code_size");
-    }
+        => AsReference("source_code_size");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
     /// <summary>
     /// DeadLetterConfig block (nesting mode: list).

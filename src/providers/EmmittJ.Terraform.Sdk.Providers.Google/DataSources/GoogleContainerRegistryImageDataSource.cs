@@ -14,16 +14,16 @@ public partial class GoogleContainerRegistryImageDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string>? Digest
     {
-        get => new TerraformReference<string>(this, "digest");
+        get => GetArgument<TerraformValue<string>>("digest");
         set => SetArgument("digest", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,16 +33,16 @@ public partial class GoogleContainerRegistryImageDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -51,7 +51,7 @@ public partial class GoogleContainerRegistryImageDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class GoogleContainerRegistryImageDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string>? Tag
     {
-        get => new TerraformReference<string>(this, "tag");
+        get => GetArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -68,8 +68,6 @@ public partial class GoogleContainerRegistryImageDataSource(string name) : Terra
     /// The image_url attribute.
     /// </summary>
     public TerraformValue<string> ImageUrl
-    {
-        get => new TerraformReference<string>(this, "image_url");
-    }
+        => AsReference("image_url");
 
 }

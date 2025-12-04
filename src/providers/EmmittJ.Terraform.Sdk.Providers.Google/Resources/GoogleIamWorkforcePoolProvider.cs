@@ -27,7 +27,7 @@ public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributesType is required")]
     public required TerraformValue<string> AttributesType
     {
-        get => new TerraformReference<string>(this, "attributes_type");
+        get => GetArgument<TerraformValue<string>>("attributes_type");
         set => SetArgument("attributes_type", value);
     }
 
@@ -37,7 +37,7 @@ public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -47,7 +47,7 @@ public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
     public required TerraformValue<string> IssuerUri
     {
-        get => new TerraformReference<string>(this, "issuer_uri");
+        get => GetArgument<TerraformValue<string>>("issuer_uri");
         set => SetArgument("issuer_uri", value);
     }
 
@@ -116,7 +116,7 @@ public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlockCl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlainText is required")]
     public required TerraformValue<string> PlainText
     {
-        get => new TerraformReference<string>(this, "plain_text");
+        get => GetArgument<TerraformValue<string>>("plain_text");
         set => SetArgument("plain_text", value);
     }
 
@@ -124,9 +124,7 @@ public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlockCl
     /// A thumbprint to represent the current client secret value.
     /// </summary>
     public TerraformValue<string> Thumbprint
-    {
-        get => new TerraformReference<string>(this, "thumbprint");
-    }
+        => AsReference("thumbprint");
 
 }
 
@@ -148,7 +146,7 @@ public class GoogleIamWorkforcePoolProviderExtendedAttributesOauth2ClientBlockQu
     /// </summary>
     public TerraformValue<string>? Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -184,7 +182,7 @@ public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributesType is required")]
     public required TerraformValue<string> AttributesType
     {
-        get => new TerraformReference<string>(this, "attributes_type");
+        get => GetArgument<TerraformValue<string>>("attributes_type");
         set => SetArgument("attributes_type", value);
     }
 
@@ -194,7 +192,7 @@ public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -204,7 +202,7 @@ public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
     public required TerraformValue<string> IssuerUri
     {
-        get => new TerraformReference<string>(this, "issuer_uri");
+        get => GetArgument<TerraformValue<string>>("issuer_uri");
         set => SetArgument("issuer_uri", value);
     }
 
@@ -273,7 +271,7 @@ public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlockClien
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlainText is required")]
     public required TerraformValue<string> PlainText
     {
-        get => new TerraformReference<string>(this, "plain_text");
+        get => GetArgument<TerraformValue<string>>("plain_text");
         set => SetArgument("plain_text", value);
     }
 
@@ -281,9 +279,7 @@ public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlockClien
     /// A thumbprint to represent the current client secret value.
     /// </summary>
     public TerraformValue<string> Thumbprint
-    {
-        get => new TerraformReference<string>(this, "thumbprint");
-    }
+        => AsReference("thumbprint");
 
 }
 
@@ -305,7 +301,7 @@ public class GoogleIamWorkforcePoolProviderExtraAttributesOauth2ClientBlockQuery
     /// </summary>
     public TerraformValue<string>? Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -329,7 +325,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -339,7 +335,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUri is required")]
     public required TerraformValue<string> IssuerUri
     {
-        get => new TerraformReference<string>(this, "issuer_uri");
+        get => GetArgument<TerraformValue<string>>("issuer_uri");
         set => SetArgument("issuer_uri", value);
     }
 
@@ -370,7 +366,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? JwksJson
     {
-        get => new TerraformReference<string>(this, "jwks_json");
+        get => GetArgument<TerraformValue<string>>("jwks_json");
         set => SetArgument("jwks_json", value);
     }
 
@@ -436,7 +432,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlockClientSecretBlockValueBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlainText is required")]
     public required TerraformValue<string> PlainText
     {
-        get => new TerraformReference<string>(this, "plain_text");
+        get => GetArgument<TerraformValue<string>>("plain_text");
         set => SetArgument("plain_text", value);
     }
 
@@ -444,9 +440,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlockClientSecretBlockValueBlock 
     /// A thumbprint to represent the current client secret value.
     /// </summary>
     public TerraformValue<string> Thumbprint
-    {
-        get => new TerraformReference<string>(this, "thumbprint");
-    }
+        => AsReference("thumbprint");
 
 }
 
@@ -467,7 +461,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlockWebSsoConfigBlock : Terrafor
     /// </summary>
     public TerraformList<string>? AdditionalScopes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "additional_scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("additional_scopes");
         set => SetArgument("additional_scopes", value);
     }
 
@@ -479,7 +473,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlockWebSsoConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssertionClaimsBehavior is required")]
     public required TerraformValue<string> AssertionClaimsBehavior
     {
-        get => new TerraformReference<string>(this, "assertion_claims_behavior");
+        get => GetArgument<TerraformValue<string>>("assertion_claims_behavior");
         set => SetArgument("assertion_claims_behavior", value);
     }
 
@@ -493,7 +487,7 @@ public class GoogleIamWorkforcePoolProviderOidcBlockWebSsoConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponseType is required")]
     public required TerraformValue<string> ResponseType
     {
-        get => new TerraformReference<string>(this, "response_type");
+        get => GetArgument<TerraformValue<string>>("response_type");
         set => SetArgument("response_type", value);
     }
 
@@ -531,7 +525,7 @@ public class GoogleIamWorkforcePoolProviderSamlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpMetadataXml is required")]
     public required TerraformValue<string> IdpMetadataXml
     {
-        get => new TerraformReference<string>(this, "idp_metadata_xml");
+        get => GetArgument<TerraformValue<string>>("idp_metadata_xml");
         set => SetArgument("idp_metadata_xml", value);
     }
 
@@ -554,7 +548,7 @@ public class GoogleIamWorkforcePoolProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -563,7 +557,7 @@ public class GoogleIamWorkforcePoolProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -572,7 +566,7 @@ public class GoogleIamWorkforcePoolProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -608,7 +602,7 @@ public partial class GoogleIamWorkforcePoolProvider(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? AttributeCondition
     {
-        get => new TerraformReference<string>(this, "attribute_condition");
+        get => GetArgument<TerraformValue<string>>("attribute_condition");
         set => SetArgument("attribute_condition", value);
     }
 
@@ -667,7 +661,7 @@ public partial class GoogleIamWorkforcePoolProvider(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? AttributeMapping
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "attribute_mapping").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("attribute_mapping");
         set => SetArgument("attribute_mapping", value);
     }
 
@@ -676,7 +670,7 @@ public partial class GoogleIamWorkforcePoolProvider(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -686,7 +680,7 @@ public partial class GoogleIamWorkforcePoolProvider(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -695,16 +689,16 @@ public partial class GoogleIamWorkforcePoolProvider(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -714,7 +708,7 @@ public partial class GoogleIamWorkforcePoolProvider(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -726,7 +720,7 @@ public partial class GoogleIamWorkforcePoolProvider(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderId is required")]
     public required TerraformValue<string> ProviderId
     {
-        get => new TerraformReference<string>(this, "provider_id");
+        get => GetArgument<TerraformValue<string>>("provider_id");
         set => SetArgument("provider_id", value);
     }
 
@@ -744,7 +738,7 @@ public partial class GoogleIamWorkforcePoolProvider(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? ScimUsage
     {
-        get => new TerraformReference<string>(this, "scim_usage");
+        get => GetArgument<TerraformValue<string>>("scim_usage");
         set => SetArgument("scim_usage", value);
     }
 
@@ -757,7 +751,7 @@ public partial class GoogleIamWorkforcePoolProvider(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     public required TerraformValue<string> WorkforcePoolId
     {
-        get => new TerraformReference<string>(this, "workforce_pool_id");
+        get => GetArgument<TerraformValue<string>>("workforce_pool_id");
         set => SetArgument("workforce_pool_id", value);
     }
 
@@ -766,9 +760,7 @@ public partial class GoogleIamWorkforcePoolProvider(string name) : TerraformReso
     /// Format: &#39;locations/{location}/workforcePools/{workforcePoolId}/providers/{providerId}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The current state of the provider.
@@ -779,9 +771,7 @@ public partial class GoogleIamWorkforcePoolProvider(string name) : TerraformReso
     ///   [providers.undelete](https://cloud.google.com/iam/docs/reference/rest/v1/locations.workforcePools.providers/undelete#google.iam.admin.v1.WorkforcePools.UndeleteWorkforcePoolProvider).
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// ExtendedAttributesOauth2Client block (nesting mode: list).

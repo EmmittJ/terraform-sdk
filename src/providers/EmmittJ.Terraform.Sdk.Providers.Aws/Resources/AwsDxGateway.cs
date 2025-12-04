@@ -18,7 +18,7 @@ public class AwsDxGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsDxGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,16 +46,16 @@ public partial class AwsDxGateway(string name) : TerraformResource("aws_dx_gatew
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AmazonSideAsn is required")]
     public required TerraformValue<string> AmazonSideAsn
     {
-        get => new TerraformReference<string>(this, "amazon_side_asn");
+        get => GetArgument<TerraformValue<string>>("amazon_side_asn");
         set => SetArgument("amazon_side_asn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsDxGateway(string name) : TerraformResource("aws_dx_gatew
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -73,17 +73,13 @@ public partial class AwsDxGateway(string name) : TerraformResource("aws_dx_gatew
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-    {
-        get => new TerraformReference<string>(this, "owner_account_id");
-    }
+        => AsReference("owner_account_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

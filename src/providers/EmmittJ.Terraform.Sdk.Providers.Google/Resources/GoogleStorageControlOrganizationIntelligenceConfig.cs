@@ -72,7 +72,7 @@ public class GoogleStorageControlOrganizationIntelligenceConfigFilterBlockExclud
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketIdRegexes is required")]
     public TerraformList<string>? BucketIdRegexes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "bucket_id_regexes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("bucket_id_regexes");
         set => SetArgument("bucket_id_regexes", value);
     }
 
@@ -95,7 +95,7 @@ public class GoogleStorageControlOrganizationIntelligenceConfigFilterBlockExclud
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Locations is required")]
     public TerraformList<string>? Locations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("locations");
         set => SetArgument("locations", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleStorageControlOrganizationIntelligenceConfigFilterBlockInclud
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketIdRegexes is required")]
     public TerraformList<string>? BucketIdRegexes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "bucket_id_regexes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("bucket_id_regexes");
         set => SetArgument("bucket_id_regexes", value);
     }
 
@@ -141,7 +141,7 @@ public class GoogleStorageControlOrganizationIntelligenceConfigFilterBlockInclud
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Locations is required")]
     public TerraformList<string>? Locations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("locations");
         set => SetArgument("locations", value);
     }
 
@@ -164,7 +164,7 @@ public class GoogleStorageControlOrganizationIntelligenceConfigTimeoutsBlock : T
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -173,7 +173,7 @@ public class GoogleStorageControlOrganizationIntelligenceConfigTimeoutsBlock : T
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -182,7 +182,7 @@ public class GoogleStorageControlOrganizationIntelligenceConfigTimeoutsBlock : T
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -198,18 +198,18 @@ public partial class GoogleStorageControlOrganizationIntelligenceConfig(string n
     /// <summary>
     /// Edition configuration of the Storage Intelligence resource. Valid values are INHERIT, DISABLED, TRIAL and STANDARD.
     /// </summary>
-    public TerraformValue<string> EditionConfig
+    public TerraformValue<string>? EditionConfig
     {
-        get => new TerraformReference<string>(this, "edition_config");
+        get => GetArgument<TerraformValue<string>>("edition_config");
         set => SetArgument("edition_config", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -219,7 +219,7 @@ public partial class GoogleStorageControlOrganizationIntelligenceConfig(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -227,25 +227,19 @@ public partial class GoogleStorageControlOrganizationIntelligenceConfig(string n
     /// The Intelligence config that is effective for the resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> EffectiveIntelligenceConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "effective_intelligence_config").ResolveNodes(ctx));
-    }
+        => AsReference("effective_intelligence_config");
 
     /// <summary>
     /// The trial configuration of the Storage Intelligence resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrialConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "trial_config").ResolveNodes(ctx));
-    }
+        => AsReference("trial_config");
 
     /// <summary>
     /// The time at which the Storage Intelligence Config resource is last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Filter block (nesting mode: list).

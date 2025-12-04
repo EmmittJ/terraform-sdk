@@ -11,9 +11,9 @@ public partial class AwsShieldSubscription(string name) : TerraformResource("aws
     /// <summary>
     /// Whether to automatically renew the subscription when it expires.
     /// </summary>
-    public TerraformValue<string> AutoRenew
+    public TerraformValue<string>? AutoRenew
     {
-        get => new TerraformReference<string>(this, "auto_renew");
+        get => GetArgument<TerraformValue<string>>("auto_renew");
         set => SetArgument("auto_renew", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsShieldSubscription(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<bool>? SkipDestroy
     {
-        get => new TerraformReference<bool>(this, "skip_destroy");
+        get => GetArgument<TerraformValue<bool>>("skip_destroy");
         set => SetArgument("skip_destroy", value);
     }
 
@@ -30,8 +30,6 @@ public partial class AwsShieldSubscription(string name) : TerraformResource("aws
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
 }

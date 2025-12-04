@@ -11,9 +11,9 @@ public partial class GoogleLoggingProjectCmekSettingsDataSource(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -27,7 +27,7 @@ public partial class GoogleLoggingProjectCmekSettingsDataSource(string name) : T
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -37,7 +37,7 @@ public partial class GoogleLoggingProjectCmekSettingsDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformValue<string> Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -50,17 +50,13 @@ public partial class GoogleLoggingProjectCmekSettingsDataSource(string name) : T
     /// 				This is a read-only field used to convey the specific configured CryptoKeyVersion of kms_key that has been configured. It will be populated in cases where the CMEK settings are bound to a single key version.
     /// </summary>
     public TerraformValue<string> KmsKeyVersionName
-    {
-        get => new TerraformReference<string>(this, "kms_key_version_name");
-    }
+        => AsReference("kms_key_version_name");
 
     /// <summary>
     /// The resource name of the CMEK settings.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The service account associated with a project for which CMEK will apply.
@@ -68,8 +64,6 @@ public partial class GoogleLoggingProjectCmekSettingsDataSource(string name) : T
     /// 				See [Enabling CMEK for Logging Buckets](https://cloud.google.com/logging/docs/routing/managed-encryption-storage) for more information.
     /// </summary>
     public TerraformValue<string> ServiceAccountId
-    {
-        get => new TerraformReference<string>(this, "service_account_id");
-    }
+        => AsReference("service_account_id");
 
 }

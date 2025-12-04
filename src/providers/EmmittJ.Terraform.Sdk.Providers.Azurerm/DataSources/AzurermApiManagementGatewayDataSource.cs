@@ -18,7 +18,7 @@ public class AzurermApiManagementGatewayDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermApiManagementGatewayDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     public required TerraformValue<string> ApiManagementId
     {
-        get => new TerraformReference<string>(this, "api_management_id");
+        get => GetArgument<TerraformValue<string>>("api_management_id");
         set => SetArgument("api_management_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermApiManagementGatewayDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -64,17 +64,13 @@ public partial class AzurermApiManagementGatewayDataSource(string name) : Terraf
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The location_data attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> LocationData
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "location_data").ResolveNodes(ctx));
-    }
+        => AsReference("location_data");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

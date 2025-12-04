@@ -40,7 +40,7 @@ public class AwsCodebuildWebhookFilterGroupBlockFilterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ExcludeMatchedPattern
     {
-        get => new TerraformReference<bool>(this, "exclude_matched_pattern");
+        get => GetArgument<TerraformValue<bool>>("exclude_matched_pattern");
         set => SetArgument("exclude_matched_pattern", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsCodebuildWebhookFilterGroupBlockFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformValue<string> Pattern
     {
-        get => new TerraformReference<string>(this, "pattern");
+        get => GetArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsCodebuildWebhookFilterGroupBlockFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -81,9 +81,9 @@ public class AwsCodebuildWebhookPullRequestBuildPolicyBlock : TerraformBlock
     /// <summary>
     /// The approver_roles attribute.
     /// </summary>
-    public TerraformSet<string> ApproverRoles
+    public TerraformSet<string>? ApproverRoles
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "approver_roles").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("approver_roles");
         set => SetArgument("approver_roles", value);
     }
 
@@ -93,7 +93,7 @@ public class AwsCodebuildWebhookPullRequestBuildPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequiresCommentApproval is required")]
     public required TerraformValue<string> RequiresCommentApproval
     {
-        get => new TerraformReference<string>(this, "requires_comment_approval");
+        get => GetArgument<TerraformValue<string>>("requires_comment_approval");
         set => SetArgument("requires_comment_approval", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsCodebuildWebhookScopeConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Domain
     {
-        get => new TerraformReference<string>(this, "domain");
+        get => GetArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsCodebuildWebhookScopeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsCodebuildWebhookScopeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -154,7 +154,7 @@ public partial class AwsCodebuildWebhook(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformValue<string>? BranchFilter
     {
-        get => new TerraformReference<string>(this, "branch_filter");
+        get => GetArgument<TerraformValue<string>>("branch_filter");
         set => SetArgument("branch_filter", value);
     }
 
@@ -163,16 +163,16 @@ public partial class AwsCodebuildWebhook(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformValue<string>? BuildType
     {
-        get => new TerraformReference<string>(this, "build_type");
+        get => GetArgument<TerraformValue<string>>("build_type");
         set => SetArgument("build_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AwsCodebuildWebhook(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformValue<bool>? ManualCreation
     {
-        get => new TerraformReference<bool>(this, "manual_creation");
+        get => GetArgument<TerraformValue<bool>>("manual_creation");
         set => SetArgument("manual_creation", value);
     }
 
@@ -191,16 +191,16 @@ public partial class AwsCodebuildWebhook(string name) : TerraformResource("aws_c
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
     public required TerraformValue<string> ProjectName
     {
-        get => new TerraformReference<string>(this, "project_name");
+        get => GetArgument<TerraformValue<string>>("project_name");
         set => SetArgument("project_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -208,25 +208,19 @@ public partial class AwsCodebuildWebhook(string name) : TerraformResource("aws_c
     /// The payload_url attribute.
     /// </summary>
     public TerraformValue<string> PayloadUrl
-    {
-        get => new TerraformReference<string>(this, "payload_url");
-    }
+        => AsReference("payload_url");
 
     /// <summary>
     /// The secret attribute.
     /// </summary>
     public TerraformValue<string> Secret
-    {
-        get => new TerraformReference<string>(this, "secret");
-    }
+        => AsReference("secret");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-    {
-        get => new TerraformReference<string>(this, "url");
-    }
+        => AsReference("url");
 
     /// <summary>
     /// FilterGroup block (nesting mode: set).

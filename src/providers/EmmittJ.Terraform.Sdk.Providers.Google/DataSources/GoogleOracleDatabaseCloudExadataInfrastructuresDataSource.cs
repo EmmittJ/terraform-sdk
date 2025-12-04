@@ -11,9 +11,9 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructuresDataSource(s
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructuresDataSource(s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructuresDataSource(s
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -40,8 +40,6 @@ public partial class GoogleOracleDatabaseCloudExadataInfrastructuresDataSource(s
     /// The cloud_exadata_infrastructures attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CloudExadataInfrastructures
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cloud_exadata_infrastructures").ResolveNodes(ctx));
-    }
+        => AsReference("cloud_exadata_infrastructures");
 
 }

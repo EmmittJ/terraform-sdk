@@ -18,7 +18,7 @@ public class AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock :
     /// </summary>
     public TerraformValue<bool>? GlobalMeshEnabled
     {
-        get => new TerraformReference<bool>(this, "global_mesh_enabled");
+        get => GetArgument<TerraformValue<bool>>("global_mesh_enabled");
         set => SetArgument("global_mesh_enabled", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupConnectivity is required")]
     public required TerraformValue<string> GroupConnectivity
     {
-        get => new TerraformReference<string>(this, "group_connectivity");
+        get => GetArgument<TerraformValue<string>>("group_connectivity");
         set => SetArgument("group_connectivity", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkGroupId is required")]
     public required TerraformValue<string> NetworkGroupId
     {
-        get => new TerraformReference<string>(this, "network_group_id");
+        get => GetArgument<TerraformValue<string>>("network_group_id");
         set => SetArgument("network_group_id", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock :
     /// </summary>
     public TerraformValue<bool>? UseHubGateway
     {
-        get => new TerraformReference<bool>(this, "use_hub_gateway");
+        get => GetArgument<TerraformValue<bool>>("use_hub_gateway");
         set => SetArgument("use_hub_gateway", value);
     }
 
@@ -71,7 +71,7 @@ public class AzurermNetworkManagerConnectivityConfigurationHubBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformValue<string> ResourceId
     {
-        get => new TerraformReference<string>(this, "resource_id");
+        get => GetArgument<TerraformValue<string>>("resource_id");
         set => SetArgument("resource_id", value);
     }
 
@@ -81,7 +81,7 @@ public class AzurermNetworkManagerConnectivityConfigurationHubBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeAttribute is required")]
     public required TerraformValue<string> ResourceTypeAttribute
     {
-        get => new TerraformReference<string>(this, "resource_type");
+        get => GetArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AzurermNetworkManagerConnectivityConfiguration(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectivityTopology is required")]
     public required TerraformValue<string> ConnectivityTopology
     {
-        get => new TerraformReference<string>(this, "connectivity_topology");
+        get => GetArgument<TerraformValue<string>>("connectivity_topology");
         set => SetArgument("connectivity_topology", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AzurermNetworkManagerConnectivityConfiguration(string name)
     /// </summary>
     public TerraformValue<bool>? DeleteExistingPeeringEnabled
     {
-        get => new TerraformReference<bool>(this, "delete_existing_peering_enabled");
+        get => GetArgument<TerraformValue<bool>>("delete_existing_peering_enabled");
         set => SetArgument("delete_existing_peering_enabled", value);
     }
 
@@ -168,7 +168,7 @@ public partial class AzurermNetworkManagerConnectivityConfiguration(string name)
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -177,16 +177,16 @@ public partial class AzurermNetworkManagerConnectivityConfiguration(string name)
     /// </summary>
     public TerraformValue<bool>? GlobalMeshEnabled
     {
-        get => new TerraformReference<bool>(this, "global_mesh_enabled");
+        get => GetArgument<TerraformValue<bool>>("global_mesh_enabled");
         set => SetArgument("global_mesh_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -196,7 +196,7 @@ public partial class AzurermNetworkManagerConnectivityConfiguration(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -206,7 +206,7 @@ public partial class AzurermNetworkManagerConnectivityConfiguration(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
     public required TerraformValue<string> NetworkManagerId
     {
-        get => new TerraformReference<string>(this, "network_manager_id");
+        get => GetArgument<TerraformValue<string>>("network_manager_id");
         set => SetArgument("network_manager_id", value);
     }
 

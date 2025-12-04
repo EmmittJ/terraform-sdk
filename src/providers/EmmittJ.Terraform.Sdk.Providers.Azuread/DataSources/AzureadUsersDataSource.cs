@@ -18,7 +18,7 @@ public class AzureadUsersDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,18 +34,18 @@ public partial class AzureadUsersDataSource(string name) : TerraformDataSource("
     /// <summary>
     /// The employee identifier assigned to the user by the organisation
     /// </summary>
-    public TerraformList<string> EmployeeIds
+    public TerraformList<string>? EmployeeIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "employee_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("employee_ids");
         set => SetArgument("employee_ids", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -54,34 +54,34 @@ public partial class AzureadUsersDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<bool>? IgnoreMissing
     {
-        get => new TerraformReference<bool>(this, "ignore_missing");
+        get => GetArgument<TerraformValue<bool>>("ignore_missing");
         set => SetArgument("ignore_missing", value);
     }
 
     /// <summary>
     /// The email aliases of the users
     /// </summary>
-    public TerraformList<string> MailNicknames
+    public TerraformList<string>? MailNicknames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "mail_nicknames").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("mail_nicknames");
         set => SetArgument("mail_nicknames", value);
     }
 
     /// <summary>
     /// The SMTP address of the users
     /// </summary>
-    public TerraformList<string> Mails
+    public TerraformList<string>? Mails
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "mails").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("mails");
         set => SetArgument("mails", value);
     }
 
     /// <summary>
     /// The object IDs of the users
     /// </summary>
-    public TerraformList<string> ObjectIds
+    public TerraformList<string>? ObjectIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "object_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("object_ids");
         set => SetArgument("object_ids", value);
     }
 
@@ -90,16 +90,16 @@ public partial class AzureadUsersDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<bool>? ReturnAll
     {
-        get => new TerraformReference<bool>(this, "return_all");
+        get => GetArgument<TerraformValue<bool>>("return_all");
         set => SetArgument("return_all", value);
     }
 
     /// <summary>
     /// The user principal names (UPNs) of the users
     /// </summary>
-    public TerraformList<string> UserPrincipalNames
+    public TerraformList<string>? UserPrincipalNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "user_principal_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("user_principal_names");
         set => SetArgument("user_principal_names", value);
     }
 
@@ -107,9 +107,7 @@ public partial class AzureadUsersDataSource(string name) : TerraformDataSource("
     /// A list of users
     /// </summary>
     public TerraformList<TerraformMap<object>> Users
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "users").ResolveNodes(ctx));
-    }
+        => AsReference("users");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

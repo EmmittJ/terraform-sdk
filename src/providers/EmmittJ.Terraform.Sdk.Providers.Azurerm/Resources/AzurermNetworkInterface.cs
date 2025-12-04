@@ -16,9 +16,9 @@ public class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlock
     /// <summary>
     /// The gateway_load_balancer_frontend_ip_configuration_id attribute.
     /// </summary>
-    public TerraformValue<string> GatewayLoadBalancerFrontendIpConfigurationId
+    public TerraformValue<string>? GatewayLoadBalancerFrontendIpConfigurationId
     {
-        get => new TerraformReference<string>(this, "gateway_load_balancer_frontend_ip_configuration_id");
+        get => GetArgument<TerraformValue<string>>("gateway_load_balancer_frontend_ip_configuration_id");
         set => SetArgument("gateway_load_balancer_frontend_ip_configuration_id", value);
     }
 
@@ -28,25 +28,25 @@ public class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The primary attribute.
     /// </summary>
-    public TerraformValue<bool> Primary
+    public TerraformValue<bool>? Primary
     {
-        get => new TerraformReference<bool>(this, "primary");
+        get => GetArgument<TerraformValue<bool>>("primary");
         set => SetArgument("primary", value);
     }
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
-    public TerraformValue<string> PrivateIpAddress
+    public TerraformValue<string>? PrivateIpAddress
     {
-        get => new TerraformReference<string>(this, "private_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_ip_address");
         set => SetArgument("private_ip_address", value);
     }
 
@@ -56,7 +56,7 @@ public class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateIpAddressAllocation is required")]
     public required TerraformValue<string> PrivateIpAddressAllocation
     {
-        get => new TerraformReference<string>(this, "private_ip_address_allocation");
+        get => GetArgument<TerraformValue<string>>("private_ip_address_allocation");
         set => SetArgument("private_ip_address_allocation", value);
     }
 
@@ -65,7 +65,7 @@ public class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PrivateIpAddressVersion
     {
-        get => new TerraformReference<string>(this, "private_ip_address_version");
+        get => GetArgument<TerraformValue<string>>("private_ip_address_version");
         set => SetArgument("private_ip_address_version", value);
     }
 
@@ -74,7 +74,7 @@ public class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PublicIpAddressId
     {
-        get => new TerraformReference<string>(this, "public_ip_address_id");
+        get => GetArgument<TerraformValue<string>>("public_ip_address_id");
         set => SetArgument("public_ip_address_id", value);
     }
 
@@ -83,7 +83,7 @@ public class AzurermNetworkInterfaceIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermNetworkInterfaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermNetworkInterfaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermNetworkInterfaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermNetworkInterfaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AzurermNetworkInterface(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? AcceleratedNetworkingEnabled
     {
-        get => new TerraformReference<bool>(this, "accelerated_networking_enabled");
+        get => GetArgument<TerraformValue<bool>>("accelerated_networking_enabled");
         set => SetArgument("accelerated_networking_enabled", value);
     }
 
@@ -160,7 +160,7 @@ public partial class AzurermNetworkInterface(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? AuxiliaryMode
     {
-        get => new TerraformReference<string>(this, "auxiliary_mode");
+        get => GetArgument<TerraformValue<string>>("auxiliary_mode");
         set => SetArgument("auxiliary_mode", value);
     }
 
@@ -169,7 +169,7 @@ public partial class AzurermNetworkInterface(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? AuxiliarySku
     {
-        get => new TerraformReference<string>(this, "auxiliary_sku");
+        get => GetArgument<TerraformValue<string>>("auxiliary_sku");
         set => SetArgument("auxiliary_sku", value);
     }
 
@@ -178,7 +178,7 @@ public partial class AzurermNetworkInterface(string name) : TerraformResource("a
     /// </summary>
     public TerraformList<string>? DnsServers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dns_servers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("dns_servers");
         set => SetArgument("dns_servers", value);
     }
 
@@ -187,16 +187,16 @@ public partial class AzurermNetworkInterface(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? EdgeZone
     {
-        get => new TerraformReference<string>(this, "edge_zone");
+        get => GetArgument<TerraformValue<string>>("edge_zone");
         set => SetArgument("edge_zone", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AzurermNetworkInterface(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? InternalDnsNameLabel
     {
-        get => new TerraformReference<string>(this, "internal_dns_name_label");
+        get => GetArgument<TerraformValue<string>>("internal_dns_name_label");
         set => SetArgument("internal_dns_name_label", value);
     }
 
@@ -214,7 +214,7 @@ public partial class AzurermNetworkInterface(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? IpForwardingEnabled
     {
-        get => new TerraformReference<bool>(this, "ip_forwarding_enabled");
+        get => GetArgument<TerraformValue<bool>>("ip_forwarding_enabled");
         set => SetArgument("ip_forwarding_enabled", value);
     }
 
@@ -224,7 +224,7 @@ public partial class AzurermNetworkInterface(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -234,7 +234,7 @@ public partial class AzurermNetworkInterface(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -244,7 +244,7 @@ public partial class AzurermNetworkInterface(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -253,7 +253,7 @@ public partial class AzurermNetworkInterface(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -261,49 +261,37 @@ public partial class AzurermNetworkInterface(string name) : TerraformResource("a
     /// The applied_dns_servers attribute.
     /// </summary>
     public TerraformList<string> AppliedDnsServers
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "applied_dns_servers").ResolveNodes(ctx));
-    }
+        => AsReference("applied_dns_servers");
 
     /// <summary>
     /// The internal_domain_name_suffix attribute.
     /// </summary>
     public TerraformValue<string> InternalDomainNameSuffix
-    {
-        get => new TerraformReference<string>(this, "internal_domain_name_suffix");
-    }
+        => AsReference("internal_domain_name_suffix");
 
     /// <summary>
     /// The mac_address attribute.
     /// </summary>
     public TerraformValue<string> MacAddress
-    {
-        get => new TerraformReference<string>(this, "mac_address");
-    }
+        => AsReference("mac_address");
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
-    {
-        get => new TerraformReference<string>(this, "private_ip_address");
-    }
+        => AsReference("private_ip_address");
 
     /// <summary>
     /// The private_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PrivateIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "private_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("private_ip_addresses");
 
     /// <summary>
     /// The virtual_machine_id attribute.
     /// </summary>
     public TerraformValue<string> VirtualMachineId
-    {
-        get => new TerraformReference<string>(this, "virtual_machine_id");
-    }
+        => AsReference("virtual_machine_id");
 
     /// <summary>
     /// IpConfiguration block (nesting mode: list).

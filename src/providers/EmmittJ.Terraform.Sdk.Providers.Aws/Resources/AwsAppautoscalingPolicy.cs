@@ -18,7 +18,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlock : 
     /// </summary>
     public TerraformValue<string>? MaxCapacityBreachBehavior
     {
-        get => new TerraformReference<string>(this, "max_capacity_breach_behavior");
+        get => GetArgument<TerraformValue<string>>("max_capacity_breach_behavior");
         set => SetArgument("max_capacity_breach_behavior", value);
     }
 
@@ -27,25 +27,25 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlock : 
     /// </summary>
     public TerraformValue<double>? MaxCapacityBuffer
     {
-        get => new TerraformReference<double>(this, "max_capacity_buffer");
+        get => GetArgument<TerraformValue<double>>("max_capacity_buffer");
         set => SetArgument("max_capacity_buffer", value);
     }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformValue<string> Mode
+    public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
     /// <summary>
     /// The scheduling_buffer_time attribute.
     /// </summary>
-    public TerraformValue<double> SchedulingBufferTime
+    public TerraformValue<double>? SchedulingBufferTime
     {
-        get => new TerraformReference<double>(this, "scheduling_buffer_time");
+        get => GetArgument<TerraformValue<double>>("scheduling_buffer_time");
         set => SetArgument("scheduling_buffer_time", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetValue is required")]
     public required TerraformValue<string> TargetValue
     {
-        get => new TerraformReference<string>(this, "target_value");
+        get => GetArgument<TerraformValue<string>>("target_value");
         set => SetArgument("target_value", value);
     }
 
@@ -187,7 +187,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     /// </summary>
     public TerraformValue<string>? Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -197,7 +197,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -206,7 +206,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     /// </summary>
     public TerraformValue<string>? Label
     {
-        get => new TerraformReference<string>(this, "label");
+        get => GetArgument<TerraformValue<string>>("label");
         set => SetArgument("label", value);
     }
 
@@ -215,7 +215,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     /// </summary>
     public TerraformValue<bool>? ReturnData
     {
-        get => new TerraformReference<bool>(this, "return_data");
+        get => GetArgument<TerraformValue<bool>>("return_data");
         set => SetArgument("return_data", value);
     }
 
@@ -248,7 +248,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stat is required")]
     public required TerraformValue<string> Stat
     {
-        get => new TerraformReference<string>(this, "stat");
+        get => GetArgument<TerraformValue<string>>("stat");
         set => SetArgument("stat", value);
     }
 
@@ -257,7 +257,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     /// </summary>
     public TerraformValue<string>? Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -292,7 +292,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     /// </summary>
     public TerraformValue<string>? MetricName
     {
-        get => new TerraformReference<string>(this, "metric_name");
+        get => GetArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -301,7 +301,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     /// </summary>
     public TerraformValue<string>? NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -333,7 +333,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -343,7 +343,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -390,7 +390,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     /// </summary>
     public TerraformValue<string>? Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -400,7 +400,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -409,7 +409,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     /// </summary>
     public TerraformValue<string>? Label
     {
-        get => new TerraformReference<string>(this, "label");
+        get => GetArgument<TerraformValue<string>>("label");
         set => SetArgument("label", value);
     }
 
@@ -418,7 +418,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     /// </summary>
     public TerraformValue<bool>? ReturnData
     {
-        get => new TerraformReference<bool>(this, "return_data");
+        get => GetArgument<TerraformValue<bool>>("return_data");
         set => SetArgument("return_data", value);
     }
 
@@ -451,7 +451,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stat is required")]
     public required TerraformValue<string> Stat
     {
-        get => new TerraformReference<string>(this, "stat");
+        get => GetArgument<TerraformValue<string>>("stat");
         set => SetArgument("stat", value);
     }
 
@@ -460,7 +460,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     /// </summary>
     public TerraformValue<string>? Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -495,7 +495,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     /// </summary>
     public TerraformValue<string>? MetricName
     {
-        get => new TerraformReference<string>(this, "metric_name");
+        get => GetArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -504,7 +504,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     /// </summary>
     public TerraformValue<string>? NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -536,7 +536,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -546,7 +546,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -593,7 +593,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     /// </summary>
     public TerraformValue<string>? Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -603,7 +603,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -612,7 +612,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     /// </summary>
     public TerraformValue<string>? Label
     {
-        get => new TerraformReference<string>(this, "label");
+        get => GetArgument<TerraformValue<string>>("label");
         set => SetArgument("label", value);
     }
 
@@ -621,7 +621,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     /// </summary>
     public TerraformValue<bool>? ReturnData
     {
-        get => new TerraformReference<bool>(this, "return_data");
+        get => GetArgument<TerraformValue<bool>>("return_data");
         set => SetArgument("return_data", value);
     }
 
@@ -654,7 +654,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stat is required")]
     public required TerraformValue<string> Stat
     {
-        get => new TerraformReference<string>(this, "stat");
+        get => GetArgument<TerraformValue<string>>("stat");
         set => SetArgument("stat", value);
     }
 
@@ -663,7 +663,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     /// </summary>
     public TerraformValue<string>? Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -698,7 +698,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     /// </summary>
     public TerraformValue<string>? MetricName
     {
-        get => new TerraformReference<string>(this, "metric_name");
+        get => GetArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -707,7 +707,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     /// </summary>
     public TerraformValue<string>? NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -739,7 +739,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -749,7 +749,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -772,7 +772,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PredefinedMetricType is required")]
     public required TerraformValue<string> PredefinedMetricType
     {
-        get => new TerraformReference<string>(this, "predefined_metric_type");
+        get => GetArgument<TerraformValue<string>>("predefined_metric_type");
         set => SetArgument("predefined_metric_type", value);
     }
 
@@ -781,7 +781,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     /// </summary>
     public TerraformValue<string>? ResourceLabel
     {
-        get => new TerraformReference<string>(this, "resource_label");
+        get => GetArgument<TerraformValue<string>>("resource_label");
         set => SetArgument("resource_label", value);
     }
 
@@ -804,7 +804,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PredefinedMetricType is required")]
     public required TerraformValue<string> PredefinedMetricType
     {
-        get => new TerraformReference<string>(this, "predefined_metric_type");
+        get => GetArgument<TerraformValue<string>>("predefined_metric_type");
         set => SetArgument("predefined_metric_type", value);
     }
 
@@ -813,7 +813,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     /// </summary>
     public TerraformValue<string>? ResourceLabel
     {
-        get => new TerraformReference<string>(this, "resource_label");
+        get => GetArgument<TerraformValue<string>>("resource_label");
         set => SetArgument("resource_label", value);
     }
 
@@ -836,7 +836,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PredefinedMetricType is required")]
     public required TerraformValue<string> PredefinedMetricType
     {
-        get => new TerraformReference<string>(this, "predefined_metric_type");
+        get => GetArgument<TerraformValue<string>>("predefined_metric_type");
         set => SetArgument("predefined_metric_type", value);
     }
 
@@ -845,7 +845,7 @@ public class AwsAppautoscalingPolicyPredictiveScalingPolicyConfigurationBlockMet
     /// </summary>
     public TerraformValue<string>? ResourceLabel
     {
-        get => new TerraformReference<string>(this, "resource_label");
+        get => GetArgument<TerraformValue<string>>("resource_label");
         set => SetArgument("resource_label", value);
     }
 
@@ -868,7 +868,7 @@ public class AwsAppautoscalingPolicyStepScalingPolicyConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? AdjustmentType
     {
-        get => new TerraformReference<string>(this, "adjustment_type");
+        get => GetArgument<TerraformValue<string>>("adjustment_type");
         set => SetArgument("adjustment_type", value);
     }
 
@@ -877,7 +877,7 @@ public class AwsAppautoscalingPolicyStepScalingPolicyConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<double>? Cooldown
     {
-        get => new TerraformReference<double>(this, "cooldown");
+        get => GetArgument<TerraformValue<double>>("cooldown");
         set => SetArgument("cooldown", value);
     }
 
@@ -886,7 +886,7 @@ public class AwsAppautoscalingPolicyStepScalingPolicyConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? MetricAggregationType
     {
-        get => new TerraformReference<string>(this, "metric_aggregation_type");
+        get => GetArgument<TerraformValue<string>>("metric_aggregation_type");
         set => SetArgument("metric_aggregation_type", value);
     }
 
@@ -895,7 +895,7 @@ public class AwsAppautoscalingPolicyStepScalingPolicyConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<double>? MinAdjustmentMagnitude
     {
-        get => new TerraformReference<double>(this, "min_adjustment_magnitude");
+        get => GetArgument<TerraformValue<double>>("min_adjustment_magnitude");
         set => SetArgument("min_adjustment_magnitude", value);
     }
 
@@ -926,7 +926,7 @@ public class AwsAppautoscalingPolicyStepScalingPolicyConfigurationBlockStepAdjus
     /// </summary>
     public TerraformValue<string>? MetricIntervalLowerBound
     {
-        get => new TerraformReference<string>(this, "metric_interval_lower_bound");
+        get => GetArgument<TerraformValue<string>>("metric_interval_lower_bound");
         set => SetArgument("metric_interval_lower_bound", value);
     }
 
@@ -935,7 +935,7 @@ public class AwsAppautoscalingPolicyStepScalingPolicyConfigurationBlockStepAdjus
     /// </summary>
     public TerraformValue<string>? MetricIntervalUpperBound
     {
-        get => new TerraformReference<string>(this, "metric_interval_upper_bound");
+        get => GetArgument<TerraformValue<string>>("metric_interval_upper_bound");
         set => SetArgument("metric_interval_upper_bound", value);
     }
 
@@ -945,7 +945,7 @@ public class AwsAppautoscalingPolicyStepScalingPolicyConfigurationBlockStepAdjus
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalingAdjustment is required")]
     public required TerraformValue<double> ScalingAdjustment
     {
-        get => new TerraformReference<double>(this, "scaling_adjustment");
+        get => GetArgument<TerraformValue<double>>("scaling_adjustment");
         set => SetArgument("scaling_adjustment", value);
     }
 
@@ -968,7 +968,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     /// </summary>
     public TerraformValue<bool>? DisableScaleIn
     {
-        get => new TerraformReference<bool>(this, "disable_scale_in");
+        get => GetArgument<TerraformValue<bool>>("disable_scale_in");
         set => SetArgument("disable_scale_in", value);
     }
 
@@ -977,7 +977,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     /// </summary>
     public TerraformValue<double>? ScaleInCooldown
     {
-        get => new TerraformReference<double>(this, "scale_in_cooldown");
+        get => GetArgument<TerraformValue<double>>("scale_in_cooldown");
         set => SetArgument("scale_in_cooldown", value);
     }
 
@@ -986,7 +986,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     /// </summary>
     public TerraformValue<double>? ScaleOutCooldown
     {
-        get => new TerraformReference<double>(this, "scale_out_cooldown");
+        get => GetArgument<TerraformValue<double>>("scale_out_cooldown");
         set => SetArgument("scale_out_cooldown", value);
     }
 
@@ -996,7 +996,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetValue is required")]
     public required TerraformValue<double> TargetValue
     {
-        get => new TerraformReference<double>(this, "target_value");
+        get => GetArgument<TerraformValue<double>>("target_value");
         set => SetArgument("target_value", value);
     }
 
@@ -1038,7 +1038,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     /// </summary>
     public TerraformValue<string>? MetricName
     {
-        get => new TerraformReference<string>(this, "metric_name");
+        get => GetArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -1047,7 +1047,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     /// </summary>
     public TerraformValue<string>? NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -1056,7 +1056,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     /// </summary>
     public TerraformValue<string>? Statistic
     {
-        get => new TerraformReference<string>(this, "statistic");
+        get => GetArgument<TerraformValue<string>>("statistic");
         set => SetArgument("statistic", value);
     }
 
@@ -1065,7 +1065,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     /// </summary>
     public TerraformValue<string>? Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1106,7 +1106,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1116,7 +1116,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1138,7 +1138,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     /// </summary>
     public TerraformValue<string>? Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -1148,7 +1148,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1157,7 +1157,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     /// </summary>
     public TerraformValue<string>? Label
     {
-        get => new TerraformReference<string>(this, "label");
+        get => GetArgument<TerraformValue<string>>("label");
         set => SetArgument("label", value);
     }
 
@@ -1166,7 +1166,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     /// </summary>
     public TerraformValue<bool>? ReturnData
     {
-        get => new TerraformReference<bool>(this, "return_data");
+        get => GetArgument<TerraformValue<bool>>("return_data");
         set => SetArgument("return_data", value);
     }
 
@@ -1199,7 +1199,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stat is required")]
     public required TerraformValue<string> Stat
     {
-        get => new TerraformReference<string>(this, "stat");
+        get => GetArgument<TerraformValue<string>>("stat");
         set => SetArgument("stat", value);
     }
 
@@ -1208,7 +1208,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     /// </summary>
     public TerraformValue<string>? Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1244,7 +1244,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformValue<string> MetricName
     {
-        get => new TerraformReference<string>(this, "metric_name");
+        get => GetArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -1254,7 +1254,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceAttribute is required")]
     public required TerraformValue<string> NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -1286,7 +1286,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1296,7 +1296,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1319,7 +1319,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PredefinedMetricType is required")]
     public required TerraformValue<string> PredefinedMetricType
     {
-        get => new TerraformReference<string>(this, "predefined_metric_type");
+        get => GetArgument<TerraformValue<string>>("predefined_metric_type");
         set => SetArgument("predefined_metric_type", value);
     }
 
@@ -1328,7 +1328,7 @@ public class AwsAppautoscalingPolicyTargetTrackingScalingPolicyConfigurationBloc
     /// </summary>
     public TerraformValue<string>? ResourceLabel
     {
-        get => new TerraformReference<string>(this, "resource_label");
+        get => GetArgument<TerraformValue<string>>("resource_label");
         set => SetArgument("resource_label", value);
     }
 
@@ -1344,9 +1344,9 @@ public partial class AwsAppautoscalingPolicy(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1356,7 +1356,7 @@ public partial class AwsAppautoscalingPolicy(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1365,16 +1365,16 @@ public partial class AwsAppautoscalingPolicy(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? PolicyType
     {
-        get => new TerraformReference<string>(this, "policy_type");
+        get => GetArgument<TerraformValue<string>>("policy_type");
         set => SetArgument("policy_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -1384,7 +1384,7 @@ public partial class AwsAppautoscalingPolicy(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformValue<string> ResourceId
     {
-        get => new TerraformReference<string>(this, "resource_id");
+        get => GetArgument<TerraformValue<string>>("resource_id");
         set => SetArgument("resource_id", value);
     }
 
@@ -1394,7 +1394,7 @@ public partial class AwsAppautoscalingPolicy(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalableDimension is required")]
     public required TerraformValue<string> ScalableDimension
     {
-        get => new TerraformReference<string>(this, "scalable_dimension");
+        get => GetArgument<TerraformValue<string>>("scalable_dimension");
         set => SetArgument("scalable_dimension", value);
     }
 
@@ -1404,7 +1404,7 @@ public partial class AwsAppautoscalingPolicy(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNamespace is required")]
     public required TerraformValue<string> ServiceNamespace
     {
-        get => new TerraformReference<string>(this, "service_namespace");
+        get => GetArgument<TerraformValue<string>>("service_namespace");
         set => SetArgument("service_namespace", value);
     }
 
@@ -1412,17 +1412,13 @@ public partial class AwsAppautoscalingPolicy(string name) : TerraformResource("a
     /// The alarm_arns attribute.
     /// </summary>
     public TerraformList<string> AlarmArns
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "alarm_arns").ResolveNodes(ctx));
-    }
+        => AsReference("alarm_arns");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// PredictiveScalingPolicyConfiguration block (nesting mode: list).

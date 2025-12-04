@@ -18,7 +18,7 @@ public class AzurermHealthcareMedtechServiceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -26,17 +26,13 @@ public class AzurermHealthcareMedtechServiceIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -44,7 +40,7 @@ public class AzurermHealthcareMedtechServiceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -67,7 +63,7 @@ public class AzurermHealthcareMedtechServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -76,7 +72,7 @@ public class AzurermHealthcareMedtechServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -85,7 +81,7 @@ public class AzurermHealthcareMedtechServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -94,7 +90,7 @@ public class AzurermHealthcareMedtechServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -113,7 +109,7 @@ public partial class AzurermHealthcareMedtechService(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceMappingJson is required")]
     public required TerraformValue<string> DeviceMappingJson
     {
-        get => new TerraformReference<string>(this, "device_mapping_json");
+        get => GetArgument<TerraformValue<string>>("device_mapping_json");
         set => SetArgument("device_mapping_json", value);
     }
 
@@ -123,7 +119,7 @@ public partial class AzurermHealthcareMedtechService(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubConsumerGroupName is required")]
     public required TerraformValue<string> EventhubConsumerGroupName
     {
-        get => new TerraformReference<string>(this, "eventhub_consumer_group_name");
+        get => GetArgument<TerraformValue<string>>("eventhub_consumer_group_name");
         set => SetArgument("eventhub_consumer_group_name", value);
     }
 
@@ -133,7 +129,7 @@ public partial class AzurermHealthcareMedtechService(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
     public required TerraformValue<string> EventhubName
     {
-        get => new TerraformReference<string>(this, "eventhub_name");
+        get => GetArgument<TerraformValue<string>>("eventhub_name");
         set => SetArgument("eventhub_name", value);
     }
 
@@ -143,16 +139,16 @@ public partial class AzurermHealthcareMedtechService(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceName is required")]
     public required TerraformValue<string> EventhubNamespaceName
     {
-        get => new TerraformReference<string>(this, "eventhub_namespace_name");
+        get => GetArgument<TerraformValue<string>>("eventhub_namespace_name");
         set => SetArgument("eventhub_namespace_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -162,7 +158,7 @@ public partial class AzurermHealthcareMedtechService(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -172,7 +168,7 @@ public partial class AzurermHealthcareMedtechService(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -181,7 +177,7 @@ public partial class AzurermHealthcareMedtechService(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -191,7 +187,7 @@ public partial class AzurermHealthcareMedtechService(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => new TerraformReference<string>(this, "workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 

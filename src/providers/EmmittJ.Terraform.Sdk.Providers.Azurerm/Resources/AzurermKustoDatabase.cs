@@ -18,7 +18,7 @@ public class AzurermKustoDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermKustoDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermKustoDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermKustoDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermKustoDatabase(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => new TerraformReference<string>(this, "cluster_name");
+        get => GetArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -73,16 +73,16 @@ public partial class AzurermKustoDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string>? HotCachePeriod
     {
-        get => new TerraformReference<string>(this, "hot_cache_period");
+        get => GetArgument<TerraformValue<string>>("hot_cache_period");
         set => SetArgument("hot_cache_period", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermKustoDatabase(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermKustoDatabase(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermKustoDatabase(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermKustoDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string>? SoftDeletePeriod
     {
-        get => new TerraformReference<string>(this, "soft_delete_period");
+        get => GetArgument<TerraformValue<string>>("soft_delete_period");
         set => SetArgument("soft_delete_period", value);
     }
 
@@ -129,9 +129,7 @@ public partial class AzurermKustoDatabase(string name) : TerraformResource("azur
     /// The size attribute.
     /// </summary>
     public TerraformValue<double> Size
-    {
-        get => new TerraformReference<double>(this, "size");
-    }
+        => AsReference("size");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

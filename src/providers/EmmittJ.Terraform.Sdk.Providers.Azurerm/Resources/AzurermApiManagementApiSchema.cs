@@ -18,7 +18,7 @@ public class AzurermApiManagementApiSchemaTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermApiManagementApiSchemaTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermApiManagementApiSchemaTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermApiManagementApiSchemaTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermApiManagementApiSchema(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformValue<string> ApiManagementName
     {
-        get => new TerraformReference<string>(this, "api_management_name");
+        get => GetArgument<TerraformValue<string>>("api_management_name");
         set => SetArgument("api_management_name", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermApiManagementApiSchema(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiName is required")]
     public required TerraformValue<string> ApiName
     {
-        get => new TerraformReference<string>(this, "api_name");
+        get => GetArgument<TerraformValue<string>>("api_name");
         set => SetArgument("api_name", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermApiManagementApiSchema(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Components
     {
-        get => new TerraformReference<string>(this, "components");
+        get => GetArgument<TerraformValue<string>>("components");
         set => SetArgument("components", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermApiManagementApiSchema(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformValue<string> ContentType
     {
-        get => new TerraformReference<string>(this, "content_type");
+        get => GetArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -102,16 +102,16 @@ public partial class AzurermApiManagementApiSchema(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Definitions
     {
-        get => new TerraformReference<string>(this, "definitions");
+        get => GetArgument<TerraformValue<string>>("definitions");
         set => SetArgument("definitions", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermApiManagementApiSchema(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermApiManagementApiSchema(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaId is required")]
     public required TerraformValue<string> SchemaId
     {
-        get => new TerraformReference<string>(this, "schema_id");
+        get => GetArgument<TerraformValue<string>>("schema_id");
         set => SetArgument("schema_id", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AzurermApiManagementApiSchema(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 

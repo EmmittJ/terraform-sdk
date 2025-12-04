@@ -18,7 +18,7 @@ public class AzurermEventhubSasDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,7 +37,7 @@ public partial class AzurermEventhubSasDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     public required TerraformValue<string> ConnectionString
     {
-        get => new TerraformReference<string>(this, "connection_string");
+        get => GetArgument<TerraformValue<string>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -47,16 +47,16 @@ public partial class AzurermEventhubSasDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expiry is required")]
     public required TerraformValue<string> Expiry
     {
-        get => new TerraformReference<string>(this, "expiry");
+        get => GetArgument<TerraformValue<string>>("expiry");
         set => SetArgument("expiry", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,9 +64,7 @@ public partial class AzurermEventhubSasDataSource(string name) : TerraformDataSo
     /// The sas attribute.
     /// </summary>
     public TerraformValue<string> Sas
-    {
-        get => new TerraformReference<string>(this, "sas");
-    }
+        => AsReference("sas");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

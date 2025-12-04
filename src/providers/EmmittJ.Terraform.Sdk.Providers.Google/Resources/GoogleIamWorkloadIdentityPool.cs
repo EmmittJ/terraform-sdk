@@ -18,7 +18,7 @@ public class GoogleIamWorkloadIdentityPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleIamWorkloadIdentityPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleIamWorkloadIdentityPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,7 +54,7 @@ public partial class GoogleIamWorkloadIdentityPool(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleIamWorkloadIdentityPool(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -74,25 +74,25 @@ public partial class GoogleIamWorkloadIdentityPool(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -104,7 +104,7 @@ public partial class GoogleIamWorkloadIdentityPool(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolId is required")]
     public required TerraformValue<string> WorkloadIdentityPoolId
     {
-        get => new TerraformReference<string>(this, "workload_identity_pool_id");
+        get => GetArgument<TerraformValue<string>>("workload_identity_pool_id");
         set => SetArgument("workload_identity_pool_id", value);
     }
 
@@ -113,9 +113,7 @@ public partial class GoogleIamWorkloadIdentityPool(string name) : TerraformResou
     /// &#39;projects/{project_number}/locations/global/workloadIdentityPools/{workload_identity_pool_id}&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The state of the pool.
@@ -129,9 +127,7 @@ public partial class GoogleIamWorkloadIdentityPool(string name) : TerraformResou
     ///   access again.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -19,7 +19,7 @@ public class GoogleFirebaseAppHostingTrafficRolloutPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CodebaseBranch
     {
-        get => new TerraformReference<string>(this, "codebase_branch");
+        get => GetArgument<TerraformValue<string>>("codebase_branch");
         set => SetArgument("codebase_branch", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleFirebaseAppHostingTrafficRolloutPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -36,9 +36,7 @@ public class GoogleFirebaseAppHostingTrafficRolloutPolicyBlock : TerraformBlock
     /// If disabled is set, the time at which the rollouts were disabled.
     /// </summary>
     public TerraformValue<string> DisabledTime
-    {
-        get => new TerraformReference<string>(this, "disabled_time");
-    }
+        => AsReference("disabled_time");
 
 }
 
@@ -85,7 +83,7 @@ public class GoogleFirebaseAppHostingTrafficTargetBlockSplitsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Build is required")]
     public required TerraformValue<string> Build
     {
-        get => new TerraformReference<string>(this, "build");
+        get => GetArgument<TerraformValue<string>>("build");
         set => SetArgument("build", value);
     }
 
@@ -95,7 +93,7 @@ public class GoogleFirebaseAppHostingTrafficTargetBlockSplitsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Percent is required")]
     public required TerraformValue<double> Percent
     {
-        get => new TerraformReference<double>(this, "percent");
+        get => GetArgument<TerraformValue<double>>("percent");
         set => SetArgument("percent", value);
     }
 
@@ -118,7 +116,7 @@ public class GoogleFirebaseAppHostingTrafficTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -127,7 +125,7 @@ public class GoogleFirebaseAppHostingTrafficTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -136,7 +134,7 @@ public class GoogleFirebaseAppHostingTrafficTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -155,16 +153,16 @@ public partial class GoogleFirebaseAppHostingTraffic(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backend is required")]
     public required TerraformValue<string> Backend
     {
-        get => new TerraformReference<string>(this, "backend");
+        get => GetArgument<TerraformValue<string>>("backend");
         set => SetArgument("backend", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -174,16 +172,16 @@ public partial class GoogleFirebaseAppHostingTraffic(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -191,35 +189,27 @@ public partial class GoogleFirebaseAppHostingTraffic(string name) : TerraformRes
     /// Time at which the backend was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Current state of traffic allocation for the backend.
     /// When setting &#39;target&#39;, this field may differ for some time until the desired state is reached.
     /// </summary>
     public TerraformList<TerraformMap<object>> Current
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "current").ResolveNodes(ctx));
-    }
+        => AsReference("current");
 
     /// <summary>
     /// Time at which the backend was deleted.
     /// </summary>
     public TerraformValue<string> DeleteTime
-    {
-        get => new TerraformReference<string>(this, "delete_time");
-    }
+        => AsReference("delete_time");
 
     /// <summary>
     /// Server-computed checksum based on other values; may be sent
     /// on update or delete to ensure operation is done on expected resource.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Identifier. The resource name of the backend traffic config
@@ -229,25 +219,19 @@ public partial class GoogleFirebaseAppHostingTraffic(string name) : TerraformRes
     /// &#39;projects/{project}/locations/{locationId}/backends/{backendId}/traffic&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// System-assigned, unique identifier.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Time at which the backend was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// RolloutPolicy block (nesting mode: list).

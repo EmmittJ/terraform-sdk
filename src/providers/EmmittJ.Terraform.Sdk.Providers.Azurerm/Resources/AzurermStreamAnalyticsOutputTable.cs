@@ -18,7 +18,7 @@ public class AzurermStreamAnalyticsOutputTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermStreamAnalyticsOutputTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermStreamAnalyticsOutputTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermStreamAnalyticsOutputTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermStreamAnalyticsOutputTable(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BatchSize is required")]
     public required TerraformValue<double> BatchSize
     {
-        get => new TerraformReference<double>(this, "batch_size");
+        get => GetArgument<TerraformValue<double>>("batch_size");
         set => SetArgument("batch_size", value);
     }
 
@@ -73,16 +73,16 @@ public partial class AzurermStreamAnalyticsOutputTable(string name) : TerraformR
     /// </summary>
     public TerraformList<string>? ColumnsToRemove
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "columns_to_remove").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("columns_to_remove");
         set => SetArgument("columns_to_remove", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermStreamAnalyticsOutputTable(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermStreamAnalyticsOutputTable(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKey is required")]
     public required TerraformValue<string> PartitionKey
     {
-        get => new TerraformReference<string>(this, "partition_key");
+        get => GetArgument<TerraformValue<string>>("partition_key");
         set => SetArgument("partition_key", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermStreamAnalyticsOutputTable(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermStreamAnalyticsOutputTable(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RowKey is required")]
     public required TerraformValue<string> RowKey
     {
-        get => new TerraformReference<string>(this, "row_key");
+        get => GetArgument<TerraformValue<string>>("row_key");
         set => SetArgument("row_key", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AzurermStreamAnalyticsOutputTable(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
     public required TerraformValue<string> StorageAccountKey
     {
-        get => new TerraformReference<string>(this, "storage_account_key");
+        get => GetArgument<TerraformValue<string>>("storage_account_key");
         set => SetArgument("storage_account_key", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AzurermStreamAnalyticsOutputTable(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformValue<string> StorageAccountName
     {
-        get => new TerraformReference<string>(this, "storage_account_name");
+        get => GetArgument<TerraformValue<string>>("storage_account_name");
         set => SetArgument("storage_account_name", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AzurermStreamAnalyticsOutputTable(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformValue<string> StreamAnalyticsJobName
     {
-        get => new TerraformReference<string>(this, "stream_analytics_job_name");
+        get => GetArgument<TerraformValue<string>>("stream_analytics_job_name");
         set => SetArgument("stream_analytics_job_name", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AzurermStreamAnalyticsOutputTable(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 

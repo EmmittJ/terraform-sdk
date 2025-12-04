@@ -19,7 +19,7 @@ public class AwsSsmResourceDataSyncS3DestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsSsmResourceDataSyncS3DestinationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsSsmResourceDataSyncS3DestinationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsSsmResourceDataSyncS3DestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -56,7 +56,7 @@ public class AwsSsmResourceDataSyncS3DestinationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SyncFormat
     {
-        get => new TerraformReference<string>(this, "sync_format");
+        get => GetArgument<TerraformValue<string>>("sync_format");
         set => SetArgument("sync_format", value);
     }
 
@@ -72,9 +72,9 @@ public partial class AwsSsmResourceDataSync(string name) : TerraformResource("aw
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AwsSsmResourceDataSync(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

@@ -18,7 +18,7 @@ public class AwsEcsClusterCapacityProvidersDefaultCapacityProviderStrategyBlock 
     /// </summary>
     public TerraformValue<double>? BaseAttribute
     {
-        get => new TerraformReference<double>(this, "base");
+        get => GetArgument<TerraformValue<double>>("base");
         set => SetArgument("base", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsEcsClusterCapacityProvidersDefaultCapacityProviderStrategyBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityProvider is required")]
     public required TerraformValue<string> CapacityProvider
     {
-        get => new TerraformReference<string>(this, "capacity_provider");
+        get => GetArgument<TerraformValue<string>>("capacity_provider");
         set => SetArgument("capacity_provider", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsEcsClusterCapacityProvidersDefaultCapacityProviderStrategyBlock 
     /// </summary>
     public TerraformValue<double>? Weight
     {
-        get => new TerraformReference<double>(this, "weight");
+        get => GetArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsEcsClusterCapacityProviders(string name) : TerraformReso
     /// </summary>
     public TerraformSet<string>? CapacityProviders
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "capacity_providers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("capacity_providers");
         set => SetArgument("capacity_providers", value);
     }
 
@@ -65,25 +65,25 @@ public partial class AwsEcsClusterCapacityProviders(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => new TerraformReference<string>(this, "cluster_name");
+        get => GetArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

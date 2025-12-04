@@ -18,7 +18,7 @@ public class AwsEfsFileSystemLifecyclePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TransitionToArchive
     {
-        get => new TerraformReference<string>(this, "transition_to_archive");
+        get => GetArgument<TerraformValue<string>>("transition_to_archive");
         set => SetArgument("transition_to_archive", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsEfsFileSystemLifecyclePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TransitionToIa
     {
-        get => new TerraformReference<string>(this, "transition_to_ia");
+        get => GetArgument<TerraformValue<string>>("transition_to_ia");
         set => SetArgument("transition_to_ia", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsEfsFileSystemLifecyclePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TransitionToPrimaryStorageClass
     {
-        get => new TerraformReference<string>(this, "transition_to_primary_storage_class");
+        get => GetArgument<TerraformValue<string>>("transition_to_primary_storage_class");
         set => SetArgument("transition_to_primary_storage_class", value);
     }
 
@@ -57,9 +57,9 @@ public class AwsEfsFileSystemProtectionBlock : TerraformBlock
     /// <summary>
     /// The replication_overwrite attribute.
     /// </summary>
-    public TerraformValue<string> ReplicationOverwrite
+    public TerraformValue<string>? ReplicationOverwrite
     {
-        get => new TerraformReference<string>(this, "replication_overwrite");
+        get => GetArgument<TerraformValue<string>>("replication_overwrite");
         set => SetArgument("replication_overwrite", value);
     }
 
@@ -75,54 +75,54 @@ public partial class AwsEfsFileSystem(string name) : TerraformResource("aws_efs_
     /// <summary>
     /// The availability_zone_name attribute.
     /// </summary>
-    public TerraformValue<string> AvailabilityZoneName
+    public TerraformValue<string>? AvailabilityZoneName
     {
-        get => new TerraformReference<string>(this, "availability_zone_name");
+        get => GetArgument<TerraformValue<string>>("availability_zone_name");
         set => SetArgument("availability_zone_name", value);
     }
 
     /// <summary>
     /// The creation_token attribute.
     /// </summary>
-    public TerraformValue<string> CreationToken
+    public TerraformValue<string>? CreationToken
     {
-        get => new TerraformReference<string>(this, "creation_token");
+        get => GetArgument<TerraformValue<string>>("creation_token");
         set => SetArgument("creation_token", value);
     }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    public TerraformValue<bool> Encrypted
+    public TerraformValue<bool>? Encrypted
     {
-        get => new TerraformReference<bool>(this, "encrypted");
+        get => GetArgument<TerraformValue<bool>>("encrypted");
         set => SetArgument("encrypted", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string> KmsKeyId
+    public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
     /// <summary>
     /// The performance_mode attribute.
     /// </summary>
-    public TerraformValue<string> PerformanceMode
+    public TerraformValue<string>? PerformanceMode
     {
-        get => new TerraformReference<string>(this, "performance_mode");
+        get => GetArgument<TerraformValue<string>>("performance_mode");
         set => SetArgument("performance_mode", value);
     }
 
@@ -131,16 +131,16 @@ public partial class AwsEfsFileSystem(string name) : TerraformResource("aws_efs_
     /// </summary>
     public TerraformValue<double>? ProvisionedThroughputInMibps
     {
-        get => new TerraformReference<double>(this, "provisioned_throughput_in_mibps");
+        get => GetArgument<TerraformValue<double>>("provisioned_throughput_in_mibps");
         set => SetArgument("provisioned_throughput_in_mibps", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -149,16 +149,16 @@ public partial class AwsEfsFileSystem(string name) : TerraformResource("aws_efs_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AwsEfsFileSystem(string name) : TerraformResource("aws_efs_
     /// </summary>
     public TerraformValue<string>? ThroughputMode
     {
-        get => new TerraformReference<string>(this, "throughput_mode");
+        get => GetArgument<TerraformValue<string>>("throughput_mode");
         set => SetArgument("throughput_mode", value);
     }
 
@@ -175,57 +175,43 @@ public partial class AwsEfsFileSystem(string name) : TerraformResource("aws_efs_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The availability_zone_id attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZoneId
-    {
-        get => new TerraformReference<string>(this, "availability_zone_id");
-    }
+        => AsReference("availability_zone_id");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-    {
-        get => new TerraformReference<string>(this, "dns_name");
-    }
+        => AsReference("dns_name");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The number_of_mount_targets attribute.
     /// </summary>
     public TerraformValue<double> NumberOfMountTargets
-    {
-        get => new TerraformReference<double>(this, "number_of_mount_targets");
-    }
+        => AsReference("number_of_mount_targets");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// The size_in_bytes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SizeInBytes
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "size_in_bytes").ResolveNodes(ctx));
-    }
+        => AsReference("size_in_bytes");
 
     /// <summary>
     /// LifecyclePolicy block (nesting mode: list).

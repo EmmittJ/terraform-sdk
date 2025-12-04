@@ -18,7 +18,7 @@ public class AwsKmsCustomKeyStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsKmsCustomKeyStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsKmsCustomKeyStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsKmsCustomKeyStoreXksProxyAuthenticationCredentialBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessKeyId is required")]
     public required TerraformValue<string> AccessKeyId
     {
-        get => new TerraformReference<string>(this, "access_key_id");
+        get => GetArgument<TerraformValue<string>>("access_key_id");
         set => SetArgument("access_key_id", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsKmsCustomKeyStoreXksProxyAuthenticationCredentialBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RawSecretAccessKey is required")]
     public required TerraformValue<string> RawSecretAccessKey
     {
-        get => new TerraformReference<string>(this, "raw_secret_access_key");
+        get => GetArgument<TerraformValue<string>>("raw_secret_access_key");
         set => SetArgument("raw_secret_access_key", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsKmsCustomKeyStore(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? CloudHsmClusterId
     {
-        get => new TerraformReference<string>(this, "cloud_hsm_cluster_id");
+        get => GetArgument<TerraformValue<string>>("cloud_hsm_cluster_id");
         set => SetArgument("cloud_hsm_cluster_id", value);
     }
 
@@ -98,25 +98,25 @@ public partial class AwsKmsCustomKeyStore(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomKeyStoreName is required")]
     public required TerraformValue<string> CustomKeyStoreName
     {
-        get => new TerraformReference<string>(this, "custom_key_store_name");
+        get => GetArgument<TerraformValue<string>>("custom_key_store_name");
         set => SetArgument("custom_key_store_name", value);
     }
 
     /// <summary>
     /// The custom_key_store_type attribute.
     /// </summary>
-    public TerraformValue<string> CustomKeyStoreType
+    public TerraformValue<string>? CustomKeyStoreType
     {
-        get => new TerraformReference<string>(this, "custom_key_store_type");
+        get => GetArgument<TerraformValue<string>>("custom_key_store_type");
         set => SetArgument("custom_key_store_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -125,16 +125,16 @@ public partial class AwsKmsCustomKeyStore(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? KeyStorePassword
     {
-        get => new TerraformReference<string>(this, "key_store_password");
+        get => GetArgument<TerraformValue<string>>("key_store_password");
         set => SetArgument("key_store_password", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AwsKmsCustomKeyStore(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? TrustAnchorCertificate
     {
-        get => new TerraformReference<string>(this, "trust_anchor_certificate");
+        get => GetArgument<TerraformValue<string>>("trust_anchor_certificate");
         set => SetArgument("trust_anchor_certificate", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AwsKmsCustomKeyStore(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? XksProxyConnectivity
     {
-        get => new TerraformReference<string>(this, "xks_proxy_connectivity");
+        get => GetArgument<TerraformValue<string>>("xks_proxy_connectivity");
         set => SetArgument("xks_proxy_connectivity", value);
     }
 
@@ -161,7 +161,7 @@ public partial class AwsKmsCustomKeyStore(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? XksProxyUriEndpoint
     {
-        get => new TerraformReference<string>(this, "xks_proxy_uri_endpoint");
+        get => GetArgument<TerraformValue<string>>("xks_proxy_uri_endpoint");
         set => SetArgument("xks_proxy_uri_endpoint", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AwsKmsCustomKeyStore(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? XksProxyUriPath
     {
-        get => new TerraformReference<string>(this, "xks_proxy_uri_path");
+        get => GetArgument<TerraformValue<string>>("xks_proxy_uri_path");
         set => SetArgument("xks_proxy_uri_path", value);
     }
 
@@ -179,7 +179,7 @@ public partial class AwsKmsCustomKeyStore(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? XksProxyVpcEndpointServiceName
     {
-        get => new TerraformReference<string>(this, "xks_proxy_vpc_endpoint_service_name");
+        get => GetArgument<TerraformValue<string>>("xks_proxy_vpc_endpoint_service_name");
         set => SetArgument("xks_proxy_vpc_endpoint_service_name", value);
     }
 

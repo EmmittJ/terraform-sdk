@@ -19,7 +19,7 @@ public class AwsAthenaDatabaseAclConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3AclOption is required")]
     public required TerraformValue<string> S3AclOption
     {
-        get => new TerraformReference<string>(this, "s3_acl_option");
+        get => GetArgument<TerraformValue<string>>("s3_acl_option");
         set => SetArgument("s3_acl_option", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsAthenaDatabaseEncryptionConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionOption is required")]
     public required TerraformValue<string> EncryptionOption
     {
-        get => new TerraformReference<string>(this, "encryption_option");
+        get => GetArgument<TerraformValue<string>>("encryption_option");
         set => SetArgument("encryption_option", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsAthenaDatabaseEncryptionConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsAthenaDatabase(string name) : TerraformResource("aws_ath
     /// </summary>
     public TerraformValue<string>? Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsAthenaDatabase(string name) : TerraformResource("aws_ath
     /// </summary>
     public TerraformValue<string>? Comment
     {
-        get => new TerraformReference<string>(this, "comment");
+        get => GetArgument<TerraformValue<string>>("comment");
         set => SetArgument("comment", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsAthenaDatabase(string name) : TerraformResource("aws_ath
     /// </summary>
     public TerraformValue<string>? ExpectedBucketOwner
     {
-        get => new TerraformReference<string>(this, "expected_bucket_owner");
+        get => GetArgument<TerraformValue<string>>("expected_bucket_owner");
         set => SetArgument("expected_bucket_owner", value);
     }
 
@@ -97,16 +97,16 @@ public partial class AwsAthenaDatabase(string name) : TerraformResource("aws_ath
     /// </summary>
     public TerraformValue<bool>? ForceDestroy
     {
-        get => new TerraformReference<bool>(this, "force_destroy");
+        get => GetArgument<TerraformValue<bool>>("force_destroy");
         set => SetArgument("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AwsAthenaDatabase(string name) : TerraformResource("aws_ath
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -125,16 +125,16 @@ public partial class AwsAthenaDatabase(string name) : TerraformResource("aws_ath
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AwsAthenaDatabase(string name) : TerraformResource("aws_ath
     /// </summary>
     public TerraformValue<string>? Workgroup
     {
-        get => new TerraformReference<string>(this, "workgroup");
+        get => GetArgument<TerraformValue<string>>("workgroup");
         set => SetArgument("workgroup", value);
     }
 

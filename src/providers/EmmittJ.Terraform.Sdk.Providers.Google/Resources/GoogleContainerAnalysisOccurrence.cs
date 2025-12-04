@@ -20,7 +20,7 @@ public class GoogleContainerAnalysisOccurrenceAttestationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SerializedPayload is required")]
     public required TerraformValue<string> SerializedPayload
     {
-        get => new TerraformReference<string>(this, "serialized_payload");
+        get => GetArgument<TerraformValue<string>>("serialized_payload");
         set => SetArgument("serialized_payload", value);
     }
 
@@ -65,7 +65,7 @@ public class GoogleContainerAnalysisOccurrenceAttestationBlockSignaturesBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKeyId is required")]
     public required TerraformValue<string> PublicKeyId
     {
-        get => new TerraformReference<string>(this, "public_key_id");
+        get => GetArgument<TerraformValue<string>>("public_key_id");
         set => SetArgument("public_key_id", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleContainerAnalysisOccurrenceAttestationBlockSignaturesBlock : 
     /// </summary>
     public TerraformValue<string>? Signature
     {
-        get => new TerraformReference<string>(this, "signature");
+        get => GetArgument<TerraformValue<string>>("signature");
         set => SetArgument("signature", value);
     }
 
@@ -103,7 +103,7 @@ public class GoogleContainerAnalysisOccurrenceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -112,7 +112,7 @@ public class GoogleContainerAnalysisOccurrenceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -121,7 +121,7 @@ public class GoogleContainerAnalysisOccurrenceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -137,9 +137,9 @@ public partial class GoogleContainerAnalysisOccurrence(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -151,16 +151,16 @@ public partial class GoogleContainerAnalysisOccurrence(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoteName is required")]
     public required TerraformValue<string> NoteName
     {
-        get => new TerraformReference<string>(this, "note_name");
+        get => GetArgument<TerraformValue<string>>("note_name");
         set => SetArgument("note_name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -169,7 +169,7 @@ public partial class GoogleContainerAnalysisOccurrence(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Remediation
     {
-        get => new TerraformReference<string>(this, "remediation");
+        get => GetArgument<TerraformValue<string>>("remediation");
         set => SetArgument("remediation", value);
     }
 
@@ -181,7 +181,7 @@ public partial class GoogleContainerAnalysisOccurrence(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceUri is required")]
     public required TerraformValue<string> ResourceUri
     {
-        get => new TerraformReference<string>(this, "resource_uri");
+        get => GetArgument<TerraformValue<string>>("resource_uri");
         set => SetArgument("resource_uri", value);
     }
 
@@ -189,9 +189,7 @@ public partial class GoogleContainerAnalysisOccurrence(string name) : TerraformR
     /// The time when the repository was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The note kind which explicitly denotes which of the occurrence
@@ -199,25 +197,19 @@ public partial class GoogleContainerAnalysisOccurrence(string name) : TerraformR
     /// requests.
     /// </summary>
     public TerraformValue<string> Kind
-    {
-        get => new TerraformReference<string>(this, "kind");
-    }
+        => AsReference("kind");
 
     /// <summary>
     /// The name of the occurrence.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The time when the repository was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Attestation block (nesting mode: list).

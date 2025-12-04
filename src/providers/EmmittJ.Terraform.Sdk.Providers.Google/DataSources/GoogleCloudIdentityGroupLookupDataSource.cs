@@ -21,7 +21,7 @@ public class GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public class GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -47,9 +47,9 @@ public partial class GoogleCloudIdentityGroupLookupDataSource(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -57,9 +57,7 @@ public partial class GoogleCloudIdentityGroupLookupDataSource(string name) : Ter
     /// The [resource name](https://cloud.google.com/apis/design/resource_names) of the looked-up Group.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// GroupKey block (nesting mode: list).

@@ -14,25 +14,25 @@ public partial class AwsCodebuildSourceCredential(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformValue<string> AuthType
     {
-        get => new TerraformReference<string>(this, "auth_type");
+        get => GetArgument<TerraformValue<string>>("auth_type");
         set => SetArgument("auth_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsCodebuildSourceCredential(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerType is required")]
     public required TerraformValue<string> ServerType
     {
-        get => new TerraformReference<string>(this, "server_type");
+        get => GetArgument<TerraformValue<string>>("server_type");
         set => SetArgument("server_type", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsCodebuildSourceCredential(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     public required TerraformValue<string> Token
     {
-        get => new TerraformReference<string>(this, "token");
+        get => GetArgument<TerraformValue<string>>("token");
         set => SetArgument("token", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsCodebuildSourceCredential(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? UserName
     {
-        get => new TerraformReference<string>(this, "user_name");
+        get => GetArgument<TerraformValue<string>>("user_name");
         set => SetArgument("user_name", value);
     }
 
@@ -69,8 +69,6 @@ public partial class AwsCodebuildSourceCredential(string name) : TerraformResour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

@@ -18,7 +18,7 @@ public class AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AzurermActiveDirectoryDomainServiceReplicaSet(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainServiceId is required")]
     public required TerraformValue<string> DomainServiceId
     {
-        get => new TerraformReference<string>(this, "domain_service_id");
+        get => GetArgument<TerraformValue<string>>("domain_service_id");
         set => SetArgument("domain_service_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermActiveDirectoryDomainServiceReplicaSet(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermActiveDirectoryDomainServiceReplicaSet(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -92,25 +92,19 @@ public partial class AzurermActiveDirectoryDomainServiceReplicaSet(string name) 
     /// The domain_controller_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> DomainControllerIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "domain_controller_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("domain_controller_ip_addresses");
 
     /// <summary>
     /// The external_access_ip_address attribute.
     /// </summary>
     public TerraformValue<string> ExternalAccessIpAddress
-    {
-        get => new TerraformReference<string>(this, "external_access_ip_address");
-    }
+        => AsReference("external_access_ip_address");
 
     /// <summary>
     /// The service_status attribute.
     /// </summary>
     public TerraformValue<string> ServiceStatus
-    {
-        get => new TerraformReference<string>(this, "service_status");
-    }
+        => AsReference("service_status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

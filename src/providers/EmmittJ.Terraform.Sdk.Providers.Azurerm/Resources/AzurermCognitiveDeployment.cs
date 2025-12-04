@@ -19,7 +19,7 @@ public class AzurermCognitiveDeploymentModelBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => new TerraformReference<string>(this, "format");
+        get => GetArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermCognitiveDeploymentModelBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermCognitiveDeploymentModelBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermCognitiveDeploymentSkuBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Capacity
     {
-        get => new TerraformReference<double>(this, "capacity");
+        get => GetArgument<TerraformValue<double>>("capacity");
         set => SetArgument("capacity", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermCognitiveDeploymentSkuBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Family
     {
-        get => new TerraformReference<string>(this, "family");
+        get => GetArgument<TerraformValue<string>>("family");
         set => SetArgument("family", value);
     }
 
@@ -80,7 +80,7 @@ public class AzurermCognitiveDeploymentSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -89,7 +89,7 @@ public class AzurermCognitiveDeploymentSkuBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Size
     {
-        get => new TerraformReference<string>(this, "size");
+        get => GetArgument<TerraformValue<string>>("size");
         set => SetArgument("size", value);
     }
 
@@ -98,7 +98,7 @@ public class AzurermCognitiveDeploymentSkuBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Tier
     {
-        get => new TerraformReference<string>(this, "tier");
+        get => GetArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermCognitiveDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -130,7 +130,7 @@ public class AzurermCognitiveDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -139,7 +139,7 @@ public class AzurermCognitiveDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -148,7 +148,7 @@ public class AzurermCognitiveDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AzurermCognitiveDeployment(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveAccountId is required")]
     public required TerraformValue<string> CognitiveAccountId
     {
-        get => new TerraformReference<string>(this, "cognitive_account_id");
+        get => GetArgument<TerraformValue<string>>("cognitive_account_id");
         set => SetArgument("cognitive_account_id", value);
     }
 
@@ -176,16 +176,16 @@ public partial class AzurermCognitiveDeployment(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? DynamicThrottlingEnabled
     {
-        get => new TerraformReference<bool>(this, "dynamic_throttling_enabled");
+        get => GetArgument<TerraformValue<bool>>("dynamic_throttling_enabled");
         set => SetArgument("dynamic_throttling_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -195,7 +195,7 @@ public partial class AzurermCognitiveDeployment(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -204,7 +204,7 @@ public partial class AzurermCognitiveDeployment(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? RaiPolicyName
     {
-        get => new TerraformReference<string>(this, "rai_policy_name");
+        get => GetArgument<TerraformValue<string>>("rai_policy_name");
         set => SetArgument("rai_policy_name", value);
     }
 
@@ -213,7 +213,7 @@ public partial class AzurermCognitiveDeployment(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? VersionUpgradeOption
     {
-        get => new TerraformReference<string>(this, "version_upgrade_option");
+        get => GetArgument<TerraformValue<string>>("version_upgrade_option");
         set => SetArgument("version_upgrade_option", value);
     }
 

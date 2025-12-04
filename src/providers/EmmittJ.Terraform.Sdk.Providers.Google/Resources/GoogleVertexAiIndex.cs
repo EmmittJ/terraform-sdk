@@ -19,7 +19,7 @@ public class GoogleVertexAiIndexEncryptionSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -47,7 +47,7 @@ public class GoogleVertexAiIndexMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ContentsDeltaUri
     {
-        get => new TerraformReference<string>(this, "contents_delta_uri");
+        get => GetArgument<TerraformValue<string>>("contents_delta_uri");
         set => SetArgument("contents_delta_uri", value);
     }
 
@@ -57,7 +57,7 @@ public class GoogleVertexAiIndexMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IsCompleteOverwrite
     {
-        get => new TerraformReference<bool>(this, "is_complete_overwrite");
+        get => GetArgument<TerraformValue<bool>>("is_complete_overwrite");
         set => SetArgument("is_complete_overwrite", value);
     }
 
@@ -95,7 +95,7 @@ public class GoogleVertexAiIndexMetadataBlockConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ApproximateNeighborsCount
     {
-        get => new TerraformReference<double>(this, "approximate_neighbors_count");
+        get => GetArgument<TerraformValue<double>>("approximate_neighbors_count");
         set => SetArgument("approximate_neighbors_count", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleVertexAiIndexMetadataBlockConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dimensions is required")]
     public required TerraformValue<double> Dimensions
     {
-        get => new TerraformReference<double>(this, "dimensions");
+        get => GetArgument<TerraformValue<double>>("dimensions");
         set => SetArgument("dimensions", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleVertexAiIndexMetadataBlockConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DistanceMeasureType
     {
-        get => new TerraformReference<string>(this, "distance_measure_type");
+        get => GetArgument<TerraformValue<string>>("distance_measure_type");
         set => SetArgument("distance_measure_type", value);
     }
 
@@ -129,7 +129,7 @@ public class GoogleVertexAiIndexMetadataBlockConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FeatureNormType
     {
-        get => new TerraformReference<string>(this, "feature_norm_type");
+        get => GetArgument<TerraformValue<string>>("feature_norm_type");
         set => SetArgument("feature_norm_type", value);
     }
 
@@ -140,9 +140,9 @@ public class GoogleVertexAiIndexMetadataBlockConfigBlock : TerraformBlock
     /// * SHARD_SIZE_MEDIUM: Medium (20GB)
     /// * SHARD_SIZE_LARGE: Large (50GB)
     /// </summary>
-    public TerraformValue<string> ShardSize
+    public TerraformValue<string>? ShardSize
     {
-        get => new TerraformReference<string>(this, "shard_size");
+        get => GetArgument<TerraformValue<string>>("shard_size");
         set => SetArgument("shard_size", value);
     }
 
@@ -220,7 +220,7 @@ public class GoogleVertexAiIndexMetadataBlockConfigBlockAlgorithmConfigBlockTree
     /// </summary>
     public TerraformValue<double>? LeafNodeEmbeddingCount
     {
-        get => new TerraformReference<double>(this, "leaf_node_embedding_count");
+        get => GetArgument<TerraformValue<double>>("leaf_node_embedding_count");
         set => SetArgument("leaf_node_embedding_count", value);
     }
 
@@ -230,7 +230,7 @@ public class GoogleVertexAiIndexMetadataBlockConfigBlockAlgorithmConfigBlockTree
     /// </summary>
     public TerraformValue<double>? LeafNodesToSearchPercent
     {
-        get => new TerraformReference<double>(this, "leaf_nodes_to_search_percent");
+        get => GetArgument<TerraformValue<double>>("leaf_nodes_to_search_percent");
         set => SetArgument("leaf_nodes_to_search_percent", value);
     }
 
@@ -253,7 +253,7 @@ public class GoogleVertexAiIndexTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -262,7 +262,7 @@ public class GoogleVertexAiIndexTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -271,7 +271,7 @@ public class GoogleVertexAiIndexTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -289,7 +289,7 @@ public partial class GoogleVertexAiIndex(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -299,16 +299,16 @@ public partial class GoogleVertexAiIndex(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -319,7 +319,7 @@ public partial class GoogleVertexAiIndex(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? IndexUpdateMethod
     {
-        get => new TerraformReference<string>(this, "index_update_method");
+        get => GetArgument<TerraformValue<string>>("index_update_method");
         set => SetArgument("index_update_method", value);
     }
 
@@ -331,16 +331,16 @@ public partial class GoogleVertexAiIndex(string name) : TerraformResource("googl
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -349,7 +349,7 @@ public partial class GoogleVertexAiIndex(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -357,74 +357,56 @@ public partial class GoogleVertexAiIndex(string name) : TerraformResource("googl
     /// The timestamp of when the Index was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The pointers to DeployedIndexes created from this Index. An Index can be only deleted if all its DeployedIndexes had been undeployed first.
     /// </summary>
     public TerraformList<TerraformMap<object>> DeployedIndexes
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "deployed_indexes").ResolveNodes(ctx));
-    }
+        => AsReference("deployed_indexes");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Used to perform consistent read-modify-write updates.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Stats of the index resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> IndexStats
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "index_stats").ResolveNodes(ctx));
-    }
+        => AsReference("index_stats");
 
     /// <summary>
     /// Points to a YAML file stored on Google Cloud Storage describing additional information about the Index, that is specific to it. Unset if the Index does not have any additional information.
     /// </summary>
     public TerraformValue<string> MetadataSchemaUri
-    {
-        get => new TerraformReference<string>(this, "metadata_schema_uri");
-    }
+        => AsReference("metadata_schema_uri");
 
     /// <summary>
     /// The resource name of the Index.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The timestamp of when the Index was last updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// EncryptionSpec block (nesting mode: list).

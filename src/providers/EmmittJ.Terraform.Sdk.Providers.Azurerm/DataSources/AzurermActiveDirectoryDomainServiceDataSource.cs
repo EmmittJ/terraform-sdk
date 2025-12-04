@@ -18,7 +18,7 @@ public class AzurermActiveDirectoryDomainServiceDataSourceTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermActiveDirectoryDomainServiceDataSource(string name) 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermActiveDirectoryDomainServiceDataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermActiveDirectoryDomainServiceDataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzurermActiveDirectoryDomainServiceDataSource(string name) 
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -73,113 +73,85 @@ public partial class AzurermActiveDirectoryDomainServiceDataSource(string name) 
     /// The deployment_id attribute.
     /// </summary>
     public TerraformValue<string> DeploymentId
-    {
-        get => new TerraformReference<string>(this, "deployment_id");
-    }
+        => AsReference("deployment_id");
 
     /// <summary>
     /// The domain_configuration_type attribute.
     /// </summary>
     public TerraformValue<string> DomainConfigurationType
-    {
-        get => new TerraformReference<string>(this, "domain_configuration_type");
-    }
+        => AsReference("domain_configuration_type");
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     public TerraformValue<string> DomainName
-    {
-        get => new TerraformReference<string>(this, "domain_name");
-    }
+        => AsReference("domain_name");
 
     /// <summary>
     /// The filtered_sync_enabled attribute.
     /// </summary>
     public TerraformValue<bool> FilteredSyncEnabled
-    {
-        get => new TerraformReference<bool>(this, "filtered_sync_enabled");
-    }
+        => AsReference("filtered_sync_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The notifications attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Notifications
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "notifications").ResolveNodes(ctx));
-    }
+        => AsReference("notifications");
 
     /// <summary>
     /// The replica_sets attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReplicaSets
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "replica_sets").ResolveNodes(ctx));
-    }
+        => AsReference("replica_sets");
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceId
-    {
-        get => new TerraformReference<string>(this, "resource_id");
-    }
+        => AsReference("resource_id");
 
     /// <summary>
     /// The secure_ldap attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SecureLdap
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "secure_ldap").ResolveNodes(ctx));
-    }
+        => AsReference("secure_ldap");
 
     /// <summary>
     /// The security attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Security
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "security").ResolveNodes(ctx));
-    }
+        => AsReference("security");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformValue<string> Sku
-    {
-        get => new TerraformReference<string>(this, "sku");
-    }
+        => AsReference("sku");
 
     /// <summary>
     /// The sync_owner attribute.
     /// </summary>
     public TerraformValue<string> SyncOwner
-    {
-        get => new TerraformReference<string>(this, "sync_owner");
-    }
+        => AsReference("sync_owner");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<double> Version
-    {
-        get => new TerraformReference<double>(this, "version");
-    }
+        => AsReference("version");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Failover
     {
-        get => new TerraformReference<string>(this, "failover");
+        get => GetArgument<TerraformValue<string>>("failover");
         set => SetArgument("failover", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? HealthCheckId
     {
-        get => new TerraformReference<string>(this, "health_check_id");
+        get => GetArgument<TerraformValue<string>>("health_check_id");
         set => SetArgument("health_check_id", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? MultiValueAnswer
     {
-        get => new TerraformReference<bool>(this, "multi_value_answer");
+        get => GetArgument<TerraformValue<bool>>("multi_value_answer");
         set => SetArgument("multi_value_answer", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -55,7 +55,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -64,7 +64,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SetIdentifier
     {
-        get => new TerraformReference<string>(this, "set_identifier");
+        get => GetArgument<TerraformValue<string>>("set_identifier");
         set => SetArgument("set_identifier", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TrafficPolicyInstanceId
     {
-        get => new TerraformReference<string>(this, "traffic_policy_instance_id");
+        get => GetArgument<TerraformValue<string>>("traffic_policy_instance_id");
         set => SetArgument("traffic_policy_instance_id", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Ttl
     {
-        get => new TerraformReference<double>(this, "ttl");
+        get => GetArgument<TerraformValue<double>>("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Weight
     {
-        get => new TerraformReference<double>(this, "weight");
+        get => GetArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -168,7 +168,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlockAliasTargetBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsName is required")]
     public required TerraformValue<string> DnsName
     {
-        get => new TerraformReference<string>(this, "dns_name");
+        get => GetArgument<TerraformValue<string>>("dns_name");
         set => SetArgument("dns_name", value);
     }
 
@@ -178,7 +178,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlockAliasTargetBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluateTargetHealth is required")]
     public required TerraformValue<bool> EvaluateTargetHealth
     {
-        get => new TerraformReference<bool>(this, "evaluate_target_health");
+        get => GetArgument<TerraformValue<bool>>("evaluate_target_health");
         set => SetArgument("evaluate_target_health", value);
     }
 
@@ -188,7 +188,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlockAliasTargetBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostedZoneId is required")]
     public required TerraformValue<string> HostedZoneId
     {
-        get => new TerraformReference<string>(this, "hosted_zone_id");
+        get => GetArgument<TerraformValue<string>>("hosted_zone_id");
         set => SetArgument("hosted_zone_id", value);
     }
 
@@ -211,7 +211,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlockCidrRoutingConfigBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformValue<string> CollectionId
     {
-        get => new TerraformReference<string>(this, "collection_id");
+        get => GetArgument<TerraformValue<string>>("collection_id");
         set => SetArgument("collection_id", value);
     }
 
@@ -221,7 +221,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlockCidrRoutingConfigBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationName is required")]
     public required TerraformValue<string> LocationName
     {
-        get => new TerraformReference<string>(this, "location_name");
+        get => GetArgument<TerraformValue<string>>("location_name");
         set => SetArgument("location_name", value);
     }
 
@@ -243,7 +243,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlockGeolocationBlock : 
     /// </summary>
     public TerraformValue<string>? ContinentCode
     {
-        get => new TerraformReference<string>(this, "continent_code");
+        get => GetArgument<TerraformValue<string>>("continent_code");
         set => SetArgument("continent_code", value);
     }
 
@@ -252,7 +252,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlockGeolocationBlock : 
     /// </summary>
     public TerraformValue<string>? CountryCode
     {
-        get => new TerraformReference<string>(this, "country_code");
+        get => GetArgument<TerraformValue<string>>("country_code");
         set => SetArgument("country_code", value);
     }
 
@@ -261,7 +261,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlockGeolocationBlock : 
     /// </summary>
     public TerraformValue<string>? SubdivisionCode
     {
-        get => new TerraformReference<string>(this, "subdivision_code");
+        get => GetArgument<TerraformValue<string>>("subdivision_code");
         set => SetArgument("subdivision_code", value);
     }
 
@@ -283,7 +283,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlockGeoproximityLocatio
     /// </summary>
     public TerraformValue<string>? AwsRegion
     {
-        get => new TerraformReference<string>(this, "aws_region");
+        get => GetArgument<TerraformValue<string>>("aws_region");
         set => SetArgument("aws_region", value);
     }
 
@@ -292,7 +292,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlockGeoproximityLocatio
     /// </summary>
     public TerraformValue<double>? Bias
     {
-        get => new TerraformReference<double>(this, "bias");
+        get => GetArgument<TerraformValue<double>>("bias");
         set => SetArgument("bias", value);
     }
 
@@ -301,7 +301,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlockGeoproximityLocatio
     /// </summary>
     public TerraformValue<string>? LocalZoneGroup
     {
-        get => new TerraformReference<string>(this, "local_zone_group");
+        get => GetArgument<TerraformValue<string>>("local_zone_group");
         set => SetArgument("local_zone_group", value);
     }
 
@@ -333,7 +333,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlockGeoproximityLocatio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Latitude is required")]
     public required TerraformValue<string> Latitude
     {
-        get => new TerraformReference<string>(this, "latitude");
+        get => GetArgument<TerraformValue<string>>("latitude");
         set => SetArgument("latitude", value);
     }
 
@@ -343,7 +343,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlockGeoproximityLocatio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Longitude is required")]
     public required TerraformValue<string> Longitude
     {
-        get => new TerraformReference<string>(this, "longitude");
+        get => GetArgument<TerraformValue<string>>("longitude");
         set => SetArgument("longitude", value);
     }
 
@@ -366,7 +366,7 @@ public class AwsRoute53RecordsExclusiveResourceRecordSetBlockResourceRecordsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -389,7 +389,7 @@ public class AwsRoute53RecordsExclusiveTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -398,7 +398,7 @@ public class AwsRoute53RecordsExclusiveTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -417,7 +417,7 @@ public partial class AwsRoute53RecordsExclusive(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     public required TerraformValue<string> ZoneId
     {
-        get => new TerraformReference<string>(this, "zone_id");
+        get => GetArgument<TerraformValue<string>>("zone_id");
         set => SetArgument("zone_id", value);
     }
 

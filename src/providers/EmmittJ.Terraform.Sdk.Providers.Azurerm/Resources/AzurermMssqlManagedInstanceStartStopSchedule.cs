@@ -19,7 +19,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDay is required")]
     public required TerraformValue<string> StartDay
     {
-        get => new TerraformReference<string>(this, "start_day");
+        get => GetArgument<TerraformValue<string>>("start_day");
         set => SetArgument("start_day", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformValue<string> StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StopDay is required")]
     public required TerraformValue<string> StopDay
     {
-        get => new TerraformReference<string>(this, "stop_day");
+        get => GetArgument<TerraformValue<string>>("stop_day");
         set => SetArgument("stop_day", value);
     }
 
@@ -49,7 +49,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StopTime is required")]
     public required TerraformValue<string> StopTime
     {
-        get => new TerraformReference<string>(this, "stop_time");
+        get => GetArgument<TerraformValue<string>>("stop_time");
         set => SetArgument("stop_time", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -81,7 +81,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -90,7 +90,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -99,7 +99,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -117,16 +117,16 @@ public partial class AzurermMssqlManagedInstanceStartStopSchedule(string name) :
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AzurermMssqlManagedInstanceStartStopSchedule(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     public required TerraformValue<string> ManagedInstanceId
     {
-        get => new TerraformReference<string>(this, "managed_instance_id");
+        get => GetArgument<TerraformValue<string>>("managed_instance_id");
         set => SetArgument("managed_instance_id", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermMssqlManagedInstanceStartStopSchedule(string name) :
     /// </summary>
     public TerraformValue<string>? TimezoneId
     {
-        get => new TerraformReference<string>(this, "timezone_id");
+        get => GetArgument<TerraformValue<string>>("timezone_id");
         set => SetArgument("timezone_id", value);
     }
 
@@ -153,17 +153,13 @@ public partial class AzurermMssqlManagedInstanceStartStopSchedule(string name) :
     /// The next_execution_time attribute.
     /// </summary>
     public TerraformValue<string> NextExecutionTime
-    {
-        get => new TerraformReference<string>(this, "next_execution_time");
-    }
+        => AsReference("next_execution_time");
 
     /// <summary>
     /// The next_run_action attribute.
     /// </summary>
     public TerraformValue<string> NextRunAction
-    {
-        get => new TerraformReference<string>(this, "next_run_action");
-    }
+        => AsReference("next_run_action");
 
     /// <summary>
     /// Schedule block (nesting mode: list).

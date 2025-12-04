@@ -19,7 +19,7 @@ public class AzurermSharedImageGallerySharingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
     public required TerraformValue<string> Permission
     {
-        get => new TerraformReference<string>(this, "permission");
+        get => GetArgument<TerraformValue<string>>("permission");
         set => SetArgument("permission", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermSharedImageGallerySharingBlockCommunityGalleryBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Eula is required")]
     public required TerraformValue<string> Eula
     {
-        get => new TerraformReference<string>(this, "eula");
+        get => GetArgument<TerraformValue<string>>("eula");
         set => SetArgument("eula", value);
     }
 
@@ -60,9 +60,7 @@ public class AzurermSharedImageGallerySharingBlockCommunityGalleryBlock : Terraf
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The prefix attribute.
@@ -70,7 +68,7 @@ public class AzurermSharedImageGallerySharingBlockCommunityGalleryBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
     public required TerraformValue<string> Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -80,7 +78,7 @@ public class AzurermSharedImageGallerySharingBlockCommunityGalleryBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublisherEmail is required")]
     public required TerraformValue<string> PublisherEmail
     {
-        get => new TerraformReference<string>(this, "publisher_email");
+        get => GetArgument<TerraformValue<string>>("publisher_email");
         set => SetArgument("publisher_email", value);
     }
 
@@ -90,7 +88,7 @@ public class AzurermSharedImageGallerySharingBlockCommunityGalleryBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublisherUri is required")]
     public required TerraformValue<string> PublisherUri
     {
-        get => new TerraformReference<string>(this, "publisher_uri");
+        get => GetArgument<TerraformValue<string>>("publisher_uri");
         set => SetArgument("publisher_uri", value);
     }
 
@@ -113,7 +111,7 @@ public class AzurermSharedImageGalleryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -122,7 +120,7 @@ public class AzurermSharedImageGalleryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -131,7 +129,7 @@ public class AzurermSharedImageGalleryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -140,7 +138,7 @@ public class AzurermSharedImageGalleryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -158,16 +156,16 @@ public partial class AzurermSharedImageGallery(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -177,7 +175,7 @@ public partial class AzurermSharedImageGallery(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -187,7 +185,7 @@ public partial class AzurermSharedImageGallery(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -197,7 +195,7 @@ public partial class AzurermSharedImageGallery(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -206,7 +204,7 @@ public partial class AzurermSharedImageGallery(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -214,9 +212,7 @@ public partial class AzurermSharedImageGallery(string name) : TerraformResource(
     /// The unique_name attribute.
     /// </summary>
     public TerraformValue<string> UniqueName
-    {
-        get => new TerraformReference<string>(this, "unique_name");
-    }
+        => AsReference("unique_name");
 
     /// <summary>
     /// Sharing block (nesting mode: list).

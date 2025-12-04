@@ -13,25 +13,25 @@ public partial class AwsApiGatewayDeployment(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsApiGatewayDeployment(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformValue<string> RestApiId
     {
-        get => new TerraformReference<string>(this, "rest_api_id");
+        get => GetArgument<TerraformValue<string>>("rest_api_id");
         set => SetArgument("rest_api_id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsApiGatewayDeployment(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Triggers
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "triggers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("triggers");
         set => SetArgument("triggers", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsApiGatewayDeployment(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Variables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("variables");
         set => SetArgument("variables", value);
     }
 
@@ -67,8 +67,6 @@ public partial class AwsApiGatewayDeployment(string name) : TerraformResource("a
     /// The created_date attribute.
     /// </summary>
     public TerraformValue<string> CreatedDate
-    {
-        get => new TerraformReference<string>(this, "created_date");
-    }
+        => AsReference("created_date");
 
 }

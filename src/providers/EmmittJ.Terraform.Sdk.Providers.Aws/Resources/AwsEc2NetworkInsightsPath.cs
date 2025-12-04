@@ -18,7 +18,7 @@ public class AwsEc2NetworkInsightsPathFilterAtDestinationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DestinationAddress
     {
-        get => new TerraformReference<string>(this, "destination_address");
+        get => GetArgument<TerraformValue<string>>("destination_address");
         set => SetArgument("destination_address", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsEc2NetworkInsightsPathFilterAtDestinationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SourceAddress
     {
-        get => new TerraformReference<string>(this, "source_address");
+        get => GetArgument<TerraformValue<string>>("source_address");
         set => SetArgument("source_address", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsEc2NetworkInsightsPathFilterAtDestinationBlockDestinationPortRan
     /// </summary>
     public TerraformValue<double>? FromPort
     {
-        get => new TerraformReference<double>(this, "from_port");
+        get => GetArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsEc2NetworkInsightsPathFilterAtDestinationBlockDestinationPortRan
     /// </summary>
     public TerraformValue<double>? ToPort
     {
-        get => new TerraformReference<double>(this, "to_port");
+        get => GetArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsEc2NetworkInsightsPathFilterAtDestinationBlockSourcePortRangeBlo
     /// </summary>
     public TerraformValue<double>? FromPort
     {
-        get => new TerraformReference<double>(this, "from_port");
+        get => GetArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsEc2NetworkInsightsPathFilterAtDestinationBlockSourcePortRangeBlo
     /// </summary>
     public TerraformValue<double>? ToPort
     {
-        get => new TerraformReference<double>(this, "to_port");
+        get => GetArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -132,7 +132,7 @@ public class AwsEc2NetworkInsightsPathFilterAtSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DestinationAddress
     {
-        get => new TerraformReference<string>(this, "destination_address");
+        get => GetArgument<TerraformValue<string>>("destination_address");
         set => SetArgument("destination_address", value);
     }
 
@@ -141,7 +141,7 @@ public class AwsEc2NetworkInsightsPathFilterAtSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SourceAddress
     {
-        get => new TerraformReference<string>(this, "source_address");
+        get => GetArgument<TerraformValue<string>>("source_address");
         set => SetArgument("source_address", value);
     }
 
@@ -183,7 +183,7 @@ public class AwsEc2NetworkInsightsPathFilterAtSourceBlockDestinationPortRangeBlo
     /// </summary>
     public TerraformValue<double>? FromPort
     {
-        get => new TerraformReference<double>(this, "from_port");
+        get => GetArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -192,7 +192,7 @@ public class AwsEc2NetworkInsightsPathFilterAtSourceBlockDestinationPortRangeBlo
     /// </summary>
     public TerraformValue<double>? ToPort
     {
-        get => new TerraformReference<double>(this, "to_port");
+        get => GetArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -214,7 +214,7 @@ public class AwsEc2NetworkInsightsPathFilterAtSourceBlockSourcePortRangeBlock : 
     /// </summary>
     public TerraformValue<double>? FromPort
     {
-        get => new TerraformReference<double>(this, "from_port");
+        get => GetArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -223,7 +223,7 @@ public class AwsEc2NetworkInsightsPathFilterAtSourceBlockSourcePortRangeBlock : 
     /// </summary>
     public TerraformValue<double>? ToPort
     {
-        get => new TerraformReference<double>(this, "to_port");
+        get => GetArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -241,7 +241,7 @@ public partial class AwsEc2NetworkInsightsPath(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Destination
     {
-        get => new TerraformReference<string>(this, "destination");
+        get => GetArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
@@ -250,7 +250,7 @@ public partial class AwsEc2NetworkInsightsPath(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? DestinationIp
     {
-        get => new TerraformReference<string>(this, "destination_ip");
+        get => GetArgument<TerraformValue<string>>("destination_ip");
         set => SetArgument("destination_ip", value);
     }
 
@@ -259,16 +259,16 @@ public partial class AwsEc2NetworkInsightsPath(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<double>? DestinationPort
     {
-        get => new TerraformReference<double>(this, "destination_port");
+        get => GetArgument<TerraformValue<double>>("destination_port");
         set => SetArgument("destination_port", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -278,16 +278,16 @@ public partial class AwsEc2NetworkInsightsPath(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -297,7 +297,7 @@ public partial class AwsEc2NetworkInsightsPath(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -306,7 +306,7 @@ public partial class AwsEc2NetworkInsightsPath(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? SourceIp
     {
-        get => new TerraformReference<string>(this, "source_ip");
+        get => GetArgument<TerraformValue<string>>("source_ip");
         set => SetArgument("source_ip", value);
     }
 
@@ -315,16 +315,16 @@ public partial class AwsEc2NetworkInsightsPath(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -332,25 +332,19 @@ public partial class AwsEc2NetworkInsightsPath(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The destination_arn attribute.
     /// </summary>
     public TerraformValue<string> DestinationArn
-    {
-        get => new TerraformReference<string>(this, "destination_arn");
-    }
+        => AsReference("destination_arn");
 
     /// <summary>
     /// The source_arn attribute.
     /// </summary>
     public TerraformValue<string> SourceArn
-    {
-        get => new TerraformReference<string>(this, "source_arn");
-    }
+        => AsReference("source_arn");
 
     /// <summary>
     /// FilterAtDestination block (nesting mode: list).

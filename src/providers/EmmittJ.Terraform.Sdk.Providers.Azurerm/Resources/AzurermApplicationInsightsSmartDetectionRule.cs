@@ -18,7 +18,7 @@ public class AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermApplicationInsightsSmartDetectionRule(string name) :
     /// </summary>
     public TerraformSet<string>? AdditionalEmailRecipients
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "additional_email_recipients").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("additional_email_recipients");
         set => SetArgument("additional_email_recipients", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermApplicationInsightsSmartDetectionRule(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationInsightsId is required")]
     public required TerraformValue<string> ApplicationInsightsId
     {
-        get => new TerraformReference<string>(this, "application_insights_id");
+        get => GetArgument<TerraformValue<string>>("application_insights_id");
         set => SetArgument("application_insights_id", value);
     }
 
@@ -82,16 +82,16 @@ public partial class AzurermApplicationInsightsSmartDetectionRule(string name) :
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermApplicationInsightsSmartDetectionRule(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermApplicationInsightsSmartDetectionRule(string name) :
     /// </summary>
     public TerraformValue<bool>? SendEmailsToSubscriptionOwners
     {
-        get => new TerraformReference<bool>(this, "send_emails_to_subscription_owners");
+        get => GetArgument<TerraformValue<bool>>("send_emails_to_subscription_owners");
         set => SetArgument("send_emails_to_subscription_owners", value);
     }
 

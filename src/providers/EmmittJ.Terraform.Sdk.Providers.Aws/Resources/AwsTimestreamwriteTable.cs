@@ -18,7 +18,7 @@ public class AwsTimestreamwriteTableMagneticStoreWritePropertiesBlock : Terrafor
     /// </summary>
     public TerraformValue<bool>? EnableMagneticStoreWrites
     {
-        get => new TerraformReference<bool>(this, "enable_magnetic_store_writes");
+        get => GetArgument<TerraformValue<bool>>("enable_magnetic_store_writes");
         set => SetArgument("enable_magnetic_store_writes", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsTimestreamwriteTableMagneticStoreWritePropertiesBlockMagneticSto
     /// </summary>
     public TerraformValue<string>? BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsTimestreamwriteTableMagneticStoreWritePropertiesBlockMagneticSto
     /// </summary>
     public TerraformValue<string>? EncryptionOption
     {
-        get => new TerraformReference<string>(this, "encryption_option");
+        get => GetArgument<TerraformValue<string>>("encryption_option");
         set => SetArgument("encryption_option", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsTimestreamwriteTableMagneticStoreWritePropertiesBlockMagneticSto
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsTimestreamwriteTableMagneticStoreWritePropertiesBlockMagneticSto
     /// </summary>
     public TerraformValue<string>? ObjectKeyPrefix
     {
-        get => new TerraformReference<string>(this, "object_key_prefix");
+        get => GetArgument<TerraformValue<string>>("object_key_prefix");
         set => SetArgument("object_key_prefix", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsTimestreamwriteTableRetentionPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MagneticStoreRetentionPeriodInDays is required")]
     public required TerraformValue<double> MagneticStoreRetentionPeriodInDays
     {
-        get => new TerraformReference<double>(this, "magnetic_store_retention_period_in_days");
+        get => GetArgument<TerraformValue<double>>("magnetic_store_retention_period_in_days");
         set => SetArgument("magnetic_store_retention_period_in_days", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsTimestreamwriteTableRetentionPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryStoreRetentionPeriodInHours is required")]
     public required TerraformValue<double> MemoryStoreRetentionPeriodInHours
     {
-        get => new TerraformReference<double>(this, "memory_store_retention_period_in_hours");
+        get => GetArgument<TerraformValue<double>>("memory_store_retention_period_in_hours");
         set => SetArgument("memory_store_retention_period_in_hours", value);
     }
 
@@ -180,7 +180,7 @@ public class AwsTimestreamwriteTableSchemaBlockCompositePartitionKeyBlock : Terr
     /// </summary>
     public TerraformValue<string>? EnforcementInRecord
     {
-        get => new TerraformReference<string>(this, "enforcement_in_record");
+        get => GetArgument<TerraformValue<string>>("enforcement_in_record");
         set => SetArgument("enforcement_in_record", value);
     }
 
@@ -189,7 +189,7 @@ public class AwsTimestreamwriteTableSchemaBlockCompositePartitionKeyBlock : Terr
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -199,7 +199,7 @@ public class AwsTimestreamwriteTableSchemaBlockCompositePartitionKeyBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -218,25 +218,25 @@ public partial class AwsTimestreamwriteTable(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -246,7 +246,7 @@ public partial class AwsTimestreamwriteTable(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -255,16 +255,16 @@ public partial class AwsTimestreamwriteTable(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -272,9 +272,7 @@ public partial class AwsTimestreamwriteTable(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// MagneticStoreWriteProperties block (nesting mode: list).

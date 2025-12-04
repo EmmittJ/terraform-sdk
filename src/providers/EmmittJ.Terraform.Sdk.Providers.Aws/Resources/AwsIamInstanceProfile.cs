@@ -11,27 +11,27 @@ public partial class AwsIamInstanceProfile(string name) : TerraformResource("aws
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsIamInstanceProfile(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsIamInstanceProfile(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? Role
     {
-        get => new TerraformReference<string>(this, "role");
+        get => GetArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 
@@ -58,16 +58,16 @@ public partial class AwsIamInstanceProfile(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -75,24 +75,18 @@ public partial class AwsIamInstanceProfile(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The create_date attribute.
     /// </summary>
     public TerraformValue<string> CreateDate
-    {
-        get => new TerraformReference<string>(this, "create_date");
-    }
+        => AsReference("create_date");
 
     /// <summary>
     /// The unique_id attribute.
     /// </summary>
     public TerraformValue<string> UniqueId
-    {
-        get => new TerraformReference<string>(this, "unique_id");
-    }
+        => AsReference("unique_id");
 
 }

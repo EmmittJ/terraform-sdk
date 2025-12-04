@@ -19,7 +19,7 @@ public class AzurermMssqlDatabaseIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
     public required TerraformSet<string> IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermMssqlDatabaseIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermMssqlDatabaseImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdministratorLogin is required")]
     public required TerraformValue<string> AdministratorLogin
     {
-        get => new TerraformReference<string>(this, "administrator_login");
+        get => GetArgument<TerraformValue<string>>("administrator_login");
         set => SetArgument("administrator_login", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermMssqlDatabaseImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdministratorLoginPassword is required")]
     public required TerraformValue<string> AdministratorLoginPassword
     {
-        get => new TerraformReference<string>(this, "administrator_login_password");
+        get => GetArgument<TerraformValue<string>>("administrator_login_password");
         set => SetArgument("administrator_login_password", value);
     }
 
@@ -73,7 +73,7 @@ public class AzurermMssqlDatabaseImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     public required TerraformValue<string> AuthenticationType
     {
-        get => new TerraformReference<string>(this, "authentication_type");
+        get => GetArgument<TerraformValue<string>>("authentication_type");
         set => SetArgument("authentication_type", value);
     }
 
@@ -82,7 +82,7 @@ public class AzurermMssqlDatabaseImportBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StorageAccountId
     {
-        get => new TerraformReference<string>(this, "storage_account_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
@@ -92,7 +92,7 @@ public class AzurermMssqlDatabaseImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageKey is required")]
     public required TerraformValue<string> StorageKey
     {
-        get => new TerraformReference<string>(this, "storage_key");
+        get => GetArgument<TerraformValue<string>>("storage_key");
         set => SetArgument("storage_key", value);
     }
 
@@ -102,7 +102,7 @@ public class AzurermMssqlDatabaseImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageKeyType is required")]
     public required TerraformValue<string> StorageKeyType
     {
-        get => new TerraformReference<string>(this, "storage_key_type");
+        get => GetArgument<TerraformValue<string>>("storage_key_type");
         set => SetArgument("storage_key_type", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermMssqlDatabaseImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageUri is required")]
     public required TerraformValue<string> StorageUri
     {
-        get => new TerraformReference<string>(this, "storage_uri");
+        get => GetArgument<TerraformValue<string>>("storage_uri");
         set => SetArgument("storage_uri", value);
     }
 
@@ -135,43 +135,43 @@ public class AzurermMssqlDatabaseLongTermRetentionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ImmutableBackupsEnabled
     {
-        get => new TerraformReference<bool>(this, "immutable_backups_enabled");
+        get => GetArgument<TerraformValue<bool>>("immutable_backups_enabled");
         set => SetArgument("immutable_backups_enabled", value);
     }
 
     /// <summary>
     /// The monthly_retention attribute.
     /// </summary>
-    public TerraformValue<string> MonthlyRetention
+    public TerraformValue<string>? MonthlyRetention
     {
-        get => new TerraformReference<string>(this, "monthly_retention");
+        get => GetArgument<TerraformValue<string>>("monthly_retention");
         set => SetArgument("monthly_retention", value);
     }
 
     /// <summary>
     /// The week_of_year attribute.
     /// </summary>
-    public TerraformValue<double> WeekOfYear
+    public TerraformValue<double>? WeekOfYear
     {
-        get => new TerraformReference<double>(this, "week_of_year");
+        get => GetArgument<TerraformValue<double>>("week_of_year");
         set => SetArgument("week_of_year", value);
     }
 
     /// <summary>
     /// The weekly_retention attribute.
     /// </summary>
-    public TerraformValue<string> WeeklyRetention
+    public TerraformValue<string>? WeeklyRetention
     {
-        get => new TerraformReference<string>(this, "weekly_retention");
+        get => GetArgument<TerraformValue<string>>("weekly_retention");
         set => SetArgument("weekly_retention", value);
     }
 
     /// <summary>
     /// The yearly_retention attribute.
     /// </summary>
-    public TerraformValue<string> YearlyRetention
+    public TerraformValue<string>? YearlyRetention
     {
-        get => new TerraformReference<string>(this, "yearly_retention");
+        get => GetArgument<TerraformValue<string>>("yearly_retention");
         set => SetArgument("yearly_retention", value);
     }
 
@@ -192,9 +192,9 @@ public class AzurermMssqlDatabaseShortTermRetentionPolicyBlock : TerraformBlock
     /// <summary>
     /// The backup_interval_in_hours attribute.
     /// </summary>
-    public TerraformValue<double> BackupIntervalInHours
+    public TerraformValue<double>? BackupIntervalInHours
     {
-        get => new TerraformReference<double>(this, "backup_interval_in_hours");
+        get => GetArgument<TerraformValue<double>>("backup_interval_in_hours");
         set => SetArgument("backup_interval_in_hours", value);
     }
 
@@ -204,7 +204,7 @@ public class AzurermMssqlDatabaseShortTermRetentionPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionDays is required")]
     public required TerraformValue<double> RetentionDays
     {
-        get => new TerraformReference<double>(this, "retention_days");
+        get => GetArgument<TerraformValue<double>>("retention_days");
         set => SetArgument("retention_days", value);
     }
 
@@ -227,7 +227,7 @@ public class AzurermMssqlDatabaseThreatDetectionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? DisabledAlerts
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "disabled_alerts").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("disabled_alerts");
         set => SetArgument("disabled_alerts", value);
     }
 
@@ -236,7 +236,7 @@ public class AzurermMssqlDatabaseThreatDetectionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EmailAccountAdmins
     {
-        get => new TerraformReference<string>(this, "email_account_admins");
+        get => GetArgument<TerraformValue<string>>("email_account_admins");
         set => SetArgument("email_account_admins", value);
     }
 
@@ -245,7 +245,7 @@ public class AzurermMssqlDatabaseThreatDetectionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? EmailAddresses
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "email_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("email_addresses");
         set => SetArgument("email_addresses", value);
     }
 
@@ -254,7 +254,7 @@ public class AzurermMssqlDatabaseThreatDetectionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? RetentionDays
     {
-        get => new TerraformReference<double>(this, "retention_days");
+        get => GetArgument<TerraformValue<double>>("retention_days");
         set => SetArgument("retention_days", value);
     }
 
@@ -263,7 +263,7 @@ public class AzurermMssqlDatabaseThreatDetectionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -272,7 +272,7 @@ public class AzurermMssqlDatabaseThreatDetectionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StorageAccountAccessKey
     {
-        get => new TerraformReference<string>(this, "storage_account_access_key");
+        get => GetArgument<TerraformValue<string>>("storage_account_access_key");
         set => SetArgument("storage_account_access_key", value);
     }
 
@@ -281,7 +281,7 @@ public class AzurermMssqlDatabaseThreatDetectionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StorageEndpoint
     {
-        get => new TerraformReference<string>(this, "storage_endpoint");
+        get => GetArgument<TerraformValue<string>>("storage_endpoint");
         set => SetArgument("storage_endpoint", value);
     }
 
@@ -304,7 +304,7 @@ public class AzurermMssqlDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -313,7 +313,7 @@ public class AzurermMssqlDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -322,7 +322,7 @@ public class AzurermMssqlDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -331,7 +331,7 @@ public class AzurermMssqlDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -347,18 +347,18 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// <summary>
     /// The auto_pause_delay_in_minutes attribute.
     /// </summary>
-    public TerraformValue<double> AutoPauseDelayInMinutes
+    public TerraformValue<double>? AutoPauseDelayInMinutes
     {
-        get => new TerraformReference<double>(this, "auto_pause_delay_in_minutes");
+        get => GetArgument<TerraformValue<double>>("auto_pause_delay_in_minutes");
         set => SetArgument("auto_pause_delay_in_minutes", value);
     }
 
     /// <summary>
     /// The collation attribute.
     /// </summary>
-    public TerraformValue<string> Collation
+    public TerraformValue<string>? Collation
     {
-        get => new TerraformReference<string>(this, "collation");
+        get => GetArgument<TerraformValue<string>>("collation");
         set => SetArgument("collation", value);
     }
 
@@ -367,16 +367,16 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string>? CreateMode
     {
-        get => new TerraformReference<string>(this, "create_mode");
+        get => GetArgument<TerraformValue<string>>("create_mode");
         set => SetArgument("create_mode", value);
     }
 
     /// <summary>
     /// The creation_source_database_id attribute.
     /// </summary>
-    public TerraformValue<string> CreationSourceDatabaseId
+    public TerraformValue<string>? CreationSourceDatabaseId
     {
-        get => new TerraformReference<string>(this, "creation_source_database_id");
+        get => GetArgument<TerraformValue<string>>("creation_source_database_id");
         set => SetArgument("creation_source_database_id", value);
     }
 
@@ -385,16 +385,16 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string>? ElasticPoolId
     {
-        get => new TerraformReference<string>(this, "elastic_pool_id");
+        get => GetArgument<TerraformValue<string>>("elastic_pool_id");
         set => SetArgument("elastic_pool_id", value);
     }
 
     /// <summary>
     /// The enclave_type attribute.
     /// </summary>
-    public TerraformValue<string> EnclaveType
+    public TerraformValue<string>? EnclaveType
     {
-        get => new TerraformReference<string>(this, "enclave_type");
+        get => GetArgument<TerraformValue<string>>("enclave_type");
         set => SetArgument("enclave_type", value);
     }
 
@@ -403,61 +403,61 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<bool>? GeoBackupEnabled
     {
-        get => new TerraformReference<bool>(this, "geo_backup_enabled");
+        get => GetArgument<TerraformValue<bool>>("geo_backup_enabled");
         set => SetArgument("geo_backup_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The ledger_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> LedgerEnabled
+    public TerraformValue<bool>? LedgerEnabled
     {
-        get => new TerraformReference<bool>(this, "ledger_enabled");
+        get => GetArgument<TerraformValue<bool>>("ledger_enabled");
         set => SetArgument("ledger_enabled", value);
     }
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    public TerraformValue<string> LicenseType
+    public TerraformValue<string>? LicenseType
     {
-        get => new TerraformReference<string>(this, "license_type");
+        get => GetArgument<TerraformValue<string>>("license_type");
         set => SetArgument("license_type", value);
     }
 
     /// <summary>
     /// The maintenance_configuration_name attribute.
     /// </summary>
-    public TerraformValue<string> MaintenanceConfigurationName
+    public TerraformValue<string>? MaintenanceConfigurationName
     {
-        get => new TerraformReference<string>(this, "maintenance_configuration_name");
+        get => GetArgument<TerraformValue<string>>("maintenance_configuration_name");
         set => SetArgument("maintenance_configuration_name", value);
     }
 
     /// <summary>
     /// The max_size_gb attribute.
     /// </summary>
-    public TerraformValue<double> MaxSizeGb
+    public TerraformValue<double>? MaxSizeGb
     {
-        get => new TerraformReference<double>(this, "max_size_gb");
+        get => GetArgument<TerraformValue<double>>("max_size_gb");
         set => SetArgument("max_size_gb", value);
     }
 
     /// <summary>
     /// The min_capacity attribute.
     /// </summary>
-    public TerraformValue<double> MinCapacity
+    public TerraformValue<double>? MinCapacity
     {
-        get => new TerraformReference<double>(this, "min_capacity");
+        get => GetArgument<TerraformValue<double>>("min_capacity");
         set => SetArgument("min_capacity", value);
     }
 
@@ -467,25 +467,25 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The read_replica_count attribute.
     /// </summary>
-    public TerraformValue<double> ReadReplicaCount
+    public TerraformValue<double>? ReadReplicaCount
     {
-        get => new TerraformReference<double>(this, "read_replica_count");
+        get => GetArgument<TerraformValue<double>>("read_replica_count");
         set => SetArgument("read_replica_count", value);
     }
 
     /// <summary>
     /// The read_scale attribute.
     /// </summary>
-    public TerraformValue<bool> ReadScale
+    public TerraformValue<bool>? ReadScale
     {
-        get => new TerraformReference<bool>(this, "read_scale");
+        get => GetArgument<TerraformValue<bool>>("read_scale");
         set => SetArgument("read_scale", value);
     }
 
@@ -494,7 +494,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string>? RecoverDatabaseId
     {
-        get => new TerraformReference<string>(this, "recover_database_id");
+        get => GetArgument<TerraformValue<string>>("recover_database_id");
         set => SetArgument("recover_database_id", value);
     }
 
@@ -503,7 +503,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string>? RecoveryPointId
     {
-        get => new TerraformReference<string>(this, "recovery_point_id");
+        get => GetArgument<TerraformValue<string>>("recovery_point_id");
         set => SetArgument("recovery_point_id", value);
     }
 
@@ -512,7 +512,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string>? RestoreDroppedDatabaseId
     {
-        get => new TerraformReference<string>(this, "restore_dropped_database_id");
+        get => GetArgument<TerraformValue<string>>("restore_dropped_database_id");
         set => SetArgument("restore_dropped_database_id", value);
     }
 
@@ -521,34 +521,34 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string>? RestoreLongTermRetentionBackupId
     {
-        get => new TerraformReference<string>(this, "restore_long_term_retention_backup_id");
+        get => GetArgument<TerraformValue<string>>("restore_long_term_retention_backup_id");
         set => SetArgument("restore_long_term_retention_backup_id", value);
     }
 
     /// <summary>
     /// The restore_point_in_time attribute.
     /// </summary>
-    public TerraformValue<string> RestorePointInTime
+    public TerraformValue<string>? RestorePointInTime
     {
-        get => new TerraformReference<string>(this, "restore_point_in_time");
+        get => GetArgument<TerraformValue<string>>("restore_point_in_time");
         set => SetArgument("restore_point_in_time", value);
     }
 
     /// <summary>
     /// The sample_name attribute.
     /// </summary>
-    public TerraformValue<string> SampleName
+    public TerraformValue<string>? SampleName
     {
-        get => new TerraformReference<string>(this, "sample_name");
+        get => GetArgument<TerraformValue<string>>("sample_name");
         set => SetArgument("sample_name", value);
     }
 
     /// <summary>
     /// The secondary_type attribute.
     /// </summary>
-    public TerraformValue<string> SecondaryType
+    public TerraformValue<string>? SecondaryType
     {
-        get => new TerraformReference<string>(this, "secondary_type");
+        get => GetArgument<TerraformValue<string>>("secondary_type");
         set => SetArgument("secondary_type", value);
     }
 
@@ -558,16 +558,16 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformValue<string> ServerId
     {
-        get => new TerraformReference<string>(this, "server_id");
+        get => GetArgument<TerraformValue<string>>("server_id");
         set => SetArgument("server_id", value);
     }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformValue<string> SkuName
+    public TerraformValue<string>? SkuName
     {
-        get => new TerraformReference<string>(this, "sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -576,7 +576,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string>? StorageAccountType
     {
-        get => new TerraformReference<string>(this, "storage_account_type");
+        get => GetArgument<TerraformValue<string>>("storage_account_type");
         set => SetArgument("storage_account_type", value);
     }
 
@@ -585,7 +585,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -594,7 +594,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<bool>? TransparentDataEncryptionEnabled
     {
-        get => new TerraformReference<bool>(this, "transparent_data_encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("transparent_data_encryption_enabled");
         set => SetArgument("transparent_data_encryption_enabled", value);
     }
 
@@ -603,7 +603,7 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<bool>? TransparentDataEncryptionKeyAutomaticRotationEnabled
     {
-        get => new TerraformReference<bool>(this, "transparent_data_encryption_key_automatic_rotation_enabled");
+        get => GetArgument<TerraformValue<bool>>("transparent_data_encryption_key_automatic_rotation_enabled");
         set => SetArgument("transparent_data_encryption_key_automatic_rotation_enabled", value);
     }
 
@@ -612,16 +612,16 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// </summary>
     public TerraformValue<string>? TransparentDataEncryptionKeyVaultKeyId
     {
-        get => new TerraformReference<string>(this, "transparent_data_encryption_key_vault_key_id");
+        get => GetArgument<TerraformValue<string>>("transparent_data_encryption_key_vault_key_id");
         set => SetArgument("transparent_data_encryption_key_vault_key_id", value);
     }
 
     /// <summary>
     /// The zone_redundant attribute.
     /// </summary>
-    public TerraformValue<bool> ZoneRedundant
+    public TerraformValue<bool>? ZoneRedundant
     {
-        get => new TerraformReference<bool>(this, "zone_redundant");
+        get => GetArgument<TerraformValue<bool>>("zone_redundant");
         set => SetArgument("zone_redundant", value);
     }
 

@@ -18,7 +18,7 @@ public class AwsIamServerCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -37,7 +37,7 @@ public partial class AwsIamServerCertificate(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateBody is required")]
     public required TerraformValue<string> CertificateBody
     {
-        get => new TerraformReference<string>(this, "certificate_body");
+        get => GetArgument<TerraformValue<string>>("certificate_body");
         set => SetArgument("certificate_body", value);
     }
 
@@ -46,34 +46,34 @@ public partial class AwsIamServerCertificate(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? CertificateChain
     {
-        get => new TerraformReference<string>(this, "certificate_chain");
+        get => GetArgument<TerraformValue<string>>("certificate_chain");
         set => SetArgument("certificate_chain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsIamServerCertificate(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AwsIamServerCertificate(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
     public required TerraformValue<string> PrivateKey
     {
-        get => new TerraformReference<string>(this, "private_key");
+        get => GetArgument<TerraformValue<string>>("private_key");
         set => SetArgument("private_key", value);
     }
 
@@ -101,16 +101,16 @@ public partial class AwsIamServerCertificate(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -118,25 +118,19 @@ public partial class AwsIamServerCertificate(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The expiration attribute.
     /// </summary>
     public TerraformValue<string> Expiration
-    {
-        get => new TerraformReference<string>(this, "expiration");
-    }
+        => AsReference("expiration");
 
     /// <summary>
     /// The upload_date attribute.
     /// </summary>
     public TerraformValue<string> UploadDate
-    {
-        get => new TerraformReference<string>(this, "upload_date");
-    }
+        => AsReference("upload_date");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

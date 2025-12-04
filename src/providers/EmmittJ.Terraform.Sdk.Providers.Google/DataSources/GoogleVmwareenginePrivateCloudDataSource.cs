@@ -11,9 +11,9 @@ public partial class GoogleVmwareenginePrivateCloudDataSource(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleVmwareenginePrivateCloudDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleVmwareenginePrivateCloudDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleVmwareenginePrivateCloudDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -52,9 +52,7 @@ public partial class GoogleVmwareenginePrivateCloudDataSource(string name) : Ter
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Time when the resource was scheduled for deletion.
@@ -62,25 +60,19 @@ public partial class GoogleVmwareenginePrivateCloudDataSource(string name) : Ter
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> DeleteTime
-    {
-        get => new TerraformReference<string>(this, "delete_time");
-    }
+        => AsReference("delete_time");
 
     /// <summary>
     /// The number of hours to delay this request. You can set this value to an hour between 0 to 8, where setting it to 0 starts the deletion request immediately. If no value is set, a default value is set at the API Level.
     /// </summary>
     public TerraformValue<double> DeletionDelayHours
-    {
-        get => new TerraformReference<double>(this, "deletion_delay_hours");
-    }
+        => AsReference("deletion_delay_hours");
 
     /// <summary>
     /// User-provided description for this private cloud.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// Time when the resource will be irreversibly deleted.
@@ -88,73 +80,55 @@ public partial class GoogleVmwareenginePrivateCloudDataSource(string name) : Ter
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> ExpireTime
-    {
-        get => new TerraformReference<string>(this, "expire_time");
-    }
+        => AsReference("expire_time");
 
     /// <summary>
     /// Details about a HCX Cloud Manager appliance.
     /// </summary>
     public TerraformList<TerraformMap<object>> Hcx
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "hcx").ResolveNodes(ctx));
-    }
+        => AsReference("hcx");
 
     /// <summary>
     /// The management cluster for this private cloud. This used for creating and managing the default cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagementCluster
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "management_cluster").ResolveNodes(ctx));
-    }
+        => AsReference("management_cluster");
 
     /// <summary>
     /// Network configuration in the consumer project with which the peering has to be done.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "network_config").ResolveNodes(ctx));
-    }
+        => AsReference("network_config");
 
     /// <summary>
     /// Details about a NSX Manager appliance.
     /// </summary>
     public TerraformList<TerraformMap<object>> Nsx
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "nsx").ResolveNodes(ctx));
-    }
+        => AsReference("nsx");
 
     /// <summary>
     /// While set true, deletion_delay_hours value will be sent in the request even for zero value of the field. This field is only useful for setting 0 value to the deletion_delay_hours field. It can be used both alone and together with deletion_delay_hours.
     /// </summary>
     public TerraformValue<bool> SendDeletionDelayHoursIfZero
-    {
-        get => new TerraformReference<bool>(this, "send_deletion_delay_hours_if_zero");
-    }
+        => AsReference("send_deletion_delay_hours_if_zero");
 
     /// <summary>
     /// State of the resource. New values may be added to this enum when appropriate.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Initial type of the private cloud. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;TIME_LIMITED&amp;quot;, &amp;quot;STRETCHED&amp;quot;]
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Last update time of this resource.
@@ -162,16 +136,12 @@ public partial class GoogleVmwareenginePrivateCloudDataSource(string name) : Ter
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Details about a vCenter Server management appliance.
     /// </summary>
     public TerraformList<TerraformMap<object>> Vcenter
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "vcenter").ResolveNodes(ctx));
-    }
+        => AsReference("vcenter");
 
 }

@@ -18,7 +18,7 @@ public class AzureadAccessPackageDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -36,34 +36,34 @@ public partial class AzureadAccessPackageDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string>? CatalogId
     {
-        get => new TerraformReference<string>(this, "catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
     /// <summary>
     /// The display name of the access package
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The ID of this access package
     /// </summary>
-    public TerraformValue<string> ObjectId
+    public TerraformValue<string>? ObjectId
     {
-        get => new TerraformReference<string>(this, "object_id");
+        get => GetArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -71,17 +71,13 @@ public partial class AzureadAccessPackageDataSource(string name) : TerraformData
     /// The description of the access package
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// Whether the access package is hidden from the requestor
     /// </summary>
     public TerraformValue<bool> Hidden
-    {
-        get => new TerraformReference<bool>(this, "hidden");
-    }
+        => AsReference("hidden");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

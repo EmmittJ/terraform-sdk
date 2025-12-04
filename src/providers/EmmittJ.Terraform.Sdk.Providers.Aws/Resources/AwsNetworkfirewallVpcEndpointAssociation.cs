@@ -16,9 +16,9 @@ public class AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock : Terraf
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformValue<string> IpAddressType
+    public TerraformValue<string>? IpAddressType
     {
-        get => new TerraformReference<string>(this, "ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsNetworkfirewallVpcEndpointAssociationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsNetworkfirewallVpcEndpointAssociationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -78,7 +78,7 @@ public partial class AwsNetworkfirewallVpcEndpointAssociation(string name) : Ter
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -88,16 +88,16 @@ public partial class AwsNetworkfirewallVpcEndpointAssociation(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallArn is required")]
     public required TerraformValue<string> FirewallArn
     {
-        get => new TerraformReference<string>(this, "firewall_arn");
+        get => GetArgument<TerraformValue<string>>("firewall_arn");
         set => SetArgument("firewall_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsNetworkfirewallVpcEndpointAssociation(string name) : Ter
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AwsNetworkfirewallVpcEndpointAssociation(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -124,33 +124,25 @@ public partial class AwsNetworkfirewallVpcEndpointAssociation(string name) : Ter
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// The vpc_endpoint_association_arn attribute.
     /// </summary>
     public TerraformValue<string> VpcEndpointAssociationArn
-    {
-        get => new TerraformReference<string>(this, "vpc_endpoint_association_arn");
-    }
+        => AsReference("vpc_endpoint_association_arn");
 
     /// <summary>
     /// The vpc_endpoint_association_id attribute.
     /// </summary>
     public TerraformValue<string> VpcEndpointAssociationId
-    {
-        get => new TerraformReference<string>(this, "vpc_endpoint_association_id");
-    }
+        => AsReference("vpc_endpoint_association_id");
 
     /// <summary>
     /// The vpc_endpoint_association_status attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> VpcEndpointAssociationStatus
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "vpc_endpoint_association_status").ResolveNodes(ctx));
-    }
+        => AsReference("vpc_endpoint_association_status");
 
     /// <summary>
     /// SubnetMapping block (nesting mode: list).

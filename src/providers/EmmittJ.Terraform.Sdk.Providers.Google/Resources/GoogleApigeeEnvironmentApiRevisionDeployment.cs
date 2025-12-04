@@ -18,7 +18,7 @@ public class GoogleApigeeEnvironmentApiRevisionDeploymentTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleApigeeEnvironmentApiRevisionDeploymentTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,7 +46,7 @@ public partial class GoogleApigeeEnvironmentApiRevisionDeployment(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Api is required")]
     public required TerraformValue<string> Api
     {
-        get => new TerraformReference<string>(this, "api");
+        get => GetArgument<TerraformValue<string>>("api");
         set => SetArgument("api", value);
     }
 
@@ -56,16 +56,16 @@ public partial class GoogleApigeeEnvironmentApiRevisionDeployment(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformValue<string> Environment
     {
-        get => new TerraformReference<string>(this, "environment");
+        get => GetArgument<TerraformValue<string>>("environment");
         set => SetArgument("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -75,7 +75,7 @@ public partial class GoogleApigeeEnvironmentApiRevisionDeployment(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => new TerraformReference<string>(this, "org_id");
+        get => GetArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class GoogleApigeeEnvironmentApiRevisionDeployment(string name) :
     /// </summary>
     public TerraformValue<bool>? OverrideAttribute
     {
-        get => new TerraformReference<bool>(this, "override");
+        get => GetArgument<TerraformValue<bool>>("override");
         set => SetArgument("override", value);
     }
 
@@ -94,7 +94,7 @@ public partial class GoogleApigeeEnvironmentApiRevisionDeployment(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     public required TerraformValue<double> Revision
     {
-        get => new TerraformReference<double>(this, "revision");
+        get => GetArgument<TerraformValue<double>>("revision");
         set => SetArgument("revision", value);
     }
 
@@ -103,7 +103,7 @@ public partial class GoogleApigeeEnvironmentApiRevisionDeployment(string name) :
     /// </summary>
     public TerraformValue<bool>? SequencedRollout
     {
-        get => new TerraformReference<bool>(this, "sequenced_rollout");
+        get => GetArgument<TerraformValue<bool>>("sequenced_rollout");
         set => SetArgument("sequenced_rollout", value);
     }
 
@@ -112,7 +112,7 @@ public partial class GoogleApigeeEnvironmentApiRevisionDeployment(string name) :
     /// </summary>
     public TerraformValue<string>? ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -120,25 +120,19 @@ public partial class GoogleApigeeEnvironmentApiRevisionDeployment(string name) :
     /// Basepaths associated with the deployed proxy.
     /// </summary>
     public TerraformList<string> Basepaths
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "basepaths").ResolveNodes(ctx));
-    }
+        => AsReference("basepaths");
 
     /// <summary>
     /// RFC3339 timestamp when deployment started.
     /// </summary>
     public TerraformValue<string> DeployStartTime
-    {
-        get => new TerraformReference<string>(this, "deploy_start_time");
-    }
+        => AsReference("deploy_start_time");
 
     /// <summary>
     /// Deployment state reported by Apigee.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

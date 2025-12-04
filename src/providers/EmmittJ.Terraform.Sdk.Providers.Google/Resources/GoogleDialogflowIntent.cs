@@ -18,7 +18,7 @@ public class GoogleDialogflowIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleDialogflowIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleDialogflowIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -53,9 +53,9 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     /// The name of the action associated with the intent.
     /// Note: The action name must not contain whitespaces.
     /// </summary>
-    public TerraformValue<string> Action
+    public TerraformValue<string>? Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     /// </summary>
     public TerraformList<string>? DefaultResponsePlatforms
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "default_response_platforms").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("default_response_platforms");
         set => SetArgument("default_response_platforms", value);
     }
 
@@ -75,7 +75,7 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -86,16 +86,16 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     /// </summary>
     public TerraformList<string>? Events
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "events").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("events");
         set => SetArgument("events", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -105,16 +105,16 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     /// </summary>
     public TerraformList<string>? InputContextNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "input_context_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("input_context_names");
         set => SetArgument("input_context_names", value);
     }
 
     /// <summary>
     /// Indicates whether this is a fallback intent.
     /// </summary>
-    public TerraformValue<bool> IsFallback
+    public TerraformValue<bool>? IsFallback
     {
-        get => new TerraformReference<bool>(this, "is_fallback");
+        get => GetArgument<TerraformValue<bool>>("is_fallback");
         set => SetArgument("is_fallback", value);
     }
 
@@ -123,9 +123,9 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     /// Note: If mlDisabled setting is set to true, then this intent is not taken into account during inference in ML
     /// ONLY match mode. Also, auto-markup in the UI is turned off.
     /// </summary>
-    public TerraformValue<bool> MlDisabled
+    public TerraformValue<bool>? MlDisabled
     {
-        get => new TerraformReference<bool>(this, "ml_disabled");
+        get => GetArgument<TerraformValue<bool>>("ml_disabled");
         set => SetArgument("ml_disabled", value);
     }
 
@@ -133,9 +133,9 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     /// The unique identifier of the parent intent in the chain of followup intents.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/agent/intents/&amp;lt;Intent ID&amp;gt;.
     /// </summary>
-    public TerraformValue<string> ParentFollowupIntentName
+    public TerraformValue<string>? ParentFollowupIntentName
     {
-        get => new TerraformReference<string>(this, "parent_followup_intent_name");
+        get => GetArgument<TerraformValue<string>>("parent_followup_intent_name");
         set => SetArgument("parent_followup_intent_name", value);
     }
 
@@ -145,27 +145,27 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     ///   to the Normal priority in the console.
     ///   - If the supplied value is negative, the intent is ignored in runtime detect intent requests.
     /// </summary>
-    public TerraformValue<double> Priority
+    public TerraformValue<double>? Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Indicates whether to delete all contexts in the current session when this intent is matched.
     /// </summary>
-    public TerraformValue<bool> ResetContexts
+    public TerraformValue<bool>? ResetContexts
     {
-        get => new TerraformReference<bool>(this, "reset_contexts");
+        get => GetArgument<TerraformValue<bool>>("reset_contexts");
         set => SetArgument("reset_contexts", value);
     }
 
@@ -175,9 +175,9 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     /// * WEBHOOK_STATE_ENABLED_FOR_SLOT_FILLING: Webhook is enabled in the agent and in the intent. Also, each slot
     /// filling prompt is forwarded to the webhook. Possible values: [&amp;quot;WEBHOOK_STATE_ENABLED&amp;quot;, &amp;quot;WEBHOOK_STATE_ENABLED_FOR_SLOT_FILLING&amp;quot;]
     /// </summary>
-    public TerraformValue<string> WebhookState
+    public TerraformValue<string>? WebhookState
     {
-        get => new TerraformReference<string>(this, "webhook_state");
+        get => GetArgument<TerraformValue<string>>("webhook_state");
         set => SetArgument("webhook_state", value);
     }
 
@@ -186,18 +186,14 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     /// only in the output.
     /// </summary>
     public TerraformList<TerraformMap<object>> FollowupIntentInfo
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "followup_intent_info").ResolveNodes(ctx));
-    }
+        => AsReference("followup_intent_info");
 
     /// <summary>
     /// The unique identifier of this intent.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/agent/intents/&amp;lt;Intent ID&amp;gt;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The unique identifier of the root intent in the chain of followup intents. It identifies the correct followup
@@ -205,9 +201,7 @@ public partial class GoogleDialogflowIntent(string name) : TerraformResource("go
     /// Format: projects/&amp;lt;Project ID&amp;gt;/agent/intents/&amp;lt;Intent ID&amp;gt;.
     /// </summary>
     public TerraformValue<string> RootFollowupIntentName
-    {
-        get => new TerraformReference<string>(this, "root_followup_intent_name");
-    }
+        => AsReference("root_followup_intent_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

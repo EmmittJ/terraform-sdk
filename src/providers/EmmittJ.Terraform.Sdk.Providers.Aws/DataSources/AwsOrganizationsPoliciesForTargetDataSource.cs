@@ -14,16 +14,16 @@ public partial class AwsOrganizationsPoliciesForTargetDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsOrganizationsPoliciesForTargetDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
     public required TerraformValue<string> TargetId
     {
-        get => new TerraformReference<string>(this, "target_id");
+        get => GetArgument<TerraformValue<string>>("target_id");
         set => SetArgument("target_id", value);
     }
 
@@ -41,8 +41,6 @@ public partial class AwsOrganizationsPoliciesForTargetDataSource(string name) : 
     /// The ids attribute.
     /// </summary>
     public TerraformList<string> Ids
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ids").ResolveNodes(ctx));
-    }
+        => AsReference("ids");
 
 }

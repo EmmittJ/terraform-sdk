@@ -50,16 +50,16 @@ public class AwsSecuritylakeSubscriberSourceBlockAwsLogSourceResourceBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceName is required")]
     public required TerraformValue<string> SourceName
     {
-        get => new TerraformReference<string>(this, "source_name");
+        get => GetArgument<TerraformValue<string>>("source_name");
         set => SetArgument("source_name", value);
     }
 
     /// <summary>
     /// The source_version attribute.
     /// </summary>
-    public TerraformValue<string> SourceVersion
+    public TerraformValue<string>? SourceVersion
     {
-        get => new TerraformReference<string>(this, "source_version");
+        get => GetArgument<TerraformValue<string>>("source_version");
         set => SetArgument("source_version", value);
     }
 
@@ -80,17 +80,13 @@ public class AwsSecuritylakeSubscriberSourceBlockCustomLogSourceResourceBlock : 
     /// The attributes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Attributes
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "attributes").ResolveNodes(ctx));
-    }
+        => AsReference("attributes");
 
     /// <summary>
     /// The provider attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ProviderAttribute
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "provider").ResolveNodes(ctx));
-    }
+        => AsReference("provider");
 
     /// <summary>
     /// The source_name attribute.
@@ -98,16 +94,16 @@ public class AwsSecuritylakeSubscriberSourceBlockCustomLogSourceResourceBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceName is required")]
     public required TerraformValue<string> SourceName
     {
-        get => new TerraformReference<string>(this, "source_name");
+        get => GetArgument<TerraformValue<string>>("source_name");
         set => SetArgument("source_name", value);
     }
 
     /// <summary>
     /// The source_version attribute.
     /// </summary>
-    public TerraformValue<string> SourceVersion
+    public TerraformValue<string>? SourceVersion
     {
-        get => new TerraformReference<string>(this, "source_version");
+        get => GetArgument<TerraformValue<string>>("source_version");
         set => SetArgument("source_version", value);
     }
 
@@ -131,7 +127,7 @@ public class AwsSecuritylakeSubscriberSubscriberIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalId is required")]
     public required TerraformValue<string> ExternalId
     {
-        get => new TerraformReference<string>(this, "external_id");
+        get => GetArgument<TerraformValue<string>>("external_id");
         set => SetArgument("external_id", value);
     }
 
@@ -141,7 +137,7 @@ public class AwsSecuritylakeSubscriberSubscriberIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformValue<string> Principal
     {
-        get => new TerraformReference<string>(this, "principal");
+        get => GetArgument<TerraformValue<string>>("principal");
         set => SetArgument("principal", value);
     }
 
@@ -164,7 +160,7 @@ public class AwsSecuritylakeSubscriberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -173,7 +169,7 @@ public class AwsSecuritylakeSubscriberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -182,7 +178,7 @@ public class AwsSecuritylakeSubscriberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -198,18 +194,18 @@ public partial class AwsSecuritylakeSubscriber(string name) : TerraformResource(
     /// <summary>
     /// The access_type attribute.
     /// </summary>
-    public TerraformValue<string> AccessType
+    public TerraformValue<string>? AccessType
     {
-        get => new TerraformReference<string>(this, "access_type");
+        get => GetArgument<TerraformValue<string>>("access_type");
         set => SetArgument("access_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -218,7 +214,7 @@ public partial class AwsSecuritylakeSubscriber(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? SubscriberDescription
     {
-        get => new TerraformReference<string>(this, "subscriber_description");
+        get => GetArgument<TerraformValue<string>>("subscriber_description");
         set => SetArgument("subscriber_description", value);
     }
 
@@ -227,7 +223,7 @@ public partial class AwsSecuritylakeSubscriber(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? SubscriberName
     {
-        get => new TerraformReference<string>(this, "subscriber_name");
+        get => GetArgument<TerraformValue<string>>("subscriber_name");
         set => SetArgument("subscriber_name", value);
     }
 
@@ -236,7 +232,7 @@ public partial class AwsSecuritylakeSubscriber(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -244,73 +240,55 @@ public partial class AwsSecuritylakeSubscriber(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The resource_share_arn attribute.
     /// </summary>
     public TerraformValue<string> ResourceShareArn
-    {
-        get => new TerraformReference<string>(this, "resource_share_arn");
-    }
+        => AsReference("resource_share_arn");
 
     /// <summary>
     /// The resource_share_name attribute.
     /// </summary>
     public TerraformValue<string> ResourceShareName
-    {
-        get => new TerraformReference<string>(this, "resource_share_name");
-    }
+        => AsReference("resource_share_name");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     public TerraformValue<string> RoleArn
-    {
-        get => new TerraformReference<string>(this, "role_arn");
-    }
+        => AsReference("role_arn");
 
     /// <summary>
     /// The s3_bucket_arn attribute.
     /// </summary>
     public TerraformValue<string> S3BucketArn
-    {
-        get => new TerraformReference<string>(this, "s3_bucket_arn");
-    }
+        => AsReference("s3_bucket_arn");
 
     /// <summary>
     /// The subscriber_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SubscriberEndpoint
-    {
-        get => new TerraformReference<string>(this, "subscriber_endpoint");
-    }
+        => AsReference("subscriber_endpoint");
 
     /// <summary>
     /// The subscriber_status attribute.
     /// </summary>
     public TerraformValue<string> SubscriberStatus
-    {
-        get => new TerraformReference<string>(this, "subscriber_status");
-    }
+        => AsReference("subscriber_status");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Source block (nesting mode: set).

@@ -19,7 +19,7 @@ public class AwsSsmincidentsReplicationSetRegionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsSsmincidentsReplicationSetRegionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -37,17 +37,13 @@ public class AwsSsmincidentsReplicationSetRegionBlock : TerraformBlock
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The status_message attribute.
     /// </summary>
     public TerraformValue<string> StatusMessage
-    {
-        get => new TerraformReference<string>(this, "status_message");
-    }
+        => AsReference("status_message");
 
 }
 
@@ -68,7 +64,7 @@ public class AwsSsmincidentsReplicationSetRegionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -78,7 +74,7 @@ public class AwsSsmincidentsReplicationSetRegionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -86,17 +82,13 @@ public class AwsSsmincidentsReplicationSetRegionsBlock : TerraformBlock
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The status_message attribute.
     /// </summary>
     public TerraformValue<string> StatusMessage
-    {
-        get => new TerraformReference<string>(this, "status_message");
-    }
+        => AsReference("status_message");
 
 }
 
@@ -117,7 +109,7 @@ public class AwsSsmincidentsReplicationSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -126,7 +118,7 @@ public class AwsSsmincidentsReplicationSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -135,7 +127,7 @@ public class AwsSsmincidentsReplicationSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -151,9 +143,9 @@ public partial class AwsSsmincidentsReplicationSet(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -162,16 +154,16 @@ public partial class AwsSsmincidentsReplicationSet(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -179,41 +171,31 @@ public partial class AwsSsmincidentsReplicationSet(string name) : TerraformResou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
     public TerraformValue<string> CreatedBy
-    {
-        get => new TerraformReference<string>(this, "created_by");
-    }
+        => AsReference("created_by");
 
     /// <summary>
     /// The deletion_protected attribute.
     /// </summary>
     public TerraformValue<bool> DeletionProtected
-    {
-        get => new TerraformReference<bool>(this, "deletion_protected");
-    }
+        => AsReference("deletion_protected");
 
     /// <summary>
     /// The last_modified_by attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedBy
-    {
-        get => new TerraformReference<string>(this, "last_modified_by");
-    }
+        => AsReference("last_modified_by");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// Region block (nesting mode: set).

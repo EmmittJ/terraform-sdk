@@ -14,7 +14,7 @@ public partial class AwsCloudtrailOrganizationDelegatedAdminAccount(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformValue<string> AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -22,40 +22,30 @@ public partial class AwsCloudtrailOrganizationDelegatedAdminAccount(string name)
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     public TerraformValue<string> Email
-    {
-        get => new TerraformReference<string>(this, "email");
-    }
+        => AsReference("email");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The service_principal attribute.
     /// </summary>
     public TerraformValue<string> ServicePrincipal
-    {
-        get => new TerraformReference<string>(this, "service_principal");
-    }
+        => AsReference("service_principal");
 
 }

@@ -17,17 +17,13 @@ public class AzurermVmwarePrivateCloudManagementClusterBlock : TerraformBlock
     /// The hosts attribute.
     /// </summary>
     public TerraformList<string> Hosts
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "hosts").ResolveNodes(ctx));
-    }
+        => AsReference("hosts");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<double> Id
-    {
-        get => new TerraformReference<double>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The size attribute.
@@ -35,7 +31,7 @@ public class AzurermVmwarePrivateCloudManagementClusterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     public required TerraformValue<double> Size
     {
-        get => new TerraformReference<double>(this, "size");
+        get => GetArgument<TerraformValue<double>>("size");
         set => SetArgument("size", value);
     }
 
@@ -58,7 +54,7 @@ public class AzurermVmwarePrivateCloudTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -67,7 +63,7 @@ public class AzurermVmwarePrivateCloudTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -76,7 +72,7 @@ public class AzurermVmwarePrivateCloudTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -85,7 +81,7 @@ public class AzurermVmwarePrivateCloudTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -101,9 +97,9 @@ public partial class AzurermVmwarePrivateCloud(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -112,7 +108,7 @@ public partial class AzurermVmwarePrivateCloud(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? InternetConnectionEnabled
     {
-        get => new TerraformReference<bool>(this, "internet_connection_enabled");
+        get => GetArgument<TerraformValue<bool>>("internet_connection_enabled");
         set => SetArgument("internet_connection_enabled", value);
     }
 
@@ -122,7 +118,7 @@ public partial class AzurermVmwarePrivateCloud(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -132,7 +128,7 @@ public partial class AzurermVmwarePrivateCloud(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -142,7 +138,7 @@ public partial class AzurermVmwarePrivateCloud(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkSubnetCidr is required")]
     public required TerraformValue<string> NetworkSubnetCidr
     {
-        get => new TerraformReference<string>(this, "network_subnet_cidr");
+        get => GetArgument<TerraformValue<string>>("network_subnet_cidr");
         set => SetArgument("network_subnet_cidr", value);
     }
 
@@ -151,7 +147,7 @@ public partial class AzurermVmwarePrivateCloud(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? NsxtPassword
     {
-        get => new TerraformReference<string>(this, "nsxt_password");
+        get => GetArgument<TerraformValue<string>>("nsxt_password");
         set => SetArgument("nsxt_password", value);
     }
 
@@ -161,7 +157,7 @@ public partial class AzurermVmwarePrivateCloud(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -171,7 +167,7 @@ public partial class AzurermVmwarePrivateCloud(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => new TerraformReference<string>(this, "sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -180,7 +176,7 @@ public partial class AzurermVmwarePrivateCloud(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -189,7 +185,7 @@ public partial class AzurermVmwarePrivateCloud(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? VcenterPassword
     {
-        get => new TerraformReference<string>(this, "vcenter_password");
+        get => GetArgument<TerraformValue<string>>("vcenter_password");
         set => SetArgument("vcenter_password", value);
     }
 
@@ -197,73 +193,55 @@ public partial class AzurermVmwarePrivateCloud(string name) : TerraformResource(
     /// The circuit attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Circuit
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "circuit").ResolveNodes(ctx));
-    }
+        => AsReference("circuit");
 
     /// <summary>
     /// The hcx_cloud_manager_endpoint attribute.
     /// </summary>
     public TerraformValue<string> HcxCloudManagerEndpoint
-    {
-        get => new TerraformReference<string>(this, "hcx_cloud_manager_endpoint");
-    }
+        => AsReference("hcx_cloud_manager_endpoint");
 
     /// <summary>
     /// The management_subnet_cidr attribute.
     /// </summary>
     public TerraformValue<string> ManagementSubnetCidr
-    {
-        get => new TerraformReference<string>(this, "management_subnet_cidr");
-    }
+        => AsReference("management_subnet_cidr");
 
     /// <summary>
     /// The nsxt_certificate_thumbprint attribute.
     /// </summary>
     public TerraformValue<string> NsxtCertificateThumbprint
-    {
-        get => new TerraformReference<string>(this, "nsxt_certificate_thumbprint");
-    }
+        => AsReference("nsxt_certificate_thumbprint");
 
     /// <summary>
     /// The nsxt_manager_endpoint attribute.
     /// </summary>
     public TerraformValue<string> NsxtManagerEndpoint
-    {
-        get => new TerraformReference<string>(this, "nsxt_manager_endpoint");
-    }
+        => AsReference("nsxt_manager_endpoint");
 
     /// <summary>
     /// The provisioning_subnet_cidr attribute.
     /// </summary>
     public TerraformValue<string> ProvisioningSubnetCidr
-    {
-        get => new TerraformReference<string>(this, "provisioning_subnet_cidr");
-    }
+        => AsReference("provisioning_subnet_cidr");
 
     /// <summary>
     /// The vcenter_certificate_thumbprint attribute.
     /// </summary>
     public TerraformValue<string> VcenterCertificateThumbprint
-    {
-        get => new TerraformReference<string>(this, "vcenter_certificate_thumbprint");
-    }
+        => AsReference("vcenter_certificate_thumbprint");
 
     /// <summary>
     /// The vcsa_endpoint attribute.
     /// </summary>
     public TerraformValue<string> VcsaEndpoint
-    {
-        get => new TerraformReference<string>(this, "vcsa_endpoint");
-    }
+        => AsReference("vcsa_endpoint");
 
     /// <summary>
     /// The vmotion_subnet_cidr attribute.
     /// </summary>
     public TerraformValue<string> VmotionSubnetCidr
-    {
-        get => new TerraformReference<string>(this, "vmotion_subnet_cidr");
-    }
+        => AsReference("vmotion_subnet_cidr");
 
     /// <summary>
     /// ManagementCluster block (nesting mode: list).

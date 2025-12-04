@@ -18,7 +18,7 @@ public class AwsBedrockagentAgentKnowledgeBaseAssociationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsBedrockagentAgentKnowledgeBaseAssociationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -46,16 +46,16 @@ public partial class AwsBedrockagentAgentKnowledgeBaseAssociation(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
     public required TerraformValue<string> AgentId
     {
-        get => new TerraformReference<string>(this, "agent_id");
+        get => GetArgument<TerraformValue<string>>("agent_id");
         set => SetArgument("agent_id", value);
     }
 
     /// <summary>
     /// The agent_version attribute.
     /// </summary>
-    public TerraformValue<string> AgentVersion
+    public TerraformValue<string>? AgentVersion
     {
-        get => new TerraformReference<string>(this, "agent_version");
+        get => GetArgument<TerraformValue<string>>("agent_version");
         set => SetArgument("agent_version", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsBedrockagentAgentKnowledgeBaseAssociation(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -75,7 +75,7 @@ public partial class AwsBedrockagentAgentKnowledgeBaseAssociation(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KnowledgeBaseId is required")]
     public required TerraformValue<string> KnowledgeBaseId
     {
-        get => new TerraformReference<string>(this, "knowledge_base_id");
+        get => GetArgument<TerraformValue<string>>("knowledge_base_id");
         set => SetArgument("knowledge_base_id", value);
     }
 
@@ -85,16 +85,16 @@ public partial class AwsBedrockagentAgentKnowledgeBaseAssociation(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KnowledgeBaseState is required")]
     public required TerraformValue<string> KnowledgeBaseState
     {
-        get => new TerraformReference<string>(this, "knowledge_base_state");
+        get => GetArgument<TerraformValue<string>>("knowledge_base_state");
         set => SetArgument("knowledge_base_state", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -102,9 +102,7 @@ public partial class AwsBedrockagentAgentKnowledgeBaseAssociation(string name) :
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

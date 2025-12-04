@@ -18,7 +18,7 @@ public class AzurermMobileNetworkSliceDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermMobileNetworkSliceDataSource(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermMobileNetworkSliceDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
     public required TerraformValue<string> MobileNetworkId
     {
-        get => new TerraformReference<string>(this, "mobile_network_id");
+        get => GetArgument<TerraformValue<string>>("mobile_network_id");
         set => SetArgument("mobile_network_id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermMobileNetworkSliceDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -64,33 +64,25 @@ public partial class AzurermMobileNetworkSliceDataSource(string name) : Terrafor
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The single_network_slice_selection_assistance_information attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SingleNetworkSliceSelectionAssistanceInformation
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "single_network_slice_selection_assistance_information").ResolveNodes(ctx));
-    }
+        => AsReference("single_network_slice_selection_assistance_information");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

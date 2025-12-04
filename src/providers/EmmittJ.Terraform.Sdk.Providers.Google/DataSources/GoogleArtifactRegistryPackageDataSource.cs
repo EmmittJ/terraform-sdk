@@ -11,9 +11,9 @@ public partial class GoogleArtifactRegistryPackageDataSource(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleArtifactRegistryPackageDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleArtifactRegistryPackageDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleArtifactRegistryPackageDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -52,7 +52,7 @@ public partial class GoogleArtifactRegistryPackageDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformValue<string> RepositoryId
     {
-        get => new TerraformReference<string>(this, "repository_id");
+        get => GetArgument<TerraformValue<string>>("repository_id");
         set => SetArgument("repository_id", value);
     }
 
@@ -60,32 +60,24 @@ public partial class GoogleArtifactRegistryPackageDataSource(string name) : Terr
     /// The annotations attribute.
     /// </summary>
     public TerraformMap<string> Annotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
-    }
+        => AsReference("annotations");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
 }

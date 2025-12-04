@@ -13,7 +13,7 @@ public partial class AwsAmiLaunchPermission(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -22,16 +22,16 @@ public partial class AwsAmiLaunchPermission(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? Group
     {
-        get => new TerraformReference<string>(this, "group");
+        get => GetArgument<TerraformValue<string>>("group");
         set => SetArgument("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsAmiLaunchPermission(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageId is required")]
     public required TerraformValue<string> ImageId
     {
-        get => new TerraformReference<string>(this, "image_id");
+        get => GetArgument<TerraformValue<string>>("image_id");
         set => SetArgument("image_id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsAmiLaunchPermission(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? OrganizationArn
     {
-        get => new TerraformReference<string>(this, "organization_arn");
+        get => GetArgument<TerraformValue<string>>("organization_arn");
         set => SetArgument("organization_arn", value);
     }
 
@@ -59,16 +59,16 @@ public partial class AwsAmiLaunchPermission(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? OrganizationalUnitArn
     {
-        get => new TerraformReference<string>(this, "organizational_unit_arn");
+        get => GetArgument<TerraformValue<string>>("organizational_unit_arn");
         set => SetArgument("organizational_unit_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

@@ -53,7 +53,7 @@ public class GoogleContainerAwsClusterAuthorizationBlockAdminGroupsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
     public required TerraformValue<string> Group
     {
-        get => new TerraformReference<string>(this, "group");
+        get => GetArgument<TerraformValue<string>>("group");
         set => SetArgument("group", value);
     }
 
@@ -76,7 +76,7 @@ public class GoogleContainerAwsClusterAuthorizationBlockAdminUsersBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -97,9 +97,9 @@ public class GoogleContainerAwsClusterBinaryAuthorizationBlock : TerraformBlock
     /// <summary>
     /// Mode of operation for Binary Authorization policy evaluation. Possible values: DISABLED, PROJECT_SINGLETON_POLICY_ENFORCE
     /// </summary>
-    public TerraformValue<string> EvaluationMode
+    public TerraformValue<string>? EvaluationMode
     {
-        get => new TerraformReference<string>(this, "evaluation_mode");
+        get => GetArgument<TerraformValue<string>>("evaluation_mode");
         set => SetArgument("evaluation_mode", value);
     }
 
@@ -123,16 +123,16 @@ public class GoogleContainerAwsClusterControlPlaneBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamInstanceProfile is required")]
     public required TerraformValue<string> IamInstanceProfile
     {
-        get => new TerraformReference<string>(this, "iam_instance_profile");
+        get => GetArgument<TerraformValue<string>>("iam_instance_profile");
         set => SetArgument("iam_instance_profile", value);
     }
 
     /// <summary>
     /// Optional. The AWS instance type. When unspecified, it defaults to `m5.large`.
     /// </summary>
-    public TerraformValue<string> InstanceType
+    public TerraformValue<string>? InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -141,7 +141,7 @@ public class GoogleContainerAwsClusterControlPlaneBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? SecurityGroupIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -151,7 +151,7 @@ public class GoogleContainerAwsClusterControlPlaneBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public TerraformList<string>? SubnetIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -160,7 +160,7 @@ public class GoogleContainerAwsClusterControlPlaneBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -170,7 +170,7 @@ public class GoogleContainerAwsClusterControlPlaneBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -272,16 +272,16 @@ public class GoogleContainerAwsClusterControlPlaneBlockAwsServicesAuthentication
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
     /// <summary>
     /// Optional. An identifier for the assumed role session. When unspecified, it defaults to `multicloud-service-agent`.
     /// </summary>
-    public TerraformValue<string> RoleSessionName
+    public TerraformValue<string>? RoleSessionName
     {
-        get => new TerraformReference<string>(this, "role_session_name");
+        get => GetArgument<TerraformValue<string>>("role_session_name");
         set => SetArgument("role_session_name", value);
     }
 
@@ -304,7 +304,7 @@ public class GoogleContainerAwsClusterControlPlaneBlockConfigEncryptionBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
     public required TerraformValue<string> KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -327,7 +327,7 @@ public class GoogleContainerAwsClusterControlPlaneBlockDatabaseEncryptionBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
     public required TerraformValue<string> KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -347,9 +347,9 @@ public class GoogleContainerAwsClusterControlPlaneBlockMainVolumeBlock : Terrafo
     /// <summary>
     /// Optional. The number of I/O operations per second (IOPS) to provision for GP3 volume.
     /// </summary>
-    public TerraformValue<double> Iops
+    public TerraformValue<double>? Iops
     {
-        get => new TerraformReference<double>(this, "iops");
+        get => GetArgument<TerraformValue<double>>("iops");
         set => SetArgument("iops", value);
     }
 
@@ -358,34 +358,34 @@ public class GoogleContainerAwsClusterControlPlaneBlockMainVolumeBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
     /// <summary>
     /// Optional. The size of the volume, in GiBs. When unspecified, a default value is provided. See the specific reference in the parent resource.
     /// </summary>
-    public TerraformValue<double> SizeGib
+    public TerraformValue<double>? SizeGib
     {
-        get => new TerraformReference<double>(this, "size_gib");
+        get => GetArgument<TerraformValue<double>>("size_gib");
         set => SetArgument("size_gib", value);
     }
 
     /// <summary>
     /// Optional. The throughput to provision for the volume, in MiB/s. Only valid if the volume type is GP3. If volume type is gp3 and throughput is not specified, the throughput will defaults to 125.
     /// </summary>
-    public TerraformValue<double> Throughput
+    public TerraformValue<double>? Throughput
     {
-        get => new TerraformReference<double>(this, "throughput");
+        get => GetArgument<TerraformValue<double>>("throughput");
         set => SetArgument("throughput", value);
     }
 
     /// <summary>
     /// Optional. Type of the EBS volume. When unspecified, it defaults to GP2 volume. Possible values: VOLUME_TYPE_UNSPECIFIED, GP2, GP3
     /// </summary>
-    public TerraformValue<string> VolumeType
+    public TerraformValue<string>? VolumeType
     {
-        get => new TerraformReference<string>(this, "volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -408,7 +408,7 @@ public class GoogleContainerAwsClusterControlPlaneBlockProxyConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretArn is required")]
     public required TerraformValue<string> SecretArn
     {
-        get => new TerraformReference<string>(this, "secret_arn");
+        get => GetArgument<TerraformValue<string>>("secret_arn");
         set => SetArgument("secret_arn", value);
     }
 
@@ -418,7 +418,7 @@ public class GoogleContainerAwsClusterControlPlaneBlockProxyConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -438,9 +438,9 @@ public class GoogleContainerAwsClusterControlPlaneBlockRootVolumeBlock : Terrafo
     /// <summary>
     /// Optional. The number of I/O operations per second (IOPS) to provision for GP3 volume.
     /// </summary>
-    public TerraformValue<double> Iops
+    public TerraformValue<double>? Iops
     {
-        get => new TerraformReference<double>(this, "iops");
+        get => GetArgument<TerraformValue<double>>("iops");
         set => SetArgument("iops", value);
     }
 
@@ -449,34 +449,34 @@ public class GoogleContainerAwsClusterControlPlaneBlockRootVolumeBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
     /// <summary>
     /// Optional. The size of the volume, in GiBs. When unspecified, a default value is provided. See the specific reference in the parent resource.
     /// </summary>
-    public TerraformValue<double> SizeGib
+    public TerraformValue<double>? SizeGib
     {
-        get => new TerraformReference<double>(this, "size_gib");
+        get => GetArgument<TerraformValue<double>>("size_gib");
         set => SetArgument("size_gib", value);
     }
 
     /// <summary>
     /// Optional. The throughput to provision for the volume, in MiB/s. Only valid if the volume type is GP3. If volume type is gp3 and throughput is not specified, the throughput will defaults to 125.
     /// </summary>
-    public TerraformValue<double> Throughput
+    public TerraformValue<double>? Throughput
     {
-        get => new TerraformReference<double>(this, "throughput");
+        get => GetArgument<TerraformValue<double>>("throughput");
         set => SetArgument("throughput", value);
     }
 
     /// <summary>
     /// Optional. Type of the EBS volume. When unspecified, it defaults to GP2 volume. Possible values: VOLUME_TYPE_UNSPECIFIED, GP2, GP3
     /// </summary>
-    public TerraformValue<string> VolumeType
+    public TerraformValue<string>? VolumeType
     {
-        get => new TerraformReference<string>(this, "volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -499,7 +499,7 @@ public class GoogleContainerAwsClusterControlPlaneBlockSshConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ec2KeyPair is required")]
     public required TerraformValue<string> Ec2KeyPair
     {
-        get => new TerraformReference<string>(this, "ec2_key_pair");
+        get => GetArgument<TerraformValue<string>>("ec2_key_pair");
         set => SetArgument("ec2_key_pair", value);
     }
 
@@ -521,16 +521,14 @@ public class GoogleContainerAwsClusterFleetBlock : TerraformBlock
     /// The name of the managed Hub Membership resource associated to this cluster. Membership names are formatted as projects/&amp;lt;project-number&amp;gt;/locations/global/membership/&amp;lt;cluster-id&amp;gt;.
     /// </summary>
     public TerraformValue<string> Membership
-    {
-        get => new TerraformReference<string>(this, "membership");
-    }
+        => AsReference("membership");
 
     /// <summary>
     /// The number of the Fleet host project where this cluster will be registered.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -553,7 +551,7 @@ public class GoogleContainerAwsClusterNetworkingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PerNodePoolSgRulesDisabled
     {
-        get => new TerraformReference<bool>(this, "per_node_pool_sg_rules_disabled");
+        get => GetArgument<TerraformValue<bool>>("per_node_pool_sg_rules_disabled");
         set => SetArgument("per_node_pool_sg_rules_disabled", value);
     }
 
@@ -563,7 +561,7 @@ public class GoogleContainerAwsClusterNetworkingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PodAddressCidrBlocks is required")]
     public TerraformList<string>? PodAddressCidrBlocks
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "pod_address_cidr_blocks").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("pod_address_cidr_blocks");
         set => SetArgument("pod_address_cidr_blocks", value);
     }
 
@@ -573,7 +571,7 @@ public class GoogleContainerAwsClusterNetworkingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAddressCidrBlocks is required")]
     public TerraformList<string>? ServiceAddressCidrBlocks
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "service_address_cidr_blocks").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("service_address_cidr_blocks");
         set => SetArgument("service_address_cidr_blocks", value);
     }
 
@@ -583,7 +581,7 @@ public class GoogleContainerAwsClusterNetworkingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -606,7 +604,7 @@ public class GoogleContainerAwsClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -615,7 +613,7 @@ public class GoogleContainerAwsClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -624,7 +622,7 @@ public class GoogleContainerAwsClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -645,7 +643,7 @@ public partial class GoogleContainerAwsCluster(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -655,7 +653,7 @@ public partial class GoogleContainerAwsCluster(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsRegion is required")]
     public required TerraformValue<string> AwsRegion
     {
-        get => new TerraformReference<string>(this, "aws_region");
+        get => GetArgument<TerraformValue<string>>("aws_region");
         set => SetArgument("aws_region", value);
     }
 
@@ -664,16 +662,16 @@ public partial class GoogleContainerAwsCluster(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -683,7 +681,7 @@ public partial class GoogleContainerAwsCluster(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -693,16 +691,16 @@ public partial class GoogleContainerAwsCluster(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -710,73 +708,55 @@ public partial class GoogleContainerAwsCluster(string name) : TerraformResource(
     /// Output only. The time at which this cluster was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// Output only. The endpoint of the cluster&#39;s API server.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// Allows clients to perform consistent read-modify-writes through optimistic concurrency control. May be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Output only. If set, there are currently changes in flight to the cluster.
     /// </summary>
     public TerraformValue<bool> Reconciling
-    {
-        get => new TerraformReference<bool>(this, "reconciling");
-    }
+        => AsReference("reconciling");
 
     /// <summary>
     /// Output only. The current state of the cluster. Possible values: STATE_UNSPECIFIED, PROVISIONING, RUNNING, RECONCILING, STOPPING, ERROR, DEGRADED
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Output only. A globally unique identifier for the cluster.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Output only. The time at which this cluster was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Output only. Workload Identity settings.
     /// </summary>
     public TerraformList<TerraformMap<object>> WorkloadIdentityConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "workload_identity_config").ResolveNodes(ctx));
-    }
+        => AsReference("workload_identity_config");
 
     /// <summary>
     /// Authorization block (nesting mode: list).

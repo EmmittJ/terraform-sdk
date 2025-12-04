@@ -18,7 +18,7 @@ public class GoogleDiscoveryEngineTargetSiteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleDiscoveryEngineTargetSiteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,7 +46,7 @@ public partial class GoogleDiscoveryEngineTargetSite(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreId is required")]
     public required TerraformValue<string> DataStoreId
     {
-        get => new TerraformReference<string>(this, "data_store_id");
+        get => GetArgument<TerraformValue<string>>("data_store_id");
         set => SetArgument("data_store_id", value);
     }
 
@@ -60,16 +60,16 @@ public partial class GoogleDiscoveryEngineTargetSite(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? ExactMatch
     {
-        get => new TerraformReference<bool>(this, "exact_match");
+        get => GetArgument<TerraformValue<bool>>("exact_match");
         set => SetArgument("exact_match", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -80,16 +80,16 @@ public partial class GoogleDiscoveryEngineTargetSite(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -100,7 +100,7 @@ public partial class GoogleDiscoveryEngineTargetSite(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvidedUriPattern is required")]
     public required TerraformValue<string> ProvidedUriPattern
     {
-        get => new TerraformReference<string>(this, "provided_uri_pattern");
+        get => GetArgument<TerraformValue<string>>("provided_uri_pattern");
         set => SetArgument("provided_uri_pattern", value);
     }
 
@@ -109,7 +109,7 @@ public partial class GoogleDiscoveryEngineTargetSite(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -117,25 +117,19 @@ public partial class GoogleDiscoveryEngineTargetSite(string name) : TerraformRes
     /// Site search indexing failure reasons.
     /// </summary>
     public TerraformList<TerraformMap<object>> FailureReason
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "failure_reason").ResolveNodes(ctx));
-    }
+        => AsReference("failure_reason");
 
     /// <summary>
     /// This is system-generated based on the &#39;provided_uri_pattern&#39;.
     /// </summary>
     public TerraformValue<string> GeneratedUriPattern
-    {
-        get => new TerraformReference<string>(this, "generated_uri_pattern");
-    }
+        => AsReference("generated_uri_pattern");
 
     /// <summary>
     /// The indexing status.
     /// </summary>
     public TerraformValue<string> IndexingStatus
-    {
-        get => new TerraformReference<string>(this, "indexing_status");
-    }
+        => AsReference("indexing_status");
 
     /// <summary>
     /// The unique full resource name of the target site. Values are of the format
@@ -144,41 +138,31 @@ public partial class GoogleDiscoveryEngineTargetSite(string name) : TerraformRes
     /// characters.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Root domain of the &#39;provided_uri_pattern&#39;.
     /// </summary>
     public TerraformValue<string> RootDomainUri
-    {
-        get => new TerraformReference<string>(this, "root_domain_uri");
-    }
+        => AsReference("root_domain_uri");
 
     /// <summary>
     /// Site ownership and validity verification status.
     /// </summary>
     public TerraformList<TerraformMap<object>> SiteVerificationInfo
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "site_verification_info").ResolveNodes(ctx));
-    }
+        => AsReference("site_verification_info");
 
     /// <summary>
     /// The unique id of the target site.
     /// </summary>
     public TerraformValue<string> TargetSiteId
-    {
-        get => new TerraformReference<string>(this, "target_site_id");
-    }
+        => AsReference("target_site_id");
 
     /// <summary>
     /// The target site&#39;s last updated time.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

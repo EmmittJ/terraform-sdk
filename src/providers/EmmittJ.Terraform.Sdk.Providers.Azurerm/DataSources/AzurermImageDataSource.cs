@@ -18,7 +18,7 @@ public class AzurermImageDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermImageDataSource(string name) : TerraformDataSource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzurermImageDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AzurermImageDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string>? NameRegex
     {
-        get => new TerraformReference<string>(this, "name_regex");
+        get => GetArgument<TerraformValue<string>>("name_regex");
         set => SetArgument("name_regex", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermImageDataSource(string name) : TerraformDataSource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermImageDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<bool>? SortDescending
     {
-        get => new TerraformReference<bool>(this, "sort_descending");
+        get => GetArgument<TerraformValue<bool>>("sort_descending");
         set => SetArgument("sort_descending", value);
     }
 
@@ -81,41 +81,31 @@ public partial class AzurermImageDataSource(string name) : TerraformDataSource("
     /// The data_disk attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DataDisk
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "data_disk").ResolveNodes(ctx));
-    }
+        => AsReference("data_disk");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The os_disk attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> OsDisk
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "os_disk").ResolveNodes(ctx));
-    }
+        => AsReference("os_disk");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The zone_resilient attribute.
     /// </summary>
     public TerraformValue<bool> ZoneResilient
-    {
-        get => new TerraformReference<bool>(this, "zone_resilient");
-    }
+        => AsReference("zone_resilient");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

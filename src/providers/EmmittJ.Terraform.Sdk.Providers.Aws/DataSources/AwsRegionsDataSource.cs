@@ -19,7 +19,7 @@ public class AwsRegionsDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsRegionsDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -47,16 +47,16 @@ public partial class AwsRegionsDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<bool>? AllRegions
     {
-        get => new TerraformReference<bool>(this, "all_regions");
+        get => GetArgument<TerraformValue<bool>>("all_regions");
         set => SetArgument("all_regions", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,9 +64,7 @@ public partial class AwsRegionsDataSource(string name) : TerraformDataSource("aw
     /// The names attribute.
     /// </summary>
     public TerraformSet<string> Names
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "names").ResolveNodes(ctx));
-    }
+        => AsReference("names");
 
     /// <summary>
     /// Filter block (nesting mode: set).

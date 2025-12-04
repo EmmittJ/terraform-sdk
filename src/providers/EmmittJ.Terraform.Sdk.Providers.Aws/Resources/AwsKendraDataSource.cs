@@ -65,7 +65,7 @@ public class AwsKendraDataSourceConfigurationBlockS3ConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -74,7 +74,7 @@ public class AwsKendraDataSourceConfigurationBlockS3ConfigurationBlock : Terrafo
     /// </summary>
     public TerraformSet<string>? ExclusionPatterns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "exclusion_patterns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("exclusion_patterns");
         set => SetArgument("exclusion_patterns", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsKendraDataSourceConfigurationBlockS3ConfigurationBlock : Terrafo
     /// </summary>
     public TerraformSet<string>? InclusionPatterns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "inclusion_patterns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("inclusion_patterns");
         set => SetArgument("inclusion_patterns", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsKendraDataSourceConfigurationBlockS3ConfigurationBlock : Terrafo
     /// </summary>
     public TerraformSet<string>? InclusionPrefixes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "inclusion_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("inclusion_prefixes");
         set => SetArgument("inclusion_prefixes", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsKendraDataSourceConfigurationBlockS3ConfigurationBlockAccessCont
     /// </summary>
     public TerraformValue<string>? KeyPath
     {
-        get => new TerraformReference<string>(this, "key_path");
+        get => GetArgument<TerraformValue<string>>("key_path");
         set => SetArgument("key_path", value);
     }
 
@@ -156,7 +156,7 @@ public class AwsKendraDataSourceConfigurationBlockS3ConfigurationBlockDocumentsM
     /// </summary>
     public TerraformValue<string>? S3Prefix
     {
-        get => new TerraformReference<string>(this, "s3_prefix");
+        get => GetArgument<TerraformValue<string>>("s3_prefix");
         set => SetArgument("s3_prefix", value);
     }
 
@@ -179,7 +179,7 @@ public class AwsKendraDataSourceConfigurationBlockTemplateConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Template is required")]
     public required TerraformValue<string> Template
     {
-        get => new TerraformReference<string>(this, "template");
+        get => GetArgument<TerraformValue<string>>("template");
         set => SetArgument("template", value);
     }
 
@@ -202,7 +202,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlock :
     /// </summary>
     public TerraformValue<double>? CrawlDepth
     {
-        get => new TerraformReference<double>(this, "crawl_depth");
+        get => GetArgument<TerraformValue<double>>("crawl_depth");
         set => SetArgument("crawl_depth", value);
     }
 
@@ -211,7 +211,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlock :
     /// </summary>
     public TerraformValue<double>? MaxContentSizePerPageInMegaBytes
     {
-        get => new TerraformReference<double>(this, "max_content_size_per_page_in_mega_bytes");
+        get => GetArgument<TerraformValue<double>>("max_content_size_per_page_in_mega_bytes");
         set => SetArgument("max_content_size_per_page_in_mega_bytes", value);
     }
 
@@ -220,7 +220,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlock :
     /// </summary>
     public TerraformValue<double>? MaxLinksPerPage
     {
-        get => new TerraformReference<double>(this, "max_links_per_page");
+        get => GetArgument<TerraformValue<double>>("max_links_per_page");
         set => SetArgument("max_links_per_page", value);
     }
 
@@ -229,7 +229,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlock :
     /// </summary>
     public TerraformValue<double>? MaxUrlsPerMinuteCrawlRate
     {
-        get => new TerraformReference<double>(this, "max_urls_per_minute_crawl_rate");
+        get => GetArgument<TerraformValue<double>>("max_urls_per_minute_crawl_rate");
         set => SetArgument("max_urls_per_minute_crawl_rate", value);
     }
 
@@ -238,7 +238,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlock :
     /// </summary>
     public TerraformSet<string>? UrlExclusionPatterns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "url_exclusion_patterns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("url_exclusion_patterns");
         set => SetArgument("url_exclusion_patterns", value);
     }
 
@@ -247,7 +247,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlock :
     /// </summary>
     public TerraformSet<string>? UrlInclusionPatterns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "url_inclusion_patterns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("url_inclusion_patterns");
         set => SetArgument("url_inclusion_patterns", value);
     }
 
@@ -326,7 +326,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlockAu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Credentials is required")]
     public required TerraformValue<string> Credentials
     {
-        get => new TerraformReference<string>(this, "credentials");
+        get => GetArgument<TerraformValue<string>>("credentials");
         set => SetArgument("credentials", value);
     }
 
@@ -336,7 +336,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlockAu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -346,7 +346,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlockAu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -368,7 +368,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlockPr
     /// </summary>
     public TerraformValue<string>? Credentials
     {
-        get => new TerraformReference<string>(this, "credentials");
+        get => GetArgument<TerraformValue<string>>("credentials");
         set => SetArgument("credentials", value);
     }
 
@@ -378,7 +378,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlockPr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -388,7 +388,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlockPr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -444,7 +444,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlockUr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SeedUrls is required")]
     public required TerraformSet<string> SeedUrls
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "seed_urls").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("seed_urls");
         set => SetArgument("seed_urls", value);
     }
 
@@ -453,7 +453,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlockUr
     /// </summary>
     public TerraformValue<string>? WebCrawlerMode
     {
-        get => new TerraformReference<string>(this, "web_crawler_mode");
+        get => GetArgument<TerraformValue<string>>("web_crawler_mode");
         set => SetArgument("web_crawler_mode", value);
     }
 
@@ -476,7 +476,7 @@ public class AwsKendraDataSourceConfigurationBlockWebCrawlerConfigurationBlockUr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteMaps is required")]
     public required TerraformSet<string> SiteMaps
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "site_maps").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("site_maps");
         set => SetArgument("site_maps", value);
     }
 
@@ -499,7 +499,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlock : Ter
     /// </summary>
     public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -551,7 +551,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockInline
     /// </summary>
     public TerraformValue<bool>? DocumentContentDeletion
     {
-        get => new TerraformReference<bool>(this, "document_content_deletion");
+        get => GetArgument<TerraformValue<bool>>("document_content_deletion");
         set => SetArgument("document_content_deletion", value);
     }
 
@@ -594,7 +594,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockInline
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConditionDocumentAttributeKey is required")]
     public required TerraformValue<string> ConditionDocumentAttributeKey
     {
-        get => new TerraformReference<string>(this, "condition_document_attribute_key");
+        get => GetArgument<TerraformValue<string>>("condition_document_attribute_key");
         set => SetArgument("condition_document_attribute_key", value);
     }
 
@@ -604,7 +604,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockInline
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -636,7 +636,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockInline
     /// </summary>
     public TerraformValue<string>? DateValue
     {
-        get => new TerraformReference<string>(this, "date_value");
+        get => GetArgument<TerraformValue<string>>("date_value");
         set => SetArgument("date_value", value);
     }
 
@@ -645,7 +645,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockInline
     /// </summary>
     public TerraformValue<double>? LongValue
     {
-        get => new TerraformReference<double>(this, "long_value");
+        get => GetArgument<TerraformValue<double>>("long_value");
         set => SetArgument("long_value", value);
     }
 
@@ -654,7 +654,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockInline
     /// </summary>
     public TerraformSet<string>? StringListValue
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "string_list_value").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("string_list_value");
         set => SetArgument("string_list_value", value);
     }
 
@@ -663,7 +663,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockInline
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -685,7 +685,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockInline
     /// </summary>
     public TerraformValue<string>? TargetDocumentAttributeKey
     {
-        get => new TerraformReference<string>(this, "target_document_attribute_key");
+        get => GetArgument<TerraformValue<string>>("target_document_attribute_key");
         set => SetArgument("target_document_attribute_key", value);
     }
 
@@ -694,7 +694,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockInline
     /// </summary>
     public TerraformValue<bool>? TargetDocumentAttributeValueDeletion
     {
-        get => new TerraformReference<bool>(this, "target_document_attribute_value_deletion");
+        get => GetArgument<TerraformValue<bool>>("target_document_attribute_value_deletion");
         set => SetArgument("target_document_attribute_value_deletion", value);
     }
 
@@ -726,7 +726,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockInline
     /// </summary>
     public TerraformValue<string>? DateValue
     {
-        get => new TerraformReference<string>(this, "date_value");
+        get => GetArgument<TerraformValue<string>>("date_value");
         set => SetArgument("date_value", value);
     }
 
@@ -735,7 +735,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockInline
     /// </summary>
     public TerraformValue<double>? LongValue
     {
-        get => new TerraformReference<double>(this, "long_value");
+        get => GetArgument<TerraformValue<double>>("long_value");
         set => SetArgument("long_value", value);
     }
 
@@ -744,7 +744,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockInline
     /// </summary>
     public TerraformSet<string>? StringListValue
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "string_list_value").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("string_list_value");
         set => SetArgument("string_list_value", value);
     }
 
@@ -753,7 +753,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockInline
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -776,7 +776,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPostEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LambdaArn is required")]
     public required TerraformValue<string> LambdaArn
     {
-        get => new TerraformReference<string>(this, "lambda_arn");
+        get => GetArgument<TerraformValue<string>>("lambda_arn");
         set => SetArgument("lambda_arn", value);
     }
 
@@ -786,7 +786,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPostEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
     public required TerraformValue<string> S3Bucket
     {
-        get => new TerraformReference<string>(this, "s3_bucket");
+        get => GetArgument<TerraformValue<string>>("s3_bucket");
         set => SetArgument("s3_bucket", value);
     }
 
@@ -819,7 +819,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPostEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConditionDocumentAttributeKey is required")]
     public required TerraformValue<string> ConditionDocumentAttributeKey
     {
-        get => new TerraformReference<string>(this, "condition_document_attribute_key");
+        get => GetArgument<TerraformValue<string>>("condition_document_attribute_key");
         set => SetArgument("condition_document_attribute_key", value);
     }
 
@@ -829,7 +829,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPostEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -861,7 +861,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPostEx
     /// </summary>
     public TerraformValue<string>? DateValue
     {
-        get => new TerraformReference<string>(this, "date_value");
+        get => GetArgument<TerraformValue<string>>("date_value");
         set => SetArgument("date_value", value);
     }
 
@@ -870,7 +870,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPostEx
     /// </summary>
     public TerraformValue<double>? LongValue
     {
-        get => new TerraformReference<double>(this, "long_value");
+        get => GetArgument<TerraformValue<double>>("long_value");
         set => SetArgument("long_value", value);
     }
 
@@ -879,7 +879,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPostEx
     /// </summary>
     public TerraformSet<string>? StringListValue
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "string_list_value").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("string_list_value");
         set => SetArgument("string_list_value", value);
     }
 
@@ -888,7 +888,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPostEx
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -911,7 +911,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPreExt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LambdaArn is required")]
     public required TerraformValue<string> LambdaArn
     {
-        get => new TerraformReference<string>(this, "lambda_arn");
+        get => GetArgument<TerraformValue<string>>("lambda_arn");
         set => SetArgument("lambda_arn", value);
     }
 
@@ -921,7 +921,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPreExt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
     public required TerraformValue<string> S3Bucket
     {
-        get => new TerraformReference<string>(this, "s3_bucket");
+        get => GetArgument<TerraformValue<string>>("s3_bucket");
         set => SetArgument("s3_bucket", value);
     }
 
@@ -954,7 +954,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPreExt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConditionDocumentAttributeKey is required")]
     public required TerraformValue<string> ConditionDocumentAttributeKey
     {
-        get => new TerraformReference<string>(this, "condition_document_attribute_key");
+        get => GetArgument<TerraformValue<string>>("condition_document_attribute_key");
         set => SetArgument("condition_document_attribute_key", value);
     }
 
@@ -964,7 +964,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPreExt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -996,7 +996,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPreExt
     /// </summary>
     public TerraformValue<string>? DateValue
     {
-        get => new TerraformReference<string>(this, "date_value");
+        get => GetArgument<TerraformValue<string>>("date_value");
         set => SetArgument("date_value", value);
     }
 
@@ -1005,7 +1005,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPreExt
     /// </summary>
     public TerraformValue<double>? LongValue
     {
-        get => new TerraformReference<double>(this, "long_value");
+        get => GetArgument<TerraformValue<double>>("long_value");
         set => SetArgument("long_value", value);
     }
 
@@ -1014,7 +1014,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPreExt
     /// </summary>
     public TerraformSet<string>? StringListValue
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "string_list_value").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("string_list_value");
         set => SetArgument("string_list_value", value);
     }
 
@@ -1023,7 +1023,7 @@ public class AwsKendraDataSourceCustomDocumentEnrichmentConfigurationBlockPreExt
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -1046,7 +1046,7 @@ public class AwsKendraDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1055,7 +1055,7 @@ public class AwsKendraDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1064,7 +1064,7 @@ public class AwsKendraDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1082,16 +1082,16 @@ public partial class AwsKendraDataSource(string name) : TerraformResource("aws_k
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1101,16 +1101,16 @@ public partial class AwsKendraDataSource(string name) : TerraformResource("aws_k
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexId is required")]
     public required TerraformValue<string> IndexId
     {
-        get => new TerraformReference<string>(this, "index_id");
+        get => GetArgument<TerraformValue<string>>("index_id");
         set => SetArgument("index_id", value);
     }
 
     /// <summary>
     /// The language_code attribute.
     /// </summary>
-    public TerraformValue<string> LanguageCode
+    public TerraformValue<string>? LanguageCode
     {
-        get => new TerraformReference<string>(this, "language_code");
+        get => GetArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -1120,16 +1120,16 @@ public partial class AwsKendraDataSource(string name) : TerraformResource("aws_k
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -1138,7 +1138,7 @@ public partial class AwsKendraDataSource(string name) : TerraformResource("aws_k
     /// </summary>
     public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1147,7 +1147,7 @@ public partial class AwsKendraDataSource(string name) : TerraformResource("aws_k
     /// </summary>
     public TerraformValue<string>? Schedule
     {
-        get => new TerraformReference<string>(this, "schedule");
+        get => GetArgument<TerraformValue<string>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -1156,16 +1156,16 @@ public partial class AwsKendraDataSource(string name) : TerraformResource("aws_k
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1175,7 +1175,7 @@ public partial class AwsKendraDataSource(string name) : TerraformResource("aws_k
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1183,49 +1183,37 @@ public partial class AwsKendraDataSource(string name) : TerraformResource("aws_k
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The data_source_id attribute.
     /// </summary>
     public TerraformValue<string> DataSourceId
-    {
-        get => new TerraformReference<string>(this, "data_source_id");
-    }
+        => AsReference("data_source_id");
 
     /// <summary>
     /// The error_message attribute.
     /// </summary>
     public TerraformValue<string> ErrorMessage
-    {
-        get => new TerraformReference<string>(this, "error_message");
-    }
+        => AsReference("error_message");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-    {
-        get => new TerraformReference<string>(this, "updated_at");
-    }
+        => AsReference("updated_at");
 
     /// <summary>
     /// Configuration block (nesting mode: list).

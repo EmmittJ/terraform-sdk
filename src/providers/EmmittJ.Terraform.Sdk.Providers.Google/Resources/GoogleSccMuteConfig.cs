@@ -18,7 +18,7 @@ public class GoogleSccMuteConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleSccMuteConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleSccMuteConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,7 +54,7 @@ public partial class GoogleSccMuteConfig(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -67,7 +67,7 @@ public partial class GoogleSccMuteConfig(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? ExpiryTime
     {
-        get => new TerraformReference<string>(this, "expiry_time");
+        get => GetArgument<TerraformValue<string>>("expiry_time");
         set => SetArgument("expiry_time", value);
     }
 
@@ -81,16 +81,16 @@ public partial class GoogleSccMuteConfig(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class GoogleSccMuteConfig(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MuteConfigId is required")]
     public required TerraformValue<string> MuteConfigId
     {
-        get => new TerraformReference<string>(this, "mute_config_id");
+        get => GetArgument<TerraformValue<string>>("mute_config_id");
         set => SetArgument("mute_config_id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class GoogleSccMuteConfig(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -121,7 +121,7 @@ public partial class GoogleSccMuteConfig(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -130,9 +130,7 @@ public partial class GoogleSccMuteConfig(string name) : TerraformResource("googl
     /// the server and will be ignored if provided on config creation.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Email address of the user who last edited the mute config. This
@@ -140,9 +138,7 @@ public partial class GoogleSccMuteConfig(string name) : TerraformResource("googl
     /// config creation or update.
     /// </summary>
     public TerraformValue<string> MostRecentEditor
-    {
-        get => new TerraformReference<string>(this, "most_recent_editor");
-    }
+        => AsReference("most_recent_editor");
 
     /// <summary>
     /// Name of the mute config. Its format is
@@ -151,9 +147,7 @@ public partial class GoogleSccMuteConfig(string name) : TerraformResource("googl
     /// or projects/{project}/muteConfigs/{configId}
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. The most recent time at which the mute config was
@@ -161,9 +155,7 @@ public partial class GoogleSccMuteConfig(string name) : TerraformResource("googl
     /// provided on config creation or update.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

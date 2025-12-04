@@ -19,7 +19,7 @@ public class AzurermContainerAppEnvironmentDaprComponentMetadataBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermContainerAppEnvironmentDaprComponentMetadataBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? SecretName
     {
-        get => new TerraformReference<string>(this, "secret_name");
+        get => GetArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermContainerAppEnvironmentDaprComponentMetadataBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermContainerAppEnvironmentDaprComponentSecretBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Identity
     {
-        get => new TerraformReference<string>(this, "identity");
+        get => GetArgument<TerraformValue<string>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermContainerAppEnvironmentDaprComponentSecretBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? KeyVaultSecretId
     {
-        get => new TerraformReference<string>(this, "key_vault_secret_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_secret_id");
         set => SetArgument("key_vault_secret_id", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermContainerAppEnvironmentDaprComponentSecretBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermContainerAppEnvironmentDaprComponentSecretBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -111,7 +111,7 @@ public class AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -129,7 +129,7 @@ public class AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -138,7 +138,7 @@ public class AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AzurermContainerAppEnvironmentDaprComponent(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentType is required")]
     public required TerraformValue<string> ComponentType
     {
-        get => new TerraformReference<string>(this, "component_type");
+        get => GetArgument<TerraformValue<string>>("component_type");
         set => SetArgument("component_type", value);
     }
 
@@ -167,16 +167,16 @@ public partial class AzurermContainerAppEnvironmentDaprComponent(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
     public required TerraformValue<string> ContainerAppEnvironmentId
     {
-        get => new TerraformReference<string>(this, "container_app_environment_id");
+        get => GetArgument<TerraformValue<string>>("container_app_environment_id");
         set => SetArgument("container_app_environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -185,7 +185,7 @@ public partial class AzurermContainerAppEnvironmentDaprComponent(string name) : 
     /// </summary>
     public TerraformValue<bool>? IgnoreErrors
     {
-        get => new TerraformReference<bool>(this, "ignore_errors");
+        get => GetArgument<TerraformValue<bool>>("ignore_errors");
         set => SetArgument("ignore_errors", value);
     }
 
@@ -194,7 +194,7 @@ public partial class AzurermContainerAppEnvironmentDaprComponent(string name) : 
     /// </summary>
     public TerraformValue<string>? InitTimeout
     {
-        get => new TerraformReference<string>(this, "init_timeout");
+        get => GetArgument<TerraformValue<string>>("init_timeout");
         set => SetArgument("init_timeout", value);
     }
 
@@ -204,7 +204,7 @@ public partial class AzurermContainerAppEnvironmentDaprComponent(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -213,7 +213,7 @@ public partial class AzurermContainerAppEnvironmentDaprComponent(string name) : 
     /// </summary>
     public TerraformList<string>? Scopes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("scopes");
         set => SetArgument("scopes", value);
     }
 
@@ -223,7 +223,7 @@ public partial class AzurermContainerAppEnvironmentDaprComponent(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 

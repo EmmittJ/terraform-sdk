@@ -11,9 +11,9 @@ public partial class AwsRoute53ResolverRulesDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsRoute53ResolverRulesDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string>? NameRegex
     {
-        get => new TerraformReference<string>(this, "name_regex");
+        get => GetArgument<TerraformValue<string>>("name_regex");
         set => SetArgument("name_regex", value);
     }
 
@@ -31,16 +31,16 @@ public partial class AwsRoute53ResolverRulesDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string>? OwnerId
     {
-        get => new TerraformReference<string>(this, "owner_id");
+        get => GetArgument<TerraformValue<string>>("owner_id");
         set => SetArgument("owner_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsRoute53ResolverRulesDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string>? ResolverEndpointId
     {
-        get => new TerraformReference<string>(this, "resolver_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("resolver_endpoint_id");
         set => SetArgument("resolver_endpoint_id", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsRoute53ResolverRulesDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string>? RuleType
     {
-        get => new TerraformReference<string>(this, "rule_type");
+        get => GetArgument<TerraformValue<string>>("rule_type");
         set => SetArgument("rule_type", value);
     }
 
@@ -67,7 +67,7 @@ public partial class AwsRoute53ResolverRulesDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string>? ShareStatus
     {
-        get => new TerraformReference<string>(this, "share_status");
+        get => GetArgument<TerraformValue<string>>("share_status");
         set => SetArgument("share_status", value);
     }
 
@@ -75,8 +75,6 @@ public partial class AwsRoute53ResolverRulesDataSource(string name) : TerraformD
     /// The resolver_rule_ids attribute.
     /// </summary>
     public TerraformSet<string> ResolverRuleIds
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "resolver_rule_ids").ResolveNodes(ctx));
-    }
+        => AsReference("resolver_rule_ids");
 
 }

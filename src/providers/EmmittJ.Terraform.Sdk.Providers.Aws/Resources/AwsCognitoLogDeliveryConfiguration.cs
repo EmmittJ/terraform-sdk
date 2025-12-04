@@ -19,7 +19,7 @@ public class AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventSource is required")]
     public required TerraformValue<string> EventSource
     {
-        get => new TerraformReference<string>(this, "event_source");
+        get => GetArgument<TerraformValue<string>>("event_source");
         set => SetArgument("event_source", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogLevel is required")]
     public required TerraformValue<string> LogLevel
     {
-        get => new TerraformReference<string>(this, "log_level");
+        get => GetArgument<TerraformValue<string>>("log_level");
         set => SetArgument("log_level", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsCognitoLogDeliveryConfigurationLogConfigurationsBlockCloudWatchL
     /// </summary>
     public TerraformValue<string>? LogGroupArn
     {
-        get => new TerraformReference<string>(this, "log_group_arn");
+        get => GetArgument<TerraformValue<string>>("log_group_arn");
         set => SetArgument("log_group_arn", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsCognitoLogDeliveryConfigurationLogConfigurationsBlockFirehoseCon
     /// </summary>
     public TerraformValue<string>? StreamArn
     {
-        get => new TerraformReference<string>(this, "stream_arn");
+        get => GetArgument<TerraformValue<string>>("stream_arn");
         set => SetArgument("stream_arn", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsCognitoLogDeliveryConfigurationLogConfigurationsBlockS3Configura
     /// </summary>
     public TerraformValue<string>? BucketArn
     {
-        get => new TerraformReference<string>(this, "bucket_arn");
+        get => GetArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -138,9 +138,9 @@ public partial class AwsCognitoLogDeliveryConfiguration(string name) : Terraform
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AwsCognitoLogDeliveryConfiguration(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformValue<string> UserPoolId
     {
-        get => new TerraformReference<string>(this, "user_pool_id");
+        get => GetArgument<TerraformValue<string>>("user_pool_id");
         set => SetArgument("user_pool_id", value);
     }
 

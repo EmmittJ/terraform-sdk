@@ -19,7 +19,7 @@ public class AwsBudgetsBudgetAutoAdjustDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoAdjustType is required")]
     public required TerraformValue<string> AutoAdjustType
     {
-        get => new TerraformReference<string>(this, "auto_adjust_type");
+        get => GetArgument<TerraformValue<string>>("auto_adjust_type");
         set => SetArgument("auto_adjust_type", value);
     }
 
@@ -27,9 +27,7 @@ public class AwsBudgetsBudgetAutoAdjustDataBlock : TerraformBlock
     /// The last_auto_adjust_time attribute.
     /// </summary>
     public TerraformValue<string> LastAutoAdjustTime
-    {
-        get => new TerraformReference<string>(this, "last_auto_adjust_time");
-    }
+        => AsReference("last_auto_adjust_time");
 
     /// <summary>
     /// HistoricalOptions block (nesting mode: list).
@@ -60,7 +58,7 @@ public class AwsBudgetsBudgetAutoAdjustDataBlockHistoricalOptionsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BudgetAdjustmentPeriod is required")]
     public required TerraformValue<double> BudgetAdjustmentPeriod
     {
-        get => new TerraformReference<double>(this, "budget_adjustment_period");
+        get => GetArgument<TerraformValue<double>>("budget_adjustment_period");
         set => SetArgument("budget_adjustment_period", value);
     }
 
@@ -68,9 +66,7 @@ public class AwsBudgetsBudgetAutoAdjustDataBlockHistoricalOptionsBlock : Terrafo
     /// The lookback_available_periods attribute.
     /// </summary>
     public TerraformValue<double> LookbackAvailablePeriods
-    {
-        get => new TerraformReference<double>(this, "lookback_available_periods");
-    }
+        => AsReference("lookback_available_periods");
 
 }
 
@@ -92,7 +88,7 @@ public class AwsBudgetsBudgetCostFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -102,7 +98,7 @@ public class AwsBudgetsBudgetCostFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -125,7 +121,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IncludeCredit
     {
-        get => new TerraformReference<bool>(this, "include_credit");
+        get => GetArgument<TerraformValue<bool>>("include_credit");
         set => SetArgument("include_credit", value);
     }
 
@@ -134,7 +130,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IncludeDiscount
     {
-        get => new TerraformReference<bool>(this, "include_discount");
+        get => GetArgument<TerraformValue<bool>>("include_discount");
         set => SetArgument("include_discount", value);
     }
 
@@ -143,7 +139,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IncludeOtherSubscription
     {
-        get => new TerraformReference<bool>(this, "include_other_subscription");
+        get => GetArgument<TerraformValue<bool>>("include_other_subscription");
         set => SetArgument("include_other_subscription", value);
     }
 
@@ -152,7 +148,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IncludeRecurring
     {
-        get => new TerraformReference<bool>(this, "include_recurring");
+        get => GetArgument<TerraformValue<bool>>("include_recurring");
         set => SetArgument("include_recurring", value);
     }
 
@@ -161,7 +157,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IncludeRefund
     {
-        get => new TerraformReference<bool>(this, "include_refund");
+        get => GetArgument<TerraformValue<bool>>("include_refund");
         set => SetArgument("include_refund", value);
     }
 
@@ -170,7 +166,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IncludeSubscription
     {
-        get => new TerraformReference<bool>(this, "include_subscription");
+        get => GetArgument<TerraformValue<bool>>("include_subscription");
         set => SetArgument("include_subscription", value);
     }
 
@@ -179,7 +175,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IncludeSupport
     {
-        get => new TerraformReference<bool>(this, "include_support");
+        get => GetArgument<TerraformValue<bool>>("include_support");
         set => SetArgument("include_support", value);
     }
 
@@ -188,7 +184,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IncludeTax
     {
-        get => new TerraformReference<bool>(this, "include_tax");
+        get => GetArgument<TerraformValue<bool>>("include_tax");
         set => SetArgument("include_tax", value);
     }
 
@@ -197,7 +193,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IncludeUpfront
     {
-        get => new TerraformReference<bool>(this, "include_upfront");
+        get => GetArgument<TerraformValue<bool>>("include_upfront");
         set => SetArgument("include_upfront", value);
     }
 
@@ -206,7 +202,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? UseAmortized
     {
-        get => new TerraformReference<bool>(this, "use_amortized");
+        get => GetArgument<TerraformValue<bool>>("use_amortized");
         set => SetArgument("use_amortized", value);
     }
 
@@ -215,7 +211,7 @@ public class AwsBudgetsBudgetCostTypesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? UseBlended
     {
-        get => new TerraformReference<bool>(this, "use_blended");
+        get => GetArgument<TerraformValue<bool>>("use_blended");
         set => SetArgument("use_blended", value);
     }
 
@@ -239,7 +235,7 @@ public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComparisonOperator is required")]
     public required TerraformValue<string> ComparisonOperator
     {
-        get => new TerraformReference<string>(this, "comparison_operator");
+        get => GetArgument<TerraformValue<string>>("comparison_operator");
         set => SetArgument("comparison_operator", value);
     }
 
@@ -249,7 +245,7 @@ public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationType is required")]
     public required TerraformValue<string> NotificationType
     {
-        get => new TerraformReference<string>(this, "notification_type");
+        get => GetArgument<TerraformValue<string>>("notification_type");
         set => SetArgument("notification_type", value);
     }
 
@@ -258,7 +254,7 @@ public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? SubscriberEmailAddresses
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subscriber_email_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subscriber_email_addresses");
         set => SetArgument("subscriber_email_addresses", value);
     }
 
@@ -267,7 +263,7 @@ public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? SubscriberSnsTopicArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subscriber_sns_topic_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subscriber_sns_topic_arns");
         set => SetArgument("subscriber_sns_topic_arns", value);
     }
 
@@ -277,7 +273,7 @@ public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformValue<double> Threshold
     {
-        get => new TerraformReference<double>(this, "threshold");
+        get => GetArgument<TerraformValue<double>>("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -287,7 +283,7 @@ public class AwsBudgetsBudgetNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThresholdType is required")]
     public required TerraformValue<string> ThresholdType
     {
-        get => new TerraformReference<string>(this, "threshold_type");
+        get => GetArgument<TerraformValue<string>>("threshold_type");
         set => SetArgument("threshold_type", value);
     }
 
@@ -311,7 +307,7 @@ public class AwsBudgetsBudgetPlannedLimitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Amount is required")]
     public required TerraformValue<string> Amount
     {
-        get => new TerraformReference<string>(this, "amount");
+        get => GetArgument<TerraformValue<string>>("amount");
         set => SetArgument("amount", value);
     }
 
@@ -321,7 +317,7 @@ public class AwsBudgetsBudgetPlannedLimitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformValue<string> StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -331,7 +327,7 @@ public class AwsBudgetsBudgetPlannedLimitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -347,9 +343,9 @@ public partial class AwsBudgetsBudget(string name) : TerraformResource("aws_budg
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformValue<string> AccountId
+    public TerraformValue<string>? AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -358,7 +354,7 @@ public partial class AwsBudgetsBudget(string name) : TerraformResource("aws_budg
     /// </summary>
     public TerraformValue<string>? BillingViewArn
     {
-        get => new TerraformReference<string>(this, "billing_view_arn");
+        get => GetArgument<TerraformValue<string>>("billing_view_arn");
         set => SetArgument("billing_view_arn", value);
     }
 
@@ -368,52 +364,52 @@ public partial class AwsBudgetsBudget(string name) : TerraformResource("aws_budg
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BudgetType is required")]
     public required TerraformValue<string> BudgetType
     {
-        get => new TerraformReference<string>(this, "budget_type");
+        get => GetArgument<TerraformValue<string>>("budget_type");
         set => SetArgument("budget_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The limit_amount attribute.
     /// </summary>
-    public TerraformValue<string> LimitAmount
+    public TerraformValue<string>? LimitAmount
     {
-        get => new TerraformReference<string>(this, "limit_amount");
+        get => GetArgument<TerraformValue<string>>("limit_amount");
         set => SetArgument("limit_amount", value);
     }
 
     /// <summary>
     /// The limit_unit attribute.
     /// </summary>
-    public TerraformValue<string> LimitUnit
+    public TerraformValue<string>? LimitUnit
     {
-        get => new TerraformReference<string>(this, "limit_unit");
+        get => GetArgument<TerraformValue<string>>("limit_unit");
         set => SetArgument("limit_unit", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -422,16 +418,16 @@ public partial class AwsBudgetsBudget(string name) : TerraformResource("aws_budg
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -440,16 +436,16 @@ public partial class AwsBudgetsBudget(string name) : TerraformResource("aws_budg
     /// </summary>
     public TerraformValue<string>? TimePeriodEnd
     {
-        get => new TerraformReference<string>(this, "time_period_end");
+        get => GetArgument<TerraformValue<string>>("time_period_end");
         set => SetArgument("time_period_end", value);
     }
 
     /// <summary>
     /// The time_period_start attribute.
     /// </summary>
-    public TerraformValue<string> TimePeriodStart
+    public TerraformValue<string>? TimePeriodStart
     {
-        get => new TerraformReference<string>(this, "time_period_start");
+        get => GetArgument<TerraformValue<string>>("time_period_start");
         set => SetArgument("time_period_start", value);
     }
 
@@ -459,7 +455,7 @@ public partial class AwsBudgetsBudget(string name) : TerraformResource("aws_budg
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeUnit is required")]
     public required TerraformValue<string> TimeUnit
     {
-        get => new TerraformReference<string>(this, "time_unit");
+        get => GetArgument<TerraformValue<string>>("time_unit");
         set => SetArgument("time_unit", value);
     }
 
@@ -467,9 +463,7 @@ public partial class AwsBudgetsBudget(string name) : TerraformResource("aws_budg
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// AutoAdjustData block (nesting mode: list).

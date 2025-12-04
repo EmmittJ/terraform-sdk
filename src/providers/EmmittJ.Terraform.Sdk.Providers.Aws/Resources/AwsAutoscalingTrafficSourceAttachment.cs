@@ -18,7 +18,7 @@ public class AwsAutoscalingTrafficSourceAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsAutoscalingTrafficSourceAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsAutoscalingTrafficSourceAttachmentTrafficSourceBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformValue<string> Identifier
     {
-        get => new TerraformReference<string>(this, "identifier");
+        get => GetArgument<TerraformValue<string>>("identifier");
         set => SetArgument("identifier", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsAutoscalingTrafficSourceAttachmentTrafficSourceBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -80,25 +80,25 @@ public partial class AwsAutoscalingTrafficSourceAttachment(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingGroupName is required")]
     public required TerraformValue<string> AutoscalingGroupName
     {
-        get => new TerraformReference<string>(this, "autoscaling_group_name");
+        get => GetArgument<TerraformValue<string>>("autoscaling_group_name");
         set => SetArgument("autoscaling_group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

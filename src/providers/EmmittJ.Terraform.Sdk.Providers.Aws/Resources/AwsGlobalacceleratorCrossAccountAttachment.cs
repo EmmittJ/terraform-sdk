@@ -18,7 +18,7 @@ public class AwsGlobalacceleratorCrossAccountAttachmentResourceBlock : Terraform
     /// </summary>
     public TerraformValue<string>? CidrBlock
     {
-        get => new TerraformReference<string>(this, "cidr_block");
+        get => GetArgument<TerraformValue<string>>("cidr_block");
         set => SetArgument("cidr_block", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsGlobalacceleratorCrossAccountAttachmentResourceBlock : Terraform
     /// </summary>
     public TerraformValue<string>? EndpointId
     {
-        get => new TerraformReference<string>(this, "endpoint_id");
+        get => GetArgument<TerraformValue<string>>("endpoint_id");
         set => SetArgument("endpoint_id", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsGlobalacceleratorCrossAccountAttachmentResourceBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsGlobalacceleratorCrossAccountAttachment(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsGlobalacceleratorCrossAccountAttachment(string name) : T
     /// </summary>
     public TerraformSet<string>? Principals
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "principals").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("principals");
         set => SetArgument("principals", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsGlobalacceleratorCrossAccountAttachment(string name) : T
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -81,41 +81,31 @@ public partial class AwsGlobalacceleratorCrossAccountAttachment(string name) : T
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-    {
-        get => new TerraformReference<string>(this, "created_time");
-    }
+        => AsReference("created_time");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedTime
-    {
-        get => new TerraformReference<string>(this, "last_modified_time");
-    }
+        => AsReference("last_modified_time");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Resource block (nesting mode: set).

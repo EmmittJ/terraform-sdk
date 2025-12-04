@@ -19,7 +19,7 @@ public class AzurermGalleryApplicationVersionManageActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Install is required")]
     public required TerraformValue<string> Install
     {
-        get => new TerraformReference<string>(this, "install");
+        get => GetArgument<TerraformValue<string>>("install");
         set => SetArgument("install", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermGalleryApplicationVersionManageActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoveAttribute is required")]
     public required TerraformValue<string> RemoveAttribute
     {
-        get => new TerraformReference<string>(this, "remove");
+        get => GetArgument<TerraformValue<string>>("remove");
         set => SetArgument("remove", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermGalleryApplicationVersionManageActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermGalleryApplicationVersionSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DefaultConfigurationLink
     {
-        get => new TerraformReference<string>(this, "default_configuration_link");
+        get => GetArgument<TerraformValue<string>>("default_configuration_link");
         set => SetArgument("default_configuration_link", value);
     }
 
@@ -71,7 +71,7 @@ public class AzurermGalleryApplicationVersionSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MediaLink is required")]
     public required TerraformValue<string> MediaLink
     {
-        get => new TerraformReference<string>(this, "media_link");
+        get => GetArgument<TerraformValue<string>>("media_link");
         set => SetArgument("media_link", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermGalleryApplicationVersionTargetRegionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ExcludeFromLatest
     {
-        get => new TerraformReference<bool>(this, "exclude_from_latest");
+        get => GetArgument<TerraformValue<bool>>("exclude_from_latest");
         set => SetArgument("exclude_from_latest", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermGalleryApplicationVersionTargetRegionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermGalleryApplicationVersionTargetRegionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionalReplicaCount is required")]
     public required TerraformValue<double> RegionalReplicaCount
     {
-        get => new TerraformReference<double>(this, "regional_replica_count");
+        get => GetArgument<TerraformValue<double>>("regional_replica_count");
         set => SetArgument("regional_replica_count", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermGalleryApplicationVersionTargetRegionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StorageAccountType
     {
-        get => new TerraformReference<string>(this, "storage_account_type");
+        get => GetArgument<TerraformValue<string>>("storage_account_type");
         set => SetArgument("storage_account_type", value);
     }
 
@@ -146,7 +146,7 @@ public class AzurermGalleryApplicationVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -155,7 +155,7 @@ public class AzurermGalleryApplicationVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -164,7 +164,7 @@ public class AzurermGalleryApplicationVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -173,7 +173,7 @@ public class AzurermGalleryApplicationVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AzurermGalleryApplicationVersion(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? ConfigFile
     {
-        get => new TerraformReference<string>(this, "config_file");
+        get => GetArgument<TerraformValue<string>>("config_file");
         set => SetArgument("config_file", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AzurermGalleryApplicationVersion(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? EnableHealthCheck
     {
-        get => new TerraformReference<bool>(this, "enable_health_check");
+        get => GetArgument<TerraformValue<bool>>("enable_health_check");
         set => SetArgument("enable_health_check", value);
     }
 
@@ -209,7 +209,7 @@ public partial class AzurermGalleryApplicationVersion(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? EndOfLifeDate
     {
-        get => new TerraformReference<string>(this, "end_of_life_date");
+        get => GetArgument<TerraformValue<string>>("end_of_life_date");
         set => SetArgument("end_of_life_date", value);
     }
 
@@ -218,7 +218,7 @@ public partial class AzurermGalleryApplicationVersion(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? ExcludeFromLatest
     {
-        get => new TerraformReference<bool>(this, "exclude_from_latest");
+        get => GetArgument<TerraformValue<bool>>("exclude_from_latest");
         set => SetArgument("exclude_from_latest", value);
     }
 
@@ -228,16 +228,16 @@ public partial class AzurermGalleryApplicationVersion(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryApplicationId is required")]
     public required TerraformValue<string> GalleryApplicationId
     {
-        get => new TerraformReference<string>(this, "gallery_application_id");
+        get => GetArgument<TerraformValue<string>>("gallery_application_id");
         set => SetArgument("gallery_application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -247,7 +247,7 @@ public partial class AzurermGalleryApplicationVersion(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -257,7 +257,7 @@ public partial class AzurermGalleryApplicationVersion(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -266,7 +266,7 @@ public partial class AzurermGalleryApplicationVersion(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? PackageFile
     {
-        get => new TerraformReference<string>(this, "package_file");
+        get => GetArgument<TerraformValue<string>>("package_file");
         set => SetArgument("package_file", value);
     }
 
@@ -275,7 +275,7 @@ public partial class AzurermGalleryApplicationVersion(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

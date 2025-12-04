@@ -19,7 +19,7 @@ public class GoogleBeyondcorpAppConnectionApplicationEndpointBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleBeyondcorpAppConnectionApplicationEndpointBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleBeyondcorpAppConnectionGatewayBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppGateway is required")]
     public required TerraformValue<string> AppGateway
     {
-        get => new TerraformReference<string>(this, "app_gateway");
+        get => GetArgument<TerraformValue<string>>("app_gateway");
         set => SetArgument("app_gateway", value);
     }
 
@@ -61,9 +61,7 @@ public class GoogleBeyondcorpAppConnectionGatewayBlock : TerraformBlock
     /// Ingress port reserved on the gateways for this AppConnection, if not specified or zero, the default port is 19443.
     /// </summary>
     public TerraformValue<double> IngressPort
-    {
-        get => new TerraformReference<double>(this, "ingress_port");
-    }
+        => AsReference("ingress_port");
 
     /// <summary>
     /// The type of hosting used by the gateway. Refer to
@@ -72,7 +70,7 @@ public class GoogleBeyondcorpAppConnectionGatewayBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -80,9 +78,7 @@ public class GoogleBeyondcorpAppConnectionGatewayBlock : TerraformBlock
     /// Server-defined URI for this resource.
     /// </summary>
     public TerraformValue<string> Uri
-    {
-        get => new TerraformReference<string>(this, "uri");
-    }
+        => AsReference("uri");
 
 }
 
@@ -103,7 +99,7 @@ public class GoogleBeyondcorpAppConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -112,7 +108,7 @@ public class GoogleBeyondcorpAppConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -121,7 +117,7 @@ public class GoogleBeyondcorpAppConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -139,7 +135,7 @@ public partial class GoogleBeyondcorpAppConnection(string name) : TerraformResou
     /// </summary>
     public TerraformList<string>? Connectors
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "connectors").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("connectors");
         set => SetArgument("connectors", value);
     }
 
@@ -148,16 +144,16 @@ public partial class GoogleBeyondcorpAppConnection(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -170,7 +166,7 @@ public partial class GoogleBeyondcorpAppConnection(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -180,16 +176,16 @@ public partial class GoogleBeyondcorpAppConnection(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -198,7 +194,7 @@ public partial class GoogleBeyondcorpAppConnection(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -209,7 +205,7 @@ public partial class GoogleBeyondcorpAppConnection(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -217,18 +213,14 @@ public partial class GoogleBeyondcorpAppConnection(string name) : TerraformResou
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// ApplicationEndpoint block (nesting mode: list).

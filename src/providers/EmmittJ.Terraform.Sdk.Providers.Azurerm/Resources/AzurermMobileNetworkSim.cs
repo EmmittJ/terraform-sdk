@@ -19,7 +19,7 @@ public class AzurermMobileNetworkSimStaticIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachedDataNetworkId is required")]
     public required TerraformValue<string> AttachedDataNetworkId
     {
-        get => new TerraformReference<string>(this, "attached_data_network_id");
+        get => GetArgument<TerraformValue<string>>("attached_data_network_id");
         set => SetArgument("attached_data_network_id", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermMobileNetworkSimStaticIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SliceId is required")]
     public required TerraformValue<string> SliceId
     {
-        get => new TerraformReference<string>(this, "slice_id");
+        get => GetArgument<TerraformValue<string>>("slice_id");
         set => SetArgument("slice_id", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermMobileNetworkSimStaticIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StaticIpv4Address
     {
-        get => new TerraformReference<string>(this, "static_ipv4_address");
+        get => GetArgument<TerraformValue<string>>("static_ipv4_address");
         set => SetArgument("static_ipv4_address", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermMobileNetworkSimTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermMobileNetworkSimTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermMobileNetworkSimTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermMobileNetworkSimTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -107,7 +107,7 @@ public partial class AzurermMobileNetworkSim(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationKey is required")]
     public required TerraformValue<string> AuthenticationKey
     {
-        get => new TerraformReference<string>(this, "authentication_key");
+        get => GetArgument<TerraformValue<string>>("authentication_key");
         set => SetArgument("authentication_key", value);
     }
 
@@ -116,16 +116,16 @@ public partial class AzurermMobileNetworkSim(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? DeviceType
     {
-        get => new TerraformReference<string>(this, "device_type");
+        get => GetArgument<TerraformValue<string>>("device_type");
         set => SetArgument("device_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AzurermMobileNetworkSim(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegratedCircuitCardIdentifier is required")]
     public required TerraformValue<string> IntegratedCircuitCardIdentifier
     {
-        get => new TerraformReference<string>(this, "integrated_circuit_card_identifier");
+        get => GetArgument<TerraformValue<string>>("integrated_circuit_card_identifier");
         set => SetArgument("integrated_circuit_card_identifier", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermMobileNetworkSim(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InternationalMobileSubscriberIdentity is required")]
     public required TerraformValue<string> InternationalMobileSubscriberIdentity
     {
-        get => new TerraformReference<string>(this, "international_mobile_subscriber_identity");
+        get => GetArgument<TerraformValue<string>>("international_mobile_subscriber_identity");
         set => SetArgument("international_mobile_subscriber_identity", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AzurermMobileNetworkSim(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkSimGroupId is required")]
     public required TerraformValue<string> MobileNetworkSimGroupId
     {
-        get => new TerraformReference<string>(this, "mobile_network_sim_group_id");
+        get => GetArgument<TerraformValue<string>>("mobile_network_sim_group_id");
         set => SetArgument("mobile_network_sim_group_id", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AzurermMobileNetworkSim(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -175,7 +175,7 @@ public partial class AzurermMobileNetworkSim(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorKeyCode is required")]
     public required TerraformValue<string> OperatorKeyCode
     {
-        get => new TerraformReference<string>(this, "operator_key_code");
+        get => GetArgument<TerraformValue<string>>("operator_key_code");
         set => SetArgument("operator_key_code", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AzurermMobileNetworkSim(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? SimPolicyId
     {
-        get => new TerraformReference<string>(this, "sim_policy_id");
+        get => GetArgument<TerraformValue<string>>("sim_policy_id");
         set => SetArgument("sim_policy_id", value);
     }
 
@@ -192,25 +192,19 @@ public partial class AzurermMobileNetworkSim(string name) : TerraformResource("a
     /// The sim_state attribute.
     /// </summary>
     public TerraformValue<string> SimState
-    {
-        get => new TerraformReference<string>(this, "sim_state");
-    }
+        => AsReference("sim_state");
 
     /// <summary>
     /// The vendor_key_fingerprint attribute.
     /// </summary>
     public TerraformValue<string> VendorKeyFingerprint
-    {
-        get => new TerraformReference<string>(this, "vendor_key_fingerprint");
-    }
+        => AsReference("vendor_key_fingerprint");
 
     /// <summary>
     /// The vendor_name attribute.
     /// </summary>
     public TerraformValue<string> VendorName
-    {
-        get => new TerraformReference<string>(this, "vendor_name");
-    }
+        => AsReference("vendor_name");
 
     /// <summary>
     /// StaticIpConfiguration block (nesting mode: list).

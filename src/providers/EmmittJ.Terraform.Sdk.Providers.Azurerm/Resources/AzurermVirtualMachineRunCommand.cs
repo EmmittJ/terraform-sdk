@@ -18,7 +18,7 @@ public class AzurermVirtualMachineRunCommandErrorBlobManagedIdentityBlock : Terr
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermVirtualMachineRunCommandErrorBlobManagedIdentityBlock : Terr
     /// </summary>
     public TerraformValue<string>? ObjectId
     {
-        get => new TerraformReference<string>(this, "object_id");
+        get => GetArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -50,7 +50,7 @@ public class AzurermVirtualMachineRunCommandOutputBlobManagedIdentityBlock : Ter
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermVirtualMachineRunCommandOutputBlobManagedIdentityBlock : Ter
     /// </summary>
     public TerraformValue<string>? ObjectId
     {
-        get => new TerraformReference<string>(this, "object_id");
+        get => GetArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -83,7 +83,7 @@ public class AzurermVirtualMachineRunCommandParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,7 +93,7 @@ public class AzurermVirtualMachineRunCommandParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -117,7 +117,7 @@ public class AzurermVirtualMachineRunCommandProtectedParameterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -127,7 +127,7 @@ public class AzurermVirtualMachineRunCommandProtectedParameterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermVirtualMachineRunCommandSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CommandId
     {
-        get => new TerraformReference<string>(this, "command_id");
+        get => GetArgument<TerraformValue<string>>("command_id");
         set => SetArgument("command_id", value);
     }
 
@@ -159,7 +159,7 @@ public class AzurermVirtualMachineRunCommandSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Script
     {
-        get => new TerraformReference<string>(this, "script");
+        get => GetArgument<TerraformValue<string>>("script");
         set => SetArgument("script", value);
     }
 
@@ -168,7 +168,7 @@ public class AzurermVirtualMachineRunCommandSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ScriptUri
     {
-        get => new TerraformReference<string>(this, "script_uri");
+        get => GetArgument<TerraformValue<string>>("script_uri");
         set => SetArgument("script_uri", value);
     }
 
@@ -200,7 +200,7 @@ public class AzurermVirtualMachineRunCommandSourceBlockScriptUriManagedIdentityB
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -209,7 +209,7 @@ public class AzurermVirtualMachineRunCommandSourceBlockScriptUriManagedIdentityB
     /// </summary>
     public TerraformValue<string>? ObjectId
     {
-        get => new TerraformReference<string>(this, "object_id");
+        get => GetArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -232,7 +232,7 @@ public class AzurermVirtualMachineRunCommandTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -241,7 +241,7 @@ public class AzurermVirtualMachineRunCommandTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -250,7 +250,7 @@ public class AzurermVirtualMachineRunCommandTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -259,7 +259,7 @@ public class AzurermVirtualMachineRunCommandTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -277,16 +277,16 @@ public partial class AzurermVirtualMachineRunCommand(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? ErrorBlobUri
     {
-        get => new TerraformReference<string>(this, "error_blob_uri");
+        get => GetArgument<TerraformValue<string>>("error_blob_uri");
         set => SetArgument("error_blob_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -296,7 +296,7 @@ public partial class AzurermVirtualMachineRunCommand(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -306,7 +306,7 @@ public partial class AzurermVirtualMachineRunCommand(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -315,7 +315,7 @@ public partial class AzurermVirtualMachineRunCommand(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? OutputBlobUri
     {
-        get => new TerraformReference<string>(this, "output_blob_uri");
+        get => GetArgument<TerraformValue<string>>("output_blob_uri");
         set => SetArgument("output_blob_uri", value);
     }
 
@@ -324,7 +324,7 @@ public partial class AzurermVirtualMachineRunCommand(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? RunAsPassword
     {
-        get => new TerraformReference<string>(this, "run_as_password");
+        get => GetArgument<TerraformValue<string>>("run_as_password");
         set => SetArgument("run_as_password", value);
     }
 
@@ -333,7 +333,7 @@ public partial class AzurermVirtualMachineRunCommand(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? RunAsUser
     {
-        get => new TerraformReference<string>(this, "run_as_user");
+        get => GetArgument<TerraformValue<string>>("run_as_user");
         set => SetArgument("run_as_user", value);
     }
 
@@ -342,7 +342,7 @@ public partial class AzurermVirtualMachineRunCommand(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -352,7 +352,7 @@ public partial class AzurermVirtualMachineRunCommand(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformValue<string> VirtualMachineId
     {
-        get => new TerraformReference<string>(this, "virtual_machine_id");
+        get => GetArgument<TerraformValue<string>>("virtual_machine_id");
         set => SetArgument("virtual_machine_id", value);
     }
 
@@ -360,9 +360,7 @@ public partial class AzurermVirtualMachineRunCommand(string name) : TerraformRes
     /// The instance_view attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstanceView
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "instance_view").ResolveNodes(ctx));
-    }
+        => AsReference("instance_view");
 
     /// <summary>
     /// ErrorBlobManagedIdentity block (nesting mode: list).

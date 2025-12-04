@@ -55,7 +55,7 @@ public class GoogleChronicleWatchlistTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -64,7 +64,7 @@ public class GoogleChronicleWatchlistTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleChronicleWatchlistTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -96,7 +96,7 @@ public class GoogleChronicleWatchlistWatchlistUserPreferencesBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? Pinned
     {
-        get => new TerraformReference<bool>(this, "pinned");
+        get => GetArgument<TerraformValue<bool>>("pinned");
         set => SetArgument("pinned", value);
     }
 
@@ -114,7 +114,7 @@ public partial class GoogleChronicleWatchlist(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -126,16 +126,16 @@ public partial class GoogleChronicleWatchlist(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -145,7 +145,7 @@ public partial class GoogleChronicleWatchlist(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -155,7 +155,7 @@ public partial class GoogleChronicleWatchlist(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -166,16 +166,16 @@ public partial class GoogleChronicleWatchlist(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double>? MultiplyingFactor
     {
-        get => new TerraformReference<double>(this, "multiplying_factor");
+        get => GetArgument<TerraformValue<double>>("multiplying_factor");
         set => SetArgument("multiplying_factor", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -185,9 +185,9 @@ public partial class GoogleChronicleWatchlist(string name) : TerraformResource("
     /// This value should be 4-63 characters, and valid characters
     /// are /a-z-/.
     /// </summary>
-    public TerraformValue<string> WatchlistId
+    public TerraformValue<string>? WatchlistId
     {
-        get => new TerraformReference<string>(this, "watchlist_id");
+        get => GetArgument<TerraformValue<string>>("watchlist_id");
         set => SetArgument("watchlist_id", value);
     }
 
@@ -195,17 +195,13 @@ public partial class GoogleChronicleWatchlist(string name) : TerraformResource("
     /// Output only. Time the watchlist was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Count of different types of entities in the watchlist.
     /// </summary>
     public TerraformList<TerraformMap<object>> EntityCount
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "entity_count").ResolveNodes(ctx));
-    }
+        => AsReference("entity_count");
 
     /// <summary>
     /// Identifier. Resource name of the watchlist. This unique identifier is generated using values provided for the URL parameters.
@@ -213,17 +209,13 @@ public partial class GoogleChronicleWatchlist(string name) : TerraformResource("
     /// projects/{project}/locations/{location}/instances/{instance}/watchlists/{watchlist}
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. Time the watchlist was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// EntityPopulationMechanism block (nesting mode: list).

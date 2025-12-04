@@ -18,7 +18,7 @@ public class AzurermNginxCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermNginxCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermNginxCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermNginxCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AzurermNginxCertificate(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateVirtualPath is required")]
     public required TerraformValue<string> CertificateVirtualPath
     {
-        get => new TerraformReference<string>(this, "certificate_virtual_path");
+        get => GetArgument<TerraformValue<string>>("certificate_virtual_path");
         set => SetArgument("certificate_virtual_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermNginxCertificate(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultSecretId is required")]
     public required TerraformValue<string> KeyVaultSecretId
     {
-        get => new TerraformReference<string>(this, "key_vault_secret_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_secret_id");
         set => SetArgument("key_vault_secret_id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermNginxCertificate(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVirtualPath is required")]
     public required TerraformValue<string> KeyVirtualPath
     {
-        get => new TerraformReference<string>(this, "key_virtual_path");
+        get => GetArgument<TerraformValue<string>>("key_virtual_path");
         set => SetArgument("key_virtual_path", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermNginxCertificate(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermNginxCertificate(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
     public required TerraformValue<string> NginxDeploymentId
     {
-        get => new TerraformReference<string>(this, "nginx_deployment_id");
+        get => GetArgument<TerraformValue<string>>("nginx_deployment_id");
         set => SetArgument("nginx_deployment_id", value);
     }
 

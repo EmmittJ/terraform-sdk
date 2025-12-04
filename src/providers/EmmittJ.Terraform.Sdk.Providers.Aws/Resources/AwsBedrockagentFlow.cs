@@ -50,7 +50,7 @@ public class AwsBedrockagentFlowDefinitionBlockConnectionAttributeBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsBedrockagentFlowDefinitionBlockConnectionAttributeBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsBedrockagentFlowDefinitionBlockConnectionAttributeBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformValue<string> Target
     {
-        get => new TerraformReference<string>(this, "target");
+        get => GetArgument<TerraformValue<string>>("target");
         set => SetArgument("target", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsBedrockagentFlowDefinitionBlockConnectionAttributeBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -143,7 +143,7 @@ public class AwsBedrockagentFlowDefinitionBlockConnectionAttributeBlockConfigura
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Condition is required")]
     public required TerraformValue<string> Condition
     {
-        get => new TerraformReference<string>(this, "condition");
+        get => GetArgument<TerraformValue<string>>("condition");
         set => SetArgument("condition", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsBedrockagentFlowDefinitionBlockConnectionAttributeBlockConfigura
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceOutput is required")]
     public required TerraformValue<string> SourceOutput
     {
-        get => new TerraformReference<string>(this, "source_output");
+        get => GetArgument<TerraformValue<string>>("source_output");
         set => SetArgument("source_output", value);
     }
 
@@ -176,7 +176,7 @@ public class AwsBedrockagentFlowDefinitionBlockConnectionAttributeBlockConfigura
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetInput is required")]
     public required TerraformValue<string> TargetInput
     {
-        get => new TerraformReference<string>(this, "target_input");
+        get => GetArgument<TerraformValue<string>>("target_input");
         set => SetArgument("target_input", value);
     }
 
@@ -199,7 +199,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -209,7 +209,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -389,7 +389,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentAliasArn is required")]
     public required TerraformValue<string> AgentAliasArn
     {
-        get => new TerraformReference<string>(this, "agent_alias_arn");
+        get => GetArgument<TerraformValue<string>>("agent_alias_arn");
         set => SetArgument("agent_alias_arn", value);
     }
 
@@ -446,7 +446,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     /// </summary>
     public TerraformValue<string>? Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -456,7 +456,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -479,7 +479,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Code is required")]
     public required TerraformValue<string> Code
     {
-        get => new TerraformReference<string>(this, "code");
+        get => GetArgument<TerraformValue<string>>("code");
         set => SetArgument("code", value);
     }
 
@@ -489,7 +489,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Language is required")]
     public required TerraformValue<string> Language
     {
-        get => new TerraformReference<string>(this, "language");
+        get => GetArgument<TerraformValue<string>>("language");
         set => SetArgument("language", value);
     }
 
@@ -538,7 +538,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KnowledgeBaseId is required")]
     public required TerraformValue<string> KnowledgeBaseId
     {
-        get => new TerraformReference<string>(this, "knowledge_base_id");
+        get => GetArgument<TerraformValue<string>>("knowledge_base_id");
         set => SetArgument("knowledge_base_id", value);
     }
 
@@ -548,7 +548,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelId is required")]
     public required TerraformValue<string> ModelId
     {
-        get => new TerraformReference<string>(this, "model_id");
+        get => GetArgument<TerraformValue<string>>("model_id");
         set => SetArgument("model_id", value);
     }
 
@@ -557,7 +557,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     /// </summary>
     public TerraformValue<double>? NumberOfResults
     {
-        get => new TerraformReference<double>(this, "number_of_results");
+        get => GetArgument<TerraformValue<double>>("number_of_results");
         set => SetArgument("number_of_results", value);
     }
 
@@ -598,7 +598,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GuardrailIdentifier is required")]
     public required TerraformValue<string> GuardrailIdentifier
     {
-        get => new TerraformReference<string>(this, "guardrail_identifier");
+        get => GetArgument<TerraformValue<string>>("guardrail_identifier");
         set => SetArgument("guardrail_identifier", value);
     }
 
@@ -608,7 +608,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GuardrailVersion is required")]
     public required TerraformValue<string> GuardrailVersion
     {
-        get => new TerraformReference<string>(this, "guardrail_version");
+        get => GetArgument<TerraformValue<string>>("guardrail_version");
         set => SetArgument("guardrail_version", value);
     }
 
@@ -652,7 +652,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     /// </summary>
     public TerraformValue<double>? MaxTokens
     {
-        get => new TerraformReference<double>(this, "max_tokens");
+        get => GetArgument<TerraformValue<double>>("max_tokens");
         set => SetArgument("max_tokens", value);
     }
 
@@ -661,7 +661,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     /// </summary>
     public TerraformList<string>? StopSequences
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "stop_sequences").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("stop_sequences");
         set => SetArgument("stop_sequences", value);
     }
 
@@ -670,7 +670,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     /// </summary>
     public TerraformValue<double>? Temperature
     {
-        get => new TerraformReference<double>(this, "temperature");
+        get => GetArgument<TerraformValue<double>>("temperature");
         set => SetArgument("temperature", value);
     }
 
@@ -679,7 +679,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     /// </summary>
     public TerraformValue<double>? TopP
     {
-        get => new TerraformReference<double>(this, "top_p");
+        get => GetArgument<TerraformValue<double>>("top_p");
         set => SetArgument("top_p", value);
     }
 
@@ -702,7 +702,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LambdaArn is required")]
     public required TerraformValue<string> LambdaArn
     {
-        get => new TerraformReference<string>(this, "lambda_arn");
+        get => GetArgument<TerraformValue<string>>("lambda_arn");
         set => SetArgument("lambda_arn", value);
     }
 
@@ -725,7 +725,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotAliasArn is required")]
     public required TerraformValue<string> BotAliasArn
     {
-        get => new TerraformReference<string>(this, "bot_alias_arn");
+        get => GetArgument<TerraformValue<string>>("bot_alias_arn");
         set => SetArgument("bot_alias_arn", value);
     }
 
@@ -735,7 +735,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocaleId is required")]
     public required TerraformValue<string> LocaleId
     {
-        get => new TerraformReference<string>(this, "locale_id");
+        get => GetArgument<TerraformValue<string>>("locale_id");
         set => SetArgument("locale_id", value);
     }
 
@@ -802,7 +802,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GuardrailIdentifier is required")]
     public required TerraformValue<string> GuardrailIdentifier
     {
-        get => new TerraformReference<string>(this, "guardrail_identifier");
+        get => GetArgument<TerraformValue<string>>("guardrail_identifier");
         set => SetArgument("guardrail_identifier", value);
     }
 
@@ -812,7 +812,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GuardrailVersion is required")]
     public required TerraformValue<string> GuardrailVersion
     {
-        get => new TerraformReference<string>(this, "guardrail_version");
+        get => GetArgument<TerraformValue<string>>("guardrail_version");
         set => SetArgument("guardrail_version", value);
     }
 
@@ -865,7 +865,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     /// </summary>
     public TerraformValue<string>? AdditionalModelRequestFields
     {
-        get => new TerraformReference<string>(this, "additional_model_request_fields");
+        get => GetArgument<TerraformValue<string>>("additional_model_request_fields");
         set => SetArgument("additional_model_request_fields", value);
     }
 
@@ -875,7 +875,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelId is required")]
     public required TerraformValue<string> ModelId
     {
-        get => new TerraformReference<string>(this, "model_id");
+        get => GetArgument<TerraformValue<string>>("model_id");
         set => SetArgument("model_id", value);
     }
 
@@ -885,7 +885,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateType is required")]
     public required TerraformValue<string> TemplateType
     {
-        get => new TerraformReference<string>(this, "template_type");
+        get => GetArgument<TerraformValue<string>>("template_type");
         set => SetArgument("template_type", value);
     }
 
@@ -947,7 +947,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     /// </summary>
     public TerraformValue<double>? MaxTokens
     {
-        get => new TerraformReference<double>(this, "max_tokens");
+        get => GetArgument<TerraformValue<double>>("max_tokens");
         set => SetArgument("max_tokens", value);
     }
 
@@ -956,7 +956,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     /// </summary>
     public TerraformList<string>? StopSequences
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "stop_sequences").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("stop_sequences");
         set => SetArgument("stop_sequences", value);
     }
 
@@ -965,7 +965,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     /// </summary>
     public TerraformValue<double>? Temperature
     {
-        get => new TerraformReference<double>(this, "temperature");
+        get => GetArgument<TerraformValue<double>>("temperature");
         set => SetArgument("temperature", value);
     }
 
@@ -974,7 +974,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     /// </summary>
     public TerraformValue<double>? TopP
     {
-        get => new TerraformReference<double>(this, "top_p");
+        get => GetArgument<TerraformValue<double>>("top_p");
         set => SetArgument("top_p", value);
     }
 
@@ -1077,7 +1077,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1100,7 +1100,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => new TerraformReference<string>(this, "role");
+        get => GetArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 
@@ -1131,7 +1131,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     /// </summary>
     public TerraformValue<string>? Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -1163,7 +1163,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1185,7 +1185,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     /// </summary>
     public TerraformValue<string>? Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -1217,7 +1217,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1302,7 +1302,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1324,7 +1324,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -1334,7 +1334,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1365,7 +1365,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     /// </summary>
     public TerraformValue<string>? Json
     {
-        get => new TerraformReference<string>(this, "json");
+        get => GetArgument<TerraformValue<string>>("json");
         set => SetArgument("json", value);
     }
 
@@ -1454,7 +1454,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1477,7 +1477,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -1518,7 +1518,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1541,7 +1541,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1564,7 +1564,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PromptArn is required")]
     public required TerraformValue<string> PromptArn
     {
-        get => new TerraformReference<string>(this, "prompt_arn");
+        get => GetArgument<TerraformValue<string>>("prompt_arn");
         set => SetArgument("prompt_arn", value);
     }
 
@@ -1631,7 +1631,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -1698,7 +1698,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -1720,7 +1720,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockInputBlock : Te
     /// </summary>
     public TerraformValue<string>? Category
     {
-        get => new TerraformReference<string>(this, "category");
+        get => GetArgument<TerraformValue<string>>("category");
         set => SetArgument("category", value);
     }
 
@@ -1730,7 +1730,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockInputBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -1740,7 +1740,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockInputBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1750,7 +1750,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockInputBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1773,7 +1773,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockOutputBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1783,7 +1783,7 @@ public class AwsBedrockagentFlowDefinitionBlockNodeAttributeBlockOutputBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1806,7 +1806,7 @@ public class AwsBedrockagentFlowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1815,7 +1815,7 @@ public class AwsBedrockagentFlowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1824,7 +1824,7 @@ public class AwsBedrockagentFlowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1842,7 +1842,7 @@ public partial class AwsBedrockagentFlow(string name) : TerraformResource("aws_b
     /// </summary>
     public TerraformValue<string>? CustomerEncryptionKeyArn
     {
-        get => new TerraformReference<string>(this, "customer_encryption_key_arn");
+        get => GetArgument<TerraformValue<string>>("customer_encryption_key_arn");
         set => SetArgument("customer_encryption_key_arn", value);
     }
 
@@ -1851,7 +1851,7 @@ public partial class AwsBedrockagentFlow(string name) : TerraformResource("aws_b
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -1861,7 +1861,7 @@ public partial class AwsBedrockagentFlow(string name) : TerraformResource("aws_b
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformValue<string> ExecutionRoleArn
     {
-        get => new TerraformReference<string>(this, "execution_role_arn");
+        get => GetArgument<TerraformValue<string>>("execution_role_arn");
         set => SetArgument("execution_role_arn", value);
     }
 
@@ -1871,16 +1871,16 @@ public partial class AwsBedrockagentFlow(string name) : TerraformResource("aws_b
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -1889,7 +1889,7 @@ public partial class AwsBedrockagentFlow(string name) : TerraformResource("aws_b
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -1897,57 +1897,43 @@ public partial class AwsBedrockagentFlow(string name) : TerraformResource("aws_b
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-    {
-        get => new TerraformReference<string>(this, "updated_at");
-    }
+        => AsReference("updated_at");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
     /// <summary>
     /// Definition block (nesting mode: list).

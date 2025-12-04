@@ -18,7 +18,7 @@ public class AzurermNetworkManagerAdminRuleCollectionTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermNetworkManagerAdminRuleCollectionTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermNetworkManagerAdminRuleCollectionTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermNetworkManagerAdminRuleCollectionTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AzurermNetworkManagerAdminRuleCollection(string name) : Ter
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermNetworkManagerAdminRuleCollection(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermNetworkManagerAdminRuleCollection(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkGroupIds is required")]
     public TerraformList<string>? NetworkGroupIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "network_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("network_group_ids");
         set => SetArgument("network_group_ids", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermNetworkManagerAdminRuleCollection(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityAdminConfigurationId is required")]
     public required TerraformValue<string> SecurityAdminConfigurationId
     {
-        get => new TerraformReference<string>(this, "security_admin_configuration_id");
+        get => GetArgument<TerraformValue<string>>("security_admin_configuration_id");
         set => SetArgument("security_admin_configuration_id", value);
     }
 

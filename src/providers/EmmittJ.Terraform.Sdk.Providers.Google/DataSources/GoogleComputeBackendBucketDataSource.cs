@@ -11,9 +11,9 @@ public partial class GoogleComputeBackendBucketDataSource(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -29,7 +29,7 @@ public partial class GoogleComputeBackendBucketDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -38,7 +38,7 @@ public partial class GoogleComputeBackendBucketDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -46,67 +46,51 @@ public partial class GoogleComputeBackendBucketDataSource(string name) : Terrafo
     /// Cloud Storage bucket name.
     /// </summary>
     public TerraformValue<string> BucketName
-    {
-        get => new TerraformReference<string>(this, "bucket_name");
-    }
+        => AsReference("bucket_name");
 
     /// <summary>
     /// Cloud CDN configuration for this Backend Bucket.
     /// </summary>
     public TerraformList<TerraformMap<object>> CdnPolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cdn_policy").ResolveNodes(ctx));
-    }
+        => AsReference("cdn_policy");
 
     /// <summary>
     /// Compress text responses using Brotli or gzip compression, based on the client&#39;s Accept-Encoding header. Possible values: [&amp;quot;AUTOMATIC&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
     public TerraformValue<string> CompressionMode
-    {
-        get => new TerraformReference<string>(this, "compression_mode");
-    }
+        => AsReference("compression_mode");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// Headers that the HTTP/S load balancer should add to proxied responses.
     /// </summary>
     public TerraformList<string> CustomResponseHeaders
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "custom_response_headers").ResolveNodes(ctx));
-    }
+        => AsReference("custom_response_headers");
 
     /// <summary>
     /// An optional textual description of the resource; provided by the
     /// client when the resource is created.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The security policy associated with this backend bucket.
     /// </summary>
     public TerraformValue<string> EdgeSecurityPolicy
-    {
-        get => new TerraformReference<string>(this, "edge_security_policy");
-    }
+        => AsReference("edge_security_policy");
 
     /// <summary>
     /// If true, enable Cloud CDN for this BackendBucket.
     /// Note: This cannot be set to true when loadBalancingScheme is set to INTERNAL_MANAGED.
     /// </summary>
     public TerraformValue<bool> EnableCdn
-    {
-        get => new TerraformReference<bool>(this, "enable_cdn");
-    }
+        => AsReference("enable_cdn");
 
     /// <summary>
     /// The value can only be INTERNAL_MANAGED for cross-region internal layer 7 load balancer.
@@ -114,24 +98,18 @@ public partial class GoogleComputeBackendBucketDataSource(string name) : Terrafo
     /// Important: CDN cannot be enabled (enableCdn cannot be set to true) when loadBalancingScheme is set to INTERNAL_MANAGED. Possible values: [&amp;quot;INTERNAL_MANAGED&amp;quot;]
     /// </summary>
     public TerraformValue<string> LoadBalancingScheme
-    {
-        get => new TerraformReference<string>(this, "load_balancing_scheme");
-    }
+        => AsReference("load_balancing_scheme");
 
     /// <summary>
     /// Additional params passed with the request, but not persisted as part of resource payload
     /// </summary>
     public TerraformList<TerraformMap<object>> ParamsAttribute
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "params").ResolveNodes(ctx));
-    }
+        => AsReference("params");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
 }

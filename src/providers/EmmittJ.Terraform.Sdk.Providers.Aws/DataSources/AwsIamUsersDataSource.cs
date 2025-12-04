@@ -11,9 +11,9 @@ public partial class AwsIamUsersDataSource(string name) : TerraformDataSource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsIamUsersDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string>? NameRegex
     {
-        get => new TerraformReference<string>(this, "name_regex");
+        get => GetArgument<TerraformValue<string>>("name_regex");
         set => SetArgument("name_regex", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsIamUsersDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string>? PathPrefix
     {
-        get => new TerraformReference<string>(this, "path_prefix");
+        get => GetArgument<TerraformValue<string>>("path_prefix");
         set => SetArgument("path_prefix", value);
     }
 
@@ -39,16 +39,12 @@ public partial class AwsIamUsersDataSource(string name) : TerraformDataSource("a
     /// The arns attribute.
     /// </summary>
     public TerraformSet<string> Arns
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "arns").ResolveNodes(ctx));
-    }
+        => AsReference("arns");
 
     /// <summary>
     /// The names attribute.
     /// </summary>
     public TerraformSet<string> Names
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "names").ResolveNodes(ctx));
-    }
+        => AsReference("names");
 
 }

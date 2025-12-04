@@ -18,7 +18,7 @@ public class AzurermSearchServiceDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermSearchServiceDataSource(string name) : TerraformData
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermSearchServiceDataSource(string name) : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermSearchServiceDataSource(string name) : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,73 +64,55 @@ public partial class AzurermSearchServiceDataSource(string name) : TerraformData
     /// The customer_managed_key_encryption_compliance_status attribute.
     /// </summary>
     public TerraformValue<string> CustomerManagedKeyEncryptionComplianceStatus
-    {
-        get => new TerraformReference<string>(this, "customer_managed_key_encryption_compliance_status");
-    }
+        => AsReference("customer_managed_key_encryption_compliance_status");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
-    }
+        => AsReference("identity");
 
     /// <summary>
     /// The partition_count attribute.
     /// </summary>
     public TerraformValue<double> PartitionCount
-    {
-        get => new TerraformReference<double>(this, "partition_count");
-    }
+        => AsReference("partition_count");
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryKey
-    {
-        get => new TerraformReference<string>(this, "primary_key");
-    }
+        => AsReference("primary_key");
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PublicNetworkAccessEnabled
-    {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
-    }
+        => AsReference("public_network_access_enabled");
 
     /// <summary>
     /// The query_keys attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> QueryKeys
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "query_keys").ResolveNodes(ctx));
-    }
+        => AsReference("query_keys");
 
     /// <summary>
     /// The replica_count attribute.
     /// </summary>
     public TerraformValue<double> ReplicaCount
-    {
-        get => new TerraformReference<double>(this, "replica_count");
-    }
+        => AsReference("replica_count");
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryKey
-    {
-        get => new TerraformReference<string>(this, "secondary_key");
-    }
+        => AsReference("secondary_key");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

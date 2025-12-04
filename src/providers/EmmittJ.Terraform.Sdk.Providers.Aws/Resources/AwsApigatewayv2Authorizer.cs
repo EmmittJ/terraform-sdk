@@ -18,7 +18,7 @@ public class AwsApigatewayv2AuthorizerJwtConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Audience
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "audience").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("audience");
         set => SetArgument("audience", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsApigatewayv2AuthorizerJwtConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Issuer
     {
-        get => new TerraformReference<string>(this, "issuer");
+        get => GetArgument<TerraformValue<string>>("issuer");
         set => SetArgument("issuer", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsApigatewayv2AuthorizerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -69,7 +69,7 @@ public partial class AwsApigatewayv2Authorizer(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformValue<string> ApiId
     {
-        get => new TerraformReference<string>(this, "api_id");
+        get => GetArgument<TerraformValue<string>>("api_id");
         set => SetArgument("api_id", value);
     }
 
@@ -78,7 +78,7 @@ public partial class AwsApigatewayv2Authorizer(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? AuthorizerCredentialsArn
     {
-        get => new TerraformReference<string>(this, "authorizer_credentials_arn");
+        get => GetArgument<TerraformValue<string>>("authorizer_credentials_arn");
         set => SetArgument("authorizer_credentials_arn", value);
     }
 
@@ -87,16 +87,16 @@ public partial class AwsApigatewayv2Authorizer(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? AuthorizerPayloadFormatVersion
     {
-        get => new TerraformReference<string>(this, "authorizer_payload_format_version");
+        get => GetArgument<TerraformValue<string>>("authorizer_payload_format_version");
         set => SetArgument("authorizer_payload_format_version", value);
     }
 
     /// <summary>
     /// The authorizer_result_ttl_in_seconds attribute.
     /// </summary>
-    public TerraformValue<double> AuthorizerResultTtlInSeconds
+    public TerraformValue<double>? AuthorizerResultTtlInSeconds
     {
-        get => new TerraformReference<double>(this, "authorizer_result_ttl_in_seconds");
+        get => GetArgument<TerraformValue<double>>("authorizer_result_ttl_in_seconds");
         set => SetArgument("authorizer_result_ttl_in_seconds", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsApigatewayv2Authorizer(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerType is required")]
     public required TerraformValue<string> AuthorizerType
     {
-        get => new TerraformReference<string>(this, "authorizer_type");
+        get => GetArgument<TerraformValue<string>>("authorizer_type");
         set => SetArgument("authorizer_type", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AwsApigatewayv2Authorizer(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? AuthorizerUri
     {
-        get => new TerraformReference<string>(this, "authorizer_uri");
+        get => GetArgument<TerraformValue<string>>("authorizer_uri");
         set => SetArgument("authorizer_uri", value);
     }
 
@@ -124,16 +124,16 @@ public partial class AwsApigatewayv2Authorizer(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? EnableSimpleResponses
     {
-        get => new TerraformReference<bool>(this, "enable_simple_responses");
+        get => GetArgument<TerraformValue<bool>>("enable_simple_responses");
         set => SetArgument("enable_simple_responses", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AwsApigatewayv2Authorizer(string name) : TerraformResource(
     /// </summary>
     public TerraformSet<string>? IdentitySources
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_sources").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_sources");
         set => SetArgument("identity_sources", value);
     }
 
@@ -152,16 +152,16 @@ public partial class AwsApigatewayv2Authorizer(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

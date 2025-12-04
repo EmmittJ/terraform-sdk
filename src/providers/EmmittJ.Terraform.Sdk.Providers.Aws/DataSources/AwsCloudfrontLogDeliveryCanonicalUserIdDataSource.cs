@@ -11,9 +11,9 @@ public partial class AwsCloudfrontLogDeliveryCanonicalUserIdDataSource(string na
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsCloudfrontLogDeliveryCanonicalUserIdDataSource(string na
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

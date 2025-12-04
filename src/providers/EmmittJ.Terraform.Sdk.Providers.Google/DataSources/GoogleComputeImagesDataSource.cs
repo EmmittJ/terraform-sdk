@@ -13,16 +13,16 @@ public partial class GoogleComputeImagesDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleComputeImagesDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -39,8 +39,6 @@ public partial class GoogleComputeImagesDataSource(string name) : TerraformDataS
     /// The images attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Images
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "images").ResolveNodes(ctx));
-    }
+        => AsReference("images");
 
 }

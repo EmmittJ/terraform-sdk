@@ -19,7 +19,7 @@ public class AwsFinspaceKxDataviewSegmentConfigurationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbPaths is required")]
     public TerraformList<string>? DbPaths
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "db_paths").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("db_paths");
         set => SetArgument("db_paths", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsFinspaceKxDataviewSegmentConfigurationsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? OnDemand
     {
-        get => new TerraformReference<bool>(this, "on_demand");
+        get => GetArgument<TerraformValue<bool>>("on_demand");
         set => SetArgument("on_demand", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsFinspaceKxDataviewSegmentConfigurationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
     public required TerraformValue<string> VolumeName
     {
-        get => new TerraformReference<string>(this, "volume_name");
+        get => GetArgument<TerraformValue<string>>("volume_name");
         set => SetArgument("volume_name", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsFinspaceKxDataviewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsFinspaceKxDataviewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsFinspaceKxDataviewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -98,7 +98,7 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoUpdate is required")]
     public required TerraformValue<bool> AutoUpdate
     {
-        get => new TerraformReference<bool>(this, "auto_update");
+        get => GetArgument<TerraformValue<bool>>("auto_update");
         set => SetArgument("auto_update", value);
     }
 
@@ -107,7 +107,7 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? AvailabilityZoneId
     {
-        get => new TerraformReference<string>(this, "availability_zone_id");
+        get => GetArgument<TerraformValue<string>>("availability_zone_id");
         set => SetArgument("availability_zone_id", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzMode is required")]
     public required TerraformValue<string> AzMode
     {
-        get => new TerraformReference<string>(this, "az_mode");
+        get => GetArgument<TerraformValue<string>>("az_mode");
         set => SetArgument("az_mode", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? ChangesetId
     {
-        get => new TerraformReference<string>(this, "changeset_id");
+        get => GetArgument<TerraformValue<string>>("changeset_id");
         set => SetArgument("changeset_id", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -155,16 +155,16 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     public required TerraformValue<string> EnvironmentId
     {
-        get => new TerraformReference<string>(this, "environment_id");
+        get => GetArgument<TerraformValue<string>>("environment_id");
         set => SetArgument("environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -174,7 +174,7 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -183,16 +183,16 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<bool>? ReadWrite
     {
-        get => new TerraformReference<bool>(this, "read_write");
+        get => GetArgument<TerraformValue<bool>>("read_write");
         set => SetArgument("read_write", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -201,16 +201,16 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -218,33 +218,25 @@ public partial class AwsFinspaceKxDataview(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_timestamp attribute.
     /// </summary>
     public TerraformValue<string> CreatedTimestamp
-    {
-        get => new TerraformReference<string>(this, "created_timestamp");
-    }
+        => AsReference("created_timestamp");
 
     /// <summary>
     /// The last_modified_timestamp attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedTimestamp
-    {
-        get => new TerraformReference<string>(this, "last_modified_timestamp");
-    }
+        => AsReference("last_modified_timestamp");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// SegmentConfigurations block (nesting mode: list).

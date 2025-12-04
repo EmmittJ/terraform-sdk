@@ -19,7 +19,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceEndpointBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceEndpointBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceEndpointBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceEndpointBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -157,7 +157,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockGeoProximityLocat
     /// </summary>
     public TerraformValue<string>? Bias
     {
-        get => new TerraformReference<string>(this, "bias");
+        get => GetArgument<TerraformValue<string>>("bias");
         set => SetArgument("bias", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockGeoProximityLocat
     /// </summary>
     public TerraformValue<string>? EndpointReference
     {
-        get => new TerraformReference<string>(this, "endpoint_reference");
+        get => GetArgument<TerraformValue<string>>("endpoint_reference");
         set => SetArgument("endpoint_reference", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockGeoProximityLocat
     /// </summary>
     public TerraformValue<bool>? EvaluateTargetHealth
     {
-        get => new TerraformReference<bool>(this, "evaluate_target_health");
+        get => GetArgument<TerraformValue<bool>>("evaluate_target_health");
         set => SetArgument("evaluate_target_health", value);
     }
 
@@ -184,7 +184,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockGeoProximityLocat
     /// </summary>
     public TerraformValue<string>? HealthCheck
     {
-        get => new TerraformReference<string>(this, "health_check");
+        get => GetArgument<TerraformValue<string>>("health_check");
         set => SetArgument("health_check", value);
     }
 
@@ -193,7 +193,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockGeoProximityLocat
     /// </summary>
     public TerraformValue<string>? Latitude
     {
-        get => new TerraformReference<string>(this, "latitude");
+        get => GetArgument<TerraformValue<string>>("latitude");
         set => SetArgument("latitude", value);
     }
 
@@ -202,7 +202,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockGeoProximityLocat
     /// </summary>
     public TerraformValue<string>? Longitude
     {
-        get => new TerraformReference<string>(this, "longitude");
+        get => GetArgument<TerraformValue<string>>("longitude");
         set => SetArgument("longitude", value);
     }
 
@@ -211,7 +211,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockGeoProximityLocat
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -220,7 +220,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockGeoProximityLocat
     /// </summary>
     public TerraformValue<string>? RuleReference
     {
-        get => new TerraformReference<string>(this, "rule_reference");
+        get => GetArgument<TerraformValue<string>>("rule_reference");
         set => SetArgument("rule_reference", value);
     }
 
@@ -242,7 +242,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockItemsBlock : Terr
     /// </summary>
     public TerraformValue<string>? EndpointReference
     {
-        get => new TerraformReference<string>(this, "endpoint_reference");
+        get => GetArgument<TerraformValue<string>>("endpoint_reference");
         set => SetArgument("endpoint_reference", value);
     }
 
@@ -251,7 +251,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockItemsBlock : Terr
     /// </summary>
     public TerraformValue<string>? HealthCheck
     {
-        get => new TerraformReference<string>(this, "health_check");
+        get => GetArgument<TerraformValue<string>>("health_check");
         set => SetArgument("health_check", value);
     }
 
@@ -273,7 +273,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockLocationBlock : T
     /// </summary>
     public TerraformValue<string>? Continent
     {
-        get => new TerraformReference<string>(this, "continent");
+        get => GetArgument<TerraformValue<string>>("continent");
         set => SetArgument("continent", value);
     }
 
@@ -282,7 +282,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockLocationBlock : T
     /// </summary>
     public TerraformValue<string>? Country
     {
-        get => new TerraformReference<string>(this, "country");
+        get => GetArgument<TerraformValue<string>>("country");
         set => SetArgument("country", value);
     }
 
@@ -291,7 +291,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockLocationBlock : T
     /// </summary>
     public TerraformValue<string>? EndpointReference
     {
-        get => new TerraformReference<string>(this, "endpoint_reference");
+        get => GetArgument<TerraformValue<string>>("endpoint_reference");
         set => SetArgument("endpoint_reference", value);
     }
 
@@ -300,7 +300,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockLocationBlock : T
     /// </summary>
     public TerraformValue<bool>? EvaluateTargetHealth
     {
-        get => new TerraformReference<bool>(this, "evaluate_target_health");
+        get => GetArgument<TerraformValue<bool>>("evaluate_target_health");
         set => SetArgument("evaluate_target_health", value);
     }
 
@@ -309,7 +309,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockLocationBlock : T
     /// </summary>
     public TerraformValue<string>? HealthCheck
     {
-        get => new TerraformReference<string>(this, "health_check");
+        get => GetArgument<TerraformValue<string>>("health_check");
         set => SetArgument("health_check", value);
     }
 
@@ -318,7 +318,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockLocationBlock : T
     /// </summary>
     public TerraformValue<bool>? IsDefault
     {
-        get => new TerraformReference<bool>(this, "is_default");
+        get => GetArgument<TerraformValue<bool>>("is_default");
         set => SetArgument("is_default", value);
     }
 
@@ -327,7 +327,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockLocationBlock : T
     /// </summary>
     public TerraformValue<string>? RuleReference
     {
-        get => new TerraformReference<string>(this, "rule_reference");
+        get => GetArgument<TerraformValue<string>>("rule_reference");
         set => SetArgument("rule_reference", value);
     }
 
@@ -336,7 +336,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockLocationBlock : T
     /// </summary>
     public TerraformValue<string>? Subdivision
     {
-        get => new TerraformReference<string>(this, "subdivision");
+        get => GetArgument<TerraformValue<string>>("subdivision");
         set => SetArgument("subdivision", value);
     }
 
@@ -358,7 +358,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockPrimaryBlock : Te
     /// </summary>
     public TerraformValue<string>? EndpointReference
     {
-        get => new TerraformReference<string>(this, "endpoint_reference");
+        get => GetArgument<TerraformValue<string>>("endpoint_reference");
         set => SetArgument("endpoint_reference", value);
     }
 
@@ -367,7 +367,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockPrimaryBlock : Te
     /// </summary>
     public TerraformValue<bool>? EvaluateTargetHealth
     {
-        get => new TerraformReference<bool>(this, "evaluate_target_health");
+        get => GetArgument<TerraformValue<bool>>("evaluate_target_health");
         set => SetArgument("evaluate_target_health", value);
     }
 
@@ -376,7 +376,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockPrimaryBlock : Te
     /// </summary>
     public TerraformValue<string>? HealthCheck
     {
-        get => new TerraformReference<string>(this, "health_check");
+        get => GetArgument<TerraformValue<string>>("health_check");
         set => SetArgument("health_check", value);
     }
 
@@ -385,7 +385,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockPrimaryBlock : Te
     /// </summary>
     public TerraformValue<string>? RuleReference
     {
-        get => new TerraformReference<string>(this, "rule_reference");
+        get => GetArgument<TerraformValue<string>>("rule_reference");
         set => SetArgument("rule_reference", value);
     }
 
@@ -407,7 +407,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockRegionBlock : Ter
     /// </summary>
     public TerraformValue<string>? EndpointReference
     {
-        get => new TerraformReference<string>(this, "endpoint_reference");
+        get => GetArgument<TerraformValue<string>>("endpoint_reference");
         set => SetArgument("endpoint_reference", value);
     }
 
@@ -416,7 +416,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockRegionBlock : Ter
     /// </summary>
     public TerraformValue<bool>? EvaluateTargetHealth
     {
-        get => new TerraformReference<bool>(this, "evaluate_target_health");
+        get => GetArgument<TerraformValue<bool>>("evaluate_target_health");
         set => SetArgument("evaluate_target_health", value);
     }
 
@@ -425,7 +425,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockRegionBlock : Ter
     /// </summary>
     public TerraformValue<string>? HealthCheck
     {
-        get => new TerraformReference<string>(this, "health_check");
+        get => GetArgument<TerraformValue<string>>("health_check");
         set => SetArgument("health_check", value);
     }
 
@@ -434,7 +434,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockRegionBlock : Ter
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -443,7 +443,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockRegionBlock : Ter
     /// </summary>
     public TerraformValue<string>? RuleReference
     {
-        get => new TerraformReference<string>(this, "rule_reference");
+        get => GetArgument<TerraformValue<string>>("rule_reference");
         set => SetArgument("rule_reference", value);
     }
 
@@ -465,7 +465,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockSecondaryBlock : 
     /// </summary>
     public TerraformValue<string>? EndpointReference
     {
-        get => new TerraformReference<string>(this, "endpoint_reference");
+        get => GetArgument<TerraformValue<string>>("endpoint_reference");
         set => SetArgument("endpoint_reference", value);
     }
 
@@ -474,7 +474,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockSecondaryBlock : 
     /// </summary>
     public TerraformValue<bool>? EvaluateTargetHealth
     {
-        get => new TerraformReference<bool>(this, "evaluate_target_health");
+        get => GetArgument<TerraformValue<bool>>("evaluate_target_health");
         set => SetArgument("evaluate_target_health", value);
     }
 
@@ -483,7 +483,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockSecondaryBlock : 
     /// </summary>
     public TerraformValue<string>? HealthCheck
     {
-        get => new TerraformReference<string>(this, "health_check");
+        get => GetArgument<TerraformValue<string>>("health_check");
         set => SetArgument("health_check", value);
     }
 
@@ -492,7 +492,7 @@ public class AwsRoute53TrafficPolicyDocumentDataSourceRuleBlockSecondaryBlock : 
     /// </summary>
     public TerraformValue<string>? RuleReference
     {
-        get => new TerraformReference<string>(this, "rule_reference");
+        get => GetArgument<TerraformValue<string>>("rule_reference");
         set => SetArgument("rule_reference", value);
     }
 
@@ -508,9 +508,9 @@ public partial class AwsRoute53TrafficPolicyDocumentDataSource(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -519,7 +519,7 @@ public partial class AwsRoute53TrafficPolicyDocumentDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string>? RecordType
     {
-        get => new TerraformReference<string>(this, "record_type");
+        get => GetArgument<TerraformValue<string>>("record_type");
         set => SetArgument("record_type", value);
     }
 
@@ -528,7 +528,7 @@ public partial class AwsRoute53TrafficPolicyDocumentDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string>? StartEndpoint
     {
-        get => new TerraformReference<string>(this, "start_endpoint");
+        get => GetArgument<TerraformValue<string>>("start_endpoint");
         set => SetArgument("start_endpoint", value);
     }
 
@@ -537,7 +537,7 @@ public partial class AwsRoute53TrafficPolicyDocumentDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string>? StartRule
     {
-        get => new TerraformReference<string>(this, "start_rule");
+        get => GetArgument<TerraformValue<string>>("start_rule");
         set => SetArgument("start_rule", value);
     }
 
@@ -546,7 +546,7 @@ public partial class AwsRoute53TrafficPolicyDocumentDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -554,9 +554,7 @@ public partial class AwsRoute53TrafficPolicyDocumentDataSource(string name) : Te
     /// The json attribute.
     /// </summary>
     public TerraformValue<string> Json
-    {
-        get => new TerraformReference<string>(this, "json");
-    }
+        => AsReference("json");
 
     /// <summary>
     /// Endpoint block (nesting mode: set).

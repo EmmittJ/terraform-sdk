@@ -13,7 +13,7 @@ public partial class AwsApiGatewayApiKeysDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string>? CustomerId
     {
-        get => new TerraformReference<string>(this, "customer_id");
+        get => GetArgument<TerraformValue<string>>("customer_id");
         set => SetArgument("customer_id", value);
     }
 
@@ -22,16 +22,16 @@ public partial class AwsApiGatewayApiKeysDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<bool>? IncludeValues
     {
-        get => new TerraformReference<bool>(this, "include_values");
+        get => GetArgument<TerraformValue<bool>>("include_values");
         set => SetArgument("include_values", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -39,16 +39,12 @@ public partial class AwsApiGatewayApiKeysDataSource(string name) : TerraformData
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The items attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Items
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "items").ResolveNodes(ctx));
-    }
+        => AsReference("items");
 
 }

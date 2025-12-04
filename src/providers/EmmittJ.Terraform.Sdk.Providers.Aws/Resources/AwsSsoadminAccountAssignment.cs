@@ -18,7 +18,7 @@ public class AwsSsoadminAccountAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsSsoadminAccountAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -43,9 +43,9 @@ public partial class AwsSsoadminAccountAssignment(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsSsoadminAccountAssignment(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     public required TerraformValue<string> InstanceArn
     {
-        get => new TerraformReference<string>(this, "instance_arn");
+        get => GetArgument<TerraformValue<string>>("instance_arn");
         set => SetArgument("instance_arn", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsSsoadminAccountAssignment(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionSetArn is required")]
     public required TerraformValue<string> PermissionSetArn
     {
-        get => new TerraformReference<string>(this, "permission_set_arn");
+        get => GetArgument<TerraformValue<string>>("permission_set_arn");
         set => SetArgument("permission_set_arn", value);
     }
 
@@ -75,7 +75,7 @@ public partial class AwsSsoadminAccountAssignment(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformValue<string> PrincipalId
     {
-        get => new TerraformReference<string>(this, "principal_id");
+        get => GetArgument<TerraformValue<string>>("principal_id");
         set => SetArgument("principal_id", value);
     }
 
@@ -85,16 +85,16 @@ public partial class AwsSsoadminAccountAssignment(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalType is required")]
     public required TerraformValue<string> PrincipalType
     {
-        get => new TerraformReference<string>(this, "principal_type");
+        get => GetArgument<TerraformValue<string>>("principal_type");
         set => SetArgument("principal_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AwsSsoadminAccountAssignment(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
     public required TerraformValue<string> TargetId
     {
-        get => new TerraformReference<string>(this, "target_id");
+        get => GetArgument<TerraformValue<string>>("target_id");
         set => SetArgument("target_id", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AwsSsoadminAccountAssignment(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? TargetType
     {
-        get => new TerraformReference<string>(this, "target_type");
+        get => GetArgument<TerraformValue<string>>("target_type");
         set => SetArgument("target_type", value);
     }
 

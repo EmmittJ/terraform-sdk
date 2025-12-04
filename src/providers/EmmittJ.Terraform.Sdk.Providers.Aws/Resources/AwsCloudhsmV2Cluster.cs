@@ -18,7 +18,7 @@ public class AwsCloudhsmV2ClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsCloudhsmV2ClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsCloudhsmV2ClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,34 +55,34 @@ public partial class AwsCloudhsmV2Cluster(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HsmType is required")]
     public required TerraformValue<string> HsmType
     {
-        get => new TerraformReference<string>(this, "hsm_type");
+        get => GetArgument<TerraformValue<string>>("hsm_type");
         set => SetArgument("hsm_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformValue<string> Mode
+    public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsCloudhsmV2Cluster(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? SourceBackupIdentifier
     {
-        get => new TerraformReference<string>(this, "source_backup_identifier");
+        get => GetArgument<TerraformValue<string>>("source_backup_identifier");
         set => SetArgument("source_backup_identifier", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AwsCloudhsmV2Cluster(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -110,16 +110,16 @@ public partial class AwsCloudhsmV2Cluster(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -127,41 +127,31 @@ public partial class AwsCloudhsmV2Cluster(string name) : TerraformResource("aws_
     /// The cluster_certificates attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ClusterCertificates
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cluster_certificates").ResolveNodes(ctx));
-    }
+        => AsReference("cluster_certificates");
 
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
     public TerraformValue<string> ClusterId
-    {
-        get => new TerraformReference<string>(this, "cluster_id");
-    }
+        => AsReference("cluster_id");
 
     /// <summary>
     /// The cluster_state attribute.
     /// </summary>
     public TerraformValue<string> ClusterState
-    {
-        get => new TerraformReference<string>(this, "cluster_state");
-    }
+        => AsReference("cluster_state");
 
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
     public TerraformValue<string> SecurityGroupId
-    {
-        get => new TerraformReference<string>(this, "security_group_id");
-    }
+        => AsReference("security_group_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-    {
-        get => new TerraformReference<string>(this, "vpc_id");
-    }
+        => AsReference("vpc_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -11,9 +11,9 @@ public partial class GoogleContainerAwsVersionsDataSource(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleContainerAwsVersionsDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleContainerAwsVersionsDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -39,16 +39,12 @@ public partial class GoogleContainerAwsVersionsDataSource(string name) : Terrafo
     /// The supported_regions attribute.
     /// </summary>
     public TerraformList<string> SupportedRegions
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supported_regions").ResolveNodes(ctx));
-    }
+        => AsReference("supported_regions");
 
     /// <summary>
     /// The valid_versions attribute.
     /// </summary>
     public TerraformList<string> ValidVersions
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "valid_versions").ResolveNodes(ctx));
-    }
+        => AsReference("valid_versions");
 
 }

@@ -18,7 +18,7 @@ public class AzurermAppServiceCertificateOrderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermAppServiceCertificateOrderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermAppServiceCertificateOrderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermAppServiceCertificateOrderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,34 +63,34 @@ public partial class AzurermAppServiceCertificateOrder(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? AutoRenew
     {
-        get => new TerraformReference<bool>(this, "auto_renew");
+        get => GetArgument<TerraformValue<bool>>("auto_renew");
         set => SetArgument("auto_renew", value);
     }
 
     /// <summary>
     /// The csr attribute.
     /// </summary>
-    public TerraformValue<string> Csr
+    public TerraformValue<string>? Csr
     {
-        get => new TerraformReference<string>(this, "csr");
+        get => GetArgument<TerraformValue<string>>("csr");
         set => SetArgument("csr", value);
     }
 
     /// <summary>
     /// The distinguished_name attribute.
     /// </summary>
-    public TerraformValue<string> DistinguishedName
+    public TerraformValue<string>? DistinguishedName
     {
-        get => new TerraformReference<string>(this, "distinguished_name");
+        get => GetArgument<TerraformValue<string>>("distinguished_name");
         set => SetArgument("distinguished_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AzurermAppServiceCertificateOrder(string name) : TerraformR
     /// </summary>
     public TerraformValue<double>? KeySize
     {
-        get => new TerraformReference<double>(this, "key_size");
+        get => GetArgument<TerraformValue<double>>("key_size");
         set => SetArgument("key_size", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermAppServiceCertificateOrder(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermAppServiceCertificateOrder(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermAppServiceCertificateOrder(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? ProductType
     {
-        get => new TerraformReference<string>(this, "product_type");
+        get => GetArgument<TerraformValue<string>>("product_type");
         set => SetArgument("product_type", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzurermAppServiceCertificateOrder(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AzurermAppServiceCertificateOrder(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AzurermAppServiceCertificateOrder(string name) : TerraformR
     /// </summary>
     public TerraformValue<double>? ValidityInYears
     {
-        get => new TerraformReference<double>(this, "validity_in_years");
+        get => GetArgument<TerraformValue<double>>("validity_in_years");
         set => SetArgument("validity_in_years", value);
     }
 
@@ -164,73 +164,55 @@ public partial class AzurermAppServiceCertificateOrder(string name) : TerraformR
     /// The app_service_certificate_not_renewable_reasons attribute.
     /// </summary>
     public TerraformList<string> AppServiceCertificateNotRenewableReasons
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "app_service_certificate_not_renewable_reasons").ResolveNodes(ctx));
-    }
+        => AsReference("app_service_certificate_not_renewable_reasons");
 
     /// <summary>
     /// The certificates attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Certificates
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "certificates").ResolveNodes(ctx));
-    }
+        => AsReference("certificates");
 
     /// <summary>
     /// The domain_verification_token attribute.
     /// </summary>
     public TerraformValue<string> DomainVerificationToken
-    {
-        get => new TerraformReference<string>(this, "domain_verification_token");
-    }
+        => AsReference("domain_verification_token");
 
     /// <summary>
     /// The expiration_time attribute.
     /// </summary>
     public TerraformValue<string> ExpirationTime
-    {
-        get => new TerraformReference<string>(this, "expiration_time");
-    }
+        => AsReference("expiration_time");
 
     /// <summary>
     /// The intermediate_thumbprint attribute.
     /// </summary>
     public TerraformValue<string> IntermediateThumbprint
-    {
-        get => new TerraformReference<string>(this, "intermediate_thumbprint");
-    }
+        => AsReference("intermediate_thumbprint");
 
     /// <summary>
     /// The is_private_key_external attribute.
     /// </summary>
     public TerraformValue<bool> IsPrivateKeyExternal
-    {
-        get => new TerraformReference<bool>(this, "is_private_key_external");
-    }
+        => AsReference("is_private_key_external");
 
     /// <summary>
     /// The root_thumbprint attribute.
     /// </summary>
     public TerraformValue<string> RootThumbprint
-    {
-        get => new TerraformReference<string>(this, "root_thumbprint");
-    }
+        => AsReference("root_thumbprint");
 
     /// <summary>
     /// The signed_certificate_thumbprint attribute.
     /// </summary>
     public TerraformValue<string> SignedCertificateThumbprint
-    {
-        get => new TerraformReference<string>(this, "signed_certificate_thumbprint");
-    }
+        => AsReference("signed_certificate_thumbprint");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

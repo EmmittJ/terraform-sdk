@@ -18,7 +18,7 @@ public class AzurermMobileNetworkSimDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermMobileNetworkSimDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermMobileNetworkSimDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkSimGroupId is required")]
     public required TerraformValue<string> MobileNetworkSimGroupId
     {
-        get => new TerraformReference<string>(this, "mobile_network_sim_group_id");
+        get => GetArgument<TerraformValue<string>>("mobile_network_sim_group_id");
         set => SetArgument("mobile_network_sim_group_id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermMobileNetworkSimDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -64,65 +64,49 @@ public partial class AzurermMobileNetworkSimDataSource(string name) : TerraformD
     /// The device_type attribute.
     /// </summary>
     public TerraformValue<string> DeviceType
-    {
-        get => new TerraformReference<string>(this, "device_type");
-    }
+        => AsReference("device_type");
 
     /// <summary>
     /// The integrated_circuit_card_identifier attribute.
     /// </summary>
     public TerraformValue<string> IntegratedCircuitCardIdentifier
-    {
-        get => new TerraformReference<string>(this, "integrated_circuit_card_identifier");
-    }
+        => AsReference("integrated_circuit_card_identifier");
 
     /// <summary>
     /// The international_mobile_subscriber_identity attribute.
     /// </summary>
     public TerraformValue<string> InternationalMobileSubscriberIdentity
-    {
-        get => new TerraformReference<string>(this, "international_mobile_subscriber_identity");
-    }
+        => AsReference("international_mobile_subscriber_identity");
 
     /// <summary>
     /// The sim_policy_id attribute.
     /// </summary>
     public TerraformValue<string> SimPolicyId
-    {
-        get => new TerraformReference<string>(this, "sim_policy_id");
-    }
+        => AsReference("sim_policy_id");
 
     /// <summary>
     /// The sim_state attribute.
     /// </summary>
     public TerraformValue<string> SimState
-    {
-        get => new TerraformReference<string>(this, "sim_state");
-    }
+        => AsReference("sim_state");
 
     /// <summary>
     /// The static_ip_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StaticIpConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "static_ip_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("static_ip_configuration");
 
     /// <summary>
     /// The vendor_key_fingerprint attribute.
     /// </summary>
     public TerraformValue<string> VendorKeyFingerprint
-    {
-        get => new TerraformReference<string>(this, "vendor_key_fingerprint");
-    }
+        => AsReference("vendor_key_fingerprint");
 
     /// <summary>
     /// The vendor_name attribute.
     /// </summary>
     public TerraformValue<string> VendorName
-    {
-        get => new TerraformReference<string>(this, "vendor_name");
-    }
+        => AsReference("vendor_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

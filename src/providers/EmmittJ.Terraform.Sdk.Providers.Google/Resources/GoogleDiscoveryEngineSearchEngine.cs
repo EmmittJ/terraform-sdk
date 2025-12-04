@@ -18,7 +18,7 @@ public class GoogleDiscoveryEngineSearchEngineCommonConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CompanyName
     {
-        get => new TerraformReference<string>(this, "company_name");
+        get => GetArgument<TerraformValue<string>>("company_name");
         set => SetArgument("company_name", value);
     }
 
@@ -41,7 +41,7 @@ public class GoogleDiscoveryEngineSearchEngineSearchEngineConfigBlock : Terrafor
     /// </summary>
     public TerraformList<string>? SearchAddOns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "search_add_ons").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("search_add_ons");
         set => SetArgument("search_add_ons", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleDiscoveryEngineSearchEngineSearchEngineConfigBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? SearchTier
     {
-        get => new TerraformReference<string>(this, "search_tier");
+        get => GetArgument<TerraformValue<string>>("search_tier");
         set => SetArgument("search_tier", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleDiscoveryEngineSearchEngineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -82,7 +82,7 @@ public class GoogleDiscoveryEngineSearchEngineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleDiscoveryEngineSearchEngineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -110,7 +110,7 @@ public partial class GoogleDiscoveryEngineSearchEngine(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? AppType
     {
-        get => new TerraformReference<string>(this, "app_type");
+        get => GetArgument<TerraformValue<string>>("app_type");
         set => SetArgument("app_type", value);
     }
 
@@ -120,7 +120,7 @@ public partial class GoogleDiscoveryEngineSearchEngine(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformValue<string> CollectionId
     {
-        get => new TerraformReference<string>(this, "collection_id");
+        get => GetArgument<TerraformValue<string>>("collection_id");
         set => SetArgument("collection_id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class GoogleDiscoveryEngineSearchEngine(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreIds is required")]
     public TerraformList<string>? DataStoreIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "data_store_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("data_store_ids");
         set => SetArgument("data_store_ids", value);
     }
 
@@ -140,7 +140,7 @@ public partial class GoogleDiscoveryEngineSearchEngine(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -150,7 +150,7 @@ public partial class GoogleDiscoveryEngineSearchEngine(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
     public required TerraformValue<string> EngineId
     {
-        get => new TerraformReference<string>(this, "engine_id");
+        get => GetArgument<TerraformValue<string>>("engine_id");
         set => SetArgument("engine_id", value);
     }
 
@@ -159,16 +159,16 @@ public partial class GoogleDiscoveryEngineSearchEngine(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? Features
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "features").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("features");
         set => SetArgument("features", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -177,7 +177,7 @@ public partial class GoogleDiscoveryEngineSearchEngine(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? IndustryVertical
     {
-        get => new TerraformReference<string>(this, "industry_vertical");
+        get => GetArgument<TerraformValue<string>>("industry_vertical");
         set => SetArgument("industry_vertical", value);
     }
 
@@ -192,7 +192,7 @@ public partial class GoogleDiscoveryEngineSearchEngine(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -202,16 +202,16 @@ public partial class GoogleDiscoveryEngineSearchEngine(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -219,9 +219,7 @@ public partial class GoogleDiscoveryEngineSearchEngine(string name) : TerraformR
     /// Timestamp the Engine was created at.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The unique full resource name of the search engine. Values are of the format
@@ -230,17 +228,13 @@ public partial class GoogleDiscoveryEngineSearchEngine(string name) : TerraformR
     /// characters.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Timestamp the Engine was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// CommonConfig block (nesting mode: list).

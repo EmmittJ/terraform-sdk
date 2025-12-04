@@ -19,7 +19,7 @@ public class AwsEc2InstanceTypeOfferingsDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsEc2InstanceTypeOfferingsDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsEc2InstanceTypeOfferingsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -68,9 +68,9 @@ public partial class AwsEc2InstanceTypeOfferingsDataSource(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -79,16 +79,16 @@ public partial class AwsEc2InstanceTypeOfferingsDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? LocationType
     {
-        get => new TerraformReference<string>(this, "location_type");
+        get => GetArgument<TerraformValue<string>>("location_type");
         set => SetArgument("location_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -96,25 +96,19 @@ public partial class AwsEc2InstanceTypeOfferingsDataSource(string name) : Terraf
     /// The instance_types attribute.
     /// </summary>
     public TerraformList<string> InstanceTypes
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "instance_types").ResolveNodes(ctx));
-    }
+        => AsReference("instance_types");
 
     /// <summary>
     /// The location_types attribute.
     /// </summary>
     public TerraformList<string> LocationTypes
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "location_types").ResolveNodes(ctx));
-    }
+        => AsReference("location_types");
 
     /// <summary>
     /// The locations attribute.
     /// </summary>
     public TerraformList<string> Locations
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "locations").ResolveNodes(ctx));
-    }
+        => AsReference("locations");
 
     /// <summary>
     /// Filter block (nesting mode: set).

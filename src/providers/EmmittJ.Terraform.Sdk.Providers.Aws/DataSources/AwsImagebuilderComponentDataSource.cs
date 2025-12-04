@@ -14,34 +14,34 @@ public partial class AwsImagebuilderComponentDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,96 +49,72 @@ public partial class AwsImagebuilderComponentDataSource(string name) : Terraform
     /// The change_description attribute.
     /// </summary>
     public TerraformValue<string> ChangeDescription
-    {
-        get => new TerraformReference<string>(this, "change_description");
-    }
+        => AsReference("change_description");
 
     /// <summary>
     /// The data attribute.
     /// </summary>
     public TerraformValue<string> Data
-    {
-        get => new TerraformReference<string>(this, "data");
-    }
+        => AsReference("data");
 
     /// <summary>
     /// The date_created attribute.
     /// </summary>
     public TerraformValue<string> DateCreated
-    {
-        get => new TerraformReference<string>(this, "date_created");
-    }
+        => AsReference("date_created");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     public TerraformValue<bool> Encrypted
-    {
-        get => new TerraformReference<bool>(this, "encrypted");
-    }
+        => AsReference("encrypted");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-    {
-        get => new TerraformReference<string>(this, "kms_key_id");
-    }
+        => AsReference("kms_key_id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     public TerraformValue<string> Owner
-    {
-        get => new TerraformReference<string>(this, "owner");
-    }
+        => AsReference("owner");
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
     public TerraformValue<string> Platform
-    {
-        get => new TerraformReference<string>(this, "platform");
-    }
+        => AsReference("platform");
 
     /// <summary>
     /// The supported_os_versions attribute.
     /// </summary>
     public TerraformSet<string> SupportedOsVersions
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "supported_os_versions").ResolveNodes(ctx));
-    }
+        => AsReference("supported_os_versions");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
 }

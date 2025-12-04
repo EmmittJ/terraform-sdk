@@ -14,16 +14,16 @@ public partial class GoogleProjectsDataSource(string name) : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,8 +31,6 @@ public partial class GoogleProjectsDataSource(string name) : TerraformDataSource
     /// The projects attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Projects
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "projects").ResolveNodes(ctx));
-    }
+        => AsReference("projects");
 
 }

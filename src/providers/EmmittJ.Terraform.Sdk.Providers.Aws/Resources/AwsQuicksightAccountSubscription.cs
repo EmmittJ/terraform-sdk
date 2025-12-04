@@ -18,7 +18,7 @@ public class AwsQuicksightAccountSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsQuicksightAccountSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsQuicksightAccountSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => new TerraformReference<string>(this, "account_name");
+        get => GetArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? ActiveDirectoryName
     {
-        get => new TerraformReference<string>(this, "active_directory_name");
+        get => GetArgument<TerraformValue<string>>("active_directory_name");
         set => SetArgument("active_directory_name", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformList<string>? AdminGroup
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "admin_group").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("admin_group");
         set => SetArgument("admin_group", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformList<string>? AdminProGroup
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "admin_pro_group").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("admin_pro_group");
         set => SetArgument("admin_pro_group", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationMethod is required")]
     public required TerraformValue<string> AuthenticationMethod
     {
-        get => new TerraformReference<string>(this, "authentication_method");
+        get => GetArgument<TerraformValue<string>>("authentication_method");
         set => SetArgument("authentication_method", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformList<string>? AuthorGroup
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "author_group").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("author_group");
         set => SetArgument("author_group", value);
     }
 
@@ -110,16 +110,16 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformList<string>? AuthorProGroup
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "author_pro_group").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("author_pro_group");
         set => SetArgument("author_pro_group", value);
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string> AwsAccountId
+    public TerraformValue<string>? AwsAccountId
     {
-        get => new TerraformReference<string>(this, "aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? ContactNumber
     {
-        get => new TerraformReference<string>(this, "contact_number");
+        get => GetArgument<TerraformValue<string>>("contact_number");
         set => SetArgument("contact_number", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? DirectoryId
     {
-        get => new TerraformReference<string>(this, "directory_id");
+        get => GetArgument<TerraformValue<string>>("directory_id");
         set => SetArgument("directory_id", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Edition is required")]
     public required TerraformValue<string> Edition
     {
-        get => new TerraformReference<string>(this, "edition");
+        get => GetArgument<TerraformValue<string>>("edition");
         set => SetArgument("edition", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? EmailAddress
     {
-        get => new TerraformReference<string>(this, "email_address");
+        get => GetArgument<TerraformValue<string>>("email_address");
         set => SetArgument("email_address", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? FirstName
     {
-        get => new TerraformReference<string>(this, "first_name");
+        get => GetArgument<TerraformValue<string>>("first_name");
         set => SetArgument("first_name", value);
     }
 
@@ -174,16 +174,16 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? IamIdentityCenterInstanceArn
     {
-        get => new TerraformReference<string>(this, "iam_identity_center_instance_arn");
+        get => GetArgument<TerraformValue<string>>("iam_identity_center_instance_arn");
         set => SetArgument("iam_identity_center_instance_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -192,7 +192,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? LastName
     {
-        get => new TerraformReference<string>(this, "last_name");
+        get => GetArgument<TerraformValue<string>>("last_name");
         set => SetArgument("last_name", value);
     }
 
@@ -202,7 +202,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationEmail is required")]
     public required TerraformValue<string> NotificationEmail
     {
-        get => new TerraformReference<string>(this, "notification_email");
+        get => GetArgument<TerraformValue<string>>("notification_email");
         set => SetArgument("notification_email", value);
     }
 
@@ -211,7 +211,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformList<string>? ReaderGroup
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "reader_group").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("reader_group");
         set => SetArgument("reader_group", value);
     }
 
@@ -220,7 +220,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformList<string>? ReaderProGroup
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "reader_pro_group").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("reader_pro_group");
         set => SetArgument("reader_pro_group", value);
     }
 
@@ -229,16 +229,16 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Realm
     {
-        get => new TerraformReference<string>(this, "realm");
+        get => GetArgument<TerraformValue<string>>("realm");
         set => SetArgument("realm", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -246,9 +246,7 @@ public partial class AwsQuicksightAccountSubscription(string name) : TerraformRe
     /// The account_subscription_status attribute.
     /// </summary>
     public TerraformValue<string> AccountSubscriptionStatus
-    {
-        get => new TerraformReference<string>(this, "account_subscription_status");
-    }
+        => AsReference("account_subscription_status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -11,45 +11,45 @@ public partial class AwsCodestarconnectionsConnectionDataSource(string name) : T
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformValue<string> Arn
+    public TerraformValue<string>? Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -57,24 +57,18 @@ public partial class AwsCodestarconnectionsConnectionDataSource(string name) : T
     /// The connection_status attribute.
     /// </summary>
     public TerraformValue<string> ConnectionStatus
-    {
-        get => new TerraformReference<string>(this, "connection_status");
-    }
+        => AsReference("connection_status");
 
     /// <summary>
     /// The host_arn attribute.
     /// </summary>
     public TerraformValue<string> HostArn
-    {
-        get => new TerraformReference<string>(this, "host_arn");
-    }
+        => AsReference("host_arn");
 
     /// <summary>
     /// The provider_type attribute.
     /// </summary>
     public TerraformValue<string> ProviderType
-    {
-        get => new TerraformReference<string>(this, "provider_type");
-    }
+        => AsReference("provider_type");
 
 }

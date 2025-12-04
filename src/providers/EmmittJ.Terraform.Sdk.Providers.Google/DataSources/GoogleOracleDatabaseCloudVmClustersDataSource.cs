@@ -11,9 +11,9 @@ public partial class GoogleOracleDatabaseCloudVmClustersDataSource(string name) 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleOracleDatabaseCloudVmClustersDataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleOracleDatabaseCloudVmClustersDataSource(string name) 
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -40,8 +40,6 @@ public partial class GoogleOracleDatabaseCloudVmClustersDataSource(string name) 
     /// The cloud_vm_clusters attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CloudVmClusters
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cloud_vm_clusters").ResolveNodes(ctx));
-    }
+        => AsReference("cloud_vm_clusters");
 
 }

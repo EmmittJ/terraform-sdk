@@ -19,7 +19,7 @@ public class AwsCloudfrontResponseHeadersPolicyCorsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessControlAllowCredentials is required")]
     public required TerraformValue<bool> AccessControlAllowCredentials
     {
-        get => new TerraformReference<bool>(this, "access_control_allow_credentials");
+        get => GetArgument<TerraformValue<bool>>("access_control_allow_credentials");
         set => SetArgument("access_control_allow_credentials", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsCloudfrontResponseHeadersPolicyCorsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? AccessControlMaxAgeSec
     {
-        get => new TerraformReference<double>(this, "access_control_max_age_sec");
+        get => GetArgument<TerraformValue<double>>("access_control_max_age_sec");
         set => SetArgument("access_control_max_age_sec", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsCloudfrontResponseHeadersPolicyCorsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginOverride is required")]
     public required TerraformValue<bool> OriginOverride
     {
-        get => new TerraformReference<bool>(this, "origin_override");
+        get => GetArgument<TerraformValue<bool>>("origin_override");
         set => SetArgument("origin_override", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsCloudfrontResponseHeadersPolicyCorsConfigBlockAccessControlAllow
     /// </summary>
     public TerraformSet<string>? Items
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "items").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("items");
         set => SetArgument("items", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsCloudfrontResponseHeadersPolicyCorsConfigBlockAccessControlAllow
     /// </summary>
     public TerraformSet<string>? Items
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "items").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("items");
         set => SetArgument("items", value);
     }
 
@@ -153,7 +153,7 @@ public class AwsCloudfrontResponseHeadersPolicyCorsConfigBlockAccessControlAllow
     /// </summary>
     public TerraformSet<string>? Items
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "items").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("items");
         set => SetArgument("items", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsCloudfrontResponseHeadersPolicyCorsConfigBlockAccessControlExpos
     /// </summary>
     public TerraformSet<string>? Items
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "items").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("items");
         set => SetArgument("items", value);
     }
 
@@ -221,7 +221,7 @@ public class AwsCloudfrontResponseHeadersPolicyCustomHeadersConfigBlockItemsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Header is required")]
     public required TerraformValue<string> Header
     {
-        get => new TerraformReference<string>(this, "header");
+        get => GetArgument<TerraformValue<string>>("header");
         set => SetArgument("header", value);
     }
 
@@ -231,7 +231,7 @@ public class AwsCloudfrontResponseHeadersPolicyCustomHeadersConfigBlockItemsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OverrideAttribute is required")]
     public required TerraformValue<bool> OverrideAttribute
     {
-        get => new TerraformReference<bool>(this, "override");
+        get => GetArgument<TerraformValue<bool>>("override");
         set => SetArgument("override", value);
     }
 
@@ -241,7 +241,7 @@ public class AwsCloudfrontResponseHeadersPolicyCustomHeadersConfigBlockItemsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -287,7 +287,7 @@ public class AwsCloudfrontResponseHeadersPolicyRemoveHeadersConfigBlockItemsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Header is required")]
     public required TerraformValue<string> Header
     {
-        get => new TerraformReference<string>(this, "header");
+        get => GetArgument<TerraformValue<string>>("header");
         set => SetArgument("header", value);
     }
 
@@ -384,7 +384,7 @@ public class AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlockContent
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentSecurityPolicy is required")]
     public required TerraformValue<string> ContentSecurityPolicy
     {
-        get => new TerraformReference<string>(this, "content_security_policy");
+        get => GetArgument<TerraformValue<string>>("content_security_policy");
         set => SetArgument("content_security_policy", value);
     }
 
@@ -394,7 +394,7 @@ public class AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlockContent
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OverrideAttribute is required")]
     public required TerraformValue<bool> OverrideAttribute
     {
-        get => new TerraformReference<bool>(this, "override");
+        get => GetArgument<TerraformValue<bool>>("override");
         set => SetArgument("override", value);
     }
 
@@ -417,7 +417,7 @@ public class AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlockContent
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OverrideAttribute is required")]
     public required TerraformValue<bool> OverrideAttribute
     {
-        get => new TerraformReference<bool>(this, "override");
+        get => GetArgument<TerraformValue<bool>>("override");
         set => SetArgument("override", value);
     }
 
@@ -440,7 +440,7 @@ public class AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlockFrameOp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrameOption is required")]
     public required TerraformValue<string> FrameOption
     {
-        get => new TerraformReference<string>(this, "frame_option");
+        get => GetArgument<TerraformValue<string>>("frame_option");
         set => SetArgument("frame_option", value);
     }
 
@@ -450,7 +450,7 @@ public class AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlockFrameOp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OverrideAttribute is required")]
     public required TerraformValue<bool> OverrideAttribute
     {
-        get => new TerraformReference<bool>(this, "override");
+        get => GetArgument<TerraformValue<bool>>("override");
         set => SetArgument("override", value);
     }
 
@@ -473,7 +473,7 @@ public class AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlockReferre
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OverrideAttribute is required")]
     public required TerraformValue<bool> OverrideAttribute
     {
-        get => new TerraformReference<bool>(this, "override");
+        get => GetArgument<TerraformValue<bool>>("override");
         set => SetArgument("override", value);
     }
 
@@ -483,7 +483,7 @@ public class AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlockReferre
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReferrerPolicy is required")]
     public required TerraformValue<string> ReferrerPolicy
     {
-        get => new TerraformReference<string>(this, "referrer_policy");
+        get => GetArgument<TerraformValue<string>>("referrer_policy");
         set => SetArgument("referrer_policy", value);
     }
 
@@ -506,7 +506,7 @@ public class AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlockStrictT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessControlMaxAgeSec is required")]
     public required TerraformValue<double> AccessControlMaxAgeSec
     {
-        get => new TerraformReference<double>(this, "access_control_max_age_sec");
+        get => GetArgument<TerraformValue<double>>("access_control_max_age_sec");
         set => SetArgument("access_control_max_age_sec", value);
     }
 
@@ -515,7 +515,7 @@ public class AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlockStrictT
     /// </summary>
     public TerraformValue<bool>? IncludeSubdomains
     {
-        get => new TerraformReference<bool>(this, "include_subdomains");
+        get => GetArgument<TerraformValue<bool>>("include_subdomains");
         set => SetArgument("include_subdomains", value);
     }
 
@@ -525,7 +525,7 @@ public class AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlockStrictT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OverrideAttribute is required")]
     public required TerraformValue<bool> OverrideAttribute
     {
-        get => new TerraformReference<bool>(this, "override");
+        get => GetArgument<TerraformValue<bool>>("override");
         set => SetArgument("override", value);
     }
 
@@ -534,7 +534,7 @@ public class AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlockStrictT
     /// </summary>
     public TerraformValue<bool>? Preload
     {
-        get => new TerraformReference<bool>(this, "preload");
+        get => GetArgument<TerraformValue<bool>>("preload");
         set => SetArgument("preload", value);
     }
 
@@ -556,7 +556,7 @@ public class AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlockXssProt
     /// </summary>
     public TerraformValue<bool>? ModeBlock
     {
-        get => new TerraformReference<bool>(this, "mode_block");
+        get => GetArgument<TerraformValue<bool>>("mode_block");
         set => SetArgument("mode_block", value);
     }
 
@@ -566,7 +566,7 @@ public class AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlockXssProt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OverrideAttribute is required")]
     public required TerraformValue<bool> OverrideAttribute
     {
-        get => new TerraformReference<bool>(this, "override");
+        get => GetArgument<TerraformValue<bool>>("override");
         set => SetArgument("override", value);
     }
 
@@ -576,7 +576,7 @@ public class AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlockXssProt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protection is required")]
     public required TerraformValue<bool> Protection
     {
-        get => new TerraformReference<bool>(this, "protection");
+        get => GetArgument<TerraformValue<bool>>("protection");
         set => SetArgument("protection", value);
     }
 
@@ -585,7 +585,7 @@ public class AwsCloudfrontResponseHeadersPolicySecurityHeadersConfigBlockXssProt
     /// </summary>
     public TerraformValue<string>? ReportUri
     {
-        get => new TerraformReference<string>(this, "report_uri");
+        get => GetArgument<TerraformValue<string>>("report_uri");
         set => SetArgument("report_uri", value);
     }
 
@@ -609,7 +609,7 @@ public class AwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -619,7 +619,7 @@ public class AwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SamplingRate is required")]
     public required TerraformValue<double> SamplingRate
     {
-        get => new TerraformReference<double>(this, "sampling_rate");
+        get => GetArgument<TerraformValue<double>>("sampling_rate");
         set => SetArgument("sampling_rate", value);
     }
 
@@ -637,16 +637,16 @@ public partial class AwsCloudfrontResponseHeadersPolicy(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Comment
     {
-        get => new TerraformReference<string>(this, "comment");
+        get => GetArgument<TerraformValue<string>>("comment");
         set => SetArgument("comment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -656,7 +656,7 @@ public partial class AwsCloudfrontResponseHeadersPolicy(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -664,17 +664,13 @@ public partial class AwsCloudfrontResponseHeadersPolicy(string name) : Terraform
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// CorsConfig block (nesting mode: list).

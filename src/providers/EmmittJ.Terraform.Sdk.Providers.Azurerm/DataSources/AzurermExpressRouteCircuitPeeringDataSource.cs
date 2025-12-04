@@ -18,7 +18,7 @@ public class AzurermExpressRouteCircuitPeeringDataSourceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermExpressRouteCircuitPeeringDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteCircuitName is required")]
     public required TerraformValue<string> ExpressRouteCircuitName
     {
-        get => new TerraformReference<string>(this, "express_route_circuit_name");
+        get => GetArgument<TerraformValue<string>>("express_route_circuit_name");
         set => SetArgument("express_route_circuit_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermExpressRouteCircuitPeeringDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringType is required")]
     public required TerraformValue<string> PeeringType
     {
-        get => new TerraformReference<string>(this, "peering_type");
+        get => GetArgument<TerraformValue<string>>("peering_type");
         set => SetArgument("peering_type", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermExpressRouteCircuitPeeringDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -74,89 +74,67 @@ public partial class AzurermExpressRouteCircuitPeeringDataSource(string name) : 
     /// The azure_asn attribute.
     /// </summary>
     public TerraformValue<double> AzureAsn
-    {
-        get => new TerraformReference<double>(this, "azure_asn");
-    }
+        => AsReference("azure_asn");
 
     /// <summary>
     /// The gateway_manager_etag attribute.
     /// </summary>
     public TerraformValue<string> GatewayManagerEtag
-    {
-        get => new TerraformReference<string>(this, "gateway_manager_etag");
-    }
+        => AsReference("gateway_manager_etag");
 
     /// <summary>
     /// The ipv4_enabled attribute.
     /// </summary>
     public TerraformValue<bool> Ipv4Enabled
-    {
-        get => new TerraformReference<bool>(this, "ipv4_enabled");
-    }
+        => AsReference("ipv4_enabled");
 
     /// <summary>
     /// The peer_asn attribute.
     /// </summary>
     public TerraformValue<double> PeerAsn
-    {
-        get => new TerraformReference<double>(this, "peer_asn");
-    }
+        => AsReference("peer_asn");
 
     /// <summary>
     /// The primary_azure_port attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAzurePort
-    {
-        get => new TerraformReference<string>(this, "primary_azure_port");
-    }
+        => AsReference("primary_azure_port");
 
     /// <summary>
     /// The primary_peer_address_prefix attribute.
     /// </summary>
     public TerraformValue<string> PrimaryPeerAddressPrefix
-    {
-        get => new TerraformReference<string>(this, "primary_peer_address_prefix");
-    }
+        => AsReference("primary_peer_address_prefix");
 
     /// <summary>
     /// The route_filter_id attribute.
     /// </summary>
     public TerraformValue<string> RouteFilterId
-    {
-        get => new TerraformReference<string>(this, "route_filter_id");
-    }
+        => AsReference("route_filter_id");
 
     /// <summary>
     /// The secondary_azure_port attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAzurePort
-    {
-        get => new TerraformReference<string>(this, "secondary_azure_port");
-    }
+        => AsReference("secondary_azure_port");
 
     /// <summary>
     /// The secondary_peer_address_prefix attribute.
     /// </summary>
     public TerraformValue<string> SecondaryPeerAddressPrefix
-    {
-        get => new TerraformReference<string>(this, "secondary_peer_address_prefix");
-    }
+        => AsReference("secondary_peer_address_prefix");
 
     /// <summary>
     /// The shared_key attribute.
     /// </summary>
     public TerraformValue<string> SharedKey
-    {
-        get => new TerraformReference<string>(this, "shared_key");
-    }
+        => AsReference("shared_key");
 
     /// <summary>
     /// The vlan_id attribute.
     /// </summary>
     public TerraformValue<double> VlanId
-    {
-        get => new TerraformReference<double>(this, "vlan_id");
-    }
+        => AsReference("vlan_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

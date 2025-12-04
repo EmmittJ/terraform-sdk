@@ -18,7 +18,7 @@ public class AwsVpclatticeResourceGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsVpclatticeResourceGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsVpclatticeResourceGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -52,18 +52,18 @@ public partial class AwsVpclatticeResourceGateway(string name) : TerraformResour
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformValue<string> IpAddressType
+    public TerraformValue<string>? IpAddressType
     {
-        get => new TerraformReference<string>(this, "ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
     /// <summary>
     /// The ipv4_addresses_per_eni attribute.
     /// </summary>
-    public TerraformValue<double> Ipv4AddressesPerEni
+    public TerraformValue<double>? Ipv4AddressesPerEni
     {
-        get => new TerraformReference<double>(this, "ipv4_addresses_per_eni");
+        get => GetArgument<TerraformValue<double>>("ipv4_addresses_per_eni");
         set => SetArgument("ipv4_addresses_per_eni", value);
     }
 
@@ -73,25 +73,25 @@ public partial class AwsVpclatticeResourceGateway(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string> SecurityGroupIds
+    public TerraformSet<string>? SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AwsVpclatticeResourceGateway(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AwsVpclatticeResourceGateway(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AwsVpclatticeResourceGateway(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -128,33 +128,25 @@ public partial class AwsVpclatticeResourceGateway(string name) : TerraformResour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

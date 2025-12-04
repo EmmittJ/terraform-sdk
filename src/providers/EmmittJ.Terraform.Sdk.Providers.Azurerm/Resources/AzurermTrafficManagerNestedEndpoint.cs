@@ -19,7 +19,7 @@ public class AzurermTrafficManagerNestedEndpointCustomHeaderBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermTrafficManagerNestedEndpointCustomHeaderBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermTrafficManagerNestedEndpointSubnetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "First is required")]
     public required TerraformValue<string> First
     {
-        get => new TerraformReference<string>(this, "first");
+        get => GetArgument<TerraformValue<string>>("first");
         set => SetArgument("first", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermTrafficManagerNestedEndpointSubnetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Last
     {
-        get => new TerraformReference<string>(this, "last");
+        get => GetArgument<TerraformValue<string>>("last");
         set => SetArgument("last", value);
     }
 
@@ -71,7 +71,7 @@ public class AzurermTrafficManagerNestedEndpointSubnetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Scope
     {
-        get => new TerraformReference<double>(this, "scope");
+        get => GetArgument<TerraformValue<double>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermTrafficManagerNestedEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermTrafficManagerNestedEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermTrafficManagerNestedEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermTrafficManagerNestedEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -139,16 +139,16 @@ public partial class AzurermTrafficManagerNestedEndpoint(string name) : Terrafor
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The endpoint_location attribute.
     /// </summary>
-    public TerraformValue<string> EndpointLocation
+    public TerraformValue<string>? EndpointLocation
     {
-        get => new TerraformReference<string>(this, "endpoint_location");
+        get => GetArgument<TerraformValue<string>>("endpoint_location");
         set => SetArgument("endpoint_location", value);
     }
 
@@ -157,16 +157,16 @@ public partial class AzurermTrafficManagerNestedEndpoint(string name) : Terrafor
     /// </summary>
     public TerraformList<string>? GeoMappings
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "geo_mappings").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("geo_mappings");
         set => SetArgument("geo_mappings", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AzurermTrafficManagerNestedEndpoint(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumChildEndpoints is required")]
     public required TerraformValue<double> MinimumChildEndpoints
     {
-        get => new TerraformReference<double>(this, "minimum_child_endpoints");
+        get => GetArgument<TerraformValue<double>>("minimum_child_endpoints");
         set => SetArgument("minimum_child_endpoints", value);
     }
 
@@ -185,7 +185,7 @@ public partial class AzurermTrafficManagerNestedEndpoint(string name) : Terrafor
     /// </summary>
     public TerraformValue<double>? MinimumRequiredChildEndpointsIpv4
     {
-        get => new TerraformReference<double>(this, "minimum_required_child_endpoints_ipv4");
+        get => GetArgument<TerraformValue<double>>("minimum_required_child_endpoints_ipv4");
         set => SetArgument("minimum_required_child_endpoints_ipv4", value);
     }
 
@@ -194,7 +194,7 @@ public partial class AzurermTrafficManagerNestedEndpoint(string name) : Terrafor
     /// </summary>
     public TerraformValue<double>? MinimumRequiredChildEndpointsIpv6
     {
-        get => new TerraformReference<double>(this, "minimum_required_child_endpoints_ipv6");
+        get => GetArgument<TerraformValue<double>>("minimum_required_child_endpoints_ipv6");
         set => SetArgument("minimum_required_child_endpoints_ipv6", value);
     }
 
@@ -204,16 +204,16 @@ public partial class AzurermTrafficManagerNestedEndpoint(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformValue<double> Priority
+    public TerraformValue<double>? Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -223,7 +223,7 @@ public partial class AzurermTrafficManagerNestedEndpoint(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileId is required")]
     public required TerraformValue<string> ProfileId
     {
-        get => new TerraformReference<string>(this, "profile_id");
+        get => GetArgument<TerraformValue<string>>("profile_id");
         set => SetArgument("profile_id", value);
     }
 
@@ -233,7 +233,7 @@ public partial class AzurermTrafficManagerNestedEndpoint(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformValue<string> TargetResourceId
     {
-        get => new TerraformReference<string>(this, "target_resource_id");
+        get => GetArgument<TerraformValue<string>>("target_resource_id");
         set => SetArgument("target_resource_id", value);
     }
 
@@ -242,7 +242,7 @@ public partial class AzurermTrafficManagerNestedEndpoint(string name) : Terrafor
     /// </summary>
     public TerraformValue<double>? Weight
     {
-        get => new TerraformReference<double>(this, "weight");
+        get => GetArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 

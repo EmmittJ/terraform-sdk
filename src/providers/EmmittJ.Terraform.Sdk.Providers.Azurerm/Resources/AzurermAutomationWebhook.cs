@@ -18,7 +18,7 @@ public class AzurermAutomationWebhookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermAutomationWebhookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermAutomationWebhookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermAutomationWebhookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermAutomationWebhook(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     public required TerraformValue<string> AutomationAccountName
     {
-        get => new TerraformReference<string>(this, "automation_account_name");
+        get => GetArgument<TerraformValue<string>>("automation_account_name");
         set => SetArgument("automation_account_name", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermAutomationWebhook(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -83,16 +83,16 @@ public partial class AzurermAutomationWebhook(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpiryTime is required")]
     public required TerraformValue<string> ExpiryTime
     {
-        get => new TerraformReference<string>(this, "expiry_time");
+        get => GetArgument<TerraformValue<string>>("expiry_time");
         set => SetArgument("expiry_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermAutomationWebhook(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermAutomationWebhook(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermAutomationWebhook(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermAutomationWebhook(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? RunOnWorkerGroup
     {
-        get => new TerraformReference<string>(this, "run_on_worker_group");
+        get => GetArgument<TerraformValue<string>>("run_on_worker_group");
         set => SetArgument("run_on_worker_group", value);
     }
 
@@ -140,16 +140,16 @@ public partial class AzurermAutomationWebhook(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RunbookName is required")]
     public required TerraformValue<string> RunbookName
     {
-        get => new TerraformReference<string>(this, "runbook_name");
+        get => GetArgument<TerraformValue<string>>("runbook_name");
         set => SetArgument("runbook_name", value);
     }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
-    public TerraformValue<string> Uri
+    public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 

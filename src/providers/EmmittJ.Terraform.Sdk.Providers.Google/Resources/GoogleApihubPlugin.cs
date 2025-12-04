@@ -19,7 +19,7 @@ public class GoogleApihubPluginActionsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleApihubPluginActionsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -39,7 +39,7 @@ public class GoogleApihubPluginActionsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -54,7 +54,7 @@ public class GoogleApihubPluginActionsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerMode is required")]
     public required TerraformValue<string> TriggerMode
     {
-        get => new TerraformReference<string>(this, "trigger_mode");
+        get => GetArgument<TerraformValue<string>>("trigger_mode");
         set => SetArgument("trigger_mode", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleApihubPluginConfigTemplateBlockAdditionalConfigTemplateBlock 
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -119,7 +119,7 @@ public class GoogleApihubPluginConfigTemplateBlockAdditionalConfigTemplateBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -129,7 +129,7 @@ public class GoogleApihubPluginConfigTemplateBlockAdditionalConfigTemplateBlock 
     /// </summary>
     public TerraformValue<bool>? Required
     {
-        get => new TerraformReference<bool>(this, "required");
+        get => GetArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -139,7 +139,7 @@ public class GoogleApihubPluginConfigTemplateBlockAdditionalConfigTemplateBlock 
     /// </summary>
     public TerraformValue<string>? ValidationRegex
     {
-        get => new TerraformReference<string>(this, "validation_regex");
+        get => GetArgument<TerraformValue<string>>("validation_regex");
         set => SetArgument("validation_regex", value);
     }
 
@@ -159,7 +159,7 @@ public class GoogleApihubPluginConfigTemplateBlockAdditionalConfigTemplateBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueType is required")]
     public required TerraformValue<string> ValueType
     {
-        get => new TerraformReference<string>(this, "value_type");
+        get => GetArgument<TerraformValue<string>>("value_type");
         set => SetArgument("value_type", value);
     }
 
@@ -199,7 +199,7 @@ public class GoogleApihubPluginConfigTemplateBlockAdditionalConfigTemplateBlockE
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -209,7 +209,7 @@ public class GoogleApihubPluginConfigTemplateBlockAdditionalConfigTemplateBlockE
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -219,7 +219,7 @@ public class GoogleApihubPluginConfigTemplateBlockAdditionalConfigTemplateBlockE
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -241,7 +241,7 @@ public class GoogleApihubPluginConfigTemplateBlockAdditionalConfigTemplateBlockM
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -251,7 +251,7 @@ public class GoogleApihubPluginConfigTemplateBlockAdditionalConfigTemplateBlockM
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -261,7 +261,7 @@ public class GoogleApihubPluginConfigTemplateBlockAdditionalConfigTemplateBlockM
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -284,7 +284,7 @@ public class GoogleApihubPluginConfigTemplateBlockAuthConfigTemplateBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SupportedAuthTypes is required")]
     public TerraformList<string>? SupportedAuthTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supported_auth_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("supported_auth_types");
         set => SetArgument("supported_auth_types", value);
     }
 
@@ -320,7 +320,7 @@ public class GoogleApihubPluginConfigTemplateBlockAuthConfigTemplateBlockService
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
     public required TerraformValue<string> ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -343,7 +343,7 @@ public class GoogleApihubPluginDocumentationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ExternalUri
     {
-        get => new TerraformReference<string>(this, "external_uri");
+        get => GetArgument<TerraformValue<string>>("external_uri");
         set => SetArgument("external_uri", value);
     }
 
@@ -368,7 +368,7 @@ public class GoogleApihubPluginHostingServiceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ServiceUri
     {
-        get => new TerraformReference<string>(this, "service_uri");
+        get => GetArgument<TerraformValue<string>>("service_uri");
         set => SetArgument("service_uri", value);
     }
 
@@ -391,7 +391,7 @@ public class GoogleApihubPluginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -400,7 +400,7 @@ public class GoogleApihubPluginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -419,7 +419,7 @@ public partial class GoogleApihubPlugin(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -430,16 +430,16 @@ public partial class GoogleApihubPlugin(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -449,7 +449,7 @@ public partial class GoogleApihubPlugin(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -461,7 +461,7 @@ public partial class GoogleApihubPlugin(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? PluginCategory
     {
-        get => new TerraformReference<string>(this, "plugin_category");
+        get => GetArgument<TerraformValue<string>>("plugin_category");
         set => SetArgument("plugin_category", value);
     }
 
@@ -483,16 +483,16 @@ public partial class GoogleApihubPlugin(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PluginId is required")]
     public required TerraformValue<string> PluginId
     {
-        get => new TerraformReference<string>(this, "plugin_id");
+        get => GetArgument<TerraformValue<string>>("plugin_id");
         set => SetArgument("plugin_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -500,18 +500,14 @@ public partial class GoogleApihubPlugin(string name) : TerraformResource("google
     /// Timestamp indicating when the plugin was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Identifier. The name of the plugin.
     /// Format: &#39;projects/{project}/locations/{location}/plugins/{plugin}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The type of the plugin, indicating whether it is &#39;SYSTEM_OWNED&#39; or
@@ -522,9 +518,7 @@ public partial class GoogleApihubPlugin(string name) : TerraformResource("google
     /// USER_OWNED
     /// </summary>
     public TerraformValue<string> OwnershipType
-    {
-        get => new TerraformReference<string>(this, "ownership_type");
-    }
+        => AsReference("ownership_type");
 
     /// <summary>
     /// Represents the state of the plugin.
@@ -536,17 +530,13 @@ public partial class GoogleApihubPlugin(string name) : TerraformResource("google
     /// DISABLED
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Timestamp indicating when the plugin was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// ActionsConfig block (nesting mode: list).

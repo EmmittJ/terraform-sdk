@@ -18,7 +18,7 @@ public class AzurermMarketplaceRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermMarketplaceRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermMarketplaceRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AzurermMarketplaceRoleAssignment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Condition
     {
-        get => new TerraformReference<string>(this, "condition");
+        get => GetArgument<TerraformValue<string>>("condition");
         set => SetArgument("condition", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermMarketplaceRoleAssignment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? ConditionVersion
     {
-        get => new TerraformReference<string>(this, "condition_version");
+        get => GetArgument<TerraformValue<string>>("condition_version");
         set => SetArgument("condition_version", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermMarketplaceRoleAssignment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? DelegatedManagedIdentityResourceId
     {
-        get => new TerraformReference<string>(this, "delegated_managed_identity_resource_id");
+        get => GetArgument<TerraformValue<string>>("delegated_managed_identity_resource_id");
         set => SetArgument("delegated_managed_identity_resource_id", value);
     }
 
@@ -81,16 +81,16 @@ public partial class AzurermMarketplaceRoleAssignment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AzurermMarketplaceRoleAssignment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermMarketplaceRoleAssignment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformValue<string> PrincipalId
     {
-        get => new TerraformReference<string>(this, "principal_id");
+        get => GetArgument<TerraformValue<string>>("principal_id");
         set => SetArgument("principal_id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermMarketplaceRoleAssignment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? RoleDefinitionId
     {
-        get => new TerraformReference<string>(this, "role_definition_id");
+        get => GetArgument<TerraformValue<string>>("role_definition_id");
         set => SetArgument("role_definition_id", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzurermMarketplaceRoleAssignment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? RoleDefinitionName
     {
-        get => new TerraformReference<string>(this, "role_definition_name");
+        get => GetArgument<TerraformValue<string>>("role_definition_name");
         set => SetArgument("role_definition_name", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AzurermMarketplaceRoleAssignment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? SkipServicePrincipalAadCheck
     {
-        get => new TerraformReference<bool>(this, "skip_service_principal_aad_check");
+        get => GetArgument<TerraformValue<bool>>("skip_service_principal_aad_check");
         set => SetArgument("skip_service_principal_aad_check", value);
     }
 
@@ -144,9 +144,7 @@ public partial class AzurermMarketplaceRoleAssignment(string name) : TerraformRe
     /// The principal_type attribute.
     /// </summary>
     public TerraformValue<string> PrincipalType
-    {
-        get => new TerraformReference<string>(this, "principal_type");
-    }
+        => AsReference("principal_type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

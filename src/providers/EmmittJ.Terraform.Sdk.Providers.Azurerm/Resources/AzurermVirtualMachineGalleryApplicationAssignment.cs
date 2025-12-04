@@ -18,7 +18,7 @@ public class AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock : Te
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock : Te
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock : Te
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock : Te
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermVirtualMachineGalleryApplicationAssignment(string na
     /// </summary>
     public TerraformValue<string>? ConfigurationBlobUri
     {
-        get => new TerraformReference<string>(this, "configuration_blob_uri");
+        get => GetArgument<TerraformValue<string>>("configuration_blob_uri");
         set => SetArgument("configuration_blob_uri", value);
     }
 
@@ -73,16 +73,16 @@ public partial class AzurermVirtualMachineGalleryApplicationAssignment(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryApplicationVersionId is required")]
     public required TerraformValue<string> GalleryApplicationVersionId
     {
-        get => new TerraformReference<string>(this, "gallery_application_version_id");
+        get => GetArgument<TerraformValue<string>>("gallery_application_version_id");
         set => SetArgument("gallery_application_version_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermVirtualMachineGalleryApplicationAssignment(string na
     /// </summary>
     public TerraformValue<double>? Order
     {
-        get => new TerraformReference<double>(this, "order");
+        get => GetArgument<TerraformValue<double>>("order");
         set => SetArgument("order", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermVirtualMachineGalleryApplicationAssignment(string na
     /// </summary>
     public TerraformValue<string>? Tag
     {
-        get => new TerraformReference<string>(this, "tag");
+        get => GetArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermVirtualMachineGalleryApplicationAssignment(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformValue<string> VirtualMachineId
     {
-        get => new TerraformReference<string>(this, "virtual_machine_id");
+        get => GetArgument<TerraformValue<string>>("virtual_machine_id");
         set => SetArgument("virtual_machine_id", value);
     }
 

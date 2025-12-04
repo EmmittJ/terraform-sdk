@@ -18,7 +18,7 @@ public class AzureadClientConfigDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzureadClientConfigDataSource(string name) : TerraformDataS
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -44,25 +44,19 @@ public partial class AzureadClientConfigDataSource(string name) : TerraformDataS
     /// The client ID (application ID) linked to the authenticated principal, or the application used for delegated authentication
     /// </summary>
     public TerraformValue<string> ClientId
-    {
-        get => new TerraformReference<string>(this, "client_id");
-    }
+        => AsReference("client_id");
 
     /// <summary>
     /// The object ID of the authenticated principal
     /// </summary>
     public TerraformValue<string> ObjectId
-    {
-        get => new TerraformReference<string>(this, "object_id");
-    }
+        => AsReference("object_id");
 
     /// <summary>
     /// The tenant ID of the authenticated principal
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,34 +18,34 @@ public class AwsEbsSnapshotImportClientDataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Comment
     {
-        get => new TerraformReference<string>(this, "comment");
+        get => GetArgument<TerraformValue<string>>("comment");
         set => SetArgument("comment", value);
     }
 
     /// <summary>
     /// The upload_end attribute.
     /// </summary>
-    public TerraformValue<string> UploadEnd
+    public TerraformValue<string>? UploadEnd
     {
-        get => new TerraformReference<string>(this, "upload_end");
+        get => GetArgument<TerraformValue<string>>("upload_end");
         set => SetArgument("upload_end", value);
     }
 
     /// <summary>
     /// The upload_size attribute.
     /// </summary>
-    public TerraformValue<double> UploadSize
+    public TerraformValue<double>? UploadSize
     {
-        get => new TerraformReference<double>(this, "upload_size");
+        get => GetArgument<TerraformValue<double>>("upload_size");
         set => SetArgument("upload_size", value);
     }
 
     /// <summary>
     /// The upload_start attribute.
     /// </summary>
-    public TerraformValue<string> UploadStart
+    public TerraformValue<string>? UploadStart
     {
-        get => new TerraformReference<string>(this, "upload_start");
+        get => GetArgument<TerraformValue<string>>("upload_start");
         set => SetArgument("upload_start", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsEbsSnapshotImportDiskContainerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsEbsSnapshotImportDiskContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => new TerraformReference<string>(this, "format");
+        get => GetArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsEbsSnapshotImportDiskContainerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -120,7 +120,7 @@ public class AwsEbsSnapshotImportDiskContainerBlockUserBucketBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
     public required TerraformValue<string> S3Bucket
     {
-        get => new TerraformReference<string>(this, "s3_bucket");
+        get => GetArgument<TerraformValue<string>>("s3_bucket");
         set => SetArgument("s3_bucket", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsEbsSnapshotImportDiskContainerBlockUserBucketBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Key is required")]
     public required TerraformValue<string> S3Key
     {
-        get => new TerraformReference<string>(this, "s3_key");
+        get => GetArgument<TerraformValue<string>>("s3_key");
         set => SetArgument("s3_key", value);
     }
 
@@ -153,7 +153,7 @@ public class AwsEbsSnapshotImportTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -162,7 +162,7 @@ public class AwsEbsSnapshotImportTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -178,9 +178,9 @@ public partial class AwsEbsSnapshotImport(string name) : TerraformResource("aws_
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string> Description
+    public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -189,16 +189,16 @@ public partial class AwsEbsSnapshotImport(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<bool>? Encrypted
     {
-        get => new TerraformReference<bool>(this, "encrypted");
+        get => GetArgument<TerraformValue<bool>>("encrypted");
         set => SetArgument("encrypted", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -207,7 +207,7 @@ public partial class AwsEbsSnapshotImport(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -216,16 +216,16 @@ public partial class AwsEbsSnapshotImport(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<bool>? PermanentRestore
     {
-        get => new TerraformReference<bool>(this, "permanent_restore");
+        get => GetArgument<TerraformValue<bool>>("permanent_restore");
         set => SetArgument("permanent_restore", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -234,16 +234,16 @@ public partial class AwsEbsSnapshotImport(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? RoleName
     {
-        get => new TerraformReference<string>(this, "role_name");
+        get => GetArgument<TerraformValue<string>>("role_name");
         set => SetArgument("role_name", value);
     }
 
     /// <summary>
     /// The storage_tier attribute.
     /// </summary>
-    public TerraformValue<string> StorageTier
+    public TerraformValue<string>? StorageTier
     {
-        get => new TerraformReference<string>(this, "storage_tier");
+        get => GetArgument<TerraformValue<string>>("storage_tier");
         set => SetArgument("storage_tier", value);
     }
 
@@ -252,16 +252,16 @@ public partial class AwsEbsSnapshotImport(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -270,7 +270,7 @@ public partial class AwsEbsSnapshotImport(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<double>? TemporaryRestoreDays
     {
-        get => new TerraformReference<double>(this, "temporary_restore_days");
+        get => GetArgument<TerraformValue<double>>("temporary_restore_days");
         set => SetArgument("temporary_restore_days", value);
     }
 
@@ -278,57 +278,43 @@ public partial class AwsEbsSnapshotImport(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The data_encryption_key_id attribute.
     /// </summary>
     public TerraformValue<string> DataEncryptionKeyId
-    {
-        get => new TerraformReference<string>(this, "data_encryption_key_id");
-    }
+        => AsReference("data_encryption_key_id");
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
     public TerraformValue<string> OutpostArn
-    {
-        get => new TerraformReference<string>(this, "outpost_arn");
-    }
+        => AsReference("outpost_arn");
 
     /// <summary>
     /// The owner_alias attribute.
     /// </summary>
     public TerraformValue<string> OwnerAlias
-    {
-        get => new TerraformReference<string>(this, "owner_alias");
-    }
+        => AsReference("owner_alias");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// The volume_id attribute.
     /// </summary>
     public TerraformValue<string> VolumeId
-    {
-        get => new TerraformReference<string>(this, "volume_id");
-    }
+        => AsReference("volume_id");
 
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
     public TerraformValue<double> VolumeSize
-    {
-        get => new TerraformReference<double>(this, "volume_size");
-    }
+        => AsReference("volume_size");
 
     /// <summary>
     /// ClientData block (nesting mode: list).

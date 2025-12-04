@@ -19,7 +19,7 @@ public class GoogleComputeInterconnectGroupIntentBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TopologyCapability
     {
-        get => new TerraformReference<string>(this, "topology_capability");
+        get => GetArgument<TerraformValue<string>>("topology_capability");
         set => SetArgument("topology_capability", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleComputeInterconnectGroupInterconnectsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Interconnect
     {
-        get => new TerraformReference<string>(this, "interconnect");
+        get => GetArgument<TerraformValue<string>>("interconnect");
         set => SetArgument("interconnect", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleComputeInterconnectGroupInterconnectsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -75,7 +75,7 @@ public class GoogleComputeInterconnectGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleComputeInterconnectGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -93,7 +93,7 @@ public class GoogleComputeInterconnectGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -111,16 +111,16 @@ public partial class GoogleComputeInterconnectGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -134,16 +134,16 @@ public partial class GoogleComputeInterconnectGroup(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -154,26 +154,20 @@ public partial class GoogleComputeInterconnectGroup(string name) : TerraformReso
     /// resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> Configured
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "configured").ResolveNodes(ctx));
-    }
+        => AsReference("configured");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// An analysis of the physical layout of Interconnects in this
     /// group. Every Interconnect in the group is shown once in this structure.
     /// </summary>
     public TerraformList<TerraformMap<object>> PhysicalStructure
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "physical_structure").ResolveNodes(ctx));
-    }
+        => AsReference("physical_structure");
 
     /// <summary>
     /// Intent block (nesting mode: list).

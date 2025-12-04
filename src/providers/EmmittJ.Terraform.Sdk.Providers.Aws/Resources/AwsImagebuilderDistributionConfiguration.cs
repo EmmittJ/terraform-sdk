@@ -18,7 +18,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlock : Terrafo
     /// </summary>
     public TerraformSet<string>? LicenseConfigurationArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "license_configuration_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("license_configuration_arns");
         set => SetArgument("license_configuration_arns", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockAmiDistrib
     /// </summary>
     public TerraformMap<string>? AmiTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "ami_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("ami_tags");
         set => SetArgument("ami_tags", value);
     }
 
@@ -118,7 +118,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockAmiDistrib
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockAmiDistrib
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockAmiDistrib
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -145,7 +145,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockAmiDistrib
     /// </summary>
     public TerraformSet<string>? TargetAccountIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "target_account_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("target_account_ids");
         set => SetArgument("target_account_ids", value);
     }
 
@@ -177,7 +177,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockAmiDistrib
     /// </summary>
     public TerraformSet<string>? OrganizationArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "organization_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("organization_arns");
         set => SetArgument("organization_arns", value);
     }
 
@@ -186,7 +186,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockAmiDistrib
     /// </summary>
     public TerraformSet<string>? OrganizationalUnitArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "organizational_unit_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("organizational_unit_arns");
         set => SetArgument("organizational_unit_arns", value);
     }
 
@@ -195,7 +195,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockAmiDistrib
     /// </summary>
     public TerraformSet<string>? UserGroups
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "user_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("user_groups");
         set => SetArgument("user_groups", value);
     }
 
@@ -204,7 +204,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockAmiDistrib
     /// </summary>
     public TerraformSet<string>? UserIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "user_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("user_ids");
         set => SetArgument("user_ids", value);
     }
 
@@ -226,7 +226,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockContainerD
     /// </summary>
     public TerraformSet<string>? ContainerTags
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "container_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("container_tags");
         set => SetArgument("container_tags", value);
     }
 
@@ -235,7 +235,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockContainerD
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -271,7 +271,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockContainerD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformValue<string> RepositoryName
     {
-        get => new TerraformReference<string>(this, "repository_name");
+        get => GetArgument<TerraformValue<string>>("repository_name");
         set => SetArgument("repository_name", value);
     }
 
@@ -281,7 +281,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockContainerD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -304,7 +304,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockFastLaunch
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformValue<string> AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -314,7 +314,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockFastLaunch
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -323,7 +323,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockFastLaunch
     /// </summary>
     public TerraformValue<double>? MaxParallelLaunches
     {
-        get => new TerraformReference<double>(this, "max_parallel_launches");
+        get => GetArgument<TerraformValue<double>>("max_parallel_launches");
         set => SetArgument("max_parallel_launches", value);
     }
 
@@ -365,7 +365,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockFastLaunch
     /// </summary>
     public TerraformValue<string>? LaunchTemplateId
     {
-        get => new TerraformReference<string>(this, "launch_template_id");
+        get => GetArgument<TerraformValue<string>>("launch_template_id");
         set => SetArgument("launch_template_id", value);
     }
 
@@ -374,7 +374,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockFastLaunch
     /// </summary>
     public TerraformValue<string>? LaunchTemplateName
     {
-        get => new TerraformReference<string>(this, "launch_template_name");
+        get => GetArgument<TerraformValue<string>>("launch_template_name");
         set => SetArgument("launch_template_name", value);
     }
 
@@ -383,7 +383,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockFastLaunch
     /// </summary>
     public TerraformValue<string>? LaunchTemplateVersion
     {
-        get => new TerraformReference<string>(this, "launch_template_version");
+        get => GetArgument<TerraformValue<string>>("launch_template_version");
         set => SetArgument("launch_template_version", value);
     }
 
@@ -405,7 +405,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockFastLaunch
     /// </summary>
     public TerraformValue<double>? TargetResourceCount
     {
-        get => new TerraformReference<double>(this, "target_resource_count");
+        get => GetArgument<TerraformValue<double>>("target_resource_count");
         set => SetArgument("target_resource_count", value);
     }
 
@@ -427,7 +427,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockLaunchTemp
     /// </summary>
     public TerraformValue<string>? AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -436,7 +436,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockLaunchTemp
     /// </summary>
     public TerraformValue<bool>? DefaultAttribute
     {
-        get => new TerraformReference<bool>(this, "default");
+        get => GetArgument<TerraformValue<bool>>("default");
         set => SetArgument("default", value);
     }
 
@@ -446,7 +446,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockLaunchTemp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LaunchTemplateId is required")]
     public required TerraformValue<string> LaunchTemplateId
     {
-        get => new TerraformReference<string>(this, "launch_template_id");
+        get => GetArgument<TerraformValue<string>>("launch_template_id");
         set => SetArgument("launch_template_id", value);
     }
 
@@ -469,7 +469,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockS3ExportCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskImageFormat is required")]
     public required TerraformValue<string> DiskImageFormat
     {
-        get => new TerraformReference<string>(this, "disk_image_format");
+        get => GetArgument<TerraformValue<string>>("disk_image_format");
         set => SetArgument("disk_image_format", value);
     }
 
@@ -479,7 +479,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockS3ExportCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
     public required TerraformValue<string> RoleName
     {
-        get => new TerraformReference<string>(this, "role_name");
+        get => GetArgument<TerraformValue<string>>("role_name");
         set => SetArgument("role_name", value);
     }
 
@@ -489,7 +489,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockS3ExportCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
     public required TerraformValue<string> S3Bucket
     {
-        get => new TerraformReference<string>(this, "s3_bucket");
+        get => GetArgument<TerraformValue<string>>("s3_bucket");
         set => SetArgument("s3_bucket", value);
     }
 
@@ -498,7 +498,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockS3ExportCo
     /// </summary>
     public TerraformValue<string>? S3Prefix
     {
-        get => new TerraformReference<string>(this, "s3_prefix");
+        get => GetArgument<TerraformValue<string>>("s3_prefix");
         set => SetArgument("s3_prefix", value);
     }
 
@@ -520,7 +520,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockSsmParamet
     /// </summary>
     public TerraformValue<string>? AmiAccountId
     {
-        get => new TerraformReference<string>(this, "ami_account_id");
+        get => GetArgument<TerraformValue<string>>("ami_account_id");
         set => SetArgument("ami_account_id", value);
     }
 
@@ -529,7 +529,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockSsmParamet
     /// </summary>
     public TerraformValue<string>? DataType
     {
-        get => new TerraformReference<string>(this, "data_type");
+        get => GetArgument<TerraformValue<string>>("data_type");
         set => SetArgument("data_type", value);
     }
 
@@ -539,7 +539,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlockSsmParamet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformValue<string> ParameterName
     {
-        get => new TerraformReference<string>(this, "parameter_name");
+        get => GetArgument<TerraformValue<string>>("parameter_name");
         set => SetArgument("parameter_name", value);
     }
 
@@ -557,16 +557,16 @@ public partial class AwsImagebuilderDistributionConfiguration(string name) : Ter
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -576,16 +576,16 @@ public partial class AwsImagebuilderDistributionConfiguration(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -594,16 +594,16 @@ public partial class AwsImagebuilderDistributionConfiguration(string name) : Ter
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -611,25 +611,19 @@ public partial class AwsImagebuilderDistributionConfiguration(string name) : Ter
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The date_created attribute.
     /// </summary>
     public TerraformValue<string> DateCreated
-    {
-        get => new TerraformReference<string>(this, "date_created");
-    }
+        => AsReference("date_created");
 
     /// <summary>
     /// The date_updated attribute.
     /// </summary>
     public TerraformValue<string> DateUpdated
-    {
-        get => new TerraformReference<string>(this, "date_updated");
-    }
+        => AsReference("date_updated");
 
     /// <summary>
     /// Distribution block (nesting mode: set).

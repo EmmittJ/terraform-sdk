@@ -14,16 +14,16 @@ public partial class AwsIamOpenidConnectProvider(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientIdList is required")]
     public required TerraformSet<string> ClientIdList
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "client_id_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("client_id_list");
         set => SetArgument("client_id_list", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,25 +32,25 @@ public partial class AwsIamOpenidConnectProvider(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The thumbprint_list attribute.
     /// </summary>
-    public TerraformList<string> ThumbprintList
+    public TerraformList<string>? ThumbprintList
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "thumbprint_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("thumbprint_list");
         set => SetArgument("thumbprint_list", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsIamOpenidConnectProvider(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -68,8 +68,6 @@ public partial class AwsIamOpenidConnectProvider(string name) : TerraformResourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

@@ -11,9 +11,9 @@ public partial class GoogleCloudIdentityGroupsDataSource(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -27,7 +27,7 @@ public partial class GoogleCloudIdentityGroupsDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -35,8 +35,6 @@ public partial class GoogleCloudIdentityGroupsDataSource(string name) : Terrafor
     /// List of Cloud Identity groups.
     /// </summary>
     public TerraformList<TerraformMap<object>> Groups
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "groups").ResolveNodes(ctx));
-    }
+        => AsReference("groups");
 
 }

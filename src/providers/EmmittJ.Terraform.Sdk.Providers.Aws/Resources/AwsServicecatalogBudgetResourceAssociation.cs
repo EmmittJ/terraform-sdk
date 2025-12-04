@@ -18,7 +18,7 @@ public class AwsServicecatalogBudgetResourceAssociationTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsServicecatalogBudgetResourceAssociationTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsServicecatalogBudgetResourceAssociationTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,25 +55,25 @@ public partial class AwsServicecatalogBudgetResourceAssociation(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BudgetName is required")]
     public required TerraformValue<string> BudgetName
     {
-        get => new TerraformReference<string>(this, "budget_name");
+        get => GetArgument<TerraformValue<string>>("budget_name");
         set => SetArgument("budget_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsServicecatalogBudgetResourceAssociation(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformValue<string> ResourceId
     {
-        get => new TerraformReference<string>(this, "resource_id");
+        get => GetArgument<TerraformValue<string>>("resource_id");
         set => SetArgument("resource_id", value);
     }
 

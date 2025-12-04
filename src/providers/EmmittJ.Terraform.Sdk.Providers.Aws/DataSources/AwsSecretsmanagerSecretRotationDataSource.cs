@@ -11,18 +11,18 @@ public partial class AwsSecretsmanagerSecretRotationDataSource(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsSecretsmanagerSecretRotationDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformValue<string> SecretId
     {
-        get => new TerraformReference<string>(this, "secret_id");
+        get => GetArgument<TerraformValue<string>>("secret_id");
         set => SetArgument("secret_id", value);
     }
 
@@ -40,24 +40,18 @@ public partial class AwsSecretsmanagerSecretRotationDataSource(string name) : Te
     /// The rotation_enabled attribute.
     /// </summary>
     public TerraformValue<bool> RotationEnabled
-    {
-        get => new TerraformReference<bool>(this, "rotation_enabled");
-    }
+        => AsReference("rotation_enabled");
 
     /// <summary>
     /// The rotation_lambda_arn attribute.
     /// </summary>
     public TerraformValue<string> RotationLambdaArn
-    {
-        get => new TerraformReference<string>(this, "rotation_lambda_arn");
-    }
+        => AsReference("rotation_lambda_arn");
 
     /// <summary>
     /// The rotation_rules attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RotationRules
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "rotation_rules").ResolveNodes(ctx));
-    }
+        => AsReference("rotation_rules");
 
 }

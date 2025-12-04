@@ -18,7 +18,7 @@ public class GoogleArtifactRegistryRepositoryCleanupPoliciesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleArtifactRegistryRepositoryCleanupPoliciesBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleArtifactRegistryRepositoryCleanupPoliciesBlockConditionBlock 
     /// </summary>
     public TerraformValue<string>? NewerThan
     {
-        get => new TerraformReference<string>(this, "newer_than");
+        get => GetArgument<TerraformValue<string>>("newer_than");
         set => SetArgument("newer_than", value);
     }
 
@@ -79,7 +79,7 @@ public class GoogleArtifactRegistryRepositoryCleanupPoliciesBlockConditionBlock 
     /// </summary>
     public TerraformValue<string>? OlderThan
     {
-        get => new TerraformReference<string>(this, "older_than");
+        get => GetArgument<TerraformValue<string>>("older_than");
         set => SetArgument("older_than", value);
     }
 
@@ -88,7 +88,7 @@ public class GoogleArtifactRegistryRepositoryCleanupPoliciesBlockConditionBlock 
     /// </summary>
     public TerraformList<string>? PackageNamePrefixes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "package_name_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("package_name_prefixes");
         set => SetArgument("package_name_prefixes", value);
     }
 
@@ -97,7 +97,7 @@ public class GoogleArtifactRegistryRepositoryCleanupPoliciesBlockConditionBlock 
     /// </summary>
     public TerraformList<string>? TagPrefixes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tag_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("tag_prefixes");
         set => SetArgument("tag_prefixes", value);
     }
 
@@ -106,7 +106,7 @@ public class GoogleArtifactRegistryRepositoryCleanupPoliciesBlockConditionBlock 
     /// </summary>
     public TerraformValue<string>? TagState
     {
-        get => new TerraformReference<string>(this, "tag_state");
+        get => GetArgument<TerraformValue<string>>("tag_state");
         set => SetArgument("tag_state", value);
     }
 
@@ -115,7 +115,7 @@ public class GoogleArtifactRegistryRepositoryCleanupPoliciesBlockConditionBlock 
     /// </summary>
     public TerraformList<string>? VersionNamePrefixes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "version_name_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("version_name_prefixes");
         set => SetArgument("version_name_prefixes", value);
     }
 
@@ -137,7 +137,7 @@ public class GoogleArtifactRegistryRepositoryCleanupPoliciesBlockMostRecentVersi
     /// </summary>
     public TerraformValue<double>? KeepCount
     {
-        get => new TerraformReference<double>(this, "keep_count");
+        get => GetArgument<TerraformValue<double>>("keep_count");
         set => SetArgument("keep_count", value);
     }
 
@@ -146,7 +146,7 @@ public class GoogleArtifactRegistryRepositoryCleanupPoliciesBlockMostRecentVersi
     /// </summary>
     public TerraformList<string>? PackageNamePrefixes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "package_name_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("package_name_prefixes");
         set => SetArgument("package_name_prefixes", value);
     }
 
@@ -169,7 +169,7 @@ public class GoogleArtifactRegistryRepositoryDockerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ImmutableTags
     {
-        get => new TerraformReference<bool>(this, "immutable_tags");
+        get => GetArgument<TerraformValue<bool>>("immutable_tags");
         set => SetArgument("immutable_tags", value);
     }
 
@@ -193,7 +193,7 @@ public class GoogleArtifactRegistryRepositoryMavenConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowSnapshotOverwrites
     {
-        get => new TerraformReference<bool>(this, "allow_snapshot_overwrites");
+        get => GetArgument<TerraformValue<bool>>("allow_snapshot_overwrites");
         set => SetArgument("allow_snapshot_overwrites", value);
     }
 
@@ -202,7 +202,7 @@ public class GoogleArtifactRegistryRepositoryMavenConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? VersionPolicy
     {
-        get => new TerraformReference<string>(this, "version_policy");
+        get => GetArgument<TerraformValue<string>>("version_policy");
         set => SetArgument("version_policy", value);
     }
 
@@ -225,7 +225,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock : Terra
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -235,7 +235,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlock : Terra
     /// </summary>
     public TerraformValue<bool>? DisableUpstreamValidation
     {
-        get => new TerraformReference<bool>(this, "disable_upstream_validation");
+        get => GetArgument<TerraformValue<bool>>("disable_upstream_validation");
         set => SetArgument("disable_upstream_validation", value);
     }
 
@@ -361,7 +361,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlockAptRepos
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryBase is required")]
     public required TerraformValue<string> RepositoryBase
     {
-        get => new TerraformReference<string>(this, "repository_base");
+        get => GetArgument<TerraformValue<string>>("repository_base");
         set => SetArgument("repository_base", value);
     }
 
@@ -371,7 +371,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlockAptRepos
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryPath is required")]
     public required TerraformValue<string> RepositoryPath
     {
-        get => new TerraformReference<string>(this, "repository_path");
+        get => GetArgument<TerraformValue<string>>("repository_path");
         set => SetArgument("repository_path", value);
     }
 
@@ -397,7 +397,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlockCommonRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -419,7 +419,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlockDockerRe
     /// </summary>
     public TerraformValue<string>? PublicRepository
     {
-        get => new TerraformReference<string>(this, "public_repository");
+        get => GetArgument<TerraformValue<string>>("public_repository");
         set => SetArgument("public_repository", value);
     }
 
@@ -451,7 +451,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlockDockerRe
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -473,7 +473,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlockMavenRep
     /// </summary>
     public TerraformValue<string>? PublicRepository
     {
-        get => new TerraformReference<string>(this, "public_repository");
+        get => GetArgument<TerraformValue<string>>("public_repository");
         set => SetArgument("public_repository", value);
     }
 
@@ -505,7 +505,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlockMavenRep
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -527,7 +527,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlockNpmRepos
     /// </summary>
     public TerraformValue<string>? PublicRepository
     {
-        get => new TerraformReference<string>(this, "public_repository");
+        get => GetArgument<TerraformValue<string>>("public_repository");
         set => SetArgument("public_repository", value);
     }
 
@@ -559,7 +559,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlockNpmRepos
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -581,7 +581,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlockPythonRe
     /// </summary>
     public TerraformValue<string>? PublicRepository
     {
-        get => new TerraformReference<string>(this, "public_repository");
+        get => GetArgument<TerraformValue<string>>("public_repository");
         set => SetArgument("public_repository", value);
     }
 
@@ -613,7 +613,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlockPythonRe
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -660,7 +660,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlockUpstream
     /// </summary>
     public TerraformValue<string>? PasswordSecretVersion
     {
-        get => new TerraformReference<string>(this, "password_secret_version");
+        get => GetArgument<TerraformValue<string>>("password_secret_version");
         set => SetArgument("password_secret_version", value);
     }
 
@@ -669,7 +669,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlockUpstream
     /// </summary>
     public TerraformValue<string>? Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -715,7 +715,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlockYumRepos
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryBase is required")]
     public required TerraformValue<string> RepositoryBase
     {
-        get => new TerraformReference<string>(this, "repository_base");
+        get => GetArgument<TerraformValue<string>>("repository_base");
         set => SetArgument("repository_base", value);
     }
 
@@ -725,7 +725,7 @@ public class GoogleArtifactRegistryRepositoryRemoteRepositoryConfigBlockYumRepos
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryPath is required")]
     public required TerraformValue<string> RepositoryPath
     {
-        get => new TerraformReference<string>(this, "repository_path");
+        get => GetArgument<TerraformValue<string>>("repository_path");
         set => SetArgument("repository_path", value);
     }
 
@@ -748,7 +748,7 @@ public class GoogleArtifactRegistryRepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -757,7 +757,7 @@ public class GoogleArtifactRegistryRepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -766,7 +766,7 @@ public class GoogleArtifactRegistryRepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -811,7 +811,7 @@ public class GoogleArtifactRegistryRepositoryVirtualRepositoryConfigBlockUpstrea
     /// </summary>
     public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -820,7 +820,7 @@ public class GoogleArtifactRegistryRepositoryVirtualRepositoryConfigBlockUpstrea
     /// </summary>
     public TerraformValue<double>? Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -830,7 +830,7 @@ public class GoogleArtifactRegistryRepositoryVirtualRepositoryConfigBlockUpstrea
     /// </summary>
     public TerraformValue<string>? Repository
     {
-        get => new TerraformReference<string>(this, "repository");
+        get => GetArgument<TerraformValue<string>>("repository");
         set => SetArgument("repository", value);
     }
 
@@ -853,7 +853,7 @@ public class GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock : 
     /// </summary>
     public TerraformValue<string>? EnablementConfig
     {
-        get => new TerraformReference<string>(this, "enablement_config");
+        get => GetArgument<TerraformValue<string>>("enablement_config");
         set => SetArgument("enablement_config", value);
     }
 
@@ -861,17 +861,13 @@ public class GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock : 
     /// This field returns whether scanning is active for this repository.
     /// </summary>
     public TerraformValue<string> EnablementState
-    {
-        get => new TerraformReference<string>(this, "enablement_state");
-    }
+        => AsReference("enablement_state");
 
     /// <summary>
     /// This provides an explanation for the state of scanning on this repository.
     /// </summary>
     public TerraformValue<string> EnablementStateReason
-    {
-        get => new TerraformReference<string>(this, "enablement_state_reason");
-    }
+        => AsReference("enablement_state_reason");
 
 }
 
@@ -888,7 +884,7 @@ public partial class GoogleArtifactRegistryRepository(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? CleanupPolicyDryRun
     {
-        get => new TerraformReference<bool>(this, "cleanup_policy_dry_run");
+        get => GetArgument<TerraformValue<bool>>("cleanup_policy_dry_run");
         set => SetArgument("cleanup_policy_dry_run", value);
     }
 
@@ -897,7 +893,7 @@ public partial class GoogleArtifactRegistryRepository(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -910,16 +906,16 @@ public partial class GoogleArtifactRegistryRepository(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => new TerraformReference<string>(this, "format");
+        get => GetArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -931,7 +927,7 @@ public partial class GoogleArtifactRegistryRepository(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -948,7 +944,7 @@ public partial class GoogleArtifactRegistryRepository(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -960,9 +956,9 @@ public partial class GoogleArtifactRegistryRepository(string name) : TerraformRe
     /// [google_artifact_registry_locations](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/artifact_registry_locations)
     /// data source for possible values.
     /// </summary>
-    public TerraformValue<string> Location
+    public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -971,16 +967,16 @@ public partial class GoogleArtifactRegistryRepository(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -991,7 +987,7 @@ public partial class GoogleArtifactRegistryRepository(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformValue<string> RepositoryId
     {
-        get => new TerraformReference<string>(this, "repository_id");
+        get => GetArgument<TerraformValue<string>>("repository_id");
         set => SetArgument("repository_id", value);
     }
 
@@ -999,51 +995,39 @@ public partial class GoogleArtifactRegistryRepository(string name) : TerraformRe
     /// The time when the repository was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The name of the repository, for example:
     /// &amp;quot;repo1&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The repository endpoint, for example: us-docker.pkg.dev/my-proj/my-repo.
     /// </summary>
     public TerraformValue<string> RegistryUri
-    {
-        get => new TerraformReference<string>(this, "registry_uri");
-    }
+        => AsReference("registry_uri");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The time when the repository was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// CleanupPolicies block (nesting mode: set).

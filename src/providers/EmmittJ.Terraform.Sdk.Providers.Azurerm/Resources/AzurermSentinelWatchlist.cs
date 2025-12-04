@@ -18,7 +18,7 @@ public class AzurermSentinelWatchlistTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSentinelWatchlistTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSentinelWatchlistTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AzurermSentinelWatchlist(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? DefaultDuration
     {
-        get => new TerraformReference<string>(this, "default_duration");
+        get => GetArgument<TerraformValue<string>>("default_duration");
         set => SetArgument("default_duration", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermSentinelWatchlist(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -73,16 +73,16 @@ public partial class AzurermSentinelWatchlist(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermSentinelWatchlist(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ItemSearchKey is required")]
     public required TerraformValue<string> ItemSearchKey
     {
-        get => new TerraformReference<string>(this, "item_search_key");
+        get => GetArgument<TerraformValue<string>>("item_search_key");
         set => SetArgument("item_search_key", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermSentinelWatchlist(string name) : TerraformResource("
     /// </summary>
     public TerraformList<string>? Labels
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermSentinelWatchlist(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
-        get => new TerraformReference<string>(this, "log_analytics_workspace_id");
+        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermSentinelWatchlist(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

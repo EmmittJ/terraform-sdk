@@ -19,7 +19,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformList<string>? CallAnalyticsStreamCategories
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "call_analytics_stream_categories").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("call_analytics_stream_categories");
         set => SetArgument("call_analytics_stream_categories", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<string>? ContentIdentificationType
     {
-        get => new TerraformReference<string>(this, "content_identification_type");
+        get => GetArgument<TerraformValue<string>>("content_identification_type");
         set => SetArgument("content_identification_type", value);
     }
 
@@ -139,7 +139,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<string>? ContentRedactionType
     {
-        get => new TerraformReference<string>(this, "content_redaction_type");
+        get => GetArgument<TerraformValue<string>>("content_redaction_type");
         set => SetArgument("content_redaction_type", value);
     }
 
@@ -148,7 +148,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<bool>? EnablePartialResultsStabilization
     {
-        get => new TerraformReference<bool>(this, "enable_partial_results_stabilization");
+        get => GetArgument<TerraformValue<bool>>("enable_partial_results_stabilization");
         set => SetArgument("enable_partial_results_stabilization", value);
     }
 
@@ -157,7 +157,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<bool>? FilterPartialResults
     {
-        get => new TerraformReference<bool>(this, "filter_partial_results");
+        get => GetArgument<TerraformValue<bool>>("filter_partial_results");
         set => SetArgument("filter_partial_results", value);
     }
 
@@ -167,7 +167,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformValue<string> LanguageCode
     {
-        get => new TerraformReference<string>(this, "language_code");
+        get => GetArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -176,7 +176,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<string>? LanguageModelName
     {
-        get => new TerraformReference<string>(this, "language_model_name");
+        get => GetArgument<TerraformValue<string>>("language_model_name");
         set => SetArgument("language_model_name", value);
     }
 
@@ -185,7 +185,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<string>? PartialResultsStability
     {
-        get => new TerraformReference<string>(this, "partial_results_stability");
+        get => GetArgument<TerraformValue<string>>("partial_results_stability");
         set => SetArgument("partial_results_stability", value);
     }
 
@@ -194,7 +194,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<string>? PiiEntityTypes
     {
-        get => new TerraformReference<string>(this, "pii_entity_types");
+        get => GetArgument<TerraformValue<string>>("pii_entity_types");
         set => SetArgument("pii_entity_types", value);
     }
 
@@ -203,7 +203,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<string>? VocabularyFilterMethod
     {
-        get => new TerraformReference<string>(this, "vocabulary_filter_method");
+        get => GetArgument<TerraformValue<string>>("vocabulary_filter_method");
         set => SetArgument("vocabulary_filter_method", value);
     }
 
@@ -212,7 +212,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<string>? VocabularyFilterName
     {
-        get => new TerraformReference<string>(this, "vocabulary_filter_name");
+        get => GetArgument<TerraformValue<string>>("vocabulary_filter_name");
         set => SetArgument("vocabulary_filter_name", value);
     }
 
@@ -221,7 +221,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<string>? VocabularyName
     {
-        get => new TerraformReference<string>(this, "vocabulary_name");
+        get => GetArgument<TerraformValue<string>>("vocabulary_name");
         set => SetArgument("vocabulary_name", value);
     }
 
@@ -253,7 +253,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<string>? ContentRedactionOutput
     {
-        get => new TerraformReference<string>(this, "content_redaction_output");
+        get => GetArgument<TerraformValue<string>>("content_redaction_output");
         set => SetArgument("content_redaction_output", value);
     }
 
@@ -263,7 +263,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataAccessRoleArn is required")]
     public required TerraformValue<string> DataAccessRoleArn
     {
-        get => new TerraformReference<string>(this, "data_access_role_arn");
+        get => GetArgument<TerraformValue<string>>("data_access_role_arn");
         set => SetArgument("data_access_role_arn", value);
     }
 
@@ -272,7 +272,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<string>? OutputEncryptionKmsKeyId
     {
-        get => new TerraformReference<string>(this, "output_encryption_kms_key_id");
+        get => GetArgument<TerraformValue<string>>("output_encryption_kms_key_id");
         set => SetArgument("output_encryption_kms_key_id", value);
     }
 
@@ -282,7 +282,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutputLocation is required")]
     public required TerraformValue<string> OutputLocation
     {
-        get => new TerraformReference<string>(this, "output_location");
+        get => GetArgument<TerraformValue<string>>("output_location");
         set => SetArgument("output_location", value);
     }
 
@@ -304,7 +304,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<string>? ContentIdentificationType
     {
-        get => new TerraformReference<string>(this, "content_identification_type");
+        get => GetArgument<TerraformValue<string>>("content_identification_type");
         set => SetArgument("content_identification_type", value);
     }
 
@@ -313,7 +313,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<string>? ContentRedactionType
     {
-        get => new TerraformReference<string>(this, "content_redaction_type");
+        get => GetArgument<TerraformValue<string>>("content_redaction_type");
         set => SetArgument("content_redaction_type", value);
     }
 
@@ -322,7 +322,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<bool>? EnablePartialResultsStabilization
     {
-        get => new TerraformReference<bool>(this, "enable_partial_results_stabilization");
+        get => GetArgument<TerraformValue<bool>>("enable_partial_results_stabilization");
         set => SetArgument("enable_partial_results_stabilization", value);
     }
 
@@ -331,7 +331,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<bool>? FilterPartialResults
     {
-        get => new TerraformReference<bool>(this, "filter_partial_results");
+        get => GetArgument<TerraformValue<bool>>("filter_partial_results");
         set => SetArgument("filter_partial_results", value);
     }
 
@@ -341,7 +341,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformValue<string> LanguageCode
     {
-        get => new TerraformReference<string>(this, "language_code");
+        get => GetArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -350,7 +350,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<string>? LanguageModelName
     {
-        get => new TerraformReference<string>(this, "language_model_name");
+        get => GetArgument<TerraformValue<string>>("language_model_name");
         set => SetArgument("language_model_name", value);
     }
 
@@ -359,7 +359,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<string>? PartialResultsStability
     {
-        get => new TerraformReference<string>(this, "partial_results_stability");
+        get => GetArgument<TerraformValue<string>>("partial_results_stability");
         set => SetArgument("partial_results_stability", value);
     }
 
@@ -368,7 +368,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<string>? PiiEntityTypes
     {
-        get => new TerraformReference<string>(this, "pii_entity_types");
+        get => GetArgument<TerraformValue<string>>("pii_entity_types");
         set => SetArgument("pii_entity_types", value);
     }
 
@@ -377,7 +377,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<bool>? ShowSpeakerLabel
     {
-        get => new TerraformReference<bool>(this, "show_speaker_label");
+        get => GetArgument<TerraformValue<bool>>("show_speaker_label");
         set => SetArgument("show_speaker_label", value);
     }
 
@@ -386,7 +386,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<string>? VocabularyFilterMethod
     {
-        get => new TerraformReference<string>(this, "vocabulary_filter_method");
+        get => GetArgument<TerraformValue<string>>("vocabulary_filter_method");
         set => SetArgument("vocabulary_filter_method", value);
     }
 
@@ -395,7 +395,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<string>? VocabularyFilterName
     {
-        get => new TerraformReference<string>(this, "vocabulary_filter_name");
+        get => GetArgument<TerraformValue<string>>("vocabulary_filter_name");
         set => SetArgument("vocabulary_filter_name", value);
     }
 
@@ -404,7 +404,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<string>? VocabularyName
     {
-        get => new TerraformReference<string>(this, "vocabulary_name");
+        get => GetArgument<TerraformValue<string>>("vocabulary_name");
         set => SetArgument("vocabulary_name", value);
     }
 
@@ -427,7 +427,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InsightsTarget is required")]
     public required TerraformValue<string> InsightsTarget
     {
-        get => new TerraformReference<string>(this, "insights_target");
+        get => GetArgument<TerraformValue<string>>("insights_target");
         set => SetArgument("insights_target", value);
     }
 
@@ -450,7 +450,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InsightsTarget is required")]
     public required TerraformValue<string> InsightsTarget
     {
-        get => new TerraformReference<string>(this, "insights_target");
+        get => GetArgument<TerraformValue<string>>("insights_target");
         set => SetArgument("insights_target", value);
     }
 
@@ -472,7 +472,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     /// </summary>
     public TerraformValue<string>? Destination
     {
-        get => new TerraformReference<string>(this, "destination");
+        get => GetArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
@@ -495,7 +495,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InsightsTarget is required")]
     public required TerraformValue<string> InsightsTarget
     {
-        get => new TerraformReference<string>(this, "insights_target");
+        get => GetArgument<TerraformValue<string>>("insights_target");
         set => SetArgument("insights_target", value);
     }
 
@@ -518,7 +518,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InsightsTarget is required")]
     public required TerraformValue<string> InsightsTarget
     {
-        get => new TerraformReference<string>(this, "insights_target");
+        get => GetArgument<TerraformValue<string>>("insights_target");
         set => SetArgument("insights_target", value);
     }
 
@@ -541,7 +541,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpeakerSearchStatus is required")]
     public required TerraformValue<string> SpeakerSearchStatus
     {
-        get => new TerraformReference<string>(this, "speaker_search_status");
+        get => GetArgument<TerraformValue<string>>("speaker_search_status");
         set => SetArgument("speaker_search_status", value);
     }
 
@@ -551,7 +551,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationElements
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceToneAnalysisStatus is required")]
     public required TerraformValue<string> VoiceToneAnalysisStatus
     {
-        get => new TerraformReference<string>(this, "voice_tone_analysis_status");
+        get => GetArgument<TerraformValue<string>>("voice_tone_analysis_status");
         set => SetArgument("voice_tone_analysis_status", value);
     }
 
@@ -572,9 +572,9 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationRealTime
     /// <summary>
     /// The disabled attribute.
     /// </summary>
-    public TerraformValue<bool> Disabled
+    public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -610,7 +610,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationRealTime
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -663,7 +663,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationRealTime
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     public required TerraformValue<string> RuleName
     {
-        get => new TerraformReference<string>(this, "rule_name");
+        get => GetArgument<TerraformValue<string>>("rule_name");
         set => SetArgument("rule_name", value);
     }
 
@@ -686,16 +686,16 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationRealTime
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Keywords is required")]
     public TerraformList<string>? Keywords
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "keywords").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("keywords");
         set => SetArgument("keywords", value);
     }
 
     /// <summary>
     /// The negate attribute.
     /// </summary>
-    public TerraformValue<bool> Negate
+    public TerraformValue<bool>? Negate
     {
-        get => new TerraformReference<bool>(this, "negate");
+        get => GetArgument<TerraformValue<bool>>("negate");
         set => SetArgument("negate", value);
     }
 
@@ -705,7 +705,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationRealTime
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     public required TerraformValue<string> RuleName
     {
-        get => new TerraformReference<string>(this, "rule_name");
+        get => GetArgument<TerraformValue<string>>("rule_name");
         set => SetArgument("rule_name", value);
     }
 
@@ -728,7 +728,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationRealTime
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     public required TerraformValue<string> RuleName
     {
-        get => new TerraformReference<string>(this, "rule_name");
+        get => GetArgument<TerraformValue<string>>("rule_name");
         set => SetArgument("rule_name", value);
     }
 
@@ -738,7 +738,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationRealTime
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SentimentType is required")]
     public required TerraformValue<string> SentimentType
     {
-        get => new TerraformReference<string>(this, "sentiment_type");
+        get => GetArgument<TerraformValue<string>>("sentiment_type");
         set => SetArgument("sentiment_type", value);
     }
 
@@ -748,7 +748,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationRealTime
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimePeriod is required")]
     public required TerraformValue<double> TimePeriod
     {
-        get => new TerraformReference<double>(this, "time_period");
+        get => GetArgument<TerraformValue<double>>("time_period");
         set => SetArgument("time_period", value);
     }
 
@@ -771,7 +771,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationTimeouts
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -780,7 +780,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationTimeouts
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -789,7 +789,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationTimeouts
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -808,16 +808,16 @@ public partial class AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -827,7 +827,7 @@ public partial class AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceAccessRoleArn is required")]
     public required TerraformValue<string> ResourceAccessRoleArn
     {
-        get => new TerraformReference<string>(this, "resource_access_role_arn");
+        get => GetArgument<TerraformValue<string>>("resource_access_role_arn");
         set => SetArgument("resource_access_role_arn", value);
     }
 
@@ -836,16 +836,16 @@ public partial class AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -853,17 +853,13 @@ public partial class AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// Elements block (nesting mode: list).

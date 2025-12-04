@@ -18,7 +18,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeFilterBlock : TerraformBloc
     /// </summary>
     public TerraformList<string>? Locations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("locations");
         set => SetArgument("locations", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeFilterBlock : TerraformBloc
     /// </summary>
     public TerraformList<string>? OsTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "os_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("os_types");
         set => SetArgument("os_types", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeFilterBlock : TerraformBloc
     /// </summary>
     public TerraformList<string>? ResourceGroups
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("resource_groups");
         set => SetArgument("resource_groups", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeFilterBlock : TerraformBloc
     /// </summary>
     public TerraformList<string>? ResourceTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("resource_types");
         set => SetArgument("resource_types", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeFilterBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? TagFilter
     {
-        get => new TerraformReference<string>(this, "tag_filter");
+        get => GetArgument<TerraformValue<string>>("tag_filter");
         set => SetArgument("tag_filter", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeFilterBlockTagsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tag is required")]
     public required TerraformValue<string> Tag
     {
-        get => new TerraformReference<string>(this, "tag");
+        get => GetArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeFilterBlockTagsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -119,7 +119,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -128,7 +128,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -137,7 +137,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -146,7 +146,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -162,9 +162,9 @@ public partial class AzurermMaintenanceAssignmentDynamicScope(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -174,7 +174,7 @@ public partial class AzurermMaintenanceAssignmentDynamicScope(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceConfigurationId is required")]
     public required TerraformValue<string> MaintenanceConfigurationId
     {
-        get => new TerraformReference<string>(this, "maintenance_configuration_id");
+        get => GetArgument<TerraformValue<string>>("maintenance_configuration_id");
         set => SetArgument("maintenance_configuration_id", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AzurermMaintenanceAssignmentDynamicScope(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

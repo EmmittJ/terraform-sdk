@@ -14,25 +14,25 @@ public partial class AwsOutpostsOutpostInstanceTypeDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformValue<string> InstanceType
+    public TerraformValue<string>? InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -41,16 +41,16 @@ public partial class AwsOutpostsOutpostInstanceTypeDataSource(string name) : Ter
     /// </summary>
     public TerraformList<string>? PreferredInstanceTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "preferred_instance_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("preferred_instance_types");
         set => SetArgument("preferred_instance_types", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

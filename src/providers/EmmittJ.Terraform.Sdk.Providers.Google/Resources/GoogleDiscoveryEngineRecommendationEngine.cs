@@ -18,7 +18,7 @@ public class GoogleDiscoveryEngineRecommendationEngineCommonConfigBlock : Terraf
     /// </summary>
     public TerraformValue<string>? CompanyName
     {
-        get => new TerraformReference<string>(this, "company_name");
+        get => GetArgument<TerraformValue<string>>("company_name");
         set => SetArgument("company_name", value);
     }
 
@@ -47,7 +47,7 @@ public class GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineC
     /// </summary>
     public TerraformValue<string>? OptimizationObjective
     {
-        get => new TerraformReference<string>(this, "optimization_objective");
+        get => GetArgument<TerraformValue<string>>("optimization_objective");
         set => SetArgument("optimization_objective", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineC
     /// </summary>
     public TerraformValue<string>? TrainingState
     {
-        get => new TerraformReference<string>(this, "training_state");
+        get => GetArgument<TerraformValue<string>>("training_state");
         set => SetArgument("training_state", value);
     }
 
@@ -74,7 +74,7 @@ public class GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineC
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -152,7 +152,7 @@ public class GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineC
     /// </summary>
     public TerraformValue<double>? TimeWindowDays
     {
-        get => new TerraformReference<double>(this, "time_window_days");
+        get => GetArgument<TerraformValue<double>>("time_window_days");
         set => SetArgument("time_window_days", value);
     }
 
@@ -180,7 +180,7 @@ public class GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineC
     /// </summary>
     public TerraformValue<string>? ContextEventType
     {
-        get => new TerraformReference<string>(this, "context_event_type");
+        get => GetArgument<TerraformValue<string>>("context_event_type");
         set => SetArgument("context_event_type", value);
     }
 
@@ -202,7 +202,7 @@ public class GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineC
     /// </summary>
     public TerraformValue<string>? TargetField
     {
-        get => new TerraformReference<string>(this, "target_field");
+        get => GetArgument<TerraformValue<string>>("target_field");
         set => SetArgument("target_field", value);
     }
 
@@ -211,7 +211,7 @@ public class GoogleDiscoveryEngineRecommendationEngineMediaRecommendationEngineC
     /// </summary>
     public TerraformValue<double>? TargetFieldValueFloat
     {
-        get => new TerraformReference<double>(this, "target_field_value_float");
+        get => GetArgument<TerraformValue<double>>("target_field_value_float");
         set => SetArgument("target_field_value_float", value);
     }
 
@@ -234,7 +234,7 @@ public class GoogleDiscoveryEngineRecommendationEngineTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -243,7 +243,7 @@ public class GoogleDiscoveryEngineRecommendationEngineTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -252,7 +252,7 @@ public class GoogleDiscoveryEngineRecommendationEngineTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -271,7 +271,7 @@ public partial class GoogleDiscoveryEngineRecommendationEngine(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreIds is required")]
     public TerraformList<string>? DataStoreIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "data_store_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("data_store_ids");
         set => SetArgument("data_store_ids", value);
     }
 
@@ -281,7 +281,7 @@ public partial class GoogleDiscoveryEngineRecommendationEngine(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -291,16 +291,16 @@ public partial class GoogleDiscoveryEngineRecommendationEngine(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
     public required TerraformValue<string> EngineId
     {
-        get => new TerraformReference<string>(this, "engine_id");
+        get => GetArgument<TerraformValue<string>>("engine_id");
         set => SetArgument("engine_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -309,7 +309,7 @@ public partial class GoogleDiscoveryEngineRecommendationEngine(string name) : Te
     /// </summary>
     public TerraformValue<string>? IndustryVertical
     {
-        get => new TerraformReference<string>(this, "industry_vertical");
+        get => GetArgument<TerraformValue<string>>("industry_vertical");
         set => SetArgument("industry_vertical", value);
     }
 
@@ -320,16 +320,16 @@ public partial class GoogleDiscoveryEngineRecommendationEngine(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -337,9 +337,7 @@ public partial class GoogleDiscoveryEngineRecommendationEngine(string name) : Te
     /// Timestamp the Engine was created at.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The unique full resource name of the recommendation engine. Values are of the format
@@ -347,17 +345,13 @@ public partial class GoogleDiscoveryEngineRecommendationEngine(string name) : Te
     /// This field must be a UTF-8 encoded string with a length limit of 1024 characters.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Timestamp the Engine was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// CommonConfig block (nesting mode: list).

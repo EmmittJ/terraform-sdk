@@ -18,7 +18,7 @@ public class GoogleComputeSnapshotSnapshotEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeySelfLink
     {
-        get => new TerraformReference<string>(this, "kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleComputeSnapshotSnapshotEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyServiceAccount
     {
-        get => new TerraformReference<string>(this, "kms_key_service_account");
+        get => GetArgument<TerraformValue<string>>("kms_key_service_account");
         set => SetArgument("kms_key_service_account", value);
     }
 
@@ -38,7 +38,7 @@ public class GoogleComputeSnapshotSnapshotEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RawKey
     {
-        get => new TerraformReference<string>(this, "raw_key");
+        get => GetArgument<TerraformValue<string>>("raw_key");
         set => SetArgument("raw_key", value);
     }
 
@@ -48,7 +48,7 @@ public class GoogleComputeSnapshotSnapshotEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RsaEncryptedKey
     {
-        get => new TerraformReference<string>(this, "rsa_encrypted_key");
+        get => GetArgument<TerraformValue<string>>("rsa_encrypted_key");
         set => SetArgument("rsa_encrypted_key", value);
     }
 
@@ -57,9 +57,7 @@ public class GoogleComputeSnapshotSnapshotEncryptionKeyBlock : TerraformBlock
     /// encryption key that protects this resource.
     /// </summary>
     public TerraformValue<string> Sha256
-    {
-        get => new TerraformReference<string>(this, "sha256");
-    }
+        => AsReference("sha256");
 
 }
 
@@ -80,7 +78,7 @@ public class GoogleComputeSnapshotSourceDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeySelfLink
     {
-        get => new TerraformReference<string>(this, "kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
@@ -90,7 +88,7 @@ public class GoogleComputeSnapshotSourceDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyServiceAccount
     {
-        get => new TerraformReference<string>(this, "kms_key_service_account");
+        get => GetArgument<TerraformValue<string>>("kms_key_service_account");
         set => SetArgument("kms_key_service_account", value);
     }
 
@@ -100,7 +98,7 @@ public class GoogleComputeSnapshotSourceDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RawKey
     {
-        get => new TerraformReference<string>(this, "raw_key");
+        get => GetArgument<TerraformValue<string>>("raw_key");
         set => SetArgument("raw_key", value);
     }
 
@@ -110,7 +108,7 @@ public class GoogleComputeSnapshotSourceDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RsaEncryptedKey
     {
-        get => new TerraformReference<string>(this, "rsa_encrypted_key");
+        get => GetArgument<TerraformValue<string>>("rsa_encrypted_key");
         set => SetArgument("rsa_encrypted_key", value);
     }
 
@@ -133,7 +131,7 @@ public class GoogleComputeSnapshotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -142,7 +140,7 @@ public class GoogleComputeSnapshotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -151,7 +149,7 @@ public class GoogleComputeSnapshotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -174,7 +172,7 @@ public partial class GoogleComputeSnapshot(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string>? ChainName
     {
-        get => new TerraformReference<string>(this, "chain_name");
+        get => GetArgument<TerraformValue<string>>("chain_name");
         set => SetArgument("chain_name", value);
     }
 
@@ -183,16 +181,16 @@ public partial class GoogleComputeSnapshot(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -204,7 +202,7 @@ public partial class GoogleComputeSnapshot(string name) : TerraformResource("goo
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -220,16 +218,16 @@ public partial class GoogleComputeSnapshot(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -239,25 +237,25 @@ public partial class GoogleComputeSnapshot(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDisk is required")]
     public required TerraformValue<string> SourceDisk
     {
-        get => new TerraformReference<string>(this, "source_disk");
+        get => GetArgument<TerraformValue<string>>("source_disk");
         set => SetArgument("source_disk", value);
     }
 
     /// <summary>
     /// Cloud Storage bucket storage location of the snapshot (regional or multi-regional).
     /// </summary>
-    public TerraformList<string> StorageLocations
+    public TerraformList<string>? StorageLocations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "storage_locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("storage_locations");
         set => SetArgument("storage_locations", value);
     }
 
     /// <summary>
     /// A reference to the zone where the disk is hosted.
     /// </summary>
-    public TerraformValue<string> Zone
+    public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -265,34 +263,26 @@ public partial class GoogleComputeSnapshot(string name) : TerraformResource("goo
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// Size of the snapshot, specified in GB.
     /// </summary>
     public TerraformValue<double> DiskSizeGb
-    {
-        get => new TerraformReference<double>(this, "disk_size_gb");
-    }
+        => AsReference("disk_size_gb");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource. Used
     /// internally during updates.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-    {
-        get => new TerraformReference<string>(this, "label_fingerprint");
-    }
+        => AsReference("label_fingerprint");
 
     /// <summary>
     /// A list of public visible licenses that apply to this snapshot. This
@@ -301,25 +291,19 @@ public partial class GoogleComputeSnapshot(string name) : TerraformResource("goo
     /// snapshot using a customer-supplied encryption key.
     /// </summary>
     public TerraformList<string> Licenses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "licenses").ResolveNodes(ctx));
-    }
+        => AsReference("licenses");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// The unique identifier for the resource.
     /// </summary>
     public TerraformValue<double> SnapshotId
-    {
-        get => new TerraformReference<double>(this, "snapshot_id");
-    }
+        => AsReference("snapshot_id");
 
     /// <summary>
     /// A size of the storage used by the snapshot. As snapshots share
@@ -327,18 +311,14 @@ public partial class GoogleComputeSnapshot(string name) : TerraformResource("goo
     /// creation/deletion.
     /// </summary>
     public TerraformValue<double> StorageBytes
-    {
-        get => new TerraformReference<double>(this, "storage_bytes");
-    }
+        => AsReference("storage_bytes");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// SnapshotEncryptionKey block (nesting mode: list).

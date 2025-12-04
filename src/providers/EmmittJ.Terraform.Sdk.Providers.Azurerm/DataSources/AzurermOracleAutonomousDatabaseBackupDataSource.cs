@@ -18,7 +18,7 @@ public class AzurermOracleAutonomousDatabaseBackupDataSourceTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,7 +37,7 @@ public partial class AzurermOracleAutonomousDatabaseBackupDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDatabaseId is required")]
     public required TerraformValue<string> AutonomousDatabaseId
     {
-        get => new TerraformReference<string>(this, "autonomous_database_id");
+        get => GetArgument<TerraformValue<string>>("autonomous_database_id");
         set => SetArgument("autonomous_database_id", value);
     }
 
@@ -47,7 +47,7 @@ public partial class AzurermOracleAutonomousDatabaseBackupDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -55,137 +55,103 @@ public partial class AzurermOracleAutonomousDatabaseBackupDataSource(string name
     /// The automatic attribute.
     /// </summary>
     public TerraformValue<bool> Automatic
-    {
-        get => new TerraformReference<bool>(this, "automatic");
-    }
+        => AsReference("automatic");
 
     /// <summary>
     /// The autonomous_database_backup_ocid attribute.
     /// </summary>
     public TerraformValue<string> AutonomousDatabaseBackupOcid
-    {
-        get => new TerraformReference<string>(this, "autonomous_database_backup_ocid");
-    }
+        => AsReference("autonomous_database_backup_ocid");
 
     /// <summary>
     /// The autonomous_database_ocid attribute.
     /// </summary>
     public TerraformValue<string> AutonomousDatabaseOcid
-    {
-        get => new TerraformReference<string>(this, "autonomous_database_ocid");
-    }
+        => AsReference("autonomous_database_ocid");
 
     /// <summary>
     /// The database_backup_size_in_tbs attribute.
     /// </summary>
     public TerraformValue<double> DatabaseBackupSizeInTbs
-    {
-        get => new TerraformReference<double>(this, "database_backup_size_in_tbs");
-    }
+        => AsReference("database_backup_size_in_tbs");
 
     /// <summary>
     /// The database_version attribute.
     /// </summary>
     public TerraformValue<string> DatabaseVersion
-    {
-        get => new TerraformReference<string>(this, "database_version");
-    }
+        => AsReference("database_version");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The lifecycle_details attribute.
     /// </summary>
     public TerraformValue<string> LifecycleDetails
-    {
-        get => new TerraformReference<string>(this, "lifecycle_details");
-    }
+        => AsReference("lifecycle_details");
 
     /// <summary>
     /// The lifecycle_state attribute.
     /// </summary>
     public TerraformValue<string> LifecycleState
-    {
-        get => new TerraformReference<string>(this, "lifecycle_state");
-    }
+        => AsReference("lifecycle_state");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The provisioning_state attribute.
     /// </summary>
     public TerraformValue<string> ProvisioningState
-    {
-        get => new TerraformReference<string>(this, "provisioning_state");
-    }
+        => AsReference("provisioning_state");
 
     /// <summary>
     /// The restorable attribute.
     /// </summary>
     public TerraformValue<bool> Restorable
-    {
-        get => new TerraformReference<bool>(this, "restorable");
-    }
+        => AsReference("restorable");
 
     /// <summary>
     /// The retention_period_in_days attribute.
     /// </summary>
     public TerraformValue<double> RetentionPeriodInDays
-    {
-        get => new TerraformReference<double>(this, "retention_period_in_days");
-    }
+        => AsReference("retention_period_in_days");
 
     /// <summary>
     /// The time_available_til attribute.
     /// </summary>
     public TerraformValue<string> TimeAvailableTil
-    {
-        get => new TerraformReference<string>(this, "time_available_til");
-    }
+        => AsReference("time_available_til");
 
     /// <summary>
     /// The time_ended attribute.
     /// </summary>
     public TerraformValue<string> TimeEnded
-    {
-        get => new TerraformReference<string>(this, "time_ended");
-    }
+        => AsReference("time_ended");
 
     /// <summary>
     /// The time_started attribute.
     /// </summary>
     public TerraformValue<string> TimeStarted
-    {
-        get => new TerraformReference<string>(this, "time_started");
-    }
+        => AsReference("time_started");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -13,7 +13,7 @@ public partial class AwsDevicefarmNetworkProfile(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsDevicefarmNetworkProfile(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double>? DownlinkBandwidthBits
     {
-        get => new TerraformReference<double>(this, "downlink_bandwidth_bits");
+        get => GetArgument<TerraformValue<double>>("downlink_bandwidth_bits");
         set => SetArgument("downlink_bandwidth_bits", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsDevicefarmNetworkProfile(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double>? DownlinkDelayMs
     {
-        get => new TerraformReference<double>(this, "downlink_delay_ms");
+        get => GetArgument<TerraformValue<double>>("downlink_delay_ms");
         set => SetArgument("downlink_delay_ms", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsDevicefarmNetworkProfile(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double>? DownlinkJitterMs
     {
-        get => new TerraformReference<double>(this, "downlink_jitter_ms");
+        get => GetArgument<TerraformValue<double>>("downlink_jitter_ms");
         set => SetArgument("downlink_jitter_ms", value);
     }
 
@@ -49,16 +49,16 @@ public partial class AwsDevicefarmNetworkProfile(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double>? DownlinkLossPercent
     {
-        get => new TerraformReference<double>(this, "downlink_loss_percent");
+        get => GetArgument<TerraformValue<double>>("downlink_loss_percent");
         set => SetArgument("downlink_loss_percent", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -68,7 +68,7 @@ public partial class AwsDevicefarmNetworkProfile(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -78,16 +78,16 @@ public partial class AwsDevicefarmNetworkProfile(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectArn is required")]
     public required TerraformValue<string> ProjectArn
     {
-        get => new TerraformReference<string>(this, "project_arn");
+        get => GetArgument<TerraformValue<string>>("project_arn");
         set => SetArgument("project_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -96,16 +96,16 @@ public partial class AwsDevicefarmNetworkProfile(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AwsDevicefarmNetworkProfile(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -123,7 +123,7 @@ public partial class AwsDevicefarmNetworkProfile(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double>? UplinkBandwidthBits
     {
-        get => new TerraformReference<double>(this, "uplink_bandwidth_bits");
+        get => GetArgument<TerraformValue<double>>("uplink_bandwidth_bits");
         set => SetArgument("uplink_bandwidth_bits", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AwsDevicefarmNetworkProfile(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double>? UplinkDelayMs
     {
-        get => new TerraformReference<double>(this, "uplink_delay_ms");
+        get => GetArgument<TerraformValue<double>>("uplink_delay_ms");
         set => SetArgument("uplink_delay_ms", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AwsDevicefarmNetworkProfile(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double>? UplinkJitterMs
     {
-        get => new TerraformReference<double>(this, "uplink_jitter_ms");
+        get => GetArgument<TerraformValue<double>>("uplink_jitter_ms");
         set => SetArgument("uplink_jitter_ms", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AwsDevicefarmNetworkProfile(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double>? UplinkLossPercent
     {
-        get => new TerraformReference<double>(this, "uplink_loss_percent");
+        get => GetArgument<TerraformValue<double>>("uplink_loss_percent");
         set => SetArgument("uplink_loss_percent", value);
     }
 
@@ -158,8 +158,6 @@ public partial class AwsDevicefarmNetworkProfile(string name) : TerraformResourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

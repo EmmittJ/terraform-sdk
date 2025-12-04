@@ -18,7 +18,7 @@ public class AwsComputeoptimizerEnrollmentStatusTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsComputeoptimizerEnrollmentStatusTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -43,18 +43,18 @@ public partial class AwsComputeoptimizerEnrollmentStatus(string name) : Terrafor
     /// <summary>
     /// The include_member_accounts attribute.
     /// </summary>
-    public TerraformValue<bool> IncludeMemberAccounts
+    public TerraformValue<bool>? IncludeMemberAccounts
     {
-        get => new TerraformReference<bool>(this, "include_member_accounts");
+        get => GetArgument<TerraformValue<bool>>("include_member_accounts");
         set => SetArgument("include_member_accounts", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsComputeoptimizerEnrollmentStatus(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformValue<string> Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -72,17 +72,13 @@ public partial class AwsComputeoptimizerEnrollmentStatus(string name) : Terrafor
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The number_of_member_accounts_opted_in attribute.
     /// </summary>
     public TerraformValue<double> NumberOfMemberAccountsOptedIn
-    {
-        get => new TerraformReference<double>(this, "number_of_member_accounts_opted_in");
-    }
+        => AsReference("number_of_member_accounts_opted_in");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

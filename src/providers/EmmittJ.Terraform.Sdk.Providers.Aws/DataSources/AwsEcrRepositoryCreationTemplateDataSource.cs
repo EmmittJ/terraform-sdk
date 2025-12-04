@@ -11,9 +11,9 @@ public partial class AwsEcrRepositoryCreationTemplateDataSource(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,25 +23,25 @@ public partial class AwsEcrRepositoryCreationTemplateDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
     public required TerraformValue<string> Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The resource_tags attribute.
     /// </summary>
-    public TerraformMap<string> ResourceTags
+    public TerraformMap<string>? ResourceTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "resource_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("resource_tags");
         set => SetArgument("resource_tags", value);
     }
 
@@ -49,72 +49,54 @@ public partial class AwsEcrRepositoryCreationTemplateDataSource(string name) : T
     /// The applied_for attribute.
     /// </summary>
     public TerraformSet<string> AppliedFor
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "applied_for").ResolveNodes(ctx));
-    }
+        => AsReference("applied_for");
 
     /// <summary>
     /// The custom_role_arn attribute.
     /// </summary>
     public TerraformValue<string> CustomRoleArn
-    {
-        get => new TerraformReference<string>(this, "custom_role_arn");
-    }
+        => AsReference("custom_role_arn");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The encryption_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EncryptionConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "encryption_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("encryption_configuration");
 
     /// <summary>
     /// The image_tag_mutability attribute.
     /// </summary>
     public TerraformValue<string> ImageTagMutability
-    {
-        get => new TerraformReference<string>(this, "image_tag_mutability");
-    }
+        => AsReference("image_tag_mutability");
 
     /// <summary>
     /// The image_tag_mutability_exclusion_filter attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ImageTagMutabilityExclusionFilter
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "image_tag_mutability_exclusion_filter").ResolveNodes(ctx));
-    }
+        => AsReference("image_tag_mutability_exclusion_filter");
 
     /// <summary>
     /// The lifecycle_policy attribute.
     /// </summary>
     public TerraformValue<string> LifecyclePolicy
-    {
-        get => new TerraformReference<string>(this, "lifecycle_policy");
-    }
+        => AsReference("lifecycle_policy");
 
     /// <summary>
     /// The registry_id attribute.
     /// </summary>
     public TerraformValue<string> RegistryId
-    {
-        get => new TerraformReference<string>(this, "registry_id");
-    }
+        => AsReference("registry_id");
 
     /// <summary>
     /// The repository_policy attribute.
     /// </summary>
     public TerraformValue<string> RepositoryPolicy
-    {
-        get => new TerraformReference<string>(this, "repository_policy");
-    }
+        => AsReference("repository_policy");
 
 }

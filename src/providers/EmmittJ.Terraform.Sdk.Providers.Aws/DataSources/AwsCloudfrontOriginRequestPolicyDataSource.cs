@@ -13,7 +13,7 @@ public partial class AwsCloudfrontOriginRequestPolicyDataSource(string name) : T
     /// </summary>
     public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsCloudfrontOriginRequestPolicyDataSource(string name) : T
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -30,48 +30,36 @@ public partial class AwsCloudfrontOriginRequestPolicyDataSource(string name) : T
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
     public TerraformValue<string> Comment
-    {
-        get => new TerraformReference<string>(this, "comment");
-    }
+        => AsReference("comment");
 
     /// <summary>
     /// The cookies_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CookiesConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cookies_config").ResolveNodes(ctx));
-    }
+        => AsReference("cookies_config");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The headers_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> HeadersConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "headers_config").ResolveNodes(ctx));
-    }
+        => AsReference("headers_config");
 
     /// <summary>
     /// The query_strings_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> QueryStringsConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "query_strings_config").ResolveNodes(ctx));
-    }
+        => AsReference("query_strings_config");
 
 }

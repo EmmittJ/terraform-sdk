@@ -11,9 +11,9 @@ public partial class GoogleVmwareengineNsxCredentialsDataSource(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -25,7 +25,7 @@ public partial class GoogleVmwareengineNsxCredentialsDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -33,16 +33,12 @@ public partial class GoogleVmwareengineNsxCredentialsDataSource(string name) : T
     /// Initial password.
     /// </summary>
     public TerraformValue<string> Password
-    {
-        get => new TerraformReference<string>(this, "password");
-    }
+        => AsReference("password");
 
     /// <summary>
     /// Initial username.
     /// </summary>
     public TerraformValue<string> Username
-    {
-        get => new TerraformReference<string>(this, "username");
-    }
+        => AsReference("username");
 
 }

@@ -14,16 +14,16 @@ public partial class AwsOpensearchserverlessAccessPolicyDataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsOpensearchserverlessAccessPolicyDataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -41,32 +41,24 @@ public partial class AwsOpensearchserverlessAccessPolicyDataSource(string name) 
     /// Description of the policy. Typically used to store information about the permissions defined in the policy.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// JSON policy document to use as the content for the new policy.
     /// </summary>
     public TerraformValue<string> Policy
-    {
-        get => new TerraformReference<string>(this, "policy");
-    }
+        => AsReference("policy");
 
     /// <summary>
     /// Version of the policy.
     /// </summary>
     public TerraformValue<string> PolicyVersion
-    {
-        get => new TerraformReference<string>(this, "policy_version");
-    }
+        => AsReference("policy_version");
 
 }

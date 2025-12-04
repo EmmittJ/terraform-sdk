@@ -18,7 +18,7 @@ public class AwsGlueTriggerActionsBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Arguments
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "arguments").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("arguments");
         set => SetArgument("arguments", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsGlueTriggerActionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CrawlerName
     {
-        get => new TerraformReference<string>(this, "crawler_name");
+        get => GetArgument<TerraformValue<string>>("crawler_name");
         set => SetArgument("crawler_name", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsGlueTriggerActionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? JobName
     {
-        get => new TerraformReference<string>(this, "job_name");
+        get => GetArgument<TerraformValue<string>>("job_name");
         set => SetArgument("job_name", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsGlueTriggerActionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SecurityConfiguration
     {
-        get => new TerraformReference<string>(this, "security_configuration");
+        get => GetArgument<TerraformValue<string>>("security_configuration");
         set => SetArgument("security_configuration", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsGlueTriggerActionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Timeout
     {
-        get => new TerraformReference<double>(this, "timeout");
+        get => GetArgument<TerraformValue<double>>("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsGlueTriggerActionsBlockNotificationPropertyBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double>? NotifyDelayAfter
     {
-        get => new TerraformReference<double>(this, "notify_delay_after");
+        get => GetArgument<TerraformValue<double>>("notify_delay_after");
         set => SetArgument("notify_delay_after", value);
     }
 
@@ -110,7 +110,7 @@ public class AwsGlueTriggerEventBatchingConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BatchSize is required")]
     public required TerraformValue<double> BatchSize
     {
-        get => new TerraformReference<double>(this, "batch_size");
+        get => GetArgument<TerraformValue<double>>("batch_size");
         set => SetArgument("batch_size", value);
     }
 
@@ -119,7 +119,7 @@ public class AwsGlueTriggerEventBatchingConditionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? BatchWindow
     {
-        get => new TerraformReference<double>(this, "batch_window");
+        get => GetArgument<TerraformValue<double>>("batch_window");
         set => SetArgument("batch_window", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsGlueTriggerPredicateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Logical
     {
-        get => new TerraformReference<string>(this, "logical");
+        get => GetArgument<TerraformValue<string>>("logical");
         set => SetArgument("logical", value);
     }
 
@@ -176,7 +176,7 @@ public class AwsGlueTriggerPredicateBlockConditionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CrawlState
     {
-        get => new TerraformReference<string>(this, "crawl_state");
+        get => GetArgument<TerraformValue<string>>("crawl_state");
         set => SetArgument("crawl_state", value);
     }
 
@@ -185,7 +185,7 @@ public class AwsGlueTriggerPredicateBlockConditionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CrawlerName
     {
-        get => new TerraformReference<string>(this, "crawler_name");
+        get => GetArgument<TerraformValue<string>>("crawler_name");
         set => SetArgument("crawler_name", value);
     }
 
@@ -194,7 +194,7 @@ public class AwsGlueTriggerPredicateBlockConditionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? JobName
     {
-        get => new TerraformReference<string>(this, "job_name");
+        get => GetArgument<TerraformValue<string>>("job_name");
         set => SetArgument("job_name", value);
     }
 
@@ -203,7 +203,7 @@ public class AwsGlueTriggerPredicateBlockConditionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LogicalOperator
     {
-        get => new TerraformReference<string>(this, "logical_operator");
+        get => GetArgument<TerraformValue<string>>("logical_operator");
         set => SetArgument("logical_operator", value);
     }
 
@@ -212,7 +212,7 @@ public class AwsGlueTriggerPredicateBlockConditionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -235,7 +235,7 @@ public class AwsGlueTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -244,7 +244,7 @@ public class AwsGlueTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -253,7 +253,7 @@ public class AwsGlueTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -271,7 +271,7 @@ public partial class AwsGlueTrigger(string name) : TerraformResource("aws_glue_t
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -280,16 +280,16 @@ public partial class AwsGlueTrigger(string name) : TerraformResource("aws_glue_t
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -299,16 +299,16 @@ public partial class AwsGlueTrigger(string name) : TerraformResource("aws_glue_t
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -317,7 +317,7 @@ public partial class AwsGlueTrigger(string name) : TerraformResource("aws_glue_t
     /// </summary>
     public TerraformValue<string>? Schedule
     {
-        get => new TerraformReference<string>(this, "schedule");
+        get => GetArgument<TerraformValue<string>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -326,7 +326,7 @@ public partial class AwsGlueTrigger(string name) : TerraformResource("aws_glue_t
     /// </summary>
     public TerraformValue<bool>? StartOnCreation
     {
-        get => new TerraformReference<bool>(this, "start_on_creation");
+        get => GetArgument<TerraformValue<bool>>("start_on_creation");
         set => SetArgument("start_on_creation", value);
     }
 
@@ -335,16 +335,16 @@ public partial class AwsGlueTrigger(string name) : TerraformResource("aws_glue_t
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -354,7 +354,7 @@ public partial class AwsGlueTrigger(string name) : TerraformResource("aws_glue_t
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -363,7 +363,7 @@ public partial class AwsGlueTrigger(string name) : TerraformResource("aws_glue_t
     /// </summary>
     public TerraformValue<string>? WorkflowName
     {
-        get => new TerraformReference<string>(this, "workflow_name");
+        get => GetArgument<TerraformValue<string>>("workflow_name");
         set => SetArgument("workflow_name", value);
     }
 
@@ -371,17 +371,13 @@ public partial class AwsGlueTrigger(string name) : TerraformResource("aws_glue_t
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Actions block (nesting mode: list).

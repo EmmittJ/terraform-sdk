@@ -13,16 +13,16 @@ public partial class AwsDxMacsecKeyAssociation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Cak
     {
-        get => new TerraformReference<string>(this, "cak");
+        get => GetArgument<TerraformValue<string>>("cak");
         set => SetArgument("cak", value);
     }
 
     /// <summary>
     /// The ckn attribute.
     /// </summary>
-    public TerraformValue<string> Ckn
+    public TerraformValue<string>? Ckn
     {
-        get => new TerraformReference<string>(this, "ckn");
+        get => GetArgument<TerraformValue<string>>("ckn");
         set => SetArgument("ckn", value);
     }
 
@@ -32,34 +32,34 @@ public partial class AwsDxMacsecKeyAssociation(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     public required TerraformValue<string> ConnectionId
     {
-        get => new TerraformReference<string>(this, "connection_id");
+        get => GetArgument<TerraformValue<string>>("connection_id");
         set => SetArgument("connection_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The secret_arn attribute.
     /// </summary>
-    public TerraformValue<string> SecretArn
+    public TerraformValue<string>? SecretArn
     {
-        get => new TerraformReference<string>(this, "secret_arn");
+        get => GetArgument<TerraformValue<string>>("secret_arn");
         set => SetArgument("secret_arn", value);
     }
 
@@ -67,16 +67,12 @@ public partial class AwsDxMacsecKeyAssociation(string name) : TerraformResource(
     /// The start_on attribute.
     /// </summary>
     public TerraformValue<string> StartOn
-    {
-        get => new TerraformReference<string>(this, "start_on");
-    }
+        => AsReference("start_on");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
 }

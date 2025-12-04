@@ -18,7 +18,7 @@ public class GoogleAccessContextManagerEgressPolicyTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleAccessContextManagerEgressPolicyTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,16 +46,16 @@ public partial class GoogleAccessContextManagerEgressPolicy(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EgressPolicyName is required")]
     public required TerraformValue<string> EgressPolicyName
     {
-        get => new TerraformReference<string>(this, "egress_policy_name");
+        get => GetArgument<TerraformValue<string>>("egress_policy_name");
         set => SetArgument("egress_policy_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleAccessContextManagerEgressPolicy(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformValue<string> Resource
     {
-        get => new TerraformReference<string>(this, "resource");
+        get => GetArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -73,9 +73,7 @@ public partial class GoogleAccessContextManagerEgressPolicy(string name) : Terra
     /// The name of the Access Policy this resource belongs to.
     /// </summary>
     public TerraformValue<string> AccessPolicyId
-    {
-        get => new TerraformReference<string>(this, "access_policy_id");
-    }
+        => AsReference("access_policy_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

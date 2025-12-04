@@ -54,7 +54,7 @@ public class AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlockClientCon
     /// </summary>
     public TerraformValue<double>? MaxConcurrentInvocationsPerInstance
     {
-        get => new TerraformReference<double>(this, "max_concurrent_invocations_per_instance");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_invocations_per_instance");
         set => SetArgument("max_concurrent_invocations_per_instance", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlockOutputCon
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlockOutputCon
     /// </summary>
     public TerraformValue<string>? S3FailurePath
     {
-        get => new TerraformReference<string>(this, "s3_failure_path");
+        get => GetArgument<TerraformValue<string>>("s3_failure_path");
         set => SetArgument("s3_failure_path", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlockOutputCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3OutputPath is required")]
     public required TerraformValue<string> S3OutputPath
     {
-        get => new TerraformReference<string>(this, "s3_output_path");
+        get => GetArgument<TerraformValue<string>>("s3_output_path");
         set => SetArgument("s3_output_path", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlockOutputCon
     /// </summary>
     public TerraformValue<string>? ErrorTopic
     {
-        get => new TerraformReference<string>(this, "error_topic");
+        get => GetArgument<TerraformValue<string>>("error_topic");
         set => SetArgument("error_topic", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlockOutputCon
     /// </summary>
     public TerraformSet<string>? IncludeInferenceResponseIn
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "include_inference_response_in").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("include_inference_response_in");
         set => SetArgument("include_inference_response_in", value);
     }
 
@@ -145,7 +145,7 @@ public class AwsSagemakerEndpointConfigurationAsyncInferenceConfigBlockOutputCon
     /// </summary>
     public TerraformValue<string>? SuccessTopic
     {
-        get => new TerraformReference<string>(this, "success_topic");
+        get => GetArgument<TerraformValue<string>>("success_topic");
         set => SetArgument("success_topic", value);
     }
 
@@ -169,7 +169,7 @@ public class AwsSagemakerEndpointConfigurationDataCaptureConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationS3Uri is required")]
     public required TerraformValue<string> DestinationS3Uri
     {
-        get => new TerraformReference<string>(this, "destination_s3_uri");
+        get => GetArgument<TerraformValue<string>>("destination_s3_uri");
         set => SetArgument("destination_s3_uri", value);
     }
 
@@ -178,7 +178,7 @@ public class AwsSagemakerEndpointConfigurationDataCaptureConfigBlock : Terraform
     /// </summary>
     public TerraformValue<bool>? EnableCapture
     {
-        get => new TerraformReference<bool>(this, "enable_capture");
+        get => GetArgument<TerraformValue<bool>>("enable_capture");
         set => SetArgument("enable_capture", value);
     }
 
@@ -188,7 +188,7 @@ public class AwsSagemakerEndpointConfigurationDataCaptureConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InitialSamplingPercentage is required")]
     public required TerraformValue<double> InitialSamplingPercentage
     {
-        get => new TerraformReference<double>(this, "initial_sampling_percentage");
+        get => GetArgument<TerraformValue<double>>("initial_sampling_percentage");
         set => SetArgument("initial_sampling_percentage", value);
     }
 
@@ -197,7 +197,7 @@ public class AwsSagemakerEndpointConfigurationDataCaptureConfigBlock : Terraform
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -242,7 +242,7 @@ public class AwsSagemakerEndpointConfigurationDataCaptureConfigBlockCaptureConte
     /// </summary>
     public TerraformSet<string>? CsvContentTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "csv_content_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("csv_content_types");
         set => SetArgument("csv_content_types", value);
     }
 
@@ -251,7 +251,7 @@ public class AwsSagemakerEndpointConfigurationDataCaptureConfigBlockCaptureConte
     /// </summary>
     public TerraformSet<string>? JsonContentTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "json_content_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("json_content_types");
         set => SetArgument("json_content_types", value);
     }
 
@@ -274,7 +274,7 @@ public class AwsSagemakerEndpointConfigurationDataCaptureConfigBlockCaptureOptio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaptureMode is required")]
     public required TerraformValue<string> CaptureMode
     {
-        get => new TerraformReference<string>(this, "capture_mode");
+        get => GetArgument<TerraformValue<string>>("capture_mode");
         set => SetArgument("capture_mode", value);
     }
 
@@ -297,7 +297,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? AcceleratorType
     {
-        get => new TerraformReference<string>(this, "accelerator_type");
+        get => GetArgument<TerraformValue<string>>("accelerator_type");
         set => SetArgument("accelerator_type", value);
     }
 
@@ -306,7 +306,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? ContainerStartupHealthCheckTimeoutInSeconds
     {
-        get => new TerraformReference<double>(this, "container_startup_health_check_timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("container_startup_health_check_timeout_in_seconds");
         set => SetArgument("container_startup_health_check_timeout_in_seconds", value);
     }
 
@@ -315,7 +315,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     /// </summary>
     public TerraformValue<bool>? EnableSsmAccess
     {
-        get => new TerraformReference<bool>(this, "enable_ssm_access");
+        get => GetArgument<TerraformValue<bool>>("enable_ssm_access");
         set => SetArgument("enable_ssm_access", value);
     }
 
@@ -324,7 +324,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? InferenceAmiVersion
     {
-        get => new TerraformReference<string>(this, "inference_ami_version");
+        get => GetArgument<TerraformValue<string>>("inference_ami_version");
         set => SetArgument("inference_ami_version", value);
     }
 
@@ -333,7 +333,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? InitialInstanceCount
     {
-        get => new TerraformReference<double>(this, "initial_instance_count");
+        get => GetArgument<TerraformValue<double>>("initial_instance_count");
         set => SetArgument("initial_instance_count", value);
     }
 
@@ -342,7 +342,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? InitialVariantWeight
     {
-        get => new TerraformReference<double>(this, "initial_variant_weight");
+        get => GetArgument<TerraformValue<double>>("initial_variant_weight");
         set => SetArgument("initial_variant_weight", value);
     }
 
@@ -351,7 +351,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -360,7 +360,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? ModelDataDownloadTimeoutInSeconds
     {
-        get => new TerraformReference<double>(this, "model_data_download_timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("model_data_download_timeout_in_seconds");
         set => SetArgument("model_data_download_timeout_in_seconds", value);
     }
 
@@ -370,25 +370,25 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelName is required")]
     public required TerraformValue<string> ModelName
     {
-        get => new TerraformReference<string>(this, "model_name");
+        get => GetArgument<TerraformValue<string>>("model_name");
         set => SetArgument("model_name", value);
     }
 
     /// <summary>
     /// The variant_name attribute.
     /// </summary>
-    public TerraformValue<string> VariantName
+    public TerraformValue<string>? VariantName
     {
-        get => new TerraformReference<string>(this, "variant_name");
+        get => GetArgument<TerraformValue<string>>("variant_name");
         set => SetArgument("variant_name", value);
     }
 
     /// <summary>
     /// The volume_size_in_gb attribute.
     /// </summary>
-    public TerraformValue<double> VolumeSizeInGb
+    public TerraformValue<double>? VolumeSizeInGb
     {
-        get => new TerraformReference<double>(this, "volume_size_in_gb");
+        get => GetArgument<TerraformValue<double>>("volume_size_in_gb");
         set => SetArgument("volume_size_in_gb", value);
     }
 
@@ -450,7 +450,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlockCoreDumpCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationS3Uri is required")]
     public required TerraformValue<string> DestinationS3Uri
     {
-        get => new TerraformReference<string>(this, "destination_s3_uri");
+        get => GetArgument<TerraformValue<string>>("destination_s3_uri");
         set => SetArgument("destination_s3_uri", value);
     }
 
@@ -459,7 +459,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlockCoreDumpCon
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -481,7 +481,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlockManagedInst
     /// </summary>
     public TerraformValue<double>? MaxInstanceCount
     {
-        get => new TerraformReference<double>(this, "max_instance_count");
+        get => GetArgument<TerraformValue<double>>("max_instance_count");
         set => SetArgument("max_instance_count", value);
     }
 
@@ -490,7 +490,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlockManagedInst
     /// </summary>
     public TerraformValue<double>? MinInstanceCount
     {
-        get => new TerraformReference<double>(this, "min_instance_count");
+        get => GetArgument<TerraformValue<double>>("min_instance_count");
         set => SetArgument("min_instance_count", value);
     }
 
@@ -499,7 +499,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlockManagedInst
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -522,7 +522,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlockRoutingConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutingStrategy is required")]
     public required TerraformValue<string> RoutingStrategy
     {
-        get => new TerraformReference<string>(this, "routing_strategy");
+        get => GetArgument<TerraformValue<string>>("routing_strategy");
         set => SetArgument("routing_strategy", value);
     }
 
@@ -545,7 +545,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlockServerlessC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxConcurrency is required")]
     public required TerraformValue<double> MaxConcurrency
     {
-        get => new TerraformReference<double>(this, "max_concurrency");
+        get => GetArgument<TerraformValue<double>>("max_concurrency");
         set => SetArgument("max_concurrency", value);
     }
 
@@ -555,7 +555,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlockServerlessC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemorySizeInMb is required")]
     public required TerraformValue<double> MemorySizeInMb
     {
-        get => new TerraformReference<double>(this, "memory_size_in_mb");
+        get => GetArgument<TerraformValue<double>>("memory_size_in_mb");
         set => SetArgument("memory_size_in_mb", value);
     }
 
@@ -564,7 +564,7 @@ public class AwsSagemakerEndpointConfigurationProductionVariantsBlockServerlessC
     /// </summary>
     public TerraformValue<double>? ProvisionedConcurrency
     {
-        get => new TerraformReference<double>(this, "provisioned_concurrency");
+        get => GetArgument<TerraformValue<double>>("provisioned_concurrency");
         set => SetArgument("provisioned_concurrency", value);
     }
 
@@ -587,7 +587,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     /// </summary>
     public TerraformValue<string>? AcceleratorType
     {
-        get => new TerraformReference<string>(this, "accelerator_type");
+        get => GetArgument<TerraformValue<string>>("accelerator_type");
         set => SetArgument("accelerator_type", value);
     }
 
@@ -596,7 +596,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     /// </summary>
     public TerraformValue<double>? ContainerStartupHealthCheckTimeoutInSeconds
     {
-        get => new TerraformReference<double>(this, "container_startup_health_check_timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("container_startup_health_check_timeout_in_seconds");
         set => SetArgument("container_startup_health_check_timeout_in_seconds", value);
     }
 
@@ -605,7 +605,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     /// </summary>
     public TerraformValue<bool>? EnableSsmAccess
     {
-        get => new TerraformReference<bool>(this, "enable_ssm_access");
+        get => GetArgument<TerraformValue<bool>>("enable_ssm_access");
         set => SetArgument("enable_ssm_access", value);
     }
 
@@ -614,7 +614,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     /// </summary>
     public TerraformValue<string>? InferenceAmiVersion
     {
-        get => new TerraformReference<string>(this, "inference_ami_version");
+        get => GetArgument<TerraformValue<string>>("inference_ami_version");
         set => SetArgument("inference_ami_version", value);
     }
 
@@ -623,7 +623,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     /// </summary>
     public TerraformValue<double>? InitialInstanceCount
     {
-        get => new TerraformReference<double>(this, "initial_instance_count");
+        get => GetArgument<TerraformValue<double>>("initial_instance_count");
         set => SetArgument("initial_instance_count", value);
     }
 
@@ -632,7 +632,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     /// </summary>
     public TerraformValue<double>? InitialVariantWeight
     {
-        get => new TerraformReference<double>(this, "initial_variant_weight");
+        get => GetArgument<TerraformValue<double>>("initial_variant_weight");
         set => SetArgument("initial_variant_weight", value);
     }
 
@@ -641,7 +641,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     /// </summary>
     public TerraformValue<string>? InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -650,7 +650,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     /// </summary>
     public TerraformValue<double>? ModelDataDownloadTimeoutInSeconds
     {
-        get => new TerraformReference<double>(this, "model_data_download_timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("model_data_download_timeout_in_seconds");
         set => SetArgument("model_data_download_timeout_in_seconds", value);
     }
 
@@ -660,16 +660,16 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelName is required")]
     public required TerraformValue<string> ModelName
     {
-        get => new TerraformReference<string>(this, "model_name");
+        get => GetArgument<TerraformValue<string>>("model_name");
         set => SetArgument("model_name", value);
     }
 
     /// <summary>
     /// The variant_name attribute.
     /// </summary>
-    public TerraformValue<string> VariantName
+    public TerraformValue<string>? VariantName
     {
-        get => new TerraformReference<string>(this, "variant_name");
+        get => GetArgument<TerraformValue<string>>("variant_name");
         set => SetArgument("variant_name", value);
     }
 
@@ -678,7 +678,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
     /// </summary>
     public TerraformValue<double>? VolumeSizeInGb
     {
-        get => new TerraformReference<double>(this, "volume_size_in_gb");
+        get => GetArgument<TerraformValue<double>>("volume_size_in_gb");
         set => SetArgument("volume_size_in_gb", value);
     }
 
@@ -740,7 +740,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlockCoreD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationS3Uri is required")]
     public required TerraformValue<string> DestinationS3Uri
     {
-        get => new TerraformReference<string>(this, "destination_s3_uri");
+        get => GetArgument<TerraformValue<string>>("destination_s3_uri");
         set => SetArgument("destination_s3_uri", value);
     }
 
@@ -750,7 +750,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlockCoreD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyId is required")]
     public required TerraformValue<string> KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -772,7 +772,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlockManag
     /// </summary>
     public TerraformValue<double>? MaxInstanceCount
     {
-        get => new TerraformReference<double>(this, "max_instance_count");
+        get => GetArgument<TerraformValue<double>>("max_instance_count");
         set => SetArgument("max_instance_count", value);
     }
 
@@ -781,7 +781,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlockManag
     /// </summary>
     public TerraformValue<double>? MinInstanceCount
     {
-        get => new TerraformReference<double>(this, "min_instance_count");
+        get => GetArgument<TerraformValue<double>>("min_instance_count");
         set => SetArgument("min_instance_count", value);
     }
 
@@ -790,7 +790,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlockManag
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -813,7 +813,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlockRouti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutingStrategy is required")]
     public required TerraformValue<string> RoutingStrategy
     {
-        get => new TerraformReference<string>(this, "routing_strategy");
+        get => GetArgument<TerraformValue<string>>("routing_strategy");
         set => SetArgument("routing_strategy", value);
     }
 
@@ -836,7 +836,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlockServe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxConcurrency is required")]
     public required TerraformValue<double> MaxConcurrency
     {
-        get => new TerraformReference<double>(this, "max_concurrency");
+        get => GetArgument<TerraformValue<double>>("max_concurrency");
         set => SetArgument("max_concurrency", value);
     }
 
@@ -846,7 +846,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlockServe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemorySizeInMb is required")]
     public required TerraformValue<double> MemorySizeInMb
     {
-        get => new TerraformReference<double>(this, "memory_size_in_mb");
+        get => GetArgument<TerraformValue<double>>("memory_size_in_mb");
         set => SetArgument("memory_size_in_mb", value);
     }
 
@@ -855,7 +855,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlockServe
     /// </summary>
     public TerraformValue<double>? ProvisionedConcurrency
     {
-        get => new TerraformReference<double>(this, "provisioned_concurrency");
+        get => GetArgument<TerraformValue<double>>("provisioned_concurrency");
         set => SetArgument("provisioned_concurrency", value);
     }
 
@@ -871,9 +871,9 @@ public partial class AwsSagemakerEndpointConfiguration(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -882,34 +882,34 @@ public partial class AwsSagemakerEndpointConfiguration(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -918,16 +918,16 @@ public partial class AwsSagemakerEndpointConfiguration(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -935,9 +935,7 @@ public partial class AwsSagemakerEndpointConfiguration(string name) : TerraformR
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// AsyncInferenceConfig block (nesting mode: list).

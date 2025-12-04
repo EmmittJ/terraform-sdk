@@ -26,7 +26,7 @@ public class GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock : Te
     /// </summary>
     public TerraformList<string>? AllowedGoogleProducersResourceHierarchyLevel
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_google_producers_resource_hierarchy_level").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_google_producers_resource_hierarchy_level");
         set => SetArgument("allowed_google_producers_resource_hierarchy_level", value);
     }
 
@@ -35,7 +35,7 @@ public class GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock : Te
     /// </summary>
     public TerraformValue<string>? Limit
     {
-        get => new TerraformReference<string>(this, "limit");
+        get => GetArgument<TerraformValue<string>>("limit");
         set => SetArgument("limit", value);
     }
 
@@ -43,9 +43,9 @@ public class GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock : Te
     /// ProducerInstanceLocation is used to specify which authorization mechanism to use to determine which projects
     /// the Producer instance can be within. Possible values: [&amp;quot;PRODUCER_INSTANCE_LOCATION_UNSPECIFIED&amp;quot;, &amp;quot;CUSTOM_RESOURCE_HIERARCHY_LEVELS&amp;quot;]
     /// </summary>
-    public TerraformValue<string> ProducerInstanceLocation
+    public TerraformValue<string>? ProducerInstanceLocation
     {
-        get => new TerraformReference<string>(this, "producer_instance_location");
+        get => GetArgument<TerraformValue<string>>("producer_instance_location");
         set => SetArgument("producer_instance_location", value);
     }
 
@@ -55,7 +55,7 @@ public class GoogleNetworkConnectivityServiceConnectionPolicyPscConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnetworks is required")]
     public TerraformList<string>? Subnetworks
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "subnetworks").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("subnetworks");
         set => SetArgument("subnetworks", value);
     }
 
@@ -78,7 +78,7 @@ public class GoogleNetworkConnectivityServiceConnectionPolicyTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleNetworkConnectivityServiceConnectionPolicyTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -96,7 +96,7 @@ public class GoogleNetworkConnectivityServiceConnectionPolicyTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -114,16 +114,16 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy(string nam
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -136,7 +136,7 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy(string nam
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -146,7 +146,7 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -156,7 +156,7 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -166,16 +166,16 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -186,7 +186,7 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceClass is required")]
     public required TerraformValue<string> ServiceClass
     {
-        get => new TerraformReference<string>(this, "service_class");
+        get => GetArgument<TerraformValue<string>>("service_class");
         set => SetArgument("service_class", value);
     }
 
@@ -194,58 +194,44 @@ public partial class GoogleNetworkConnectivityServiceConnectionPolicy(string nam
     /// The timestamp when the resource was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The etag is computed by the server, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The type of underlying resources used to create the connection.
     /// </summary>
     public TerraformValue<string> Infrastructure
-    {
-        get => new TerraformReference<string>(this, "infrastructure");
-    }
+        => AsReference("infrastructure");
 
     /// <summary>
     /// Information about each Private Service Connect connection.
     /// </summary>
     public TerraformList<TerraformMap<object>> PscConnections
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "psc_connections").ResolveNodes(ctx));
-    }
+        => AsReference("psc_connections");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The timestamp when the resource was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// PscConfig block (nesting mode: list).

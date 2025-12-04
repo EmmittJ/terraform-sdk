@@ -11,9 +11,9 @@ public partial class AwsDxConnectionDataSource(string name) : TerraformDataSourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,25 +23,25 @@ public partial class AwsDxConnectionDataSource(string name) : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,72 +49,54 @@ public partial class AwsDxConnectionDataSource(string name) : TerraformDataSourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The aws_device attribute.
     /// </summary>
     public TerraformValue<string> AwsDevice
-    {
-        get => new TerraformReference<string>(this, "aws_device");
-    }
+        => AsReference("aws_device");
 
     /// <summary>
     /// The bandwidth attribute.
     /// </summary>
     public TerraformValue<string> Bandwidth
-    {
-        get => new TerraformReference<string>(this, "bandwidth");
-    }
+        => AsReference("bandwidth");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-    {
-        get => new TerraformReference<string>(this, "owner_account_id");
-    }
+        => AsReference("owner_account_id");
 
     /// <summary>
     /// The partner_name attribute.
     /// </summary>
     public TerraformValue<string> PartnerName
-    {
-        get => new TerraformReference<string>(this, "partner_name");
-    }
+        => AsReference("partner_name");
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
     public TerraformValue<string> ProviderName
-    {
-        get => new TerraformReference<string>(this, "provider_name");
-    }
+        => AsReference("provider_name");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The vlan_id attribute.
     /// </summary>
     public TerraformValue<double> VlanId
-    {
-        get => new TerraformReference<double>(this, "vlan_id");
-    }
+        => AsReference("vlan_id");
 
 }

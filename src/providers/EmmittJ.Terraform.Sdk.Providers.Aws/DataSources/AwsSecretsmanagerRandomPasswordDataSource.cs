@@ -13,7 +13,7 @@ public partial class AwsSecretsmanagerRandomPasswordDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string>? ExcludeCharacters
     {
-        get => new TerraformReference<string>(this, "exclude_characters");
+        get => GetArgument<TerraformValue<string>>("exclude_characters");
         set => SetArgument("exclude_characters", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsSecretsmanagerRandomPasswordDataSource(string name) : Te
     /// </summary>
     public TerraformValue<bool>? ExcludeLowercase
     {
-        get => new TerraformReference<bool>(this, "exclude_lowercase");
+        get => GetArgument<TerraformValue<bool>>("exclude_lowercase");
         set => SetArgument("exclude_lowercase", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsSecretsmanagerRandomPasswordDataSource(string name) : Te
     /// </summary>
     public TerraformValue<bool>? ExcludeNumbers
     {
-        get => new TerraformReference<bool>(this, "exclude_numbers");
+        get => GetArgument<TerraformValue<bool>>("exclude_numbers");
         set => SetArgument("exclude_numbers", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsSecretsmanagerRandomPasswordDataSource(string name) : Te
     /// </summary>
     public TerraformValue<bool>? ExcludePunctuation
     {
-        get => new TerraformReference<bool>(this, "exclude_punctuation");
+        get => GetArgument<TerraformValue<bool>>("exclude_punctuation");
         set => SetArgument("exclude_punctuation", value);
     }
 
@@ -49,16 +49,16 @@ public partial class AwsSecretsmanagerRandomPasswordDataSource(string name) : Te
     /// </summary>
     public TerraformValue<bool>? ExcludeUppercase
     {
-        get => new TerraformReference<bool>(this, "exclude_uppercase");
+        get => GetArgument<TerraformValue<bool>>("exclude_uppercase");
         set => SetArgument("exclude_uppercase", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -67,7 +67,7 @@ public partial class AwsSecretsmanagerRandomPasswordDataSource(string name) : Te
     /// </summary>
     public TerraformValue<bool>? IncludeSpace
     {
-        get => new TerraformReference<bool>(this, "include_space");
+        get => GetArgument<TerraformValue<bool>>("include_space");
         set => SetArgument("include_space", value);
     }
 
@@ -76,16 +76,16 @@ public partial class AwsSecretsmanagerRandomPasswordDataSource(string name) : Te
     /// </summary>
     public TerraformValue<double>? PasswordLength
     {
-        get => new TerraformReference<double>(this, "password_length");
+        get => GetArgument<TerraformValue<double>>("password_length");
         set => SetArgument("password_length", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AwsSecretsmanagerRandomPasswordDataSource(string name) : Te
     /// </summary>
     public TerraformValue<bool>? RequireEachIncludedType
     {
-        get => new TerraformReference<bool>(this, "require_each_included_type");
+        get => GetArgument<TerraformValue<bool>>("require_each_included_type");
         set => SetArgument("require_each_included_type", value);
     }
 
@@ -102,8 +102,6 @@ public partial class AwsSecretsmanagerRandomPasswordDataSource(string name) : Te
     /// The random_password attribute.
     /// </summary>
     public TerraformValue<string> RandomPassword
-    {
-        get => new TerraformReference<string>(this, "random_password");
-    }
+        => AsReference("random_password");
 
 }

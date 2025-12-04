@@ -18,7 +18,7 @@ public class AzurermStorageDataLakeGen2FilesystemAceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermStorageDataLakeGen2FilesystemAceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     public required TerraformValue<string> Permissions
     {
-        get => new TerraformReference<string>(this, "permissions");
+        get => GetArgument<TerraformValue<string>>("permissions");
         set => SetArgument("permissions", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermStorageDataLakeGen2FilesystemAceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermStorageDataLakeGen2FilesystemAceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermStorageDataLakeGen2FilesystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermStorageDataLakeGen2FilesystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermStorageDataLakeGen2FilesystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermStorageDataLakeGen2FilesystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -113,27 +113,27 @@ public partial class AzurermStorageDataLakeGen2Filesystem(string name) : Terrafo
     /// <summary>
     /// The default_encryption_scope attribute.
     /// </summary>
-    public TerraformValue<string> DefaultEncryptionScope
+    public TerraformValue<string>? DefaultEncryptionScope
     {
-        get => new TerraformReference<string>(this, "default_encryption_scope");
+        get => GetArgument<TerraformValue<string>>("default_encryption_scope");
         set => SetArgument("default_encryption_scope", value);
     }
 
     /// <summary>
     /// The group attribute.
     /// </summary>
-    public TerraformValue<string> Group
+    public TerraformValue<string>? Group
     {
-        get => new TerraformReference<string>(this, "group");
+        get => GetArgument<TerraformValue<string>>("group");
         set => SetArgument("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -143,16 +143,16 @@ public partial class AzurermStorageDataLakeGen2Filesystem(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
-    public TerraformValue<string> Owner
+    public TerraformValue<string>? Owner
     {
-        get => new TerraformReference<string>(this, "owner");
+        get => GetArgument<TerraformValue<string>>("owner");
         set => SetArgument("owner", value);
     }
 
@@ -161,7 +161,7 @@ public partial class AzurermStorageDataLakeGen2Filesystem(string name) : Terrafo
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AzurermStorageDataLakeGen2Filesystem(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => new TerraformReference<string>(this, "storage_account_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 

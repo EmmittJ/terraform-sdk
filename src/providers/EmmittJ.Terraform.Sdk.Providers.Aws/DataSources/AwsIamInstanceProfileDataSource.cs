@@ -11,9 +11,9 @@ public partial class AwsIamInstanceProfileDataSource(string name) : TerraformDat
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsIamInstanceProfileDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -31,48 +31,36 @@ public partial class AwsIamInstanceProfileDataSource(string name) : TerraformDat
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The create_date attribute.
     /// </summary>
     public TerraformValue<string> CreateDate
-    {
-        get => new TerraformReference<string>(this, "create_date");
-    }
+        => AsReference("create_date");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     public TerraformValue<string> Path
-    {
-        get => new TerraformReference<string>(this, "path");
-    }
+        => AsReference("path");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     public TerraformValue<string> RoleArn
-    {
-        get => new TerraformReference<string>(this, "role_arn");
-    }
+        => AsReference("role_arn");
 
     /// <summary>
     /// The role_id attribute.
     /// </summary>
     public TerraformValue<string> RoleId
-    {
-        get => new TerraformReference<string>(this, "role_id");
-    }
+        => AsReference("role_id");
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
     public TerraformValue<string> RoleName
-    {
-        get => new TerraformReference<string>(this, "role_name");
-    }
+        => AsReference("role_name");
 
 }

@@ -78,7 +78,7 @@ public class GoogleApphubApplicationAttributesBlockBusinessOwnersBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -88,7 +88,7 @@ public class GoogleApphubApplicationAttributesBlockBusinessOwnersBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleApphubApplicationAttributesBlockCriticalityBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleApphubApplicationAttributesBlockDeveloperOwnersBlock : Terraf
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleApphubApplicationAttributesBlockDeveloperOwnersBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -166,7 +166,7 @@ public class GoogleApphubApplicationAttributesBlockEnvironmentBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -188,7 +188,7 @@ public class GoogleApphubApplicationAttributesBlockOperatorOwnersBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -198,7 +198,7 @@ public class GoogleApphubApplicationAttributesBlockOperatorOwnersBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -225,7 +225,7 @@ public class GoogleApphubApplicationScopeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -248,7 +248,7 @@ public class GoogleApphubApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -257,7 +257,7 @@ public class GoogleApphubApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -266,7 +266,7 @@ public class GoogleApphubApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -285,7 +285,7 @@ public partial class GoogleApphubApplication(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => new TerraformReference<string>(this, "application_id");
+        get => GetArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
@@ -294,7 +294,7 @@ public partial class GoogleApphubApplication(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -303,16 +303,16 @@ public partial class GoogleApphubApplication(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -322,16 +322,16 @@ public partial class GoogleApphubApplication(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -339,18 +339,14 @@ public partial class GoogleApphubApplication(string name) : TerraformResource("g
     /// Output only. Create time.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Identifier. The resource name of an Application. Format:
     /// &amp;quot;projects/{host-project-id}/locations/{location}/applications/{application-id}&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. Application state. 
@@ -361,25 +357,19 @@ public partial class GoogleApphubApplication(string name) : TerraformResource("g
     /// DELETING
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Output only. A universally unique identifier (in UUID4 format) for the &#39;Application&#39;.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Output only. Update time.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Attributes block (nesting mode: list).

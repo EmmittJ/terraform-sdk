@@ -18,7 +18,7 @@ public class AwsApprunnerDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AwsApprunnerDeployment(string name) : TerraformResource("aw
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AwsApprunnerDeployment(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceArn is required")]
     public required TerraformValue<string> ServiceArn
     {
-        get => new TerraformReference<string>(this, "service_arn");
+        get => GetArgument<TerraformValue<string>>("service_arn");
         set => SetArgument("service_arn", value);
     }
 
@@ -54,25 +54,19 @@ public partial class AwsApprunnerDeployment(string name) : TerraformResource("aw
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The operation_id attribute.
     /// </summary>
     public TerraformValue<string> OperationId
-    {
-        get => new TerraformReference<string>(this, "operation_id");
-    }
+        => AsReference("operation_id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

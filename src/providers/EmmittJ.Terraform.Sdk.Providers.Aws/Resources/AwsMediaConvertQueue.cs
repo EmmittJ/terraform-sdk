@@ -19,7 +19,7 @@ public class AwsMediaConvertQueueReservationPlanSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Commitment is required")]
     public required TerraformValue<string> Commitment
     {
-        get => new TerraformReference<string>(this, "commitment");
+        get => GetArgument<TerraformValue<string>>("commitment");
         set => SetArgument("commitment", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsMediaConvertQueueReservationPlanSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RenewalType is required")]
     public required TerraformValue<string> RenewalType
     {
-        get => new TerraformReference<string>(this, "renewal_type");
+        get => GetArgument<TerraformValue<string>>("renewal_type");
         set => SetArgument("renewal_type", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsMediaConvertQueueReservationPlanSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservedSlots is required")]
     public required TerraformValue<double> ReservedSlots
     {
-        get => new TerraformReference<double>(this, "reserved_slots");
+        get => GetArgument<TerraformValue<double>>("reserved_slots");
         set => SetArgument("reserved_slots", value);
     }
 
@@ -55,9 +55,9 @@ public partial class AwsMediaConvertQueue(string name) : TerraformResource("aws_
     /// <summary>
     /// The concurrent_jobs attribute.
     /// </summary>
-    public TerraformValue<double> ConcurrentJobs
+    public TerraformValue<double>? ConcurrentJobs
     {
-        get => new TerraformReference<double>(this, "concurrent_jobs");
+        get => GetArgument<TerraformValue<double>>("concurrent_jobs");
         set => SetArgument("concurrent_jobs", value);
     }
 
@@ -66,16 +66,16 @@ public partial class AwsMediaConvertQueue(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -85,7 +85,7 @@ public partial class AwsMediaConvertQueue(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -94,16 +94,16 @@ public partial class AwsMediaConvertQueue(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? PricingPlan
     {
-        get => new TerraformReference<string>(this, "pricing_plan");
+        get => GetArgument<TerraformValue<string>>("pricing_plan");
         set => SetArgument("pricing_plan", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AwsMediaConvertQueue(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -121,16 +121,16 @@ public partial class AwsMediaConvertQueue(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -138,9 +138,7 @@ public partial class AwsMediaConvertQueue(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// ReservationPlanSettings block (nesting mode: list).

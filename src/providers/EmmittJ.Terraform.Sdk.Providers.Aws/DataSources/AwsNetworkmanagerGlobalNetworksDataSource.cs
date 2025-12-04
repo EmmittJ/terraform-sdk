@@ -11,9 +11,9 @@ public partial class AwsNetworkmanagerGlobalNetworksDataSource(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsNetworkmanagerGlobalNetworksDataSource(string name) : Te
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -30,8 +30,6 @@ public partial class AwsNetworkmanagerGlobalNetworksDataSource(string name) : Te
     /// The ids attribute.
     /// </summary>
     public TerraformList<string> Ids
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ids").ResolveNodes(ctx));
-    }
+        => AsReference("ids");
 
 }

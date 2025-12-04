@@ -19,7 +19,7 @@ public class AzurermDevTestScheduleDailyRecurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Time is required")]
     public required TerraformValue<string> Time
     {
-        get => new TerraformReference<string>(this, "time");
+        get => GetArgument<TerraformValue<string>>("time");
         set => SetArgument("time", value);
     }
 
@@ -43,7 +43,7 @@ public class AzurermDevTestScheduleHourlyRecurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minute is required")]
     public required TerraformValue<double> Minute
     {
-        get => new TerraformReference<double>(this, "minute");
+        get => GetArgument<TerraformValue<double>>("minute");
         set => SetArgument("minute", value);
     }
 
@@ -66,7 +66,7 @@ public class AzurermDevTestScheduleNotificationSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -75,7 +75,7 @@ public class AzurermDevTestScheduleNotificationSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? TimeInMinutes
     {
-        get => new TerraformReference<double>(this, "time_in_minutes");
+        get => GetArgument<TerraformValue<double>>("time_in_minutes");
         set => SetArgument("time_in_minutes", value);
     }
 
@@ -84,7 +84,7 @@ public class AzurermDevTestScheduleNotificationSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? WebhookUrl
     {
-        get => new TerraformReference<string>(this, "webhook_url");
+        get => GetArgument<TerraformValue<string>>("webhook_url");
         set => SetArgument("webhook_url", value);
     }
 
@@ -107,7 +107,7 @@ public class AzurermDevTestScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -116,7 +116,7 @@ public class AzurermDevTestScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermDevTestScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermDevTestScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -158,7 +158,7 @@ public class AzurermDevTestScheduleWeeklyRecurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Time is required")]
     public required TerraformValue<string> Time
     {
-        get => new TerraformReference<string>(this, "time");
+        get => GetArgument<TerraformValue<string>>("time");
         set => SetArgument("time", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermDevTestScheduleWeeklyRecurrenceBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? WeekDays
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "week_days").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("week_days");
         set => SetArgument("week_days", value);
     }
 
@@ -183,9 +183,9 @@ public partial class AzurermDevTestSchedule(string name) : TerraformResource("az
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -195,7 +195,7 @@ public partial class AzurermDevTestSchedule(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabName is required")]
     public required TerraformValue<string> LabName
     {
-        get => new TerraformReference<string>(this, "lab_name");
+        get => GetArgument<TerraformValue<string>>("lab_name");
         set => SetArgument("lab_name", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AzurermDevTestSchedule(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -215,7 +215,7 @@ public partial class AzurermDevTestSchedule(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -225,7 +225,7 @@ public partial class AzurermDevTestSchedule(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -234,7 +234,7 @@ public partial class AzurermDevTestSchedule(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -243,7 +243,7 @@ public partial class AzurermDevTestSchedule(string name) : TerraformResource("az
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -253,7 +253,7 @@ public partial class AzurermDevTestSchedule(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskType is required")]
     public required TerraformValue<string> TaskType
     {
-        get => new TerraformReference<string>(this, "task_type");
+        get => GetArgument<TerraformValue<string>>("task_type");
         set => SetArgument("task_type", value);
     }
 
@@ -263,7 +263,7 @@ public partial class AzurermDevTestSchedule(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZoneId is required")]
     public required TerraformValue<string> TimeZoneId
     {
-        get => new TerraformReference<string>(this, "time_zone_id");
+        get => GetArgument<TerraformValue<string>>("time_zone_id");
         set => SetArgument("time_zone_id", value);
     }
 

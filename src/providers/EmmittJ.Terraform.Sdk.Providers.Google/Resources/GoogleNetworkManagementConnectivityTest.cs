@@ -18,7 +18,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformValue<string>? CloudSqlInstance
     {
-        get => new TerraformReference<string>(this, "cloud_sql_instance");
+        get => GetArgument<TerraformValue<string>>("cloud_sql_instance");
         set => SetArgument("cloud_sql_instance", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformValue<string>? ForwardingRule
     {
-        get => new TerraformReference<string>(this, "forwarding_rule");
+        get => GetArgument<TerraformValue<string>>("forwarding_rule");
         set => SetArgument("forwarding_rule", value);
     }
 
@@ -39,7 +39,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Fqdn
     {
-        get => new TerraformReference<string>(this, "fqdn");
+        get => GetArgument<TerraformValue<string>>("fqdn");
         set => SetArgument("fqdn", value);
     }
 
@@ -48,7 +48,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformValue<string>? GkeMasterCluster
     {
-        get => new TerraformReference<string>(this, "gke_master_cluster");
+        get => GetArgument<TerraformValue<string>>("gke_master_cluster");
         set => SetArgument("gke_master_cluster", value);
     }
 
@@ -57,7 +57,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -66,7 +66,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformValue<string>? IpAddress
     {
-        get => new TerraformReference<string>(this, "ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -75,7 +75,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -85,7 +85,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformValue<string>? ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformValue<string>? RedisCluster
     {
-        get => new TerraformReference<string>(this, "redis_cluster");
+        get => GetArgument<TerraformValue<string>>("redis_cluster");
         set => SetArgument("redis_cluster", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleNetworkManagementConnectivityTestDestinationBlock : Terraform
     /// </summary>
     public TerraformValue<string>? RedisInstance
     {
-        get => new TerraformReference<string>(this, "redis_instance");
+        get => GetArgument<TerraformValue<string>>("redis_instance");
         set => SetArgument("redis_instance", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleNetworkManagementConnectivityTestSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CloudSqlInstance
     {
-        get => new TerraformReference<string>(this, "cloud_sql_instance");
+        get => GetArgument<TerraformValue<string>>("cloud_sql_instance");
         set => SetArgument("cloud_sql_instance", value);
     }
 
@@ -152,7 +152,7 @@ public class GoogleNetworkManagementConnectivityTestSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? GkeMasterCluster
     {
-        get => new TerraformReference<string>(this, "gke_master_cluster");
+        get => GetArgument<TerraformValue<string>>("gke_master_cluster");
         set => SetArgument("gke_master_cluster", value);
     }
 
@@ -161,7 +161,7 @@ public class GoogleNetworkManagementConnectivityTestSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -170,7 +170,7 @@ public class GoogleNetworkManagementConnectivityTestSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? IpAddress
     {
-        get => new TerraformReference<string>(this, "ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -179,7 +179,7 @@ public class GoogleNetworkManagementConnectivityTestSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -188,7 +188,7 @@ public class GoogleNetworkManagementConnectivityTestSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? NetworkType
     {
-        get => new TerraformReference<string>(this, "network_type");
+        get => GetArgument<TerraformValue<string>>("network_type");
         set => SetArgument("network_type", value);
     }
 
@@ -198,7 +198,7 @@ public class GoogleNetworkManagementConnectivityTestSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -215,7 +215,7 @@ public class GoogleNetworkManagementConnectivityTestSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -267,7 +267,7 @@ public class GoogleNetworkManagementConnectivityTestSourceBlockAppEngineVersionB
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -289,7 +289,7 @@ public class GoogleNetworkManagementConnectivityTestSourceBlockCloudFunctionBloc
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -311,7 +311,7 @@ public class GoogleNetworkManagementConnectivityTestSourceBlockCloudRunRevisionB
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -334,7 +334,7 @@ public class GoogleNetworkManagementConnectivityTestTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -343,7 +343,7 @@ public class GoogleNetworkManagementConnectivityTestTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -352,7 +352,7 @@ public class GoogleNetworkManagementConnectivityTestTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -370,7 +370,7 @@ public partial class GoogleNetworkManagementConnectivityTest(string name) : Terr
     /// </summary>
     public TerraformValue<bool>? BypassFirewallChecks
     {
-        get => new TerraformReference<bool>(this, "bypass_firewall_checks");
+        get => GetArgument<TerraformValue<bool>>("bypass_firewall_checks");
         set => SetArgument("bypass_firewall_checks", value);
     }
 
@@ -380,16 +380,16 @@ public partial class GoogleNetworkManagementConnectivityTest(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -402,7 +402,7 @@ public partial class GoogleNetworkManagementConnectivityTest(string name) : Terr
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -412,16 +412,16 @@ public partial class GoogleNetworkManagementConnectivityTest(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -430,7 +430,7 @@ public partial class GoogleNetworkManagementConnectivityTest(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -441,7 +441,7 @@ public partial class GoogleNetworkManagementConnectivityTest(string name) : Terr
     /// </summary>
     public TerraformList<string>? RelatedProjects
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "related_projects").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("related_projects");
         set => SetArgument("related_projects", value);
     }
 
@@ -451,7 +451,7 @@ public partial class GoogleNetworkManagementConnectivityTest(string name) : Terr
     /// </summary>
     public TerraformValue<bool>? RoundTrip
     {
-        get => new TerraformReference<bool>(this, "round_trip");
+        get => GetArgument<TerraformValue<bool>>("round_trip");
         set => SetArgument("round_trip", value);
     }
 
@@ -459,18 +459,14 @@ public partial class GoogleNetworkManagementConnectivityTest(string name) : Terr
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Destination block (nesting mode: list).

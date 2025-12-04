@@ -18,7 +18,7 @@ public class GoogleVmwareengineExternalAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleVmwareengineExternalAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleVmwareengineExternalAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,16 +54,16 @@ public partial class GoogleVmwareengineExternalAddress(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class GoogleVmwareengineExternalAddress(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InternalIp is required")]
     public required TerraformValue<string> InternalIp
     {
-        get => new TerraformReference<string>(this, "internal_ip");
+        get => GetArgument<TerraformValue<string>>("internal_ip");
         set => SetArgument("internal_ip", value);
     }
 
@@ -83,7 +83,7 @@ public partial class GoogleVmwareengineExternalAddress(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -95,7 +95,7 @@ public partial class GoogleVmwareengineExternalAddress(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -105,33 +105,25 @@ public partial class GoogleVmwareengineExternalAddress(string name) : TerraformR
     /// up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The external IP address of a workload VM.
     /// </summary>
     public TerraformValue<string> ExternalIp
-    {
-        get => new TerraformReference<string>(this, "external_ip");
-    }
+        => AsReference("external_ip");
 
     /// <summary>
     /// State of the resource.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Last updated time of this resource.
@@ -139,9 +131,7 @@ public partial class GoogleVmwareengineExternalAddress(string name) : TerraformR
     /// fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

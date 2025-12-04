@@ -18,7 +18,7 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoringTimeoutsB
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoringTimeoutsB
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoringTimeoutsB
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoringTimeoutsB
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring(
     /// </summary>
     public TerraformValue<bool>? AgentEnabled
     {
-        get => new TerraformReference<bool>(this, "agent_enabled");
+        get => GetArgument<TerraformValue<bool>>("agent_enabled");
         set => SetArgument("agent_enabled", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppName is required")]
     public required TerraformValue<string> AppName
     {
-        get => new TerraformReference<string>(this, "app_name");
+        get => GetArgument<TerraformValue<string>>("app_name");
         set => SetArgument("app_name", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring(
     /// </summary>
     public TerraformValue<double>? AppServerPort
     {
-        get => new TerraformReference<double>(this, "app_server_port");
+        get => GetArgument<TerraformValue<double>>("app_server_port");
         set => SetArgument("app_server_port", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring(
     /// </summary>
     public TerraformValue<bool>? AuditModeEnabled
     {
-        get => new TerraformReference<bool>(this, "audit_mode_enabled");
+        get => GetArgument<TerraformValue<bool>>("audit_mode_enabled");
         set => SetArgument("audit_mode_enabled", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring(
     /// </summary>
     public TerraformValue<bool>? AutoAppNamingEnabled
     {
-        get => new TerraformReference<bool>(this, "auto_app_naming_enabled");
+        get => GetArgument<TerraformValue<bool>>("auto_app_naming_enabled");
         set => SetArgument("auto_app_naming_enabled", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring(
     /// </summary>
     public TerraformValue<bool>? AutoTransactionNamingEnabled
     {
-        get => new TerraformReference<bool>(this, "auto_transaction_naming_enabled");
+        get => GetArgument<TerraformValue<bool>>("auto_transaction_naming_enabled");
         set => SetArgument("auto_transaction_naming_enabled", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring(
     /// </summary>
     public TerraformValue<bool>? CustomTracingEnabled
     {
-        get => new TerraformReference<bool>(this, "custom_tracing_enabled");
+        get => GetArgument<TerraformValue<bool>>("custom_tracing_enabled");
         set => SetArgument("custom_tracing_enabled", value);
     }
 
@@ -127,16 +127,16 @@ public partial class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring(
     /// </summary>
     public TerraformValue<bool>? GloballyEnabled
     {
-        get => new TerraformReference<bool>(this, "globally_enabled");
+        get => GetArgument<TerraformValue<bool>>("globally_enabled");
         set => SetArgument("globally_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring(
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseKey is required")]
     public required TerraformValue<string> LicenseKey
     {
-        get => new TerraformReference<string>(this, "license_key");
+        get => GetArgument<TerraformValue<string>>("license_key");
         set => SetArgument("license_key", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -175,7 +175,7 @@ public partial class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformValue<string> SpringCloudServiceId
     {
-        get => new TerraformReference<string>(this, "spring_cloud_service_id");
+        get => GetArgument<TerraformValue<string>>("spring_cloud_service_id");
         set => SetArgument("spring_cloud_service_id", value);
     }
 

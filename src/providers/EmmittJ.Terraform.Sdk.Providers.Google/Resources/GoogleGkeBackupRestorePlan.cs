@@ -19,7 +19,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllNamespaces
     {
-        get => new TerraformReference<bool>(this, "all_namespaces");
+        get => GetArgument<TerraformValue<bool>>("all_namespaces");
         set => SetArgument("all_namespaces", value);
     }
 
@@ -33,7 +33,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ClusterResourceConflictPolicy
     {
-        get => new TerraformReference<string>(this, "cluster_resource_conflict_policy");
+        get => GetArgument<TerraformValue<string>>("cluster_resource_conflict_policy");
         set => SetArgument("cluster_resource_conflict_policy", value);
     }
 
@@ -47,7 +47,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? NamespacedResourceRestoreMode
     {
-        get => new TerraformReference<string>(this, "namespaced_resource_restore_mode");
+        get => GetArgument<TerraformValue<string>>("namespaced_resource_restore_mode");
         set => SetArgument("namespaced_resource_restore_mode", value);
     }
 
@@ -57,7 +57,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? NoNamespaces
     {
-        get => new TerraformReference<bool>(this, "no_namespaces");
+        get => GetArgument<TerraformValue<bool>>("no_namespaces");
         set => SetArgument("no_namespaces", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? VolumeDataRestorePolicy
     {
-        get => new TerraformReference<string>(this, "volume_data_restore_policy");
+        get => GetArgument<TerraformValue<string>>("volume_data_restore_policy");
         set => SetArgument("volume_data_restore_policy", value);
     }
 
@@ -162,7 +162,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockClusterResourceRestoreS
     /// </summary>
     public TerraformValue<bool>? AllGroupKinds
     {
-        get => new TerraformReference<bool>(this, "all_group_kinds");
+        get => GetArgument<TerraformValue<bool>>("all_group_kinds");
         set => SetArgument("all_group_kinds", value);
     }
 
@@ -172,7 +172,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockClusterResourceRestoreS
     /// </summary>
     public TerraformValue<bool>? NoGroupKinds
     {
-        get => new TerraformReference<bool>(this, "no_group_kinds");
+        get => GetArgument<TerraformValue<bool>>("no_group_kinds");
         set => SetArgument("no_group_kinds", value);
     }
 
@@ -214,7 +214,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockClusterResourceRestoreS
     /// </summary>
     public TerraformValue<string>? ResourceGroup
     {
-        get => new TerraformReference<string>(this, "resource_group");
+        get => GetArgument<TerraformValue<string>>("resource_group");
         set => SetArgument("resource_group", value);
     }
 
@@ -224,7 +224,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockClusterResourceRestoreS
     /// </summary>
     public TerraformValue<string>? ResourceKind
     {
-        get => new TerraformReference<string>(this, "resource_kind");
+        get => GetArgument<TerraformValue<string>>("resource_kind");
         set => SetArgument("resource_kind", value);
     }
 
@@ -248,7 +248,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockClusterResourceRestoreS
     /// </summary>
     public TerraformValue<string>? ResourceGroup
     {
-        get => new TerraformReference<string>(this, "resource_group");
+        get => GetArgument<TerraformValue<string>>("resource_group");
         set => SetArgument("resource_group", value);
     }
 
@@ -258,7 +258,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockClusterResourceRestoreS
     /// </summary>
     public TerraformValue<string>? ResourceKind
     {
-        get => new TerraformReference<string>(this, "resource_kind");
+        get => GetArgument<TerraformValue<string>>("resource_kind");
         set => SetArgument("resource_kind", value);
     }
 
@@ -281,7 +281,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockExcludedNamespacesBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespaces is required")]
     public TerraformList<string>? Namespaces
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "namespaces").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("namespaces");
         set => SetArgument("namespaces", value);
     }
 
@@ -369,7 +369,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockRestoreOrderBlockGroupK
     /// </summary>
     public TerraformValue<string>? ResourceGroup
     {
-        get => new TerraformReference<string>(this, "resource_group");
+        get => GetArgument<TerraformValue<string>>("resource_group");
         set => SetArgument("resource_group", value);
     }
 
@@ -379,7 +379,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockRestoreOrderBlockGroupK
     /// </summary>
     public TerraformValue<string>? ResourceKind
     {
-        get => new TerraformReference<string>(this, "resource_kind");
+        get => GetArgument<TerraformValue<string>>("resource_kind");
         set => SetArgument("resource_kind", value);
     }
 
@@ -403,7 +403,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockRestoreOrderBlockGroupK
     /// </summary>
     public TerraformValue<string>? ResourceGroup
     {
-        get => new TerraformReference<string>(this, "resource_group");
+        get => GetArgument<TerraformValue<string>>("resource_group");
         set => SetArgument("resource_group", value);
     }
 
@@ -413,7 +413,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockRestoreOrderBlockGroupK
     /// </summary>
     public TerraformValue<string>? ResourceKind
     {
-        get => new TerraformReference<string>(this, "resource_kind");
+        get => GetArgument<TerraformValue<string>>("resource_kind");
         set => SetArgument("resource_kind", value);
     }
 
@@ -461,7 +461,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockSelectedApplicationsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -471,7 +471,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockSelectedApplicationsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceAttribute is required")]
     public required TerraformValue<string> NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -494,7 +494,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockSelectedNamespacesBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespaces is required")]
     public TerraformList<string>? Namespaces
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "namespaces").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("namespaces");
         set => SetArgument("namespaces", value);
     }
 
@@ -517,7 +517,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockTransformationRulesBloc
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -562,7 +562,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockTransformationRulesBloc
     /// </summary>
     public TerraformValue<string>? FromPath
     {
-        get => new TerraformReference<string>(this, "from_path");
+        get => GetArgument<TerraformValue<string>>("from_path");
         set => SetArgument("from_path", value);
     }
 
@@ -572,7 +572,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockTransformationRulesBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Op is required")]
     public required TerraformValue<string> Op
     {
-        get => new TerraformReference<string>(this, "op");
+        get => GetArgument<TerraformValue<string>>("op");
         set => SetArgument("op", value);
     }
 
@@ -582,7 +582,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockTransformationRulesBloc
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -592,7 +592,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockTransformationRulesBloc
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -617,7 +617,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockTransformationRulesBloc
     /// </summary>
     public TerraformValue<string>? JsonPath
     {
-        get => new TerraformReference<string>(this, "json_path");
+        get => GetArgument<TerraformValue<string>>("json_path");
         set => SetArgument("json_path", value);
     }
 
@@ -632,7 +632,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockTransformationRulesBloc
     /// </summary>
     public TerraformList<string>? Namespaces
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "namespaces").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("namespaces");
         set => SetArgument("namespaces", value);
     }
 
@@ -665,7 +665,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockTransformationRulesBloc
     /// </summary>
     public TerraformValue<string>? ResourceGroup
     {
-        get => new TerraformReference<string>(this, "resource_group");
+        get => GetArgument<TerraformValue<string>>("resource_group");
         set => SetArgument("resource_group", value);
     }
 
@@ -675,7 +675,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockTransformationRulesBloc
     /// </summary>
     public TerraformValue<string>? ResourceKind
     {
-        get => new TerraformReference<string>(this, "resource_kind");
+        get => GetArgument<TerraformValue<string>>("resource_kind");
         set => SetArgument("resource_kind", value);
     }
 
@@ -700,7 +700,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockVolumeDataRestorePolicy
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformValue<string> Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
@@ -711,7 +711,7 @@ public class GoogleGkeBackupRestorePlanRestoreConfigBlockVolumeDataRestorePolicy
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeType is required")]
     public required TerraformValue<string> VolumeType
     {
-        get => new TerraformReference<string>(this, "volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -734,7 +734,7 @@ public class GoogleGkeBackupRestorePlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -743,7 +743,7 @@ public class GoogleGkeBackupRestorePlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -752,7 +752,7 @@ public class GoogleGkeBackupRestorePlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -772,7 +772,7 @@ public partial class GoogleGkeBackupRestorePlan(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlan is required")]
     public required TerraformValue<string> BackupPlan
     {
-        get => new TerraformReference<string>(this, "backup_plan");
+        get => GetArgument<TerraformValue<string>>("backup_plan");
         set => SetArgument("backup_plan", value);
     }
 
@@ -782,7 +782,7 @@ public partial class GoogleGkeBackupRestorePlan(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => new TerraformReference<string>(this, "cluster");
+        get => GetArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
@@ -791,16 +791,16 @@ public partial class GoogleGkeBackupRestorePlan(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -815,7 +815,7 @@ public partial class GoogleGkeBackupRestorePlan(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -825,7 +825,7 @@ public partial class GoogleGkeBackupRestorePlan(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -835,16 +835,16 @@ public partial class GoogleGkeBackupRestorePlan(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -852,42 +852,32 @@ public partial class GoogleGkeBackupRestorePlan(string name) : TerraformResource
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The State of the RestorePlan.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Detailed description of why RestorePlan is in its current state.
     /// </summary>
     public TerraformValue<string> StateReason
-    {
-        get => new TerraformReference<string>(this, "state_reason");
-    }
+        => AsReference("state_reason");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Server generated, unique identifier of UUID format.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// RestoreConfig block (nesting mode: list).

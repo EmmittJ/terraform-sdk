@@ -11,9 +11,9 @@ public partial class GoogleServiceAccountIamPolicyDataSource(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleServiceAccountIamPolicyDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountId is required")]
     public required TerraformValue<string> ServiceAccountId
     {
-        get => new TerraformReference<string>(this, "service_account_id");
+        get => GetArgument<TerraformValue<string>>("service_account_id");
         set => SetArgument("service_account_id", value);
     }
 
@@ -31,16 +31,12 @@ public partial class GoogleServiceAccountIamPolicyDataSource(string name) : Terr
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     public TerraformValue<string> PolicyData
-    {
-        get => new TerraformReference<string>(this, "policy_data");
-    }
+        => AsReference("policy_data");
 
 }

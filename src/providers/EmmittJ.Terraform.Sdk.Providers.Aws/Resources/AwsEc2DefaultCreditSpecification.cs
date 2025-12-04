@@ -18,7 +18,7 @@ public class AwsEc2DefaultCreditSpecificationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsEc2DefaultCreditSpecificationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AwsEc2DefaultCreditSpecification(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCredits is required")]
     public required TerraformValue<string> CpuCredits
     {
-        get => new TerraformReference<string>(this, "cpu_credits");
+        get => GetArgument<TerraformValue<string>>("cpu_credits");
         set => SetArgument("cpu_credits", value);
     }
 
@@ -56,16 +56,16 @@ public partial class AwsEc2DefaultCreditSpecification(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceFamily is required")]
     public required TerraformValue<string> InstanceFamily
     {
-        get => new TerraformReference<string>(this, "instance_family");
+        get => GetArgument<TerraformValue<string>>("instance_family");
         set => SetArgument("instance_family", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

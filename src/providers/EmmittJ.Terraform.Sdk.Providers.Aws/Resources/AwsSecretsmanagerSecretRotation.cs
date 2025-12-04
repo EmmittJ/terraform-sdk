@@ -18,7 +18,7 @@ public class AwsSecretsmanagerSecretRotationRotationRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? AutomaticallyAfterDays
     {
-        get => new TerraformReference<double>(this, "automatically_after_days");
+        get => GetArgument<TerraformValue<double>>("automatically_after_days");
         set => SetArgument("automatically_after_days", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsSecretsmanagerSecretRotationRotationRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Duration
     {
-        get => new TerraformReference<string>(this, "duration");
+        get => GetArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsSecretsmanagerSecretRotationRotationRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ScheduleExpression
     {
-        get => new TerraformReference<string>(this, "schedule_expression");
+        get => GetArgument<TerraformValue<string>>("schedule_expression");
         set => SetArgument("schedule_expression", value);
     }
 
@@ -52,18 +52,18 @@ public partial class AwsSecretsmanagerSecretRotation(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsSecretsmanagerSecretRotation(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? RotateImmediately
     {
-        get => new TerraformReference<bool>(this, "rotate_immediately");
+        get => GetArgument<TerraformValue<bool>>("rotate_immediately");
         set => SetArgument("rotate_immediately", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsSecretsmanagerSecretRotation(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? RotationLambdaArn
     {
-        get => new TerraformReference<string>(this, "rotation_lambda_arn");
+        get => GetArgument<TerraformValue<string>>("rotation_lambda_arn");
         set => SetArgument("rotation_lambda_arn", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsSecretsmanagerSecretRotation(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformValue<string> SecretId
     {
-        get => new TerraformReference<string>(this, "secret_id");
+        get => GetArgument<TerraformValue<string>>("secret_id");
         set => SetArgument("secret_id", value);
     }
 
@@ -99,9 +99,7 @@ public partial class AwsSecretsmanagerSecretRotation(string name) : TerraformRes
     /// The rotation_enabled attribute.
     /// </summary>
     public TerraformValue<bool> RotationEnabled
-    {
-        get => new TerraformReference<bool>(this, "rotation_enabled");
-    }
+        => AsReference("rotation_enabled");
 
     /// <summary>
     /// RotationRules block (nesting mode: list).

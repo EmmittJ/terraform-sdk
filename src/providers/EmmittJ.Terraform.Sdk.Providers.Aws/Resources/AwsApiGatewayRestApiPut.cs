@@ -18,7 +18,7 @@ public class AwsApiGatewayRestApiPutTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AwsApiGatewayRestApiPut(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
     public required TerraformValue<string> Body
     {
-        get => new TerraformReference<string>(this, "body");
+        get => GetArgument<TerraformValue<string>>("body");
         set => SetArgument("body", value);
     }
 
     /// <summary>
     /// The fail_on_warnings attribute.
     /// </summary>
-    public TerraformValue<bool> FailOnWarnings
+    public TerraformValue<bool>? FailOnWarnings
     {
-        get => new TerraformReference<bool>(this, "fail_on_warnings");
+        get => GetArgument<TerraformValue<bool>>("fail_on_warnings");
         set => SetArgument("fail_on_warnings", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AwsApiGatewayRestApiPut(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsApiGatewayRestApiPut(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformValue<string> RestApiId
     {
-        get => new TerraformReference<string>(this, "rest_api_id");
+        get => GetArgument<TerraformValue<string>>("rest_api_id");
         set => SetArgument("rest_api_id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsApiGatewayRestApiPut(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Triggers
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "triggers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("triggers");
         set => SetArgument("triggers", value);
     }
 

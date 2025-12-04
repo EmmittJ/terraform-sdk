@@ -27,7 +27,7 @@ public class GoogleBigqueryDatapolicyv2DataPolicyDataMaskingPolicyBlock : Terraf
     /// </summary>
     public TerraformValue<string>? PredefinedExpression
     {
-        get => new TerraformReference<string>(this, "predefined_expression");
+        get => GetArgument<TerraformValue<string>>("predefined_expression");
         set => SetArgument("predefined_expression", value);
     }
 
@@ -38,7 +38,7 @@ public class GoogleBigqueryDatapolicyv2DataPolicyDataMaskingPolicyBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Routine
     {
-        get => new TerraformReference<string>(this, "routine");
+        get => GetArgument<TerraformValue<string>>("routine");
         set => SetArgument("routine", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleBigqueryDatapolicyv2DataPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleBigqueryDatapolicyv2DataPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -79,7 +79,7 @@ public class GoogleBigqueryDatapolicyv2DataPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -100,7 +100,7 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicy(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataPolicyId is required")]
     public required TerraformValue<string> DataPolicyId
     {
-        get => new TerraformReference<string>(this, "data_policy_id");
+        get => GetArgument<TerraformValue<string>>("data_policy_id");
         set => SetArgument("data_policy_id", value);
     }
 
@@ -114,7 +114,7 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicy(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataPolicyType is required")]
     public required TerraformValue<string> DataPolicyType
     {
-        get => new TerraformReference<string>(this, "data_policy_type");
+        get => GetArgument<TerraformValue<string>>("data_policy_type");
         set => SetArgument("data_policy_type", value);
     }
 
@@ -125,9 +125,9 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicy(string name) : Terrafo
     /// populated in the response of GetDataPolicy, CreateDataPolicy, and
     /// UpdateDataPolicy calls.
     /// </summary>
-    public TerraformValue<string> Etag
+    public TerraformValue<string>? Etag
     {
-        get => new TerraformReference<string>(this, "etag");
+        get => GetArgument<TerraformValue<string>>("etag");
         set => SetArgument("etag", value);
     }
 
@@ -141,18 +141,18 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicy(string name) : Terrafo
     /// This field is supported in V2 Data Policy only. In case of V1 data policies
     /// (i.e. verion = 1 and policy_tag is set), this field is not populated.
     /// </summary>
-    public TerraformList<string> Grantees
+    public TerraformList<string>? Grantees
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "grantees").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("grantees");
         set => SetArgument("grantees", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -162,16 +162,16 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicy(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -180,9 +180,7 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicy(string name) : Terrafo
     /// &#39;projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Policy tag resource name, in the format of
@@ -190,9 +188,7 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicy(string name) : Terrafo
     /// policy_tag is supported only for V1 data policies.
     /// </summary>
     public TerraformValue<string> PolicyTag
-    {
-        get => new TerraformReference<string>(this, "policy_tag");
-    }
+        => AsReference("policy_tag");
 
     /// <summary>
     /// The version of the Data Policy resource.
@@ -201,9 +197,7 @@ public partial class GoogleBigqueryDatapolicyv2DataPolicy(string name) : Terrafo
     /// V2
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
     /// <summary>
     /// DataMaskingPolicy block (nesting mode: list).

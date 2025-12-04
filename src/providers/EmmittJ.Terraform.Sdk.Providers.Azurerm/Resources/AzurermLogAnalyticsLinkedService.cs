@@ -18,7 +18,7 @@ public class AzurermLogAnalyticsLinkedServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermLogAnalyticsLinkedServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermLogAnalyticsLinkedServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermLogAnalyticsLinkedServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,18 +61,18 @@ public partial class AzurermLogAnalyticsLinkedService(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The read_access_id attribute.
     /// </summary>
-    public TerraformValue<string> ReadAccessId
+    public TerraformValue<string>? ReadAccessId
     {
-        get => new TerraformReference<string>(this, "read_access_id");
+        get => GetArgument<TerraformValue<string>>("read_access_id");
         set => SetArgument("read_access_id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermLogAnalyticsLinkedService(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermLogAnalyticsLinkedService(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => new TerraformReference<string>(this, "workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermLogAnalyticsLinkedService(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? WriteAccessId
     {
-        get => new TerraformReference<string>(this, "write_access_id");
+        get => GetArgument<TerraformValue<string>>("write_access_id");
         set => SetArgument("write_access_id", value);
     }
 
@@ -109,9 +109,7 @@ public partial class AzurermLogAnalyticsLinkedService(string name) : TerraformRe
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

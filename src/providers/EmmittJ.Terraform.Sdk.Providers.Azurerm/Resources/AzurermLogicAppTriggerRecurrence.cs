@@ -18,7 +18,7 @@ public class AzurermLogicAppTriggerRecurrenceScheduleBlock : TerraformBlock
     /// </summary>
     public TerraformSet<double>? AtTheseHours
     {
-        get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "at_these_hours").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<double>>("at_these_hours");
         set => SetArgument("at_these_hours", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermLogicAppTriggerRecurrenceScheduleBlock : TerraformBlock
     /// </summary>
     public TerraformSet<double>? AtTheseMinutes
     {
-        get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "at_these_minutes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<double>>("at_these_minutes");
         set => SetArgument("at_these_minutes", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermLogicAppTriggerRecurrenceScheduleBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? OnTheseDays
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "on_these_days").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("on_these_days");
         set => SetArgument("on_these_days", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermLogicAppTriggerRecurrenceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermLogicAppTriggerRecurrenceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermLogicAppTriggerRecurrenceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermLogicAppTriggerRecurrenceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -105,16 +105,16 @@ public partial class AzurermLogicAppTriggerRecurrence(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformValue<string> Frequency
     {
-        get => new TerraformReference<string>(this, "frequency");
+        get => GetArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AzurermLogicAppTriggerRecurrence(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformValue<double> Interval
     {
-        get => new TerraformReference<double>(this, "interval");
+        get => GetArgument<TerraformValue<double>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AzurermLogicAppTriggerRecurrence(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
     public required TerraformValue<string> LogicAppId
     {
-        get => new TerraformReference<string>(this, "logic_app_id");
+        get => GetArgument<TerraformValue<string>>("logic_app_id");
         set => SetArgument("logic_app_id", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AzurermLogicAppTriggerRecurrence(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -153,16 +153,16 @@ public partial class AzurermLogicAppTriggerRecurrence(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    public TerraformValue<string> TimeZone
+    public TerraformValue<string>? TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 

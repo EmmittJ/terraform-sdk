@@ -18,7 +18,7 @@ public class AzurermNginxApiKeyDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermNginxApiKeyDataSource(string name) : TerraformDataSo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermNginxApiKeyDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermNginxApiKeyDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
     public required TerraformValue<string> NginxDeploymentId
     {
-        get => new TerraformReference<string>(this, "nginx_deployment_id");
+        get => GetArgument<TerraformValue<string>>("nginx_deployment_id");
         set => SetArgument("nginx_deployment_id", value);
     }
 
@@ -64,17 +64,13 @@ public partial class AzurermNginxApiKeyDataSource(string name) : TerraformDataSo
     /// The end_date_time attribute.
     /// </summary>
     public TerraformValue<string> EndDateTime
-    {
-        get => new TerraformReference<string>(this, "end_date_time");
-    }
+        => AsReference("end_date_time");
 
     /// <summary>
     /// The hint attribute.
     /// </summary>
     public TerraformValue<string> Hint
-    {
-        get => new TerraformReference<string>(this, "hint");
-    }
+        => AsReference("hint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

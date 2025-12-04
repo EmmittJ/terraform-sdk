@@ -14,16 +14,16 @@ public partial class AwsEc2TransitGatewayMulticastGroupMember(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupIpAddress is required")]
     public required TerraformValue<string> GroupIpAddress
     {
-        get => new TerraformReference<string>(this, "group_ip_address");
+        get => GetArgument<TerraformValue<string>>("group_ip_address");
         set => SetArgument("group_ip_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsEc2TransitGatewayMulticastGroupMember(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformValue<string> NetworkInterfaceId
     {
-        get => new TerraformReference<string>(this, "network_interface_id");
+        get => GetArgument<TerraformValue<string>>("network_interface_id");
         set => SetArgument("network_interface_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsEc2TransitGatewayMulticastGroupMember(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayMulticastDomainId is required")]
     public required TerraformValue<string> TransitGatewayMulticastDomainId
     {
-        get => new TerraformReference<string>(this, "transit_gateway_multicast_domain_id");
+        get => GetArgument<TerraformValue<string>>("transit_gateway_multicast_domain_id");
         set => SetArgument("transit_gateway_multicast_domain_id", value);
     }
 

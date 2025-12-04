@@ -18,7 +18,7 @@ public class AzurermApiManagementWorkspacePolicyFragmentTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermApiManagementWorkspacePolicyFragmentTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermApiManagementWorkspacePolicyFragmentTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermApiManagementWorkspacePolicyFragmentTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermApiManagementWorkspacePolicyFragment(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementWorkspaceId is required")]
     public required TerraformValue<string> ApiManagementWorkspaceId
     {
-        get => new TerraformReference<string>(this, "api_management_workspace_id");
+        get => GetArgument<TerraformValue<string>>("api_management_workspace_id");
         set => SetArgument("api_management_workspace_id", value);
     }
 
@@ -73,16 +73,16 @@ public partial class AzurermApiManagementWorkspacePolicyFragment(string name) : 
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermApiManagementWorkspacePolicyFragment(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermApiManagementWorkspacePolicyFragment(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "XmlContent is required")]
     public required TerraformValue<string> XmlContent
     {
-        get => new TerraformReference<string>(this, "xml_content");
+        get => GetArgument<TerraformValue<string>>("xml_content");
         set => SetArgument("xml_content", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermApiManagementWorkspacePolicyFragment(string name) : 
     /// </summary>
     public TerraformValue<string>? XmlFormat
     {
-        get => new TerraformReference<string>(this, "xml_format");
+        get => GetArgument<TerraformValue<string>>("xml_format");
         set => SetArgument("xml_format", value);
     }
 

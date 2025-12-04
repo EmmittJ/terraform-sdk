@@ -18,7 +18,7 @@ public class GoogleNetappStoragePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleNetappStoragePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleNetappStoragePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? ActiveDirectory
     {
-        get => new TerraformReference<string>(this, "active_directory");
+        get => GetArgument<TerraformValue<string>>("active_directory");
         set => SetArgument("active_directory", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? AllowAutoTiering
     {
-        get => new TerraformReference<bool>(this, "allow_auto_tiering");
+        get => GetArgument<TerraformValue<bool>>("allow_auto_tiering");
         set => SetArgument("allow_auto_tiering", value);
     }
 
@@ -75,16 +75,16 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGib is required")]
     public required TerraformValue<string> CapacityGib
     {
-        get => new TerraformReference<string>(this, "capacity_gib");
+        get => GetArgument<TerraformValue<string>>("capacity_gib");
         set => SetArgument("capacity_gib", value);
     }
 
     /// <summary>
     /// Optional. True if using Independent Scaling of capacity and performance (Hyperdisk). Default is false.
     /// </summary>
-    public TerraformValue<bool> CustomPerformanceEnabled
+    public TerraformValue<bool>? CustomPerformanceEnabled
     {
-        get => new TerraformReference<bool>(this, "custom_performance_enabled");
+        get => GetArgument<TerraformValue<bool>>("custom_performance_enabled");
         set => SetArgument("custom_performance_enabled", value);
     }
 
@@ -93,7 +93,7 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -103,7 +103,7 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? EnableHotTierAutoResize
     {
-        get => new TerraformReference<bool>(this, "enable_hot_tier_auto_resize");
+        get => GetArgument<TerraformValue<bool>>("enable_hot_tier_auto_resize");
         set => SetArgument("enable_hot_tier_auto_resize", value);
     }
 
@@ -113,16 +113,16 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? HotTierSizeGib
     {
-        get => new TerraformReference<string>(this, "hot_tier_size_gib");
+        get => GetArgument<TerraformValue<string>>("hot_tier_size_gib");
         set => SetArgument("hot_tier_size_gib", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -132,7 +132,7 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? KmsConfig
     {
-        get => new TerraformReference<string>(this, "kms_config");
+        get => GetArgument<TerraformValue<string>>("kms_config");
         set => SetArgument("kms_config", value);
     }
 
@@ -145,7 +145,7 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -155,7 +155,7 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? LdapEnabled
     {
-        get => new TerraformReference<bool>(this, "ldap_enabled");
+        get => GetArgument<TerraformValue<bool>>("ldap_enabled");
         set => SetArgument("ldap_enabled", value);
     }
 
@@ -165,7 +165,7 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -175,7 +175,7 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -185,16 +185,16 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -202,9 +202,9 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// QoS (Quality of Service) type of the storage pool.
     /// Possible values are: AUTO, MANUAL. Possible values: [&amp;quot;QOS_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;AUTO&amp;quot;, &amp;quot;MANUAL&amp;quot;]
     /// </summary>
-    public TerraformValue<string> QosType
+    public TerraformValue<string>? QosType
     {
-        get => new TerraformReference<string>(this, "qos_type");
+        get => GetArgument<TerraformValue<string>>("qos_type");
         set => SetArgument("qos_type", value);
     }
 
@@ -214,7 +214,7 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? ReplicaZone
     {
-        get => new TerraformReference<string>(this, "replica_zone");
+        get => GetArgument<TerraformValue<string>>("replica_zone");
         set => SetArgument("replica_zone", value);
     }
 
@@ -224,25 +224,25 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceLevel is required")]
     public required TerraformValue<string> ServiceLevel
     {
-        get => new TerraformReference<string>(this, "service_level");
+        get => GetArgument<TerraformValue<string>>("service_level");
         set => SetArgument("service_level", value);
     }
 
     /// <summary>
     /// Optional. Custom Performance Total IOPS of the pool If not provided, it will be calculated based on the totalThroughputMibps
     /// </summary>
-    public TerraformValue<string> TotalIops
+    public TerraformValue<string>? TotalIops
     {
-        get => new TerraformReference<string>(this, "total_iops");
+        get => GetArgument<TerraformValue<string>>("total_iops");
         set => SetArgument("total_iops", value);
     }
 
     /// <summary>
     /// Optional. Custom Performance Total Throughput of the pool (in MiB/s).
     /// </summary>
-    public TerraformValue<string> TotalThroughputMibps
+    public TerraformValue<string>? TotalThroughputMibps
     {
-        get => new TerraformReference<string>(this, "total_throughput_mibps");
+        get => GetArgument<TerraformValue<string>>("total_throughput_mibps");
         set => SetArgument("total_throughput_mibps", value);
     }
 
@@ -251,9 +251,9 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// This field is used to control whether the pool supports FILE based volumes only or UNIFIED (both FILE and BLOCK) volumes.
     /// If not specified during creation, it defaults to FILE. Possible values: [&amp;quot;STORAGE_POOL_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;FILE&amp;quot;, &amp;quot;UNIFIED&amp;quot;]
     /// </summary>
-    public TerraformValue<string> Type
+    public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -262,9 +262,9 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// [zone switch](https://cloud.google.com/netapp/volumes/docs/configure-and-use/storage-pools/edit-or-delete-storage-pool#switch_active_and_replica_zones).
     /// If you want to create a zonal Flex pool, specify a zone name for &#39;location&#39; and omit &#39;zone&#39;.
     /// </summary>
-    public TerraformValue<string> Zone
+    public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -272,66 +272,50 @@ public partial class GoogleNetappStoragePool(string name) : TerraformResource("g
     /// Available throughput of the storage pool (in MiB/s).
     /// </summary>
     public TerraformValue<double> AvailableThroughputMibps
-    {
-        get => new TerraformReference<double>(this, "available_throughput_mibps");
-    }
+        => AsReference("available_throughput_mibps");
 
     /// <summary>
     /// Total cold tier data rounded down to the nearest GiB used by the storage pool.
     /// </summary>
     public TerraformValue<string> ColdTierSizeUsedGib
-    {
-        get => new TerraformReference<string>(this, "cold_tier_size_used_gib");
-    }
+        => AsReference("cold_tier_size_used_gib");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Reports if volumes in the pool are encrypted using a Google-managed encryption key or CMEK.
     /// </summary>
     public TerraformValue<string> EncryptionType
-    {
-        get => new TerraformReference<string>(this, "encryption_type");
-    }
+        => AsReference("encryption_type");
 
     /// <summary>
     /// Total hot tier data rounded down to the nearest GiB used by the storage pool.
     /// </summary>
     public TerraformValue<string> HotTierSizeUsedGib
-    {
-        get => new TerraformReference<string>(this, "hot_tier_size_used_gib");
-    }
+        => AsReference("hot_tier_size_used_gib");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Size allocated to volumes in the storage pool (in GiB).
     /// </summary>
     public TerraformValue<string> VolumeCapacityGib
-    {
-        get => new TerraformReference<string>(this, "volume_capacity_gib");
-    }
+        => AsReference("volume_capacity_gib");
 
     /// <summary>
     /// Number of volume in the storage pool.
     /// </summary>
     public TerraformValue<double> VolumeCount
-    {
-        get => new TerraformReference<double>(this, "volume_count");
-    }
+        => AsReference("volume_count");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

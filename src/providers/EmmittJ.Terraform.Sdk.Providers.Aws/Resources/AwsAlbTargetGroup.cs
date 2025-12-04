@@ -18,7 +18,7 @@ public class AwsAlbTargetGroupHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsAlbTargetGroupHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? HealthyThreshold
     {
-        get => new TerraformReference<double>(this, "healthy_threshold");
+        get => GetArgument<TerraformValue<double>>("healthy_threshold");
         set => SetArgument("healthy_threshold", value);
     }
 
@@ -36,25 +36,25 @@ public class AwsAlbTargetGroupHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Interval
     {
-        get => new TerraformReference<double>(this, "interval");
+        get => GetArgument<TerraformValue<double>>("interval");
         set => SetArgument("interval", value);
     }
 
     /// <summary>
     /// The matcher attribute.
     /// </summary>
-    public TerraformValue<string> Matcher
+    public TerraformValue<string>? Matcher
     {
-        get => new TerraformReference<string>(this, "matcher");
+        get => GetArgument<TerraformValue<string>>("matcher");
         set => SetArgument("matcher", value);
     }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformValue<string> Path
+    public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsAlbTargetGroupHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Port
     {
-        get => new TerraformReference<string>(this, "port");
+        get => GetArgument<TerraformValue<string>>("port");
         set => SetArgument("port", value);
     }
 
@@ -72,16 +72,16 @@ public class AwsAlbTargetGroupHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    public TerraformValue<double> Timeout
+    public TerraformValue<double>? Timeout
     {
-        get => new TerraformReference<double>(this, "timeout");
+        get => GetArgument<TerraformValue<double>>("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsAlbTargetGroupHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? UnhealthyThreshold
     {
-        get => new TerraformReference<double>(this, "unhealthy_threshold");
+        get => GetArgument<TerraformValue<double>>("unhealthy_threshold");
         set => SetArgument("unhealthy_threshold", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsAlbTargetGroupStickinessBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? CookieDuration
     {
-        get => new TerraformReference<double>(this, "cookie_duration");
+        get => GetArgument<TerraformValue<double>>("cookie_duration");
         set => SetArgument("cookie_duration", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsAlbTargetGroupStickinessBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CookieName
     {
-        get => new TerraformReference<string>(this, "cookie_name");
+        get => GetArgument<TerraformValue<string>>("cookie_name");
         set => SetArgument("cookie_name", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsAlbTargetGroupStickinessBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -141,7 +141,7 @@ public class AwsAlbTargetGroupStickinessBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsAlbTargetGroupTargetFailoverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OnDeregistration is required")]
     public required TerraformValue<string> OnDeregistration
     {
-        get => new TerraformReference<string>(this, "on_deregistration");
+        get => GetArgument<TerraformValue<string>>("on_deregistration");
         set => SetArgument("on_deregistration", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsAlbTargetGroupTargetFailoverBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OnUnhealthy is required")]
     public required TerraformValue<string> OnUnhealthy
     {
-        get => new TerraformReference<string>(this, "on_unhealthy");
+        get => GetArgument<TerraformValue<string>>("on_unhealthy");
         set => SetArgument("on_unhealthy", value);
     }
 
@@ -231,7 +231,7 @@ public class AwsAlbTargetGroupTargetGroupHealthBlockDnsFailoverBlock : Terraform
     /// </summary>
     public TerraformValue<string>? MinimumHealthyTargetsCount
     {
-        get => new TerraformReference<string>(this, "minimum_healthy_targets_count");
+        get => GetArgument<TerraformValue<string>>("minimum_healthy_targets_count");
         set => SetArgument("minimum_healthy_targets_count", value);
     }
 
@@ -240,7 +240,7 @@ public class AwsAlbTargetGroupTargetGroupHealthBlockDnsFailoverBlock : Terraform
     /// </summary>
     public TerraformValue<string>? MinimumHealthyTargetsPercentage
     {
-        get => new TerraformReference<string>(this, "minimum_healthy_targets_percentage");
+        get => GetArgument<TerraformValue<string>>("minimum_healthy_targets_percentage");
         set => SetArgument("minimum_healthy_targets_percentage", value);
     }
 
@@ -262,7 +262,7 @@ public class AwsAlbTargetGroupTargetGroupHealthBlockUnhealthyStateRoutingBlock :
     /// </summary>
     public TerraformValue<double>? MinimumHealthyTargetsCount
     {
-        get => new TerraformReference<double>(this, "minimum_healthy_targets_count");
+        get => GetArgument<TerraformValue<double>>("minimum_healthy_targets_count");
         set => SetArgument("minimum_healthy_targets_count", value);
     }
 
@@ -271,7 +271,7 @@ public class AwsAlbTargetGroupTargetGroupHealthBlockUnhealthyStateRoutingBlock :
     /// </summary>
     public TerraformValue<string>? MinimumHealthyTargetsPercentage
     {
-        get => new TerraformReference<string>(this, "minimum_healthy_targets_percentage");
+        get => GetArgument<TerraformValue<string>>("minimum_healthy_targets_percentage");
         set => SetArgument("minimum_healthy_targets_percentage", value);
     }
 
@@ -295,7 +295,7 @@ public class AwsAlbTargetGroupTargetHealthStateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableUnhealthyConnectionTermination is required")]
     public required TerraformValue<bool> EnableUnhealthyConnectionTermination
     {
-        get => new TerraformReference<bool>(this, "enable_unhealthy_connection_termination");
+        get => GetArgument<TerraformValue<bool>>("enable_unhealthy_connection_termination");
         set => SetArgument("enable_unhealthy_connection_termination", value);
     }
 
@@ -304,7 +304,7 @@ public class AwsAlbTargetGroupTargetHealthStateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? UnhealthyDrainingInterval
     {
-        get => new TerraformReference<double>(this, "unhealthy_draining_interval");
+        get => GetArgument<TerraformValue<double>>("unhealthy_draining_interval");
         set => SetArgument("unhealthy_draining_interval", value);
     }
 
@@ -320,9 +320,9 @@ public partial class AwsAlbTargetGroup(string name) : TerraformResource("aws_alb
     /// <summary>
     /// The connection_termination attribute.
     /// </summary>
-    public TerraformValue<bool> ConnectionTermination
+    public TerraformValue<bool>? ConnectionTermination
     {
-        get => new TerraformReference<bool>(this, "connection_termination");
+        get => GetArgument<TerraformValue<bool>>("connection_termination");
         set => SetArgument("connection_termination", value);
     }
 
@@ -331,25 +331,25 @@ public partial class AwsAlbTargetGroup(string name) : TerraformResource("aws_alb
     /// </summary>
     public TerraformValue<string>? DeregistrationDelay
     {
-        get => new TerraformReference<string>(this, "deregistration_delay");
+        get => GetArgument<TerraformValue<string>>("deregistration_delay");
         set => SetArgument("deregistration_delay", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformValue<string> IpAddressType
+    public TerraformValue<string>? IpAddressType
     {
-        get => new TerraformReference<string>(this, "ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
@@ -358,52 +358,52 @@ public partial class AwsAlbTargetGroup(string name) : TerraformResource("aws_alb
     /// </summary>
     public TerraformValue<bool>? LambdaMultiValueHeadersEnabled
     {
-        get => new TerraformReference<bool>(this, "lambda_multi_value_headers_enabled");
+        get => GetArgument<TerraformValue<bool>>("lambda_multi_value_headers_enabled");
         set => SetArgument("lambda_multi_value_headers_enabled", value);
     }
 
     /// <summary>
     /// The load_balancing_algorithm_type attribute.
     /// </summary>
-    public TerraformValue<string> LoadBalancingAlgorithmType
+    public TerraformValue<string>? LoadBalancingAlgorithmType
     {
-        get => new TerraformReference<string>(this, "load_balancing_algorithm_type");
+        get => GetArgument<TerraformValue<string>>("load_balancing_algorithm_type");
         set => SetArgument("load_balancing_algorithm_type", value);
     }
 
     /// <summary>
     /// The load_balancing_anomaly_mitigation attribute.
     /// </summary>
-    public TerraformValue<string> LoadBalancingAnomalyMitigation
+    public TerraformValue<string>? LoadBalancingAnomalyMitigation
     {
-        get => new TerraformReference<string>(this, "load_balancing_anomaly_mitigation");
+        get => GetArgument<TerraformValue<string>>("load_balancing_anomaly_mitigation");
         set => SetArgument("load_balancing_anomaly_mitigation", value);
     }
 
     /// <summary>
     /// The load_balancing_cross_zone_enabled attribute.
     /// </summary>
-    public TerraformValue<string> LoadBalancingCrossZoneEnabled
+    public TerraformValue<string>? LoadBalancingCrossZoneEnabled
     {
-        get => new TerraformReference<string>(this, "load_balancing_cross_zone_enabled");
+        get => GetArgument<TerraformValue<string>>("load_balancing_cross_zone_enabled");
         set => SetArgument("load_balancing_cross_zone_enabled", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -412,16 +412,16 @@ public partial class AwsAlbTargetGroup(string name) : TerraformResource("aws_alb
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
     /// <summary>
     /// The preserve_client_ip attribute.
     /// </summary>
-    public TerraformValue<string> PreserveClientIp
+    public TerraformValue<string>? PreserveClientIp
     {
-        get => new TerraformReference<string>(this, "preserve_client_ip");
+        get => GetArgument<TerraformValue<string>>("preserve_client_ip");
         set => SetArgument("preserve_client_ip", value);
     }
 
@@ -430,16 +430,16 @@ public partial class AwsAlbTargetGroup(string name) : TerraformResource("aws_alb
     /// </summary>
     public TerraformValue<string>? Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
     /// <summary>
     /// The protocol_version attribute.
     /// </summary>
-    public TerraformValue<string> ProtocolVersion
+    public TerraformValue<string>? ProtocolVersion
     {
-        get => new TerraformReference<string>(this, "protocol_version");
+        get => GetArgument<TerraformValue<string>>("protocol_version");
         set => SetArgument("protocol_version", value);
     }
 
@@ -448,16 +448,16 @@ public partial class AwsAlbTargetGroup(string name) : TerraformResource("aws_alb
     /// </summary>
     public TerraformValue<bool>? ProxyProtocolV2
     {
-        get => new TerraformReference<bool>(this, "proxy_protocol_v2");
+        get => GetArgument<TerraformValue<bool>>("proxy_protocol_v2");
         set => SetArgument("proxy_protocol_v2", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -466,7 +466,7 @@ public partial class AwsAlbTargetGroup(string name) : TerraformResource("aws_alb
     /// </summary>
     public TerraformValue<double>? SlowStart
     {
-        get => new TerraformReference<double>(this, "slow_start");
+        get => GetArgument<TerraformValue<double>>("slow_start");
         set => SetArgument("slow_start", value);
     }
 
@@ -475,16 +475,16 @@ public partial class AwsAlbTargetGroup(string name) : TerraformResource("aws_alb
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -493,7 +493,7 @@ public partial class AwsAlbTargetGroup(string name) : TerraformResource("aws_alb
     /// </summary>
     public TerraformValue<string>? TargetType
     {
-        get => new TerraformReference<string>(this, "target_type");
+        get => GetArgument<TerraformValue<string>>("target_type");
         set => SetArgument("target_type", value);
     }
 
@@ -502,7 +502,7 @@ public partial class AwsAlbTargetGroup(string name) : TerraformResource("aws_alb
     /// </summary>
     public TerraformValue<string>? VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -510,25 +510,19 @@ public partial class AwsAlbTargetGroup(string name) : TerraformResource("aws_alb
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The arn_suffix attribute.
     /// </summary>
     public TerraformValue<string> ArnSuffix
-    {
-        get => new TerraformReference<string>(this, "arn_suffix");
-    }
+        => AsReference("arn_suffix");
 
     /// <summary>
     /// The load_balancer_arns attribute.
     /// </summary>
     public TerraformSet<string> LoadBalancerArns
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "load_balancer_arns").ResolveNodes(ctx));
-    }
+        => AsReference("load_balancer_arns");
 
     /// <summary>
     /// HealthCheck block (nesting mode: list).

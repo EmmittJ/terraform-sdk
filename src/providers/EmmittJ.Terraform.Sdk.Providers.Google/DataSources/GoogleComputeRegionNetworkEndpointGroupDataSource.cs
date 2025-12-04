@@ -11,9 +11,9 @@ public partial class GoogleComputeRegionNetworkEndpointGroupDataSource(string na
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -28,7 +28,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroupDataSource(string na
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -37,7 +37,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroupDataSource(string na
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -46,7 +46,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroupDataSource(string na
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroupDataSource(string na
     /// </summary>
     public TerraformValue<string>? SelfLink
     {
-        get => new TerraformReference<string>(this, "self_link");
+        get => GetArgument<TerraformValue<string>>("self_link");
         set => SetArgument("self_link", value);
     }
 
@@ -65,9 +65,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroupDataSource(string na
     /// Only one of cloud_run, app_engine, cloud_function or serverless_deployment may be set.
     /// </summary>
     public TerraformList<TerraformMap<object>> AppEngine
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "app_engine").ResolveNodes(ctx));
-    }
+        => AsReference("app_engine");
 
     /// <summary>
     /// This field is only used for SERVERLESS NEGs.
@@ -75,9 +73,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroupDataSource(string na
     /// Only one of cloud_run, app_engine, cloud_function or serverless_deployment may be set.
     /// </summary>
     public TerraformList<TerraformMap<object>> CloudFunction
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cloud_function").ResolveNodes(ctx));
-    }
+        => AsReference("cloud_function");
 
     /// <summary>
     /// This field is only used for SERVERLESS NEGs.
@@ -85,18 +81,14 @@ public partial class GoogleComputeRegionNetworkEndpointGroupDataSource(string na
     /// Only one of cloud_run, app_engine, cloud_function or serverless_deployment may be set.
     /// </summary>
     public TerraformList<TerraformMap<object>> CloudRun
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cloud_run").ResolveNodes(ctx));
-    }
+        => AsReference("cloud_run");
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// This field is only used for PSC and INTERNET NEGs.
@@ -105,25 +97,19 @@ public partial class GoogleComputeRegionNetworkEndpointGroupDataSource(string na
     /// &amp;quot;default&amp;quot; project network if unspecified.
     /// </summary>
     public TerraformValue<string> Network
-    {
-        get => new TerraformReference<string>(this, "network");
-    }
+        => AsReference("network");
 
     /// <summary>
     /// Type of network endpoints in this network endpoint group. Defaults to SERVERLESS. Default value: &amp;quot;SERVERLESS&amp;quot; Possible values: [&amp;quot;SERVERLESS&amp;quot;, &amp;quot;PRIVATE_SERVICE_CONNECT&amp;quot;, &amp;quot;INTERNET_IP_PORT&amp;quot;, &amp;quot;INTERNET_FQDN_PORT&amp;quot;, &amp;quot;GCE_VM_IP_PORTMAP&amp;quot;]
     /// </summary>
     public TerraformValue<string> NetworkEndpointType
-    {
-        get => new TerraformReference<string>(this, "network_endpoint_type");
-    }
+        => AsReference("network_endpoint_type");
 
     /// <summary>
     /// This field is only used for PSC NEGs.
     /// </summary>
     public TerraformList<TerraformMap<object>> PscData
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "psc_data").ResolveNodes(ctx));
-    }
+        => AsReference("psc_data");
 
     /// <summary>
     /// This field is only used for PSC and INTERNET NEGs.
@@ -132,9 +118,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroupDataSource(string na
     /// a Google API or a PSC Producer Service Attachment.
     /// </summary>
     public TerraformValue<string> PscTargetService
-    {
-        get => new TerraformReference<string>(this, "psc_target_service");
-    }
+        => AsReference("psc_target_service");
 
     /// <summary>
     /// This field is only used for PSC NEGs.
@@ -142,8 +126,6 @@ public partial class GoogleComputeRegionNetworkEndpointGroupDataSource(string na
     /// Optional URL of the subnetwork to which all network endpoints in the NEG belong.
     /// </summary>
     public TerraformValue<string> Subnetwork
-    {
-        get => new TerraformReference<string>(this, "subnetwork");
-    }
+        => AsReference("subnetwork");
 
 }

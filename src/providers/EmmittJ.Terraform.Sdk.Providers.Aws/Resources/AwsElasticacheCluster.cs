@@ -19,7 +19,7 @@ public class AwsElasticacheClusterLogDeliveryConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformValue<string> Destination
     {
-        get => new TerraformReference<string>(this, "destination");
+        get => GetArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsElasticacheClusterLogDeliveryConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationType is required")]
     public required TerraformValue<string> DestinationType
     {
-        get => new TerraformReference<string>(this, "destination_type");
+        get => GetArgument<TerraformValue<string>>("destination_type");
         set => SetArgument("destination_type", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsElasticacheClusterLogDeliveryConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogFormat is required")]
     public required TerraformValue<string> LogFormat
     {
-        get => new TerraformReference<string>(this, "log_format");
+        get => GetArgument<TerraformValue<string>>("log_format");
         set => SetArgument("log_format", value);
     }
 
@@ -49,7 +49,7 @@ public class AwsElasticacheClusterLogDeliveryConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
     public required TerraformValue<string> LogType
     {
-        get => new TerraformReference<string>(this, "log_type");
+        get => GetArgument<TerraformValue<string>>("log_type");
         set => SetArgument("log_type", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsElasticacheClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsElasticacheClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsElasticacheClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -106,9 +106,9 @@ public partial class AwsElasticacheCluster(string name) : TerraformResource("aws
     /// <summary>
     /// The apply_immediately attribute.
     /// </summary>
-    public TerraformValue<bool> ApplyImmediately
+    public TerraformValue<bool>? ApplyImmediately
     {
-        get => new TerraformReference<bool>(this, "apply_immediately");
+        get => GetArgument<TerraformValue<bool>>("apply_immediately");
         set => SetArgument("apply_immediately", value);
     }
 
@@ -117,25 +117,25 @@ public partial class AwsElasticacheCluster(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? AutoMinorVersionUpgrade
     {
-        get => new TerraformReference<string>(this, "auto_minor_version_upgrade");
+        get => GetArgument<TerraformValue<string>>("auto_minor_version_upgrade");
         set => SetArgument("auto_minor_version_upgrade", value);
     }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformValue<string> AvailabilityZone
+    public TerraformValue<string>? AvailabilityZone
     {
-        get => new TerraformReference<string>(this, "availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
     /// <summary>
     /// The az_mode attribute.
     /// </summary>
-    public TerraformValue<string> AzMode
+    public TerraformValue<string>? AzMode
     {
-        get => new TerraformReference<string>(this, "az_mode");
+        get => GetArgument<TerraformValue<string>>("az_mode");
         set => SetArgument("az_mode", value);
     }
 
@@ -145,25 +145,25 @@ public partial class AwsElasticacheCluster(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => new TerraformReference<string>(this, "cluster_id");
+        get => GetArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformValue<string> Engine
+    public TerraformValue<string>? Engine
     {
-        get => new TerraformReference<string>(this, "engine");
+        get => GetArgument<TerraformValue<string>>("engine");
         set => SetArgument("engine", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformValue<string> EngineVersion
+    public TerraformValue<string>? EngineVersion
     {
-        get => new TerraformReference<string>(this, "engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -172,52 +172,52 @@ public partial class AwsElasticacheCluster(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? FinalSnapshotIdentifier
     {
-        get => new TerraformReference<string>(this, "final_snapshot_identifier");
+        get => GetArgument<TerraformValue<string>>("final_snapshot_identifier");
         set => SetArgument("final_snapshot_identifier", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The ip_discovery attribute.
     /// </summary>
-    public TerraformValue<string> IpDiscovery
+    public TerraformValue<string>? IpDiscovery
     {
-        get => new TerraformReference<string>(this, "ip_discovery");
+        get => GetArgument<TerraformValue<string>>("ip_discovery");
         set => SetArgument("ip_discovery", value);
     }
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
-    public TerraformValue<string> MaintenanceWindow
+    public TerraformValue<string>? MaintenanceWindow
     {
-        get => new TerraformReference<string>(this, "maintenance_window");
+        get => GetArgument<TerraformValue<string>>("maintenance_window");
         set => SetArgument("maintenance_window", value);
     }
 
     /// <summary>
     /// The network_type attribute.
     /// </summary>
-    public TerraformValue<string> NetworkType
+    public TerraformValue<string>? NetworkType
     {
-        get => new TerraformReference<string>(this, "network_type");
+        get => GetArgument<TerraformValue<string>>("network_type");
         set => SetArgument("network_type", value);
     }
 
     /// <summary>
     /// The node_type attribute.
     /// </summary>
-    public TerraformValue<string> NodeType
+    public TerraformValue<string>? NodeType
     {
-        get => new TerraformReference<string>(this, "node_type");
+        get => GetArgument<TerraformValue<string>>("node_type");
         set => SetArgument("node_type", value);
     }
 
@@ -226,16 +226,16 @@ public partial class AwsElasticacheCluster(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? NotificationTopicArn
     {
-        get => new TerraformReference<string>(this, "notification_topic_arn");
+        get => GetArgument<TerraformValue<string>>("notification_topic_arn");
         set => SetArgument("notification_topic_arn", value);
     }
 
     /// <summary>
     /// The num_cache_nodes attribute.
     /// </summary>
-    public TerraformValue<double> NumCacheNodes
+    public TerraformValue<double>? NumCacheNodes
     {
-        get => new TerraformReference<double>(this, "num_cache_nodes");
+        get => GetArgument<TerraformValue<double>>("num_cache_nodes");
         set => SetArgument("num_cache_nodes", value);
     }
 
@@ -244,25 +244,25 @@ public partial class AwsElasticacheCluster(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? OutpostMode
     {
-        get => new TerraformReference<string>(this, "outpost_mode");
+        get => GetArgument<TerraformValue<string>>("outpost_mode");
         set => SetArgument("outpost_mode", value);
     }
 
     /// <summary>
     /// The parameter_group_name attribute.
     /// </summary>
-    public TerraformValue<string> ParameterGroupName
+    public TerraformValue<string>? ParameterGroupName
     {
-        get => new TerraformReference<string>(this, "parameter_group_name");
+        get => GetArgument<TerraformValue<string>>("parameter_group_name");
         set => SetArgument("parameter_group_name", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformValue<double> Port
+    public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -271,43 +271,43 @@ public partial class AwsElasticacheCluster(string name) : TerraformResource("aws
     /// </summary>
     public TerraformList<string>? PreferredAvailabilityZones
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "preferred_availability_zones").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("preferred_availability_zones");
         set => SetArgument("preferred_availability_zones", value);
     }
 
     /// <summary>
     /// The preferred_outpost_arn attribute.
     /// </summary>
-    public TerraformValue<string> PreferredOutpostArn
+    public TerraformValue<string>? PreferredOutpostArn
     {
-        get => new TerraformReference<string>(this, "preferred_outpost_arn");
+        get => GetArgument<TerraformValue<string>>("preferred_outpost_arn");
         set => SetArgument("preferred_outpost_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The replication_group_id attribute.
     /// </summary>
-    public TerraformValue<string> ReplicationGroupId
+    public TerraformValue<string>? ReplicationGroupId
     {
-        get => new TerraformReference<string>(this, "replication_group_id");
+        get => GetArgument<TerraformValue<string>>("replication_group_id");
         set => SetArgument("replication_group_id", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string> SecurityGroupIds
+    public TerraformSet<string>? SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -316,7 +316,7 @@ public partial class AwsElasticacheCluster(string name) : TerraformResource("aws
     /// </summary>
     public TerraformList<string>? SnapshotArns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "snapshot_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("snapshot_arns");
         set => SetArgument("snapshot_arns", value);
     }
 
@@ -325,7 +325,7 @@ public partial class AwsElasticacheCluster(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? SnapshotName
     {
-        get => new TerraformReference<string>(this, "snapshot_name");
+        get => GetArgument<TerraformValue<string>>("snapshot_name");
         set => SetArgument("snapshot_name", value);
     }
 
@@ -334,25 +334,25 @@ public partial class AwsElasticacheCluster(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<double>? SnapshotRetentionLimit
     {
-        get => new TerraformReference<double>(this, "snapshot_retention_limit");
+        get => GetArgument<TerraformValue<double>>("snapshot_retention_limit");
         set => SetArgument("snapshot_retention_limit", value);
     }
 
     /// <summary>
     /// The snapshot_window attribute.
     /// </summary>
-    public TerraformValue<string> SnapshotWindow
+    public TerraformValue<string>? SnapshotWindow
     {
-        get => new TerraformReference<string>(this, "snapshot_window");
+        get => GetArgument<TerraformValue<string>>("snapshot_window");
         set => SetArgument("snapshot_window", value);
     }
 
     /// <summary>
     /// The subnet_group_name attribute.
     /// </summary>
-    public TerraformValue<string> SubnetGroupName
+    public TerraformValue<string>? SubnetGroupName
     {
-        get => new TerraformReference<string>(this, "subnet_group_name");
+        get => GetArgument<TerraformValue<string>>("subnet_group_name");
         set => SetArgument("subnet_group_name", value);
     }
 
@@ -361,25 +361,25 @@ public partial class AwsElasticacheCluster(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The transit_encryption_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> TransitEncryptionEnabled
+    public TerraformValue<bool>? TransitEncryptionEnabled
     {
-        get => new TerraformReference<bool>(this, "transit_encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("transit_encryption_enabled");
         set => SetArgument("transit_encryption_enabled", value);
     }
 
@@ -387,41 +387,31 @@ public partial class AwsElasticacheCluster(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The cache_nodes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CacheNodes
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cache_nodes").ResolveNodes(ctx));
-    }
+        => AsReference("cache_nodes");
 
     /// <summary>
     /// The cluster_address attribute.
     /// </summary>
     public TerraformValue<string> ClusterAddress
-    {
-        get => new TerraformReference<string>(this, "cluster_address");
-    }
+        => AsReference("cluster_address");
 
     /// <summary>
     /// The configuration_endpoint attribute.
     /// </summary>
     public TerraformValue<string> ConfigurationEndpoint
-    {
-        get => new TerraformReference<string>(this, "configuration_endpoint");
-    }
+        => AsReference("configuration_endpoint");
 
     /// <summary>
     /// The engine_version_actual attribute.
     /// </summary>
     public TerraformValue<string> EngineVersionActual
-    {
-        get => new TerraformReference<string>(this, "engine_version_actual");
-    }
+        => AsReference("engine_version_actual");
 
     /// <summary>
     /// LogDeliveryConfiguration block (nesting mode: set).

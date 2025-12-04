@@ -13,16 +13,16 @@ public partial class AwsCloudfrontOriginAccessIdentity(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Comment
     {
-        get => new TerraformReference<string>(this, "comment");
+        get => GetArgument<TerraformValue<string>>("comment");
         set => SetArgument("comment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -30,48 +30,36 @@ public partial class AwsCloudfrontOriginAccessIdentity(string name) : TerraformR
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
     public TerraformValue<string> CallerReference
-    {
-        get => new TerraformReference<string>(this, "caller_reference");
-    }
+        => AsReference("caller_reference");
 
     /// <summary>
     /// The cloudfront_access_identity_path attribute.
     /// </summary>
     public TerraformValue<string> CloudfrontAccessIdentityPath
-    {
-        get => new TerraformReference<string>(this, "cloudfront_access_identity_path");
-    }
+        => AsReference("cloudfront_access_identity_path");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The iam_arn attribute.
     /// </summary>
     public TerraformValue<string> IamArn
-    {
-        get => new TerraformReference<string>(this, "iam_arn");
-    }
+        => AsReference("iam_arn");
 
     /// <summary>
     /// The s3_canonical_user_id attribute.
     /// </summary>
     public TerraformValue<string> S3CanonicalUserId
-    {
-        get => new TerraformReference<string>(this, "s3_canonical_user_id");
-    }
+        => AsReference("s3_canonical_user_id");
 
 }

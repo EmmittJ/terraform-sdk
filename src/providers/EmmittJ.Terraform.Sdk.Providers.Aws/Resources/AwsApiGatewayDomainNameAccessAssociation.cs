@@ -14,7 +14,7 @@ public partial class AwsApiGatewayDomainNameAccessAssociation(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessAssociationSource is required")]
     public required TerraformValue<string> AccessAssociationSource
     {
-        get => new TerraformReference<string>(this, "access_association_source");
+        get => GetArgument<TerraformValue<string>>("access_association_source");
         set => SetArgument("access_association_source", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsApiGatewayDomainNameAccessAssociation(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessAssociationSourceType is required")]
     public required TerraformValue<string> AccessAssociationSourceType
     {
-        get => new TerraformReference<string>(this, "access_association_source_type");
+        get => GetArgument<TerraformValue<string>>("access_association_source_type");
         set => SetArgument("access_association_source_type", value);
     }
 
@@ -34,16 +34,16 @@ public partial class AwsApiGatewayDomainNameAccessAssociation(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainNameArn is required")]
     public required TerraformValue<string> DomainNameArn
     {
-        get => new TerraformReference<string>(this, "domain_name_arn");
+        get => GetArgument<TerraformValue<string>>("domain_name_arn");
         set => SetArgument("domain_name_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsApiGatewayDomainNameAccessAssociation(string name) : Ter
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -60,25 +60,19 @@ public partial class AwsApiGatewayDomainNameAccessAssociation(string name) : Ter
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
 }

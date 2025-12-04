@@ -18,7 +18,7 @@ public class GoogleIdentityPlatformTenantDefaultSupportedIdpConfigTimeoutsBlock 
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleIdentityPlatformTenantDefaultSupportedIdpConfigTimeoutsBlock 
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleIdentityPlatformTenantDefaultSupportedIdpConfigTimeoutsBlock 
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleIdentityPlatformTenantDefaultSupportedIdpConfig(strin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleIdentityPlatformTenantDefaultSupportedIdpConfig(strin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformValue<string> ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -74,16 +74,16 @@ public partial class GoogleIdentityPlatformTenantDefaultSupportedIdpConfig(strin
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -113,16 +113,16 @@ public partial class GoogleIdentityPlatformTenantDefaultSupportedIdpConfig(strin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpId is required")]
     public required TerraformValue<string> IdpId
     {
-        get => new TerraformReference<string>(this, "idp_id");
+        get => GetArgument<TerraformValue<string>>("idp_id");
         set => SetArgument("idp_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -132,7 +132,7 @@ public partial class GoogleIdentityPlatformTenantDefaultSupportedIdpConfig(strin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tenant is required")]
     public required TerraformValue<string> Tenant
     {
-        get => new TerraformReference<string>(this, "tenant");
+        get => GetArgument<TerraformValue<string>>("tenant");
         set => SetArgument("tenant", value);
     }
 
@@ -140,9 +140,7 @@ public partial class GoogleIdentityPlatformTenantDefaultSupportedIdpConfig(strin
     /// The name of the default supported IDP config resource
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

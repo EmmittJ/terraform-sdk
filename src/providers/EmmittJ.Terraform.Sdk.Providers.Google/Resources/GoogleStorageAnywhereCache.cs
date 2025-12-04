@@ -18,7 +18,7 @@ public class GoogleStorageAnywhereCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleStorageAnywhereCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleStorageAnywhereCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,7 +54,7 @@ public partial class GoogleStorageAnywhereCache(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? AdmissionPolicy
     {
-        get => new TerraformReference<string>(this, "admission_policy");
+        get => GetArgument<TerraformValue<string>>("admission_policy");
         set => SetArgument("admission_policy", value);
     }
 
@@ -64,16 +64,16 @@ public partial class GoogleStorageAnywhereCache(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class GoogleStorageAnywhereCache(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Ttl
     {
-        get => new TerraformReference<string>(this, "ttl");
+        get => GetArgument<TerraformValue<string>>("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -92,7 +92,7 @@ public partial class GoogleStorageAnywhereCache(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     public required TerraformValue<string> Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -100,41 +100,31 @@ public partial class GoogleStorageAnywhereCache(string name) : TerraformResource
     /// The ID of the Anywhere cache instance.
     /// </summary>
     public TerraformValue<string> AnywhereCacheId
-    {
-        get => new TerraformReference<string>(this, "anywhere_cache_id");
-    }
+        => AsReference("anywhere_cache_id");
 
     /// <summary>
     /// The creation time of the cache instance in RFC 3339 format.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// True if the cache instance has an active Update long-running operation.
     /// </summary>
     public TerraformValue<bool> PendingUpdate
-    {
-        get => new TerraformReference<bool>(this, "pending_update");
-    }
+        => AsReference("pending_update");
 
     /// <summary>
     /// The current state of the cache instance.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The modification time of the cache instance metadata in RFC 3339 format.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

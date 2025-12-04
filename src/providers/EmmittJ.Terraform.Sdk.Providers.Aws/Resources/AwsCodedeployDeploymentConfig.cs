@@ -18,7 +18,7 @@ public class AwsCodedeployDeploymentConfigMinimumHealthyHostsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsCodedeployDeploymentConfigMinimumHealthyHostsBlock : TerraformBl
     /// </summary>
     public TerraformValue<double>? Value
     {
-        get => new TerraformReference<double>(this, "value");
+        get => GetArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsCodedeployDeploymentConfigTrafficRoutingConfigBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsCodedeployDeploymentConfigTrafficRoutingConfigBlockTimeBasedCana
     /// </summary>
     public TerraformValue<double>? Interval
     {
-        get => new TerraformReference<double>(this, "interval");
+        get => GetArgument<TerraformValue<double>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsCodedeployDeploymentConfigTrafficRoutingConfigBlockTimeBasedCana
     /// </summary>
     public TerraformValue<double>? Percentage
     {
-        get => new TerraformReference<double>(this, "percentage");
+        get => GetArgument<TerraformValue<double>>("percentage");
         set => SetArgument("percentage", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsCodedeployDeploymentConfigTrafficRoutingConfigBlockTimeBasedLine
     /// </summary>
     public TerraformValue<double>? Interval
     {
-        get => new TerraformReference<double>(this, "interval");
+        get => GetArgument<TerraformValue<double>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -132,7 +132,7 @@ public class AwsCodedeployDeploymentConfigTrafficRoutingConfigBlockTimeBasedLine
     /// </summary>
     public TerraformValue<double>? Percentage
     {
-        get => new TerraformReference<double>(this, "percentage");
+        get => GetArgument<TerraformValue<double>>("percentage");
         set => SetArgument("percentage", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsCodedeployDeploymentConfigZonalConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? FirstZoneMonitorDurationInSeconds
     {
-        get => new TerraformReference<double>(this, "first_zone_monitor_duration_in_seconds");
+        get => GetArgument<TerraformValue<double>>("first_zone_monitor_duration_in_seconds");
         set => SetArgument("first_zone_monitor_duration_in_seconds", value);
     }
 
@@ -164,7 +164,7 @@ public class AwsCodedeployDeploymentConfigZonalConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MonitorDurationInSeconds
     {
-        get => new TerraformReference<double>(this, "monitor_duration_in_seconds");
+        get => GetArgument<TerraformValue<double>>("monitor_duration_in_seconds");
         set => SetArgument("monitor_duration_in_seconds", value);
     }
 
@@ -196,7 +196,7 @@ public class AwsCodedeployDeploymentConfigZonalConfigBlockMinimumHealthyHostsPer
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -205,7 +205,7 @@ public class AwsCodedeployDeploymentConfigZonalConfigBlockMinimumHealthyHostsPer
     /// </summary>
     public TerraformValue<double>? Value
     {
-        get => new TerraformReference<double>(this, "value");
+        get => GetArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -223,7 +223,7 @@ public partial class AwsCodedeployDeploymentConfig(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? ComputePlatform
     {
-        get => new TerraformReference<string>(this, "compute_platform");
+        get => GetArgument<TerraformValue<string>>("compute_platform");
         set => SetArgument("compute_platform", value);
     }
 
@@ -233,25 +233,25 @@ public partial class AwsCodedeployDeploymentConfig(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentConfigName is required")]
     public required TerraformValue<string> DeploymentConfigName
     {
-        get => new TerraformReference<string>(this, "deployment_config_name");
+        get => GetArgument<TerraformValue<string>>("deployment_config_name");
         set => SetArgument("deployment_config_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -259,17 +259,13 @@ public partial class AwsCodedeployDeploymentConfig(string name) : TerraformResou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The deployment_config_id attribute.
     /// </summary>
     public TerraformValue<string> DeploymentConfigId
-    {
-        get => new TerraformReference<string>(this, "deployment_config_id");
-    }
+        => AsReference("deployment_config_id");
 
     /// <summary>
     /// MinimumHealthyHosts block (nesting mode: list).

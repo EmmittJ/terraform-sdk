@@ -19,7 +19,7 @@ public class AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock : Terr
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -46,16 +46,16 @@ public partial class AwsResourcegroupstaggingapiResourcesDataSource(string name)
     /// </summary>
     public TerraformValue<bool>? ExcludeCompliantResources
     {
-        get => new TerraformReference<bool>(this, "exclude_compliant_resources");
+        get => GetArgument<TerraformValue<bool>>("exclude_compliant_resources");
         set => SetArgument("exclude_compliant_resources", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AwsResourcegroupstaggingapiResourcesDataSource(string name)
     /// </summary>
     public TerraformValue<bool>? IncludeComplianceDetails
     {
-        get => new TerraformReference<bool>(this, "include_compliance_details");
+        get => GetArgument<TerraformValue<bool>>("include_compliance_details");
         set => SetArgument("include_compliance_details", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsResourcegroupstaggingapiResourcesDataSource(string name)
     /// </summary>
     public TerraformSet<string>? ResourceArnList
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "resource_arn_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("resource_arn_list");
         set => SetArgument("resource_arn_list", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsResourcegroupstaggingapiResourcesDataSource(string name)
     /// </summary>
     public TerraformSet<string>? ResourceTypeFilters
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "resource_type_filters").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("resource_type_filters");
         set => SetArgument("resource_type_filters", value);
     }
 
@@ -99,9 +99,7 @@ public partial class AwsResourcegroupstaggingapiResourcesDataSource(string name)
     /// The resource_tag_mapping_list attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ResourceTagMappingList
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "resource_tag_mapping_list").ResolveNodes(ctx));
-    }
+        => AsReference("resource_tag_mapping_list");
 
     /// <summary>
     /// TagFilter block (nesting mode: list).

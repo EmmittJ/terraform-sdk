@@ -11,9 +11,9 @@ public partial class AwsLightsailStaticIpAttachment(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsLightsailStaticIpAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformValue<string> InstanceName
     {
-        get => new TerraformReference<string>(this, "instance_name");
+        get => GetArgument<TerraformValue<string>>("instance_name");
         set => SetArgument("instance_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsLightsailStaticIpAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StaticIpName is required")]
     public required TerraformValue<string> StaticIpName
     {
-        get => new TerraformReference<string>(this, "static_ip_name");
+        get => GetArgument<TerraformValue<string>>("static_ip_name");
         set => SetArgument("static_ip_name", value);
     }
 
@@ -50,8 +50,6 @@ public partial class AwsLightsailStaticIpAttachment(string name) : TerraformReso
     /// The ip_address attribute.
     /// </summary>
     public TerraformValue<string> IpAddress
-    {
-        get => new TerraformReference<string>(this, "ip_address");
-    }
+        => AsReference("ip_address");
 
 }

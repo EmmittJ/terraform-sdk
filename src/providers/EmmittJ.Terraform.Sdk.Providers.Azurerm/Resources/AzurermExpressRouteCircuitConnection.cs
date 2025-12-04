@@ -18,7 +18,7 @@ public class AzurermExpressRouteCircuitConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermExpressRouteCircuitConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermExpressRouteCircuitConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermExpressRouteCircuitConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermExpressRouteCircuitConnection(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefixIpv4 is required")]
     public required TerraformValue<string> AddressPrefixIpv4
     {
-        get => new TerraformReference<string>(this, "address_prefix_ipv4");
+        get => GetArgument<TerraformValue<string>>("address_prefix_ipv4");
         set => SetArgument("address_prefix_ipv4", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermExpressRouteCircuitConnection(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? AddressPrefixIpv6
     {
-        get => new TerraformReference<string>(this, "address_prefix_ipv6");
+        get => GetArgument<TerraformValue<string>>("address_prefix_ipv6");
         set => SetArgument("address_prefix_ipv6", value);
     }
 
@@ -82,16 +82,16 @@ public partial class AzurermExpressRouteCircuitConnection(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? AuthorizationKey
     {
-        get => new TerraformReference<string>(this, "authorization_key");
+        get => GetArgument<TerraformValue<string>>("authorization_key");
         set => SetArgument("authorization_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermExpressRouteCircuitConnection(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermExpressRouteCircuitConnection(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerPeeringId is required")]
     public required TerraformValue<string> PeerPeeringId
     {
-        get => new TerraformReference<string>(this, "peer_peering_id");
+        get => GetArgument<TerraformValue<string>>("peer_peering_id");
         set => SetArgument("peer_peering_id", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermExpressRouteCircuitConnection(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringId is required")]
     public required TerraformValue<string> PeeringId
     {
-        get => new TerraformReference<string>(this, "peering_id");
+        get => GetArgument<TerraformValue<string>>("peering_id");
         set => SetArgument("peering_id", value);
     }
 

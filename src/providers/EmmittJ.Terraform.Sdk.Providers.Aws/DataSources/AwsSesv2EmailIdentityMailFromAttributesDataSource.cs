@@ -14,25 +14,25 @@ public partial class AwsSesv2EmailIdentityMailFromAttributesDataSource(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailIdentity is required")]
     public required TerraformValue<string> EmailIdentity
     {
-        get => new TerraformReference<string>(this, "email_identity");
+        get => GetArgument<TerraformValue<string>>("email_identity");
         set => SetArgument("email_identity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -40,16 +40,12 @@ public partial class AwsSesv2EmailIdentityMailFromAttributesDataSource(string na
     /// The behavior_on_mx_failure attribute.
     /// </summary>
     public TerraformValue<string> BehaviorOnMxFailure
-    {
-        get => new TerraformReference<string>(this, "behavior_on_mx_failure");
-    }
+        => AsReference("behavior_on_mx_failure");
 
     /// <summary>
     /// The mail_from_domain attribute.
     /// </summary>
     public TerraformValue<string> MailFromDomain
-    {
-        get => new TerraformReference<string>(this, "mail_from_domain");
-    }
+        => AsReference("mail_from_domain");
 
 }

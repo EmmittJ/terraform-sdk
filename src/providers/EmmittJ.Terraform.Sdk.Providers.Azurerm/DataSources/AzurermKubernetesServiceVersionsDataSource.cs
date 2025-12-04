@@ -18,7 +18,7 @@ public class AzurermKubernetesServiceVersionsDataSourceTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermKubernetesServiceVersionsDataSource(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzurermKubernetesServiceVersionsDataSource(string name) : T
     /// </summary>
     public TerraformValue<bool>? IncludePreview
     {
-        get => new TerraformReference<bool>(this, "include_preview");
+        get => GetArgument<TerraformValue<bool>>("include_preview");
         set => SetArgument("include_preview", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermKubernetesServiceVersionsDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermKubernetesServiceVersionsDataSource(string name) : T
     /// </summary>
     public TerraformValue<string>? VersionPrefix
     {
-        get => new TerraformReference<string>(this, "version_prefix");
+        get => GetArgument<TerraformValue<string>>("version_prefix");
         set => SetArgument("version_prefix", value);
     }
 
@@ -72,25 +72,19 @@ public partial class AzurermKubernetesServiceVersionsDataSource(string name) : T
     /// The default_version attribute.
     /// </summary>
     public TerraformValue<string> DefaultVersion
-    {
-        get => new TerraformReference<string>(this, "default_version");
-    }
+        => AsReference("default_version");
 
     /// <summary>
     /// The latest_version attribute.
     /// </summary>
     public TerraformValue<string> LatestVersion
-    {
-        get => new TerraformReference<string>(this, "latest_version");
-    }
+        => AsReference("latest_version");
 
     /// <summary>
     /// The versions attribute.
     /// </summary>
     public TerraformList<string> Versions
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "versions").ResolveNodes(ctx));
-    }
+        => AsReference("versions");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

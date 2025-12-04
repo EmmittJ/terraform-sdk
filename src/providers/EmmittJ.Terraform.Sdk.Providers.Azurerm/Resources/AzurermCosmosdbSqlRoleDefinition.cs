@@ -19,7 +19,7 @@ public class AzurermCosmosdbSqlRoleDefinitionPermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataActions is required")]
     public required TerraformSet<string> DataActions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "data_actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("data_actions");
         set => SetArgument("data_actions", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermCosmosdbSqlRoleDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermCosmosdbSqlRoleDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermCosmosdbSqlRoleDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermCosmosdbSqlRoleDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AzurermCosmosdbSqlRoleDefinition(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => new TerraformReference<string>(this, "account_name");
+        get => GetArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -98,16 +98,16 @@ public partial class AzurermCosmosdbSqlRoleDefinition(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssignableScopes is required")]
     public required TerraformSet<string> AssignableScopes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "assignable_scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("assignable_scopes");
         set => SetArgument("assignable_scopes", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AzurermCosmosdbSqlRoleDefinition(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -127,16 +127,16 @@ public partial class AzurermCosmosdbSqlRoleDefinition(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
-    public TerraformValue<string> RoleDefinitionId
+    public TerraformValue<string>? RoleDefinitionId
     {
-        get => new TerraformReference<string>(this, "role_definition_id");
+        get => GetArgument<TerraformValue<string>>("role_definition_id");
         set => SetArgument("role_definition_id", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermCosmosdbSqlRoleDefinition(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

@@ -11,9 +11,9 @@ public partial class GoogleVmwareengineNetworkPeeringDataSource(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleVmwareengineNetworkPeeringDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleVmwareengineNetworkPeeringDataSource(string name) : T
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -42,66 +42,50 @@ public partial class GoogleVmwareengineNetworkPeeringDataSource(string name) : T
     /// up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// User-provided description for this network peering.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// True if custom routes are exported to the peered network; false otherwise.
     /// </summary>
     public TerraformValue<bool> ExportCustomRoutes
-    {
-        get => new TerraformReference<bool>(this, "export_custom_routes");
-    }
+        => AsReference("export_custom_routes");
 
     /// <summary>
     /// True if all subnet routes with a public IP address range are exported; false otherwise.
     /// </summary>
     public TerraformValue<bool> ExportCustomRoutesWithPublicIp
-    {
-        get => new TerraformReference<bool>(this, "export_custom_routes_with_public_ip");
-    }
+        => AsReference("export_custom_routes_with_public_ip");
 
     /// <summary>
     /// True if custom routes are imported from the peered network; false otherwise.
     /// </summary>
     public TerraformValue<bool> ImportCustomRoutes
-    {
-        get => new TerraformReference<bool>(this, "import_custom_routes");
-    }
+        => AsReference("import_custom_routes");
 
     /// <summary>
     /// True if custom routes are imported from the peered network; false otherwise.
     /// </summary>
     public TerraformValue<bool> ImportCustomRoutesWithPublicIp
-    {
-        get => new TerraformReference<bool>(this, "import_custom_routes_with_public_ip");
-    }
+        => AsReference("import_custom_routes_with_public_ip");
 
     /// <summary>
     /// The relative resource name of the network to peer with a standard VMware Engine network.
     /// The provided network can be a consumer VPC network or another standard VMware Engine network.
     /// </summary>
     public TerraformValue<string> PeerNetwork
-    {
-        get => new TerraformReference<string>(this, "peer_network");
-    }
+        => AsReference("peer_network");
 
     /// <summary>
     /// The type of the network to peer with the VMware Engine network. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;VMWARE_ENGINE_NETWORK&amp;quot;, &amp;quot;PRIVATE_SERVICES_ACCESS&amp;quot;, &amp;quot;NETAPP_CLOUD_VOLUMES&amp;quot;, &amp;quot;THIRD_PARTY_SERVICE&amp;quot;, &amp;quot;DELL_POWERSCALE&amp;quot;, &amp;quot;GOOGLE_CLOUD_NETAPP_VOLUMES&amp;quot;]
     /// </summary>
     public TerraformValue<string> PeerNetworkType
-    {
-        get => new TerraformReference<string>(this, "peer_network_type");
-    }
+        => AsReference("peer_network_type");
 
     /// <summary>
     /// State of the network peering.
@@ -109,25 +93,19 @@ public partial class GoogleVmwareengineNetworkPeeringDataSource(string name) : T
     /// New values may be added to this enum when appropriate.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Details about the current state of the network peering.
     /// </summary>
     public TerraformValue<string> StateDetails
-    {
-        get => new TerraformReference<string>(this, "state_details");
-    }
+        => AsReference("state_details");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Last updated time of this resource.
@@ -135,9 +113,7 @@ public partial class GoogleVmwareengineNetworkPeeringDataSource(string name) : T
     /// fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// The relative resource name of the VMware Engine network. Specify the name in the following form:
@@ -145,17 +121,13 @@ public partial class GoogleVmwareengineNetworkPeeringDataSource(string name) : T
     /// can either be a project number or a project ID.
     /// </summary>
     public TerraformValue<string> VmwareEngineNetwork
-    {
-        get => new TerraformReference<string>(this, "vmware_engine_network");
-    }
+        => AsReference("vmware_engine_network");
 
     /// <summary>
     /// The canonical name of the VMware Engine network in the form:
     /// projects/{project_number}/locations/{location}/vmwareEngineNetworks/{vmwareEngineNetworkId}
     /// </summary>
     public TerraformValue<string> VmwareEngineNetworkCanonical
-    {
-        get => new TerraformReference<string>(this, "vmware_engine_network_canonical");
-    }
+        => AsReference("vmware_engine_network_canonical");
 
 }

@@ -16,9 +16,9 @@ public class AwsApiGatewayRestApiEndpointConfigurationBlock : TerraformBlock
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformValue<string> IpAddressType
+    public TerraformValue<string>? IpAddressType
     {
-        get => new TerraformReference<string>(this, "ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
@@ -28,16 +28,16 @@ public class AwsApiGatewayRestApiEndpointConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Types is required")]
     public TerraformList<string>? Types
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("types");
         set => SetArgument("types", value);
     }
 
     /// <summary>
     /// The vpc_endpoint_ids attribute.
     /// </summary>
-    public TerraformSet<string> VpcEndpointIds
+    public TerraformSet<string>? VpcEndpointIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "vpc_endpoint_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("vpc_endpoint_ids");
         set => SetArgument("vpc_endpoint_ids", value);
     }
 
@@ -53,18 +53,18 @@ public partial class AwsApiGatewayRestApi(string name) : TerraformResource("aws_
     /// <summary>
     /// The api_key_source attribute.
     /// </summary>
-    public TerraformValue<string> ApiKeySource
+    public TerraformValue<string>? ApiKeySource
     {
-        get => new TerraformReference<string>(this, "api_key_source");
+        get => GetArgument<TerraformValue<string>>("api_key_source");
         set => SetArgument("api_key_source", value);
     }
 
     /// <summary>
     /// The binary_media_types attribute.
     /// </summary>
-    public TerraformList<string> BinaryMediaTypes
+    public TerraformList<string>? BinaryMediaTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "binary_media_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("binary_media_types");
         set => SetArgument("binary_media_types", value);
     }
 
@@ -73,25 +73,25 @@ public partial class AwsApiGatewayRestApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Body
     {
-        get => new TerraformReference<string>(this, "body");
+        get => GetArgument<TerraformValue<string>>("body");
         set => SetArgument("body", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string> Description
+    public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The disable_execute_api_endpoint attribute.
     /// </summary>
-    public TerraformValue<bool> DisableExecuteApiEndpoint
+    public TerraformValue<bool>? DisableExecuteApiEndpoint
     {
-        get => new TerraformReference<bool>(this, "disable_execute_api_endpoint");
+        get => GetArgument<TerraformValue<bool>>("disable_execute_api_endpoint");
         set => SetArgument("disable_execute_api_endpoint", value);
     }
 
@@ -100,25 +100,25 @@ public partial class AwsApiGatewayRestApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<bool>? FailOnWarnings
     {
-        get => new TerraformReference<bool>(this, "fail_on_warnings");
+        get => GetArgument<TerraformValue<bool>>("fail_on_warnings");
         set => SetArgument("fail_on_warnings", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The minimum_compression_size attribute.
     /// </summary>
-    public TerraformValue<string> MinimumCompressionSize
+    public TerraformValue<string>? MinimumCompressionSize
     {
-        get => new TerraformReference<string>(this, "minimum_compression_size");
+        get => GetArgument<TerraformValue<string>>("minimum_compression_size");
         set => SetArgument("minimum_compression_size", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AwsApiGatewayRestApi(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -137,16 +137,16 @@ public partial class AwsApiGatewayRestApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformValue<string> Policy
+    public TerraformValue<string>? Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
@@ -155,16 +155,16 @@ public partial class AwsApiGatewayRestApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? PutRestApiMode
     {
-        get => new TerraformReference<string>(this, "put_rest_api_mode");
+        get => GetArgument<TerraformValue<string>>("put_rest_api_mode");
         set => SetArgument("put_rest_api_mode", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -173,16 +173,16 @@ public partial class AwsApiGatewayRestApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -190,33 +190,25 @@ public partial class AwsApiGatewayRestApi(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
     public TerraformValue<string> CreatedDate
-    {
-        get => new TerraformReference<string>(this, "created_date");
-    }
+        => AsReference("created_date");
 
     /// <summary>
     /// The execution_arn attribute.
     /// </summary>
     public TerraformValue<string> ExecutionArn
-    {
-        get => new TerraformReference<string>(this, "execution_arn");
-    }
+        => AsReference("execution_arn");
 
     /// <summary>
     /// The root_resource_id attribute.
     /// </summary>
     public TerraformValue<string> RootResourceId
-    {
-        get => new TerraformReference<string>(this, "root_resource_id");
-    }
+        => AsReference("root_resource_id");
 
     /// <summary>
     /// EndpointConfiguration block (nesting mode: list).

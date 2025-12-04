@@ -18,7 +18,7 @@ public class GoogleOracleDatabaseOdbNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleOracleDatabaseOdbNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleOracleDatabaseOdbNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,7 +54,7 @@ public partial class GoogleOracleDatabaseOdbNetwork(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
@@ -63,18 +63,18 @@ public partial class GoogleOracleDatabaseOdbNetwork(string name) : TerraformReso
     /// Example: us-east4-b-r2.
     /// If not specified, the system will pick a zone based on availability.
     /// </summary>
-    public TerraformValue<string> GcpOracleZone
+    public TerraformValue<string>? GcpOracleZone
     {
-        get => new TerraformReference<string>(this, "gcp_oracle_zone");
+        get => GetArgument<TerraformValue<string>>("gcp_oracle_zone");
         set => SetArgument("gcp_oracle_zone", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -86,7 +86,7 @@ public partial class GoogleOracleDatabaseOdbNetwork(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -96,7 +96,7 @@ public partial class GoogleOracleDatabaseOdbNetwork(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -107,7 +107,7 @@ public partial class GoogleOracleDatabaseOdbNetwork(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -120,16 +120,16 @@ public partial class GoogleOracleDatabaseOdbNetwork(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbNetworkId is required")]
     public required TerraformValue<string> OdbNetworkId
     {
-        get => new TerraformReference<string>(this, "odb_network_id");
+        get => GetArgument<TerraformValue<string>>("odb_network_id");
         set => SetArgument("odb_network_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -137,34 +137,26 @@ public partial class GoogleOracleDatabaseOdbNetwork(string name) : TerraformReso
     /// The date and time that the OdbNetwork was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The ID of the subscription entitlement associated with the OdbNetwork.
     /// </summary>
     public TerraformValue<string> EntitlementId
-    {
-        get => new TerraformReference<string>(this, "entitlement_id");
-    }
+        => AsReference("entitlement_id");
 
     /// <summary>
     /// Identifier. The name of the OdbNetwork resource in the following format:
     /// projects/{project}/locations/{region}/odbNetworks/{odb_network}
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// State of the ODB Network.
@@ -175,18 +167,14 @@ public partial class GoogleOracleDatabaseOdbNetwork(string name) : TerraformReso
     /// FAILED
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

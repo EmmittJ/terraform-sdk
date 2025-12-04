@@ -11,9 +11,9 @@ public partial class GoogleSourcerepoRepositoryDataSource(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -24,7 +24,7 @@ public partial class GoogleSourcerepoRepositoryDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleSourcerepoRepositoryDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -41,33 +41,25 @@ public partial class GoogleSourcerepoRepositoryDataSource(string name) : Terrafo
     /// If set to true, skip repository creation if a repository with the same name already exists.
     /// </summary>
     public TerraformValue<bool> CreateIgnoreAlreadyExists
-    {
-        get => new TerraformReference<bool>(this, "create_ignore_already_exists");
-    }
+        => AsReference("create_ignore_already_exists");
 
     /// <summary>
     /// How this repository publishes a change in the repository through Cloud Pub/Sub.
     /// Keyed by the topic names.
     /// </summary>
     public TerraformSet<TerraformMap<object>> PubsubConfigs
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "pubsub_configs").ResolveNodes(ctx));
-    }
+        => AsReference("pubsub_configs");
 
     /// <summary>
     /// The disk usage of the repo, in bytes.
     /// </summary>
     public TerraformValue<double> Size
-    {
-        get => new TerraformReference<double>(this, "size");
-    }
+        => AsReference("size");
 
     /// <summary>
     /// URL to clone the repository from Google Cloud Source Repositories.
     /// </summary>
     public TerraformValue<string> Url
-    {
-        get => new TerraformReference<string>(this, "url");
-    }
+        => AsReference("url");
 
 }

@@ -18,7 +18,7 @@ public class AzurermNetworkSecurityRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermNetworkSecurityRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermNetworkSecurityRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermNetworkSecurityRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Access is required")]
     public required TerraformValue<string> Access
     {
-        get => new TerraformReference<string>(this, "access");
+        get => GetArgument<TerraformValue<string>>("access");
         set => SetArgument("access", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? DestinationAddressPrefix
     {
-        get => new TerraformReference<string>(this, "destination_address_prefix");
+        get => GetArgument<TerraformValue<string>>("destination_address_prefix");
         set => SetArgument("destination_address_prefix", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     /// </summary>
     public TerraformSet<string>? DestinationAddressPrefixes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "destination_address_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("destination_address_prefixes");
         set => SetArgument("destination_address_prefixes", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     /// </summary>
     public TerraformSet<string>? DestinationApplicationSecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "destination_application_security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("destination_application_security_group_ids");
         set => SetArgument("destination_application_security_group_ids", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? DestinationPortRange
     {
-        get => new TerraformReference<string>(this, "destination_port_range");
+        get => GetArgument<TerraformValue<string>>("destination_port_range");
         set => SetArgument("destination_port_range", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     /// </summary>
     public TerraformSet<string>? DestinationPortRanges
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "destination_port_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("destination_port_ranges");
         set => SetArgument("destination_port_ranges", value);
     }
 
@@ -128,16 +128,16 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformValue<string> Direction
     {
-        get => new TerraformReference<string>(this, "direction");
+        get => GetArgument<TerraformValue<string>>("direction");
         set => SetArgument("direction", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkSecurityGroupName is required")]
     public required TerraformValue<string> NetworkSecurityGroupName
     {
-        get => new TerraformReference<string>(this, "network_security_group_name");
+        get => GetArgument<TerraformValue<string>>("network_security_group_name");
         set => SetArgument("network_security_group_name", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -196,7 +196,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? SourceAddressPrefix
     {
-        get => new TerraformReference<string>(this, "source_address_prefix");
+        get => GetArgument<TerraformValue<string>>("source_address_prefix");
         set => SetArgument("source_address_prefix", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     /// </summary>
     public TerraformSet<string>? SourceAddressPrefixes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "source_address_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("source_address_prefixes");
         set => SetArgument("source_address_prefixes", value);
     }
 
@@ -214,7 +214,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     /// </summary>
     public TerraformSet<string>? SourceApplicationSecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "source_application_security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("source_application_security_group_ids");
         set => SetArgument("source_application_security_group_ids", value);
     }
 
@@ -223,7 +223,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? SourcePortRange
     {
-        get => new TerraformReference<string>(this, "source_port_range");
+        get => GetArgument<TerraformValue<string>>("source_port_range");
         set => SetArgument("source_port_range", value);
     }
 
@@ -232,7 +232,7 @@ public partial class AzurermNetworkSecurityRule(string name) : TerraformResource
     /// </summary>
     public TerraformSet<string>? SourcePortRanges
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "source_port_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("source_port_ranges");
         set => SetArgument("source_port_ranges", value);
     }
 

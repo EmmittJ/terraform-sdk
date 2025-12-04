@@ -19,7 +19,7 @@ public class AwsElbAccessLogsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsElbAccessLogsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BucketPrefix
     {
-        get => new TerraformReference<string>(this, "bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsElbAccessLogsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsElbAccessLogsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Interval
     {
-        get => new TerraformReference<double>(this, "interval");
+        get => GetArgument<TerraformValue<double>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsElbHealthCheckBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HealthyThreshold is required")]
     public required TerraformValue<double> HealthyThreshold
     {
-        get => new TerraformReference<double>(this, "healthy_threshold");
+        get => GetArgument<TerraformValue<double>>("healthy_threshold");
         set => SetArgument("healthy_threshold", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsElbHealthCheckBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformValue<double> Interval
     {
-        get => new TerraformReference<double>(this, "interval");
+        get => GetArgument<TerraformValue<double>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsElbHealthCheckBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformValue<string> Target
     {
-        get => new TerraformReference<string>(this, "target");
+        get => GetArgument<TerraformValue<string>>("target");
         set => SetArgument("target", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsElbHealthCheckBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timeout is required")]
     public required TerraformValue<double> Timeout
     {
-        get => new TerraformReference<double>(this, "timeout");
+        get => GetArgument<TerraformValue<double>>("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -110,7 +110,7 @@ public class AwsElbHealthCheckBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UnhealthyThreshold is required")]
     public required TerraformValue<double> UnhealthyThreshold
     {
-        get => new TerraformReference<double>(this, "unhealthy_threshold");
+        get => GetArgument<TerraformValue<double>>("unhealthy_threshold");
         set => SetArgument("unhealthy_threshold", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsElbListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePort is required")]
     public required TerraformValue<double> InstancePort
     {
-        get => new TerraformReference<double>(this, "instance_port");
+        get => GetArgument<TerraformValue<double>>("instance_port");
         set => SetArgument("instance_port", value);
     }
 
@@ -144,7 +144,7 @@ public class AwsElbListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceProtocol is required")]
     public required TerraformValue<string> InstanceProtocol
     {
-        get => new TerraformReference<string>(this, "instance_protocol");
+        get => GetArgument<TerraformValue<string>>("instance_protocol");
         set => SetArgument("instance_protocol", value);
     }
 
@@ -154,7 +154,7 @@ public class AwsElbListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbPort is required")]
     public required TerraformValue<double> LbPort
     {
-        get => new TerraformReference<double>(this, "lb_port");
+        get => GetArgument<TerraformValue<double>>("lb_port");
         set => SetArgument("lb_port", value);
     }
 
@@ -164,7 +164,7 @@ public class AwsElbListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbProtocol is required")]
     public required TerraformValue<string> LbProtocol
     {
-        get => new TerraformReference<string>(this, "lb_protocol");
+        get => GetArgument<TerraformValue<string>>("lb_protocol");
         set => SetArgument("lb_protocol", value);
     }
 
@@ -173,7 +173,7 @@ public class AwsElbListenerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SslCertificateId
     {
-        get => new TerraformReference<string>(this, "ssl_certificate_id");
+        get => GetArgument<TerraformValue<string>>("ssl_certificate_id");
         set => SetArgument("ssl_certificate_id", value);
     }
 
@@ -196,7 +196,7 @@ public class AwsElbTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -205,7 +205,7 @@ public class AwsElbTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -221,9 +221,9 @@ public partial class AwsElb(string name) : TerraformResource("aws_elb", name)
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public TerraformSet<string> AvailabilityZones
+    public TerraformSet<string>? AvailabilityZones
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "availability_zones").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("availability_zones");
         set => SetArgument("availability_zones", value);
     }
 
@@ -232,7 +232,7 @@ public partial class AwsElb(string name) : TerraformResource("aws_elb", name)
     /// </summary>
     public TerraformValue<bool>? ConnectionDraining
     {
-        get => new TerraformReference<bool>(this, "connection_draining");
+        get => GetArgument<TerraformValue<bool>>("connection_draining");
         set => SetArgument("connection_draining", value);
     }
 
@@ -241,7 +241,7 @@ public partial class AwsElb(string name) : TerraformResource("aws_elb", name)
     /// </summary>
     public TerraformValue<double>? ConnectionDrainingTimeout
     {
-        get => new TerraformReference<double>(this, "connection_draining_timeout");
+        get => GetArgument<TerraformValue<double>>("connection_draining_timeout");
         set => SetArgument("connection_draining_timeout", value);
     }
 
@@ -250,7 +250,7 @@ public partial class AwsElb(string name) : TerraformResource("aws_elb", name)
     /// </summary>
     public TerraformValue<bool>? CrossZoneLoadBalancing
     {
-        get => new TerraformReference<bool>(this, "cross_zone_load_balancing");
+        get => GetArgument<TerraformValue<bool>>("cross_zone_load_balancing");
         set => SetArgument("cross_zone_load_balancing", value);
     }
 
@@ -259,16 +259,16 @@ public partial class AwsElb(string name) : TerraformResource("aws_elb", name)
     /// </summary>
     public TerraformValue<string>? DesyncMitigationMode
     {
-        get => new TerraformReference<string>(this, "desync_mitigation_mode");
+        get => GetArgument<TerraformValue<string>>("desync_mitigation_mode");
         set => SetArgument("desync_mitigation_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -277,79 +277,79 @@ public partial class AwsElb(string name) : TerraformResource("aws_elb", name)
     /// </summary>
     public TerraformValue<double>? IdleTimeout
     {
-        get => new TerraformReference<double>(this, "idle_timeout");
+        get => GetArgument<TerraformValue<double>>("idle_timeout");
         set => SetArgument("idle_timeout", value);
     }
 
     /// <summary>
     /// The instances attribute.
     /// </summary>
-    public TerraformSet<string> Instances
+    public TerraformSet<string>? Instances
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "instances").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("instances");
         set => SetArgument("instances", value);
     }
 
     /// <summary>
     /// The internal attribute.
     /// </summary>
-    public TerraformValue<bool> InternalAttribute
+    public TerraformValue<bool>? InternalAttribute
     {
-        get => new TerraformReference<bool>(this, "internal");
+        get => GetArgument<TerraformValue<bool>>("internal");
         set => SetArgument("internal", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformSet<string> SecurityGroups
+    public TerraformSet<string>? SecurityGroups
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_groups");
         set => SetArgument("security_groups", value);
     }
 
     /// <summary>
     /// The source_security_group attribute.
     /// </summary>
-    public TerraformValue<string> SourceSecurityGroup
+    public TerraformValue<string>? SourceSecurityGroup
     {
-        get => new TerraformReference<string>(this, "source_security_group");
+        get => GetArgument<TerraformValue<string>>("source_security_group");
         set => SetArgument("source_security_group", value);
     }
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
-    public TerraformSet<string> Subnets
+    public TerraformSet<string>? Subnets
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnets").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -358,16 +358,16 @@ public partial class AwsElb(string name) : TerraformResource("aws_elb", name)
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -375,33 +375,25 @@ public partial class AwsElb(string name) : TerraformResource("aws_elb", name)
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-    {
-        get => new TerraformReference<string>(this, "dns_name");
-    }
+        => AsReference("dns_name");
 
     /// <summary>
     /// The source_security_group_id attribute.
     /// </summary>
     public TerraformValue<string> SourceSecurityGroupId
-    {
-        get => new TerraformReference<string>(this, "source_security_group_id");
-    }
+        => AsReference("source_security_group_id");
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
     public TerraformValue<string> ZoneId
-    {
-        get => new TerraformReference<string>(this, "zone_id");
-    }
+        => AsReference("zone_id");
 
     /// <summary>
     /// AccessLogs block (nesting mode: list).

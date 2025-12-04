@@ -18,7 +18,7 @@ public class AzurermVirtualNetworkPeeringDataSourceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermVirtualNetworkPeeringDataSource(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermVirtualNetworkPeeringDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermVirtualNetworkPeeringDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
     public required TerraformValue<string> VirtualNetworkId
     {
-        get => new TerraformReference<string>(this, "virtual_network_id");
+        get => GetArgument<TerraformValue<string>>("virtual_network_id");
         set => SetArgument("virtual_network_id", value);
     }
 
@@ -64,57 +64,43 @@ public partial class AzurermVirtualNetworkPeeringDataSource(string name) : Terra
     /// The allow_forwarded_traffic attribute.
     /// </summary>
     public TerraformValue<bool> AllowForwardedTraffic
-    {
-        get => new TerraformReference<bool>(this, "allow_forwarded_traffic");
-    }
+        => AsReference("allow_forwarded_traffic");
 
     /// <summary>
     /// The allow_gateway_transit attribute.
     /// </summary>
     public TerraformValue<bool> AllowGatewayTransit
-    {
-        get => new TerraformReference<bool>(this, "allow_gateway_transit");
-    }
+        => AsReference("allow_gateway_transit");
 
     /// <summary>
     /// The allow_virtual_network_access attribute.
     /// </summary>
     public TerraformValue<bool> AllowVirtualNetworkAccess
-    {
-        get => new TerraformReference<bool>(this, "allow_virtual_network_access");
-    }
+        => AsReference("allow_virtual_network_access");
 
     /// <summary>
     /// The only_ipv6_peering_enabled attribute.
     /// </summary>
     public TerraformValue<bool> OnlyIpv6PeeringEnabled
-    {
-        get => new TerraformReference<bool>(this, "only_ipv6_peering_enabled");
-    }
+        => AsReference("only_ipv6_peering_enabled");
 
     /// <summary>
     /// The peer_complete_virtual_networks_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PeerCompleteVirtualNetworksEnabled
-    {
-        get => new TerraformReference<bool>(this, "peer_complete_virtual_networks_enabled");
-    }
+        => AsReference("peer_complete_virtual_networks_enabled");
 
     /// <summary>
     /// The remote_virtual_network_id attribute.
     /// </summary>
     public TerraformValue<string> RemoteVirtualNetworkId
-    {
-        get => new TerraformReference<string>(this, "remote_virtual_network_id");
-    }
+        => AsReference("remote_virtual_network_id");
 
     /// <summary>
     /// The use_remote_gateways attribute.
     /// </summary>
     public TerraformValue<bool> UseRemoteGateways
-    {
-        get => new TerraformReference<bool>(this, "use_remote_gateways");
-    }
+        => AsReference("use_remote_gateways");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

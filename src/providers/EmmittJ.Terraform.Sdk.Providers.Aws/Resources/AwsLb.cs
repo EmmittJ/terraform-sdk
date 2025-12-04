@@ -19,7 +19,7 @@ public class AwsLbAccessLogsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsLbAccessLogsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsLbAccessLogsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsLbConnectionLogsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsLbConnectionLogsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsLbConnectionLogsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -103,7 +103,7 @@ public class AwsLbIpamPoolsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ipv4IpamPoolId is required")]
     public required TerraformValue<string> Ipv4IpamPoolId
     {
-        get => new TerraformReference<string>(this, "ipv4_ipam_pool_id");
+        get => GetArgument<TerraformValue<string>>("ipv4_ipam_pool_id");
         set => SetArgument("ipv4_ipam_pool_id", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsLbMinimumLoadBalancerCapacityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityUnits is required")]
     public required TerraformValue<double> CapacityUnits
     {
-        get => new TerraformReference<double>(this, "capacity_units");
+        get => GetArgument<TerraformValue<double>>("capacity_units");
         set => SetArgument("capacity_units", value);
     }
 
@@ -150,7 +150,7 @@ public class AwsLbSubnetMappingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AllocationId
     {
-        get => new TerraformReference<string>(this, "allocation_id");
+        get => GetArgument<TerraformValue<string>>("allocation_id");
         set => SetArgument("allocation_id", value);
     }
 
@@ -159,7 +159,7 @@ public class AwsLbSubnetMappingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ipv6Address
     {
-        get => new TerraformReference<string>(this, "ipv6_address");
+        get => GetArgument<TerraformValue<string>>("ipv6_address");
         set => SetArgument("ipv6_address", value);
     }
 
@@ -167,16 +167,14 @@ public class AwsLbSubnetMappingBlock : TerraformBlock
     /// The outpost_id attribute.
     /// </summary>
     public TerraformValue<string> OutpostId
-    {
-        get => new TerraformReference<string>(this, "outpost_id");
-    }
+        => AsReference("outpost_id");
 
     /// <summary>
     /// The private_ipv4_address attribute.
     /// </summary>
     public TerraformValue<string>? PrivateIpv4Address
     {
-        get => new TerraformReference<string>(this, "private_ipv4_address");
+        get => GetArgument<TerraformValue<string>>("private_ipv4_address");
         set => SetArgument("private_ipv4_address", value);
     }
 
@@ -186,7 +184,7 @@ public class AwsLbSubnetMappingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -209,7 +207,7 @@ public class AwsLbTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -218,7 +216,7 @@ public class AwsLbTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -227,7 +225,7 @@ public class AwsLbTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -245,7 +243,7 @@ public partial class AwsLb(string name) : TerraformResource("aws_lb", name)
     /// </summary>
     public TerraformValue<double>? ClientKeepAlive
     {
-        get => new TerraformReference<double>(this, "client_keep_alive");
+        get => GetArgument<TerraformValue<double>>("client_keep_alive");
         set => SetArgument("client_keep_alive", value);
     }
 
@@ -254,7 +252,7 @@ public partial class AwsLb(string name) : TerraformResource("aws_lb", name)
     /// </summary>
     public TerraformValue<string>? CustomerOwnedIpv4Pool
     {
-        get => new TerraformReference<string>(this, "customer_owned_ipv4_pool");
+        get => GetArgument<TerraformValue<string>>("customer_owned_ipv4_pool");
         set => SetArgument("customer_owned_ipv4_pool", value);
     }
 
@@ -263,7 +261,7 @@ public partial class AwsLb(string name) : TerraformResource("aws_lb", name)
     /// </summary>
     public TerraformValue<string>? DesyncMitigationMode
     {
-        get => new TerraformReference<string>(this, "desync_mitigation_mode");
+        get => GetArgument<TerraformValue<string>>("desync_mitigation_mode");
         set => SetArgument("desync_mitigation_mode", value);
     }
 
@@ -272,7 +270,7 @@ public partial class AwsLb(string name) : TerraformResource("aws_lb", name)
     /// </summary>
     public TerraformValue<string>? DnsRecordClientRoutingPolicy
     {
-        get => new TerraformReference<string>(this, "dns_record_client_routing_policy");
+        get => GetArgument<TerraformValue<string>>("dns_record_client_routing_policy");
         set => SetArgument("dns_record_client_routing_policy", value);
     }
 
@@ -281,7 +279,7 @@ public partial class AwsLb(string name) : TerraformResource("aws_lb", name)
     /// </summary>
     public TerraformValue<bool>? DropInvalidHeaderFields
     {
-        get => new TerraformReference<bool>(this, "drop_invalid_header_fields");
+        get => GetArgument<TerraformValue<bool>>("drop_invalid_header_fields");
         set => SetArgument("drop_invalid_header_fields", value);
     }
 
@@ -290,7 +288,7 @@ public partial class AwsLb(string name) : TerraformResource("aws_lb", name)
     /// </summary>
     public TerraformValue<bool>? EnableCrossZoneLoadBalancing
     {
-        get => new TerraformReference<bool>(this, "enable_cross_zone_load_balancing");
+        get => GetArgument<TerraformValue<bool>>("enable_cross_zone_load_balancing");
         set => SetArgument("enable_cross_zone_load_balancing", value);
     }
 
@@ -299,7 +297,7 @@ public partial class AwsLb(string name) : TerraformResource("aws_lb", name)
     /// </summary>
     public TerraformValue<bool>? EnableDeletionProtection
     {
-        get => new TerraformReference<bool>(this, "enable_deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("enable_deletion_protection");
         set => SetArgument("enable_deletion_protection", value);
     }
 
@@ -308,7 +306,7 @@ public partial class AwsLb(string name) : TerraformResource("aws_lb", name)
     /// </summary>
     public TerraformValue<bool>? EnableHttp2
     {
-        get => new TerraformReference<bool>(this, "enable_http2");
+        get => GetArgument<TerraformValue<bool>>("enable_http2");
         set => SetArgument("enable_http2", value);
     }
 
@@ -317,7 +315,7 @@ public partial class AwsLb(string name) : TerraformResource("aws_lb", name)
     /// </summary>
     public TerraformValue<bool>? EnableTlsVersionAndCipherSuiteHeaders
     {
-        get => new TerraformReference<bool>(this, "enable_tls_version_and_cipher_suite_headers");
+        get => GetArgument<TerraformValue<bool>>("enable_tls_version_and_cipher_suite_headers");
         set => SetArgument("enable_tls_version_and_cipher_suite_headers", value);
     }
 
@@ -326,7 +324,7 @@ public partial class AwsLb(string name) : TerraformResource("aws_lb", name)
     /// </summary>
     public TerraformValue<bool>? EnableWafFailOpen
     {
-        get => new TerraformReference<bool>(this, "enable_waf_fail_open");
+        get => GetArgument<TerraformValue<bool>>("enable_waf_fail_open");
         set => SetArgument("enable_waf_fail_open", value);
     }
 
@@ -335,7 +333,7 @@ public partial class AwsLb(string name) : TerraformResource("aws_lb", name)
     /// </summary>
     public TerraformValue<bool>? EnableXffClientPort
     {
-        get => new TerraformReference<bool>(this, "enable_xff_client_port");
+        get => GetArgument<TerraformValue<bool>>("enable_xff_client_port");
         set => SetArgument("enable_xff_client_port", value);
     }
 
@@ -344,25 +342,25 @@ public partial class AwsLb(string name) : TerraformResource("aws_lb", name)
     /// </summary>
     public TerraformValue<bool>? EnableZonalShift
     {
-        get => new TerraformReference<bool>(this, "enable_zonal_shift");
+        get => GetArgument<TerraformValue<bool>>("enable_zonal_shift");
         set => SetArgument("enable_zonal_shift", value);
     }
 
     /// <summary>
     /// The enforce_security_group_inbound_rules_on_private_link_traffic attribute.
     /// </summary>
-    public TerraformValue<string> EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic
+    public TerraformValue<string>? EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic
     {
-        get => new TerraformReference<string>(this, "enforce_security_group_inbound_rules_on_private_link_traffic");
+        get => GetArgument<TerraformValue<string>>("enforce_security_group_inbound_rules_on_private_link_traffic");
         set => SetArgument("enforce_security_group_inbound_rules_on_private_link_traffic", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -371,25 +369,25 @@ public partial class AwsLb(string name) : TerraformResource("aws_lb", name)
     /// </summary>
     public TerraformValue<double>? IdleTimeout
     {
-        get => new TerraformReference<double>(this, "idle_timeout");
+        get => GetArgument<TerraformValue<double>>("idle_timeout");
         set => SetArgument("idle_timeout", value);
     }
 
     /// <summary>
     /// The internal attribute.
     /// </summary>
-    public TerraformValue<bool> InternalAttribute
+    public TerraformValue<bool>? InternalAttribute
     {
-        get => new TerraformReference<bool>(this, "internal");
+        get => GetArgument<TerraformValue<bool>>("internal");
         set => SetArgument("internal", value);
     }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformValue<string> IpAddressType
+    public TerraformValue<string>? IpAddressType
     {
-        get => new TerraformReference<string>(this, "ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
@@ -398,25 +396,25 @@ public partial class AwsLb(string name) : TerraformResource("aws_lb", name)
     /// </summary>
     public TerraformValue<string>? LoadBalancerType
     {
-        get => new TerraformReference<string>(this, "load_balancer_type");
+        get => GetArgument<TerraformValue<string>>("load_balancer_type");
         set => SetArgument("load_balancer_type", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -425,43 +423,43 @@ public partial class AwsLb(string name) : TerraformResource("aws_lb", name)
     /// </summary>
     public TerraformValue<bool>? PreserveHostHeader
     {
-        get => new TerraformReference<bool>(this, "preserve_host_header");
+        get => GetArgument<TerraformValue<bool>>("preserve_host_header");
         set => SetArgument("preserve_host_header", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The secondary_ips_auto_assigned_per_subnet attribute.
     /// </summary>
-    public TerraformValue<double> SecondaryIpsAutoAssignedPerSubnet
+    public TerraformValue<double>? SecondaryIpsAutoAssignedPerSubnet
     {
-        get => new TerraformReference<double>(this, "secondary_ips_auto_assigned_per_subnet");
+        get => GetArgument<TerraformValue<double>>("secondary_ips_auto_assigned_per_subnet");
         set => SetArgument("secondary_ips_auto_assigned_per_subnet", value);
     }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformSet<string> SecurityGroups
+    public TerraformSet<string>? SecurityGroups
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_groups");
         set => SetArgument("security_groups", value);
     }
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
-    public TerraformSet<string> Subnets
+    public TerraformSet<string>? Subnets
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnets").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -470,16 +468,16 @@ public partial class AwsLb(string name) : TerraformResource("aws_lb", name)
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -488,7 +486,7 @@ public partial class AwsLb(string name) : TerraformResource("aws_lb", name)
     /// </summary>
     public TerraformValue<string>? XffHeaderProcessingMode
     {
-        get => new TerraformReference<string>(this, "xff_header_processing_mode");
+        get => GetArgument<TerraformValue<string>>("xff_header_processing_mode");
         set => SetArgument("xff_header_processing_mode", value);
     }
 
@@ -496,41 +494,31 @@ public partial class AwsLb(string name) : TerraformResource("aws_lb", name)
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The arn_suffix attribute.
     /// </summary>
     public TerraformValue<string> ArnSuffix
-    {
-        get => new TerraformReference<string>(this, "arn_suffix");
-    }
+        => AsReference("arn_suffix");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-    {
-        get => new TerraformReference<string>(this, "dns_name");
-    }
+        => AsReference("dns_name");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-    {
-        get => new TerraformReference<string>(this, "vpc_id");
-    }
+        => AsReference("vpc_id");
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
     public TerraformValue<string> ZoneId
-    {
-        get => new TerraformReference<string>(this, "zone_id");
-    }
+        => AsReference("zone_id");
 
     /// <summary>
     /// AccessLogs block (nesting mode: list).

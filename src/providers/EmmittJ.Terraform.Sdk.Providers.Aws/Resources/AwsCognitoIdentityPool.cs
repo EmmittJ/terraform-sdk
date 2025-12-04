@@ -18,7 +18,7 @@ public class AwsCognitoIdentityPoolCognitoIdentityProvidersBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsCognitoIdentityPoolCognitoIdentityProvidersBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? ProviderName
     {
-        get => new TerraformReference<string>(this, "provider_name");
+        get => GetArgument<TerraformValue<string>>("provider_name");
         set => SetArgument("provider_name", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsCognitoIdentityPoolCognitoIdentityProvidersBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool>? ServerSideTokenCheck
     {
-        get => new TerraformReference<bool>(this, "server_side_token_check");
+        get => GetArgument<TerraformValue<bool>>("server_side_token_check");
         set => SetArgument("server_side_token_check", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsCognitoIdentityPool(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<bool>? AllowClassicFlow
     {
-        get => new TerraformReference<bool>(this, "allow_classic_flow");
+        get => GetArgument<TerraformValue<bool>>("allow_classic_flow");
         set => SetArgument("allow_classic_flow", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsCognitoIdentityPool(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<bool>? AllowUnauthenticatedIdentities
     {
-        get => new TerraformReference<bool>(this, "allow_unauthenticated_identities");
+        get => GetArgument<TerraformValue<bool>>("allow_unauthenticated_identities");
         set => SetArgument("allow_unauthenticated_identities", value);
     }
 
@@ -72,16 +72,16 @@ public partial class AwsCognitoIdentityPool(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? DeveloperProviderName
     {
-        get => new TerraformReference<string>(this, "developer_provider_name");
+        get => GetArgument<TerraformValue<string>>("developer_provider_name");
         set => SetArgument("developer_provider_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsCognitoIdentityPool(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolName is required")]
     public required TerraformValue<string> IdentityPoolName
     {
-        get => new TerraformReference<string>(this, "identity_pool_name");
+        get => GetArgument<TerraformValue<string>>("identity_pool_name");
         set => SetArgument("identity_pool_name", value);
     }
 
@@ -100,16 +100,16 @@ public partial class AwsCognitoIdentityPool(string name) : TerraformResource("aw
     /// </summary>
     public TerraformSet<string>? OpenidConnectProviderArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "openid_connect_provider_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("openid_connect_provider_arns");
         set => SetArgument("openid_connect_provider_arns", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AwsCognitoIdentityPool(string name) : TerraformResource("aw
     /// </summary>
     public TerraformList<string>? SamlProviderArns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "saml_provider_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("saml_provider_arns");
         set => SetArgument("saml_provider_arns", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AwsCognitoIdentityPool(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? SupportedLoginProviders
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "supported_login_providers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("supported_login_providers");
         set => SetArgument("supported_login_providers", value);
     }
 
@@ -136,16 +136,16 @@ public partial class AwsCognitoIdentityPool(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -153,9 +153,7 @@ public partial class AwsCognitoIdentityPool(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// CognitoIdentityProviders block (nesting mode: set).

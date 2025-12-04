@@ -19,7 +19,7 @@ public class AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomDnsServerIp is required")]
     public required TerraformValue<string> CustomDnsServerIp
     {
-        get => new TerraformReference<string>(this, "custom_dns_server_ip");
+        get => GetArgument<TerraformValue<string>>("custom_dns_server_ip");
         set => SetArgument("custom_dns_server_ip", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsFinspaceKxEnvironmentCustomDnsConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomDnsServerName is required")]
     public required TerraformValue<string> CustomDnsServerName
     {
-        get => new TerraformReference<string>(this, "custom_dns_server_name");
+        get => GetArgument<TerraformValue<string>>("custom_dns_server_name");
         set => SetArgument("custom_dns_server_name", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsFinspaceKxEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsFinspaceKxEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsFinspaceKxEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutableCidrSpace is required")]
     public required TerraformValue<string> RoutableCidrSpace
     {
-        get => new TerraformReference<string>(this, "routable_cidr_space");
+        get => GetArgument<TerraformValue<string>>("routable_cidr_space");
         set => SetArgument("routable_cidr_space", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayId is required")]
     public required TerraformValue<string> TransitGatewayId
     {
-        get => new TerraformReference<string>(this, "transit_gateway_id");
+        get => GetArgument<TerraformValue<string>>("transit_gateway_id");
         set => SetArgument("transit_gateway_id", value);
     }
 
@@ -137,7 +137,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlockAttachmentN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrBlock is required")]
     public required TerraformValue<string> CidrBlock
     {
-        get => new TerraformReference<string>(this, "cidr_block");
+        get => GetArgument<TerraformValue<string>>("cidr_block");
         set => SetArgument("cidr_block", value);
     }
 
@@ -147,7 +147,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlockAttachmentN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -157,7 +157,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlockAttachmentN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleAction is required")]
     public required TerraformValue<string> RuleAction
     {
-        get => new TerraformReference<string>(this, "rule_action");
+        get => GetArgument<TerraformValue<string>>("rule_action");
         set => SetArgument("rule_action", value);
     }
 
@@ -167,7 +167,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlockAttachmentN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNumber is required")]
     public required TerraformValue<double> RuleNumber
     {
-        get => new TerraformReference<double>(this, "rule_number");
+        get => GetArgument<TerraformValue<double>>("rule_number");
         set => SetArgument("rule_number", value);
     }
 
@@ -210,7 +210,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlockAttachmentN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Code is required")]
     public required TerraformValue<double> Code
     {
-        get => new TerraformReference<double>(this, "code");
+        get => GetArgument<TerraformValue<double>>("code");
         set => SetArgument("code", value);
     }
 
@@ -220,7 +220,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlockAttachmentN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<double> Type
     {
-        get => new TerraformReference<double>(this, "type");
+        get => GetArgument<TerraformValue<double>>("type");
         set => SetArgument("type", value);
     }
 
@@ -243,7 +243,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlockAttachmentN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "From is required")]
     public required TerraformValue<double> From
     {
-        get => new TerraformReference<double>(this, "from");
+        get => GetArgument<TerraformValue<double>>("from");
         set => SetArgument("from", value);
     }
 
@@ -253,7 +253,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlockAttachmentN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "To is required")]
     public required TerraformValue<double> To
     {
-        get => new TerraformReference<double>(this, "to");
+        get => GetArgument<TerraformValue<double>>("to");
         set => SetArgument("to", value);
     }
 
@@ -271,7 +271,7 @@ public partial class AwsFinspaceKxEnvironment(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -281,7 +281,7 @@ public partial class AwsFinspaceKxEnvironment(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyId is required")]
     public required TerraformValue<string> KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -291,16 +291,16 @@ public partial class AwsFinspaceKxEnvironment(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -309,16 +309,16 @@ public partial class AwsFinspaceKxEnvironment(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -326,57 +326,43 @@ public partial class AwsFinspaceKxEnvironment(string name) : TerraformResource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
     public TerraformList<string> AvailabilityZones
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "availability_zones").ResolveNodes(ctx));
-    }
+        => AsReference("availability_zones");
 
     /// <summary>
     /// The created_timestamp attribute.
     /// </summary>
     public TerraformValue<string> CreatedTimestamp
-    {
-        get => new TerraformReference<string>(this, "created_timestamp");
-    }
+        => AsReference("created_timestamp");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The infrastructure_account_id attribute.
     /// </summary>
     public TerraformValue<string> InfrastructureAccountId
-    {
-        get => new TerraformReference<string>(this, "infrastructure_account_id");
-    }
+        => AsReference("infrastructure_account_id");
 
     /// <summary>
     /// The last_modified_timestamp attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedTimestamp
-    {
-        get => new TerraformReference<string>(this, "last_modified_timestamp");
-    }
+        => AsReference("last_modified_timestamp");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// CustomDnsConfiguration block (nesting mode: list).

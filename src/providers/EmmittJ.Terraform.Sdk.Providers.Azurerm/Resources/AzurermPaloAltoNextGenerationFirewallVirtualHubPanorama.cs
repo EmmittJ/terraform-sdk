@@ -19,7 +19,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaDestinationN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaDestinationN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaDestinationN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -82,7 +82,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaDestinationN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddress is required")]
     public required TerraformValue<string> PublicIpAddress
     {
-        get => new TerraformReference<string>(this, "public_ip_address");
+        get => GetArgument<TerraformValue<string>>("public_ip_address");
         set => SetArgument("public_ip_address", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaDestinationN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaDestinationN
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddressId is required")]
     public required TerraformValue<string> PublicIpAddressId
     {
-        get => new TerraformReference<string>(this, "public_ip_address_id");
+        get => GetArgument<TerraformValue<string>>("public_ip_address_id");
         set => SetArgument("public_ip_address_id", value);
     }
 
@@ -137,16 +137,14 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaDnsSettingsB
     /// The azure_dns_servers attribute.
     /// </summary>
     public TerraformList<string> AzureDnsServers
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "azure_dns_servers").ResolveNodes(ctx));
-    }
+        => AsReference("azure_dns_servers");
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
     public TerraformList<string>? DnsServers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dns_servers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("dns_servers");
         set => SetArgument("dns_servers", value);
     }
 
@@ -155,7 +153,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaDnsSettingsB
     /// </summary>
     public TerraformValue<bool>? UseAzureDns
     {
-        get => new TerraformReference<bool>(this, "use_azure_dns");
+        get => GetArgument<TerraformValue<bool>>("use_azure_dns");
         set => SetArgument("use_azure_dns", value);
     }
 
@@ -178,7 +176,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaNetworkProfi
     /// </summary>
     public TerraformList<string>? EgressNatIpAddressIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "egress_nat_ip_address_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("egress_nat_ip_address_ids");
         set => SetArgument("egress_nat_ip_address_ids", value);
     }
 
@@ -186,17 +184,13 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaNetworkProfi
     /// The egress_nat_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> EgressNatIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "egress_nat_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("egress_nat_ip_addresses");
 
     /// <summary>
     /// The ip_of_trust_for_user_defined_routes attribute.
     /// </summary>
     public TerraformValue<string> IpOfTrustForUserDefinedRoutes
-    {
-        get => new TerraformReference<string>(this, "ip_of_trust_for_user_defined_routes");
-    }
+        => AsReference("ip_of_trust_for_user_defined_routes");
 
     /// <summary>
     /// The network_virtual_appliance_id attribute.
@@ -204,7 +198,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaNetworkProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkVirtualApplianceId is required")]
     public required TerraformValue<string> NetworkVirtualApplianceId
     {
-        get => new TerraformReference<string>(this, "network_virtual_appliance_id");
+        get => GetArgument<TerraformValue<string>>("network_virtual_appliance_id");
         set => SetArgument("network_virtual_appliance_id", value);
     }
 
@@ -214,7 +208,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaNetworkProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddressIds is required")]
     public TerraformList<string>? PublicIpAddressIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "public_ip_address_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("public_ip_address_ids");
         set => SetArgument("public_ip_address_ids", value);
     }
 
@@ -222,16 +216,14 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaNetworkProfi
     /// The public_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PublicIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "public_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("public_ip_addresses");
 
     /// <summary>
     /// The trusted_address_ranges attribute.
     /// </summary>
     public TerraformList<string>? TrustedAddressRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "trusted_address_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("trusted_address_ranges");
         set => SetArgument("trusted_address_ranges", value);
     }
 
@@ -239,17 +231,13 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaNetworkProfi
     /// The trusted_subnet_id attribute.
     /// </summary>
     public TerraformValue<string> TrustedSubnetId
-    {
-        get => new TerraformReference<string>(this, "trusted_subnet_id");
-    }
+        => AsReference("trusted_subnet_id");
 
     /// <summary>
     /// The untrusted_subnet_id attribute.
     /// </summary>
     public TerraformValue<string> UntrustedSubnetId
-    {
-        get => new TerraformReference<string>(this, "untrusted_subnet_id");
-    }
+        => AsReference("untrusted_subnet_id");
 
     /// <summary>
     /// The virtual_hub_id attribute.
@@ -257,7 +245,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaNetworkProfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformValue<string> VirtualHubId
     {
-        get => new TerraformReference<string>(this, "virtual_hub_id");
+        get => GetArgument<TerraformValue<string>>("virtual_hub_id");
         set => SetArgument("virtual_hub_id", value);
     }
 
@@ -280,7 +268,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaTimeoutsBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -289,7 +277,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaTimeoutsBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -298,7 +286,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaTimeoutsBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -307,7 +295,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaTimeoutsBloc
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -323,9 +311,9 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanorama(str
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -335,7 +323,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanorama(str
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -344,7 +332,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanorama(str
     /// </summary>
     public TerraformValue<string>? MarketplaceOfferId
     {
-        get => new TerraformReference<string>(this, "marketplace_offer_id");
+        get => GetArgument<TerraformValue<string>>("marketplace_offer_id");
         set => SetArgument("marketplace_offer_id", value);
     }
 
@@ -354,7 +342,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanorama(str
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -364,7 +352,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanorama(str
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PanoramaBase64Config is required")]
     public required TerraformValue<string> PanoramaBase64Config
     {
-        get => new TerraformReference<string>(this, "panorama_base64_config");
+        get => GetArgument<TerraformValue<string>>("panorama_base64_config");
         set => SetArgument("panorama_base64_config", value);
     }
 
@@ -373,7 +361,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanorama(str
     /// </summary>
     public TerraformValue<string>? PlanId
     {
-        get => new TerraformReference<string>(this, "plan_id");
+        get => GetArgument<TerraformValue<string>>("plan_id");
         set => SetArgument("plan_id", value);
     }
 
@@ -383,7 +371,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanorama(str
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -392,7 +380,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanorama(str
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -400,9 +388,7 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubPanorama(str
     /// The panorama attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Panorama
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "panorama").ResolveNodes(ctx));
-    }
+        => AsReference("panorama");
 
     /// <summary>
     /// DestinationNat block (nesting mode: list).

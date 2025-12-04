@@ -18,7 +18,7 @@ public class AzurermExtendedLocationCustomLocationDataSourceTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermExtendedLocationCustomLocationDataSource(string name
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermExtendedLocationCustomLocationDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermExtendedLocationCustomLocationDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,57 +64,43 @@ public partial class AzurermExtendedLocationCustomLocationDataSource(string name
     /// The authentication attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Authentication
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "authentication").ResolveNodes(ctx));
-    }
+        => AsReference("authentication");
 
     /// <summary>
     /// The cluster_extension_ids attribute.
     /// </summary>
     public TerraformList<string> ClusterExtensionIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "cluster_extension_ids").ResolveNodes(ctx));
-    }
+        => AsReference("cluster_extension_ids");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The host_resource_id attribute.
     /// </summary>
     public TerraformValue<string> HostResourceId
-    {
-        get => new TerraformReference<string>(this, "host_resource_id");
-    }
+        => AsReference("host_resource_id");
 
     /// <summary>
     /// The host_type attribute.
     /// </summary>
     public TerraformValue<string> HostType
-    {
-        get => new TerraformReference<string>(this, "host_type");
-    }
+        => AsReference("host_type");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
     public TerraformValue<string> NamespaceAttribute
-    {
-        get => new TerraformReference<string>(this, "namespace");
-    }
+        => AsReference("namespace");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

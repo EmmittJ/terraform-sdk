@@ -19,7 +19,7 @@ public class AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformValue<string> Destination
     {
-        get => new TerraformReference<string>(this, "destination");
+        get => GetArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsAuditmanagerAssessmentAssessmentReportsDestinationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationType is required")]
     public required TerraformValue<string> DestinationType
     {
-        get => new TerraformReference<string>(this, "destination_type");
+        get => GetArgument<TerraformValue<string>>("destination_type");
         set => SetArgument("destination_type", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsAuditmanagerAssessmentRolesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsAuditmanagerAssessmentRolesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleType is required")]
     public required TerraformValue<string> RoleType
     {
-        get => new TerraformReference<string>(this, "role_type");
+        get => GetArgument<TerraformValue<string>>("role_type");
         set => SetArgument("role_type", value);
     }
 
@@ -118,7 +118,7 @@ public class AwsAuditmanagerAssessmentScopeBlockAwsAccountsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -141,7 +141,7 @@ public class AwsAuditmanagerAssessmentScopeBlockAwsServicesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => new TerraformReference<string>(this, "service_name");
+        get => GetArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AwsAuditmanagerAssessment(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -169,7 +169,7 @@ public partial class AwsAuditmanagerAssessment(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrameworkId is required")]
     public required TerraformValue<string> FrameworkId
     {
-        get => new TerraformReference<string>(this, "framework_id");
+        get => GetArgument<TerraformValue<string>>("framework_id");
         set => SetArgument("framework_id", value);
     }
 
@@ -179,16 +179,16 @@ public partial class AwsAuditmanagerAssessment(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -197,7 +197,7 @@ public partial class AwsAuditmanagerAssessment(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -205,41 +205,31 @@ public partial class AwsAuditmanagerAssessment(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The roles_all attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RolesAll
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "roles_all").ResolveNodes(ctx));
-    }
+        => AsReference("roles_all");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// AssessmentReportsDestination block (nesting mode: list).

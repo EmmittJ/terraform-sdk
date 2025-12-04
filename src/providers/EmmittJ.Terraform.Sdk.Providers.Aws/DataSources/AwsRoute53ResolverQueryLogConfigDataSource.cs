@@ -19,7 +19,7 @@ public class AwsRoute53ResolverQueryLogConfigDataSourceFilterBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsRoute53ResolverQueryLogConfigDataSourceFilterBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -45,9 +45,9 @@ public partial class AwsRoute53ResolverQueryLogConfigDataSource(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,16 +56,16 @@ public partial class AwsRoute53ResolverQueryLogConfigDataSource(string name) : T
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AwsRoute53ResolverQueryLogConfigDataSource(string name) : T
     /// </summary>
     public TerraformValue<string>? ResolverQueryLogConfigId
     {
-        get => new TerraformReference<string>(this, "resolver_query_log_config_id");
+        get => GetArgument<TerraformValue<string>>("resolver_query_log_config_id");
         set => SetArgument("resolver_query_log_config_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -91,33 +91,25 @@ public partial class AwsRoute53ResolverQueryLogConfigDataSource(string name) : T
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The destination_arn attribute.
     /// </summary>
     public TerraformValue<string> DestinationArn
-    {
-        get => new TerraformReference<string>(this, "destination_arn");
-    }
+        => AsReference("destination_arn");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// The share_status attribute.
     /// </summary>
     public TerraformValue<string> ShareStatus
-    {
-        get => new TerraformReference<string>(this, "share_status");
-    }
+        => AsReference("share_status");
 
     /// <summary>
     /// Filter block (nesting mode: set).

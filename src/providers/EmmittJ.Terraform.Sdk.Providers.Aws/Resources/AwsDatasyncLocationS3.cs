@@ -19,7 +19,7 @@ public class AwsDatasyncLocationS3S3ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketAccessRoleArn is required")]
     public required TerraformValue<string> BucketAccessRoleArn
     {
-        get => new TerraformReference<string>(this, "bucket_access_role_arn");
+        get => GetArgument<TerraformValue<string>>("bucket_access_role_arn");
         set => SetArgument("bucket_access_role_arn", value);
     }
 
@@ -37,25 +37,25 @@ public partial class AwsDatasyncLocationS3(string name) : TerraformResource("aws
     /// </summary>
     public TerraformSet<string>? AgentArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "agent_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("agent_arns");
         set => SetArgument("agent_arns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -65,16 +65,16 @@ public partial class AwsDatasyncLocationS3(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketArn is required")]
     public required TerraformValue<string> S3BucketArn
     {
-        get => new TerraformReference<string>(this, "s3_bucket_arn");
+        get => GetArgument<TerraformValue<string>>("s3_bucket_arn");
         set => SetArgument("s3_bucket_arn", value);
     }
 
     /// <summary>
     /// The s3_storage_class attribute.
     /// </summary>
-    public TerraformValue<string> S3StorageClass
+    public TerraformValue<string>? S3StorageClass
     {
-        get => new TerraformReference<string>(this, "s3_storage_class");
+        get => GetArgument<TerraformValue<string>>("s3_storage_class");
         set => SetArgument("s3_storage_class", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AwsDatasyncLocationS3(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subdirectory is required")]
     public required TerraformValue<string> Subdirectory
     {
-        get => new TerraformReference<string>(this, "subdirectory");
+        get => GetArgument<TerraformValue<string>>("subdirectory");
         set => SetArgument("subdirectory", value);
     }
 
@@ -93,16 +93,16 @@ public partial class AwsDatasyncLocationS3(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -110,17 +110,13 @@ public partial class AwsDatasyncLocationS3(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     public TerraformValue<string> Uri
-    {
-        get => new TerraformReference<string>(this, "uri");
-    }
+        => AsReference("uri");
 
     /// <summary>
     /// S3Config block (nesting mode: list).

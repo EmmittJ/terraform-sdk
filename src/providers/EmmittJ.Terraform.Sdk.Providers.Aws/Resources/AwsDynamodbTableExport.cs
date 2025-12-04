@@ -16,27 +16,27 @@ public class AwsDynamodbTableExportIncrementalExportSpecificationBlock : Terrafo
     /// <summary>
     /// The export_from_time attribute.
     /// </summary>
-    public TerraformValue<string> ExportFromTime
+    public TerraformValue<string>? ExportFromTime
     {
-        get => new TerraformReference<string>(this, "export_from_time");
+        get => GetArgument<TerraformValue<string>>("export_from_time");
         set => SetArgument("export_from_time", value);
     }
 
     /// <summary>
     /// The export_to_time attribute.
     /// </summary>
-    public TerraformValue<string> ExportToTime
+    public TerraformValue<string>? ExportToTime
     {
-        get => new TerraformReference<string>(this, "export_to_time");
+        get => GetArgument<TerraformValue<string>>("export_to_time");
         set => SetArgument("export_to_time", value);
     }
 
     /// <summary>
     /// The export_view_type attribute.
     /// </summary>
-    public TerraformValue<string> ExportViewType
+    public TerraformValue<string>? ExportViewType
     {
-        get => new TerraformReference<string>(this, "export_view_type");
+        get => GetArgument<TerraformValue<string>>("export_view_type");
         set => SetArgument("export_view_type", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsDynamodbTableExportTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsDynamodbTableExportTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -86,43 +86,43 @@ public partial class AwsDynamodbTableExport(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? ExportFormat
     {
-        get => new TerraformReference<string>(this, "export_format");
+        get => GetArgument<TerraformValue<string>>("export_format");
         set => SetArgument("export_format", value);
     }
 
     /// <summary>
     /// The export_time attribute.
     /// </summary>
-    public TerraformValue<string> ExportTime
+    public TerraformValue<string>? ExportTime
     {
-        get => new TerraformReference<string>(this, "export_time");
+        get => GetArgument<TerraformValue<string>>("export_time");
         set => SetArgument("export_time", value);
     }
 
     /// <summary>
     /// The export_type attribute.
     /// </summary>
-    public TerraformValue<string> ExportType
+    public TerraformValue<string>? ExportType
     {
-        get => new TerraformReference<string>(this, "export_type");
+        get => GetArgument<TerraformValue<string>>("export_type");
         set => SetArgument("export_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -132,34 +132,34 @@ public partial class AwsDynamodbTableExport(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
     public required TerraformValue<string> S3Bucket
     {
-        get => new TerraformReference<string>(this, "s3_bucket");
+        get => GetArgument<TerraformValue<string>>("s3_bucket");
         set => SetArgument("s3_bucket", value);
     }
 
     /// <summary>
     /// The s3_bucket_owner attribute.
     /// </summary>
-    public TerraformValue<string> S3BucketOwner
+    public TerraformValue<string>? S3BucketOwner
     {
-        get => new TerraformReference<string>(this, "s3_bucket_owner");
+        get => GetArgument<TerraformValue<string>>("s3_bucket_owner");
         set => SetArgument("s3_bucket_owner", value);
     }
 
     /// <summary>
     /// The s3_prefix attribute.
     /// </summary>
-    public TerraformValue<string> S3Prefix
+    public TerraformValue<string>? S3Prefix
     {
-        get => new TerraformReference<string>(this, "s3_prefix");
+        get => GetArgument<TerraformValue<string>>("s3_prefix");
         set => SetArgument("s3_prefix", value);
     }
 
     /// <summary>
     /// The s3_sse_algorithm attribute.
     /// </summary>
-    public TerraformValue<string> S3SseAlgorithm
+    public TerraformValue<string>? S3SseAlgorithm
     {
-        get => new TerraformReference<string>(this, "s3_sse_algorithm");
+        get => GetArgument<TerraformValue<string>>("s3_sse_algorithm");
         set => SetArgument("s3_sse_algorithm", value);
     }
 
@@ -168,7 +168,7 @@ public partial class AwsDynamodbTableExport(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? S3SseKmsKeyId
     {
-        get => new TerraformReference<string>(this, "s3_sse_kms_key_id");
+        get => GetArgument<TerraformValue<string>>("s3_sse_kms_key_id");
         set => SetArgument("s3_sse_kms_key_id", value);
     }
 
@@ -178,7 +178,7 @@ public partial class AwsDynamodbTableExport(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableArn is required")]
     public required TerraformValue<string> TableArn
     {
-        get => new TerraformReference<string>(this, "table_arn");
+        get => GetArgument<TerraformValue<string>>("table_arn");
         set => SetArgument("table_arn", value);
     }
 
@@ -186,57 +186,43 @@ public partial class AwsDynamodbTableExport(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The billed_size_in_bytes attribute.
     /// </summary>
     public TerraformValue<double> BilledSizeInBytes
-    {
-        get => new TerraformReference<double>(this, "billed_size_in_bytes");
-    }
+        => AsReference("billed_size_in_bytes");
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
     public TerraformValue<string> EndTime
-    {
-        get => new TerraformReference<string>(this, "end_time");
-    }
+        => AsReference("end_time");
 
     /// <summary>
     /// The export_status attribute.
     /// </summary>
     public TerraformValue<string> ExportStatus
-    {
-        get => new TerraformReference<string>(this, "export_status");
-    }
+        => AsReference("export_status");
 
     /// <summary>
     /// The item_count attribute.
     /// </summary>
     public TerraformValue<double> ItemCount
-    {
-        get => new TerraformReference<double>(this, "item_count");
-    }
+        => AsReference("item_count");
 
     /// <summary>
     /// The manifest_files_s3_key attribute.
     /// </summary>
     public TerraformValue<string> ManifestFilesS3Key
-    {
-        get => new TerraformReference<string>(this, "manifest_files_s3_key");
-    }
+        => AsReference("manifest_files_s3_key");
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     public TerraformValue<string> StartTime
-    {
-        get => new TerraformReference<string>(this, "start_time");
-    }
+        => AsReference("start_time");
 
     /// <summary>
     /// IncrementalExportSpecification block (nesting mode: list).

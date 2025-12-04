@@ -18,7 +18,7 @@ public class GoogleDataprocGdcApplicationEnvironmentSparkApplicationEnvironmentC
     /// </summary>
     public TerraformMap<string>? DefaultProperties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "default_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("default_properties");
         set => SetArgument("default_properties", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleDataprocGdcApplicationEnvironmentSparkApplicationEnvironmentC
     /// </summary>
     public TerraformValue<string>? DefaultVersion
     {
-        get => new TerraformReference<string>(this, "default_version");
+        get => GetArgument<TerraformValue<string>>("default_version");
         set => SetArgument("default_version", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleDataprocGdcApplicationEnvironmentTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleDataprocGdcApplicationEnvironmentTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleDataprocGdcApplicationEnvironmentTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -89,7 +89,7 @@ public partial class GoogleDataprocGdcApplicationEnvironment(string name) : Terr
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -98,7 +98,7 @@ public partial class GoogleDataprocGdcApplicationEnvironment(string name) : Terr
     /// </summary>
     public TerraformValue<string>? ApplicationEnvironmentId
     {
-        get => new TerraformReference<string>(this, "application_environment_id");
+        get => GetArgument<TerraformValue<string>>("application_environment_id");
         set => SetArgument("application_environment_id", value);
     }
 
@@ -107,16 +107,16 @@ public partial class GoogleDataprocGdcApplicationEnvironment(string name) : Terr
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -128,7 +128,7 @@ public partial class GoogleDataprocGdcApplicationEnvironment(string name) : Terr
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -138,7 +138,7 @@ public partial class GoogleDataprocGdcApplicationEnvironment(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -147,16 +147,16 @@ public partial class GoogleDataprocGdcApplicationEnvironment(string name) : Terr
     /// </summary>
     public TerraformValue<string>? NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -166,7 +166,7 @@ public partial class GoogleDataprocGdcApplicationEnvironment(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Serviceinstance is required")]
     public required TerraformValue<string> Serviceinstance
     {
-        get => new TerraformReference<string>(this, "serviceinstance");
+        get => GetArgument<TerraformValue<string>>("serviceinstance");
         set => SetArgument("serviceinstance", value);
     }
 
@@ -174,58 +174,44 @@ public partial class GoogleDataprocGdcApplicationEnvironment(string name) : Terr
     /// The timestamp when the resource was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Identifier. The name of the application environment. Format: projects/{project}/locations/{location}/serviceInstances/{service_instance}/applicationEnvironments/{application_environment_id}
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// System generated unique identifier for this application environment, formatted as UUID4.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// The timestamp when the resource was most recently updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// SparkApplicationEnvironmentConfig block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AzurermOracleAutonomousDatabaseBackupsDataSourceTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermOracleAutonomousDatabaseBackupsDataSource(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDatabaseId is required")]
     public required TerraformValue<string> AutonomousDatabaseId
     {
-        get => new TerraformReference<string>(this, "autonomous_database_id");
+        get => GetArgument<TerraformValue<string>>("autonomous_database_id");
         set => SetArgument("autonomous_database_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -54,9 +54,7 @@ public partial class AzurermOracleAutonomousDatabaseBackupsDataSource(string nam
     /// The autonomous_database_backups attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AutonomousDatabaseBackups
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "autonomous_database_backups").ResolveNodes(ctx));
-    }
+        => AsReference("autonomous_database_backups");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

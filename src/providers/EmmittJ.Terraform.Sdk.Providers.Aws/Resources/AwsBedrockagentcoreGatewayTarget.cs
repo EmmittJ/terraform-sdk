@@ -58,7 +58,7 @@ public class AwsBedrockagentcoreGatewayTargetCredentialProviderConfigurationBloc
     /// </summary>
     public TerraformValue<string>? CredentialLocation
     {
-        get => new TerraformReference<string>(this, "credential_location");
+        get => GetArgument<TerraformValue<string>>("credential_location");
         set => SetArgument("credential_location", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsBedrockagentcoreGatewayTargetCredentialProviderConfigurationBloc
     /// </summary>
     public TerraformValue<string>? CredentialParameterName
     {
-        get => new TerraformReference<string>(this, "credential_parameter_name");
+        get => GetArgument<TerraformValue<string>>("credential_parameter_name");
         set => SetArgument("credential_parameter_name", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsBedrockagentcoreGatewayTargetCredentialProviderConfigurationBloc
     /// </summary>
     public TerraformValue<string>? CredentialPrefix
     {
-        get => new TerraformReference<string>(this, "credential_prefix");
+        get => GetArgument<TerraformValue<string>>("credential_prefix");
         set => SetArgument("credential_prefix", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsBedrockagentcoreGatewayTargetCredentialProviderConfigurationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderArn is required")]
     public required TerraformValue<string> ProviderArn
     {
-        get => new TerraformReference<string>(this, "provider_arn");
+        get => GetArgument<TerraformValue<string>>("provider_arn");
         set => SetArgument("provider_arn", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsBedrockagentcoreGatewayTargetCredentialProviderConfigurationBloc
     /// </summary>
     public TerraformMap<string>? CustomParameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "custom_parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("custom_parameters");
         set => SetArgument("custom_parameters", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsBedrockagentcoreGatewayTargetCredentialProviderConfigurationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderArn is required")]
     public required TerraformValue<string> ProviderArn
     {
-        get => new TerraformReference<string>(this, "provider_arn");
+        get => GetArgument<TerraformValue<string>>("provider_arn");
         set => SetArgument("provider_arn", value);
     }
 
@@ -141,7 +141,7 @@ public class AwsBedrockagentcoreGatewayTargetCredentialProviderConfigurationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
     public required TerraformSet<string> Scopes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("scopes");
         set => SetArgument("scopes", value);
     }
 
@@ -227,7 +227,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LambdaArn is required")]
     public required TerraformValue<string> LambdaArn
     {
-        get => new TerraformReference<string>(this, "lambda_arn");
+        get => GetArgument<TerraformValue<string>>("lambda_arn");
         set => SetArgument("lambda_arn", value);
     }
 
@@ -290,7 +290,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -300,7 +300,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -340,7 +340,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -350,7 +350,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -390,7 +390,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -400,7 +400,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -440,7 +440,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -449,7 +449,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? ItemsJson
     {
-        get => new TerraformReference<string>(this, "items_json");
+        get => GetArgument<TerraformValue<string>>("items_json");
         set => SetArgument("items_json", value);
     }
 
@@ -458,7 +458,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? PropertiesJson
     {
-        get => new TerraformReference<string>(this, "properties_json");
+        get => GetArgument<TerraformValue<string>>("properties_json");
         set => SetArgument("properties_json", value);
     }
 
@@ -468,7 +468,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -490,7 +490,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -499,7 +499,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? ItemsJson
     {
-        get => new TerraformReference<string>(this, "items_json");
+        get => GetArgument<TerraformValue<string>>("items_json");
         set => SetArgument("items_json", value);
     }
 
@@ -509,7 +509,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -518,16 +518,16 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? PropertiesJson
     {
-        get => new TerraformReference<string>(this, "properties_json");
+        get => GetArgument<TerraformValue<string>>("properties_json");
         set => SetArgument("properties_json", value);
     }
 
     /// <summary>
     /// The required attribute.
     /// </summary>
-    public TerraformValue<bool> Required
+    public TerraformValue<bool>? Required
     {
-        get => new TerraformReference<bool>(this, "required");
+        get => GetArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -537,7 +537,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -559,7 +559,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -569,16 +569,16 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The required attribute.
     /// </summary>
-    public TerraformValue<bool> Required
+    public TerraformValue<bool>? Required
     {
-        get => new TerraformReference<bool>(this, "required");
+        get => GetArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -588,7 +588,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -628,7 +628,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -638,7 +638,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -678,7 +678,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -687,7 +687,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? ItemsJson
     {
-        get => new TerraformReference<string>(this, "items_json");
+        get => GetArgument<TerraformValue<string>>("items_json");
         set => SetArgument("items_json", value);
     }
 
@@ -696,7 +696,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? PropertiesJson
     {
-        get => new TerraformReference<string>(this, "properties_json");
+        get => GetArgument<TerraformValue<string>>("properties_json");
         set => SetArgument("properties_json", value);
     }
 
@@ -706,7 +706,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -728,7 +728,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -737,7 +737,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? ItemsJson
     {
-        get => new TerraformReference<string>(this, "items_json");
+        get => GetArgument<TerraformValue<string>>("items_json");
         set => SetArgument("items_json", value);
     }
 
@@ -747,7 +747,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -756,16 +756,16 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? PropertiesJson
     {
-        get => new TerraformReference<string>(this, "properties_json");
+        get => GetArgument<TerraformValue<string>>("properties_json");
         set => SetArgument("properties_json", value);
     }
 
     /// <summary>
     /// The required attribute.
     /// </summary>
-    public TerraformValue<bool> Required
+    public TerraformValue<bool>? Required
     {
-        get => new TerraformReference<bool>(this, "required");
+        get => GetArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -775,7 +775,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -797,7 +797,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -806,7 +806,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? ItemsJson
     {
-        get => new TerraformReference<string>(this, "items_json");
+        get => GetArgument<TerraformValue<string>>("items_json");
         set => SetArgument("items_json", value);
     }
 
@@ -816,7 +816,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -825,16 +825,16 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? PropertiesJson
     {
-        get => new TerraformReference<string>(this, "properties_json");
+        get => GetArgument<TerraformValue<string>>("properties_json");
         set => SetArgument("properties_json", value);
     }
 
     /// <summary>
     /// The required attribute.
     /// </summary>
-    public TerraformValue<bool> Required
+    public TerraformValue<bool>? Required
     {
-        get => new TerraformReference<bool>(this, "required");
+        get => GetArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -844,7 +844,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -866,7 +866,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -876,7 +876,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -916,7 +916,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -926,7 +926,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -966,7 +966,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -975,7 +975,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? ItemsJson
     {
-        get => new TerraformReference<string>(this, "items_json");
+        get => GetArgument<TerraformValue<string>>("items_json");
         set => SetArgument("items_json", value);
     }
 
@@ -984,7 +984,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? PropertiesJson
     {
-        get => new TerraformReference<string>(this, "properties_json");
+        get => GetArgument<TerraformValue<string>>("properties_json");
         set => SetArgument("properties_json", value);
     }
 
@@ -994,7 +994,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1016,7 +1016,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -1025,7 +1025,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? ItemsJson
     {
-        get => new TerraformReference<string>(this, "items_json");
+        get => GetArgument<TerraformValue<string>>("items_json");
         set => SetArgument("items_json", value);
     }
 
@@ -1035,7 +1035,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1044,16 +1044,16 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? PropertiesJson
     {
-        get => new TerraformReference<string>(this, "properties_json");
+        get => GetArgument<TerraformValue<string>>("properties_json");
         set => SetArgument("properties_json", value);
     }
 
     /// <summary>
     /// The required attribute.
     /// </summary>
-    public TerraformValue<bool> Required
+    public TerraformValue<bool>? Required
     {
-        get => new TerraformReference<bool>(this, "required");
+        get => GetArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -1063,7 +1063,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1085,7 +1085,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -1095,16 +1095,16 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The required attribute.
     /// </summary>
-    public TerraformValue<bool> Required
+    public TerraformValue<bool>? Required
     {
-        get => new TerraformReference<bool>(this, "required");
+        get => GetArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -1114,7 +1114,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1154,7 +1154,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -1164,7 +1164,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1204,7 +1204,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -1213,7 +1213,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? ItemsJson
     {
-        get => new TerraformReference<string>(this, "items_json");
+        get => GetArgument<TerraformValue<string>>("items_json");
         set => SetArgument("items_json", value);
     }
 
@@ -1222,7 +1222,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? PropertiesJson
     {
-        get => new TerraformReference<string>(this, "properties_json");
+        get => GetArgument<TerraformValue<string>>("properties_json");
         set => SetArgument("properties_json", value);
     }
 
@@ -1232,7 +1232,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1254,7 +1254,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -1263,7 +1263,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? ItemsJson
     {
-        get => new TerraformReference<string>(this, "items_json");
+        get => GetArgument<TerraformValue<string>>("items_json");
         set => SetArgument("items_json", value);
     }
 
@@ -1273,7 +1273,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1282,16 +1282,16 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? PropertiesJson
     {
-        get => new TerraformReference<string>(this, "properties_json");
+        get => GetArgument<TerraformValue<string>>("properties_json");
         set => SetArgument("properties_json", value);
     }
 
     /// <summary>
     /// The required attribute.
     /// </summary>
-    public TerraformValue<bool> Required
+    public TerraformValue<bool>? Required
     {
-        get => new TerraformReference<bool>(this, "required");
+        get => GetArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -1301,7 +1301,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1323,7 +1323,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -1332,7 +1332,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? ItemsJson
     {
-        get => new TerraformReference<string>(this, "items_json");
+        get => GetArgument<TerraformValue<string>>("items_json");
         set => SetArgument("items_json", value);
     }
 
@@ -1342,7 +1342,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1351,16 +1351,16 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? PropertiesJson
     {
-        get => new TerraformReference<string>(this, "properties_json");
+        get => GetArgument<TerraformValue<string>>("properties_json");
         set => SetArgument("properties_json", value);
     }
 
     /// <summary>
     /// The required attribute.
     /// </summary>
-    public TerraformValue<bool> Required
+    public TerraformValue<bool>? Required
     {
-        get => new TerraformReference<bool>(this, "required");
+        get => GetArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -1370,7 +1370,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1392,7 +1392,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? BucketOwnerAccountId
     {
-        get => new TerraformReference<string>(this, "bucket_owner_account_id");
+        get => GetArgument<TerraformValue<string>>("bucket_owner_account_id");
         set => SetArgument("bucket_owner_account_id", value);
     }
 
@@ -1401,7 +1401,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockLam
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -1455,7 +1455,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockOpe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Payload is required")]
     public required TerraformValue<string> Payload
     {
-        get => new TerraformReference<string>(this, "payload");
+        get => GetArgument<TerraformValue<string>>("payload");
         set => SetArgument("payload", value);
     }
 
@@ -1477,7 +1477,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockOpe
     /// </summary>
     public TerraformValue<string>? BucketOwnerAccountId
     {
-        get => new TerraformReference<string>(this, "bucket_owner_account_id");
+        get => GetArgument<TerraformValue<string>>("bucket_owner_account_id");
         set => SetArgument("bucket_owner_account_id", value);
     }
 
@@ -1486,7 +1486,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockOpe
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -1540,7 +1540,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockSmi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Payload is required")]
     public required TerraformValue<string> Payload
     {
-        get => new TerraformReference<string>(this, "payload");
+        get => GetArgument<TerraformValue<string>>("payload");
         set => SetArgument("payload", value);
     }
 
@@ -1562,7 +1562,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockSmi
     /// </summary>
     public TerraformValue<string>? BucketOwnerAccountId
     {
-        get => new TerraformReference<string>(this, "bucket_owner_account_id");
+        get => GetArgument<TerraformValue<string>>("bucket_owner_account_id");
         set => SetArgument("bucket_owner_account_id", value);
     }
 
@@ -1571,7 +1571,7 @@ public class AwsBedrockagentcoreGatewayTargetTargetConfigurationBlockMcpBlockSmi
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -1594,7 +1594,7 @@ public class AwsBedrockagentcoreGatewayTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1603,7 +1603,7 @@ public class AwsBedrockagentcoreGatewayTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1612,7 +1612,7 @@ public class AwsBedrockagentcoreGatewayTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1630,7 +1630,7 @@ public partial class AwsBedrockagentcoreGatewayTarget(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -1640,7 +1640,7 @@ public partial class AwsBedrockagentcoreGatewayTarget(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayIdentifier is required")]
     public required TerraformValue<string> GatewayIdentifier
     {
-        get => new TerraformReference<string>(this, "gateway_identifier");
+        get => GetArgument<TerraformValue<string>>("gateway_identifier");
         set => SetArgument("gateway_identifier", value);
     }
 
@@ -1650,16 +1650,16 @@ public partial class AwsBedrockagentcoreGatewayTarget(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -1667,9 +1667,7 @@ public partial class AwsBedrockagentcoreGatewayTarget(string name) : TerraformRe
     /// The target_id attribute.
     /// </summary>
     public TerraformValue<string> TargetId
-    {
-        get => new TerraformReference<string>(this, "target_id");
-    }
+        => AsReference("target_id");
 
     /// <summary>
     /// CredentialProviderConfiguration block (nesting mode: list).

@@ -18,7 +18,7 @@ public class GoogleNetappActiveDirectoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleNetappActiveDirectoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleNetappActiveDirectoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,7 +54,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     /// </summary>
     public TerraformList<string>? Administrators
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "administrators").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("administrators");
         set => SetArgument("administrators", value);
     }
 
@@ -63,7 +63,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool>? AesEncryption
     {
-        get => new TerraformReference<bool>(this, "aes_encryption");
+        get => GetArgument<TerraformValue<bool>>("aes_encryption");
         set => SetArgument("aes_encryption", value);
     }
 
@@ -72,7 +72,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     /// </summary>
     public TerraformList<string>? BackupOperators
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "backup_operators").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("backup_operators");
         set => SetArgument("backup_operators", value);
     }
 
@@ -81,7 +81,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -91,7 +91,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dns is required")]
     public required TerraformValue<string> Dns
     {
-        get => new TerraformReference<string>(this, "dns");
+        get => GetArgument<TerraformValue<string>>("dns");
         set => SetArgument("dns", value);
     }
 
@@ -101,7 +101,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => new TerraformReference<string>(this, "domain");
+        get => GetArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
@@ -110,16 +110,16 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool>? EncryptDcConnections
     {
-        get => new TerraformReference<bool>(this, "encrypt_dc_connections");
+        get => GetArgument<TerraformValue<bool>>("encrypt_dc_connections");
         set => SetArgument("encrypt_dc_connections", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -128,7 +128,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? KdcHostname
     {
-        get => new TerraformReference<string>(this, "kdc_hostname");
+        get => GetArgument<TerraformValue<string>>("kdc_hostname");
         set => SetArgument("kdc_hostname", value);
     }
 
@@ -137,7 +137,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? KdcIp
     {
-        get => new TerraformReference<string>(this, "kdc_ip");
+        get => GetArgument<TerraformValue<string>>("kdc_ip");
         set => SetArgument("kdc_ip", value);
     }
 
@@ -150,7 +150,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -159,7 +159,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool>? LdapSigning
     {
-        get => new TerraformReference<bool>(this, "ldap_signing");
+        get => GetArgument<TerraformValue<bool>>("ldap_signing");
         set => SetArgument("ldap_signing", value);
     }
 
@@ -169,7 +169,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -179,7 +179,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -191,7 +191,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetBiosPrefix is required")]
     public required TerraformValue<string> NetBiosPrefix
     {
-        get => new TerraformReference<string>(this, "net_bios_prefix");
+        get => GetArgument<TerraformValue<string>>("net_bios_prefix");
         set => SetArgument("net_bios_prefix", value);
     }
 
@@ -201,7 +201,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool>? NfsUsersWithLdap
     {
-        get => new TerraformReference<bool>(this, "nfs_users_with_ldap");
+        get => GetArgument<TerraformValue<bool>>("nfs_users_with_ldap");
         set => SetArgument("nfs_users_with_ldap", value);
     }
 
@@ -209,9 +209,9 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     /// Name of the Organizational Unit where you intend to create the computer account for NetApp Volumes.
     /// Defaults to &#39;CN=Computers&#39; if left empty.
     /// </summary>
-    public TerraformValue<string> OrganizationalUnit
+    public TerraformValue<string>? OrganizationalUnit
     {
-        get => new TerraformReference<string>(this, "organizational_unit");
+        get => GetArgument<TerraformValue<string>>("organizational_unit");
         set => SetArgument("organizational_unit", value);
     }
 
@@ -221,16 +221,16 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -239,7 +239,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     /// </summary>
     public TerraformList<string>? SecurityOperators
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "security_operators").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("security_operators");
         set => SetArgument("security_operators", value);
     }
 
@@ -249,7 +249,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? Site
     {
-        get => new TerraformReference<string>(this, "site");
+        get => GetArgument<TerraformValue<string>>("site");
         set => SetArgument("site", value);
     }
 
@@ -259,7 +259,7 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -267,42 +267,32 @@ public partial class GoogleNetappActiveDirectory(string name) : TerraformResourc
     /// Create time of the active directory. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format. Examples: &amp;quot;2023-06-22T09:13:01.617Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The state of the Active Directory policy (not the Active Directory itself).
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The state details of the Active Directory.
     /// </summary>
     public TerraformValue<string> StateDetails
-    {
-        get => new TerraformReference<string>(this, "state_details");
-    }
+        => AsReference("state_details");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

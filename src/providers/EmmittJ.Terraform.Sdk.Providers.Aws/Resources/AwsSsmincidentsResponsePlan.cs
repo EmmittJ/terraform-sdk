@@ -41,7 +41,7 @@ public class AwsSsmincidentsResponsePlanActionBlockSsmAutomationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DocumentName is required")]
     public required TerraformValue<string> DocumentName
     {
-        get => new TerraformReference<string>(this, "document_name");
+        get => GetArgument<TerraformValue<string>>("document_name");
         set => SetArgument("document_name", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsSsmincidentsResponsePlanActionBlockSsmAutomationBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? DocumentVersion
     {
-        get => new TerraformReference<string>(this, "document_version");
+        get => GetArgument<TerraformValue<string>>("document_version");
         set => SetArgument("document_version", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsSsmincidentsResponsePlanActionBlockSsmAutomationBlock : Terrafor
     /// </summary>
     public TerraformMap<string>? DynamicParameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "dynamic_parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("dynamic_parameters");
         set => SetArgument("dynamic_parameters", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsSsmincidentsResponsePlanActionBlockSsmAutomationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsSsmincidentsResponsePlanActionBlockSsmAutomationBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? TargetAccount
     {
-        get => new TerraformReference<string>(this, "target_account");
+        get => GetArgument<TerraformValue<string>>("target_account");
         set => SetArgument("target_account", value);
     }
 
@@ -110,7 +110,7 @@ public class AwsSsmincidentsResponsePlanActionBlockSsmAutomationBlockParameterBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -120,7 +120,7 @@ public class AwsSsmincidentsResponsePlanActionBlockSsmAutomationBlockParameterBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -143,7 +143,7 @@ public class AwsSsmincidentsResponsePlanIncidentTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DedupeString
     {
-        get => new TerraformReference<string>(this, "dedupe_string");
+        get => GetArgument<TerraformValue<string>>("dedupe_string");
         set => SetArgument("dedupe_string", value);
     }
 
@@ -153,7 +153,7 @@ public class AwsSsmincidentsResponsePlanIncidentTemplateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Impact is required")]
     public required TerraformValue<double> Impact
     {
-        get => new TerraformReference<double>(this, "impact");
+        get => GetArgument<TerraformValue<double>>("impact");
         set => SetArgument("impact", value);
     }
 
@@ -162,7 +162,7 @@ public class AwsSsmincidentsResponsePlanIncidentTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? IncidentTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "incident_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("incident_tags");
         set => SetArgument("incident_tags", value);
     }
 
@@ -171,7 +171,7 @@ public class AwsSsmincidentsResponsePlanIncidentTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Summary
     {
-        get => new TerraformReference<string>(this, "summary");
+        get => GetArgument<TerraformValue<string>>("summary");
         set => SetArgument("summary", value);
     }
 
@@ -181,7 +181,7 @@ public class AwsSsmincidentsResponsePlanIncidentTemplateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -213,7 +213,7 @@ public class AwsSsmincidentsResponsePlanIncidentTemplateBlockNotificationTargetB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnsTopicArn is required")]
     public required TerraformValue<string> SnsTopicArn
     {
-        get => new TerraformReference<string>(this, "sns_topic_arn");
+        get => GetArgument<TerraformValue<string>>("sns_topic_arn");
         set => SetArgument("sns_topic_arn", value);
     }
 
@@ -259,7 +259,7 @@ public class AwsSsmincidentsResponsePlanIntegrationBlockPagerdutyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -269,7 +269,7 @@ public class AwsSsmincidentsResponsePlanIntegrationBlockPagerdutyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformValue<string> SecretId
     {
-        get => new TerraformReference<string>(this, "secret_id");
+        get => GetArgument<TerraformValue<string>>("secret_id");
         set => SetArgument("secret_id", value);
     }
 
@@ -279,7 +279,7 @@ public class AwsSsmincidentsResponsePlanIntegrationBlockPagerdutyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformValue<string> ServiceId
     {
-        get => new TerraformReference<string>(this, "service_id");
+        get => GetArgument<TerraformValue<string>>("service_id");
         set => SetArgument("service_id", value);
     }
 
@@ -297,7 +297,7 @@ public partial class AwsSsmincidentsResponsePlan(string name) : TerraformResourc
     /// </summary>
     public TerraformSet<string>? ChatChannel
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "chat_channel").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("chat_channel");
         set => SetArgument("chat_channel", value);
     }
 
@@ -306,7 +306,7 @@ public partial class AwsSsmincidentsResponsePlan(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -315,16 +315,16 @@ public partial class AwsSsmincidentsResponsePlan(string name) : TerraformResourc
     /// </summary>
     public TerraformSet<string>? Engagements
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "engagements").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("engagements");
         set => SetArgument("engagements", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -334,16 +334,16 @@ public partial class AwsSsmincidentsResponsePlan(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -352,16 +352,16 @@ public partial class AwsSsmincidentsResponsePlan(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -369,9 +369,7 @@ public partial class AwsSsmincidentsResponsePlan(string name) : TerraformResourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Action block (nesting mode: list).

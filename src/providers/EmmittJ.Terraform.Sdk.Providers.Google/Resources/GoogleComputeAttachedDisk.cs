@@ -18,7 +18,7 @@ public class GoogleComputeAttachedDiskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeAttachedDiskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -43,9 +43,9 @@ public partial class GoogleComputeAttachedDisk(string name) : TerraformResource(
     /// <summary>
     /// Specifies a unique device name of your choice that is reflected into the /dev/disk/by-id/google-* tree of a Linux operating system running within the instance. This name can be used to reference the device for mounting, resizing, and so on, from within the instance. If not specified, the server chooses a default device name to apply to this disk, in the form persistent-disks-x, where x is a number assigned by Google Compute Engine.
     /// </summary>
-    public TerraformValue<string> DeviceName
+    public TerraformValue<string>? DeviceName
     {
-        get => new TerraformReference<string>(this, "device_name");
+        get => GetArgument<TerraformValue<string>>("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -55,16 +55,16 @@ public partial class GoogleComputeAttachedDisk(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
     public required TerraformValue<string> Disk
     {
-        get => new TerraformReference<string>(this, "disk");
+        get => GetArgument<TerraformValue<string>>("disk");
         set => SetArgument("disk", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleComputeAttachedDisk(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -83,7 +83,7 @@ public partial class GoogleComputeAttachedDisk(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? InterfaceAttribute
     {
-        get => new TerraformReference<string>(this, "interface");
+        get => GetArgument<TerraformValue<string>>("interface");
         set => SetArgument("interface", value);
     }
 
@@ -92,25 +92,25 @@ public partial class GoogleComputeAttachedDisk(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
     /// <summary>
     /// The project that the referenced compute instance is a part of. If instance is referenced by its self_link the project defined in the link will take precedence.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The zone that the referenced compute instance is located within. If instance is referenced by its self_link the zone defined in the link will take precedence.
     /// </summary>
-    public TerraformValue<string> Zone
+    public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 

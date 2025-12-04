@@ -18,7 +18,7 @@ public class AzurermPrivateLinkServiceEndpointConnectionsDataSourceTimeoutsBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermPrivateLinkServiceEndpointConnectionsDataSource(stri
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermPrivateLinkServiceEndpointConnectionsDataSource(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermPrivateLinkServiceEndpointConnectionsDataSource(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformValue<string> ServiceId
     {
-        get => new TerraformReference<string>(this, "service_id");
+        get => GetArgument<TerraformValue<string>>("service_id");
         set => SetArgument("service_id", value);
     }
 
@@ -64,25 +64,19 @@ public partial class AzurermPrivateLinkServiceEndpointConnectionsDataSource(stri
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The private_endpoint_connections attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrivateEndpointConnections
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "private_endpoint_connections").ResolveNodes(ctx));
-    }
+        => AsReference("private_endpoint_connections");
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
     public TerraformValue<string> ServiceName
-    {
-        get => new TerraformReference<string>(this, "service_name");
-    }
+        => AsReference("service_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

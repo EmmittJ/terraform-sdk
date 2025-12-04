@@ -51,7 +51,7 @@ public class AwsAppmeshMeshSpecBlockEgressFilterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsAppmeshMeshSpecBlockServiceDiscoveryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? IpPreference
     {
-        get => new TerraformReference<string>(this, "ip_preference");
+        get => GetArgument<TerraformValue<string>>("ip_preference");
         set => SetArgument("ip_preference", value);
     }
 
@@ -89,9 +89,9 @@ public partial class AwsAppmeshMesh(string name) : TerraformResource("aws_appmes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -101,16 +101,16 @@ public partial class AwsAppmeshMesh(string name) : TerraformResource("aws_appmes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -119,16 +119,16 @@ public partial class AwsAppmeshMesh(string name) : TerraformResource("aws_appmes
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -136,41 +136,31 @@ public partial class AwsAppmeshMesh(string name) : TerraformResource("aws_appmes
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
     public TerraformValue<string> CreatedDate
-    {
-        get => new TerraformReference<string>(this, "created_date");
-    }
+        => AsReference("created_date");
 
     /// <summary>
     /// The last_updated_date attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedDate
-    {
-        get => new TerraformReference<string>(this, "last_updated_date");
-    }
+        => AsReference("last_updated_date");
 
     /// <summary>
     /// The mesh_owner attribute.
     /// </summary>
     public TerraformValue<string> MeshOwner
-    {
-        get => new TerraformReference<string>(this, "mesh_owner");
-    }
+        => AsReference("mesh_owner");
 
     /// <summary>
     /// The resource_owner attribute.
     /// </summary>
     public TerraformValue<string> ResourceOwner
-    {
-        get => new TerraformReference<string>(this, "resource_owner");
-    }
+        => AsReference("resource_owner");
 
     /// <summary>
     /// Spec block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AzurermBatchCertificateDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermBatchCertificateDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => new TerraformReference<string>(this, "account_name");
+        get => GetArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermBatchCertificateDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermBatchCertificateDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -74,33 +74,25 @@ public partial class AzurermBatchCertificateDataSource(string name) : TerraformD
     /// The format attribute.
     /// </summary>
     public TerraformValue<string> Format
-    {
-        get => new TerraformReference<string>(this, "format");
-    }
+        => AsReference("format");
 
     /// <summary>
     /// The public_data attribute.
     /// </summary>
     public TerraformValue<string> PublicData
-    {
-        get => new TerraformReference<string>(this, "public_data");
-    }
+        => AsReference("public_data");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-    {
-        get => new TerraformReference<string>(this, "thumbprint");
-    }
+        => AsReference("thumbprint");
 
     /// <summary>
     /// The thumbprint_algorithm attribute.
     /// </summary>
     public TerraformValue<string> ThumbprintAlgorithm
-    {
-        get => new TerraformReference<string>(this, "thumbprint_algorithm");
-    }
+        => AsReference("thumbprint_algorithm");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

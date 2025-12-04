@@ -18,7 +18,7 @@ public class GoogleApihubHostProjectRegistrationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleApihubHostProjectRegistrationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -48,7 +48,7 @@ public partial class GoogleApihubHostProjectRegistration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GcpProject is required")]
     public required TerraformValue<string> GcpProject
     {
-        get => new TerraformReference<string>(this, "gcp_project");
+        get => GetArgument<TerraformValue<string>>("gcp_project");
         set => SetArgument("gcp_project", value);
     }
 
@@ -61,16 +61,16 @@ public partial class GoogleApihubHostProjectRegistration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostProjectRegistrationId is required")]
     public required TerraformValue<string> HostProjectRegistrationId
     {
-        get => new TerraformReference<string>(this, "host_project_registration_id");
+        get => GetArgument<TerraformValue<string>>("host_project_registration_id");
         set => SetArgument("host_project_registration_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -80,16 +80,16 @@ public partial class GoogleApihubHostProjectRegistration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -97,9 +97,7 @@ public partial class GoogleApihubHostProjectRegistration(string name) : Terrafor
     /// Output only. The time at which the host project registration was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Identifier. The name of the host project registration.
@@ -107,9 +105,7 @@ public partial class GoogleApihubHostProjectRegistration(string name) : Terrafor
     /// &amp;quot;projects/{project}/locations/{location}/hostProjectRegistrations/{host_project_registration}&amp;quot;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

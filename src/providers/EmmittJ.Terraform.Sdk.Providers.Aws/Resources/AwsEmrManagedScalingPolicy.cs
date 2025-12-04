@@ -19,7 +19,7 @@ public class AwsEmrManagedScalingPolicyComputeLimitsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumCapacityUnits is required")]
     public required TerraformValue<double> MaximumCapacityUnits
     {
-        get => new TerraformReference<double>(this, "maximum_capacity_units");
+        get => GetArgument<TerraformValue<double>>("maximum_capacity_units");
         set => SetArgument("maximum_capacity_units", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsEmrManagedScalingPolicyComputeLimitsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaximumCoreCapacityUnits
     {
-        get => new TerraformReference<double>(this, "maximum_core_capacity_units");
+        get => GetArgument<TerraformValue<double>>("maximum_core_capacity_units");
         set => SetArgument("maximum_core_capacity_units", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsEmrManagedScalingPolicyComputeLimitsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaximumOndemandCapacityUnits
     {
-        get => new TerraformReference<double>(this, "maximum_ondemand_capacity_units");
+        get => GetArgument<TerraformValue<double>>("maximum_ondemand_capacity_units");
         set => SetArgument("maximum_ondemand_capacity_units", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsEmrManagedScalingPolicyComputeLimitsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumCapacityUnits is required")]
     public required TerraformValue<double> MinimumCapacityUnits
     {
-        get => new TerraformReference<double>(this, "minimum_capacity_units");
+        get => GetArgument<TerraformValue<double>>("minimum_capacity_units");
         set => SetArgument("minimum_capacity_units", value);
     }
 
@@ -57,7 +57,7 @@ public class AwsEmrManagedScalingPolicyComputeLimitsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UnitType is required")]
     public required TerraformValue<string> UnitType
     {
-        get => new TerraformReference<string>(this, "unit_type");
+        get => GetArgument<TerraformValue<string>>("unit_type");
         set => SetArgument("unit_type", value);
     }
 
@@ -76,25 +76,25 @@ public partial class AwsEmrManagedScalingPolicy(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => new TerraformReference<string>(this, "cluster_id");
+        get => GetArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

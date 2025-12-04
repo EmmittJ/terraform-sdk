@@ -18,7 +18,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? InspectTemplateName
     {
-        get => new TerraformReference<string>(this, "inspect_template_name");
+        get => GetArgument<TerraformValue<string>>("inspect_template_name");
         set => SetArgument("inspect_template_name", value);
     }
 
@@ -174,7 +174,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockActionsBlockDeiden
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudStorageOutput is required")]
     public required TerraformValue<string> CloudStorageOutput
     {
-        get => new TerraformReference<string>(this, "cloud_storage_output");
+        get => GetArgument<TerraformValue<string>>("cloud_storage_output");
         set => SetArgument("cloud_storage_output", value);
     }
 
@@ -187,7 +187,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockActionsBlockDeiden
     /// </summary>
     public TerraformList<string>? FileTypesToTransform
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "file_types_to_transform").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("file_types_to_transform");
         set => SetArgument("file_types_to_transform", value);
     }
 
@@ -229,7 +229,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockActionsBlockDeiden
     /// </summary>
     public TerraformValue<string>? DeidentifyTemplate
     {
-        get => new TerraformReference<string>(this, "deidentify_template");
+        get => GetArgument<TerraformValue<string>>("deidentify_template");
         set => SetArgument("deidentify_template", value);
     }
 
@@ -238,7 +238,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockActionsBlockDeiden
     /// </summary>
     public TerraformValue<string>? ImageRedactTemplate
     {
-        get => new TerraformReference<string>(this, "image_redact_template");
+        get => GetArgument<TerraformValue<string>>("image_redact_template");
         set => SetArgument("image_redact_template", value);
     }
 
@@ -247,7 +247,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockActionsBlockDeiden
     /// </summary>
     public TerraformValue<string>? StructuredDeidentifyTemplate
     {
-        get => new TerraformReference<string>(this, "structured_deidentify_template");
+        get => GetArgument<TerraformValue<string>>("structured_deidentify_template");
         set => SetArgument("structured_deidentify_template", value);
     }
 
@@ -296,7 +296,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockActionsBlockDeiden
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => new TerraformReference<string>(this, "dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -306,7 +306,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockActionsBlockDeiden
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -317,7 +317,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockActionsBlockDeiden
     /// </summary>
     public TerraformValue<string>? TableId
     {
-        get => new TerraformReference<string>(this, "table_id");
+        get => GetArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -353,7 +353,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockActionsBlockPubSub
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformValue<string> Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -460,7 +460,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockActionsBlockSaveFi
     /// </summary>
     public TerraformValue<string>? OutputSchema
     {
-        get => new TerraformReference<string>(this, "output_schema");
+        get => GetArgument<TerraformValue<string>>("output_schema");
         set => SetArgument("output_schema", value);
     }
 
@@ -504,7 +504,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockActionsBlockSaveFi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -527,7 +527,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockActionsBlockSaveFi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => new TerraformReference<string>(this, "dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -537,7 +537,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockActionsBlockSaveFi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -547,7 +547,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockActionsBlockSaveFi
     /// </summary>
     public TerraformValue<string>? TableId
     {
-        get => new TerraformReference<string>(this, "table_id");
+        get => GetArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -569,7 +569,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformValue<bool>? ExcludeInfoTypes
     {
-        get => new TerraformReference<bool>(this, "exclude_info_types");
+        get => GetArgument<TerraformValue<bool>>("exclude_info_types");
         set => SetArgument("exclude_info_types", value);
     }
 
@@ -578,7 +578,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformValue<bool>? IncludeQuote
     {
-        get => new TerraformReference<bool>(this, "include_quote");
+        get => GetArgument<TerraformValue<bool>>("include_quote");
         set => SetArgument("include_quote", value);
     }
 
@@ -587,7 +587,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformValue<string>? MinLikelihood
     {
-        get => new TerraformReference<string>(this, "min_likelihood");
+        get => GetArgument<TerraformValue<string>>("min_likelihood");
         set => SetArgument("min_likelihood", value);
     }
 
@@ -646,7 +646,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformValue<string>? ExclusionType
     {
-        get => new TerraformReference<string>(this, "exclusion_type");
+        get => GetArgument<TerraformValue<string>>("exclusion_type");
         set => SetArgument("exclusion_type", value);
     }
 
@@ -656,7 +656,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformValue<string>? Likelihood
     {
-        get => new TerraformReference<string>(this, "likelihood");
+        get => GetArgument<TerraformValue<string>>("likelihood");
         set => SetArgument("likelihood", value);
     }
 
@@ -775,7 +775,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -799,7 +799,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Words is required")]
     public TerraformList<string>? Words
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "words").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("words");
         set => SetArgument("words", value);
     }
 
@@ -823,7 +823,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -832,7 +832,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -865,7 +865,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => new TerraformReference<string>(this, "score");
+        get => GetArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -887,7 +887,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformList<double>? GroupIndexes
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "group_indexes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("group_indexes");
         set => SetArgument("group_indexes", value);
     }
 
@@ -898,7 +898,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformValue<string> Pattern
     {
-        get => new TerraformReference<string>(this, "pattern");
+        get => GetArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -921,7 +921,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => new TerraformReference<string>(this, "score");
+        get => GetArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -942,9 +942,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// The creation timestamp of an inspectTemplate. Set by the server.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Resource name of the requested StoredInfoType, for example &#39;organizations/433245324/storedInfoTypes/432452342&#39;
@@ -953,7 +951,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -990,7 +988,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -999,7 +997,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -1032,7 +1030,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => new TerraformReference<string>(this, "score");
+        get => GetArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -1054,7 +1052,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformValue<double>? MaxFindingsPerItem
     {
-        get => new TerraformReference<double>(this, "max_findings_per_item");
+        get => GetArgument<TerraformValue<double>>("max_findings_per_item");
         set => SetArgument("max_findings_per_item", value);
     }
 
@@ -1063,7 +1061,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformValue<double>? MaxFindingsPerRequest
     {
-        get => new TerraformReference<double>(this, "max_findings_per_request");
+        get => GetArgument<TerraformValue<double>>("max_findings_per_request");
         set => SetArgument("max_findings_per_request", value);
     }
 
@@ -1094,7 +1092,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformValue<double>? MaxFindings
     {
-        get => new TerraformReference<double>(this, "max_findings");
+        get => GetArgument<TerraformValue<double>>("max_findings");
         set => SetArgument("max_findings", value);
     }
 
@@ -1128,7 +1126,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1137,7 +1135,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -1170,7 +1168,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => new TerraformReference<string>(this, "score");
+        get => GetArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -1228,7 +1226,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1237,7 +1235,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -1270,7 +1268,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => new TerraformReference<string>(this, "score");
+        get => GetArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -1326,7 +1324,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchingType is required")]
     public required TerraformValue<string> MatchingType
     {
-        get => new TerraformReference<string>(this, "matching_type");
+        get => GetArgument<TerraformValue<string>>("matching_type");
         set => SetArgument("matching_type", value);
     }
 
@@ -1422,7 +1420,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1446,7 +1444,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Words is required")]
     public TerraformList<string>? Words
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "words").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("words");
         set => SetArgument("words", value);
     }
 
@@ -1502,7 +1500,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformList<double>? GroupIndexes
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "group_indexes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("group_indexes");
         set => SetArgument("group_indexes", value);
     }
 
@@ -1512,7 +1510,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformValue<string>? Pattern
     {
-        get => new TerraformReference<string>(this, "pattern");
+        get => GetArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -1534,7 +1532,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformValue<double>? WindowAfter
     {
-        get => new TerraformReference<double>(this, "window_after");
+        get => GetArgument<TerraformValue<double>>("window_after");
         set => SetArgument("window_after", value);
     }
 
@@ -1543,7 +1541,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformValue<double>? WindowBefore
     {
-        get => new TerraformReference<double>(this, "window_before");
+        get => GetArgument<TerraformValue<double>>("window_before");
         set => SetArgument("window_before", value);
     }
 
@@ -1592,7 +1590,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1601,7 +1599,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -1634,7 +1632,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => new TerraformReference<string>(this, "score");
+        get => GetArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -1656,7 +1654,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformList<double>? GroupIndexes
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "group_indexes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("group_indexes");
         set => SetArgument("group_indexes", value);
     }
 
@@ -1667,7 +1665,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformValue<string> Pattern
     {
-        get => new TerraformReference<string>(this, "pattern");
+        get => GetArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -1733,7 +1731,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformList<double>? GroupIndexes
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "group_indexes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("group_indexes");
         set => SetArgument("group_indexes", value);
     }
 
@@ -1743,7 +1741,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformValue<string>? Pattern
     {
-        get => new TerraformReference<string>(this, "pattern");
+        get => GetArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -1765,7 +1763,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformValue<string>? FixedLikelihood
     {
-        get => new TerraformReference<string>(this, "fixed_likelihood");
+        get => GetArgument<TerraformValue<string>>("fixed_likelihood");
         set => SetArgument("fixed_likelihood", value);
     }
 
@@ -1779,7 +1777,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformValue<double>? RelativeLikelihood
     {
-        get => new TerraformReference<double>(this, "relative_likelihood");
+        get => GetArgument<TerraformValue<double>>("relative_likelihood");
         set => SetArgument("relative_likelihood", value);
     }
 
@@ -1801,7 +1799,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformValue<double>? WindowAfter
     {
-        get => new TerraformReference<double>(this, "window_after");
+        get => GetArgument<TerraformValue<double>>("window_after");
         set => SetArgument("window_after", value);
     }
 
@@ -1810,7 +1808,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockInspectConfigBlock
     /// </summary>
     public TerraformValue<double>? WindowBefore
     {
-        get => new TerraformReference<double>(this, "window_before");
+        get => GetArgument<TerraformValue<double>>("window_before");
         set => SetArgument("window_before", value);
     }
 
@@ -1897,7 +1895,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     /// </summary>
     public TerraformValue<double>? RowsLimit
     {
-        get => new TerraformReference<double>(this, "rows_limit");
+        get => GetArgument<TerraformValue<double>>("rows_limit");
         set => SetArgument("rows_limit", value);
     }
 
@@ -1908,7 +1906,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     /// </summary>
     public TerraformValue<double>? RowsLimitPercent
     {
-        get => new TerraformReference<double>(this, "rows_limit_percent");
+        get => GetArgument<TerraformValue<double>>("rows_limit_percent");
         set => SetArgument("rows_limit_percent", value);
     }
 
@@ -1919,7 +1917,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     /// </summary>
     public TerraformValue<string>? SampleMethod
     {
-        get => new TerraformReference<string>(this, "sample_method");
+        get => GetArgument<TerraformValue<string>>("sample_method");
         set => SetArgument("sample_method", value);
     }
 
@@ -1982,7 +1980,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2005,7 +2003,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2028,7 +2026,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2051,7 +2049,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => new TerraformReference<string>(this, "dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -2061,7 +2059,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -2071,7 +2069,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformValue<string> TableId
     {
-        get => new TerraformReference<string>(this, "table_id");
+        get => GetArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -2094,7 +2092,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     /// </summary>
     public TerraformValue<double>? BytesLimitPerFile
     {
-        get => new TerraformReference<double>(this, "bytes_limit_per_file");
+        get => GetArgument<TerraformValue<double>>("bytes_limit_per_file");
         set => SetArgument("bytes_limit_per_file", value);
     }
 
@@ -2104,7 +2102,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     /// </summary>
     public TerraformValue<double>? BytesLimitPerFilePercent
     {
-        get => new TerraformReference<double>(this, "bytes_limit_per_file_percent");
+        get => GetArgument<TerraformValue<double>>("bytes_limit_per_file_percent");
         set => SetArgument("bytes_limit_per_file_percent", value);
     }
 
@@ -2115,7 +2113,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     /// </summary>
     public TerraformList<string>? FileTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "file_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("file_types");
         set => SetArgument("file_types", value);
     }
 
@@ -2125,7 +2123,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     /// </summary>
     public TerraformValue<double>? FilesLimitPercent
     {
-        get => new TerraformReference<double>(this, "files_limit_percent");
+        get => GetArgument<TerraformValue<double>>("files_limit_percent");
         set => SetArgument("files_limit_percent", value);
     }
 
@@ -2135,7 +2133,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     /// </summary>
     public TerraformValue<string>? SampleMethod
     {
-        get => new TerraformReference<string>(this, "sample_method");
+        get => GetArgument<TerraformValue<string>>("sample_method");
         set => SetArgument("sample_method", value);
     }
 
@@ -2175,7 +2173,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     /// </summary>
     public TerraformValue<string>? Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -2208,7 +2206,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -2218,7 +2216,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     /// </summary>
     public TerraformList<string>? ExcludeRegex
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclude_regex").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclude_regex");
         set => SetArgument("exclude_regex", value);
     }
 
@@ -2230,7 +2228,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     /// </summary>
     public TerraformList<string>? IncludeRegex
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "include_regex").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("include_regex");
         set => SetArgument("include_regex", value);
     }
 
@@ -2292,7 +2290,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2314,7 +2312,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     /// </summary>
     public TerraformValue<string>? NamespaceId
     {
-        get => new TerraformReference<string>(this, "namespace_id");
+        get => GetArgument<TerraformValue<string>>("namespace_id");
         set => SetArgument("namespace_id", value);
     }
 
@@ -2324,7 +2322,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -2346,7 +2344,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -2365,7 +2363,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -2379,7 +2377,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     /// </summary>
     public TerraformList<string>? RequiredFindingLabelKeys
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "required_finding_label_keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("required_finding_label_keys");
         set => SetArgument("required_finding_label_keys", value);
     }
 
@@ -2434,7 +2432,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2459,7 +2457,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     /// </summary>
     public TerraformValue<bool>? EnableAutoPopulationOfTimespanConfig
     {
-        get => new TerraformReference<bool>(this, "enable_auto_population_of_timespan_config");
+        get => GetArgument<TerraformValue<bool>>("enable_auto_population_of_timespan_config");
         set => SetArgument("enable_auto_population_of_timespan_config", value);
     }
 
@@ -2468,7 +2466,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     /// </summary>
     public TerraformValue<string>? EndTime
     {
-        get => new TerraformReference<string>(this, "end_time");
+        get => GetArgument<TerraformValue<string>>("end_time");
         set => SetArgument("end_time", value);
     }
 
@@ -2477,7 +2475,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     /// </summary>
     public TerraformValue<string>? StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -2517,7 +2515,7 @@ public class GoogleDataLossPreventionJobTriggerInspectJobBlockStorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2540,7 +2538,7 @@ public class GoogleDataLossPreventionJobTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -2549,7 +2547,7 @@ public class GoogleDataLossPreventionJobTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -2558,7 +2556,7 @@ public class GoogleDataLossPreventionJobTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -2633,7 +2631,7 @@ public class GoogleDataLossPreventionJobTriggerTriggersBlockScheduleBlock : Terr
     /// </summary>
     public TerraformValue<string>? RecurrencePeriodDuration
     {
-        get => new TerraformReference<string>(this, "recurrence_period_duration");
+        get => GetArgument<TerraformValue<string>>("recurrence_period_duration");
         set => SetArgument("recurrence_period_duration", value);
     }
 
@@ -2651,7 +2649,7 @@ public partial class GoogleDataLossPreventionJobTrigger(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -2660,16 +2658,16 @@ public partial class GoogleDataLossPreventionJobTrigger(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -2680,7 +2678,7 @@ public partial class GoogleDataLossPreventionJobTrigger(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -2689,7 +2687,7 @@ public partial class GoogleDataLossPreventionJobTrigger(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -2698,9 +2696,9 @@ public partial class GoogleDataLossPreventionJobTrigger(string name) : Terraform
     /// that is, it must match the regular expression: [a-zA-Z\d-_]+.
     /// The maximum length is 100 characters. Can be empty to allow the system to generate one.
     /// </summary>
-    public TerraformValue<string> TriggerId
+    public TerraformValue<string>? TriggerId
     {
-        get => new TerraformReference<string>(this, "trigger_id");
+        get => GetArgument<TerraformValue<string>>("trigger_id");
         set => SetArgument("trigger_id", value);
     }
 
@@ -2708,33 +2706,25 @@ public partial class GoogleDataLossPreventionJobTrigger(string name) : Terraform
     /// The creation timestamp of an inspectTemplate. Set by the server.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The timestamp of the last time this trigger executed.
     /// </summary>
     public TerraformValue<string> LastRunTime
-    {
-        get => new TerraformReference<string>(this, "last_run_time");
-    }
+        => AsReference("last_run_time");
 
     /// <summary>
     /// The resource name of the job trigger. Set by the server.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The last update timestamp of an inspectTemplate. Set by the server.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// InspectJob block (nesting mode: list).

@@ -18,7 +18,7 @@ public class GoogleBigtableMaterializedViewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleBigtableMaterializedViewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleBigtableMaterializedViewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,16 +54,16 @@ public partial class GoogleBigtableMaterializedView(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class GoogleBigtableMaterializedView(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -82,16 +82,16 @@ public partial class GoogleBigtableMaterializedView(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaterializedViewId is required")]
     public required TerraformValue<string> MaterializedViewId
     {
-        get => new TerraformReference<string>(this, "materialized_view_id");
+        get => GetArgument<TerraformValue<string>>("materialized_view_id");
         set => SetArgument("materialized_view_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -101,7 +101,7 @@ public partial class GoogleBigtableMaterializedView(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformValue<string> Query
     {
-        get => new TerraformReference<string>(this, "query");
+        get => GetArgument<TerraformValue<string>>("query");
         set => SetArgument("query", value);
     }
 
@@ -109,9 +109,7 @@ public partial class GoogleBigtableMaterializedView(string name) : TerraformReso
     /// The unique name of the requested materialized view. Values are of the form &#39;projects/&amp;lt;project&amp;gt;/instances/&amp;lt;instance&amp;gt;/materializedViews/&amp;lt;materializedViewId&amp;gt;&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

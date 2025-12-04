@@ -18,7 +18,7 @@ public class GoogleStorageInsightsReportConfigCsvOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delimiter
     {
-        get => new TerraformReference<string>(this, "delimiter");
+        get => GetArgument<TerraformValue<string>>("delimiter");
         set => SetArgument("delimiter", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleStorageInsightsReportConfigCsvOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? HeaderRequired
     {
-        get => new TerraformReference<bool>(this, "header_required");
+        get => GetArgument<TerraformValue<bool>>("header_required");
         set => SetArgument("header_required", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleStorageInsightsReportConfigCsvOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RecordSeparator
     {
-        get => new TerraformReference<string>(this, "record_separator");
+        get => GetArgument<TerraformValue<string>>("record_separator");
         set => SetArgument("record_separator", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleStorageInsightsReportConfigFrequencyOptionsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformValue<string> Frequency
     {
-        get => new TerraformReference<string>(this, "frequency");
+        get => GetArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleStorageInsightsReportConfigFrequencyOptionsBlockEndDateBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<double> Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -119,7 +119,7 @@ public class GoogleStorageInsightsReportConfigFrequencyOptionsBlockEndDateBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Month is required")]
     public required TerraformValue<double> Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -129,7 +129,7 @@ public class GoogleStorageInsightsReportConfigFrequencyOptionsBlockEndDateBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Year is required")]
     public required TerraformValue<double> Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -152,7 +152,7 @@ public class GoogleStorageInsightsReportConfigFrequencyOptionsBlockStartDateBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<double> Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -162,7 +162,7 @@ public class GoogleStorageInsightsReportConfigFrequencyOptionsBlockStartDateBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Month is required")]
     public required TerraformValue<double> Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -172,7 +172,7 @@ public class GoogleStorageInsightsReportConfigFrequencyOptionsBlockStartDateBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Year is required")]
     public required TerraformValue<double> Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -196,7 +196,7 @@ public class GoogleStorageInsightsReportConfigObjectMetadataReportOptionsBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetadataFields is required")]
     public TerraformList<string>? MetadataFields
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "metadata_fields").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("metadata_fields");
         set => SetArgument("metadata_fields", value);
     }
 
@@ -242,7 +242,7 @@ public class GoogleStorageInsightsReportConfigObjectMetadataReportOptionsBlockSt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -251,7 +251,7 @@ public class GoogleStorageInsightsReportConfigObjectMetadataReportOptionsBlockSt
     /// </summary>
     public TerraformValue<string>? DestinationPath
     {
-        get => new TerraformReference<string>(this, "destination_path");
+        get => GetArgument<TerraformValue<string>>("destination_path");
         set => SetArgument("destination_path", value);
     }
 
@@ -273,7 +273,7 @@ public class GoogleStorageInsightsReportConfigObjectMetadataReportOptionsBlockSt
     /// </summary>
     public TerraformValue<string>? Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -310,7 +310,7 @@ public class GoogleStorageInsightsReportConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -319,7 +319,7 @@ public class GoogleStorageInsightsReportConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -328,7 +328,7 @@ public class GoogleStorageInsightsReportConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -346,7 +346,7 @@ public partial class GoogleStorageInsightsReportConfig(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -355,16 +355,16 @@ public partial class GoogleStorageInsightsReportConfig(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? ForceDestroy
     {
-        get => new TerraformReference<bool>(this, "force_destroy");
+        get => GetArgument<TerraformValue<bool>>("force_destroy");
         set => SetArgument("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -375,16 +375,16 @@ public partial class GoogleStorageInsightsReportConfig(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -392,9 +392,7 @@ public partial class GoogleStorageInsightsReportConfig(string name) : TerraformR
     /// The UUID of the inventory report configuration.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// CsvOptions block (nesting mode: list).

@@ -16,9 +16,9 @@ public class AzurermMssqlServerAzureadAdministratorBlock : TerraformBlock
     /// <summary>
     /// The azuread_authentication_only attribute.
     /// </summary>
-    public TerraformValue<bool> AzureadAuthenticationOnly
+    public TerraformValue<bool>? AzureadAuthenticationOnly
     {
-        get => new TerraformReference<bool>(this, "azuread_authentication_only");
+        get => GetArgument<TerraformValue<bool>>("azuread_authentication_only");
         set => SetArgument("azuread_authentication_only", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermMssqlServerAzureadAdministratorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginUsername is required")]
     public required TerraformValue<string> LoginUsername
     {
-        get => new TerraformReference<string>(this, "login_username");
+        get => GetArgument<TerraformValue<string>>("login_username");
         set => SetArgument("login_username", value);
     }
 
@@ -38,16 +38,16 @@ public class AzurermMssqlServerAzureadAdministratorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformValue<string> ObjectId
     {
-        get => new TerraformReference<string>(this, "object_id");
+        get => GetArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformValue<string> TenantId
+    public TerraformValue<string>? TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermMssqlServerIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -78,17 +78,13 @@ public class AzurermMssqlServerIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -96,7 +92,7 @@ public class AzurermMssqlServerIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -119,7 +115,7 @@ public class AzurermMssqlServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -128,7 +124,7 @@ public class AzurermMssqlServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -137,7 +133,7 @@ public class AzurermMssqlServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -146,7 +142,7 @@ public class AzurermMssqlServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -162,9 +158,9 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     /// <summary>
     /// The administrator_login attribute.
     /// </summary>
-    public TerraformValue<string> AdministratorLogin
+    public TerraformValue<string>? AdministratorLogin
     {
-        get => new TerraformReference<string>(this, "administrator_login");
+        get => GetArgument<TerraformValue<string>>("administrator_login");
         set => SetArgument("administrator_login", value);
     }
 
@@ -173,7 +169,7 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string>? AdministratorLoginPassword
     {
-        get => new TerraformReference<string>(this, "administrator_login_password");
+        get => GetArgument<TerraformValue<string>>("administrator_login_password");
         set => SetArgument("administrator_login_password", value);
     }
 
@@ -182,7 +178,7 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string>? AdministratorLoginPasswordWo
     {
-        get => new TerraformReference<string>(this, "administrator_login_password_wo");
+        get => GetArgument<TerraformValue<string>>("administrator_login_password_wo");
         set => SetArgument("administrator_login_password_wo", value);
     }
 
@@ -191,7 +187,7 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<double>? AdministratorLoginPasswordWoVersion
     {
-        get => new TerraformReference<double>(this, "administrator_login_password_wo_version");
+        get => GetArgument<TerraformValue<double>>("administrator_login_password_wo_version");
         set => SetArgument("administrator_login_password_wo_version", value);
     }
 
@@ -200,7 +196,7 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string>? ConnectionPolicy
     {
-        get => new TerraformReference<string>(this, "connection_policy");
+        get => GetArgument<TerraformValue<string>>("connection_policy");
         set => SetArgument("connection_policy", value);
     }
 
@@ -209,16 +205,16 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<bool>? ExpressVulnerabilityAssessmentEnabled
     {
-        get => new TerraformReference<bool>(this, "express_vulnerability_assessment_enabled");
+        get => GetArgument<TerraformValue<bool>>("express_vulnerability_assessment_enabled");
         set => SetArgument("express_vulnerability_assessment_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -228,7 +224,7 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -237,7 +233,7 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string>? MinimumTlsVersion
     {
-        get => new TerraformReference<string>(this, "minimum_tls_version");
+        get => GetArgument<TerraformValue<string>>("minimum_tls_version");
         set => SetArgument("minimum_tls_version", value);
     }
 
@@ -247,7 +243,7 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -256,16 +252,16 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<bool>? OutboundNetworkRestrictionEnabled
     {
-        get => new TerraformReference<bool>(this, "outbound_network_restriction_enabled");
+        get => GetArgument<TerraformValue<bool>>("outbound_network_restriction_enabled");
         set => SetArgument("outbound_network_restriction_enabled", value);
     }
 
     /// <summary>
     /// The primary_user_assigned_identity_id attribute.
     /// </summary>
-    public TerraformValue<string> PrimaryUserAssignedIdentityId
+    public TerraformValue<string>? PrimaryUserAssignedIdentityId
     {
-        get => new TerraformReference<string>(this, "primary_user_assigned_identity_id");
+        get => GetArgument<TerraformValue<string>>("primary_user_assigned_identity_id");
         set => SetArgument("primary_user_assigned_identity_id", value);
     }
 
@@ -274,7 +270,7 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -284,7 +280,7 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -293,7 +289,7 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -302,7 +298,7 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string>? TransparentDataEncryptionKeyVaultKeyId
     {
-        get => new TerraformReference<string>(this, "transparent_data_encryption_key_vault_key_id");
+        get => GetArgument<TerraformValue<string>>("transparent_data_encryption_key_vault_key_id");
         set => SetArgument("transparent_data_encryption_key_vault_key_id", value);
     }
 
@@ -312,7 +308,7 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -320,17 +316,13 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     /// The fully_qualified_domain_name attribute.
     /// </summary>
     public TerraformValue<string> FullyQualifiedDomainName
-    {
-        get => new TerraformReference<string>(this, "fully_qualified_domain_name");
-    }
+        => AsReference("fully_qualified_domain_name");
 
     /// <summary>
     /// The restorable_dropped_database_ids attribute.
     /// </summary>
     public TerraformList<string> RestorableDroppedDatabaseIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "restorable_dropped_database_ids").ResolveNodes(ctx));
-    }
+        => AsReference("restorable_dropped_database_ids");
 
     /// <summary>
     /// AzureadAdministrator block (nesting mode: list).

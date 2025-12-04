@@ -17,16 +17,16 @@ public partial class GoogleOracleDatabaseCloudVmClusterDataSource(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudVmClusterId is required")]
     public required TerraformValue<string> CloudVmClusterId
     {
-        get => new TerraformReference<string>(this, "cloud_vm_cluster_id");
+        get => GetArgument<TerraformValue<string>>("cloud_vm_cluster_id");
         set => SetArgument("cloud_vm_cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -36,7 +36,7 @@ public partial class GoogleOracleDatabaseCloudVmClusterDataSource(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -45,7 +45,7 @@ public partial class GoogleOracleDatabaseCloudVmClusterDataSource(string name) :
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -55,57 +55,43 @@ public partial class GoogleOracleDatabaseCloudVmClusterDataSource(string name) :
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
     public TerraformValue<string> BackupOdbSubnet
-    {
-        get => new TerraformReference<string>(this, "backup_odb_subnet");
-    }
+        => AsReference("backup_odb_subnet");
 
     /// <summary>
     /// CIDR range of the backup subnet.
     /// </summary>
     public TerraformValue<string> BackupSubnetCidr
-    {
-        get => new TerraformReference<string>(this, "backup_subnet_cidr");
-    }
+        => AsReference("backup_subnet_cidr");
 
     /// <summary>
     /// Network settings. CIDR to use for cluster IP allocation.
     /// </summary>
     public TerraformValue<string> Cidr
-    {
-        get => new TerraformReference<string>(this, "cidr");
-    }
+        => AsReference("cidr");
 
     /// <summary>
     /// The date and time that the VM cluster was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the cluster. Deleting this cluster via terraform destroy or terraform apply will only succeed if this field is false in the Terraform state.
     /// </summary>
     public TerraformValue<bool> DeletionProtection
-    {
-        get => new TerraformReference<bool>(this, "deletion_protection");
-    }
+        => AsReference("deletion_protection");
 
     /// <summary>
     /// User friendly name for this resource.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The name of the Exadata Infrastructure resource on which VM cluster
@@ -113,18 +99,14 @@ public partial class GoogleOracleDatabaseCloudVmClusterDataSource(string name) :
     /// projects/{project}/locations/{region}/cloudExadataInfrastuctures/{cloud_extradata_infrastructure}
     /// </summary>
     public TerraformValue<string> ExadataInfrastructure
-    {
-        get => new TerraformReference<string>(this, "exadata_infrastructure");
-    }
+        => AsReference("exadata_infrastructure");
 
     /// <summary>
     /// GCP location where Oracle Exadata is hosted. It is same as GCP Oracle zone
     /// of Exadata infrastructure.
     /// </summary>
     public TerraformValue<string> GcpOracleZone
-    {
-        get => new TerraformReference<string>(this, "gcp_oracle_zone");
-    }
+        => AsReference("gcp_oracle_zone");
 
     /// <summary>
     /// Labels or tags associated with the VM Cluster. 
@@ -133,27 +115,21 @@ public partial class GoogleOracleDatabaseCloudVmClusterDataSource(string name) :
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
-    }
+        => AsReference("labels");
 
     /// <summary>
     /// Identifier. The name of the VM Cluster resource with the format:
     /// projects/{project}/locations/{region}/cloudVmClusters/{cloud_vm_cluster}
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The name of the VPC network.
     /// Format: projects/{project}/global/networks/{network}
     /// </summary>
     public TerraformValue<string> Network
-    {
-        get => new TerraformReference<string>(this, "network");
-    }
+        => AsReference("network");
 
     /// <summary>
     /// The name of the OdbNetwork associated with the VM Cluster.
@@ -163,9 +139,7 @@ public partial class GoogleOracleDatabaseCloudVmClusterDataSource(string name) :
     /// the odb_subnet and backup_odb_subnet.
     /// </summary>
     public TerraformValue<string> OdbNetwork
-    {
-        get => new TerraformReference<string>(this, "odb_network");
-    }
+        => AsReference("odb_network");
 
     /// <summary>
     /// The name of the OdbSubnet associated with the VM Cluster for
@@ -173,25 +147,19 @@ public partial class GoogleOracleDatabaseCloudVmClusterDataSource(string name) :
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
     public TerraformValue<string> OdbSubnet
-    {
-        get => new TerraformReference<string>(this, "odb_subnet");
-    }
+        => AsReference("odb_subnet");
 
     /// <summary>
     /// Various properties and settings associated with Exadata VM cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> Properties
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "properties").ResolveNodes(ctx));
-    }
+        => AsReference("properties");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
 }

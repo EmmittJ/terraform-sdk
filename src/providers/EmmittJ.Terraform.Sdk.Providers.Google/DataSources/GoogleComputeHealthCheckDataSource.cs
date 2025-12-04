@@ -11,9 +11,9 @@ public partial class GoogleComputeHealthCheckDataSource(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -29,7 +29,7 @@ public partial class GoogleComputeHealthCheckDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -38,7 +38,7 @@ public partial class GoogleComputeHealthCheckDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -47,91 +47,69 @@ public partial class GoogleComputeHealthCheckDataSource(string name) : Terraform
     /// seconds.
     /// </summary>
     public TerraformValue<double> CheckIntervalSec
-    {
-        get => new TerraformReference<double>(this, "check_interval_sec");
-    }
+        => AsReference("check_interval_sec");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> GrpcHealthCheck
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "grpc_health_check").ResolveNodes(ctx));
-    }
+        => AsReference("grpc_health_check");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> GrpcTlsHealthCheck
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "grpc_tls_health_check").ResolveNodes(ctx));
-    }
+        => AsReference("grpc_tls_health_check");
 
     /// <summary>
     /// A so-far unhealthy instance will be marked healthy after this many
     /// consecutive successes. The default value is 2.
     /// </summary>
     public TerraformValue<double> HealthyThreshold
-    {
-        get => new TerraformReference<double>(this, "healthy_threshold");
-    }
+        => AsReference("healthy_threshold");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> Http2HealthCheck
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "http2_health_check").ResolveNodes(ctx));
-    }
+        => AsReference("http2_health_check");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> HttpHealthCheck
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "http_health_check").ResolveNodes(ctx));
-    }
+        => AsReference("http_health_check");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> HttpsHealthCheck
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "https_health_check").ResolveNodes(ctx));
-    }
+        => AsReference("https_health_check");
 
     /// <summary>
     /// Configure logging on this health check.
     /// </summary>
     public TerraformList<TerraformMap<object>> LogConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "log_config").ResolveNodes(ctx));
-    }
+        => AsReference("log_config");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// The list of cloud regions from which health checks are performed. If
@@ -153,25 +131,19 @@ public partial class GoogleComputeHealthCheckDataSource(string name) : Terraform
     /// instance group auto-healing.
     /// </summary>
     public TerraformList<string> SourceRegions
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "source_regions").ResolveNodes(ctx));
-    }
+        => AsReference("source_regions");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> SslHealthCheck
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "ssl_health_check").ResolveNodes(ctx));
-    }
+        => AsReference("ssl_health_check");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> TcpHealthCheck
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "tcp_health_check").ResolveNodes(ctx));
-    }
+        => AsReference("tcp_health_check");
 
     /// <summary>
     /// How long (in seconds) to wait before claiming failure.
@@ -179,25 +151,19 @@ public partial class GoogleComputeHealthCheckDataSource(string name) : Terraform
     /// greater value than checkIntervalSec.
     /// </summary>
     public TerraformValue<double> TimeoutSec
-    {
-        get => new TerraformReference<double>(this, "timeout_sec");
-    }
+        => AsReference("timeout_sec");
 
     /// <summary>
     /// The type of the health check. One of HTTP, HTTPS, TCP, or SSL.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// A so-far healthy instance will be marked unhealthy after this many
     /// consecutive failures. The default value is 2.
     /// </summary>
     public TerraformValue<double> UnhealthyThreshold
-    {
-        get => new TerraformReference<double>(this, "unhealthy_threshold");
-    }
+        => AsReference("unhealthy_threshold");
 
 }

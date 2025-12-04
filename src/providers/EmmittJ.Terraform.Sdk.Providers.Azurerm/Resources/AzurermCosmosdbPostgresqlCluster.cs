@@ -18,7 +18,7 @@ public class AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock : TerraformB
     /// </summary>
     public TerraformValue<double>? DayOfWeek
     {
-        get => new TerraformReference<double>(this, "day_of_week");
+        get => GetArgument<TerraformValue<double>>("day_of_week");
         set => SetArgument("day_of_week", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock : TerraformB
     /// </summary>
     public TerraformValue<double>? StartHour
     {
-        get => new TerraformReference<double>(this, "start_hour");
+        get => GetArgument<TerraformValue<double>>("start_hour");
         set => SetArgument("start_hour", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock : TerraformB
     /// </summary>
     public TerraformValue<double>? StartMinute
     {
-        get => new TerraformReference<double>(this, "start_minute");
+        get => GetArgument<TerraformValue<double>>("start_minute");
         set => SetArgument("start_minute", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermCosmosdbPostgresqlClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermCosmosdbPostgresqlClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermCosmosdbPostgresqlClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermCosmosdbPostgresqlClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -104,16 +104,16 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? AdministratorLoginPassword
     {
-        get => new TerraformReference<string>(this, "administrator_login_password");
+        get => GetArgument<TerraformValue<string>>("administrator_login_password");
         set => SetArgument("administrator_login_password", value);
     }
 
     /// <summary>
     /// The citus_version attribute.
     /// </summary>
-    public TerraformValue<string> CitusVersion
+    public TerraformValue<string>? CitusVersion
     {
-        get => new TerraformReference<string>(this, "citus_version");
+        get => GetArgument<TerraformValue<string>>("citus_version");
         set => SetArgument("citus_version", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? CoordinatorPublicIpAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "coordinator_public_ip_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("coordinator_public_ip_access_enabled");
         set => SetArgument("coordinator_public_ip_access_enabled", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? CoordinatorServerEdition
     {
-        get => new TerraformReference<string>(this, "coordinator_server_edition");
+        get => GetArgument<TerraformValue<string>>("coordinator_server_edition");
         set => SetArgument("coordinator_server_edition", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// </summary>
     public TerraformValue<double>? CoordinatorStorageQuotaInMb
     {
-        get => new TerraformReference<double>(this, "coordinator_storage_quota_in_mb");
+        get => GetArgument<TerraformValue<double>>("coordinator_storage_quota_in_mb");
         set => SetArgument("coordinator_storage_quota_in_mb", value);
     }
 
@@ -149,7 +149,7 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// </summary>
     public TerraformValue<double>? CoordinatorVcoreCount
     {
-        get => new TerraformReference<double>(this, "coordinator_vcore_count");
+        get => GetArgument<TerraformValue<double>>("coordinator_vcore_count");
         set => SetArgument("coordinator_vcore_count", value);
     }
 
@@ -158,16 +158,16 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? HaEnabled
     {
-        get => new TerraformReference<bool>(this, "ha_enabled");
+        get => GetArgument<TerraformValue<bool>>("ha_enabled");
         set => SetArgument("ha_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -197,7 +197,7 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformValue<double> NodeCount
     {
-        get => new TerraformReference<double>(this, "node_count");
+        get => GetArgument<TerraformValue<double>>("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -206,7 +206,7 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? NodePublicIpAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "node_public_ip_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("node_public_ip_access_enabled");
         set => SetArgument("node_public_ip_access_enabled", value);
     }
 
@@ -215,25 +215,25 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? NodeServerEdition
     {
-        get => new TerraformReference<string>(this, "node_server_edition");
+        get => GetArgument<TerraformValue<string>>("node_server_edition");
         set => SetArgument("node_server_edition", value);
     }
 
     /// <summary>
     /// The node_storage_quota_in_mb attribute.
     /// </summary>
-    public TerraformValue<double> NodeStorageQuotaInMb
+    public TerraformValue<double>? NodeStorageQuotaInMb
     {
-        get => new TerraformReference<double>(this, "node_storage_quota_in_mb");
+        get => GetArgument<TerraformValue<double>>("node_storage_quota_in_mb");
         set => SetArgument("node_storage_quota_in_mb", value);
     }
 
     /// <summary>
     /// The node_vcores attribute.
     /// </summary>
-    public TerraformValue<double> NodeVcores
+    public TerraformValue<double>? NodeVcores
     {
-        get => new TerraformReference<double>(this, "node_vcores");
+        get => GetArgument<TerraformValue<double>>("node_vcores");
         set => SetArgument("node_vcores", value);
     }
 
@@ -242,7 +242,7 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? PointInTimeInUtc
     {
-        get => new TerraformReference<string>(this, "point_in_time_in_utc");
+        get => GetArgument<TerraformValue<string>>("point_in_time_in_utc");
         set => SetArgument("point_in_time_in_utc", value);
     }
 
@@ -251,7 +251,7 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? PreferredPrimaryZone
     {
-        get => new TerraformReference<string>(this, "preferred_primary_zone");
+        get => GetArgument<TerraformValue<string>>("preferred_primary_zone");
         set => SetArgument("preferred_primary_zone", value);
     }
 
@@ -261,16 +261,16 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The shards_on_coordinator_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> ShardsOnCoordinatorEnabled
+    public TerraformValue<bool>? ShardsOnCoordinatorEnabled
     {
-        get => new TerraformReference<bool>(this, "shards_on_coordinator_enabled");
+        get => GetArgument<TerraformValue<bool>>("shards_on_coordinator_enabled");
         set => SetArgument("shards_on_coordinator_enabled", value);
     }
 
@@ -279,7 +279,7 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? SourceLocation
     {
-        get => new TerraformReference<string>(this, "source_location");
+        get => GetArgument<TerraformValue<string>>("source_location");
         set => SetArgument("source_location", value);
     }
 
@@ -288,16 +288,16 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? SourceResourceId
     {
-        get => new TerraformReference<string>(this, "source_resource_id");
+        get => GetArgument<TerraformValue<string>>("source_resource_id");
         set => SetArgument("source_resource_id", value);
     }
 
     /// <summary>
     /// The sql_version attribute.
     /// </summary>
-    public TerraformValue<string> SqlVersion
+    public TerraformValue<string>? SqlVersion
     {
-        get => new TerraformReference<string>(this, "sql_version");
+        get => GetArgument<TerraformValue<string>>("sql_version");
         set => SetArgument("sql_version", value);
     }
 
@@ -306,7 +306,7 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -314,17 +314,13 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// The earliest_restore_time attribute.
     /// </summary>
     public TerraformValue<string> EarliestRestoreTime
-    {
-        get => new TerraformReference<string>(this, "earliest_restore_time");
-    }
+        => AsReference("earliest_restore_time");
 
     /// <summary>
     /// The servers attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Servers
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "servers").ResolveNodes(ctx));
-    }
+        => AsReference("servers");
 
     /// <summary>
     /// MaintenanceWindow block (nesting mode: list).

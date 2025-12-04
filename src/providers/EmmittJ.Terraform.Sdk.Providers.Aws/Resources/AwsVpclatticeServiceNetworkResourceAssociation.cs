@@ -18,7 +18,7 @@ public class AwsVpclatticeServiceNetworkResourceAssociationTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsVpclatticeServiceNetworkResourceAssociationTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -43,9 +43,9 @@ public partial class AwsVpclatticeServiceNetworkResourceAssociation(string name)
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsVpclatticeServiceNetworkResourceAssociation(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceConfigurationIdentifier is required")]
     public required TerraformValue<string> ResourceConfigurationIdentifier
     {
-        get => new TerraformReference<string>(this, "resource_configuration_identifier");
+        get => GetArgument<TerraformValue<string>>("resource_configuration_identifier");
         set => SetArgument("resource_configuration_identifier", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsVpclatticeServiceNetworkResourceAssociation(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNetworkIdentifier is required")]
     public required TerraformValue<string> ServiceNetworkIdentifier
     {
-        get => new TerraformReference<string>(this, "service_network_identifier");
+        get => GetArgument<TerraformValue<string>>("service_network_identifier");
         set => SetArgument("service_network_identifier", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsVpclatticeServiceNetworkResourceAssociation(string name)
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -82,33 +82,25 @@ public partial class AwsVpclatticeServiceNetworkResourceAssociation(string name)
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The dns_entry attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DnsEntry
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "dns_entry").ResolveNodes(ctx));
-    }
+        => AsReference("dns_entry");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

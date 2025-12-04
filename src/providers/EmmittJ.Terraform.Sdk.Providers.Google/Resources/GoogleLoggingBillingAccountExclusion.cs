@@ -14,7 +14,7 @@ public partial class GoogleLoggingBillingAccountExclusion(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccount is required")]
     public required TerraformValue<string> BillingAccount
     {
-        get => new TerraformReference<string>(this, "billing_account");
+        get => GetArgument<TerraformValue<string>>("billing_account");
         set => SetArgument("billing_account", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleLoggingBillingAccountExclusion(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleLoggingBillingAccountExclusion(string name) : Terrafo
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -42,16 +42,16 @@ public partial class GoogleLoggingBillingAccountExclusion(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -61,7 +61,7 @@ public partial class GoogleLoggingBillingAccountExclusion(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

@@ -18,7 +18,7 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Certificate
     {
-        get => new TerraformReference<string>(this, "certificate");
+        get => GetArgument<TerraformValue<string>>("certificate");
         set => SetArgument("certificate", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? CertificatePassword
     {
-        get => new TerraformReference<string>(this, "certificate_password");
+        get => GetArgument<TerraformValue<string>>("certificate_password");
         set => SetArgument("certificate_password", value);
     }
 
@@ -35,25 +35,19 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     /// The certificate_source attribute.
     /// </summary>
     public TerraformValue<string> CertificateSource
-    {
-        get => new TerraformReference<string>(this, "certificate_source");
-    }
+        => AsReference("certificate_source");
 
     /// <summary>
     /// The certificate_status attribute.
     /// </summary>
     public TerraformValue<string> CertificateStatus
-    {
-        get => new TerraformReference<string>(this, "certificate_status");
-    }
+        => AsReference("certificate_status");
 
     /// <summary>
     /// The expiry attribute.
     /// </summary>
     public TerraformValue<string> Expiry
-    {
-        get => new TerraformReference<string>(this, "expiry");
-    }
+        => AsReference("expiry");
 
     /// <summary>
     /// The host_name attribute.
@@ -61,16 +55,16 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => new TerraformReference<string>(this, "host_name");
+        get => GetArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    public TerraformValue<string> KeyVaultCertificateId
+    public TerraformValue<string>? KeyVaultCertificateId
     {
-        get => new TerraformReference<string>(this, "key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -78,9 +72,9 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     /// The key_vault_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> KeyVaultId
+    public TerraformValue<string>? KeyVaultId
     {
-        get => new TerraformReference<string>(this, "key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -89,7 +83,7 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     /// </summary>
     public TerraformValue<bool>? NegotiateClientCertificate
     {
-        get => new TerraformReference<bool>(this, "negotiate_client_certificate");
+        get => GetArgument<TerraformValue<bool>>("negotiate_client_certificate");
         set => SetArgument("negotiate_client_certificate", value);
     }
 
@@ -98,7 +92,7 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? SslKeyvaultIdentityClientId
     {
-        get => new TerraformReference<string>(this, "ssl_keyvault_identity_client_id");
+        get => GetArgument<TerraformValue<string>>("ssl_keyvault_identity_client_id");
         set => SetArgument("ssl_keyvault_identity_client_id", value);
     }
 
@@ -106,17 +100,13 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
     /// The subject attribute.
     /// </summary>
     public TerraformValue<string> Subject
-    {
-        get => new TerraformReference<string>(this, "subject");
-    }
+        => AsReference("subject");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-    {
-        get => new TerraformReference<string>(this, "thumbprint");
-    }
+        => AsReference("thumbprint");
 
 }
 
@@ -137,7 +127,7 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Certificate
     {
-        get => new TerraformReference<string>(this, "certificate");
+        get => GetArgument<TerraformValue<string>>("certificate");
         set => SetArgument("certificate", value);
     }
 
@@ -146,7 +136,7 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CertificatePassword
     {
-        get => new TerraformReference<string>(this, "certificate_password");
+        get => GetArgument<TerraformValue<string>>("certificate_password");
         set => SetArgument("certificate_password", value);
     }
 
@@ -154,24 +144,20 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     /// The certificate_source attribute.
     /// </summary>
     public TerraformValue<string> CertificateSource
-    {
-        get => new TerraformReference<string>(this, "certificate_source");
-    }
+        => AsReference("certificate_source");
 
     /// <summary>
     /// The certificate_status attribute.
     /// </summary>
     public TerraformValue<string> CertificateStatus
-    {
-        get => new TerraformReference<string>(this, "certificate_status");
-    }
+        => AsReference("certificate_status");
 
     /// <summary>
     /// The default_ssl_binding attribute.
     /// </summary>
-    public TerraformValue<bool> DefaultSslBinding
+    public TerraformValue<bool>? DefaultSslBinding
     {
-        get => new TerraformReference<bool>(this, "default_ssl_binding");
+        get => GetArgument<TerraformValue<bool>>("default_ssl_binding");
         set => SetArgument("default_ssl_binding", value);
     }
 
@@ -179,9 +165,7 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     /// The expiry attribute.
     /// </summary>
     public TerraformValue<string> Expiry
-    {
-        get => new TerraformReference<string>(this, "expiry");
-    }
+        => AsReference("expiry");
 
     /// <summary>
     /// The host_name attribute.
@@ -189,16 +173,16 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => new TerraformReference<string>(this, "host_name");
+        get => GetArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    public TerraformValue<string> KeyVaultCertificateId
+    public TerraformValue<string>? KeyVaultCertificateId
     {
-        get => new TerraformReference<string>(this, "key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -206,9 +190,9 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     /// The key_vault_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> KeyVaultId
+    public TerraformValue<string>? KeyVaultId
     {
-        get => new TerraformReference<string>(this, "key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -217,7 +201,7 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? NegotiateClientCertificate
     {
-        get => new TerraformReference<bool>(this, "negotiate_client_certificate");
+        get => GetArgument<TerraformValue<bool>>("negotiate_client_certificate");
         set => SetArgument("negotiate_client_certificate", value);
     }
 
@@ -226,7 +210,7 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SslKeyvaultIdentityClientId
     {
-        get => new TerraformReference<string>(this, "ssl_keyvault_identity_client_id");
+        get => GetArgument<TerraformValue<string>>("ssl_keyvault_identity_client_id");
         set => SetArgument("ssl_keyvault_identity_client_id", value);
     }
 
@@ -234,17 +218,13 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
     /// The subject attribute.
     /// </summary>
     public TerraformValue<string> Subject
-    {
-        get => new TerraformReference<string>(this, "subject");
-    }
+        => AsReference("subject");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-    {
-        get => new TerraformReference<string>(this, "thumbprint");
-    }
+        => AsReference("thumbprint");
 
 }
 
@@ -265,7 +245,7 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Certificate
     {
-        get => new TerraformReference<string>(this, "certificate");
+        get => GetArgument<TerraformValue<string>>("certificate");
         set => SetArgument("certificate", value);
     }
 
@@ -274,7 +254,7 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CertificatePassword
     {
-        get => new TerraformReference<string>(this, "certificate_password");
+        get => GetArgument<TerraformValue<string>>("certificate_password");
         set => SetArgument("certificate_password", value);
     }
 
@@ -282,25 +262,19 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     /// The certificate_source attribute.
     /// </summary>
     public TerraformValue<string> CertificateSource
-    {
-        get => new TerraformReference<string>(this, "certificate_source");
-    }
+        => AsReference("certificate_source");
 
     /// <summary>
     /// The certificate_status attribute.
     /// </summary>
     public TerraformValue<string> CertificateStatus
-    {
-        get => new TerraformReference<string>(this, "certificate_status");
-    }
+        => AsReference("certificate_status");
 
     /// <summary>
     /// The expiry attribute.
     /// </summary>
     public TerraformValue<string> Expiry
-    {
-        get => new TerraformReference<string>(this, "expiry");
-    }
+        => AsReference("expiry");
 
     /// <summary>
     /// The host_name attribute.
@@ -308,16 +282,16 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => new TerraformReference<string>(this, "host_name");
+        get => GetArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    public TerraformValue<string> KeyVaultCertificateId
+    public TerraformValue<string>? KeyVaultCertificateId
     {
-        get => new TerraformReference<string>(this, "key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -325,9 +299,9 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     /// The key_vault_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> KeyVaultId
+    public TerraformValue<string>? KeyVaultId
     {
-        get => new TerraformReference<string>(this, "key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -336,7 +310,7 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? NegotiateClientCertificate
     {
-        get => new TerraformReference<bool>(this, "negotiate_client_certificate");
+        get => GetArgument<TerraformValue<bool>>("negotiate_client_certificate");
         set => SetArgument("negotiate_client_certificate", value);
     }
 
@@ -345,7 +319,7 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SslKeyvaultIdentityClientId
     {
-        get => new TerraformReference<string>(this, "ssl_keyvault_identity_client_id");
+        get => GetArgument<TerraformValue<string>>("ssl_keyvault_identity_client_id");
         set => SetArgument("ssl_keyvault_identity_client_id", value);
     }
 
@@ -353,17 +327,13 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
     /// The subject attribute.
     /// </summary>
     public TerraformValue<string> Subject
-    {
-        get => new TerraformReference<string>(this, "subject");
-    }
+        => AsReference("subject");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-    {
-        get => new TerraformReference<string>(this, "thumbprint");
-    }
+        => AsReference("thumbprint");
 
 }
 
@@ -384,7 +354,7 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Certificate
     {
-        get => new TerraformReference<string>(this, "certificate");
+        get => GetArgument<TerraformValue<string>>("certificate");
         set => SetArgument("certificate", value);
     }
 
@@ -393,7 +363,7 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CertificatePassword
     {
-        get => new TerraformReference<string>(this, "certificate_password");
+        get => GetArgument<TerraformValue<string>>("certificate_password");
         set => SetArgument("certificate_password", value);
     }
 
@@ -401,25 +371,19 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     /// The certificate_source attribute.
     /// </summary>
     public TerraformValue<string> CertificateSource
-    {
-        get => new TerraformReference<string>(this, "certificate_source");
-    }
+        => AsReference("certificate_source");
 
     /// <summary>
     /// The certificate_status attribute.
     /// </summary>
     public TerraformValue<string> CertificateStatus
-    {
-        get => new TerraformReference<string>(this, "certificate_status");
-    }
+        => AsReference("certificate_status");
 
     /// <summary>
     /// The expiry attribute.
     /// </summary>
     public TerraformValue<string> Expiry
-    {
-        get => new TerraformReference<string>(this, "expiry");
-    }
+        => AsReference("expiry");
 
     /// <summary>
     /// The host_name attribute.
@@ -427,16 +391,16 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => new TerraformReference<string>(this, "host_name");
+        get => GetArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    public TerraformValue<string> KeyVaultCertificateId
+    public TerraformValue<string>? KeyVaultCertificateId
     {
-        get => new TerraformReference<string>(this, "key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -444,9 +408,9 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     /// The key_vault_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> KeyVaultId
+    public TerraformValue<string>? KeyVaultId
     {
-        get => new TerraformReference<string>(this, "key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -455,7 +419,7 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? NegotiateClientCertificate
     {
-        get => new TerraformReference<bool>(this, "negotiate_client_certificate");
+        get => GetArgument<TerraformValue<bool>>("negotiate_client_certificate");
         set => SetArgument("negotiate_client_certificate", value);
     }
 
@@ -464,7 +428,7 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SslKeyvaultIdentityClientId
     {
-        get => new TerraformReference<string>(this, "ssl_keyvault_identity_client_id");
+        get => GetArgument<TerraformValue<string>>("ssl_keyvault_identity_client_id");
         set => SetArgument("ssl_keyvault_identity_client_id", value);
     }
 
@@ -472,17 +436,13 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
     /// The subject attribute.
     /// </summary>
     public TerraformValue<string> Subject
-    {
-        get => new TerraformReference<string>(this, "subject");
-    }
+        => AsReference("subject");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-    {
-        get => new TerraformReference<string>(this, "thumbprint");
-    }
+        => AsReference("thumbprint");
 
 }
 
@@ -503,7 +463,7 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Certificate
     {
-        get => new TerraformReference<string>(this, "certificate");
+        get => GetArgument<TerraformValue<string>>("certificate");
         set => SetArgument("certificate", value);
     }
 
@@ -512,7 +472,7 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CertificatePassword
     {
-        get => new TerraformReference<string>(this, "certificate_password");
+        get => GetArgument<TerraformValue<string>>("certificate_password");
         set => SetArgument("certificate_password", value);
     }
 
@@ -520,25 +480,19 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     /// The certificate_source attribute.
     /// </summary>
     public TerraformValue<string> CertificateSource
-    {
-        get => new TerraformReference<string>(this, "certificate_source");
-    }
+        => AsReference("certificate_source");
 
     /// <summary>
     /// The certificate_status attribute.
     /// </summary>
     public TerraformValue<string> CertificateStatus
-    {
-        get => new TerraformReference<string>(this, "certificate_status");
-    }
+        => AsReference("certificate_status");
 
     /// <summary>
     /// The expiry attribute.
     /// </summary>
     public TerraformValue<string> Expiry
-    {
-        get => new TerraformReference<string>(this, "expiry");
-    }
+        => AsReference("expiry");
 
     /// <summary>
     /// The host_name attribute.
@@ -546,16 +500,16 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => new TerraformReference<string>(this, "host_name");
+        get => GetArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    public TerraformValue<string> KeyVaultCertificateId
+    public TerraformValue<string>? KeyVaultCertificateId
     {
-        get => new TerraformReference<string>(this, "key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -563,9 +517,9 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     /// The key_vault_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> KeyVaultId
+    public TerraformValue<string>? KeyVaultId
     {
-        get => new TerraformReference<string>(this, "key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -574,7 +528,7 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? NegotiateClientCertificate
     {
-        get => new TerraformReference<bool>(this, "negotiate_client_certificate");
+        get => GetArgument<TerraformValue<bool>>("negotiate_client_certificate");
         set => SetArgument("negotiate_client_certificate", value);
     }
 
@@ -583,7 +537,7 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SslKeyvaultIdentityClientId
     {
-        get => new TerraformReference<string>(this, "ssl_keyvault_identity_client_id");
+        get => GetArgument<TerraformValue<string>>("ssl_keyvault_identity_client_id");
         set => SetArgument("ssl_keyvault_identity_client_id", value);
     }
 
@@ -591,17 +545,13 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
     /// The subject attribute.
     /// </summary>
     public TerraformValue<string> Subject
-    {
-        get => new TerraformReference<string>(this, "subject");
-    }
+        => AsReference("subject");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-    {
-        get => new TerraformReference<string>(this, "thumbprint");
-    }
+        => AsReference("thumbprint");
 
 }
 
@@ -622,7 +572,7 @@ public class AzurermApiManagementCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -631,7 +581,7 @@ public class AzurermApiManagementCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -640,7 +590,7 @@ public class AzurermApiManagementCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -649,7 +599,7 @@ public class AzurermApiManagementCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -668,16 +618,16 @@ public partial class AzurermApiManagementCustomDomain(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     public required TerraformValue<string> ApiManagementId
     {
-        get => new TerraformReference<string>(this, "api_management_id");
+        get => GetArgument<TerraformValue<string>>("api_management_id");
         set => SetArgument("api_management_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 

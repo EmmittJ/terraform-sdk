@@ -18,7 +18,7 @@ public class AzurermStreamAnalyticsManagedPrivateEndpointTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermStreamAnalyticsManagedPrivateEndpointTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermStreamAnalyticsManagedPrivateEndpointTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -52,9 +52,9 @@ public partial class AzurermStreamAnalyticsManagedPrivateEndpoint(string name) :
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermStreamAnalyticsManagedPrivateEndpoint(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermStreamAnalyticsManagedPrivateEndpoint(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermStreamAnalyticsManagedPrivateEndpoint(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsClusterName is required")]
     public required TerraformValue<string> StreamAnalyticsClusterName
     {
-        get => new TerraformReference<string>(this, "stream_analytics_cluster_name");
+        get => GetArgument<TerraformValue<string>>("stream_analytics_cluster_name");
         set => SetArgument("stream_analytics_cluster_name", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermStreamAnalyticsManagedPrivateEndpoint(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubresourceName is required")]
     public required TerraformValue<string> SubresourceName
     {
-        get => new TerraformReference<string>(this, "subresource_name");
+        get => GetArgument<TerraformValue<string>>("subresource_name");
         set => SetArgument("subresource_name", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AzurermStreamAnalyticsManagedPrivateEndpoint(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformValue<string> TargetResourceId
     {
-        get => new TerraformReference<string>(this, "target_resource_id");
+        get => GetArgument<TerraformValue<string>>("target_resource_id");
         set => SetArgument("target_resource_id", value);
     }
 

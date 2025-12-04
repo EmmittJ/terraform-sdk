@@ -18,7 +18,7 @@ public class AzurermCostManagementScheduledActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermCostManagementScheduledActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermCostManagementScheduledActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermCostManagementScheduledActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     /// </summary>
     public TerraformValue<double>? DayOfMonth
     {
-        get => new TerraformReference<double>(this, "day_of_month");
+        get => GetArgument<TerraformValue<double>>("day_of_month");
         set => SetArgument("day_of_month", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     /// </summary>
     public TerraformList<string>? DaysOfWeek
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "days_of_week").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("days_of_week");
         set => SetArgument("days_of_week", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddressSender is required")]
     public required TerraformValue<string> EmailAddressSender
     {
-        get => new TerraformReference<string>(this, "email_address_sender");
+        get => GetArgument<TerraformValue<string>>("email_address_sender");
         set => SetArgument("email_address_sender", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddresses is required")]
     public TerraformList<string>? EmailAddresses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "email_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("email_addresses");
         set => SetArgument("email_addresses", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailSubject is required")]
     public required TerraformValue<string> EmailSubject
     {
-        get => new TerraformReference<string>(this, "email_subject");
+        get => GetArgument<TerraformValue<string>>("email_subject");
         set => SetArgument("email_subject", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndDate is required")]
     public required TerraformValue<string> EndDate
     {
-        get => new TerraformReference<string>(this, "end_date");
+        get => GetArgument<TerraformValue<string>>("end_date");
         set => SetArgument("end_date", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformValue<string> Frequency
     {
-        get => new TerraformReference<string>(this, "frequency");
+        get => GetArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -141,16 +141,16 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     /// </summary>
     public TerraformValue<double>? HourOfDay
     {
-        get => new TerraformReference<double>(this, "hour_of_day");
+        get => GetArgument<TerraformValue<double>>("hour_of_day");
         set => SetArgument("hour_of_day", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Message
     {
-        get => new TerraformReference<string>(this, "message");
+        get => GetArgument<TerraformValue<string>>("message");
         set => SetArgument("message", value);
     }
 
@@ -169,7 +169,7 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -179,7 +179,7 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDate is required")]
     public required TerraformValue<string> StartDate
     {
-        get => new TerraformReference<string>(this, "start_date");
+        get => GetArgument<TerraformValue<string>>("start_date");
         set => SetArgument("start_date", value);
     }
 
@@ -189,7 +189,7 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ViewId is required")]
     public required TerraformValue<string> ViewId
     {
-        get => new TerraformReference<string>(this, "view_id");
+        get => GetArgument<TerraformValue<string>>("view_id");
         set => SetArgument("view_id", value);
     }
 
@@ -198,7 +198,7 @@ public partial class AzurermCostManagementScheduledAction(string name) : Terrafo
     /// </summary>
     public TerraformList<string>? WeeksOfMonth
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "weeks_of_month").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("weeks_of_month");
         set => SetArgument("weeks_of_month", value);
     }
 

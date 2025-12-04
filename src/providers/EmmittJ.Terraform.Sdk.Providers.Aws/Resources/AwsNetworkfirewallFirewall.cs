@@ -19,7 +19,7 @@ public class AwsNetworkfirewallFirewallAvailabilityZoneMappingBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZoneId is required")]
     public required TerraformValue<string> AvailabilityZoneId
     {
-        get => new TerraformReference<string>(this, "availability_zone_id");
+        get => GetArgument<TerraformValue<string>>("availability_zone_id");
         set => SetArgument("availability_zone_id", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsNetworkfirewallFirewallEncryptionConfigurationBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? KeyId
     {
-        get => new TerraformReference<string>(this, "key_id");
+        get => GetArgument<TerraformValue<string>>("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsNetworkfirewallFirewallEncryptionConfigurationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -73,9 +73,9 @@ public class AwsNetworkfirewallFirewallSubnetMappingBlock : TerraformBlock
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformValue<string> IpAddressType
+    public TerraformValue<string>? IpAddressType
     {
-        get => new TerraformReference<string>(this, "ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsNetworkfirewallFirewallSubnetMappingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -108,7 +108,7 @@ public class AwsNetworkfirewallFirewallTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsNetworkfirewallFirewallTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsNetworkfirewallFirewallTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AwsNetworkfirewallFirewall(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? AvailabilityZoneChangeProtection
     {
-        get => new TerraformReference<bool>(this, "availability_zone_change_protection");
+        get => GetArgument<TerraformValue<bool>>("availability_zone_change_protection");
         set => SetArgument("availability_zone_change_protection", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AwsNetworkfirewallFirewall(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? DeleteProtection
     {
-        get => new TerraformReference<bool>(this, "delete_protection");
+        get => GetArgument<TerraformValue<bool>>("delete_protection");
         set => SetArgument("delete_protection", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AwsNetworkfirewallFirewall(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AwsNetworkfirewallFirewall(string name) : TerraformResource
     /// </summary>
     public TerraformSet<string>? EnabledAnalysisTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "enabled_analysis_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("enabled_analysis_types");
         set => SetArgument("enabled_analysis_types", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AwsNetworkfirewallFirewall(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallPolicyArn is required")]
     public required TerraformValue<string> FirewallPolicyArn
     {
-        get => new TerraformReference<string>(this, "firewall_policy_arn");
+        get => GetArgument<TerraformValue<string>>("firewall_policy_arn");
         set => SetArgument("firewall_policy_arn", value);
     }
 
@@ -190,16 +190,16 @@ public partial class AwsNetworkfirewallFirewall(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? FirewallPolicyChangeProtection
     {
-        get => new TerraformReference<bool>(this, "firewall_policy_change_protection");
+        get => GetArgument<TerraformValue<bool>>("firewall_policy_change_protection");
         set => SetArgument("firewall_policy_change_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -209,16 +209,16 @@ public partial class AwsNetworkfirewallFirewall(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -227,7 +227,7 @@ public partial class AwsNetworkfirewallFirewall(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? SubnetChangeProtection
     {
-        get => new TerraformReference<bool>(this, "subnet_change_protection");
+        get => GetArgument<TerraformValue<bool>>("subnet_change_protection");
         set => SetArgument("subnet_change_protection", value);
     }
 
@@ -236,16 +236,16 @@ public partial class AwsNetworkfirewallFirewall(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -254,7 +254,7 @@ public partial class AwsNetworkfirewallFirewall(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? TransitGatewayId
     {
-        get => new TerraformReference<string>(this, "transit_gateway_id");
+        get => GetArgument<TerraformValue<string>>("transit_gateway_id");
         set => SetArgument("transit_gateway_id", value);
     }
 
@@ -263,7 +263,7 @@ public partial class AwsNetworkfirewallFirewall(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -271,33 +271,25 @@ public partial class AwsNetworkfirewallFirewall(string name) : TerraformResource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The firewall_status attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FirewallStatus
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "firewall_status").ResolveNodes(ctx));
-    }
+        => AsReference("firewall_status");
 
     /// <summary>
     /// The transit_gateway_owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> TransitGatewayOwnerAccountId
-    {
-        get => new TerraformReference<string>(this, "transit_gateway_owner_account_id");
-    }
+        => AsReference("transit_gateway_owner_account_id");
 
     /// <summary>
     /// The update_token attribute.
     /// </summary>
     public TerraformValue<string> UpdateToken
-    {
-        get => new TerraformReference<string>(this, "update_token");
-    }
+        => AsReference("update_token");
 
     /// <summary>
     /// AvailabilityZoneMapping block (nesting mode: set).

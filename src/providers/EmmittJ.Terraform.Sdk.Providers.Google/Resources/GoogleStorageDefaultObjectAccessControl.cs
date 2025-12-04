@@ -18,7 +18,7 @@ public class GoogleStorageDefaultObjectAccessControlTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleStorageDefaultObjectAccessControlTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleStorageDefaultObjectAccessControlTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleStorageDefaultObjectAccessControl(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -73,16 +73,16 @@ public partial class GoogleStorageDefaultObjectAccessControl(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entity is required")]
     public required TerraformValue<string> Entity
     {
-        get => new TerraformReference<string>(this, "entity");
+        get => GetArgument<TerraformValue<string>>("entity");
         set => SetArgument("entity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class GoogleStorageDefaultObjectAccessControl(string name) : Terr
     /// </summary>
     public TerraformValue<string>? ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -101,7 +101,7 @@ public partial class GoogleStorageDefaultObjectAccessControl(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => new TerraformReference<string>(this, "role");
+        get => GetArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 
@@ -109,41 +109,31 @@ public partial class GoogleStorageDefaultObjectAccessControl(string name) : Terr
     /// The domain associated with the entity.
     /// </summary>
     public TerraformValue<string> Domain
-    {
-        get => new TerraformReference<string>(this, "domain");
-    }
+        => AsReference("domain");
 
     /// <summary>
     /// The email address associated with the entity.
     /// </summary>
     public TerraformValue<string> Email
-    {
-        get => new TerraformReference<string>(this, "email");
-    }
+        => AsReference("email");
 
     /// <summary>
     /// The ID for the entity
     /// </summary>
     public TerraformValue<string> EntityId
-    {
-        get => new TerraformReference<string>(this, "entity_id");
-    }
+        => AsReference("entity_id");
 
     /// <summary>
     /// The content generation of the object, if applied to an object.
     /// </summary>
     public TerraformValue<double> Generation
-    {
-        get => new TerraformReference<double>(this, "generation");
-    }
+        => AsReference("generation");
 
     /// <summary>
     /// The project team associated with the entity
     /// </summary>
     public TerraformList<TerraformMap<object>> ProjectTeam
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "project_team").ResolveNodes(ctx));
-    }
+        => AsReference("project_team");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

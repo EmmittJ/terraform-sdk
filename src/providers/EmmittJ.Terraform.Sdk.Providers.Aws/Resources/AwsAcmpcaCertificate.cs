@@ -19,7 +19,7 @@ public class AwsAcmpcaCertificateValidityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsAcmpcaCertificateValidityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -47,7 +47,7 @@ public partial class AwsAcmpcaCertificate(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? ApiPassthrough
     {
-        get => new TerraformReference<string>(this, "api_passthrough");
+        get => GetArgument<TerraformValue<string>>("api_passthrough");
         set => SetArgument("api_passthrough", value);
     }
 
@@ -57,7 +57,7 @@ public partial class AwsAcmpcaCertificate(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityArn is required")]
     public required TerraformValue<string> CertificateAuthorityArn
     {
-        get => new TerraformReference<string>(this, "certificate_authority_arn");
+        get => GetArgument<TerraformValue<string>>("certificate_authority_arn");
         set => SetArgument("certificate_authority_arn", value);
     }
 
@@ -67,25 +67,25 @@ public partial class AwsAcmpcaCertificate(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateSigningRequest is required")]
     public required TerraformValue<string> CertificateSigningRequest
     {
-        get => new TerraformReference<string>(this, "certificate_signing_request");
+        get => GetArgument<TerraformValue<string>>("certificate_signing_request");
         set => SetArgument("certificate_signing_request", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsAcmpcaCertificate(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningAlgorithm is required")]
     public required TerraformValue<string> SigningAlgorithm
     {
-        get => new TerraformReference<string>(this, "signing_algorithm");
+        get => GetArgument<TerraformValue<string>>("signing_algorithm");
         set => SetArgument("signing_algorithm", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AwsAcmpcaCertificate(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? TemplateArn
     {
-        get => new TerraformReference<string>(this, "template_arn");
+        get => GetArgument<TerraformValue<string>>("template_arn");
         set => SetArgument("template_arn", value);
     }
 
@@ -112,25 +112,19 @@ public partial class AwsAcmpcaCertificate(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The certificate attribute.
     /// </summary>
     public TerraformValue<string> Certificate
-    {
-        get => new TerraformReference<string>(this, "certificate");
-    }
+        => AsReference("certificate");
 
     /// <summary>
     /// The certificate_chain attribute.
     /// </summary>
     public TerraformValue<string> CertificateChain
-    {
-        get => new TerraformReference<string>(this, "certificate_chain");
-    }
+        => AsReference("certificate_chain");
 
     /// <summary>
     /// Validity block (nesting mode: list).

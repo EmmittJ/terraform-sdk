@@ -11,9 +11,9 @@ public partial class AwsIamUserLoginProfile(string name) : TerraformResource("aw
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,16 +22,16 @@ public partial class AwsIamUserLoginProfile(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<double>? PasswordLength
     {
-        get => new TerraformReference<double>(this, "password_length");
+        get => GetArgument<TerraformValue<double>>("password_length");
         set => SetArgument("password_length", value);
     }
 
     /// <summary>
     /// The password_reset_required attribute.
     /// </summary>
-    public TerraformValue<bool> PasswordResetRequired
+    public TerraformValue<bool>? PasswordResetRequired
     {
-        get => new TerraformReference<bool>(this, "password_reset_required");
+        get => GetArgument<TerraformValue<bool>>("password_reset_required");
         set => SetArgument("password_reset_required", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsIamUserLoginProfile(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? PgpKey
     {
-        get => new TerraformReference<string>(this, "pgp_key");
+        get => GetArgument<TerraformValue<string>>("pgp_key");
         set => SetArgument("pgp_key", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsIamUserLoginProfile(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformValue<string> User
     {
-        get => new TerraformReference<string>(this, "user");
+        get => GetArgument<TerraformValue<string>>("user");
         set => SetArgument("user", value);
     }
 
@@ -58,24 +58,18 @@ public partial class AwsIamUserLoginProfile(string name) : TerraformResource("aw
     /// The encrypted_password attribute.
     /// </summary>
     public TerraformValue<string> EncryptedPassword
-    {
-        get => new TerraformReference<string>(this, "encrypted_password");
-    }
+        => AsReference("encrypted_password");
 
     /// <summary>
     /// The key_fingerprint attribute.
     /// </summary>
     public TerraformValue<string> KeyFingerprint
-    {
-        get => new TerraformReference<string>(this, "key_fingerprint");
-    }
+        => AsReference("key_fingerprint");
 
     /// <summary>
     /// The password attribute.
     /// </summary>
     public TerraformValue<string> Password
-    {
-        get => new TerraformReference<string>(this, "password");
-    }
+        => AsReference("password");
 
 }

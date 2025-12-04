@@ -11,18 +11,18 @@ public partial class AwsS3controlMultiRegionAccessPointDataSource(string name) :
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformValue<string> AccountId
+    public TerraformValue<string>? AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,16 +32,16 @@ public partial class AwsS3controlMultiRegionAccessPointDataSource(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -49,56 +49,42 @@ public partial class AwsS3controlMultiRegionAccessPointDataSource(string name) :
     /// The alias attribute.
     /// </summary>
     public TerraformValue<string> Alias
-    {
-        get => new TerraformReference<string>(this, "alias");
-    }
+        => AsReference("alias");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     public TerraformValue<string> DomainName
-    {
-        get => new TerraformReference<string>(this, "domain_name");
-    }
+        => AsReference("domain_name");
 
     /// <summary>
     /// The public_access_block attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PublicAccessBlock
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "public_access_block").ResolveNodes(ctx));
-    }
+        => AsReference("public_access_block");
 
     /// <summary>
     /// The regions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Regions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "regions").ResolveNodes(ctx));
-    }
+        => AsReference("regions");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }

@@ -18,7 +18,7 @@ public class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlockActionBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlockSelectionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountNumber is required")]
     public required TerraformValue<double> CountNumber
     {
-        get => new TerraformReference<double>(this, "count_number");
+        get => GetArgument<TerraformValue<double>>("count_number");
         set => SetArgument("count_number", value);
     }
 
@@ -102,7 +102,7 @@ public class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlockSelectionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountType is required")]
     public required TerraformValue<string> CountType
     {
-        get => new TerraformReference<string>(this, "count_type");
+        get => GetArgument<TerraformValue<string>>("count_type");
         set => SetArgument("count_type", value);
     }
 
@@ -111,7 +111,7 @@ public class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlockSelectionBlock : Te
     /// </summary>
     public TerraformValue<string>? CountUnit
     {
-        get => new TerraformReference<string>(this, "count_unit");
+        get => GetArgument<TerraformValue<string>>("count_unit");
         set => SetArgument("count_unit", value);
     }
 
@@ -120,7 +120,7 @@ public class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlockSelectionBlock : Te
     /// </summary>
     public TerraformList<string>? TagPatternList
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tag_pattern_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("tag_pattern_list");
         set => SetArgument("tag_pattern_list", value);
     }
 
@@ -129,7 +129,7 @@ public class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlockSelectionBlock : Te
     /// </summary>
     public TerraformList<string>? TagPrefixList
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tag_prefix_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("tag_prefix_list");
         set => SetArgument("tag_prefix_list", value);
     }
 
@@ -139,7 +139,7 @@ public class AwsEcrLifecyclePolicyDocumentDataSourceRuleBlockSelectionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagStatus is required")]
     public required TerraformValue<string> TagStatus
     {
-        get => new TerraformReference<string>(this, "tag_status");
+        get => GetArgument<TerraformValue<string>>("tag_status");
         set => SetArgument("tag_status", value);
     }
 
@@ -156,9 +156,7 @@ public partial class AwsEcrLifecyclePolicyDocumentDataSource(string name) : Terr
     /// The json attribute.
     /// </summary>
     public TerraformValue<string> Json
-    {
-        get => new TerraformReference<string>(this, "json");
-    }
+        => AsReference("json");
 
     /// <summary>
     /// Rule block (nesting mode: list).

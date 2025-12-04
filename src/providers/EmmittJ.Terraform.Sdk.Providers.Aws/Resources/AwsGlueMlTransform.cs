@@ -18,7 +18,7 @@ public class AwsGlueMlTransformInputRecordTablesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CatalogId
     {
-        get => new TerraformReference<string>(this, "catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsGlueMlTransformInputRecordTablesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConnectionName
     {
-        get => new TerraformReference<string>(this, "connection_name");
+        get => GetArgument<TerraformValue<string>>("connection_name");
         set => SetArgument("connection_name", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsGlueMlTransformInputRecordTablesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsGlueMlTransformInputRecordTablesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsGlueMlTransformParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransformType is required")]
     public required TerraformValue<string> TransformType
     {
-        get => new TerraformReference<string>(this, "transform_type");
+        get => GetArgument<TerraformValue<string>>("transform_type");
         set => SetArgument("transform_type", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsGlueMlTransformParametersBlockFindMatchesParametersBlock : Terra
     /// </summary>
     public TerraformValue<double>? AccuracyCostTradeOff
     {
-        get => new TerraformReference<double>(this, "accuracy_cost_trade_off");
+        get => GetArgument<TerraformValue<double>>("accuracy_cost_trade_off");
         set => SetArgument("accuracy_cost_trade_off", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsGlueMlTransformParametersBlockFindMatchesParametersBlock : Terra
     /// </summary>
     public TerraformValue<bool>? EnforceProvidedLabels
     {
-        get => new TerraformReference<bool>(this, "enforce_provided_labels");
+        get => GetArgument<TerraformValue<bool>>("enforce_provided_labels");
         set => SetArgument("enforce_provided_labels", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsGlueMlTransformParametersBlockFindMatchesParametersBlock : Terra
     /// </summary>
     public TerraformValue<double>? PrecisionRecallTradeOff
     {
-        get => new TerraformReference<double>(this, "precision_recall_trade_off");
+        get => GetArgument<TerraformValue<double>>("precision_recall_trade_off");
         set => SetArgument("precision_recall_trade_off", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsGlueMlTransformParametersBlockFindMatchesParametersBlock : Terra
     /// </summary>
     public TerraformValue<string>? PrimaryKeyColumnName
     {
-        get => new TerraformReference<string>(this, "primary_key_column_name");
+        get => GetArgument<TerraformValue<string>>("primary_key_column_name");
         set => SetArgument("primary_key_column_name", value);
     }
 
@@ -151,34 +151,34 @@ public partial class AwsGlueMlTransform(string name) : TerraformResource("aws_gl
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The glue_version attribute.
     /// </summary>
-    public TerraformValue<string> GlueVersion
+    public TerraformValue<string>? GlueVersion
     {
-        get => new TerraformReference<string>(this, "glue_version");
+        get => GetArgument<TerraformValue<string>>("glue_version");
         set => SetArgument("glue_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The max_capacity attribute.
     /// </summary>
-    public TerraformValue<double> MaxCapacity
+    public TerraformValue<double>? MaxCapacity
     {
-        get => new TerraformReference<double>(this, "max_capacity");
+        get => GetArgument<TerraformValue<double>>("max_capacity");
         set => SetArgument("max_capacity", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AwsGlueMlTransform(string name) : TerraformResource("aws_gl
     /// </summary>
     public TerraformValue<double>? MaxRetries
     {
-        get => new TerraformReference<double>(this, "max_retries");
+        get => GetArgument<TerraformValue<double>>("max_retries");
         set => SetArgument("max_retries", value);
     }
 
@@ -197,7 +197,7 @@ public partial class AwsGlueMlTransform(string name) : TerraformResource("aws_gl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -206,16 +206,16 @@ public partial class AwsGlueMlTransform(string name) : TerraformResource("aws_gl
     /// </summary>
     public TerraformValue<double>? NumberOfWorkers
     {
-        get => new TerraformReference<double>(this, "number_of_workers");
+        get => GetArgument<TerraformValue<double>>("number_of_workers");
         set => SetArgument("number_of_workers", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -225,7 +225,7 @@ public partial class AwsGlueMlTransform(string name) : TerraformResource("aws_gl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -234,16 +234,16 @@ public partial class AwsGlueMlTransform(string name) : TerraformResource("aws_gl
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -252,7 +252,7 @@ public partial class AwsGlueMlTransform(string name) : TerraformResource("aws_gl
     /// </summary>
     public TerraformValue<double>? Timeout
     {
-        get => new TerraformReference<double>(this, "timeout");
+        get => GetArgument<TerraformValue<double>>("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -261,7 +261,7 @@ public partial class AwsGlueMlTransform(string name) : TerraformResource("aws_gl
     /// </summary>
     public TerraformValue<string>? WorkerType
     {
-        get => new TerraformReference<string>(this, "worker_type");
+        get => GetArgument<TerraformValue<string>>("worker_type");
         set => SetArgument("worker_type", value);
     }
 
@@ -269,25 +269,19 @@ public partial class AwsGlueMlTransform(string name) : TerraformResource("aws_gl
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The label_count attribute.
     /// </summary>
     public TerraformValue<double> LabelCount
-    {
-        get => new TerraformReference<double>(this, "label_count");
-    }
+        => AsReference("label_count");
 
     /// <summary>
     /// The schema attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Schema
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "schema").ResolveNodes(ctx));
-    }
+        => AsReference("schema");
 
     /// <summary>
     /// InputRecordTables block (nesting mode: list).

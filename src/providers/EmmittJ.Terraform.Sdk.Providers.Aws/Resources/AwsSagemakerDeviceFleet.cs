@@ -18,7 +18,7 @@ public class AwsSagemakerDeviceFleetOutputConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsSagemakerDeviceFleetOutputConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3OutputLocation is required")]
     public required TerraformValue<string> S3OutputLocation
     {
-        get => new TerraformReference<string>(this, "s3_output_location");
+        get => GetArgument<TerraformValue<string>>("s3_output_location");
         set => SetArgument("s3_output_location", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AwsSagemakerDeviceFleet(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsSagemakerDeviceFleet(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceFleetName is required")]
     public required TerraformValue<string> DeviceFleetName
     {
-        get => new TerraformReference<string>(this, "device_fleet_name");
+        get => GetArgument<TerraformValue<string>>("device_fleet_name");
         set => SetArgument("device_fleet_name", value);
     }
 
@@ -65,25 +65,25 @@ public partial class AwsSagemakerDeviceFleet(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? EnableIotRoleAlias
     {
-        get => new TerraformReference<bool>(this, "enable_iot_role_alias");
+        get => GetArgument<TerraformValue<bool>>("enable_iot_role_alias");
         set => SetArgument("enable_iot_role_alias", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AwsSagemakerDeviceFleet(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -102,16 +102,16 @@ public partial class AwsSagemakerDeviceFleet(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -119,17 +119,13 @@ public partial class AwsSagemakerDeviceFleet(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The iot_role_alias attribute.
     /// </summary>
     public TerraformValue<string> IotRoleAlias
-    {
-        get => new TerraformReference<string>(this, "iot_role_alias");
-    }
+        => AsReference("iot_role_alias");
 
     /// <summary>
     /// OutputConfig block (nesting mode: list).

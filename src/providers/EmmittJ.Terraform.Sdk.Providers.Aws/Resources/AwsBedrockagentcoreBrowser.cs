@@ -19,7 +19,7 @@ public class AwsBedrockagentcoreBrowserNetworkConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkMode is required")]
     public required TerraformValue<string> NetworkMode
     {
-        get => new TerraformReference<string>(this, "network_mode");
+        get => GetArgument<TerraformValue<string>>("network_mode");
         set => SetArgument("network_mode", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsBedrockagentcoreBrowserNetworkConfigurationBlockNetworkModeConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroups is required")]
     public required TerraformSet<string> SecurityGroups
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_groups");
         set => SetArgument("security_groups", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsBedrockagentcoreBrowserNetworkConfigurationBlockNetworkModeConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public required TerraformSet<string> Subnets
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnets").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -84,7 +84,7 @@ public class AwsBedrockagentcoreBrowserRecordingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsBedrockagentcoreBrowserRecordingBlockS3LocationBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsBedrockagentcoreBrowserRecordingBlockS3LocationBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
     public required TerraformValue<string> Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -149,7 +149,7 @@ public class AwsBedrockagentcoreBrowserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -158,7 +158,7 @@ public class AwsBedrockagentcoreBrowserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AwsBedrockagentcoreBrowser(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -185,7 +185,7 @@ public partial class AwsBedrockagentcoreBrowser(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? ExecutionRoleArn
     {
-        get => new TerraformReference<string>(this, "execution_role_arn");
+        get => GetArgument<TerraformValue<string>>("execution_role_arn");
         set => SetArgument("execution_role_arn", value);
     }
 
@@ -195,16 +195,16 @@ public partial class AwsBedrockagentcoreBrowser(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -213,7 +213,7 @@ public partial class AwsBedrockagentcoreBrowser(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -221,25 +221,19 @@ public partial class AwsBedrockagentcoreBrowser(string name) : TerraformResource
     /// The browser_arn attribute.
     /// </summary>
     public TerraformValue<string> BrowserArn
-    {
-        get => new TerraformReference<string>(this, "browser_arn");
-    }
+        => AsReference("browser_arn");
 
     /// <summary>
     /// The browser_id attribute.
     /// </summary>
     public TerraformValue<string> BrowserId
-    {
-        get => new TerraformReference<string>(this, "browser_id");
-    }
+        => AsReference("browser_id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// NetworkConfiguration block (nesting mode: list).

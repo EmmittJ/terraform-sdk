@@ -14,16 +14,16 @@ public partial class AwsArnDataSource(string name) : TerraformDataSource("aws_ar
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,40 +31,30 @@ public partial class AwsArnDataSource(string name) : TerraformDataSource("aws_ar
     /// The account attribute.
     /// </summary>
     public TerraformValue<string> Account
-    {
-        get => new TerraformReference<string>(this, "account");
-    }
+        => AsReference("account");
 
     /// <summary>
     /// The partition attribute.
     /// </summary>
     public TerraformValue<string> Partition
-    {
-        get => new TerraformReference<string>(this, "partition");
-    }
+        => AsReference("partition");
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     public TerraformValue<string> Region
-    {
-        get => new TerraformReference<string>(this, "region");
-    }
+        => AsReference("region");
 
     /// <summary>
     /// The resource attribute.
     /// </summary>
     public TerraformValue<string> Resource
-    {
-        get => new TerraformReference<string>(this, "resource");
-    }
+        => AsReference("resource");
 
     /// <summary>
     /// The service attribute.
     /// </summary>
     public TerraformValue<string> Service
-    {
-        get => new TerraformReference<string>(this, "service");
-    }
+        => AsReference("service");
 
 }

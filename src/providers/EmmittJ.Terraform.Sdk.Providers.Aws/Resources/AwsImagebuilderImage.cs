@@ -18,7 +18,7 @@ public class AwsImagebuilderImageImageScanningConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool>? ImageScanningEnabled
     {
-        get => new TerraformReference<bool>(this, "image_scanning_enabled");
+        get => GetArgument<TerraformValue<bool>>("image_scanning_enabled");
         set => SetArgument("image_scanning_enabled", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsImagebuilderImageImageScanningConfigurationBlockEcrConfiguration
     /// </summary>
     public TerraformSet<string>? ContainerTags
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "container_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("container_tags");
         set => SetArgument("container_tags", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsImagebuilderImageImageScanningConfigurationBlockEcrConfiguration
     /// </summary>
     public TerraformValue<string>? RepositoryName
     {
-        get => new TerraformReference<string>(this, "repository_name");
+        get => GetArgument<TerraformValue<string>>("repository_name");
         set => SetArgument("repository_name", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsImagebuilderImageImageTestsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ImageTestsEnabled
     {
-        get => new TerraformReference<bool>(this, "image_tests_enabled");
+        get => GetArgument<TerraformValue<bool>>("image_tests_enabled");
         set => SetArgument("image_tests_enabled", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsImagebuilderImageImageTestsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? TimeoutMinutes
     {
-        get => new TerraformReference<double>(this, "timeout_minutes");
+        get => GetArgument<TerraformValue<double>>("timeout_minutes");
         set => SetArgument("timeout_minutes", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsImagebuilderImageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -137,7 +137,7 @@ public class AwsImagebuilderImageWorkflowBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OnFailure
     {
-        get => new TerraformReference<string>(this, "on_failure");
+        get => GetArgument<TerraformValue<string>>("on_failure");
         set => SetArgument("on_failure", value);
     }
 
@@ -146,7 +146,7 @@ public class AwsImagebuilderImageWorkflowBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ParallelGroup
     {
-        get => new TerraformReference<string>(this, "parallel_group");
+        get => GetArgument<TerraformValue<string>>("parallel_group");
         set => SetArgument("parallel_group", value);
     }
 
@@ -156,7 +156,7 @@ public class AwsImagebuilderImageWorkflowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkflowArn is required")]
     public required TerraformValue<string> WorkflowArn
     {
-        get => new TerraformReference<string>(this, "workflow_arn");
+        get => GetArgument<TerraformValue<string>>("workflow_arn");
         set => SetArgument("workflow_arn", value);
     }
 
@@ -188,7 +188,7 @@ public class AwsImagebuilderImageWorkflowBlockParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -198,7 +198,7 @@ public class AwsImagebuilderImageWorkflowBlockParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -216,7 +216,7 @@ public partial class AwsImagebuilderImage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? ContainerRecipeArn
     {
-        get => new TerraformReference<string>(this, "container_recipe_arn");
+        get => GetArgument<TerraformValue<string>>("container_recipe_arn");
         set => SetArgument("container_recipe_arn", value);
     }
 
@@ -225,7 +225,7 @@ public partial class AwsImagebuilderImage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? DistributionConfigurationArn
     {
-        get => new TerraformReference<string>(this, "distribution_configuration_arn");
+        get => GetArgument<TerraformValue<string>>("distribution_configuration_arn");
         set => SetArgument("distribution_configuration_arn", value);
     }
 
@@ -234,25 +234,25 @@ public partial class AwsImagebuilderImage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<bool>? EnhancedImageMetadataEnabled
     {
-        get => new TerraformReference<bool>(this, "enhanced_image_metadata_enabled");
+        get => GetArgument<TerraformValue<bool>>("enhanced_image_metadata_enabled");
         set => SetArgument("enhanced_image_metadata_enabled", value);
     }
 
     /// <summary>
     /// The execution_role attribute.
     /// </summary>
-    public TerraformValue<string> ExecutionRole
+    public TerraformValue<string>? ExecutionRole
     {
-        get => new TerraformReference<string>(this, "execution_role");
+        get => GetArgument<TerraformValue<string>>("execution_role");
         set => SetArgument("execution_role", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -261,7 +261,7 @@ public partial class AwsImagebuilderImage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? ImageRecipeArn
     {
-        get => new TerraformReference<string>(this, "image_recipe_arn");
+        get => GetArgument<TerraformValue<string>>("image_recipe_arn");
         set => SetArgument("image_recipe_arn", value);
     }
 
@@ -271,16 +271,16 @@ public partial class AwsImagebuilderImage(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InfrastructureConfigurationArn is required")]
     public required TerraformValue<string> InfrastructureConfigurationArn
     {
-        get => new TerraformReference<string>(this, "infrastructure_configuration_arn");
+        get => GetArgument<TerraformValue<string>>("infrastructure_configuration_arn");
         set => SetArgument("infrastructure_configuration_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -289,16 +289,16 @@ public partial class AwsImagebuilderImage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -306,57 +306,43 @@ public partial class AwsImagebuilderImage(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The date_created attribute.
     /// </summary>
     public TerraformValue<string> DateCreated
-    {
-        get => new TerraformReference<string>(this, "date_created");
-    }
+        => AsReference("date_created");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The os_version attribute.
     /// </summary>
     public TerraformValue<string> OsVersion
-    {
-        get => new TerraformReference<string>(this, "os_version");
-    }
+        => AsReference("os_version");
 
     /// <summary>
     /// The output_resources attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> OutputResources
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "output_resources").ResolveNodes(ctx));
-    }
+        => AsReference("output_resources");
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
     public TerraformValue<string> Platform
-    {
-        get => new TerraformReference<string>(this, "platform");
-    }
+        => AsReference("platform");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
     /// <summary>
     /// ImageScanningConfiguration block (nesting mode: list).

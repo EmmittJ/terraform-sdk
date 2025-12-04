@@ -11,9 +11,9 @@ public partial class AwsCostoptimizationhubEnrollmentStatus(string name) : Terra
     /// <summary>
     /// The include_member_accounts attribute.
     /// </summary>
-    public TerraformValue<bool> IncludeMemberAccounts
+    public TerraformValue<bool>? IncludeMemberAccounts
     {
-        get => new TerraformReference<bool>(this, "include_member_accounts");
+        get => GetArgument<TerraformValue<bool>>("include_member_accounts");
         set => SetArgument("include_member_accounts", value);
     }
 
@@ -21,16 +21,12 @@ public partial class AwsCostoptimizationhubEnrollmentStatus(string name) : Terra
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }

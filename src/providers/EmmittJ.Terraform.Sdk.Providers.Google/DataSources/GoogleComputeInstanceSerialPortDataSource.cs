@@ -11,9 +11,9 @@ public partial class GoogleComputeInstanceSerialPortDataSource(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleComputeInstanceSerialPortDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -33,25 +33,25 @@ public partial class GoogleComputeInstanceSerialPortDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The zone attribute.
     /// </summary>
-    public TerraformValue<string> Zone
+    public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -59,8 +59,6 @@ public partial class GoogleComputeInstanceSerialPortDataSource(string name) : Te
     /// The contents attribute.
     /// </summary>
     public TerraformValue<string> Contents
-    {
-        get => new TerraformReference<string>(this, "contents");
-    }
+        => AsReference("contents");
 
 }

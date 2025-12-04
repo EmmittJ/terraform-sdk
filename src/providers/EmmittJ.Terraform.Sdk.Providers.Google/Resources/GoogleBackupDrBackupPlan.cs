@@ -19,7 +19,7 @@ public class GoogleBackupDrBackupPlanBackupRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRetentionDays is required")]
     public required TerraformValue<double> BackupRetentionDays
     {
-        get => new TerraformReference<double>(this, "backup_retention_days");
+        get => GetArgument<TerraformValue<double>>("backup_retention_days");
         set => SetArgument("backup_retention_days", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleBackupDrBackupPlanBackupRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleId is required")]
     public required TerraformValue<string> RuleId
     {
-        get => new TerraformReference<string>(this, "rule_id");
+        get => GetArgument<TerraformValue<string>>("rule_id");
         set => SetArgument("rule_id", value);
     }
 
@@ -64,7 +64,7 @@ public class GoogleBackupDrBackupPlanBackupRulesBlockStandardScheduleBlock : Ter
     /// </summary>
     public TerraformList<double>? DaysOfMonth
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "days_of_month").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("days_of_month");
         set => SetArgument("days_of_month", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleBackupDrBackupPlanBackupRulesBlockStandardScheduleBlock : Ter
     /// </summary>
     public TerraformList<string>? DaysOfWeek
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "days_of_week").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("days_of_week");
         set => SetArgument("days_of_week", value);
     }
 
@@ -83,7 +83,7 @@ public class GoogleBackupDrBackupPlanBackupRulesBlockStandardScheduleBlock : Ter
     /// </summary>
     public TerraformValue<double>? HourlyFrequency
     {
-        get => new TerraformReference<double>(this, "hourly_frequency");
+        get => GetArgument<TerraformValue<double>>("hourly_frequency");
         set => SetArgument("hourly_frequency", value);
     }
 
@@ -92,7 +92,7 @@ public class GoogleBackupDrBackupPlanBackupRulesBlockStandardScheduleBlock : Ter
     /// </summary>
     public TerraformList<string>? Months
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "months").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("months");
         set => SetArgument("months", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleBackupDrBackupPlanBackupRulesBlockStandardScheduleBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrenceType is required")]
     public required TerraformValue<string> RecurrenceType
     {
-        get => new TerraformReference<string>(this, "recurrence_type");
+        get => GetArgument<TerraformValue<string>>("recurrence_type");
         set => SetArgument("recurrence_type", value);
     }
 
@@ -112,7 +112,7 @@ public class GoogleBackupDrBackupPlanBackupRulesBlockStandardScheduleBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformValue<string> TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -155,7 +155,7 @@ public class GoogleBackupDrBackupPlanBackupRulesBlockStandardScheduleBlockBackup
     /// </summary>
     public TerraformValue<double>? EndHourOfDay
     {
-        get => new TerraformReference<double>(this, "end_hour_of_day");
+        get => GetArgument<TerraformValue<double>>("end_hour_of_day");
         set => SetArgument("end_hour_of_day", value);
     }
 
@@ -165,7 +165,7 @@ public class GoogleBackupDrBackupPlanBackupRulesBlockStandardScheduleBlockBackup
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartHourOfDay is required")]
     public required TerraformValue<double> StartHourOfDay
     {
-        get => new TerraformReference<double>(this, "start_hour_of_day");
+        get => GetArgument<TerraformValue<double>>("start_hour_of_day");
         set => SetArgument("start_hour_of_day", value);
     }
 
@@ -188,7 +188,7 @@ public class GoogleBackupDrBackupPlanBackupRulesBlockStandardScheduleBlockWeekDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformValue<string> DayOfWeek
     {
-        get => new TerraformReference<string>(this, "day_of_week");
+        get => GetArgument<TerraformValue<string>>("day_of_week");
         set => SetArgument("day_of_week", value);
     }
 
@@ -198,7 +198,7 @@ public class GoogleBackupDrBackupPlanBackupRulesBlockStandardScheduleBlockWeekDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WeekOfMonth is required")]
     public required TerraformValue<string> WeekOfMonth
     {
-        get => new TerraformReference<string>(this, "week_of_month");
+        get => GetArgument<TerraformValue<string>>("week_of_month");
         set => SetArgument("week_of_month", value);
     }
 
@@ -221,7 +221,7 @@ public class GoogleBackupDrBackupPlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -230,7 +230,7 @@ public class GoogleBackupDrBackupPlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -239,7 +239,7 @@ public class GoogleBackupDrBackupPlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -258,7 +258,7 @@ public partial class GoogleBackupDrBackupPlan(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlanId is required")]
     public required TerraformValue<string> BackupPlanId
     {
-        get => new TerraformReference<string>(this, "backup_plan_id");
+        get => GetArgument<TerraformValue<string>>("backup_plan_id");
         set => SetArgument("backup_plan_id", value);
     }
 
@@ -268,7 +268,7 @@ public partial class GoogleBackupDrBackupPlan(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVault is required")]
     public required TerraformValue<string> BackupVault
     {
-        get => new TerraformReference<string>(this, "backup_vault");
+        get => GetArgument<TerraformValue<string>>("backup_vault");
         set => SetArgument("backup_vault", value);
     }
 
@@ -277,16 +277,16 @@ public partial class GoogleBackupDrBackupPlan(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -296,7 +296,7 @@ public partial class GoogleBackupDrBackupPlan(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -305,16 +305,16 @@ public partial class GoogleBackupDrBackupPlan(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double>? LogRetentionDays
     {
-        get => new TerraformReference<double>(this, "log_retention_days");
+        get => GetArgument<TerraformValue<double>>("log_retention_days");
         set => SetArgument("log_retention_days", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -325,7 +325,7 @@ public partial class GoogleBackupDrBackupPlan(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeAttribute is required")]
     public required TerraformValue<string> ResourceTypeAttribute
     {
-        get => new TerraformReference<string>(this, "resource_type");
+        get => GetArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -333,41 +333,31 @@ public partial class GoogleBackupDrBackupPlan(string name) : TerraformResource("
     /// The Google Cloud Platform Service Account to be used by the BackupVault for taking backups.
     /// </summary>
     public TerraformValue<string> BackupVaultServiceAccount
-    {
-        get => new TerraformReference<string>(this, "backup_vault_service_account");
-    }
+        => AsReference("backup_vault_service_account");
 
     /// <summary>
     /// When the &#39;BackupPlan&#39; was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The name of backup plan resource created
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The list of all resource types to which the &#39;BackupPlan&#39; can be applied.
     /// </summary>
     public TerraformList<string> SupportedResourceTypes
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supported_resource_types").ResolveNodes(ctx));
-    }
+        => AsReference("supported_resource_types");
 
     /// <summary>
     /// When the &#39;BackupPlan&#39; was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// BackupRules block (nesting mode: list).

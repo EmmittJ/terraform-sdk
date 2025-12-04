@@ -18,7 +18,7 @@ public class AzurermSourceControlTokenTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSourceControlTokenTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSourceControlTokenTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSourceControlTokenTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermSourceControlToken(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermSourceControlToken(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     public required TerraformValue<string> Token
     {
-        get => new TerraformReference<string>(this, "token");
+        get => GetArgument<TerraformValue<string>>("token");
         set => SetArgument("token", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermSourceControlToken(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? TokenSecret
     {
-        get => new TerraformReference<string>(this, "token_secret");
+        get => GetArgument<TerraformValue<string>>("token_secret");
         set => SetArgument("token_secret", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermSourceControlToken(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

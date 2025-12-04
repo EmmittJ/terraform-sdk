@@ -19,7 +19,7 @@ public class GoogleChronicleReferenceListEntriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -67,7 +67,7 @@ public class GoogleChronicleReferenceListScopeInfoBlockReferenceListScopeBlock :
     /// </summary>
     public TerraformList<string>? ScopeNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scope_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("scope_names");
         set => SetArgument("scope_names", value);
     }
 
@@ -90,7 +90,7 @@ public class GoogleChronicleReferenceListTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleChronicleReferenceListTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleChronicleReferenceListTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -127,16 +127,16 @@ public partial class GoogleChronicleReferenceList(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -146,7 +146,7 @@ public partial class GoogleChronicleReferenceList(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -156,16 +156,16 @@ public partial class GoogleChronicleReferenceList(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -180,7 +180,7 @@ public partial class GoogleChronicleReferenceList(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReferenceListId is required")]
     public required TerraformValue<string> ReferenceListId
     {
-        get => new TerraformReference<string>(this, "reference_list_id");
+        get => GetArgument<TerraformValue<string>>("reference_list_id");
         set => SetArgument("reference_list_id", value);
     }
 
@@ -193,7 +193,7 @@ public partial class GoogleChronicleReferenceList(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SyntaxType is required")]
     public required TerraformValue<string> SyntaxType
     {
-        get => new TerraformReference<string>(this, "syntax_type");
+        get => GetArgument<TerraformValue<string>>("syntax_type");
         set => SetArgument("syntax_type", value);
     }
 
@@ -201,9 +201,7 @@ public partial class GoogleChronicleReferenceList(string name) : TerraformResour
     /// Output only. The unique display name of the reference list.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// Output only. The resource name of the reference list.
@@ -211,25 +209,19 @@ public partial class GoogleChronicleReferenceList(string name) : TerraformResour
     /// projects/{project}/locations/{location}/instances/{instance}/referenceLists/{reference_list}
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. The timestamp when the reference list was last updated.
     /// </summary>
     public TerraformValue<string> RevisionCreateTime
-    {
-        get => new TerraformReference<string>(this, "revision_create_time");
-    }
+        => AsReference("revision_create_time");
 
     /// <summary>
     /// Output only. The count of self-authored rules using the reference list.
     /// </summary>
     public TerraformValue<double> RuleAssociationsCount
-    {
-        get => new TerraformReference<double>(this, "rule_associations_count");
-    }
+        => AsReference("rule_associations_count");
 
     /// <summary>
     /// Output only. The resource names for the associated self-authored Rules that use this
@@ -237,9 +229,7 @@ public partial class GoogleChronicleReferenceList(string name) : TerraformResour
     /// This is returned only when the view is REFERENCE_LIST_VIEW_FULL.
     /// </summary>
     public TerraformList<string> Rules
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "rules").ResolveNodes(ctx));
-    }
+        => AsReference("rules");
 
     /// <summary>
     /// Entries block (nesting mode: list).

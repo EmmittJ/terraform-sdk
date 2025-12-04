@@ -18,7 +18,7 @@ public class AwsGlobalacceleratorCustomRoutingListenerPortRangeBlock : Terraform
     /// </summary>
     public TerraformValue<double>? FromPort
     {
-        get => new TerraformReference<double>(this, "from_port");
+        get => GetArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsGlobalacceleratorCustomRoutingListenerPortRangeBlock : Terraform
     /// </summary>
     public TerraformValue<double>? ToPort
     {
-        get => new TerraformReference<double>(this, "to_port");
+        get => GetArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsGlobalacceleratorCustomRoutingListenerTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsGlobalacceleratorCustomRoutingListenerTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsGlobalacceleratorCustomRoutingListenerTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -87,16 +87,16 @@ public partial class AwsGlobalacceleratorCustomRoutingListener(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceleratorArn is required")]
     public required TerraformValue<string> AcceleratorArn
     {
-        get => new TerraformReference<string>(this, "accelerator_arn");
+        get => GetArgument<TerraformValue<string>>("accelerator_arn");
         set => SetArgument("accelerator_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -104,9 +104,7 @@ public partial class AwsGlobalacceleratorCustomRoutingListener(string name) : Te
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// PortRange block (nesting mode: set).

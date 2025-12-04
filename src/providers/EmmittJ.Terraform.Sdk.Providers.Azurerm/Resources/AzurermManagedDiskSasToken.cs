@@ -18,7 +18,7 @@ public class AzurermManagedDiskSasTokenTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermManagedDiskSasTokenTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermManagedDiskSasTokenTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermManagedDiskSasToken(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessLevel is required")]
     public required TerraformValue<string> AccessLevel
     {
-        get => new TerraformReference<string>(this, "access_level");
+        get => GetArgument<TerraformValue<string>>("access_level");
         set => SetArgument("access_level", value);
     }
 
@@ -65,16 +65,16 @@ public partial class AzurermManagedDiskSasToken(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DurationInSeconds is required")]
     public required TerraformValue<double> DurationInSeconds
     {
-        get => new TerraformReference<double>(this, "duration_in_seconds");
+        get => GetArgument<TerraformValue<double>>("duration_in_seconds");
         set => SetArgument("duration_in_seconds", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermManagedDiskSasToken(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedDiskId is required")]
     public required TerraformValue<string> ManagedDiskId
     {
-        get => new TerraformReference<string>(this, "managed_disk_id");
+        get => GetArgument<TerraformValue<string>>("managed_disk_id");
         set => SetArgument("managed_disk_id", value);
     }
 
@@ -92,9 +92,7 @@ public partial class AzurermManagedDiskSasToken(string name) : TerraformResource
     /// The sas_url attribute.
     /// </summary>
     public TerraformValue<string> SasUrl
-    {
-        get => new TerraformReference<string>(this, "sas_url");
-    }
+        => AsReference("sas_url");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -11,9 +11,9 @@ public partial class GoogleStorageBucketsDataSource(string name) : TerraformData
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleStorageBucketsDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleStorageBucketsDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -39,8 +39,6 @@ public partial class GoogleStorageBucketsDataSource(string name) : TerraformData
     /// The buckets attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Buckets
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "buckets").ResolveNodes(ctx));
-    }
+        => AsReference("buckets");
 
 }

@@ -18,7 +18,7 @@ public class AzurermRoleManagementPolicyDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermRoleManagementPolicyDataSource(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermRoleManagementPolicyDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     public required TerraformValue<string> RoleDefinitionId
     {
-        get => new TerraformReference<string>(this, "role_definition_id");
+        get => GetArgument<TerraformValue<string>>("role_definition_id");
         set => SetArgument("role_definition_id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermRoleManagementPolicyDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -64,49 +64,37 @@ public partial class AzurermRoleManagementPolicyDataSource(string name) : Terraf
     /// The activation rules of the policy
     /// </summary>
     public TerraformList<TerraformMap<object>> ActivationRules
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "activation_rules").ResolveNodes(ctx));
-    }
+        => AsReference("activation_rules");
 
     /// <summary>
     /// The rules for active assignment of the policy
     /// </summary>
     public TerraformList<TerraformMap<object>> ActiveAssignmentRules
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "active_assignment_rules").ResolveNodes(ctx));
-    }
+        => AsReference("active_assignment_rules");
 
     /// <summary>
     /// The Description of the policy
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The rules for eligible assignment of the policy
     /// </summary>
     public TerraformList<TerraformMap<object>> EligibleAssignmentRules
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "eligible_assignment_rules").ResolveNodes(ctx));
-    }
+        => AsReference("eligible_assignment_rules");
 
     /// <summary>
     /// The name of the policy
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The notification rules of the policy
     /// </summary>
     public TerraformList<TerraformMap<object>> NotificationRules
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "notification_rules").ResolveNodes(ctx));
-    }
+        => AsReference("notification_rules");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class AwsLexv2modelsBotVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsLexv2modelsBotVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,16 +46,16 @@ public partial class AwsLexv2modelsBotVersion(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotId is required")]
     public required TerraformValue<string> BotId
     {
-        get => new TerraformReference<string>(this, "bot_id");
+        get => GetArgument<TerraformValue<string>>("bot_id");
         set => SetArgument("bot_id", value);
     }
 
     /// <summary>
     /// The bot_version attribute.
     /// </summary>
-    public TerraformValue<string> BotVersion
+    public TerraformValue<string>? BotVersion
     {
-        get => new TerraformReference<string>(this, "bot_version");
+        get => GetArgument<TerraformValue<string>>("bot_version");
         set => SetArgument("bot_version", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsLexv2modelsBotVersion(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AwsLexv2modelsBotVersion(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocaleSpecification is required")]
     public required TerraformMap<TerraformMap<object>> LocaleSpecification
     {
-        get => TerraformMap<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformMap<TerraformMap<object>>>(this, "locale_specification").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<TerraformMap<object>>>("locale_specification");
         set => SetArgument("locale_specification", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -91,9 +91,7 @@ public partial class AwsLexv2modelsBotVersion(string name) : TerraformResource("
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

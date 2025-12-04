@@ -18,7 +18,7 @@ public class AwsServicecatalogTagOptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsServicecatalogTagOptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsServicecatalogTagOptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsServicecatalogTagOptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AwsServicecatalogTagOption(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -82,16 +82,16 @@ public partial class AwsServicecatalogTagOption(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AwsServicecatalogTagOption(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -109,9 +109,7 @@ public partial class AwsServicecatalogTagOption(string name) : TerraformResource
     /// The owner attribute.
     /// </summary>
     public TerraformValue<string> Owner
-    {
-        get => new TerraformReference<string>(this, "owner");
-    }
+        => AsReference("owner");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

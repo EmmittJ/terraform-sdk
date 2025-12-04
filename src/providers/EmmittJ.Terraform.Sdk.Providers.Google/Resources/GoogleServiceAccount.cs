@@ -18,7 +18,7 @@ public class GoogleServiceAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -37,7 +37,7 @@ public partial class GoogleServiceAccount(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformValue<string> AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class GoogleServiceAccount(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<bool>? CreateIgnoreAlreadyExists
     {
-        get => new TerraformReference<bool>(this, "create_ignore_already_exists");
+        get => GetArgument<TerraformValue<bool>>("create_ignore_already_exists");
         set => SetArgument("create_ignore_already_exists", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleServiceAccount(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -64,7 +64,7 @@ public partial class GoogleServiceAccount(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -73,25 +73,25 @@ public partial class GoogleServiceAccount(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The ID of the project that the service account will be created in. Defaults to the provider project configuration.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -99,33 +99,25 @@ public partial class GoogleServiceAccount(string name) : TerraformResource("goog
     /// The e-mail address of the service account. This value should be referenced from any google_iam_policy data sources that would grant the service account privileges.
     /// </summary>
     public TerraformValue<string> Email
-    {
-        get => new TerraformReference<string>(this, "email");
-    }
+        => AsReference("email");
 
     /// <summary>
     /// The Identity of the service account in the form &#39;serviceAccount:{email}&#39;. This value is often used to refer to the service account in order to grant IAM permissions.
     /// </summary>
     public TerraformValue<string> Member
-    {
-        get => new TerraformReference<string>(this, "member");
-    }
+        => AsReference("member");
 
     /// <summary>
     /// The fully-qualified name of the service account.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The unique id of the service account.
     /// </summary>
     public TerraformValue<string> UniqueId
-    {
-        get => new TerraformReference<string>(this, "unique_id");
-    }
+        => AsReference("unique_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

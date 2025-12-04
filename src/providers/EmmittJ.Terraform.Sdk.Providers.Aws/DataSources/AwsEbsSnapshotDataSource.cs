@@ -19,7 +19,7 @@ public class AwsEbsSnapshotDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsEbsSnapshotDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsEbsSnapshotDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -68,9 +68,9 @@ public partial class AwsEbsSnapshotDataSource(string name) : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsEbsSnapshotDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<bool>? MostRecent
     {
-        get => new TerraformReference<bool>(this, "most_recent");
+        get => GetArgument<TerraformValue<bool>>("most_recent");
         set => SetArgument("most_recent", value);
     }
 
@@ -88,16 +88,16 @@ public partial class AwsEbsSnapshotDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformList<string>? Owners
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "owners").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("owners");
         set => SetArgument("owners", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsEbsSnapshotDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformList<string>? RestorableByUserIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "restorable_by_user_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("restorable_by_user_ids");
         set => SetArgument("restorable_by_user_ids", value);
     }
 
@@ -115,16 +115,16 @@ public partial class AwsEbsSnapshotDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformList<string>? SnapshotIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "snapshot_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("snapshot_ids");
         set => SetArgument("snapshot_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -132,113 +132,85 @@ public partial class AwsEbsSnapshotDataSource(string name) : TerraformDataSource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The data_encryption_key_id attribute.
     /// </summary>
     public TerraformValue<string> DataEncryptionKeyId
-    {
-        get => new TerraformReference<string>(this, "data_encryption_key_id");
-    }
+        => AsReference("data_encryption_key_id");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     public TerraformValue<bool> Encrypted
-    {
-        get => new TerraformReference<bool>(this, "encrypted");
-    }
+        => AsReference("encrypted");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-    {
-        get => new TerraformReference<string>(this, "kms_key_id");
-    }
+        => AsReference("kms_key_id");
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
     public TerraformValue<string> OutpostArn
-    {
-        get => new TerraformReference<string>(this, "outpost_arn");
-    }
+        => AsReference("outpost_arn");
 
     /// <summary>
     /// The owner_alias attribute.
     /// </summary>
     public TerraformValue<string> OwnerAlias
-    {
-        get => new TerraformReference<string>(this, "owner_alias");
-    }
+        => AsReference("owner_alias");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// The snapshot_id attribute.
     /// </summary>
     public TerraformValue<string> SnapshotId
-    {
-        get => new TerraformReference<string>(this, "snapshot_id");
-    }
+        => AsReference("snapshot_id");
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     public TerraformValue<string> StartTime
-    {
-        get => new TerraformReference<string>(this, "start_time");
-    }
+        => AsReference("start_time");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The storage_tier attribute.
     /// </summary>
     public TerraformValue<string> StorageTier
-    {
-        get => new TerraformReference<string>(this, "storage_tier");
-    }
+        => AsReference("storage_tier");
 
     /// <summary>
     /// The volume_id attribute.
     /// </summary>
     public TerraformValue<string> VolumeId
-    {
-        get => new TerraformReference<string>(this, "volume_id");
-    }
+        => AsReference("volume_id");
 
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
     public TerraformValue<double> VolumeSize
-    {
-        get => new TerraformReference<double>(this, "volume_size");
-    }
+        => AsReference("volume_size");
 
     /// <summary>
     /// Filter block (nesting mode: set).

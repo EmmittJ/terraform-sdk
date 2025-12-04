@@ -18,7 +18,7 @@ public class AzurermAppServiceSlotCustomHostnameBindingTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermAppServiceSlotCustomHostnameBindingTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermAppServiceSlotCustomHostnameBindingTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermAppServiceSlotCustomHostnameBinding(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceSlotId is required")]
     public required TerraformValue<string> AppServiceSlotId
     {
-        get => new TerraformReference<string>(this, "app_service_slot_id");
+        get => GetArgument<TerraformValue<string>>("app_service_slot_id");
         set => SetArgument("app_service_slot_id", value);
     }
 
@@ -65,34 +65,34 @@ public partial class AzurermAppServiceSlotCustomHostnameBinding(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => new TerraformReference<string>(this, "hostname");
+        get => GetArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The ssl_state attribute.
     /// </summary>
-    public TerraformValue<string> SslState
+    public TerraformValue<string>? SslState
     {
-        get => new TerraformReference<string>(this, "ssl_state");
+        get => GetArgument<TerraformValue<string>>("ssl_state");
         set => SetArgument("ssl_state", value);
     }
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
-    public TerraformValue<string> Thumbprint
+    public TerraformValue<string>? Thumbprint
     {
-        get => new TerraformReference<string>(this, "thumbprint");
+        get => GetArgument<TerraformValue<string>>("thumbprint");
         set => SetArgument("thumbprint", value);
     }
 
@@ -100,9 +100,7 @@ public partial class AzurermAppServiceSlotCustomHostnameBinding(string name) : T
     /// The virtual_ip attribute.
     /// </summary>
     public TerraformValue<string> VirtualIp
-    {
-        get => new TerraformReference<string>(this, "virtual_ip");
-    }
+        => AsReference("virtual_ip");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

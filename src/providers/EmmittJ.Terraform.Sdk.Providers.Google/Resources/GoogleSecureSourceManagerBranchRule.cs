@@ -18,7 +18,7 @@ public class GoogleSecureSourceManagerBranchRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleSecureSourceManagerBranchRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleSecureSourceManagerBranchRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,7 +54,7 @@ public partial class GoogleSecureSourceManagerBranchRule(string name) : Terrafor
     /// </summary>
     public TerraformValue<bool>? AllowStaleReviews
     {
-        get => new TerraformReference<bool>(this, "allow_stale_reviews");
+        get => GetArgument<TerraformValue<bool>>("allow_stale_reviews");
         set => SetArgument("allow_stale_reviews", value);
     }
 
@@ -64,7 +64,7 @@ public partial class GoogleSecureSourceManagerBranchRule(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchRuleId is required")]
     public required TerraformValue<string> BranchRuleId
     {
-        get => new TerraformReference<string>(this, "branch_rule_id");
+        get => GetArgument<TerraformValue<string>>("branch_rule_id");
         set => SetArgument("branch_rule_id", value);
     }
 
@@ -73,16 +73,16 @@ public partial class GoogleSecureSourceManagerBranchRule(string name) : Terrafor
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class GoogleSecureSourceManagerBranchRule(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IncludePattern is required")]
     public required TerraformValue<string> IncludePattern
     {
-        get => new TerraformReference<string>(this, "include_pattern");
+        get => GetArgument<TerraformValue<string>>("include_pattern");
         set => SetArgument("include_pattern", value);
     }
 
@@ -102,7 +102,7 @@ public partial class GoogleSecureSourceManagerBranchRule(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -111,7 +111,7 @@ public partial class GoogleSecureSourceManagerBranchRule(string name) : Terrafor
     /// </summary>
     public TerraformValue<double>? MinimumApprovalsCount
     {
-        get => new TerraformReference<double>(this, "minimum_approvals_count");
+        get => GetArgument<TerraformValue<double>>("minimum_approvals_count");
         set => SetArgument("minimum_approvals_count", value);
     }
 
@@ -120,16 +120,16 @@ public partial class GoogleSecureSourceManagerBranchRule(string name) : Terrafor
     /// </summary>
     public TerraformValue<double>? MinimumReviewsCount
     {
-        get => new TerraformReference<double>(this, "minimum_reviews_count");
+        get => GetArgument<TerraformValue<double>>("minimum_reviews_count");
         set => SetArgument("minimum_reviews_count", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -139,7 +139,7 @@ public partial class GoogleSecureSourceManagerBranchRule(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformValue<string> RepositoryId
     {
-        get => new TerraformReference<string>(this, "repository_id");
+        get => GetArgument<TerraformValue<string>>("repository_id");
         set => SetArgument("repository_id", value);
     }
 
@@ -148,7 +148,7 @@ public partial class GoogleSecureSourceManagerBranchRule(string name) : Terrafor
     /// </summary>
     public TerraformValue<bool>? RequireCommentsResolved
     {
-        get => new TerraformReference<bool>(this, "require_comments_resolved");
+        get => GetArgument<TerraformValue<bool>>("require_comments_resolved");
         set => SetArgument("require_comments_resolved", value);
     }
 
@@ -157,7 +157,7 @@ public partial class GoogleSecureSourceManagerBranchRule(string name) : Terrafor
     /// </summary>
     public TerraformValue<bool>? RequireLinearHistory
     {
-        get => new TerraformReference<bool>(this, "require_linear_history");
+        get => GetArgument<TerraformValue<bool>>("require_linear_history");
         set => SetArgument("require_linear_history", value);
     }
 
@@ -166,7 +166,7 @@ public partial class GoogleSecureSourceManagerBranchRule(string name) : Terrafor
     /// </summary>
     public TerraformValue<bool>? RequirePullRequest
     {
-        get => new TerraformReference<bool>(this, "require_pull_request");
+        get => GetArgument<TerraformValue<bool>>("require_pull_request");
         set => SetArgument("require_pull_request", value);
     }
 
@@ -174,33 +174,25 @@ public partial class GoogleSecureSourceManagerBranchRule(string name) : Terrafor
     /// Time the BranchRule was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The resource name for the BranchRule.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Unique identifier of the BranchRule.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Time the BranchRule was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

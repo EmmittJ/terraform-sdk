@@ -18,7 +18,7 @@ public class AzurermSentinelMetadataAuthorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSentinelMetadataAuthorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Link
     {
-        get => new TerraformReference<string>(this, "link");
+        get => GetArgument<TerraformValue<string>>("link");
         set => SetArgument("link", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSentinelMetadataAuthorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermSentinelMetadataCategoryBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Domains
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "domains").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("domains");
         set => SetArgument("domains", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermSentinelMetadataCategoryBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Verticals
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "verticals").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("verticals");
         set => SetArgument("verticals", value);
     }
 
@@ -91,7 +91,7 @@ public class AzurermSentinelMetadataSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public class AzurermSentinelMetadataSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     public required TerraformValue<string> Kind
     {
-        get => new TerraformReference<string>(this, "kind");
+        get => GetArgument<TerraformValue<string>>("kind");
         set => SetArgument("kind", value);
     }
 
@@ -110,7 +110,7 @@ public class AzurermSentinelMetadataSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermSentinelMetadataSupportBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermSentinelMetadataSupportBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Link
     {
-        get => new TerraformReference<string>(this, "link");
+        get => GetArgument<TerraformValue<string>>("link");
         set => SetArgument("link", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermSentinelMetadataSupportBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -161,7 +161,7 @@ public class AzurermSentinelMetadataSupportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformValue<string> Tier
     {
-        get => new TerraformReference<string>(this, "tier");
+        get => GetArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 
@@ -184,7 +184,7 @@ public class AzurermSentinelMetadataTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -193,7 +193,7 @@ public class AzurermSentinelMetadataTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -202,7 +202,7 @@ public class AzurermSentinelMetadataTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -211,7 +211,7 @@ public class AzurermSentinelMetadataTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -230,7 +230,7 @@ public partial class AzurermSentinelMetadata(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentId is required")]
     public required TerraformValue<string> ContentId
     {
-        get => new TerraformReference<string>(this, "content_id");
+        get => GetArgument<TerraformValue<string>>("content_id");
         set => SetArgument("content_id", value);
     }
 
@@ -239,7 +239,7 @@ public partial class AzurermSentinelMetadata(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? ContentSchemaVersion
     {
-        get => new TerraformReference<string>(this, "content_schema_version");
+        get => GetArgument<TerraformValue<string>>("content_schema_version");
         set => SetArgument("content_schema_version", value);
     }
 
@@ -248,7 +248,7 @@ public partial class AzurermSentinelMetadata(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? CustomVersion
     {
-        get => new TerraformReference<string>(this, "custom_version");
+        get => GetArgument<TerraformValue<string>>("custom_version");
         set => SetArgument("custom_version", value);
     }
 
@@ -257,7 +257,7 @@ public partial class AzurermSentinelMetadata(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Dependency
     {
-        get => new TerraformReference<string>(this, "dependency");
+        get => GetArgument<TerraformValue<string>>("dependency");
         set => SetArgument("dependency", value);
     }
 
@@ -266,7 +266,7 @@ public partial class AzurermSentinelMetadata(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? FirstPublishDate
     {
-        get => new TerraformReference<string>(this, "first_publish_date");
+        get => GetArgument<TerraformValue<string>>("first_publish_date");
         set => SetArgument("first_publish_date", value);
     }
 
@@ -275,16 +275,16 @@ public partial class AzurermSentinelMetadata(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? IconId
     {
-        get => new TerraformReference<string>(this, "icon_id");
+        get => GetArgument<TerraformValue<string>>("icon_id");
         set => SetArgument("icon_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -294,7 +294,7 @@ public partial class AzurermSentinelMetadata(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     public required TerraformValue<string> Kind
     {
-        get => new TerraformReference<string>(this, "kind");
+        get => GetArgument<TerraformValue<string>>("kind");
         set => SetArgument("kind", value);
     }
 
@@ -303,7 +303,7 @@ public partial class AzurermSentinelMetadata(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? LastPublishDate
     {
-        get => new TerraformReference<string>(this, "last_publish_date");
+        get => GetArgument<TerraformValue<string>>("last_publish_date");
         set => SetArgument("last_publish_date", value);
     }
 
@@ -313,7 +313,7 @@ public partial class AzurermSentinelMetadata(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -323,7 +323,7 @@ public partial class AzurermSentinelMetadata(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentId is required")]
     public required TerraformValue<string> ParentId
     {
-        get => new TerraformReference<string>(this, "parent_id");
+        get => GetArgument<TerraformValue<string>>("parent_id");
         set => SetArgument("parent_id", value);
     }
 
@@ -332,7 +332,7 @@ public partial class AzurermSentinelMetadata(string name) : TerraformResource("a
     /// </summary>
     public TerraformList<string>? PreviewImages
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "preview_images").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("preview_images");
         set => SetArgument("preview_images", value);
     }
 
@@ -341,7 +341,7 @@ public partial class AzurermSentinelMetadata(string name) : TerraformResource("a
     /// </summary>
     public TerraformList<string>? PreviewImagesDark
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "preview_images_dark").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("preview_images_dark");
         set => SetArgument("preview_images_dark", value);
     }
 
@@ -350,7 +350,7 @@ public partial class AzurermSentinelMetadata(string name) : TerraformResource("a
     /// </summary>
     public TerraformList<string>? Providers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "providers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("providers");
         set => SetArgument("providers", value);
     }
 
@@ -359,7 +359,7 @@ public partial class AzurermSentinelMetadata(string name) : TerraformResource("a
     /// </summary>
     public TerraformList<string>? ThreatAnalysisTactics
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "threat_analysis_tactics").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("threat_analysis_tactics");
         set => SetArgument("threat_analysis_tactics", value);
     }
 
@@ -368,7 +368,7 @@ public partial class AzurermSentinelMetadata(string name) : TerraformResource("a
     /// </summary>
     public TerraformList<string>? ThreatAnalysisTechniques
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "threat_analysis_techniques").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("threat_analysis_techniques");
         set => SetArgument("threat_analysis_techniques", value);
     }
 
@@ -377,7 +377,7 @@ public partial class AzurermSentinelMetadata(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -387,7 +387,7 @@ public partial class AzurermSentinelMetadata(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => new TerraformReference<string>(this, "workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 

@@ -14,16 +14,16 @@ public partial class GoogleKmsAutokeyConfigDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformValue<string> Folder
     {
-        get => new TerraformReference<string>(this, "folder");
+        get => GetArgument<TerraformValue<string>>("folder");
         set => SetArgument("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,9 +31,7 @@ public partial class GoogleKmsAutokeyConfigDataSource(string name) : TerraformDa
     /// The etag of the AutokeyConfig for optimistic concurrency control.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The target key project for a given folder where KMS Autokey will provision a
@@ -41,8 +39,6 @@ public partial class GoogleKmsAutokeyConfigDataSource(string name) : TerraformDa
     /// &#39;projects/&amp;lt;project_id_or_number&amp;gt;&#39;.
     /// </summary>
     public TerraformValue<string> KeyProject
-    {
-        get => new TerraformReference<string>(this, "key_project");
-    }
+        => AsReference("key_project");
 
 }

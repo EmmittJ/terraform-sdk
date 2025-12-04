@@ -19,7 +19,7 @@ public class AzurermDataFactoryTriggerSchedulePipelineBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermDataFactoryTriggerSchedulePipelineBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermDataFactoryTriggerScheduleScheduleBlock : TerraformBlock
     /// </summary>
     public TerraformList<double>? DaysOfMonth
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "days_of_month").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("days_of_month");
         set => SetArgument("days_of_month", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermDataFactoryTriggerScheduleScheduleBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? DaysOfWeek
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "days_of_week").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("days_of_week");
         set => SetArgument("days_of_week", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermDataFactoryTriggerScheduleScheduleBlock : TerraformBlock
     /// </summary>
     public TerraformList<double>? Hours
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "hours").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermDataFactoryTriggerScheduleScheduleBlock : TerraformBlock
     /// </summary>
     public TerraformList<double>? Minutes
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "minutes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -109,7 +109,7 @@ public class AzurermDataFactoryTriggerScheduleScheduleBlockMonthlyBlock : Terraf
     /// </summary>
     public TerraformValue<double>? Week
     {
-        get => new TerraformReference<double>(this, "week");
+        get => GetArgument<TerraformValue<double>>("week");
         set => SetArgument("week", value);
     }
 
@@ -119,7 +119,7 @@ public class AzurermDataFactoryTriggerScheduleScheduleBlockMonthlyBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weekday is required")]
     public required TerraformValue<string> Weekday
     {
-        get => new TerraformReference<string>(this, "weekday");
+        get => GetArgument<TerraformValue<string>>("weekday");
         set => SetArgument("weekday", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermDataFactoryTriggerScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermDataFactoryTriggerScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermDataFactoryTriggerScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermDataFactoryTriggerScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AzurermDataFactoryTriggerSchedule(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? Activated
     {
-        get => new TerraformReference<bool>(this, "activated");
+        get => GetArgument<TerraformValue<bool>>("activated");
         set => SetArgument("activated", value);
     }
 
@@ -196,7 +196,7 @@ public partial class AzurermDataFactoryTriggerSchedule(string name) : TerraformR
     /// </summary>
     public TerraformList<string>? Annotations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -206,7 +206,7 @@ public partial class AzurermDataFactoryTriggerSchedule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => new TerraformReference<string>(this, "data_factory_id");
+        get => GetArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
@@ -215,7 +215,7 @@ public partial class AzurermDataFactoryTriggerSchedule(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -224,7 +224,7 @@ public partial class AzurermDataFactoryTriggerSchedule(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? EndTime
     {
-        get => new TerraformReference<string>(this, "end_time");
+        get => GetArgument<TerraformValue<string>>("end_time");
         set => SetArgument("end_time", value);
     }
 
@@ -233,16 +233,16 @@ public partial class AzurermDataFactoryTriggerSchedule(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Frequency
     {
-        get => new TerraformReference<string>(this, "frequency");
+        get => GetArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -251,7 +251,7 @@ public partial class AzurermDataFactoryTriggerSchedule(string name) : TerraformR
     /// </summary>
     public TerraformValue<double>? Interval
     {
-        get => new TerraformReference<double>(this, "interval");
+        get => GetArgument<TerraformValue<double>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -261,34 +261,34 @@ public partial class AzurermDataFactoryTriggerSchedule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The pipeline_name attribute.
     /// </summary>
-    public TerraformValue<string> PipelineName
+    public TerraformValue<string>? PipelineName
     {
-        get => new TerraformReference<string>(this, "pipeline_name");
+        get => GetArgument<TerraformValue<string>>("pipeline_name");
         set => SetArgument("pipeline_name", value);
     }
 
     /// <summary>
     /// The pipeline_parameters attribute.
     /// </summary>
-    public TerraformMap<string> PipelineParameters
+    public TerraformMap<string>? PipelineParameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "pipeline_parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("pipeline_parameters");
         set => SetArgument("pipeline_parameters", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformValue<string> StartTime
+    public TerraformValue<string>? StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -297,7 +297,7 @@ public partial class AzurermDataFactoryTriggerSchedule(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 

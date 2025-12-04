@@ -18,7 +18,7 @@ public class AzurermApplicationInsightsAnalyticsItemTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermApplicationInsightsAnalyticsItemTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermApplicationInsightsAnalyticsItemTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermApplicationInsightsAnalyticsItemTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermApplicationInsightsAnalyticsItem(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationInsightsId is required")]
     public required TerraformValue<string> ApplicationInsightsId
     {
-        get => new TerraformReference<string>(this, "application_insights_id");
+        get => GetArgument<TerraformValue<string>>("application_insights_id");
         set => SetArgument("application_insights_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermApplicationInsightsAnalyticsItem(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => new TerraformReference<string>(this, "content");
+        get => GetArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -83,16 +83,16 @@ public partial class AzurermApplicationInsightsAnalyticsItem(string name) : Terr
     /// </summary>
     public TerraformValue<string>? FunctionAlias
     {
-        get => new TerraformReference<string>(this, "function_alias");
+        get => GetArgument<TerraformValue<string>>("function_alias");
         set => SetArgument("function_alias", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermApplicationInsightsAnalyticsItem(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermApplicationInsightsAnalyticsItem(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermApplicationInsightsAnalyticsItem(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -130,25 +130,19 @@ public partial class AzurermApplicationInsightsAnalyticsItem(string name) : Terr
     /// The time_created attribute.
     /// </summary>
     public TerraformValue<string> TimeCreated
-    {
-        get => new TerraformReference<string>(this, "time_created");
-    }
+        => AsReference("time_created");
 
     /// <summary>
     /// The time_modified attribute.
     /// </summary>
     public TerraformValue<string> TimeModified
-    {
-        get => new TerraformReference<string>(this, "time_modified");
-    }
+        => AsReference("time_modified");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

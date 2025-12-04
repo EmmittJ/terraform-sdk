@@ -18,7 +18,7 @@ public class AzurermRoleDefinitionDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,27 +34,27 @@ public partial class AzurermRoleDefinitionDataSource(string name) : TerraformDat
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
-    public TerraformValue<string> RoleDefinitionId
+    public TerraformValue<string>? RoleDefinitionId
     {
-        get => new TerraformReference<string>(this, "role_definition_id");
+        get => GetArgument<TerraformValue<string>>("role_definition_id");
         set => SetArgument("role_definition_id", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermRoleDefinitionDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -71,33 +71,25 @@ public partial class AzurermRoleDefinitionDataSource(string name) : TerraformDat
     /// The assignable_scopes attribute.
     /// </summary>
     public TerraformList<string> AssignableScopes
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "assignable_scopes").ResolveNodes(ctx));
-    }
+        => AsReference("assignable_scopes");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Permissions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "permissions").ResolveNodes(ctx));
-    }
+        => AsReference("permissions");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

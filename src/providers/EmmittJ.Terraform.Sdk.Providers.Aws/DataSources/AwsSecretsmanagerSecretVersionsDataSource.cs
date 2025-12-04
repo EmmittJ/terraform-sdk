@@ -13,16 +13,16 @@ public partial class AwsSecretsmanagerSecretVersionsDataSource(string name) : Te
     /// </summary>
     public TerraformValue<bool>? IncludeDeprecated
     {
-        get => new TerraformReference<bool>(this, "include_deprecated");
+        get => GetArgument<TerraformValue<bool>>("include_deprecated");
         set => SetArgument("include_deprecated", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsSecretsmanagerSecretVersionsDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformValue<string> SecretId
     {
-        get => new TerraformReference<string>(this, "secret_id");
+        get => GetArgument<TerraformValue<string>>("secret_id");
         set => SetArgument("secret_id", value);
     }
 
@@ -40,24 +40,18 @@ public partial class AwsSecretsmanagerSecretVersionsDataSource(string name) : Te
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The versions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Versions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "versions").ResolveNodes(ctx));
-    }
+        => AsReference("versions");
 
 }

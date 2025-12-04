@@ -11,9 +11,9 @@ public partial class GoogleCloudfunctions2FunctionDataSource(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleCloudfunctions2FunctionDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -34,7 +34,7 @@ public partial class GoogleCloudfunctions2FunctionDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -43,7 +43,7 @@ public partial class GoogleCloudfunctions2FunctionDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -52,51 +52,39 @@ public partial class GoogleCloudfunctions2FunctionDataSource(string name) : Terr
     /// from the given source.
     /// </summary>
     public TerraformList<TerraformMap<object>> BuildConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "build_config").ResolveNodes(ctx));
-    }
+        => AsReference("build_config");
 
     /// <summary>
     /// User-provided description of a function.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The environment the function is hosted on.
     /// </summary>
     public TerraformValue<string> Environment
-    {
-        get => new TerraformReference<string>(this, "environment");
-    }
+        => AsReference("environment");
 
     /// <summary>
     /// An Eventarc trigger managed by Google Cloud Functions that fires events in
     /// response to a condition in another service.
     /// </summary>
     public TerraformList<TerraformMap<object>> EventTrigger
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "event_trigger").ResolveNodes(ctx));
-    }
+        => AsReference("event_trigger");
 
     /// <summary>
     /// Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt function resources.
     /// It must match the pattern projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}.
     /// </summary>
     public TerraformValue<string> KmsKeyName
-    {
-        get => new TerraformReference<string>(this, "kms_key_name");
-    }
+        => AsReference("kms_key_name");
 
     /// <summary>
     /// A set of key/value label pairs associated with this Cloud Function.
@@ -106,49 +94,37 @@ public partial class GoogleCloudfunctions2FunctionDataSource(string name) : Terr
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
-    }
+        => AsReference("labels");
 
     /// <summary>
     /// Describes the Service being deployed.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServiceConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "service_config").ResolveNodes(ctx));
-    }
+        => AsReference("service_config");
 
     /// <summary>
     /// Describes the current state of the function.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The last update timestamp of a Cloud Function.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Output only. The deployed url for the function.
     /// </summary>
     public TerraformValue<string> Url
-    {
-        get => new TerraformReference<string>(this, "url");
-    }
+        => AsReference("url");
 
 }

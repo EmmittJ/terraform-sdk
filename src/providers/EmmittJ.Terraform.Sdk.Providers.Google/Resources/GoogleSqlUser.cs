@@ -18,7 +18,7 @@ public class GoogleSqlUserPasswordPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? AllowedFailedAttempts
     {
-        get => new TerraformReference<double>(this, "allowed_failed_attempts");
+        get => GetArgument<TerraformValue<double>>("allowed_failed_attempts");
         set => SetArgument("allowed_failed_attempts", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleSqlUserPasswordPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableFailedAttemptsCheck
     {
-        get => new TerraformReference<bool>(this, "enable_failed_attempts_check");
+        get => GetArgument<TerraformValue<bool>>("enable_failed_attempts_check");
         set => SetArgument("enable_failed_attempts_check", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleSqlUserPasswordPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnablePasswordVerification
     {
-        get => new TerraformReference<bool>(this, "enable_password_verification");
+        get => GetArgument<TerraformValue<bool>>("enable_password_verification");
         set => SetArgument("enable_password_verification", value);
     }
 
@@ -45,7 +45,7 @@ public class GoogleSqlUserPasswordPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PasswordExpirationDuration
     {
-        get => new TerraformReference<string>(this, "password_expiration_duration");
+        get => GetArgument<TerraformValue<string>>("password_expiration_duration");
         set => SetArgument("password_expiration_duration", value);
     }
 
@@ -53,9 +53,7 @@ public class GoogleSqlUserPasswordPolicyBlock : TerraformBlock
     /// The status attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "status").ResolveNodes(ctx));
-    }
+        => AsReference("status");
 
 }
 
@@ -76,7 +74,7 @@ public class GoogleSqlUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -85,7 +83,7 @@ public class GoogleSqlUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -94,7 +92,7 @@ public class GoogleSqlUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -114,25 +112,25 @@ public partial class GoogleSqlUser(string name) : TerraformResource("google_sql_
     /// </summary>
     public TerraformValue<string>? DeletionPolicy
     {
-        get => new TerraformReference<string>(this, "deletion_policy");
+        get => GetArgument<TerraformValue<string>>("deletion_policy");
         set => SetArgument("deletion_policy", value);
     }
 
     /// <summary>
     /// The host the user can connect from. This is only supported for MySQL instances. Don&#39;t set this field for PostgreSQL instances. Can be an IP address. Changing this forces a new resource to be created.
     /// </summary>
-    public TerraformValue<string> Host
+    public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -142,7 +140,7 @@ public partial class GoogleSqlUser(string name) : TerraformResource("google_sql_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -152,7 +150,7 @@ public partial class GoogleSqlUser(string name) : TerraformResource("google_sql_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -162,7 +160,7 @@ public partial class GoogleSqlUser(string name) : TerraformResource("google_sql_
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -172,7 +170,7 @@ public partial class GoogleSqlUser(string name) : TerraformResource("google_sql_
     /// </summary>
     public TerraformValue<string>? PasswordWo
     {
-        get => new TerraformReference<string>(this, "password_wo");
+        get => GetArgument<TerraformValue<string>>("password_wo");
         set => SetArgument("password_wo", value);
     }
 
@@ -181,16 +179,16 @@ public partial class GoogleSqlUser(string name) : TerraformResource("google_sql_
     /// </summary>
     public TerraformValue<double>? PasswordWoVersion
     {
-        get => new TerraformReference<double>(this, "password_wo_version");
+        get => GetArgument<TerraformValue<double>>("password_wo_version");
         set => SetArgument("password_wo_version", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -200,7 +198,7 @@ public partial class GoogleSqlUser(string name) : TerraformResource("google_sql_
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -208,9 +206,7 @@ public partial class GoogleSqlUser(string name) : TerraformResource("google_sql_
     /// The sql_server_user_details attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SqlServerUserDetails
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "sql_server_user_details").ResolveNodes(ctx));
-    }
+        => AsReference("sql_server_user_details");
 
     /// <summary>
     /// PasswordPolicy block (nesting mode: list).

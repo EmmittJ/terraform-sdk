@@ -18,7 +18,7 @@ public class AwsEc2InstanceTypeDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AwsEc2InstanceTypeDataSource(string name) : TerraformDataSo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,16 +46,16 @@ public partial class AwsEc2InstanceTypeDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -63,497 +63,373 @@ public partial class AwsEc2InstanceTypeDataSource(string name) : TerraformDataSo
     /// The auto_recovery_supported attribute.
     /// </summary>
     public TerraformValue<bool> AutoRecoverySupported
-    {
-        get => new TerraformReference<bool>(this, "auto_recovery_supported");
-    }
+        => AsReference("auto_recovery_supported");
 
     /// <summary>
     /// The bandwidth_weightings attribute.
     /// </summary>
     public TerraformSet<string> BandwidthWeightings
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "bandwidth_weightings").ResolveNodes(ctx));
-    }
+        => AsReference("bandwidth_weightings");
 
     /// <summary>
     /// The bare_metal attribute.
     /// </summary>
     public TerraformValue<bool> BareMetal
-    {
-        get => new TerraformReference<bool>(this, "bare_metal");
-    }
+        => AsReference("bare_metal");
 
     /// <summary>
     /// The boot_modes attribute.
     /// </summary>
     public TerraformSet<string> BootModes
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "boot_modes").ResolveNodes(ctx));
-    }
+        => AsReference("boot_modes");
 
     /// <summary>
     /// The burstable_performance_supported attribute.
     /// </summary>
     public TerraformValue<bool> BurstablePerformanceSupported
-    {
-        get => new TerraformReference<bool>(this, "burstable_performance_supported");
-    }
+        => AsReference("burstable_performance_supported");
 
     /// <summary>
     /// The current_generation attribute.
     /// </summary>
     public TerraformValue<bool> CurrentGeneration
-    {
-        get => new TerraformReference<bool>(this, "current_generation");
-    }
+        => AsReference("current_generation");
 
     /// <summary>
     /// The dedicated_hosts_supported attribute.
     /// </summary>
     public TerraformValue<bool> DedicatedHostsSupported
-    {
-        get => new TerraformReference<bool>(this, "dedicated_hosts_supported");
-    }
+        => AsReference("dedicated_hosts_supported");
 
     /// <summary>
     /// The default_cores attribute.
     /// </summary>
     public TerraformValue<double> DefaultCores
-    {
-        get => new TerraformReference<double>(this, "default_cores");
-    }
+        => AsReference("default_cores");
 
     /// <summary>
     /// The default_network_card_index attribute.
     /// </summary>
     public TerraformValue<double> DefaultNetworkCardIndex
-    {
-        get => new TerraformReference<double>(this, "default_network_card_index");
-    }
+        => AsReference("default_network_card_index");
 
     /// <summary>
     /// The default_threads_per_core attribute.
     /// </summary>
     public TerraformValue<double> DefaultThreadsPerCore
-    {
-        get => new TerraformReference<double>(this, "default_threads_per_core");
-    }
+        => AsReference("default_threads_per_core");
 
     /// <summary>
     /// The default_vcpus attribute.
     /// </summary>
     public TerraformValue<double> DefaultVcpus
-    {
-        get => new TerraformReference<double>(this, "default_vcpus");
-    }
+        => AsReference("default_vcpus");
 
     /// <summary>
     /// The ebs_encryption_support attribute.
     /// </summary>
     public TerraformValue<string> EbsEncryptionSupport
-    {
-        get => new TerraformReference<string>(this, "ebs_encryption_support");
-    }
+        => AsReference("ebs_encryption_support");
 
     /// <summary>
     /// The ebs_nvme_support attribute.
     /// </summary>
     public TerraformValue<string> EbsNvmeSupport
-    {
-        get => new TerraformReference<string>(this, "ebs_nvme_support");
-    }
+        => AsReference("ebs_nvme_support");
 
     /// <summary>
     /// The ebs_optimized_support attribute.
     /// </summary>
     public TerraformValue<string> EbsOptimizedSupport
-    {
-        get => new TerraformReference<string>(this, "ebs_optimized_support");
-    }
+        => AsReference("ebs_optimized_support");
 
     /// <summary>
     /// The ebs_performance_baseline_bandwidth attribute.
     /// </summary>
     public TerraformValue<double> EbsPerformanceBaselineBandwidth
-    {
-        get => new TerraformReference<double>(this, "ebs_performance_baseline_bandwidth");
-    }
+        => AsReference("ebs_performance_baseline_bandwidth");
 
     /// <summary>
     /// The ebs_performance_baseline_iops attribute.
     /// </summary>
     public TerraformValue<double> EbsPerformanceBaselineIops
-    {
-        get => new TerraformReference<double>(this, "ebs_performance_baseline_iops");
-    }
+        => AsReference("ebs_performance_baseline_iops");
 
     /// <summary>
     /// The ebs_performance_baseline_throughput attribute.
     /// </summary>
     public TerraformValue<double> EbsPerformanceBaselineThroughput
-    {
-        get => new TerraformReference<double>(this, "ebs_performance_baseline_throughput");
-    }
+        => AsReference("ebs_performance_baseline_throughput");
 
     /// <summary>
     /// The ebs_performance_maximum_bandwidth attribute.
     /// </summary>
     public TerraformValue<double> EbsPerformanceMaximumBandwidth
-    {
-        get => new TerraformReference<double>(this, "ebs_performance_maximum_bandwidth");
-    }
+        => AsReference("ebs_performance_maximum_bandwidth");
 
     /// <summary>
     /// The ebs_performance_maximum_iops attribute.
     /// </summary>
     public TerraformValue<double> EbsPerformanceMaximumIops
-    {
-        get => new TerraformReference<double>(this, "ebs_performance_maximum_iops");
-    }
+        => AsReference("ebs_performance_maximum_iops");
 
     /// <summary>
     /// The ebs_performance_maximum_throughput attribute.
     /// </summary>
     public TerraformValue<double> EbsPerformanceMaximumThroughput
-    {
-        get => new TerraformReference<double>(this, "ebs_performance_maximum_throughput");
-    }
+        => AsReference("ebs_performance_maximum_throughput");
 
     /// <summary>
     /// The efa_maximum_interfaces attribute.
     /// </summary>
     public TerraformValue<double> EfaMaximumInterfaces
-    {
-        get => new TerraformReference<double>(this, "efa_maximum_interfaces");
-    }
+        => AsReference("efa_maximum_interfaces");
 
     /// <summary>
     /// The efa_supported attribute.
     /// </summary>
     public TerraformValue<bool> EfaSupported
-    {
-        get => new TerraformReference<bool>(this, "efa_supported");
-    }
+        => AsReference("efa_supported");
 
     /// <summary>
     /// The ena_srd_supported attribute.
     /// </summary>
     public TerraformValue<bool> EnaSrdSupported
-    {
-        get => new TerraformReference<bool>(this, "ena_srd_supported");
-    }
+        => AsReference("ena_srd_supported");
 
     /// <summary>
     /// The ena_support attribute.
     /// </summary>
     public TerraformValue<string> EnaSupport
-    {
-        get => new TerraformReference<string>(this, "ena_support");
-    }
+        => AsReference("ena_support");
 
     /// <summary>
     /// The encryption_in_transit_supported attribute.
     /// </summary>
     public TerraformValue<bool> EncryptionInTransitSupported
-    {
-        get => new TerraformReference<bool>(this, "encryption_in_transit_supported");
-    }
+        => AsReference("encryption_in_transit_supported");
 
     /// <summary>
     /// The fpgas attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Fpgas
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "fpgas").ResolveNodes(ctx));
-    }
+        => AsReference("fpgas");
 
     /// <summary>
     /// The free_tier_eligible attribute.
     /// </summary>
     public TerraformValue<bool> FreeTierEligible
-    {
-        get => new TerraformReference<bool>(this, "free_tier_eligible");
-    }
+        => AsReference("free_tier_eligible");
 
     /// <summary>
     /// The gpus attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Gpus
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "gpus").ResolveNodes(ctx));
-    }
+        => AsReference("gpus");
 
     /// <summary>
     /// The hibernation_supported attribute.
     /// </summary>
     public TerraformValue<bool> HibernationSupported
-    {
-        get => new TerraformReference<bool>(this, "hibernation_supported");
-    }
+        => AsReference("hibernation_supported");
 
     /// <summary>
     /// The hypervisor attribute.
     /// </summary>
     public TerraformValue<string> Hypervisor
-    {
-        get => new TerraformReference<string>(this, "hypervisor");
-    }
+        => AsReference("hypervisor");
 
     /// <summary>
     /// The inference_accelerators attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> InferenceAccelerators
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "inference_accelerators").ResolveNodes(ctx));
-    }
+        => AsReference("inference_accelerators");
 
     /// <summary>
     /// The instance_disks attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> InstanceDisks
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "instance_disks").ResolveNodes(ctx));
-    }
+        => AsReference("instance_disks");
 
     /// <summary>
     /// The instance_storage_supported attribute.
     /// </summary>
     public TerraformValue<bool> InstanceStorageSupported
-    {
-        get => new TerraformReference<bool>(this, "instance_storage_supported");
-    }
+        => AsReference("instance_storage_supported");
 
     /// <summary>
     /// The ipv6_supported attribute.
     /// </summary>
     public TerraformValue<bool> Ipv6Supported
-    {
-        get => new TerraformReference<bool>(this, "ipv6_supported");
-    }
+        => AsReference("ipv6_supported");
 
     /// <summary>
     /// The maximum_ipv4_addresses_per_interface attribute.
     /// </summary>
     public TerraformValue<double> MaximumIpv4AddressesPerInterface
-    {
-        get => new TerraformReference<double>(this, "maximum_ipv4_addresses_per_interface");
-    }
+        => AsReference("maximum_ipv4_addresses_per_interface");
 
     /// <summary>
     /// The maximum_ipv6_addresses_per_interface attribute.
     /// </summary>
     public TerraformValue<double> MaximumIpv6AddressesPerInterface
-    {
-        get => new TerraformReference<double>(this, "maximum_ipv6_addresses_per_interface");
-    }
+        => AsReference("maximum_ipv6_addresses_per_interface");
 
     /// <summary>
     /// The maximum_network_cards attribute.
     /// </summary>
     public TerraformValue<double> MaximumNetworkCards
-    {
-        get => new TerraformReference<double>(this, "maximum_network_cards");
-    }
+        => AsReference("maximum_network_cards");
 
     /// <summary>
     /// The maximum_network_interfaces attribute.
     /// </summary>
     public TerraformValue<double> MaximumNetworkInterfaces
-    {
-        get => new TerraformReference<double>(this, "maximum_network_interfaces");
-    }
+        => AsReference("maximum_network_interfaces");
 
     /// <summary>
     /// The media_accelerators attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> MediaAccelerators
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "media_accelerators").ResolveNodes(ctx));
-    }
+        => AsReference("media_accelerators");
 
     /// <summary>
     /// The memory_size attribute.
     /// </summary>
     public TerraformValue<double> MemorySize
-    {
-        get => new TerraformReference<double>(this, "memory_size");
-    }
+        => AsReference("memory_size");
 
     /// <summary>
     /// The network_cards attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> NetworkCards
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "network_cards").ResolveNodes(ctx));
-    }
+        => AsReference("network_cards");
 
     /// <summary>
     /// The network_performance attribute.
     /// </summary>
     public TerraformValue<string> NetworkPerformance
-    {
-        get => new TerraformReference<string>(this, "network_performance");
-    }
+        => AsReference("network_performance");
 
     /// <summary>
     /// The neuron_devices attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> NeuronDevices
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "neuron_devices").ResolveNodes(ctx));
-    }
+        => AsReference("neuron_devices");
 
     /// <summary>
     /// The nitro_enclaves_support attribute.
     /// </summary>
     public TerraformValue<string> NitroEnclavesSupport
-    {
-        get => new TerraformReference<string>(this, "nitro_enclaves_support");
-    }
+        => AsReference("nitro_enclaves_support");
 
     /// <summary>
     /// The nitro_tpm_support attribute.
     /// </summary>
     public TerraformValue<string> NitroTpmSupport
-    {
-        get => new TerraformReference<string>(this, "nitro_tpm_support");
-    }
+        => AsReference("nitro_tpm_support");
 
     /// <summary>
     /// The nitro_tpm_supported_versions attribute.
     /// </summary>
     public TerraformSet<string> NitroTpmSupportedVersions
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "nitro_tpm_supported_versions").ResolveNodes(ctx));
-    }
+        => AsReference("nitro_tpm_supported_versions");
 
     /// <summary>
     /// The phc_support attribute.
     /// </summary>
     public TerraformValue<string> PhcSupport
-    {
-        get => new TerraformReference<string>(this, "phc_support");
-    }
+        => AsReference("phc_support");
 
     /// <summary>
     /// The supported_architectures attribute.
     /// </summary>
     public TerraformList<string> SupportedArchitectures
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supported_architectures").ResolveNodes(ctx));
-    }
+        => AsReference("supported_architectures");
 
     /// <summary>
     /// The supported_cpu_features attribute.
     /// </summary>
     public TerraformSet<string> SupportedCpuFeatures
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "supported_cpu_features").ResolveNodes(ctx));
-    }
+        => AsReference("supported_cpu_features");
 
     /// <summary>
     /// The supported_placement_strategies attribute.
     /// </summary>
     public TerraformList<string> SupportedPlacementStrategies
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supported_placement_strategies").ResolveNodes(ctx));
-    }
+        => AsReference("supported_placement_strategies");
 
     /// <summary>
     /// The supported_root_device_types attribute.
     /// </summary>
     public TerraformList<string> SupportedRootDeviceTypes
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supported_root_device_types").ResolveNodes(ctx));
-    }
+        => AsReference("supported_root_device_types");
 
     /// <summary>
     /// The supported_usages_classes attribute.
     /// </summary>
     public TerraformList<string> SupportedUsagesClasses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supported_usages_classes").ResolveNodes(ctx));
-    }
+        => AsReference("supported_usages_classes");
 
     /// <summary>
     /// The supported_virtualization_types attribute.
     /// </summary>
     public TerraformList<string> SupportedVirtualizationTypes
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supported_virtualization_types").ResolveNodes(ctx));
-    }
+        => AsReference("supported_virtualization_types");
 
     /// <summary>
     /// The sustained_clock_speed attribute.
     /// </summary>
     public TerraformValue<double> SustainedClockSpeed
-    {
-        get => new TerraformReference<double>(this, "sustained_clock_speed");
-    }
+        => AsReference("sustained_clock_speed");
 
     /// <summary>
     /// The total_fpga_memory attribute.
     /// </summary>
     public TerraformValue<double> TotalFpgaMemory
-    {
-        get => new TerraformReference<double>(this, "total_fpga_memory");
-    }
+        => AsReference("total_fpga_memory");
 
     /// <summary>
     /// The total_gpu_memory attribute.
     /// </summary>
     public TerraformValue<double> TotalGpuMemory
-    {
-        get => new TerraformReference<double>(this, "total_gpu_memory");
-    }
+        => AsReference("total_gpu_memory");
 
     /// <summary>
     /// The total_inference_memory attribute.
     /// </summary>
     public TerraformValue<double> TotalInferenceMemory
-    {
-        get => new TerraformReference<double>(this, "total_inference_memory");
-    }
+        => AsReference("total_inference_memory");
 
     /// <summary>
     /// The total_instance_storage attribute.
     /// </summary>
     public TerraformValue<double> TotalInstanceStorage
-    {
-        get => new TerraformReference<double>(this, "total_instance_storage");
-    }
+        => AsReference("total_instance_storage");
 
     /// <summary>
     /// The total_media_memory attribute.
     /// </summary>
     public TerraformValue<double> TotalMediaMemory
-    {
-        get => new TerraformReference<double>(this, "total_media_memory");
-    }
+        => AsReference("total_media_memory");
 
     /// <summary>
     /// The total_neuron_device_memory attribute.
     /// </summary>
     public TerraformValue<double> TotalNeuronDeviceMemory
-    {
-        get => new TerraformReference<double>(this, "total_neuron_device_memory");
-    }
+        => AsReference("total_neuron_device_memory");
 
     /// <summary>
     /// The valid_cores attribute.
     /// </summary>
     public TerraformList<double> ValidCores
-    {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "valid_cores").ResolveNodes(ctx));
-    }
+        => AsReference("valid_cores");
 
     /// <summary>
     /// The valid_threads_per_core attribute.
     /// </summary>
     public TerraformList<double> ValidThreadsPerCore
-    {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "valid_threads_per_core").ResolveNodes(ctx));
-    }
+        => AsReference("valid_threads_per_core");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

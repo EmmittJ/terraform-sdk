@@ -18,7 +18,7 @@ public class GoogleMonitoringMetricDescriptorLabelsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleMonitoringMetricDescriptorLabelsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -37,7 +37,7 @@ public class GoogleMonitoringMetricDescriptorLabelsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ValueType
     {
-        get => new TerraformReference<string>(this, "value_type");
+        get => GetArgument<TerraformValue<string>>("value_type");
         set => SetArgument("value_type", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleMonitoringMetricDescriptorMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? IngestDelay
     {
-        get => new TerraformReference<string>(this, "ingest_delay");
+        get => GetArgument<TerraformValue<string>>("ingest_delay");
         set => SetArgument("ingest_delay", value);
     }
 
@@ -69,7 +69,7 @@ public class GoogleMonitoringMetricDescriptorMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SamplePeriod
     {
-        get => new TerraformReference<string>(this, "sample_period");
+        get => GetArgument<TerraformValue<string>>("sample_period");
         set => SetArgument("sample_period", value);
     }
 
@@ -92,7 +92,7 @@ public class GoogleMonitoringMetricDescriptorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -101,7 +101,7 @@ public class GoogleMonitoringMetricDescriptorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -110,7 +110,7 @@ public class GoogleMonitoringMetricDescriptorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -128,7 +128,7 @@ public partial class GoogleMonitoringMetricDescriptor(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -137,16 +137,16 @@ public partial class GoogleMonitoringMetricDescriptor(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -155,7 +155,7 @@ public partial class GoogleMonitoringMetricDescriptor(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? LaunchStage
     {
-        get => new TerraformReference<string>(this, "launch_stage");
+        get => GetArgument<TerraformValue<string>>("launch_stage");
         set => SetArgument("launch_stage", value);
     }
 
@@ -165,16 +165,16 @@ public partial class GoogleMonitoringMetricDescriptor(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricKind is required")]
     public required TerraformValue<string> MetricKind
     {
-        get => new TerraformReference<string>(this, "metric_kind");
+        get => GetArgument<TerraformValue<string>>("metric_kind");
         set => SetArgument("metric_kind", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -184,7 +184,7 @@ public partial class GoogleMonitoringMetricDescriptor(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -212,7 +212,7 @@ public partial class GoogleMonitoringMetricDescriptor(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -222,7 +222,7 @@ public partial class GoogleMonitoringMetricDescriptor(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueType is required")]
     public required TerraformValue<string> ValueType
     {
-        get => new TerraformReference<string>(this, "value_type");
+        get => GetArgument<TerraformValue<string>>("value_type");
         set => SetArgument("value_type", value);
     }
 
@@ -230,17 +230,13 @@ public partial class GoogleMonitoringMetricDescriptor(string name) : TerraformRe
     /// If present, then a time series, which is identified partially by a metric type and a MonitoredResourceDescriptor, that is associated with this metric type can only be associated with one of the monitored resource types listed here. This field allows time series to be associated with the intersection of this metric type and the monitored resource types in this list.
     /// </summary>
     public TerraformSet<string> MonitoredResourceTypes
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "monitored_resource_types").ResolveNodes(ctx));
-    }
+        => AsReference("monitored_resource_types");
 
     /// <summary>
     /// The resource name of the metric descriptor.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Labels block (nesting mode: set).

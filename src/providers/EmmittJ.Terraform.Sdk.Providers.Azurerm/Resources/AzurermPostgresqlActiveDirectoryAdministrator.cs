@@ -18,7 +18,7 @@ public class AzurermPostgresqlActiveDirectoryAdministratorTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermPostgresqlActiveDirectoryAdministratorTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermPostgresqlActiveDirectoryAdministratorTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermPostgresqlActiveDirectoryAdministratorTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -62,9 +62,9 @@ public partial class AzurermPostgresqlActiveDirectoryAdministrator(string name) 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermPostgresqlActiveDirectoryAdministrator(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Login is required")]
     public required TerraformValue<string> Login
     {
-        get => new TerraformReference<string>(this, "login");
+        get => GetArgument<TerraformValue<string>>("login");
         set => SetArgument("login", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermPostgresqlActiveDirectoryAdministrator(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformValue<string> ObjectId
     {
-        get => new TerraformReference<string>(this, "object_id");
+        get => GetArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermPostgresqlActiveDirectoryAdministrator(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AzurermPostgresqlActiveDirectoryAdministrator(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     public required TerraformValue<string> ServerName
     {
-        get => new TerraformReference<string>(this, "server_name");
+        get => GetArgument<TerraformValue<string>>("server_name");
         set => SetArgument("server_name", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AzurermPostgresqlActiveDirectoryAdministrator(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 

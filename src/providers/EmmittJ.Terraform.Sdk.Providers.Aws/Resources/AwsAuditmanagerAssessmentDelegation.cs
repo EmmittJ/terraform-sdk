@@ -14,7 +14,7 @@ public partial class AwsAuditmanagerAssessmentDelegation(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssessmentId is required")]
     public required TerraformValue<string> AssessmentId
     {
-        get => new TerraformReference<string>(this, "assessment_id");
+        get => GetArgument<TerraformValue<string>>("assessment_id");
         set => SetArgument("assessment_id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsAuditmanagerAssessmentDelegation(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Comment
     {
-        get => new TerraformReference<string>(this, "comment");
+        get => GetArgument<TerraformValue<string>>("comment");
         set => SetArgument("comment", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsAuditmanagerAssessmentDelegation(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlSetId is required")]
     public required TerraformValue<string> ControlSetId
     {
-        get => new TerraformReference<string>(this, "control_set_id");
+        get => GetArgument<TerraformValue<string>>("control_set_id");
         set => SetArgument("control_set_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsAuditmanagerAssessmentDelegation(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -62,7 +62,7 @@ public partial class AwsAuditmanagerAssessmentDelegation(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleType is required")]
     public required TerraformValue<string> RoleType
     {
-        get => new TerraformReference<string>(this, "role_type");
+        get => GetArgument<TerraformValue<string>>("role_type");
         set => SetArgument("role_type", value);
     }
 
@@ -70,24 +70,18 @@ public partial class AwsAuditmanagerAssessmentDelegation(string name) : Terrafor
     /// The delegation_id attribute.
     /// </summary>
     public TerraformValue<string> DelegationId
-    {
-        get => new TerraformReference<string>(this, "delegation_id");
-    }
+        => AsReference("delegation_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }

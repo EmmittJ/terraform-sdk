@@ -44,7 +44,7 @@ public class GoogleStorageInsightsDatasetConfigExcludeCloudStorageBucketsBlockCl
     /// </summary>
     public TerraformValue<string>? BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -55,7 +55,7 @@ public class GoogleStorageInsightsDatasetConfigExcludeCloudStorageBucketsBlockCl
     /// </summary>
     public TerraformValue<string>? BucketPrefixRegex
     {
-        get => new TerraformReference<string>(this, "bucket_prefix_regex");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix_regex");
         set => SetArgument("bucket_prefix_regex", value);
     }
 
@@ -79,7 +79,7 @@ public class GoogleStorageInsightsDatasetConfigExcludeCloudStorageLocationsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Locations is required")]
     public TerraformList<string>? Locations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("locations");
         set => SetArgument("locations", value);
     }
 
@@ -101,9 +101,7 @@ public class GoogleStorageInsightsDatasetConfigIdentityBlock : TerraformBlock
     /// Name of the identity.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Type of identity to use for the DatasetConfig. Possible values: [&amp;quot;IDENTITY_TYPE_PER_CONFIG&amp;quot;, &amp;quot;IDENTITY_TYPE_PER_PROJECT&amp;quot;]
@@ -111,7 +109,7 @@ public class GoogleStorageInsightsDatasetConfigIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -160,7 +158,7 @@ public class GoogleStorageInsightsDatasetConfigIncludeCloudStorageBucketsBlockCl
     /// </summary>
     public TerraformValue<string>? BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -171,7 +169,7 @@ public class GoogleStorageInsightsDatasetConfigIncludeCloudStorageBucketsBlockCl
     /// </summary>
     public TerraformValue<string>? BucketPrefixRegex
     {
-        get => new TerraformReference<string>(this, "bucket_prefix_regex");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix_regex");
         set => SetArgument("bucket_prefix_regex", value);
     }
 
@@ -195,7 +193,7 @@ public class GoogleStorageInsightsDatasetConfigIncludeCloudStorageLocationsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Locations is required")]
     public TerraformList<string>? Locations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("locations");
         set => SetArgument("locations", value);
     }
 
@@ -218,7 +216,7 @@ public class GoogleStorageInsightsDatasetConfigSourceFoldersBlock : TerraformBlo
     /// </summary>
     public TerraformList<string>? FolderNumbers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "folder_numbers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("folder_numbers");
         set => SetArgument("folder_numbers", value);
     }
 
@@ -241,7 +239,7 @@ public class GoogleStorageInsightsDatasetConfigSourceProjectsBlock : TerraformBl
     /// </summary>
     public TerraformList<string>? ProjectNumbers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "project_numbers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("project_numbers");
         set => SetArgument("project_numbers", value);
     }
 
@@ -264,7 +262,7 @@ public class GoogleStorageInsightsDatasetConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -273,7 +271,7 @@ public class GoogleStorageInsightsDatasetConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -282,7 +280,7 @@ public class GoogleStorageInsightsDatasetConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -301,7 +299,7 @@ public partial class GoogleStorageInsightsDatasetConfig(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetConfigId is required")]
     public required TerraformValue<string> DatasetConfigId
     {
-        get => new TerraformReference<string>(this, "dataset_config_id");
+        get => GetArgument<TerraformValue<string>>("dataset_config_id");
         set => SetArgument("dataset_config_id", value);
     }
 
@@ -310,16 +308,16 @@ public partial class GoogleStorageInsightsDatasetConfig(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -328,7 +326,7 @@ public partial class GoogleStorageInsightsDatasetConfig(string name) : Terraform
     /// </summary>
     public TerraformValue<bool>? IncludeNewlyCreatedBuckets
     {
-        get => new TerraformReference<bool>(this, "include_newly_created_buckets");
+        get => GetArgument<TerraformValue<bool>>("include_newly_created_buckets");
         set => SetArgument("include_newly_created_buckets", value);
     }
 
@@ -341,7 +339,7 @@ public partial class GoogleStorageInsightsDatasetConfig(string name) : Terraform
     /// </summary>
     public TerraformValue<bool>? LinkDataset
     {
-        get => new TerraformReference<bool>(this, "link_dataset");
+        get => GetArgument<TerraformValue<bool>>("link_dataset");
         set => SetArgument("link_dataset", value);
     }
 
@@ -351,7 +349,7 @@ public partial class GoogleStorageInsightsDatasetConfig(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -359,9 +357,9 @@ public partial class GoogleStorageInsightsDatasetConfig(string name) : Terraform
     /// Organization resource ID that the source projects should belong to.
     /// Projects that do not belong to the provided organization are not considered when creating the dataset.
     /// </summary>
-    public TerraformValue<string> OrganizationNumber
+    public TerraformValue<string>? OrganizationNumber
     {
-        get => new TerraformReference<string>(this, "organization_number");
+        get => GetArgument<TerraformValue<string>>("organization_number");
         set => SetArgument("organization_number", value);
     }
 
@@ -370,16 +368,16 @@ public partial class GoogleStorageInsightsDatasetConfig(string name) : Terraform
     /// </summary>
     public TerraformValue<bool>? OrganizationScope
     {
-        get => new TerraformReference<bool>(this, "organization_scope");
+        get => GetArgument<TerraformValue<bool>>("organization_scope");
         set => SetArgument("organization_scope", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -389,7 +387,7 @@ public partial class GoogleStorageInsightsDatasetConfig(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodDays is required")]
     public required TerraformValue<double> RetentionPeriodDays
     {
-        get => new TerraformReference<double>(this, "retention_period_days");
+        get => GetArgument<TerraformValue<double>>("retention_period_days");
         set => SetArgument("retention_period_days", value);
     }
 
@@ -397,49 +395,37 @@ public partial class GoogleStorageInsightsDatasetConfig(string name) : Terraform
     /// The UTC time at which the DatasetConfig was created. This is auto-populated.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// State of the DatasetConfig.
     /// </summary>
     public TerraformValue<string> DatasetConfigState
-    {
-        get => new TerraformReference<string>(this, "dataset_config_state");
-    }
+        => AsReference("dataset_config_state");
 
     /// <summary>
     /// Details of the linked DatasetConfig.
     /// </summary>
     public TerraformList<TerraformMap<object>> Link
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "link").ResolveNodes(ctx));
-    }
+        => AsReference("link");
 
     /// <summary>
     /// The full canonical resource name of the DatasetConfig (e.g., projects/P/locations/L/datasetConfigs/ID).
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// System generated unique identifier for the resource.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// The UTC time at which the DatasetConfig was updated. This is auto-populated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// ExcludeCloudStorageBuckets block (nesting mode: list).

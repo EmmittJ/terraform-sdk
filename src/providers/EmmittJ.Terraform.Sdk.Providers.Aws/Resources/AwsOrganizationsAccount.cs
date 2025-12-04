@@ -18,7 +18,7 @@ public class AwsOrganizationsAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsOrganizationsAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsOrganizationsAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsOrganizationsAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? CloseOnDeletion
     {
-        get => new TerraformReference<bool>(this, "close_on_deletion");
+        get => GetArgument<TerraformValue<bool>>("close_on_deletion");
         set => SetArgument("close_on_deletion", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsOrganizationsAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? CreateGovcloud
     {
-        get => new TerraformReference<bool>(this, "create_govcloud");
+        get => GetArgument<TerraformValue<bool>>("create_govcloud");
         set => SetArgument("create_govcloud", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsOrganizationsAccount(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -82,16 +82,16 @@ public partial class AwsOrganizationsAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? IamUserAccessToBilling
     {
-        get => new TerraformReference<string>(this, "iam_user_access_to_billing");
+        get => GetArgument<TerraformValue<string>>("iam_user_access_to_billing");
         set => SetArgument("iam_user_access_to_billing", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -101,16 +101,16 @@ public partial class AwsOrganizationsAccount(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The parent_id attribute.
     /// </summary>
-    public TerraformValue<string> ParentId
+    public TerraformValue<string>? ParentId
     {
-        get => new TerraformReference<string>(this, "parent_id");
+        get => GetArgument<TerraformValue<string>>("parent_id");
         set => SetArgument("parent_id", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AwsOrganizationsAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? RoleName
     {
-        get => new TerraformReference<string>(this, "role_name");
+        get => GetArgument<TerraformValue<string>>("role_name");
         set => SetArgument("role_name", value);
     }
 
@@ -128,16 +128,16 @@ public partial class AwsOrganizationsAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -145,50 +145,38 @@ public partial class AwsOrganizationsAccount(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The govcloud_id attribute.
     /// </summary>
     public TerraformValue<string> GovcloudId
-    {
-        get => new TerraformReference<string>(this, "govcloud_id");
-    }
+        => AsReference("govcloud_id");
 
     /// <summary>
     /// The joined_method attribute.
     /// </summary>
     public TerraformValue<string> JoinedMethod
-    {
-        get => new TerraformReference<string>(this, "joined_method");
-    }
+        => AsReference("joined_method");
 
     /// <summary>
     /// The joined_timestamp attribute.
     /// </summary>
     public TerraformValue<string> JoinedTimestamp
-    {
-        get => new TerraformReference<string>(this, "joined_timestamp");
-    }
+        => AsReference("joined_timestamp");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class AwsLightsailContainerServiceDeploymentVersionContainerBlock : Terra
     /// </summary>
     public TerraformList<string>? Command
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "command").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("command");
         set => SetArgument("command", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsLightsailContainerServiceDeploymentVersionContainerBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformValue<string> ContainerName
     {
-        get => new TerraformReference<string>(this, "container_name");
+        get => GetArgument<TerraformValue<string>>("container_name");
         set => SetArgument("container_name", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsLightsailContainerServiceDeploymentVersionContainerBlock : Terra
     /// </summary>
     public TerraformMap<string>? Environment
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "environment").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("environment");
         set => SetArgument("environment", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsLightsailContainerServiceDeploymentVersionContainerBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -56,7 +56,7 @@ public class AwsLightsailContainerServiceDeploymentVersionContainerBlock : Terra
     /// </summary>
     public TerraformMap<string>? Ports
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "ports").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("ports");
         set => SetArgument("ports", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformValue<string> ContainerName
     {
-        get => new TerraformReference<string>(this, "container_name");
+        get => GetArgument<TerraformValue<string>>("container_name");
         set => SetArgument("container_name", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerPort is required")]
     public required TerraformValue<double> ContainerPort
     {
-        get => new TerraformReference<double>(this, "container_port");
+        get => GetArgument<TerraformValue<double>>("container_port");
         set => SetArgument("container_port", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlockHea
     /// </summary>
     public TerraformValue<double>? HealthyThreshold
     {
-        get => new TerraformReference<double>(this, "healthy_threshold");
+        get => GetArgument<TerraformValue<double>>("healthy_threshold");
         set => SetArgument("healthy_threshold", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlockHea
     /// </summary>
     public TerraformValue<double>? IntervalSeconds
     {
-        get => new TerraformReference<double>(this, "interval_seconds");
+        get => GetArgument<TerraformValue<double>>("interval_seconds");
         set => SetArgument("interval_seconds", value);
     }
 
@@ -143,7 +143,7 @@ public class AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlockHea
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlockHea
     /// </summary>
     public TerraformValue<string>? SuccessCodes
     {
-        get => new TerraformReference<string>(this, "success_codes");
+        get => GetArgument<TerraformValue<string>>("success_codes");
         set => SetArgument("success_codes", value);
     }
 
@@ -161,7 +161,7 @@ public class AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlockHea
     /// </summary>
     public TerraformValue<double>? TimeoutSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_seconds");
         set => SetArgument("timeout_seconds", value);
     }
 
@@ -170,7 +170,7 @@ public class AwsLightsailContainerServiceDeploymentVersionPublicEndpointBlockHea
     /// </summary>
     public TerraformValue<double>? UnhealthyThreshold
     {
-        get => new TerraformReference<double>(this, "unhealthy_threshold");
+        get => GetArgument<TerraformValue<double>>("unhealthy_threshold");
         set => SetArgument("unhealthy_threshold", value);
     }
 
@@ -193,7 +193,7 @@ public class AwsLightsailContainerServiceDeploymentVersionTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -209,18 +209,18 @@ public partial class AwsLightsailContainerServiceDeploymentVersion(string name) 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -230,7 +230,7 @@ public partial class AwsLightsailContainerServiceDeploymentVersion(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => new TerraformReference<string>(this, "service_name");
+        get => GetArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -238,25 +238,19 @@ public partial class AwsLightsailContainerServiceDeploymentVersion(string name) 
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<double> Version
-    {
-        get => new TerraformReference<double>(this, "version");
-    }
+        => AsReference("version");
 
     /// <summary>
     /// Container block (nesting mode: set).

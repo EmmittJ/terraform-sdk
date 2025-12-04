@@ -13,16 +13,16 @@ public partial class GoogleSqlDatabaseInstancesDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? DatabaseVersion
     {
-        get => new TerraformReference<string>(this, "database_version");
+        get => GetArgument<TerraformValue<string>>("database_version");
         set => SetArgument("database_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleSqlDatabaseInstancesDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -40,7 +40,7 @@ public partial class GoogleSqlDatabaseInstancesDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -49,7 +49,7 @@ public partial class GoogleSqlDatabaseInstancesDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -58,7 +58,7 @@ public partial class GoogleSqlDatabaseInstancesDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Tier
     {
-        get => new TerraformReference<string>(this, "tier");
+        get => GetArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 
@@ -67,7 +67,7 @@ public partial class GoogleSqlDatabaseInstancesDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -75,8 +75,6 @@ public partial class GoogleSqlDatabaseInstancesDataSource(string name) : Terrafo
     /// The instances attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Instances
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "instances").ResolveNodes(ctx));
-    }
+        => AsReference("instances");
 
 }

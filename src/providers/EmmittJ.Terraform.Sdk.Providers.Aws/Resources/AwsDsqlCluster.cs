@@ -16,9 +16,9 @@ public class AwsDsqlClusterMultiRegionPropertiesBlock : TerraformBlock
     /// <summary>
     /// The clusters attribute.
     /// </summary>
-    public TerraformSet<string> Clusters
+    public TerraformSet<string>? Clusters
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "clusters").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("clusters");
         set => SetArgument("clusters", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsDsqlClusterMultiRegionPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? WitnessRegion
     {
-        get => new TerraformReference<string>(this, "witness_region");
+        get => GetArgument<TerraformValue<string>>("witness_region");
         set => SetArgument("witness_region", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsDsqlClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsDsqlClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsDsqlClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -84,36 +84,36 @@ public partial class AwsDsqlCluster(string name) : TerraformResource("aws_dsql_c
     /// <summary>
     /// The deletion_protection_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> DeletionProtectionEnabled
+    public TerraformValue<bool>? DeletionProtectionEnabled
     {
-        get => new TerraformReference<bool>(this, "deletion_protection_enabled");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection_enabled");
         set => SetArgument("deletion_protection_enabled", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformValue<bool> ForceDestroy
+    public TerraformValue<bool>? ForceDestroy
     {
-        get => new TerraformReference<bool>(this, "force_destroy");
+        get => GetArgument<TerraformValue<bool>>("force_destroy");
         set => SetArgument("force_destroy", value);
     }
 
     /// <summary>
     /// The kms_encryption_key attribute.
     /// </summary>
-    public TerraformValue<string> KmsEncryptionKey
+    public TerraformValue<string>? KmsEncryptionKey
     {
-        get => new TerraformReference<string>(this, "kms_encryption_key");
+        get => GetArgument<TerraformValue<string>>("kms_encryption_key");
         set => SetArgument("kms_encryption_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AwsDsqlCluster(string name) : TerraformResource("aws_dsql_c
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -130,41 +130,31 @@ public partial class AwsDsqlCluster(string name) : TerraformResource("aws_dsql_c
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The encryption_details attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EncryptionDetails
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "encryption_details").ResolveNodes(ctx));
-    }
+        => AsReference("encryption_details");
 
     /// <summary>
     /// The identifier attribute.
     /// </summary>
     public TerraformValue<string> Identifier
-    {
-        get => new TerraformReference<string>(this, "identifier");
-    }
+        => AsReference("identifier");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// The vpc_endpoint_service_name attribute.
     /// </summary>
     public TerraformValue<string> VpcEndpointServiceName
-    {
-        get => new TerraformReference<string>(this, "vpc_endpoint_service_name");
-    }
+        => AsReference("vpc_endpoint_service_name");
 
     /// <summary>
     /// MultiRegionProperties block (nesting mode: list).

@@ -14,70 +14,70 @@ public partial class AwsAutoscalingSchedule(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingGroupName is required")]
     public required TerraformValue<string> AutoscalingGroupName
     {
-        get => new TerraformReference<string>(this, "autoscaling_group_name");
+        get => GetArgument<TerraformValue<string>>("autoscaling_group_name");
         set => SetArgument("autoscaling_group_name", value);
     }
 
     /// <summary>
     /// The desired_capacity attribute.
     /// </summary>
-    public TerraformValue<double> DesiredCapacity
+    public TerraformValue<double>? DesiredCapacity
     {
-        get => new TerraformReference<double>(this, "desired_capacity");
+        get => GetArgument<TerraformValue<double>>("desired_capacity");
         set => SetArgument("desired_capacity", value);
     }
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
-    public TerraformValue<string> EndTime
+    public TerraformValue<string>? EndTime
     {
-        get => new TerraformReference<string>(this, "end_time");
+        get => GetArgument<TerraformValue<string>>("end_time");
         set => SetArgument("end_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The max_size attribute.
     /// </summary>
-    public TerraformValue<double> MaxSize
+    public TerraformValue<double>? MaxSize
     {
-        get => new TerraformReference<double>(this, "max_size");
+        get => GetArgument<TerraformValue<double>>("max_size");
         set => SetArgument("max_size", value);
     }
 
     /// <summary>
     /// The min_size attribute.
     /// </summary>
-    public TerraformValue<double> MinSize
+    public TerraformValue<double>? MinSize
     {
-        get => new TerraformReference<double>(this, "min_size");
+        get => GetArgument<TerraformValue<double>>("min_size");
         set => SetArgument("min_size", value);
     }
 
     /// <summary>
     /// The recurrence attribute.
     /// </summary>
-    public TerraformValue<string> Recurrence
+    public TerraformValue<string>? Recurrence
     {
-        get => new TerraformReference<string>(this, "recurrence");
+        get => GetArgument<TerraformValue<string>>("recurrence");
         set => SetArgument("recurrence", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -87,25 +87,25 @@ public partial class AwsAutoscalingSchedule(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduledActionName is required")]
     public required TerraformValue<string> ScheduledActionName
     {
-        get => new TerraformReference<string>(this, "scheduled_action_name");
+        get => GetArgument<TerraformValue<string>>("scheduled_action_name");
         set => SetArgument("scheduled_action_name", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformValue<string> StartTime
+    public TerraformValue<string>? StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    public TerraformValue<string> TimeZone
+    public TerraformValue<string>? TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -113,8 +113,6 @@ public partial class AwsAutoscalingSchedule(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

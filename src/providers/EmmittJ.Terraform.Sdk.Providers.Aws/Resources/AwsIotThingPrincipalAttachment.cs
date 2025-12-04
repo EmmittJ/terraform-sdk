@@ -11,9 +11,9 @@ public partial class AwsIotThingPrincipalAttachment(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsIotThingPrincipalAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformValue<string> Principal
     {
-        get => new TerraformReference<string>(this, "principal");
+        get => GetArgument<TerraformValue<string>>("principal");
         set => SetArgument("principal", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -42,16 +42,16 @@ public partial class AwsIotThingPrincipalAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thing is required")]
     public required TerraformValue<string> Thing
     {
-        get => new TerraformReference<string>(this, "thing");
+        get => GetArgument<TerraformValue<string>>("thing");
         set => SetArgument("thing", value);
     }
 
     /// <summary>
     /// The thing_principal_type attribute.
     /// </summary>
-    public TerraformValue<string> ThingPrincipalType
+    public TerraformValue<string>? ThingPrincipalType
     {
-        get => new TerraformReference<string>(this, "thing_principal_type");
+        get => GetArgument<TerraformValue<string>>("thing_principal_type");
         set => SetArgument("thing_principal_type", value);
     }
 

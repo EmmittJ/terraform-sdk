@@ -18,7 +18,7 @@ public class GoogleSiteVerificationTokenDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class GoogleSiteVerificationTokenDataSource(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -47,7 +47,7 @@ public partial class GoogleSiteVerificationTokenDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformValue<string> Identifier
     {
-        get => new TerraformReference<string>(this, "identifier");
+        get => GetArgument<TerraformValue<string>>("identifier");
         set => SetArgument("identifier", value);
     }
 
@@ -57,7 +57,7 @@ public partial class GoogleSiteVerificationTokenDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -68,7 +68,7 @@ public partial class GoogleSiteVerificationTokenDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerificationMethod is required")]
     public required TerraformValue<string> VerificationMethod
     {
-        get => new TerraformReference<string>(this, "verification_method");
+        get => GetArgument<TerraformValue<string>>("verification_method");
         set => SetArgument("verification_method", value);
     }
 
@@ -76,9 +76,7 @@ public partial class GoogleSiteVerificationTokenDataSource(string name) : Terraf
     /// The returned token for use in subsequent verification steps.
     /// </summary>
     public TerraformValue<string> Token
-    {
-        get => new TerraformReference<string>(this, "token");
-    }
+        => AsReference("token");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class AzurermContainerRegistryTaskScheduleRunNowTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermContainerRegistryTaskScheduleRunNowTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermContainerRegistryTaskScheduleRunNowTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AzurermContainerRegistryTaskScheduleRunNow(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryTaskId is required")]
     public required TerraformValue<string> ContainerRegistryTaskId
     {
-        get => new TerraformReference<string>(this, "container_registry_task_id");
+        get => GetArgument<TerraformValue<string>>("container_registry_task_id");
         set => SetArgument("container_registry_task_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 

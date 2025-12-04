@@ -52,7 +52,7 @@ public class AwsLambdaFunctionEventInvokeConfigDestinationConfigBlockOnFailureBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformValue<string> Destination
     {
-        get => new TerraformReference<string>(this, "destination");
+        get => GetArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
@@ -75,7 +75,7 @@ public class AwsLambdaFunctionEventInvokeConfigDestinationConfigBlockOnSuccessBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformValue<string> Destination
     {
-        get => new TerraformReference<string>(this, "destination");
+        get => GetArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
@@ -94,16 +94,16 @@ public partial class AwsLambdaFunctionEventInvokeConfig(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformValue<string> FunctionName
     {
-        get => new TerraformReference<string>(this, "function_name");
+        get => GetArgument<TerraformValue<string>>("function_name");
         set => SetArgument("function_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AwsLambdaFunctionEventInvokeConfig(string name) : Terraform
     /// </summary>
     public TerraformValue<double>? MaximumEventAgeInSeconds
     {
-        get => new TerraformReference<double>(this, "maximum_event_age_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_event_age_in_seconds");
         set => SetArgument("maximum_event_age_in_seconds", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AwsLambdaFunctionEventInvokeConfig(string name) : Terraform
     /// </summary>
     public TerraformValue<double>? MaximumRetryAttempts
     {
-        get => new TerraformReference<double>(this, "maximum_retry_attempts");
+        get => GetArgument<TerraformValue<double>>("maximum_retry_attempts");
         set => SetArgument("maximum_retry_attempts", value);
     }
 
@@ -130,16 +130,16 @@ public partial class AwsLambdaFunctionEventInvokeConfig(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Qualifier
     {
-        get => new TerraformReference<string>(this, "qualifier");
+        get => GetArgument<TerraformValue<string>>("qualifier");
         set => SetArgument("qualifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

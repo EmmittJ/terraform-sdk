@@ -18,7 +18,7 @@ public class AzurermIothubDpsCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermIothubDpsCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermIothubDpsCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermIothubDpsCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AzurermIothubDpsCertificate(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateContent is required")]
     public required TerraformValue<string> CertificateContent
     {
-        get => new TerraformReference<string>(this, "certificate_content");
+        get => GetArgument<TerraformValue<string>>("certificate_content");
         set => SetArgument("certificate_content", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermIothubDpsCertificate(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IotDpsName is required")]
     public required TerraformValue<string> IotDpsName
     {
-        get => new TerraformReference<string>(this, "iot_dps_name");
+        get => GetArgument<TerraformValue<string>>("iot_dps_name");
         set => SetArgument("iot_dps_name", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermIothubDpsCertificate(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool>? IsVerified
     {
-        get => new TerraformReference<bool>(this, "is_verified");
+        get => GetArgument<TerraformValue<bool>>("is_verified");
         set => SetArgument("is_verified", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermIothubDpsCertificate(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermIothubDpsCertificate(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

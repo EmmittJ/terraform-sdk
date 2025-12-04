@@ -11,9 +11,9 @@ public partial class AwsIamServerCertificateDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,16 +22,16 @@ public partial class AwsIamServerCertificateDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<bool>? Latest
     {
-        get => new TerraformReference<bool>(this, "latest");
+        get => GetArgument<TerraformValue<bool>>("latest");
         set => SetArgument("latest", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsIamServerCertificateDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsIamServerCertificateDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string>? PathPrefix
     {
-        get => new TerraformReference<string>(this, "path_prefix");
+        get => GetArgument<TerraformValue<string>>("path_prefix");
         set => SetArgument("path_prefix", value);
     }
 
@@ -57,48 +57,36 @@ public partial class AwsIamServerCertificateDataSource(string name) : TerraformD
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The certificate_body attribute.
     /// </summary>
     public TerraformValue<string> CertificateBody
-    {
-        get => new TerraformReference<string>(this, "certificate_body");
-    }
+        => AsReference("certificate_body");
 
     /// <summary>
     /// The certificate_chain attribute.
     /// </summary>
     public TerraformValue<string> CertificateChain
-    {
-        get => new TerraformReference<string>(this, "certificate_chain");
-    }
+        => AsReference("certificate_chain");
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
     public TerraformValue<string> ExpirationDate
-    {
-        get => new TerraformReference<string>(this, "expiration_date");
-    }
+        => AsReference("expiration_date");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     public TerraformValue<string> Path
-    {
-        get => new TerraformReference<string>(this, "path");
-    }
+        => AsReference("path");
 
     /// <summary>
     /// The upload_date attribute.
     /// </summary>
     public TerraformValue<string> UploadDate
-    {
-        get => new TerraformReference<string>(this, "upload_date");
-    }
+        => AsReference("upload_date");
 
 }

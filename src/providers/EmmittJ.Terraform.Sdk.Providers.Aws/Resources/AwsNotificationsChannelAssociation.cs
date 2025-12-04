@@ -14,7 +14,7 @@ public partial class AwsNotificationsChannelAssociation(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsNotificationsChannelAssociation(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationConfigurationArn is required")]
     public required TerraformValue<string> NotificationConfigurationArn
     {
-        get => new TerraformReference<string>(this, "notification_configuration_arn");
+        get => GetArgument<TerraformValue<string>>("notification_configuration_arn");
         set => SetArgument("notification_configuration_arn", value);
     }
 

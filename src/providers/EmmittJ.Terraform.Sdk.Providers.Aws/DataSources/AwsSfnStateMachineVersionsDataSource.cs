@@ -11,18 +11,18 @@ public partial class AwsSfnStateMachineVersionsDataSource(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsSfnStateMachineVersionsDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatemachineArn is required")]
     public required TerraformValue<string> StatemachineArn
     {
-        get => new TerraformReference<string>(this, "statemachine_arn");
+        get => GetArgument<TerraformValue<string>>("statemachine_arn");
         set => SetArgument("statemachine_arn", value);
     }
 
@@ -40,8 +40,6 @@ public partial class AwsSfnStateMachineVersionsDataSource(string name) : Terrafo
     /// The statemachine_versions attribute.
     /// </summary>
     public TerraformList<string> StatemachineVersions
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "statemachine_versions").ResolveNodes(ctx));
-    }
+        => AsReference("statemachine_versions");
 
 }

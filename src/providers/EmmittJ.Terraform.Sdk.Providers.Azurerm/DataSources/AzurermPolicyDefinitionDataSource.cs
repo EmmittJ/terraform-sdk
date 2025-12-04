@@ -18,7 +18,7 @@ public class AzurermPolicyDefinitionDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,18 +34,18 @@ public partial class AzurermPolicyDefinitionDataSource(string name) : TerraformD
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -54,16 +54,16 @@ public partial class AzurermPolicyDefinitionDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string>? ManagementGroupName
     {
-        get => new TerraformReference<string>(this, "management_group_name");
+        get => GetArgument<TerraformValue<string>>("management_group_name");
         set => SetArgument("management_group_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -71,65 +71,49 @@ public partial class AzurermPolicyDefinitionDataSource(string name) : TerraformD
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     public TerraformValue<string> Metadata
-    {
-        get => new TerraformReference<string>(this, "metadata");
-    }
+        => AsReference("metadata");
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     public TerraformValue<string> Mode
-    {
-        get => new TerraformReference<string>(this, "mode");
-    }
+        => AsReference("mode");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     public TerraformValue<string> Parameters
-    {
-        get => new TerraformReference<string>(this, "parameters");
-    }
+        => AsReference("parameters");
 
     /// <summary>
     /// The policy_rule attribute.
     /// </summary>
     public TerraformValue<string> PolicyRule
-    {
-        get => new TerraformReference<string>(this, "policy_rule");
-    }
+        => AsReference("policy_rule");
 
     /// <summary>
     /// The policy_type attribute.
     /// </summary>
     public TerraformValue<string> PolicyType
-    {
-        get => new TerraformReference<string>(this, "policy_type");
-    }
+        => AsReference("policy_type");
 
     /// <summary>
     /// The role_definition_ids attribute.
     /// </summary>
     public TerraformList<string> RoleDefinitionIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "role_definition_ids").ResolveNodes(ctx));
-    }
+        => AsReference("role_definition_ids");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

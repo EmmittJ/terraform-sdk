@@ -11,9 +11,9 @@ public partial class AwsCloudwatchLogGroupDataSource(string name) : TerraformDat
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,25 +23,25 @@ public partial class AwsCloudwatchLogGroupDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,40 +49,30 @@ public partial class AwsCloudwatchLogGroupDataSource(string name) : TerraformDat
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<double> CreationTime
-    {
-        get => new TerraformReference<double>(this, "creation_time");
-    }
+        => AsReference("creation_time");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-    {
-        get => new TerraformReference<string>(this, "kms_key_id");
-    }
+        => AsReference("kms_key_id");
 
     /// <summary>
     /// The log_group_class attribute.
     /// </summary>
     public TerraformValue<string> LogGroupClass
-    {
-        get => new TerraformReference<string>(this, "log_group_class");
-    }
+        => AsReference("log_group_class");
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
     public TerraformValue<double> RetentionInDays
-    {
-        get => new TerraformReference<double>(this, "retention_in_days");
-    }
+        => AsReference("retention_in_days");
 
 }

@@ -20,7 +20,7 @@ public class GoogleBiglakeTableHiveOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleBiglakeTableHiveOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TableType
     {
-        get => new TerraformReference<string>(this, "table_type");
+        get => GetArgument<TerraformValue<string>>("table_type");
         set => SetArgument("table_type", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleBiglakeTableHiveOptionsBlockStorageDescriptorBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? InputFormat
     {
-        get => new TerraformReference<string>(this, "input_format");
+        get => GetArgument<TerraformValue<string>>("input_format");
         set => SetArgument("input_format", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleBiglakeTableHiveOptionsBlockStorageDescriptorBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? LocationUri
     {
-        get => new TerraformReference<string>(this, "location_uri");
+        get => GetArgument<TerraformValue<string>>("location_uri");
         set => SetArgument("location_uri", value);
     }
 
@@ -79,7 +79,7 @@ public class GoogleBiglakeTableHiveOptionsBlockStorageDescriptorBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? OutputFormat
     {
-        get => new TerraformReference<string>(this, "output_format");
+        get => GetArgument<TerraformValue<string>>("output_format");
         set => SetArgument("output_format", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleBiglakeTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleBiglakeTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleBiglakeTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -138,16 +138,16 @@ public partial class GoogleBiglakeTable(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -158,7 +158,7 @@ public partial class GoogleBiglakeTable(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -167,7 +167,7 @@ public partial class GoogleBiglakeTable(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -178,9 +178,7 @@ public partial class GoogleBiglakeTable(string name) : TerraformResource("google
     /// &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Output only. The deletion time of the table. Only set after the
@@ -189,9 +187,7 @@ public partial class GoogleBiglakeTable(string name) : TerraformResource("google
     /// &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> DeleteTime
-    {
-        get => new TerraformReference<string>(this, "delete_time");
-    }
+        => AsReference("delete_time");
 
     /// <summary>
     /// The checksum of a table object computed by the server based on the value
@@ -200,9 +196,7 @@ public partial class GoogleBiglakeTable(string name) : TerraformResource("google
     /// table operations.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Output only. The time when this table is considered expired. Only set
@@ -211,9 +205,7 @@ public partial class GoogleBiglakeTable(string name) : TerraformResource("google
     /// &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> ExpireTime
-    {
-        get => new TerraformReference<string>(this, "expire_time");
-    }
+        => AsReference("expire_time");
 
     /// <summary>
     /// Output only. The last modification time of the table. A timestamp in
@@ -222,9 +214,7 @@ public partial class GoogleBiglakeTable(string name) : TerraformResource("google
     /// &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// HiveOptions block (nesting mode: list).

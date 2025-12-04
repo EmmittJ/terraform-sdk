@@ -18,7 +18,7 @@ public class AwsRamResourceShareAccepterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsRamResourceShareAccepterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -43,18 +43,18 @@ public partial class AwsRamResourceShareAccepter(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsRamResourceShareAccepter(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareArn is required")]
     public required TerraformValue<string> ShareArn
     {
-        get => new TerraformReference<string>(this, "share_arn");
+        get => GetArgument<TerraformValue<string>>("share_arn");
         set => SetArgument("share_arn", value);
     }
 
@@ -72,57 +72,43 @@ public partial class AwsRamResourceShareAccepter(string name) : TerraformResourc
     /// The invitation_arn attribute.
     /// </summary>
     public TerraformValue<string> InvitationArn
-    {
-        get => new TerraformReference<string>(this, "invitation_arn");
-    }
+        => AsReference("invitation_arn");
 
     /// <summary>
     /// The receiver_account_id attribute.
     /// </summary>
     public TerraformValue<string> ReceiverAccountId
-    {
-        get => new TerraformReference<string>(this, "receiver_account_id");
-    }
+        => AsReference("receiver_account_id");
 
     /// <summary>
     /// The resources attribute.
     /// </summary>
     public TerraformList<string> Resources
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resources").ResolveNodes(ctx));
-    }
+        => AsReference("resources");
 
     /// <summary>
     /// The sender_account_id attribute.
     /// </summary>
     public TerraformValue<string> SenderAccountId
-    {
-        get => new TerraformReference<string>(this, "sender_account_id");
-    }
+        => AsReference("sender_account_id");
 
     /// <summary>
     /// The share_id attribute.
     /// </summary>
     public TerraformValue<string> ShareId
-    {
-        get => new TerraformReference<string>(this, "share_id");
-    }
+        => AsReference("share_id");
 
     /// <summary>
     /// The share_name attribute.
     /// </summary>
     public TerraformValue<string> ShareName
-    {
-        get => new TerraformReference<string>(this, "share_name");
-    }
+        => AsReference("share_name");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

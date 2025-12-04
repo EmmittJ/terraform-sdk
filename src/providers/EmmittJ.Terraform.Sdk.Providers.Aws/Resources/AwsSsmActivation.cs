@@ -13,16 +13,16 @@ public partial class AwsSsmActivation(string name) : TerraformResource("aws_ssm_
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
-    public TerraformValue<string> ExpirationDate
+    public TerraformValue<string>? ExpirationDate
     {
-        get => new TerraformReference<string>(this, "expiration_date");
+        get => GetArgument<TerraformValue<string>>("expiration_date");
         set => SetArgument("expiration_date", value);
     }
 
@@ -32,16 +32,16 @@ public partial class AwsSsmActivation(string name) : TerraformResource("aws_ssm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRole is required")]
     public required TerraformValue<string> IamRole
     {
-        get => new TerraformReference<string>(this, "iam_role");
+        get => GetArgument<TerraformValue<string>>("iam_role");
         set => SetArgument("iam_role", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -50,16 +50,16 @@ public partial class AwsSsmActivation(string name) : TerraformResource("aws_ssm_
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -68,7 +68,7 @@ public partial class AwsSsmActivation(string name) : TerraformResource("aws_ssm_
     /// </summary>
     public TerraformValue<double>? RegistrationLimit
     {
-        get => new TerraformReference<double>(this, "registration_limit");
+        get => GetArgument<TerraformValue<double>>("registration_limit");
         set => SetArgument("registration_limit", value);
     }
 
@@ -77,16 +77,16 @@ public partial class AwsSsmActivation(string name) : TerraformResource("aws_ssm_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -94,24 +94,18 @@ public partial class AwsSsmActivation(string name) : TerraformResource("aws_ssm_
     /// The activation_code attribute.
     /// </summary>
     public TerraformValue<string> ActivationCode
-    {
-        get => new TerraformReference<string>(this, "activation_code");
-    }
+        => AsReference("activation_code");
 
     /// <summary>
     /// The expired attribute.
     /// </summary>
     public TerraformValue<bool> Expired
-    {
-        get => new TerraformReference<bool>(this, "expired");
-    }
+        => AsReference("expired");
 
     /// <summary>
     /// The registration_count attribute.
     /// </summary>
     public TerraformValue<double> RegistrationCount
-    {
-        get => new TerraformReference<double>(this, "registration_count");
-    }
+        => AsReference("registration_count");
 
 }

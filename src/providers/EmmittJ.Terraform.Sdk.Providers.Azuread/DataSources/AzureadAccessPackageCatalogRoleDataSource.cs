@@ -18,7 +18,7 @@ public class AzureadAccessPackageCatalogRoleDataSourceTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,27 +34,27 @@ public partial class AzureadAccessPackageCatalogRoleDataSource(string name) : Te
     /// <summary>
     /// The display name of the catalog role
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The object ID of the catalog role
     /// </summary>
-    public TerraformValue<string> ObjectId
+    public TerraformValue<string>? ObjectId
     {
-        get => new TerraformReference<string>(this, "object_id");
+        get => GetArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -62,17 +62,13 @@ public partial class AzureadAccessPackageCatalogRoleDataSource(string name) : Te
     /// The description of the catalog role
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The object ID of the template associated with the catalog role
     /// </summary>
     public TerraformValue<string> TemplateId
-    {
-        get => new TerraformReference<string>(this, "template_id");
-    }
+        => AsReference("template_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class AwsCodepipelineCustomActionTypeConfigurationPropertyBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsCodepipelineCustomActionTypeConfigurationPropertyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<bool> Key
     {
-        get => new TerraformReference<bool>(this, "key");
+        get => GetArgument<TerraformValue<bool>>("key");
         set => SetArgument("key", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsCodepipelineCustomActionTypeConfigurationPropertyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsCodepipelineCustomActionTypeConfigurationPropertyBlock : Terrafo
     /// </summary>
     public TerraformValue<bool>? Queryable
     {
-        get => new TerraformReference<bool>(this, "queryable");
+        get => GetArgument<TerraformValue<bool>>("queryable");
         set => SetArgument("queryable", value);
     }
 
@@ -57,7 +57,7 @@ public class AwsCodepipelineCustomActionTypeConfigurationPropertyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Required is required")]
     public required TerraformValue<bool> Required
     {
-        get => new TerraformReference<bool>(this, "required");
+        get => GetArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsCodepipelineCustomActionTypeConfigurationPropertyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformValue<bool> Secret
     {
-        get => new TerraformReference<bool>(this, "secret");
+        get => GetArgument<TerraformValue<bool>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsCodepipelineCustomActionTypeConfigurationPropertyBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsCodepipelineCustomActionTypeInputArtifactDetailsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumCount is required")]
     public required TerraformValue<double> MaximumCount
     {
-        get => new TerraformReference<double>(this, "maximum_count");
+        get => GetArgument<TerraformValue<double>>("maximum_count");
         set => SetArgument("maximum_count", value);
     }
 
@@ -110,7 +110,7 @@ public class AwsCodepipelineCustomActionTypeInputArtifactDetailsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumCount is required")]
     public required TerraformValue<double> MinimumCount
     {
-        get => new TerraformReference<double>(this, "minimum_count");
+        get => GetArgument<TerraformValue<double>>("minimum_count");
         set => SetArgument("minimum_count", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsCodepipelineCustomActionTypeOutputArtifactDetailsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumCount is required")]
     public required TerraformValue<double> MaximumCount
     {
-        get => new TerraformReference<double>(this, "maximum_count");
+        get => GetArgument<TerraformValue<double>>("maximum_count");
         set => SetArgument("maximum_count", value);
     }
 
@@ -144,7 +144,7 @@ public class AwsCodepipelineCustomActionTypeOutputArtifactDetailsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumCount is required")]
     public required TerraformValue<double> MinimumCount
     {
-        get => new TerraformReference<double>(this, "minimum_count");
+        get => GetArgument<TerraformValue<double>>("minimum_count");
         set => SetArgument("minimum_count", value);
     }
 
@@ -167,7 +167,7 @@ public class AwsCodepipelineCustomActionTypeSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EntityUrlTemplate
     {
-        get => new TerraformReference<string>(this, "entity_url_template");
+        get => GetArgument<TerraformValue<string>>("entity_url_template");
         set => SetArgument("entity_url_template", value);
     }
 
@@ -176,7 +176,7 @@ public class AwsCodepipelineCustomActionTypeSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ExecutionUrlTemplate
     {
-        get => new TerraformReference<string>(this, "execution_url_template");
+        get => GetArgument<TerraformValue<string>>("execution_url_template");
         set => SetArgument("execution_url_template", value);
     }
 
@@ -185,7 +185,7 @@ public class AwsCodepipelineCustomActionTypeSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RevisionUrlTemplate
     {
-        get => new TerraformReference<string>(this, "revision_url_template");
+        get => GetArgument<TerraformValue<string>>("revision_url_template");
         set => SetArgument("revision_url_template", value);
     }
 
@@ -194,7 +194,7 @@ public class AwsCodepipelineCustomActionTypeSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ThirdPartyConfigurationUrl
     {
-        get => new TerraformReference<string>(this, "third_party_configuration_url");
+        get => GetArgument<TerraformValue<string>>("third_party_configuration_url");
         set => SetArgument("third_party_configuration_url", value);
     }
 
@@ -213,16 +213,16 @@ public partial class AwsCodepipelineCustomActionType(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformValue<string> Category
     {
-        get => new TerraformReference<string>(this, "category");
+        get => GetArgument<TerraformValue<string>>("category");
         set => SetArgument("category", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -232,16 +232,16 @@ public partial class AwsCodepipelineCustomActionType(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderName is required")]
     public required TerraformValue<string> ProviderName
     {
-        get => new TerraformReference<string>(this, "provider_name");
+        get => GetArgument<TerraformValue<string>>("provider_name");
         set => SetArgument("provider_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -250,16 +250,16 @@ public partial class AwsCodepipelineCustomActionType(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -269,7 +269,7 @@ public partial class AwsCodepipelineCustomActionType(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -277,17 +277,13 @@ public partial class AwsCodepipelineCustomActionType(string name) : TerraformRes
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     public TerraformValue<string> Owner
-    {
-        get => new TerraformReference<string>(this, "owner");
-    }
+        => AsReference("owner");
 
     /// <summary>
     /// ConfigurationProperty block (nesting mode: list).

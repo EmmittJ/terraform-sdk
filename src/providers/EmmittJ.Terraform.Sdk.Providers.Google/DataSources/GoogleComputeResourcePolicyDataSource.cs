@@ -11,9 +11,9 @@ public partial class GoogleComputeResourcePolicyDataSource(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -29,7 +29,7 @@ public partial class GoogleComputeResourcePolicyDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -38,7 +38,7 @@ public partial class GoogleComputeResourcePolicyDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -47,7 +47,7 @@ public partial class GoogleComputeResourcePolicyDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -55,56 +55,42 @@ public partial class GoogleComputeResourcePolicyDataSource(string name) : Terraf
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// Replication consistency group for asynchronous disk replication.
     /// </summary>
     public TerraformList<TerraformMap<object>> DiskConsistencyGroupPolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "disk_consistency_group_policy").ResolveNodes(ctx));
-    }
+        => AsReference("disk_consistency_group_policy");
 
     /// <summary>
     /// Resource policy for instances used for placement configuration.
     /// </summary>
     public TerraformList<TerraformMap<object>> GroupPlacementPolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "group_placement_policy").ResolveNodes(ctx));
-    }
+        => AsReference("group_placement_policy");
 
     /// <summary>
     /// Resource policy for scheduling instance operations.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstanceSchedulePolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "instance_schedule_policy").ResolveNodes(ctx));
-    }
+        => AsReference("instance_schedule_policy");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Policy for creating snapshots of persistent disks.
     /// </summary>
     public TerraformList<TerraformMap<object>> SnapshotSchedulePolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "snapshot_schedule_policy").ResolveNodes(ctx));
-    }
+        => AsReference("snapshot_schedule_policy");
 
     /// <summary>
     /// Represents the workload policy.
     /// </summary>
     public TerraformList<TerraformMap<object>> WorkloadPolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "workload_policy").ResolveNodes(ctx));
-    }
+        => AsReference("workload_policy");
 
 }

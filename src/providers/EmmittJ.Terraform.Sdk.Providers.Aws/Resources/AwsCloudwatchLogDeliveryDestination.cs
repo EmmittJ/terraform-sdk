@@ -19,7 +19,7 @@ public class AwsCloudwatchLogDeliveryDestinationDeliveryDestinationConfiguration
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationResourceArn is required")]
     public required TerraformValue<string> DestinationResourceArn
     {
-        get => new TerraformReference<string>(this, "destination_resource_arn");
+        get => GetArgument<TerraformValue<string>>("destination_resource_arn");
         set => SetArgument("destination_resource_arn", value);
     }
 
@@ -38,7 +38,7 @@ public partial class AwsCloudwatchLogDeliveryDestination(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -47,16 +47,16 @@ public partial class AwsCloudwatchLogDeliveryDestination(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? OutputFormat
     {
-        get => new TerraformReference<string>(this, "output_format");
+        get => GetArgument<TerraformValue<string>>("output_format");
         set => SetArgument("output_format", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsCloudwatchLogDeliveryDestination(string name) : Terrafor
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -73,25 +73,19 @@ public partial class AwsCloudwatchLogDeliveryDestination(string name) : Terrafor
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The delivery_destination_type attribute.
     /// </summary>
     public TerraformValue<string> DeliveryDestinationType
-    {
-        get => new TerraformReference<string>(this, "delivery_destination_type");
-    }
+        => AsReference("delivery_destination_type");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// DeliveryDestinationConfiguration block (nesting mode: list).

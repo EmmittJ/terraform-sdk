@@ -18,7 +18,7 @@ public class AzurermContainerAppEnvironmentCustomDomainTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermContainerAppEnvironmentCustomDomainTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermContainerAppEnvironmentCustomDomainTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermContainerAppEnvironmentCustomDomainTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermContainerAppEnvironmentCustomDomain(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateBlobBase64 is required")]
     public required TerraformValue<string> CertificateBlobBase64
     {
-        get => new TerraformReference<string>(this, "certificate_blob_base64");
+        get => GetArgument<TerraformValue<string>>("certificate_blob_base64");
         set => SetArgument("certificate_blob_base64", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermContainerAppEnvironmentCustomDomain(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificatePassword is required")]
     public required TerraformValue<string> CertificatePassword
     {
-        get => new TerraformReference<string>(this, "certificate_password");
+        get => GetArgument<TerraformValue<string>>("certificate_password");
         set => SetArgument("certificate_password", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermContainerAppEnvironmentCustomDomain(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
     public required TerraformValue<string> ContainerAppEnvironmentId
     {
-        get => new TerraformReference<string>(this, "container_app_environment_id");
+        get => GetArgument<TerraformValue<string>>("container_app_environment_id");
         set => SetArgument("container_app_environment_id", value);
     }
 
@@ -94,16 +94,16 @@ public partial class AzurermContainerAppEnvironmentCustomDomain(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsSuffix is required")]
     public required TerraformValue<string> DnsSuffix
     {
-        get => new TerraformReference<string>(this, "dns_suffix");
+        get => GetArgument<TerraformValue<string>>("dns_suffix");
         set => SetArgument("dns_suffix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 

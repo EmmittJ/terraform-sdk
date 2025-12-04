@@ -11,18 +11,18 @@ public partial class GoogleSqlTiersDataSource(string name) : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Project ID of the project for which to list tiers.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -30,8 +30,6 @@ public partial class GoogleSqlTiersDataSource(string name) : TerraformDataSource
     /// The tiers attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Tiers
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "tiers").ResolveNodes(ctx));
-    }
+        => AsReference("tiers");
 
 }

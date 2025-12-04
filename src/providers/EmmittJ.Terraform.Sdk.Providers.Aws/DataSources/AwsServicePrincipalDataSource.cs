@@ -11,9 +11,9 @@ public partial class AwsServicePrincipalDataSource(string name) : TerraformDataS
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsServicePrincipalDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => new TerraformReference<string>(this, "service_name");
+        get => GetArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -31,24 +31,18 @@ public partial class AwsServicePrincipalDataSource(string name) : TerraformDataS
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The suffix attribute.
     /// </summary>
     public TerraformValue<string> Suffix
-    {
-        get => new TerraformReference<string>(this, "suffix");
-    }
+        => AsReference("suffix");
 
 }

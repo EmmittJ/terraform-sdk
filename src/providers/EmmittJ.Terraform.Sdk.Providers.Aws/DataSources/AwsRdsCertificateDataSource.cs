@@ -13,16 +13,16 @@ public partial class AwsRdsCertificateDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<bool>? DefaultForNewLaunches
     {
-        get => new TerraformReference<bool>(this, "default_for_new_launches");
+        get => GetArgument<TerraformValue<bool>>("default_for_new_launches");
         set => SetArgument("default_for_new_launches", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,16 +31,16 @@ public partial class AwsRdsCertificateDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<bool>? LatestValidTill
     {
-        get => new TerraformReference<bool>(this, "latest_valid_till");
+        get => GetArgument<TerraformValue<bool>>("latest_valid_till");
         set => SetArgument("latest_valid_till", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -48,56 +48,42 @@ public partial class AwsRdsCertificateDataSource(string name) : TerraformDataSou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The certificate_type attribute.
     /// </summary>
     public TerraformValue<string> CertificateType
-    {
-        get => new TerraformReference<string>(this, "certificate_type");
-    }
+        => AsReference("certificate_type");
 
     /// <summary>
     /// The customer_override attribute.
     /// </summary>
     public TerraformValue<bool> CustomerOverride
-    {
-        get => new TerraformReference<bool>(this, "customer_override");
-    }
+        => AsReference("customer_override");
 
     /// <summary>
     /// The customer_override_valid_till attribute.
     /// </summary>
     public TerraformValue<string> CustomerOverrideValidTill
-    {
-        get => new TerraformReference<string>(this, "customer_override_valid_till");
-    }
+        => AsReference("customer_override_valid_till");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-    {
-        get => new TerraformReference<string>(this, "thumbprint");
-    }
+        => AsReference("thumbprint");
 
     /// <summary>
     /// The valid_from attribute.
     /// </summary>
     public TerraformValue<string> ValidFrom
-    {
-        get => new TerraformReference<string>(this, "valid_from");
-    }
+        => AsReference("valid_from");
 
     /// <summary>
     /// The valid_till attribute.
     /// </summary>
     public TerraformValue<string> ValidTill
-    {
-        get => new TerraformReference<string>(this, "valid_till");
-    }
+        => AsReference("valid_till");
 
 }

@@ -14,7 +14,7 @@ public partial class AwsDatazoneEnvironmentBlueprintConfiguration(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
     public required TerraformValue<string> DomainId
     {
-        get => new TerraformReference<string>(this, "domain_id");
+        get => GetArgument<TerraformValue<string>>("domain_id");
         set => SetArgument("domain_id", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsDatazoneEnvironmentBlueprintConfiguration(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnabledRegions is required")]
     public TerraformList<string>? EnabledRegions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "enabled_regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("enabled_regions");
         set => SetArgument("enabled_regions", value);
     }
 
@@ -34,7 +34,7 @@ public partial class AwsDatazoneEnvironmentBlueprintConfiguration(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentBlueprintId is required")]
     public required TerraformValue<string> EnvironmentBlueprintId
     {
-        get => new TerraformReference<string>(this, "environment_blueprint_id");
+        get => GetArgument<TerraformValue<string>>("environment_blueprint_id");
         set => SetArgument("environment_blueprint_id", value);
     }
 
@@ -43,7 +43,7 @@ public partial class AwsDatazoneEnvironmentBlueprintConfiguration(string name) :
     /// </summary>
     public TerraformValue<string>? ManageAccessRoleArn
     {
-        get => new TerraformReference<string>(this, "manage_access_role_arn");
+        get => GetArgument<TerraformValue<string>>("manage_access_role_arn");
         set => SetArgument("manage_access_role_arn", value);
     }
 
@@ -52,16 +52,16 @@ public partial class AwsDatazoneEnvironmentBlueprintConfiguration(string name) :
     /// </summary>
     public TerraformValue<string>? ProvisioningRoleArn
     {
-        get => new TerraformReference<string>(this, "provisioning_role_arn");
+        get => GetArgument<TerraformValue<string>>("provisioning_role_arn");
         set => SetArgument("provisioning_role_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsDatazoneEnvironmentBlueprintConfiguration(string name) :
     /// </summary>
     public TerraformMap<TerraformMap<string>>? RegionalParameters
     {
-        get => TerraformMap<TerraformMap<string>>.Lazy(ctx => new TerraformReference<TerraformMap<TerraformMap<string>>>(this, "regional_parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<TerraformMap<string>>>("regional_parameters");
         set => SetArgument("regional_parameters", value);
     }
 

@@ -18,7 +18,7 @@ public class GoogleFilestoreBackupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleFilestoreBackupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleFilestoreBackupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,16 +54,16 @@ public partial class GoogleFilestoreBackup(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -76,7 +76,7 @@ public partial class GoogleFilestoreBackup(string name) : TerraformResource("goo
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -86,7 +86,7 @@ public partial class GoogleFilestoreBackup(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -103,16 +103,16 @@ public partial class GoogleFilestoreBackup(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -122,7 +122,7 @@ public partial class GoogleFilestoreBackup(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceFileShare is required")]
     public required TerraformValue<string> SourceFileShare
     {
-        get => new TerraformReference<string>(this, "source_file_share");
+        get => GetArgument<TerraformValue<string>>("source_file_share");
         set => SetArgument("source_file_share", value);
     }
 
@@ -132,7 +132,7 @@ public partial class GoogleFilestoreBackup(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceInstance is required")]
     public required TerraformValue<string> SourceInstance
     {
-        get => new TerraformReference<string>(this, "source_instance");
+        get => GetArgument<TerraformValue<string>>("source_instance");
         set => SetArgument("source_instance", value);
     }
 
@@ -144,7 +144,7 @@ public partial class GoogleFilestoreBackup(string name) : TerraformResource("goo
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -152,74 +152,56 @@ public partial class GoogleFilestoreBackup(string name) : TerraformResource("goo
     /// The amount of bytes needed to allocate a full copy of the snapshot content.
     /// </summary>
     public TerraformValue<string> CapacityGb
-    {
-        get => new TerraformReference<string>(this, "capacity_gb");
-    }
+        => AsReference("capacity_gb");
 
     /// <summary>
     /// The time when the snapshot was created in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Amount of bytes that will be downloaded if the backup is restored.
     /// </summary>
     public TerraformValue<string> DownloadBytes
-    {
-        get => new TerraformReference<string>(this, "download_bytes");
-    }
+        => AsReference("download_bytes");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// KMS key name used for data encryption.
     /// </summary>
     public TerraformValue<string> KmsKeyName
-    {
-        get => new TerraformReference<string>(this, "kms_key_name");
-    }
+        => AsReference("kms_key_name");
 
     /// <summary>
     /// The service tier of the source Cloud Filestore instance that this backup is created from.
     /// </summary>
     public TerraformValue<string> SourceInstanceTier
-    {
-        get => new TerraformReference<string>(this, "source_instance_tier");
-    }
+        => AsReference("source_instance_tier");
 
     /// <summary>
     /// The backup state.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The size of the storage used by the backup. As backups share storage, this number is expected to change with backup creation/deletion.
     /// </summary>
     public TerraformValue<string> StorageBytes
-    {
-        get => new TerraformReference<string>(this, "storage_bytes");
-    }
+        => AsReference("storage_bytes");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

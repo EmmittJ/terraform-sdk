@@ -27,7 +27,7 @@ public class GoogleCloudIdentityGroupGroupKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -43,7 +43,7 @@ public class GoogleCloudIdentityGroupGroupKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -66,7 +66,7 @@ public class GoogleCloudIdentityGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -75,7 +75,7 @@ public class GoogleCloudIdentityGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleCloudIdentityGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -103,7 +103,7 @@ public partial class GoogleCloudIdentityGroup(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -112,16 +112,16 @@ public partial class GoogleCloudIdentityGroup(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -134,7 +134,7 @@ public partial class GoogleCloudIdentityGroup(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? InitialGroupConfig
     {
-        get => new TerraformReference<string>(this, "initial_group_config");
+        get => GetArgument<TerraformValue<string>>("initial_group_config");
         set => SetArgument("initial_group_config", value);
     }
 
@@ -152,7 +152,7 @@ public partial class GoogleCloudIdentityGroup(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Labels is required")]
     public required TerraformMap<string> Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -166,7 +166,7 @@ public partial class GoogleCloudIdentityGroup(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -174,34 +174,26 @@ public partial class GoogleCloudIdentityGroup(string name) : TerraformResource("
     /// Additional group keys associated with the Group
     /// </summary>
     public TerraformList<TerraformMap<object>> AdditionalGroupKeys
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "additional_group_keys").ResolveNodes(ctx));
-    }
+        => AsReference("additional_group_keys");
 
     /// <summary>
     /// The time when the Group was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Resource name of the Group in the format: groups/{group_id}, where group_id
     /// is the unique ID assigned to the Group.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The time when the Group was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// GroupKey block (nesting mode: list).

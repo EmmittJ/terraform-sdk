@@ -14,7 +14,7 @@ public partial class AwsVpcEndpointConnectionNotification(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionEvents is required")]
     public required TerraformSet<string> ConnectionEvents
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "connection_events").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("connection_events");
         set => SetArgument("connection_events", value);
     }
 
@@ -24,25 +24,25 @@ public partial class AwsVpcEndpointConnectionNotification(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionNotificationArn is required")]
     public required TerraformValue<string> ConnectionNotificationArn
     {
-        get => new TerraformReference<string>(this, "connection_notification_arn");
+        get => GetArgument<TerraformValue<string>>("connection_notification_arn");
         set => SetArgument("connection_notification_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsVpcEndpointConnectionNotification(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? VpcEndpointId
     {
-        get => new TerraformReference<string>(this, "vpc_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("vpc_endpoint_id");
         set => SetArgument("vpc_endpoint_id", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsVpcEndpointConnectionNotification(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? VpcEndpointServiceId
     {
-        get => new TerraformReference<string>(this, "vpc_endpoint_service_id");
+        get => GetArgument<TerraformValue<string>>("vpc_endpoint_service_id");
         set => SetArgument("vpc_endpoint_service_id", value);
     }
 
@@ -68,16 +68,12 @@ public partial class AwsVpcEndpointConnectionNotification(string name) : Terrafo
     /// The notification_type attribute.
     /// </summary>
     public TerraformValue<string> NotificationType
-    {
-        get => new TerraformReference<string>(this, "notification_type");
-    }
+        => AsReference("notification_type");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
 }

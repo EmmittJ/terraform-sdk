@@ -18,7 +18,7 @@ public class AzurermKeyVaultEncryptedValueDataSourceTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,7 +37,7 @@ public partial class AzurermKeyVaultEncryptedValueDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
     public required TerraformValue<string> Algorithm
     {
-        get => new TerraformReference<string>(this, "algorithm");
+        get => GetArgument<TerraformValue<string>>("algorithm");
         set => SetArgument("algorithm", value);
     }
 
@@ -46,16 +46,16 @@ public partial class AzurermKeyVaultEncryptedValueDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string>? EncryptedData
     {
-        get => new TerraformReference<string>(this, "encrypted_data");
+        get => GetArgument<TerraformValue<string>>("encrypted_data");
         set => SetArgument("encrypted_data", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzurermKeyVaultEncryptedValueDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformValue<string> KeyVaultKeyId
     {
-        get => new TerraformReference<string>(this, "key_vault_key_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_key_id");
         set => SetArgument("key_vault_key_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermKeyVaultEncryptedValueDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string>? PlainTextValue
     {
-        get => new TerraformReference<string>(this, "plain_text_value");
+        get => GetArgument<TerraformValue<string>>("plain_text_value");
         set => SetArgument("plain_text_value", value);
     }
 
@@ -82,9 +82,7 @@ public partial class AzurermKeyVaultEncryptedValueDataSource(string name) : Terr
     /// The decoded_plain_text_value attribute.
     /// </summary>
     public TerraformValue<string> DecodedPlainTextValue
-    {
-        get => new TerraformReference<string>(this, "decoded_plain_text_value");
-    }
+        => AsReference("decoded_plain_text_value");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

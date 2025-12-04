@@ -14,7 +14,7 @@ public partial class GoogleArtifactRegistryMavenArtifactDataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactId is required")]
     public required TerraformValue<string> ArtifactId
     {
-        get => new TerraformReference<string>(this, "artifact_id");
+        get => GetArgument<TerraformValue<string>>("artifact_id");
         set => SetArgument("artifact_id", value);
     }
 
@@ -24,16 +24,16 @@ public partial class GoogleArtifactRegistryMavenArtifactDataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     public required TerraformValue<string> GroupId
     {
-        get => new TerraformReference<string>(this, "group_id");
+        get => GetArgument<TerraformValue<string>>("group_id");
         set => SetArgument("group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -43,7 +43,7 @@ public partial class GoogleArtifactRegistryMavenArtifactDataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -52,7 +52,7 @@ public partial class GoogleArtifactRegistryMavenArtifactDataSource(string name) 
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -62,7 +62,7 @@ public partial class GoogleArtifactRegistryMavenArtifactDataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformValue<string> RepositoryId
     {
-        get => new TerraformReference<string>(this, "repository_id");
+        get => GetArgument<TerraformValue<string>>("repository_id");
         set => SetArgument("repository_id", value);
     }
 
@@ -70,40 +70,30 @@ public partial class GoogleArtifactRegistryMavenArtifactDataSource(string name) 
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The pom_uri attribute.
     /// </summary>
     public TerraformValue<string> PomUri
-    {
-        get => new TerraformReference<string>(this, "pom_uri");
-    }
+        => AsReference("pom_uri");
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
 }

@@ -17,33 +17,25 @@ public class AwsOpensearchserverlessSecurityConfigDataSourceSamlOptionsBlock : T
     /// Group attribute for this SAML integration.
     /// </summary>
     public TerraformValue<string> GroupAttribute
-    {
-        get => new TerraformReference<string>(this, "group_attribute");
-    }
+        => AsReference("group_attribute");
 
     /// <summary>
     /// The XML IdP metadata file generated from your identity provider.
     /// </summary>
     public TerraformValue<string> Metadata
-    {
-        get => new TerraformReference<string>(this, "metadata");
-    }
+        => AsReference("metadata");
 
     /// <summary>
     /// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
     /// </summary>
     public TerraformValue<double> SessionTimeout
-    {
-        get => new TerraformReference<double>(this, "session_timeout");
-    }
+        => AsReference("session_timeout");
 
     /// <summary>
     /// User attribute for this SAML integration.
     /// </summary>
     public TerraformValue<string> UserAttribute
-    {
-        get => new TerraformReference<string>(this, "user_attribute");
-    }
+        => AsReference("user_attribute");
 
 }
 
@@ -60,16 +52,16 @@ public partial class AwsOpensearchserverlessSecurityConfigDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -77,41 +69,31 @@ public partial class AwsOpensearchserverlessSecurityConfigDataSource(string name
     /// The version of the security configuration.
     /// </summary>
     public TerraformValue<string> ConfigVersion
-    {
-        get => new TerraformReference<string>(this, "config_version");
-    }
+        => AsReference("config_version");
 
     /// <summary>
     /// The date the configuration was created.
     /// </summary>
     public TerraformValue<string> CreatedDate
-    {
-        get => new TerraformReference<string>(this, "created_date");
-    }
+        => AsReference("created_date");
 
     /// <summary>
     /// The description of the security configuration.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The date the configuration was last modified.
     /// </summary>
     public TerraformValue<string> LastModifiedDate
-    {
-        get => new TerraformReference<string>(this, "last_modified_date");
-    }
+        => AsReference("last_modified_date");
 
     /// <summary>
     /// The type of security configuration.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// SamlOptions block (nesting mode: list).

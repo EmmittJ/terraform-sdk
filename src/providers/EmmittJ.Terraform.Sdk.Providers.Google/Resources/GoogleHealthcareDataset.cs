@@ -21,7 +21,7 @@ public class GoogleHealthcareDatasetEncryptionSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -44,7 +44,7 @@ public class GoogleHealthcareDatasetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleHealthcareDatasetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleHealthcareDatasetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -78,9 +78,9 @@ public partial class GoogleHealthcareDataset(string name) : TerraformResource("g
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -90,7 +90,7 @@ public partial class GoogleHealthcareDataset(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -100,16 +100,16 @@ public partial class GoogleHealthcareDataset(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -118,9 +118,9 @@ public partial class GoogleHealthcareDataset(string name) : TerraformResource("g
     /// &amp;quot;America/New_York&amp;quot; or empty, which defaults to UTC. This is used for parsing times in resources
     /// (e.g., HL7 messages) where no explicit timezone is specified.
     /// </summary>
-    public TerraformValue<string> TimeZone
+    public TerraformValue<string>? TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -128,9 +128,7 @@ public partial class GoogleHealthcareDataset(string name) : TerraformResource("g
     /// The fully qualified name of this dataset
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// EncryptionSpec block (nesting mode: list).

@@ -18,7 +18,7 @@ public class GoogleBigqueryRoutineArgumentsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ArgumentKind
     {
-        get => new TerraformReference<string>(this, "argument_kind");
+        get => GetArgument<TerraformValue<string>>("argument_kind");
         set => SetArgument("argument_kind", value);
     }
 
@@ -33,7 +33,7 @@ public class GoogleBigqueryRoutineArgumentsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DataType
     {
-        get => new TerraformReference<string>(this, "data_type");
+        get => GetArgument<TerraformValue<string>>("data_type");
         set => SetArgument("data_type", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleBigqueryRoutineArgumentsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleBigqueryRoutineArgumentsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -76,7 +76,7 @@ public class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConnectionAttribute
     {
-        get => new TerraformReference<string>(this, "connection");
+        get => GetArgument<TerraformValue<string>>("connection");
         set => SetArgument("connection", value);
     }
 
@@ -86,7 +86,7 @@ public class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Endpoint
     {
-        get => new TerraformReference<string>(this, "endpoint");
+        get => GetArgument<TerraformValue<string>>("endpoint");
         set => SetArgument("endpoint", value);
     }
 
@@ -96,7 +96,7 @@ public class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaxBatchingRows
     {
-        get => new TerraformReference<string>(this, "max_batching_rows");
+        get => GetArgument<TerraformValue<string>>("max_batching_rows");
         set => SetArgument("max_batching_rows", value);
     }
 
@@ -108,9 +108,9 @@ public class GoogleBigqueryRoutineRemoteFunctionOptionsBlock : TerraformBlock
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs. Example:
     /// &#39;{ &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }&#39;.
     /// </summary>
-    public TerraformMap<string> UserDefinedContext
+    public TerraformMap<string>? UserDefinedContext
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "user_defined_context").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("user_defined_context");
         set => SetArgument("user_defined_context", value);
     }
 
@@ -131,9 +131,9 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// <summary>
     /// Archive files to be extracted into the working directory of each executor. For more information about Apache Spark, see Apache Spark.
     /// </summary>
-    public TerraformList<string> ArchiveUris
+    public TerraformList<string>? ArchiveUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "archive_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("archive_uris");
         set => SetArgument("archive_uris", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConnectionAttribute
     {
-        get => new TerraformReference<string>(this, "connection");
+        get => GetArgument<TerraformValue<string>>("connection");
         set => SetArgument("connection", value);
     }
 
@@ -152,25 +152,25 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ContainerImage
     {
-        get => new TerraformReference<string>(this, "container_image");
+        get => GetArgument<TerraformValue<string>>("container_image");
         set => SetArgument("container_image", value);
     }
 
     /// <summary>
     /// Files to be placed in the working directory of each executor. For more information about Apache Spark, see Apache Spark.
     /// </summary>
-    public TerraformList<string> FileUris
+    public TerraformList<string>? FileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("file_uris");
         set => SetArgument("file_uris", value);
     }
 
     /// <summary>
     /// JARs to include on the driver and executor CLASSPATH. For more information about Apache Spark, see Apache Spark.
     /// </summary>
-    public TerraformList<string> JarUris
+    public TerraformList<string>? JarUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "jar_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("jar_uris");
         set => SetArgument("jar_uris", value);
     }
 
@@ -180,7 +180,7 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MainClass
     {
-        get => new TerraformReference<string>(this, "main_class");
+        get => GetArgument<TerraformValue<string>>("main_class");
         set => SetArgument("main_class", value);
     }
 
@@ -191,7 +191,7 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MainFileUri
     {
-        get => new TerraformReference<string>(this, "main_file_uri");
+        get => GetArgument<TerraformValue<string>>("main_file_uri");
         set => SetArgument("main_file_uri", value);
     }
 
@@ -200,18 +200,18 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// For more information, see Apache Spark and the procedure option list.
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs. Example: { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    public TerraformMap<string> Properties
+    public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
     /// <summary>
     /// Python files to be placed on the PYTHONPATH for PySpark application. Supported file types: .py, .egg, and .zip. For more information about Apache Spark, see Apache Spark.
     /// </summary>
-    public TerraformList<string> PyFileUris
+    public TerraformList<string>? PyFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "py_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("py_file_uris");
         set => SetArgument("py_file_uris", value);
     }
 
@@ -220,7 +220,7 @@ public class GoogleBigqueryRoutineSparkOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RuntimeVersion
     {
-        get => new TerraformReference<string>(this, "runtime_version");
+        get => GetArgument<TerraformValue<string>>("runtime_version");
         set => SetArgument("runtime_version", value);
     }
 
@@ -243,7 +243,7 @@ public class GoogleBigqueryRoutineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -252,7 +252,7 @@ public class GoogleBigqueryRoutineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -261,7 +261,7 @@ public class GoogleBigqueryRoutineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -279,7 +279,7 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string>? DataGovernanceType
     {
-        get => new TerraformReference<string>(this, "data_governance_type");
+        get => GetArgument<TerraformValue<string>>("data_governance_type");
         set => SetArgument("data_governance_type", value);
     }
 
@@ -289,7 +289,7 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => new TerraformReference<string>(this, "dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -300,7 +300,7 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefinitionBody is required")]
     public required TerraformValue<string> DefinitionBody
     {
-        get => new TerraformReference<string>(this, "definition_body");
+        get => GetArgument<TerraformValue<string>>("definition_body");
         set => SetArgument("definition_body", value);
     }
 
@@ -309,7 +309,7 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -318,16 +318,16 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string>? DeterminismLevel
     {
-        get => new TerraformReference<string>(this, "determinism_level");
+        get => GetArgument<TerraformValue<string>>("determinism_level");
         set => SetArgument("determinism_level", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -337,7 +337,7 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     /// </summary>
     public TerraformList<string>? ImportedLibraries
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "imported_libraries").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("imported_libraries");
         set => SetArgument("imported_libraries", value);
     }
 
@@ -346,16 +346,16 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string>? Language
     {
-        get => new TerraformReference<string>(this, "language");
+        get => GetArgument<TerraformValue<string>>("language");
         set => SetArgument("language", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -368,7 +368,7 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string>? ReturnTableType
     {
-        get => new TerraformReference<string>(this, "return_table_type");
+        get => GetArgument<TerraformValue<string>>("return_table_type");
         set => SetArgument("return_table_type", value);
     }
 
@@ -385,7 +385,7 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string>? ReturnType
     {
-        get => new TerraformReference<string>(this, "return_type");
+        get => GetArgument<TerraformValue<string>>("return_type");
         set => SetArgument("return_type", value);
     }
 
@@ -395,7 +395,7 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutineId is required")]
     public required TerraformValue<string> RoutineId
     {
-        get => new TerraformReference<string>(this, "routine_id");
+        get => GetArgument<TerraformValue<string>>("routine_id");
         set => SetArgument("routine_id", value);
     }
 
@@ -405,7 +405,7 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutineType is required")]
     public required TerraformValue<string> RoutineType
     {
-        get => new TerraformReference<string>(this, "routine_type");
+        get => GetArgument<TerraformValue<string>>("routine_type");
         set => SetArgument("routine_type", value);
     }
 
@@ -414,7 +414,7 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string>? SecurityMode
     {
-        get => new TerraformReference<string>(this, "security_mode");
+        get => GetArgument<TerraformValue<string>>("security_mode");
         set => SetArgument("security_mode", value);
     }
 
@@ -423,18 +423,14 @@ public partial class GoogleBigqueryRoutine(string name) : TerraformResource("goo
     /// epoch.
     /// </summary>
     public TerraformValue<double> CreationTime
-    {
-        get => new TerraformReference<double>(this, "creation_time");
-    }
+        => AsReference("creation_time");
 
     /// <summary>
     /// The time when this routine was modified, in milliseconds since the
     /// epoch.
     /// </summary>
     public TerraformValue<double> LastModifiedTime
-    {
-        get => new TerraformReference<double>(this, "last_modified_time");
-    }
+        => AsReference("last_modified_time");
 
     /// <summary>
     /// Arguments block (nesting mode: list).

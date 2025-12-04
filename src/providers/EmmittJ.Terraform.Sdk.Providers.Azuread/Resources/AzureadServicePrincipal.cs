@@ -18,7 +18,7 @@ public class AzureadServicePrincipalFeatureTagsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? CustomSingleSignOn
     {
-        get => new TerraformReference<bool>(this, "custom_single_sign_on");
+        get => GetArgument<TerraformValue<bool>>("custom_single_sign_on");
         set => SetArgument("custom_single_sign_on", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadServicePrincipalFeatureTagsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enterprise
     {
-        get => new TerraformReference<bool>(this, "enterprise");
+        get => GetArgument<TerraformValue<bool>>("enterprise");
         set => SetArgument("enterprise", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadServicePrincipalFeatureTagsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Gallery
     {
-        get => new TerraformReference<bool>(this, "gallery");
+        get => GetArgument<TerraformValue<bool>>("gallery");
         set => SetArgument("gallery", value);
     }
 
@@ -45,7 +45,7 @@ public class AzureadServicePrincipalFeatureTagsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Hide
     {
-        get => new TerraformReference<bool>(this, "hide");
+        get => GetArgument<TerraformValue<bool>>("hide");
         set => SetArgument("hide", value);
     }
 
@@ -69,7 +69,7 @@ public class AzureadServicePrincipalFeaturesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? CustomSingleSignOnApp
     {
-        get => new TerraformReference<bool>(this, "custom_single_sign_on_app");
+        get => GetArgument<TerraformValue<bool>>("custom_single_sign_on_app");
         set => SetArgument("custom_single_sign_on_app", value);
     }
 
@@ -78,7 +78,7 @@ public class AzureadServicePrincipalFeaturesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnterpriseApplication
     {
-        get => new TerraformReference<bool>(this, "enterprise_application");
+        get => GetArgument<TerraformValue<bool>>("enterprise_application");
         set => SetArgument("enterprise_application", value);
     }
 
@@ -87,7 +87,7 @@ public class AzureadServicePrincipalFeaturesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? GalleryApplication
     {
-        get => new TerraformReference<bool>(this, "gallery_application");
+        get => GetArgument<TerraformValue<bool>>("gallery_application");
         set => SetArgument("gallery_application", value);
     }
 
@@ -96,7 +96,7 @@ public class AzureadServicePrincipalFeaturesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? VisibleToUsers
     {
-        get => new TerraformReference<bool>(this, "visible_to_users");
+        get => GetArgument<TerraformValue<bool>>("visible_to_users");
         set => SetArgument("visible_to_users", value);
     }
 
@@ -119,7 +119,7 @@ public class AzureadServicePrincipalSamlSingleSignOnBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RelayState
     {
-        get => new TerraformReference<string>(this, "relay_state");
+        get => GetArgument<TerraformValue<string>>("relay_state");
         set => SetArgument("relay_state", value);
     }
 
@@ -142,7 +142,7 @@ public class AzureadServicePrincipalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -151,7 +151,7 @@ public class AzureadServicePrincipalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -160,7 +160,7 @@ public class AzureadServicePrincipalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -169,7 +169,7 @@ public class AzureadServicePrincipalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AzureadServicePrincipal(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? AccountEnabled
     {
-        get => new TerraformReference<bool>(this, "account_enabled");
+        get => GetArgument<TerraformValue<bool>>("account_enabled");
         set => SetArgument("account_enabled", value);
     }
 
@@ -196,7 +196,7 @@ public partial class AzureadServicePrincipal(string name) : TerraformResource("a
     /// </summary>
     public TerraformSet<string>? AlternativeNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "alternative_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("alternative_names");
         set => SetArgument("alternative_names", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AzureadServicePrincipal(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? AppRoleAssignmentRequired
     {
-        get => new TerraformReference<bool>(this, "app_role_assignment_required");
+        get => GetArgument<TerraformValue<bool>>("app_role_assignment_required");
         set => SetArgument("app_role_assignment_required", value);
     }
 
@@ -215,7 +215,7 @@ public partial class AzureadServicePrincipal(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -224,16 +224,16 @@ public partial class AzureadServicePrincipal(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -242,7 +242,7 @@ public partial class AzureadServicePrincipal(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? LoginUrl
     {
-        get => new TerraformReference<string>(this, "login_url");
+        get => GetArgument<TerraformValue<string>>("login_url");
         set => SetArgument("login_url", value);
     }
 
@@ -251,7 +251,7 @@ public partial class AzureadServicePrincipal(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Notes
     {
-        get => new TerraformReference<string>(this, "notes");
+        get => GetArgument<TerraformValue<string>>("notes");
         set => SetArgument("notes", value);
     }
 
@@ -260,7 +260,7 @@ public partial class AzureadServicePrincipal(string name) : TerraformResource("a
     /// </summary>
     public TerraformSet<string>? NotificationEmailAddresses
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "notification_email_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("notification_email_addresses");
         set => SetArgument("notification_email_addresses", value);
     }
 
@@ -269,7 +269,7 @@ public partial class AzureadServicePrincipal(string name) : TerraformResource("a
     /// </summary>
     public TerraformSet<string>? Owners
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "owners").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("owners");
         set => SetArgument("owners", value);
     }
 
@@ -278,16 +278,16 @@ public partial class AzureadServicePrincipal(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? PreferredSingleSignOnMode
     {
-        get => new TerraformReference<string>(this, "preferred_single_sign_on_mode");
+        get => GetArgument<TerraformValue<string>>("preferred_single_sign_on_mode");
         set => SetArgument("preferred_single_sign_on_mode", value);
     }
 
     /// <summary>
     /// A set of tags to apply to the service principal
     /// </summary>
-    public TerraformSet<string> Tags
+    public TerraformSet<string>? Tags
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -296,7 +296,7 @@ public partial class AzureadServicePrincipal(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? UseExisting
     {
-        get => new TerraformReference<bool>(this, "use_existing");
+        get => GetArgument<TerraformValue<bool>>("use_existing");
         set => SetArgument("use_existing", value);
     }
 
@@ -304,113 +304,85 @@ public partial class AzureadServicePrincipal(string name) : TerraformResource("a
     /// Mapping of app role names to UUIDs
     /// </summary>
     public TerraformMap<string> AppRoleIds
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "app_role_ids").ResolveNodes(ctx));
-    }
+        => AsReference("app_role_ids");
 
     /// <summary>
     /// The app_roles attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AppRoles
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "app_roles").ResolveNodes(ctx));
-    }
+        => AsReference("app_roles");
 
     /// <summary>
     /// The tenant ID where the associated application is registered
     /// </summary>
     public TerraformValue<string> ApplicationTenantId
-    {
-        get => new TerraformReference<string>(this, "application_tenant_id");
-    }
+        => AsReference("application_tenant_id");
 
     /// <summary>
     /// The display name of the application associated with this service principal
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// Home page or landing page of the application
     /// </summary>
     public TerraformValue<string> HomepageUrl
-    {
-        get => new TerraformReference<string>(this, "homepage_url");
-    }
+        => AsReference("homepage_url");
 
     /// <summary>
     /// The URL that will be used by Microsoft&#39;s authorization service to sign out a user using front-channel, back-channel or SAML logout protocols
     /// </summary>
     public TerraformValue<string> LogoutUrl
-    {
-        get => new TerraformReference<string>(this, "logout_url");
-    }
+        => AsReference("logout_url");
 
     /// <summary>
     /// Mapping of OAuth2.0 permission scope names to UUIDs
     /// </summary>
     public TerraformMap<string> Oauth2PermissionScopeIds
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "oauth2_permission_scope_ids").ResolveNodes(ctx));
-    }
+        => AsReference("oauth2_permission_scope_ids");
 
     /// <summary>
     /// The oauth2_permission_scopes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Oauth2PermissionScopes
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "oauth2_permission_scopes").ResolveNodes(ctx));
-    }
+        => AsReference("oauth2_permission_scopes");
 
     /// <summary>
     /// The object ID of the service principal
     /// </summary>
     public TerraformValue<string> ObjectId
-    {
-        get => new TerraformReference<string>(this, "object_id");
-    }
+        => AsReference("object_id");
 
     /// <summary>
     /// The URLs where user tokens are sent for sign-in with the associated application, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent for the associated application
     /// </summary>
     public TerraformList<string> RedirectUris
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "redirect_uris").ResolveNodes(ctx));
-    }
+        => AsReference("redirect_uris");
 
     /// <summary>
     /// The URL where the service exposes SAML metadata for federation
     /// </summary>
     public TerraformValue<string> SamlMetadataUrl
-    {
-        get => new TerraformReference<string>(this, "saml_metadata_url");
-    }
+        => AsReference("saml_metadata_url");
 
     /// <summary>
     /// A list of identifier URI(s), copied over from the associated application
     /// </summary>
     public TerraformList<string> ServicePrincipalNames
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "service_principal_names").ResolveNodes(ctx));
-    }
+        => AsReference("service_principal_names");
 
     /// <summary>
     /// The Microsoft account types that are supported for the associated application
     /// </summary>
     public TerraformValue<string> SignInAudience
-    {
-        get => new TerraformReference<string>(this, "sign_in_audience");
-    }
+        => AsReference("sign_in_audience");
 
     /// <summary>
     /// Identifies whether the service principal represents an application or a managed identity
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// FeatureTags block (nesting mode: list).

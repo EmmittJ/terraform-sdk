@@ -14,16 +14,16 @@ public partial class AwsConnectInstanceStorageConfigDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssociationId is required")]
     public required TerraformValue<string> AssociationId
     {
-        get => new TerraformReference<string>(this, "association_id");
+        get => GetArgument<TerraformValue<string>>("association_id");
         set => SetArgument("association_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsConnectInstanceStorageConfigDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => new TerraformReference<string>(this, "instance_id");
+        get => GetArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsConnectInstanceStorageConfigDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeAttribute is required")]
     public required TerraformValue<string> ResourceTypeAttribute
     {
-        get => new TerraformReference<string>(this, "resource_type");
+        get => GetArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -60,8 +60,6 @@ public partial class AwsConnectInstanceStorageConfigDataSource(string name) : Te
     /// The storage_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StorageConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "storage_config").ResolveNodes(ctx));
-    }
+        => AsReference("storage_config");
 
 }

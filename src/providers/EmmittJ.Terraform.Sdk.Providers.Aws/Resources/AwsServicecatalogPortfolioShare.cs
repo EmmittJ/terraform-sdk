@@ -18,7 +18,7 @@ public class AwsServicecatalogPortfolioShareTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsServicecatalogPortfolioShareTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsServicecatalogPortfolioShareTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsServicecatalogPortfolioShareTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AwsServicecatalogPortfolioShare(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? AcceptLanguage
     {
-        get => new TerraformReference<string>(this, "accept_language");
+        get => GetArgument<TerraformValue<string>>("accept_language");
         set => SetArgument("accept_language", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsServicecatalogPortfolioShare(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortfolioId is required")]
     public required TerraformValue<string> PortfolioId
     {
-        get => new TerraformReference<string>(this, "portfolio_id");
+        get => GetArgument<TerraformValue<string>>("portfolio_id");
         set => SetArgument("portfolio_id", value);
     }
 
@@ -92,16 +92,16 @@ public partial class AwsServicecatalogPortfolioShare(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformValue<string> PrincipalId
     {
-        get => new TerraformReference<string>(this, "principal_id");
+        get => GetArgument<TerraformValue<string>>("principal_id");
         set => SetArgument("principal_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AwsServicecatalogPortfolioShare(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? SharePrincipals
     {
-        get => new TerraformReference<bool>(this, "share_principals");
+        get => GetArgument<TerraformValue<bool>>("share_principals");
         set => SetArgument("share_principals", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AwsServicecatalogPortfolioShare(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? ShareTagOptions
     {
-        get => new TerraformReference<bool>(this, "share_tag_options");
+        get => GetArgument<TerraformValue<bool>>("share_tag_options");
         set => SetArgument("share_tag_options", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AwsServicecatalogPortfolioShare(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AwsServicecatalogPortfolioShare(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? WaitForAcceptance
     {
-        get => new TerraformReference<bool>(this, "wait_for_acceptance");
+        get => GetArgument<TerraformValue<bool>>("wait_for_acceptance");
         set => SetArgument("wait_for_acceptance", value);
     }
 
@@ -146,9 +146,7 @@ public partial class AwsServicecatalogPortfolioShare(string name) : TerraformRes
     /// The accepted attribute.
     /// </summary>
     public TerraformValue<bool> Accepted
-    {
-        get => new TerraformReference<bool>(this, "accepted");
-    }
+        => AsReference("accepted");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

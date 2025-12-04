@@ -19,7 +19,7 @@ public class AzurermSignalrServiceCorsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
     public required TerraformSet<string> AllowedOrigins
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_origins").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_origins");
         set => SetArgument("allowed_origins", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermSignalrServiceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -50,17 +50,13 @@ public class AzurermSignalrServiceIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -68,7 +64,7 @@ public class AzurermSignalrServiceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -91,7 +87,7 @@ public class AzurermSignalrServiceLiveTraceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ConnectivityLogsEnabled
     {
-        get => new TerraformReference<bool>(this, "connectivity_logs_enabled");
+        get => GetArgument<TerraformValue<bool>>("connectivity_logs_enabled");
         set => SetArgument("connectivity_logs_enabled", value);
     }
 
@@ -100,7 +96,7 @@ public class AzurermSignalrServiceLiveTraceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -109,7 +105,7 @@ public class AzurermSignalrServiceLiveTraceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? HttpRequestLogsEnabled
     {
-        get => new TerraformReference<bool>(this, "http_request_logs_enabled");
+        get => GetArgument<TerraformValue<bool>>("http_request_logs_enabled");
         set => SetArgument("http_request_logs_enabled", value);
     }
 
@@ -118,7 +114,7 @@ public class AzurermSignalrServiceLiveTraceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? MessagingLogsEnabled
     {
-        get => new TerraformReference<bool>(this, "messaging_logs_enabled");
+        get => GetArgument<TerraformValue<bool>>("messaging_logs_enabled");
         set => SetArgument("messaging_logs_enabled", value);
     }
 
@@ -142,7 +138,7 @@ public class AzurermSignalrServiceSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
     public required TerraformValue<double> Capacity
     {
-        get => new TerraformReference<double>(this, "capacity");
+        get => GetArgument<TerraformValue<double>>("capacity");
         set => SetArgument("capacity", value);
     }
 
@@ -152,7 +148,7 @@ public class AzurermSignalrServiceSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -175,7 +171,7 @@ public class AzurermSignalrServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -184,7 +180,7 @@ public class AzurermSignalrServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -193,7 +189,7 @@ public class AzurermSignalrServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -202,7 +198,7 @@ public class AzurermSignalrServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -226,7 +222,7 @@ public class AzurermSignalrServiceUpstreamEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CategoryPattern is required")]
     public TerraformList<string>? CategoryPattern
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "category_pattern").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("category_pattern");
         set => SetArgument("category_pattern", value);
     }
 
@@ -236,7 +232,7 @@ public class AzurermSignalrServiceUpstreamEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventPattern is required")]
     public TerraformList<string>? EventPattern
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "event_pattern").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("event_pattern");
         set => SetArgument("event_pattern", value);
     }
 
@@ -246,7 +242,7 @@ public class AzurermSignalrServiceUpstreamEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HubPattern is required")]
     public TerraformList<string>? HubPattern
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "hub_pattern").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("hub_pattern");
         set => SetArgument("hub_pattern", value);
     }
 
@@ -256,7 +252,7 @@ public class AzurermSignalrServiceUpstreamEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlTemplate is required")]
     public required TerraformValue<string> UrlTemplate
     {
-        get => new TerraformReference<string>(this, "url_template");
+        get => GetArgument<TerraformValue<string>>("url_template");
         set => SetArgument("url_template", value);
     }
 
@@ -265,7 +261,7 @@ public class AzurermSignalrServiceUpstreamEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? UserAssignedIdentityId
     {
-        get => new TerraformReference<string>(this, "user_assigned_identity_id");
+        get => GetArgument<TerraformValue<string>>("user_assigned_identity_id");
         set => SetArgument("user_assigned_identity_id", value);
     }
 
@@ -283,7 +279,7 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? AadAuthEnabled
     {
-        get => new TerraformReference<bool>(this, "aad_auth_enabled");
+        get => GetArgument<TerraformValue<bool>>("aad_auth_enabled");
         set => SetArgument("aad_auth_enabled", value);
     }
 
@@ -292,7 +288,7 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? ConnectivityLogsEnabled
     {
-        get => new TerraformReference<bool>(this, "connectivity_logs_enabled");
+        get => GetArgument<TerraformValue<bool>>("connectivity_logs_enabled");
         set => SetArgument("connectivity_logs_enabled", value);
     }
 
@@ -301,16 +297,16 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? HttpRequestLogsEnabled
     {
-        get => new TerraformReference<bool>(this, "http_request_logs_enabled");
+        get => GetArgument<TerraformValue<bool>>("http_request_logs_enabled");
         set => SetArgument("http_request_logs_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -320,7 +316,7 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool>? LiveTraceEnabled
     {
-        get => new TerraformReference<bool>(this, "live_trace_enabled");
+        get => GetArgument<TerraformValue<bool>>("live_trace_enabled");
         set => SetArgument("live_trace_enabled", value);
     }
 
@@ -329,7 +325,7 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? LocalAuthEnabled
     {
-        get => new TerraformReference<bool>(this, "local_auth_enabled");
+        get => GetArgument<TerraformValue<bool>>("local_auth_enabled");
         set => SetArgument("local_auth_enabled", value);
     }
 
@@ -339,7 +335,7 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -348,7 +344,7 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? MessagingLogsEnabled
     {
-        get => new TerraformReference<bool>(this, "messaging_logs_enabled");
+        get => GetArgument<TerraformValue<bool>>("messaging_logs_enabled");
         set => SetArgument("messaging_logs_enabled", value);
     }
 
@@ -358,7 +354,7 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -367,7 +363,7 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -377,7 +373,7 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -386,7 +382,7 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<double>? ServerlessConnectionTimeoutInSeconds
     {
-        get => new TerraformReference<double>(this, "serverless_connection_timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("serverless_connection_timeout_in_seconds");
         set => SetArgument("serverless_connection_timeout_in_seconds", value);
     }
 
@@ -395,7 +391,7 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? ServiceMode
     {
-        get => new TerraformReference<string>(this, "service_mode");
+        get => GetArgument<TerraformValue<string>>("service_mode");
         set => SetArgument("service_mode", value);
     }
 
@@ -404,7 +400,7 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -413,7 +409,7 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? TlsClientCertEnabled
     {
-        get => new TerraformReference<bool>(this, "tls_client_cert_enabled");
+        get => GetArgument<TerraformValue<bool>>("tls_client_cert_enabled");
         set => SetArgument("tls_client_cert_enabled", value);
     }
 
@@ -421,65 +417,49 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     /// The hostname attribute.
     /// </summary>
     public TerraformValue<string> Hostname
-    {
-        get => new TerraformReference<string>(this, "hostname");
-    }
+        => AsReference("hostname");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     public TerraformValue<string> IpAddress
-    {
-        get => new TerraformReference<string>(this, "ip_address");
-    }
+        => AsReference("ip_address");
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "primary_access_key");
-    }
+        => AsReference("primary_access_key");
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimaryConnectionString
-    {
-        get => new TerraformReference<string>(this, "primary_connection_string");
-    }
+        => AsReference("primary_connection_string");
 
     /// <summary>
     /// The public_port attribute.
     /// </summary>
     public TerraformValue<double> PublicPort
-    {
-        get => new TerraformReference<double>(this, "public_port");
-    }
+        => AsReference("public_port");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "secondary_access_key");
-    }
+        => AsReference("secondary_access_key");
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondaryConnectionString
-    {
-        get => new TerraformReference<string>(this, "secondary_connection_string");
-    }
+        => AsReference("secondary_connection_string");
 
     /// <summary>
     /// The server_port attribute.
     /// </summary>
     public TerraformValue<double> ServerPort
-    {
-        get => new TerraformReference<double>(this, "server_port");
-    }
+        => AsReference("server_port");
 
     /// <summary>
     /// Cors block (nesting mode: list).

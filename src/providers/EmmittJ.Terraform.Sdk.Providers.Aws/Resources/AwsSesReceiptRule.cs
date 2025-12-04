@@ -19,7 +19,7 @@ public class AwsSesReceiptRuleAddHeaderActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsSesReceiptRuleAddHeaderActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => new TerraformReference<string>(this, "header_value");
+        get => GetArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsSesReceiptRuleAddHeaderActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
     public required TerraformValue<double> Position
     {
-        get => new TerraformReference<double>(this, "position");
+        get => GetArgument<TerraformValue<double>>("position");
         set => SetArgument("position", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsSesReceiptRuleBounceActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Message is required")]
     public required TerraformValue<string> Message
     {
-        get => new TerraformReference<string>(this, "message");
+        get => GetArgument<TerraformValue<string>>("message");
         set => SetArgument("message", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsSesReceiptRuleBounceActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
     public required TerraformValue<double> Position
     {
-        get => new TerraformReference<double>(this, "position");
+        get => GetArgument<TerraformValue<double>>("position");
         set => SetArgument("position", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsSesReceiptRuleBounceActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sender is required")]
     public required TerraformValue<string> Sender
     {
-        get => new TerraformReference<string>(this, "sender");
+        get => GetArgument<TerraformValue<string>>("sender");
         set => SetArgument("sender", value);
     }
 
@@ -93,7 +93,7 @@ public class AwsSesReceiptRuleBounceActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SmtpReplyCode is required")]
     public required TerraformValue<string> SmtpReplyCode
     {
-        get => new TerraformReference<string>(this, "smtp_reply_code");
+        get => GetArgument<TerraformValue<string>>("smtp_reply_code");
         set => SetArgument("smtp_reply_code", value);
     }
 
@@ -102,7 +102,7 @@ public class AwsSesReceiptRuleBounceActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StatusCode
     {
-        get => new TerraformReference<string>(this, "status_code");
+        get => GetArgument<TerraformValue<string>>("status_code");
         set => SetArgument("status_code", value);
     }
 
@@ -111,7 +111,7 @@ public class AwsSesReceiptRuleBounceActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TopicArn
     {
-        get => new TerraformReference<string>(this, "topic_arn");
+        get => GetArgument<TerraformValue<string>>("topic_arn");
         set => SetArgument("topic_arn", value);
     }
 
@@ -135,7 +135,7 @@ public class AwsSesReceiptRuleLambdaActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionArn is required")]
     public required TerraformValue<string> FunctionArn
     {
-        get => new TerraformReference<string>(this, "function_arn");
+        get => GetArgument<TerraformValue<string>>("function_arn");
         set => SetArgument("function_arn", value);
     }
 
@@ -144,7 +144,7 @@ public class AwsSesReceiptRuleLambdaActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? InvocationType
     {
-        get => new TerraformReference<string>(this, "invocation_type");
+        get => GetArgument<TerraformValue<string>>("invocation_type");
         set => SetArgument("invocation_type", value);
     }
 
@@ -154,7 +154,7 @@ public class AwsSesReceiptRuleLambdaActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
     public required TerraformValue<double> Position
     {
-        get => new TerraformReference<double>(this, "position");
+        get => GetArgument<TerraformValue<double>>("position");
         set => SetArgument("position", value);
     }
 
@@ -163,7 +163,7 @@ public class AwsSesReceiptRuleLambdaActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TopicArn
     {
-        get => new TerraformReference<string>(this, "topic_arn");
+        get => GetArgument<TerraformValue<string>>("topic_arn");
         set => SetArgument("topic_arn", value);
     }
 
@@ -187,7 +187,7 @@ public class AwsSesReceiptRuleS3ActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -196,7 +196,7 @@ public class AwsSesReceiptRuleS3ActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? IamRoleArn
     {
-        get => new TerraformReference<string>(this, "iam_role_arn");
+        get => GetArgument<TerraformValue<string>>("iam_role_arn");
         set => SetArgument("iam_role_arn", value);
     }
 
@@ -205,7 +205,7 @@ public class AwsSesReceiptRuleS3ActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -214,7 +214,7 @@ public class AwsSesReceiptRuleS3ActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ObjectKeyPrefix
     {
-        get => new TerraformReference<string>(this, "object_key_prefix");
+        get => GetArgument<TerraformValue<string>>("object_key_prefix");
         set => SetArgument("object_key_prefix", value);
     }
 
@@ -224,7 +224,7 @@ public class AwsSesReceiptRuleS3ActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
     public required TerraformValue<double> Position
     {
-        get => new TerraformReference<double>(this, "position");
+        get => GetArgument<TerraformValue<double>>("position");
         set => SetArgument("position", value);
     }
 
@@ -233,7 +233,7 @@ public class AwsSesReceiptRuleS3ActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TopicArn
     {
-        get => new TerraformReference<string>(this, "topic_arn");
+        get => GetArgument<TerraformValue<string>>("topic_arn");
         set => SetArgument("topic_arn", value);
     }
 
@@ -256,7 +256,7 @@ public class AwsSesReceiptRuleSnsActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Encoding
     {
-        get => new TerraformReference<string>(this, "encoding");
+        get => GetArgument<TerraformValue<string>>("encoding");
         set => SetArgument("encoding", value);
     }
 
@@ -266,7 +266,7 @@ public class AwsSesReceiptRuleSnsActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
     public required TerraformValue<double> Position
     {
-        get => new TerraformReference<double>(this, "position");
+        get => GetArgument<TerraformValue<double>>("position");
         set => SetArgument("position", value);
     }
 
@@ -276,7 +276,7 @@ public class AwsSesReceiptRuleSnsActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     public required TerraformValue<string> TopicArn
     {
-        get => new TerraformReference<string>(this, "topic_arn");
+        get => GetArgument<TerraformValue<string>>("topic_arn");
         set => SetArgument("topic_arn", value);
     }
 
@@ -300,7 +300,7 @@ public class AwsSesReceiptRuleStopActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
     public required TerraformValue<double> Position
     {
-        get => new TerraformReference<double>(this, "position");
+        get => GetArgument<TerraformValue<double>>("position");
         set => SetArgument("position", value);
     }
 
@@ -310,7 +310,7 @@ public class AwsSesReceiptRuleStopActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -319,7 +319,7 @@ public class AwsSesReceiptRuleStopActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TopicArn
     {
-        get => new TerraformReference<string>(this, "topic_arn");
+        get => GetArgument<TerraformValue<string>>("topic_arn");
         set => SetArgument("topic_arn", value);
     }
 
@@ -343,7 +343,7 @@ public class AwsSesReceiptRuleWorkmailActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrganizationArn is required")]
     public required TerraformValue<string> OrganizationArn
     {
-        get => new TerraformReference<string>(this, "organization_arn");
+        get => GetArgument<TerraformValue<string>>("organization_arn");
         set => SetArgument("organization_arn", value);
     }
 
@@ -353,7 +353,7 @@ public class AwsSesReceiptRuleWorkmailActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Position is required")]
     public required TerraformValue<double> Position
     {
-        get => new TerraformReference<double>(this, "position");
+        get => GetArgument<TerraformValue<double>>("position");
         set => SetArgument("position", value);
     }
 
@@ -362,7 +362,7 @@ public class AwsSesReceiptRuleWorkmailActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TopicArn
     {
-        get => new TerraformReference<string>(this, "topic_arn");
+        get => GetArgument<TerraformValue<string>>("topic_arn");
         set => SetArgument("topic_arn", value);
     }
 
@@ -380,7 +380,7 @@ public partial class AwsSesReceiptRule(string name) : TerraformResource("aws_ses
     /// </summary>
     public TerraformValue<string>? After
     {
-        get => new TerraformReference<string>(this, "after");
+        get => GetArgument<TerraformValue<string>>("after");
         set => SetArgument("after", value);
     }
 
@@ -389,16 +389,16 @@ public partial class AwsSesReceiptRule(string name) : TerraformResource("aws_ses
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -408,7 +408,7 @@ public partial class AwsSesReceiptRule(string name) : TerraformResource("aws_ses
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -417,16 +417,16 @@ public partial class AwsSesReceiptRule(string name) : TerraformResource("aws_ses
     /// </summary>
     public TerraformSet<string>? Recipients
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "recipients").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("recipients");
         set => SetArgument("recipients", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -436,7 +436,7 @@ public partial class AwsSesReceiptRule(string name) : TerraformResource("aws_ses
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleSetName is required")]
     public required TerraformValue<string> RuleSetName
     {
-        get => new TerraformReference<string>(this, "rule_set_name");
+        get => GetArgument<TerraformValue<string>>("rule_set_name");
         set => SetArgument("rule_set_name", value);
     }
 
@@ -445,16 +445,16 @@ public partial class AwsSesReceiptRule(string name) : TerraformResource("aws_ses
     /// </summary>
     public TerraformValue<bool>? ScanEnabled
     {
-        get => new TerraformReference<bool>(this, "scan_enabled");
+        get => GetArgument<TerraformValue<bool>>("scan_enabled");
         set => SetArgument("scan_enabled", value);
     }
 
     /// <summary>
     /// The tls_policy attribute.
     /// </summary>
-    public TerraformValue<string> TlsPolicy
+    public TerraformValue<string>? TlsPolicy
     {
-        get => new TerraformReference<string>(this, "tls_policy");
+        get => GetArgument<TerraformValue<string>>("tls_policy");
         set => SetArgument("tls_policy", value);
     }
 
@@ -462,9 +462,7 @@ public partial class AwsSesReceiptRule(string name) : TerraformResource("aws_ses
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// AddHeaderAction block (nesting mode: set).

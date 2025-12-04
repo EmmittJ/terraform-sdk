@@ -11,9 +11,9 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -25,7 +25,7 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -35,7 +35,7 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -44,7 +44,7 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -54,17 +54,13 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource(string name) : Te
     /// up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// User-provided description for this network policy.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// IP address range in CIDR notation used to create internet access and external IP access.
@@ -72,34 +68,26 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource(string name) : Te
     /// prefixes either in the consumer VPC network or in use by the private clouds attached to that VPC network.
     /// </summary>
     public TerraformValue<string> EdgeServicesCidr
-    {
-        get => new TerraformReference<string>(this, "edge_services_cidr");
-    }
+        => AsReference("edge_services_cidr");
 
     /// <summary>
     /// Network service that allows External IP addresses to be assigned to VMware workloads.
     /// This service can only be enabled when internetAccess is also enabled.
     /// </summary>
     public TerraformList<TerraformMap<object>> ExternalIp
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "external_ip").ResolveNodes(ctx));
-    }
+        => AsReference("external_ip");
 
     /// <summary>
     /// Network service that allows VMware workloads to access the internet.
     /// </summary>
     public TerraformList<TerraformMap<object>> InternetAccess
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "internet_access").ResolveNodes(ctx));
-    }
+        => AsReference("internet_access");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Last updated time of this resource.
@@ -107,9 +95,7 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource(string name) : Te
     /// fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// The relative resource name of the VMware Engine network. Specify the name in the following form:
@@ -117,17 +103,13 @@ public partial class GoogleVmwareengineNetworkPolicyDataSource(string name) : Te
     /// can either be a project number or a project ID.
     /// </summary>
     public TerraformValue<string> VmwareEngineNetwork
-    {
-        get => new TerraformReference<string>(this, "vmware_engine_network");
-    }
+        => AsReference("vmware_engine_network");
 
     /// <summary>
     /// The canonical name of the VMware Engine network in the form:
     /// projects/{project_number}/locations/{location}/vmwareEngineNetworks/{vmwareEngineNetworkId}
     /// </summary>
     public TerraformValue<string> VmwareEngineNetworkCanonical
-    {
-        get => new TerraformReference<string>(this, "vmware_engine_network_canonical");
-    }
+        => AsReference("vmware_engine_network_canonical");
 
 }

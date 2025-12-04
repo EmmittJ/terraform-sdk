@@ -18,7 +18,7 @@ public class AzurermMonitorWorkspaceDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermMonitorWorkspaceDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermMonitorWorkspaceDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermMonitorWorkspaceDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,49 +64,37 @@ public partial class AzurermMonitorWorkspaceDataSource(string name) : TerraformD
     /// The default_data_collection_endpoint_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultDataCollectionEndpointId
-    {
-        get => new TerraformReference<string>(this, "default_data_collection_endpoint_id");
-    }
+        => AsReference("default_data_collection_endpoint_id");
 
     /// <summary>
     /// The default_data_collection_rule_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultDataCollectionRuleId
-    {
-        get => new TerraformReference<string>(this, "default_data_collection_rule_id");
-    }
+        => AsReference("default_data_collection_rule_id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PublicNetworkAccessEnabled
-    {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
-    }
+        => AsReference("public_network_access_enabled");
 
     /// <summary>
     /// The query_endpoint attribute.
     /// </summary>
     public TerraformValue<string> QueryEndpoint
-    {
-        get => new TerraformReference<string>(this, "query_endpoint");
-    }
+        => AsReference("query_endpoint");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

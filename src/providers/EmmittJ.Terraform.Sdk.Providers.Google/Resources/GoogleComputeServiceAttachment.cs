@@ -20,7 +20,7 @@ public class GoogleComputeServiceAttachmentConsumerAcceptListsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionLimit is required")]
     public required TerraformValue<double> ConnectionLimit
     {
-        get => new TerraformReference<double>(this, "connection_limit");
+        get => GetArgument<TerraformValue<double>>("connection_limit");
         set => SetArgument("connection_limit", value);
     }
 
@@ -30,7 +30,7 @@ public class GoogleComputeServiceAttachmentConsumerAcceptListsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? NetworkUrl
     {
-        get => new TerraformReference<string>(this, "network_url");
+        get => GetArgument<TerraformValue<string>>("network_url");
         set => SetArgument("network_url", value);
     }
 
@@ -40,7 +40,7 @@ public class GoogleComputeServiceAttachmentConsumerAcceptListsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? ProjectIdOrNum
     {
-        get => new TerraformReference<string>(this, "project_id_or_num");
+        get => GetArgument<TerraformValue<string>>("project_id_or_num");
         set => SetArgument("project_id_or_num", value);
     }
 
@@ -63,7 +63,7 @@ public class GoogleComputeServiceAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -72,7 +72,7 @@ public class GoogleComputeServiceAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -81,7 +81,7 @@ public class GoogleComputeServiceAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -101,7 +101,7 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionPreference is required")]
     public required TerraformValue<string> ConnectionPreference
     {
-        get => new TerraformReference<string>(this, "connection_preference");
+        get => GetArgument<TerraformValue<string>>("connection_preference");
         set => SetArgument("connection_preference", value);
     }
 
@@ -111,7 +111,7 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     /// </summary>
     public TerraformList<string>? ConsumerRejectLists
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "consumer_reject_lists").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("consumer_reject_lists");
         set => SetArgument("consumer_reject_lists", value);
     }
 
@@ -120,7 +120,7 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -132,7 +132,7 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     /// </summary>
     public TerraformList<string>? DomainNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "domain_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("domain_names");
         set => SetArgument("domain_names", value);
     }
 
@@ -144,16 +144,16 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableProxyProtocol is required")]
     public required TerraformValue<bool> EnableProxyProtocol
     {
-        get => new TerraformReference<bool>(this, "enable_proxy_protocol");
+        get => GetArgument<TerraformValue<bool>>("enable_proxy_protocol");
         set => SetArgument("enable_proxy_protocol", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -168,7 +168,7 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -178,16 +178,16 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatSubnets is required")]
     public TerraformList<string>? NatSubnets
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "nat_subnets").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("nat_subnets");
         set => SetArgument("nat_subnets", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -200,9 +200,9 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     /// 
     /// If unspecified, the default propagated connection limit is 250. To explicitly send a zero value, set &#39;send_propagated_connection_limit_if_zero = true&#39;.
     /// </summary>
-    public TerraformValue<double> PropagatedConnectionLimit
+    public TerraformValue<double>? PropagatedConnectionLimit
     {
-        get => new TerraformReference<double>(this, "propagated_connection_limit");
+        get => GetArgument<TerraformValue<double>>("propagated_connection_limit");
         set => SetArgument("propagated_connection_limit", value);
     }
 
@@ -212,18 +212,18 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     /// If false, connection policy update will only affect existing PENDING PSC endpoints. Existing ACCEPTED/REJECTED endpoints will remain untouched regardless how the connection policy is modified .
     /// If true, update will affect both PENDING and ACCEPTED/REJECTED PSC endpoints. For example, an ACCEPTED PSC endpoint will be moved to REJECTED if its project is added to the reject list.
     /// </summary>
-    public TerraformValue<bool> ReconcileConnections
+    public TerraformValue<bool>? ReconcileConnections
     {
-        get => new TerraformReference<bool>(this, "reconcile_connections");
+        get => GetArgument<TerraformValue<bool>>("reconcile_connections");
         set => SetArgument("reconcile_connections", value);
     }
 
     /// <summary>
     /// URL of the region where the resource resides.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -235,7 +235,7 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? SendPropagatedConnectionLimitIfZero
     {
-        get => new TerraformReference<bool>(this, "send_propagated_connection_limit_if_zero");
+        get => GetArgument<TerraformValue<bool>>("send_propagated_connection_limit_if_zero");
         set => SetArgument("send_propagated_connection_limit_if_zero", value);
     }
 
@@ -245,7 +245,7 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetService is required")]
     public required TerraformValue<string> TargetService
     {
-        get => new TerraformReference<string>(this, "target_service");
+        get => GetArgument<TerraformValue<string>>("target_service");
         set => SetArgument("target_service", value);
     }
 
@@ -254,34 +254,26 @@ public partial class GoogleComputeServiceAttachment(string name) : TerraformReso
     /// attachment.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConnectedEndpoints
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "connected_endpoints").ResolveNodes(ctx));
-    }
+        => AsReference("connected_endpoints");
 
     /// <summary>
     /// Fingerprint of this resource. This field is used internally during
     /// updates of this resource.
     /// </summary>
     public TerraformValue<string> Fingerprint
-    {
-        get => new TerraformReference<string>(this, "fingerprint");
-    }
+        => AsReference("fingerprint");
 
     /// <summary>
     /// An 128-bit global unique ID of the PSC service attachment.
     /// </summary>
     public TerraformList<TerraformMap<object>> PscServiceAttachmentId
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "psc_service_attachment_id").ResolveNodes(ctx));
-    }
+        => AsReference("psc_service_attachment_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// ConsumerAcceptLists block (nesting mode: set).

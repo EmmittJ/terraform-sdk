@@ -18,7 +18,7 @@ public class AzurermStorageQueueDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,18 +34,18 @@ public partial class AzurermStorageQueueDataSource(string name) : TerraformDataS
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformMap<string> Metadata
+    public TerraformMap<string>? Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermStorageQueueDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermStorageQueueDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? StorageAccountId
     {
-        get => new TerraformReference<string>(this, "storage_account_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermStorageQueueDataSource(string name) : TerraformDataS
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? StorageAccountName
     {
-        get => new TerraformReference<string>(this, "storage_account_name");
+        get => GetArgument<TerraformValue<string>>("storage_account_name");
         set => SetArgument("storage_account_name", value);
     }
 
@@ -83,17 +83,13 @@ public partial class AzurermStorageQueueDataSource(string name) : TerraformDataS
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> ResourceManagerId
-    {
-        get => new TerraformReference<string>(this, "resource_manager_id");
-    }
+        => AsReference("resource_manager_id");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-    {
-        get => new TerraformReference<string>(this, "url");
-    }
+        => AsReference("url");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

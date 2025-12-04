@@ -18,7 +18,7 @@ public class GoogleComputeRegionNetworkEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeRegionNetworkEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -47,16 +47,16 @@ public partial class GoogleComputeRegionNetworkEndpoint(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Fqdn
     {
-        get => new TerraformReference<string>(this, "fqdn");
+        get => GetArgument<TerraformValue<string>>("fqdn");
         set => SetArgument("fqdn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -67,7 +67,7 @@ public partial class GoogleComputeRegionNetworkEndpoint(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? IpAddress
     {
-        get => new TerraformReference<string>(this, "ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -77,25 +77,25 @@ public partial class GoogleComputeRegionNetworkEndpoint(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Region where the containing network endpoint group is located.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -105,7 +105,7 @@ public partial class GoogleComputeRegionNetworkEndpoint(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionNetworkEndpointGroup is required")]
     public required TerraformValue<string> RegionNetworkEndpointGroup
     {
-        get => new TerraformReference<string>(this, "region_network_endpoint_group");
+        get => GetArgument<TerraformValue<string>>("region_network_endpoint_group");
         set => SetArgument("region_network_endpoint_group", value);
     }
 
@@ -113,9 +113,7 @@ public partial class GoogleComputeRegionNetworkEndpoint(string name) : Terraform
     /// The unique identifier number for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<double> NetworkEndpointId
-    {
-        get => new TerraformReference<double>(this, "network_endpoint_id");
-    }
+        => AsReference("network_endpoint_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class AzurermKubernetesClusterTrustedAccessRoleBindingTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermKubernetesClusterTrustedAccessRoleBindingTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermKubernetesClusterTrustedAccessRoleBindingTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermKubernetesClusterTrustedAccessRoleBindingTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermKubernetesClusterTrustedAccessRoleBinding(string nam
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermKubernetesClusterTrustedAccessRoleBinding(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesClusterId is required")]
     public required TerraformValue<string> KubernetesClusterId
     {
-        get => new TerraformReference<string>(this, "kubernetes_cluster_id");
+        get => GetArgument<TerraformValue<string>>("kubernetes_cluster_id");
         set => SetArgument("kubernetes_cluster_id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermKubernetesClusterTrustedAccessRoleBinding(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermKubernetesClusterTrustedAccessRoleBinding(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
     public TerraformList<string>? Roles
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "roles").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("roles");
         set => SetArgument("roles", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermKubernetesClusterTrustedAccessRoleBinding(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceResourceId is required")]
     public required TerraformValue<string> SourceResourceId
     {
-        get => new TerraformReference<string>(this, "source_resource_id");
+        get => GetArgument<TerraformValue<string>>("source_resource_id");
         set => SetArgument("source_resource_id", value);
     }
 

@@ -19,7 +19,7 @@ public class AwsCustomerGatewayDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsCustomerGatewayDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsCustomerGatewayDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -68,27 +68,27 @@ public partial class AwsCustomerGatewayDataSource(string name) : TerraformDataSo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -96,57 +96,43 @@ public partial class AwsCustomerGatewayDataSource(string name) : TerraformDataSo
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The bgp_asn attribute.
     /// </summary>
     public TerraformValue<double> BgpAsn
-    {
-        get => new TerraformReference<double>(this, "bgp_asn");
-    }
+        => AsReference("bgp_asn");
 
     /// <summary>
     /// The bgp_asn_extended attribute.
     /// </summary>
     public TerraformValue<double> BgpAsnExtended
-    {
-        get => new TerraformReference<double>(this, "bgp_asn_extended");
-    }
+        => AsReference("bgp_asn_extended");
 
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
     public TerraformValue<string> CertificateArn
-    {
-        get => new TerraformReference<string>(this, "certificate_arn");
-    }
+        => AsReference("certificate_arn");
 
     /// <summary>
     /// The device_name attribute.
     /// </summary>
     public TerraformValue<string> DeviceName
-    {
-        get => new TerraformReference<string>(this, "device_name");
-    }
+        => AsReference("device_name");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     public TerraformValue<string> IpAddress
-    {
-        get => new TerraformReference<string>(this, "ip_address");
-    }
+        => AsReference("ip_address");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// Filter block (nesting mode: set).

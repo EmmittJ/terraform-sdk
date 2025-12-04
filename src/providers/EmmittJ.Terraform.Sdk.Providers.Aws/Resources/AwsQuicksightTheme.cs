@@ -71,7 +71,7 @@ public class AwsQuicksightThemeConfigurationBlockDataColorPaletteBlock : Terrafo
     /// </summary>
     public TerraformList<string>? Colors
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "colors").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("colors");
         set => SetArgument("colors", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsQuicksightThemeConfigurationBlockDataColorPaletteBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? EmptyFillColor
     {
-        get => new TerraformReference<string>(this, "empty_fill_color");
+        get => GetArgument<TerraformValue<string>>("empty_fill_color");
         set => SetArgument("empty_fill_color", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsQuicksightThemeConfigurationBlockDataColorPaletteBlock : Terrafo
     /// </summary>
     public TerraformList<string>? MinMaxGradient
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "min_max_gradient").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("min_max_gradient");
         set => SetArgument("min_max_gradient", value);
     }
 
@@ -167,7 +167,7 @@ public class AwsQuicksightThemeConfigurationBlockSheetBlockTileBlockBorderBlock 
     /// </summary>
     public TerraformValue<bool>? Show
     {
-        get => new TerraformReference<bool>(this, "show");
+        get => GetArgument<TerraformValue<bool>>("show");
         set => SetArgument("show", value);
     }
 
@@ -222,7 +222,7 @@ public class AwsQuicksightThemeConfigurationBlockSheetBlockTileLayoutBlockGutter
     /// </summary>
     public TerraformValue<bool>? Show
     {
-        get => new TerraformReference<bool>(this, "show");
+        get => GetArgument<TerraformValue<bool>>("show");
         set => SetArgument("show", value);
     }
 
@@ -244,7 +244,7 @@ public class AwsQuicksightThemeConfigurationBlockSheetBlockTileLayoutBlockMargin
     /// </summary>
     public TerraformValue<bool>? Show
     {
-        get => new TerraformReference<bool>(this, "show");
+        get => GetArgument<TerraformValue<bool>>("show");
         set => SetArgument("show", value);
     }
 
@@ -289,7 +289,7 @@ public class AwsQuicksightThemeConfigurationBlockTypographyBlockFontFamiliesBloc
     /// </summary>
     public TerraformValue<string>? FontFamily
     {
-        get => new TerraformReference<string>(this, "font_family");
+        get => GetArgument<TerraformValue<string>>("font_family");
         set => SetArgument("font_family", value);
     }
 
@@ -311,7 +311,7 @@ public class AwsQuicksightThemeConfigurationBlockUiColorPaletteBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Accent
     {
-        get => new TerraformReference<string>(this, "accent");
+        get => GetArgument<TerraformValue<string>>("accent");
         set => SetArgument("accent", value);
     }
 
@@ -320,7 +320,7 @@ public class AwsQuicksightThemeConfigurationBlockUiColorPaletteBlock : Terraform
     /// </summary>
     public TerraformValue<string>? AccentForeground
     {
-        get => new TerraformReference<string>(this, "accent_foreground");
+        get => GetArgument<TerraformValue<string>>("accent_foreground");
         set => SetArgument("accent_foreground", value);
     }
 
@@ -329,7 +329,7 @@ public class AwsQuicksightThemeConfigurationBlockUiColorPaletteBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Danger
     {
-        get => new TerraformReference<string>(this, "danger");
+        get => GetArgument<TerraformValue<string>>("danger");
         set => SetArgument("danger", value);
     }
 
@@ -338,7 +338,7 @@ public class AwsQuicksightThemeConfigurationBlockUiColorPaletteBlock : Terraform
     /// </summary>
     public TerraformValue<string>? DangerForeground
     {
-        get => new TerraformReference<string>(this, "danger_foreground");
+        get => GetArgument<TerraformValue<string>>("danger_foreground");
         set => SetArgument("danger_foreground", value);
     }
 
@@ -347,7 +347,7 @@ public class AwsQuicksightThemeConfigurationBlockUiColorPaletteBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Dimension
     {
-        get => new TerraformReference<string>(this, "dimension");
+        get => GetArgument<TerraformValue<string>>("dimension");
         set => SetArgument("dimension", value);
     }
 
@@ -356,7 +356,7 @@ public class AwsQuicksightThemeConfigurationBlockUiColorPaletteBlock : Terraform
     /// </summary>
     public TerraformValue<string>? DimensionForeground
     {
-        get => new TerraformReference<string>(this, "dimension_foreground");
+        get => GetArgument<TerraformValue<string>>("dimension_foreground");
         set => SetArgument("dimension_foreground", value);
     }
 
@@ -365,7 +365,7 @@ public class AwsQuicksightThemeConfigurationBlockUiColorPaletteBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Measure
     {
-        get => new TerraformReference<string>(this, "measure");
+        get => GetArgument<TerraformValue<string>>("measure");
         set => SetArgument("measure", value);
     }
 
@@ -374,7 +374,7 @@ public class AwsQuicksightThemeConfigurationBlockUiColorPaletteBlock : Terraform
     /// </summary>
     public TerraformValue<string>? MeasureForeground
     {
-        get => new TerraformReference<string>(this, "measure_foreground");
+        get => GetArgument<TerraformValue<string>>("measure_foreground");
         set => SetArgument("measure_foreground", value);
     }
 
@@ -383,7 +383,7 @@ public class AwsQuicksightThemeConfigurationBlockUiColorPaletteBlock : Terraform
     /// </summary>
     public TerraformValue<string>? PrimaryBackground
     {
-        get => new TerraformReference<string>(this, "primary_background");
+        get => GetArgument<TerraformValue<string>>("primary_background");
         set => SetArgument("primary_background", value);
     }
 
@@ -392,7 +392,7 @@ public class AwsQuicksightThemeConfigurationBlockUiColorPaletteBlock : Terraform
     /// </summary>
     public TerraformValue<string>? PrimaryForeground
     {
-        get => new TerraformReference<string>(this, "primary_foreground");
+        get => GetArgument<TerraformValue<string>>("primary_foreground");
         set => SetArgument("primary_foreground", value);
     }
 
@@ -401,7 +401,7 @@ public class AwsQuicksightThemeConfigurationBlockUiColorPaletteBlock : Terraform
     /// </summary>
     public TerraformValue<string>? SecondaryBackground
     {
-        get => new TerraformReference<string>(this, "secondary_background");
+        get => GetArgument<TerraformValue<string>>("secondary_background");
         set => SetArgument("secondary_background", value);
     }
 
@@ -410,7 +410,7 @@ public class AwsQuicksightThemeConfigurationBlockUiColorPaletteBlock : Terraform
     /// </summary>
     public TerraformValue<string>? SecondaryForeground
     {
-        get => new TerraformReference<string>(this, "secondary_foreground");
+        get => GetArgument<TerraformValue<string>>("secondary_foreground");
         set => SetArgument("secondary_foreground", value);
     }
 
@@ -419,7 +419,7 @@ public class AwsQuicksightThemeConfigurationBlockUiColorPaletteBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Success
     {
-        get => new TerraformReference<string>(this, "success");
+        get => GetArgument<TerraformValue<string>>("success");
         set => SetArgument("success", value);
     }
 
@@ -428,7 +428,7 @@ public class AwsQuicksightThemeConfigurationBlockUiColorPaletteBlock : Terraform
     /// </summary>
     public TerraformValue<string>? SuccessForeground
     {
-        get => new TerraformReference<string>(this, "success_foreground");
+        get => GetArgument<TerraformValue<string>>("success_foreground");
         set => SetArgument("success_foreground", value);
     }
 
@@ -437,7 +437,7 @@ public class AwsQuicksightThemeConfigurationBlockUiColorPaletteBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Warning
     {
-        get => new TerraformReference<string>(this, "warning");
+        get => GetArgument<TerraformValue<string>>("warning");
         set => SetArgument("warning", value);
     }
 
@@ -446,7 +446,7 @@ public class AwsQuicksightThemeConfigurationBlockUiColorPaletteBlock : Terraform
     /// </summary>
     public TerraformValue<string>? WarningForeground
     {
-        get => new TerraformReference<string>(this, "warning_foreground");
+        get => GetArgument<TerraformValue<string>>("warning_foreground");
         set => SetArgument("warning_foreground", value);
     }
 
@@ -470,7 +470,7 @@ public class AwsQuicksightThemePermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     public required TerraformSet<string> Actions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("actions");
         set => SetArgument("actions", value);
     }
 
@@ -480,7 +480,7 @@ public class AwsQuicksightThemePermissionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformValue<string> Principal
     {
-        get => new TerraformReference<string>(this, "principal");
+        get => GetArgument<TerraformValue<string>>("principal");
         set => SetArgument("principal", value);
     }
 
@@ -503,7 +503,7 @@ public class AwsQuicksightThemeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -512,7 +512,7 @@ public class AwsQuicksightThemeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -521,7 +521,7 @@ public class AwsQuicksightThemeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -537,9 +537,9 @@ public partial class AwsQuicksightTheme(string name) : TerraformResource("aws_qu
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string> AwsAccountId
+    public TerraformValue<string>? AwsAccountId
     {
-        get => new TerraformReference<string>(this, "aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -549,16 +549,16 @@ public partial class AwsQuicksightTheme(string name) : TerraformResource("aws_qu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseThemeId is required")]
     public required TerraformValue<string> BaseThemeId
     {
-        get => new TerraformReference<string>(this, "base_theme_id");
+        get => GetArgument<TerraformValue<string>>("base_theme_id");
         set => SetArgument("base_theme_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -568,16 +568,16 @@ public partial class AwsQuicksightTheme(string name) : TerraformResource("aws_qu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -586,16 +586,16 @@ public partial class AwsQuicksightTheme(string name) : TerraformResource("aws_qu
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -605,7 +605,7 @@ public partial class AwsQuicksightTheme(string name) : TerraformResource("aws_qu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThemeId is required")]
     public required TerraformValue<string> ThemeId
     {
-        get => new TerraformReference<string>(this, "theme_id");
+        get => GetArgument<TerraformValue<string>>("theme_id");
         set => SetArgument("theme_id", value);
     }
 
@@ -614,7 +614,7 @@ public partial class AwsQuicksightTheme(string name) : TerraformResource("aws_qu
     /// </summary>
     public TerraformValue<string>? VersionDescription
     {
-        get => new TerraformReference<string>(this, "version_description");
+        get => GetArgument<TerraformValue<string>>("version_description");
         set => SetArgument("version_description", value);
     }
 
@@ -622,41 +622,31 @@ public partial class AwsQuicksightTheme(string name) : TerraformResource("aws_qu
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-    {
-        get => new TerraformReference<string>(this, "created_time");
-    }
+        => AsReference("created_time");
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedTime
-    {
-        get => new TerraformReference<string>(this, "last_updated_time");
-    }
+        => AsReference("last_updated_time");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The version_number attribute.
     /// </summary>
     public TerraformValue<double> VersionNumber
-    {
-        get => new TerraformReference<double>(this, "version_number");
-    }
+        => AsReference("version_number");
 
     /// <summary>
     /// Configuration block (nesting mode: list).

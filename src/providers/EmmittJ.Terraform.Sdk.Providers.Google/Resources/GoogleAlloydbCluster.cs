@@ -20,18 +20,18 @@ public class GoogleAlloydbClusterAutomatedBackupPolicyBlock : TerraformBlock
     /// 
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformValue<string> BackupWindow
+    public TerraformValue<string>? BackupWindow
     {
-        get => new TerraformReference<string>(this, "backup_window");
+        get => GetArgument<TerraformValue<string>>("backup_window");
         set => SetArgument("backup_window", value);
     }
 
     /// <summary>
     /// Whether automated backups are enabled.
     /// </summary>
-    public TerraformValue<bool> Enabled
+    public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -40,16 +40,16 @@ public class GoogleAlloydbClusterAutomatedBackupPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// The location where the backup will be stored. Currently, the only supported option is to store the backup in the same region as the cluster.
     /// </summary>
-    public TerraformValue<string> Location
+    public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleAlloydbClusterAutomatedBackupPolicyBlockEncryptionConfigBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleAlloydbClusterAutomatedBackupPolicyBlockQuantityBasedRetentio
     /// </summary>
     public TerraformValue<double>? CountAttribute
     {
-        get => new TerraformReference<double>(this, "count");
+        get => GetArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -156,7 +156,7 @@ public class GoogleAlloydbClusterAutomatedBackupPolicyBlockTimeBasedRetentionBlo
     /// </summary>
     public TerraformValue<string>? RetentionPeriod
     {
-        get => new TerraformReference<string>(this, "retention_period");
+        get => GetArgument<TerraformValue<string>>("retention_period");
         set => SetArgument("retention_period", value);
     }
 
@@ -178,7 +178,7 @@ public class GoogleAlloydbClusterAutomatedBackupPolicyBlockWeeklyScheduleBlock :
     /// </summary>
     public TerraformList<string>? DaysOfWeek
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "days_of_week").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("days_of_week");
         set => SetArgument("days_of_week", value);
     }
 
@@ -212,7 +212,7 @@ public class GoogleAlloydbClusterAutomatedBackupPolicyBlockWeeklyScheduleBlockSt
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -221,7 +221,7 @@ public class GoogleAlloydbClusterAutomatedBackupPolicyBlockWeeklyScheduleBlockSt
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -230,7 +230,7 @@ public class GoogleAlloydbClusterAutomatedBackupPolicyBlockWeeklyScheduleBlockSt
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -239,7 +239,7 @@ public class GoogleAlloydbClusterAutomatedBackupPolicyBlockWeeklyScheduleBlockSt
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -262,7 +262,7 @@ public class GoogleAlloydbClusterContinuousBackupConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -271,9 +271,9 @@ public class GoogleAlloydbClusterContinuousBackupConfigBlock : TerraformBlock
     /// 
     /// If not set, defaults to 14 days.
     /// </summary>
-    public TerraformValue<double> RecoveryWindowDays
+    public TerraformValue<double>? RecoveryWindowDays
     {
-        get => new TerraformReference<double>(this, "recovery_window_days");
+        get => GetArgument<TerraformValue<double>>("recovery_window_days");
         set => SetArgument("recovery_window_days", value);
     }
 
@@ -305,7 +305,7 @@ public class GoogleAlloydbClusterContinuousBackupConfigBlockEncryptionConfigBloc
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -328,7 +328,7 @@ public class GoogleAlloydbClusterEncryptionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -352,7 +352,7 @@ public class GoogleAlloydbClusterInitialUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -361,7 +361,7 @@ public class GoogleAlloydbClusterInitialUserBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? User
     {
-        get => new TerraformReference<string>(this, "user");
+        get => GetArgument<TerraformValue<string>>("user");
         set => SetArgument("user", value);
     }
 
@@ -407,7 +407,7 @@ public class GoogleAlloydbClusterMaintenanceUpdatePolicyBlockMaintenanceWindowsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<string> Day
     {
-        get => new TerraformReference<string>(this, "day");
+        get => GetArgument<TerraformValue<string>>("day");
         set => SetArgument("day", value);
     }
 
@@ -443,7 +443,7 @@ public class GoogleAlloydbClusterMaintenanceUpdatePolicyBlockMaintenanceWindowsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hours is required")]
     public required TerraformValue<double> Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -452,7 +452,7 @@ public class GoogleAlloydbClusterMaintenanceUpdatePolicyBlockMaintenanceWindowsB
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -461,7 +461,7 @@ public class GoogleAlloydbClusterMaintenanceUpdatePolicyBlockMaintenanceWindowsB
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -470,7 +470,7 @@ public class GoogleAlloydbClusterMaintenanceUpdatePolicyBlockMaintenanceWindowsB
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -494,7 +494,7 @@ public class GoogleAlloydbClusterNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AllocatedIpRange
     {
-        get => new TerraformReference<string>(this, "allocated_ip_range");
+        get => GetArgument<TerraformValue<string>>("allocated_ip_range");
         set => SetArgument("allocated_ip_range", value);
     }
 
@@ -504,7 +504,7 @@ public class GoogleAlloydbClusterNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -527,7 +527,7 @@ public class GoogleAlloydbClusterPscConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PscEnabled
     {
-        get => new TerraformReference<bool>(this, "psc_enabled");
+        get => GetArgument<TerraformValue<bool>>("psc_enabled");
         set => SetArgument("psc_enabled", value);
     }
 
@@ -536,9 +536,7 @@ public class GoogleAlloydbClusterPscConfigBlock : TerraformBlock
     /// In case the network attachment is configured to ACCEPT_AUTOMATIC, this project number does not need to be allowlisted explicitly.
     /// </summary>
     public TerraformValue<double> ServiceOwnedProjectNumber
-    {
-        get => new TerraformReference<double>(this, "service_owned_project_number");
-    }
+        => AsReference("service_owned_project_number");
 
 }
 
@@ -560,7 +558,7 @@ public class GoogleAlloydbClusterRestoreBackupSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupName is required")]
     public required TerraformValue<string> BackupName
     {
-        get => new TerraformReference<string>(this, "backup_name");
+        get => GetArgument<TerraformValue<string>>("backup_name");
         set => SetArgument("backup_name", value);
     }
 
@@ -584,7 +582,7 @@ public class GoogleAlloydbClusterRestoreContinuousBackupSourceBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => new TerraformReference<string>(this, "cluster");
+        get => GetArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
@@ -594,7 +592,7 @@ public class GoogleAlloydbClusterRestoreContinuousBackupSourceBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PointInTime is required")]
     public required TerraformValue<string> PointInTime
     {
-        get => new TerraformReference<string>(this, "point_in_time");
+        get => GetArgument<TerraformValue<string>>("point_in_time");
         set => SetArgument("point_in_time", value);
     }
 
@@ -619,7 +617,7 @@ public class GoogleAlloydbClusterSecondaryConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryClusterName is required")]
     public required TerraformValue<string> PrimaryClusterName
     {
-        get => new TerraformReference<string>(this, "primary_cluster_name");
+        get => GetArgument<TerraformValue<string>>("primary_cluster_name");
         set => SetArgument("primary_cluster_name", value);
     }
 
@@ -642,7 +640,7 @@ public class GoogleAlloydbClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -651,7 +649,7 @@ public class GoogleAlloydbClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -660,7 +658,7 @@ public class GoogleAlloydbClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -683,7 +681,7 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -693,7 +691,7 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => new TerraformReference<string>(this, "cluster_id");
+        get => GetArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
@@ -702,7 +700,7 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? ClusterType
     {
-        get => new TerraformReference<string>(this, "cluster_type");
+        get => GetArgument<TerraformValue<string>>("cluster_type");
         set => SetArgument("cluster_type", value);
     }
 
@@ -710,9 +708,9 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     /// The database engine major version. This is an optional field and it&#39;s populated at the Cluster creation time.
     /// Note: Changing this field to a higer version results in upgrading the AlloyDB cluster which is an irreversible change.
     /// </summary>
-    public TerraformValue<string> DatabaseVersion
+    public TerraformValue<string>? DatabaseVersion
     {
-        get => new TerraformReference<string>(this, "database_version");
+        get => GetArgument<TerraformValue<string>>("database_version");
         set => SetArgument("database_version", value);
     }
 
@@ -724,7 +722,7 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? DeletionPolicy
     {
-        get => new TerraformReference<string>(this, "deletion_policy");
+        get => GetArgument<TerraformValue<string>>("deletion_policy");
         set => SetArgument("deletion_policy", value);
     }
 
@@ -736,7 +734,7 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
@@ -745,7 +743,7 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -754,16 +752,16 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? Etag
     {
-        get => new TerraformReference<string>(this, "etag");
+        get => GetArgument<TerraformValue<string>>("etag");
         set => SetArgument("etag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -775,7 +773,7 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -785,16 +783,16 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -805,16 +803,16 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<bool>? SkipAwaitMajorVersionUpgrade
     {
-        get => new TerraformReference<bool>(this, "skip_await_major_version_upgrade");
+        get => GetArgument<TerraformValue<bool>>("skip_await_major_version_upgrade");
         set => SetArgument("skip_await_major_version_upgrade", value);
     }
 
     /// <summary>
     /// The subscrition type of cluster. Possible values: [&amp;quot;TRIAL&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
-    public TerraformValue<string> SubscriptionType
+    public TerraformValue<string>? SubscriptionType
     {
-        get => new TerraformReference<string>(this, "subscription_type");
+        get => GetArgument<TerraformValue<string>>("subscription_type");
         set => SetArgument("subscription_type", value);
     }
 
@@ -822,57 +820,43 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     /// Cluster created from backup.
     /// </summary>
     public TerraformList<TerraformMap<object>> BackupSource
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "backup_source").ResolveNodes(ctx));
-    }
+        => AsReference("backup_source");
 
     /// <summary>
     /// ContinuousBackupInfo describes the continuous backup properties of a cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> ContinuousBackupInfo
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "continuous_backup_info").ResolveNodes(ctx));
-    }
+        => AsReference("continuous_backup_info");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// EncryptionInfo describes the encryption information of a cluster or a backup.
     /// </summary>
     public TerraformList<TerraformMap<object>> EncryptionInfo
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "encryption_info").ResolveNodes(ctx));
-    }
+        => AsReference("encryption_info");
 
     /// <summary>
     /// Cluster created via DMS migration.
     /// </summary>
     public TerraformList<TerraformMap<object>> MigrationSource
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "migration_source").ResolveNodes(ctx));
-    }
+        => AsReference("migration_source");
 
     /// <summary>
     /// The name of the cluster resource.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. Reconciling (https://google.aip.dev/128#reconciliation).
@@ -880,42 +864,32 @@ public partial class GoogleAlloydbCluster(string name) : TerraformResource("goog
     /// This can happen due to user-triggered updates or system actions like failover or maintenance.
     /// </summary>
     public TerraformValue<bool> Reconciling
-    {
-        get => new TerraformReference<bool>(this, "reconciling");
-    }
+        => AsReference("reconciling");
 
     /// <summary>
     /// Output only. The current serving state of the cluster.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Contains information and all metadata related to TRIAL clusters.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrialMetadata
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "trial_metadata").ResolveNodes(ctx));
-    }
+        => AsReference("trial_metadata");
 
     /// <summary>
     /// The system-generated UID of the resource.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// AutomatedBackupPolicy block (nesting mode: list).

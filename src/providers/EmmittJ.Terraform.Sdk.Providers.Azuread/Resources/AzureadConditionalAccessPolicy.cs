@@ -19,16 +19,16 @@ public class AzureadConditionalAccessPolicyConditionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientAppTypes is required")]
     public TerraformList<string>? ClientAppTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "client_app_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("client_app_types");
         set => SetArgument("client_app_types", value);
     }
 
     /// <summary>
     /// The insider_risk_levels attribute.
     /// </summary>
-    public TerraformValue<string> InsiderRiskLevels
+    public TerraformValue<string>? InsiderRiskLevels
     {
-        get => new TerraformReference<string>(this, "insider_risk_levels");
+        get => GetArgument<TerraformValue<string>>("insider_risk_levels");
         set => SetArgument("insider_risk_levels", value);
     }
 
@@ -37,7 +37,7 @@ public class AzureadConditionalAccessPolicyConditionsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ServicePrincipalRiskLevels
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "service_principal_risk_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("service_principal_risk_levels");
         set => SetArgument("service_principal_risk_levels", value);
     }
 
@@ -46,7 +46,7 @@ public class AzureadConditionalAccessPolicyConditionsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? SignInRiskLevels
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "sign_in_risk_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("sign_in_risk_levels");
         set => SetArgument("sign_in_risk_levels", value);
     }
 
@@ -55,7 +55,7 @@ public class AzureadConditionalAccessPolicyConditionsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? UserRiskLevels
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "user_risk_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("user_risk_levels");
         set => SetArgument("user_risk_levels", value);
     }
 
@@ -143,7 +143,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockApplicationsBlock : Te
     /// </summary>
     public TerraformList<string>? ExcludedApplications
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_applications").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excluded_applications");
         set => SetArgument("excluded_applications", value);
     }
 
@@ -152,7 +152,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockApplicationsBlock : Te
     /// </summary>
     public TerraformList<string>? IncludedApplications
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_applications").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("included_applications");
         set => SetArgument("included_applications", value);
     }
 
@@ -161,7 +161,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockApplicationsBlock : Te
     /// </summary>
     public TerraformList<string>? IncludedUserActions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_user_actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("included_user_actions");
         set => SetArgument("included_user_actions", value);
     }
 
@@ -183,7 +183,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockClientApplicationsBloc
     /// </summary>
     public TerraformList<string>? ExcludedServicePrincipals
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_service_principals").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excluded_service_principals");
         set => SetArgument("excluded_service_principals", value);
     }
 
@@ -192,7 +192,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockClientApplicationsBloc
     /// </summary>
     public TerraformList<string>? IncludedServicePrincipals
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_service_principals").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("included_service_principals");
         set => SetArgument("included_service_principals", value);
     }
 
@@ -225,7 +225,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockClientApplicationsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -235,7 +235,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockClientApplicationsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     public required TerraformValue<string> Rule
     {
-        get => new TerraformReference<string>(this, "rule");
+        get => GetArgument<TerraformValue<string>>("rule");
         set => SetArgument("rule", value);
     }
 
@@ -281,7 +281,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockDevicesBlockFilterBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -291,7 +291,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockDevicesBlockFilterBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     public required TerraformValue<string> Rule
     {
-        get => new TerraformReference<string>(this, "rule");
+        get => GetArgument<TerraformValue<string>>("rule");
         set => SetArgument("rule", value);
     }
 
@@ -313,7 +313,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockLocationsBlock : Terra
     /// </summary>
     public TerraformList<string>? ExcludedLocations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excluded_locations");
         set => SetArgument("excluded_locations", value);
     }
 
@@ -323,7 +323,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockLocationsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IncludedLocations is required")]
     public TerraformList<string>? IncludedLocations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("included_locations");
         set => SetArgument("included_locations", value);
     }
 
@@ -345,7 +345,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockPlatformsBlock : Terra
     /// </summary>
     public TerraformList<string>? ExcludedPlatforms
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_platforms").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excluded_platforms");
         set => SetArgument("excluded_platforms", value);
     }
 
@@ -355,7 +355,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockPlatformsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IncludedPlatforms is required")]
     public TerraformList<string>? IncludedPlatforms
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_platforms").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("included_platforms");
         set => SetArgument("included_platforms", value);
     }
 
@@ -377,7 +377,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockUsersBlock : Terraform
     /// </summary>
     public TerraformList<string>? ExcludedGroups
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excluded_groups");
         set => SetArgument("excluded_groups", value);
     }
 
@@ -386,7 +386,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockUsersBlock : Terraform
     /// </summary>
     public TerraformList<string>? ExcludedRoles
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_roles").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excluded_roles");
         set => SetArgument("excluded_roles", value);
     }
 
@@ -395,7 +395,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockUsersBlock : Terraform
     /// </summary>
     public TerraformList<string>? ExcludedUsers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_users").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excluded_users");
         set => SetArgument("excluded_users", value);
     }
 
@@ -404,7 +404,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockUsersBlock : Terraform
     /// </summary>
     public TerraformList<string>? IncludedGroups
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("included_groups");
         set => SetArgument("included_groups", value);
     }
 
@@ -413,7 +413,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockUsersBlock : Terraform
     /// </summary>
     public TerraformList<string>? IncludedRoles
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_roles").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("included_roles");
         set => SetArgument("included_roles", value);
     }
 
@@ -422,7 +422,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockUsersBlock : Terraform
     /// </summary>
     public TerraformList<string>? IncludedUsers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_users").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("included_users");
         set => SetArgument("included_users", value);
     }
 
@@ -463,7 +463,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockUsersBlockExcludedGues
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GuestOrExternalUserTypes is required")]
     public TerraformList<string>? GuestOrExternalUserTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "guest_or_external_user_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("guest_or_external_user_types");
         set => SetArgument("guest_or_external_user_types", value);
     }
 
@@ -494,7 +494,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockUsersBlockExcludedGues
     /// </summary>
     public TerraformList<string>? Members
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "members").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("members");
         set => SetArgument("members", value);
     }
 
@@ -504,7 +504,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockUsersBlockExcludedGues
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipKind is required")]
     public required TerraformValue<string> MembershipKind
     {
-        get => new TerraformReference<string>(this, "membership_kind");
+        get => GetArgument<TerraformValue<string>>("membership_kind");
         set => SetArgument("membership_kind", value);
     }
 
@@ -527,7 +527,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockUsersBlockIncludedGues
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GuestOrExternalUserTypes is required")]
     public TerraformList<string>? GuestOrExternalUserTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "guest_or_external_user_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("guest_or_external_user_types");
         set => SetArgument("guest_or_external_user_types", value);
     }
 
@@ -558,7 +558,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockUsersBlockIncludedGues
     /// </summary>
     public TerraformList<string>? Members
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "members").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("members");
         set => SetArgument("members", value);
     }
 
@@ -568,7 +568,7 @@ public class AzureadConditionalAccessPolicyConditionsBlockUsersBlockIncludedGues
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipKind is required")]
     public required TerraformValue<string> MembershipKind
     {
-        get => new TerraformReference<string>(this, "membership_kind");
+        get => GetArgument<TerraformValue<string>>("membership_kind");
         set => SetArgument("membership_kind", value);
     }
 
@@ -591,7 +591,7 @@ public class AzureadConditionalAccessPolicyGrantControlsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AuthenticationStrengthPolicyId
     {
-        get => new TerraformReference<string>(this, "authentication_strength_policy_id");
+        get => GetArgument<TerraformValue<string>>("authentication_strength_policy_id");
         set => SetArgument("authentication_strength_policy_id", value);
     }
 
@@ -600,7 +600,7 @@ public class AzureadConditionalAccessPolicyGrantControlsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? BuiltInControls
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "built_in_controls").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("built_in_controls");
         set => SetArgument("built_in_controls", value);
     }
 
@@ -609,7 +609,7 @@ public class AzureadConditionalAccessPolicyGrantControlsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? CustomAuthenticationFactors
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "custom_authentication_factors").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("custom_authentication_factors");
         set => SetArgument("custom_authentication_factors", value);
     }
 
@@ -619,7 +619,7 @@ public class AzureadConditionalAccessPolicyGrantControlsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -628,7 +628,7 @@ public class AzureadConditionalAccessPolicyGrantControlsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? TermsOfUse
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "terms_of_use").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("terms_of_use");
         set => SetArgument("terms_of_use", value);
     }
 
@@ -651,7 +651,7 @@ public class AzureadConditionalAccessPolicySessionControlsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ApplicationEnforcedRestrictionsEnabled
     {
-        get => new TerraformReference<bool>(this, "application_enforced_restrictions_enabled");
+        get => GetArgument<TerraformValue<bool>>("application_enforced_restrictions_enabled");
         set => SetArgument("application_enforced_restrictions_enabled", value);
     }
 
@@ -660,7 +660,7 @@ public class AzureadConditionalAccessPolicySessionControlsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CloudAppSecurityPolicy
     {
-        get => new TerraformReference<string>(this, "cloud_app_security_policy");
+        get => GetArgument<TerraformValue<string>>("cloud_app_security_policy");
         set => SetArgument("cloud_app_security_policy", value);
     }
 
@@ -669,7 +669,7 @@ public class AzureadConditionalAccessPolicySessionControlsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DisableResilienceDefaults
     {
-        get => new TerraformReference<bool>(this, "disable_resilience_defaults");
+        get => GetArgument<TerraformValue<bool>>("disable_resilience_defaults");
         set => SetArgument("disable_resilience_defaults", value);
     }
 
@@ -678,7 +678,7 @@ public class AzureadConditionalAccessPolicySessionControlsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PersistentBrowserMode
     {
-        get => new TerraformReference<string>(this, "persistent_browser_mode");
+        get => GetArgument<TerraformValue<string>>("persistent_browser_mode");
         set => SetArgument("persistent_browser_mode", value);
     }
 
@@ -687,25 +687,25 @@ public class AzureadConditionalAccessPolicySessionControlsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SignInFrequency
     {
-        get => new TerraformReference<double>(this, "sign_in_frequency");
+        get => GetArgument<TerraformValue<double>>("sign_in_frequency");
         set => SetArgument("sign_in_frequency", value);
     }
 
     /// <summary>
     /// The sign_in_frequency_authentication_type attribute.
     /// </summary>
-    public TerraformValue<string> SignInFrequencyAuthenticationType
+    public TerraformValue<string>? SignInFrequencyAuthenticationType
     {
-        get => new TerraformReference<string>(this, "sign_in_frequency_authentication_type");
+        get => GetArgument<TerraformValue<string>>("sign_in_frequency_authentication_type");
         set => SetArgument("sign_in_frequency_authentication_type", value);
     }
 
     /// <summary>
     /// The sign_in_frequency_interval attribute.
     /// </summary>
-    public TerraformValue<string> SignInFrequencyInterval
+    public TerraformValue<string>? SignInFrequencyInterval
     {
-        get => new TerraformReference<string>(this, "sign_in_frequency_interval");
+        get => GetArgument<TerraformValue<string>>("sign_in_frequency_interval");
         set => SetArgument("sign_in_frequency_interval", value);
     }
 
@@ -714,7 +714,7 @@ public class AzureadConditionalAccessPolicySessionControlsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SignInFrequencyPeriod
     {
-        get => new TerraformReference<string>(this, "sign_in_frequency_period");
+        get => GetArgument<TerraformValue<string>>("sign_in_frequency_period");
         set => SetArgument("sign_in_frequency_period", value);
     }
 
@@ -737,7 +737,7 @@ public class AzureadConditionalAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -746,7 +746,7 @@ public class AzureadConditionalAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -755,7 +755,7 @@ public class AzureadConditionalAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -764,7 +764,7 @@ public class AzureadConditionalAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -783,16 +783,16 @@ public partial class AzureadConditionalAccessPolicy(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -802,7 +802,7 @@ public partial class AzureadConditionalAccessPolicy(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformValue<string> State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -810,9 +810,7 @@ public partial class AzureadConditionalAccessPolicy(string name) : TerraformReso
     /// The object ID of the policy
     /// </summary>
     public TerraformValue<string> ObjectId
-    {
-        get => new TerraformReference<string>(this, "object_id");
-    }
+        => AsReference("object_id");
 
     /// <summary>
     /// Conditions block (nesting mode: list).

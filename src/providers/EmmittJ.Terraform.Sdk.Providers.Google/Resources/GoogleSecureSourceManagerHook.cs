@@ -21,7 +21,7 @@ public class GoogleSecureSourceManagerHookPushOptionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BranchFilter
     {
-        get => new TerraformReference<string>(this, "branch_filter");
+        get => GetArgument<TerraformValue<string>>("branch_filter");
         set => SetArgument("branch_filter", value);
     }
 
@@ -44,7 +44,7 @@ public class GoogleSecureSourceManagerHookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleSecureSourceManagerHookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleSecureSourceManagerHookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -81,16 +81,16 @@ public partial class GoogleSecureSourceManagerHook(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
     /// <summary>
     /// The events that trigger hook on. Possible values: [&amp;quot;PUSH&amp;quot;, &amp;quot;PULL_REQUEST&amp;quot;]
     /// </summary>
-    public TerraformList<string> Events
+    public TerraformList<string>? Events
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "events").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("events");
         set => SetArgument("events", value);
     }
 
@@ -100,16 +100,16 @@ public partial class GoogleSecureSourceManagerHook(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HookId is required")]
     public required TerraformValue<string> HookId
     {
-        get => new TerraformReference<string>(this, "hook_id");
+        get => GetArgument<TerraformValue<string>>("hook_id");
         set => SetArgument("hook_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -119,16 +119,16 @@ public partial class GoogleSecureSourceManagerHook(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -138,7 +138,7 @@ public partial class GoogleSecureSourceManagerHook(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformValue<string> RepositoryId
     {
-        get => new TerraformReference<string>(this, "repository_id");
+        get => GetArgument<TerraformValue<string>>("repository_id");
         set => SetArgument("repository_id", value);
     }
 
@@ -147,7 +147,7 @@ public partial class GoogleSecureSourceManagerHook(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? SensitiveQueryString
     {
-        get => new TerraformReference<string>(this, "sensitive_query_string");
+        get => GetArgument<TerraformValue<string>>("sensitive_query_string");
         set => SetArgument("sensitive_query_string", value);
     }
 
@@ -157,7 +157,7 @@ public partial class GoogleSecureSourceManagerHook(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetUri is required")]
     public required TerraformValue<string> TargetUri
     {
-        get => new TerraformReference<string>(this, "target_uri");
+        get => GetArgument<TerraformValue<string>>("target_uri");
         set => SetArgument("target_uri", value);
     }
 
@@ -165,34 +165,26 @@ public partial class GoogleSecureSourceManagerHook(string name) : TerraformResou
     /// Create timestamp.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// A unique identifier for a Hook. The name should be of the format:
     /// &#39;projects/{project}/locations/{location_id}/repositories/{repository_id}/hooks/{hook_id}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Unique identifier of the hook.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Update timestamp.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// PushOption block (nesting mode: list).

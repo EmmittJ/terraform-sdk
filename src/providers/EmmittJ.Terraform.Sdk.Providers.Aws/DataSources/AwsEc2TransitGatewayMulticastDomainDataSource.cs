@@ -19,7 +19,7 @@ public class AwsEc2TransitGatewayMulticastDomainDataSourceFilterBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsEc2TransitGatewayMulticastDomainDataSourceFilterBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsEc2TransitGatewayMulticastDomainDataSourceTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -68,36 +68,36 @@ public partial class AwsEc2TransitGatewayMulticastDomainDataSource(string name) 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The transit_gateway_multicast_domain_id attribute.
     /// </summary>
-    public TerraformValue<string> TransitGatewayMulticastDomainId
+    public TerraformValue<string>? TransitGatewayMulticastDomainId
     {
-        get => new TerraformReference<string>(this, "transit_gateway_multicast_domain_id");
+        get => GetArgument<TerraformValue<string>>("transit_gateway_multicast_domain_id");
         set => SetArgument("transit_gateway_multicast_domain_id", value);
     }
 
@@ -105,89 +105,67 @@ public partial class AwsEc2TransitGatewayMulticastDomainDataSource(string name) 
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The associations attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Associations
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "associations").ResolveNodes(ctx));
-    }
+        => AsReference("associations");
 
     /// <summary>
     /// The auto_accept_shared_associations attribute.
     /// </summary>
     public TerraformValue<string> AutoAcceptSharedAssociations
-    {
-        get => new TerraformReference<string>(this, "auto_accept_shared_associations");
-    }
+        => AsReference("auto_accept_shared_associations");
 
     /// <summary>
     /// The igmpv2_support attribute.
     /// </summary>
     public TerraformValue<string> Igmpv2Support
-    {
-        get => new TerraformReference<string>(this, "igmpv2_support");
-    }
+        => AsReference("igmpv2_support");
 
     /// <summary>
     /// The members attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Members
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "members").ResolveNodes(ctx));
-    }
+        => AsReference("members");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// The sources attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Sources
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "sources").ResolveNodes(ctx));
-    }
+        => AsReference("sources");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The static_sources_support attribute.
     /// </summary>
     public TerraformValue<string> StaticSourcesSupport
-    {
-        get => new TerraformReference<string>(this, "static_sources_support");
-    }
+        => AsReference("static_sources_support");
 
     /// <summary>
     /// The transit_gateway_attachment_id attribute.
     /// </summary>
     public TerraformValue<string> TransitGatewayAttachmentId
-    {
-        get => new TerraformReference<string>(this, "transit_gateway_attachment_id");
-    }
+        => AsReference("transit_gateway_attachment_id");
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
     public TerraformValue<string> TransitGatewayId
-    {
-        get => new TerraformReference<string>(this, "transit_gateway_id");
-    }
+        => AsReference("transit_gateway_id");
 
     /// <summary>
     /// Filter block (nesting mode: set).

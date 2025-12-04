@@ -18,7 +18,7 @@ public class AwsSfnStateMachineEncryptionConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? KmsDataKeyReusePeriodSeconds
     {
-        get => new TerraformReference<double>(this, "kms_data_key_reuse_period_seconds");
+        get => GetArgument<TerraformValue<double>>("kms_data_key_reuse_period_seconds");
         set => SetArgument("kms_data_key_reuse_period_seconds", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsSfnStateMachineEncryptionConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsSfnStateMachineEncryptionConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsSfnStateMachineLoggingConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IncludeExecutionData
     {
-        get => new TerraformReference<bool>(this, "include_execution_data");
+        get => GetArgument<TerraformValue<bool>>("include_execution_data");
         set => SetArgument("include_execution_data", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsSfnStateMachineLoggingConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Level
     {
-        get => new TerraformReference<string>(this, "level");
+        get => GetArgument<TerraformValue<string>>("level");
         set => SetArgument("level", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsSfnStateMachineLoggingConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LogDestination
     {
-        get => new TerraformReference<string>(this, "log_destination");
+        get => GetArgument<TerraformValue<string>>("log_destination");
         set => SetArgument("log_destination", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsSfnStateMachineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsSfnStateMachineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -118,7 +118,7 @@ public class AwsSfnStateMachineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -141,7 +141,7 @@ public class AwsSfnStateMachineTracingConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -160,34 +160,34 @@ public partial class AwsSfnStateMachine(string name) : TerraformResource("aws_sf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Definition is required")]
     public required TerraformValue<string> Definition
     {
-        get => new TerraformReference<string>(this, "definition");
+        get => GetArgument<TerraformValue<string>>("definition");
         set => SetArgument("definition", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -196,16 +196,16 @@ public partial class AwsSfnStateMachine(string name) : TerraformResource("aws_sf
     /// </summary>
     public TerraformValue<bool>? Publish
     {
-        get => new TerraformReference<bool>(this, "publish");
+        get => GetArgument<TerraformValue<bool>>("publish");
         set => SetArgument("publish", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -215,7 +215,7 @@ public partial class AwsSfnStateMachine(string name) : TerraformResource("aws_sf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -224,16 +224,16 @@ public partial class AwsSfnStateMachine(string name) : TerraformResource("aws_sf
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -242,7 +242,7 @@ public partial class AwsSfnStateMachine(string name) : TerraformResource("aws_sf
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -250,57 +250,43 @@ public partial class AwsSfnStateMachine(string name) : TerraformResource("aws_sf
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
     public TerraformValue<string> CreationDate
-    {
-        get => new TerraformReference<string>(this, "creation_date");
-    }
+        => AsReference("creation_date");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The revision_id attribute.
     /// </summary>
     public TerraformValue<string> RevisionId
-    {
-        get => new TerraformReference<string>(this, "revision_id");
-    }
+        => AsReference("revision_id");
 
     /// <summary>
     /// The state_machine_version_arn attribute.
     /// </summary>
     public TerraformValue<string> StateMachineVersionArn
-    {
-        get => new TerraformReference<string>(this, "state_machine_version_arn");
-    }
+        => AsReference("state_machine_version_arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The version_description attribute.
     /// </summary>
     public TerraformValue<string> VersionDescription
-    {
-        get => new TerraformReference<string>(this, "version_description");
-    }
+        => AsReference("version_description");
 
     /// <summary>
     /// EncryptionConfiguration block (nesting mode: list).

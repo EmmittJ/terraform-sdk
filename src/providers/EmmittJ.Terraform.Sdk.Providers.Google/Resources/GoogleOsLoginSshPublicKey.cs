@@ -18,7 +18,7 @@ public class GoogleOsLoginSshPublicKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleOsLoginSshPublicKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleOsLoginSshPublicKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,16 +54,16 @@ public partial class GoogleOsLoginSshPublicKey(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? ExpirationTimeUsec
     {
-        get => new TerraformReference<string>(this, "expiration_time_usec");
+        get => GetArgument<TerraformValue<string>>("expiration_time_usec");
         set => SetArgument("expiration_time_usec", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class GoogleOsLoginSshPublicKey(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -82,7 +82,7 @@ public partial class GoogleOsLoginSshPublicKey(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -92,7 +92,7 @@ public partial class GoogleOsLoginSshPublicKey(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformValue<string> User
     {
-        get => new TerraformReference<string>(this, "user");
+        get => GetArgument<TerraformValue<string>>("user");
         set => SetArgument("user", value);
     }
 
@@ -100,9 +100,7 @@ public partial class GoogleOsLoginSshPublicKey(string name) : TerraformResource(
     /// The SHA-256 fingerprint of the SSH public key.
     /// </summary>
     public TerraformValue<string> Fingerprint
-    {
-        get => new TerraformReference<string>(this, "fingerprint");
-    }
+        => AsReference("fingerprint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -19,9 +19,7 @@ public class GoogleRedisInstanceMaintenancePolicyBlock : TerraformBlock
     /// resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Optional. Description of what this policy is for.
@@ -30,7 +28,7 @@ public class GoogleRedisInstanceMaintenancePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -40,9 +38,7 @@ public class GoogleRedisInstanceMaintenancePolicyBlock : TerraformBlock
     /// resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// WeeklyMaintenanceWindow block (nesting mode: list).
@@ -81,7 +77,7 @@ public class GoogleRedisInstanceMaintenancePolicyBlockWeeklyMaintenanceWindowBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<string> Day
     {
-        get => new TerraformReference<string>(this, "day");
+        get => GetArgument<TerraformValue<string>>("day");
         set => SetArgument("day", value);
     }
 
@@ -92,9 +88,7 @@ public class GoogleRedisInstanceMaintenancePolicyBlockWeeklyMaintenanceWindowBlo
     /// terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
     public TerraformValue<string> Duration
-    {
-        get => new TerraformReference<string>(this, "duration");
-    }
+        => AsReference("duration");
 
     /// <summary>
     /// StartTime block (nesting mode: list).
@@ -128,7 +122,7 @@ public class GoogleRedisInstanceMaintenancePolicyBlockWeeklyMaintenanceWindowBlo
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -137,7 +131,7 @@ public class GoogleRedisInstanceMaintenancePolicyBlockWeeklyMaintenanceWindowBlo
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -146,7 +140,7 @@ public class GoogleRedisInstanceMaintenancePolicyBlockWeeklyMaintenanceWindowBlo
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -156,7 +150,7 @@ public class GoogleRedisInstanceMaintenancePolicyBlockWeeklyMaintenanceWindowBlo
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -180,9 +174,9 @@ public class GoogleRedisInstancePersistenceConfigBlock : TerraformBlock
     /// - DISABLED: 	Persistence is disabled for the instance, and any existing snapshots are deleted.
     /// - RDB: RDB based Persistence is enabled. Possible values: [&amp;quot;DISABLED&amp;quot;, &amp;quot;RDB&amp;quot;]
     /// </summary>
-    public TerraformValue<string> PersistenceMode
+    public TerraformValue<string>? PersistenceMode
     {
-        get => new TerraformReference<string>(this, "persistence_mode");
+        get => GetArgument<TerraformValue<string>>("persistence_mode");
         set => SetArgument("persistence_mode", value);
     }
 
@@ -193,9 +187,7 @@ public class GoogleRedisInstancePersistenceConfigBlock : TerraformBlock
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> RdbNextSnapshotTime
-    {
-        get => new TerraformReference<string>(this, "rdb_next_snapshot_time");
-    }
+        => AsReference("rdb_next_snapshot_time");
 
     /// <summary>
     /// Optional. Available snapshot periods for scheduling.
@@ -207,7 +199,7 @@ public class GoogleRedisInstancePersistenceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RdbSnapshotPeriod
     {
-        get => new TerraformReference<string>(this, "rdb_snapshot_period");
+        get => GetArgument<TerraformValue<string>>("rdb_snapshot_period");
         set => SetArgument("rdb_snapshot_period", value);
     }
 
@@ -219,9 +211,9 @@ public class GoogleRedisInstancePersistenceConfigBlock : TerraformBlock
     /// and up to nine fractional digits.
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformValue<string> RdbSnapshotStartTime
+    public TerraformValue<string>? RdbSnapshotStartTime
     {
-        get => new TerraformReference<string>(this, "rdb_snapshot_start_time");
+        get => GetArgument<TerraformValue<string>>("rdb_snapshot_start_time");
         set => SetArgument("rdb_snapshot_start_time", value);
     }
 
@@ -244,7 +236,7 @@ public class GoogleRedisInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -253,7 +245,7 @@ public class GoogleRedisInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -262,7 +254,7 @@ public class GoogleRedisInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -281,9 +273,9 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// If provided, it must be a different zone from the one provided in
     /// [locationId].
     /// </summary>
-    public TerraformValue<string> AlternativeLocationId
+    public TerraformValue<string>? AlternativeLocationId
     {
-        get => new TerraformReference<string>(this, "alternative_location_id");
+        get => GetArgument<TerraformValue<string>>("alternative_location_id");
         set => SetArgument("alternative_location_id", value);
     }
 
@@ -294,7 +286,7 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<bool>? AuthEnabled
     {
-        get => new TerraformReference<bool>(this, "auth_enabled");
+        get => GetArgument<TerraformValue<bool>>("auth_enabled");
         set => SetArgument("auth_enabled", value);
     }
 
@@ -303,9 +295,9 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// instance is connected. If left unspecified, the default network
     /// will be used.
     /// </summary>
-    public TerraformValue<string> AuthorizedNetwork
+    public TerraformValue<string>? AuthorizedNetwork
     {
-        get => new TerraformReference<string>(this, "authorized_network");
+        get => GetArgument<TerraformValue<string>>("authorized_network");
         set => SetArgument("authorized_network", value);
     }
 
@@ -314,7 +306,7 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? ConnectMode
     {
-        get => new TerraformReference<string>(this, "connect_mode");
+        get => GetArgument<TerraformValue<string>>("connect_mode");
         set => SetArgument("connect_mode", value);
     }
 
@@ -324,7 +316,7 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? CustomerManagedKey
     {
-        get => new TerraformReference<string>(this, "customer_managed_key");
+        get => GetArgument<TerraformValue<string>>("customer_managed_key");
         set => SetArgument("customer_managed_key", value);
     }
 
@@ -338,7 +330,7 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
@@ -347,16 +339,16 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -368,7 +360,7 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -379,18 +371,18 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// zonal failures. If [alternativeLocationId] is also provided, it must
     /// be different from [locationId].
     /// </summary>
-    public TerraformValue<string> LocationId
+    public TerraformValue<string>? LocationId
     {
-        get => new TerraformReference<string>(this, "location_id");
+        get => GetArgument<TerraformValue<string>>("location_id");
         set => SetArgument("location_id", value);
     }
 
     /// <summary>
     /// The self service update maintenance version.
     /// </summary>
-    public TerraformValue<string> MaintenanceVersion
+    public TerraformValue<string>? MaintenanceVersion
     {
-        get => new TerraformReference<string>(this, "maintenance_version");
+        get => GetArgument<TerraformValue<string>>("maintenance_version");
         set => SetArgument("maintenance_version", value);
     }
 
@@ -400,7 +392,7 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemorySizeGb is required")]
     public required TerraformValue<double> MemorySizeGb
     {
-        get => new TerraformReference<double>(this, "memory_size_gb");
+        get => GetArgument<TerraformValue<double>>("memory_size_gb");
         set => SetArgument("memory_size_gb", value);
     }
 
@@ -410,16 +402,16 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -431,9 +423,9 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// - READ_REPLICAS_ENABLED: If enabled, read endpoint will be provided and the instance
     /// can scale up and down the number of replicas. Possible values: [&amp;quot;READ_REPLICAS_DISABLED&amp;quot;, &amp;quot;READ_REPLICAS_ENABLED&amp;quot;]
     /// </summary>
-    public TerraformValue<string> ReadReplicasMode
+    public TerraformValue<string>? ReadReplicasMode
     {
-        get => new TerraformReference<string>(this, "read_replicas_mode");
+        get => GetArgument<TerraformValue<string>>("read_replicas_mode");
         set => SetArgument("read_replicas_mode", value);
     }
 
@@ -444,7 +436,7 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// </summary>
     public TerraformMap<string>? RedisConfigs
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "redis_configs").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("redis_configs");
         set => SetArgument("redis_configs", value);
     }
 
@@ -453,18 +445,18 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// version will be used. Please check the API documentation linked
     /// at the top for the latest valid values.
     /// </summary>
-    public TerraformValue<string> RedisVersion
+    public TerraformValue<string>? RedisVersion
     {
-        get => new TerraformReference<string>(this, "redis_version");
+        get => GetArgument<TerraformValue<string>>("redis_version");
         set => SetArgument("redis_version", value);
     }
 
     /// <summary>
     /// The name of the Redis region of the instance.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -474,9 +466,9 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// for a Standard Tier instance, the only valid value is 1 and the default is 1.
     /// The valid value for basic tier is 0 and the default is also 0.
     /// </summary>
-    public TerraformValue<double> ReplicaCount
+    public TerraformValue<double>? ReplicaCount
     {
-        get => new TerraformReference<double>(this, "replica_count");
+        get => GetArgument<TerraformValue<double>>("replica_count");
         set => SetArgument("replica_count", value);
     }
 
@@ -487,9 +479,9 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// unique and non-overlapping with existing subnets in an authorized
     /// network.
     /// </summary>
-    public TerraformValue<string> ReservedIpRange
+    public TerraformValue<string>? ReservedIpRange
     {
-        get => new TerraformReference<string>(this, "reserved_ip_range");
+        get => GetArgument<TerraformValue<string>>("reserved_ip_range");
         set => SetArgument("reserved_ip_range", value);
     }
 
@@ -499,9 +491,9 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// &amp;quot;auto&amp;quot;. For PRIVATE_SERVICE_ACCESS mode value must be the name of an allocated address
     /// range associated with the private service access connection, or &amp;quot;auto&amp;quot;.
     /// </summary>
-    public TerraformValue<string> SecondaryIpRange
+    public TerraformValue<string>? SecondaryIpRange
     {
-        get => new TerraformReference<string>(this, "secondary_ip_range");
+        get => GetArgument<TerraformValue<string>>("secondary_ip_range");
         set => SetArgument("secondary_ip_range", value);
     }
 
@@ -513,7 +505,7 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? Tier
     {
-        get => new TerraformReference<string>(this, "tier");
+        get => GetArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 
@@ -524,7 +516,7 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? TransitEncryptionMode
     {
-        get => new TerraformReference<string>(this, "transit_encryption_mode");
+        get => GetArgument<TerraformValue<string>>("transit_encryption_mode");
         set => SetArgument("transit_encryption_mode", value);
     }
 
@@ -532,18 +524,14 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// AUTH String set on the instance. This field will only be populated if auth_enabled is true.
     /// </summary>
     public TerraformValue<string> AuthString
-    {
-        get => new TerraformReference<string>(this, "auth_string");
-    }
+        => AsReference("auth_string");
 
     /// <summary>
     /// The time the instance was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
     /// accurate to nanoseconds.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The current zone where the Redis endpoint is placed.
@@ -553,17 +541,13 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// and can change after a failover event.
     /// </summary>
     public TerraformValue<string> CurrentLocationId
-    {
-        get => new TerraformReference<string>(this, "current_location_id");
-    }
+        => AsReference("current_location_id");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The CIDR range of internal addresses that are reserved for this
@@ -573,34 +557,26 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// network.
     /// </summary>
     public TerraformValue<string> EffectiveReservedIpRange
-    {
-        get => new TerraformReference<string>(this, "effective_reserved_ip_range");
-    }
+        => AsReference("effective_reserved_ip_range");
 
     /// <summary>
     /// Hostname or IP address of the exposed Redis endpoint used by clients
     /// to connect to the service.
     /// </summary>
     public TerraformValue<string> Host
-    {
-        get => new TerraformReference<string>(this, "host");
-    }
+        => AsReference("host");
 
     /// <summary>
     /// Upcoming maintenance schedule.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenanceSchedule
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "maintenance_schedule").ResolveNodes(ctx));
-    }
+        => AsReference("maintenance_schedule");
 
     /// <summary>
     /// Output only. Info per node.
     /// </summary>
     public TerraformList<TerraformMap<object>> Nodes
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "nodes").ResolveNodes(ctx));
-    }
+        => AsReference("nodes");
 
     /// <summary>
     /// Output only. Cloud IAM identity used by import / export operations
@@ -609,17 +585,13 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// checked before each import/export operation.
     /// </summary>
     public TerraformValue<string> PersistenceIamIdentity
-    {
-        get => new TerraformReference<string>(this, "persistence_iam_identity");
-    }
+        => AsReference("persistence_iam_identity");
 
     /// <summary>
     /// The port number of the exposed Redis endpoint.
     /// </summary>
     public TerraformValue<double> Port
-    {
-        get => new TerraformReference<double>(this, "port");
-    }
+        => AsReference("port");
 
     /// <summary>
     /// Output only. Hostname or IP address of the exposed readonly Redis endpoint. Standard tier only.
@@ -627,35 +599,27 @@ public partial class GoogleRedisInstance(string name) : TerraformResource("googl
     /// will exhibit some lag behind the primary. Write requests must target &#39;host&#39;.
     /// </summary>
     public TerraformValue<string> ReadEndpoint
-    {
-        get => new TerraformReference<string>(this, "read_endpoint");
-    }
+        => AsReference("read_endpoint");
 
     /// <summary>
     /// Output only. The port number of the exposed readonly redis endpoint. Standard tier only.
     /// Write requests should target &#39;port&#39;.
     /// </summary>
     public TerraformValue<double> ReadEndpointPort
-    {
-        get => new TerraformReference<double>(this, "read_endpoint_port");
-    }
+        => AsReference("read_endpoint_port");
 
     /// <summary>
     /// List of server CA certificates for the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServerCaCerts
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "server_ca_certs").ResolveNodes(ctx));
-    }
+        => AsReference("server_ca_certs");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// MaintenancePolicy block (nesting mode: list).

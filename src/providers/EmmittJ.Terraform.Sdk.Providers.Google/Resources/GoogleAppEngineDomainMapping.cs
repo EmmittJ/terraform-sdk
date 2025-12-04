@@ -21,9 +21,9 @@ public class GoogleAppEngineDomainMappingSslSettingsBlock : TerraformBlock
     /// authorized to administer the &#39;AuthorizedCertificate&#39; resource to manually map it to a DomainMapping resource.
     /// Example: 12345.
     /// </summary>
-    public TerraformValue<string> CertificateId
+    public TerraformValue<string>? CertificateId
     {
-        get => new TerraformReference<string>(this, "certificate_id");
+        get => GetArgument<TerraformValue<string>>("certificate_id");
         set => SetArgument("certificate_id", value);
     }
 
@@ -35,9 +35,7 @@ public class GoogleAppEngineDomainMappingSslSettingsBlock : TerraformBlock
     /// &#39;certificateId&#39; field with an update request.
     /// </summary>
     public TerraformValue<string> PendingManagedCertificateId
-    {
-        get => new TerraformReference<string>(this, "pending_managed_certificate_id");
-    }
+        => AsReference("pending_managed_certificate_id");
 
     /// <summary>
     /// SSL management type for this domain. If &#39;AUTOMATIC&#39;, a managed certificate is automatically provisioned.
@@ -46,7 +44,7 @@ public class GoogleAppEngineDomainMappingSslSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslManagementType is required")]
     public required TerraformValue<string> SslManagementType
     {
-        get => new TerraformReference<string>(this, "ssl_management_type");
+        get => GetArgument<TerraformValue<string>>("ssl_management_type");
         set => SetArgument("ssl_management_type", value);
     }
 
@@ -69,7 +67,7 @@ public class GoogleAppEngineDomainMappingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -78,7 +76,7 @@ public class GoogleAppEngineDomainMappingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -87,7 +85,7 @@ public class GoogleAppEngineDomainMappingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -106,16 +104,16 @@ public partial class GoogleAppEngineDomainMapping(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -125,16 +123,16 @@ public partial class GoogleAppEngineDomainMapping(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? OverrideStrategy
     {
-        get => new TerraformReference<string>(this, "override_strategy");
+        get => GetArgument<TerraformValue<string>>("override_strategy");
         set => SetArgument("override_strategy", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -142,18 +140,14 @@ public partial class GoogleAppEngineDomainMapping(string name) : TerraformResour
     /// Full path to the DomainMapping resource in the API. Example: apps/myapp/domainMapping/example.com.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The resource records required to configure this domain mapping. These records must be added to the domain&#39;s DNS
     /// configuration in order to serve the application via this domain mapping.
     /// </summary>
     public TerraformList<TerraformMap<object>> ResourceRecords
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "resource_records").ResolveNodes(ctx));
-    }
+        => AsReference("resource_records");
 
     /// <summary>
     /// SslSettings block (nesting mode: list).

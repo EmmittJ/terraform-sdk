@@ -18,7 +18,7 @@ public class AzurermWebPubsubNetworkAclPrivateEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? AllowedRequestTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_request_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_request_types");
         set => SetArgument("allowed_request_types", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermWebPubsubNetworkAclPrivateEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? DeniedRequestTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "denied_request_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("denied_request_types");
         set => SetArgument("denied_request_types", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermWebPubsubNetworkAclPrivateEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermWebPubsubNetworkAclPublicNetworkBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? AllowedRequestTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_request_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_request_types");
         set => SetArgument("allowed_request_types", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermWebPubsubNetworkAclPublicNetworkBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? DeniedRequestTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "denied_request_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("denied_request_types");
         set => SetArgument("denied_request_types", value);
     }
 
@@ -92,7 +92,7 @@ public class AzurermWebPubsubNetworkAclTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -101,7 +101,7 @@ public class AzurermWebPubsubNetworkAclTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -110,7 +110,7 @@ public class AzurermWebPubsubNetworkAclTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -119,7 +119,7 @@ public class AzurermWebPubsubNetworkAclTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -137,16 +137,16 @@ public partial class AzurermWebPubsubNetworkAcl(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? DefaultAction
     {
-        get => new TerraformReference<string>(this, "default_action");
+        get => GetArgument<TerraformValue<string>>("default_action");
         set => SetArgument("default_action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AzurermWebPubsubNetworkAcl(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubId is required")]
     public required TerraformValue<string> WebPubsubId
     {
-        get => new TerraformReference<string>(this, "web_pubsub_id");
+        get => GetArgument<TerraformValue<string>>("web_pubsub_id");
         set => SetArgument("web_pubsub_id", value);
     }
 

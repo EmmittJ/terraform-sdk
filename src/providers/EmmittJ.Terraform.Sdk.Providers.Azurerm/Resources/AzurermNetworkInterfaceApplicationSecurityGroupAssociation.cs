@@ -18,7 +18,7 @@ public class AzurermNetworkInterfaceApplicationSecurityGroupAssociationTimeoutsB
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermNetworkInterfaceApplicationSecurityGroupAssociationTimeoutsB
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermNetworkInterfaceApplicationSecurityGroupAssociationTimeoutsB
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AzurermNetworkInterfaceApplicationSecurityGroupAssociation(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationSecurityGroupId is required")]
     public required TerraformValue<string> ApplicationSecurityGroupId
     {
-        get => new TerraformReference<string>(this, "application_security_group_id");
+        get => GetArgument<TerraformValue<string>>("application_security_group_id");
         set => SetArgument("application_security_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermNetworkInterfaceApplicationSecurityGroupAssociation(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformValue<string> NetworkInterfaceId
     {
-        get => new TerraformReference<string>(this, "network_interface_id");
+        get => GetArgument<TerraformValue<string>>("network_interface_id");
         set => SetArgument("network_interface_id", value);
     }
 

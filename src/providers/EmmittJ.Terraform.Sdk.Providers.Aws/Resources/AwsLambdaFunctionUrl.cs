@@ -18,7 +18,7 @@ public class AwsLambdaFunctionUrlCorsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowCredentials
     {
-        get => new TerraformReference<bool>(this, "allow_credentials");
+        get => GetArgument<TerraformValue<bool>>("allow_credentials");
         set => SetArgument("allow_credentials", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsLambdaFunctionUrlCorsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? AllowHeaders
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allow_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allow_headers");
         set => SetArgument("allow_headers", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsLambdaFunctionUrlCorsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? AllowMethods
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allow_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allow_methods");
         set => SetArgument("allow_methods", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsLambdaFunctionUrlCorsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? AllowOrigins
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allow_origins").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allow_origins");
         set => SetArgument("allow_origins", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsLambdaFunctionUrlCorsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ExposeHeaders
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "expose_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("expose_headers");
         set => SetArgument("expose_headers", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsLambdaFunctionUrlCorsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxAge
     {
-        get => new TerraformReference<double>(this, "max_age");
+        get => GetArgument<TerraformValue<double>>("max_age");
         set => SetArgument("max_age", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsLambdaFunctionUrlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AwsLambdaFunctionUrl(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationType is required")]
     public required TerraformValue<string> AuthorizationType
     {
-        get => new TerraformReference<string>(this, "authorization_type");
+        get => GetArgument<TerraformValue<string>>("authorization_type");
         set => SetArgument("authorization_type", value);
     }
 
@@ -115,16 +115,16 @@ public partial class AwsLambdaFunctionUrl(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformValue<string> FunctionName
     {
-        get => new TerraformReference<string>(this, "function_name");
+        get => GetArgument<TerraformValue<string>>("function_name");
         set => SetArgument("function_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AwsLambdaFunctionUrl(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? InvokeMode
     {
-        get => new TerraformReference<string>(this, "invoke_mode");
+        get => GetArgument<TerraformValue<string>>("invoke_mode");
         set => SetArgument("invoke_mode", value);
     }
 
@@ -142,16 +142,16 @@ public partial class AwsLambdaFunctionUrl(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Qualifier
     {
-        get => new TerraformReference<string>(this, "qualifier");
+        get => GetArgument<TerraformValue<string>>("qualifier");
         set => SetArgument("qualifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -159,25 +159,19 @@ public partial class AwsLambdaFunctionUrl(string name) : TerraformResource("aws_
     /// The function_arn attribute.
     /// </summary>
     public TerraformValue<string> FunctionArn
-    {
-        get => new TerraformReference<string>(this, "function_arn");
-    }
+        => AsReference("function_arn");
 
     /// <summary>
     /// The function_url attribute.
     /// </summary>
     public TerraformValue<string> FunctionUrl
-    {
-        get => new TerraformReference<string>(this, "function_url");
-    }
+        => AsReference("function_url");
 
     /// <summary>
     /// The url_id attribute.
     /// </summary>
     public TerraformValue<string> UrlId
-    {
-        get => new TerraformReference<string>(this, "url_id");
-    }
+        => AsReference("url_id");
 
     /// <summary>
     /// Cors block (nesting mode: list).

@@ -14,16 +14,16 @@ public partial class GoogleDataplexZoneIamPolicyDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataplexZone is required")]
     public required TerraformValue<string> DataplexZone
     {
-        get => new TerraformReference<string>(this, "dataplex_zone");
+        get => GetArgument<TerraformValue<string>>("dataplex_zone");
         set => SetArgument("dataplex_zone", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,25 +33,25 @@ public partial class GoogleDataplexZoneIamPolicyDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lake is required")]
     public required TerraformValue<string> Lake
     {
-        get => new TerraformReference<string>(this, "lake");
+        get => GetArgument<TerraformValue<string>>("lake");
         set => SetArgument("lake", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformValue<string> Location
+    public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -59,16 +59,12 @@ public partial class GoogleDataplexZoneIamPolicyDataSource(string name) : Terraf
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     public TerraformValue<string> PolicyData
-    {
-        get => new TerraformReference<string>(this, "policy_data");
-    }
+        => AsReference("policy_data");
 
 }

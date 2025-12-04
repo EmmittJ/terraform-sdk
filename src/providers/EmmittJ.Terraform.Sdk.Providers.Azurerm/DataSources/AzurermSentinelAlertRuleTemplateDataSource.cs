@@ -18,7 +18,7 @@ public class AzurermSentinelAlertRuleTemplateDataSourceTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,18 +34,18 @@ public partial class AzurermSentinelAlertRuleTemplateDataSource(string name) : T
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AzurermSentinelAlertRuleTemplateDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
-        get => new TerraformReference<string>(this, "log_analytics_workspace_id");
+        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -72,25 +72,19 @@ public partial class AzurermSentinelAlertRuleTemplateDataSource(string name) : T
     /// The nrt_template attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NrtTemplate
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "nrt_template").ResolveNodes(ctx));
-    }
+        => AsReference("nrt_template");
 
     /// <summary>
     /// The scheduled_template attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ScheduledTemplate
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "scheduled_template").ResolveNodes(ctx));
-    }
+        => AsReference("scheduled_template");
 
     /// <summary>
     /// The security_incident_template attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SecurityIncidentTemplate
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "security_incident_template").ResolveNodes(ctx));
-    }
+        => AsReference("security_incident_template");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

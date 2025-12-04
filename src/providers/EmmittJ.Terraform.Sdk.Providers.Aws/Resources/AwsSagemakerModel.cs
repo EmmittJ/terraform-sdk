@@ -18,7 +18,7 @@ public class AwsSagemakerModelContainerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ContainerHostname
     {
-        get => new TerraformReference<string>(this, "container_hostname");
+        get => GetArgument<TerraformValue<string>>("container_hostname");
         set => SetArgument("container_hostname", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsSagemakerModelContainerBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Environment
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "environment").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("environment");
         set => SetArgument("environment", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsSagemakerModelContainerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsSagemakerModelContainerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? InferenceSpecificationName
     {
-        get => new TerraformReference<string>(this, "inference_specification_name");
+        get => GetArgument<TerraformValue<string>>("inference_specification_name");
         set => SetArgument("inference_specification_name", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsSagemakerModelContainerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsSagemakerModelContainerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ModelDataUrl
     {
-        get => new TerraformReference<string>(this, "model_data_url");
+        get => GetArgument<TerraformValue<string>>("model_data_url");
         set => SetArgument("model_data_url", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsSagemakerModelContainerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ModelPackageName
     {
-        get => new TerraformReference<string>(this, "model_package_name");
+        get => GetArgument<TerraformValue<string>>("model_package_name");
         set => SetArgument("model_package_name", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsSagemakerModelContainerBlockImageConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryAccessMode is required")]
     public required TerraformValue<string> RepositoryAccessMode
     {
-        get => new TerraformReference<string>(this, "repository_access_mode");
+        get => GetArgument<TerraformValue<string>>("repository_access_mode");
         set => SetArgument("repository_access_mode", value);
     }
 
@@ -158,7 +158,7 @@ public class AwsSagemakerModelContainerBlockImageConfigBlockRepositoryAuthConfig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryCredentialsProviderArn is required")]
     public required TerraformValue<string> RepositoryCredentialsProviderArn
     {
-        get => new TerraformReference<string>(this, "repository_credentials_provider_arn");
+        get => GetArgument<TerraformValue<string>>("repository_credentials_provider_arn");
         set => SetArgument("repository_credentials_provider_arn", value);
     }
 
@@ -206,7 +206,7 @@ public class AwsSagemakerModelContainerBlockModelDataSourceBlockS3DataSourceBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CompressionType is required")]
     public required TerraformValue<string> CompressionType
     {
-        get => new TerraformReference<string>(this, "compression_type");
+        get => GetArgument<TerraformValue<string>>("compression_type");
         set => SetArgument("compression_type", value);
     }
 
@@ -216,7 +216,7 @@ public class AwsSagemakerModelContainerBlockModelDataSourceBlockS3DataSourceBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3DataType is required")]
     public required TerraformValue<string> S3DataType
     {
-        get => new TerraformReference<string>(this, "s3_data_type");
+        get => GetArgument<TerraformValue<string>>("s3_data_type");
         set => SetArgument("s3_data_type", value);
     }
 
@@ -226,7 +226,7 @@ public class AwsSagemakerModelContainerBlockModelDataSourceBlockS3DataSourceBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformValue<string> S3Uri
     {
-        get => new TerraformReference<string>(this, "s3_uri");
+        get => GetArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -259,7 +259,7 @@ public class AwsSagemakerModelContainerBlockModelDataSourceBlockS3DataSourceBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceptEula is required")]
     public required TerraformValue<bool> AcceptEula
     {
-        get => new TerraformReference<bool>(this, "accept_eula");
+        get => GetArgument<TerraformValue<bool>>("accept_eula");
         set => SetArgument("accept_eula", value);
     }
 
@@ -281,7 +281,7 @@ public class AwsSagemakerModelContainerBlockMultiModelConfigBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? ModelCacheSetting
     {
-        get => new TerraformReference<string>(this, "model_cache_setting");
+        get => GetArgument<TerraformValue<string>>("model_cache_setting");
         set => SetArgument("model_cache_setting", value);
     }
 
@@ -305,7 +305,7 @@ public class AwsSagemakerModelInferenceExecutionConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -328,7 +328,7 @@ public class AwsSagemakerModelPrimaryContainerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ContainerHostname
     {
-        get => new TerraformReference<string>(this, "container_hostname");
+        get => GetArgument<TerraformValue<string>>("container_hostname");
         set => SetArgument("container_hostname", value);
     }
 
@@ -337,7 +337,7 @@ public class AwsSagemakerModelPrimaryContainerBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Environment
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "environment").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("environment");
         set => SetArgument("environment", value);
     }
 
@@ -346,7 +346,7 @@ public class AwsSagemakerModelPrimaryContainerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -355,7 +355,7 @@ public class AwsSagemakerModelPrimaryContainerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? InferenceSpecificationName
     {
-        get => new TerraformReference<string>(this, "inference_specification_name");
+        get => GetArgument<TerraformValue<string>>("inference_specification_name");
         set => SetArgument("inference_specification_name", value);
     }
 
@@ -364,7 +364,7 @@ public class AwsSagemakerModelPrimaryContainerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -373,7 +373,7 @@ public class AwsSagemakerModelPrimaryContainerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ModelDataUrl
     {
-        get => new TerraformReference<string>(this, "model_data_url");
+        get => GetArgument<TerraformValue<string>>("model_data_url");
         set => SetArgument("model_data_url", value);
     }
 
@@ -382,7 +382,7 @@ public class AwsSagemakerModelPrimaryContainerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ModelPackageName
     {
-        get => new TerraformReference<string>(this, "model_package_name");
+        get => GetArgument<TerraformValue<string>>("model_package_name");
         set => SetArgument("model_package_name", value);
     }
 
@@ -435,7 +435,7 @@ public class AwsSagemakerModelPrimaryContainerBlockImageConfigBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryAccessMode is required")]
     public required TerraformValue<string> RepositoryAccessMode
     {
-        get => new TerraformReference<string>(this, "repository_access_mode");
+        get => GetArgument<TerraformValue<string>>("repository_access_mode");
         set => SetArgument("repository_access_mode", value);
     }
 
@@ -468,7 +468,7 @@ public class AwsSagemakerModelPrimaryContainerBlockImageConfigBlockRepositoryAut
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryCredentialsProviderArn is required")]
     public required TerraformValue<string> RepositoryCredentialsProviderArn
     {
-        get => new TerraformReference<string>(this, "repository_credentials_provider_arn");
+        get => GetArgument<TerraformValue<string>>("repository_credentials_provider_arn");
         set => SetArgument("repository_credentials_provider_arn", value);
     }
 
@@ -516,7 +516,7 @@ public class AwsSagemakerModelPrimaryContainerBlockModelDataSourceBlockS3DataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CompressionType is required")]
     public required TerraformValue<string> CompressionType
     {
-        get => new TerraformReference<string>(this, "compression_type");
+        get => GetArgument<TerraformValue<string>>("compression_type");
         set => SetArgument("compression_type", value);
     }
 
@@ -526,7 +526,7 @@ public class AwsSagemakerModelPrimaryContainerBlockModelDataSourceBlockS3DataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3DataType is required")]
     public required TerraformValue<string> S3DataType
     {
-        get => new TerraformReference<string>(this, "s3_data_type");
+        get => GetArgument<TerraformValue<string>>("s3_data_type");
         set => SetArgument("s3_data_type", value);
     }
 
@@ -536,7 +536,7 @@ public class AwsSagemakerModelPrimaryContainerBlockModelDataSourceBlockS3DataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformValue<string> S3Uri
     {
-        get => new TerraformReference<string>(this, "s3_uri");
+        get => GetArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -569,7 +569,7 @@ public class AwsSagemakerModelPrimaryContainerBlockModelDataSourceBlockS3DataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceptEula is required")]
     public required TerraformValue<bool> AcceptEula
     {
-        get => new TerraformReference<bool>(this, "accept_eula");
+        get => GetArgument<TerraformValue<bool>>("accept_eula");
         set => SetArgument("accept_eula", value);
     }
 
@@ -591,7 +591,7 @@ public class AwsSagemakerModelPrimaryContainerBlockMultiModelConfigBlock : Terra
     /// </summary>
     public TerraformValue<string>? ModelCacheSetting
     {
-        get => new TerraformReference<string>(this, "model_cache_setting");
+        get => GetArgument<TerraformValue<string>>("model_cache_setting");
         set => SetArgument("model_cache_setting", value);
     }
 
@@ -615,7 +615,7 @@ public class AwsSagemakerModelVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -625,7 +625,7 @@ public class AwsSagemakerModelVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public required TerraformSet<string> Subnets
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnets").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -643,7 +643,7 @@ public partial class AwsSagemakerModel(string name) : TerraformResource("aws_sag
     /// </summary>
     public TerraformValue<bool>? EnableNetworkIsolation
     {
-        get => new TerraformReference<bool>(this, "enable_network_isolation");
+        get => GetArgument<TerraformValue<bool>>("enable_network_isolation");
         set => SetArgument("enable_network_isolation", value);
     }
 
@@ -653,34 +653,34 @@ public partial class AwsSagemakerModel(string name) : TerraformResource("aws_sag
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformValue<string> ExecutionRoleArn
     {
-        get => new TerraformReference<string>(this, "execution_role_arn");
+        get => GetArgument<TerraformValue<string>>("execution_role_arn");
         set => SetArgument("execution_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -689,16 +689,16 @@ public partial class AwsSagemakerModel(string name) : TerraformResource("aws_sag
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -706,9 +706,7 @@ public partial class AwsSagemakerModel(string name) : TerraformResource("aws_sag
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Container block (nesting mode: list).

@@ -11,9 +11,9 @@ public partial class GoogleKmsKeyHandleDataSource(string name) : TerraformDataSo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -24,7 +24,7 @@ public partial class GoogleKmsKeyHandleDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -34,7 +34,7 @@ public partial class GoogleKmsKeyHandleDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -43,7 +43,7 @@ public partial class GoogleKmsKeyHandleDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -53,17 +53,13 @@ public partial class GoogleKmsKeyHandleDataSource(string name) : TerraformDataSo
     /// &#39;projects/1/locations/us-east1/keyRings/foo/cryptoKeys/bar-ffffff&#39;
     /// </summary>
     public TerraformValue<string> KmsKey
-    {
-        get => new TerraformReference<string>(this, "kms_key");
-    }
+        => AsReference("kms_key");
 
     /// <summary>
     /// Selector of the resource type where we want to protect resources.
     /// For example, &#39;storage.googleapis.com/Bucket&#39;.
     /// </summary>
     public TerraformValue<string> ResourceTypeSelector
-    {
-        get => new TerraformReference<string>(this, "resource_type_selector");
-    }
+        => AsReference("resource_type_selector");
 
 }

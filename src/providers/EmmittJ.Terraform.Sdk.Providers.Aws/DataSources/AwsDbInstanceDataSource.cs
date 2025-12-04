@@ -11,36 +11,36 @@ public partial class AwsDbInstanceDataSource(string name) : TerraformDataSource(
     /// <summary>
     /// The db_instance_identifier attribute.
     /// </summary>
-    public TerraformValue<string> DbInstanceIdentifier
+    public TerraformValue<string>? DbInstanceIdentifier
     {
-        get => new TerraformReference<string>(this, "db_instance_identifier");
+        get => GetArgument<TerraformValue<string>>("db_instance_identifier");
         set => SetArgument("db_instance_identifier", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -48,328 +48,246 @@ public partial class AwsDbInstanceDataSource(string name) : TerraformDataSource(
     /// The address attribute.
     /// </summary>
     public TerraformValue<string> Address
-    {
-        get => new TerraformReference<string>(this, "address");
-    }
+        => AsReference("address");
 
     /// <summary>
     /// The allocated_storage attribute.
     /// </summary>
     public TerraformValue<double> AllocatedStorage
-    {
-        get => new TerraformReference<double>(this, "allocated_storage");
-    }
+        => AsReference("allocated_storage");
 
     /// <summary>
     /// The auto_minor_version_upgrade attribute.
     /// </summary>
     public TerraformValue<bool> AutoMinorVersionUpgrade
-    {
-        get => new TerraformReference<bool>(this, "auto_minor_version_upgrade");
-    }
+        => AsReference("auto_minor_version_upgrade");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZone
-    {
-        get => new TerraformReference<string>(this, "availability_zone");
-    }
+        => AsReference("availability_zone");
 
     /// <summary>
     /// The backup_retention_period attribute.
     /// </summary>
     public TerraformValue<double> BackupRetentionPeriod
-    {
-        get => new TerraformReference<double>(this, "backup_retention_period");
-    }
+        => AsReference("backup_retention_period");
 
     /// <summary>
     /// The ca_cert_identifier attribute.
     /// </summary>
     public TerraformValue<string> CaCertIdentifier
-    {
-        get => new TerraformReference<string>(this, "ca_cert_identifier");
-    }
+        => AsReference("ca_cert_identifier");
 
     /// <summary>
     /// The database_insights_mode attribute.
     /// </summary>
     public TerraformValue<string> DatabaseInsightsMode
-    {
-        get => new TerraformReference<string>(this, "database_insights_mode");
-    }
+        => AsReference("database_insights_mode");
 
     /// <summary>
     /// The db_cluster_identifier attribute.
     /// </summary>
     public TerraformValue<string> DbClusterIdentifier
-    {
-        get => new TerraformReference<string>(this, "db_cluster_identifier");
-    }
+        => AsReference("db_cluster_identifier");
 
     /// <summary>
     /// The db_instance_arn attribute.
     /// </summary>
     public TerraformValue<string> DbInstanceArn
-    {
-        get => new TerraformReference<string>(this, "db_instance_arn");
-    }
+        => AsReference("db_instance_arn");
 
     /// <summary>
     /// The db_instance_class attribute.
     /// </summary>
     public TerraformValue<string> DbInstanceClass
-    {
-        get => new TerraformReference<string>(this, "db_instance_class");
-    }
+        => AsReference("db_instance_class");
 
     /// <summary>
     /// The db_instance_port attribute.
     /// </summary>
     public TerraformValue<double> DbInstancePort
-    {
-        get => new TerraformReference<double>(this, "db_instance_port");
-    }
+        => AsReference("db_instance_port");
 
     /// <summary>
     /// The db_name attribute.
     /// </summary>
     public TerraformValue<string> DbName
-    {
-        get => new TerraformReference<string>(this, "db_name");
-    }
+        => AsReference("db_name");
 
     /// <summary>
     /// The db_parameter_groups attribute.
     /// </summary>
     public TerraformList<string> DbParameterGroups
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "db_parameter_groups").ResolveNodes(ctx));
-    }
+        => AsReference("db_parameter_groups");
 
     /// <summary>
     /// The db_subnet_group attribute.
     /// </summary>
     public TerraformValue<string> DbSubnetGroup
-    {
-        get => new TerraformReference<string>(this, "db_subnet_group");
-    }
+        => AsReference("db_subnet_group");
 
     /// <summary>
     /// The enabled_cloudwatch_logs_exports attribute.
     /// </summary>
     public TerraformList<string> EnabledCloudwatchLogsExports
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "enabled_cloudwatch_logs_exports").ResolveNodes(ctx));
-    }
+        => AsReference("enabled_cloudwatch_logs_exports");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
     public TerraformValue<string> Engine
-    {
-        get => new TerraformReference<string>(this, "engine");
-    }
+        => AsReference("engine");
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
     public TerraformValue<string> EngineVersion
-    {
-        get => new TerraformReference<string>(this, "engine_version");
-    }
+        => AsReference("engine_version");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
     public TerraformValue<string> HostedZoneId
-    {
-        get => new TerraformReference<string>(this, "hosted_zone_id");
-    }
+        => AsReference("hosted_zone_id");
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
     public TerraformValue<double> Iops
-    {
-        get => new TerraformReference<double>(this, "iops");
-    }
+        => AsReference("iops");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-    {
-        get => new TerraformReference<string>(this, "kms_key_id");
-    }
+        => AsReference("kms_key_id");
 
     /// <summary>
     /// The license_model attribute.
     /// </summary>
     public TerraformValue<string> LicenseModel
-    {
-        get => new TerraformReference<string>(this, "license_model");
-    }
+        => AsReference("license_model");
 
     /// <summary>
     /// The master_user_secret attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MasterUserSecret
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "master_user_secret").ResolveNodes(ctx));
-    }
+        => AsReference("master_user_secret");
 
     /// <summary>
     /// The master_username attribute.
     /// </summary>
     public TerraformValue<string> MasterUsername
-    {
-        get => new TerraformReference<string>(this, "master_username");
-    }
+        => AsReference("master_username");
 
     /// <summary>
     /// The max_allocated_storage attribute.
     /// </summary>
     public TerraformValue<double> MaxAllocatedStorage
-    {
-        get => new TerraformReference<double>(this, "max_allocated_storage");
-    }
+        => AsReference("max_allocated_storage");
 
     /// <summary>
     /// The monitoring_interval attribute.
     /// </summary>
     public TerraformValue<double> MonitoringInterval
-    {
-        get => new TerraformReference<double>(this, "monitoring_interval");
-    }
+        => AsReference("monitoring_interval");
 
     /// <summary>
     /// The monitoring_role_arn attribute.
     /// </summary>
     public TerraformValue<string> MonitoringRoleArn
-    {
-        get => new TerraformReference<string>(this, "monitoring_role_arn");
-    }
+        => AsReference("monitoring_role_arn");
 
     /// <summary>
     /// The multi_az attribute.
     /// </summary>
     public TerraformValue<bool> MultiAz
-    {
-        get => new TerraformReference<bool>(this, "multi_az");
-    }
+        => AsReference("multi_az");
 
     /// <summary>
     /// The network_type attribute.
     /// </summary>
     public TerraformValue<string> NetworkType
-    {
-        get => new TerraformReference<string>(this, "network_type");
-    }
+        => AsReference("network_type");
 
     /// <summary>
     /// The option_group_memberships attribute.
     /// </summary>
     public TerraformList<string> OptionGroupMemberships
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "option_group_memberships").ResolveNodes(ctx));
-    }
+        => AsReference("option_group_memberships");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     public TerraformValue<double> Port
-    {
-        get => new TerraformReference<double>(this, "port");
-    }
+        => AsReference("port");
 
     /// <summary>
     /// The preferred_backup_window attribute.
     /// </summary>
     public TerraformValue<string> PreferredBackupWindow
-    {
-        get => new TerraformReference<string>(this, "preferred_backup_window");
-    }
+        => AsReference("preferred_backup_window");
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
     public TerraformValue<string> PreferredMaintenanceWindow
-    {
-        get => new TerraformReference<string>(this, "preferred_maintenance_window");
-    }
+        => AsReference("preferred_maintenance_window");
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
     public TerraformValue<bool> PubliclyAccessible
-    {
-        get => new TerraformReference<bool>(this, "publicly_accessible");
-    }
+        => AsReference("publicly_accessible");
 
     /// <summary>
     /// The replicate_source_db attribute.
     /// </summary>
     public TerraformValue<string> ReplicateSourceDb
-    {
-        get => new TerraformReference<string>(this, "replicate_source_db");
-    }
+        => AsReference("replicate_source_db");
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceId
-    {
-        get => new TerraformReference<string>(this, "resource_id");
-    }
+        => AsReference("resource_id");
 
     /// <summary>
     /// The storage_encrypted attribute.
     /// </summary>
     public TerraformValue<bool> StorageEncrypted
-    {
-        get => new TerraformReference<bool>(this, "storage_encrypted");
-    }
+        => AsReference("storage_encrypted");
 
     /// <summary>
     /// The storage_throughput attribute.
     /// </summary>
     public TerraformValue<double> StorageThroughput
-    {
-        get => new TerraformReference<double>(this, "storage_throughput");
-    }
+        => AsReference("storage_throughput");
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
     public TerraformValue<string> StorageType
-    {
-        get => new TerraformReference<string>(this, "storage_type");
-    }
+        => AsReference("storage_type");
 
     /// <summary>
     /// The timezone attribute.
     /// </summary>
     public TerraformValue<string> Timezone
-    {
-        get => new TerraformReference<string>(this, "timezone");
-    }
+        => AsReference("timezone");
 
     /// <summary>
     /// The vpc_security_groups attribute.
     /// </summary>
     public TerraformList<string> VpcSecurityGroups
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "vpc_security_groups").ResolveNodes(ctx));
-    }
+        => AsReference("vpc_security_groups");
 
 }

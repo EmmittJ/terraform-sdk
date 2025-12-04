@@ -11,18 +11,18 @@ public partial class AwsSagemakerStudioLifecycleConfig(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsSagemakerStudioLifecycleConfig(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StudioLifecycleConfigAppType is required")]
     public required TerraformValue<string> StudioLifecycleConfigAppType
     {
-        get => new TerraformReference<string>(this, "studio_lifecycle_config_app_type");
+        get => GetArgument<TerraformValue<string>>("studio_lifecycle_config_app_type");
         set => SetArgument("studio_lifecycle_config_app_type", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsSagemakerStudioLifecycleConfig(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StudioLifecycleConfigContent is required")]
     public required TerraformValue<string> StudioLifecycleConfigContent
     {
-        get => new TerraformReference<string>(this, "studio_lifecycle_config_content");
+        get => GetArgument<TerraformValue<string>>("studio_lifecycle_config_content");
         set => SetArgument("studio_lifecycle_config_content", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsSagemakerStudioLifecycleConfig(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StudioLifecycleConfigName is required")]
     public required TerraformValue<string> StudioLifecycleConfigName
     {
-        get => new TerraformReference<string>(this, "studio_lifecycle_config_name");
+        get => GetArgument<TerraformValue<string>>("studio_lifecycle_config_name");
         set => SetArgument("studio_lifecycle_config_name", value);
     }
 
@@ -61,16 +61,16 @@ public partial class AwsSagemakerStudioLifecycleConfig(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -78,8 +78,6 @@ public partial class AwsSagemakerStudioLifecycleConfig(string name) : TerraformR
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

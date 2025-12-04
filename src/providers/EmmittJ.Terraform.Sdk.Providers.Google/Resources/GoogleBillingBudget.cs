@@ -21,7 +21,7 @@ public class GoogleBillingBudgetAllUpdatesRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DisableDefaultIamRecipients
     {
-        get => new TerraformReference<bool>(this, "disable_default_iam_recipients");
+        get => GetArgument<TerraformValue<bool>>("disable_default_iam_recipients");
         set => SetArgument("disable_default_iam_recipients", value);
     }
 
@@ -34,7 +34,7 @@ public class GoogleBillingBudgetAllUpdatesRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableProjectLevelRecipients
     {
-        get => new TerraformReference<bool>(this, "enable_project_level_recipients");
+        get => GetArgument<TerraformValue<bool>>("enable_project_level_recipients");
         set => SetArgument("enable_project_level_recipients", value);
     }
 
@@ -46,7 +46,7 @@ public class GoogleBillingBudgetAllUpdatesRuleBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? MonitoringNotificationChannels
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "monitoring_notification_channels").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("monitoring_notification_channels");
         set => SetArgument("monitoring_notification_channels", value);
     }
 
@@ -58,7 +58,7 @@ public class GoogleBillingBudgetAllUpdatesRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PubsubTopic
     {
-        get => new TerraformReference<string>(this, "pubsub_topic");
+        get => GetArgument<TerraformValue<string>>("pubsub_topic");
         set => SetArgument("pubsub_topic", value);
     }
 
@@ -69,7 +69,7 @@ public class GoogleBillingBudgetAllUpdatesRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SchemaVersion
     {
-        get => new TerraformReference<string>(this, "schema_version");
+        get => GetArgument<TerraformValue<string>>("schema_version");
         set => SetArgument("schema_version", value);
     }
 
@@ -95,7 +95,7 @@ public class GoogleBillingBudgetAmountBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? LastPeriodAmount
     {
-        get => new TerraformReference<bool>(this, "last_period_amount");
+        get => GetArgument<TerraformValue<bool>>("last_period_amount");
         set => SetArgument("last_period_amount", value);
     }
 
@@ -125,9 +125,9 @@ public class GoogleBillingBudgetAmountBlockSpecifiedAmountBlock : TerraformBlock
     /// <summary>
     /// The 3-letter currency code defined in ISO 4217.
     /// </summary>
-    public TerraformValue<string> CurrencyCode
+    public TerraformValue<string>? CurrencyCode
     {
-        get => new TerraformReference<string>(this, "currency_code");
+        get => GetArgument<TerraformValue<string>>("currency_code");
         set => SetArgument("currency_code", value);
     }
 
@@ -142,7 +142,7 @@ public class GoogleBillingBudgetAmountBlockSpecifiedAmountBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -152,7 +152,7 @@ public class GoogleBillingBudgetAmountBlockSpecifiedAmountBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Units
     {
-        get => new TerraformReference<string>(this, "units");
+        get => GetArgument<TerraformValue<string>>("units");
         set => SetArgument("units", value);
     }
 
@@ -179,7 +179,7 @@ public class GoogleBillingBudgetBudgetFilterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CalendarPeriod
     {
-        get => new TerraformReference<string>(this, "calendar_period");
+        get => GetArgument<TerraformValue<string>>("calendar_period");
         set => SetArgument("calendar_period", value);
     }
 
@@ -190,7 +190,7 @@ public class GoogleBillingBudgetBudgetFilterBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? CreditTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "credit_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("credit_types");
         set => SetArgument("credit_types", value);
     }
 
@@ -200,7 +200,7 @@ public class GoogleBillingBudgetBudgetFilterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CreditTypesTreatment
     {
-        get => new TerraformReference<string>(this, "credit_types_treatment");
+        get => GetArgument<TerraformValue<string>>("credit_types_treatment");
         set => SetArgument("credit_types_treatment", value);
     }
 
@@ -208,9 +208,9 @@ public class GoogleBillingBudgetBudgetFilterBlock : TerraformBlock
     /// A single label and value pair specifying that usage from only
     /// this set of labeled resources should be included in the budget.
     /// </summary>
-    public TerraformMap<string> Labels
+    public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -223,7 +223,7 @@ public class GoogleBillingBudgetBudgetFilterBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Projects
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "projects").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("projects");
         set => SetArgument("projects", value);
     }
 
@@ -235,7 +235,7 @@ public class GoogleBillingBudgetBudgetFilterBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ResourceAncestors
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "resource_ancestors").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("resource_ancestors");
         set => SetArgument("resource_ancestors", value);
     }
 
@@ -247,9 +247,9 @@ public class GoogleBillingBudgetBudgetFilterBlock : TerraformBlock
     /// through the Catalog API:
     /// https://cloud.google.com/billing/v1/how-tos/catalog-api.
     /// </summary>
-    public TerraformList<string> Services
+    public TerraformList<string>? Services
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "services").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("services");
         set => SetArgument("services", value);
     }
 
@@ -263,7 +263,7 @@ public class GoogleBillingBudgetBudgetFilterBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Subaccounts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "subaccounts").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("subaccounts");
         set => SetArgument("subaccounts", value);
     }
 
@@ -332,7 +332,7 @@ public class GoogleBillingBudgetBudgetFilterBlockCustomPeriodBlockEndDateBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<double> Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -342,7 +342,7 @@ public class GoogleBillingBudgetBudgetFilterBlockCustomPeriodBlockEndDateBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Month is required")]
     public required TerraformValue<double> Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -352,7 +352,7 @@ public class GoogleBillingBudgetBudgetFilterBlockCustomPeriodBlockEndDateBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Year is required")]
     public required TerraformValue<double> Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -375,7 +375,7 @@ public class GoogleBillingBudgetBudgetFilterBlockCustomPeriodBlockStartDateBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<double> Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -385,7 +385,7 @@ public class GoogleBillingBudgetBudgetFilterBlockCustomPeriodBlockStartDateBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Month is required")]
     public required TerraformValue<double> Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -395,7 +395,7 @@ public class GoogleBillingBudgetBudgetFilterBlockCustomPeriodBlockStartDateBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Year is required")]
     public required TerraformValue<double> Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -419,7 +419,7 @@ public class GoogleBillingBudgetThresholdRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SpendBasis
     {
-        get => new TerraformReference<string>(this, "spend_basis");
+        get => GetArgument<TerraformValue<string>>("spend_basis");
         set => SetArgument("spend_basis", value);
     }
 
@@ -430,7 +430,7 @@ public class GoogleBillingBudgetThresholdRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThresholdPercent is required")]
     public required TerraformValue<double> ThresholdPercent
     {
-        get => new TerraformReference<double>(this, "threshold_percent");
+        get => GetArgument<TerraformValue<double>>("threshold_percent");
         set => SetArgument("threshold_percent", value);
     }
 
@@ -453,7 +453,7 @@ public class GoogleBillingBudgetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -462,7 +462,7 @@ public class GoogleBillingBudgetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -471,7 +471,7 @@ public class GoogleBillingBudgetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -490,7 +490,7 @@ public partial class GoogleBillingBudget(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccount is required")]
     public required TerraformValue<string> BillingAccount
     {
-        get => new TerraformReference<string>(this, "billing_account");
+        get => GetArgument<TerraformValue<string>>("billing_account");
         set => SetArgument("billing_account", value);
     }
 
@@ -499,16 +499,16 @@ public partial class GoogleBillingBudget(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -518,7 +518,7 @@ public partial class GoogleBillingBudget(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? OwnershipScope
     {
-        get => new TerraformReference<string>(this, "ownership_scope");
+        get => GetArgument<TerraformValue<string>>("ownership_scope");
         set => SetArgument("ownership_scope", value);
     }
 
@@ -528,9 +528,7 @@ public partial class GoogleBillingBudget(string name) : TerraformResource("googl
     /// billingAccounts/{billingAccountId}/budgets/{budgetId}.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// AllUpdatesRule block (nesting mode: list).

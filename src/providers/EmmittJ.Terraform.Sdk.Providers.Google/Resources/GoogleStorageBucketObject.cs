@@ -18,7 +18,7 @@ public class GoogleStorageBucketObjectCustomerEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EncryptionAlgorithm
     {
-        get => new TerraformReference<string>(this, "encryption_algorithm");
+        get => GetArgument<TerraformValue<string>>("encryption_algorithm");
         set => SetArgument("encryption_algorithm", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleStorageBucketObjectCustomerEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionKey is required")]
     public required TerraformValue<string> EncryptionKey
     {
-        get => new TerraformReference<string>(this, "encryption_key");
+        get => GetArgument<TerraformValue<string>>("encryption_key");
         set => SetArgument("encryption_key", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleStorageBucketObjectRetentionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleStorageBucketObjectRetentionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetainUntilTime is required")]
     public required TerraformValue<string> RetainUntilTime
     {
-        get => new TerraformReference<string>(this, "retain_until_time");
+        get => GetArgument<TerraformValue<string>>("retain_until_time");
         set => SetArgument("retain_until_time", value);
     }
 
@@ -85,7 +85,7 @@ public class GoogleStorageBucketObjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleStorageBucketObjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -103,7 +103,7 @@ public class GoogleStorageBucketObjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -122,7 +122,7 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -131,16 +131,16 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? CacheControl
     {
-        get => new TerraformReference<string>(this, "cache_control");
+        get => GetArgument<TerraformValue<string>>("cache_control");
         set => SetArgument("cache_control", value);
     }
 
     /// <summary>
     /// Data as string to be uploaded. Must be defined if source is not. Note: The content field is marked as sensitive. To view the raw contents of the object, please define an output.
     /// </summary>
-    public TerraformValue<string> Content
+    public TerraformValue<string>? Content
     {
-        get => new TerraformReference<string>(this, "content");
+        get => GetArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -149,7 +149,7 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? ContentDisposition
     {
-        get => new TerraformReference<string>(this, "content_disposition");
+        get => GetArgument<TerraformValue<string>>("content_disposition");
         set => SetArgument("content_disposition", value);
     }
 
@@ -158,7 +158,7 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? ContentEncoding
     {
-        get => new TerraformReference<string>(this, "content_encoding");
+        get => GetArgument<TerraformValue<string>>("content_encoding");
         set => SetArgument("content_encoding", value);
     }
 
@@ -167,16 +167,16 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? ContentLanguage
     {
-        get => new TerraformReference<string>(this, "content_language");
+        get => GetArgument<TerraformValue<string>>("content_language");
         set => SetArgument("content_language", value);
     }
 
     /// <summary>
     /// Content-Type of the object data. Defaults to &amp;quot;application/octet-stream&amp;quot; or &amp;quot;text/plain; charset=utf-8&amp;quot;.
     /// </summary>
-    public TerraformValue<string> ContentType
+    public TerraformValue<string>? ContentType
     {
-        get => new TerraformReference<string>(this, "content_type");
+        get => GetArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -185,7 +185,7 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? DeletionPolicy
     {
-        get => new TerraformReference<string>(this, "deletion_policy");
+        get => GetArgument<TerraformValue<string>>("deletion_policy");
         set => SetArgument("deletion_policy", value);
     }
 
@@ -194,7 +194,7 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? DetectMd5hash
     {
-        get => new TerraformReference<string>(this, "detect_md5hash");
+        get => GetArgument<TerraformValue<string>>("detect_md5hash");
         set => SetArgument("detect_md5hash", value);
     }
 
@@ -203,7 +203,7 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? EventBasedHold
     {
-        get => new TerraformReference<bool>(this, "event_based_hold");
+        get => GetArgument<TerraformValue<bool>>("event_based_hold");
         set => SetArgument("event_based_hold", value);
     }
 
@@ -212,25 +212,25 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? ForceEmptyContentType
     {
-        get => new TerraformReference<bool>(this, "force_empty_content_type");
+        get => GetArgument<TerraformValue<bool>>("force_empty_content_type");
         set => SetArgument("force_empty_content_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Resource name of the Cloud KMS key that will be used to encrypt the object. Overrides the object metadata&#39;s kmsKeyName value, if any.
     /// </summary>
-    public TerraformValue<string> KmsKeyName
+    public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -239,7 +239,7 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -249,7 +249,7 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -258,7 +258,7 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -267,16 +267,16 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? SourceMd5hash
     {
-        get => new TerraformReference<string>(this, "source_md5hash");
+        get => GetArgument<TerraformValue<string>>("source_md5hash");
         set => SetArgument("source_md5hash", value);
     }
 
     /// <summary>
     /// The StorageClass of the new bucket object. Supported values include: MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE, ARCHIVE. If not provided, this defaults to the bucket&#39;s default storage class or to a standard class.
     /// </summary>
-    public TerraformValue<string> StorageClass
+    public TerraformValue<string>? StorageClass
     {
-        get => new TerraformReference<string>(this, "storage_class");
+        get => GetArgument<TerraformValue<string>>("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -285,7 +285,7 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? TemporaryHold
     {
-        get => new TerraformReference<bool>(this, "temporary_hold");
+        get => GetArgument<TerraformValue<bool>>("temporary_hold");
         set => SetArgument("temporary_hold", value);
     }
 
@@ -293,57 +293,43 @@ public partial class GoogleStorageBucketObject(string name) : TerraformResource(
     /// Base 64 CRC32 hash of the uploaded data.
     /// </summary>
     public TerraformValue<string> Crc32c
-    {
-        get => new TerraformReference<string>(this, "crc32c");
-    }
+        => AsReference("crc32c");
 
     /// <summary>
     /// The content generation of this object. Used for object versioning and soft delete.
     /// </summary>
     public TerraformValue<double> Generation
-    {
-        get => new TerraformReference<double>(this, "generation");
-    }
+        => AsReference("generation");
 
     /// <summary>
     /// Base 64 MD5 hash of the uploaded data.
     /// </summary>
     public TerraformValue<string> Md5hash
-    {
-        get => new TerraformReference<string>(this, "md5hash");
-    }
+        => AsReference("md5hash");
 
     /// <summary>
     /// Hex value of md5hash
     /// </summary>
     public TerraformValue<string> Md5hexhash
-    {
-        get => new TerraformReference<string>(this, "md5hexhash");
-    }
+        => AsReference("md5hexhash");
 
     /// <summary>
     /// A url reference to download this object.
     /// </summary>
     public TerraformValue<string> MediaLink
-    {
-        get => new TerraformReference<string>(this, "media_link");
-    }
+        => AsReference("media_link");
 
     /// <summary>
     /// The name of the object. Use this field in interpolations with google_storage_object_acl to recreate google_storage_object_acl resources when your google_storage_bucket_object is recreated.
     /// </summary>
     public TerraformValue<string> OutputName
-    {
-        get => new TerraformReference<string>(this, "output_name");
-    }
+        => AsReference("output_name");
 
     /// <summary>
     /// A url reference to this object.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// CustomerEncryption block (nesting mode: list).

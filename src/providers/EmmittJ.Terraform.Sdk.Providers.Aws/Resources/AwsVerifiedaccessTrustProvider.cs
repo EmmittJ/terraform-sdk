@@ -18,7 +18,7 @@ public class AwsVerifiedaccessTrustProviderDeviceOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock : T
     /// </summary>
     public TerraformValue<string>? AuthorizationEndpoint
     {
-        get => new TerraformReference<string>(this, "authorization_endpoint");
+        get => GetArgument<TerraformValue<string>>("authorization_endpoint");
         set => SetArgument("authorization_endpoint", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock : T
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformValue<string> ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock : T
     /// </summary>
     public TerraformValue<string>? Issuer
     {
-        get => new TerraformReference<string>(this, "issuer");
+        get => GetArgument<TerraformValue<string>>("issuer");
         set => SetArgument("issuer", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock : T
     /// </summary>
     public TerraformValue<string>? PublicSigningKeyEndpoint
     {
-        get => new TerraformReference<string>(this, "public_signing_key_endpoint");
+        get => GetArgument<TerraformValue<string>>("public_signing_key_endpoint");
         set => SetArgument("public_signing_key_endpoint", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock : T
     /// </summary>
     public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock : T
     /// </summary>
     public TerraformValue<string>? TokenEndpoint
     {
-        get => new TerraformReference<string>(this, "token_endpoint");
+        get => GetArgument<TerraformValue<string>>("token_endpoint");
         set => SetArgument("token_endpoint", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsVerifiedaccessTrustProviderNativeApplicationOidcOptionsBlock : T
     /// </summary>
     public TerraformValue<string>? UserInfoEndpoint
     {
-        get => new TerraformReference<string>(this, "user_info_endpoint");
+        get => GetArgument<TerraformValue<string>>("user_info_endpoint");
         set => SetArgument("user_info_endpoint", value);
     }
 
@@ -128,7 +128,7 @@ public class AwsVerifiedaccessTrustProviderOidcOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AuthorizationEndpoint
     {
-        get => new TerraformReference<string>(this, "authorization_endpoint");
+        get => GetArgument<TerraformValue<string>>("authorization_endpoint");
         set => SetArgument("authorization_endpoint", value);
     }
 
@@ -137,7 +137,7 @@ public class AwsVerifiedaccessTrustProviderOidcOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -147,7 +147,7 @@ public class AwsVerifiedaccessTrustProviderOidcOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformValue<string> ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -156,7 +156,7 @@ public class AwsVerifiedaccessTrustProviderOidcOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Issuer
     {
-        get => new TerraformReference<string>(this, "issuer");
+        get => GetArgument<TerraformValue<string>>("issuer");
         set => SetArgument("issuer", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsVerifiedaccessTrustProviderOidcOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsVerifiedaccessTrustProviderOidcOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TokenEndpoint
     {
-        get => new TerraformReference<string>(this, "token_endpoint");
+        get => GetArgument<TerraformValue<string>>("token_endpoint");
         set => SetArgument("token_endpoint", value);
     }
 
@@ -183,7 +183,7 @@ public class AwsVerifiedaccessTrustProviderOidcOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? UserInfoEndpoint
     {
-        get => new TerraformReference<string>(this, "user_info_endpoint");
+        get => GetArgument<TerraformValue<string>>("user_info_endpoint");
         set => SetArgument("user_info_endpoint", value);
     }
 
@@ -206,7 +206,7 @@ public class AwsVerifiedaccessTrustProviderSseSpecificationBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool>? CustomerManagedKeyEnabled
     {
-        get => new TerraformReference<bool>(this, "customer_managed_key_enabled");
+        get => GetArgument<TerraformValue<bool>>("customer_managed_key_enabled");
         set => SetArgument("customer_managed_key_enabled", value);
     }
 
@@ -215,7 +215,7 @@ public class AwsVerifiedaccessTrustProviderSseSpecificationBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -238,7 +238,7 @@ public class AwsVerifiedaccessTrustProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -247,7 +247,7 @@ public class AwsVerifiedaccessTrustProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -256,7 +256,7 @@ public class AwsVerifiedaccessTrustProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -274,7 +274,7 @@ public partial class AwsVerifiedaccessTrustProvider(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -283,16 +283,16 @@ public partial class AwsVerifiedaccessTrustProvider(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? DeviceTrustProviderType
     {
-        get => new TerraformReference<string>(this, "device_trust_provider_type");
+        get => GetArgument<TerraformValue<string>>("device_trust_provider_type");
         set => SetArgument("device_trust_provider_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -302,16 +302,16 @@ public partial class AwsVerifiedaccessTrustProvider(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyReferenceName is required")]
     public required TerraformValue<string> PolicyReferenceName
     {
-        get => new TerraformReference<string>(this, "policy_reference_name");
+        get => GetArgument<TerraformValue<string>>("policy_reference_name");
         set => SetArgument("policy_reference_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -320,16 +320,16 @@ public partial class AwsVerifiedaccessTrustProvider(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -339,7 +339,7 @@ public partial class AwsVerifiedaccessTrustProvider(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustProviderType is required")]
     public required TerraformValue<string> TrustProviderType
     {
-        get => new TerraformReference<string>(this, "trust_provider_type");
+        get => GetArgument<TerraformValue<string>>("trust_provider_type");
         set => SetArgument("trust_provider_type", value);
     }
 
@@ -348,7 +348,7 @@ public partial class AwsVerifiedaccessTrustProvider(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? UserTrustProviderType
     {
-        get => new TerraformReference<string>(this, "user_trust_provider_type");
+        get => GetArgument<TerraformValue<string>>("user_trust_provider_type");
         set => SetArgument("user_trust_provider_type", value);
     }
 

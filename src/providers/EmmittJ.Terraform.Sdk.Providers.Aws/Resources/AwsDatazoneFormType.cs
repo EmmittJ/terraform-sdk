@@ -19,7 +19,7 @@ public class AwsDatazoneFormTypeModelBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Smithy is required")]
     public required TerraformValue<string> Smithy
     {
-        get => new TerraformReference<string>(this, "smithy");
+        get => GetArgument<TerraformValue<string>>("smithy");
         set => SetArgument("smithy", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsDatazoneFormTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsDatazoneFormType(string name) : TerraformResource("aws_d
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsDatazoneFormType(string name) : TerraformResource("aws_d
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     public required TerraformValue<string> DomainIdentifier
     {
-        get => new TerraformReference<string>(this, "domain_identifier");
+        get => GetArgument<TerraformValue<string>>("domain_identifier");
         set => SetArgument("domain_identifier", value);
     }
 
@@ -80,7 +80,7 @@ public partial class AwsDatazoneFormType(string name) : TerraformResource("aws_d
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -90,25 +90,25 @@ public partial class AwsDatazoneFormType(string name) : TerraformResource("aws_d
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwningProjectIdentifier is required")]
     public required TerraformValue<string> OwningProjectIdentifier
     {
-        get => new TerraformReference<string>(this, "owning_project_identifier");
+        get => GetArgument<TerraformValue<string>>("owning_project_identifier");
         set => SetArgument("owning_project_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformValue<string> Status
+    public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -116,49 +116,37 @@ public partial class AwsDatazoneFormType(string name) : TerraformResource("aws_d
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
     public TerraformValue<string> CreatedBy
-    {
-        get => new TerraformReference<string>(this, "created_by");
-    }
+        => AsReference("created_by");
 
     /// <summary>
     /// The imports attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Imports
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "imports").ResolveNodes(ctx));
-    }
+        => AsReference("imports");
 
     /// <summary>
     /// The origin_domain_id attribute.
     /// </summary>
     public TerraformValue<string> OriginDomainId
-    {
-        get => new TerraformReference<string>(this, "origin_domain_id");
-    }
+        => AsReference("origin_domain_id");
 
     /// <summary>
     /// The origin_project_id attribute.
     /// </summary>
     public TerraformValue<string> OriginProjectId
-    {
-        get => new TerraformReference<string>(this, "origin_project_id");
-    }
+        => AsReference("origin_project_id");
 
     /// <summary>
     /// The revision attribute.
     /// </summary>
     public TerraformValue<string> Revision
-    {
-        get => new TerraformReference<string>(this, "revision");
-    }
+        => AsReference("revision");
 
     /// <summary>
     /// Model block (nesting mode: list).

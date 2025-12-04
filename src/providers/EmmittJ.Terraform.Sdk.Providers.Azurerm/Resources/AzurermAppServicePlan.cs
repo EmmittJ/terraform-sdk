@@ -16,9 +16,9 @@ public class AzurermAppServicePlanSkuBlock : TerraformBlock
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    public TerraformValue<double> Capacity
+    public TerraformValue<double>? Capacity
     {
-        get => new TerraformReference<double>(this, "capacity");
+        get => GetArgument<TerraformValue<double>>("capacity");
         set => SetArgument("capacity", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermAppServicePlanSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     public required TerraformValue<string> Size
     {
-        get => new TerraformReference<string>(this, "size");
+        get => GetArgument<TerraformValue<string>>("size");
         set => SetArgument("size", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermAppServicePlanSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformValue<string> Tier
     {
-        get => new TerraformReference<string>(this, "tier");
+        get => GetArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermAppServicePlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermAppServicePlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermAppServicePlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermAppServicePlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -107,16 +107,16 @@ public partial class AzurermAppServicePlan(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? AppServiceEnvironmentId
     {
-        get => new TerraformReference<string>(this, "app_service_environment_id");
+        get => GetArgument<TerraformValue<string>>("app_service_environment_id");
         set => SetArgument("app_service_environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AzurermAppServicePlan(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? IsXenon
     {
-        get => new TerraformReference<bool>(this, "is_xenon");
+        get => GetArgument<TerraformValue<bool>>("is_xenon");
         set => SetArgument("is_xenon", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AzurermAppServicePlan(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? Kind
     {
-        get => new TerraformReference<string>(this, "kind");
+        get => GetArgument<TerraformValue<string>>("kind");
         set => SetArgument("kind", value);
     }
 
@@ -144,16 +144,16 @@ public partial class AzurermAppServicePlan(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The maximum_elastic_worker_count attribute.
     /// </summary>
-    public TerraformValue<double> MaximumElasticWorkerCount
+    public TerraformValue<double>? MaximumElasticWorkerCount
     {
-        get => new TerraformReference<double>(this, "maximum_elastic_worker_count");
+        get => GetArgument<TerraformValue<double>>("maximum_elastic_worker_count");
         set => SetArgument("maximum_elastic_worker_count", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AzurermAppServicePlan(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AzurermAppServicePlan(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? PerSiteScaling
     {
-        get => new TerraformReference<bool>(this, "per_site_scaling");
+        get => GetArgument<TerraformValue<bool>>("per_site_scaling");
         set => SetArgument("per_site_scaling", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AzurermAppServicePlan(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? Reserved
     {
-        get => new TerraformReference<bool>(this, "reserved");
+        get => GetArgument<TerraformValue<bool>>("reserved");
         set => SetArgument("reserved", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AzurermAppServicePlan(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AzurermAppServicePlan(string name) : TerraformResource("azu
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -209,7 +209,7 @@ public partial class AzurermAppServicePlan(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? ZoneRedundant
     {
-        get => new TerraformReference<bool>(this, "zone_redundant");
+        get => GetArgument<TerraformValue<bool>>("zone_redundant");
         set => SetArgument("zone_redundant", value);
     }
 
@@ -217,9 +217,7 @@ public partial class AzurermAppServicePlan(string name) : TerraformResource("azu
     /// The maximum_number_of_workers attribute.
     /// </summary>
     public TerraformValue<double> MaximumNumberOfWorkers
-    {
-        get => new TerraformReference<double>(this, "maximum_number_of_workers");
-    }
+        => AsReference("maximum_number_of_workers");
 
     /// <summary>
     /// Sku block (nesting mode: list).

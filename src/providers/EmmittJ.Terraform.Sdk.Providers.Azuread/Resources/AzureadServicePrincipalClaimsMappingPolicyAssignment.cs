@@ -18,7 +18,7 @@ public class AzureadServicePrincipalClaimsMappingPolicyAssignmentTimeoutsBlock :
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadServicePrincipalClaimsMappingPolicyAssignmentTimeoutsBlock :
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadServicePrincipalClaimsMappingPolicyAssignmentTimeoutsBlock :
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AzureadServicePrincipalClaimsMappingPolicyAssignment(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClaimsMappingPolicyId is required")]
     public required TerraformValue<string> ClaimsMappingPolicyId
     {
-        get => new TerraformReference<string>(this, "claims_mapping_policy_id");
+        get => GetArgument<TerraformValue<string>>("claims_mapping_policy_id");
         set => SetArgument("claims_mapping_policy_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzureadServicePrincipalClaimsMappingPolicyAssignment(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     public required TerraformValue<string> ServicePrincipalId
     {
-        get => new TerraformReference<string>(this, "service_principal_id");
+        get => GetArgument<TerraformValue<string>>("service_principal_id");
         set => SetArgument("service_principal_id", value);
     }
 

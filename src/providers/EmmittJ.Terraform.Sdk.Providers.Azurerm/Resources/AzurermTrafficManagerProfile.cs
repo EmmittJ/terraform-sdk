@@ -19,7 +19,7 @@ public class AzurermTrafficManagerProfileDnsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeName is required")]
     public required TerraformValue<string> RelativeName
     {
-        get => new TerraformReference<string>(this, "relative_name");
+        get => GetArgument<TerraformValue<string>>("relative_name");
         set => SetArgument("relative_name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermTrafficManagerProfileDnsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     public required TerraformValue<double> Ttl
     {
-        get => new TerraformReference<double>(this, "ttl");
+        get => GetArgument<TerraformValue<double>>("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ExpectedStatusCodeRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "expected_status_code_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("expected_status_code_ranges");
         set => SetArgument("expected_status_code_ranges", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? IntervalInSeconds
     {
-        get => new TerraformReference<double>(this, "interval_in_seconds");
+        get => GetArgument<TerraformValue<double>>("interval_in_seconds");
         set => SetArgument("interval_in_seconds", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -80,7 +80,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -90,7 +90,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -99,7 +99,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? TimeoutInSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_in_seconds");
         set => SetArgument("timeout_in_seconds", value);
     }
 
@@ -108,7 +108,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ToleratedNumberOfFailures
     {
-        get => new TerraformReference<double>(this, "tolerated_number_of_failures");
+        get => GetArgument<TerraformValue<double>>("tolerated_number_of_failures");
         set => SetArgument("tolerated_number_of_failures", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlockCustomHeaderBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermTrafficManagerProfileMonitorConfigBlockCustomHeaderBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -173,7 +173,7 @@ public class AzurermTrafficManagerProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -182,7 +182,7 @@ public class AzurermTrafficManagerProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -191,7 +191,7 @@ public class AzurermTrafficManagerProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -200,7 +200,7 @@ public class AzurermTrafficManagerProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -216,9 +216,9 @@ public partial class AzurermTrafficManagerProfile(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -227,7 +227,7 @@ public partial class AzurermTrafficManagerProfile(string name) : TerraformResour
     /// </summary>
     public TerraformValue<double>? MaxReturn
     {
-        get => new TerraformReference<double>(this, "max_return");
+        get => GetArgument<TerraformValue<double>>("max_return");
         set => SetArgument("max_return", value);
     }
 
@@ -237,7 +237,7 @@ public partial class AzurermTrafficManagerProfile(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -246,7 +246,7 @@ public partial class AzurermTrafficManagerProfile(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? ProfileStatus
     {
-        get => new TerraformReference<string>(this, "profile_status");
+        get => GetArgument<TerraformValue<string>>("profile_status");
         set => SetArgument("profile_status", value);
     }
 
@@ -256,7 +256,7 @@ public partial class AzurermTrafficManagerProfile(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -265,7 +265,7 @@ public partial class AzurermTrafficManagerProfile(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -275,7 +275,7 @@ public partial class AzurermTrafficManagerProfile(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficRoutingMethod is required")]
     public required TerraformValue<string> TrafficRoutingMethod
     {
-        get => new TerraformReference<string>(this, "traffic_routing_method");
+        get => GetArgument<TerraformValue<string>>("traffic_routing_method");
         set => SetArgument("traffic_routing_method", value);
     }
 
@@ -284,7 +284,7 @@ public partial class AzurermTrafficManagerProfile(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? TrafficViewEnabled
     {
-        get => new TerraformReference<bool>(this, "traffic_view_enabled");
+        get => GetArgument<TerraformValue<bool>>("traffic_view_enabled");
         set => SetArgument("traffic_view_enabled", value);
     }
 
@@ -292,9 +292,7 @@ public partial class AzurermTrafficManagerProfile(string name) : TerraformResour
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-    {
-        get => new TerraformReference<string>(this, "fqdn");
-    }
+        => AsReference("fqdn");
 
     /// <summary>
     /// DnsConfig block (nesting mode: list).

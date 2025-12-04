@@ -18,7 +18,7 @@ public class AwsRoute53recoveryreadinessRecoveryGroupTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,16 +36,16 @@ public partial class AwsRoute53recoveryreadinessRecoveryGroup(string name) : Ter
     /// </summary>
     public TerraformList<string>? Cells
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "cells").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("cells");
         set => SetArgument("cells", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsRoute53recoveryreadinessRecoveryGroup(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryGroupName is required")]
     public required TerraformValue<string> RecoveryGroupName
     {
-        get => new TerraformReference<string>(this, "recovery_group_name");
+        get => GetArgument<TerraformValue<string>>("recovery_group_name");
         set => SetArgument("recovery_group_name", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AwsRoute53recoveryreadinessRecoveryGroup(string name) : Ter
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -81,9 +81,7 @@ public partial class AwsRoute53recoveryreadinessRecoveryGroup(string name) : Ter
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

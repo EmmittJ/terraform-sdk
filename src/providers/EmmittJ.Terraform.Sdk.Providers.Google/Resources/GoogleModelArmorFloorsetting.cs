@@ -18,7 +18,7 @@ public class GoogleModelArmorFloorsettingAiPlatformFloorSettingBlock : Terraform
     /// </summary>
     public TerraformValue<bool>? EnableCloudLogging
     {
-        get => new TerraformReference<bool>(this, "enable_cloud_logging");
+        get => GetArgument<TerraformValue<bool>>("enable_cloud_logging");
         set => SetArgument("enable_cloud_logging", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleModelArmorFloorsettingAiPlatformFloorSettingBlock : Terraform
     /// </summary>
     public TerraformValue<bool>? InspectAndBlock
     {
-        get => new TerraformReference<bool>(this, "inspect_and_block");
+        get => GetArgument<TerraformValue<bool>>("inspect_and_block");
         set => SetArgument("inspect_and_block", value);
     }
 
@@ -38,7 +38,7 @@ public class GoogleModelArmorFloorsettingAiPlatformFloorSettingBlock : Terraform
     /// </summary>
     public TerraformValue<bool>? InspectOnly
     {
-        get => new TerraformReference<bool>(this, "inspect_only");
+        get => GetArgument<TerraformValue<bool>>("inspect_only");
         set => SetArgument("inspect_only", value);
     }
 
@@ -117,7 +117,7 @@ public class GoogleModelArmorFloorsettingFilterConfigBlockMaliciousUriFilterSett
     /// </summary>
     public TerraformValue<string>? FilterEnforcement
     {
-        get => new TerraformReference<string>(this, "filter_enforcement");
+        get => GetArgument<TerraformValue<string>>("filter_enforcement");
         set => SetArgument("filter_enforcement", value);
     }
 
@@ -142,7 +142,7 @@ public class GoogleModelArmorFloorsettingFilterConfigBlockPiAndJailbreakFilterSe
     /// </summary>
     public TerraformValue<string>? ConfidenceLevel
     {
-        get => new TerraformReference<string>(this, "confidence_level");
+        get => GetArgument<TerraformValue<string>>("confidence_level");
         set => SetArgument("confidence_level", value);
     }
 
@@ -155,7 +155,7 @@ public class GoogleModelArmorFloorsettingFilterConfigBlockPiAndJailbreakFilterSe
     /// </summary>
     public TerraformValue<string>? FilterEnforcement
     {
-        get => new TerraformReference<string>(this, "filter_enforcement");
+        get => GetArgument<TerraformValue<string>>("filter_enforcement");
         set => SetArgument("filter_enforcement", value);
     }
 
@@ -205,7 +205,7 @@ public class GoogleModelArmorFloorsettingFilterConfigBlockRaiSettingsBlockRaiFil
     /// </summary>
     public TerraformValue<string>? ConfidenceLevel
     {
-        get => new TerraformReference<string>(this, "confidence_level");
+        get => GetArgument<TerraformValue<string>>("confidence_level");
         set => SetArgument("confidence_level", value);
     }
 
@@ -219,7 +219,7 @@ public class GoogleModelArmorFloorsettingFilterConfigBlockRaiSettingsBlockRaiFil
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterType is required")]
     public required TerraformValue<string> FilterType
     {
-        get => new TerraformReference<string>(this, "filter_type");
+        get => GetArgument<TerraformValue<string>>("filter_type");
         set => SetArgument("filter_type", value);
     }
 
@@ -283,7 +283,7 @@ public class GoogleModelArmorFloorsettingFilterConfigBlockSdpSettingsBlockAdvanc
     /// </summary>
     public TerraformValue<string>? DeidentifyTemplate
     {
-        get => new TerraformReference<string>(this, "deidentify_template");
+        get => GetArgument<TerraformValue<string>>("deidentify_template");
         set => SetArgument("deidentify_template", value);
     }
 
@@ -300,7 +300,7 @@ public class GoogleModelArmorFloorsettingFilterConfigBlockSdpSettingsBlockAdvanc
     /// </summary>
     public TerraformValue<string>? InspectTemplate
     {
-        get => new TerraformReference<string>(this, "inspect_template");
+        get => GetArgument<TerraformValue<string>>("inspect_template");
         set => SetArgument("inspect_template", value);
     }
 
@@ -326,7 +326,7 @@ public class GoogleModelArmorFloorsettingFilterConfigBlockSdpSettingsBlockBasicC
     /// </summary>
     public TerraformValue<string>? FilterEnforcement
     {
-        get => new TerraformReference<string>(this, "filter_enforcement");
+        get => GetArgument<TerraformValue<string>>("filter_enforcement");
         set => SetArgument("filter_enforcement", value);
     }
 
@@ -373,7 +373,7 @@ public class GoogleModelArmorFloorsettingFloorSettingMetadataBlockMultiLanguageD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableMultiLanguageDetection is required")]
     public required TerraformValue<bool> EnableMultiLanguageDetection
     {
-        get => new TerraformReference<bool>(this, "enable_multi_language_detection");
+        get => GetArgument<TerraformValue<bool>>("enable_multi_language_detection");
         set => SetArgument("enable_multi_language_detection", value);
     }
 
@@ -396,7 +396,7 @@ public class GoogleModelArmorFloorsettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -405,7 +405,7 @@ public class GoogleModelArmorFloorsettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -414,7 +414,7 @@ public class GoogleModelArmorFloorsettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -432,16 +432,16 @@ public partial class GoogleModelArmorFloorsetting(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? EnableFloorSettingEnforcement
     {
-        get => new TerraformReference<bool>(this, "enable_floor_setting_enforcement");
+        get => GetArgument<TerraformValue<bool>>("enable_floor_setting_enforcement");
         set => SetArgument("enable_floor_setting_enforcement", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -450,7 +450,7 @@ public partial class GoogleModelArmorFloorsetting(string name) : TerraformResour
     /// </summary>
     public TerraformList<string>? IntegratedServices
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "integrated_services").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("integrated_services");
         set => SetArgument("integrated_services", value);
     }
 
@@ -460,7 +460,7 @@ public partial class GoogleModelArmorFloorsetting(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -474,7 +474,7 @@ public partial class GoogleModelArmorFloorsetting(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -482,25 +482,19 @@ public partial class GoogleModelArmorFloorsetting(string name) : TerraformResour
     /// [Output only] Create timestamp
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Identifier. The resource name.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// [Output only] Update timestamp
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// AiPlatformFloorSetting block (nesting mode: list).

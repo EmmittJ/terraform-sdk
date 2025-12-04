@@ -11,9 +11,9 @@ public partial class GoogleTagsTagValueIamPolicyDataSource(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleTagsTagValueIamPolicyDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagValue is required")]
     public required TerraformValue<string> TagValue
     {
-        get => new TerraformReference<string>(this, "tag_value");
+        get => GetArgument<TerraformValue<string>>("tag_value");
         set => SetArgument("tag_value", value);
     }
 
@@ -31,16 +31,12 @@ public partial class GoogleTagsTagValueIamPolicyDataSource(string name) : Terraf
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     public TerraformValue<string> PolicyData
-    {
-        get => new TerraformReference<string>(this, "policy_data");
-    }
+        => AsReference("policy_data");
 
 }

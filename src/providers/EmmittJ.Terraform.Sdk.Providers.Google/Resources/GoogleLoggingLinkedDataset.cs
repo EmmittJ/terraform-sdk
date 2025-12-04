@@ -20,9 +20,7 @@ public class GoogleLoggingLinkedDatasetBigqueryDatasetBlock : TerraformBlock
     /// &amp;quot;bigquery.googleapis.com/projects/[PROJECT_ID]/datasets/[DATASET_ID]&amp;quot;
     /// </summary>
     public TerraformValue<string> DatasetId
-    {
-        get => new TerraformReference<string>(this, "dataset_id");
-    }
+        => AsReference("dataset_id");
 
 }
 
@@ -43,7 +41,7 @@ public class GoogleLoggingLinkedDatasetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -52,7 +50,7 @@ public class GoogleLoggingLinkedDatasetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -71,7 +69,7 @@ public partial class GoogleLoggingLinkedDataset(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -80,16 +78,16 @@ public partial class GoogleLoggingLinkedDataset(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -99,25 +97,25 @@ public partial class GoogleLoggingLinkedDataset(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkId is required")]
     public required TerraformValue<string> LinkId
     {
-        get => new TerraformReference<string>(this, "link_id");
+        get => GetArgument<TerraformValue<string>>("link_id");
         set => SetArgument("link_id", value);
     }
 
     /// <summary>
     /// The location of the linked dataset.
     /// </summary>
-    public TerraformValue<string> Location
+    public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The parent of the linked dataset.
     /// </summary>
-    public TerraformValue<string> Parent
+    public TerraformValue<string>? Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -127,26 +125,20 @@ public partial class GoogleLoggingLinkedDataset(string name) : TerraformResource
     /// and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Output only. The linked dataset lifecycle state.
     /// </summary>
     public TerraformValue<string> LifecycleState
-    {
-        get => new TerraformReference<string>(this, "lifecycle_state");
-    }
+        => AsReference("lifecycle_state");
 
     /// <summary>
     /// The resource name of the linked dataset. The name can have up to 100 characters. A valid link id
     /// (at the end of the link name) must only have alphanumeric characters and underscores within it.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// BigqueryDataset block (nesting mode: list).

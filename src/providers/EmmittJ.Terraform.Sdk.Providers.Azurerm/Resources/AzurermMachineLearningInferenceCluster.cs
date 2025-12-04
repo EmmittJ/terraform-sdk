@@ -18,7 +18,7 @@ public class AzurermMachineLearningInferenceClusterIdentityBlock : TerraformBloc
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -26,17 +26,13 @@ public class AzurermMachineLearningInferenceClusterIdentityBlock : TerraformBloc
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -44,7 +40,7 @@ public class AzurermMachineLearningInferenceClusterIdentityBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -67,7 +63,7 @@ public class AzurermMachineLearningInferenceClusterSslBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cert
     {
-        get => new TerraformReference<string>(this, "cert");
+        get => GetArgument<TerraformValue<string>>("cert");
         set => SetArgument("cert", value);
     }
 
@@ -76,7 +72,7 @@ public class AzurermMachineLearningInferenceClusterSslBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cname
     {
-        get => new TerraformReference<string>(this, "cname");
+        get => GetArgument<TerraformValue<string>>("cname");
         set => SetArgument("cname", value);
     }
 
@@ -85,7 +81,7 @@ public class AzurermMachineLearningInferenceClusterSslBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -94,7 +90,7 @@ public class AzurermMachineLearningInferenceClusterSslBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LeafDomainLabel
     {
-        get => new TerraformReference<string>(this, "leaf_domain_label");
+        get => GetArgument<TerraformValue<string>>("leaf_domain_label");
         set => SetArgument("leaf_domain_label", value);
     }
 
@@ -103,7 +99,7 @@ public class AzurermMachineLearningInferenceClusterSslBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? OverwriteExistingDomain
     {
-        get => new TerraformReference<bool>(this, "overwrite_existing_domain");
+        get => GetArgument<TerraformValue<bool>>("overwrite_existing_domain");
         set => SetArgument("overwrite_existing_domain", value);
     }
 
@@ -126,7 +122,7 @@ public class AzurermMachineLearningInferenceClusterTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -135,7 +131,7 @@ public class AzurermMachineLearningInferenceClusterTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -144,7 +140,7 @@ public class AzurermMachineLearningInferenceClusterTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -162,7 +158,7 @@ public partial class AzurermMachineLearningInferenceCluster(string name) : Terra
     /// </summary>
     public TerraformValue<string>? ClusterPurpose
     {
-        get => new TerraformReference<string>(this, "cluster_purpose");
+        get => GetArgument<TerraformValue<string>>("cluster_purpose");
         set => SetArgument("cluster_purpose", value);
     }
 
@@ -171,16 +167,16 @@ public partial class AzurermMachineLearningInferenceCluster(string name) : Terra
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -190,7 +186,7 @@ public partial class AzurermMachineLearningInferenceCluster(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesClusterId is required")]
     public required TerraformValue<string> KubernetesClusterId
     {
-        get => new TerraformReference<string>(this, "kubernetes_cluster_id");
+        get => GetArgument<TerraformValue<string>>("kubernetes_cluster_id");
         set => SetArgument("kubernetes_cluster_id", value);
     }
 
@@ -200,7 +196,7 @@ public partial class AzurermMachineLearningInferenceCluster(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -210,7 +206,7 @@ public partial class AzurermMachineLearningInferenceCluster(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineLearningWorkspaceId is required")]
     public required TerraformValue<string> MachineLearningWorkspaceId
     {
-        get => new TerraformReference<string>(this, "machine_learning_workspace_id");
+        get => GetArgument<TerraformValue<string>>("machine_learning_workspace_id");
         set => SetArgument("machine_learning_workspace_id", value);
     }
 
@@ -220,7 +216,7 @@ public partial class AzurermMachineLearningInferenceCluster(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -229,7 +225,7 @@ public partial class AzurermMachineLearningInferenceCluster(string name) : Terra
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

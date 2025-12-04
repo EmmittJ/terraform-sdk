@@ -18,7 +18,7 @@ public class AzurermPolicyDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermPolicyDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermPolicyDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermPolicyDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermPolicyDefinition(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -73,16 +73,16 @@ public partial class AzurermPolicyDefinition(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -91,16 +91,16 @@ public partial class AzurermPolicyDefinition(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? ManagementGroupId
     {
-        get => new TerraformReference<string>(this, "management_group_id");
+        get => GetArgument<TerraformValue<string>>("management_group_id");
         set => SetArgument("management_group_id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformValue<string> Metadata
+    public TerraformValue<string>? Metadata
     {
-        get => new TerraformReference<string>(this, "metadata");
+        get => GetArgument<TerraformValue<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermPolicyDefinition(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermPolicyDefinition(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermPolicyDefinition(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Parameters
     {
-        get => new TerraformReference<string>(this, "parameters");
+        get => GetArgument<TerraformValue<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzurermPolicyDefinition(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? PolicyRule
     {
-        get => new TerraformReference<string>(this, "policy_rule");
+        get => GetArgument<TerraformValue<string>>("policy_rule");
         set => SetArgument("policy_rule", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AzurermPolicyDefinition(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyType is required")]
     public required TerraformValue<string> PolicyType
     {
-        get => new TerraformReference<string>(this, "policy_type");
+        get => GetArgument<TerraformValue<string>>("policy_type");
         set => SetArgument("policy_type", value);
     }
 
@@ -156,9 +156,7 @@ public partial class AzurermPolicyDefinition(string name) : TerraformResource("a
     /// The role_definition_ids attribute.
     /// </summary>
     public TerraformList<string> RoleDefinitionIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "role_definition_ids").ResolveNodes(ctx));
-    }
+        => AsReference("role_definition_ids");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

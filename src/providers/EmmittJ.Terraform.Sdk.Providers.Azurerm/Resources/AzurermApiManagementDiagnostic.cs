@@ -18,7 +18,7 @@ public class AzurermApiManagementDiagnosticBackendRequestBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? BodyBytes
     {
-        get => new TerraformReference<double>(this, "body_bytes");
+        get => GetArgument<TerraformValue<double>>("body_bytes");
         set => SetArgument("body_bytes", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermApiManagementDiagnosticBackendRequestBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? HeadersToLog
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "headers_to_log").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("headers_to_log");
         set => SetArgument("headers_to_log", value);
     }
 
@@ -91,7 +91,7 @@ public class AzurermApiManagementDiagnosticBackendRequestBlockDataMaskingBlockHe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -101,7 +101,7 @@ public class AzurermApiManagementDiagnosticBackendRequestBlockDataMaskingBlockHe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermApiManagementDiagnosticBackendRequestBlockDataMaskingBlockQu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermApiManagementDiagnosticBackendRequestBlockDataMaskingBlockQu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermApiManagementDiagnosticBackendResponseBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? BodyBytes
     {
-        get => new TerraformReference<double>(this, "body_bytes");
+        get => GetArgument<TerraformValue<double>>("body_bytes");
         set => SetArgument("body_bytes", value);
     }
 
@@ -166,7 +166,7 @@ public class AzurermApiManagementDiagnosticBackendResponseBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? HeadersToLog
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "headers_to_log").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("headers_to_log");
         set => SetArgument("headers_to_log", value);
     }
 
@@ -230,7 +230,7 @@ public class AzurermApiManagementDiagnosticBackendResponseBlockDataMaskingBlockH
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -240,7 +240,7 @@ public class AzurermApiManagementDiagnosticBackendResponseBlockDataMaskingBlockH
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -263,7 +263,7 @@ public class AzurermApiManagementDiagnosticBackendResponseBlockDataMaskingBlockQ
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -273,7 +273,7 @@ public class AzurermApiManagementDiagnosticBackendResponseBlockDataMaskingBlockQ
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -296,7 +296,7 @@ public class AzurermApiManagementDiagnosticFrontendRequestBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? BodyBytes
     {
-        get => new TerraformReference<double>(this, "body_bytes");
+        get => GetArgument<TerraformValue<double>>("body_bytes");
         set => SetArgument("body_bytes", value);
     }
 
@@ -305,7 +305,7 @@ public class AzurermApiManagementDiagnosticFrontendRequestBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? HeadersToLog
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "headers_to_log").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("headers_to_log");
         set => SetArgument("headers_to_log", value);
     }
 
@@ -369,7 +369,7 @@ public class AzurermApiManagementDiagnosticFrontendRequestBlockDataMaskingBlockH
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -379,7 +379,7 @@ public class AzurermApiManagementDiagnosticFrontendRequestBlockDataMaskingBlockH
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -402,7 +402,7 @@ public class AzurermApiManagementDiagnosticFrontendRequestBlockDataMaskingBlockQ
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -412,7 +412,7 @@ public class AzurermApiManagementDiagnosticFrontendRequestBlockDataMaskingBlockQ
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -435,7 +435,7 @@ public class AzurermApiManagementDiagnosticFrontendResponseBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double>? BodyBytes
     {
-        get => new TerraformReference<double>(this, "body_bytes");
+        get => GetArgument<TerraformValue<double>>("body_bytes");
         set => SetArgument("body_bytes", value);
     }
 
@@ -444,7 +444,7 @@ public class AzurermApiManagementDiagnosticFrontendResponseBlock : TerraformBloc
     /// </summary>
     public TerraformSet<string>? HeadersToLog
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "headers_to_log").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("headers_to_log");
         set => SetArgument("headers_to_log", value);
     }
 
@@ -508,7 +508,7 @@ public class AzurermApiManagementDiagnosticFrontendResponseBlockDataMaskingBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -518,7 +518,7 @@ public class AzurermApiManagementDiagnosticFrontendResponseBlockDataMaskingBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -541,7 +541,7 @@ public class AzurermApiManagementDiagnosticFrontendResponseBlockDataMaskingBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -551,7 +551,7 @@ public class AzurermApiManagementDiagnosticFrontendResponseBlockDataMaskingBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -574,7 +574,7 @@ public class AzurermApiManagementDiagnosticTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -583,7 +583,7 @@ public class AzurermApiManagementDiagnosticTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -592,7 +592,7 @@ public class AzurermApiManagementDiagnosticTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -601,7 +601,7 @@ public class AzurermApiManagementDiagnosticTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -617,9 +617,9 @@ public partial class AzurermApiManagementDiagnostic(string name) : TerraformReso
     /// <summary>
     /// The always_log_errors attribute.
     /// </summary>
-    public TerraformValue<bool> AlwaysLogErrors
+    public TerraformValue<bool>? AlwaysLogErrors
     {
-        get => new TerraformReference<bool>(this, "always_log_errors");
+        get => GetArgument<TerraformValue<bool>>("always_log_errors");
         set => SetArgument("always_log_errors", value);
     }
 
@@ -629,7 +629,7 @@ public partial class AzurermApiManagementDiagnostic(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementLoggerId is required")]
     public required TerraformValue<string> ApiManagementLoggerId
     {
-        get => new TerraformReference<string>(this, "api_management_logger_id");
+        get => GetArgument<TerraformValue<string>>("api_management_logger_id");
         set => SetArgument("api_management_logger_id", value);
     }
 
@@ -639,25 +639,25 @@ public partial class AzurermApiManagementDiagnostic(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformValue<string> ApiManagementName
     {
-        get => new TerraformReference<string>(this, "api_management_name");
+        get => GetArgument<TerraformValue<string>>("api_management_name");
         set => SetArgument("api_management_name", value);
     }
 
     /// <summary>
     /// The http_correlation_protocol attribute.
     /// </summary>
-    public TerraformValue<string> HttpCorrelationProtocol
+    public TerraformValue<string>? HttpCorrelationProtocol
     {
-        get => new TerraformReference<string>(this, "http_correlation_protocol");
+        get => GetArgument<TerraformValue<string>>("http_correlation_protocol");
         set => SetArgument("http_correlation_protocol", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -667,16 +667,16 @@ public partial class AzurermApiManagementDiagnostic(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformValue<string> Identifier
     {
-        get => new TerraformReference<string>(this, "identifier");
+        get => GetArgument<TerraformValue<string>>("identifier");
         set => SetArgument("identifier", value);
     }
 
     /// <summary>
     /// The log_client_ip attribute.
     /// </summary>
-    public TerraformValue<bool> LogClientIp
+    public TerraformValue<bool>? LogClientIp
     {
-        get => new TerraformReference<bool>(this, "log_client_ip");
+        get => GetArgument<TerraformValue<bool>>("log_client_ip");
         set => SetArgument("log_client_ip", value);
     }
 
@@ -685,7 +685,7 @@ public partial class AzurermApiManagementDiagnostic(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? OperationNameFormat
     {
-        get => new TerraformReference<string>(this, "operation_name_format");
+        get => GetArgument<TerraformValue<string>>("operation_name_format");
         set => SetArgument("operation_name_format", value);
     }
 
@@ -695,25 +695,25 @@ public partial class AzurermApiManagementDiagnostic(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The sampling_percentage attribute.
     /// </summary>
-    public TerraformValue<double> SamplingPercentage
+    public TerraformValue<double>? SamplingPercentage
     {
-        get => new TerraformReference<double>(this, "sampling_percentage");
+        get => GetArgument<TerraformValue<double>>("sampling_percentage");
         set => SetArgument("sampling_percentage", value);
     }
 
     /// <summary>
     /// The verbosity attribute.
     /// </summary>
-    public TerraformValue<string> Verbosity
+    public TerraformValue<string>? Verbosity
     {
-        get => new TerraformReference<string>(this, "verbosity");
+        get => GetArgument<TerraformValue<string>>("verbosity");
         set => SetArgument("verbosity", value);
     }
 

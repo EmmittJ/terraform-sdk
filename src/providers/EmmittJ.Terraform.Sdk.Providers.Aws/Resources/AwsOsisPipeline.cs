@@ -19,7 +19,7 @@ public class AwsOsisPipelineBufferOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PersistentBufferEnabled is required")]
     public required TerraformValue<bool> PersistentBufferEnabled
     {
-        get => new TerraformReference<bool>(this, "persistent_buffer_enabled");
+        get => GetArgument<TerraformValue<bool>>("persistent_buffer_enabled");
         set => SetArgument("persistent_buffer_enabled", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsOsisPipelineEncryptionAtRestOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
     public required TerraformValue<string> KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -66,7 +66,7 @@ public class AwsOsisPipelineLogPublishingOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IsLoggingEnabled
     {
-        get => new TerraformReference<bool>(this, "is_logging_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_logging_enabled");
         set => SetArgument("is_logging_enabled", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsOsisPipelineLogPublishingOptionsBlockCloudwatchLogDestinationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroup is required")]
     public required TerraformValue<string> LogGroup
     {
-        get => new TerraformReference<string>(this, "log_group");
+        get => GetArgument<TerraformValue<string>>("log_group");
         set => SetArgument("log_group", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsOsisPipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsOsisPipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -139,7 +139,7 @@ public class AwsOsisPipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -162,7 +162,7 @@ public class AwsOsisPipelineVpcOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -172,7 +172,7 @@ public class AwsOsisPipelineVpcOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -181,7 +181,7 @@ public class AwsOsisPipelineVpcOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? VpcEndpointManagement
     {
-        get => new TerraformReference<string>(this, "vpc_endpoint_management");
+        get => GetArgument<TerraformValue<string>>("vpc_endpoint_management");
         set => SetArgument("vpc_endpoint_management", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AwsOsisPipeline(string name) : TerraformResource("aws_osis_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxUnits is required")]
     public required TerraformValue<double> MaxUnits
     {
-        get => new TerraformReference<double>(this, "max_units");
+        get => GetArgument<TerraformValue<double>>("max_units");
         set => SetArgument("max_units", value);
     }
 
@@ -210,7 +210,7 @@ public partial class AwsOsisPipeline(string name) : TerraformResource("aws_osis_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinUnits is required")]
     public required TerraformValue<double> MinUnits
     {
-        get => new TerraformReference<double>(this, "min_units");
+        get => GetArgument<TerraformValue<double>>("min_units");
         set => SetArgument("min_units", value);
     }
 
@@ -220,7 +220,7 @@ public partial class AwsOsisPipeline(string name) : TerraformResource("aws_osis_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineConfigurationBody is required")]
     public required TerraformValue<string> PipelineConfigurationBody
     {
-        get => new TerraformReference<string>(this, "pipeline_configuration_body");
+        get => GetArgument<TerraformValue<string>>("pipeline_configuration_body");
         set => SetArgument("pipeline_configuration_body", value);
     }
 
@@ -230,16 +230,16 @@ public partial class AwsOsisPipeline(string name) : TerraformResource("aws_osis_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineName is required")]
     public required TerraformValue<string> PipelineName
     {
-        get => new TerraformReference<string>(this, "pipeline_name");
+        get => GetArgument<TerraformValue<string>>("pipeline_name");
         set => SetArgument("pipeline_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -248,7 +248,7 @@ public partial class AwsOsisPipeline(string name) : TerraformResource("aws_osis_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -256,33 +256,25 @@ public partial class AwsOsisPipeline(string name) : TerraformResource("aws_osis_
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The ingest_endpoint_urls attribute.
     /// </summary>
     public TerraformSet<string> IngestEndpointUrls
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ingest_endpoint_urls").ResolveNodes(ctx));
-    }
+        => AsReference("ingest_endpoint_urls");
 
     /// <summary>
     /// The pipeline_arn attribute.
     /// </summary>
     public TerraformValue<string> PipelineArn
-    {
-        get => new TerraformReference<string>(this, "pipeline_arn");
-    }
+        => AsReference("pipeline_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// BufferOptions block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AzurermNetappBackupPolicyDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermNetappBackupPolicyDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => new TerraformReference<string>(this, "account_name");
+        get => GetArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermNetappBackupPolicyDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermNetappBackupPolicyDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -74,49 +74,37 @@ public partial class AzurermNetappBackupPolicyDataSource(string name) : Terrafor
     /// The daily_backups_to_keep attribute.
     /// </summary>
     public TerraformValue<double> DailyBackupsToKeep
-    {
-        get => new TerraformReference<double>(this, "daily_backups_to_keep");
-    }
+        => AsReference("daily_backups_to_keep");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-    {
-        get => new TerraformReference<bool>(this, "enabled");
-    }
+        => AsReference("enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The monthly_backups_to_keep attribute.
     /// </summary>
     public TerraformValue<double> MonthlyBackupsToKeep
-    {
-        get => new TerraformReference<double>(this, "monthly_backups_to_keep");
-    }
+        => AsReference("monthly_backups_to_keep");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The weekly_backups_to_keep attribute.
     /// </summary>
     public TerraformValue<double> WeeklyBackupsToKeep
-    {
-        get => new TerraformReference<double>(this, "weekly_backups_to_keep");
-    }
+        => AsReference("weekly_backups_to_keep");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

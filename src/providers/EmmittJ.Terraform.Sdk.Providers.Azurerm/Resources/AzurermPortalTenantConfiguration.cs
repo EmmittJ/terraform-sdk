@@ -18,7 +18,7 @@ public class AzurermPortalTenantConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermPortalTenantConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermPortalTenantConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermPortalTenantConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermPortalTenantConfiguration(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermPortalTenantConfiguration(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateMarkdownStorageEnforced is required")]
     public required TerraformValue<bool> PrivateMarkdownStorageEnforced
     {
-        get => new TerraformReference<bool>(this, "private_markdown_storage_enforced");
+        get => GetArgument<TerraformValue<bool>>("private_markdown_storage_enforced");
         set => SetArgument("private_markdown_storage_enforced", value);
     }
 

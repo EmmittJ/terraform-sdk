@@ -18,9 +18,9 @@ public class GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock : T
     /// 
     /// The maximum number of replicas this DeployedModel may be deployed on when the traffic against it increases. If the requested value is too large, the deployment will error, but if deployment succeeds then the ability to scale the model to that many replicas is guaranteed (barring service outages). If traffic against the DeployedModel increases beyond what its replicas at maximum may handle, a portion of the traffic will be dropped. If this value is not provided, a no upper bound for scaling under heavy traffic will be assume, though Vertex AI may be unable to scale beyond certain replica number.
     /// </summary>
-    public TerraformValue<double> MaxReplicaCount
+    public TerraformValue<double>? MaxReplicaCount
     {
-        get => new TerraformReference<double>(this, "max_replica_count");
+        get => GetArgument<TerraformValue<double>>("max_replica_count");
         set => SetArgument("max_replica_count", value);
     }
 
@@ -29,9 +29,9 @@ public class GoogleVertexAiIndexEndpointDeployedIndexAutomaticResourcesBlock : T
     /// 
     /// If traffic against it increases, it may dynamically be deployed onto more replicas up to [maxReplicaCount](https://cloud.google.com/vertex-ai/docs/reference/rest/v1/AutomaticResources#FIELDS.max_replica_count), and as traffic decreases, some of these extra replicas may be freed. If the requested value is too large, the deployment will error.
     /// </summary>
-    public TerraformValue<double> MinReplicaCount
+    public TerraformValue<double>? MinReplicaCount
     {
-        get => new TerraformReference<double>(this, "min_replica_count");
+        get => GetArgument<TerraformValue<double>>("min_replica_count");
         set => SetArgument("min_replica_count", value);
     }
 
@@ -52,9 +52,9 @@ public class GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock : T
     /// <summary>
     /// The maximum number of replicas this DeployedModel may be deployed on when the traffic against it increases. If maxReplicaCount is not set, the default value is minReplicaCount
     /// </summary>
-    public TerraformValue<double> MaxReplicaCount
+    public TerraformValue<double>? MaxReplicaCount
     {
-        get => new TerraformReference<double>(this, "max_replica_count");
+        get => GetArgument<TerraformValue<double>>("max_replica_count");
         set => SetArgument("max_replica_count", value);
     }
 
@@ -64,7 +64,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReplicaCount is required")]
     public required TerraformValue<double> MinReplicaCount
     {
-        get => new TerraformReference<double>(this, "min_replica_count");
+        get => GetArgument<TerraformValue<double>>("min_replica_count");
         set => SetArgument("min_replica_count", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexDedicatedResourcesBlockMach
     /// </summary>
     public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -151,7 +151,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexDeployedIndexAuthConfigBloc
     /// </summary>
     public TerraformList<string>? AllowedIssuers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_issuers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_issuers");
         set => SetArgument("allowed_issuers", value);
     }
 
@@ -160,7 +160,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexDeployedIndexAuthConfigBloc
     /// </summary>
     public TerraformList<string>? Audiences
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "audiences").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("audiences");
         set => SetArgument("audiences", value);
     }
 
@@ -183,7 +183,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -192,7 +192,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -201,7 +201,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -220,7 +220,7 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndex(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeployedIndexId is required")]
     public required TerraformValue<string> DeployedIndexId
     {
-        get => new TerraformReference<string>(this, "deployed_index_id");
+        get => GetArgument<TerraformValue<string>>("deployed_index_id");
         set => SetArgument("deployed_index_id", value);
     }
 
@@ -231,7 +231,7 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndex(string name) : Ter
     /// </summary>
     public TerraformValue<string>? DeploymentGroup
     {
-        get => new TerraformReference<string>(this, "deployment_group");
+        get => GetArgument<TerraformValue<string>>("deployment_group");
         set => SetArgument("deployment_group", value);
     }
 
@@ -240,7 +240,7 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndex(string name) : Ter
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -249,16 +249,16 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndex(string name) : Ter
     /// </summary>
     public TerraformValue<bool>? EnableAccessLogging
     {
-        get => new TerraformReference<bool>(this, "enable_access_logging");
+        get => GetArgument<TerraformValue<bool>>("enable_access_logging");
         set => SetArgument("enable_access_logging", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -268,7 +268,7 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndex(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Index is required")]
     public required TerraformValue<string> Index
     {
-        get => new TerraformReference<string>(this, "index");
+        get => GetArgument<TerraformValue<string>>("index");
         set => SetArgument("index", value);
     }
 
@@ -279,7 +279,7 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndex(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexEndpoint is required")]
     public required TerraformValue<string> IndexEndpoint
     {
-        get => new TerraformReference<string>(this, "index_endpoint");
+        get => GetArgument<TerraformValue<string>>("index_endpoint");
         set => SetArgument("index_endpoint", value);
     }
 
@@ -288,7 +288,7 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndex(string name) : Ter
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -302,7 +302,7 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndex(string name) : Ter
     /// </summary>
     public TerraformList<string>? ReservedIpRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "reserved_ip_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("reserved_ip_ranges");
         set => SetArgument("reserved_ip_ranges", value);
     }
 
@@ -310,9 +310,7 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndex(string name) : Ter
     /// The timestamp of when the Index was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The DeployedIndex may depend on various data on its original Index. Additionally when certain changes to the original Index are being done (e.g. when what the Index contains is being changed) the DeployedIndex may be asynchronously updated in the background to reflect these changes. If this timestamp&#39;s value is at least the [Index.update_time](https://cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.indexes#Index.FIELDS.update_time) of the original Index, it means that this DeployedIndex and the original Index are in sync. If this timestamp is older, then to see which updates this DeployedIndex already contains (and which it does not), one must [list](https://cloud.google.com/vertex-ai/docs/reference/rest/v1beta1/projects.locations.operations/list#google.longrunning.Operations.ListOperations) the operations that are running on the original Index. Only the successfully completed Operations with updateTime equal or before this sync time are contained in this DeployedIndex.
@@ -320,25 +318,19 @@ public partial class GoogleVertexAiIndexEndpointDeployedIndex(string name) : Ter
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples:&#160;&amp;quot;2014-10-02T15:01:23Z&amp;quot;&#160;and&#160;&amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> IndexSyncTime
-    {
-        get => new TerraformReference<string>(this, "index_sync_time");
-    }
+        => AsReference("index_sync_time");
 
     /// <summary>
     /// The name of the DeployedIndex resource.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Provides paths for users to send requests directly to the deployed index services running on Cloud via private services access. This field is populated if [network](https://cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.indexEndpoints#IndexEndpoint.FIELDS.network) is configured.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrivateEndpoints
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "private_endpoints").ResolveNodes(ctx));
-    }
+        => AsReference("private_endpoints");
 
     /// <summary>
     /// AutomaticResources block (nesting mode: list).

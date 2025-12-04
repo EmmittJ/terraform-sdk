@@ -14,25 +14,25 @@ public partial class AwsGlueDataCatalogEncryptionSettingsDataSource(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     public required TerraformValue<string> CatalogId
     {
-        get => new TerraformReference<string>(this, "catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -40,8 +40,6 @@ public partial class AwsGlueDataCatalogEncryptionSettingsDataSource(string name)
     /// The data_catalog_encryption_settings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DataCatalogEncryptionSettings
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "data_catalog_encryption_settings").ResolveNodes(ctx));
-    }
+        => AsReference("data_catalog_encryption_settings");
 
 }

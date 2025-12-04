@@ -19,7 +19,7 @@ public class AwsCeAnomalySubscriptionSubscriberBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
     public required TerraformValue<string> Address
     {
-        get => new TerraformReference<string>(this, "address");
+        get => GetArgument<TerraformValue<string>>("address");
         set => SetArgument("address", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsCeAnomalySubscriptionSubscriberBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockAndBlockCostCategor
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockAndBlockCostCategor
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -184,7 +184,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockAndBlockCostCategor
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -206,7 +206,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockAndBlockDimensionBl
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -215,7 +215,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockAndBlockDimensionBl
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -224,7 +224,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockAndBlockDimensionBl
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -246,7 +246,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockAndBlockTagsBlock :
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -255,7 +255,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockAndBlockTagsBlock :
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -264,7 +264,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockAndBlockTagsBlock :
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -286,7 +286,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockCostCategoryBlock :
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -295,7 +295,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockCostCategoryBlock :
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -304,7 +304,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockCostCategoryBlock :
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -326,7 +326,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockDimensionBlock : Te
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -335,7 +335,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockDimensionBlock : Te
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -344,7 +344,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockDimensionBlock : Te
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -409,7 +409,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockNotBlockCostCategor
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -418,7 +418,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockNotBlockCostCategor
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -427,7 +427,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockNotBlockCostCategor
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -449,7 +449,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockNotBlockDimensionBl
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -458,7 +458,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockNotBlockDimensionBl
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -467,7 +467,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockNotBlockDimensionBl
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -489,7 +489,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockNotBlockTagsBlock :
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -498,7 +498,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockNotBlockTagsBlock :
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -507,7 +507,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockNotBlockTagsBlock :
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -572,7 +572,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockOrBlockCostCategory
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -581,7 +581,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockOrBlockCostCategory
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -590,7 +590,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockOrBlockCostCategory
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -612,7 +612,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockOrBlockDimensionBlo
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -621,7 +621,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockOrBlockDimensionBlo
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -630,7 +630,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockOrBlockDimensionBlo
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -652,7 +652,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockOrBlockTagsBlock : 
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -661,7 +661,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockOrBlockTagsBlock : 
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -670,7 +670,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockOrBlockTagsBlock : 
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -692,7 +692,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockTagsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -701,7 +701,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockTagsBlock : Terrafo
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -710,7 +710,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlockTagsBlock : Terrafo
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -726,9 +726,9 @@ public partial class AwsCeAnomalySubscription(string name) : TerraformResource("
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformValue<string> AccountId
+    public TerraformValue<string>? AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -738,16 +738,16 @@ public partial class AwsCeAnomalySubscription(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformValue<string> Frequency
     {
-        get => new TerraformReference<string>(this, "frequency");
+        get => GetArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -757,7 +757,7 @@ public partial class AwsCeAnomalySubscription(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorArnList is required")]
     public TerraformList<string>? MonitorArnList
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "monitor_arn_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("monitor_arn_list");
         set => SetArgument("monitor_arn_list", value);
     }
 
@@ -767,7 +767,7 @@ public partial class AwsCeAnomalySubscription(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -776,16 +776,16 @@ public partial class AwsCeAnomalySubscription(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -793,9 +793,7 @@ public partial class AwsCeAnomalySubscription(string name) : TerraformResource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Subscriber block (nesting mode: set).

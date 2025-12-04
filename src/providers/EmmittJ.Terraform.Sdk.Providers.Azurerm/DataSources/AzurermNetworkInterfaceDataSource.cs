@@ -18,7 +18,7 @@ public class AzurermNetworkInterfaceDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermNetworkInterfaceDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermNetworkInterfaceDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermNetworkInterfaceDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,105 +64,79 @@ public partial class AzurermNetworkInterfaceDataSource(string name) : TerraformD
     /// The accelerated_networking_enabled attribute.
     /// </summary>
     public TerraformValue<bool> AcceleratedNetworkingEnabled
-    {
-        get => new TerraformReference<bool>(this, "accelerated_networking_enabled");
-    }
+        => AsReference("accelerated_networking_enabled");
 
     /// <summary>
     /// The applied_dns_servers attribute.
     /// </summary>
     public TerraformSet<string> AppliedDnsServers
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "applied_dns_servers").ResolveNodes(ctx));
-    }
+        => AsReference("applied_dns_servers");
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
     public TerraformSet<string> DnsServers
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "dns_servers").ResolveNodes(ctx));
-    }
+        => AsReference("dns_servers");
 
     /// <summary>
     /// The internal_dns_name_label attribute.
     /// </summary>
     public TerraformValue<string> InternalDnsNameLabel
-    {
-        get => new TerraformReference<string>(this, "internal_dns_name_label");
-    }
+        => AsReference("internal_dns_name_label");
 
     /// <summary>
     /// The ip_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IpConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "ip_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("ip_configuration");
 
     /// <summary>
     /// The ip_forwarding_enabled attribute.
     /// </summary>
     public TerraformValue<bool> IpForwardingEnabled
-    {
-        get => new TerraformReference<bool>(this, "ip_forwarding_enabled");
-    }
+        => AsReference("ip_forwarding_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The mac_address attribute.
     /// </summary>
     public TerraformValue<string> MacAddress
-    {
-        get => new TerraformReference<string>(this, "mac_address");
-    }
+        => AsReference("mac_address");
 
     /// <summary>
     /// The network_security_group_id attribute.
     /// </summary>
     public TerraformValue<string> NetworkSecurityGroupId
-    {
-        get => new TerraformReference<string>(this, "network_security_group_id");
-    }
+        => AsReference("network_security_group_id");
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
-    {
-        get => new TerraformReference<string>(this, "private_ip_address");
-    }
+        => AsReference("private_ip_address");
 
     /// <summary>
     /// The private_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PrivateIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "private_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("private_ip_addresses");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The virtual_machine_id attribute.
     /// </summary>
     public TerraformValue<string> VirtualMachineId
-    {
-        get => new TerraformReference<string>(this, "virtual_machine_id");
-    }
+        => AsReference("virtual_machine_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

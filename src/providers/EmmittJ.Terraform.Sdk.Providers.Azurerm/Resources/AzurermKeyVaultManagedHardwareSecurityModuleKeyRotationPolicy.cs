@@ -18,7 +18,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicyTimeou
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicyTimeou
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicyTimeou
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicyTimeou
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPoli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpireAfter is required")]
     public required TerraformValue<string> ExpireAfter
     {
-        get => new TerraformReference<string>(this, "expire_after");
+        get => GetArgument<TerraformValue<string>>("expire_after");
         set => SetArgument("expire_after", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPoli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmKeyId is required")]
     public required TerraformValue<string> ManagedHsmKeyId
     {
-        get => new TerraformReference<string>(this, "managed_hsm_key_id");
+        get => GetArgument<TerraformValue<string>>("managed_hsm_key_id");
         set => SetArgument("managed_hsm_key_id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPoli
     /// </summary>
     public TerraformValue<string>? TimeAfterCreation
     {
-        get => new TerraformReference<string>(this, "time_after_creation");
+        get => GetArgument<TerraformValue<string>>("time_after_creation");
         set => SetArgument("time_after_creation", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPoli
     /// </summary>
     public TerraformValue<string>? TimeBeforeExpiry
     {
-        get => new TerraformReference<string>(this, "time_before_expiry");
+        get => GetArgument<TerraformValue<string>>("time_before_expiry");
         set => SetArgument("time_before_expiry", value);
     }
 

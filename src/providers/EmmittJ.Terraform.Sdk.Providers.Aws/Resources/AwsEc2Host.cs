@@ -18,7 +18,7 @@ public class AwsEc2HostTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsEc2HostTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsEc2HostTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -52,9 +52,9 @@ public partial class AwsEc2Host(string name) : TerraformResource("aws_ec2_host",
     /// <summary>
     /// The asset_id attribute.
     /// </summary>
-    public TerraformValue<string> AssetId
+    public TerraformValue<string>? AssetId
     {
-        get => new TerraformReference<string>(this, "asset_id");
+        get => GetArgument<TerraformValue<string>>("asset_id");
         set => SetArgument("asset_id", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsEc2Host(string name) : TerraformResource("aws_ec2_host",
     /// </summary>
     public TerraformValue<string>? AutoPlacement
     {
-        get => new TerraformReference<string>(this, "auto_placement");
+        get => GetArgument<TerraformValue<string>>("auto_placement");
         set => SetArgument("auto_placement", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsEc2Host(string name) : TerraformResource("aws_ec2_host",
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZone is required")]
     public required TerraformValue<string> AvailabilityZone
     {
-        get => new TerraformReference<string>(this, "availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -82,16 +82,16 @@ public partial class AwsEc2Host(string name) : TerraformResource("aws_ec2_host",
     /// </summary>
     public TerraformValue<string>? HostRecovery
     {
-        get => new TerraformReference<string>(this, "host_recovery");
+        get => GetArgument<TerraformValue<string>>("host_recovery");
         set => SetArgument("host_recovery", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AwsEc2Host(string name) : TerraformResource("aws_ec2_host",
     /// </summary>
     public TerraformValue<string>? InstanceFamily
     {
-        get => new TerraformReference<string>(this, "instance_family");
+        get => GetArgument<TerraformValue<string>>("instance_family");
         set => SetArgument("instance_family", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AwsEc2Host(string name) : TerraformResource("aws_ec2_host",
     /// </summary>
     public TerraformValue<string>? InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -118,16 +118,16 @@ public partial class AwsEc2Host(string name) : TerraformResource("aws_ec2_host",
     /// </summary>
     public TerraformValue<string>? OutpostArn
     {
-        get => new TerraformReference<string>(this, "outpost_arn");
+        get => GetArgument<TerraformValue<string>>("outpost_arn");
         set => SetArgument("outpost_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -136,16 +136,16 @@ public partial class AwsEc2Host(string name) : TerraformResource("aws_ec2_host",
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -153,17 +153,13 @@ public partial class AwsEc2Host(string name) : TerraformResource("aws_ec2_host",
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

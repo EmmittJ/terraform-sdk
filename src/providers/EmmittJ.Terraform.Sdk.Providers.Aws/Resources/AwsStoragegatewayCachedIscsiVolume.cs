@@ -14,16 +14,16 @@ public partial class AwsStoragegatewayCachedIscsiVolume(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
     public required TerraformValue<string> GatewayArn
     {
-        get => new TerraformReference<string>(this, "gateway_arn");
+        get => GetArgument<TerraformValue<string>>("gateway_arn");
         set => SetArgument("gateway_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsStoragegatewayCachedIscsiVolume(string name) : Terraform
     /// </summary>
     public TerraformValue<bool>? KmsEncrypted
     {
-        get => new TerraformReference<bool>(this, "kms_encrypted");
+        get => GetArgument<TerraformValue<bool>>("kms_encrypted");
         set => SetArgument("kms_encrypted", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsStoragegatewayCachedIscsiVolume(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -51,16 +51,16 @@ public partial class AwsStoragegatewayCachedIscsiVolume(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformValue<string> NetworkInterfaceId
     {
-        get => new TerraformReference<string>(this, "network_interface_id");
+        get => GetArgument<TerraformValue<string>>("network_interface_id");
         set => SetArgument("network_interface_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -69,7 +69,7 @@ public partial class AwsStoragegatewayCachedIscsiVolume(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? SnapshotId
     {
-        get => new TerraformReference<string>(this, "snapshot_id");
+        get => GetArgument<TerraformValue<string>>("snapshot_id");
         set => SetArgument("snapshot_id", value);
     }
 
@@ -78,7 +78,7 @@ public partial class AwsStoragegatewayCachedIscsiVolume(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? SourceVolumeArn
     {
-        get => new TerraformReference<string>(this, "source_volume_arn");
+        get => GetArgument<TerraformValue<string>>("source_volume_arn");
         set => SetArgument("source_volume_arn", value);
     }
 
@@ -87,16 +87,16 @@ public partial class AwsStoragegatewayCachedIscsiVolume(string name) : Terraform
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsStoragegatewayCachedIscsiVolume(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetName is required")]
     public required TerraformValue<string> TargetName
     {
-        get => new TerraformReference<string>(this, "target_name");
+        get => GetArgument<TerraformValue<string>>("target_name");
         set => SetArgument("target_name", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AwsStoragegatewayCachedIscsiVolume(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeSizeInBytes is required")]
     public required TerraformValue<double> VolumeSizeInBytes
     {
-        get => new TerraformReference<double>(this, "volume_size_in_bytes");
+        get => GetArgument<TerraformValue<double>>("volume_size_in_bytes");
         set => SetArgument("volume_size_in_bytes", value);
     }
 
@@ -124,56 +124,42 @@ public partial class AwsStoragegatewayCachedIscsiVolume(string name) : Terraform
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The chap_enabled attribute.
     /// </summary>
     public TerraformValue<bool> ChapEnabled
-    {
-        get => new TerraformReference<bool>(this, "chap_enabled");
-    }
+        => AsReference("chap_enabled");
 
     /// <summary>
     /// The lun_number attribute.
     /// </summary>
     public TerraformValue<double> LunNumber
-    {
-        get => new TerraformReference<double>(this, "lun_number");
-    }
+        => AsReference("lun_number");
 
     /// <summary>
     /// The network_interface_port attribute.
     /// </summary>
     public TerraformValue<double> NetworkInterfacePort
-    {
-        get => new TerraformReference<double>(this, "network_interface_port");
-    }
+        => AsReference("network_interface_port");
 
     /// <summary>
     /// The target_arn attribute.
     /// </summary>
     public TerraformValue<string> TargetArn
-    {
-        get => new TerraformReference<string>(this, "target_arn");
-    }
+        => AsReference("target_arn");
 
     /// <summary>
     /// The volume_arn attribute.
     /// </summary>
     public TerraformValue<string> VolumeArn
-    {
-        get => new TerraformReference<string>(this, "volume_arn");
-    }
+        => AsReference("volume_arn");
 
     /// <summary>
     /// The volume_id attribute.
     /// </summary>
     public TerraformValue<string> VolumeId
-    {
-        get => new TerraformReference<string>(this, "volume_id");
-    }
+        => AsReference("volume_id");
 
 }

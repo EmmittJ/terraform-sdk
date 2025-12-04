@@ -18,7 +18,7 @@ public class AzurermLogAnalyticsWorkspaceTableDataSourceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermLogAnalyticsWorkspaceTableDataSource(string name) : 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermLogAnalyticsWorkspaceTableDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermLogAnalyticsWorkspaceTableDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => new TerraformReference<string>(this, "workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -64,25 +64,19 @@ public partial class AzurermLogAnalyticsWorkspaceTableDataSource(string name) : 
     /// The plan attribute.
     /// </summary>
     public TerraformValue<string> Plan
-    {
-        get => new TerraformReference<string>(this, "plan");
-    }
+        => AsReference("plan");
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
     public TerraformValue<double> RetentionInDays
-    {
-        get => new TerraformReference<double>(this, "retention_in_days");
-    }
+        => AsReference("retention_in_days");
 
     /// <summary>
     /// The total_retention_in_days attribute.
     /// </summary>
     public TerraformValue<double> TotalRetentionInDays
-    {
-        get => new TerraformReference<double>(this, "total_retention_in_days");
-    }
+        => AsReference("total_retention_in_days");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

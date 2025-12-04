@@ -14,25 +14,25 @@ public partial class AwsLightsailBucketResourceAccess(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsLightsailBucketResourceAccess(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceNameAttribute is required")]
     public required TerraformValue<string> ResourceNameAttribute
     {
-        get => new TerraformReference<string>(this, "resource_name");
+        get => GetArgument<TerraformValue<string>>("resource_name");
         set => SetArgument("resource_name", value);
     }
 

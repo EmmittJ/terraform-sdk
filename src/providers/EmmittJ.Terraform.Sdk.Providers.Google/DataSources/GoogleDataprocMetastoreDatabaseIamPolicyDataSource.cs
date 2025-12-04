@@ -14,34 +14,34 @@ public partial class GoogleDataprocMetastoreDatabaseIamPolicyDataSource(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformValue<string> Location
+    public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -51,7 +51,7 @@ public partial class GoogleDataprocMetastoreDatabaseIamPolicyDataSource(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformValue<string> ServiceId
     {
-        get => new TerraformReference<string>(this, "service_id");
+        get => GetArgument<TerraformValue<string>>("service_id");
         set => SetArgument("service_id", value);
     }
 
@@ -59,16 +59,12 @@ public partial class GoogleDataprocMetastoreDatabaseIamPolicyDataSource(string n
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     public TerraformValue<string> PolicyData
-    {
-        get => new TerraformReference<string>(this, "policy_data");
-    }
+        => AsReference("policy_data");
 
 }

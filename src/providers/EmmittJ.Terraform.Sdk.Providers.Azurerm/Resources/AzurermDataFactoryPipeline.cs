@@ -18,7 +18,7 @@ public class AzurermDataFactoryPipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermDataFactoryPipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermDataFactoryPipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermDataFactoryPipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermDataFactoryPipeline(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? ActivitiesJson
     {
-        get => new TerraformReference<string>(this, "activities_json");
+        get => GetArgument<TerraformValue<string>>("activities_json");
         set => SetArgument("activities_json", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermDataFactoryPipeline(string name) : TerraformResource
     /// </summary>
     public TerraformList<string>? Annotations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermDataFactoryPipeline(string name) : TerraformResource
     /// </summary>
     public TerraformValue<double>? Concurrency
     {
-        get => new TerraformReference<double>(this, "concurrency");
+        get => GetArgument<TerraformValue<double>>("concurrency");
         set => SetArgument("concurrency", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermDataFactoryPipeline(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => new TerraformReference<string>(this, "data_factory_id");
+        get => GetArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermDataFactoryPipeline(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -109,16 +109,16 @@ public partial class AzurermDataFactoryPipeline(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Folder
     {
-        get => new TerraformReference<string>(this, "folder");
+        get => GetArgument<TerraformValue<string>>("folder");
         set => SetArgument("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzurermDataFactoryPipeline(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? MoniterMetricsAfterDuration
     {
-        get => new TerraformReference<string>(this, "moniter_metrics_after_duration");
+        get => GetArgument<TerraformValue<string>>("moniter_metrics_after_duration");
         set => SetArgument("moniter_metrics_after_duration", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AzurermDataFactoryPipeline(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AzurermDataFactoryPipeline(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AzurermDataFactoryPipeline(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Variables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("variables");
         set => SetArgument("variables", value);
     }
 

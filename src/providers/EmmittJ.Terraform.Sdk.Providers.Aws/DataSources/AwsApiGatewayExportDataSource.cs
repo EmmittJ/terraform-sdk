@@ -13,7 +13,7 @@ public partial class AwsApiGatewayExportDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? Accepts
     {
-        get => new TerraformReference<string>(this, "accepts");
+        get => GetArgument<TerraformValue<string>>("accepts");
         set => SetArgument("accepts", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsApiGatewayExportDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExportType is required")]
     public required TerraformValue<string> ExportType
     {
-        get => new TerraformReference<string>(this, "export_type");
+        get => GetArgument<TerraformValue<string>>("export_type");
         set => SetArgument("export_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -41,16 +41,16 @@ public partial class AwsApiGatewayExportDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsApiGatewayExportDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformValue<string> RestApiId
     {
-        get => new TerraformReference<string>(this, "rest_api_id");
+        get => GetArgument<TerraformValue<string>>("rest_api_id");
         set => SetArgument("rest_api_id", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsApiGatewayExportDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StageName is required")]
     public required TerraformValue<string> StageName
     {
-        get => new TerraformReference<string>(this, "stage_name");
+        get => GetArgument<TerraformValue<string>>("stage_name");
         set => SetArgument("stage_name", value);
     }
 
@@ -78,24 +78,18 @@ public partial class AwsApiGatewayExportDataSource(string name) : TerraformDataS
     /// The body attribute.
     /// </summary>
     public TerraformValue<string> Body
-    {
-        get => new TerraformReference<string>(this, "body");
-    }
+        => AsReference("body");
 
     /// <summary>
     /// The content_disposition attribute.
     /// </summary>
     public TerraformValue<string> ContentDisposition
-    {
-        get => new TerraformReference<string>(this, "content_disposition");
-    }
+        => AsReference("content_disposition");
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
     public TerraformValue<string> ContentType
-    {
-        get => new TerraformReference<string>(this, "content_type");
-    }
+        => AsReference("content_type");
 
 }

@@ -18,7 +18,7 @@ public class AzurermStorageContainersDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermStorageContainersDataSource(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzurermStorageContainersDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermStorageContainersDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => new TerraformReference<string>(this, "storage_account_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
@@ -63,9 +63,7 @@ public partial class AzurermStorageContainersDataSource(string name) : Terraform
     /// The containers attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Containers
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "containers").ResolveNodes(ctx));
-    }
+        => AsReference("containers");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

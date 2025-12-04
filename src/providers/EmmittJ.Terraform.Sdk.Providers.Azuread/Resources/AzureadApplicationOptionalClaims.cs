@@ -18,7 +18,7 @@ public class AzureadApplicationOptionalClaimsAccessTokenBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AdditionalProperties
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "additional_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("additional_properties");
         set => SetArgument("additional_properties", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadApplicationOptionalClaimsAccessTokenBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Essential
     {
-        get => new TerraformReference<bool>(this, "essential");
+        get => GetArgument<TerraformValue<bool>>("essential");
         set => SetArgument("essential", value);
     }
 
@@ -37,7 +37,7 @@ public class AzureadApplicationOptionalClaimsAccessTokenBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -46,7 +46,7 @@ public class AzureadApplicationOptionalClaimsAccessTokenBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -69,7 +69,7 @@ public class AzureadApplicationOptionalClaimsIdTokenBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AdditionalProperties
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "additional_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("additional_properties");
         set => SetArgument("additional_properties", value);
     }
 
@@ -78,7 +78,7 @@ public class AzureadApplicationOptionalClaimsIdTokenBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Essential
     {
-        get => new TerraformReference<bool>(this, "essential");
+        get => GetArgument<TerraformValue<bool>>("essential");
         set => SetArgument("essential", value);
     }
 
@@ -88,7 +88,7 @@ public class AzureadApplicationOptionalClaimsIdTokenBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -97,7 +97,7 @@ public class AzureadApplicationOptionalClaimsIdTokenBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -120,7 +120,7 @@ public class AzureadApplicationOptionalClaimsSaml2TokenBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AdditionalProperties
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "additional_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("additional_properties");
         set => SetArgument("additional_properties", value);
     }
 
@@ -129,7 +129,7 @@ public class AzureadApplicationOptionalClaimsSaml2TokenBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Essential
     {
-        get => new TerraformReference<bool>(this, "essential");
+        get => GetArgument<TerraformValue<bool>>("essential");
         set => SetArgument("essential", value);
     }
 
@@ -139,7 +139,7 @@ public class AzureadApplicationOptionalClaimsSaml2TokenBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -148,7 +148,7 @@ public class AzureadApplicationOptionalClaimsSaml2TokenBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -171,7 +171,7 @@ public class AzureadApplicationOptionalClaimsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -180,7 +180,7 @@ public class AzureadApplicationOptionalClaimsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -189,7 +189,7 @@ public class AzureadApplicationOptionalClaimsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -198,7 +198,7 @@ public class AzureadApplicationOptionalClaimsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -217,16 +217,16 @@ public partial class AzureadApplicationOptionalClaims(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => new TerraformReference<string>(this, "application_id");
+        get => GetArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 

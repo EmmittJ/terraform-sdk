@@ -18,7 +18,7 @@ public class AwsLaunchConfigurationEbsBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DeleteOnTermination
     {
-        get => new TerraformReference<bool>(this, "delete_on_termination");
+        get => GetArgument<TerraformValue<bool>>("delete_on_termination");
         set => SetArgument("delete_on_termination", value);
     }
 
@@ -28,25 +28,25 @@ public class AwsLaunchConfigurationEbsBlockDeviceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformValue<string> DeviceName
     {
-        get => new TerraformReference<string>(this, "device_name");
+        get => GetArgument<TerraformValue<string>>("device_name");
         set => SetArgument("device_name", value);
     }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    public TerraformValue<bool> Encrypted
+    public TerraformValue<bool>? Encrypted
     {
-        get => new TerraformReference<bool>(this, "encrypted");
+        get => GetArgument<TerraformValue<bool>>("encrypted");
         set => SetArgument("encrypted", value);
     }
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    public TerraformValue<double> Iops
+    public TerraformValue<double>? Iops
     {
-        get => new TerraformReference<double>(this, "iops");
+        get => GetArgument<TerraformValue<double>>("iops");
         set => SetArgument("iops", value);
     }
 
@@ -55,43 +55,43 @@ public class AwsLaunchConfigurationEbsBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? NoDevice
     {
-        get => new TerraformReference<bool>(this, "no_device");
+        get => GetArgument<TerraformValue<bool>>("no_device");
         set => SetArgument("no_device", value);
     }
 
     /// <summary>
     /// The snapshot_id attribute.
     /// </summary>
-    public TerraformValue<string> SnapshotId
+    public TerraformValue<string>? SnapshotId
     {
-        get => new TerraformReference<string>(this, "snapshot_id");
+        get => GetArgument<TerraformValue<string>>("snapshot_id");
         set => SetArgument("snapshot_id", value);
     }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformValue<double> Throughput
+    public TerraformValue<double>? Throughput
     {
-        get => new TerraformReference<double>(this, "throughput");
+        get => GetArgument<TerraformValue<double>>("throughput");
         set => SetArgument("throughput", value);
     }
 
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
-    public TerraformValue<double> VolumeSize
+    public TerraformValue<double>? VolumeSize
     {
-        get => new TerraformReference<double>(this, "volume_size");
+        get => GetArgument<TerraformValue<double>>("volume_size");
         set => SetArgument("volume_size", value);
     }
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
-    public TerraformValue<string> VolumeType
+    public TerraformValue<string>? VolumeType
     {
-        get => new TerraformReference<string>(this, "volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsLaunchConfigurationEphemeralBlockDeviceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformValue<string> DeviceName
     {
-        get => new TerraformReference<string>(this, "device_name");
+        get => GetArgument<TerraformValue<string>>("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsLaunchConfigurationEphemeralBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? NoDevice
     {
-        get => new TerraformReference<bool>(this, "no_device");
+        get => GetArgument<TerraformValue<bool>>("no_device");
         set => SetArgument("no_device", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsLaunchConfigurationEphemeralBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? VirtualName
     {
-        get => new TerraformReference<string>(this, "virtual_name");
+        get => GetArgument<TerraformValue<string>>("virtual_name");
         set => SetArgument("virtual_name", value);
     }
 
@@ -154,27 +154,27 @@ public class AwsLaunchConfigurationMetadataOptionsBlock : TerraformBlock
     /// <summary>
     /// The http_endpoint attribute.
     /// </summary>
-    public TerraformValue<string> HttpEndpoint
+    public TerraformValue<string>? HttpEndpoint
     {
-        get => new TerraformReference<string>(this, "http_endpoint");
+        get => GetArgument<TerraformValue<string>>("http_endpoint");
         set => SetArgument("http_endpoint", value);
     }
 
     /// <summary>
     /// The http_put_response_hop_limit attribute.
     /// </summary>
-    public TerraformValue<double> HttpPutResponseHopLimit
+    public TerraformValue<double>? HttpPutResponseHopLimit
     {
-        get => new TerraformReference<double>(this, "http_put_response_hop_limit");
+        get => GetArgument<TerraformValue<double>>("http_put_response_hop_limit");
         set => SetArgument("http_put_response_hop_limit", value);
     }
 
     /// <summary>
     /// The http_tokens attribute.
     /// </summary>
-    public TerraformValue<string> HttpTokens
+    public TerraformValue<string>? HttpTokens
     {
-        get => new TerraformReference<string>(this, "http_tokens");
+        get => GetArgument<TerraformValue<string>>("http_tokens");
         set => SetArgument("http_tokens", value);
     }
 
@@ -197,52 +197,52 @@ public class AwsLaunchConfigurationRootBlockDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DeleteOnTermination
     {
-        get => new TerraformReference<bool>(this, "delete_on_termination");
+        get => GetArgument<TerraformValue<bool>>("delete_on_termination");
         set => SetArgument("delete_on_termination", value);
     }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    public TerraformValue<bool> Encrypted
+    public TerraformValue<bool>? Encrypted
     {
-        get => new TerraformReference<bool>(this, "encrypted");
+        get => GetArgument<TerraformValue<bool>>("encrypted");
         set => SetArgument("encrypted", value);
     }
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    public TerraformValue<double> Iops
+    public TerraformValue<double>? Iops
     {
-        get => new TerraformReference<double>(this, "iops");
+        get => GetArgument<TerraformValue<double>>("iops");
         set => SetArgument("iops", value);
     }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformValue<double> Throughput
+    public TerraformValue<double>? Throughput
     {
-        get => new TerraformReference<double>(this, "throughput");
+        get => GetArgument<TerraformValue<double>>("throughput");
         set => SetArgument("throughput", value);
     }
 
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
-    public TerraformValue<double> VolumeSize
+    public TerraformValue<double>? VolumeSize
     {
-        get => new TerraformReference<double>(this, "volume_size");
+        get => GetArgument<TerraformValue<double>>("volume_size");
         set => SetArgument("volume_size", value);
     }
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
-    public TerraformValue<string> VolumeType
+    public TerraformValue<string>? VolumeType
     {
-        get => new TerraformReference<string>(this, "volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -258,18 +258,18 @@ public partial class AwsLaunchConfiguration(string name) : TerraformResource("aw
     /// <summary>
     /// The associate_public_ip_address attribute.
     /// </summary>
-    public TerraformValue<bool> AssociatePublicIpAddress
+    public TerraformValue<bool>? AssociatePublicIpAddress
     {
-        get => new TerraformReference<bool>(this, "associate_public_ip_address");
+        get => GetArgument<TerraformValue<bool>>("associate_public_ip_address");
         set => SetArgument("associate_public_ip_address", value);
     }
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
-    public TerraformValue<bool> EbsOptimized
+    public TerraformValue<bool>? EbsOptimized
     {
-        get => new TerraformReference<bool>(this, "ebs_optimized");
+        get => GetArgument<TerraformValue<bool>>("ebs_optimized");
         set => SetArgument("ebs_optimized", value);
     }
 
@@ -278,7 +278,7 @@ public partial class AwsLaunchConfiguration(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<bool>? EnableMonitoring
     {
-        get => new TerraformReference<bool>(this, "enable_monitoring");
+        get => GetArgument<TerraformValue<bool>>("enable_monitoring");
         set => SetArgument("enable_monitoring", value);
     }
 
@@ -287,16 +287,16 @@ public partial class AwsLaunchConfiguration(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? IamInstanceProfile
     {
-        get => new TerraformReference<string>(this, "iam_instance_profile");
+        get => GetArgument<TerraformValue<string>>("iam_instance_profile");
         set => SetArgument("iam_instance_profile", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -306,7 +306,7 @@ public partial class AwsLaunchConfiguration(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageId is required")]
     public required TerraformValue<string> ImageId
     {
-        get => new TerraformReference<string>(this, "image_id");
+        get => GetArgument<TerraformValue<string>>("image_id");
         set => SetArgument("image_id", value);
     }
 
@@ -316,34 +316,34 @@ public partial class AwsLaunchConfiguration(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
-    public TerraformValue<string> KeyName
+    public TerraformValue<string>? KeyName
     {
-        get => new TerraformReference<string>(this, "key_name");
+        get => GetArgument<TerraformValue<string>>("key_name");
         set => SetArgument("key_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -352,16 +352,16 @@ public partial class AwsLaunchConfiguration(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? PlacementTenancy
     {
-        get => new TerraformReference<string>(this, "placement_tenancy");
+        get => GetArgument<TerraformValue<string>>("placement_tenancy");
         set => SetArgument("placement_tenancy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -370,7 +370,7 @@ public partial class AwsLaunchConfiguration(string name) : TerraformResource("aw
     /// </summary>
     public TerraformSet<string>? SecurityGroups
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_groups");
         set => SetArgument("security_groups", value);
     }
 
@@ -379,7 +379,7 @@ public partial class AwsLaunchConfiguration(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? SpotPrice
     {
-        get => new TerraformReference<string>(this, "spot_price");
+        get => GetArgument<TerraformValue<string>>("spot_price");
         set => SetArgument("spot_price", value);
     }
 
@@ -388,7 +388,7 @@ public partial class AwsLaunchConfiguration(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? UserData
     {
-        get => new TerraformReference<string>(this, "user_data");
+        get => GetArgument<TerraformValue<string>>("user_data");
         set => SetArgument("user_data", value);
     }
 
@@ -397,7 +397,7 @@ public partial class AwsLaunchConfiguration(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? UserDataBase64
     {
-        get => new TerraformReference<string>(this, "user_data_base64");
+        get => GetArgument<TerraformValue<string>>("user_data_base64");
         set => SetArgument("user_data_base64", value);
     }
 
@@ -405,9 +405,7 @@ public partial class AwsLaunchConfiguration(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// EbsBlockDevice block (nesting mode: set).

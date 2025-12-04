@@ -18,7 +18,7 @@ public class AwsElasticBeanstalkApplicationAppversionLifecycleBlock : TerraformB
     /// </summary>
     public TerraformValue<bool>? DeleteSourceFromS3
     {
-        get => new TerraformReference<bool>(this, "delete_source_from_s3");
+        get => GetArgument<TerraformValue<bool>>("delete_source_from_s3");
         set => SetArgument("delete_source_from_s3", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsElasticBeanstalkApplicationAppversionLifecycleBlock : TerraformB
     /// </summary>
     public TerraformValue<double>? MaxAgeInDays
     {
-        get => new TerraformReference<double>(this, "max_age_in_days");
+        get => GetArgument<TerraformValue<double>>("max_age_in_days");
         set => SetArgument("max_age_in_days", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsElasticBeanstalkApplicationAppversionLifecycleBlock : TerraformB
     /// </summary>
     public TerraformValue<double>? MaxCount
     {
-        get => new TerraformReference<double>(this, "max_count");
+        get => GetArgument<TerraformValue<double>>("max_count");
         set => SetArgument("max_count", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsElasticBeanstalkApplicationAppversionLifecycleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRole is required")]
     public required TerraformValue<string> ServiceRole
     {
-        get => new TerraformReference<string>(this, "service_role");
+        get => GetArgument<TerraformValue<string>>("service_role");
         set => SetArgument("service_role", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AwsElasticBeanstalkApplication(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -83,16 +83,16 @@ public partial class AwsElasticBeanstalkApplication(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -101,16 +101,16 @@ public partial class AwsElasticBeanstalkApplication(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -118,9 +118,7 @@ public partial class AwsElasticBeanstalkApplication(string name) : TerraformReso
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// AppversionLifecycle block (nesting mode: list).

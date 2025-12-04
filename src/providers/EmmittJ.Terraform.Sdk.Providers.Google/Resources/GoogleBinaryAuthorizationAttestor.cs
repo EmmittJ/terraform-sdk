@@ -25,9 +25,7 @@ public class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlock : Te
     /// different naming pattern.
     /// </summary>
     public TerraformValue<string> DelegationServiceAccountEmail
-    {
-        get => new TerraformReference<string>(this, "delegation_service_account_email");
-    }
+        => AsReference("delegation_service_account_email");
 
     /// <summary>
     /// The resource name of a ATTESTATION_AUTHORITY Note, created by the
@@ -41,7 +39,7 @@ public class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoteReference is required")]
     public required TerraformValue<string> NoteReference
     {
-        get => new TerraformReference<string>(this, "note_reference");
+        get => GetArgument<TerraformValue<string>>("note_reference");
         set => SetArgument("note_reference", value);
     }
 
@@ -80,7 +78,7 @@ public class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlockPubli
     /// </summary>
     public TerraformValue<string>? AsciiArmoredPgpPublicKey
     {
-        get => new TerraformReference<string>(this, "ascii_armored_pgp_public_key");
+        get => GetArgument<TerraformValue<string>>("ascii_armored_pgp_public_key");
         set => SetArgument("ascii_armored_pgp_public_key", value);
     }
 
@@ -89,7 +87,7 @@ public class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlockPubli
     /// </summary>
     public TerraformValue<string>? Comment
     {
-        get => new TerraformReference<string>(this, "comment");
+        get => GetArgument<TerraformValue<string>>("comment");
         set => SetArgument("comment", value);
     }
 
@@ -101,9 +99,9 @@ public class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlockPubli
     /// be imposed based on which public key type is encapsulated.
     /// See the documentation on publicKey cases below for details.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -136,7 +134,7 @@ public class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlockPubli
     /// </summary>
     public TerraformValue<string>? PublicKeyPem
     {
-        get => new TerraformReference<string>(this, "public_key_pem");
+        get => GetArgument<TerraformValue<string>>("public_key_pem");
         set => SetArgument("public_key_pem", value);
     }
 
@@ -149,7 +147,7 @@ public class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlockPubli
     /// </summary>
     public TerraformValue<string>? SignatureAlgorithm
     {
-        get => new TerraformReference<string>(this, "signature_algorithm");
+        get => GetArgument<TerraformValue<string>>("signature_algorithm");
         set => SetArgument("signature_algorithm", value);
     }
 
@@ -172,7 +170,7 @@ public class GoogleBinaryAuthorizationAttestorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -181,7 +179,7 @@ public class GoogleBinaryAuthorizationAttestorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -190,7 +188,7 @@ public class GoogleBinaryAuthorizationAttestorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -209,16 +207,16 @@ public partial class GoogleBinaryAuthorizationAttestor(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -228,16 +226,16 @@ public partial class GoogleBinaryAuthorizationAttestor(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 

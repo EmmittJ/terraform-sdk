@@ -19,7 +19,7 @@ public class AwsEc2LocalGatewayRouteTableDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsEc2LocalGatewayRouteTableDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsEc2LocalGatewayRouteTableDataSourceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -68,63 +68,63 @@ public partial class AwsEc2LocalGatewayRouteTableDataSource(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The local_gateway_id attribute.
     /// </summary>
-    public TerraformValue<string> LocalGatewayId
+    public TerraformValue<string>? LocalGatewayId
     {
-        get => new TerraformReference<string>(this, "local_gateway_id");
+        get => GetArgument<TerraformValue<string>>("local_gateway_id");
         set => SetArgument("local_gateway_id", value);
     }
 
     /// <summary>
     /// The local_gateway_route_table_id attribute.
     /// </summary>
-    public TerraformValue<string> LocalGatewayRouteTableId
+    public TerraformValue<string>? LocalGatewayRouteTableId
     {
-        get => new TerraformReference<string>(this, "local_gateway_route_table_id");
+        get => GetArgument<TerraformValue<string>>("local_gateway_route_table_id");
         set => SetArgument("local_gateway_route_table_id", value);
     }
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
-    public TerraformValue<string> OutpostArn
+    public TerraformValue<string>? OutpostArn
     {
-        get => new TerraformReference<string>(this, "outpost_arn");
+        get => GetArgument<TerraformValue<string>>("outpost_arn");
         set => SetArgument("outpost_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformValue<string> State
+    public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

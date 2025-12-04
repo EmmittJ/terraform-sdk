@@ -18,7 +18,7 @@ public class AzurermLogAnalyticsWorkspaceTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermLogAnalyticsWorkspaceTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermLogAnalyticsWorkspaceTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermLogAnalyticsWorkspaceTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermLogAnalyticsWorkspaceTable(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermLogAnalyticsWorkspaceTable(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermLogAnalyticsWorkspaceTable(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Plan
     {
-        get => new TerraformReference<string>(this, "plan");
+        get => GetArgument<TerraformValue<string>>("plan");
         set => SetArgument("plan", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermLogAnalyticsWorkspaceTable(string name) : TerraformR
     /// </summary>
     public TerraformValue<double>? RetentionInDays
     {
-        get => new TerraformReference<double>(this, "retention_in_days");
+        get => GetArgument<TerraformValue<double>>("retention_in_days");
         set => SetArgument("retention_in_days", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermLogAnalyticsWorkspaceTable(string name) : TerraformR
     /// </summary>
     public TerraformValue<double>? TotalRetentionInDays
     {
-        get => new TerraformReference<double>(this, "total_retention_in_days");
+        get => GetArgument<TerraformValue<double>>("total_retention_in_days");
         set => SetArgument("total_retention_in_days", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermLogAnalyticsWorkspaceTable(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => new TerraformReference<string>(this, "workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 

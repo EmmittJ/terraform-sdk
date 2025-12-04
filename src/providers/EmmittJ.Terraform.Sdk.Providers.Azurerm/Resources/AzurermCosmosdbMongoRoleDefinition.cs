@@ -19,7 +19,7 @@ public class AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     public TerraformList<string>? Actions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("actions");
         set => SetArgument("actions", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermCosmosdbMongoRoleDefinitionPrivilegeBlockResourceBlock : Ter
     /// </summary>
     public TerraformValue<string>? CollectionName
     {
-        get => new TerraformReference<string>(this, "collection_name");
+        get => GetArgument<TerraformValue<string>>("collection_name");
         set => SetArgument("collection_name", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermCosmosdbMongoRoleDefinitionPrivilegeBlockResourceBlock : Ter
     /// </summary>
     public TerraformValue<string>? DbName
     {
-        get => new TerraformReference<string>(this, "db_name");
+        get => GetArgument<TerraformValue<string>>("db_name");
         set => SetArgument("db_name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermCosmosdbMongoRoleDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermCosmosdbMongoRoleDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermCosmosdbMongoRoleDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermCosmosdbMongoRoleDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -132,16 +132,16 @@ public partial class AzurermCosmosdbMongoRoleDefinition(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosMongoDatabaseId is required")]
     public required TerraformValue<string> CosmosMongoDatabaseId
     {
-        get => new TerraformReference<string>(this, "cosmos_mongo_database_id");
+        get => GetArgument<TerraformValue<string>>("cosmos_mongo_database_id");
         set => SetArgument("cosmos_mongo_database_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AzurermCosmosdbMongoRoleDefinition(string name) : Terraform
     /// </summary>
     public TerraformList<string>? InheritedRoleNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "inherited_role_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("inherited_role_names");
         set => SetArgument("inherited_role_names", value);
     }
 
@@ -160,7 +160,7 @@ public partial class AzurermCosmosdbMongoRoleDefinition(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
     public required TerraformValue<string> RoleName
     {
-        get => new TerraformReference<string>(this, "role_name");
+        get => GetArgument<TerraformValue<string>>("role_name");
         set => SetArgument("role_name", value);
     }
 

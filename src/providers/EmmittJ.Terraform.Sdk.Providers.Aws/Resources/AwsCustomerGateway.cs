@@ -13,7 +13,7 @@ public partial class AwsCustomerGateway(string name) : TerraformResource("aws_cu
     /// </summary>
     public TerraformValue<string>? BgpAsn
     {
-        get => new TerraformReference<string>(this, "bgp_asn");
+        get => GetArgument<TerraformValue<string>>("bgp_asn");
         set => SetArgument("bgp_asn", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsCustomerGateway(string name) : TerraformResource("aws_cu
     /// </summary>
     public TerraformValue<string>? BgpAsnExtended
     {
-        get => new TerraformReference<string>(this, "bgp_asn_extended");
+        get => GetArgument<TerraformValue<string>>("bgp_asn_extended");
         set => SetArgument("bgp_asn_extended", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsCustomerGateway(string name) : TerraformResource("aws_cu
     /// </summary>
     public TerraformValue<string>? CertificateArn
     {
-        get => new TerraformReference<string>(this, "certificate_arn");
+        get => GetArgument<TerraformValue<string>>("certificate_arn");
         set => SetArgument("certificate_arn", value);
     }
 
@@ -40,16 +40,16 @@ public partial class AwsCustomerGateway(string name) : TerraformResource("aws_cu
     /// </summary>
     public TerraformValue<string>? DeviceName
     {
-        get => new TerraformReference<string>(this, "device_name");
+        get => GetArgument<TerraformValue<string>>("device_name");
         set => SetArgument("device_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -58,16 +58,16 @@ public partial class AwsCustomerGateway(string name) : TerraformResource("aws_cu
     /// </summary>
     public TerraformValue<string>? IpAddress
     {
-        get => new TerraformReference<string>(this, "ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -76,16 +76,16 @@ public partial class AwsCustomerGateway(string name) : TerraformResource("aws_cu
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsCustomerGateway(string name) : TerraformResource("aws_cu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -103,8 +103,6 @@ public partial class AwsCustomerGateway(string name) : TerraformResource("aws_cu
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

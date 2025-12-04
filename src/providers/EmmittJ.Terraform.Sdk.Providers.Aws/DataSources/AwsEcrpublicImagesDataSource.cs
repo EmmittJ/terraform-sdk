@@ -18,7 +18,7 @@ public class AwsEcrpublicImagesDataSourceImageIdsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ImageDigest
     {
-        get => new TerraformReference<string>(this, "image_digest");
+        get => GetArgument<TerraformValue<string>>("image_digest");
         set => SetArgument("image_digest", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsEcrpublicImagesDataSourceImageIdsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ImageTag
     {
-        get => new TerraformReference<string>(this, "image_tag");
+        get => GetArgument<TerraformValue<string>>("image_tag");
         set => SetArgument("image_tag", value);
     }
 
@@ -43,9 +43,9 @@ public partial class AwsEcrpublicImagesDataSource(string name) : TerraformDataSo
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsEcrpublicImagesDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string>? RegistryId
     {
-        get => new TerraformReference<string>(this, "registry_id");
+        get => GetArgument<TerraformValue<string>>("registry_id");
         set => SetArgument("registry_id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsEcrpublicImagesDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformValue<string> RepositoryName
     {
-        get => new TerraformReference<string>(this, "repository_name");
+        get => GetArgument<TerraformValue<string>>("repository_name");
         set => SetArgument("repository_name", value);
     }
 
@@ -72,9 +72,7 @@ public partial class AwsEcrpublicImagesDataSource(string name) : TerraformDataSo
     /// The images attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Images
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "images").ResolveNodes(ctx));
-    }
+        => AsReference("images");
 
     /// <summary>
     /// ImageIds block (nesting mode: list).

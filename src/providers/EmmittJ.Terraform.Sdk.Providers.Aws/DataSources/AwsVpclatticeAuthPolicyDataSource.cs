@@ -11,9 +11,9 @@ public partial class AwsVpclatticeAuthPolicyDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,16 +22,16 @@ public partial class AwsVpclatticeAuthPolicyDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string>? Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsVpclatticeAuthPolicyDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceIdentifier is required")]
     public required TerraformValue<string> ResourceIdentifier
     {
-        get => new TerraformReference<string>(this, "resource_identifier");
+        get => GetArgument<TerraformValue<string>>("resource_identifier");
         set => SetArgument("resource_identifier", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsVpclatticeAuthPolicyDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 

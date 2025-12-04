@@ -19,7 +19,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockConfluenceConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -193,7 +193,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockConfluenceConf
     /// </summary>
     public TerraformSet<string>? ExclusionFilters
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "exclusion_filters").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("exclusion_filters");
         set => SetArgument("exclusion_filters", value);
     }
 
@@ -202,7 +202,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockConfluenceConf
     /// </summary>
     public TerraformSet<string>? InclusionFilters
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "inclusion_filters").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("inclusion_filters");
         set => SetArgument("inclusion_filters", value);
     }
 
@@ -212,7 +212,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockConfluenceConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectType is required")]
     public required TerraformValue<string> ObjectType
     {
-        get => new TerraformReference<string>(this, "object_type");
+        get => GetArgument<TerraformValue<string>>("object_type");
         set => SetArgument("object_type", value);
     }
 
@@ -235,7 +235,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockConfluenceConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformValue<string> AuthType
     {
-        get => new TerraformReference<string>(this, "auth_type");
+        get => GetArgument<TerraformValue<string>>("auth_type");
         set => SetArgument("auth_type", value);
     }
 
@@ -245,7 +245,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockConfluenceConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CredentialsSecretArn is required")]
     public required TerraformValue<string> CredentialsSecretArn
     {
-        get => new TerraformReference<string>(this, "credentials_secret_arn");
+        get => GetArgument<TerraformValue<string>>("credentials_secret_arn");
         set => SetArgument("credentials_secret_arn", value);
     }
 
@@ -255,7 +255,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockConfluenceConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostType is required")]
     public required TerraformValue<string> HostType
     {
-        get => new TerraformReference<string>(this, "host_type");
+        get => GetArgument<TerraformValue<string>>("host_type");
         set => SetArgument("host_type", value);
     }
 
@@ -265,7 +265,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockConfluenceConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUrl is required")]
     public required TerraformValue<string> HostUrl
     {
-        get => new TerraformReference<string>(this, "host_url");
+        get => GetArgument<TerraformValue<string>>("host_url");
         set => SetArgument("host_url", value);
     }
 
@@ -288,7 +288,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockS3Configuratio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => new TerraformReference<string>(this, "bucket_arn");
+        get => GetArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -297,7 +297,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockS3Configuratio
     /// </summary>
     public TerraformValue<string>? BucketOwnerAccountId
     {
-        get => new TerraformReference<string>(this, "bucket_owner_account_id");
+        get => GetArgument<TerraformValue<string>>("bucket_owner_account_id");
         set => SetArgument("bucket_owner_account_id", value);
     }
 
@@ -306,7 +306,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockS3Configuratio
     /// </summary>
     public TerraformSet<string>? InclusionPrefixes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "inclusion_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("inclusion_prefixes");
         set => SetArgument("inclusion_prefixes", value);
     }
 
@@ -382,7 +382,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockSalesforceConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -435,7 +435,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockSalesforceConf
     /// </summary>
     public TerraformSet<string>? ExclusionFilters
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "exclusion_filters").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("exclusion_filters");
         set => SetArgument("exclusion_filters", value);
     }
 
@@ -444,7 +444,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockSalesforceConf
     /// </summary>
     public TerraformSet<string>? InclusionFilters
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "inclusion_filters").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("inclusion_filters");
         set => SetArgument("inclusion_filters", value);
     }
 
@@ -454,7 +454,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockSalesforceConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectType is required")]
     public required TerraformValue<string> ObjectType
     {
-        get => new TerraformReference<string>(this, "object_type");
+        get => GetArgument<TerraformValue<string>>("object_type");
         set => SetArgument("object_type", value);
     }
 
@@ -477,7 +477,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockSalesforceConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformValue<string> AuthType
     {
-        get => new TerraformReference<string>(this, "auth_type");
+        get => GetArgument<TerraformValue<string>>("auth_type");
         set => SetArgument("auth_type", value);
     }
 
@@ -487,7 +487,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockSalesforceConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CredentialsSecretArn is required")]
     public required TerraformValue<string> CredentialsSecretArn
     {
-        get => new TerraformReference<string>(this, "credentials_secret_arn");
+        get => GetArgument<TerraformValue<string>>("credentials_secret_arn");
         set => SetArgument("credentials_secret_arn", value);
     }
 
@@ -497,7 +497,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockSalesforceConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUrl is required")]
     public required TerraformValue<string> HostUrl
     {
-        get => new TerraformReference<string>(this, "host_url");
+        get => GetArgument<TerraformValue<string>>("host_url");
         set => SetArgument("host_url", value);
     }
 
@@ -573,7 +573,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockSharePointConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -626,7 +626,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockSharePointConf
     /// </summary>
     public TerraformSet<string>? ExclusionFilters
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "exclusion_filters").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("exclusion_filters");
         set => SetArgument("exclusion_filters", value);
     }
 
@@ -635,7 +635,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockSharePointConf
     /// </summary>
     public TerraformSet<string>? InclusionFilters
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "inclusion_filters").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("inclusion_filters");
         set => SetArgument("inclusion_filters", value);
     }
 
@@ -645,7 +645,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockSharePointConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectType is required")]
     public required TerraformValue<string> ObjectType
     {
-        get => new TerraformReference<string>(this, "object_type");
+        get => GetArgument<TerraformValue<string>>("object_type");
         set => SetArgument("object_type", value);
     }
 
@@ -668,7 +668,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockSharePointConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformValue<string> AuthType
     {
-        get => new TerraformReference<string>(this, "auth_type");
+        get => GetArgument<TerraformValue<string>>("auth_type");
         set => SetArgument("auth_type", value);
     }
 
@@ -678,7 +678,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockSharePointConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CredentialsSecretArn is required")]
     public required TerraformValue<string> CredentialsSecretArn
     {
-        get => new TerraformReference<string>(this, "credentials_secret_arn");
+        get => GetArgument<TerraformValue<string>>("credentials_secret_arn");
         set => SetArgument("credentials_secret_arn", value);
     }
 
@@ -688,7 +688,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockSharePointConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => new TerraformReference<string>(this, "domain");
+        get => GetArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
@@ -698,7 +698,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockSharePointConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostType is required")]
     public required TerraformValue<string> HostType
     {
-        get => new TerraformReference<string>(this, "host_type");
+        get => GetArgument<TerraformValue<string>>("host_type");
         set => SetArgument("host_type", value);
     }
 
@@ -708,7 +708,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockSharePointConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteUrls is required")]
     public required TerraformSet<string> SiteUrls
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "site_urls").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("site_urls");
         set => SetArgument("site_urls", value);
     }
 
@@ -717,7 +717,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockSharePointConf
     /// </summary>
     public TerraformValue<string>? TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -770,7 +770,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockWebConfigurati
     /// </summary>
     public TerraformSet<string>? ExclusionFilters
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "exclusion_filters").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("exclusion_filters");
         set => SetArgument("exclusion_filters", value);
     }
 
@@ -779,7 +779,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockWebConfigurati
     /// </summary>
     public TerraformSet<string>? InclusionFilters
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "inclusion_filters").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("inclusion_filters");
         set => SetArgument("inclusion_filters", value);
     }
 
@@ -788,7 +788,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockWebConfigurati
     /// </summary>
     public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -797,7 +797,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockWebConfigurati
     /// </summary>
     public TerraformValue<string>? UserAgent
     {
-        get => new TerraformReference<string>(this, "user_agent");
+        get => GetArgument<TerraformValue<string>>("user_agent");
         set => SetArgument("user_agent", value);
     }
 
@@ -828,7 +828,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockWebConfigurati
     /// </summary>
     public TerraformValue<double>? MaxPages
     {
-        get => new TerraformReference<double>(this, "max_pages");
+        get => GetArgument<TerraformValue<double>>("max_pages");
         set => SetArgument("max_pages", value);
     }
 
@@ -837,7 +837,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockWebConfigurati
     /// </summary>
     public TerraformValue<double>? RateLimit
     {
-        get => new TerraformReference<double>(this, "rate_limit");
+        get => GetArgument<TerraformValue<double>>("rate_limit");
         set => SetArgument("rate_limit", value);
     }
 
@@ -903,7 +903,7 @@ public class AwsBedrockagentDataSourceDataSourceConfigurationBlockWebConfigurati
     /// </summary>
     public TerraformValue<string>? Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -926,7 +926,7 @@ public class AwsBedrockagentDataSourceServerSideEncryptionConfigurationBlock : T
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -949,7 +949,7 @@ public class AwsBedrockagentDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -958,7 +958,7 @@ public class AwsBedrockagentDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1022,7 +1022,7 @@ public class AwsBedrockagentDataSourceVectorIngestionConfigurationBlockChunkingC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChunkingStrategy is required")]
     public required TerraformValue<string> ChunkingStrategy
     {
-        get => new TerraformReference<string>(this, "chunking_strategy");
+        get => GetArgument<TerraformValue<string>>("chunking_strategy");
         set => SetArgument("chunking_strategy", value);
     }
 
@@ -1072,7 +1072,7 @@ public class AwsBedrockagentDataSourceVectorIngestionConfigurationBlockChunkingC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxTokens is required")]
     public required TerraformValue<double> MaxTokens
     {
-        get => new TerraformReference<double>(this, "max_tokens");
+        get => GetArgument<TerraformValue<double>>("max_tokens");
         set => SetArgument("max_tokens", value);
     }
 
@@ -1082,7 +1082,7 @@ public class AwsBedrockagentDataSourceVectorIngestionConfigurationBlockChunkingC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OverlapPercentage is required")]
     public required TerraformValue<double> OverlapPercentage
     {
-        get => new TerraformReference<double>(this, "overlap_percentage");
+        get => GetArgument<TerraformValue<double>>("overlap_percentage");
         set => SetArgument("overlap_percentage", value);
     }
 
@@ -1105,7 +1105,7 @@ public class AwsBedrockagentDataSourceVectorIngestionConfigurationBlockChunkingC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OverlapTokens is required")]
     public required TerraformValue<double> OverlapTokens
     {
-        get => new TerraformReference<double>(this, "overlap_tokens");
+        get => GetArgument<TerraformValue<double>>("overlap_tokens");
         set => SetArgument("overlap_tokens", value);
     }
 
@@ -1137,7 +1137,7 @@ public class AwsBedrockagentDataSourceVectorIngestionConfigurationBlockChunkingC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxTokens is required")]
     public required TerraformValue<double> MaxTokens
     {
-        get => new TerraformReference<double>(this, "max_tokens");
+        get => GetArgument<TerraformValue<double>>("max_tokens");
         set => SetArgument("max_tokens", value);
     }
 
@@ -1160,7 +1160,7 @@ public class AwsBedrockagentDataSourceVectorIngestionConfigurationBlockChunkingC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BreakpointPercentileThreshold is required")]
     public required TerraformValue<double> BreakpointPercentileThreshold
     {
-        get => new TerraformReference<double>(this, "breakpoint_percentile_threshold");
+        get => GetArgument<TerraformValue<double>>("breakpoint_percentile_threshold");
         set => SetArgument("breakpoint_percentile_threshold", value);
     }
 
@@ -1170,7 +1170,7 @@ public class AwsBedrockagentDataSourceVectorIngestionConfigurationBlockChunkingC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BufferSize is required")]
     public required TerraformValue<double> BufferSize
     {
-        get => new TerraformReference<double>(this, "buffer_size");
+        get => GetArgument<TerraformValue<double>>("buffer_size");
         set => SetArgument("buffer_size", value);
     }
 
@@ -1180,7 +1180,7 @@ public class AwsBedrockagentDataSourceVectorIngestionConfigurationBlockChunkingC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxToken is required")]
     public required TerraformValue<double> MaxToken
     {
-        get => new TerraformReference<double>(this, "max_token");
+        get => GetArgument<TerraformValue<double>>("max_token");
         set => SetArgument("max_token", value);
     }
 
@@ -1256,7 +1256,7 @@ public class AwsBedrockagentDataSourceVectorIngestionConfigurationBlockCustomTra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -1279,7 +1279,7 @@ public class AwsBedrockagentDataSourceVectorIngestionConfigurationBlockCustomTra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StepToApply is required")]
     public required TerraformValue<string> StepToApply
     {
-        get => new TerraformReference<string>(this, "step_to_apply");
+        get => GetArgument<TerraformValue<string>>("step_to_apply");
         set => SetArgument("step_to_apply", value);
     }
 
@@ -1333,7 +1333,7 @@ public class AwsBedrockagentDataSourceVectorIngestionConfigurationBlockCustomTra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LambdaArn is required")]
     public required TerraformValue<string> LambdaArn
     {
-        get => new TerraformReference<string>(this, "lambda_arn");
+        get => GetArgument<TerraformValue<string>>("lambda_arn");
         set => SetArgument("lambda_arn", value);
     }
 
@@ -1356,7 +1356,7 @@ public class AwsBedrockagentDataSourceVectorIngestionConfigurationBlockParsingCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParsingStrategy is required")]
     public required TerraformValue<string> ParsingStrategy
     {
-        get => new TerraformReference<string>(this, "parsing_strategy");
+        get => GetArgument<TerraformValue<string>>("parsing_strategy");
         set => SetArgument("parsing_strategy", value);
     }
 
@@ -1388,7 +1388,7 @@ public class AwsBedrockagentDataSourceVectorIngestionConfigurationBlockParsingCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelArn is required")]
     public required TerraformValue<string> ModelArn
     {
-        get => new TerraformReference<string>(this, "model_arn");
+        get => GetArgument<TerraformValue<string>>("model_arn");
         set => SetArgument("model_arn", value);
     }
 
@@ -1420,7 +1420,7 @@ public class AwsBedrockagentDataSourceVectorIngestionConfigurationBlockParsingCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParsingPromptString is required")]
     public required TerraformValue<string> ParsingPromptString
     {
-        get => new TerraformReference<string>(this, "parsing_prompt_string");
+        get => GetArgument<TerraformValue<string>>("parsing_prompt_string");
         set => SetArgument("parsing_prompt_string", value);
     }
 
@@ -1436,9 +1436,9 @@ public partial class AwsBedrockagentDataSource(string name) : TerraformResource(
     /// <summary>
     /// The data_deletion_policy attribute.
     /// </summary>
-    public TerraformValue<string> DataDeletionPolicy
+    public TerraformValue<string>? DataDeletionPolicy
     {
-        get => new TerraformReference<string>(this, "data_deletion_policy");
+        get => GetArgument<TerraformValue<string>>("data_deletion_policy");
         set => SetArgument("data_deletion_policy", value);
     }
 
@@ -1447,7 +1447,7 @@ public partial class AwsBedrockagentDataSource(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -1457,7 +1457,7 @@ public partial class AwsBedrockagentDataSource(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KnowledgeBaseId is required")]
     public required TerraformValue<string> KnowledgeBaseId
     {
-        get => new TerraformReference<string>(this, "knowledge_base_id");
+        get => GetArgument<TerraformValue<string>>("knowledge_base_id");
         set => SetArgument("knowledge_base_id", value);
     }
 
@@ -1467,16 +1467,16 @@ public partial class AwsBedrockagentDataSource(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -1484,17 +1484,13 @@ public partial class AwsBedrockagentDataSource(string name) : TerraformResource(
     /// The data_source_id attribute.
     /// </summary>
     public TerraformValue<string> DataSourceId
-    {
-        get => new TerraformReference<string>(this, "data_source_id");
-    }
+        => AsReference("data_source_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// DataSourceConfiguration block (nesting mode: list).

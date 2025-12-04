@@ -18,7 +18,7 @@ public class GoogleBigqueryBiReservationPreferredTablesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DatasetId
     {
-        get => new TerraformReference<string>(this, "dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleBigqueryBiReservationPreferredTablesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleBigqueryBiReservationPreferredTablesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TableId
     {
-        get => new TerraformReference<string>(this, "table_id");
+        get => GetArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleBigqueryBiReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleBigqueryBiReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -77,7 +77,7 @@ public class GoogleBigqueryBiReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -93,9 +93,9 @@ public partial class GoogleBigqueryBiReservation(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -105,16 +105,16 @@ public partial class GoogleBigqueryBiReservation(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -123,7 +123,7 @@ public partial class GoogleBigqueryBiReservation(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double>? Size
     {
-        get => new TerraformReference<double>(this, "size");
+        get => GetArgument<TerraformValue<double>>("size");
         set => SetArgument("size", value);
     }
 
@@ -131,9 +131,7 @@ public partial class GoogleBigqueryBiReservation(string name) : TerraformResourc
     /// The resource name of the singleton BI reservation. Reservation names have the form &#39;projects/{projectId}/locations/{locationId}/biReservation&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The last update timestamp of a reservation.
@@ -141,9 +139,7 @@ public partial class GoogleBigqueryBiReservation(string name) : TerraformResourc
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// PreferredTables block (nesting mode: list).

@@ -16,36 +16,36 @@ public class AwsEc2FleetFleetInstanceSetBlock : TerraformBlock
     /// <summary>
     /// The instance_ids attribute.
     /// </summary>
-    public TerraformList<string> InstanceIds
+    public TerraformList<string>? InstanceIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "instance_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("instance_ids");
         set => SetArgument("instance_ids", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformValue<string> InstanceType
+    public TerraformValue<string>? InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
     /// <summary>
     /// The lifecycle attribute.
     /// </summary>
-    public TerraformValue<string> LifecycleAttribute
+    public TerraformValue<string>? LifecycleAttribute
     {
-        get => new TerraformReference<string>(this, "lifecycle");
+        get => GetArgument<TerraformValue<string>>("lifecycle");
         set => SetArgument("lifecycle", value);
     }
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
-    public TerraformValue<string> Platform
+    public TerraformValue<string>? Platform
     {
-        get => new TerraformReference<string>(this, "platform");
+        get => GetArgument<TerraformValue<string>>("platform");
         set => SetArgument("platform", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockLaunchTemplateSpecificationBloc
     /// </summary>
     public TerraformValue<string>? LaunchTemplateId
     {
-        get => new TerraformReference<string>(this, "launch_template_id");
+        get => GetArgument<TerraformValue<string>>("launch_template_id");
         set => SetArgument("launch_template_id", value);
     }
 
@@ -110,7 +110,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockLaunchTemplateSpecificationBloc
     /// </summary>
     public TerraformValue<string>? LaunchTemplateName
     {
-        get => new TerraformReference<string>(this, "launch_template_name");
+        get => GetArgument<TerraformValue<string>>("launch_template_name");
         set => SetArgument("launch_template_name", value);
     }
 
@@ -120,7 +120,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockLaunchTemplateSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlock : Terraf
     /// </summary>
     public TerraformValue<string>? AvailabilityZone
     {
-        get => new TerraformReference<string>(this, "availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -151,7 +151,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlock : Terraf
     /// </summary>
     public TerraformValue<string>? InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -160,7 +160,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlock : Terraf
     /// </summary>
     public TerraformValue<string>? MaxPrice
     {
-        get => new TerraformReference<string>(this, "max_price");
+        get => GetArgument<TerraformValue<string>>("max_price");
         set => SetArgument("max_price", value);
     }
 
@@ -169,7 +169,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlock : Terraf
     /// </summary>
     public TerraformValue<double>? Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -178,7 +178,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlock : Terraf
     /// </summary>
     public TerraformValue<string>? SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -187,7 +187,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlock : Terraf
     /// </summary>
     public TerraformValue<double>? WeightedCapacity
     {
-        get => new TerraformReference<double>(this, "weighted_capacity");
+        get => GetArgument<TerraformValue<double>>("weighted_capacity");
         set => SetArgument("weighted_capacity", value);
     }
 
@@ -219,7 +219,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformSet<string>? AcceleratorManufacturers
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "accelerator_manufacturers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("accelerator_manufacturers");
         set => SetArgument("accelerator_manufacturers", value);
     }
 
@@ -228,7 +228,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformSet<string>? AcceleratorNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "accelerator_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("accelerator_names");
         set => SetArgument("accelerator_names", value);
     }
 
@@ -237,7 +237,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformSet<string>? AcceleratorTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "accelerator_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("accelerator_types");
         set => SetArgument("accelerator_types", value);
     }
 
@@ -246,7 +246,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformSet<string>? AllowedInstanceTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_instance_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_instance_types");
         set => SetArgument("allowed_instance_types", value);
     }
 
@@ -255,7 +255,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<string>? BareMetal
     {
-        get => new TerraformReference<string>(this, "bare_metal");
+        get => GetArgument<TerraformValue<string>>("bare_metal");
         set => SetArgument("bare_metal", value);
     }
 
@@ -264,7 +264,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<string>? BurstablePerformance
     {
-        get => new TerraformReference<string>(this, "burstable_performance");
+        get => GetArgument<TerraformValue<string>>("burstable_performance");
         set => SetArgument("burstable_performance", value);
     }
 
@@ -273,7 +273,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformSet<string>? CpuManufacturers
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "cpu_manufacturers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("cpu_manufacturers");
         set => SetArgument("cpu_manufacturers", value);
     }
 
@@ -282,7 +282,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformSet<string>? ExcludedInstanceTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "excluded_instance_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("excluded_instance_types");
         set => SetArgument("excluded_instance_types", value);
     }
 
@@ -291,7 +291,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformSet<string>? InstanceGenerations
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "instance_generations").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("instance_generations");
         set => SetArgument("instance_generations", value);
     }
 
@@ -300,7 +300,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<string>? LocalStorage
     {
-        get => new TerraformReference<string>(this, "local_storage");
+        get => GetArgument<TerraformValue<string>>("local_storage");
         set => SetArgument("local_storage", value);
     }
 
@@ -309,7 +309,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformSet<string>? LocalStorageTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "local_storage_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("local_storage_types");
         set => SetArgument("local_storage_types", value);
     }
 
@@ -318,7 +318,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<double>? MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
     {
-        get => new TerraformReference<double>(this, "max_spot_price_as_percentage_of_optimal_on_demand_price");
+        get => GetArgument<TerraformValue<double>>("max_spot_price_as_percentage_of_optimal_on_demand_price");
         set => SetArgument("max_spot_price_as_percentage_of_optimal_on_demand_price", value);
     }
 
@@ -327,7 +327,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<double>? OnDemandMaxPricePercentageOverLowestPrice
     {
-        get => new TerraformReference<double>(this, "on_demand_max_price_percentage_over_lowest_price");
+        get => GetArgument<TerraformValue<double>>("on_demand_max_price_percentage_over_lowest_price");
         set => SetArgument("on_demand_max_price_percentage_over_lowest_price", value);
     }
 
@@ -336,7 +336,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<bool>? RequireHibernateSupport
     {
-        get => new TerraformReference<bool>(this, "require_hibernate_support");
+        get => GetArgument<TerraformValue<bool>>("require_hibernate_support");
         set => SetArgument("require_hibernate_support", value);
     }
 
@@ -345,7 +345,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<double>? SpotMaxPricePercentageOverLowestPrice
     {
-        get => new TerraformReference<double>(this, "spot_max_price_percentage_over_lowest_price");
+        get => GetArgument<TerraformValue<double>>("spot_max_price_percentage_over_lowest_price");
         set => SetArgument("spot_max_price_percentage_over_lowest_price", value);
     }
 
@@ -463,7 +463,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -472,7 +472,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -494,7 +494,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -503,7 +503,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -525,7 +525,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -534,7 +534,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -556,7 +556,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -565,7 +565,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -587,7 +587,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -597,7 +597,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Min is required")]
     public required TerraformValue<double> Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -619,7 +619,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -628,7 +628,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -650,7 +650,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -659,7 +659,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -681,7 +681,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -690,7 +690,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -712,7 +712,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -722,7 +722,7 @@ public class AwsEc2FleetLaunchTemplateConfigBlockOverrideAttributeBlockInstanceR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Min is required")]
     public required TerraformValue<double> Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -745,7 +745,7 @@ public class AwsEc2FleetOnDemandOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AllocationStrategy
     {
-        get => new TerraformReference<string>(this, "allocation_strategy");
+        get => GetArgument<TerraformValue<string>>("allocation_strategy");
         set => SetArgument("allocation_strategy", value);
     }
 
@@ -754,7 +754,7 @@ public class AwsEc2FleetOnDemandOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaxTotalPrice
     {
-        get => new TerraformReference<string>(this, "max_total_price");
+        get => GetArgument<TerraformValue<string>>("max_total_price");
         set => SetArgument("max_total_price", value);
     }
 
@@ -763,7 +763,7 @@ public class AwsEc2FleetOnDemandOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MinTargetCapacity
     {
-        get => new TerraformReference<double>(this, "min_target_capacity");
+        get => GetArgument<TerraformValue<double>>("min_target_capacity");
         set => SetArgument("min_target_capacity", value);
     }
 
@@ -772,7 +772,7 @@ public class AwsEc2FleetOnDemandOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SingleAvailabilityZone
     {
-        get => new TerraformReference<bool>(this, "single_availability_zone");
+        get => GetArgument<TerraformValue<bool>>("single_availability_zone");
         set => SetArgument("single_availability_zone", value);
     }
 
@@ -781,7 +781,7 @@ public class AwsEc2FleetOnDemandOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SingleInstanceType
     {
-        get => new TerraformReference<bool>(this, "single_instance_type");
+        get => GetArgument<TerraformValue<bool>>("single_instance_type");
         set => SetArgument("single_instance_type", value);
     }
 
@@ -813,7 +813,7 @@ public class AwsEc2FleetOnDemandOptionsBlockCapacityReservationOptionsBlock : Te
     /// </summary>
     public TerraformValue<string>? UsageStrategy
     {
-        get => new TerraformReference<string>(this, "usage_strategy");
+        get => GetArgument<TerraformValue<string>>("usage_strategy");
         set => SetArgument("usage_strategy", value);
     }
 
@@ -836,7 +836,7 @@ public class AwsEc2FleetSpotOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AllocationStrategy
     {
-        get => new TerraformReference<string>(this, "allocation_strategy");
+        get => GetArgument<TerraformValue<string>>("allocation_strategy");
         set => SetArgument("allocation_strategy", value);
     }
 
@@ -845,7 +845,7 @@ public class AwsEc2FleetSpotOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? InstanceInterruptionBehavior
     {
-        get => new TerraformReference<string>(this, "instance_interruption_behavior");
+        get => GetArgument<TerraformValue<string>>("instance_interruption_behavior");
         set => SetArgument("instance_interruption_behavior", value);
     }
 
@@ -854,7 +854,7 @@ public class AwsEc2FleetSpotOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? InstancePoolsToUseCount
     {
-        get => new TerraformReference<double>(this, "instance_pools_to_use_count");
+        get => GetArgument<TerraformValue<double>>("instance_pools_to_use_count");
         set => SetArgument("instance_pools_to_use_count", value);
     }
 
@@ -863,7 +863,7 @@ public class AwsEc2FleetSpotOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaxTotalPrice
     {
-        get => new TerraformReference<string>(this, "max_total_price");
+        get => GetArgument<TerraformValue<string>>("max_total_price");
         set => SetArgument("max_total_price", value);
     }
 
@@ -872,7 +872,7 @@ public class AwsEc2FleetSpotOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MinTargetCapacity
     {
-        get => new TerraformReference<double>(this, "min_target_capacity");
+        get => GetArgument<TerraformValue<double>>("min_target_capacity");
         set => SetArgument("min_target_capacity", value);
     }
 
@@ -881,7 +881,7 @@ public class AwsEc2FleetSpotOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SingleAvailabilityZone
     {
-        get => new TerraformReference<bool>(this, "single_availability_zone");
+        get => GetArgument<TerraformValue<bool>>("single_availability_zone");
         set => SetArgument("single_availability_zone", value);
     }
 
@@ -890,7 +890,7 @@ public class AwsEc2FleetSpotOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SingleInstanceType
     {
-        get => new TerraformReference<bool>(this, "single_instance_type");
+        get => GetArgument<TerraformValue<bool>>("single_instance_type");
         set => SetArgument("single_instance_type", value);
     }
 
@@ -945,7 +945,7 @@ public class AwsEc2FleetSpotOptionsBlockMaintenanceStrategiesBlockCapacityRebala
     /// </summary>
     public TerraformValue<string>? ReplacementStrategy
     {
-        get => new TerraformReference<string>(this, "replacement_strategy");
+        get => GetArgument<TerraformValue<string>>("replacement_strategy");
         set => SetArgument("replacement_strategy", value);
     }
 
@@ -954,7 +954,7 @@ public class AwsEc2FleetSpotOptionsBlockMaintenanceStrategiesBlockCapacityRebala
     /// </summary>
     public TerraformValue<double>? TerminationDelay
     {
-        get => new TerraformReference<double>(this, "termination_delay");
+        get => GetArgument<TerraformValue<double>>("termination_delay");
         set => SetArgument("termination_delay", value);
     }
 
@@ -978,7 +978,7 @@ public class AwsEc2FleetTargetCapacitySpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultTargetCapacityType is required")]
     public required TerraformValue<string> DefaultTargetCapacityType
     {
-        get => new TerraformReference<string>(this, "default_target_capacity_type");
+        get => GetArgument<TerraformValue<string>>("default_target_capacity_type");
         set => SetArgument("default_target_capacity_type", value);
     }
 
@@ -987,7 +987,7 @@ public class AwsEc2FleetTargetCapacitySpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? OnDemandTargetCapacity
     {
-        get => new TerraformReference<double>(this, "on_demand_target_capacity");
+        get => GetArgument<TerraformValue<double>>("on_demand_target_capacity");
         set => SetArgument("on_demand_target_capacity", value);
     }
 
@@ -996,7 +996,7 @@ public class AwsEc2FleetTargetCapacitySpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SpotTargetCapacity
     {
-        get => new TerraformReference<double>(this, "spot_target_capacity");
+        get => GetArgument<TerraformValue<double>>("spot_target_capacity");
         set => SetArgument("spot_target_capacity", value);
     }
 
@@ -1005,7 +1005,7 @@ public class AwsEc2FleetTargetCapacitySpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TargetCapacityUnitType
     {
-        get => new TerraformReference<string>(this, "target_capacity_unit_type");
+        get => GetArgument<TerraformValue<string>>("target_capacity_unit_type");
         set => SetArgument("target_capacity_unit_type", value);
     }
 
@@ -1015,7 +1015,7 @@ public class AwsEc2FleetTargetCapacitySpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalTargetCapacity is required")]
     public required TerraformValue<double> TotalTargetCapacity
     {
-        get => new TerraformReference<double>(this, "total_target_capacity");
+        get => GetArgument<TerraformValue<double>>("total_target_capacity");
         set => SetArgument("total_target_capacity", value);
     }
 
@@ -1038,7 +1038,7 @@ public class AwsEc2FleetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1047,7 +1047,7 @@ public class AwsEc2FleetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1056,7 +1056,7 @@ public class AwsEc2FleetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1074,7 +1074,7 @@ public partial class AwsEc2Fleet(string name) : TerraformResource("aws_ec2_fleet
     /// </summary>
     public TerraformValue<string>? Context
     {
-        get => new TerraformReference<string>(this, "context");
+        get => GetArgument<TerraformValue<string>>("context");
         set => SetArgument("context", value);
     }
 
@@ -1083,52 +1083,52 @@ public partial class AwsEc2Fleet(string name) : TerraformResource("aws_ec2_fleet
     /// </summary>
     public TerraformValue<string>? ExcessCapacityTerminationPolicy
     {
-        get => new TerraformReference<string>(this, "excess_capacity_termination_policy");
+        get => GetArgument<TerraformValue<string>>("excess_capacity_termination_policy");
         set => SetArgument("excess_capacity_termination_policy", value);
     }
 
     /// <summary>
     /// The fleet_state attribute.
     /// </summary>
-    public TerraformValue<string> FleetState
+    public TerraformValue<string>? FleetState
     {
-        get => new TerraformReference<string>(this, "fleet_state");
+        get => GetArgument<TerraformValue<string>>("fleet_state");
         set => SetArgument("fleet_state", value);
     }
 
     /// <summary>
     /// The fulfilled_capacity attribute.
     /// </summary>
-    public TerraformValue<double> FulfilledCapacity
+    public TerraformValue<double>? FulfilledCapacity
     {
-        get => new TerraformReference<double>(this, "fulfilled_capacity");
+        get => GetArgument<TerraformValue<double>>("fulfilled_capacity");
         set => SetArgument("fulfilled_capacity", value);
     }
 
     /// <summary>
     /// The fulfilled_on_demand_capacity attribute.
     /// </summary>
-    public TerraformValue<double> FulfilledOnDemandCapacity
+    public TerraformValue<double>? FulfilledOnDemandCapacity
     {
-        get => new TerraformReference<double>(this, "fulfilled_on_demand_capacity");
+        get => GetArgument<TerraformValue<double>>("fulfilled_on_demand_capacity");
         set => SetArgument("fulfilled_on_demand_capacity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -1137,7 +1137,7 @@ public partial class AwsEc2Fleet(string name) : TerraformResource("aws_ec2_fleet
     /// </summary>
     public TerraformValue<bool>? ReplaceUnhealthyInstances
     {
-        get => new TerraformReference<bool>(this, "replace_unhealthy_instances");
+        get => GetArgument<TerraformValue<bool>>("replace_unhealthy_instances");
         set => SetArgument("replace_unhealthy_instances", value);
     }
 
@@ -1146,16 +1146,16 @@ public partial class AwsEc2Fleet(string name) : TerraformResource("aws_ec2_fleet
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1164,7 +1164,7 @@ public partial class AwsEc2Fleet(string name) : TerraformResource("aws_ec2_fleet
     /// </summary>
     public TerraformValue<bool>? TerminateInstances
     {
-        get => new TerraformReference<bool>(this, "terminate_instances");
+        get => GetArgument<TerraformValue<bool>>("terminate_instances");
         set => SetArgument("terminate_instances", value);
     }
 
@@ -1173,7 +1173,7 @@ public partial class AwsEc2Fleet(string name) : TerraformResource("aws_ec2_fleet
     /// </summary>
     public TerraformValue<bool>? TerminateInstancesWithExpiration
     {
-        get => new TerraformReference<bool>(this, "terminate_instances_with_expiration");
+        get => GetArgument<TerraformValue<bool>>("terminate_instances_with_expiration");
         set => SetArgument("terminate_instances_with_expiration", value);
     }
 
@@ -1182,7 +1182,7 @@ public partial class AwsEc2Fleet(string name) : TerraformResource("aws_ec2_fleet
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1191,7 +1191,7 @@ public partial class AwsEc2Fleet(string name) : TerraformResource("aws_ec2_fleet
     /// </summary>
     public TerraformValue<string>? ValidFrom
     {
-        get => new TerraformReference<string>(this, "valid_from");
+        get => GetArgument<TerraformValue<string>>("valid_from");
         set => SetArgument("valid_from", value);
     }
 
@@ -1200,7 +1200,7 @@ public partial class AwsEc2Fleet(string name) : TerraformResource("aws_ec2_fleet
     /// </summary>
     public TerraformValue<string>? ValidUntil
     {
-        get => new TerraformReference<string>(this, "valid_until");
+        get => GetArgument<TerraformValue<string>>("valid_until");
         set => SetArgument("valid_until", value);
     }
 
@@ -1208,9 +1208,7 @@ public partial class AwsEc2Fleet(string name) : TerraformResource("aws_ec2_fleet
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// FleetInstanceSet block (nesting mode: list).

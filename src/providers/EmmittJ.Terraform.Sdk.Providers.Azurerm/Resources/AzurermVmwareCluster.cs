@@ -18,7 +18,7 @@ public class AzurermVmwareClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermVmwareClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermVmwareClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermVmwareClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AzurermVmwareCluster(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterNodeCount is required")]
     public required TerraformValue<double> ClusterNodeCount
     {
-        get => new TerraformReference<double>(this, "cluster_node_count");
+        get => GetArgument<TerraformValue<double>>("cluster_node_count");
         set => SetArgument("cluster_node_count", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermVmwareCluster(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermVmwareCluster(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => new TerraformReference<string>(this, "sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermVmwareCluster(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareCloudId is required")]
     public required TerraformValue<string> VmwareCloudId
     {
-        get => new TerraformReference<string>(this, "vmware_cloud_id");
+        get => GetArgument<TerraformValue<string>>("vmware_cloud_id");
         set => SetArgument("vmware_cloud_id", value);
     }
 
@@ -111,17 +111,13 @@ public partial class AzurermVmwareCluster(string name) : TerraformResource("azur
     /// The cluster_number attribute.
     /// </summary>
     public TerraformValue<double> ClusterNumber
-    {
-        get => new TerraformReference<double>(this, "cluster_number");
-    }
+        => AsReference("cluster_number");
 
     /// <summary>
     /// The hosts attribute.
     /// </summary>
     public TerraformList<string> Hosts
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "hosts").ResolveNodes(ctx));
-    }
+        => AsReference("hosts");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class AzurermKeyVaultSecretTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermKeyVaultSecretTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermKeyVaultSecretTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermKeyVaultSecretTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermKeyVaultSecret(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? ContentType
     {
-        get => new TerraformReference<string>(this, "content_type");
+        get => GetArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -72,16 +72,16 @@ public partial class AzurermKeyVaultSecret(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? ExpirationDate
     {
-        get => new TerraformReference<string>(this, "expiration_date");
+        get => GetArgument<TerraformValue<string>>("expiration_date");
         set => SetArgument("expiration_date", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermKeyVaultSecret(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformValue<string> KeyVaultId
     {
-        get => new TerraformReference<string>(this, "key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermKeyVaultSecret(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermKeyVaultSecret(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? NotBeforeDate
     {
-        get => new TerraformReference<string>(this, "not_before_date");
+        get => GetArgument<TerraformValue<string>>("not_before_date");
         set => SetArgument("not_before_date", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermKeyVaultSecret(string name) : TerraformResource("azu
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermKeyVaultSecret(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AzurermKeyVaultSecret(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? ValueWo
     {
-        get => new TerraformReference<string>(this, "value_wo");
+        get => GetArgument<TerraformValue<string>>("value_wo");
         set => SetArgument("value_wo", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AzurermKeyVaultSecret(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<double>? ValueWoVersion
     {
-        get => new TerraformReference<double>(this, "value_wo_version");
+        get => GetArgument<TerraformValue<double>>("value_wo_version");
         set => SetArgument("value_wo_version", value);
     }
 
@@ -154,33 +154,25 @@ public partial class AzurermKeyVaultSecret(string name) : TerraformResource("azu
     /// The resource_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceId
-    {
-        get => new TerraformReference<string>(this, "resource_id");
-    }
+        => AsReference("resource_id");
 
     /// <summary>
     /// The resource_versionless_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceVersionlessId
-    {
-        get => new TerraformReference<string>(this, "resource_versionless_id");
-    }
+        => AsReference("resource_versionless_id");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
     /// <summary>
     /// The versionless_id attribute.
     /// </summary>
     public TerraformValue<string> VersionlessId
-    {
-        get => new TerraformReference<string>(this, "versionless_id");
-    }
+        => AsReference("versionless_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

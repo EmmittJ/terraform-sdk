@@ -18,7 +18,7 @@ public class AwsLocationPlaceIndexDataSourceConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? IntendedUse
     {
-        get => new TerraformReference<string>(this, "intended_use");
+        get => GetArgument<TerraformValue<string>>("intended_use");
         set => SetArgument("intended_use", value);
     }
 
@@ -37,7 +37,7 @@ public partial class AwsLocationPlaceIndex(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSource is required")]
     public required TerraformValue<string> DataSource
     {
-        get => new TerraformReference<string>(this, "data_source");
+        get => GetArgument<TerraformValue<string>>("data_source");
         set => SetArgument("data_source", value);
     }
 
@@ -46,16 +46,16 @@ public partial class AwsLocationPlaceIndex(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -65,16 +65,16 @@ public partial class AwsLocationPlaceIndex(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     public required TerraformValue<string> IndexName
     {
-        get => new TerraformReference<string>(this, "index_name");
+        get => GetArgument<TerraformValue<string>>("index_name");
         set => SetArgument("index_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -83,16 +83,16 @@ public partial class AwsLocationPlaceIndex(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -100,25 +100,19 @@ public partial class AwsLocationPlaceIndex(string name) : TerraformResource("aws
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The index_arn attribute.
     /// </summary>
     public TerraformValue<string> IndexArn
-    {
-        get => new TerraformReference<string>(this, "index_arn");
-    }
+        => AsReference("index_arn");
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// DataSourceConfiguration block (nesting mode: list).

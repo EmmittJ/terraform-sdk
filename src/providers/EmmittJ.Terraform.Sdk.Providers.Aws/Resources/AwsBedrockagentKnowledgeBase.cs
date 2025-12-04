@@ -19,7 +19,7 @@ public class AwsBedrockagentKnowledgeBaseKnowledgeBaseConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsBedrockagentKnowledgeBaseKnowledgeBaseConfigurationBlockVectorKn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmbeddingModelArn is required")]
     public required TerraformValue<string> EmbeddingModelArn
     {
-        get => new TerraformReference<string>(this, "embedding_model_arn");
+        get => GetArgument<TerraformValue<string>>("embedding_model_arn");
         set => SetArgument("embedding_model_arn", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsBedrockagentKnowledgeBaseKnowledgeBaseConfigurationBlockVectorKn
     /// </summary>
     public TerraformValue<double>? Dimensions
     {
-        get => new TerraformReference<double>(this, "dimensions");
+        get => GetArgument<TerraformValue<double>>("dimensions");
         set => SetArgument("dimensions", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsBedrockagentKnowledgeBaseKnowledgeBaseConfigurationBlockVectorKn
     /// </summary>
     public TerraformValue<string>? EmbeddingDataType
     {
-        get => new TerraformReference<string>(this, "embedding_data_type");
+        get => GetArgument<TerraformValue<string>>("embedding_data_type");
         set => SetArgument("embedding_data_type", value);
     }
 
@@ -167,7 +167,7 @@ public class AwsBedrockagentKnowledgeBaseKnowledgeBaseConfigurationBlockVectorKn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -199,7 +199,7 @@ public class AwsBedrockagentKnowledgeBaseKnowledgeBaseConfigurationBlockVectorKn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -223,7 +223,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -282,7 +282,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockOpensearchServ
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionArn is required")]
     public required TerraformValue<string> CollectionArn
     {
-        get => new TerraformReference<string>(this, "collection_arn");
+        get => GetArgument<TerraformValue<string>>("collection_arn");
         set => SetArgument("collection_arn", value);
     }
 
@@ -292,7 +292,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockOpensearchServ
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VectorIndexName is required")]
     public required TerraformValue<string> VectorIndexName
     {
-        get => new TerraformReference<string>(this, "vector_index_name");
+        get => GetArgument<TerraformValue<string>>("vector_index_name");
         set => SetArgument("vector_index_name", value);
     }
 
@@ -323,7 +323,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockOpensearchServ
     /// </summary>
     public TerraformValue<string>? MetadataField
     {
-        get => new TerraformReference<string>(this, "metadata_field");
+        get => GetArgument<TerraformValue<string>>("metadata_field");
         set => SetArgument("metadata_field", value);
     }
 
@@ -332,7 +332,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockOpensearchServ
     /// </summary>
     public TerraformValue<string>? TextField
     {
-        get => new TerraformReference<string>(this, "text_field");
+        get => GetArgument<TerraformValue<string>>("text_field");
         set => SetArgument("text_field", value);
     }
 
@@ -341,7 +341,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockOpensearchServ
     /// </summary>
     public TerraformValue<string>? VectorField
     {
-        get => new TerraformReference<string>(this, "vector_field");
+        get => GetArgument<TerraformValue<string>>("vector_field");
         set => SetArgument("vector_field", value);
     }
 
@@ -364,7 +364,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockPineconeConfig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     public required TerraformValue<string> ConnectionString
     {
-        get => new TerraformReference<string>(this, "connection_string");
+        get => GetArgument<TerraformValue<string>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -374,7 +374,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockPineconeConfig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CredentialsSecretArn is required")]
     public required TerraformValue<string> CredentialsSecretArn
     {
-        get => new TerraformReference<string>(this, "credentials_secret_arn");
+        get => GetArgument<TerraformValue<string>>("credentials_secret_arn");
         set => SetArgument("credentials_secret_arn", value);
     }
 
@@ -383,7 +383,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockPineconeConfig
     /// </summary>
     public TerraformValue<string>? NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -414,7 +414,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockPineconeConfig
     /// </summary>
     public TerraformValue<string>? MetadataField
     {
-        get => new TerraformReference<string>(this, "metadata_field");
+        get => GetArgument<TerraformValue<string>>("metadata_field");
         set => SetArgument("metadata_field", value);
     }
 
@@ -423,7 +423,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockPineconeConfig
     /// </summary>
     public TerraformValue<string>? TextField
     {
-        get => new TerraformReference<string>(this, "text_field");
+        get => GetArgument<TerraformValue<string>>("text_field");
         set => SetArgument("text_field", value);
     }
 
@@ -446,7 +446,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockRdsConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CredentialsSecretArn is required")]
     public required TerraformValue<string> CredentialsSecretArn
     {
-        get => new TerraformReference<string>(this, "credentials_secret_arn");
+        get => GetArgument<TerraformValue<string>>("credentials_secret_arn");
         set => SetArgument("credentials_secret_arn", value);
     }
 
@@ -456,7 +456,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockRdsConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -466,7 +466,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockRdsConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => new TerraformReference<string>(this, "resource_arn");
+        get => GetArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -476,7 +476,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockRdsConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -508,7 +508,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockRdsConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetadataField is required")]
     public required TerraformValue<string> MetadataField
     {
-        get => new TerraformReference<string>(this, "metadata_field");
+        get => GetArgument<TerraformValue<string>>("metadata_field");
         set => SetArgument("metadata_field", value);
     }
 
@@ -518,7 +518,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockRdsConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKeyField is required")]
     public required TerraformValue<string> PrimaryKeyField
     {
-        get => new TerraformReference<string>(this, "primary_key_field");
+        get => GetArgument<TerraformValue<string>>("primary_key_field");
         set => SetArgument("primary_key_field", value);
     }
 
@@ -528,7 +528,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockRdsConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextField is required")]
     public required TerraformValue<string> TextField
     {
-        get => new TerraformReference<string>(this, "text_field");
+        get => GetArgument<TerraformValue<string>>("text_field");
         set => SetArgument("text_field", value);
     }
 
@@ -538,7 +538,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockRdsConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VectorField is required")]
     public required TerraformValue<string> VectorField
     {
-        get => new TerraformReference<string>(this, "vector_field");
+        get => GetArgument<TerraformValue<string>>("vector_field");
         set => SetArgument("vector_field", value);
     }
 
@@ -561,7 +561,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockRedisEnterpris
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CredentialsSecretArn is required")]
     public required TerraformValue<string> CredentialsSecretArn
     {
-        get => new TerraformReference<string>(this, "credentials_secret_arn");
+        get => GetArgument<TerraformValue<string>>("credentials_secret_arn");
         set => SetArgument("credentials_secret_arn", value);
     }
 
@@ -571,7 +571,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockRedisEnterpris
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformValue<string> Endpoint
     {
-        get => new TerraformReference<string>(this, "endpoint");
+        get => GetArgument<TerraformValue<string>>("endpoint");
         set => SetArgument("endpoint", value);
     }
 
@@ -581,7 +581,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockRedisEnterpris
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VectorIndexName is required")]
     public required TerraformValue<string> VectorIndexName
     {
-        get => new TerraformReference<string>(this, "vector_index_name");
+        get => GetArgument<TerraformValue<string>>("vector_index_name");
         set => SetArgument("vector_index_name", value);
     }
 
@@ -612,7 +612,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockRedisEnterpris
     /// </summary>
     public TerraformValue<string>? MetadataField
     {
-        get => new TerraformReference<string>(this, "metadata_field");
+        get => GetArgument<TerraformValue<string>>("metadata_field");
         set => SetArgument("metadata_field", value);
     }
 
@@ -621,7 +621,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockRedisEnterpris
     /// </summary>
     public TerraformValue<string>? TextField
     {
-        get => new TerraformReference<string>(this, "text_field");
+        get => GetArgument<TerraformValue<string>>("text_field");
         set => SetArgument("text_field", value);
     }
 
@@ -630,7 +630,7 @@ public class AwsBedrockagentKnowledgeBaseStorageConfigurationBlockRedisEnterpris
     /// </summary>
     public TerraformValue<string>? VectorField
     {
-        get => new TerraformReference<string>(this, "vector_field");
+        get => GetArgument<TerraformValue<string>>("vector_field");
         set => SetArgument("vector_field", value);
     }
 
@@ -653,7 +653,7 @@ public class AwsBedrockagentKnowledgeBaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -662,7 +662,7 @@ public class AwsBedrockagentKnowledgeBaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -671,7 +671,7 @@ public class AwsBedrockagentKnowledgeBaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -689,7 +689,7 @@ public partial class AwsBedrockagentKnowledgeBase(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -699,16 +699,16 @@ public partial class AwsBedrockagentKnowledgeBase(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -718,7 +718,7 @@ public partial class AwsBedrockagentKnowledgeBase(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -727,7 +727,7 @@ public partial class AwsBedrockagentKnowledgeBase(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -735,49 +735,37 @@ public partial class AwsBedrockagentKnowledgeBase(string name) : TerraformResour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The failure_reasons attribute.
     /// </summary>
     public TerraformList<string> FailureReasons
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "failure_reasons").ResolveNodes(ctx));
-    }
+        => AsReference("failure_reasons");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-    {
-        get => new TerraformReference<string>(this, "updated_at");
-    }
+        => AsReference("updated_at");
 
     /// <summary>
     /// KnowledgeBaseConfiguration block (nesting mode: list).

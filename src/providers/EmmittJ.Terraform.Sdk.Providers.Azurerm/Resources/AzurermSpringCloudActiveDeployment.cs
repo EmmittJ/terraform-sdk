@@ -18,7 +18,7 @@ public class AzurermSpringCloudActiveDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSpringCloudActiveDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSpringCloudActiveDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSpringCloudActiveDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AzurermSpringCloudActiveDeployment(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentName is required")]
     public required TerraformValue<string> DeploymentName
     {
-        get => new TerraformReference<string>(this, "deployment_name");
+        get => GetArgument<TerraformValue<string>>("deployment_name");
         set => SetArgument("deployment_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermSpringCloudActiveDeployment(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
     public required TerraformValue<string> SpringCloudAppId
     {
-        get => new TerraformReference<string>(this, "spring_cloud_app_id");
+        get => GetArgument<TerraformValue<string>>("spring_cloud_app_id");
         set => SetArgument("spring_cloud_app_id", value);
     }
 

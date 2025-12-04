@@ -19,7 +19,7 @@ public class AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateType is required")]
     public required TerraformValue<string> CertificateType
     {
-        get => new TerraformReference<string>(this, "certificate_type");
+        get => GetArgument<TerraformValue<string>>("certificate_type");
         set => SetArgument("certificate_type", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtocolType is required")]
     public required TerraformValue<string> ProtocolType
     {
-        get => new TerraformReference<string>(this, "protocol_type");
+        get => GetArgument<TerraformValue<string>>("protocol_type");
         set => SetArgument("protocol_type", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TlsVersion
     {
-        get => new TerraformReference<string>(this, "tls_version");
+        get => GetArgument<TerraformValue<string>>("tls_version");
         set => SetArgument("tls_version", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermCdnEndpointCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermCdnEndpointCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermCdnEndpointCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermCdnEndpointCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermCdnEndpointCustomDomainUserManagedHttpsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultSecretId is required")]
     public required TerraformValue<string> KeyVaultSecretId
     {
-        get => new TerraformReference<string>(this, "key_vault_secret_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_secret_id");
         set => SetArgument("key_vault_secret_id", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermCdnEndpointCustomDomainUserManagedHttpsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? TlsVersion
     {
-        get => new TerraformReference<string>(this, "tls_version");
+        get => GetArgument<TerraformValue<string>>("tls_version");
         set => SetArgument("tls_version", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AzurermCdnEndpointCustomDomain(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnEndpointId is required")]
     public required TerraformValue<string> CdnEndpointId
     {
-        get => new TerraformReference<string>(this, "cdn_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("cdn_endpoint_id");
         set => SetArgument("cdn_endpoint_id", value);
     }
 
@@ -150,16 +150,16 @@ public partial class AzurermCdnEndpointCustomDomain(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => new TerraformReference<string>(this, "host_name");
+        get => GetArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -169,7 +169,7 @@ public partial class AzurermCdnEndpointCustomDomain(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

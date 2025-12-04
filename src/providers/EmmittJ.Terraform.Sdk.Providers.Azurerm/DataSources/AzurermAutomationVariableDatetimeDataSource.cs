@@ -18,7 +18,7 @@ public class AzurermAutomationVariableDatetimeDataSourceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermAutomationVariableDatetimeDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     public required TerraformValue<string> AutomationAccountName
     {
-        get => new TerraformReference<string>(this, "automation_account_name");
+        get => GetArgument<TerraformValue<string>>("automation_account_name");
         set => SetArgument("automation_account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermAutomationVariableDatetimeDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermAutomationVariableDatetimeDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -74,25 +74,19 @@ public partial class AzurermAutomationVariableDatetimeDataSource(string name) : 
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     public TerraformValue<bool> Encrypted
-    {
-        get => new TerraformReference<bool>(this, "encrypted");
-    }
+        => AsReference("encrypted");
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     public TerraformValue<string> Value
-    {
-        get => new TerraformReference<string>(this, "value");
-    }
+        => AsReference("value");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

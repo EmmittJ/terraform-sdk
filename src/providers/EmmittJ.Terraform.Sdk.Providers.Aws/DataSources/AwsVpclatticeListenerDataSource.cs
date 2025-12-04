@@ -11,9 +11,9 @@ public partial class AwsVpclatticeListenerDataSource(string name) : TerraformDat
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsVpclatticeListenerDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerIdentifier is required")]
     public required TerraformValue<string> ListenerIdentifier
     {
-        get => new TerraformReference<string>(this, "listener_identifier");
+        get => GetArgument<TerraformValue<string>>("listener_identifier");
         set => SetArgument("listener_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -42,16 +42,16 @@ public partial class AwsVpclatticeListenerDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceIdentifier is required")]
     public required TerraformValue<string> ServiceIdentifier
     {
-        get => new TerraformReference<string>(this, "service_identifier");
+        get => GetArgument<TerraformValue<string>>("service_identifier");
         set => SetArgument("service_identifier", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -59,80 +59,60 @@ public partial class AwsVpclatticeListenerDataSource(string name) : TerraformDat
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The default_action attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DefaultAction
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "default_action").ResolveNodes(ctx));
-    }
+        => AsReference("default_action");
 
     /// <summary>
     /// The last_updated_at attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedAt
-    {
-        get => new TerraformReference<string>(this, "last_updated_at");
-    }
+        => AsReference("last_updated_at");
 
     /// <summary>
     /// The listener_id attribute.
     /// </summary>
     public TerraformValue<string> ListenerId
-    {
-        get => new TerraformReference<string>(this, "listener_id");
-    }
+        => AsReference("listener_id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     public TerraformValue<double> Port
-    {
-        get => new TerraformReference<double>(this, "port");
-    }
+        => AsReference("port");
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     public TerraformValue<string> Protocol
-    {
-        get => new TerraformReference<string>(this, "protocol");
-    }
+        => AsReference("protocol");
 
     /// <summary>
     /// The service_arn attribute.
     /// </summary>
     public TerraformValue<string> ServiceArn
-    {
-        get => new TerraformReference<string>(this, "service_arn");
-    }
+        => AsReference("service_arn");
 
     /// <summary>
     /// The service_id attribute.
     /// </summary>
     public TerraformValue<string> ServiceId
-    {
-        get => new TerraformReference<string>(this, "service_id");
-    }
+        => AsReference("service_id");
 
 }

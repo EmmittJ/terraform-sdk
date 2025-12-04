@@ -18,7 +18,7 @@ public class AzureadDirectoryRoleEligibilityScheduleRequestTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadDirectoryRoleEligibilityScheduleRequestTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadDirectoryRoleEligibilityScheduleRequestTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AzureadDirectoryRoleEligibilityScheduleRequest(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryScopeId is required")]
     public required TerraformValue<string> DirectoryScopeId
     {
-        get => new TerraformReference<string>(this, "directory_scope_id");
+        get => GetArgument<TerraformValue<string>>("directory_scope_id");
         set => SetArgument("directory_scope_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzureadDirectoryRoleEligibilityScheduleRequest(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Justification is required")]
     public required TerraformValue<string> Justification
     {
-        get => new TerraformReference<string>(this, "justification");
+        get => GetArgument<TerraformValue<string>>("justification");
         set => SetArgument("justification", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzureadDirectoryRoleEligibilityScheduleRequest(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformValue<string> PrincipalId
     {
-        get => new TerraformReference<string>(this, "principal_id");
+        get => GetArgument<TerraformValue<string>>("principal_id");
         set => SetArgument("principal_id", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzureadDirectoryRoleEligibilityScheduleRequest(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     public required TerraformValue<string> RoleDefinitionId
     {
-        get => new TerraformReference<string>(this, "role_definition_id");
+        get => GetArgument<TerraformValue<string>>("role_definition_id");
         set => SetArgument("role_definition_id", value);
     }
 

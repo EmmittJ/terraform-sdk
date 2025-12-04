@@ -20,7 +20,7 @@ public class AzurermKeyVaultContactBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermKeyVaultContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermKeyVaultContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Phone
     {
-        get => new TerraformReference<string>(this, "phone");
+        get => GetArgument<TerraformValue<string>>("phone");
         set => SetArgument("phone", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermKeyVaultNetworkAclsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bypass is required")]
     public required TerraformValue<string> Bypass
     {
-        get => new TerraformReference<string>(this, "bypass");
+        get => GetArgument<TerraformValue<string>>("bypass");
         set => SetArgument("bypass", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermKeyVaultNetworkAclsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     public required TerraformValue<string> DefaultAction
     {
-        get => new TerraformReference<string>(this, "default_action");
+        get => GetArgument<TerraformValue<string>>("default_action");
         set => SetArgument("default_action", value);
     }
 
@@ -81,7 +81,7 @@ public class AzurermKeyVaultNetworkAclsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IpRules
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ip_rules").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("ip_rules");
         set => SetArgument("ip_rules", value);
     }
 
@@ -90,7 +90,7 @@ public class AzurermKeyVaultNetworkAclsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? VirtualNetworkSubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "virtual_network_subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("virtual_network_subnet_ids");
         set => SetArgument("virtual_network_subnet_ids", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermKeyVaultTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermKeyVaultTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermKeyVaultTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermKeyVaultTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -156,9 +156,9 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     /// <summary>
     /// The access_policy attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>> AccessPolicy
+    public TerraformList<TerraformMap<object>>? AccessPolicy
     {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "access_policy").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<TerraformMap<object>>>("access_policy");
         set => SetArgument("access_policy", value);
     }
 
@@ -166,9 +166,9 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     /// The enable_rbac_authorization attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<bool> EnableRbacAuthorization
+    public TerraformValue<bool>? EnableRbacAuthorization
     {
-        get => new TerraformReference<bool>(this, "enable_rbac_authorization");
+        get => GetArgument<TerraformValue<bool>>("enable_rbac_authorization");
         set => SetArgument("enable_rbac_authorization", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     /// </summary>
     public TerraformValue<bool>? EnabledForDeployment
     {
-        get => new TerraformReference<bool>(this, "enabled_for_deployment");
+        get => GetArgument<TerraformValue<bool>>("enabled_for_deployment");
         set => SetArgument("enabled_for_deployment", value);
     }
 
@@ -186,7 +186,7 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     /// </summary>
     public TerraformValue<bool>? EnabledForDiskEncryption
     {
-        get => new TerraformReference<bool>(this, "enabled_for_disk_encryption");
+        get => GetArgument<TerraformValue<bool>>("enabled_for_disk_encryption");
         set => SetArgument("enabled_for_disk_encryption", value);
     }
 
@@ -195,16 +195,16 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     /// </summary>
     public TerraformValue<bool>? EnabledForTemplateDeployment
     {
-        get => new TerraformReference<bool>(this, "enabled_for_template_deployment");
+        get => GetArgument<TerraformValue<bool>>("enabled_for_template_deployment");
         set => SetArgument("enabled_for_template_deployment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -214,7 +214,7 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -224,7 +224,7 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -233,7 +233,7 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -242,16 +242,16 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     /// </summary>
     public TerraformValue<bool>? PurgeProtectionEnabled
     {
-        get => new TerraformReference<bool>(this, "purge_protection_enabled");
+        get => GetArgument<TerraformValue<bool>>("purge_protection_enabled");
         set => SetArgument("purge_protection_enabled", value);
     }
 
     /// <summary>
     /// The rbac_authorization_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> RbacAuthorizationEnabled
+    public TerraformValue<bool>? RbacAuthorizationEnabled
     {
-        get => new TerraformReference<bool>(this, "rbac_authorization_enabled");
+        get => GetArgument<TerraformValue<bool>>("rbac_authorization_enabled");
         set => SetArgument("rbac_authorization_enabled", value);
     }
 
@@ -261,7 +261,7 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -271,7 +271,7 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => new TerraformReference<string>(this, "sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -280,7 +280,7 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     /// </summary>
     public TerraformValue<double>? SoftDeleteRetentionDays
     {
-        get => new TerraformReference<double>(this, "soft_delete_retention_days");
+        get => GetArgument<TerraformValue<double>>("soft_delete_retention_days");
         set => SetArgument("soft_delete_retention_days", value);
     }
 
@@ -289,7 +289,7 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -299,7 +299,7 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -307,9 +307,7 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     /// The vault_uri attribute.
     /// </summary>
     public TerraformValue<string> VaultUri
-    {
-        get => new TerraformReference<string>(this, "vault_uri");
-    }
+        => AsReference("vault_uri");
 
     /// <summary>
     /// Contact block (nesting mode: set).

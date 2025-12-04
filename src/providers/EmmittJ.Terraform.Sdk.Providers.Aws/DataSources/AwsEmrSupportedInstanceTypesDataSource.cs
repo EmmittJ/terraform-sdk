@@ -11,9 +11,9 @@ public partial class AwsEmrSupportedInstanceTypesDataSource(string name) : Terra
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsEmrSupportedInstanceTypesDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseLabel is required")]
     public required TerraformValue<string> ReleaseLabel
     {
-        get => new TerraformReference<string>(this, "release_label");
+        get => GetArgument<TerraformValue<string>>("release_label");
         set => SetArgument("release_label", value);
     }
 
@@ -31,16 +31,12 @@ public partial class AwsEmrSupportedInstanceTypesDataSource(string name) : Terra
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The supported_instance_types attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SupportedInstanceTypes
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "supported_instance_types").ResolveNodes(ctx));
-    }
+        => AsReference("supported_instance_types");
 
 }

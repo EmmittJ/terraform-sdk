@@ -18,7 +18,7 @@ public class GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBlock : Terr
     /// </summary>
     public TerraformValue<string>? EkmConnectionKeyPath
     {
-        get => new TerraformReference<string>(this, "ekm_connection_key_path");
+        get => GetArgument<TerraformValue<string>>("ekm_connection_key_path");
         set => SetArgument("ekm_connection_key_path", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleKmsCryptoKeyVersionExternalProtectionLevelOptionsBlock : Terr
     /// </summary>
     public TerraformValue<string>? ExternalKeyUri
     {
-        get => new TerraformReference<string>(this, "external_key_uri");
+        get => GetArgument<TerraformValue<string>>("external_key_uri");
         set => SetArgument("external_key_uri", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleKmsCryptoKeyVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleKmsCryptoKeyVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleKmsCryptoKeyVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -88,16 +88,16 @@ public partial class GoogleKmsCryptoKeyVersion(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
     public required TerraformValue<string> CryptoKey
     {
-        get => new TerraformReference<string>(this, "crypto_key");
+        get => GetArgument<TerraformValue<string>>("crypto_key");
         set => SetArgument("crypto_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -105,9 +105,9 @@ public partial class GoogleKmsCryptoKeyVersion(string name) : TerraformResource(
     /// The current state of the CryptoKeyVersion. Note: you can only specify this field to manually &#39;ENABLE&#39; or &#39;DISABLE&#39; the CryptoKeyVersion,
     /// otherwise the value of this field is always retrieved automatically. Possible values: [&amp;quot;PENDING_GENERATION&amp;quot;, &amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;, &amp;quot;DESTROYED&amp;quot;, &amp;quot;DESTROY_SCHEDULED&amp;quot;, &amp;quot;PENDING_IMPORT&amp;quot;, &amp;quot;IMPORT_FAILED&amp;quot;]
     /// </summary>
-    public TerraformValue<string> State
+    public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -115,42 +115,32 @@ public partial class GoogleKmsCryptoKeyVersion(string name) : TerraformResource(
     /// The CryptoKeyVersionAlgorithm that this CryptoKeyVersion supports.
     /// </summary>
     public TerraformValue<string> Algorithm
-    {
-        get => new TerraformReference<string>(this, "algorithm");
-    }
+        => AsReference("algorithm");
 
     /// <summary>
     /// Statement that was generated and signed by the HSM at key creation time. Use this statement to verify attributes of the key as stored on the HSM, independently of Google.
     /// Only provided for key versions with protectionLevel HSM.
     /// </summary>
     public TerraformList<TerraformMap<object>> Attestation
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "attestation").ResolveNodes(ctx));
-    }
+        => AsReference("attestation");
 
     /// <summary>
     /// The time this CryptoKeyVersion key material was generated
     /// </summary>
     public TerraformValue<string> GenerateTime
-    {
-        get => new TerraformReference<string>(this, "generate_time");
-    }
+        => AsReference("generate_time");
 
     /// <summary>
     /// The resource name for this CryptoKeyVersion.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The ProtectionLevel describing how crypto operations are performed with this CryptoKeyVersion.
     /// </summary>
     public TerraformValue<string> ProtectionLevel
-    {
-        get => new TerraformReference<string>(this, "protection_level");
-    }
+        => AsReference("protection_level");
 
     /// <summary>
     /// ExternalProtectionLevelOptions block (nesting mode: list).

@@ -59,7 +59,7 @@ public class AwsImagebuilderLifecyclePolicyPolicyDetailBlockActionBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -88,27 +88,27 @@ public class AwsImagebuilderLifecyclePolicyPolicyDetailBlockActionBlockIncludeRe
     /// <summary>
     /// The amis attribute.
     /// </summary>
-    public TerraformValue<bool> Amis
+    public TerraformValue<bool>? Amis
     {
-        get => new TerraformReference<bool>(this, "amis");
+        get => GetArgument<TerraformValue<bool>>("amis");
         set => SetArgument("amis", value);
     }
 
     /// <summary>
     /// The containers attribute.
     /// </summary>
-    public TerraformValue<bool> Containers
+    public TerraformValue<bool>? Containers
     {
-        get => new TerraformReference<bool>(this, "containers");
+        get => GetArgument<TerraformValue<bool>>("containers");
         set => SetArgument("containers", value);
     }
 
     /// <summary>
     /// The snapshots attribute.
     /// </summary>
-    public TerraformValue<bool> Snapshots
+    public TerraformValue<bool>? Snapshots
     {
-        get => new TerraformReference<bool>(this, "snapshots");
+        get => GetArgument<TerraformValue<bool>>("snapshots");
         set => SetArgument("snapshots", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsImagebuilderLifecyclePolicyPolicyDetailBlockExclusionRulesBlock 
     /// </summary>
     public TerraformMap<string>? TagMap
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tag_map").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tag_map");
         set => SetArgument("tag_map", value);
     }
 
@@ -159,9 +159,9 @@ public class AwsImagebuilderLifecyclePolicyPolicyDetailBlockExclusionRulesBlockA
     /// <summary>
     /// The is_public attribute.
     /// </summary>
-    public TerraformValue<bool> IsPublic
+    public TerraformValue<bool>? IsPublic
     {
-        get => new TerraformReference<bool>(this, "is_public");
+        get => GetArgument<TerraformValue<bool>>("is_public");
         set => SetArgument("is_public", value);
     }
 
@@ -170,7 +170,7 @@ public class AwsImagebuilderLifecyclePolicyPolicyDetailBlockExclusionRulesBlockA
     /// </summary>
     public TerraformList<string>? Regions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("regions");
         set => SetArgument("regions", value);
     }
 
@@ -179,7 +179,7 @@ public class AwsImagebuilderLifecyclePolicyPolicyDetailBlockExclusionRulesBlockA
     /// </summary>
     public TerraformList<string>? SharedAccounts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "shared_accounts").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("shared_accounts");
         set => SetArgument("shared_accounts", value);
     }
 
@@ -188,7 +188,7 @@ public class AwsImagebuilderLifecyclePolicyPolicyDetailBlockExclusionRulesBlockA
     /// </summary>
     public TerraformMap<string>? TagMap
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tag_map").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tag_map");
         set => SetArgument("tag_map", value);
     }
 
@@ -220,7 +220,7 @@ public class AwsImagebuilderLifecyclePolicyPolicyDetailBlockExclusionRulesBlockA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -230,7 +230,7 @@ public class AwsImagebuilderLifecyclePolicyPolicyDetailBlockExclusionRulesBlockA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => new TerraformReference<double>(this, "value");
+        get => GetArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -252,7 +252,7 @@ public class AwsImagebuilderLifecyclePolicyPolicyDetailBlockFilterBlock : Terraf
     /// </summary>
     public TerraformValue<double>? RetainAtLeast
     {
-        get => new TerraformReference<double>(this, "retain_at_least");
+        get => GetArgument<TerraformValue<double>>("retain_at_least");
         set => SetArgument("retain_at_least", value);
     }
 
@@ -262,7 +262,7 @@ public class AwsImagebuilderLifecyclePolicyPolicyDetailBlockFilterBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -271,7 +271,7 @@ public class AwsImagebuilderLifecyclePolicyPolicyDetailBlockFilterBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -281,7 +281,7 @@ public class AwsImagebuilderLifecyclePolicyPolicyDetailBlockFilterBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => new TerraformReference<double>(this, "value");
+        get => GetArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -304,7 +304,7 @@ public class AwsImagebuilderLifecyclePolicyResourceSelectionBlock : TerraformBlo
     /// </summary>
     public TerraformMap<string>? TagMap
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tag_map").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tag_map");
         set => SetArgument("tag_map", value);
     }
 
@@ -336,7 +336,7 @@ public class AwsImagebuilderLifecyclePolicyResourceSelectionBlockRecipeBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -346,7 +346,7 @@ public class AwsImagebuilderLifecyclePolicyResourceSelectionBlockRecipeBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SemanticVersion is required")]
     public required TerraformValue<string> SemanticVersion
     {
-        get => new TerraformReference<string>(this, "semantic_version");
+        get => GetArgument<TerraformValue<string>>("semantic_version");
         set => SetArgument("semantic_version", value);
     }
 
@@ -364,7 +364,7 @@ public partial class AwsImagebuilderLifecyclePolicy(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -374,7 +374,7 @@ public partial class AwsImagebuilderLifecyclePolicy(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRole is required")]
     public required TerraformValue<string> ExecutionRole
     {
-        get => new TerraformReference<string>(this, "execution_role");
+        get => GetArgument<TerraformValue<string>>("execution_role");
         set => SetArgument("execution_role", value);
     }
 
@@ -384,16 +384,16 @@ public partial class AwsImagebuilderLifecyclePolicy(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -403,16 +403,16 @@ public partial class AwsImagebuilderLifecyclePolicy(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeAttribute is required")]
     public required TerraformValue<string> ResourceTypeAttribute
     {
-        get => new TerraformReference<string>(this, "resource_type");
+        get => GetArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformValue<string> Status
+    public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -421,7 +421,7 @@ public partial class AwsImagebuilderLifecyclePolicy(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -429,25 +429,19 @@ public partial class AwsImagebuilderLifecyclePolicy(string name) : TerraformReso
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// PolicyDetail block (nesting mode: set).

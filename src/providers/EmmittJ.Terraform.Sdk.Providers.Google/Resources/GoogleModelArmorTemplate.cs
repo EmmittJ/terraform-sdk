@@ -74,7 +74,7 @@ public class GoogleModelArmorTemplateFilterConfigBlockMaliciousUriFilterSettings
     /// </summary>
     public TerraformValue<string>? FilterEnforcement
     {
-        get => new TerraformReference<string>(this, "filter_enforcement");
+        get => GetArgument<TerraformValue<string>>("filter_enforcement");
         set => SetArgument("filter_enforcement", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleModelArmorTemplateFilterConfigBlockPiAndJailbreakFilterSettin
     /// </summary>
     public TerraformValue<string>? ConfidenceLevel
     {
-        get => new TerraformReference<string>(this, "confidence_level");
+        get => GetArgument<TerraformValue<string>>("confidence_level");
         set => SetArgument("confidence_level", value);
     }
 
@@ -112,7 +112,7 @@ public class GoogleModelArmorTemplateFilterConfigBlockPiAndJailbreakFilterSettin
     /// </summary>
     public TerraformValue<string>? FilterEnforcement
     {
-        get => new TerraformReference<string>(this, "filter_enforcement");
+        get => GetArgument<TerraformValue<string>>("filter_enforcement");
         set => SetArgument("filter_enforcement", value);
     }
 
@@ -162,7 +162,7 @@ public class GoogleModelArmorTemplateFilterConfigBlockRaiSettingsBlockRaiFilters
     /// </summary>
     public TerraformValue<string>? ConfidenceLevel
     {
-        get => new TerraformReference<string>(this, "confidence_level");
+        get => GetArgument<TerraformValue<string>>("confidence_level");
         set => SetArgument("confidence_level", value);
     }
 
@@ -176,7 +176,7 @@ public class GoogleModelArmorTemplateFilterConfigBlockRaiSettingsBlockRaiFilters
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterType is required")]
     public required TerraformValue<string> FilterType
     {
-        get => new TerraformReference<string>(this, "filter_type");
+        get => GetArgument<TerraformValue<string>>("filter_type");
         set => SetArgument("filter_type", value);
     }
 
@@ -238,7 +238,7 @@ public class GoogleModelArmorTemplateFilterConfigBlockSdpSettingsBlockAdvancedCo
     /// </summary>
     public TerraformValue<string>? DeidentifyTemplate
     {
-        get => new TerraformReference<string>(this, "deidentify_template");
+        get => GetArgument<TerraformValue<string>>("deidentify_template");
         set => SetArgument("deidentify_template", value);
     }
 
@@ -253,7 +253,7 @@ public class GoogleModelArmorTemplateFilterConfigBlockSdpSettingsBlockAdvancedCo
     /// </summary>
     public TerraformValue<string>? InspectTemplate
     {
-        get => new TerraformReference<string>(this, "inspect_template");
+        get => GetArgument<TerraformValue<string>>("inspect_template");
         set => SetArgument("inspect_template", value);
     }
 
@@ -279,7 +279,7 @@ public class GoogleModelArmorTemplateFilterConfigBlockSdpSettingsBlockBasicConfi
     /// </summary>
     public TerraformValue<string>? FilterEnforcement
     {
-        get => new TerraformReference<string>(this, "filter_enforcement");
+        get => GetArgument<TerraformValue<string>>("filter_enforcement");
         set => SetArgument("filter_enforcement", value);
     }
 
@@ -303,7 +303,7 @@ public class GoogleModelArmorTemplateTemplateMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? CustomLlmResponseSafetyErrorCode
     {
-        get => new TerraformReference<double>(this, "custom_llm_response_safety_error_code");
+        get => GetArgument<TerraformValue<double>>("custom_llm_response_safety_error_code");
         set => SetArgument("custom_llm_response_safety_error_code", value);
     }
 
@@ -313,7 +313,7 @@ public class GoogleModelArmorTemplateTemplateMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CustomLlmResponseSafetyErrorMessage
     {
-        get => new TerraformReference<string>(this, "custom_llm_response_safety_error_message");
+        get => GetArgument<TerraformValue<string>>("custom_llm_response_safety_error_message");
         set => SetArgument("custom_llm_response_safety_error_message", value);
     }
 
@@ -323,7 +323,7 @@ public class GoogleModelArmorTemplateTemplateMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? CustomPromptSafetyErrorCode
     {
-        get => new TerraformReference<double>(this, "custom_prompt_safety_error_code");
+        get => GetArgument<TerraformValue<double>>("custom_prompt_safety_error_code");
         set => SetArgument("custom_prompt_safety_error_code", value);
     }
 
@@ -333,7 +333,7 @@ public class GoogleModelArmorTemplateTemplateMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CustomPromptSafetyErrorMessage
     {
-        get => new TerraformReference<string>(this, "custom_prompt_safety_error_message");
+        get => GetArgument<TerraformValue<string>>("custom_prompt_safety_error_message");
         set => SetArgument("custom_prompt_safety_error_message", value);
     }
 
@@ -344,7 +344,7 @@ public class GoogleModelArmorTemplateTemplateMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EnforcementType
     {
-        get => new TerraformReference<string>(this, "enforcement_type");
+        get => GetArgument<TerraformValue<string>>("enforcement_type");
         set => SetArgument("enforcement_type", value);
     }
 
@@ -353,7 +353,7 @@ public class GoogleModelArmorTemplateTemplateMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IgnorePartialInvocationFailures
     {
-        get => new TerraformReference<bool>(this, "ignore_partial_invocation_failures");
+        get => GetArgument<TerraformValue<bool>>("ignore_partial_invocation_failures");
         set => SetArgument("ignore_partial_invocation_failures", value);
     }
 
@@ -362,7 +362,7 @@ public class GoogleModelArmorTemplateTemplateMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? LogSanitizeOperations
     {
-        get => new TerraformReference<bool>(this, "log_sanitize_operations");
+        get => GetArgument<TerraformValue<bool>>("log_sanitize_operations");
         set => SetArgument("log_sanitize_operations", value);
     }
 
@@ -371,7 +371,7 @@ public class GoogleModelArmorTemplateTemplateMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? LogTemplateOperations
     {
-        get => new TerraformReference<bool>(this, "log_template_operations");
+        get => GetArgument<TerraformValue<bool>>("log_template_operations");
         set => SetArgument("log_template_operations", value);
     }
 
@@ -404,7 +404,7 @@ public class GoogleModelArmorTemplateTemplateMetadataBlockMultiLanguageDetection
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableMultiLanguageDetection is required")]
     public required TerraformValue<bool> EnableMultiLanguageDetection
     {
-        get => new TerraformReference<bool>(this, "enable_multi_language_detection");
+        get => GetArgument<TerraformValue<bool>>("enable_multi_language_detection");
         set => SetArgument("enable_multi_language_detection", value);
     }
 
@@ -427,7 +427,7 @@ public class GoogleModelArmorTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -436,7 +436,7 @@ public class GoogleModelArmorTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -445,7 +445,7 @@ public class GoogleModelArmorTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -461,9 +461,9 @@ public partial class GoogleModelArmorTemplate(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -475,7 +475,7 @@ public partial class GoogleModelArmorTemplate(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -485,16 +485,16 @@ public partial class GoogleModelArmorTemplate(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -506,7 +506,7 @@ public partial class GoogleModelArmorTemplate(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateId is required")]
     public required TerraformValue<string> TemplateId
     {
-        get => new TerraformReference<string>(this, "template_id");
+        get => GetArgument<TerraformValue<string>>("template_id");
         set => SetArgument("template_id", value);
     }
 
@@ -514,42 +514,32 @@ public partial class GoogleModelArmorTemplate(string name) : TerraformResource("
     /// Create time stamp
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Identifier. name of resource
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Update time stamp
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// FilterConfig block (nesting mode: list).

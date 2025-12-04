@@ -11,9 +11,9 @@ public partial class AwsCloudwatchLogAccountPolicy(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsCloudwatchLogAccountPolicy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDocument is required")]
     public required TerraformValue<string> PolicyDocument
     {
-        get => new TerraformReference<string>(this, "policy_document");
+        get => GetArgument<TerraformValue<string>>("policy_document");
         set => SetArgument("policy_document", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsCloudwatchLogAccountPolicy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyName is required")]
     public required TerraformValue<string> PolicyName
     {
-        get => new TerraformReference<string>(this, "policy_name");
+        get => GetArgument<TerraformValue<string>>("policy_name");
         set => SetArgument("policy_name", value);
     }
 
@@ -43,16 +43,16 @@ public partial class AwsCloudwatchLogAccountPolicy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyType is required")]
     public required TerraformValue<string> PolicyType
     {
-        get => new TerraformReference<string>(this, "policy_type");
+        get => GetArgument<TerraformValue<string>>("policy_type");
         set => SetArgument("policy_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsCloudwatchLogAccountPolicy(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsCloudwatchLogAccountPolicy(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? SelectionCriteria
     {
-        get => new TerraformReference<string>(this, "selection_criteria");
+        get => GetArgument<TerraformValue<string>>("selection_criteria");
         set => SetArgument("selection_criteria", value);
     }
 

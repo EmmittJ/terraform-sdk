@@ -18,7 +18,7 @@ public class AzurermAppServiceCertificateBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermAppServiceCertificateBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermAppServiceCertificateBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermAppServiceCertificateBinding(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateId is required")]
     public required TerraformValue<string> CertificateId
     {
-        get => new TerraformReference<string>(this, "certificate_id");
+        get => GetArgument<TerraformValue<string>>("certificate_id");
         set => SetArgument("certificate_id", value);
     }
 
@@ -65,16 +65,16 @@ public partial class AzurermAppServiceCertificateBinding(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostnameBindingId is required")]
     public required TerraformValue<string> HostnameBindingId
     {
-        get => new TerraformReference<string>(this, "hostname_binding_id");
+        get => GetArgument<TerraformValue<string>>("hostname_binding_id");
         set => SetArgument("hostname_binding_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermAppServiceCertificateBinding(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslState is required")]
     public required TerraformValue<string> SslState
     {
-        get => new TerraformReference<string>(this, "ssl_state");
+        get => GetArgument<TerraformValue<string>>("ssl_state");
         set => SetArgument("ssl_state", value);
     }
 
@@ -92,25 +92,19 @@ public partial class AzurermAppServiceCertificateBinding(string name) : Terrafor
     /// The app_service_name attribute.
     /// </summary>
     public TerraformValue<string> AppServiceName
-    {
-        get => new TerraformReference<string>(this, "app_service_name");
-    }
+        => AsReference("app_service_name");
 
     /// <summary>
     /// The hostname attribute.
     /// </summary>
     public TerraformValue<string> Hostname
-    {
-        get => new TerraformReference<string>(this, "hostname");
-    }
+        => AsReference("hostname");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-    {
-        get => new TerraformReference<string>(this, "thumbprint");
-    }
+        => AsReference("thumbprint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

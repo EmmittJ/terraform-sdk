@@ -18,7 +18,7 @@ public class AwsAppautoscalingScheduledActionScalableTargetActionBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? MaxCapacity
     {
-        get => new TerraformReference<string>(this, "max_capacity");
+        get => GetArgument<TerraformValue<string>>("max_capacity");
         set => SetArgument("max_capacity", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsAppautoscalingScheduledActionScalableTargetActionBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? MinCapacity
     {
-        get => new TerraformReference<string>(this, "min_capacity");
+        get => GetArgument<TerraformValue<string>>("min_capacity");
         set => SetArgument("min_capacity", value);
     }
 
@@ -45,16 +45,16 @@ public partial class AwsAppautoscalingScheduledAction(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? EndTime
     {
-        get => new TerraformReference<string>(this, "end_time");
+        get => GetArgument<TerraformValue<string>>("end_time");
         set => SetArgument("end_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AwsAppautoscalingScheduledAction(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsAppautoscalingScheduledAction(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformValue<string> ResourceId
     {
-        get => new TerraformReference<string>(this, "resource_id");
+        get => GetArgument<TerraformValue<string>>("resource_id");
         set => SetArgument("resource_id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AwsAppautoscalingScheduledAction(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalableDimension is required")]
     public required TerraformValue<string> ScalableDimension
     {
-        get => new TerraformReference<string>(this, "scalable_dimension");
+        get => GetArgument<TerraformValue<string>>("scalable_dimension");
         set => SetArgument("scalable_dimension", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AwsAppautoscalingScheduledAction(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformValue<string> Schedule
     {
-        get => new TerraformReference<string>(this, "schedule");
+        get => GetArgument<TerraformValue<string>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AwsAppautoscalingScheduledAction(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNamespace is required")]
     public required TerraformValue<string> ServiceNamespace
     {
-        get => new TerraformReference<string>(this, "service_namespace");
+        get => GetArgument<TerraformValue<string>>("service_namespace");
         set => SetArgument("service_namespace", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AwsAppautoscalingScheduledAction(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AwsAppautoscalingScheduledAction(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Timezone
     {
-        get => new TerraformReference<string>(this, "timezone");
+        get => GetArgument<TerraformValue<string>>("timezone");
         set => SetArgument("timezone", value);
     }
 
@@ -139,9 +139,7 @@ public partial class AwsAppautoscalingScheduledAction(string name) : TerraformRe
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// ScalableTargetAction block (nesting mode: list).

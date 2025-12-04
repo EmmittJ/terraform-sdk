@@ -14,7 +14,7 @@ public partial class AwsPinpointEventStream(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => new TerraformReference<string>(this, "application_id");
+        get => GetArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
@@ -24,25 +24,25 @@ public partial class AwsPinpointEventStream(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationStreamArn is required")]
     public required TerraformValue<string> DestinationStreamArn
     {
-        get => new TerraformReference<string>(this, "destination_stream_arn");
+        get => GetArgument<TerraformValue<string>>("destination_stream_arn");
         set => SetArgument("destination_stream_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsPinpointEventStream(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 

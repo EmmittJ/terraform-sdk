@@ -34,25 +34,25 @@ public partial class GoogleComputeAddressesDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string>? Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The google project in which addresses are listed. Defaults to provider&#39;s configuration if missing.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -61,7 +61,7 @@ public partial class GoogleComputeAddressesDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -69,8 +69,6 @@ public partial class GoogleComputeAddressesDataSource(string name) : TerraformDa
     /// The addresses attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Addresses
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "addresses").ResolveNodes(ctx));
-    }
+        => AsReference("addresses");
 
 }

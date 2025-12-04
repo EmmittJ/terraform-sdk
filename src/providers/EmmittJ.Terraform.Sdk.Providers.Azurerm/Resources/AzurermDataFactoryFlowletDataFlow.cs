@@ -18,7 +18,7 @@ public class AzurermDataFactoryFlowletDataFlowSinkBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermDataFactoryFlowletDataFlowSinkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -101,7 +101,7 @@ public class AzurermDataFactoryFlowletDataFlowSinkBlockDatasetBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -110,7 +110,7 @@ public class AzurermDataFactoryFlowletDataFlowSinkBlockDatasetBlock : TerraformB
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermDataFactoryFlowletDataFlowSinkBlockFlowletBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? DatasetParameters
     {
-        get => new TerraformReference<string>(this, "dataset_parameters");
+        get => GetArgument<TerraformValue<string>>("dataset_parameters");
         set => SetArgument("dataset_parameters", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermDataFactoryFlowletDataFlowSinkBlockFlowletBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermDataFactoryFlowletDataFlowSinkBlockFlowletBlock : TerraformB
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -174,7 +174,7 @@ public class AzurermDataFactoryFlowletDataFlowSinkBlockLinkedServiceBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -183,7 +183,7 @@ public class AzurermDataFactoryFlowletDataFlowSinkBlockLinkedServiceBlock : Terr
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -206,7 +206,7 @@ public class AzurermDataFactoryFlowletDataFlowSinkBlockRejectedLinkedServiceBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -215,7 +215,7 @@ public class AzurermDataFactoryFlowletDataFlowSinkBlockRejectedLinkedServiceBloc
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -238,7 +238,7 @@ public class AzurermDataFactoryFlowletDataFlowSinkBlockSchemaLinkedServiceBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -247,7 +247,7 @@ public class AzurermDataFactoryFlowletDataFlowSinkBlockSchemaLinkedServiceBlock 
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -270,7 +270,7 @@ public class AzurermDataFactoryFlowletDataFlowSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -280,7 +280,7 @@ public class AzurermDataFactoryFlowletDataFlowSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -353,7 +353,7 @@ public class AzurermDataFactoryFlowletDataFlowSourceBlockDatasetBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -362,7 +362,7 @@ public class AzurermDataFactoryFlowletDataFlowSourceBlockDatasetBlock : Terrafor
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -384,7 +384,7 @@ public class AzurermDataFactoryFlowletDataFlowSourceBlockFlowletBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? DatasetParameters
     {
-        get => new TerraformReference<string>(this, "dataset_parameters");
+        get => GetArgument<TerraformValue<string>>("dataset_parameters");
         set => SetArgument("dataset_parameters", value);
     }
 
@@ -394,7 +394,7 @@ public class AzurermDataFactoryFlowletDataFlowSourceBlockFlowletBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -403,7 +403,7 @@ public class AzurermDataFactoryFlowletDataFlowSourceBlockFlowletBlock : Terrafor
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -426,7 +426,7 @@ public class AzurermDataFactoryFlowletDataFlowSourceBlockLinkedServiceBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -435,7 +435,7 @@ public class AzurermDataFactoryFlowletDataFlowSourceBlockLinkedServiceBlock : Te
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -458,7 +458,7 @@ public class AzurermDataFactoryFlowletDataFlowSourceBlockRejectedLinkedServiceBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -467,7 +467,7 @@ public class AzurermDataFactoryFlowletDataFlowSourceBlockRejectedLinkedServiceBl
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -490,7 +490,7 @@ public class AzurermDataFactoryFlowletDataFlowSourceBlockSchemaLinkedServiceBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -499,7 +499,7 @@ public class AzurermDataFactoryFlowletDataFlowSourceBlockSchemaLinkedServiceBloc
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -522,7 +522,7 @@ public class AzurermDataFactoryFlowletDataFlowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -531,7 +531,7 @@ public class AzurermDataFactoryFlowletDataFlowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -540,7 +540,7 @@ public class AzurermDataFactoryFlowletDataFlowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -549,7 +549,7 @@ public class AzurermDataFactoryFlowletDataFlowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -572,7 +572,7 @@ public class AzurermDataFactoryFlowletDataFlowTransformationBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -582,7 +582,7 @@ public class AzurermDataFactoryFlowletDataFlowTransformationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -635,7 +635,7 @@ public class AzurermDataFactoryFlowletDataFlowTransformationBlockDatasetBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -644,7 +644,7 @@ public class AzurermDataFactoryFlowletDataFlowTransformationBlockDatasetBlock : 
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -666,7 +666,7 @@ public class AzurermDataFactoryFlowletDataFlowTransformationBlockFlowletBlock : 
     /// </summary>
     public TerraformValue<string>? DatasetParameters
     {
-        get => new TerraformReference<string>(this, "dataset_parameters");
+        get => GetArgument<TerraformValue<string>>("dataset_parameters");
         set => SetArgument("dataset_parameters", value);
     }
 
@@ -676,7 +676,7 @@ public class AzurermDataFactoryFlowletDataFlowTransformationBlockFlowletBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -685,7 +685,7 @@ public class AzurermDataFactoryFlowletDataFlowTransformationBlockFlowletBlock : 
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -708,7 +708,7 @@ public class AzurermDataFactoryFlowletDataFlowTransformationBlockLinkedServiceBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -717,7 +717,7 @@ public class AzurermDataFactoryFlowletDataFlowTransformationBlockLinkedServiceBl
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -735,7 +735,7 @@ public partial class AzurermDataFactoryFlowletDataFlow(string name) : TerraformR
     /// </summary>
     public TerraformList<string>? Annotations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -745,7 +745,7 @@ public partial class AzurermDataFactoryFlowletDataFlow(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => new TerraformReference<string>(this, "data_factory_id");
+        get => GetArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
@@ -754,7 +754,7 @@ public partial class AzurermDataFactoryFlowletDataFlow(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -763,16 +763,16 @@ public partial class AzurermDataFactoryFlowletDataFlow(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Folder
     {
-        get => new TerraformReference<string>(this, "folder");
+        get => GetArgument<TerraformValue<string>>("folder");
         set => SetArgument("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -782,7 +782,7 @@ public partial class AzurermDataFactoryFlowletDataFlow(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -791,7 +791,7 @@ public partial class AzurermDataFactoryFlowletDataFlow(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Script
     {
-        get => new TerraformReference<string>(this, "script");
+        get => GetArgument<TerraformValue<string>>("script");
         set => SetArgument("script", value);
     }
 
@@ -800,7 +800,7 @@ public partial class AzurermDataFactoryFlowletDataFlow(string name) : TerraformR
     /// </summary>
     public TerraformList<string>? ScriptLines
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "script_lines").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("script_lines");
         set => SetArgument("script_lines", value);
     }
 

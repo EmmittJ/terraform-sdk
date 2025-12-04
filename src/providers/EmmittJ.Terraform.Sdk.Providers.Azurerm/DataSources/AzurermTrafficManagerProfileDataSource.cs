@@ -18,7 +18,7 @@ public class AzurermTrafficManagerProfileDataSourceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermTrafficManagerProfileDataSource(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermTrafficManagerProfileDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermTrafficManagerProfileDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzurermTrafficManagerProfileDataSource(string name) : Terra
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermTrafficManagerProfileDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<bool>? TrafficViewEnabled
     {
-        get => new TerraformReference<bool>(this, "traffic_view_enabled");
+        get => GetArgument<TerraformValue<bool>>("traffic_view_enabled");
         set => SetArgument("traffic_view_enabled", value);
     }
 
@@ -82,41 +82,31 @@ public partial class AzurermTrafficManagerProfileDataSource(string name) : Terra
     /// The dns_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DnsConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "dns_config").ResolveNodes(ctx));
-    }
+        => AsReference("dns_config");
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-    {
-        get => new TerraformReference<string>(this, "fqdn");
-    }
+        => AsReference("fqdn");
 
     /// <summary>
     /// The monitor_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MonitorConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "monitor_config").ResolveNodes(ctx));
-    }
+        => AsReference("monitor_config");
 
     /// <summary>
     /// The profile_status attribute.
     /// </summary>
     public TerraformValue<string> ProfileStatus
-    {
-        get => new TerraformReference<string>(this, "profile_status");
-    }
+        => AsReference("profile_status");
 
     /// <summary>
     /// The traffic_routing_method attribute.
     /// </summary>
     public TerraformValue<string> TrafficRoutingMethod
-    {
-        get => new TerraformReference<string>(this, "traffic_routing_method");
-    }
+        => AsReference("traffic_routing_method");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

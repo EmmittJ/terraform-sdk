@@ -16,9 +16,9 @@ public class AwsSagemakerNotebookInstanceInstanceMetadataServiceConfigurationBlo
     /// <summary>
     /// The minimum_instance_metadata_service_version attribute.
     /// </summary>
-    public TerraformValue<string> MinimumInstanceMetadataServiceVersion
+    public TerraformValue<string>? MinimumInstanceMetadataServiceVersion
     {
-        get => new TerraformReference<string>(this, "minimum_instance_metadata_service_version");
+        get => GetArgument<TerraformValue<string>>("minimum_instance_metadata_service_version");
         set => SetArgument("minimum_instance_metadata_service_version", value);
     }
 
@@ -36,7 +36,7 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     /// </summary>
     public TerraformSet<string>? AdditionalCodeRepositories
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "additional_code_repositories").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("additional_code_repositories");
         set => SetArgument("additional_code_repositories", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? DefaultCodeRepository
     {
-        get => new TerraformReference<string>(this, "default_code_repository");
+        get => GetArgument<TerraformValue<string>>("default_code_repository");
         set => SetArgument("default_code_repository", value);
     }
 
@@ -54,16 +54,16 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? DirectInternetAccess
     {
-        get => new TerraformReference<string>(this, "direct_internet_access");
+        get => GetArgument<TerraformValue<string>>("direct_internet_access");
         set => SetArgument("direct_internet_access", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? LifecycleConfigName
     {
-        get => new TerraformReference<string>(this, "lifecycle_config_name");
+        get => GetArgument<TerraformValue<string>>("lifecycle_config_name");
         set => SetArgument("lifecycle_config_name", value);
     }
 
@@ -101,25 +101,25 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The platform_identifier attribute.
     /// </summary>
-    public TerraformValue<string> PlatformIdentifier
+    public TerraformValue<string>? PlatformIdentifier
     {
-        get => new TerraformReference<string>(this, "platform_identifier");
+        get => GetArgument<TerraformValue<string>>("platform_identifier");
         set => SetArgument("platform_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -138,16 +138,16 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? RootAccess
     {
-        get => new TerraformReference<string>(this, "root_access");
+        get => GetArgument<TerraformValue<string>>("root_access");
         set => SetArgument("root_access", value);
     }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformSet<string> SecurityGroups
+    public TerraformSet<string>? SecurityGroups
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_groups");
         set => SetArgument("security_groups", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -165,16 +165,16 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -183,7 +183,7 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     /// </summary>
     public TerraformValue<double>? VolumeSize
     {
-        get => new TerraformReference<double>(this, "volume_size");
+        get => GetArgument<TerraformValue<double>>("volume_size");
         set => SetArgument("volume_size", value);
     }
 
@@ -191,25 +191,19 @@ public partial class AwsSagemakerNotebookInstance(string name) : TerraformResour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
     public TerraformValue<string> NetworkInterfaceId
-    {
-        get => new TerraformReference<string>(this, "network_interface_id");
-    }
+        => AsReference("network_interface_id");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-    {
-        get => new TerraformReference<string>(this, "url");
-    }
+        => AsReference("url");
 
     /// <summary>
     /// InstanceMetadataServiceConfiguration block (nesting mode: list).

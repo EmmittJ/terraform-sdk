@@ -11,9 +11,9 @@ public partial class GoogleCloudRunServiceDataSource(string name) : TerraformDat
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleCloudRunServiceDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -36,7 +36,7 @@ public partial class GoogleCloudRunServiceDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -45,7 +45,7 @@ public partial class GoogleCloudRunServiceDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -57,26 +57,20 @@ public partial class GoogleCloudRunServiceDataSource(string name) : TerraformDat
     /// this field is set to false, the revision name will still autogenerate.)
     /// </summary>
     public TerraformValue<bool> AutogenerateRevisionName
-    {
-        get => new TerraformReference<bool>(this, "autogenerate_revision_name");
-    }
+        => AsReference("autogenerate_revision_name");
 
     /// <summary>
     /// Metadata associated with this Service, including name, namespace, labels,
     /// and annotations.
     /// </summary>
     public TerraformList<TerraformMap<object>> Metadata
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "metadata").ResolveNodes(ctx));
-    }
+        => AsReference("metadata");
 
     /// <summary>
     /// The current status of the Service.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "status").ResolveNodes(ctx));
-    }
+        => AsReference("status");
 
     /// <summary>
     /// template holds the latest specification for the Revision to
@@ -91,17 +85,13 @@ public partial class GoogleCloudRunServiceDataSource(string name) : TerraformDat
     /// responsible for materializing the container image from source.
     /// </summary>
     public TerraformList<TerraformMap<object>> Template
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "template").ResolveNodes(ctx));
-    }
+        => AsReference("template");
 
     /// <summary>
     /// Traffic specifies how to distribute traffic over a collection of Knative Revisions
     /// and Configurations
     /// </summary>
     public TerraformList<TerraformMap<object>> Traffic
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "traffic").ResolveNodes(ctx));
-    }
+        => AsReference("traffic");
 
 }

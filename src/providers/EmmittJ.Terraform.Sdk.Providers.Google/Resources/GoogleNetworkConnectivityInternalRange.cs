@@ -18,7 +18,7 @@ public class GoogleNetworkConnectivityInternalRangeAllocationOptionsBlock : Terr
     /// </summary>
     public TerraformValue<string>? AllocationStrategy
     {
-        get => new TerraformReference<string>(this, "allocation_strategy");
+        get => GetArgument<TerraformValue<string>>("allocation_strategy");
         set => SetArgument("allocation_strategy", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleNetworkConnectivityInternalRangeAllocationOptionsBlock : Terr
     /// </summary>
     public TerraformValue<double>? FirstAvailableRangesLookupSize
     {
-        get => new TerraformReference<double>(this, "first_available_ranges_lookup_size");
+        get => GetArgument<TerraformValue<double>>("first_available_ranges_lookup_size");
         set => SetArgument("first_available_ranges_lookup_size", value);
     }
 
@@ -55,7 +55,7 @@ public class GoogleNetworkConnectivityInternalRangeMigrationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleNetworkConnectivityInternalRangeMigrationBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformValue<string> Target
     {
-        get => new TerraformReference<string>(this, "target");
+        get => GetArgument<TerraformValue<string>>("target");
         set => SetArgument("target", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleNetworkConnectivityInternalRangeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -100,7 +100,7 @@ public class GoogleNetworkConnectivityInternalRangeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleNetworkConnectivityInternalRangeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -127,7 +127,7 @@ public partial class GoogleNetworkConnectivityInternalRange(string name) : Terra
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -137,16 +137,16 @@ public partial class GoogleNetworkConnectivityInternalRange(string name) : Terra
     /// </summary>
     public TerraformList<string>? ExcludeCidrRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclude_cidr_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclude_cidr_ranges");
         set => SetArgument("exclude_cidr_ranges", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -155,7 +155,7 @@ public partial class GoogleNetworkConnectivityInternalRange(string name) : Terra
     /// </summary>
     public TerraformValue<bool>? Immutable
     {
-        get => new TerraformReference<bool>(this, "immutable");
+        get => GetArgument<TerraformValue<bool>>("immutable");
         set => SetArgument("immutable", value);
     }
 
@@ -164,9 +164,9 @@ public partial class GoogleNetworkConnectivityInternalRange(string name) : Terra
     /// NOTE: IPv6 ranges are limited to usage=EXTERNAL_TO_VPC and peering=FOR_SELF
     /// NOTE: For IPv6 Ranges this field is compulsory, i.e. the address range must be specified explicitly.
     /// </summary>
-    public TerraformValue<string> IpCidrRange
+    public TerraformValue<string>? IpCidrRange
     {
-        get => new TerraformReference<string>(this, "ip_cidr_range");
+        get => GetArgument<TerraformValue<string>>("ip_cidr_range");
         set => SetArgument("ip_cidr_range", value);
     }
 
@@ -179,7 +179,7 @@ public partial class GoogleNetworkConnectivityInternalRange(string name) : Terra
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -189,7 +189,7 @@ public partial class GoogleNetworkConnectivityInternalRange(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -199,7 +199,7 @@ public partial class GoogleNetworkConnectivityInternalRange(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -208,7 +208,7 @@ public partial class GoogleNetworkConnectivityInternalRange(string name) : Terra
     /// </summary>
     public TerraformList<string>? Overlaps
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "overlaps").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("overlaps");
         set => SetArgument("overlaps", value);
     }
 
@@ -218,7 +218,7 @@ public partial class GoogleNetworkConnectivityInternalRange(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Peering is required")]
     public required TerraformValue<string> Peering
     {
-        get => new TerraformReference<string>(this, "peering");
+        get => GetArgument<TerraformValue<string>>("peering");
         set => SetArgument("peering", value);
     }
 
@@ -230,16 +230,16 @@ public partial class GoogleNetworkConnectivityInternalRange(string name) : Terra
     /// </summary>
     public TerraformValue<double>? PrefixLength
     {
-        get => new TerraformReference<double>(this, "prefix_length");
+        get => GetArgument<TerraformValue<double>>("prefix_length");
         set => SetArgument("prefix_length", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -249,7 +249,7 @@ public partial class GoogleNetworkConnectivityInternalRange(string name) : Terra
     /// </summary>
     public TerraformList<string>? TargetCidrRange
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "target_cidr_range").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("target_cidr_range");
         set => SetArgument("target_cidr_range", value);
     }
 
@@ -259,7 +259,7 @@ public partial class GoogleNetworkConnectivityInternalRange(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Usage is required")]
     public required TerraformValue<string> Usage
     {
-        get => new TerraformReference<string>(this, "usage");
+        get => GetArgument<TerraformValue<string>>("usage");
         set => SetArgument("usage", value);
     }
 
@@ -267,18 +267,14 @@ public partial class GoogleNetworkConnectivityInternalRange(string name) : Terra
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Output only. The list of resources that refer to this internal range.
@@ -286,9 +282,7 @@ public partial class GoogleNetworkConnectivityInternalRange(string name) : Terra
     /// Other resources mark themselves as users while doing so by creating a reference to this internal range. Having a user, based on this reference, prevents deletion of the internal range referred to. Can be empty.
     /// </summary>
     public TerraformList<string> Users
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "users").ResolveNodes(ctx));
-    }
+        => AsReference("users");
 
     /// <summary>
     /// AllocationOptions block (nesting mode: list).

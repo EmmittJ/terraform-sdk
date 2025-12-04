@@ -16,9 +16,9 @@ public class AwsSecretsmanagerSecretReplicaBlock : TerraformBlock
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string> KmsKeyId
+    public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -26,9 +26,7 @@ public class AwsSecretsmanagerSecretReplicaBlock : TerraformBlock
     /// The last_accessed_date attribute.
     /// </summary>
     public TerraformValue<string> LastAccessedDate
-    {
-        get => new TerraformReference<string>(this, "last_accessed_date");
-    }
+        => AsReference("last_accessed_date");
 
     /// <summary>
     /// The region attribute.
@@ -36,7 +34,7 @@ public class AwsSecretsmanagerSecretReplicaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -44,17 +42,13 @@ public class AwsSecretsmanagerSecretReplicaBlock : TerraformBlock
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The status_message attribute.
     /// </summary>
     public TerraformValue<string> StatusMessage
-    {
-        get => new TerraformReference<string>(this, "status_message");
-    }
+        => AsReference("status_message");
 
 }
 
@@ -70,7 +64,7 @@ public partial class AwsSecretsmanagerSecret(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -79,16 +73,16 @@ public partial class AwsSecretsmanagerSecret(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? ForceOverwriteReplicaSecret
     {
-        get => new TerraformReference<bool>(this, "force_overwrite_replica_secret");
+        get => GetArgument<TerraformValue<bool>>("force_overwrite_replica_secret");
         set => SetArgument("force_overwrite_replica_secret", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -97,34 +91,34 @@ public partial class AwsSecretsmanagerSecret(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformValue<string> Policy
+    public TerraformValue<string>? Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
@@ -133,16 +127,16 @@ public partial class AwsSecretsmanagerSecret(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<double>? RecoveryWindowInDays
     {
-        get => new TerraformReference<double>(this, "recovery_window_in_days");
+        get => GetArgument<TerraformValue<double>>("recovery_window_in_days");
         set => SetArgument("recovery_window_in_days", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -151,16 +145,16 @@ public partial class AwsSecretsmanagerSecret(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -168,9 +162,7 @@ public partial class AwsSecretsmanagerSecret(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Replica block (nesting mode: set).

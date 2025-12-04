@@ -18,7 +18,7 @@ public class AzurermDevTestGlobalVmShutdownScheduleNotificationSettingsBlock : T
     /// </summary>
     public TerraformValue<string>? Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermDevTestGlobalVmShutdownScheduleNotificationSettingsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermDevTestGlobalVmShutdownScheduleNotificationSettingsBlock : T
     /// </summary>
     public TerraformValue<double>? TimeInMinutes
     {
-        get => new TerraformReference<double>(this, "time_in_minutes");
+        get => GetArgument<TerraformValue<double>>("time_in_minutes");
         set => SetArgument("time_in_minutes", value);
     }
 
@@ -46,7 +46,7 @@ public class AzurermDevTestGlobalVmShutdownScheduleNotificationSettingsBlock : T
     /// </summary>
     public TerraformValue<string>? WebhookUrl
     {
-        get => new TerraformReference<string>(this, "webhook_url");
+        get => GetArgument<TerraformValue<string>>("webhook_url");
         set => SetArgument("webhook_url", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermDevTestGlobalVmShutdownScheduleTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermDevTestGlobalVmShutdownScheduleTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermDevTestGlobalVmShutdownScheduleTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermDevTestGlobalVmShutdownScheduleTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AzurermDevTestGlobalVmShutdownSchedule(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DailyRecurrenceTime is required")]
     public required TerraformValue<string> DailyRecurrenceTime
     {
-        get => new TerraformReference<string>(this, "daily_recurrence_time");
+        get => GetArgument<TerraformValue<string>>("daily_recurrence_time");
         set => SetArgument("daily_recurrence_time", value);
     }
 
@@ -124,16 +124,16 @@ public partial class AzurermDevTestGlobalVmShutdownSchedule(string name) : Terra
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AzurermDevTestGlobalVmShutdownSchedule(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AzurermDevTestGlobalVmShutdownSchedule(string name) : Terra
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AzurermDevTestGlobalVmShutdownSchedule(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timezone is required")]
     public required TerraformValue<string> Timezone
     {
-        get => new TerraformReference<string>(this, "timezone");
+        get => GetArgument<TerraformValue<string>>("timezone");
         set => SetArgument("timezone", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AzurermDevTestGlobalVmShutdownSchedule(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformValue<string> VirtualMachineId
     {
-        get => new TerraformReference<string>(this, "virtual_machine_id");
+        get => GetArgument<TerraformValue<string>>("virtual_machine_id");
         set => SetArgument("virtual_machine_id", value);
     }
 

@@ -14,25 +14,25 @@ public partial class AwsVpcDhcpOptionsAssociation(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DhcpOptionsId is required")]
     public required TerraformValue<string> DhcpOptionsId
     {
-        get => new TerraformReference<string>(this, "dhcp_options_id");
+        get => GetArgument<TerraformValue<string>>("dhcp_options_id");
         set => SetArgument("dhcp_options_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsVpcDhcpOptionsAssociation(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 

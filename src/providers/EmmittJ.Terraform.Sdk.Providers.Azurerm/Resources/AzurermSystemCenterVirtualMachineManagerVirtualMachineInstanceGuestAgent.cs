@@ -18,7 +18,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceGuest
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceGuest
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceGuest
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -52,9 +52,9 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
     /// </summary>
     public TerraformValue<string>? ProvisioningAction
     {
-        get => new TerraformReference<string>(this, "provisioning_action");
+        get => GetArgument<TerraformValue<string>>("provisioning_action");
         set => SetArgument("provisioning_action", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopedResourceId is required")]
     public required TerraformValue<string> ScopedResourceId
     {
-        get => new TerraformReference<string>(this, "scoped_resource_id");
+        get => GetArgument<TerraformValue<string>>("scoped_resource_id");
         set => SetArgument("scoped_resource_id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 

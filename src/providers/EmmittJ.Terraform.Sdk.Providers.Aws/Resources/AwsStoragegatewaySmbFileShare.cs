@@ -18,7 +18,7 @@ public class AwsStoragegatewaySmbFileShareCacheAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? CacheStaleTimeoutInSeconds
     {
-        get => new TerraformReference<double>(this, "cache_stale_timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("cache_stale_timeout_in_seconds");
         set => SetArgument("cache_stale_timeout_in_seconds", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsStoragegatewaySmbFileShareTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsStoragegatewaySmbFileShareTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsStoragegatewaySmbFileShareTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -77,7 +77,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? AccessBasedEnumeration
     {
-        get => new TerraformReference<bool>(this, "access_based_enumeration");
+        get => GetArgument<TerraformValue<bool>>("access_based_enumeration");
         set => SetArgument("access_based_enumeration", value);
     }
 
@@ -86,7 +86,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformSet<string>? AdminUserList
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "admin_user_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("admin_user_list");
         set => SetArgument("admin_user_list", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? AuditDestinationArn
     {
-        get => new TerraformReference<string>(this, "audit_destination_arn");
+        get => GetArgument<TerraformValue<string>>("audit_destination_arn");
         set => SetArgument("audit_destination_arn", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Authentication
     {
-        get => new TerraformReference<string>(this, "authentication");
+        get => GetArgument<TerraformValue<string>>("authentication");
         set => SetArgument("authentication", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? BucketRegion
     {
-        get => new TerraformReference<string>(this, "bucket_region");
+        get => GetArgument<TerraformValue<string>>("bucket_region");
         set => SetArgument("bucket_region", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? CaseSensitivity
     {
-        get => new TerraformReference<string>(this, "case_sensitivity");
+        get => GetArgument<TerraformValue<string>>("case_sensitivity");
         set => SetArgument("case_sensitivity", value);
     }
 
@@ -131,16 +131,16 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? DefaultStorageClass
     {
-        get => new TerraformReference<string>(this, "default_storage_class");
+        get => GetArgument<TerraformValue<string>>("default_storage_class");
         set => SetArgument("default_storage_class", value);
     }
 
     /// <summary>
     /// The file_share_name attribute.
     /// </summary>
-    public TerraformValue<string> FileShareName
+    public TerraformValue<string>? FileShareName
     {
-        get => new TerraformReference<string>(this, "file_share_name");
+        get => GetArgument<TerraformValue<string>>("file_share_name");
         set => SetArgument("file_share_name", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
     public required TerraformValue<string> GatewayArn
     {
-        get => new TerraformReference<string>(this, "gateway_arn");
+        get => GetArgument<TerraformValue<string>>("gateway_arn");
         set => SetArgument("gateway_arn", value);
     }
 
@@ -159,16 +159,16 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? GuessMimeTypeEnabled
     {
-        get => new TerraformReference<bool>(this, "guess_mime_type_enabled");
+        get => GetArgument<TerraformValue<bool>>("guess_mime_type_enabled");
         set => SetArgument("guess_mime_type_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformSet<string>? InvalidUserList
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "invalid_user_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("invalid_user_list");
         set => SetArgument("invalid_user_list", value);
     }
 
@@ -186,7 +186,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? KmsEncrypted
     {
-        get => new TerraformReference<bool>(this, "kms_encrypted");
+        get => GetArgument<TerraformValue<bool>>("kms_encrypted");
         set => SetArgument("kms_encrypted", value);
     }
 
@@ -195,7 +195,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationArn is required")]
     public required TerraformValue<string> LocationArn
     {
-        get => new TerraformReference<string>(this, "location_arn");
+        get => GetArgument<TerraformValue<string>>("location_arn");
         set => SetArgument("location_arn", value);
     }
 
@@ -214,7 +214,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? NotificationPolicy
     {
-        get => new TerraformReference<string>(this, "notification_policy");
+        get => GetArgument<TerraformValue<string>>("notification_policy");
         set => SetArgument("notification_policy", value);
     }
 
@@ -223,16 +223,16 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? ObjectAcl
     {
-        get => new TerraformReference<string>(this, "object_acl");
+        get => GetArgument<TerraformValue<string>>("object_acl");
         set => SetArgument("object_acl", value);
     }
 
     /// <summary>
     /// The oplocks_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> OplocksEnabled
+    public TerraformValue<bool>? OplocksEnabled
     {
-        get => new TerraformReference<bool>(this, "oplocks_enabled");
+        get => GetArgument<TerraformValue<bool>>("oplocks_enabled");
         set => SetArgument("oplocks_enabled", value);
     }
 
@@ -241,16 +241,16 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? ReadOnlyAttribute
     {
-        get => new TerraformReference<bool>(this, "read_only");
+        get => GetArgument<TerraformValue<bool>>("read_only");
         set => SetArgument("read_only", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -259,7 +259,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? RequesterPays
     {
-        get => new TerraformReference<bool>(this, "requester_pays");
+        get => GetArgument<TerraformValue<bool>>("requester_pays");
         set => SetArgument("requester_pays", value);
     }
 
@@ -269,7 +269,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -278,7 +278,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? SmbAclEnabled
     {
-        get => new TerraformReference<bool>(this, "smb_acl_enabled");
+        get => GetArgument<TerraformValue<bool>>("smb_acl_enabled");
         set => SetArgument("smb_acl_enabled", value);
     }
 
@@ -287,16 +287,16 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -305,7 +305,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformSet<string>? ValidUserList
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "valid_user_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("valid_user_list");
         set => SetArgument("valid_user_list", value);
     }
 
@@ -314,7 +314,7 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? VpcEndpointDnsName
     {
-        get => new TerraformReference<string>(this, "vpc_endpoint_dns_name");
+        get => GetArgument<TerraformValue<string>>("vpc_endpoint_dns_name");
         set => SetArgument("vpc_endpoint_dns_name", value);
     }
 
@@ -322,25 +322,19 @@ public partial class AwsStoragegatewaySmbFileShare(string name) : TerraformResou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The fileshare_id attribute.
     /// </summary>
     public TerraformValue<string> FileshareId
-    {
-        get => new TerraformReference<string>(this, "fileshare_id");
-    }
+        => AsReference("fileshare_id");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     public TerraformValue<string> Path
-    {
-        get => new TerraformReference<string>(this, "path");
-    }
+        => AsReference("path");
 
     /// <summary>
     /// CacheAttributes block (nesting mode: list).

@@ -13,7 +13,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<string>? ApplicationFailureFeedbackRoleArn
     {
-        get => new TerraformReference<string>(this, "application_failure_feedback_role_arn");
+        get => GetArgument<TerraformValue<string>>("application_failure_feedback_role_arn");
         set => SetArgument("application_failure_feedback_role_arn", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<string>? ApplicationSuccessFeedbackRoleArn
     {
-        get => new TerraformReference<string>(this, "application_success_feedback_role_arn");
+        get => GetArgument<TerraformValue<string>>("application_success_feedback_role_arn");
         set => SetArgument("application_success_feedback_role_arn", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<double>? ApplicationSuccessFeedbackSampleRate
     {
-        get => new TerraformReference<double>(this, "application_success_feedback_sample_rate");
+        get => GetArgument<TerraformValue<double>>("application_success_feedback_sample_rate");
         set => SetArgument("application_success_feedback_sample_rate", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<string>? ArchivePolicy
     {
-        get => new TerraformReference<string>(this, "archive_policy");
+        get => GetArgument<TerraformValue<string>>("archive_policy");
         set => SetArgument("archive_policy", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<bool>? ContentBasedDeduplication
     {
-        get => new TerraformReference<bool>(this, "content_based_deduplication");
+        get => GetArgument<TerraformValue<bool>>("content_based_deduplication");
         set => SetArgument("content_based_deduplication", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<string>? DeliveryPolicy
     {
-        get => new TerraformReference<string>(this, "delivery_policy");
+        get => GetArgument<TerraformValue<string>>("delivery_policy");
         set => SetArgument("delivery_policy", value);
     }
 
@@ -67,16 +67,16 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The fifo_throughput_scope attribute.
     /// </summary>
-    public TerraformValue<string> FifoThroughputScope
+    public TerraformValue<string>? FifoThroughputScope
     {
-        get => new TerraformReference<string>(this, "fifo_throughput_scope");
+        get => GetArgument<TerraformValue<string>>("fifo_throughput_scope");
         set => SetArgument("fifo_throughput_scope", value);
     }
 
@@ -85,7 +85,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<bool>? FifoTopic
     {
-        get => new TerraformReference<bool>(this, "fifo_topic");
+        get => GetArgument<TerraformValue<bool>>("fifo_topic");
         set => SetArgument("fifo_topic", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<string>? FirehoseFailureFeedbackRoleArn
     {
-        get => new TerraformReference<string>(this, "firehose_failure_feedback_role_arn");
+        get => GetArgument<TerraformValue<string>>("firehose_failure_feedback_role_arn");
         set => SetArgument("firehose_failure_feedback_role_arn", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<string>? FirehoseSuccessFeedbackRoleArn
     {
-        get => new TerraformReference<string>(this, "firehose_success_feedback_role_arn");
+        get => GetArgument<TerraformValue<string>>("firehose_success_feedback_role_arn");
         set => SetArgument("firehose_success_feedback_role_arn", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<double>? FirehoseSuccessFeedbackSampleRate
     {
-        get => new TerraformReference<double>(this, "firehose_success_feedback_sample_rate");
+        get => GetArgument<TerraformValue<double>>("firehose_success_feedback_sample_rate");
         set => SetArgument("firehose_success_feedback_sample_rate", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<string>? HttpFailureFeedbackRoleArn
     {
-        get => new TerraformReference<string>(this, "http_failure_feedback_role_arn");
+        get => GetArgument<TerraformValue<string>>("http_failure_feedback_role_arn");
         set => SetArgument("http_failure_feedback_role_arn", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<string>? HttpSuccessFeedbackRoleArn
     {
-        get => new TerraformReference<string>(this, "http_success_feedback_role_arn");
+        get => GetArgument<TerraformValue<string>>("http_success_feedback_role_arn");
         set => SetArgument("http_success_feedback_role_arn", value);
     }
 
@@ -139,16 +139,16 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<double>? HttpSuccessFeedbackSampleRate
     {
-        get => new TerraformReference<double>(this, "http_success_feedback_sample_rate");
+        get => GetArgument<TerraformValue<double>>("http_success_feedback_sample_rate");
         set => SetArgument("http_success_feedback_sample_rate", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<string>? KmsMasterKeyId
     {
-        get => new TerraformReference<string>(this, "kms_master_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_master_key_id");
         set => SetArgument("kms_master_key_id", value);
     }
 
@@ -166,7 +166,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<string>? LambdaFailureFeedbackRoleArn
     {
-        get => new TerraformReference<string>(this, "lambda_failure_feedback_role_arn");
+        get => GetArgument<TerraformValue<string>>("lambda_failure_feedback_role_arn");
         set => SetArgument("lambda_failure_feedback_role_arn", value);
     }
 
@@ -175,7 +175,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<string>? LambdaSuccessFeedbackRoleArn
     {
-        get => new TerraformReference<string>(this, "lambda_success_feedback_role_arn");
+        get => GetArgument<TerraformValue<string>>("lambda_success_feedback_role_arn");
         set => SetArgument("lambda_success_feedback_role_arn", value);
     }
 
@@ -184,52 +184,52 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<double>? LambdaSuccessFeedbackSampleRate
     {
-        get => new TerraformReference<double>(this, "lambda_success_feedback_sample_rate");
+        get => GetArgument<TerraformValue<double>>("lambda_success_feedback_sample_rate");
         set => SetArgument("lambda_success_feedback_sample_rate", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformValue<string> Policy
+    public TerraformValue<string>? Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The signature_version attribute.
     /// </summary>
-    public TerraformValue<double> SignatureVersion
+    public TerraformValue<double>? SignatureVersion
     {
-        get => new TerraformReference<double>(this, "signature_version");
+        get => GetArgument<TerraformValue<double>>("signature_version");
         set => SetArgument("signature_version", value);
     }
 
@@ -238,7 +238,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<string>? SqsFailureFeedbackRoleArn
     {
-        get => new TerraformReference<string>(this, "sqs_failure_feedback_role_arn");
+        get => GetArgument<TerraformValue<string>>("sqs_failure_feedback_role_arn");
         set => SetArgument("sqs_failure_feedback_role_arn", value);
     }
 
@@ -247,7 +247,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<string>? SqsSuccessFeedbackRoleArn
     {
-        get => new TerraformReference<string>(this, "sqs_success_feedback_role_arn");
+        get => GetArgument<TerraformValue<string>>("sqs_success_feedback_role_arn");
         set => SetArgument("sqs_success_feedback_role_arn", value);
     }
 
@@ -256,7 +256,7 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformValue<double>? SqsSuccessFeedbackSampleRate
     {
-        get => new TerraformReference<double>(this, "sqs_success_feedback_sample_rate");
+        get => GetArgument<TerraformValue<double>>("sqs_success_feedback_sample_rate");
         set => SetArgument("sqs_success_feedback_sample_rate", value);
     }
 
@@ -265,25 +265,25 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The tracing_config attribute.
     /// </summary>
-    public TerraformValue<string> TracingConfig
+    public TerraformValue<string>? TracingConfig
     {
-        get => new TerraformReference<string>(this, "tracing_config");
+        get => GetArgument<TerraformValue<string>>("tracing_config");
         set => SetArgument("tracing_config", value);
     }
 
@@ -291,24 +291,18 @@ public partial class AwsSnsTopic(string name) : TerraformResource("aws_sns_topic
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The beginning_archive_time attribute.
     /// </summary>
     public TerraformValue<string> BeginningArchiveTime
-    {
-        get => new TerraformReference<string>(this, "beginning_archive_time");
-    }
+        => AsReference("beginning_archive_time");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     public TerraformValue<string> Owner
-    {
-        get => new TerraformReference<string>(this, "owner");
-    }
+        => AsReference("owner");
 
 }

@@ -11,9 +11,9 @@ public partial class AwsCloudcontrolapiResourceDataSource(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsCloudcontrolapiResourceDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformValue<string> Identifier
     {
-        get => new TerraformReference<string>(this, "identifier");
+        get => GetArgument<TerraformValue<string>>("identifier");
         set => SetArgument("identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsCloudcontrolapiResourceDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsCloudcontrolapiResourceDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeName is required")]
     public required TerraformValue<string> TypeName
     {
-        get => new TerraformReference<string>(this, "type_name");
+        get => GetArgument<TerraformValue<string>>("type_name");
         set => SetArgument("type_name", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsCloudcontrolapiResourceDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? TypeVersionId
     {
-        get => new TerraformReference<string>(this, "type_version_id");
+        get => GetArgument<TerraformValue<string>>("type_version_id");
         set => SetArgument("type_version_id", value);
     }
 
@@ -68,8 +68,6 @@ public partial class AwsCloudcontrolapiResourceDataSource(string name) : Terrafo
     /// The properties attribute.
     /// </summary>
     public TerraformValue<string> Properties
-    {
-        get => new TerraformReference<string>(this, "properties");
-    }
+        => AsReference("properties");
 
 }

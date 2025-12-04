@@ -11,9 +11,9 @@ public partial class AwsIamSamlProvider(string name) : TerraformResource("aws_ia
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsIamSamlProvider(string name) : TerraformResource("aws_ia
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsIamSamlProvider(string name) : TerraformResource("aws_ia
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SamlMetadataDocument is required")]
     public required TerraformValue<string> SamlMetadataDocument
     {
-        get => new TerraformReference<string>(this, "saml_metadata_document");
+        get => GetArgument<TerraformValue<string>>("saml_metadata_document");
         set => SetArgument("saml_metadata_document", value);
     }
 
@@ -42,16 +42,16 @@ public partial class AwsIamSamlProvider(string name) : TerraformResource("aws_ia
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -59,16 +59,12 @@ public partial class AwsIamSamlProvider(string name) : TerraformResource("aws_ia
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The valid_until attribute.
     /// </summary>
     public TerraformValue<string> ValidUntil
-    {
-        get => new TerraformReference<string>(this, "valid_until");
-    }
+        => AsReference("valid_until");
 
 }

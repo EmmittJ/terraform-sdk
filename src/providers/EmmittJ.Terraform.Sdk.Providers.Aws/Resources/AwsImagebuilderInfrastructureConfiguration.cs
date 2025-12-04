@@ -18,7 +18,7 @@ public class AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBl
     /// </summary>
     public TerraformValue<double>? HttpPutResponseHopLimit
     {
-        get => new TerraformReference<double>(this, "http_put_response_hop_limit");
+        get => GetArgument<TerraformValue<double>>("http_put_response_hop_limit");
         set => SetArgument("http_put_response_hop_limit", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBl
     /// </summary>
     public TerraformValue<string>? HttpTokens
     {
-        get => new TerraformReference<string>(this, "http_tokens");
+        get => GetArgument<TerraformValue<string>>("http_tokens");
         set => SetArgument("http_tokens", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsImagebuilderInfrastructureConfigurationLoggingBlockS3LogsBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformValue<string> S3BucketName
     {
-        get => new TerraformReference<string>(this, "s3_bucket_name");
+        get => GetArgument<TerraformValue<string>>("s3_bucket_name");
         set => SetArgument("s3_bucket_name", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsImagebuilderInfrastructureConfigurationLoggingBlockS3LogsBlock :
     /// </summary>
     public TerraformValue<string>? S3KeyPrefix
     {
-        get => new TerraformReference<string>(this, "s3_key_prefix");
+        get => GetArgument<TerraformValue<string>>("s3_key_prefix");
         set => SetArgument("s3_key_prefix", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsImagebuilderInfrastructureConfigurationPlacementBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? AvailabilityZone
     {
-        get => new TerraformReference<string>(this, "availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -118,7 +118,7 @@ public class AwsImagebuilderInfrastructureConfigurationPlacementBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? HostId
     {
-        get => new TerraformReference<string>(this, "host_id");
+        get => GetArgument<TerraformValue<string>>("host_id");
         set => SetArgument("host_id", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsImagebuilderInfrastructureConfigurationPlacementBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? HostResourceGroupArn
     {
-        get => new TerraformReference<string>(this, "host_resource_group_arn");
+        get => GetArgument<TerraformValue<string>>("host_resource_group_arn");
         set => SetArgument("host_resource_group_arn", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsImagebuilderInfrastructureConfigurationPlacementBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Tenancy
     {
-        get => new TerraformReference<string>(this, "tenancy");
+        get => GetArgument<TerraformValue<string>>("tenancy");
         set => SetArgument("tenancy", value);
     }
 
@@ -154,16 +154,16 @@ public partial class AwsImagebuilderInfrastructureConfiguration(string name) : T
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -173,7 +173,7 @@ public partial class AwsImagebuilderInfrastructureConfiguration(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceProfileName is required")]
     public required TerraformValue<string> InstanceProfileName
     {
-        get => new TerraformReference<string>(this, "instance_profile_name");
+        get => GetArgument<TerraformValue<string>>("instance_profile_name");
         set => SetArgument("instance_profile_name", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AwsImagebuilderInfrastructureConfiguration(string name) : T
     /// </summary>
     public TerraformSet<string>? InstanceTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "instance_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("instance_types");
         set => SetArgument("instance_types", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AwsImagebuilderInfrastructureConfiguration(string name) : T
     /// </summary>
     public TerraformValue<string>? KeyPair
     {
-        get => new TerraformReference<string>(this, "key_pair");
+        get => GetArgument<TerraformValue<string>>("key_pair");
         set => SetArgument("key_pair", value);
     }
 
@@ -201,16 +201,16 @@ public partial class AwsImagebuilderInfrastructureConfiguration(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -219,7 +219,7 @@ public partial class AwsImagebuilderInfrastructureConfiguration(string name) : T
     /// </summary>
     public TerraformMap<string>? ResourceTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "resource_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("resource_tags");
         set => SetArgument("resource_tags", value);
     }
 
@@ -228,7 +228,7 @@ public partial class AwsImagebuilderInfrastructureConfiguration(string name) : T
     /// </summary>
     public TerraformSet<string>? SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -237,7 +237,7 @@ public partial class AwsImagebuilderInfrastructureConfiguration(string name) : T
     /// </summary>
     public TerraformValue<string>? SnsTopicArn
     {
-        get => new TerraformReference<string>(this, "sns_topic_arn");
+        get => GetArgument<TerraformValue<string>>("sns_topic_arn");
         set => SetArgument("sns_topic_arn", value);
     }
 
@@ -246,7 +246,7 @@ public partial class AwsImagebuilderInfrastructureConfiguration(string name) : T
     /// </summary>
     public TerraformValue<string>? SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -255,16 +255,16 @@ public partial class AwsImagebuilderInfrastructureConfiguration(string name) : T
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -273,7 +273,7 @@ public partial class AwsImagebuilderInfrastructureConfiguration(string name) : T
     /// </summary>
     public TerraformValue<bool>? TerminateInstanceOnFailure
     {
-        get => new TerraformReference<bool>(this, "terminate_instance_on_failure");
+        get => GetArgument<TerraformValue<bool>>("terminate_instance_on_failure");
         set => SetArgument("terminate_instance_on_failure", value);
     }
 
@@ -281,25 +281,19 @@ public partial class AwsImagebuilderInfrastructureConfiguration(string name) : T
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The date_created attribute.
     /// </summary>
     public TerraformValue<string> DateCreated
-    {
-        get => new TerraformReference<string>(this, "date_created");
-    }
+        => AsReference("date_created");
 
     /// <summary>
     /// The date_updated attribute.
     /// </summary>
     public TerraformValue<string> DateUpdated
-    {
-        get => new TerraformReference<string>(this, "date_updated");
-    }
+        => AsReference("date_updated");
 
     /// <summary>
     /// InstanceMetadataOptions block (nesting mode: list).

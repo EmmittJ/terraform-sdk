@@ -19,7 +19,7 @@ public class AwsWafRuleGroupActivatedRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsWafRuleGroupActivatedRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleId is required")]
     public required TerraformValue<string> RuleId
     {
-        get => new TerraformReference<string>(this, "rule_id");
+        get => GetArgument<TerraformValue<string>>("rule_id");
         set => SetArgument("rule_id", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsWafRuleGroupActivatedRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -74,7 +74,7 @@ public class AwsWafRuleGroupActivatedRuleBlockActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -90,9 +90,9 @@ public partial class AwsWafRuleGroup(string name) : TerraformResource("aws_waf_r
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AwsWafRuleGroup(string name) : TerraformResource("aws_waf_r
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformValue<string> MetricName
     {
-        get => new TerraformReference<string>(this, "metric_name");
+        get => GetArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AwsWafRuleGroup(string name) : TerraformResource("aws_waf_r
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -121,16 +121,16 @@ public partial class AwsWafRuleGroup(string name) : TerraformResource("aws_waf_r
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -138,9 +138,7 @@ public partial class AwsWafRuleGroup(string name) : TerraformResource("aws_waf_r
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// ActivatedRule block (nesting mode: set).

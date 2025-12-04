@@ -11,9 +11,9 @@ public partial class AwsApigatewayv2ApisDataSource(string name) : TerraformDataS
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsApigatewayv2ApisDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -31,16 +31,16 @@ public partial class AwsApigatewayv2ApisDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? ProtocolType
     {
-        get => new TerraformReference<string>(this, "protocol_type");
+        get => GetArgument<TerraformValue<string>>("protocol_type");
         set => SetArgument("protocol_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsApigatewayv2ApisDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -57,8 +57,6 @@ public partial class AwsApigatewayv2ApisDataSource(string name) : TerraformDataS
     /// The ids attribute.
     /// </summary>
     public TerraformSet<string> Ids
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ids").ResolveNodes(ctx));
-    }
+        => AsReference("ids");
 
 }

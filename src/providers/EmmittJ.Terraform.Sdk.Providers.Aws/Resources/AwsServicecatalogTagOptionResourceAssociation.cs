@@ -18,7 +18,7 @@ public class AwsServicecatalogTagOptionResourceAssociationTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsServicecatalogTagOptionResourceAssociationTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsServicecatalogTagOptionResourceAssociationTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -52,18 +52,18 @@ public partial class AwsServicecatalogTagOptionResourceAssociation(string name) 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsServicecatalogTagOptionResourceAssociation(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformValue<string> ResourceId
     {
-        get => new TerraformReference<string>(this, "resource_id");
+        get => GetArgument<TerraformValue<string>>("resource_id");
         set => SetArgument("resource_id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsServicecatalogTagOptionResourceAssociation(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagOptionId is required")]
     public required TerraformValue<string> TagOptionId
     {
-        get => new TerraformReference<string>(this, "tag_option_id");
+        get => GetArgument<TerraformValue<string>>("tag_option_id");
         set => SetArgument("tag_option_id", value);
     }
 
@@ -91,33 +91,25 @@ public partial class AwsServicecatalogTagOptionResourceAssociation(string name) 
     /// The resource_arn attribute.
     /// </summary>
     public TerraformValue<string> ResourceArn
-    {
-        get => new TerraformReference<string>(this, "resource_arn");
-    }
+        => AsReference("resource_arn");
 
     /// <summary>
     /// The resource_created_time attribute.
     /// </summary>
     public TerraformValue<string> ResourceCreatedTime
-    {
-        get => new TerraformReference<string>(this, "resource_created_time");
-    }
+        => AsReference("resource_created_time");
 
     /// <summary>
     /// The resource_description attribute.
     /// </summary>
     public TerraformValue<string> ResourceDescription
-    {
-        get => new TerraformReference<string>(this, "resource_description");
-    }
+        => AsReference("resource_description");
 
     /// <summary>
     /// The resource_name attribute.
     /// </summary>
     public TerraformValue<string> ResourceNameAttribute
-    {
-        get => new TerraformReference<string>(this, "resource_name");
-    }
+        => AsReference("resource_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

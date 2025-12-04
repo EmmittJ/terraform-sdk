@@ -19,7 +19,7 @@ public class AwsConnectInstanceStorageConfigStorageConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageType is required")]
     public required TerraformValue<string> StorageType
     {
-        get => new TerraformReference<string>(this, "storage_type");
+        get => GetArgument<TerraformValue<string>>("storage_type");
         set => SetArgument("storage_type", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsConnectInstanceStorageConfigStorageConfigBlockKinesisFirehoseCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirehoseArn is required")]
     public required TerraformValue<string> FirehoseArn
     {
-        get => new TerraformReference<string>(this, "firehose_arn");
+        get => GetArgument<TerraformValue<string>>("firehose_arn");
         set => SetArgument("firehose_arn", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsConnectInstanceStorageConfigStorageConfigBlockKinesisStreamConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamArn is required")]
     public required TerraformValue<string> StreamArn
     {
-        get => new TerraformReference<string>(this, "stream_arn");
+        get => GetArgument<TerraformValue<string>>("stream_arn");
         set => SetArgument("stream_arn", value);
     }
 
@@ -128,7 +128,7 @@ public class AwsConnectInstanceStorageConfigStorageConfigBlockKinesisVideoStream
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
     public required TerraformValue<string> Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -138,7 +138,7 @@ public class AwsConnectInstanceStorageConfigStorageConfigBlockKinesisVideoStream
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodHours is required")]
     public required TerraformValue<double> RetentionPeriodHours
     {
-        get => new TerraformReference<double>(this, "retention_period_hours");
+        get => GetArgument<TerraformValue<double>>("retention_period_hours");
         set => SetArgument("retention_period_hours", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsConnectInstanceStorageConfigStorageConfigBlockKinesisVideoStream
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionType is required")]
     public required TerraformValue<string> EncryptionType
     {
-        get => new TerraformReference<string>(this, "encryption_type");
+        get => GetArgument<TerraformValue<string>>("encryption_type");
         set => SetArgument("encryption_type", value);
     }
 
@@ -184,7 +184,7 @@ public class AwsConnectInstanceStorageConfigStorageConfigBlockKinesisVideoStream
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformValue<string> KeyId
     {
-        get => new TerraformReference<string>(this, "key_id");
+        get => GetArgument<TerraformValue<string>>("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -207,7 +207,7 @@ public class AwsConnectInstanceStorageConfigStorageConfigBlockS3ConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -217,7 +217,7 @@ public class AwsConnectInstanceStorageConfigStorageConfigBlockS3ConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketPrefix is required")]
     public required TerraformValue<string> BucketPrefix
     {
-        get => new TerraformReference<string>(this, "bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -250,7 +250,7 @@ public class AwsConnectInstanceStorageConfigStorageConfigBlockS3ConfigBlockEncry
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionType is required")]
     public required TerraformValue<string> EncryptionType
     {
-        get => new TerraformReference<string>(this, "encryption_type");
+        get => GetArgument<TerraformValue<string>>("encryption_type");
         set => SetArgument("encryption_type", value);
     }
 
@@ -260,7 +260,7 @@ public class AwsConnectInstanceStorageConfigStorageConfigBlockS3ConfigBlockEncry
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformValue<string> KeyId
     {
-        get => new TerraformReference<string>(this, "key_id");
+        get => GetArgument<TerraformValue<string>>("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -276,9 +276,9 @@ public partial class AwsConnectInstanceStorageConfig(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -288,16 +288,16 @@ public partial class AwsConnectInstanceStorageConfig(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => new TerraformReference<string>(this, "instance_id");
+        get => GetArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -307,7 +307,7 @@ public partial class AwsConnectInstanceStorageConfig(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeAttribute is required")]
     public required TerraformValue<string> ResourceTypeAttribute
     {
-        get => new TerraformReference<string>(this, "resource_type");
+        get => GetArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -315,9 +315,7 @@ public partial class AwsConnectInstanceStorageConfig(string name) : TerraformRes
     /// The association_id attribute.
     /// </summary>
     public TerraformValue<string> AssociationId
-    {
-        get => new TerraformReference<string>(this, "association_id");
-    }
+        => AsReference("association_id");
 
     /// <summary>
     /// StorageConfig block (nesting mode: list).

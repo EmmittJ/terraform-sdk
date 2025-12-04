@@ -11,9 +11,9 @@ public partial class GoogleBackupDrManagementServerDataSource(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleBackupDrManagementServerDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -31,48 +31,36 @@ public partial class GoogleBackupDrManagementServerDataSource(string name) : Ter
     /// The management console URI
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagementUri
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "management_uri").ResolveNodes(ctx));
-    }
+        => AsReference("management_uri");
 
     /// <summary>
     /// The name of management server (management console)
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Network details to create management server (management console).
     /// </summary>
     public TerraformList<TerraformMap<object>> Networks
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "networks").ResolveNodes(ctx));
-    }
+        => AsReference("networks");
 
     /// <summary>
     /// The oauth2ClientId of management console.
     /// </summary>
     public TerraformValue<string> Oauth2ClientId
-    {
-        get => new TerraformReference<string>(this, "oauth2_client_id");
-    }
+        => AsReference("oauth2_client_id");
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     public TerraformValue<string> Project
-    {
-        get => new TerraformReference<string>(this, "project");
-    }
+        => AsReference("project");
 
     /// <summary>
     /// The type of management server (management console). Default value: &amp;quot;BACKUP_RESTORE&amp;quot; Possible values: [&amp;quot;BACKUP_RESTORE&amp;quot;]
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
 }

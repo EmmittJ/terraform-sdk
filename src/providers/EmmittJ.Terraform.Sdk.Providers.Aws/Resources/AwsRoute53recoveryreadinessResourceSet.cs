@@ -17,16 +17,14 @@ public class AwsRoute53recoveryreadinessResourceSetResourcesBlock : TerraformBlo
     /// The component_id attribute.
     /// </summary>
     public TerraformValue<string> ComponentId
-    {
-        get => new TerraformReference<string>(this, "component_id");
-    }
+        => AsReference("component_id");
 
     /// <summary>
     /// The readiness_scopes attribute.
     /// </summary>
     public TerraformList<string>? ReadinessScopes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "readiness_scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("readiness_scopes");
         set => SetArgument("readiness_scopes", value);
     }
 
@@ -35,7 +33,7 @@ public class AwsRoute53recoveryreadinessResourceSetResourcesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? ResourceArn
     {
-        get => new TerraformReference<string>(this, "resource_arn");
+        get => GetArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -68,7 +66,7 @@ public class AwsRoute53recoveryreadinessResourceSetResourcesBlockDnsTargetResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -77,7 +75,7 @@ public class AwsRoute53recoveryreadinessResourceSetResourcesBlockDnsTargetResour
     /// </summary>
     public TerraformValue<string>? HostedZoneArn
     {
-        get => new TerraformReference<string>(this, "hosted_zone_arn");
+        get => GetArgument<TerraformValue<string>>("hosted_zone_arn");
         set => SetArgument("hosted_zone_arn", value);
     }
 
@@ -86,7 +84,7 @@ public class AwsRoute53recoveryreadinessResourceSetResourcesBlockDnsTargetResour
     /// </summary>
     public TerraformValue<string>? RecordSetId
     {
-        get => new TerraformReference<string>(this, "record_set_id");
+        get => GetArgument<TerraformValue<string>>("record_set_id");
         set => SetArgument("record_set_id", value);
     }
 
@@ -95,7 +93,7 @@ public class AwsRoute53recoveryreadinessResourceSetResourcesBlockDnsTargetResour
     /// </summary>
     public TerraformValue<string>? RecordType
     {
-        get => new TerraformReference<string>(this, "record_type");
+        get => GetArgument<TerraformValue<string>>("record_type");
         set => SetArgument("record_type", value);
     }
 
@@ -160,7 +158,7 @@ public class AwsRoute53recoveryreadinessResourceSetResourcesBlockDnsTargetResour
     /// </summary>
     public TerraformValue<string>? Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -182,7 +180,7 @@ public class AwsRoute53recoveryreadinessResourceSetResourcesBlockDnsTargetResour
     /// </summary>
     public TerraformValue<string>? DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -191,7 +189,7 @@ public class AwsRoute53recoveryreadinessResourceSetResourcesBlockDnsTargetResour
     /// </summary>
     public TerraformValue<string>? RecordSetId
     {
-        get => new TerraformReference<string>(this, "record_set_id");
+        get => GetArgument<TerraformValue<string>>("record_set_id");
         set => SetArgument("record_set_id", value);
     }
 
@@ -214,7 +212,7 @@ public class AwsRoute53recoveryreadinessResourceSetTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -230,9 +228,9 @@ public partial class AwsRoute53recoveryreadinessResourceSet(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -242,7 +240,7 @@ public partial class AwsRoute53recoveryreadinessResourceSet(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceSetName is required")]
     public required TerraformValue<string> ResourceSetName
     {
-        get => new TerraformReference<string>(this, "resource_set_name");
+        get => GetArgument<TerraformValue<string>>("resource_set_name");
         set => SetArgument("resource_set_name", value);
     }
 
@@ -252,7 +250,7 @@ public partial class AwsRoute53recoveryreadinessResourceSet(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceSetType is required")]
     public required TerraformValue<string> ResourceSetType
     {
-        get => new TerraformReference<string>(this, "resource_set_type");
+        get => GetArgument<TerraformValue<string>>("resource_set_type");
         set => SetArgument("resource_set_type", value);
     }
 
@@ -261,16 +259,16 @@ public partial class AwsRoute53recoveryreadinessResourceSet(string name) : Terra
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -278,9 +276,7 @@ public partial class AwsRoute53recoveryreadinessResourceSet(string name) : Terra
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Resources block (nesting mode: list).

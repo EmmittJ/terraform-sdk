@@ -19,7 +19,7 @@ public class AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultConnectionSt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformValue<string> LinkedServiceName
     {
-        get => new TerraformReference<string>(this, "linked_service_name");
+        get => GetArgument<TerraformValue<string>>("linked_service_name");
         set => SetArgument("linked_service_name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultConnectionSt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => new TerraformReference<string>(this, "secret_name");
+        get => GetArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultPasswordBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformValue<string> LinkedServiceName
     {
-        get => new TerraformReference<string>(this, "linked_service_name");
+        get => GetArgument<TerraformValue<string>>("linked_service_name");
         set => SetArgument("linked_service_name", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultPasswordBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => new TerraformReference<string>(this, "secret_name");
+        get => GetArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermDataFactoryLinkedServiceAzureSqlDatabaseTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermDataFactoryLinkedServiceAzureSqlDatabaseTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermDataFactoryLinkedServiceAzureSqlDatabaseTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermDataFactoryLinkedServiceAzureSqlDatabaseTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabase(string name
     /// </summary>
     public TerraformMap<string>? AdditionalProperties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("additional_properties");
         set => SetArgument("additional_properties", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabase(string name
     /// </summary>
     public TerraformList<string>? Annotations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -149,7 +149,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabase(string name
     /// </summary>
     public TerraformValue<string>? ConnectionString
     {
-        get => new TerraformReference<string>(this, "connection_string");
+        get => GetArgument<TerraformValue<string>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -158,7 +158,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabase(string name
     /// </summary>
     public TerraformValue<string>? CredentialName
     {
-        get => new TerraformReference<string>(this, "credential_name");
+        get => GetArgument<TerraformValue<string>>("credential_name");
         set => SetArgument("credential_name", value);
     }
 
@@ -168,7 +168,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabase(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => new TerraformReference<string>(this, "data_factory_id");
+        get => GetArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
@@ -177,16 +177,16 @@ public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabase(string name
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -195,7 +195,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabase(string name
     /// </summary>
     public TerraformValue<string>? IntegrationRuntimeName
     {
-        get => new TerraformReference<string>(this, "integration_runtime_name");
+        get => GetArgument<TerraformValue<string>>("integration_runtime_name");
         set => SetArgument("integration_runtime_name", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabase(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -214,7 +214,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabase(string name
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -223,7 +223,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabase(string name
     /// </summary>
     public TerraformValue<string>? ServicePrincipalId
     {
-        get => new TerraformReference<string>(this, "service_principal_id");
+        get => GetArgument<TerraformValue<string>>("service_principal_id");
         set => SetArgument("service_principal_id", value);
     }
 
@@ -232,7 +232,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabase(string name
     /// </summary>
     public TerraformValue<string>? ServicePrincipalKey
     {
-        get => new TerraformReference<string>(this, "service_principal_key");
+        get => GetArgument<TerraformValue<string>>("service_principal_key");
         set => SetArgument("service_principal_key", value);
     }
 
@@ -241,7 +241,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabase(string name
     /// </summary>
     public TerraformValue<string>? TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -250,7 +250,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabase(string name
     /// </summary>
     public TerraformValue<bool>? UseManagedIdentity
     {
-        get => new TerraformReference<bool>(this, "use_managed_identity");
+        get => GetArgument<TerraformValue<bool>>("use_managed_identity");
         set => SetArgument("use_managed_identity", value);
     }
 

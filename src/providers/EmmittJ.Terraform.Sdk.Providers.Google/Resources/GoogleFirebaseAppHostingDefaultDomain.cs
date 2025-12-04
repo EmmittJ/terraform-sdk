@@ -18,7 +18,7 @@ public class GoogleFirebaseAppHostingDefaultDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleFirebaseAppHostingDefaultDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleFirebaseAppHostingDefaultDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,16 +55,16 @@ public partial class GoogleFirebaseAppHostingDefaultDomain(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backend is required")]
     public required TerraformValue<string> Backend
     {
-        get => new TerraformReference<string>(this, "backend");
+        get => GetArgument<TerraformValue<string>>("backend");
         set => SetArgument("backend", value);
     }
 
     /// <summary>
     /// Whether the domain is disabled. Defaults to false.
     /// </summary>
-    public TerraformValue<bool> Disabled
+    public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -74,16 +74,16 @@ public partial class GoogleFirebaseAppHostingDefaultDomain(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
     public required TerraformValue<string> DomainId
     {
-        get => new TerraformReference<string>(this, "domain_id");
+        get => GetArgument<TerraformValue<string>>("domain_id");
         set => SetArgument("domain_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -93,16 +93,16 @@ public partial class GoogleFirebaseAppHostingDefaultDomain(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -110,43 +110,33 @@ public partial class GoogleFirebaseAppHostingDefaultDomain(string name) : Terraf
     /// Time at which the domain was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Server-computed checksum based on other values; may be sent
     /// on update or delete to ensure operation is done on expected resource.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Identifier. The resource name of the domain, e.g.
     /// &#39;projects/{project}/locations/{locationId}/backends/{backendId}/domains/{domainId}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// System-assigned, unique identifier.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Time at which the domain was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

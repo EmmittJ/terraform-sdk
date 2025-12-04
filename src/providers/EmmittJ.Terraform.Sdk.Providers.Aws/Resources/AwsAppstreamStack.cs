@@ -19,16 +19,16 @@ public class AwsAppstreamStackAccessEndpointsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
     public required TerraformValue<string> EndpointType
     {
-        get => new TerraformReference<string>(this, "endpoint_type");
+        get => GetArgument<TerraformValue<string>>("endpoint_type");
         set => SetArgument("endpoint_type", value);
     }
 
     /// <summary>
     /// The vpce_id attribute.
     /// </summary>
-    public TerraformValue<string> VpceId
+    public TerraformValue<string>? VpceId
     {
-        get => new TerraformReference<string>(this, "vpce_id");
+        get => GetArgument<TerraformValue<string>>("vpce_id");
         set => SetArgument("vpce_id", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsAppstreamStackApplicationSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsAppstreamStackApplicationSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SettingsGroup
     {
-        get => new TerraformReference<string>(this, "settings_group");
+        get => GetArgument<TerraformValue<string>>("settings_group");
         set => SetArgument("settings_group", value);
     }
 
@@ -85,25 +85,25 @@ public class AwsAppstreamStackStorageConnectorsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorType is required")]
     public required TerraformValue<string> ConnectorType
     {
-        get => new TerraformReference<string>(this, "connector_type");
+        get => GetArgument<TerraformValue<string>>("connector_type");
         set => SetArgument("connector_type", value);
     }
 
     /// <summary>
     /// The domains attribute.
     /// </summary>
-    public TerraformList<string> Domains
+    public TerraformList<string>? Domains
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "domains").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("domains");
         set => SetArgument("domains", value);
     }
 
     /// <summary>
     /// The resource_identifier attribute.
     /// </summary>
-    public TerraformValue<string> ResourceIdentifier
+    public TerraformValue<string>? ResourceIdentifier
     {
-        get => new TerraformReference<string>(this, "resource_identifier");
+        get => GetArgument<TerraformValue<string>>("resource_identifier");
         set => SetArgument("resource_identifier", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsAppstreamStackStreamingExperienceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PreferredProtocol
     {
-        get => new TerraformReference<string>(this, "preferred_protocol");
+        get => GetArgument<TerraformValue<string>>("preferred_protocol");
         set => SetArgument("preferred_protocol", value);
     }
 
@@ -150,7 +150,7 @@ public class AwsAppstreamStackUserSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -160,7 +160,7 @@ public class AwsAppstreamStackUserSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
     public required TerraformValue<string> Permission
     {
-        get => new TerraformReference<string>(this, "permission");
+        get => GetArgument<TerraformValue<string>>("permission");
         set => SetArgument("permission", value);
     }
 
@@ -178,7 +178,7 @@ public partial class AwsAppstreamStack(string name) : TerraformResource("aws_app
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -187,34 +187,34 @@ public partial class AwsAppstreamStack(string name) : TerraformResource("aws_app
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The embed_host_domains attribute.
     /// </summary>
-    public TerraformSet<string> EmbedHostDomains
+    public TerraformSet<string>? EmbedHostDomains
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "embed_host_domains").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("embed_host_domains");
         set => SetArgument("embed_host_domains", value);
     }
 
     /// <summary>
     /// The feedback_url attribute.
     /// </summary>
-    public TerraformValue<string> FeedbackUrl
+    public TerraformValue<string>? FeedbackUrl
     {
-        get => new TerraformReference<string>(this, "feedback_url");
+        get => GetArgument<TerraformValue<string>>("feedback_url");
         set => SetArgument("feedback_url", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -224,25 +224,25 @@ public partial class AwsAppstreamStack(string name) : TerraformResource("aws_app
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The redirect_url attribute.
     /// </summary>
-    public TerraformValue<string> RedirectUrl
+    public TerraformValue<string>? RedirectUrl
     {
-        get => new TerraformReference<string>(this, "redirect_url");
+        get => GetArgument<TerraformValue<string>>("redirect_url");
         set => SetArgument("redirect_url", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -251,16 +251,16 @@ public partial class AwsAppstreamStack(string name) : TerraformResource("aws_app
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -268,17 +268,13 @@ public partial class AwsAppstreamStack(string name) : TerraformResource("aws_app
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-    {
-        get => new TerraformReference<string>(this, "created_time");
-    }
+        => AsReference("created_time");
 
     /// <summary>
     /// AccessEndpoints block (nesting mode: set).

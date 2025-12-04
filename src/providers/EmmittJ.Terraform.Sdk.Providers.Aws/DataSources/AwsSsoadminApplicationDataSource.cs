@@ -14,16 +14,16 @@ public partial class AwsSsoadminApplicationDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationArn is required")]
     public required TerraformValue<string> ApplicationArn
     {
-        get => new TerraformReference<string>(this, "application_arn");
+        get => GetArgument<TerraformValue<string>>("application_arn");
         set => SetArgument("application_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -31,64 +31,48 @@ public partial class AwsSsoadminApplicationDataSource(string name) : TerraformDa
     /// The application_account attribute.
     /// </summary>
     public TerraformValue<string> ApplicationAccount
-    {
-        get => new TerraformReference<string>(this, "application_account");
-    }
+        => AsReference("application_account");
 
     /// <summary>
     /// The application_provider_arn attribute.
     /// </summary>
     public TerraformValue<string> ApplicationProviderArn
-    {
-        get => new TerraformReference<string>(this, "application_provider_arn");
-    }
+        => AsReference("application_provider_arn");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The instance_arn attribute.
     /// </summary>
     public TerraformValue<string> InstanceArn
-    {
-        get => new TerraformReference<string>(this, "instance_arn");
-    }
+        => AsReference("instance_arn");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The portal_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PortalOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "portal_options").ResolveNodes(ctx));
-    }
+        => AsReference("portal_options");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }

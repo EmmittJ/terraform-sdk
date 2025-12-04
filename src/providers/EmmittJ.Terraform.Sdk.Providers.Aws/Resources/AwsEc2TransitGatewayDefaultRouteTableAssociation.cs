@@ -18,7 +18,7 @@ public class AwsEc2TransitGatewayDefaultRouteTableAssociationTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsEc2TransitGatewayDefaultRouteTableAssociationTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsEc2TransitGatewayDefaultRouteTableAssociationTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -52,9 +52,9 @@ public partial class AwsEc2TransitGatewayDefaultRouteTableAssociation(string nam
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsEc2TransitGatewayDefaultRouteTableAssociation(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayId is required")]
     public required TerraformValue<string> TransitGatewayId
     {
-        get => new TerraformReference<string>(this, "transit_gateway_id");
+        get => GetArgument<TerraformValue<string>>("transit_gateway_id");
         set => SetArgument("transit_gateway_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsEc2TransitGatewayDefaultRouteTableAssociation(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayRouteTableId is required")]
     public required TerraformValue<string> TransitGatewayRouteTableId
     {
-        get => new TerraformReference<string>(this, "transit_gateway_route_table_id");
+        get => GetArgument<TerraformValue<string>>("transit_gateway_route_table_id");
         set => SetArgument("transit_gateway_route_table_id", value);
     }
 
@@ -82,17 +82,13 @@ public partial class AwsEc2TransitGatewayDefaultRouteTableAssociation(string nam
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The original_default_route_table_id attribute.
     /// </summary>
     public TerraformValue<string> OriginalDefaultRouteTableId
-    {
-        get => new TerraformReference<string>(this, "original_default_route_table_id");
-    }
+        => AsReference("original_default_route_table_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

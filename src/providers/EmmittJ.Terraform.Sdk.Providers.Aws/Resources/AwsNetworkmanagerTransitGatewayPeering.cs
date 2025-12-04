@@ -18,7 +18,7 @@ public class AwsNetworkmanagerTransitGatewayPeeringTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsNetworkmanagerTransitGatewayPeeringTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,16 +46,16 @@ public partial class AwsNetworkmanagerTransitGatewayPeering(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     public required TerraformValue<string> CoreNetworkId
     {
-        get => new TerraformReference<string>(this, "core_network_id");
+        get => GetArgument<TerraformValue<string>>("core_network_id");
         set => SetArgument("core_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AwsNetworkmanagerTransitGatewayPeering(string name) : Terra
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsNetworkmanagerTransitGatewayPeering(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayArn is required")]
     public required TerraformValue<string> TransitGatewayArn
     {
-        get => new TerraformReference<string>(this, "transit_gateway_arn");
+        get => GetArgument<TerraformValue<string>>("transit_gateway_arn");
         set => SetArgument("transit_gateway_arn", value);
     }
 
@@ -91,57 +91,43 @@ public partial class AwsNetworkmanagerTransitGatewayPeering(string name) : Terra
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The core_network_arn attribute.
     /// </summary>
     public TerraformValue<string> CoreNetworkArn
-    {
-        get => new TerraformReference<string>(this, "core_network_arn");
-    }
+        => AsReference("core_network_arn");
 
     /// <summary>
     /// The edge_location attribute.
     /// </summary>
     public TerraformValue<string> EdgeLocation
-    {
-        get => new TerraformReference<string>(this, "edge_location");
-    }
+        => AsReference("edge_location");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-    {
-        get => new TerraformReference<string>(this, "owner_account_id");
-    }
+        => AsReference("owner_account_id");
 
     /// <summary>
     /// The peering_type attribute.
     /// </summary>
     public TerraformValue<string> PeeringType
-    {
-        get => new TerraformReference<string>(this, "peering_type");
-    }
+        => AsReference("peering_type");
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
     public TerraformValue<string> ResourceArn
-    {
-        get => new TerraformReference<string>(this, "resource_arn");
-    }
+        => AsReference("resource_arn");
 
     /// <summary>
     /// The transit_gateway_peering_attachment_id attribute.
     /// </summary>
     public TerraformValue<string> TransitGatewayPeeringAttachmentId
-    {
-        get => new TerraformReference<string>(this, "transit_gateway_peering_attachment_id");
-    }
+        => AsReference("transit_gateway_peering_attachment_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

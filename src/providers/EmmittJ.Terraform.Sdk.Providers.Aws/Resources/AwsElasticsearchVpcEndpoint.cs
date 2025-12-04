@@ -18,7 +18,7 @@ public class AwsElasticsearchVpcEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsElasticsearchVpcEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsElasticsearchVpcEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -58,16 +58,14 @@ public class AwsElasticsearchVpcEndpointVpcOptionsBlock : TerraformBlock
     /// The availability_zones attribute.
     /// </summary>
     public TerraformSet<string> AvailabilityZones
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "availability_zones").ResolveNodes(ctx));
-    }
+        => AsReference("availability_zones");
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string> SecurityGroupIds
+    public TerraformSet<string>? SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -77,7 +75,7 @@ public class AwsElasticsearchVpcEndpointVpcOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -85,9 +83,7 @@ public class AwsElasticsearchVpcEndpointVpcOptionsBlock : TerraformBlock
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-    {
-        get => new TerraformReference<string>(this, "vpc_id");
-    }
+        => AsReference("vpc_id");
 
 }
 
@@ -104,25 +100,25 @@ public partial class AwsElasticsearchVpcEndpoint(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainArn is required")]
     public required TerraformValue<string> DomainArn
     {
-        get => new TerraformReference<string>(this, "domain_arn");
+        get => GetArgument<TerraformValue<string>>("domain_arn");
         set => SetArgument("domain_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -130,9 +126,7 @@ public partial class AwsElasticsearchVpcEndpoint(string name) : TerraformResourc
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

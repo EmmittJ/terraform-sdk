@@ -14,7 +14,7 @@ public partial class AwsSsoadminApplicationAssignment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationArn is required")]
     public required TerraformValue<string> ApplicationArn
     {
-        get => new TerraformReference<string>(this, "application_arn");
+        get => GetArgument<TerraformValue<string>>("application_arn");
         set => SetArgument("application_arn", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsSsoadminApplicationAssignment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformValue<string> PrincipalId
     {
-        get => new TerraformReference<string>(this, "principal_id");
+        get => GetArgument<TerraformValue<string>>("principal_id");
         set => SetArgument("principal_id", value);
     }
 
@@ -34,16 +34,16 @@ public partial class AwsSsoadminApplicationAssignment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalType is required")]
     public required TerraformValue<string> PrincipalType
     {
-        get => new TerraformReference<string>(this, "principal_type");
+        get => GetArgument<TerraformValue<string>>("principal_type");
         set => SetArgument("principal_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -51,8 +51,6 @@ public partial class AwsSsoadminApplicationAssignment(string name) : TerraformRe
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
 }

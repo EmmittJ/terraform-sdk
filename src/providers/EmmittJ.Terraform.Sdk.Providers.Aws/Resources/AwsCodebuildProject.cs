@@ -18,7 +18,7 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ArtifactIdentifier
     {
-        get => new TerraformReference<string>(this, "artifact_identifier");
+        get => GetArgument<TerraformValue<string>>("artifact_identifier");
         set => SetArgument("artifact_identifier", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BucketOwnerAccess
     {
-        get => new TerraformReference<string>(this, "bucket_owner_access");
+        get => GetArgument<TerraformValue<string>>("bucket_owner_access");
         set => SetArgument("bucket_owner_access", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EncryptionDisabled
     {
-        get => new TerraformReference<bool>(this, "encryption_disabled");
+        get => GetArgument<TerraformValue<bool>>("encryption_disabled");
         set => SetArgument("encryption_disabled", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? NamespaceType
     {
-        get => new TerraformReference<string>(this, "namespace_type");
+        get => GetArgument<TerraformValue<string>>("namespace_type");
         set => SetArgument("namespace_type", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? OverrideArtifactName
     {
-        get => new TerraformReference<bool>(this, "override_artifact_name");
+        get => GetArgument<TerraformValue<bool>>("override_artifact_name");
         set => SetArgument("override_artifact_name", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Packaging
     {
-        get => new TerraformReference<string>(this, "packaging");
+        get => GetArgument<TerraformValue<string>>("packaging");
         set => SetArgument("packaging", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsCodebuildProjectArtifactsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsCodebuildProjectBuildBatchConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? CombineArtifacts
     {
-        get => new TerraformReference<bool>(this, "combine_artifacts");
+        get => GetArgument<TerraformValue<bool>>("combine_artifacts");
         set => SetArgument("combine_artifacts", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsCodebuildProjectBuildBatchConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRole is required")]
     public required TerraformValue<string> ServiceRole
     {
-        get => new TerraformReference<string>(this, "service_role");
+        get => GetArgument<TerraformValue<string>>("service_role");
         set => SetArgument("service_role", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsCodebuildProjectBuildBatchConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? TimeoutInMins
     {
-        get => new TerraformReference<double>(this, "timeout_in_mins");
+        get => GetArgument<TerraformValue<double>>("timeout_in_mins");
         set => SetArgument("timeout_in_mins", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsCodebuildProjectBuildBatchConfigBlockRestrictionsBlock : Terrafo
     /// </summary>
     public TerraformList<string>? ComputeTypesAllowed
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "compute_types_allowed").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("compute_types_allowed");
         set => SetArgument("compute_types_allowed", value);
     }
 
@@ -183,7 +183,7 @@ public class AwsCodebuildProjectBuildBatchConfigBlockRestrictionsBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? MaximumBuildsAllowed
     {
-        get => new TerraformReference<double>(this, "maximum_builds_allowed");
+        get => GetArgument<TerraformValue<double>>("maximum_builds_allowed");
         set => SetArgument("maximum_builds_allowed", value);
     }
 
@@ -206,7 +206,7 @@ public class AwsCodebuildProjectCacheBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -215,7 +215,7 @@ public class AwsCodebuildProjectCacheBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Modes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "modes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("modes");
         set => SetArgument("modes", value);
     }
 
@@ -224,7 +224,7 @@ public class AwsCodebuildProjectCacheBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -247,7 +247,7 @@ public class AwsCodebuildProjectEnvironmentBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Certificate
     {
-        get => new TerraformReference<string>(this, "certificate");
+        get => GetArgument<TerraformValue<string>>("certificate");
         set => SetArgument("certificate", value);
     }
 
@@ -257,7 +257,7 @@ public class AwsCodebuildProjectEnvironmentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeType is required")]
     public required TerraformValue<string> ComputeType
     {
-        get => new TerraformReference<string>(this, "compute_type");
+        get => GetArgument<TerraformValue<string>>("compute_type");
         set => SetArgument("compute_type", value);
     }
 
@@ -267,7 +267,7 @@ public class AwsCodebuildProjectEnvironmentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -276,7 +276,7 @@ public class AwsCodebuildProjectEnvironmentBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ImagePullCredentialsType
     {
-        get => new TerraformReference<string>(this, "image_pull_credentials_type");
+        get => GetArgument<TerraformValue<string>>("image_pull_credentials_type");
         set => SetArgument("image_pull_credentials_type", value);
     }
 
@@ -285,7 +285,7 @@ public class AwsCodebuildProjectEnvironmentBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PrivilegedMode
     {
-        get => new TerraformReference<bool>(this, "privileged_mode");
+        get => GetArgument<TerraformValue<bool>>("privileged_mode");
         set => SetArgument("privileged_mode", value);
     }
 
@@ -295,7 +295,7 @@ public class AwsCodebuildProjectEnvironmentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -357,7 +357,7 @@ public class AwsCodebuildProjectEnvironmentBlockDockerServerBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeType is required")]
     public required TerraformValue<string> ComputeType
     {
-        get => new TerraformReference<string>(this, "compute_type");
+        get => GetArgument<TerraformValue<string>>("compute_type");
         set => SetArgument("compute_type", value);
     }
 
@@ -366,7 +366,7 @@ public class AwsCodebuildProjectEnvironmentBlockDockerServerBlock : TerraformBlo
     /// </summary>
     public TerraformList<string>? SecurityGroupIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -389,7 +389,7 @@ public class AwsCodebuildProjectEnvironmentBlockEnvironmentVariableBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -398,7 +398,7 @@ public class AwsCodebuildProjectEnvironmentBlockEnvironmentVariableBlock : Terra
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -408,7 +408,7 @@ public class AwsCodebuildProjectEnvironmentBlockEnvironmentVariableBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -430,7 +430,7 @@ public class AwsCodebuildProjectEnvironmentBlockFleetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FleetArn
     {
-        get => new TerraformReference<string>(this, "fleet_arn");
+        get => GetArgument<TerraformValue<string>>("fleet_arn");
         set => SetArgument("fleet_arn", value);
     }
 
@@ -453,7 +453,7 @@ public class AwsCodebuildProjectEnvironmentBlockRegistryCredentialBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Credential is required")]
     public required TerraformValue<string> Credential
     {
-        get => new TerraformReference<string>(this, "credential");
+        get => GetArgument<TerraformValue<string>>("credential");
         set => SetArgument("credential", value);
     }
 
@@ -463,7 +463,7 @@ public class AwsCodebuildProjectEnvironmentBlockRegistryCredentialBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CredentialProvider is required")]
     public required TerraformValue<string> CredentialProvider
     {
-        get => new TerraformReference<string>(this, "credential_provider");
+        get => GetArgument<TerraformValue<string>>("credential_provider");
         set => SetArgument("credential_provider", value);
     }
 
@@ -486,7 +486,7 @@ public class AwsCodebuildProjectFileSystemLocationsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Identifier
     {
-        get => new TerraformReference<string>(this, "identifier");
+        get => GetArgument<TerraformValue<string>>("identifier");
         set => SetArgument("identifier", value);
     }
 
@@ -495,7 +495,7 @@ public class AwsCodebuildProjectFileSystemLocationsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -504,7 +504,7 @@ public class AwsCodebuildProjectFileSystemLocationsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MountOptions
     {
-        get => new TerraformReference<string>(this, "mount_options");
+        get => GetArgument<TerraformValue<string>>("mount_options");
         set => SetArgument("mount_options", value);
     }
 
@@ -513,7 +513,7 @@ public class AwsCodebuildProjectFileSystemLocationsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MountPoint
     {
-        get => new TerraformReference<string>(this, "mount_point");
+        get => GetArgument<TerraformValue<string>>("mount_point");
         set => SetArgument("mount_point", value);
     }
 
@@ -522,7 +522,7 @@ public class AwsCodebuildProjectFileSystemLocationsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -578,7 +578,7 @@ public class AwsCodebuildProjectLogsConfigBlockCloudwatchLogsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? GroupName
     {
-        get => new TerraformReference<string>(this, "group_name");
+        get => GetArgument<TerraformValue<string>>("group_name");
         set => SetArgument("group_name", value);
     }
 
@@ -587,7 +587,7 @@ public class AwsCodebuildProjectLogsConfigBlockCloudwatchLogsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -596,7 +596,7 @@ public class AwsCodebuildProjectLogsConfigBlockCloudwatchLogsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? StreamName
     {
-        get => new TerraformReference<string>(this, "stream_name");
+        get => GetArgument<TerraformValue<string>>("stream_name");
         set => SetArgument("stream_name", value);
     }
 
@@ -618,7 +618,7 @@ public class AwsCodebuildProjectLogsConfigBlockS3LogsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BucketOwnerAccess
     {
-        get => new TerraformReference<string>(this, "bucket_owner_access");
+        get => GetArgument<TerraformValue<string>>("bucket_owner_access");
         set => SetArgument("bucket_owner_access", value);
     }
 
@@ -627,7 +627,7 @@ public class AwsCodebuildProjectLogsConfigBlockS3LogsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EncryptionDisabled
     {
-        get => new TerraformReference<bool>(this, "encryption_disabled");
+        get => GetArgument<TerraformValue<bool>>("encryption_disabled");
         set => SetArgument("encryption_disabled", value);
     }
 
@@ -636,7 +636,7 @@ public class AwsCodebuildProjectLogsConfigBlockS3LogsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -645,7 +645,7 @@ public class AwsCodebuildProjectLogsConfigBlockS3LogsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -669,7 +669,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactIdentifier is required")]
     public required TerraformValue<string> ArtifactIdentifier
     {
-        get => new TerraformReference<string>(this, "artifact_identifier");
+        get => GetArgument<TerraformValue<string>>("artifact_identifier");
         set => SetArgument("artifact_identifier", value);
     }
 
@@ -678,7 +678,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BucketOwnerAccess
     {
-        get => new TerraformReference<string>(this, "bucket_owner_access");
+        get => GetArgument<TerraformValue<string>>("bucket_owner_access");
         set => SetArgument("bucket_owner_access", value);
     }
 
@@ -687,7 +687,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EncryptionDisabled
     {
-        get => new TerraformReference<bool>(this, "encryption_disabled");
+        get => GetArgument<TerraformValue<bool>>("encryption_disabled");
         set => SetArgument("encryption_disabled", value);
     }
 
@@ -696,7 +696,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -705,7 +705,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -714,7 +714,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? NamespaceType
     {
-        get => new TerraformReference<string>(this, "namespace_type");
+        get => GetArgument<TerraformValue<string>>("namespace_type");
         set => SetArgument("namespace_type", value);
     }
 
@@ -723,7 +723,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? OverrideArtifactName
     {
-        get => new TerraformReference<bool>(this, "override_artifact_name");
+        get => GetArgument<TerraformValue<bool>>("override_artifact_name");
         set => SetArgument("override_artifact_name", value);
     }
 
@@ -732,7 +732,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Packaging
     {
-        get => new TerraformReference<string>(this, "packaging");
+        get => GetArgument<TerraformValue<string>>("packaging");
         set => SetArgument("packaging", value);
     }
 
@@ -741,7 +741,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -751,7 +751,7 @@ public class AwsCodebuildProjectSecondaryArtifactsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -775,7 +775,7 @@ public class AwsCodebuildProjectSecondarySourceVersionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIdentifier is required")]
     public required TerraformValue<string> SourceIdentifier
     {
-        get => new TerraformReference<string>(this, "source_identifier");
+        get => GetArgument<TerraformValue<string>>("source_identifier");
         set => SetArgument("source_identifier", value);
     }
 
@@ -785,7 +785,7 @@ public class AwsCodebuildProjectSecondarySourceVersionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVersion is required")]
     public required TerraformValue<string> SourceVersion
     {
-        get => new TerraformReference<string>(this, "source_version");
+        get => GetArgument<TerraformValue<string>>("source_version");
         set => SetArgument("source_version", value);
     }
 
@@ -808,7 +808,7 @@ public class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Buildspec
     {
-        get => new TerraformReference<string>(this, "buildspec");
+        get => GetArgument<TerraformValue<string>>("buildspec");
         set => SetArgument("buildspec", value);
     }
 
@@ -817,7 +817,7 @@ public class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? GitCloneDepth
     {
-        get => new TerraformReference<double>(this, "git_clone_depth");
+        get => GetArgument<TerraformValue<double>>("git_clone_depth");
         set => SetArgument("git_clone_depth", value);
     }
 
@@ -826,7 +826,7 @@ public class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? InsecureSsl
     {
-        get => new TerraformReference<bool>(this, "insecure_ssl");
+        get => GetArgument<TerraformValue<bool>>("insecure_ssl");
         set => SetArgument("insecure_ssl", value);
     }
 
@@ -835,7 +835,7 @@ public class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -844,7 +844,7 @@ public class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ReportBuildStatus
     {
-        get => new TerraformReference<bool>(this, "report_build_status");
+        get => GetArgument<TerraformValue<bool>>("report_build_status");
         set => SetArgument("report_build_status", value);
     }
 
@@ -854,7 +854,7 @@ public class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIdentifier is required")]
     public required TerraformValue<string> SourceIdentifier
     {
-        get => new TerraformReference<string>(this, "source_identifier");
+        get => GetArgument<TerraformValue<string>>("source_identifier");
         set => SetArgument("source_identifier", value);
     }
 
@@ -864,7 +864,7 @@ public class AwsCodebuildProjectSecondarySourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -917,7 +917,7 @@ public class AwsCodebuildProjectSecondarySourcesBlockAuthBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformValue<string> Resource
     {
-        get => new TerraformReference<string>(this, "resource");
+        get => GetArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -927,7 +927,7 @@ public class AwsCodebuildProjectSecondarySourcesBlockAuthBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -949,7 +949,7 @@ public class AwsCodebuildProjectSecondarySourcesBlockBuildStatusConfigBlock : Te
     /// </summary>
     public TerraformValue<string>? Context
     {
-        get => new TerraformReference<string>(this, "context");
+        get => GetArgument<TerraformValue<string>>("context");
         set => SetArgument("context", value);
     }
 
@@ -958,7 +958,7 @@ public class AwsCodebuildProjectSecondarySourcesBlockBuildStatusConfigBlock : Te
     /// </summary>
     public TerraformValue<string>? TargetUrl
     {
-        get => new TerraformReference<string>(this, "target_url");
+        get => GetArgument<TerraformValue<string>>("target_url");
         set => SetArgument("target_url", value);
     }
 
@@ -981,7 +981,7 @@ public class AwsCodebuildProjectSecondarySourcesBlockGitSubmodulesConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FetchSubmodules is required")]
     public required TerraformValue<bool> FetchSubmodules
     {
-        get => new TerraformReference<bool>(this, "fetch_submodules");
+        get => GetArgument<TerraformValue<bool>>("fetch_submodules");
         set => SetArgument("fetch_submodules", value);
     }
 
@@ -1004,7 +1004,7 @@ public class AwsCodebuildProjectSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Buildspec
     {
-        get => new TerraformReference<string>(this, "buildspec");
+        get => GetArgument<TerraformValue<string>>("buildspec");
         set => SetArgument("buildspec", value);
     }
 
@@ -1013,7 +1013,7 @@ public class AwsCodebuildProjectSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? GitCloneDepth
     {
-        get => new TerraformReference<double>(this, "git_clone_depth");
+        get => GetArgument<TerraformValue<double>>("git_clone_depth");
         set => SetArgument("git_clone_depth", value);
     }
 
@@ -1022,7 +1022,7 @@ public class AwsCodebuildProjectSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? InsecureSsl
     {
-        get => new TerraformReference<bool>(this, "insecure_ssl");
+        get => GetArgument<TerraformValue<bool>>("insecure_ssl");
         set => SetArgument("insecure_ssl", value);
     }
 
@@ -1031,7 +1031,7 @@ public class AwsCodebuildProjectSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1040,7 +1040,7 @@ public class AwsCodebuildProjectSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ReportBuildStatus
     {
-        get => new TerraformReference<bool>(this, "report_build_status");
+        get => GetArgument<TerraformValue<bool>>("report_build_status");
         set => SetArgument("report_build_status", value);
     }
 
@@ -1050,7 +1050,7 @@ public class AwsCodebuildProjectSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1103,7 +1103,7 @@ public class AwsCodebuildProjectSourceBlockAuthBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformValue<string> Resource
     {
-        get => new TerraformReference<string>(this, "resource");
+        get => GetArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -1113,7 +1113,7 @@ public class AwsCodebuildProjectSourceBlockAuthBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1135,7 +1135,7 @@ public class AwsCodebuildProjectSourceBlockBuildStatusConfigBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Context
     {
-        get => new TerraformReference<string>(this, "context");
+        get => GetArgument<TerraformValue<string>>("context");
         set => SetArgument("context", value);
     }
 
@@ -1144,7 +1144,7 @@ public class AwsCodebuildProjectSourceBlockBuildStatusConfigBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? TargetUrl
     {
-        get => new TerraformReference<string>(this, "target_url");
+        get => GetArgument<TerraformValue<string>>("target_url");
         set => SetArgument("target_url", value);
     }
 
@@ -1167,7 +1167,7 @@ public class AwsCodebuildProjectSourceBlockGitSubmodulesConfigBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FetchSubmodules is required")]
     public required TerraformValue<bool> FetchSubmodules
     {
-        get => new TerraformReference<bool>(this, "fetch_submodules");
+        get => GetArgument<TerraformValue<bool>>("fetch_submodules");
         set => SetArgument("fetch_submodules", value);
     }
 
@@ -1191,7 +1191,7 @@ public class AwsCodebuildProjectVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -1201,7 +1201,7 @@ public class AwsCodebuildProjectVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public required TerraformSet<string> Subnets
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnets").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -1211,7 +1211,7 @@ public class AwsCodebuildProjectVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -1227,9 +1227,9 @@ public partial class AwsCodebuildProject(string name) : TerraformResource("aws_c
     /// <summary>
     /// Maximum number of additional automatic retries after a failed build. The default value is 0.
     /// </summary>
-    public TerraformValue<double> AutoRetryLimit
+    public TerraformValue<double>? AutoRetryLimit
     {
-        get => new TerraformReference<double>(this, "auto_retry_limit");
+        get => GetArgument<TerraformValue<double>>("auto_retry_limit");
         set => SetArgument("auto_retry_limit", value);
     }
 
@@ -1238,7 +1238,7 @@ public partial class AwsCodebuildProject(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformValue<bool>? BadgeEnabled
     {
-        get => new TerraformReference<bool>(this, "badge_enabled");
+        get => GetArgument<TerraformValue<bool>>("badge_enabled");
         set => SetArgument("badge_enabled", value);
     }
 
@@ -1247,7 +1247,7 @@ public partial class AwsCodebuildProject(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformValue<double>? BuildTimeout
     {
-        get => new TerraformReference<double>(this, "build_timeout");
+        get => GetArgument<TerraformValue<double>>("build_timeout");
         set => SetArgument("build_timeout", value);
     }
 
@@ -1256,34 +1256,34 @@ public partial class AwsCodebuildProject(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformValue<double>? ConcurrentBuildLimit
     {
-        get => new TerraformReference<double>(this, "concurrent_build_limit");
+        get => GetArgument<TerraformValue<double>>("concurrent_build_limit");
         set => SetArgument("concurrent_build_limit", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string> Description
+    public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The encryption_key attribute.
     /// </summary>
-    public TerraformValue<string> EncryptionKey
+    public TerraformValue<string>? EncryptionKey
     {
-        get => new TerraformReference<string>(this, "encryption_key");
+        get => GetArgument<TerraformValue<string>>("encryption_key");
         set => SetArgument("encryption_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1293,7 +1293,7 @@ public partial class AwsCodebuildProject(string name) : TerraformResource("aws_c
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1302,7 +1302,7 @@ public partial class AwsCodebuildProject(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformValue<string>? ProjectVisibility
     {
-        get => new TerraformReference<string>(this, "project_visibility");
+        get => GetArgument<TerraformValue<string>>("project_visibility");
         set => SetArgument("project_visibility", value);
     }
 
@@ -1311,16 +1311,16 @@ public partial class AwsCodebuildProject(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformValue<double>? QueuedTimeout
     {
-        get => new TerraformReference<double>(this, "queued_timeout");
+        get => GetArgument<TerraformValue<double>>("queued_timeout");
         set => SetArgument("queued_timeout", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -1329,7 +1329,7 @@ public partial class AwsCodebuildProject(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformValue<string>? ResourceAccessRole
     {
-        get => new TerraformReference<string>(this, "resource_access_role");
+        get => GetArgument<TerraformValue<string>>("resource_access_role");
         set => SetArgument("resource_access_role", value);
     }
 
@@ -1339,7 +1339,7 @@ public partial class AwsCodebuildProject(string name) : TerraformResource("aws_c
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRole is required")]
     public required TerraformValue<string> ServiceRole
     {
-        get => new TerraformReference<string>(this, "service_role");
+        get => GetArgument<TerraformValue<string>>("service_role");
         set => SetArgument("service_role", value);
     }
 
@@ -1348,7 +1348,7 @@ public partial class AwsCodebuildProject(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformValue<string>? SourceVersion
     {
-        get => new TerraformReference<string>(this, "source_version");
+        get => GetArgument<TerraformValue<string>>("source_version");
         set => SetArgument("source_version", value);
     }
 
@@ -1357,16 +1357,16 @@ public partial class AwsCodebuildProject(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1374,25 +1374,19 @@ public partial class AwsCodebuildProject(string name) : TerraformResource("aws_c
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The badge_url attribute.
     /// </summary>
     public TerraformValue<string> BadgeUrl
-    {
-        get => new TerraformReference<string>(this, "badge_url");
-    }
+        => AsReference("badge_url");
 
     /// <summary>
     /// The public_project_alias attribute.
     /// </summary>
     public TerraformValue<string> PublicProjectAlias
-    {
-        get => new TerraformReference<string>(this, "public_project_alias");
-    }
+        => AsReference("public_project_alias");
 
     /// <summary>
     /// Artifacts block (nesting mode: list).

@@ -42,7 +42,7 @@ public class GoogleFirebaseAppHostingDomainServeBlockRedirectBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -54,7 +54,7 @@ public class GoogleFirebaseAppHostingDomainServeBlockRedirectBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -77,7 +77,7 @@ public class GoogleFirebaseAppHostingDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -86,7 +86,7 @@ public class GoogleFirebaseAppHostingDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -95,7 +95,7 @@ public class GoogleFirebaseAppHostingDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -114,7 +114,7 @@ public partial class GoogleFirebaseAppHostingDomain(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backend is required")]
     public required TerraformValue<string> Backend
     {
-        get => new TerraformReference<string>(this, "backend");
+        get => GetArgument<TerraformValue<string>>("backend");
         set => SetArgument("backend", value);
     }
 
@@ -125,16 +125,16 @@ public partial class GoogleFirebaseAppHostingDomain(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
     public required TerraformValue<string> DomainId
     {
-        get => new TerraformReference<string>(this, "domain_id");
+        get => GetArgument<TerraformValue<string>>("domain_id");
         set => SetArgument("domain_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -144,16 +144,16 @@ public partial class GoogleFirebaseAppHostingDomain(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -161,68 +161,52 @@ public partial class GoogleFirebaseAppHostingDomain(string name) : TerraformReso
     /// Time at which the domain was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The status of a custom domain&#39;s linkage to the Backend.
     /// </summary>
     public TerraformList<TerraformMap<object>> CustomDomainStatus
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "custom_domain_status").ResolveNodes(ctx));
-    }
+        => AsReference("custom_domain_status");
 
     /// <summary>
     /// Time at which the domain was deleted.
     /// </summary>
     public TerraformValue<string> DeleteTime
-    {
-        get => new TerraformReference<string>(this, "delete_time");
-    }
+        => AsReference("delete_time");
 
     /// <summary>
     /// Server-computed checksum based on other values; may be sent
     /// on update or delete to ensure operation is done on expected resource.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Identifier. The resource name of the domain, e.g.
     /// &#39;projects/{project}/locations/{locationId}/backends/{backendId}/domains/{domainId}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Time at which a soft-deleted domain will be purged, rendering in
     /// permanently deleted.
     /// </summary>
     public TerraformValue<string> PurgeTime
-    {
-        get => new TerraformReference<string>(this, "purge_time");
-    }
+        => AsReference("purge_time");
 
     /// <summary>
     /// System-assigned, unique identifier.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Time at which the domain was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Serve block (nesting mode: list).

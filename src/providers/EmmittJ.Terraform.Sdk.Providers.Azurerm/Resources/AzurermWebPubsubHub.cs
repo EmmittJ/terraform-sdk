@@ -18,7 +18,7 @@ public class AzurermWebPubsubHubEventHandlerBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? SystemEvents
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "system_events").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("system_events");
         set => SetArgument("system_events", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermWebPubsubHubEventHandlerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlTemplate is required")]
     public required TerraformValue<string> UrlTemplate
     {
-        get => new TerraformReference<string>(this, "url_template");
+        get => GetArgument<TerraformValue<string>>("url_template");
         set => SetArgument("url_template", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermWebPubsubHubEventHandlerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? UserEventPattern
     {
-        get => new TerraformReference<string>(this, "user_event_pattern");
+        get => GetArgument<TerraformValue<string>>("user_event_pattern");
         set => SetArgument("user_event_pattern", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermWebPubsubHubEventHandlerBlockAuthBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedIdentityId is required")]
     public required TerraformValue<string> ManagedIdentityId
     {
-        get => new TerraformReference<string>(this, "managed_identity_id");
+        get => GetArgument<TerraformValue<string>>("managed_identity_id");
         set => SetArgument("managed_identity_id", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermWebPubsubHubEventListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
     public required TerraformValue<string> EventhubName
     {
-        get => new TerraformReference<string>(this, "eventhub_name");
+        get => GetArgument<TerraformValue<string>>("eventhub_name");
         set => SetArgument("eventhub_name", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermWebPubsubHubEventListenerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceName is required")]
     public required TerraformValue<string> EventhubNamespaceName
     {
-        get => new TerraformReference<string>(this, "eventhub_namespace_name");
+        get => GetArgument<TerraformValue<string>>("eventhub_namespace_name");
         set => SetArgument("eventhub_namespace_name", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermWebPubsubHubEventListenerBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? SystemEventNameFilter
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "system_event_name_filter").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("system_event_name_filter");
         set => SetArgument("system_event_name_filter", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermWebPubsubHubEventListenerBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? UserEventNameFilter
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "user_event_name_filter").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("user_event_name_filter");
         set => SetArgument("user_event_name_filter", value);
     }
 
@@ -145,7 +145,7 @@ public class AzurermWebPubsubHubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -154,7 +154,7 @@ public class AzurermWebPubsubHubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -163,7 +163,7 @@ public class AzurermWebPubsubHubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -172,7 +172,7 @@ public class AzurermWebPubsubHubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -190,16 +190,16 @@ public partial class AzurermWebPubsubHub(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<bool>? AnonymousConnectionsEnabled
     {
-        get => new TerraformReference<bool>(this, "anonymous_connections_enabled");
+        get => GetArgument<TerraformValue<bool>>("anonymous_connections_enabled");
         set => SetArgument("anonymous_connections_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -209,7 +209,7 @@ public partial class AzurermWebPubsubHub(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -219,7 +219,7 @@ public partial class AzurermWebPubsubHub(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubId is required")]
     public required TerraformValue<string> WebPubsubId
     {
-        get => new TerraformReference<string>(this, "web_pubsub_id");
+        get => GetArgument<TerraformValue<string>>("web_pubsub_id");
         set => SetArgument("web_pubsub_id", value);
     }
 

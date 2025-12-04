@@ -18,7 +18,7 @@ public class AwsEfsMountTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsEfsMountTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,61 +46,61 @@ public partial class AwsEfsMountTarget(string name) : TerraformResource("aws_efs
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformValue<string> FileSystemId
     {
-        get => new TerraformReference<string>(this, "file_system_id");
+        get => GetArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    public TerraformValue<string> IpAddress
+    public TerraformValue<string>? IpAddress
     {
-        get => new TerraformReference<string>(this, "ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformValue<string> IpAddressType
+    public TerraformValue<string>? IpAddressType
     {
-        get => new TerraformReference<string>(this, "ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
     /// <summary>
     /// The ipv6_address attribute.
     /// </summary>
-    public TerraformValue<string> Ipv6Address
+    public TerraformValue<string>? Ipv6Address
     {
-        get => new TerraformReference<string>(this, "ipv6_address");
+        get => GetArgument<TerraformValue<string>>("ipv6_address");
         set => SetArgument("ipv6_address", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformSet<string> SecurityGroups
+    public TerraformSet<string>? SecurityGroups
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_groups");
         set => SetArgument("security_groups", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AwsEfsMountTarget(string name) : TerraformResource("aws_efs
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -118,57 +118,43 @@ public partial class AwsEfsMountTarget(string name) : TerraformResource("aws_efs
     /// The availability_zone_id attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZoneId
-    {
-        get => new TerraformReference<string>(this, "availability_zone_id");
-    }
+        => AsReference("availability_zone_id");
 
     /// <summary>
     /// The availability_zone_name attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZoneName
-    {
-        get => new TerraformReference<string>(this, "availability_zone_name");
-    }
+        => AsReference("availability_zone_name");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-    {
-        get => new TerraformReference<string>(this, "dns_name");
-    }
+        => AsReference("dns_name");
 
     /// <summary>
     /// The file_system_arn attribute.
     /// </summary>
     public TerraformValue<string> FileSystemArn
-    {
-        get => new TerraformReference<string>(this, "file_system_arn");
-    }
+        => AsReference("file_system_arn");
 
     /// <summary>
     /// The mount_target_dns_name attribute.
     /// </summary>
     public TerraformValue<string> MountTargetDnsName
-    {
-        get => new TerraformReference<string>(this, "mount_target_dns_name");
-    }
+        => AsReference("mount_target_dns_name");
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
     public TerraformValue<string> NetworkInterfaceId
-    {
-        get => new TerraformReference<string>(this, "network_interface_id");
-    }
+        => AsReference("network_interface_id");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class GoogleApigeeKeystoresAliasesPkcs12TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleApigeeKeystoresAliasesPkcs12TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,7 +46,7 @@ public partial class GoogleApigeeKeystoresAliasesPkcs12(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Alias is required")]
     public required TerraformValue<string> Alias
     {
-        get => new TerraformReference<string>(this, "alias");
+        get => GetArgument<TerraformValue<string>>("alias");
         set => SetArgument("alias", value);
     }
 
@@ -56,7 +56,7 @@ public partial class GoogleApigeeKeystoresAliasesPkcs12(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformValue<string> Environment
     {
-        get => new TerraformReference<string>(this, "environment");
+        get => GetArgument<TerraformValue<string>>("environment");
         set => SetArgument("environment", value);
     }
 
@@ -66,7 +66,7 @@ public partial class GoogleApigeeKeystoresAliasesPkcs12(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "File is required")]
     public required TerraformValue<string> File
     {
-        get => new TerraformReference<string>(this, "file");
+        get => GetArgument<TerraformValue<string>>("file");
         set => SetArgument("file", value);
     }
 
@@ -76,16 +76,16 @@ public partial class GoogleApigeeKeystoresAliasesPkcs12(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filehash is required")]
     public required TerraformValue<string> Filehash
     {
-        get => new TerraformReference<string>(this, "filehash");
+        get => GetArgument<TerraformValue<string>>("filehash");
         set => SetArgument("filehash", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -95,7 +95,7 @@ public partial class GoogleApigeeKeystoresAliasesPkcs12(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Keystore is required")]
     public required TerraformValue<string> Keystore
     {
-        get => new TerraformReference<string>(this, "keystore");
+        get => GetArgument<TerraformValue<string>>("keystore");
         set => SetArgument("keystore", value);
     }
 
@@ -105,16 +105,16 @@ public partial class GoogleApigeeKeystoresAliasesPkcs12(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => new TerraformReference<string>(this, "org_id");
+        get => GetArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
     /// <summary>
     /// Password for the Private Key if it&#39;s encrypted
     /// </summary>
-    public TerraformValue<string> Password
+    public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -122,17 +122,13 @@ public partial class GoogleApigeeKeystoresAliasesPkcs12(string name) : Terraform
     /// Chain of certificates under this alias.
     /// </summary>
     public TerraformList<TerraformMap<object>> CertsInfo
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "certs_info").ResolveNodes(ctx));
-    }
+        => AsReference("certs_info");
 
     /// <summary>
     /// Optional.Type of Alias
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

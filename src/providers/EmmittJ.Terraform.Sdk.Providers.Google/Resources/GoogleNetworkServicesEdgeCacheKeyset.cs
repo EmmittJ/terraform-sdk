@@ -21,7 +21,7 @@ public class GoogleNetworkServicesEdgeCacheKeysetPublicKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -30,7 +30,7 @@ public class GoogleNetworkServicesEdgeCacheKeysetPublicKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Managed
     {
-        get => new TerraformReference<bool>(this, "managed");
+        get => GetArgument<TerraformValue<bool>>("managed");
         set => SetArgument("managed", value);
     }
 
@@ -40,7 +40,7 @@ public class GoogleNetworkServicesEdgeCacheKeysetPublicKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -63,7 +63,7 @@ public class GoogleNetworkServicesEdgeCacheKeysetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -72,7 +72,7 @@ public class GoogleNetworkServicesEdgeCacheKeysetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -81,7 +81,7 @@ public class GoogleNetworkServicesEdgeCacheKeysetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleNetworkServicesEdgeCacheKeysetValidationSharedKeysBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -129,16 +129,16 @@ public partial class GoogleNetworkServicesEdgeCacheKeyset(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -150,7 +150,7 @@ public partial class GoogleNetworkServicesEdgeCacheKeyset(string name) : Terrafo
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -162,16 +162,16 @@ public partial class GoogleNetworkServicesEdgeCacheKeyset(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -179,18 +179,14 @@ public partial class GoogleNetworkServicesEdgeCacheKeyset(string name) : Terrafo
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// PublicKey block (nesting mode: list).

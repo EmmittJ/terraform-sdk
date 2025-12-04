@@ -18,7 +18,7 @@ public class GoogleManagedKafkaAclAclEntriesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -31,7 +31,7 @@ public class GoogleManagedKafkaAclAclEntriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operation is required")]
     public required TerraformValue<string> Operation
     {
-        get => new TerraformReference<string>(this, "operation");
+        get => GetArgument<TerraformValue<string>>("operation");
         set => SetArgument("operation", value);
     }
 
@@ -40,7 +40,7 @@ public class GoogleManagedKafkaAclAclEntriesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PermissionType
     {
-        get => new TerraformReference<string>(this, "permission_type");
+        get => GetArgument<TerraformValue<string>>("permission_type");
         set => SetArgument("permission_type", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleManagedKafkaAclAclEntriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformValue<string> Principal
     {
-        get => new TerraformReference<string>(this, "principal");
+        get => GetArgument<TerraformValue<string>>("principal");
         set => SetArgument("principal", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleManagedKafkaAclTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -82,7 +82,7 @@ public class GoogleManagedKafkaAclTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleManagedKafkaAclTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -114,7 +114,7 @@ public partial class GoogleManagedKafkaAcl(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AclId is required")]
     public required TerraformValue<string> AclId
     {
-        get => new TerraformReference<string>(this, "acl_id");
+        get => GetArgument<TerraformValue<string>>("acl_id");
         set => SetArgument("acl_id", value);
     }
 
@@ -124,16 +124,16 @@ public partial class GoogleManagedKafkaAcl(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => new TerraformReference<string>(this, "cluster");
+        get => GetArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -143,16 +143,16 @@ public partial class GoogleManagedKafkaAcl(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -166,41 +166,31 @@ public partial class GoogleManagedKafkaAcl(string name) : TerraformResource("goo
     /// truncated due to repeated field limits.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The name of the acl. The &#39;ACL_ID&#39; segment is used when connecting directly to the cluster. Must be in the format &#39;projects/PROJECT_ID/locations/LOCATION/clusters/CLUSTER_ID/acls/ACL_ID&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The acl pattern type derived from the name. One of: LITERAL, PREFIXED.
     /// </summary>
     public TerraformValue<string> PatternType
-    {
-        get => new TerraformReference<string>(this, "pattern_type");
-    }
+        => AsReference("pattern_type");
 
     /// <summary>
     /// The acl resource name derived from the name. For cluster resource_type, this is always &amp;quot;kafka-cluster&amp;quot;. Can be the wildcard literal &amp;quot;*&amp;quot;.
     /// </summary>
     public TerraformValue<string> ResourceNameAttribute
-    {
-        get => new TerraformReference<string>(this, "resource_name");
-    }
+        => AsReference("resource_name");
 
     /// <summary>
     /// The acl resource type derived from the name. One of: CLUSTER, TOPIC, GROUP, TRANSACTIONAL_ID.
     /// </summary>
     public TerraformValue<string> ResourceTypeAttribute
-    {
-        get => new TerraformReference<string>(this, "resource_type");
-    }
+        => AsReference("resource_type");
 
     /// <summary>
     /// AclEntries block (nesting mode: set).

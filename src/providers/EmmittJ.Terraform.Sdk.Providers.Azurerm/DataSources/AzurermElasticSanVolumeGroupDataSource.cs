@@ -18,7 +18,7 @@ public class AzurermElasticSanVolumeGroupDataSourceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermElasticSanVolumeGroupDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElasticSanId is required")]
     public required TerraformValue<string> ElasticSanId
     {
-        get => new TerraformReference<string>(this, "elastic_san_id");
+        get => GetArgument<TerraformValue<string>>("elastic_san_id");
         set => SetArgument("elastic_san_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermElasticSanVolumeGroupDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -64,41 +64,31 @@ public partial class AzurermElasticSanVolumeGroupDataSource(string name) : Terra
     /// The encryption attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Encryption
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "encryption").ResolveNodes(ctx));
-    }
+        => AsReference("encryption");
 
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
     public TerraformValue<string> EncryptionType
-    {
-        get => new TerraformReference<string>(this, "encryption_type");
-    }
+        => AsReference("encryption_type");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
-    }
+        => AsReference("identity");
 
     /// <summary>
     /// The network_rule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkRule
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "network_rule").ResolveNodes(ctx));
-    }
+        => AsReference("network_rule");
 
     /// <summary>
     /// The protocol_type attribute.
     /// </summary>
     public TerraformValue<string> ProtocolType
-    {
-        get => new TerraformReference<string>(this, "protocol_type");
-    }
+        => AsReference("protocol_type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

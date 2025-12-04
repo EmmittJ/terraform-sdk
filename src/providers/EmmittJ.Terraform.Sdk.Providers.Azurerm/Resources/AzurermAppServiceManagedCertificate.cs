@@ -18,7 +18,7 @@ public class AzurermAppServiceManagedCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermAppServiceManagedCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermAppServiceManagedCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermAppServiceManagedCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AzurermAppServiceManagedCertificate(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomHostnameBindingId is required")]
     public required TerraformValue<string> CustomHostnameBindingId
     {
-        get => new TerraformReference<string>(this, "custom_hostname_binding_id");
+        get => GetArgument<TerraformValue<string>>("custom_hostname_binding_id");
         set => SetArgument("custom_hostname_binding_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermAppServiceManagedCertificate(string name) : Terrafor
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -90,65 +90,49 @@ public partial class AzurermAppServiceManagedCertificate(string name) : Terrafor
     /// The canonical_name attribute.
     /// </summary>
     public TerraformValue<string> CanonicalName
-    {
-        get => new TerraformReference<string>(this, "canonical_name");
-    }
+        => AsReference("canonical_name");
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
     public TerraformValue<string> ExpirationDate
-    {
-        get => new TerraformReference<string>(this, "expiration_date");
-    }
+        => AsReference("expiration_date");
 
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
     public TerraformValue<string> FriendlyName
-    {
-        get => new TerraformReference<string>(this, "friendly_name");
-    }
+        => AsReference("friendly_name");
 
     /// <summary>
     /// The host_names attribute.
     /// </summary>
     public TerraformList<string> HostNames
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "host_names").ResolveNodes(ctx));
-    }
+        => AsReference("host_names");
 
     /// <summary>
     /// The issue_date attribute.
     /// </summary>
     public TerraformValue<string> IssueDate
-    {
-        get => new TerraformReference<string>(this, "issue_date");
-    }
+        => AsReference("issue_date");
 
     /// <summary>
     /// The issuer attribute.
     /// </summary>
     public TerraformValue<string> Issuer
-    {
-        get => new TerraformReference<string>(this, "issuer");
-    }
+        => AsReference("issuer");
 
     /// <summary>
     /// The subject_name attribute.
     /// </summary>
     public TerraformValue<string> SubjectName
-    {
-        get => new TerraformReference<string>(this, "subject_name");
-    }
+        => AsReference("subject_name");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-    {
-        get => new TerraformReference<string>(this, "thumbprint");
-    }
+        => AsReference("thumbprint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

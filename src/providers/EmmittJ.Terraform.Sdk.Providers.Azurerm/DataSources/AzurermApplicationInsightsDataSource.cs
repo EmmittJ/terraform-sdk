@@ -18,7 +18,7 @@ public class AzurermApplicationInsightsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermApplicationInsightsDataSource(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermApplicationInsightsDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermApplicationInsightsDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,65 +64,49 @@ public partial class AzurermApplicationInsightsDataSource(string name) : Terrafo
     /// The app_id attribute.
     /// </summary>
     public TerraformValue<string> AppId
-    {
-        get => new TerraformReference<string>(this, "app_id");
-    }
+        => AsReference("app_id");
 
     /// <summary>
     /// The application_type attribute.
     /// </summary>
     public TerraformValue<string> ApplicationType
-    {
-        get => new TerraformReference<string>(this, "application_type");
-    }
+        => AsReference("application_type");
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
     public TerraformValue<string> ConnectionString
-    {
-        get => new TerraformReference<string>(this, "connection_string");
-    }
+        => AsReference("connection_string");
 
     /// <summary>
     /// The instrumentation_key attribute.
     /// </summary>
     public TerraformValue<string> InstrumentationKey
-    {
-        get => new TerraformReference<string>(this, "instrumentation_key");
-    }
+        => AsReference("instrumentation_key");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
     public TerraformValue<double> RetentionInDays
-    {
-        get => new TerraformReference<double>(this, "retention_in_days");
-    }
+        => AsReference("retention_in_days");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceId
-    {
-        get => new TerraformReference<string>(this, "workspace_id");
-    }
+        => AsReference("workspace_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

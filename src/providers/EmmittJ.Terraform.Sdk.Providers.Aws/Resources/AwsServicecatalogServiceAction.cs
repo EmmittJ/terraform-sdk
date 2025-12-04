@@ -18,7 +18,7 @@ public class AwsServicecatalogServiceActionDefinitionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AssumeRole
     {
-        get => new TerraformReference<string>(this, "assume_role");
+        get => GetArgument<TerraformValue<string>>("assume_role");
         set => SetArgument("assume_role", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsServicecatalogServiceActionDefinitionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsServicecatalogServiceActionDefinitionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Parameters
     {
-        get => new TerraformReference<string>(this, "parameters");
+        get => GetArgument<TerraformValue<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsServicecatalogServiceActionDefinitionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -56,7 +56,7 @@ public class AwsServicecatalogServiceActionDefinitionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsServicecatalogServiceActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsServicecatalogServiceActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsServicecatalogServiceActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsServicecatalogServiceActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -124,25 +124,25 @@ public partial class AwsServicecatalogServiceAction(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? AcceptLanguage
     {
-        get => new TerraformReference<string>(this, "accept_language");
+        get => GetArgument<TerraformValue<string>>("accept_language");
         set => SetArgument("accept_language", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string> Description
+    public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -152,16 +152,16 @@ public partial class AwsServicecatalogServiceAction(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

@@ -45,7 +45,7 @@ public class GoogleStorageBatchOperationsJobBucketListBlockBucketsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleStorageBatchOperationsJobBucketListBlockBucketsBlockManifestB
     /// </summary>
     public TerraformValue<string>? ManifestLocation
     {
-        get => new TerraformReference<string>(this, "manifest_location");
+        get => GetArgument<TerraformValue<string>>("manifest_location");
         set => SetArgument("manifest_location", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleStorageBatchOperationsJobBucketListBlockBucketsBlockPrefixLis
     /// </summary>
     public TerraformList<string>? IncludedObjectPrefixes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_object_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("included_object_prefixes");
         set => SetArgument("included_object_prefixes", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleStorageBatchOperationsJobDeleteObjectBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermanentObjectDeletionEnabled is required")]
     public required TerraformValue<bool> PermanentObjectDeletionEnabled
     {
-        get => new TerraformReference<bool>(this, "permanent_object_deletion_enabled");
+        get => GetArgument<TerraformValue<bool>>("permanent_object_deletion_enabled");
         set => SetArgument("permanent_object_deletion_enabled", value);
     }
 
@@ -156,7 +156,7 @@ public class GoogleStorageBatchOperationsJobPutMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CacheControl
     {
-        get => new TerraformReference<string>(this, "cache_control");
+        get => GetArgument<TerraformValue<string>>("cache_control");
         set => SetArgument("cache_control", value);
     }
 
@@ -165,7 +165,7 @@ public class GoogleStorageBatchOperationsJobPutMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ContentDisposition
     {
-        get => new TerraformReference<string>(this, "content_disposition");
+        get => GetArgument<TerraformValue<string>>("content_disposition");
         set => SetArgument("content_disposition", value);
     }
 
@@ -174,7 +174,7 @@ public class GoogleStorageBatchOperationsJobPutMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ContentEncoding
     {
-        get => new TerraformReference<string>(this, "content_encoding");
+        get => GetArgument<TerraformValue<string>>("content_encoding");
         set => SetArgument("content_encoding", value);
     }
 
@@ -183,7 +183,7 @@ public class GoogleStorageBatchOperationsJobPutMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ContentLanguage
     {
-        get => new TerraformReference<string>(this, "content_language");
+        get => GetArgument<TerraformValue<string>>("content_language");
         set => SetArgument("content_language", value);
     }
 
@@ -192,7 +192,7 @@ public class GoogleStorageBatchOperationsJobPutMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ContentType
     {
-        get => new TerraformReference<string>(this, "content_type");
+        get => GetArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -201,7 +201,7 @@ public class GoogleStorageBatchOperationsJobPutMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? CustomMetadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "custom_metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("custom_metadata");
         set => SetArgument("custom_metadata", value);
     }
 
@@ -210,7 +210,7 @@ public class GoogleStorageBatchOperationsJobPutMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CustomTime
     {
-        get => new TerraformReference<string>(this, "custom_time");
+        get => GetArgument<TerraformValue<string>>("custom_time");
         set => SetArgument("custom_time", value);
     }
 
@@ -233,7 +233,7 @@ public class GoogleStorageBatchOperationsJobPutObjectHoldBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EventBasedHold
     {
-        get => new TerraformReference<string>(this, "event_based_hold");
+        get => GetArgument<TerraformValue<string>>("event_based_hold");
         set => SetArgument("event_based_hold", value);
     }
 
@@ -242,7 +242,7 @@ public class GoogleStorageBatchOperationsJobPutObjectHoldBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TemporaryHold
     {
-        get => new TerraformReference<string>(this, "temporary_hold");
+        get => GetArgument<TerraformValue<string>>("temporary_hold");
         set => SetArgument("temporary_hold", value);
     }
 
@@ -266,7 +266,7 @@ public class GoogleStorageBatchOperationsJobRewriteObjectBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     public required TerraformValue<string> KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -289,7 +289,7 @@ public class GoogleStorageBatchOperationsJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -298,7 +298,7 @@ public class GoogleStorageBatchOperationsJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -307,7 +307,7 @@ public class GoogleStorageBatchOperationsJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -325,16 +325,16 @@ public partial class GoogleStorageBatchOperationsJob(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? DeleteProtection
     {
-        get => new TerraformReference<bool>(this, "delete_protection");
+        get => GetArgument<TerraformValue<bool>>("delete_protection");
         set => SetArgument("delete_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -343,16 +343,16 @@ public partial class GoogleStorageBatchOperationsJob(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? JobId
     {
-        get => new TerraformReference<string>(this, "job_id");
+        get => GetArgument<TerraformValue<string>>("job_id");
         set => SetArgument("job_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -360,41 +360,31 @@ public partial class GoogleStorageBatchOperationsJob(string name) : TerraformRes
     /// The time that the job was completed.
     /// </summary>
     public TerraformValue<string> CompleteTime
-    {
-        get => new TerraformReference<string>(this, "complete_time");
-    }
+        => AsReference("complete_time");
 
     /// <summary>
     /// The timestamp at which this storage batch operation was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The time that the job was scheduled.
     /// </summary>
     public TerraformValue<string> ScheduleTime
-    {
-        get => new TerraformReference<string>(this, "schedule_time");
-    }
+        => AsReference("schedule_time");
 
     /// <summary>
     /// State of the job.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The timestamp at which this storage batch operation was most recently updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// BucketList block (nesting mode: list).

@@ -19,7 +19,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterVersion is required")]
     public required TerraformValue<string> ClusterVersion
     {
-        get => new TerraformReference<string>(this, "cluster_version");
+        get => GetArgument<TerraformValue<string>>("cluster_version");
         set => SetArgument("cluster_version", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePoolId is required")]
     public required TerraformValue<string> InstancePoolId
     {
-        get => new TerraformReference<string>(this, "instance_pool_id");
+        get => GetArgument<TerraformValue<string>>("instance_pool_id");
         set => SetArgument("instance_pool_id", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock : T
     /// </summary>
     public TerraformValue<double>? MaxNumberOfWorkers
     {
-        get => new TerraformReference<double>(this, "max_number_of_workers");
+        get => GetArgument<TerraformValue<double>>("max_number_of_workers");
         set => SetArgument("max_number_of_workers", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock : T
     /// </summary>
     public TerraformValue<double>? MinNumberOfWorkers
     {
-        get => new TerraformReference<double>(this, "min_number_of_workers");
+        get => GetArgument<TerraformValue<double>>("min_number_of_workers");
         set => SetArgument("min_number_of_workers", value);
     }
 
@@ -71,7 +71,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformValue<string> LinkedServiceName
     {
-        get => new TerraformReference<string>(this, "linked_service_name");
+        get => GetArgument<TerraformValue<string>>("linked_service_name");
         set => SetArgument("linked_service_name", value);
     }
 
@@ -81,7 +81,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => new TerraformReference<string>(this, "secret_name");
+        get => GetArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterVersion is required")]
     public required TerraformValue<string> ClusterVersion
     {
-        get => new TerraformReference<string>(this, "cluster_version");
+        get => GetArgument<TerraformValue<string>>("cluster_version");
         set => SetArgument("cluster_version", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     /// </summary>
     public TerraformMap<string>? CustomTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "custom_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("custom_tags");
         set => SetArgument("custom_tags", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     /// </summary>
     public TerraformValue<string>? DriverNodeType
     {
-        get => new TerraformReference<string>(this, "driver_node_type");
+        get => GetArgument<TerraformValue<string>>("driver_node_type");
         set => SetArgument("driver_node_type", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     /// </summary>
     public TerraformList<string>? InitScripts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "init_scripts").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("init_scripts");
         set => SetArgument("init_scripts", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     /// </summary>
     public TerraformValue<string>? LogDestination
     {
-        get => new TerraformReference<string>(this, "log_destination");
+        get => GetArgument<TerraformValue<string>>("log_destination");
         set => SetArgument("log_destination", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     /// </summary>
     public TerraformValue<double>? MaxNumberOfWorkers
     {
-        get => new TerraformReference<double>(this, "max_number_of_workers");
+        get => GetArgument<TerraformValue<double>>("max_number_of_workers");
         set => SetArgument("max_number_of_workers", value);
     }
 
@@ -159,7 +159,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     /// </summary>
     public TerraformValue<double>? MinNumberOfWorkers
     {
-        get => new TerraformReference<double>(this, "min_number_of_workers");
+        get => GetArgument<TerraformValue<double>>("min_number_of_workers");
         set => SetArgument("min_number_of_workers", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     public required TerraformValue<string> NodeType
     {
-        get => new TerraformReference<string>(this, "node_type");
+        get => GetArgument<TerraformValue<string>>("node_type");
         set => SetArgument("node_type", value);
     }
 
@@ -178,7 +178,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     /// </summary>
     public TerraformMap<string>? SparkConfig
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "spark_config").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("spark_config");
         set => SetArgument("spark_config", value);
     }
 
@@ -187,7 +187,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
     /// </summary>
     public TerraformMap<string>? SparkEnvironmentVariables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "spark_environment_variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("spark_environment_variables");
         set => SetArgument("spark_environment_variables", value);
     }
 
@@ -210,7 +210,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -219,7 +219,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -228,7 +228,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -237,7 +237,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -255,7 +255,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureDatabricks(string name)
     /// </summary>
     public TerraformValue<string>? AccessToken
     {
-        get => new TerraformReference<string>(this, "access_token");
+        get => GetArgument<TerraformValue<string>>("access_token");
         set => SetArgument("access_token", value);
     }
 
@@ -265,7 +265,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureDatabricks(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdbDomain is required")]
     public required TerraformValue<string> AdbDomain
     {
-        get => new TerraformReference<string>(this, "adb_domain");
+        get => GetArgument<TerraformValue<string>>("adb_domain");
         set => SetArgument("adb_domain", value);
     }
 
@@ -274,7 +274,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureDatabricks(string name)
     /// </summary>
     public TerraformMap<string>? AdditionalProperties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("additional_properties");
         set => SetArgument("additional_properties", value);
     }
 
@@ -283,7 +283,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureDatabricks(string name)
     /// </summary>
     public TerraformList<string>? Annotations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -293,7 +293,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureDatabricks(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => new TerraformReference<string>(this, "data_factory_id");
+        get => GetArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
@@ -302,7 +302,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureDatabricks(string name)
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -311,16 +311,16 @@ public partial class AzurermDataFactoryLinkedServiceAzureDatabricks(string name)
     /// </summary>
     public TerraformValue<string>? ExistingClusterId
     {
-        get => new TerraformReference<string>(this, "existing_cluster_id");
+        get => GetArgument<TerraformValue<string>>("existing_cluster_id");
         set => SetArgument("existing_cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -329,7 +329,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureDatabricks(string name)
     /// </summary>
     public TerraformValue<string>? IntegrationRuntimeName
     {
-        get => new TerraformReference<string>(this, "integration_runtime_name");
+        get => GetArgument<TerraformValue<string>>("integration_runtime_name");
         set => SetArgument("integration_runtime_name", value);
     }
 
@@ -338,7 +338,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureDatabricks(string name)
     /// </summary>
     public TerraformValue<string>? MsiWorkSpaceResourceId
     {
-        get => new TerraformReference<string>(this, "msi_work_space_resource_id");
+        get => GetArgument<TerraformValue<string>>("msi_work_space_resource_id");
         set => SetArgument("msi_work_space_resource_id", value);
     }
 
@@ -348,7 +348,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureDatabricks(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -357,7 +357,7 @@ public partial class AzurermDataFactoryLinkedServiceAzureDatabricks(string name)
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 

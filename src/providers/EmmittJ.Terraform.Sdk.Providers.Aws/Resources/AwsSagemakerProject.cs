@@ -18,7 +18,7 @@ public class AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? PathId
     {
-        get => new TerraformReference<string>(this, "path_id");
+        get => GetArgument<TerraformValue<string>>("path_id");
         set => SetArgument("path_id", value);
     }
 
@@ -28,16 +28,16 @@ public class AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
     public required TerraformValue<string> ProductId
     {
-        get => new TerraformReference<string>(this, "product_id");
+        get => GetArgument<TerraformValue<string>>("product_id");
         set => SetArgument("product_id", value);
     }
 
     /// <summary>
     /// The provisioning_artifact_id attribute.
     /// </summary>
-    public TerraformValue<string> ProvisioningArtifactId
+    public TerraformValue<string>? ProvisioningArtifactId
     {
-        get => new TerraformReference<string>(this, "provisioning_artifact_id");
+        get => GetArgument<TerraformValue<string>>("provisioning_artifact_id");
         set => SetArgument("provisioning_artifact_id", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsSagemakerProjectServiceCatalogProvisioningDetailsBlockProvisioni
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsSagemakerProjectServiceCatalogProvisioningDetailsBlockProvisioni
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -94,9 +94,9 @@ public partial class AwsSagemakerProject(string name) : TerraformResource("aws_s
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AwsSagemakerProject(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<string>? ProjectDescription
     {
-        get => new TerraformReference<string>(this, "project_description");
+        get => GetArgument<TerraformValue<string>>("project_description");
         set => SetArgument("project_description", value);
     }
 
@@ -115,16 +115,16 @@ public partial class AwsSagemakerProject(string name) : TerraformResource("aws_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
     public required TerraformValue<string> ProjectName
     {
-        get => new TerraformReference<string>(this, "project_name");
+        get => GetArgument<TerraformValue<string>>("project_name");
         set => SetArgument("project_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -133,16 +133,16 @@ public partial class AwsSagemakerProject(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -150,17 +150,13 @@ public partial class AwsSagemakerProject(string name) : TerraformResource("aws_s
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The project_id attribute.
     /// </summary>
     public TerraformValue<string> ProjectId
-    {
-        get => new TerraformReference<string>(this, "project_id");
-    }
+        => AsReference("project_id");
 
     /// <summary>
     /// ServiceCatalogProvisioningDetails block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AzurermLbProbeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermLbProbeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermLbProbeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermLbProbeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermLbProbe(string name) : TerraformResource("azurerm_lb
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermLbProbe(string name) : TerraformResource("azurerm_lb
     /// </summary>
     public TerraformValue<double>? IntervalInSeconds
     {
-        get => new TerraformReference<double>(this, "interval_in_seconds");
+        get => GetArgument<TerraformValue<double>>("interval_in_seconds");
         set => SetArgument("interval_in_seconds", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermLbProbe(string name) : TerraformResource("azurerm_lb
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
     public required TerraformValue<string> LoadbalancerId
     {
-        get => new TerraformReference<string>(this, "loadbalancer_id");
+        get => GetArgument<TerraformValue<string>>("loadbalancer_id");
         set => SetArgument("loadbalancer_id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermLbProbe(string name) : TerraformResource("azurerm_lb
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermLbProbe(string name) : TerraformResource("azurerm_lb
     /// </summary>
     public TerraformValue<double>? NumberOfProbes
     {
-        get => new TerraformReference<double>(this, "number_of_probes");
+        get => GetArgument<TerraformValue<double>>("number_of_probes");
         set => SetArgument("number_of_probes", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermLbProbe(string name) : TerraformResource("azurerm_lb
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermLbProbe(string name) : TerraformResource("azurerm_lb
     /// </summary>
     public TerraformValue<double>? ProbeThreshold
     {
-        get => new TerraformReference<double>(this, "probe_threshold");
+        get => GetArgument<TerraformValue<double>>("probe_threshold");
         set => SetArgument("probe_threshold", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermLbProbe(string name) : TerraformResource("azurerm_lb
     /// </summary>
     public TerraformValue<string>? Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzurermLbProbe(string name) : TerraformResource("azurerm_lb
     /// </summary>
     public TerraformValue<string>? RequestPath
     {
-        get => new TerraformReference<string>(this, "request_path");
+        get => GetArgument<TerraformValue<string>>("request_path");
         set => SetArgument("request_path", value);
     }
 
@@ -146,9 +146,7 @@ public partial class AzurermLbProbe(string name) : TerraformResource("azurerm_lb
     /// The load_balancer_rules attribute.
     /// </summary>
     public TerraformSet<string> LoadBalancerRules
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "load_balancer_rules").ResolveNodes(ctx));
-    }
+        => AsReference("load_balancer_rules");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class AzurermApiManagementApiDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermApiManagementApiDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformValue<string> ApiManagementName
     {
-        get => new TerraformReference<string>(this, "api_management_name");
+        get => GetArgument<TerraformValue<string>>("api_management_name");
         set => SetArgument("api_management_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermApiManagementApiDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermApiManagementApiDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -76,7 +76,7 @@ public partial class AzurermApiManagementApiDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     public required TerraformValue<string> Revision
     {
-        get => new TerraformReference<string>(this, "revision");
+        get => GetArgument<TerraformValue<string>>("revision");
         set => SetArgument("revision", value);
     }
 
@@ -84,97 +84,73 @@ public partial class AzurermApiManagementApiDataSource(string name) : TerraformD
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The is_current attribute.
     /// </summary>
     public TerraformValue<bool> IsCurrent
-    {
-        get => new TerraformReference<bool>(this, "is_current");
-    }
+        => AsReference("is_current");
 
     /// <summary>
     /// The is_online attribute.
     /// </summary>
     public TerraformValue<bool> IsOnline
-    {
-        get => new TerraformReference<bool>(this, "is_online");
-    }
+        => AsReference("is_online");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     public TerraformValue<string> Path
-    {
-        get => new TerraformReference<string>(this, "path");
-    }
+        => AsReference("path");
 
     /// <summary>
     /// The protocols attribute.
     /// </summary>
     public TerraformList<string> Protocols
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "protocols").ResolveNodes(ctx));
-    }
+        => AsReference("protocols");
 
     /// <summary>
     /// The service_url attribute.
     /// </summary>
     public TerraformValue<string> ServiceUrl
-    {
-        get => new TerraformReference<string>(this, "service_url");
-    }
+        => AsReference("service_url");
 
     /// <summary>
     /// The soap_pass_through attribute.
     /// </summary>
     public TerraformValue<bool> SoapPassThrough
-    {
-        get => new TerraformReference<bool>(this, "soap_pass_through");
-    }
+        => AsReference("soap_pass_through");
 
     /// <summary>
     /// The subscription_key_parameter_names attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SubscriptionKeyParameterNames
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "subscription_key_parameter_names").ResolveNodes(ctx));
-    }
+        => AsReference("subscription_key_parameter_names");
 
     /// <summary>
     /// The subscription_required attribute.
     /// </summary>
     public TerraformValue<bool> SubscriptionRequired
-    {
-        get => new TerraformReference<bool>(this, "subscription_required");
-    }
+        => AsReference("subscription_required");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
     /// <summary>
     /// The version_set_id attribute.
     /// </summary>
     public TerraformValue<string> VersionSetId
-    {
-        get => new TerraformReference<string>(this, "version_set_id");
-    }
+        => AsReference("version_set_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

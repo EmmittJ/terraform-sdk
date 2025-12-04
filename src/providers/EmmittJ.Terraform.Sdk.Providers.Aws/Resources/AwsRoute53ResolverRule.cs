@@ -18,7 +18,7 @@ public class AwsRoute53ResolverRuleTargetIpBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ip
     {
-        get => new TerraformReference<string>(this, "ip");
+        get => GetArgument<TerraformValue<string>>("ip");
         set => SetArgument("ip", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsRoute53ResolverRuleTargetIpBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ipv6
     {
-        get => new TerraformReference<string>(this, "ipv6");
+        get => GetArgument<TerraformValue<string>>("ipv6");
         set => SetArgument("ipv6", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsRoute53ResolverRuleTargetIpBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsRoute53ResolverRuleTargetIpBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsRoute53ResolverRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsRoute53ResolverRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsRoute53ResolverRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -105,16 +105,16 @@ public partial class AwsRoute53ResolverRule(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -123,16 +123,16 @@ public partial class AwsRoute53ResolverRule(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AwsRoute53ResolverRule(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? ResolverEndpointId
     {
-        get => new TerraformReference<string>(this, "resolver_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("resolver_endpoint_id");
         set => SetArgument("resolver_endpoint_id", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AwsRoute53ResolverRule(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleType is required")]
     public required TerraformValue<string> RuleType
     {
-        get => new TerraformReference<string>(this, "rule_type");
+        get => GetArgument<TerraformValue<string>>("rule_type");
         set => SetArgument("rule_type", value);
     }
 
@@ -160,16 +160,16 @@ public partial class AwsRoute53ResolverRule(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -177,25 +177,19 @@ public partial class AwsRoute53ResolverRule(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// The share_status attribute.
     /// </summary>
     public TerraformValue<string> ShareStatus
-    {
-        get => new TerraformReference<string>(this, "share_status");
-    }
+        => AsReference("share_status");
 
     /// <summary>
     /// TargetIp block (nesting mode: set).

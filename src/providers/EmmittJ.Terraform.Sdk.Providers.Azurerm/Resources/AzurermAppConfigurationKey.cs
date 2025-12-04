@@ -18,7 +18,7 @@ public class AzurermAppConfigurationKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermAppConfigurationKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermAppConfigurationKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermAppConfigurationKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,34 +64,34 @@ public partial class AzurermAppConfigurationKey(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
     public required TerraformValue<string> ConfigurationStoreId
     {
-        get => new TerraformReference<string>(this, "configuration_store_id");
+        get => GetArgument<TerraformValue<string>>("configuration_store_id");
         set => SetArgument("configuration_store_id", value);
     }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformValue<string> ContentType
+    public TerraformValue<string>? ContentType
     {
-        get => new TerraformReference<string>(this, "content_type");
+        get => GetArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformValue<string> Etag
+    public TerraformValue<string>? Etag
     {
-        get => new TerraformReference<string>(this, "etag");
+        get => GetArgument<TerraformValue<string>>("etag");
         set => SetArgument("etag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermAppConfigurationKey(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermAppConfigurationKey(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Label
     {
-        get => new TerraformReference<string>(this, "label");
+        get => GetArgument<TerraformValue<string>>("label");
         set => SetArgument("label", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermAppConfigurationKey(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? Locked
     {
-        get => new TerraformReference<bool>(this, "locked");
+        get => GetArgument<TerraformValue<bool>>("locked");
         set => SetArgument("locked", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermAppConfigurationKey(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AzurermAppConfigurationKey(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AzurermAppConfigurationKey(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AzurermAppConfigurationKey(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? VaultKeyReference
     {
-        get => new TerraformReference<string>(this, "vault_key_reference");
+        get => GetArgument<TerraformValue<string>>("vault_key_reference");
         set => SetArgument("vault_key_reference", value);
     }
 

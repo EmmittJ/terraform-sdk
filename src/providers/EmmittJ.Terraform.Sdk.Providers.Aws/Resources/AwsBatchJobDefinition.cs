@@ -44,7 +44,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? DnsPolicy
     {
-        get => new TerraformReference<string>(this, "dns_policy");
+        get => GetArgument<TerraformValue<string>>("dns_policy");
         set => SetArgument("dns_policy", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlock : Terrafo
     /// </summary>
     public TerraformValue<bool>? HostNetwork
     {
-        get => new TerraformReference<bool>(this, "host_network");
+        get => GetArgument<TerraformValue<bool>>("host_network");
         set => SetArgument("host_network", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? ServiceAccountName
     {
-        get => new TerraformReference<string>(this, "service_account_name");
+        get => GetArgument<TerraformValue<string>>("service_account_name");
         set => SetArgument("service_account_name", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlock : Terrafo
     /// </summary>
     public TerraformValue<bool>? ShareProcessNamespace
     {
-        get => new TerraformReference<bool>(this, "share_process_namespace");
+        get => GetArgument<TerraformValue<bool>>("share_process_namespace");
         set => SetArgument("share_process_namespace", value);
     }
 
@@ -144,7 +144,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockContainers
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -153,7 +153,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockContainers
     /// </summary>
     public TerraformList<string>? Command
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "command").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("command");
         set => SetArgument("command", value);
     }
 
@@ -163,7 +163,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockContainers
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -172,7 +172,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockContainers
     /// </summary>
     public TerraformValue<string>? ImagePullPolicy
     {
-        get => new TerraformReference<string>(this, "image_pull_policy");
+        get => GetArgument<TerraformValue<string>>("image_pull_policy");
         set => SetArgument("image_pull_policy", value);
     }
 
@@ -181,7 +181,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockContainers
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -242,7 +242,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockContainers
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -252,7 +252,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockContainers
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -274,7 +274,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockContainers
     /// </summary>
     public TerraformMap<string>? Limits
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "limits").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("limits");
         set => SetArgument("limits", value);
     }
 
@@ -283,7 +283,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockContainers
     /// </summary>
     public TerraformMap<string>? Requests
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "requests").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("requests");
         set => SetArgument("requests", value);
     }
 
@@ -305,7 +305,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockContainers
     /// </summary>
     public TerraformValue<bool>? Privileged
     {
-        get => new TerraformReference<bool>(this, "privileged");
+        get => GetArgument<TerraformValue<bool>>("privileged");
         set => SetArgument("privileged", value);
     }
 
@@ -314,7 +314,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockContainers
     /// </summary>
     public TerraformValue<bool>? ReadOnlyRootFileSystem
     {
-        get => new TerraformReference<bool>(this, "read_only_root_file_system");
+        get => GetArgument<TerraformValue<bool>>("read_only_root_file_system");
         set => SetArgument("read_only_root_file_system", value);
     }
 
@@ -323,7 +323,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockContainers
     /// </summary>
     public TerraformValue<double>? RunAsGroup
     {
-        get => new TerraformReference<double>(this, "run_as_group");
+        get => GetArgument<TerraformValue<double>>("run_as_group");
         set => SetArgument("run_as_group", value);
     }
 
@@ -332,7 +332,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockContainers
     /// </summary>
     public TerraformValue<bool>? RunAsNonRoot
     {
-        get => new TerraformReference<bool>(this, "run_as_non_root");
+        get => GetArgument<TerraformValue<bool>>("run_as_non_root");
         set => SetArgument("run_as_non_root", value);
     }
 
@@ -341,7 +341,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockContainers
     /// </summary>
     public TerraformValue<double>? RunAsUser
     {
-        get => new TerraformReference<double>(this, "run_as_user");
+        get => GetArgument<TerraformValue<double>>("run_as_user");
         set => SetArgument("run_as_user", value);
     }
 
@@ -364,7 +364,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockContainers
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPath is required")]
     public required TerraformValue<string> MountPath
     {
-        get => new TerraformReference<string>(this, "mount_path");
+        get => GetArgument<TerraformValue<string>>("mount_path");
         set => SetArgument("mount_path", value);
     }
 
@@ -374,7 +374,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockContainers
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -383,7 +383,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockContainers
     /// </summary>
     public TerraformValue<bool>? ReadOnlyAttribute
     {
-        get => new TerraformReference<bool>(this, "read_only");
+        get => GetArgument<TerraformValue<bool>>("read_only");
         set => SetArgument("read_only", value);
     }
 
@@ -406,7 +406,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockImagePullS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -428,7 +428,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockInitContai
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -437,7 +437,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockInitContai
     /// </summary>
     public TerraformList<string>? Command
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "command").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("command");
         set => SetArgument("command", value);
     }
 
@@ -447,7 +447,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockInitContai
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -456,7 +456,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockInitContai
     /// </summary>
     public TerraformValue<string>? ImagePullPolicy
     {
-        get => new TerraformReference<string>(this, "image_pull_policy");
+        get => GetArgument<TerraformValue<string>>("image_pull_policy");
         set => SetArgument("image_pull_policy", value);
     }
 
@@ -465,7 +465,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockInitContai
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -526,7 +526,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockInitContai
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -536,7 +536,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockInitContai
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -558,7 +558,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockInitContai
     /// </summary>
     public TerraformMap<string>? Limits
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "limits").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("limits");
         set => SetArgument("limits", value);
     }
 
@@ -567,7 +567,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockInitContai
     /// </summary>
     public TerraformMap<string>? Requests
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "requests").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("requests");
         set => SetArgument("requests", value);
     }
 
@@ -589,7 +589,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockInitContai
     /// </summary>
     public TerraformValue<bool>? Privileged
     {
-        get => new TerraformReference<bool>(this, "privileged");
+        get => GetArgument<TerraformValue<bool>>("privileged");
         set => SetArgument("privileged", value);
     }
 
@@ -598,7 +598,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockInitContai
     /// </summary>
     public TerraformValue<bool>? ReadOnlyRootFileSystem
     {
-        get => new TerraformReference<bool>(this, "read_only_root_file_system");
+        get => GetArgument<TerraformValue<bool>>("read_only_root_file_system");
         set => SetArgument("read_only_root_file_system", value);
     }
 
@@ -607,7 +607,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockInitContai
     /// </summary>
     public TerraformValue<double>? RunAsGroup
     {
-        get => new TerraformReference<double>(this, "run_as_group");
+        get => GetArgument<TerraformValue<double>>("run_as_group");
         set => SetArgument("run_as_group", value);
     }
 
@@ -616,7 +616,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockInitContai
     /// </summary>
     public TerraformValue<bool>? RunAsNonRoot
     {
-        get => new TerraformReference<bool>(this, "run_as_non_root");
+        get => GetArgument<TerraformValue<bool>>("run_as_non_root");
         set => SetArgument("run_as_non_root", value);
     }
 
@@ -625,7 +625,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockInitContai
     /// </summary>
     public TerraformValue<double>? RunAsUser
     {
-        get => new TerraformReference<double>(this, "run_as_user");
+        get => GetArgument<TerraformValue<double>>("run_as_user");
         set => SetArgument("run_as_user", value);
     }
 
@@ -648,7 +648,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockInitContai
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPath is required")]
     public required TerraformValue<string> MountPath
     {
-        get => new TerraformReference<string>(this, "mount_path");
+        get => GetArgument<TerraformValue<string>>("mount_path");
         set => SetArgument("mount_path", value);
     }
 
@@ -658,7 +658,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockInitContai
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -667,7 +667,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockInitContai
     /// </summary>
     public TerraformValue<bool>? ReadOnlyAttribute
     {
-        get => new TerraformReference<bool>(this, "read_only");
+        get => GetArgument<TerraformValue<bool>>("read_only");
         set => SetArgument("read_only", value);
     }
 
@@ -689,7 +689,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockMetadataBl
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -711,7 +711,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockVolumesBlo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -763,7 +763,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockVolumesBlo
     /// </summary>
     public TerraformValue<string>? Medium
     {
-        get => new TerraformReference<string>(this, "medium");
+        get => GetArgument<TerraformValue<string>>("medium");
         set => SetArgument("medium", value);
     }
 
@@ -773,7 +773,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockVolumesBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeLimit is required")]
     public required TerraformValue<string> SizeLimit
     {
-        get => new TerraformReference<string>(this, "size_limit");
+        get => GetArgument<TerraformValue<string>>("size_limit");
         set => SetArgument("size_limit", value);
     }
 
@@ -796,7 +796,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockVolumesBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -818,7 +818,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockVolumesBlo
     /// </summary>
     public TerraformValue<bool>? Optional
     {
-        get => new TerraformReference<bool>(this, "optional");
+        get => GetArgument<TerraformValue<bool>>("optional");
         set => SetArgument("optional", value);
     }
 
@@ -828,7 +828,7 @@ public class AwsBatchJobDefinitionEksPropertiesBlockPodPropertiesBlockVolumesBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => new TerraformReference<string>(this, "secret_name");
+        get => GetArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -851,7 +851,7 @@ public class AwsBatchJobDefinitionRetryStrategyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Attempts
     {
-        get => new TerraformReference<double>(this, "attempts");
+        get => GetArgument<TerraformValue<double>>("attempts");
         set => SetArgument("attempts", value);
     }
 
@@ -884,7 +884,7 @@ public class AwsBatchJobDefinitionRetryStrategyBlockEvaluateOnExitBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -893,7 +893,7 @@ public class AwsBatchJobDefinitionRetryStrategyBlockEvaluateOnExitBlock : Terraf
     /// </summary>
     public TerraformValue<string>? OnExitCode
     {
-        get => new TerraformReference<string>(this, "on_exit_code");
+        get => GetArgument<TerraformValue<string>>("on_exit_code");
         set => SetArgument("on_exit_code", value);
     }
 
@@ -902,7 +902,7 @@ public class AwsBatchJobDefinitionRetryStrategyBlockEvaluateOnExitBlock : Terraf
     /// </summary>
     public TerraformValue<string>? OnReason
     {
-        get => new TerraformReference<string>(this, "on_reason");
+        get => GetArgument<TerraformValue<string>>("on_reason");
         set => SetArgument("on_reason", value);
     }
 
@@ -911,7 +911,7 @@ public class AwsBatchJobDefinitionRetryStrategyBlockEvaluateOnExitBlock : Terraf
     /// </summary>
     public TerraformValue<string>? OnStatusReason
     {
-        get => new TerraformReference<string>(this, "on_status_reason");
+        get => GetArgument<TerraformValue<string>>("on_status_reason");
         set => SetArgument("on_status_reason", value);
     }
 
@@ -934,7 +934,7 @@ public class AwsBatchJobDefinitionTimeoutBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? AttemptDurationSeconds
     {
-        get => new TerraformReference<double>(this, "attempt_duration_seconds");
+        get => GetArgument<TerraformValue<double>>("attempt_duration_seconds");
         set => SetArgument("attempt_duration_seconds", value);
     }
 
@@ -952,7 +952,7 @@ public partial class AwsBatchJobDefinition(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? ContainerProperties
     {
-        get => new TerraformReference<string>(this, "container_properties");
+        get => GetArgument<TerraformValue<string>>("container_properties");
         set => SetArgument("container_properties", value);
     }
 
@@ -961,7 +961,7 @@ public partial class AwsBatchJobDefinition(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<bool>? DeregisterOnNewRevision
     {
-        get => new TerraformReference<bool>(this, "deregister_on_new_revision");
+        get => GetArgument<TerraformValue<bool>>("deregister_on_new_revision");
         set => SetArgument("deregister_on_new_revision", value);
     }
 
@@ -970,16 +970,16 @@ public partial class AwsBatchJobDefinition(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? EcsProperties
     {
-        get => new TerraformReference<string>(this, "ecs_properties");
+        get => GetArgument<TerraformValue<string>>("ecs_properties");
         set => SetArgument("ecs_properties", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -989,7 +989,7 @@ public partial class AwsBatchJobDefinition(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -998,7 +998,7 @@ public partial class AwsBatchJobDefinition(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? NodeProperties
     {
-        get => new TerraformReference<string>(this, "node_properties");
+        get => GetArgument<TerraformValue<string>>("node_properties");
         set => SetArgument("node_properties", value);
     }
 
@@ -1007,7 +1007,7 @@ public partial class AwsBatchJobDefinition(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -1016,7 +1016,7 @@ public partial class AwsBatchJobDefinition(string name) : TerraformResource("aws
     /// </summary>
     public TerraformSet<string>? PlatformCapabilities
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "platform_capabilities").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("platform_capabilities");
         set => SetArgument("platform_capabilities", value);
     }
 
@@ -1025,16 +1025,16 @@ public partial class AwsBatchJobDefinition(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<bool>? PropagateTags
     {
-        get => new TerraformReference<bool>(this, "propagate_tags");
+        get => GetArgument<TerraformValue<bool>>("propagate_tags");
         set => SetArgument("propagate_tags", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -1043,7 +1043,7 @@ public partial class AwsBatchJobDefinition(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<double>? SchedulingPriority
     {
-        get => new TerraformReference<double>(this, "scheduling_priority");
+        get => GetArgument<TerraformValue<double>>("scheduling_priority");
         set => SetArgument("scheduling_priority", value);
     }
 
@@ -1052,16 +1052,16 @@ public partial class AwsBatchJobDefinition(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1071,7 +1071,7 @@ public partial class AwsBatchJobDefinition(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1079,25 +1079,19 @@ public partial class AwsBatchJobDefinition(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The arn_prefix attribute.
     /// </summary>
     public TerraformValue<string> ArnPrefix
-    {
-        get => new TerraformReference<string>(this, "arn_prefix");
-    }
+        => AsReference("arn_prefix");
 
     /// <summary>
     /// The revision attribute.
     /// </summary>
     public TerraformValue<double> Revision
-    {
-        get => new TerraformReference<double>(this, "revision");
-    }
+        => AsReference("revision");
 
     /// <summary>
     /// EksProperties block (nesting mode: list).

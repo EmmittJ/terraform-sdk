@@ -18,7 +18,7 @@ public class GoogleComputeGlobalNetworkEndpointGroupTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeGlobalNetworkEndpointGroupTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,7 +46,7 @@ public partial class GoogleComputeGlobalNetworkEndpointGroup(string name) : Terr
     /// </summary>
     public TerraformValue<double>? DefaultPort
     {
-        get => new TerraformReference<double>(this, "default_port");
+        get => GetArgument<TerraformValue<double>>("default_port");
         set => SetArgument("default_port", value);
     }
 
@@ -56,16 +56,16 @@ public partial class GoogleComputeGlobalNetworkEndpointGroup(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -81,7 +81,7 @@ public partial class GoogleComputeGlobalNetworkEndpointGroup(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -91,16 +91,16 @@ public partial class GoogleComputeGlobalNetworkEndpointGroup(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkEndpointType is required")]
     public required TerraformValue<string> NetworkEndpointType
     {
-        get => new TerraformReference<string>(this, "network_endpoint_type");
+        get => GetArgument<TerraformValue<string>>("network_endpoint_type");
         set => SetArgument("network_endpoint_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -108,9 +108,7 @@ public partial class GoogleComputeGlobalNetworkEndpointGroup(string name) : Terr
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

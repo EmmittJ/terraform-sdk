@@ -18,7 +18,7 @@ public class AzurermDigitalTwinsTimeSeriesDatabaseConnectionTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermDigitalTwinsTimeSeriesDatabaseConnectionTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermDigitalTwinsTimeSeriesDatabaseConnectionTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermDigitalTwinsTimeSeriesDatabaseConnection(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DigitalTwinsId is required")]
     public required TerraformValue<string> DigitalTwinsId
     {
-        get => new TerraformReference<string>(this, "digital_twins_id");
+        get => GetArgument<TerraformValue<string>>("digital_twins_id");
         set => SetArgument("digital_twins_id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermDigitalTwinsTimeSeriesDatabaseConnection(string name
     /// </summary>
     public TerraformValue<string>? EventhubConsumerGroupName
     {
-        get => new TerraformReference<string>(this, "eventhub_consumer_group_name");
+        get => GetArgument<TerraformValue<string>>("eventhub_consumer_group_name");
         set => SetArgument("eventhub_consumer_group_name", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermDigitalTwinsTimeSeriesDatabaseConnection(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
     public required TerraformValue<string> EventhubName
     {
-        get => new TerraformReference<string>(this, "eventhub_name");
+        get => GetArgument<TerraformValue<string>>("eventhub_name");
         set => SetArgument("eventhub_name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermDigitalTwinsTimeSeriesDatabaseConnection(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceEndpointUri is required")]
     public required TerraformValue<string> EventhubNamespaceEndpointUri
     {
-        get => new TerraformReference<string>(this, "eventhub_namespace_endpoint_uri");
+        get => GetArgument<TerraformValue<string>>("eventhub_namespace_endpoint_uri");
         set => SetArgument("eventhub_namespace_endpoint_uri", value);
     }
 
@@ -94,16 +94,16 @@ public partial class AzurermDigitalTwinsTimeSeriesDatabaseConnection(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceId is required")]
     public required TerraformValue<string> EventhubNamespaceId
     {
-        get => new TerraformReference<string>(this, "eventhub_namespace_id");
+        get => GetArgument<TerraformValue<string>>("eventhub_namespace_id");
         set => SetArgument("eventhub_namespace_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermDigitalTwinsTimeSeriesDatabaseConnection(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoClusterId is required")]
     public required TerraformValue<string> KustoClusterId
     {
-        get => new TerraformReference<string>(this, "kusto_cluster_id");
+        get => GetArgument<TerraformValue<string>>("kusto_cluster_id");
         set => SetArgument("kusto_cluster_id", value);
     }
 
@@ -123,7 +123,7 @@ public partial class AzurermDigitalTwinsTimeSeriesDatabaseConnection(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoClusterUri is required")]
     public required TerraformValue<string> KustoClusterUri
     {
-        get => new TerraformReference<string>(this, "kusto_cluster_uri");
+        get => GetArgument<TerraformValue<string>>("kusto_cluster_uri");
         set => SetArgument("kusto_cluster_uri", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AzurermDigitalTwinsTimeSeriesDatabaseConnection(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoDatabaseName is required")]
     public required TerraformValue<string> KustoDatabaseName
     {
-        get => new TerraformReference<string>(this, "kusto_database_name");
+        get => GetArgument<TerraformValue<string>>("kusto_database_name");
         set => SetArgument("kusto_database_name", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AzurermDigitalTwinsTimeSeriesDatabaseConnection(string name
     /// </summary>
     public TerraformValue<string>? KustoTableName
     {
-        get => new TerraformReference<string>(this, "kusto_table_name");
+        get => GetArgument<TerraformValue<string>>("kusto_table_name");
         set => SetArgument("kusto_table_name", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AzurermDigitalTwinsTimeSeriesDatabaseConnection(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

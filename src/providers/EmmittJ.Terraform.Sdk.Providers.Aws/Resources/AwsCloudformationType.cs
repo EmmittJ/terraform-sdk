@@ -19,7 +19,7 @@ public class AwsCloudformationTypeLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformValue<string> LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsCloudformationTypeLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogRoleArn is required")]
     public required TerraformValue<string> LogRoleArn
     {
-        get => new TerraformReference<string>(this, "log_role_arn");
+        get => GetArgument<TerraformValue<string>>("log_role_arn");
         set => SetArgument("log_role_arn", value);
     }
 
@@ -47,25 +47,25 @@ public partial class AwsCloudformationType(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? ExecutionRoleArn
     {
-        get => new TerraformReference<string>(this, "execution_role_arn");
+        get => GetArgument<TerraformValue<string>>("execution_role_arn");
         set => SetArgument("execution_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -75,16 +75,16 @@ public partial class AwsCloudformationType(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaHandlerPackage is required")]
     public required TerraformValue<string> SchemaHandlerPackage
     {
-        get => new TerraformReference<string>(this, "schema_handler_package");
+        get => GetArgument<TerraformValue<string>>("schema_handler_package");
         set => SetArgument("schema_handler_package", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string> Type
+    public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AwsCloudformationType(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeName is required")]
     public required TerraformValue<string> TypeName
     {
-        get => new TerraformReference<string>(this, "type_name");
+        get => GetArgument<TerraformValue<string>>("type_name");
         set => SetArgument("type_name", value);
     }
 
@@ -102,97 +102,73 @@ public partial class AwsCloudformationType(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The default_version_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultVersionId
-    {
-        get => new TerraformReference<string>(this, "default_version_id");
-    }
+        => AsReference("default_version_id");
 
     /// <summary>
     /// The deprecated_status attribute.
     /// </summary>
     public TerraformValue<string> DeprecatedStatus
-    {
-        get => new TerraformReference<string>(this, "deprecated_status");
-    }
+        => AsReference("deprecated_status");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The documentation_url attribute.
     /// </summary>
     public TerraformValue<string> DocumentationUrl
-    {
-        get => new TerraformReference<string>(this, "documentation_url");
-    }
+        => AsReference("documentation_url");
 
     /// <summary>
     /// The is_default_version attribute.
     /// </summary>
     public TerraformValue<bool> IsDefaultVersion
-    {
-        get => new TerraformReference<bool>(this, "is_default_version");
-    }
+        => AsReference("is_default_version");
 
     /// <summary>
     /// The provisioning_type attribute.
     /// </summary>
     public TerraformValue<string> ProvisioningType
-    {
-        get => new TerraformReference<string>(this, "provisioning_type");
-    }
+        => AsReference("provisioning_type");
 
     /// <summary>
     /// The schema attribute.
     /// </summary>
     public TerraformValue<string> Schema
-    {
-        get => new TerraformReference<string>(this, "schema");
-    }
+        => AsReference("schema");
 
     /// <summary>
     /// The source_url attribute.
     /// </summary>
     public TerraformValue<string> SourceUrl
-    {
-        get => new TerraformReference<string>(this, "source_url");
-    }
+        => AsReference("source_url");
 
     /// <summary>
     /// The type_arn attribute.
     /// </summary>
     public TerraformValue<string> TypeArn
-    {
-        get => new TerraformReference<string>(this, "type_arn");
-    }
+        => AsReference("type_arn");
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
     public TerraformValue<string> VersionId
-    {
-        get => new TerraformReference<string>(this, "version_id");
-    }
+        => AsReference("version_id");
 
     /// <summary>
     /// The visibility attribute.
     /// </summary>
     public TerraformValue<string> Visibility
-    {
-        get => new TerraformReference<string>(this, "visibility");
-    }
+        => AsReference("visibility");
 
     /// <summary>
     /// LoggingConfig block (nesting mode: list).

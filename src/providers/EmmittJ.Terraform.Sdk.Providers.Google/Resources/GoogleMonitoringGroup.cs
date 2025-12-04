@@ -18,7 +18,7 @@ public class GoogleMonitoringGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleMonitoringGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleMonitoringGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -56,7 +56,7 @@ public partial class GoogleMonitoringGroup(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -67,16 +67,16 @@ public partial class GoogleMonitoringGroup(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -87,7 +87,7 @@ public partial class GoogleMonitoringGroup(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<bool>? IsCluster
     {
-        get => new TerraformReference<bool>(this, "is_cluster");
+        get => GetArgument<TerraformValue<bool>>("is_cluster");
         set => SetArgument("is_cluster", value);
     }
 
@@ -98,16 +98,16 @@ public partial class GoogleMonitoringGroup(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string>? ParentName
     {
-        get => new TerraformReference<string>(this, "parent_name");
+        get => GetArgument<TerraformValue<string>>("parent_name");
         set => SetArgument("parent_name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -116,9 +116,7 @@ public partial class GoogleMonitoringGroup(string name) : TerraformResource("goo
     /// &amp;quot;projects/{project_id_or_number}/groups/{group_id}&amp;quot;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

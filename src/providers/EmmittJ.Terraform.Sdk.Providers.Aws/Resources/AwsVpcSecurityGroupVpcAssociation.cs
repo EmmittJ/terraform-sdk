@@ -18,7 +18,7 @@ public class AwsVpcSecurityGroupVpcAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsVpcSecurityGroupVpcAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -43,9 +43,9 @@ public partial class AwsVpcSecurityGroupVpcAssociation(string name) : TerraformR
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsVpcSecurityGroupVpcAssociation(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupId is required")]
     public required TerraformValue<string> SecurityGroupId
     {
-        get => new TerraformReference<string>(this, "security_group_id");
+        get => GetArgument<TerraformValue<string>>("security_group_id");
         set => SetArgument("security_group_id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsVpcSecurityGroupVpcAssociation(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -73,9 +73,7 @@ public partial class AwsVpcSecurityGroupVpcAssociation(string name) : TerraformR
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

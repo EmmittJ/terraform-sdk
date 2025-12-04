@@ -132,7 +132,7 @@ public class AwsCeTagsDataSourceFilterBlockAndBlockCostCategoryBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -141,7 +141,7 @@ public class AwsCeTagsDataSourceFilterBlockAndBlockCostCategoryBlock : Terraform
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -150,7 +150,7 @@ public class AwsCeTagsDataSourceFilterBlockAndBlockCostCategoryBlock : Terraform
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -172,7 +172,7 @@ public class AwsCeTagsDataSourceFilterBlockAndBlockDimensionBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -181,7 +181,7 @@ public class AwsCeTagsDataSourceFilterBlockAndBlockDimensionBlock : TerraformBlo
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -190,7 +190,7 @@ public class AwsCeTagsDataSourceFilterBlockAndBlockDimensionBlock : TerraformBlo
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -212,7 +212,7 @@ public class AwsCeTagsDataSourceFilterBlockAndBlockTagsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -221,7 +221,7 @@ public class AwsCeTagsDataSourceFilterBlockAndBlockTagsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -230,7 +230,7 @@ public class AwsCeTagsDataSourceFilterBlockAndBlockTagsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -252,7 +252,7 @@ public class AwsCeTagsDataSourceFilterBlockCostCategoryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -261,7 +261,7 @@ public class AwsCeTagsDataSourceFilterBlockCostCategoryBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -270,7 +270,7 @@ public class AwsCeTagsDataSourceFilterBlockCostCategoryBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -292,7 +292,7 @@ public class AwsCeTagsDataSourceFilterBlockDimensionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -301,7 +301,7 @@ public class AwsCeTagsDataSourceFilterBlockDimensionBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -310,7 +310,7 @@ public class AwsCeTagsDataSourceFilterBlockDimensionBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -375,7 +375,7 @@ public class AwsCeTagsDataSourceFilterBlockNotBlockCostCategoryBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -384,7 +384,7 @@ public class AwsCeTagsDataSourceFilterBlockNotBlockCostCategoryBlock : Terraform
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -393,7 +393,7 @@ public class AwsCeTagsDataSourceFilterBlockNotBlockCostCategoryBlock : Terraform
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -415,7 +415,7 @@ public class AwsCeTagsDataSourceFilterBlockNotBlockDimensionBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -424,7 +424,7 @@ public class AwsCeTagsDataSourceFilterBlockNotBlockDimensionBlock : TerraformBlo
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -433,7 +433,7 @@ public class AwsCeTagsDataSourceFilterBlockNotBlockDimensionBlock : TerraformBlo
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -455,7 +455,7 @@ public class AwsCeTagsDataSourceFilterBlockNotBlockTagsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -464,7 +464,7 @@ public class AwsCeTagsDataSourceFilterBlockNotBlockTagsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -473,7 +473,7 @@ public class AwsCeTagsDataSourceFilterBlockNotBlockTagsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -538,7 +538,7 @@ public class AwsCeTagsDataSourceFilterBlockOrBlockCostCategoryBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -547,7 +547,7 @@ public class AwsCeTagsDataSourceFilterBlockOrBlockCostCategoryBlock : TerraformB
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -556,7 +556,7 @@ public class AwsCeTagsDataSourceFilterBlockOrBlockCostCategoryBlock : TerraformB
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -578,7 +578,7 @@ public class AwsCeTagsDataSourceFilterBlockOrBlockDimensionBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -587,7 +587,7 @@ public class AwsCeTagsDataSourceFilterBlockOrBlockDimensionBlock : TerraformBloc
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -596,7 +596,7 @@ public class AwsCeTagsDataSourceFilterBlockOrBlockDimensionBlock : TerraformBloc
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -618,7 +618,7 @@ public class AwsCeTagsDataSourceFilterBlockOrBlockTagsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -627,7 +627,7 @@ public class AwsCeTagsDataSourceFilterBlockOrBlockTagsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -636,7 +636,7 @@ public class AwsCeTagsDataSourceFilterBlockOrBlockTagsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -658,7 +658,7 @@ public class AwsCeTagsDataSourceFilterBlockTagsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -667,7 +667,7 @@ public class AwsCeTagsDataSourceFilterBlockTagsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? MatchOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_options");
         set => SetArgument("match_options", value);
     }
 
@@ -676,7 +676,7 @@ public class AwsCeTagsDataSourceFilterBlockTagsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -699,7 +699,7 @@ public class AwsCeTagsDataSourceSortByBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -708,7 +708,7 @@ public class AwsCeTagsDataSourceSortByBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SortOrder
     {
-        get => new TerraformReference<string>(this, "sort_order");
+        get => GetArgument<TerraformValue<string>>("sort_order");
         set => SetArgument("sort_order", value);
     }
 
@@ -732,7 +732,7 @@ public class AwsCeTagsDataSourceTimePeriodBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
     public required TerraformValue<string> End
     {
-        get => new TerraformReference<string>(this, "end");
+        get => GetArgument<TerraformValue<string>>("end");
         set => SetArgument("end", value);
     }
 
@@ -742,7 +742,7 @@ public class AwsCeTagsDataSourceTimePeriodBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformValue<string> Start
     {
-        get => new TerraformReference<string>(this, "start");
+        get => GetArgument<TerraformValue<string>>("start");
         set => SetArgument("start", value);
     }
 
@@ -758,9 +758,9 @@ public partial class AwsCeTagsDataSource(string name) : TerraformDataSource("aws
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -769,7 +769,7 @@ public partial class AwsCeTagsDataSource(string name) : TerraformDataSource("aws
     /// </summary>
     public TerraformValue<string>? SearchString
     {
-        get => new TerraformReference<string>(this, "search_string");
+        get => GetArgument<TerraformValue<string>>("search_string");
         set => SetArgument("search_string", value);
     }
 
@@ -778,7 +778,7 @@ public partial class AwsCeTagsDataSource(string name) : TerraformDataSource("aws
     /// </summary>
     public TerraformValue<string>? TagKey
     {
-        get => new TerraformReference<string>(this, "tag_key");
+        get => GetArgument<TerraformValue<string>>("tag_key");
         set => SetArgument("tag_key", value);
     }
 
@@ -786,9 +786,7 @@ public partial class AwsCeTagsDataSource(string name) : TerraformDataSource("aws
     /// The tags attribute.
     /// </summary>
     public TerraformSet<string> Tags
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// Filter block (nesting mode: list).

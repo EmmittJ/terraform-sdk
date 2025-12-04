@@ -18,7 +18,7 @@ public class AzurermCdnFrontdoorRuleSetDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermCdnFrontdoorRuleSetDataSource(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermCdnFrontdoorRuleSetDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermCdnFrontdoorRuleSetDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileName is required")]
     public required TerraformValue<string> ProfileName
     {
-        get => new TerraformReference<string>(this, "profile_name");
+        get => GetArgument<TerraformValue<string>>("profile_name");
         set => SetArgument("profile_name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermCdnFrontdoorRuleSetDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -74,9 +74,7 @@ public partial class AzurermCdnFrontdoorRuleSetDataSource(string name) : Terrafo
     /// The cdn_frontdoor_profile_id attribute.
     /// </summary>
     public TerraformValue<string> CdnFrontdoorProfileId
-    {
-        get => new TerraformReference<string>(this, "cdn_frontdoor_profile_id");
-    }
+        => AsReference("cdn_frontdoor_profile_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

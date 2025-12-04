@@ -18,7 +18,7 @@ public class AzurermServicePlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermServicePlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermServicePlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermServicePlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string>? AppServiceEnvironmentId
     {
-        get => new TerraformReference<string>(this, "app_service_environment_id");
+        get => GetArgument<TerraformValue<string>>("app_service_environment_id");
         set => SetArgument("app_service_environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -82,16 +82,16 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The maximum_elastic_worker_count attribute.
     /// </summary>
-    public TerraformValue<double> MaximumElasticWorkerCount
+    public TerraformValue<double>? MaximumElasticWorkerCount
     {
-        get => new TerraformReference<double>(this, "maximum_elastic_worker_count");
+        get => GetArgument<TerraformValue<double>>("maximum_elastic_worker_count");
         set => SetArgument("maximum_elastic_worker_count", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
     public required TerraformValue<string> OsType
     {
-        get => new TerraformReference<string>(this, "os_type");
+        get => GetArgument<TerraformValue<string>>("os_type");
         set => SetArgument("os_type", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<bool>? PerSiteScalingEnabled
     {
-        get => new TerraformReference<bool>(this, "per_site_scaling_enabled");
+        get => GetArgument<TerraformValue<bool>>("per_site_scaling_enabled");
         set => SetArgument("per_site_scaling_enabled", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<bool>? PremiumPlanAutoScaleEnabled
     {
-        get => new TerraformReference<bool>(this, "premium_plan_auto_scale_enabled");
+        get => GetArgument<TerraformValue<bool>>("premium_plan_auto_scale_enabled");
         set => SetArgument("premium_plan_auto_scale_enabled", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -149,7 +149,7 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => new TerraformReference<string>(this, "sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -158,16 +158,16 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The worker_count attribute.
     /// </summary>
-    public TerraformValue<double> WorkerCount
+    public TerraformValue<double>? WorkerCount
     {
-        get => new TerraformReference<double>(this, "worker_count");
+        get => GetArgument<TerraformValue<double>>("worker_count");
         set => SetArgument("worker_count", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<bool>? ZoneBalancingEnabled
     {
-        get => new TerraformReference<bool>(this, "zone_balancing_enabled");
+        get => GetArgument<TerraformValue<bool>>("zone_balancing_enabled");
         set => SetArgument("zone_balancing_enabled", value);
     }
 
@@ -184,17 +184,13 @@ public partial class AzurermServicePlan(string name) : TerraformResource("azurer
     /// The kind attribute.
     /// </summary>
     public TerraformValue<string> Kind
-    {
-        get => new TerraformReference<string>(this, "kind");
-    }
+        => AsReference("kind");
 
     /// <summary>
     /// The reserved attribute.
     /// </summary>
     public TerraformValue<bool> Reserved
-    {
-        get => new TerraformReference<bool>(this, "reserved");
-    }
+        => AsReference("reserved");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -11,9 +11,9 @@ public partial class GoogleIamRoleDataSource(string name) : TerraformDataSource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleIamRoleDataSource(string name) : TerraformDataSource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -31,24 +31,18 @@ public partial class GoogleIamRoleDataSource(string name) : TerraformDataSource(
     /// The included_permissions attribute.
     /// </summary>
     public TerraformList<string> IncludedPermissions
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_permissions").ResolveNodes(ctx));
-    }
+        => AsReference("included_permissions");
 
     /// <summary>
     /// The stage attribute.
     /// </summary>
     public TerraformValue<string> Stage
-    {
-        get => new TerraformReference<string>(this, "stage");
-    }
+        => AsReference("stage");
 
     /// <summary>
     /// The title attribute.
     /// </summary>
     public TerraformValue<string> Title
-    {
-        get => new TerraformReference<string>(this, "title");
-    }
+        => AsReference("title");
 
 }

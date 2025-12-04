@@ -18,7 +18,7 @@ public class AzureadAccessPackageResourcePackageAssociationTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadAccessPackageResourcePackageAssociationTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadAccessPackageResourcePackageAssociationTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzureadAccessPackageResourcePackageAssociation(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPackageId is required")]
     public required TerraformValue<string> AccessPackageId
     {
-        get => new TerraformReference<string>(this, "access_package_id");
+        get => GetArgument<TerraformValue<string>>("access_package_id");
         set => SetArgument("access_package_id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzureadAccessPackageResourcePackageAssociation(string name)
     /// </summary>
     public TerraformValue<string>? AccessType
     {
-        get => new TerraformReference<string>(this, "access_type");
+        get => GetArgument<TerraformValue<string>>("access_type");
         set => SetArgument("access_type", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzureadAccessPackageResourcePackageAssociation(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogResourceAssociationId is required")]
     public required TerraformValue<string> CatalogResourceAssociationId
     {
-        get => new TerraformReference<string>(this, "catalog_resource_association_id");
+        get => GetArgument<TerraformValue<string>>("catalog_resource_association_id");
         set => SetArgument("catalog_resource_association_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 

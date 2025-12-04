@@ -19,7 +19,7 @@ public class AwsWafByteMatchSetByteMatchTuplesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PositionalConstraint is required")]
     public required TerraformValue<string> PositionalConstraint
     {
-        get => new TerraformReference<string>(this, "positional_constraint");
+        get => GetArgument<TerraformValue<string>>("positional_constraint");
         set => SetArgument("positional_constraint", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsWafByteMatchSetByteMatchTuplesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TargetString
     {
-        get => new TerraformReference<string>(this, "target_string");
+        get => GetArgument<TerraformValue<string>>("target_string");
         set => SetArgument("target_string", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsWafByteMatchSetByteMatchTuplesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
     public required TerraformValue<string> TextTransformation
     {
-        get => new TerraformReference<string>(this, "text_transformation");
+        get => GetArgument<TerraformValue<string>>("text_transformation");
         set => SetArgument("text_transformation", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsWafByteMatchSetByteMatchTuplesBlockFieldToMatchBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Data
     {
-        get => new TerraformReference<string>(this, "data");
+        get => GetArgument<TerraformValue<string>>("data");
         set => SetArgument("data", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsWafByteMatchSetByteMatchTuplesBlockFieldToMatchBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -99,9 +99,9 @@ public partial class AwsWafByteMatchSet(string name) : TerraformResource("aws_wa
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AwsWafByteMatchSet(string name) : TerraformResource("aws_wa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -119,9 +119,7 @@ public partial class AwsWafByteMatchSet(string name) : TerraformResource("aws_wa
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// ByteMatchTuples block (nesting mode: set).

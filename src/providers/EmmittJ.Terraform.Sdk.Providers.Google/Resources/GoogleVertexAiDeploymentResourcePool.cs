@@ -18,7 +18,7 @@ public class GoogleVertexAiDeploymentResourcePoolDedicatedResourcesBlock : Terra
     /// </summary>
     public TerraformValue<double>? MaxReplicaCount
     {
-        get => new TerraformReference<double>(this, "max_replica_count");
+        get => GetArgument<TerraformValue<double>>("max_replica_count");
         set => SetArgument("max_replica_count", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleVertexAiDeploymentResourcePoolDedicatedResourcesBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReplicaCount is required")]
     public required TerraformValue<double> MinReplicaCount
     {
-        get => new TerraformReference<double>(this, "min_replica_count");
+        get => GetArgument<TerraformValue<double>>("min_replica_count");
         set => SetArgument("min_replica_count", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleVertexAiDeploymentResourcePoolDedicatedResourcesBlockAutoscal
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformValue<string> MetricName
     {
-        get => new TerraformReference<string>(this, "metric_name");
+        get => GetArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -82,7 +82,7 @@ public class GoogleVertexAiDeploymentResourcePoolDedicatedResourcesBlockAutoscal
     /// </summary>
     public TerraformValue<double>? Target
     {
-        get => new TerraformReference<double>(this, "target");
+        get => GetArgument<TerraformValue<double>>("target");
         set => SetArgument("target", value);
     }
 
@@ -104,7 +104,7 @@ public class GoogleVertexAiDeploymentResourcePoolDedicatedResourcesBlockMachineS
     /// </summary>
     public TerraformValue<double>? AcceleratorCount
     {
-        get => new TerraformReference<double>(this, "accelerator_count");
+        get => GetArgument<TerraformValue<double>>("accelerator_count");
         set => SetArgument("accelerator_count", value);
     }
 
@@ -113,7 +113,7 @@ public class GoogleVertexAiDeploymentResourcePoolDedicatedResourcesBlockMachineS
     /// </summary>
     public TerraformValue<string>? AcceleratorType
     {
-        get => new TerraformReference<string>(this, "accelerator_type");
+        get => GetArgument<TerraformValue<string>>("accelerator_type");
         set => SetArgument("accelerator_type", value);
     }
 
@@ -122,7 +122,7 @@ public class GoogleVertexAiDeploymentResourcePoolDedicatedResourcesBlockMachineS
     /// </summary>
     public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -145,7 +145,7 @@ public class GoogleVertexAiDeploymentResourcePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -154,7 +154,7 @@ public class GoogleVertexAiDeploymentResourcePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -170,9 +170,9 @@ public partial class GoogleVertexAiDeploymentResourcePool(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -182,16 +182,16 @@ public partial class GoogleVertexAiDeploymentResourcePool(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -200,7 +200,7 @@ public partial class GoogleVertexAiDeploymentResourcePool(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -208,9 +208,7 @@ public partial class GoogleVertexAiDeploymentResourcePool(string name) : Terrafo
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// DedicatedResources block (nesting mode: list).

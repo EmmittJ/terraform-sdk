@@ -19,7 +19,7 @@ public class AwsEc2HostDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsEc2HostDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsEc2HostDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -68,36 +68,36 @@ public partial class AwsEc2HostDataSource(string name) : TerraformDataSource("aw
     /// <summary>
     /// The host_id attribute.
     /// </summary>
-    public TerraformValue<string> HostId
+    public TerraformValue<string>? HostId
     {
-        get => new TerraformReference<string>(this, "host_id");
+        get => GetArgument<TerraformValue<string>>("host_id");
         set => SetArgument("host_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -105,97 +105,73 @@ public partial class AwsEc2HostDataSource(string name) : TerraformDataSource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The asset_id attribute.
     /// </summary>
     public TerraformValue<string> AssetId
-    {
-        get => new TerraformReference<string>(this, "asset_id");
-    }
+        => AsReference("asset_id");
 
     /// <summary>
     /// The auto_placement attribute.
     /// </summary>
     public TerraformValue<string> AutoPlacement
-    {
-        get => new TerraformReference<string>(this, "auto_placement");
-    }
+        => AsReference("auto_placement");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZone
-    {
-        get => new TerraformReference<string>(this, "availability_zone");
-    }
+        => AsReference("availability_zone");
 
     /// <summary>
     /// The cores attribute.
     /// </summary>
     public TerraformValue<double> Cores
-    {
-        get => new TerraformReference<double>(this, "cores");
-    }
+        => AsReference("cores");
 
     /// <summary>
     /// The host_recovery attribute.
     /// </summary>
     public TerraformValue<string> HostRecovery
-    {
-        get => new TerraformReference<string>(this, "host_recovery");
-    }
+        => AsReference("host_recovery");
 
     /// <summary>
     /// The instance_family attribute.
     /// </summary>
     public TerraformValue<string> InstanceFamily
-    {
-        get => new TerraformReference<string>(this, "instance_family");
-    }
+        => AsReference("instance_family");
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     public TerraformValue<string> InstanceType
-    {
-        get => new TerraformReference<string>(this, "instance_type");
-    }
+        => AsReference("instance_type");
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
     public TerraformValue<string> OutpostArn
-    {
-        get => new TerraformReference<string>(this, "outpost_arn");
-    }
+        => AsReference("outpost_arn");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// The sockets attribute.
     /// </summary>
     public TerraformValue<double> Sockets
-    {
-        get => new TerraformReference<double>(this, "sockets");
-    }
+        => AsReference("sockets");
 
     /// <summary>
     /// The total_vcpus attribute.
     /// </summary>
     public TerraformValue<double> TotalVcpus
-    {
-        get => new TerraformReference<double>(this, "total_vcpus");
-    }
+        => AsReference("total_vcpus");
 
     /// <summary>
     /// Filter block (nesting mode: set).

@@ -18,7 +18,7 @@ public class AwsDirectoryServiceSharedDirectoryAccepterTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsDirectoryServiceSharedDirectoryAccepterTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -43,18 +43,18 @@ public partial class AwsDirectoryServiceSharedDirectoryAccepter(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsDirectoryServiceSharedDirectoryAccepter(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedDirectoryId is required")]
     public required TerraformValue<string> SharedDirectoryId
     {
-        get => new TerraformReference<string>(this, "shared_directory_id");
+        get => GetArgument<TerraformValue<string>>("shared_directory_id");
         set => SetArgument("shared_directory_id", value);
     }
 
@@ -72,33 +72,25 @@ public partial class AwsDirectoryServiceSharedDirectoryAccepter(string name) : T
     /// The method attribute.
     /// </summary>
     public TerraformValue<string> Method
-    {
-        get => new TerraformReference<string>(this, "method");
-    }
+        => AsReference("method");
 
     /// <summary>
     /// The notes attribute.
     /// </summary>
     public TerraformValue<string> Notes
-    {
-        get => new TerraformReference<string>(this, "notes");
-    }
+        => AsReference("notes");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-    {
-        get => new TerraformReference<string>(this, "owner_account_id");
-    }
+        => AsReference("owner_account_id");
 
     /// <summary>
     /// The owner_directory_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerDirectoryId
-    {
-        get => new TerraformReference<string>(this, "owner_directory_id");
-    }
+        => AsReference("owner_directory_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

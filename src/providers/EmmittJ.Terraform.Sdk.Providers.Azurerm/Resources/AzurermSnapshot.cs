@@ -55,7 +55,7 @@ public class AzurermSnapshotEncryptionSettingsBlockDiskEncryptionKeyBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretUrl is required")]
     public required TerraformValue<string> SecretUrl
     {
-        get => new TerraformReference<string>(this, "secret_url");
+        get => GetArgument<TerraformValue<string>>("secret_url");
         set => SetArgument("secret_url", value);
     }
 
@@ -65,7 +65,7 @@ public class AzurermSnapshotEncryptionSettingsBlockDiskEncryptionKeyBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVaultId is required")]
     public required TerraformValue<string> SourceVaultId
     {
-        get => new TerraformReference<string>(this, "source_vault_id");
+        get => GetArgument<TerraformValue<string>>("source_vault_id");
         set => SetArgument("source_vault_id", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermSnapshotEncryptionSettingsBlockKeyEncryptionKeyBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyUrl is required")]
     public required TerraformValue<string> KeyUrl
     {
-        get => new TerraformReference<string>(this, "key_url");
+        get => GetArgument<TerraformValue<string>>("key_url");
         set => SetArgument("key_url", value);
     }
 
@@ -98,7 +98,7 @@ public class AzurermSnapshotEncryptionSettingsBlockKeyEncryptionKeyBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVaultId is required")]
     public required TerraformValue<string> SourceVaultId
     {
-        get => new TerraformReference<string>(this, "source_vault_id");
+        get => GetArgument<TerraformValue<string>>("source_vault_id");
         set => SetArgument("source_vault_id", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermSnapshotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -130,7 +130,7 @@ public class AzurermSnapshotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -139,7 +139,7 @@ public class AzurermSnapshotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -148,7 +148,7 @@ public class AzurermSnapshotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateOption is required")]
     public required TerraformValue<string> CreateOption
     {
-        get => new TerraformReference<string>(this, "create_option");
+        get => GetArgument<TerraformValue<string>>("create_option");
         set => SetArgument("create_option", value);
     }
 
@@ -176,25 +176,25 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     /// </summary>
     public TerraformValue<string>? DiskAccessId
     {
-        get => new TerraformReference<string>(this, "disk_access_id");
+        get => GetArgument<TerraformValue<string>>("disk_access_id");
         set => SetArgument("disk_access_id", value);
     }
 
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
-    public TerraformValue<double> DiskSizeGb
+    public TerraformValue<double>? DiskSizeGb
     {
-        get => new TerraformReference<double>(this, "disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -203,7 +203,7 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     /// </summary>
     public TerraformValue<bool>? IncrementalEnabled
     {
-        get => new TerraformReference<bool>(this, "incremental_enabled");
+        get => GetArgument<TerraformValue<bool>>("incremental_enabled");
         set => SetArgument("incremental_enabled", value);
     }
 
@@ -213,7 +213,7 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -223,7 +223,7 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -232,7 +232,7 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     /// </summary>
     public TerraformValue<string>? NetworkAccessPolicy
     {
-        get => new TerraformReference<string>(this, "network_access_policy");
+        get => GetArgument<TerraformValue<string>>("network_access_policy");
         set => SetArgument("network_access_policy", value);
     }
 
@@ -241,7 +241,7 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -251,7 +251,7 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -260,7 +260,7 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     /// </summary>
     public TerraformValue<string>? SourceResourceId
     {
-        get => new TerraformReference<string>(this, "source_resource_id");
+        get => GetArgument<TerraformValue<string>>("source_resource_id");
         set => SetArgument("source_resource_id", value);
     }
 
@@ -269,7 +269,7 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     /// </summary>
     public TerraformValue<string>? SourceUri
     {
-        get => new TerraformReference<string>(this, "source_uri");
+        get => GetArgument<TerraformValue<string>>("source_uri");
         set => SetArgument("source_uri", value);
     }
 
@@ -278,7 +278,7 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     /// </summary>
     public TerraformValue<string>? StorageAccountId
     {
-        get => new TerraformReference<string>(this, "storage_account_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
@@ -287,7 +287,7 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -295,9 +295,7 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     /// The trusted_launch_enabled attribute.
     /// </summary>
     public TerraformValue<bool> TrustedLaunchEnabled
-    {
-        get => new TerraformReference<bool>(this, "trusted_launch_enabled");
-    }
+        => AsReference("trusted_launch_enabled");
 
     /// <summary>
     /// EncryptionSettings block (nesting mode: list).

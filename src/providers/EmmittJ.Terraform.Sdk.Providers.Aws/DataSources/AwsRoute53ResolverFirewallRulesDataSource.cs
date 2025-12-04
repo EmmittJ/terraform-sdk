@@ -13,7 +13,7 @@ public partial class AwsRoute53ResolverFirewallRulesDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string>? Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsRoute53ResolverFirewallRulesDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallRuleGroupId is required")]
     public required TerraformValue<string> FirewallRuleGroupId
     {
-        get => new TerraformReference<string>(this, "firewall_rule_group_id");
+        get => GetArgument<TerraformValue<string>>("firewall_rule_group_id");
         set => SetArgument("firewall_rule_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -41,16 +41,16 @@ public partial class AwsRoute53ResolverFirewallRulesDataSource(string name) : Te
     /// </summary>
     public TerraformValue<double>? Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -58,8 +58,6 @@ public partial class AwsRoute53ResolverFirewallRulesDataSource(string name) : Te
     /// The firewall_rules attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FirewallRules
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "firewall_rules").ResolveNodes(ctx));
-    }
+        => AsReference("firewall_rules");
 
 }

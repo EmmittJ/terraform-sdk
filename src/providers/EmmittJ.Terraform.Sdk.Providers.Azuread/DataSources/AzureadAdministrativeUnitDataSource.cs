@@ -18,7 +18,7 @@ public class AzureadAdministrativeUnitDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadAdministrativeUnitDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadAdministrativeUnitDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzureadAdministrativeUnitDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,27 +61,27 @@ public partial class AzureadAdministrativeUnitDataSource(string name) : Terrafor
     /// <summary>
     /// The display name for the administrative unit
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The object ID of the administrative unit
     /// </summary>
-    public TerraformValue<string> ObjectId
+    public TerraformValue<string>? ObjectId
     {
-        get => new TerraformReference<string>(this, "object_id");
+        get => GetArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -89,25 +89,19 @@ public partial class AzureadAdministrativeUnitDataSource(string name) : Terrafor
     /// The description for the administrative unit
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// A list of object IDs of members who are be present in this administrative unit.
     /// </summary>
     public TerraformList<string> Members
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "members").ResolveNodes(ctx));
-    }
+        => AsReference("members");
 
     /// <summary>
     /// Whether the administrative unit and its members are hidden or publicly viewable in the directory
     /// </summary>
     public TerraformValue<string> Visibility
-    {
-        get => new TerraformReference<string>(this, "visibility");
-    }
+        => AsReference("visibility");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

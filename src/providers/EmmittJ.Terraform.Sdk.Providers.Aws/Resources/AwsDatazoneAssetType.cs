@@ -19,7 +19,7 @@ public class AwsDatazoneAssetTypeFormsInputBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsDatazoneAssetTypeFormsInputBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Required
     {
-        get => new TerraformReference<bool>(this, "required");
+        get => GetArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsDatazoneAssetTypeFormsInputBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeIdentifier is required")]
     public required TerraformValue<string> TypeIdentifier
     {
-        get => new TerraformReference<string>(this, "type_identifier");
+        get => GetArgument<TerraformValue<string>>("type_identifier");
         set => SetArgument("type_identifier", value);
     }
 
@@ -48,7 +48,7 @@ public class AwsDatazoneAssetTypeFormsInputBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeRevision is required")]
     public required TerraformValue<string> TypeRevision
     {
-        get => new TerraformReference<string>(this, "type_revision");
+        get => GetArgument<TerraformValue<string>>("type_revision");
         set => SetArgument("type_revision", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsDatazoneAssetTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -89,7 +89,7 @@ public partial class AwsDatazoneAssetType(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AwsDatazoneAssetType(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     public required TerraformValue<string> DomainIdentifier
     {
-        get => new TerraformReference<string>(this, "domain_identifier");
+        get => GetArgument<TerraformValue<string>>("domain_identifier");
         set => SetArgument("domain_identifier", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AwsDatazoneAssetType(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -119,16 +119,16 @@ public partial class AwsDatazoneAssetType(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwningProjectIdentifier is required")]
     public required TerraformValue<string> OwningProjectIdentifier
     {
-        get => new TerraformReference<string>(this, "owning_project_identifier");
+        get => GetArgument<TerraformValue<string>>("owning_project_identifier");
         set => SetArgument("owning_project_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -136,25 +136,19 @@ public partial class AwsDatazoneAssetType(string name) : TerraformResource("aws_
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
     public TerraformValue<string> CreatedBy
-    {
-        get => new TerraformReference<string>(this, "created_by");
-    }
+        => AsReference("created_by");
 
     /// <summary>
     /// The revision attribute.
     /// </summary>
     public TerraformValue<string> Revision
-    {
-        get => new TerraformReference<string>(this, "revision");
-    }
+        => AsReference("revision");
 
     /// <summary>
     /// FormsInput block (nesting mode: set).

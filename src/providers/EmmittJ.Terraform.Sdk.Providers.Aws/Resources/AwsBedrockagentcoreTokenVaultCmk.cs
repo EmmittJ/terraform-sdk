@@ -19,7 +19,7 @@ public class AwsBedrockagentcoreTokenVaultCmkKmsConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyType is required")]
     public required TerraformValue<string> KeyType
     {
-        get => new TerraformReference<string>(this, "key_type");
+        get => GetArgument<TerraformValue<string>>("key_type");
         set => SetArgument("key_type", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsBedrockagentcoreTokenVaultCmkKmsConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -44,18 +44,18 @@ public partial class AwsBedrockagentcoreTokenVaultCmk(string name) : TerraformRe
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The token_vault_id attribute.
     /// </summary>
-    public TerraformValue<string> TokenVaultId
+    public TerraformValue<string>? TokenVaultId
     {
-        get => new TerraformReference<string>(this, "token_vault_id");
+        get => GetArgument<TerraformValue<string>>("token_vault_id");
         set => SetArgument("token_vault_id", value);
     }
 

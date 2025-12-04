@@ -11,9 +11,9 @@ public partial class GoogleCloudfunctionsFunctionDataSource(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleCloudfunctionsFunctionDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleCloudfunctionsFunctionDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleCloudfunctionsFunctionDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -49,129 +49,97 @@ public partial class GoogleCloudfunctionsFunctionDataSource(string name) : Terra
     /// Security patches are applied automatically to the runtime without requiring the function to be redeployed.
     /// </summary>
     public TerraformList<TerraformMap<object>> AutomaticUpdatePolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "automatic_update_policy").ResolveNodes(ctx));
-    }
+        => AsReference("automatic_update_policy");
 
     /// <summary>
     /// Memory (in MB), available to the function. Default value is 256. Possible values include 128, 256, 512, 1024, etc.
     /// </summary>
     public TerraformValue<double> AvailableMemoryMb
-    {
-        get => new TerraformReference<double>(this, "available_memory_mb");
-    }
+        => AsReference("available_memory_mb");
 
     /// <summary>
     ///  A set of key/value environment variable pairs available during build time.
     /// </summary>
     public TerraformMap<string> BuildEnvironmentVariables
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "build_environment_variables").ResolveNodes(ctx));
-    }
+        => AsReference("build_environment_variables");
 
     /// <summary>
     /// The fully-qualified name of the service account to be used for the build step of deploying this function
     /// </summary>
     public TerraformValue<string> BuildServiceAccount
-    {
-        get => new TerraformReference<string>(this, "build_service_account");
-    }
+        => AsReference("build_service_account");
 
     /// <summary>
     /// Name of the Cloud Build Custom Worker Pool that should be used to build the function.
     /// </summary>
     public TerraformValue<string> BuildWorkerPool
-    {
-        get => new TerraformReference<string>(this, "build_worker_pool");
-    }
+        => AsReference("build_worker_pool");
 
     /// <summary>
     /// Description of the function.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// Docker Registry to use for storing the function&#39;s Docker images. Allowed values are ARTIFACT_REGISTRY (default) and CONTAINER_REGISTRY.
     /// </summary>
     public TerraformValue<string> DockerRegistry
-    {
-        get => new TerraformReference<string>(this, "docker_registry");
-    }
+        => AsReference("docker_registry");
 
     /// <summary>
     /// User managed repository created in Artifact Registry optionally with a customer managed encryption key. If specified, deployments will use Artifact Registry for storing images built with Cloud Build.
     /// </summary>
     public TerraformValue<string> DockerRepository
-    {
-        get => new TerraformReference<string>(this, "docker_repository");
-    }
+        => AsReference("docker_repository");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Name of the function that will be executed when the Google Cloud Function is triggered.
     /// </summary>
     public TerraformValue<string> EntryPoint
-    {
-        get => new TerraformReference<string>(this, "entry_point");
-    }
+        => AsReference("entry_point");
 
     /// <summary>
     /// A set of key/value environment variable pairs to assign to the function.
     /// </summary>
     public TerraformMap<string> EnvironmentVariables
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "environment_variables").ResolveNodes(ctx));
-    }
+        => AsReference("environment_variables");
 
     /// <summary>
     /// A source that fires events in response to a condition in another service. Cannot be used with trigger_http.
     /// </summary>
     public TerraformList<TerraformMap<object>> EventTrigger
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "event_trigger").ResolveNodes(ctx));
-    }
+        => AsReference("event_trigger");
 
     /// <summary>
     /// The security level for the function. Defaults to SECURE_OPTIONAL. Valid only if trigger_http is used.
     /// </summary>
     public TerraformValue<string> HttpsTriggerSecurityLevel
-    {
-        get => new TerraformReference<string>(this, "https_trigger_security_level");
-    }
+        => AsReference("https_trigger_security_level");
 
     /// <summary>
     /// URL which triggers function execution. Returned only if trigger_http is used.
     /// </summary>
     public TerraformValue<string> HttpsTriggerUrl
-    {
-        get => new TerraformReference<string>(this, "https_trigger_url");
-    }
+        => AsReference("https_trigger_url");
 
     /// <summary>
     /// String value that controls what traffic can reach the function. Allowed values are ALLOW_ALL and ALLOW_INTERNAL_ONLY. Changes to this field will recreate the cloud function.
     /// </summary>
     public TerraformValue<string> IngressSettings
-    {
-        get => new TerraformReference<string>(this, "ingress_settings");
-    }
+        => AsReference("ingress_settings");
 
     /// <summary>
     /// Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt function resources.
     /// </summary>
     public TerraformValue<string> KmsKeyName
-    {
-        get => new TerraformReference<string>(this, "kms_key_name");
-    }
+        => AsReference("kms_key_name");
 
     /// <summary>
     /// A set of key/value label pairs to assign to the function. Label keys must follow the requirements at https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements.
@@ -180,144 +148,108 @@ public partial class GoogleCloudfunctionsFunctionDataSource(string name) : Terra
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
-    }
+        => AsReference("labels");
 
     /// <summary>
     /// The limit on the maximum number of function instances that may coexist at a given time.
     /// </summary>
     public TerraformValue<double> MaxInstances
-    {
-        get => new TerraformReference<double>(this, "max_instances");
-    }
+        => AsReference("max_instances");
 
     /// <summary>
     /// The limit on the minimum number of function instances that may coexist at a given time.
     /// </summary>
     public TerraformValue<double> MinInstances
-    {
-        get => new TerraformReference<double>(this, "min_instances");
-    }
+        => AsReference("min_instances");
 
     /// <summary>
     /// Security patches are only applied when a function is redeployed.
     /// </summary>
     public TerraformList<TerraformMap<object>> OnDeployUpdatePolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "on_deploy_update_policy").ResolveNodes(ctx));
-    }
+        => AsReference("on_deploy_update_policy");
 
     /// <summary>
     /// The runtime in which the function is going to run. Eg. &amp;quot;nodejs20&amp;quot;, &amp;quot;python37&amp;quot;, &amp;quot;go111&amp;quot;.
     /// </summary>
     public TerraformValue<string> Runtime
-    {
-        get => new TerraformReference<string>(this, "runtime");
-    }
+        => AsReference("runtime");
 
     /// <summary>
     /// Secret environment variables configuration
     /// </summary>
     public TerraformList<TerraformMap<object>> SecretEnvironmentVariables
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "secret_environment_variables").ResolveNodes(ctx));
-    }
+        => AsReference("secret_environment_variables");
 
     /// <summary>
     /// Secret volumes configuration.
     /// </summary>
     public TerraformList<TerraformMap<object>> SecretVolumes
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "secret_volumes").ResolveNodes(ctx));
-    }
+        => AsReference("secret_volumes");
 
     /// <summary>
     ///  If provided, the self-provided service account to run the function with.
     /// </summary>
     public TerraformValue<string> ServiceAccountEmail
-    {
-        get => new TerraformReference<string>(this, "service_account_email");
-    }
+        => AsReference("service_account_email");
 
     /// <summary>
     /// The GCS bucket containing the zip archive which contains the function.
     /// </summary>
     public TerraformValue<string> SourceArchiveBucket
-    {
-        get => new TerraformReference<string>(this, "source_archive_bucket");
-    }
+        => AsReference("source_archive_bucket");
 
     /// <summary>
     /// The source archive object (file) in archive bucket.
     /// </summary>
     public TerraformValue<string> SourceArchiveObject
-    {
-        get => new TerraformReference<string>(this, "source_archive_object");
-    }
+        => AsReference("source_archive_object");
 
     /// <summary>
     /// Represents parameters related to source repository where a function is hosted. Cannot be set alongside source_archive_bucket or source_archive_object.
     /// </summary>
     public TerraformList<TerraformMap<object>> SourceRepository
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "source_repository").ResolveNodes(ctx));
-    }
+        => AsReference("source_repository");
 
     /// <summary>
     /// Describes the current stage of a deployment.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Timeout (in seconds) for the function. Default value is 60 seconds. Cannot be more than 540 seconds.
     /// </summary>
     public TerraformValue<double> Timeout
-    {
-        get => new TerraformReference<double>(this, "timeout");
-    }
+        => AsReference("timeout");
 
     /// <summary>
     /// Boolean variable. Any HTTP request (of a supported type) to the endpoint will trigger function execution. Supported HTTP request types are: POST, PUT, GET, DELETE, and OPTIONS. Endpoint is returned as https_trigger_url. Cannot be used with trigger_bucket and trigger_topic.
     /// </summary>
     public TerraformValue<bool> TriggerHttp
-    {
-        get => new TerraformReference<bool>(this, "trigger_http");
-    }
+        => AsReference("trigger_http");
 
     /// <summary>
     /// The version identifier of the Cloud Function. Each deployment attempt results in a new version of a function being created.
     /// </summary>
     public TerraformValue<string> VersionId
-    {
-        get => new TerraformReference<string>(this, "version_id");
-    }
+        => AsReference("version_id");
 
     /// <summary>
     /// The VPC Network Connector that this cloud function can connect to. It can be either the fully-qualified URI, or the short name of the network connector resource. The format of this field is projects/*/locations/*/connectors/*.
     /// </summary>
     public TerraformValue<string> VpcConnector
-    {
-        get => new TerraformReference<string>(this, "vpc_connector");
-    }
+        => AsReference("vpc_connector");
 
     /// <summary>
     /// The egress settings for the connector, controlling what traffic is diverted through it. Allowed values are ALL_TRAFFIC and PRIVATE_RANGES_ONLY. Defaults to PRIVATE_RANGES_ONLY. If unset, this field preserves the previously set value.
     /// </summary>
     public TerraformValue<string> VpcConnectorEgressSettings
-    {
-        get => new TerraformReference<string>(this, "vpc_connector_egress_settings");
-    }
+        => AsReference("vpc_connector_egress_settings");
 
 }

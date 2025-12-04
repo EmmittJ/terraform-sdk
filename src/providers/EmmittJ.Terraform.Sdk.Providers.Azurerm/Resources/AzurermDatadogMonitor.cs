@@ -19,7 +19,7 @@ public class AzurermDatadogMonitorDatadogOrganizationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
     public required TerraformValue<string> ApiKey
     {
-        get => new TerraformReference<string>(this, "api_key");
+        get => GetArgument<TerraformValue<string>>("api_key");
         set => SetArgument("api_key", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermDatadogMonitorDatadogOrganizationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationKey is required")]
     public required TerraformValue<string> ApplicationKey
     {
-        get => new TerraformReference<string>(this, "application_key");
+        get => GetArgument<TerraformValue<string>>("application_key");
         set => SetArgument("application_key", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermDatadogMonitorDatadogOrganizationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EnterpriseAppId
     {
-        get => new TerraformReference<string>(this, "enterprise_app_id");
+        get => GetArgument<TerraformValue<string>>("enterprise_app_id");
         set => SetArgument("enterprise_app_id", value);
     }
 
@@ -46,16 +46,14 @@ public class AzurermDatadogMonitorDatadogOrganizationBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The linking_auth_code attribute.
     /// </summary>
     public TerraformValue<string>? LinkingAuthCode
     {
-        get => new TerraformReference<string>(this, "linking_auth_code");
+        get => GetArgument<TerraformValue<string>>("linking_auth_code");
         set => SetArgument("linking_auth_code", value);
     }
 
@@ -64,7 +62,7 @@ public class AzurermDatadogMonitorDatadogOrganizationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LinkingClientId
     {
-        get => new TerraformReference<string>(this, "linking_client_id");
+        get => GetArgument<TerraformValue<string>>("linking_client_id");
         set => SetArgument("linking_client_id", value);
     }
 
@@ -72,16 +70,14 @@ public class AzurermDatadogMonitorDatadogOrganizationBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The redirect_uri attribute.
     /// </summary>
     public TerraformValue<string>? RedirectUri
     {
-        get => new TerraformReference<string>(this, "redirect_uri");
+        get => GetArgument<TerraformValue<string>>("redirect_uri");
         set => SetArgument("redirect_uri", value);
     }
 
@@ -103,17 +99,13 @@ public class AzurermDatadogMonitorIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -121,7 +113,7 @@ public class AzurermDatadogMonitorIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -144,7 +136,7 @@ public class AzurermDatadogMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -153,7 +145,7 @@ public class AzurermDatadogMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -162,7 +154,7 @@ public class AzurermDatadogMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -171,7 +163,7 @@ public class AzurermDatadogMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -195,7 +187,7 @@ public class AzurermDatadogMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -205,7 +197,7 @@ public class AzurermDatadogMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -214,7 +206,7 @@ public class AzurermDatadogMonitorUserBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PhoneNumber
     {
-        get => new TerraformReference<string>(this, "phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -230,9 +222,9 @@ public partial class AzurermDatadogMonitor(string name) : TerraformResource("azu
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -242,7 +234,7 @@ public partial class AzurermDatadogMonitor(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -251,7 +243,7 @@ public partial class AzurermDatadogMonitor(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? MonitoringEnabled
     {
-        get => new TerraformReference<bool>(this, "monitoring_enabled");
+        get => GetArgument<TerraformValue<bool>>("monitoring_enabled");
         set => SetArgument("monitoring_enabled", value);
     }
 
@@ -261,7 +253,7 @@ public partial class AzurermDatadogMonitor(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -271,7 +263,7 @@ public partial class AzurermDatadogMonitor(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -281,7 +273,7 @@ public partial class AzurermDatadogMonitor(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => new TerraformReference<string>(this, "sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -290,7 +282,7 @@ public partial class AzurermDatadogMonitor(string name) : TerraformResource("azu
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -298,9 +290,7 @@ public partial class AzurermDatadogMonitor(string name) : TerraformResource("azu
     /// The marketplace_subscription_status attribute.
     /// </summary>
     public TerraformValue<string> MarketplaceSubscriptionStatus
-    {
-        get => new TerraformReference<string>(this, "marketplace_subscription_status");
-    }
+        => AsReference("marketplace_subscription_status");
 
     /// <summary>
     /// DatadogOrganization block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AzureadDirectoryRoleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadDirectoryRoleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadDirectoryRoleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -52,27 +52,27 @@ public partial class AzureadDirectoryRole(string name) : TerraformResource("azur
     /// <summary>
     /// The display name of the directory role
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The object ID of the template associated with the directory role
     /// </summary>
-    public TerraformValue<string> TemplateId
+    public TerraformValue<string>? TemplateId
     {
-        get => new TerraformReference<string>(this, "template_id");
+        get => GetArgument<TerraformValue<string>>("template_id");
         set => SetArgument("template_id", value);
     }
 
@@ -80,17 +80,13 @@ public partial class AzureadDirectoryRole(string name) : TerraformResource("azur
     /// The description of the directory role
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The object ID of the directory role
     /// </summary>
     public TerraformValue<string> ObjectId
-    {
-        get => new TerraformReference<string>(this, "object_id");
-    }
+        => AsReference("object_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -20,7 +20,7 @@ public class GoogleSccFolderCustomModuleCustomConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -32,7 +32,7 @@ public class GoogleSccFolderCustomModuleCustomConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Recommendation is required")]
     public required TerraformValue<string> Recommendation
     {
-        get => new TerraformReference<string>(this, "recommendation");
+        get => GetArgument<TerraformValue<string>>("recommendation");
         set => SetArgument("recommendation", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleSccFolderCustomModuleCustomConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
     public required TerraformValue<string> Severity
     {
-        get => new TerraformReference<string>(this, "severity");
+        get => GetArgument<TerraformValue<string>>("severity");
         set => SetArgument("severity", value);
     }
 
@@ -122,7 +122,7 @@ public class GoogleSccFolderCustomModuleCustomConfigBlockCustomOutputBlockProper
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -155,7 +155,7 @@ public class GoogleSccFolderCustomModuleCustomConfigBlockCustomOutputBlockProper
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -165,7 +165,7 @@ public class GoogleSccFolderCustomModuleCustomConfigBlockCustomOutputBlockProper
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -175,7 +175,7 @@ public class GoogleSccFolderCustomModuleCustomConfigBlockCustomOutputBlockProper
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -185,7 +185,7 @@ public class GoogleSccFolderCustomModuleCustomConfigBlockCustomOutputBlockProper
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -208,7 +208,7 @@ public class GoogleSccFolderCustomModuleCustomConfigBlockPredicateBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -218,7 +218,7 @@ public class GoogleSccFolderCustomModuleCustomConfigBlockPredicateBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -228,7 +228,7 @@ public class GoogleSccFolderCustomModuleCustomConfigBlockPredicateBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -238,7 +238,7 @@ public class GoogleSccFolderCustomModuleCustomConfigBlockPredicateBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -261,7 +261,7 @@ public class GoogleSccFolderCustomModuleCustomConfigBlockResourceSelectorBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypes is required")]
     public TerraformList<string>? ResourceTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("resource_types");
         set => SetArgument("resource_types", value);
     }
 
@@ -284,7 +284,7 @@ public class GoogleSccFolderCustomModuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -293,7 +293,7 @@ public class GoogleSccFolderCustomModuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -302,7 +302,7 @@ public class GoogleSccFolderCustomModuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -325,7 +325,7 @@ public partial class GoogleSccFolderCustomModule(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -335,7 +335,7 @@ public partial class GoogleSccFolderCustomModule(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnablementState is required")]
     public required TerraformValue<string> EnablementState
     {
-        get => new TerraformReference<string>(this, "enablement_state");
+        get => GetArgument<TerraformValue<string>>("enablement_state");
         set => SetArgument("enablement_state", value);
     }
 
@@ -345,16 +345,16 @@ public partial class GoogleSccFolderCustomModule(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformValue<string> Folder
     {
-        get => new TerraformReference<string>(this, "folder");
+        get => GetArgument<TerraformValue<string>>("folder");
         set => SetArgument("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -364,26 +364,20 @@ public partial class GoogleSccFolderCustomModule(string name) : TerraformResourc
     /// specifies the organization or folder from which the custom module is inherited.
     /// </summary>
     public TerraformValue<string> AncestorModule
-    {
-        get => new TerraformReference<string>(this, "ancestor_module");
-    }
+        => AsReference("ancestor_module");
 
     /// <summary>
     /// The editor that last updated the custom module.
     /// </summary>
     public TerraformValue<string> LastEditor
-    {
-        get => new TerraformReference<string>(this, "last_editor");
-    }
+        => AsReference("last_editor");
 
     /// <summary>
     /// The resource name of the custom module. Its format is &amp;quot;folders/{folder_id}/securityHealthAnalyticsSettings/customModules/{customModule}&amp;quot;.
     /// The id {customModule} is server-generated and is not user settable. It will be a numeric id containing 1-20 digits.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The time at which the custom module was last updated.
@@ -392,9 +386,7 @@ public partial class GoogleSccFolderCustomModule(string name) : TerraformResourc
     /// up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// CustomConfig block (nesting mode: list).

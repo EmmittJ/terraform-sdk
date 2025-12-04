@@ -11,9 +11,9 @@ public partial class GoogleServiceAccountKeyDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleServiceAccountKeyDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleServiceAccountKeyDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string>? PublicKeyType
     {
-        get => new TerraformReference<string>(this, "public_key_type");
+        get => GetArgument<TerraformValue<string>>("public_key_type");
         set => SetArgument("public_key_type", value);
     }
 
@@ -40,16 +40,12 @@ public partial class GoogleServiceAccountKeyDataSource(string name) : TerraformD
     /// The key_algorithm attribute.
     /// </summary>
     public TerraformValue<string> KeyAlgorithm
-    {
-        get => new TerraformReference<string>(this, "key_algorithm");
-    }
+        => AsReference("key_algorithm");
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     public TerraformValue<string> PublicKey
-    {
-        get => new TerraformReference<string>(this, "public_key");
-    }
+        => AsReference("public_key");
 
 }

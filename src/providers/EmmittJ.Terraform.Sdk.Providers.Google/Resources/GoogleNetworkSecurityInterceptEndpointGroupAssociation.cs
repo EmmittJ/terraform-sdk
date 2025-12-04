@@ -18,7 +18,7 @@ public class GoogleNetworkSecurityInterceptEndpointGroupAssociationTimeoutsBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleNetworkSecurityInterceptEndpointGroupAssociationTimeoutsBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleNetworkSecurityInterceptEndpointGroupAssociationTimeoutsBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -52,9 +52,9 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroupAssociation(stri
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -66,7 +66,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroupAssociation(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterceptEndpointGroup is required")]
     public required TerraformValue<string> InterceptEndpointGroup
     {
-        get => new TerraformReference<string>(this, "intercept_endpoint_group");
+        get => GetArgument<TerraformValue<string>>("intercept_endpoint_group");
         set => SetArgument("intercept_endpoint_group", value);
     }
 
@@ -77,7 +77,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroupAssociation(stri
     /// </summary>
     public TerraformValue<string>? InterceptEndpointGroupAssociationId
     {
-        get => new TerraformReference<string>(this, "intercept_endpoint_group_association_id");
+        get => GetArgument<TerraformValue<string>>("intercept_endpoint_group_association_id");
         set => SetArgument("intercept_endpoint_group_association_id", value);
     }
 
@@ -89,7 +89,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroupAssociation(stri
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -99,7 +99,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroupAssociation(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -111,16 +111,16 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroupAssociation(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -129,26 +129,20 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroupAssociation(stri
     /// See https://google.aip.dev/148#timestamps.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The list of locations where the association is configured. This information
     /// is retrieved from the linked endpoint group.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Locations
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "locations").ResolveNodes(ctx));
-    }
+        => AsReference("locations");
 
     /// <summary>
     /// The list of locations where the association is present. This information
@@ -157,9 +151,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroupAssociation(stri
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformList<TerraformMap<object>> LocationsDetails
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "locations_details").ResolveNodes(ctx));
-    }
+        => AsReference("locations_details");
 
     /// <summary>
     /// The resource name of this endpoint group association, for example:
@@ -167,9 +159,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroupAssociation(stri
     /// See https://google.aip.dev/122 for more details.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The current state of the resource does not match the user&#39;s intended state,
@@ -178,9 +168,7 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroupAssociation(stri
     /// See https://google.aip.dev/128.
     /// </summary>
     public TerraformValue<bool> Reconciling
-    {
-        get => new TerraformReference<bool>(this, "reconciling");
-    }
+        => AsReference("reconciling");
 
     /// <summary>
     /// Current state of the endpoint group association.
@@ -194,27 +182,21 @@ public partial class GoogleNetworkSecurityInterceptEndpointGroupAssociation(stri
     /// DELETE_FAILED
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The timestamp when the resource was most recently updated.
     /// See https://google.aip.dev/148#timestamps.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

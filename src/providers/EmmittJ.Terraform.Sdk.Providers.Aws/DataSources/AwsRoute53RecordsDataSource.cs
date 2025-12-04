@@ -13,7 +13,7 @@ public partial class AwsRoute53RecordsDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string>? NameRegex
     {
-        get => new TerraformReference<string>(this, "name_regex");
+        get => GetArgument<TerraformValue<string>>("name_regex");
         set => SetArgument("name_regex", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsRoute53RecordsDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     public required TerraformValue<string> ZoneId
     {
-        get => new TerraformReference<string>(this, "zone_id");
+        get => GetArgument<TerraformValue<string>>("zone_id");
         set => SetArgument("zone_id", value);
     }
 
@@ -31,8 +31,6 @@ public partial class AwsRoute53RecordsDataSource(string name) : TerraformDataSou
     /// The resource_record_sets attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ResourceRecordSets
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "resource_record_sets").ResolveNodes(ctx));
-    }
+        => AsReference("resource_record_sets");
 
 }

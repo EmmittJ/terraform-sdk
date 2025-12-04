@@ -19,7 +19,7 @@ public class AwsCloudwatchEventEndpointEventBusBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventBusArn is required")]
     public required TerraformValue<string> EventBusArn
     {
-        get => new TerraformReference<string>(this, "event_bus_arn");
+        get => GetArgument<TerraformValue<string>>("event_bus_arn");
         set => SetArgument("event_bus_arn", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsCloudwatchEventEndpointReplicationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsCloudwatchEventEndpointRoutingConfigBlockFailoverConfigBlockPrim
     /// </summary>
     public TerraformValue<string>? HealthCheck
     {
-        get => new TerraformReference<string>(this, "health_check");
+        get => GetArgument<TerraformValue<string>>("health_check");
         set => SetArgument("health_check", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsCloudwatchEventEndpointRoutingConfigBlockFailoverConfigBlockSeco
     /// </summary>
     public TerraformValue<string>? Route
     {
-        get => new TerraformReference<string>(this, "route");
+        get => GetArgument<TerraformValue<string>>("route");
         set => SetArgument("route", value);
     }
 
@@ -170,16 +170,16 @@ public partial class AwsCloudwatchEventEndpoint(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -189,16 +189,16 @@ public partial class AwsCloudwatchEventEndpoint(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -207,7 +207,7 @@ public partial class AwsCloudwatchEventEndpoint(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -215,17 +215,13 @@ public partial class AwsCloudwatchEventEndpoint(string name) : TerraformResource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The endpoint_url attribute.
     /// </summary>
     public TerraformValue<string> EndpointUrl
-    {
-        get => new TerraformReference<string>(this, "endpoint_url");
-    }
+        => AsReference("endpoint_url");
 
     /// <summary>
     /// EventBus block (nesting mode: list).

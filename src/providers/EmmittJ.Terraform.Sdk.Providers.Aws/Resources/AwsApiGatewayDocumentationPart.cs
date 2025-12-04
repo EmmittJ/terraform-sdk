@@ -18,7 +18,7 @@ public class AwsApiGatewayDocumentationPartLocationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Method
     {
-        get => new TerraformReference<string>(this, "method");
+        get => GetArgument<TerraformValue<string>>("method");
         set => SetArgument("method", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsApiGatewayDocumentationPartLocationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsApiGatewayDocumentationPartLocationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsApiGatewayDocumentationPartLocationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StatusCode
     {
-        get => new TerraformReference<string>(this, "status_code");
+        get => GetArgument<TerraformValue<string>>("status_code");
         set => SetArgument("status_code", value);
     }
 
@@ -55,7 +55,7 @@ public class AwsApiGatewayDocumentationPartLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -71,9 +71,9 @@ public partial class AwsApiGatewayDocumentationPart(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -83,16 +83,16 @@ public partial class AwsApiGatewayDocumentationPart(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Properties is required")]
     public required TerraformValue<string> Properties
     {
-        get => new TerraformReference<string>(this, "properties");
+        get => GetArgument<TerraformValue<string>>("properties");
         set => SetArgument("properties", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AwsApiGatewayDocumentationPart(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformValue<string> RestApiId
     {
-        get => new TerraformReference<string>(this, "rest_api_id");
+        get => GetArgument<TerraformValue<string>>("rest_api_id");
         set => SetArgument("rest_api_id", value);
     }
 
@@ -110,9 +110,7 @@ public partial class AwsApiGatewayDocumentationPart(string name) : TerraformReso
     /// The documentation_part_id attribute.
     /// </summary>
     public TerraformValue<string> DocumentationPartId
-    {
-        get => new TerraformReference<string>(this, "documentation_part_id");
-    }
+        => AsReference("documentation_part_id");
 
     /// <summary>
     /// Location block (nesting mode: list).

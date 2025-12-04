@@ -18,7 +18,7 @@ public class AzurermApiManagementGatewayCertificateAuthorityTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermApiManagementGatewayCertificateAuthorityTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermApiManagementGatewayCertificateAuthorityTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermApiManagementGatewayCertificateAuthorityTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermApiManagementGatewayCertificateAuthority(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     public required TerraformValue<string> ApiManagementId
     {
-        get => new TerraformReference<string>(this, "api_management_id");
+        get => GetArgument<TerraformValue<string>>("api_management_id");
         set => SetArgument("api_management_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermApiManagementGatewayCertificateAuthority(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateName is required")]
     public required TerraformValue<string> CertificateName
     {
-        get => new TerraformReference<string>(this, "certificate_name");
+        get => GetArgument<TerraformValue<string>>("certificate_name");
         set => SetArgument("certificate_name", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AzurermApiManagementGatewayCertificateAuthority(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayName is required")]
     public required TerraformValue<string> GatewayName
     {
-        get => new TerraformReference<string>(this, "gateway_name");
+        get => GetArgument<TerraformValue<string>>("gateway_name");
         set => SetArgument("gateway_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermApiManagementGatewayCertificateAuthority(string name
     /// </summary>
     public TerraformValue<bool>? IsTrusted
     {
-        get => new TerraformReference<bool>(this, "is_trusted");
+        get => GetArgument<TerraformValue<bool>>("is_trusted");
         set => SetArgument("is_trusted", value);
     }
 

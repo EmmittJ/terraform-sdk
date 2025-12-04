@@ -19,7 +19,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CidrBlock
     {
-        get => new TerraformReference<string>(this, "cidr_block");
+        get => GetArgument<TerraformValue<string>>("cidr_block");
         set => SetArgument("cidr_block", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformValue<double> FromPort
     {
-        get => new TerraformReference<double>(this, "from_port");
+        get => GetArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? IcmpCode
     {
-        get => new TerraformReference<double>(this, "icmp_code");
+        get => GetArgument<TerraformValue<double>>("icmp_code");
         set => SetArgument("icmp_code", value);
     }
 
@@ -56,7 +56,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? IcmpType
     {
-        get => new TerraformReference<double>(this, "icmp_type");
+        get => GetArgument<TerraformValue<double>>("icmp_type");
         set => SetArgument("icmp_type", value);
     }
 
@@ -65,7 +65,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ipv6CidrBlock
     {
-        get => new TerraformReference<string>(this, "ipv6_cidr_block");
+        get => GetArgument<TerraformValue<string>>("ipv6_cidr_block");
         set => SetArgument("ipv6_cidr_block", value);
     }
 
@@ -75,7 +75,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNo is required")]
     public required TerraformValue<double> RuleNo
     {
-        get => new TerraformReference<double>(this, "rule_no");
+        get => GetArgument<TerraformValue<double>>("rule_no");
         set => SetArgument("rule_no", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsDefaultNetworkAclEgressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformValue<double> ToPort
     {
-        get => new TerraformReference<double>(this, "to_port");
+        get => GetArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -119,7 +119,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -128,7 +128,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CidrBlock
     {
-        get => new TerraformReference<string>(this, "cidr_block");
+        get => GetArgument<TerraformValue<string>>("cidr_block");
         set => SetArgument("cidr_block", value);
     }
 
@@ -138,7 +138,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformValue<double> FromPort
     {
-        get => new TerraformReference<double>(this, "from_port");
+        get => GetArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -147,7 +147,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? IcmpCode
     {
-        get => new TerraformReference<double>(this, "icmp_code");
+        get => GetArgument<TerraformValue<double>>("icmp_code");
         set => SetArgument("icmp_code", value);
     }
 
@@ -156,7 +156,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? IcmpType
     {
-        get => new TerraformReference<double>(this, "icmp_type");
+        get => GetArgument<TerraformValue<double>>("icmp_type");
         set => SetArgument("icmp_type", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ipv6CidrBlock
     {
-        get => new TerraformReference<string>(this, "ipv6_cidr_block");
+        get => GetArgument<TerraformValue<string>>("ipv6_cidr_block");
         set => SetArgument("ipv6_cidr_block", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -185,7 +185,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNo is required")]
     public required TerraformValue<double> RuleNo
     {
-        get => new TerraformReference<double>(this, "rule_no");
+        get => GetArgument<TerraformValue<double>>("rule_no");
         set => SetArgument("rule_no", value);
     }
 
@@ -195,7 +195,7 @@ public class AwsDefaultNetworkAclIngressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformValue<double> ToPort
     {
-        get => new TerraformReference<double>(this, "to_port");
+        get => GetArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -214,25 +214,25 @@ public partial class AwsDefaultNetworkAcl(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultNetworkAclId is required")]
     public required TerraformValue<string> DefaultNetworkAclId
     {
-        get => new TerraformReference<string>(this, "default_network_acl_id");
+        get => GetArgument<TerraformValue<string>>("default_network_acl_id");
         set => SetArgument("default_network_acl_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -241,7 +241,7 @@ public partial class AwsDefaultNetworkAcl(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformSet<string>? SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -250,16 +250,16 @@ public partial class AwsDefaultNetworkAcl(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -267,25 +267,19 @@ public partial class AwsDefaultNetworkAcl(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-    {
-        get => new TerraformReference<string>(this, "vpc_id");
-    }
+        => AsReference("vpc_id");
 
     /// <summary>
     /// Egress block (nesting mode: set).

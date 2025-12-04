@@ -12,16 +12,12 @@ public partial class AwsRoute53ZonesDataSource(string name) : TerraformDataSourc
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The ids attribute.
     /// </summary>
     public TerraformList<string> Ids
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ids").ResolveNodes(ctx));
-    }
+        => AsReference("ids");
 
 }

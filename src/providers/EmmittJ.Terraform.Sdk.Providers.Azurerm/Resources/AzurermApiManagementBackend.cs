@@ -18,7 +18,7 @@ public class AzurermApiManagementBackendCredentialsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Certificate
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "certificate").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("certificate");
         set => SetArgument("certificate", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermApiManagementBackendCredentialsBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Header
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "header").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("header");
         set => SetArgument("header", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermApiManagementBackendCredentialsBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Query
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "query").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("query");
         set => SetArgument("query", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermApiManagementBackendCredentialsBlockAuthorizationBlock : Ter
     /// </summary>
     public TerraformValue<string>? Parameter
     {
-        get => new TerraformReference<string>(this, "parameter");
+        get => GetArgument<TerraformValue<string>>("parameter");
         set => SetArgument("parameter", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermApiManagementBackendCredentialsBlockAuthorizationBlock : Ter
     /// </summary>
     public TerraformValue<string>? Scheme
     {
-        get => new TerraformReference<string>(this, "scheme");
+        get => GetArgument<TerraformValue<string>>("scheme");
         set => SetArgument("scheme", value);
     }
 
@@ -100,7 +100,7 @@ public class AzurermApiManagementBackendProxyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -110,7 +110,7 @@ public class AzurermApiManagementBackendProxyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermApiManagementBackendProxyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -141,18 +141,18 @@ public class AzurermApiManagementBackendServiceFabricClusterBlock : TerraformBlo
     /// <summary>
     /// The client_certificate_id attribute.
     /// </summary>
-    public TerraformValue<string> ClientCertificateId
+    public TerraformValue<string>? ClientCertificateId
     {
-        get => new TerraformReference<string>(this, "client_certificate_id");
+        get => GetArgument<TerraformValue<string>>("client_certificate_id");
         set => SetArgument("client_certificate_id", value);
     }
 
     /// <summary>
     /// The client_certificate_thumbprint attribute.
     /// </summary>
-    public TerraformValue<string> ClientCertificateThumbprint
+    public TerraformValue<string>? ClientCertificateThumbprint
     {
-        get => new TerraformReference<string>(this, "client_certificate_thumbprint");
+        get => GetArgument<TerraformValue<string>>("client_certificate_thumbprint");
         set => SetArgument("client_certificate_thumbprint", value);
     }
 
@@ -162,7 +162,7 @@ public class AzurermApiManagementBackendServiceFabricClusterBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementEndpoints is required")]
     public required TerraformSet<string> ManagementEndpoints
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "management_endpoints").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("management_endpoints");
         set => SetArgument("management_endpoints", value);
     }
 
@@ -172,7 +172,7 @@ public class AzurermApiManagementBackendServiceFabricClusterBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxPartitionResolutionRetries is required")]
     public required TerraformValue<double> MaxPartitionResolutionRetries
     {
-        get => new TerraformReference<double>(this, "max_partition_resolution_retries");
+        get => GetArgument<TerraformValue<double>>("max_partition_resolution_retries");
         set => SetArgument("max_partition_resolution_retries", value);
     }
 
@@ -181,7 +181,7 @@ public class AzurermApiManagementBackendServiceFabricClusterBlock : TerraformBlo
     /// </summary>
     public TerraformSet<string>? ServerCertificateThumbprints
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "server_certificate_thumbprints").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("server_certificate_thumbprints");
         set => SetArgument("server_certificate_thumbprints", value);
     }
 
@@ -213,7 +213,7 @@ public class AzurermApiManagementBackendServiceFabricClusterBlockServerX509NameB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerCertificateThumbprint is required")]
     public required TerraformValue<string> IssuerCertificateThumbprint
     {
-        get => new TerraformReference<string>(this, "issuer_certificate_thumbprint");
+        get => GetArgument<TerraformValue<string>>("issuer_certificate_thumbprint");
         set => SetArgument("issuer_certificate_thumbprint", value);
     }
 
@@ -223,7 +223,7 @@ public class AzurermApiManagementBackendServiceFabricClusterBlockServerX509NameB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -246,7 +246,7 @@ public class AzurermApiManagementBackendTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -255,7 +255,7 @@ public class AzurermApiManagementBackendTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -264,7 +264,7 @@ public class AzurermApiManagementBackendTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -273,7 +273,7 @@ public class AzurermApiManagementBackendTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -296,7 +296,7 @@ public class AzurermApiManagementBackendTlsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ValidateCertificateChain
     {
-        get => new TerraformReference<bool>(this, "validate_certificate_chain");
+        get => GetArgument<TerraformValue<bool>>("validate_certificate_chain");
         set => SetArgument("validate_certificate_chain", value);
     }
 
@@ -305,7 +305,7 @@ public class AzurermApiManagementBackendTlsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ValidateCertificateName
     {
-        get => new TerraformReference<bool>(this, "validate_certificate_name");
+        get => GetArgument<TerraformValue<bool>>("validate_certificate_name");
         set => SetArgument("validate_certificate_name", value);
     }
 
@@ -324,7 +324,7 @@ public partial class AzurermApiManagementBackend(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformValue<string> ApiManagementName
     {
-        get => new TerraformReference<string>(this, "api_management_name");
+        get => GetArgument<TerraformValue<string>>("api_management_name");
         set => SetArgument("api_management_name", value);
     }
 
@@ -333,16 +333,16 @@ public partial class AzurermApiManagementBackend(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -352,7 +352,7 @@ public partial class AzurermApiManagementBackend(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -362,7 +362,7 @@ public partial class AzurermApiManagementBackend(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -372,7 +372,7 @@ public partial class AzurermApiManagementBackend(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -381,7 +381,7 @@ public partial class AzurermApiManagementBackend(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? ResourceId
     {
-        get => new TerraformReference<string>(this, "resource_id");
+        get => GetArgument<TerraformValue<string>>("resource_id");
         set => SetArgument("resource_id", value);
     }
 
@@ -390,7 +390,7 @@ public partial class AzurermApiManagementBackend(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -400,7 +400,7 @@ public partial class AzurermApiManagementBackend(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 

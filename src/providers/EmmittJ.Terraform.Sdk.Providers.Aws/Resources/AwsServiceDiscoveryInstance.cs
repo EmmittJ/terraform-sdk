@@ -14,16 +14,16 @@ public partial class AwsServiceDiscoveryInstance(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Attributes is required")]
     public required TerraformMap<string> Attributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("attributes");
         set => SetArgument("attributes", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsServiceDiscoveryInstance(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => new TerraformReference<string>(this, "instance_id");
+        get => GetArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsServiceDiscoveryInstance(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformValue<string> ServiceId
     {
-        get => new TerraformReference<string>(this, "service_id");
+        get => GetArgument<TerraformValue<string>>("service_id");
         set => SetArgument("service_id", value);
     }
 

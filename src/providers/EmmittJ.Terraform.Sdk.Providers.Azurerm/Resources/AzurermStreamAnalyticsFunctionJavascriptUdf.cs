@@ -18,7 +18,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdfInputBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? ConfigurationParameter
     {
-        get => new TerraformReference<bool>(this, "configuration_parameter");
+        get => GetArgument<TerraformValue<bool>>("configuration_parameter");
         set => SetArgument("configuration_parameter", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdfInputBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdfOutputBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -75,7 +75,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdfTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -84,7 +84,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdfTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -93,7 +93,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdfTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -102,7 +102,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdfTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -118,9 +118,9 @@ public partial class AzurermStreamAnalyticsFunctionJavascriptUdf(string name) : 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermStreamAnalyticsFunctionJavascriptUdf(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AzurermStreamAnalyticsFunctionJavascriptUdf(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AzurermStreamAnalyticsFunctionJavascriptUdf(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Script is required")]
     public required TerraformValue<string> Script
     {
-        get => new TerraformReference<string>(this, "script");
+        get => GetArgument<TerraformValue<string>>("script");
         set => SetArgument("script", value);
     }
 
@@ -160,7 +160,7 @@ public partial class AzurermStreamAnalyticsFunctionJavascriptUdf(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformValue<string> StreamAnalyticsJobName
     {
-        get => new TerraformReference<string>(this, "stream_analytics_job_name");
+        get => GetArgument<TerraformValue<string>>("stream_analytics_job_name");
         set => SetArgument("stream_analytics_job_name", value);
     }
 

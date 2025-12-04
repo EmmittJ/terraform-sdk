@@ -45,7 +45,7 @@ public class GoogleColabScheduleCreateNotebookExecutionJobRequestBlockNotebookEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -54,7 +54,7 @@ public class GoogleColabScheduleCreateNotebookExecutionJobRequestBlockNotebookEx
     /// </summary>
     public TerraformValue<string>? ExecutionTimeout
     {
-        get => new TerraformReference<string>(this, "execution_timeout");
+        get => GetArgument<TerraformValue<string>>("execution_timeout");
         set => SetArgument("execution_timeout", value);
     }
 
@@ -63,7 +63,7 @@ public class GoogleColabScheduleCreateNotebookExecutionJobRequestBlockNotebookEx
     /// </summary>
     public TerraformValue<string>? ExecutionUser
     {
-        get => new TerraformReference<string>(this, "execution_user");
+        get => GetArgument<TerraformValue<string>>("execution_user");
         set => SetArgument("execution_user", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleColabScheduleCreateNotebookExecutionJobRequestBlockNotebookEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GcsOutputUri is required")]
     public required TerraformValue<string> GcsOutputUri
     {
-        get => new TerraformReference<string>(this, "gcs_output_uri");
+        get => GetArgument<TerraformValue<string>>("gcs_output_uri");
         set => SetArgument("gcs_output_uri", value);
     }
 
@@ -83,7 +83,7 @@ public class GoogleColabScheduleCreateNotebookExecutionJobRequestBlockNotebookEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotebookRuntimeTemplateResourceName is required")]
     public required TerraformValue<string> NotebookRuntimeTemplateResourceName
     {
-        get => new TerraformReference<string>(this, "notebook_runtime_template_resource_name");
+        get => GetArgument<TerraformValue<string>>("notebook_runtime_template_resource_name");
         set => SetArgument("notebook_runtime_template_resource_name", value);
     }
 
@@ -92,7 +92,7 @@ public class GoogleColabScheduleCreateNotebookExecutionJobRequestBlockNotebookEx
     /// </summary>
     public TerraformValue<string>? ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -134,7 +134,7 @@ public class GoogleColabScheduleCreateNotebookExecutionJobRequestBlockNotebookEx
     /// </summary>
     public TerraformValue<string>? CommitSha
     {
-        get => new TerraformReference<string>(this, "commit_sha");
+        get => GetArgument<TerraformValue<string>>("commit_sha");
         set => SetArgument("commit_sha", value);
     }
 
@@ -144,7 +144,7 @@ public class GoogleColabScheduleCreateNotebookExecutionJobRequestBlockNotebookEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataformRepositoryResourceName is required")]
     public required TerraformValue<string> DataformRepositoryResourceName
     {
-        get => new TerraformReference<string>(this, "dataform_repository_resource_name");
+        get => GetArgument<TerraformValue<string>>("dataform_repository_resource_name");
         set => SetArgument("dataform_repository_resource_name", value);
     }
 
@@ -166,7 +166,7 @@ public class GoogleColabScheduleCreateNotebookExecutionJobRequestBlockNotebookEx
     /// </summary>
     public TerraformValue<string>? Generation
     {
-        get => new TerraformReference<string>(this, "generation");
+        get => GetArgument<TerraformValue<string>>("generation");
         set => SetArgument("generation", value);
     }
 
@@ -176,7 +176,7 @@ public class GoogleColabScheduleCreateNotebookExecutionJobRequestBlockNotebookEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -199,7 +199,7 @@ public class GoogleColabScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -208,7 +208,7 @@ public class GoogleColabScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -217,7 +217,7 @@ public class GoogleColabScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -235,7 +235,7 @@ public partial class GoogleColabSchedule(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<bool>? AllowQueueing
     {
-        get => new TerraformReference<bool>(this, "allow_queueing");
+        get => GetArgument<TerraformValue<bool>>("allow_queueing");
         set => SetArgument("allow_queueing", value);
     }
 
@@ -245,7 +245,7 @@ public partial class GoogleColabSchedule(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cron is required")]
     public required TerraformValue<string> Cron
     {
-        get => new TerraformReference<string>(this, "cron");
+        get => GetArgument<TerraformValue<string>>("cron");
         set => SetArgument("cron", value);
     }
 
@@ -254,7 +254,7 @@ public partial class GoogleColabSchedule(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? DesiredState
     {
-        get => new TerraformReference<string>(this, "desired_state");
+        get => GetArgument<TerraformValue<string>>("desired_state");
         set => SetArgument("desired_state", value);
     }
 
@@ -264,7 +264,7 @@ public partial class GoogleColabSchedule(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -273,16 +273,16 @@ public partial class GoogleColabSchedule(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? EndTime
     {
-        get => new TerraformReference<string>(this, "end_time");
+        get => GetArgument<TerraformValue<string>>("end_time");
         set => SetArgument("end_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -292,7 +292,7 @@ public partial class GoogleColabSchedule(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -302,7 +302,7 @@ public partial class GoogleColabSchedule(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxConcurrentRunCount is required")]
     public required TerraformValue<string> MaxConcurrentRunCount
     {
-        get => new TerraformReference<string>(this, "max_concurrent_run_count");
+        get => GetArgument<TerraformValue<string>>("max_concurrent_run_count");
         set => SetArgument("max_concurrent_run_count", value);
     }
 
@@ -311,25 +311,25 @@ public partial class GoogleColabSchedule(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? MaxRunCount
     {
-        get => new TerraformReference<string>(this, "max_run_count");
+        get => GetArgument<TerraformValue<string>>("max_run_count");
         set => SetArgument("max_run_count", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The timestamp after which the first run can be scheduled. Defaults to the schedule creation time. Must be in the RFC 3339 (https://www.ietf.org/rfc/rfc3339.txt) format.
     /// </summary>
-    public TerraformValue<string> StartTime
+    public TerraformValue<string>? StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -337,17 +337,13 @@ public partial class GoogleColabSchedule(string name) : TerraformResource("googl
     /// The resource name of the Schedule
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. The state of the schedule.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// CreateNotebookExecutionJobRequest block (nesting mode: list).

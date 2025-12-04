@@ -19,7 +19,7 @@ public class AzureadGroupDynamicMembershipBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -29,7 +29,7 @@ public class AzureadGroupDynamicMembershipBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     public required TerraformValue<string> Rule
     {
-        get => new TerraformReference<string>(this, "rule");
+        get => GetArgument<TerraformValue<string>>("rule");
         set => SetArgument("rule", value);
     }
 
@@ -52,7 +52,7 @@ public class AzureadGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -61,7 +61,7 @@ public class AzureadGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -70,7 +70,7 @@ public class AzureadGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -79,7 +79,7 @@ public class AzureadGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// </summary>
     public TerraformSet<string>? AdministrativeUnitIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "administrative_unit_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("administrative_unit_ids");
         set => SetArgument("administrative_unit_ids", value);
     }
 
@@ -106,16 +106,16 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// </summary>
     public TerraformValue<bool>? AssignableToRole
     {
-        get => new TerraformReference<bool>(this, "assignable_to_role");
+        get => GetArgument<TerraformValue<bool>>("assignable_to_role");
         set => SetArgument("assignable_to_role", value);
     }
 
     /// <summary>
     /// Indicates whether new members added to the group will be auto-subscribed to receive email notifications.
     /// </summary>
-    public TerraformValue<bool> AutoSubscribeNewMembers
+    public TerraformValue<bool>? AutoSubscribeNewMembers
     {
-        get => new TerraformReference<bool>(this, "auto_subscribe_new_members");
+        get => GetArgument<TerraformValue<bool>>("auto_subscribe_new_members");
         set => SetArgument("auto_subscribe_new_members", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// </summary>
     public TerraformSet<string>? Behaviors
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "behaviors").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("behaviors");
         set => SetArgument("behaviors", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -143,43 +143,43 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// Indicates whether people external to the organization can send messages to the group.
     /// </summary>
-    public TerraformValue<bool> ExternalSendersAllowed
+    public TerraformValue<bool>? ExternalSendersAllowed
     {
-        get => new TerraformReference<bool>(this, "external_senders_allowed");
+        get => GetArgument<TerraformValue<bool>>("external_senders_allowed");
         set => SetArgument("external_senders_allowed", value);
     }
 
     /// <summary>
     /// Indicates whether the group is displayed in certain parts of the Outlook user interface: in the Address Book, in address lists for selecting message recipients, and in the Browse Groups dialog for searching groups.
     /// </summary>
-    public TerraformValue<bool> HideFromAddressLists
+    public TerraformValue<bool>? HideFromAddressLists
     {
-        get => new TerraformReference<bool>(this, "hide_from_address_lists");
+        get => GetArgument<TerraformValue<bool>>("hide_from_address_lists");
         set => SetArgument("hide_from_address_lists", value);
     }
 
     /// <summary>
     /// Indicates whether the group is displayed in Outlook clients, such as Outlook for Windows and Outlook on the web.
     /// </summary>
-    public TerraformValue<bool> HideFromOutlookClients
+    public TerraformValue<bool>? HideFromOutlookClients
     {
-        get => new TerraformReference<bool>(this, "hide_from_outlook_clients");
+        get => GetArgument<TerraformValue<bool>>("hide_from_outlook_clients");
         set => SetArgument("hide_from_outlook_clients", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -188,43 +188,43 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// </summary>
     public TerraformValue<bool>? MailEnabled
     {
-        get => new TerraformReference<bool>(this, "mail_enabled");
+        get => GetArgument<TerraformValue<bool>>("mail_enabled");
         set => SetArgument("mail_enabled", value);
     }
 
     /// <summary>
     /// The mail alias for the group, unique in the organisation
     /// </summary>
-    public TerraformValue<string> MailNickname
+    public TerraformValue<string>? MailNickname
     {
-        get => new TerraformReference<string>(this, "mail_nickname");
+        get => GetArgument<TerraformValue<string>>("mail_nickname");
         set => SetArgument("mail_nickname", value);
     }
 
     /// <summary>
     /// A set of members who should be present in this group. Supported object types are Users, Groups or Service Principals
     /// </summary>
-    public TerraformSet<string> Members
+    public TerraformSet<string>? Members
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "members").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("members");
         set => SetArgument("members", value);
     }
 
     /// <summary>
     /// Indicates the target on-premise group type the group will be written back as
     /// </summary>
-    public TerraformValue<string> OnpremisesGroupType
+    public TerraformValue<string>? OnpremisesGroupType
     {
-        get => new TerraformReference<string>(this, "onpremises_group_type");
+        get => GetArgument<TerraformValue<string>>("onpremises_group_type");
         set => SetArgument("onpremises_group_type", value);
     }
 
     /// <summary>
     /// A set of owners who own this group. Supported object types are Users or Service Principals
     /// </summary>
-    public TerraformSet<string> Owners
+    public TerraformSet<string>? Owners
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "owners").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("owners");
         set => SetArgument("owners", value);
     }
 
@@ -233,7 +233,7 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// </summary>
     public TerraformValue<bool>? PreventDuplicateNames
     {
-        get => new TerraformReference<bool>(this, "prevent_duplicate_names");
+        get => GetArgument<TerraformValue<bool>>("prevent_duplicate_names");
         set => SetArgument("prevent_duplicate_names", value);
     }
 
@@ -242,7 +242,7 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// </summary>
     public TerraformSet<string>? ProvisioningOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "provisioning_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("provisioning_options");
         set => SetArgument("provisioning_options", value);
     }
 
@@ -251,7 +251,7 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// </summary>
     public TerraformValue<bool>? SecurityEnabled
     {
-        get => new TerraformReference<bool>(this, "security_enabled");
+        get => GetArgument<TerraformValue<bool>>("security_enabled");
         set => SetArgument("security_enabled", value);
     }
 
@@ -260,7 +260,7 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// </summary>
     public TerraformValue<string>? Theme
     {
-        get => new TerraformReference<string>(this, "theme");
+        get => GetArgument<TerraformValue<string>>("theme");
         set => SetArgument("theme", value);
     }
 
@@ -269,16 +269,16 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// </summary>
     public TerraformSet<string>? Types
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("types");
         set => SetArgument("types", value);
     }
 
     /// <summary>
     /// Specifies the group join policy and group content visibility
     /// </summary>
-    public TerraformValue<string> Visibility
+    public TerraformValue<string>? Visibility
     {
-        get => new TerraformReference<string>(this, "visibility");
+        get => GetArgument<TerraformValue<string>>("visibility");
         set => SetArgument("visibility", value);
     }
 
@@ -287,7 +287,7 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// </summary>
     public TerraformValue<bool>? WritebackEnabled
     {
-        get => new TerraformReference<bool>(this, "writeback_enabled");
+        get => GetArgument<TerraformValue<bool>>("writeback_enabled");
         set => SetArgument("writeback_enabled", value);
     }
 
@@ -295,73 +295,55 @@ public partial class AzureadGroup(string name) : TerraformResource("azuread_grou
     /// The SMTP address for the group
     /// </summary>
     public TerraformValue<string> Mail
-    {
-        get => new TerraformReference<string>(this, "mail");
-    }
+        => AsReference("mail");
 
     /// <summary>
     /// The object ID of the group
     /// </summary>
     public TerraformValue<string> ObjectId
-    {
-        get => new TerraformReference<string>(this, "object_id");
-    }
+        => AsReference("object_id");
 
     /// <summary>
     /// The on-premises FQDN, also called dnsDomainName, synchronized from the on-premises directory when Azure AD Connect is used
     /// </summary>
     public TerraformValue<string> OnpremisesDomainName
-    {
-        get => new TerraformReference<string>(this, "onpremises_domain_name");
-    }
+        => AsReference("onpremises_domain_name");
 
     /// <summary>
     /// The on-premises NetBIOS name, synchronized from the on-premises directory when Azure AD Connect is used
     /// </summary>
     public TerraformValue<string> OnpremisesNetbiosName
-    {
-        get => new TerraformReference<string>(this, "onpremises_netbios_name");
-    }
+        => AsReference("onpremises_netbios_name");
 
     /// <summary>
     /// The on-premises SAM account name, synchronized from the on-premises directory when Azure AD Connect is used
     /// </summary>
     public TerraformValue<string> OnpremisesSamAccountName
-    {
-        get => new TerraformReference<string>(this, "onpremises_sam_account_name");
-    }
+        => AsReference("onpremises_sam_account_name");
 
     /// <summary>
     /// The on-premises security identifier (SID), synchronized from the on-premises directory when Azure AD Connect is used
     /// </summary>
     public TerraformValue<string> OnpremisesSecurityIdentifier
-    {
-        get => new TerraformReference<string>(this, "onpremises_security_identifier");
-    }
+        => AsReference("onpremises_security_identifier");
 
     /// <summary>
     /// Whether this group is synchronized from an on-premises directory (true), no longer synchronized (false), or has never been synchronized (null)
     /// </summary>
     public TerraformValue<bool> OnpremisesSyncEnabled
-    {
-        get => new TerraformReference<bool>(this, "onpremises_sync_enabled");
-    }
+        => AsReference("onpremises_sync_enabled");
 
     /// <summary>
     /// The preferred language for a Microsoft 365 group, in ISO 639-1 notation
     /// </summary>
     public TerraformValue<string> PreferredLanguage
-    {
-        get => new TerraformReference<string>(this, "preferred_language");
-    }
+        => AsReference("preferred_language");
 
     /// <summary>
     /// Email addresses for the group that direct to the same group mailbox
     /// </summary>
     public TerraformList<string> ProxyAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "proxy_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("proxy_addresses");
 
     /// <summary>
     /// DynamicMembership block (nesting mode: list).

@@ -11,9 +11,9 @@ public partial class GoogleAccessContextManagerAccessPolicyDataSource(string nam
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleAccessContextManagerAccessPolicyDataSource(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleAccessContextManagerAccessPolicyDataSource(string nam
     /// </summary>
     public TerraformList<string>? Scopes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("scopes");
         set => SetArgument("scopes", value);
     }
 
@@ -40,16 +40,12 @@ public partial class GoogleAccessContextManagerAccessPolicyDataSource(string nam
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The title attribute.
     /// </summary>
     public TerraformValue<string> Title
-    {
-        get => new TerraformReference<string>(this, "title");
-    }
+        => AsReference("title");
 
 }

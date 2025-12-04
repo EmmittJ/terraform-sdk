@@ -18,7 +18,7 @@ public class AzurermResourceDeploymentScriptAzureCliContainerBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? ContainerGroupName
     {
-        get => new TerraformReference<string>(this, "container_group_name");
+        get => GetArgument<TerraformValue<string>>("container_group_name");
         set => SetArgument("container_group_name", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermResourceDeploymentScriptAzureCliEnvironmentVariableBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermResourceDeploymentScriptAzureCliEnvironmentVariableBlock : T
     /// </summary>
     public TerraformValue<string>? SecureValue
     {
-        get => new TerraformReference<string>(this, "secure_value");
+        get => GetArgument<TerraformValue<string>>("secure_value");
         set => SetArgument("secure_value", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermResourceDeploymentScriptAzureCliEnvironmentVariableBlock : T
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -84,7 +84,7 @@ public class AzurermResourceDeploymentScriptAzureCliIdentityBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
     public required TerraformSet<string> IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermResourceDeploymentScriptAzureCliIdentityBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -118,7 +118,7 @@ public class AzurermResourceDeploymentScriptAzureCliStorageAccountBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -128,7 +128,7 @@ public class AzurermResourceDeploymentScriptAzureCliStorageAccountBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermResourceDeploymentScriptAzureCliTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermResourceDeploymentScriptAzureCliTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermResourceDeploymentScriptAzureCliTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -178,7 +178,7 @@ public class AzurermResourceDeploymentScriptAzureCliTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -196,7 +196,7 @@ public partial class AzurermResourceDeploymentScriptAzureCli(string name) : Terr
     /// </summary>
     public TerraformValue<string>? CleanupPreference
     {
-        get => new TerraformReference<string>(this, "cleanup_preference");
+        get => GetArgument<TerraformValue<string>>("cleanup_preference");
         set => SetArgument("cleanup_preference", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AzurermResourceDeploymentScriptAzureCli(string name) : Terr
     /// </summary>
     public TerraformValue<string>? CommandLine
     {
-        get => new TerraformReference<string>(this, "command_line");
+        get => GetArgument<TerraformValue<string>>("command_line");
         set => SetArgument("command_line", value);
     }
 
@@ -214,16 +214,16 @@ public partial class AzurermResourceDeploymentScriptAzureCli(string name) : Terr
     /// </summary>
     public TerraformValue<string>? ForceUpdateTag
     {
-        get => new TerraformReference<string>(this, "force_update_tag");
+        get => GetArgument<TerraformValue<string>>("force_update_tag");
         set => SetArgument("force_update_tag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -233,7 +233,7 @@ public partial class AzurermResourceDeploymentScriptAzureCli(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -243,7 +243,7 @@ public partial class AzurermResourceDeploymentScriptAzureCli(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -252,7 +252,7 @@ public partial class AzurermResourceDeploymentScriptAzureCli(string name) : Terr
     /// </summary>
     public TerraformValue<string>? PrimaryScriptUri
     {
-        get => new TerraformReference<string>(this, "primary_script_uri");
+        get => GetArgument<TerraformValue<string>>("primary_script_uri");
         set => SetArgument("primary_script_uri", value);
     }
 
@@ -262,7 +262,7 @@ public partial class AzurermResourceDeploymentScriptAzureCli(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -272,7 +272,7 @@ public partial class AzurermResourceDeploymentScriptAzureCli(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionInterval is required")]
     public required TerraformValue<string> RetentionInterval
     {
-        get => new TerraformReference<string>(this, "retention_interval");
+        get => GetArgument<TerraformValue<string>>("retention_interval");
         set => SetArgument("retention_interval", value);
     }
 
@@ -281,7 +281,7 @@ public partial class AzurermResourceDeploymentScriptAzureCli(string name) : Terr
     /// </summary>
     public TerraformValue<string>? ScriptContent
     {
-        get => new TerraformReference<string>(this, "script_content");
+        get => GetArgument<TerraformValue<string>>("script_content");
         set => SetArgument("script_content", value);
     }
 
@@ -290,7 +290,7 @@ public partial class AzurermResourceDeploymentScriptAzureCli(string name) : Terr
     /// </summary>
     public TerraformList<string>? SupportingScriptUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supporting_script_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("supporting_script_uris");
         set => SetArgument("supporting_script_uris", value);
     }
 
@@ -299,7 +299,7 @@ public partial class AzurermResourceDeploymentScriptAzureCli(string name) : Terr
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -308,7 +308,7 @@ public partial class AzurermResourceDeploymentScriptAzureCli(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Timeout
     {
-        get => new TerraformReference<string>(this, "timeout");
+        get => GetArgument<TerraformValue<string>>("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -318,7 +318,7 @@ public partial class AzurermResourceDeploymentScriptAzureCli(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -326,9 +326,7 @@ public partial class AzurermResourceDeploymentScriptAzureCli(string name) : Terr
     /// The outputs attribute.
     /// </summary>
     public TerraformValue<string> Outputs
-    {
-        get => new TerraformReference<string>(this, "outputs");
-    }
+        => AsReference("outputs");
 
     /// <summary>
     /// Container block (nesting mode: list).

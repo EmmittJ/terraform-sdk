@@ -18,7 +18,7 @@ public class AwsEmrInstanceGroupEbsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Iops
     {
-        get => new TerraformReference<double>(this, "iops");
+        get => GetArgument<TerraformValue<double>>("iops");
         set => SetArgument("iops", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsEmrInstanceGroupEbsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     public required TerraformValue<double> Size
     {
-        get => new TerraformReference<double>(this, "size");
+        get => GetArgument<TerraformValue<double>>("size");
         set => SetArgument("size", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsEmrInstanceGroupEbsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsEmrInstanceGroupEbsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? VolumesPerInstance
     {
-        get => new TerraformReference<double>(this, "volumes_per_instance");
+        get => GetArgument<TerraformValue<double>>("volumes_per_instance");
         set => SetArgument("volumes_per_instance", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsEmrInstanceGroup(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformValue<string>? AutoscalingPolicy
     {
-        get => new TerraformReference<string>(this, "autoscaling_policy");
+        get => GetArgument<TerraformValue<string>>("autoscaling_policy");
         set => SetArgument("autoscaling_policy", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsEmrInstanceGroup(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformValue<string>? BidPrice
     {
-        get => new TerraformReference<string>(this, "bid_price");
+        get => GetArgument<TerraformValue<string>>("bid_price");
         set => SetArgument("bid_price", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AwsEmrInstanceGroup(string name) : TerraformResource("aws_e
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => new TerraformReference<string>(this, "cluster_id");
+        get => GetArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AwsEmrInstanceGroup(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformValue<string>? ConfigurationsJson
     {
-        get => new TerraformReference<string>(this, "configurations_json");
+        get => GetArgument<TerraformValue<string>>("configurations_json");
         set => SetArgument("configurations_json", value);
     }
 
@@ -102,25 +102,25 @@ public partial class AwsEmrInstanceGroup(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformValue<bool>? EbsOptimized
     {
-        get => new TerraformReference<bool>(this, "ebs_optimized");
+        get => GetArgument<TerraformValue<bool>>("ebs_optimized");
         set => SetArgument("ebs_optimized", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public TerraformValue<double> InstanceCount
+    public TerraformValue<double>? InstanceCount
     {
-        get => new TerraformReference<double>(this, "instance_count");
+        get => GetArgument<TerraformValue<double>>("instance_count");
         set => SetArgument("instance_count", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AwsEmrInstanceGroup(string name) : TerraformResource("aws_e
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -139,16 +139,16 @@ public partial class AwsEmrInstanceGroup(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -156,17 +156,13 @@ public partial class AwsEmrInstanceGroup(string name) : TerraformResource("aws_e
     /// The running_instance_count attribute.
     /// </summary>
     public TerraformValue<double> RunningInstanceCount
-    {
-        get => new TerraformReference<double>(this, "running_instance_count");
-    }
+        => AsReference("running_instance_count");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// EbsConfig block (nesting mode: set).

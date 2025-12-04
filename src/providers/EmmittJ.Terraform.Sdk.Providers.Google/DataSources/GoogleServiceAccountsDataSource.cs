@@ -11,9 +11,9 @@ public partial class GoogleServiceAccountsDataSource(string name) : TerraformDat
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleServiceAccountsDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleServiceAccountsDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -40,7 +40,7 @@ public partial class GoogleServiceAccountsDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string>? Regex
     {
-        get => new TerraformReference<string>(this, "regex");
+        get => GetArgument<TerraformValue<string>>("regex");
         set => SetArgument("regex", value);
     }
 
@@ -48,8 +48,6 @@ public partial class GoogleServiceAccountsDataSource(string name) : TerraformDat
     /// The accounts attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Accounts
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "accounts").ResolveNodes(ctx));
-    }
+        => AsReference("accounts");
 
 }

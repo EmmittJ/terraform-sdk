@@ -18,7 +18,7 @@ public class AwsSecurityGroupRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -36,7 +36,7 @@ public partial class AwsSecurityGroupRule(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformList<string>? CidrBlocks
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "cidr_blocks").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("cidr_blocks");
         set => SetArgument("cidr_blocks", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AwsSecurityGroupRule(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AwsSecurityGroupRule(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformValue<double> FromPort
     {
-        get => new TerraformReference<double>(this, "from_port");
+        get => GetArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsSecurityGroupRule(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformList<string>? Ipv6CidrBlocks
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ipv6_cidr_blocks").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ipv6_cidr_blocks");
         set => SetArgument("ipv6_cidr_blocks", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsSecurityGroupRule(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformList<string>? PrefixListIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "prefix_list_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("prefix_list_ids");
         set => SetArgument("prefix_list_ids", value);
     }
 
@@ -92,16 +92,16 @@ public partial class AwsSecurityGroupRule(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AwsSecurityGroupRule(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupId is required")]
     public required TerraformValue<string> SecurityGroupId
     {
-        get => new TerraformReference<string>(this, "security_group_id");
+        get => GetArgument<TerraformValue<string>>("security_group_id");
         set => SetArgument("security_group_id", value);
     }
 
@@ -120,16 +120,16 @@ public partial class AwsSecurityGroupRule(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<bool>? Self
     {
-        get => new TerraformReference<bool>(this, "self");
+        get => GetArgument<TerraformValue<bool>>("self");
         set => SetArgument("self", value);
     }
 
     /// <summary>
     /// The source_security_group_id attribute.
     /// </summary>
-    public TerraformValue<string> SourceSecurityGroupId
+    public TerraformValue<string>? SourceSecurityGroupId
     {
-        get => new TerraformReference<string>(this, "source_security_group_id");
+        get => GetArgument<TerraformValue<string>>("source_security_group_id");
         set => SetArgument("source_security_group_id", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AwsSecurityGroupRule(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformValue<double> ToPort
     {
-        get => new TerraformReference<double>(this, "to_port");
+        get => GetArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -149,7 +149,7 @@ public partial class AwsSecurityGroupRule(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -157,9 +157,7 @@ public partial class AwsSecurityGroupRule(string name) : TerraformResource("aws_
     /// The security_group_rule_id attribute.
     /// </summary>
     public TerraformValue<string> SecurityGroupRuleId
-    {
-        get => new TerraformReference<string>(this, "security_group_rule_id");
-    }
+        => AsReference("security_group_rule_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

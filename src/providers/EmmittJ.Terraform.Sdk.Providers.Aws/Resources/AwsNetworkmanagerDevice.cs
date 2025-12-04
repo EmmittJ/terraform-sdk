@@ -18,7 +18,7 @@ public class AwsNetworkmanagerDeviceAwsLocationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SubnetArn
     {
-        get => new TerraformReference<string>(this, "subnet_arn");
+        get => GetArgument<TerraformValue<string>>("subnet_arn");
         set => SetArgument("subnet_arn", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsNetworkmanagerDeviceAwsLocationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsNetworkmanagerDeviceLocationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Address
     {
-        get => new TerraformReference<string>(this, "address");
+        get => GetArgument<TerraformValue<string>>("address");
         set => SetArgument("address", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsNetworkmanagerDeviceLocationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Latitude
     {
-        get => new TerraformReference<string>(this, "latitude");
+        get => GetArgument<TerraformValue<string>>("latitude");
         set => SetArgument("latitude", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsNetworkmanagerDeviceLocationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Longitude
     {
-        get => new TerraformReference<string>(this, "longitude");
+        get => GetArgument<TerraformValue<string>>("longitude");
         set => SetArgument("longitude", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsNetworkmanagerDeviceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsNetworkmanagerDeviceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsNetworkmanagerDeviceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AwsNetworkmanagerDevice(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -137,16 +137,16 @@ public partial class AwsNetworkmanagerDevice(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     public required TerraformValue<string> GlobalNetworkId
     {
-        get => new TerraformReference<string>(this, "global_network_id");
+        get => GetArgument<TerraformValue<string>>("global_network_id");
         set => SetArgument("global_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AwsNetworkmanagerDevice(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Model
     {
-        get => new TerraformReference<string>(this, "model");
+        get => GetArgument<TerraformValue<string>>("model");
         set => SetArgument("model", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AwsNetworkmanagerDevice(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? SerialNumber
     {
-        get => new TerraformReference<string>(this, "serial_number");
+        get => GetArgument<TerraformValue<string>>("serial_number");
         set => SetArgument("serial_number", value);
     }
 
@@ -173,7 +173,7 @@ public partial class AwsNetworkmanagerDevice(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? SiteId
     {
-        get => new TerraformReference<string>(this, "site_id");
+        get => GetArgument<TerraformValue<string>>("site_id");
         set => SetArgument("site_id", value);
     }
 
@@ -182,16 +182,16 @@ public partial class AwsNetworkmanagerDevice(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AwsNetworkmanagerDevice(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -209,7 +209,7 @@ public partial class AwsNetworkmanagerDevice(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Vendor
     {
-        get => new TerraformReference<string>(this, "vendor");
+        get => GetArgument<TerraformValue<string>>("vendor");
         set => SetArgument("vendor", value);
     }
 
@@ -217,9 +217,7 @@ public partial class AwsNetworkmanagerDevice(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// AwsLocation block (nesting mode: list).

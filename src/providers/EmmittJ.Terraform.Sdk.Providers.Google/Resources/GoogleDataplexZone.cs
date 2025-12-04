@@ -19,7 +19,7 @@ public class GoogleDataplexZoneDiscoverySpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleDataplexZoneDiscoverySpecBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ExcludePatterns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclude_patterns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclude_patterns");
         set => SetArgument("exclude_patterns", value);
     }
 
@@ -37,16 +37,16 @@ public class GoogleDataplexZoneDiscoverySpecBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? IncludePatterns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "include_patterns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("include_patterns");
         set => SetArgument("include_patterns", value);
     }
 
     /// <summary>
     /// Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for running discovery periodically. Successive discovery runs must be scheduled at least 60 minutes apart. The default value is to run discovery every 60 minutes. To explicitly set a timezone to the cron tab, apply a prefix in the cron tab: &amp;quot;CRON_TZ=${IANA_TIME_ZONE}&amp;quot; or TZ=${IANA_TIME_ZONE}&amp;quot;. The ${IANA_TIME_ZONE} may only be a valid string from IANA time zone database. For example, &amp;quot;CRON_TZ=America/New_York 1 * * * *&amp;quot;, or &amp;quot;TZ=America/New_York 1 * * * *&amp;quot;.
     /// </summary>
-    public TerraformValue<string> Schedule
+    public TerraformValue<string>? Schedule
     {
-        get => new TerraformReference<string>(this, "schedule");
+        get => GetArgument<TerraformValue<string>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -88,7 +88,7 @@ public class GoogleDataplexZoneDiscoverySpecBlockCsvOptionsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delimiter
     {
-        get => new TerraformReference<string>(this, "delimiter");
+        get => GetArgument<TerraformValue<string>>("delimiter");
         set => SetArgument("delimiter", value);
     }
 
@@ -97,7 +97,7 @@ public class GoogleDataplexZoneDiscoverySpecBlockCsvOptionsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool>? DisableTypeInference
     {
-        get => new TerraformReference<bool>(this, "disable_type_inference");
+        get => GetArgument<TerraformValue<bool>>("disable_type_inference");
         set => SetArgument("disable_type_inference", value);
     }
 
@@ -106,7 +106,7 @@ public class GoogleDataplexZoneDiscoverySpecBlockCsvOptionsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Encoding
     {
-        get => new TerraformReference<string>(this, "encoding");
+        get => GetArgument<TerraformValue<string>>("encoding");
         set => SetArgument("encoding", value);
     }
 
@@ -115,7 +115,7 @@ public class GoogleDataplexZoneDiscoverySpecBlockCsvOptionsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double>? HeaderRows
     {
-        get => new TerraformReference<double>(this, "header_rows");
+        get => GetArgument<TerraformValue<double>>("header_rows");
         set => SetArgument("header_rows", value);
     }
 
@@ -137,7 +137,7 @@ public class GoogleDataplexZoneDiscoverySpecBlockJsonOptionsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<bool>? DisableTypeInference
     {
-        get => new TerraformReference<bool>(this, "disable_type_inference");
+        get => GetArgument<TerraformValue<bool>>("disable_type_inference");
         set => SetArgument("disable_type_inference", value);
     }
 
@@ -146,7 +146,7 @@ public class GoogleDataplexZoneDiscoverySpecBlockJsonOptionsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Encoding
     {
-        get => new TerraformReference<string>(this, "encoding");
+        get => GetArgument<TerraformValue<string>>("encoding");
         set => SetArgument("encoding", value);
     }
 
@@ -170,7 +170,7 @@ public class GoogleDataplexZoneResourceSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationType is required")]
     public required TerraformValue<string> LocationType
     {
-        get => new TerraformReference<string>(this, "location_type");
+        get => GetArgument<TerraformValue<string>>("location_type");
         set => SetArgument("location_type", value);
     }
 
@@ -193,7 +193,7 @@ public class GoogleDataplexZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -202,7 +202,7 @@ public class GoogleDataplexZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -211,7 +211,7 @@ public class GoogleDataplexZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -229,7 +229,7 @@ public partial class GoogleDataplexZone(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -238,16 +238,16 @@ public partial class GoogleDataplexZone(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -259,7 +259,7 @@ public partial class GoogleDataplexZone(string name) : TerraformResource("google
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -269,7 +269,7 @@ public partial class GoogleDataplexZone(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lake is required")]
     public required TerraformValue<string> Lake
     {
-        get => new TerraformReference<string>(this, "lake");
+        get => GetArgument<TerraformValue<string>>("lake");
         set => SetArgument("lake", value);
     }
 
@@ -279,7 +279,7 @@ public partial class GoogleDataplexZone(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -289,16 +289,16 @@ public partial class GoogleDataplexZone(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -308,7 +308,7 @@ public partial class GoogleDataplexZone(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -316,57 +316,43 @@ public partial class GoogleDataplexZone(string name) : TerraformResource("google
     /// Output only. Aggregated status of the underlying assets of the zone.
     /// </summary>
     public TerraformList<TerraformMap<object>> AssetStatus
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "asset_status").ResolveNodes(ctx));
-    }
+        => AsReference("asset_status");
 
     /// <summary>
     /// Output only. The time when the zone was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Output only. Current state of the zone. Possible values: STATE_UNSPECIFIED, ACTIVE, CREATING, DELETING, ACTION_REQUIRED
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Output only. System generated globally unique ID for the zone. This ID will be different if the zone is deleted and re-created with the same name.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Output only. The time when the zone was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// DiscoverySpec block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AzurermDataShareDatasetKustoClusterDataSourceTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermDataShareDatasetKustoClusterDataSource(string name) 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermDataShareDatasetKustoClusterDataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermDataShareDatasetKustoClusterDataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareId is required")]
     public required TerraformValue<string> ShareId
     {
-        get => new TerraformReference<string>(this, "share_id");
+        get => GetArgument<TerraformValue<string>>("share_id");
         set => SetArgument("share_id", value);
     }
 
@@ -64,25 +64,19 @@ public partial class AzurermDataShareDatasetKustoClusterDataSource(string name) 
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The kusto_cluster_id attribute.
     /// </summary>
     public TerraformValue<string> KustoClusterId
-    {
-        get => new TerraformReference<string>(this, "kusto_cluster_id");
-    }
+        => AsReference("kusto_cluster_id");
 
     /// <summary>
     /// The kusto_cluster_location attribute.
     /// </summary>
     public TerraformValue<string> KustoClusterLocation
-    {
-        get => new TerraformReference<string>(this, "kusto_cluster_location");
-    }
+        => AsReference("kusto_cluster_location");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

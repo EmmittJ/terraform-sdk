@@ -14,16 +14,16 @@ public partial class GoogleAccessApprovalFolderServiceAccountDataSource(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderId is required")]
     public required TerraformValue<string> FolderId
     {
-        get => new TerraformReference<string>(this, "folder_id");
+        get => GetArgument<TerraformValue<string>>("folder_id");
         set => SetArgument("folder_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,16 +31,12 @@ public partial class GoogleAccessApprovalFolderServiceAccountDataSource(string n
     /// The account_email attribute.
     /// </summary>
     public TerraformValue<string> AccountEmail
-    {
-        get => new TerraformReference<string>(this, "account_email");
-    }
+        => AsReference("account_email");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
 }

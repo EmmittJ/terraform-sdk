@@ -11,9 +11,9 @@ public partial class GoogleDatastreamStaticIpsDataSource(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleDatastreamStaticIpsDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleDatastreamStaticIpsDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -40,8 +40,6 @@ public partial class GoogleDatastreamStaticIpsDataSource(string name) : Terrafor
     /// The static_ips attribute.
     /// </summary>
     public TerraformList<string> StaticIps
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "static_ips").ResolveNodes(ctx));
-    }
+        => AsReference("static_ips");
 
 }

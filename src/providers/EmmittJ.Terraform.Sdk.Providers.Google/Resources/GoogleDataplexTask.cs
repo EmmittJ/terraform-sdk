@@ -18,7 +18,7 @@ public class GoogleDataplexTaskExecutionSpecBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Args
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleDataplexTaskExecutionSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleDataplexTaskExecutionSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaxJobExecutionLifetime
     {
-        get => new TerraformReference<string>(this, "max_job_execution_lifetime");
+        get => GetArgument<TerraformValue<string>>("max_job_execution_lifetime");
         set => SetArgument("max_job_execution_lifetime", value);
     }
 
@@ -45,7 +45,7 @@ public class GoogleDataplexTaskExecutionSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -55,7 +55,7 @@ public class GoogleDataplexTaskExecutionSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
     public required TerraformValue<string> ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -78,7 +78,7 @@ public class GoogleDataplexTaskNotebookBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ArchiveUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "archive_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("archive_uris");
         set => SetArgument("archive_uris", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleDataplexTaskNotebookBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? FileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("file_uris");
         set => SetArgument("file_uris", value);
     }
 
@@ -97,7 +97,7 @@ public class GoogleDataplexTaskNotebookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Notebook is required")]
     public required TerraformValue<string> Notebook
     {
-        get => new TerraformReference<string>(this, "notebook");
+        get => GetArgument<TerraformValue<string>>("notebook");
         set => SetArgument("notebook", value);
     }
 
@@ -172,7 +172,7 @@ public class GoogleDataplexTaskNotebookBlockInfrastructureSpecBlockBatchBlock : 
     /// </summary>
     public TerraformValue<double>? ExecutorsCount
     {
-        get => new TerraformReference<double>(this, "executors_count");
+        get => GetArgument<TerraformValue<double>>("executors_count");
         set => SetArgument("executors_count", value);
     }
 
@@ -181,7 +181,7 @@ public class GoogleDataplexTaskNotebookBlockInfrastructureSpecBlockBatchBlock : 
     /// </summary>
     public TerraformValue<double>? MaxExecutorsCount
     {
-        get => new TerraformReference<double>(this, "max_executors_count");
+        get => GetArgument<TerraformValue<double>>("max_executors_count");
         set => SetArgument("max_executors_count", value);
     }
 
@@ -203,7 +203,7 @@ public class GoogleDataplexTaskNotebookBlockInfrastructureSpecBlockContainerImag
     /// </summary>
     public TerraformValue<string>? Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -212,7 +212,7 @@ public class GoogleDataplexTaskNotebookBlockInfrastructureSpecBlockContainerImag
     /// </summary>
     public TerraformList<string>? JavaJars
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "java_jars").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("java_jars");
         set => SetArgument("java_jars", value);
     }
 
@@ -221,7 +221,7 @@ public class GoogleDataplexTaskNotebookBlockInfrastructureSpecBlockContainerImag
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -230,7 +230,7 @@ public class GoogleDataplexTaskNotebookBlockInfrastructureSpecBlockContainerImag
     /// </summary>
     public TerraformList<string>? PythonPackages
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "python_packages").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("python_packages");
         set => SetArgument("python_packages", value);
     }
 
@@ -252,7 +252,7 @@ public class GoogleDataplexTaskNotebookBlockInfrastructureSpecBlockVpcNetworkBlo
     /// </summary>
     public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -261,7 +261,7 @@ public class GoogleDataplexTaskNotebookBlockInfrastructureSpecBlockVpcNetworkBlo
     /// </summary>
     public TerraformList<string>? NetworkTags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "network_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("network_tags");
         set => SetArgument("network_tags", value);
     }
 
@@ -270,7 +270,7 @@ public class GoogleDataplexTaskNotebookBlockInfrastructureSpecBlockVpcNetworkBlo
     /// </summary>
     public TerraformValue<string>? SubNetwork
     {
-        get => new TerraformReference<string>(this, "sub_network");
+        get => GetArgument<TerraformValue<string>>("sub_network");
         set => SetArgument("sub_network", value);
     }
 
@@ -293,7 +293,7 @@ public class GoogleDataplexTaskSparkBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ArchiveUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "archive_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("archive_uris");
         set => SetArgument("archive_uris", value);
     }
 
@@ -302,7 +302,7 @@ public class GoogleDataplexTaskSparkBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? FileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("file_uris");
         set => SetArgument("file_uris", value);
     }
 
@@ -311,7 +311,7 @@ public class GoogleDataplexTaskSparkBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MainClass
     {
-        get => new TerraformReference<string>(this, "main_class");
+        get => GetArgument<TerraformValue<string>>("main_class");
         set => SetArgument("main_class", value);
     }
 
@@ -320,7 +320,7 @@ public class GoogleDataplexTaskSparkBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MainJarFileUri
     {
-        get => new TerraformReference<string>(this, "main_jar_file_uri");
+        get => GetArgument<TerraformValue<string>>("main_jar_file_uri");
         set => SetArgument("main_jar_file_uri", value);
     }
 
@@ -329,7 +329,7 @@ public class GoogleDataplexTaskSparkBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PythonScriptFile
     {
-        get => new TerraformReference<string>(this, "python_script_file");
+        get => GetArgument<TerraformValue<string>>("python_script_file");
         set => SetArgument("python_script_file", value);
     }
 
@@ -338,7 +338,7 @@ public class GoogleDataplexTaskSparkBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SqlScript
     {
-        get => new TerraformReference<string>(this, "sql_script");
+        get => GetArgument<TerraformValue<string>>("sql_script");
         set => SetArgument("sql_script", value);
     }
 
@@ -347,7 +347,7 @@ public class GoogleDataplexTaskSparkBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SqlScriptFile
     {
-        get => new TerraformReference<string>(this, "sql_script_file");
+        get => GetArgument<TerraformValue<string>>("sql_script_file");
         set => SetArgument("sql_script_file", value);
     }
 
@@ -422,7 +422,7 @@ public class GoogleDataplexTaskSparkBlockInfrastructureSpecBlockBatchBlock : Ter
     /// </summary>
     public TerraformValue<double>? ExecutorsCount
     {
-        get => new TerraformReference<double>(this, "executors_count");
+        get => GetArgument<TerraformValue<double>>("executors_count");
         set => SetArgument("executors_count", value);
     }
 
@@ -431,7 +431,7 @@ public class GoogleDataplexTaskSparkBlockInfrastructureSpecBlockBatchBlock : Ter
     /// </summary>
     public TerraformValue<double>? MaxExecutorsCount
     {
-        get => new TerraformReference<double>(this, "max_executors_count");
+        get => GetArgument<TerraformValue<double>>("max_executors_count");
         set => SetArgument("max_executors_count", value);
     }
 
@@ -453,7 +453,7 @@ public class GoogleDataplexTaskSparkBlockInfrastructureSpecBlockContainerImageBl
     /// </summary>
     public TerraformValue<string>? Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -462,7 +462,7 @@ public class GoogleDataplexTaskSparkBlockInfrastructureSpecBlockContainerImageBl
     /// </summary>
     public TerraformList<string>? JavaJars
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "java_jars").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("java_jars");
         set => SetArgument("java_jars", value);
     }
 
@@ -471,7 +471,7 @@ public class GoogleDataplexTaskSparkBlockInfrastructureSpecBlockContainerImageBl
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -480,7 +480,7 @@ public class GoogleDataplexTaskSparkBlockInfrastructureSpecBlockContainerImageBl
     /// </summary>
     public TerraformList<string>? PythonPackages
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "python_packages").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("python_packages");
         set => SetArgument("python_packages", value);
     }
 
@@ -502,7 +502,7 @@ public class GoogleDataplexTaskSparkBlockInfrastructureSpecBlockVpcNetworkBlock 
     /// </summary>
     public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -511,7 +511,7 @@ public class GoogleDataplexTaskSparkBlockInfrastructureSpecBlockVpcNetworkBlock 
     /// </summary>
     public TerraformList<string>? NetworkTags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "network_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("network_tags");
         set => SetArgument("network_tags", value);
     }
 
@@ -520,7 +520,7 @@ public class GoogleDataplexTaskSparkBlockInfrastructureSpecBlockVpcNetworkBlock 
     /// </summary>
     public TerraformValue<string>? SubNetwork
     {
-        get => new TerraformReference<string>(this, "sub_network");
+        get => GetArgument<TerraformValue<string>>("sub_network");
         set => SetArgument("sub_network", value);
     }
 
@@ -543,7 +543,7 @@ public class GoogleDataplexTaskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -552,7 +552,7 @@ public class GoogleDataplexTaskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -561,7 +561,7 @@ public class GoogleDataplexTaskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -584,7 +584,7 @@ public class GoogleDataplexTaskTriggerSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -593,7 +593,7 @@ public class GoogleDataplexTaskTriggerSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxRetries
     {
-        get => new TerraformReference<double>(this, "max_retries");
+        get => GetArgument<TerraformValue<double>>("max_retries");
         set => SetArgument("max_retries", value);
     }
 
@@ -602,7 +602,7 @@ public class GoogleDataplexTaskTriggerSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Schedule
     {
-        get => new TerraformReference<string>(this, "schedule");
+        get => GetArgument<TerraformValue<string>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -611,7 +611,7 @@ public class GoogleDataplexTaskTriggerSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -621,7 +621,7 @@ public class GoogleDataplexTaskTriggerSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -639,7 +639,7 @@ public partial class GoogleDataplexTask(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -648,16 +648,16 @@ public partial class GoogleDataplexTask(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -670,7 +670,7 @@ public partial class GoogleDataplexTask(string name) : TerraformResource("google
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -679,7 +679,7 @@ public partial class GoogleDataplexTask(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? Lake
     {
-        get => new TerraformReference<string>(this, "lake");
+        get => GetArgument<TerraformValue<string>>("lake");
         set => SetArgument("lake", value);
     }
 
@@ -688,16 +688,16 @@ public partial class GoogleDataplexTask(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -706,7 +706,7 @@ public partial class GoogleDataplexTask(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? TaskId
     {
-        get => new TerraformReference<string>(this, "task_id");
+        get => GetArgument<TerraformValue<string>>("task_id");
         set => SetArgument("task_id", value);
     }
 
@@ -714,66 +714,50 @@ public partial class GoogleDataplexTask(string name) : TerraformResource("google
     /// The time when the task was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Configuration for the cluster
     /// </summary>
     public TerraformList<TerraformMap<object>> ExecutionStatus
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "execution_status").ResolveNodes(ctx));
-    }
+        => AsReference("execution_status");
 
     /// <summary>
     /// The relative resource name of the task, of the form: projects/{project_number}/locations/{locationId}/lakes/{lakeId}/ tasks/{name}.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Current state of the task.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// System generated globally unique ID for the task. This ID will be different if the task is deleted and re-created with the same name.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// The time when the task was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// ExecutionSpec block (nesting mode: list).

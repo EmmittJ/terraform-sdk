@@ -14,16 +14,16 @@ public partial class GoogleDataplexDataQualityRulesDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataScanId is required")]
     public required TerraformValue<string> DataScanId
     {
-        get => new TerraformReference<string>(this, "data_scan_id");
+        get => GetArgument<TerraformValue<string>>("data_scan_id");
         set => SetArgument("data_scan_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleDataplexDataQualityRulesDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleDataplexDataQualityRulesDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -49,8 +49,6 @@ public partial class GoogleDataplexDataQualityRulesDataSource(string name) : Ter
     /// The rules attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Rules
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "rules").ResolveNodes(ctx));
-    }
+        => AsReference("rules");
 
 }

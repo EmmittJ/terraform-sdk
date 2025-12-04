@@ -18,7 +18,7 @@ public class AwsDsqlClusterPeeringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -37,7 +37,7 @@ public partial class AwsDsqlClusterPeering(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Clusters is required")]
     public required TerraformSet<string> Clusters
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "clusters").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("clusters");
         set => SetArgument("clusters", value);
     }
 
@@ -47,16 +47,16 @@ public partial class AwsDsqlClusterPeering(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformValue<string> Identifier
     {
-        get => new TerraformReference<string>(this, "identifier");
+        get => GetArgument<TerraformValue<string>>("identifier");
         set => SetArgument("identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AwsDsqlClusterPeering(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WitnessRegion is required")]
     public required TerraformValue<string> WitnessRegion
     {
-        get => new TerraformReference<string>(this, "witness_region");
+        get => GetArgument<TerraformValue<string>>("witness_region");
         set => SetArgument("witness_region", value);
     }
 

@@ -52,7 +52,7 @@ public class GoogleDataLossPreventionStoredInfoTypeDictionaryBlockCloudStoragePa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -76,7 +76,7 @@ public class GoogleDataLossPreventionStoredInfoTypeDictionaryBlockWordListBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Words is required")]
     public TerraformList<string>? Words
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "words").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("words");
         set => SetArgument("words", value);
     }
 
@@ -185,7 +185,7 @@ public class GoogleDataLossPreventionStoredInfoTypeLargeCustomDictionaryBlockBig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -208,7 +208,7 @@ public class GoogleDataLossPreventionStoredInfoTypeLargeCustomDictionaryBlockBig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => new TerraformReference<string>(this, "dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -218,7 +218,7 @@ public class GoogleDataLossPreventionStoredInfoTypeLargeCustomDictionaryBlockBig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -228,7 +228,7 @@ public class GoogleDataLossPreventionStoredInfoTypeLargeCustomDictionaryBlockBig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformValue<string> TableId
     {
-        get => new TerraformReference<string>(this, "table_id");
+        get => GetArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -251,7 +251,7 @@ public class GoogleDataLossPreventionStoredInfoTypeLargeCustomDictionaryBlockClo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -274,7 +274,7 @@ public class GoogleDataLossPreventionStoredInfoTypeLargeCustomDictionaryBlockOut
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -297,7 +297,7 @@ public class GoogleDataLossPreventionStoredInfoTypeRegexBlock : TerraformBlock
     /// </summary>
     public TerraformList<double>? GroupIndexes
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "group_indexes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("group_indexes");
         set => SetArgument("group_indexes", value);
     }
 
@@ -308,7 +308,7 @@ public class GoogleDataLossPreventionStoredInfoTypeRegexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformValue<string> Pattern
     {
-        get => new TerraformReference<string>(this, "pattern");
+        get => GetArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -331,7 +331,7 @@ public class GoogleDataLossPreventionStoredInfoTypeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -340,7 +340,7 @@ public class GoogleDataLossPreventionStoredInfoTypeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -349,7 +349,7 @@ public class GoogleDataLossPreventionStoredInfoTypeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -367,7 +367,7 @@ public partial class GoogleDataLossPreventionStoredInfoType(string name) : Terra
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -376,16 +376,16 @@ public partial class GoogleDataLossPreventionStoredInfoType(string name) : Terra
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -400,7 +400,7 @@ public partial class GoogleDataLossPreventionStoredInfoType(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -409,9 +409,9 @@ public partial class GoogleDataLossPreventionStoredInfoType(string name) : Terra
     /// that is, it must match the regular expression: [a-zA-Z\d-_]+. The maximum length is 100
     /// characters. Can be empty to allow the system to generate one.
     /// </summary>
-    public TerraformValue<string> StoredInfoTypeId
+    public TerraformValue<string>? StoredInfoTypeId
     {
-        get => new TerraformReference<string>(this, "stored_info_type_id");
+        get => GetArgument<TerraformValue<string>>("stored_info_type_id");
         set => SetArgument("stored_info_type_id", value);
     }
 
@@ -419,9 +419,7 @@ public partial class GoogleDataLossPreventionStoredInfoType(string name) : Terra
     /// The resource name of the info type. Set by the server.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Dictionary block (nesting mode: list).

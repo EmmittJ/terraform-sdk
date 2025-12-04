@@ -16,9 +16,9 @@ public class AwsRolesanywhereTrustAnchorNotificationSettingsBlock : TerraformBlo
     /// <summary>
     /// The channel attribute.
     /// </summary>
-    public TerraformValue<string> Channel
+    public TerraformValue<string>? Channel
     {
-        get => new TerraformReference<string>(this, "channel");
+        get => GetArgument<TerraformValue<string>>("channel");
         set => SetArgument("channel", value);
     }
 
@@ -26,34 +26,32 @@ public class AwsRolesanywhereTrustAnchorNotificationSettingsBlock : TerraformBlo
     /// The configured_by attribute.
     /// </summary>
     public TerraformValue<string> ConfiguredBy
-    {
-        get => new TerraformReference<string>(this, "configured_by");
-    }
+        => AsReference("configured_by");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool> Enabled
+    public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The event attribute.
     /// </summary>
-    public TerraformValue<string> EventAttribute
+    public TerraformValue<string>? EventAttribute
     {
-        get => new TerraformReference<string>(this, "event");
+        get => GetArgument<TerraformValue<string>>("event");
         set => SetArgument("event", value);
     }
 
     /// <summary>
     /// The threshold attribute.
     /// </summary>
-    public TerraformValue<double> Threshold
+    public TerraformValue<double>? Threshold
     {
-        get => new TerraformReference<double>(this, "threshold");
+        get => GetArgument<TerraformValue<double>>("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -77,7 +75,7 @@ public class AwsRolesanywhereTrustAnchorSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
     public required TerraformValue<string> SourceType
     {
-        get => new TerraformReference<string>(this, "source_type");
+        get => GetArgument<TerraformValue<string>>("source_type");
         set => SetArgument("source_type", value);
     }
 
@@ -112,7 +110,7 @@ public class AwsRolesanywhereTrustAnchorSourceBlockSourceDataBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? AcmPcaArn
     {
-        get => new TerraformReference<string>(this, "acm_pca_arn");
+        get => GetArgument<TerraformValue<string>>("acm_pca_arn");
         set => SetArgument("acm_pca_arn", value);
     }
 
@@ -121,7 +119,7 @@ public class AwsRolesanywhereTrustAnchorSourceBlockSourceDataBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? X509CertificateData
     {
-        get => new TerraformReference<string>(this, "x509_certificate_data");
+        get => GetArgument<TerraformValue<string>>("x509_certificate_data");
         set => SetArgument("x509_certificate_data", value);
     }
 
@@ -137,18 +135,18 @@ public partial class AwsRolesanywhereTrustAnchor(string name) : TerraformResourc
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool> Enabled
+    public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -158,7 +156,7 @@ public partial class AwsRolesanywhereTrustAnchor(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -167,16 +165,16 @@ public partial class AwsRolesanywhereTrustAnchor(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -184,9 +182,7 @@ public partial class AwsRolesanywhereTrustAnchor(string name) : TerraformResourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// NotificationSettings block (nesting mode: set).

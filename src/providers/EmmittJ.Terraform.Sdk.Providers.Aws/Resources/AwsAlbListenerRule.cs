@@ -16,9 +16,9 @@ public class AwsAlbListenerRuleActionBlock : TerraformBlock
     /// <summary>
     /// The order attribute.
     /// </summary>
-    public TerraformValue<double> Order
+    public TerraformValue<double>? Order
     {
-        get => new TerraformReference<double>(this, "order");
+        get => GetArgument<TerraformValue<double>>("order");
         set => SetArgument("order", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsAlbListenerRuleActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TargetGroupArn
     {
-        get => new TerraformReference<string>(this, "target_group_arn");
+        get => GetArgument<TerraformValue<string>>("target_group_arn");
         set => SetArgument("target_group_arn", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsAlbListenerRuleActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -109,16 +109,16 @@ public class AwsAlbListenerRuleActionBlockAuthenticateCognitoBlock : TerraformBl
     /// </summary>
     public TerraformMap<string>? AuthenticationRequestExtraParams
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "authentication_request_extra_params").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("authentication_request_extra_params");
         set => SetArgument("authentication_request_extra_params", value);
     }
 
     /// <summary>
     /// The on_unauthenticated_request attribute.
     /// </summary>
-    public TerraformValue<string> OnUnauthenticatedRequest
+    public TerraformValue<string>? OnUnauthenticatedRequest
     {
-        get => new TerraformReference<string>(this, "on_unauthenticated_request");
+        get => GetArgument<TerraformValue<string>>("on_unauthenticated_request");
         set => SetArgument("on_unauthenticated_request", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsAlbListenerRuleActionBlockAuthenticateCognitoBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsAlbListenerRuleActionBlockAuthenticateCognitoBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? SessionCookieName
     {
-        get => new TerraformReference<string>(this, "session_cookie_name");
+        get => GetArgument<TerraformValue<string>>("session_cookie_name");
         set => SetArgument("session_cookie_name", value);
     }
 
@@ -145,7 +145,7 @@ public class AwsAlbListenerRuleActionBlockAuthenticateCognitoBlock : TerraformBl
     /// </summary>
     public TerraformValue<double>? SessionTimeout
     {
-        get => new TerraformReference<double>(this, "session_timeout");
+        get => GetArgument<TerraformValue<double>>("session_timeout");
         set => SetArgument("session_timeout", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsAlbListenerRuleActionBlockAuthenticateCognitoBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolArn is required")]
     public required TerraformValue<string> UserPoolArn
     {
-        get => new TerraformReference<string>(this, "user_pool_arn");
+        get => GetArgument<TerraformValue<string>>("user_pool_arn");
         set => SetArgument("user_pool_arn", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsAlbListenerRuleActionBlockAuthenticateCognitoBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolClientId is required")]
     public required TerraformValue<string> UserPoolClientId
     {
-        get => new TerraformReference<string>(this, "user_pool_client_id");
+        get => GetArgument<TerraformValue<string>>("user_pool_client_id");
         set => SetArgument("user_pool_client_id", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsAlbListenerRuleActionBlockAuthenticateCognitoBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolDomain is required")]
     public required TerraformValue<string> UserPoolDomain
     {
-        get => new TerraformReference<string>(this, "user_pool_domain");
+        get => GetArgument<TerraformValue<string>>("user_pool_domain");
         set => SetArgument("user_pool_domain", value);
     }
 
@@ -197,7 +197,7 @@ public class AwsAlbListenerRuleActionBlockAuthenticateOidcBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? AuthenticationRequestExtraParams
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "authentication_request_extra_params").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("authentication_request_extra_params");
         set => SetArgument("authentication_request_extra_params", value);
     }
 
@@ -207,7 +207,7 @@ public class AwsAlbListenerRuleActionBlockAuthenticateOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationEndpoint is required")]
     public required TerraformValue<string> AuthorizationEndpoint
     {
-        get => new TerraformReference<string>(this, "authorization_endpoint");
+        get => GetArgument<TerraformValue<string>>("authorization_endpoint");
         set => SetArgument("authorization_endpoint", value);
     }
 
@@ -217,7 +217,7 @@ public class AwsAlbListenerRuleActionBlockAuthenticateOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -227,7 +227,7 @@ public class AwsAlbListenerRuleActionBlockAuthenticateOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformValue<string> ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -237,16 +237,16 @@ public class AwsAlbListenerRuleActionBlockAuthenticateOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformValue<string> Issuer
     {
-        get => new TerraformReference<string>(this, "issuer");
+        get => GetArgument<TerraformValue<string>>("issuer");
         set => SetArgument("issuer", value);
     }
 
     /// <summary>
     /// The on_unauthenticated_request attribute.
     /// </summary>
-    public TerraformValue<string> OnUnauthenticatedRequest
+    public TerraformValue<string>? OnUnauthenticatedRequest
     {
-        get => new TerraformReference<string>(this, "on_unauthenticated_request");
+        get => GetArgument<TerraformValue<string>>("on_unauthenticated_request");
         set => SetArgument("on_unauthenticated_request", value);
     }
 
@@ -255,7 +255,7 @@ public class AwsAlbListenerRuleActionBlockAuthenticateOidcBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -264,7 +264,7 @@ public class AwsAlbListenerRuleActionBlockAuthenticateOidcBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SessionCookieName
     {
-        get => new TerraformReference<string>(this, "session_cookie_name");
+        get => GetArgument<TerraformValue<string>>("session_cookie_name");
         set => SetArgument("session_cookie_name", value);
     }
 
@@ -273,7 +273,7 @@ public class AwsAlbListenerRuleActionBlockAuthenticateOidcBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SessionTimeout
     {
-        get => new TerraformReference<double>(this, "session_timeout");
+        get => GetArgument<TerraformValue<double>>("session_timeout");
         set => SetArgument("session_timeout", value);
     }
 
@@ -283,7 +283,7 @@ public class AwsAlbListenerRuleActionBlockAuthenticateOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenEndpoint is required")]
     public required TerraformValue<string> TokenEndpoint
     {
-        get => new TerraformReference<string>(this, "token_endpoint");
+        get => GetArgument<TerraformValue<string>>("token_endpoint");
         set => SetArgument("token_endpoint", value);
     }
 
@@ -293,7 +293,7 @@ public class AwsAlbListenerRuleActionBlockAuthenticateOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserInfoEndpoint is required")]
     public required TerraformValue<string> UserInfoEndpoint
     {
-        get => new TerraformReference<string>(this, "user_info_endpoint");
+        get => GetArgument<TerraformValue<string>>("user_info_endpoint");
         set => SetArgument("user_info_endpoint", value);
     }
 
@@ -316,7 +316,7 @@ public class AwsAlbListenerRuleActionBlockFixedResponseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformValue<string> ContentType
     {
-        get => new TerraformReference<string>(this, "content_type");
+        get => GetArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -325,16 +325,16 @@ public class AwsAlbListenerRuleActionBlockFixedResponseBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MessageBody
     {
-        get => new TerraformReference<string>(this, "message_body");
+        get => GetArgument<TerraformValue<string>>("message_body");
         set => SetArgument("message_body", value);
     }
 
     /// <summary>
     /// The status_code attribute.
     /// </summary>
-    public TerraformValue<string> StatusCode
+    public TerraformValue<string>? StatusCode
     {
-        get => new TerraformReference<string>(this, "status_code");
+        get => GetArgument<TerraformValue<string>>("status_code");
         set => SetArgument("status_code", value);
     }
 
@@ -393,7 +393,7 @@ public class AwsAlbListenerRuleActionBlockForwardBlockStickinessBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<double> Duration
     {
-        get => new TerraformReference<double>(this, "duration");
+        get => GetArgument<TerraformValue<double>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -402,7 +402,7 @@ public class AwsAlbListenerRuleActionBlockForwardBlockStickinessBlock : Terrafor
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -425,7 +425,7 @@ public class AwsAlbListenerRuleActionBlockForwardBlockTargetGroupBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -434,7 +434,7 @@ public class AwsAlbListenerRuleActionBlockForwardBlockTargetGroupBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? Weight
     {
-        get => new TerraformReference<double>(this, "weight");
+        get => GetArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -456,7 +456,7 @@ public class AwsAlbListenerRuleActionBlockRedirectBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -465,7 +465,7 @@ public class AwsAlbListenerRuleActionBlockRedirectBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -474,7 +474,7 @@ public class AwsAlbListenerRuleActionBlockRedirectBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Port
     {
-        get => new TerraformReference<string>(this, "port");
+        get => GetArgument<TerraformValue<string>>("port");
         set => SetArgument("port", value);
     }
 
@@ -483,7 +483,7 @@ public class AwsAlbListenerRuleActionBlockRedirectBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -492,7 +492,7 @@ public class AwsAlbListenerRuleActionBlockRedirectBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Query
     {
-        get => new TerraformReference<string>(this, "query");
+        get => GetArgument<TerraformValue<string>>("query");
         set => SetArgument("query", value);
     }
 
@@ -502,7 +502,7 @@ public class AwsAlbListenerRuleActionBlockRedirectBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
     public required TerraformValue<string> StatusCode
     {
-        get => new TerraformReference<string>(this, "status_code");
+        get => GetArgument<TerraformValue<string>>("status_code");
         set => SetArgument("status_code", value);
     }
 
@@ -597,7 +597,7 @@ public class AwsAlbListenerRuleConditionBlockHostHeaderBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? RegexValues
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "regex_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("regex_values");
         set => SetArgument("regex_values", value);
     }
 
@@ -606,7 +606,7 @@ public class AwsAlbListenerRuleConditionBlockHostHeaderBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -629,7 +629,7 @@ public class AwsAlbListenerRuleConditionBlockHttpHeaderBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpHeaderName is required")]
     public required TerraformValue<string> HttpHeaderName
     {
-        get => new TerraformReference<string>(this, "http_header_name");
+        get => GetArgument<TerraformValue<string>>("http_header_name");
         set => SetArgument("http_header_name", value);
     }
 
@@ -638,7 +638,7 @@ public class AwsAlbListenerRuleConditionBlockHttpHeaderBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? RegexValues
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "regex_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("regex_values");
         set => SetArgument("regex_values", value);
     }
 
@@ -647,7 +647,7 @@ public class AwsAlbListenerRuleConditionBlockHttpHeaderBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -670,7 +670,7 @@ public class AwsAlbListenerRuleConditionBlockHttpRequestMethodBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -692,7 +692,7 @@ public class AwsAlbListenerRuleConditionBlockPathPatternBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? RegexValues
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "regex_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("regex_values");
         set => SetArgument("regex_values", value);
     }
 
@@ -701,7 +701,7 @@ public class AwsAlbListenerRuleConditionBlockPathPatternBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -723,7 +723,7 @@ public class AwsAlbListenerRuleConditionBlockQueryStringBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -733,7 +733,7 @@ public class AwsAlbListenerRuleConditionBlockQueryStringBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -756,7 +756,7 @@ public class AwsAlbListenerRuleConditionBlockSourceIpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -780,7 +780,7 @@ public class AwsAlbListenerRuleTransformBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -846,7 +846,7 @@ public class AwsAlbListenerRuleTransformBlockHostHeaderRewriteConfigBlockRewrite
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Regex is required")]
     public required TerraformValue<string> Regex
     {
-        get => new TerraformReference<string>(this, "regex");
+        get => GetArgument<TerraformValue<string>>("regex");
         set => SetArgument("regex", value);
     }
 
@@ -856,7 +856,7 @@ public class AwsAlbListenerRuleTransformBlockHostHeaderRewriteConfigBlockRewrite
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replace is required")]
     public required TerraformValue<string> Replace
     {
-        get => new TerraformReference<string>(this, "replace");
+        get => GetArgument<TerraformValue<string>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -902,7 +902,7 @@ public class AwsAlbListenerRuleTransformBlockUrlRewriteConfigBlockRewriteBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Regex is required")]
     public required TerraformValue<string> Regex
     {
-        get => new TerraformReference<string>(this, "regex");
+        get => GetArgument<TerraformValue<string>>("regex");
         set => SetArgument("regex", value);
     }
 
@@ -912,7 +912,7 @@ public class AwsAlbListenerRuleTransformBlockUrlRewriteConfigBlockRewriteBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replace is required")]
     public required TerraformValue<string> Replace
     {
-        get => new TerraformReference<string>(this, "replace");
+        get => GetArgument<TerraformValue<string>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -928,9 +928,9 @@ public partial class AwsAlbListenerRule(string name) : TerraformResource("aws_al
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -940,25 +940,25 @@ public partial class AwsAlbListenerRule(string name) : TerraformResource("aws_al
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerArn is required")]
     public required TerraformValue<string> ListenerArn
     {
-        get => new TerraformReference<string>(this, "listener_arn");
+        get => GetArgument<TerraformValue<string>>("listener_arn");
         set => SetArgument("listener_arn", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformValue<double> Priority
+    public TerraformValue<double>? Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -967,16 +967,16 @@ public partial class AwsAlbListenerRule(string name) : TerraformResource("aws_al
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -984,9 +984,7 @@ public partial class AwsAlbListenerRule(string name) : TerraformResource("aws_al
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Action block (nesting mode: list).

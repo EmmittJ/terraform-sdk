@@ -175,9 +175,10 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
     private IEnumerable<PipelineStep> CreatePipelineSteps(PipelineStepFactoryContext context)
     {
         // Use the factory for standard steps
+        // Note: Factory appends environment.Name, so just use "registry" as prefix
         var steps = TerraformPipelineFactory.CreateTerraformSteps(
             this,
-            $"registry-{Name}",
+            "registry",
             ctx => PublishingContextUtils.GetOutputPath(ctx, this),
             PublishRegistryAsync,
             [TerraformPipelineTags.Registry]);

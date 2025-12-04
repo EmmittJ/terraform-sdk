@@ -13,7 +13,7 @@ public partial class AwsRoute53TrafficPolicy(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Comment
     {
-        get => new TerraformReference<string>(this, "comment");
+        get => GetArgument<TerraformValue<string>>("comment");
         set => SetArgument("comment", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsRoute53TrafficPolicy(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Document is required")]
     public required TerraformValue<string> Document
     {
-        get => new TerraformReference<string>(this, "document");
+        get => GetArgument<TerraformValue<string>>("document");
         set => SetArgument("document", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsRoute53TrafficPolicy(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -50,24 +50,18 @@ public partial class AwsRoute53TrafficPolicy(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<double> Version
-    {
-        get => new TerraformReference<double>(this, "version");
-    }
+        => AsReference("version");
 
 }

@@ -14,7 +14,7 @@ public partial class AwsRoute53CidrLocation(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrBlocks is required")]
     public required TerraformSet<string> CidrBlocks
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "cidr_blocks").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("cidr_blocks");
         set => SetArgument("cidr_blocks", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsRoute53CidrLocation(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrCollectionId is required")]
     public required TerraformValue<string> CidrCollectionId
     {
-        get => new TerraformReference<string>(this, "cidr_collection_id");
+        get => GetArgument<TerraformValue<string>>("cidr_collection_id");
         set => SetArgument("cidr_collection_id", value);
     }
 
@@ -34,7 +34,7 @@ public partial class AwsRoute53CidrLocation(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -43,8 +43,6 @@ public partial class AwsRoute53CidrLocation(string name) : TerraformResource("aw
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
 }

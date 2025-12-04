@@ -18,7 +18,7 @@ public class AwsApigatewayv2ApiCorsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowCredentials
     {
-        get => new TerraformReference<bool>(this, "allow_credentials");
+        get => GetArgument<TerraformValue<bool>>("allow_credentials");
         set => SetArgument("allow_credentials", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsApigatewayv2ApiCorsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? AllowHeaders
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allow_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allow_headers");
         set => SetArgument("allow_headers", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsApigatewayv2ApiCorsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? AllowMethods
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allow_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allow_methods");
         set => SetArgument("allow_methods", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsApigatewayv2ApiCorsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? AllowOrigins
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allow_origins").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allow_origins");
         set => SetArgument("allow_origins", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsApigatewayv2ApiCorsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ExposeHeaders
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "expose_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("expose_headers");
         set => SetArgument("expose_headers", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsApigatewayv2ApiCorsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxAge
     {
-        get => new TerraformReference<double>(this, "max_age");
+        get => GetArgument<TerraformValue<double>>("max_age");
         set => SetArgument("max_age", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsApigatewayv2Api(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string>? ApiKeySelectionExpression
     {
-        get => new TerraformReference<string>(this, "api_key_selection_expression");
+        get => GetArgument<TerraformValue<string>>("api_key_selection_expression");
         set => SetArgument("api_key_selection_expression", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsApigatewayv2Api(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string>? Body
     {
-        get => new TerraformReference<string>(this, "body");
+        get => GetArgument<TerraformValue<string>>("body");
         set => SetArgument("body", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AwsApigatewayv2Api(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string>? CredentialsArn
     {
-        get => new TerraformReference<string>(this, "credentials_arn");
+        get => GetArgument<TerraformValue<string>>("credentials_arn");
         set => SetArgument("credentials_arn", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AwsApigatewayv2Api(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsApigatewayv2Api(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<bool>? DisableExecuteApiEndpoint
     {
-        get => new TerraformReference<bool>(this, "disable_execute_api_endpoint");
+        get => GetArgument<TerraformValue<bool>>("disable_execute_api_endpoint");
         set => SetArgument("disable_execute_api_endpoint", value);
     }
 
@@ -126,25 +126,25 @@ public partial class AwsApigatewayv2Api(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<bool>? FailOnWarnings
     {
-        get => new TerraformReference<bool>(this, "fail_on_warnings");
+        get => GetArgument<TerraformValue<bool>>("fail_on_warnings");
         set => SetArgument("fail_on_warnings", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformValue<string> IpAddressType
+    public TerraformValue<string>? IpAddressType
     {
-        get => new TerraformReference<string>(this, "ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
@@ -154,7 +154,7 @@ public partial class AwsApigatewayv2Api(string name) : TerraformResource("aws_ap
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -164,16 +164,16 @@ public partial class AwsApigatewayv2Api(string name) : TerraformResource("aws_ap
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtocolType is required")]
     public required TerraformValue<string> ProtocolType
     {
-        get => new TerraformReference<string>(this, "protocol_type");
+        get => GetArgument<TerraformValue<string>>("protocol_type");
         set => SetArgument("protocol_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AwsApigatewayv2Api(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string>? RouteKey
     {
-        get => new TerraformReference<string>(this, "route_key");
+        get => GetArgument<TerraformValue<string>>("route_key");
         set => SetArgument("route_key", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AwsApigatewayv2Api(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string>? RouteSelectionExpression
     {
-        get => new TerraformReference<string>(this, "route_selection_expression");
+        get => GetArgument<TerraformValue<string>>("route_selection_expression");
         set => SetArgument("route_selection_expression", value);
     }
 
@@ -200,16 +200,16 @@ public partial class AwsApigatewayv2Api(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -218,7 +218,7 @@ public partial class AwsApigatewayv2Api(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string>? Target
     {
-        get => new TerraformReference<string>(this, "target");
+        get => GetArgument<TerraformValue<string>>("target");
         set => SetArgument("target", value);
     }
 
@@ -227,7 +227,7 @@ public partial class AwsApigatewayv2Api(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -235,25 +235,19 @@ public partial class AwsApigatewayv2Api(string name) : TerraformResource("aws_ap
     /// The api_endpoint attribute.
     /// </summary>
     public TerraformValue<string> ApiEndpoint
-    {
-        get => new TerraformReference<string>(this, "api_endpoint");
-    }
+        => AsReference("api_endpoint");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The execution_arn attribute.
     /// </summary>
     public TerraformValue<string> ExecutionArn
-    {
-        get => new TerraformReference<string>(this, "execution_arn");
-    }
+        => AsReference("execution_arn");
 
     /// <summary>
     /// CorsConfiguration block (nesting mode: list).

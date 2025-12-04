@@ -19,7 +19,7 @@ public class AwsEfsAccessPointPosixUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gid is required")]
     public required TerraformValue<double> Gid
     {
-        get => new TerraformReference<double>(this, "gid");
+        get => GetArgument<TerraformValue<double>>("gid");
         set => SetArgument("gid", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsEfsAccessPointPosixUserBlock : TerraformBlock
     /// </summary>
     public TerraformSet<double>? SecondaryGids
     {
-        get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "secondary_gids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<double>>("secondary_gids");
         set => SetArgument("secondary_gids", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsEfsAccessPointPosixUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uid is required")]
     public required TerraformValue<double> Uid
     {
-        get => new TerraformReference<double>(this, "uid");
+        get => GetArgument<TerraformValue<double>>("uid");
         set => SetArgument("uid", value);
     }
 
@@ -59,9 +59,9 @@ public class AwsEfsAccessPointRootDirectoryBlock : TerraformBlock
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformValue<string> Path
+    public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsEfsAccessPointRootDirectoryBlockCreationInfoBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerGid is required")]
     public required TerraformValue<double> OwnerGid
     {
-        get => new TerraformReference<double>(this, "owner_gid");
+        get => GetArgument<TerraformValue<double>>("owner_gid");
         set => SetArgument("owner_gid", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsEfsAccessPointRootDirectoryBlockCreationInfoBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerUid is required")]
     public required TerraformValue<double> OwnerUid
     {
-        get => new TerraformReference<double>(this, "owner_uid");
+        get => GetArgument<TerraformValue<double>>("owner_uid");
         set => SetArgument("owner_uid", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsEfsAccessPointRootDirectoryBlockCreationInfoBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     public required TerraformValue<string> Permissions
     {
-        get => new TerraformReference<string>(this, "permissions");
+        get => GetArgument<TerraformValue<string>>("permissions");
         set => SetArgument("permissions", value);
     }
 
@@ -133,25 +133,25 @@ public partial class AwsEfsAccessPoint(string name) : TerraformResource("aws_efs
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformValue<string> FileSystemId
     {
-        get => new TerraformReference<string>(this, "file_system_id");
+        get => GetArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -160,16 +160,16 @@ public partial class AwsEfsAccessPoint(string name) : TerraformResource("aws_efs
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -177,25 +177,19 @@ public partial class AwsEfsAccessPoint(string name) : TerraformResource("aws_efs
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The file_system_arn attribute.
     /// </summary>
     public TerraformValue<string> FileSystemArn
-    {
-        get => new TerraformReference<string>(this, "file_system_arn");
-    }
+        => AsReference("file_system_arn");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// PosixUser block (nesting mode: list).

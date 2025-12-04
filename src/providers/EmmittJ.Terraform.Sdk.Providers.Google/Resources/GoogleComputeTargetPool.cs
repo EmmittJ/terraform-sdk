@@ -18,7 +18,7 @@ public class GoogleComputeTargetPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeTargetPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleComputeTargetPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,7 +54,7 @@ public partial class GoogleComputeTargetPool(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? BackupPool
     {
-        get => new TerraformReference<string>(this, "backup_pool");
+        get => GetArgument<TerraformValue<string>>("backup_pool");
         set => SetArgument("backup_pool", value);
     }
 
@@ -63,7 +63,7 @@ public partial class GoogleComputeTargetPool(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -72,7 +72,7 @@ public partial class GoogleComputeTargetPool(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<double>? FailoverRatio
     {
-        get => new TerraformReference<double>(this, "failover_ratio");
+        get => GetArgument<TerraformValue<double>>("failover_ratio");
         set => SetArgument("failover_ratio", value);
     }
 
@@ -81,25 +81,25 @@ public partial class GoogleComputeTargetPool(string name) : TerraformResource("g
     /// </summary>
     public TerraformList<string>? HealthChecks
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "health_checks").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("health_checks");
         set => SetArgument("health_checks", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// List of instances in the pool. They can be given as URLs, or in the form of &amp;quot;zone/name&amp;quot;. Note that the instances need not exist at the time of target pool creation, so there is no need to use the Terraform interpolators to create a dependency on the instances from the target pool.
     /// </summary>
-    public TerraformSet<string> Instances
+    public TerraformSet<string>? Instances
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "instances").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("instances");
         set => SetArgument("instances", value);
     }
 
@@ -109,25 +109,25 @@ public partial class GoogleComputeTargetPool(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Where the target pool resides. Defaults to project region.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -136,7 +136,7 @@ public partial class GoogleComputeTargetPool(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? SessionAffinity
     {
-        get => new TerraformReference<string>(this, "session_affinity");
+        get => GetArgument<TerraformValue<string>>("session_affinity");
         set => SetArgument("session_affinity", value);
     }
 
@@ -144,9 +144,7 @@ public partial class GoogleComputeTargetPool(string name) : TerraformResource("g
     /// The URI of the created resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

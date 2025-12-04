@@ -18,7 +18,7 @@ public class AzurermAdvisorRecommendationsDataSourceTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -36,7 +36,7 @@ public partial class AzurermAdvisorRecommendationsDataSource(string name) : Terr
     /// </summary>
     public TerraformSet<string>? FilterByCategory
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "filter_by_category").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("filter_by_category");
         set => SetArgument("filter_by_category", value);
     }
 
@@ -45,16 +45,16 @@ public partial class AzurermAdvisorRecommendationsDataSource(string name) : Terr
     /// </summary>
     public TerraformSet<string>? FilterByResourceGroups
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "filter_by_resource_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("filter_by_resource_groups");
         set => SetArgument("filter_by_resource_groups", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -62,9 +62,7 @@ public partial class AzurermAdvisorRecommendationsDataSource(string name) : Terr
     /// The recommendations attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Recommendations
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "recommendations").ResolveNodes(ctx));
-    }
+        => AsReference("recommendations");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

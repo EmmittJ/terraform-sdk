@@ -76,7 +76,7 @@ public class TerraformModule :
     /// </summary>
     /// <param name="name">The name of the module output.</param>
     /// <returns>A reference to the module output.</returns>
-    public TerraformExpression AsReference(string name)
+    public override TerraformExpression AsReference(string name)
         => TerraformExpression.Identifier($"module.{Name}.{name}");
 
     /// <summary>

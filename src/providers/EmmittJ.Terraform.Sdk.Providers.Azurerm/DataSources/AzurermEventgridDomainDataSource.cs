@@ -18,7 +18,7 @@ public class AzurermEventgridDomainDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermEventgridDomainDataSource(string name) : TerraformDa
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermEventgridDomainDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermEventgridDomainDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,89 +64,67 @@ public partial class AzurermEventgridDomainDataSource(string name) : TerraformDa
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
-    }
+        => AsReference("identity");
 
     /// <summary>
     /// The inbound_ip_rule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InboundIpRule
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "inbound_ip_rule").ResolveNodes(ctx));
-    }
+        => AsReference("inbound_ip_rule");
 
     /// <summary>
     /// The input_mapping_default_values attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InputMappingDefaultValues
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "input_mapping_default_values").ResolveNodes(ctx));
-    }
+        => AsReference("input_mapping_default_values");
 
     /// <summary>
     /// The input_mapping_fields attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InputMappingFields
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "input_mapping_fields").ResolveNodes(ctx));
-    }
+        => AsReference("input_mapping_fields");
 
     /// <summary>
     /// The input_schema attribute.
     /// </summary>
     public TerraformValue<string> InputSchema
-    {
-        get => new TerraformReference<string>(this, "input_schema");
-    }
+        => AsReference("input_schema");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "primary_access_key");
-    }
+        => AsReference("primary_access_key");
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PublicNetworkAccessEnabled
-    {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
-    }
+        => AsReference("public_network_access_enabled");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "secondary_access_key");
-    }
+        => AsReference("secondary_access_key");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

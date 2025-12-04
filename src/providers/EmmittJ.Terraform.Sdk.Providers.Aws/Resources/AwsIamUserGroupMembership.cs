@@ -14,16 +14,16 @@ public partial class AwsIamUserGroupMembership(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Groups is required")]
     public required TerraformSet<string> Groups
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("groups");
         set => SetArgument("groups", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsIamUserGroupMembership(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformValue<string> User
     {
-        get => new TerraformReference<string>(this, "user");
+        get => GetArgument<TerraformValue<string>>("user");
         set => SetArgument("user", value);
     }
 

@@ -18,7 +18,7 @@ public class AzurermOracleAdbsCharacterSetsDataSourceTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermOracleAdbsCharacterSetsDataSource(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermOracleAdbsCharacterSetsDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -54,9 +54,7 @@ public partial class AzurermOracleAdbsCharacterSetsDataSource(string name) : Ter
     /// The character_sets attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CharacterSets
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "character_sets").ResolveNodes(ctx));
-    }
+        => AsReference("character_sets");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

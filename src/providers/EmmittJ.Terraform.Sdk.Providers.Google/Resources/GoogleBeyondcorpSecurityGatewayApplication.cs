@@ -19,7 +19,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationEndpointMatchersBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => new TerraformReference<string>(this, "hostname");
+        get => GetArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationEndpointMatchersBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ports is required")]
     public TerraformList<double>? Ports
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "ports").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("ports");
         set => SetArgument("ports", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -147,7 +147,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlockEgressPolic
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Regions is required")]
     public TerraformList<string>? Regions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("regions");
         set => SetArgument("regions", value);
     }
 
@@ -195,7 +195,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlockExternalBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => new TerraformReference<string>(this, "hostname");
+        get => GetArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -205,7 +205,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlockExternalBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -229,7 +229,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlockNetworkBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -251,7 +251,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlockProxyProtoc
     /// </summary>
     public TerraformList<string>? AllowedClientHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_client_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_client_headers");
         set => SetArgument("allowed_client_headers", value);
     }
 
@@ -260,7 +260,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlockProxyProtoc
     /// </summary>
     public TerraformValue<bool>? ClientIp
     {
-        get => new TerraformReference<bool>(this, "client_ip");
+        get => GetArgument<TerraformValue<bool>>("client_ip");
         set => SetArgument("client_ip", value);
     }
 
@@ -269,7 +269,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlockProxyProtoc
     /// </summary>
     public TerraformValue<string>? GatewayIdentity
     {
-        get => new TerraformReference<string>(this, "gateway_identity");
+        get => GetArgument<TerraformValue<string>>("gateway_identity");
         set => SetArgument("gateway_identity", value);
     }
 
@@ -282,7 +282,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlockProxyProtoc
     /// </summary>
     public TerraformMap<string>? MetadataHeaders
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata_headers");
         set => SetArgument("metadata_headers", value);
     }
 
@@ -314,7 +314,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlockProxyProtoc
     /// </summary>
     public TerraformValue<string>? OutputType
     {
-        get => new TerraformReference<string>(this, "output_type");
+        get => GetArgument<TerraformValue<string>>("output_type");
         set => SetArgument("output_type", value);
     }
 
@@ -366,7 +366,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlockProxyProtoc
     /// </summary>
     public TerraformValue<string>? OutputType
     {
-        get => new TerraformReference<string>(this, "output_type");
+        get => GetArgument<TerraformValue<string>>("output_type");
         set => SetArgument("output_type", value);
     }
 
@@ -388,7 +388,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlockProxyProtoc
     /// </summary>
     public TerraformValue<string>? OutputType
     {
-        get => new TerraformReference<string>(this, "output_type");
+        get => GetArgument<TerraformValue<string>>("output_type");
         set => SetArgument("output_type", value);
     }
 
@@ -410,7 +410,7 @@ public class GoogleBeyondcorpSecurityGatewayApplicationUpstreamsBlockProxyProtoc
     /// </summary>
     public TerraformValue<string>? OutputType
     {
-        get => new TerraformReference<string>(this, "output_type");
+        get => GetArgument<TerraformValue<string>>("output_type");
         set => SetArgument("output_type", value);
     }
 
@@ -432,7 +432,7 @@ public partial class GoogleBeyondcorpSecurityGatewayApplication(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => new TerraformReference<string>(this, "application_id");
+        get => GetArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
@@ -442,25 +442,25 @@ public partial class GoogleBeyondcorpSecurityGatewayApplication(string name) : T
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -469,7 +469,7 @@ public partial class GoogleBeyondcorpSecurityGatewayApplication(string name) : T
     /// </summary>
     public TerraformValue<string>? Schema
     {
-        get => new TerraformReference<string>(this, "schema");
+        get => GetArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -479,7 +479,7 @@ public partial class GoogleBeyondcorpSecurityGatewayApplication(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGatewayId is required")]
     public required TerraformValue<string> SecurityGatewayId
     {
-        get => new TerraformReference<string>(this, "security_gateway_id");
+        get => GetArgument<TerraformValue<string>>("security_gateway_id");
         set => SetArgument("security_gateway_id", value);
     }
 
@@ -487,25 +487,19 @@ public partial class GoogleBeyondcorpSecurityGatewayApplication(string name) : T
     /// Output only. Timestamp when the resource was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Identifier. Name of the resource.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. Timestamp when the resource was last modified.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// EndpointMatchers block (nesting mode: list).

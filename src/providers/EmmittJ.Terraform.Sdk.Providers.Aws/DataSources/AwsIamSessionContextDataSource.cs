@@ -14,16 +14,16 @@ public partial class AwsIamSessionContextDataSource(string name) : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,32 +31,24 @@ public partial class AwsIamSessionContextDataSource(string name) : TerraformData
     /// The issuer_arn attribute.
     /// </summary>
     public TerraformValue<string> IssuerArn
-    {
-        get => new TerraformReference<string>(this, "issuer_arn");
-    }
+        => AsReference("issuer_arn");
 
     /// <summary>
     /// The issuer_id attribute.
     /// </summary>
     public TerraformValue<string> IssuerId
-    {
-        get => new TerraformReference<string>(this, "issuer_id");
-    }
+        => AsReference("issuer_id");
 
     /// <summary>
     /// The issuer_name attribute.
     /// </summary>
     public TerraformValue<string> IssuerName
-    {
-        get => new TerraformReference<string>(this, "issuer_name");
-    }
+        => AsReference("issuer_name");
 
     /// <summary>
     /// The session_name attribute.
     /// </summary>
     public TerraformValue<string> SessionName
-    {
-        get => new TerraformReference<string>(this, "session_name");
-    }
+        => AsReference("session_name");
 
 }

@@ -12,48 +12,36 @@ public partial class GoogleClientConfigDataSource(string name) : TerraformDataSo
     /// The OAuth2 access token used by the client to authenticate against the Google Cloud API.
     /// </summary>
     public TerraformValue<string> AccessToken
-    {
-        get => new TerraformReference<string>(this, "access_token");
-    }
+        => AsReference("access_token");
 
     /// <summary>
     /// The default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> DefaultLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "default_labels").ResolveNodes(ctx));
-    }
+        => AsReference("default_labels");
 
     /// <summary>
     /// The ID of this data source in Terraform state. It is created in a projects/{{project}}/regions/{{region}}/zones/{{zone}} format and is NOT used by the data source in requests to Google APIs.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The ID of the project to apply any resources to.
     /// </summary>
     public TerraformValue<string> Project
-    {
-        get => new TerraformReference<string>(this, "project");
-    }
+        => AsReference("project");
 
     /// <summary>
     /// The region to operate under.
     /// </summary>
     public TerraformValue<string> Region
-    {
-        get => new TerraformReference<string>(this, "region");
-    }
+        => AsReference("region");
 
     /// <summary>
     /// The zone to operate under.
     /// </summary>
     public TerraformValue<string> Zone
-    {
-        get => new TerraformReference<string>(this, "zone");
-    }
+        => AsReference("zone");
 
 }

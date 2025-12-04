@@ -18,7 +18,7 @@ public class AzureadApplicationApiAccessTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadApplicationApiAccessTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadApplicationApiAccessTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzureadApplicationApiAccessTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzureadApplicationApiAccess(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiClientId is required")]
     public required TerraformValue<string> ApiClientId
     {
-        get => new TerraformReference<string>(this, "api_client_id");
+        get => GetArgument<TerraformValue<string>>("api_client_id");
         set => SetArgument("api_client_id", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzureadApplicationApiAccess(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => new TerraformReference<string>(this, "application_id");
+        get => GetArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzureadApplicationApiAccess(string name) : TerraformResourc
     /// </summary>
     public TerraformSet<string>? RoleIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "role_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("role_ids");
         set => SetArgument("role_ids", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzureadApplicationApiAccess(string name) : TerraformResourc
     /// </summary>
     public TerraformSet<string>? ScopeIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "scope_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("scope_ids");
         set => SetArgument("scope_ids", value);
     }
 

@@ -17,9 +17,7 @@ public class AwsS3BucketMetadataConfigurationMetadataConfigurationBlock : Terraf
     /// The destination attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Destination
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "destination").ResolveNodes(ctx));
-    }
+        => AsReference("destination");
 
     /// <summary>
     /// InventoryTableConfiguration block (nesting mode: list).
@@ -58,7 +56,7 @@ public class AwsS3BucketMetadataConfigurationMetadataConfigurationBlockInventory
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationState is required")]
     public required TerraformValue<string> ConfigurationState
     {
-        get => new TerraformReference<string>(this, "configuration_state");
+        get => GetArgument<TerraformValue<string>>("configuration_state");
         set => SetArgument("configuration_state", value);
     }
 
@@ -66,17 +64,13 @@ public class AwsS3BucketMetadataConfigurationMetadataConfigurationBlockInventory
     /// The table_arn attribute.
     /// </summary>
     public TerraformValue<string> TableArn
-    {
-        get => new TerraformReference<string>(this, "table_arn");
-    }
+        => AsReference("table_arn");
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
     public TerraformValue<string> TableName
-    {
-        get => new TerraformReference<string>(this, "table_name");
-    }
+        => AsReference("table_name");
 
     /// <summary>
     /// EncryptionConfiguration block (nesting mode: list).
@@ -105,7 +99,7 @@ public class AwsS3BucketMetadataConfigurationMetadataConfigurationBlockInventory
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -115,7 +109,7 @@ public class AwsS3BucketMetadataConfigurationMetadataConfigurationBlockInventory
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SseAlgorithm is required")]
     public required TerraformValue<string> SseAlgorithm
     {
-        get => new TerraformReference<string>(this, "sse_algorithm");
+        get => GetArgument<TerraformValue<string>>("sse_algorithm");
         set => SetArgument("sse_algorithm", value);
     }
 
@@ -136,17 +130,13 @@ public class AwsS3BucketMetadataConfigurationMetadataConfigurationBlockJournalTa
     /// The table_arn attribute.
     /// </summary>
     public TerraformValue<string> TableArn
-    {
-        get => new TerraformReference<string>(this, "table_arn");
-    }
+        => AsReference("table_arn");
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
     public TerraformValue<string> TableName
-    {
-        get => new TerraformReference<string>(this, "table_name");
-    }
+        => AsReference("table_name");
 
     /// <summary>
     /// EncryptionConfiguration block (nesting mode: list).
@@ -184,7 +174,7 @@ public class AwsS3BucketMetadataConfigurationMetadataConfigurationBlockJournalTa
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -194,7 +184,7 @@ public class AwsS3BucketMetadataConfigurationMetadataConfigurationBlockJournalTa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SseAlgorithm is required")]
     public required TerraformValue<string> SseAlgorithm
     {
-        get => new TerraformReference<string>(this, "sse_algorithm");
+        get => GetArgument<TerraformValue<string>>("sse_algorithm");
         set => SetArgument("sse_algorithm", value);
     }
 
@@ -216,7 +206,7 @@ public class AwsS3BucketMetadataConfigurationMetadataConfigurationBlockJournalTa
     /// </summary>
     public TerraformValue<double>? Days
     {
-        get => new TerraformReference<double>(this, "days");
+        get => GetArgument<TerraformValue<double>>("days");
         set => SetArgument("days", value);
     }
 
@@ -226,7 +216,7 @@ public class AwsS3BucketMetadataConfigurationMetadataConfigurationBlockJournalTa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expiration is required")]
     public required TerraformValue<string> Expiration
     {
-        get => new TerraformReference<string>(this, "expiration");
+        get => GetArgument<TerraformValue<string>>("expiration");
         set => SetArgument("expiration", value);
     }
 
@@ -249,7 +239,7 @@ public class AwsS3BucketMetadataConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -268,7 +258,7 @@ public partial class AwsS3BucketMetadataConfiguration(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -277,16 +267,16 @@ public partial class AwsS3BucketMetadataConfiguration(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? ExpectedBucketOwner
     {
-        get => new TerraformReference<string>(this, "expected_bucket_owner");
+        get => GetArgument<TerraformValue<string>>("expected_bucket_owner");
         set => SetArgument("expected_bucket_owner", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

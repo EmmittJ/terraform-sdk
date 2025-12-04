@@ -18,7 +18,7 @@ public class AzurermBillingMcaAccountScopeDataSourceTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,7 +37,7 @@ public partial class AzurermBillingMcaAccountScopeDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccountName is required")]
     public required TerraformValue<string> BillingAccountName
     {
-        get => new TerraformReference<string>(this, "billing_account_name");
+        get => GetArgument<TerraformValue<string>>("billing_account_name");
         set => SetArgument("billing_account_name", value);
     }
 
@@ -47,16 +47,16 @@ public partial class AzurermBillingMcaAccountScopeDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingProfileName is required")]
     public required TerraformValue<string> BillingProfileName
     {
-        get => new TerraformReference<string>(this, "billing_profile_name");
+        get => GetArgument<TerraformValue<string>>("billing_profile_name");
         set => SetArgument("billing_profile_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermBillingMcaAccountScopeDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InvoiceSectionName is required")]
     public required TerraformValue<string> InvoiceSectionName
     {
-        get => new TerraformReference<string>(this, "invoice_section_name");
+        get => GetArgument<TerraformValue<string>>("invoice_section_name");
         set => SetArgument("invoice_section_name", value);
     }
 

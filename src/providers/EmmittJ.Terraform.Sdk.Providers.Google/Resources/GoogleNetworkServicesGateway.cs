@@ -18,7 +18,7 @@ public class GoogleNetworkServicesGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleNetworkServicesGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleNetworkServicesGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -56,9 +56,9 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     /// This field only applies to gateways of type &#39;SECURE_WEB_GATEWAY&#39;.
     /// Gateways of type &#39;OPEN_MESH&#39; listen on 0.0.0.0 for IPv4 and :: for IPv6.
     /// </summary>
-    public TerraformList<string> Addresses
+    public TerraformList<string>? Addresses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("addresses");
         set => SetArgument("addresses", value);
     }
 
@@ -68,7 +68,7 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     /// </summary>
     public TerraformList<string>? CertificateUrls
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "certificate_urls").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("certificate_urls");
         set => SetArgument("certificate_urls", value);
     }
 
@@ -78,7 +78,7 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? DeleteSwgAutogenRouterOnDestroy
     {
-        get => new TerraformReference<bool>(this, "delete_swg_autogen_router_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("delete_swg_autogen_router_on_destroy");
         set => SetArgument("delete_swg_autogen_router_on_destroy", value);
     }
 
@@ -87,7 +87,7 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -98,7 +98,7 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? EnvoyHeaders
     {
-        get => new TerraformReference<string>(this, "envoy_headers");
+        get => GetArgument<TerraformValue<string>>("envoy_headers");
         set => SetArgument("envoy_headers", value);
     }
 
@@ -109,16 +109,16 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? GatewaySecurityPolicy
     {
-        get => new TerraformReference<string>(this, "gateway_security_policy");
+        get => GetArgument<TerraformValue<string>>("gateway_security_policy");
         set => SetArgument("gateway_security_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -127,7 +127,7 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? IpVersion
     {
-        get => new TerraformReference<string>(this, "ip_version");
+        get => GetArgument<TerraformValue<string>>("ip_version");
         set => SetArgument("ip_version", value);
     }
 
@@ -140,7 +140,7 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -150,7 +150,7 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -160,7 +160,7 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -172,7 +172,7 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -184,16 +184,16 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ports is required")]
     public TerraformList<double>? Ports
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "ports").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("ports");
         set => SetArgument("ports", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -202,7 +202,7 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? RoutingMode
     {
-        get => new TerraformReference<string>(this, "routing_mode");
+        get => GetArgument<TerraformValue<string>>("routing_mode");
         set => SetArgument("routing_mode", value);
     }
 
@@ -214,7 +214,7 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -223,7 +223,7 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? ServerTlsPolicy
     {
-        get => new TerraformReference<string>(this, "server_tls_policy");
+        get => GetArgument<TerraformValue<string>>("server_tls_policy");
         set => SetArgument("server_tls_policy", value);
     }
 
@@ -235,7 +235,7 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Subnetwork
     {
-        get => new TerraformReference<string>(this, "subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -245,7 +245,7 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -253,42 +253,32 @@ public partial class GoogleNetworkServicesGateway(string name) : TerraformResour
     /// The timestamp when the resource was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Server-defined URL of this resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The timestamp when the resource was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

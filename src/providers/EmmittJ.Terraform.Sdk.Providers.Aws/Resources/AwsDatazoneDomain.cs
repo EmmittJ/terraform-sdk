@@ -16,9 +16,9 @@ public class AwsDatazoneDomainSingleSignOnBlock : TerraformBlock
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string> Type
+    public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsDatazoneDomainSingleSignOnBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? UserAssignment
     {
-        get => new TerraformReference<string>(this, "user_assignment");
+        get => GetArgument<TerraformValue<string>>("user_assignment");
         set => SetArgument("user_assignment", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsDatazoneDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsDatazoneDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -77,7 +77,7 @@ public partial class AwsDatazoneDomain(string name) : TerraformResource("aws_dat
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -87,16 +87,16 @@ public partial class AwsDatazoneDomain(string name) : TerraformResource("aws_dat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainExecutionRole is required")]
     public required TerraformValue<string> DomainExecutionRole
     {
-        get => new TerraformReference<string>(this, "domain_execution_role");
+        get => GetArgument<TerraformValue<string>>("domain_execution_role");
         set => SetArgument("domain_execution_role", value);
     }
 
     /// <summary>
     /// The domain_version attribute.
     /// </summary>
-    public TerraformValue<string> DomainVersion
+    public TerraformValue<string>? DomainVersion
     {
-        get => new TerraformReference<string>(this, "domain_version");
+        get => GetArgument<TerraformValue<string>>("domain_version");
         set => SetArgument("domain_version", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AwsDatazoneDomain(string name) : TerraformResource("aws_dat
     /// </summary>
     public TerraformValue<string>? KmsKeyIdentifier
     {
-        get => new TerraformReference<string>(this, "kms_key_identifier");
+        get => GetArgument<TerraformValue<string>>("kms_key_identifier");
         set => SetArgument("kms_key_identifier", value);
     }
 
@@ -115,16 +115,16 @@ public partial class AwsDatazoneDomain(string name) : TerraformResource("aws_dat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AwsDatazoneDomain(string name) : TerraformResource("aws_dat
     /// </summary>
     public TerraformValue<string>? ServiceRole
     {
-        get => new TerraformReference<string>(this, "service_role");
+        get => GetArgument<TerraformValue<string>>("service_role");
         set => SetArgument("service_role", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AwsDatazoneDomain(string name) : TerraformResource("aws_dat
     /// </summary>
     public TerraformValue<bool>? SkipDeletionCheck
     {
-        get => new TerraformReference<bool>(this, "skip_deletion_check");
+        get => GetArgument<TerraformValue<bool>>("skip_deletion_check");
         set => SetArgument("skip_deletion_check", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AwsDatazoneDomain(string name) : TerraformResource("aws_dat
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -159,33 +159,25 @@ public partial class AwsDatazoneDomain(string name) : TerraformResource("aws_dat
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The portal_url attribute.
     /// </summary>
     public TerraformValue<string> PortalUrl
-    {
-        get => new TerraformReference<string>(this, "portal_url");
-    }
+        => AsReference("portal_url");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// SingleSignOn block (nesting mode: list).

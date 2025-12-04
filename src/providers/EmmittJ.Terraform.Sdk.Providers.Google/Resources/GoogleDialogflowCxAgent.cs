@@ -72,7 +72,7 @@ public class GoogleDialogflowCxAgentAdvancedSettingsBlockAudioExportGcsDestinati
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleDialogflowCxAgentAdvancedSettingsBlockDtmfSettingsBlock : Ter
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -103,7 +103,7 @@ public class GoogleDialogflowCxAgentAdvancedSettingsBlockDtmfSettingsBlock : Ter
     /// </summary>
     public TerraformValue<string>? FinishDigit
     {
-        get => new TerraformReference<string>(this, "finish_digit");
+        get => GetArgument<TerraformValue<string>>("finish_digit");
         set => SetArgument("finish_digit", value);
     }
 
@@ -112,7 +112,7 @@ public class GoogleDialogflowCxAgentAdvancedSettingsBlockDtmfSettingsBlock : Ter
     /// </summary>
     public TerraformValue<double>? MaxDigits
     {
-        get => new TerraformReference<double>(this, "max_digits");
+        get => GetArgument<TerraformValue<double>>("max_digits");
         set => SetArgument("max_digits", value);
     }
 
@@ -134,7 +134,7 @@ public class GoogleDialogflowCxAgentAdvancedSettingsBlockLoggingSettingsBlock : 
     /// </summary>
     public TerraformValue<bool>? EnableConsentBasedRedaction
     {
-        get => new TerraformReference<bool>(this, "enable_consent_based_redaction");
+        get => GetArgument<TerraformValue<bool>>("enable_consent_based_redaction");
         set => SetArgument("enable_consent_based_redaction", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleDialogflowCxAgentAdvancedSettingsBlockLoggingSettingsBlock : 
     /// </summary>
     public TerraformValue<bool>? EnableInteractionLogging
     {
-        get => new TerraformReference<bool>(this, "enable_interaction_logging");
+        get => GetArgument<TerraformValue<bool>>("enable_interaction_logging");
         set => SetArgument("enable_interaction_logging", value);
     }
 
@@ -152,7 +152,7 @@ public class GoogleDialogflowCxAgentAdvancedSettingsBlockLoggingSettingsBlock : 
     /// </summary>
     public TerraformValue<bool>? EnableStackdriverLogging
     {
-        get => new TerraformReference<bool>(this, "enable_stackdriver_logging");
+        get => GetArgument<TerraformValue<bool>>("enable_stackdriver_logging");
         set => SetArgument("enable_stackdriver_logging", value);
     }
 
@@ -174,7 +174,7 @@ public class GoogleDialogflowCxAgentAdvancedSettingsBlockSpeechSettingsBlock : T
     /// </summary>
     public TerraformValue<double>? EndpointerSensitivity
     {
-        get => new TerraformReference<double>(this, "endpointer_sensitivity");
+        get => GetArgument<TerraformValue<double>>("endpointer_sensitivity");
         set => SetArgument("endpointer_sensitivity", value);
     }
 
@@ -184,7 +184,7 @@ public class GoogleDialogflowCxAgentAdvancedSettingsBlockSpeechSettingsBlock : T
     /// </summary>
     public TerraformMap<string>? Models
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "models").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("models");
         set => SetArgument("models", value);
     }
 
@@ -194,7 +194,7 @@ public class GoogleDialogflowCxAgentAdvancedSettingsBlockSpeechSettingsBlock : T
     /// </summary>
     public TerraformValue<string>? NoSpeechTimeout
     {
-        get => new TerraformReference<string>(this, "no_speech_timeout");
+        get => GetArgument<TerraformValue<string>>("no_speech_timeout");
         set => SetArgument("no_speech_timeout", value);
     }
 
@@ -203,7 +203,7 @@ public class GoogleDialogflowCxAgentAdvancedSettingsBlockSpeechSettingsBlock : T
     /// </summary>
     public TerraformValue<bool>? UseTimeoutBasedEndpointing
     {
-        get => new TerraformReference<bool>(this, "use_timeout_based_endpointing");
+        get => GetArgument<TerraformValue<bool>>("use_timeout_based_endpointing");
         set => SetArgument("use_timeout_based_endpointing", value);
     }
 
@@ -227,7 +227,7 @@ public class GoogleDialogflowCxAgentAnswerFeedbackSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableAnswerFeedback
     {
-        get => new TerraformReference<bool>(this, "enable_answer_feedback");
+        get => GetArgument<TerraformValue<bool>>("enable_answer_feedback");
         set => SetArgument("enable_answer_feedback", value);
     }
 
@@ -250,7 +250,7 @@ public class GoogleDialogflowCxAgentClientCertificateSettingsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Passphrase
     {
-        get => new TerraformReference<string>(this, "passphrase");
+        get => GetArgument<TerraformValue<string>>("passphrase");
         set => SetArgument("passphrase", value);
     }
 
@@ -260,7 +260,7 @@ public class GoogleDialogflowCxAgentClientCertificateSettingsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
     public required TerraformValue<string> PrivateKey
     {
-        get => new TerraformReference<string>(this, "private_key");
+        get => GetArgument<TerraformValue<string>>("private_key");
         set => SetArgument("private_key", value);
     }
 
@@ -270,7 +270,7 @@ public class GoogleDialogflowCxAgentClientCertificateSettingsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslCertificate is required")]
     public required TerraformValue<string> SslCertificate
     {
-        get => new TerraformReference<string>(this, "ssl_certificate");
+        get => GetArgument<TerraformValue<string>>("ssl_certificate");
         set => SetArgument("ssl_certificate", value);
     }
 
@@ -295,7 +295,7 @@ public class GoogleDialogflowCxAgentGenAppBuilderSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
     public required TerraformValue<string> Engine
     {
-        get => new TerraformReference<string>(this, "engine");
+        get => GetArgument<TerraformValue<string>>("engine");
         set => SetArgument("engine", value);
     }
 
@@ -341,7 +341,7 @@ public class GoogleDialogflowCxAgentGitIntegrationSettingsBlockGithubSettingsBlo
     /// </summary>
     public TerraformValue<string>? AccessToken
     {
-        get => new TerraformReference<string>(this, "access_token");
+        get => GetArgument<TerraformValue<string>>("access_token");
         set => SetArgument("access_token", value);
     }
 
@@ -350,7 +350,7 @@ public class GoogleDialogflowCxAgentGitIntegrationSettingsBlockGithubSettingsBlo
     /// </summary>
     public TerraformList<string>? Branches
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "branches").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("branches");
         set => SetArgument("branches", value);
     }
 
@@ -359,7 +359,7 @@ public class GoogleDialogflowCxAgentGitIntegrationSettingsBlockGithubSettingsBlo
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -368,7 +368,7 @@ public class GoogleDialogflowCxAgentGitIntegrationSettingsBlockGithubSettingsBlo
     /// </summary>
     public TerraformValue<string>? RepositoryUri
     {
-        get => new TerraformReference<string>(this, "repository_uri");
+        get => GetArgument<TerraformValue<string>>("repository_uri");
         set => SetArgument("repository_uri", value);
     }
 
@@ -377,7 +377,7 @@ public class GoogleDialogflowCxAgentGitIntegrationSettingsBlockGithubSettingsBlo
     /// </summary>
     public TerraformValue<string>? TrackingBranch
     {
-        get => new TerraformReference<string>(this, "tracking_branch");
+        get => GetArgument<TerraformValue<string>>("tracking_branch");
         set => SetArgument("tracking_branch", value);
     }
 
@@ -404,7 +404,7 @@ public class GoogleDialogflowCxAgentPersonalizationSettingsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? DefaultEndUserMetadata
     {
-        get => new TerraformReference<string>(this, "default_end_user_metadata");
+        get => GetArgument<TerraformValue<string>>("default_end_user_metadata");
         set => SetArgument("default_end_user_metadata", value);
     }
 
@@ -427,7 +427,7 @@ public class GoogleDialogflowCxAgentSpeechToTextSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableSpeechAdaptation
     {
-        get => new TerraformReference<bool>(this, "enable_speech_adaptation");
+        get => GetArgument<TerraformValue<bool>>("enable_speech_adaptation");
         set => SetArgument("enable_speech_adaptation", value);
     }
 
@@ -453,7 +453,7 @@ public class GoogleDialogflowCxAgentTextToSpeechSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SynthesizeSpeechConfigs
     {
-        get => new TerraformReference<string>(this, "synthesize_speech_configs");
+        get => GetArgument<TerraformValue<string>>("synthesize_speech_configs");
         set => SetArgument("synthesize_speech_configs", value);
     }
 
@@ -476,7 +476,7 @@ public class GoogleDialogflowCxAgentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -485,7 +485,7 @@ public class GoogleDialogflowCxAgentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -494,7 +494,7 @@ public class GoogleDialogflowCxAgentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -512,7 +512,7 @@ public partial class GoogleDialogflowCxAgent(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? AvatarUri
     {
-        get => new TerraformReference<string>(this, "avatar_uri");
+        get => GetArgument<TerraformValue<string>>("avatar_uri");
         set => SetArgument("avatar_uri", value);
     }
 
@@ -523,7 +523,7 @@ public partial class GoogleDialogflowCxAgent(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultLanguageCode is required")]
     public required TerraformValue<string> DefaultLanguageCode
     {
-        get => new TerraformReference<string>(this, "default_language_code");
+        get => GetArgument<TerraformValue<string>>("default_language_code");
         set => SetArgument("default_language_code", value);
     }
 
@@ -545,7 +545,7 @@ public partial class GoogleDialogflowCxAgent(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? DeleteChatEngineOnDestroy
     {
-        get => new TerraformReference<bool>(this, "delete_chat_engine_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("delete_chat_engine_on_destroy");
         set => SetArgument("delete_chat_engine_on_destroy", value);
     }
 
@@ -554,7 +554,7 @@ public partial class GoogleDialogflowCxAgent(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -564,7 +564,7 @@ public partial class GoogleDialogflowCxAgent(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -573,7 +573,7 @@ public partial class GoogleDialogflowCxAgent(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? EnableMultiLanguageTraining
     {
-        get => new TerraformReference<bool>(this, "enable_multi_language_training");
+        get => GetArgument<TerraformValue<bool>>("enable_multi_language_training");
         set => SetArgument("enable_multi_language_training", value);
     }
 
@@ -582,7 +582,7 @@ public partial class GoogleDialogflowCxAgent(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? EnableSpellCorrection
     {
-        get => new TerraformReference<bool>(this, "enable_spell_correction");
+        get => GetArgument<TerraformValue<bool>>("enable_spell_correction");
         set => SetArgument("enable_spell_correction", value);
     }
 
@@ -592,16 +592,16 @@ public partial class GoogleDialogflowCxAgent(string name) : TerraformResource("g
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool>? EnableStackdriverLogging
     {
-        get => new TerraformReference<bool>(this, "enable_stackdriver_logging");
+        get => GetArgument<TerraformValue<bool>>("enable_stackdriver_logging");
         set => SetArgument("enable_stackdriver_logging", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -615,7 +615,7 @@ public partial class GoogleDialogflowCxAgent(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -624,16 +624,16 @@ public partial class GoogleDialogflowCxAgent(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? Locked
     {
-        get => new TerraformReference<bool>(this, "locked");
+        get => GetArgument<TerraformValue<bool>>("locked");
         set => SetArgument("locked", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -642,7 +642,7 @@ public partial class GoogleDialogflowCxAgent(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? SecuritySettings
     {
-        get => new TerraformReference<string>(this, "security_settings");
+        get => GetArgument<TerraformValue<string>>("security_settings");
         set => SetArgument("security_settings", value);
     }
 
@@ -651,7 +651,7 @@ public partial class GoogleDialogflowCxAgent(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? StartPlaybook
     {
-        get => new TerraformReference<string>(this, "start_playbook");
+        get => GetArgument<TerraformValue<string>>("start_playbook");
         set => SetArgument("start_playbook", value);
     }
 
@@ -660,7 +660,7 @@ public partial class GoogleDialogflowCxAgent(string name) : TerraformResource("g
     /// </summary>
     public TerraformList<string>? SupportedLanguageCodes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supported_language_codes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("supported_language_codes");
         set => SetArgument("supported_language_codes", value);
     }
 
@@ -671,7 +671,7 @@ public partial class GoogleDialogflowCxAgent(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformValue<string> TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -679,33 +679,25 @@ public partial class GoogleDialogflowCxAgent(string name) : TerraformResource("g
     /// The unique identifier of the agent.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// A read only boolean field reflecting Zone Isolation status of the agent.
     /// </summary>
     public TerraformValue<bool> SatisfiesPzi
-    {
-        get => new TerraformReference<bool>(this, "satisfies_pzi");
-    }
+        => AsReference("satisfies_pzi");
 
     /// <summary>
     /// A read only boolean field reflecting Zone Separation status of the agent.
     /// </summary>
     public TerraformValue<bool> SatisfiesPzs
-    {
-        get => new TerraformReference<bool>(this, "satisfies_pzs");
-    }
+        => AsReference("satisfies_pzs");
 
     /// <summary>
     /// Name of the start flow in this agent. A start flow will be automatically created when the agent is created, and can only be deleted by deleting the agent. Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/flows/&amp;lt;Flow ID&amp;gt;.
     /// </summary>
     public TerraformValue<string> StartFlow
-    {
-        get => new TerraformReference<string>(this, "start_flow");
-    }
+        => AsReference("start_flow");
 
     /// <summary>
     /// AdvancedSettings block (nesting mode: list).

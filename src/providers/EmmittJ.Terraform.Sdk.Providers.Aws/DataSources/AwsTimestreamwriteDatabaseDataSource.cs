@@ -14,16 +14,16 @@ public partial class AwsTimestreamwriteDatabaseDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -31,40 +31,30 @@ public partial class AwsTimestreamwriteDatabaseDataSource(string name) : Terrafo
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-    {
-        get => new TerraformReference<string>(this, "created_time");
-    }
+        => AsReference("created_time");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-    {
-        get => new TerraformReference<string>(this, "kms_key_id");
-    }
+        => AsReference("kms_key_id");
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedTime
-    {
-        get => new TerraformReference<string>(this, "last_updated_time");
-    }
+        => AsReference("last_updated_time");
 
     /// <summary>
     /// The table_count attribute.
     /// </summary>
     public TerraformValue<double> TableCount
-    {
-        get => new TerraformReference<double>(this, "table_count");
-    }
+        => AsReference("table_count");
 
 }

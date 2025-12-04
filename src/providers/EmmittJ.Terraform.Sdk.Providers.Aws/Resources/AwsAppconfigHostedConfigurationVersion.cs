@@ -14,7 +14,7 @@ public partial class AwsAppconfigHostedConfigurationVersion(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => new TerraformReference<string>(this, "application_id");
+        get => GetArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsAppconfigHostedConfigurationVersion(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationProfileId is required")]
     public required TerraformValue<string> ConfigurationProfileId
     {
-        get => new TerraformReference<string>(this, "configuration_profile_id");
+        get => GetArgument<TerraformValue<string>>("configuration_profile_id");
         set => SetArgument("configuration_profile_id", value);
     }
 
@@ -34,7 +34,7 @@ public partial class AwsAppconfigHostedConfigurationVersion(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => new TerraformReference<string>(this, "content");
+        get => GetArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -44,7 +44,7 @@ public partial class AwsAppconfigHostedConfigurationVersion(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformValue<string> ContentType
     {
-        get => new TerraformReference<string>(this, "content_type");
+        get => GetArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -53,25 +53,25 @@ public partial class AwsAppconfigHostedConfigurationVersion(string name) : Terra
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -79,16 +79,12 @@ public partial class AwsAppconfigHostedConfigurationVersion(string name) : Terra
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The version_number attribute.
     /// </summary>
     public TerraformValue<double> VersionNumber
-    {
-        get => new TerraformReference<double>(this, "version_number");
-    }
+        => AsReference("version_number");
 
 }

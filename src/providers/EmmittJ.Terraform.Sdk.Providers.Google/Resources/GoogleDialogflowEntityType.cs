@@ -22,7 +22,7 @@ public class GoogleDialogflowEntityTypeEntitiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Synonyms is required")]
     public TerraformList<string>? Synonyms
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "synonyms").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("synonyms");
         set => SetArgument("synonyms", value);
     }
 
@@ -37,7 +37,7 @@ public class GoogleDialogflowEntityTypeEntitiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleDialogflowEntityTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -69,7 +69,7 @@ public class GoogleDialogflowEntityTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -78,7 +78,7 @@ public class GoogleDialogflowEntityTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -97,7 +97,7 @@ public partial class GoogleDialogflowEntityType(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -106,16 +106,16 @@ public partial class GoogleDialogflowEntityType(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? EnableFuzzyExtraction
     {
-        get => new TerraformReference<bool>(this, "enable_fuzzy_extraction");
+        get => GetArgument<TerraformValue<bool>>("enable_fuzzy_extraction");
         set => SetArgument("enable_fuzzy_extraction", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -129,16 +129,16 @@ public partial class GoogleDialogflowEntityType(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     public required TerraformValue<string> Kind
     {
-        get => new TerraformReference<string>(this, "kind");
+        get => GetArgument<TerraformValue<string>>("kind");
         set => SetArgument("kind", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -147,9 +147,7 @@ public partial class GoogleDialogflowEntityType(string name) : TerraformResource
     /// Format: projects/&amp;lt;Project ID&amp;gt;/agent/entityTypes/&amp;lt;Entity type ID&amp;gt;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Entities block (nesting mode: list).

@@ -18,7 +18,7 @@ public class GoogleComputeRegionPerInstanceConfigPreservedStateBlock : Terraform
     /// </summary>
     public TerraformMap<string>? Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleComputeRegionPerInstanceConfigPreservedStateBlockDiskBlock : 
     /// </summary>
     public TerraformValue<string>? DeleteRule
     {
-        get => new TerraformReference<string>(this, "delete_rule");
+        get => GetArgument<TerraformValue<string>>("delete_rule");
         set => SetArgument("delete_rule", value);
     }
 
@@ -81,7 +81,7 @@ public class GoogleComputeRegionPerInstanceConfigPreservedStateBlockDiskBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformValue<string> DeviceName
     {
-        get => new TerraformReference<string>(this, "device_name");
+        get => GetArgument<TerraformValue<string>>("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -90,7 +90,7 @@ public class GoogleComputeRegionPerInstanceConfigPreservedStateBlockDiskBlock : 
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -101,7 +101,7 @@ public class GoogleComputeRegionPerInstanceConfigPreservedStateBlockDiskBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleComputeRegionPerInstanceConfigPreservedStateBlockExternalIpBl
     /// </summary>
     public TerraformValue<string>? AutoDelete
     {
-        get => new TerraformReference<string>(this, "auto_delete");
+        get => GetArgument<TerraformValue<string>>("auto_delete");
         set => SetArgument("auto_delete", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleComputeRegionPerInstanceConfigPreservedStateBlockExternalIpBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterfaceName is required")]
     public required TerraformValue<string> InterfaceName
     {
-        get => new TerraformReference<string>(this, "interface_name");
+        get => GetArgument<TerraformValue<string>>("interface_name");
         set => SetArgument("interface_name", value);
     }
 
@@ -165,7 +165,7 @@ public class GoogleComputeRegionPerInstanceConfigPreservedStateBlockExternalIpBl
     /// </summary>
     public TerraformValue<string>? Address
     {
-        get => new TerraformReference<string>(this, "address");
+        get => GetArgument<TerraformValue<string>>("address");
         set => SetArgument("address", value);
     }
 
@@ -187,7 +187,7 @@ public class GoogleComputeRegionPerInstanceConfigPreservedStateBlockInternalIpBl
     /// </summary>
     public TerraformValue<string>? AutoDelete
     {
-        get => new TerraformReference<string>(this, "auto_delete");
+        get => GetArgument<TerraformValue<string>>("auto_delete");
         set => SetArgument("auto_delete", value);
     }
 
@@ -197,7 +197,7 @@ public class GoogleComputeRegionPerInstanceConfigPreservedStateBlockInternalIpBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterfaceName is required")]
     public required TerraformValue<string> InterfaceName
     {
-        get => new TerraformReference<string>(this, "interface_name");
+        get => GetArgument<TerraformValue<string>>("interface_name");
         set => SetArgument("interface_name", value);
     }
 
@@ -229,7 +229,7 @@ public class GoogleComputeRegionPerInstanceConfigPreservedStateBlockInternalIpBl
     /// </summary>
     public TerraformValue<string>? Address
     {
-        get => new TerraformReference<string>(this, "address");
+        get => GetArgument<TerraformValue<string>>("address");
         set => SetArgument("address", value);
     }
 
@@ -252,7 +252,7 @@ public class GoogleComputeRegionPerInstanceConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -261,7 +261,7 @@ public class GoogleComputeRegionPerInstanceConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -270,7 +270,7 @@ public class GoogleComputeRegionPerInstanceConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -286,9 +286,9 @@ public partial class GoogleComputeRegionPerInstanceConfig(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -302,7 +302,7 @@ public partial class GoogleComputeRegionPerInstanceConfig(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? MinimalAction
     {
-        get => new TerraformReference<string>(this, "minimal_action");
+        get => GetArgument<TerraformValue<string>>("minimal_action");
         set => SetArgument("minimal_action", value);
     }
 
@@ -316,7 +316,7 @@ public partial class GoogleComputeRegionPerInstanceConfig(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? MostDisruptiveAllowedAction
     {
-        get => new TerraformReference<string>(this, "most_disruptive_allowed_action");
+        get => GetArgument<TerraformValue<string>>("most_disruptive_allowed_action");
         set => SetArgument("most_disruptive_allowed_action", value);
     }
 
@@ -326,25 +326,25 @@ public partial class GoogleComputeRegionPerInstanceConfig(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Region where the containing instance group manager is located
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -354,7 +354,7 @@ public partial class GoogleComputeRegionPerInstanceConfig(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionInstanceGroupManager is required")]
     public required TerraformValue<string> RegionInstanceGroupManager
     {
-        get => new TerraformReference<string>(this, "region_instance_group_manager");
+        get => GetArgument<TerraformValue<string>>("region_instance_group_manager");
         set => SetArgument("region_instance_group_manager", value);
     }
 
@@ -364,7 +364,7 @@ public partial class GoogleComputeRegionPerInstanceConfig(string name) : Terrafo
     /// </summary>
     public TerraformValue<bool>? RemoveInstanceOnDestroy
     {
-        get => new TerraformReference<bool>(this, "remove_instance_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("remove_instance_on_destroy");
         set => SetArgument("remove_instance_on_destroy", value);
     }
 
@@ -375,7 +375,7 @@ public partial class GoogleComputeRegionPerInstanceConfig(string name) : Terrafo
     /// </summary>
     public TerraformValue<bool>? RemoveInstanceStateOnDestroy
     {
-        get => new TerraformReference<bool>(this, "remove_instance_state_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("remove_instance_state_on_destroy");
         set => SetArgument("remove_instance_state_on_destroy", value);
     }
 

@@ -14,7 +14,7 @@ public partial class GoogleDnsManagedZoneDataSource(string name) : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleDnsManagedZoneDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -31,48 +31,36 @@ public partial class GoogleDnsManagedZoneDataSource(string name) : TerraformData
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-    {
-        get => new TerraformReference<string>(this, "dns_name");
-    }
+        => AsReference("dns_name");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The managed_zone_id attribute.
     /// </summary>
     public TerraformValue<double> ManagedZoneId
-    {
-        get => new TerraformReference<double>(this, "managed_zone_id");
-    }
+        => AsReference("managed_zone_id");
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
     public TerraformList<string> NameServers
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "name_servers").ResolveNodes(ctx));
-    }
+        => AsReference("name_servers");
 
     /// <summary>
     /// The visibility attribute.
     /// </summary>
     public TerraformValue<string> Visibility
-    {
-        get => new TerraformReference<string>(this, "visibility");
-    }
+        => AsReference("visibility");
 
 }

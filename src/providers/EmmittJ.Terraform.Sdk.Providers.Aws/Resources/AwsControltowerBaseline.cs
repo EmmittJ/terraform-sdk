@@ -19,7 +19,7 @@ public class AwsControltowerBaselineParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsControltowerBaselineParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsControltowerBaselineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsControltowerBaselineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsControltowerBaselineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -89,7 +89,7 @@ public partial class AwsControltowerBaseline(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaselineIdentifier is required")]
     public required TerraformValue<string> BaselineIdentifier
     {
-        get => new TerraformReference<string>(this, "baseline_identifier");
+        get => GetArgument<TerraformValue<string>>("baseline_identifier");
         set => SetArgument("baseline_identifier", value);
     }
 
@@ -99,16 +99,16 @@ public partial class AwsControltowerBaseline(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaselineVersion is required")]
     public required TerraformValue<string> BaselineVersion
     {
-        get => new TerraformReference<string>(this, "baseline_version");
+        get => GetArgument<TerraformValue<string>>("baseline_version");
         set => SetArgument("baseline_version", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsControltowerBaseline(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AwsControltowerBaseline(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetIdentifier is required")]
     public required TerraformValue<string> TargetIdentifier
     {
-        get => new TerraformReference<string>(this, "target_identifier");
+        get => GetArgument<TerraformValue<string>>("target_identifier");
         set => SetArgument("target_identifier", value);
     }
 
@@ -135,25 +135,19 @@ public partial class AwsControltowerBaseline(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The operation_identifier attribute.
     /// </summary>
     public TerraformValue<string> OperationIdentifier
-    {
-        get => new TerraformReference<string>(this, "operation_identifier");
-    }
+        => AsReference("operation_identifier");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Parameters block (nesting mode: list).

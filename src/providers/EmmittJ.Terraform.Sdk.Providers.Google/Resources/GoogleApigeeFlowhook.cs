@@ -18,7 +18,7 @@ public class GoogleApigeeFlowhookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleApigeeFlowhookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -45,7 +45,7 @@ public partial class GoogleApigeeFlowhook(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<bool>? ContinueOnError
     {
-        get => new TerraformReference<bool>(this, "continue_on_error");
+        get => GetArgument<TerraformValue<bool>>("continue_on_error");
         set => SetArgument("continue_on_error", value);
     }
 
@@ -54,7 +54,7 @@ public partial class GoogleApigeeFlowhook(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -64,7 +64,7 @@ public partial class GoogleApigeeFlowhook(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformValue<string> Environment
     {
-        get => new TerraformReference<string>(this, "environment");
+        get => GetArgument<TerraformValue<string>>("environment");
         set => SetArgument("environment", value);
     }
 
@@ -74,16 +74,16 @@ public partial class GoogleApigeeFlowhook(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FlowHookPoint is required")]
     public required TerraformValue<string> FlowHookPoint
     {
-        get => new TerraformReference<string>(this, "flow_hook_point");
+        get => GetArgument<TerraformValue<string>>("flow_hook_point");
         set => SetArgument("flow_hook_point", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class GoogleApigeeFlowhook(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => new TerraformReference<string>(this, "org_id");
+        get => GetArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class GoogleApigeeFlowhook(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sharedflow is required")]
     public required TerraformValue<string> Sharedflow
     {
-        get => new TerraformReference<string>(this, "sharedflow");
+        get => GetArgument<TerraformValue<string>>("sharedflow");
         set => SetArgument("sharedflow", value);
     }
 

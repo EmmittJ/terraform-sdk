@@ -18,7 +18,7 @@ public class AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock : 
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock : 
     /// </summary>
     public TerraformMap<string>? Hashes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "hashes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("hashes");
         set => SetArgument("hashes", value);
     }
 
@@ -35,16 +35,14 @@ public class AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock : 
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The source_name attribute.
     /// </summary>
     public TerraformValue<string>? SourceName
     {
-        get => new TerraformReference<string>(this, "source_name");
+        get => GetArgument<TerraformValue<string>>("source_name");
         set => SetArgument("source_name", value);
     }
 
@@ -53,7 +51,7 @@ public class AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock : 
     /// </summary>
     public TerraformValue<string>? Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -76,7 +74,7 @@ public class AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBlock : Te
     /// </summary>
     public TerraformValue<string>? Language
     {
-        get => new TerraformReference<string>(this, "language");
+        get => GetArgument<TerraformValue<string>>("language");
         set => SetArgument("language", value);
     }
 
@@ -85,7 +83,7 @@ public class AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBlock : Te
     /// </summary>
     public TerraformValue<string>? MarkingRef
     {
-        get => new TerraformReference<string>(this, "marking_ref");
+        get => GetArgument<TerraformValue<string>>("marking_ref");
         set => SetArgument("marking_ref", value);
     }
 
@@ -94,7 +92,7 @@ public class AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBlock : Te
     /// </summary>
     public TerraformList<string>? Selectors
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "selectors").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("selectors");
         set => SetArgument("selectors", value);
     }
 
@@ -117,7 +115,7 @@ public class AzurermSentinelThreatIntelligenceIndicatorKillChainPhaseBlock : Ter
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -140,7 +138,7 @@ public class AzurermSentinelThreatIntelligenceIndicatorTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -149,7 +147,7 @@ public class AzurermSentinelThreatIntelligenceIndicatorTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -158,7 +156,7 @@ public class AzurermSentinelThreatIntelligenceIndicatorTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -167,7 +165,7 @@ public class AzurermSentinelThreatIntelligenceIndicatorTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -185,7 +183,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     /// </summary>
     public TerraformValue<double>? Confidence
     {
-        get => new TerraformReference<double>(this, "confidence");
+        get => GetArgument<TerraformValue<double>>("confidence");
         set => SetArgument("confidence", value);
     }
 
@@ -194,7 +192,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     /// </summary>
     public TerraformValue<string>? CreatedBy
     {
-        get => new TerraformReference<string>(this, "created_by");
+        get => GetArgument<TerraformValue<string>>("created_by");
         set => SetArgument("created_by", value);
     }
 
@@ -203,7 +201,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -213,25 +211,25 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The extension attribute.
     /// </summary>
-    public TerraformValue<string> Extension
+    public TerraformValue<string>? Extension
     {
-        get => new TerraformReference<string>(this, "extension");
+        get => GetArgument<TerraformValue<string>>("extension");
         set => SetArgument("extension", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -240,7 +238,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     /// </summary>
     public TerraformValue<string>? Language
     {
-        get => new TerraformReference<string>(this, "language");
+        get => GetArgument<TerraformValue<string>>("language");
         set => SetArgument("language", value);
     }
 
@@ -249,7 +247,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     /// </summary>
     public TerraformList<string>? ObjectMarkingRefs
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "object_marking_refs").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("object_marking_refs");
         set => SetArgument("object_marking_refs", value);
     }
 
@@ -259,7 +257,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformValue<string> Pattern
     {
-        get => new TerraformReference<string>(this, "pattern");
+        get => GetArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -269,7 +267,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatternType is required")]
     public required TerraformValue<string> PatternType
     {
-        get => new TerraformReference<string>(this, "pattern_type");
+        get => GetArgument<TerraformValue<string>>("pattern_type");
         set => SetArgument("pattern_type", value);
     }
 
@@ -278,7 +276,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     /// </summary>
     public TerraformValue<string>? PatternVersion
     {
-        get => new TerraformReference<string>(this, "pattern_version");
+        get => GetArgument<TerraformValue<string>>("pattern_version");
         set => SetArgument("pattern_version", value);
     }
 
@@ -287,7 +285,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     /// </summary>
     public TerraformValue<bool>? Revoked
     {
-        get => new TerraformReference<bool>(this, "revoked");
+        get => GetArgument<TerraformValue<bool>>("revoked");
         set => SetArgument("revoked", value);
     }
 
@@ -297,7 +295,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -306,7 +304,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     /// </summary>
     public TerraformList<string>? Tags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -315,7 +313,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     /// </summary>
     public TerraformList<string>? ThreatTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "threat_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("threat_types");
         set => SetArgument("threat_types", value);
     }
 
@@ -325,7 +323,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValidateFromUtc is required")]
     public required TerraformValue<string> ValidateFromUtc
     {
-        get => new TerraformReference<string>(this, "validate_from_utc");
+        get => GetArgument<TerraformValue<string>>("validate_from_utc");
         set => SetArgument("validate_from_utc", value);
     }
 
@@ -334,7 +332,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     /// </summary>
     public TerraformValue<string>? ValidateUntilUtc
     {
-        get => new TerraformReference<string>(this, "validate_until_utc");
+        get => GetArgument<TerraformValue<string>>("validate_until_utc");
         set => SetArgument("validate_until_utc", value);
     }
 
@@ -344,7 +342,7 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => new TerraformReference<string>(this, "workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -352,65 +350,49 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     /// The created_on attribute.
     /// </summary>
     public TerraformValue<string> CreatedOn
-    {
-        get => new TerraformReference<string>(this, "created_on");
-    }
+        => AsReference("created_on");
 
     /// <summary>
     /// The defanged attribute.
     /// </summary>
     public TerraformValue<bool> Defanged
-    {
-        get => new TerraformReference<bool>(this, "defanged");
-    }
+        => AsReference("defanged");
 
     /// <summary>
     /// The external_id attribute.
     /// </summary>
     public TerraformValue<string> ExternalId
-    {
-        get => new TerraformReference<string>(this, "external_id");
-    }
+        => AsReference("external_id");
 
     /// <summary>
     /// The external_last_updated_time_utc attribute.
     /// </summary>
     public TerraformValue<string> ExternalLastUpdatedTimeUtc
-    {
-        get => new TerraformReference<string>(this, "external_last_updated_time_utc");
-    }
+        => AsReference("external_last_updated_time_utc");
 
     /// <summary>
     /// The guid attribute.
     /// </summary>
     public TerraformValue<string> Guid
-    {
-        get => new TerraformReference<string>(this, "guid");
-    }
+        => AsReference("guid");
 
     /// <summary>
     /// The indicator_type attribute.
     /// </summary>
     public TerraformList<string> IndicatorType
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "indicator_type").ResolveNodes(ctx));
-    }
+        => AsReference("indicator_type");
 
     /// <summary>
     /// The last_updated_time_utc attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedTimeUtc
-    {
-        get => new TerraformReference<string>(this, "last_updated_time_utc");
-    }
+        => AsReference("last_updated_time_utc");
 
     /// <summary>
     /// The parsed_pattern attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ParsedPattern
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "parsed_pattern").ResolveNodes(ctx));
-    }
+        => AsReference("parsed_pattern");
 
     /// <summary>
     /// ExternalReference block (nesting mode: list).

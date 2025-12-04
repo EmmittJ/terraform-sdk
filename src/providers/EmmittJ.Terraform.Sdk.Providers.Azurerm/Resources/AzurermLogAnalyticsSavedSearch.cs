@@ -18,7 +18,7 @@ public class AzurermLogAnalyticsSavedSearchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermLogAnalyticsSavedSearchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermLogAnalyticsSavedSearchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermLogAnalyticsSavedSearch(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformValue<string> Category
     {
-        get => new TerraformReference<string>(this, "category");
+        get => GetArgument<TerraformValue<string>>("category");
         set => SetArgument("category", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzurermLogAnalyticsSavedSearch(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermLogAnalyticsSavedSearch(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? FunctionAlias
     {
-        get => new TerraformReference<string>(this, "function_alias");
+        get => GetArgument<TerraformValue<string>>("function_alias");
         set => SetArgument("function_alias", value);
     }
 
@@ -83,16 +83,16 @@ public partial class AzurermLogAnalyticsSavedSearch(string name) : TerraformReso
     /// </summary>
     public TerraformList<string>? FunctionParameters
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "function_parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("function_parameters");
         set => SetArgument("function_parameters", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermLogAnalyticsSavedSearch(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
-        get => new TerraformReference<string>(this, "log_analytics_workspace_id");
+        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermLogAnalyticsSavedSearch(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermLogAnalyticsSavedSearch(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformValue<string> Query
     {
-        get => new TerraformReference<string>(this, "query");
+        get => GetArgument<TerraformValue<string>>("query");
         set => SetArgument("query", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermLogAnalyticsSavedSearch(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

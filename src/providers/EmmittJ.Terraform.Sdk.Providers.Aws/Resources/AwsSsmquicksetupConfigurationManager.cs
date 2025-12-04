@@ -17,16 +17,14 @@ public class AwsSsmquicksetupConfigurationManagerConfigurationDefinitionBlock : 
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The local_deployment_administration_role_arn attribute.
     /// </summary>
     public TerraformValue<string>? LocalDeploymentAdministrationRoleArn
     {
-        get => new TerraformReference<string>(this, "local_deployment_administration_role_arn");
+        get => GetArgument<TerraformValue<string>>("local_deployment_administration_role_arn");
         set => SetArgument("local_deployment_administration_role_arn", value);
     }
 
@@ -35,7 +33,7 @@ public class AwsSsmquicksetupConfigurationManagerConfigurationDefinitionBlock : 
     /// </summary>
     public TerraformValue<string>? LocalDeploymentExecutionRoleName
     {
-        get => new TerraformReference<string>(this, "local_deployment_execution_role_name");
+        get => GetArgument<TerraformValue<string>>("local_deployment_execution_role_name");
         set => SetArgument("local_deployment_execution_role_name", value);
     }
 
@@ -45,7 +43,7 @@ public class AwsSsmquicksetupConfigurationManagerConfigurationDefinitionBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameters is required")]
     public required TerraformMap<string> Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -55,16 +53,16 @@ public class AwsSsmquicksetupConfigurationManagerConfigurationDefinitionBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
     /// <summary>
     /// The type_version attribute.
     /// </summary>
-    public TerraformValue<string> TypeVersion
+    public TerraformValue<string>? TypeVersion
     {
-        get => new TerraformReference<string>(this, "type_version");
+        get => GetArgument<TerraformValue<string>>("type_version");
         set => SetArgument("type_version", value);
     }
 
@@ -87,7 +85,7 @@ public class AwsSsmquicksetupConfigurationManagerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -96,7 +94,7 @@ public class AwsSsmquicksetupConfigurationManagerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -105,7 +103,7 @@ public class AwsSsmquicksetupConfigurationManagerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -121,9 +119,9 @@ public partial class AwsSsmquicksetupConfigurationManager(string name) : Terrafo
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string> Description
+    public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -133,16 +131,16 @@ public partial class AwsSsmquicksetupConfigurationManager(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -151,7 +149,7 @@ public partial class AwsSsmquicksetupConfigurationManager(string name) : Terrafo
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -159,25 +157,19 @@ public partial class AwsSsmquicksetupConfigurationManager(string name) : Terrafo
     /// The manager_arn attribute.
     /// </summary>
     public TerraformValue<string> ManagerArn
-    {
-        get => new TerraformReference<string>(this, "manager_arn");
-    }
+        => AsReference("manager_arn");
 
     /// <summary>
     /// The status_summaries attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StatusSummaries
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "status_summaries").ResolveNodes(ctx));
-    }
+        => AsReference("status_summaries");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// ConfigurationDefinition block (nesting mode: list).

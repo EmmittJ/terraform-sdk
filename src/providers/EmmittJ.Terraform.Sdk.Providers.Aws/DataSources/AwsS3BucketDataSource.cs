@@ -14,25 +14,25 @@ public partial class AwsS3BucketDataSource(string name) : TerraformDataSource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -40,56 +40,42 @@ public partial class AwsS3BucketDataSource(string name) : TerraformDataSource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The bucket_domain_name attribute.
     /// </summary>
     public TerraformValue<string> BucketDomainName
-    {
-        get => new TerraformReference<string>(this, "bucket_domain_name");
-    }
+        => AsReference("bucket_domain_name");
 
     /// <summary>
     /// The bucket_region attribute.
     /// </summary>
     public TerraformValue<string> BucketRegion
-    {
-        get => new TerraformReference<string>(this, "bucket_region");
-    }
+        => AsReference("bucket_region");
 
     /// <summary>
     /// The bucket_regional_domain_name attribute.
     /// </summary>
     public TerraformValue<string> BucketRegionalDomainName
-    {
-        get => new TerraformReference<string>(this, "bucket_regional_domain_name");
-    }
+        => AsReference("bucket_regional_domain_name");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
     public TerraformValue<string> HostedZoneId
-    {
-        get => new TerraformReference<string>(this, "hosted_zone_id");
-    }
+        => AsReference("hosted_zone_id");
 
     /// <summary>
     /// The website_domain attribute.
     /// </summary>
     public TerraformValue<string> WebsiteDomain
-    {
-        get => new TerraformReference<string>(this, "website_domain");
-    }
+        => AsReference("website_domain");
 
     /// <summary>
     /// The website_endpoint attribute.
     /// </summary>
     public TerraformValue<string> WebsiteEndpoint
-    {
-        get => new TerraformReference<string>(this, "website_endpoint");
-    }
+        => AsReference("website_endpoint");
 
 }

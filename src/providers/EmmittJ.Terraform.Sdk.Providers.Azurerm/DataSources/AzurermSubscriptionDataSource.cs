@@ -18,7 +18,7 @@ public class AzurermSubscriptionDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,18 +34,18 @@ public partial class AzurermSubscriptionDataSource(string name) : TerraformDataS
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformValue<string> SubscriptionId
+    public TerraformValue<string>? SubscriptionId
     {
-        get => new TerraformReference<string>(this, "subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 
@@ -53,57 +53,43 @@ public partial class AzurermSubscriptionDataSource(string name) : TerraformDataS
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The location_placement_id attribute.
     /// </summary>
     public TerraformValue<string> LocationPlacementId
-    {
-        get => new TerraformReference<string>(this, "location_placement_id");
-    }
+        => AsReference("location_placement_id");
 
     /// <summary>
     /// The quota_id attribute.
     /// </summary>
     public TerraformValue<string> QuotaId
-    {
-        get => new TerraformReference<string>(this, "quota_id");
-    }
+        => AsReference("quota_id");
 
     /// <summary>
     /// The spending_limit attribute.
     /// </summary>
     public TerraformValue<string> SpendingLimit
-    {
-        get => new TerraformReference<string>(this, "spending_limit");
-    }
+        => AsReference("spending_limit");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

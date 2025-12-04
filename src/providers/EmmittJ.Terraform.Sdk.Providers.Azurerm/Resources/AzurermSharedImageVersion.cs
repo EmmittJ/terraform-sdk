@@ -18,7 +18,7 @@ public class AzurermSharedImageVersionTargetRegionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DiskEncryptionSetId
     {
-        get => new TerraformReference<string>(this, "disk_encryption_set_id");
+        get => GetArgument<TerraformValue<string>>("disk_encryption_set_id");
         set => SetArgument("disk_encryption_set_id", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSharedImageVersionTargetRegionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ExcludeFromLatestEnabled
     {
-        get => new TerraformReference<bool>(this, "exclude_from_latest_enabled");
+        get => GetArgument<TerraformValue<bool>>("exclude_from_latest_enabled");
         set => SetArgument("exclude_from_latest_enabled", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermSharedImageVersionTargetRegionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermSharedImageVersionTargetRegionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionalReplicaCount is required")]
     public required TerraformValue<double> RegionalReplicaCount
     {
-        get => new TerraformReference<double>(this, "regional_replica_count");
+        get => GetArgument<TerraformValue<double>>("regional_replica_count");
         set => SetArgument("regional_replica_count", value);
     }
 
@@ -56,7 +56,7 @@ public class AzurermSharedImageVersionTargetRegionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StorageAccountType
     {
-        get => new TerraformReference<string>(this, "storage_account_type");
+        get => GetArgument<TerraformValue<string>>("storage_account_type");
         set => SetArgument("storage_account_type", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermSharedImageVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermSharedImageVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermSharedImageVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermSharedImageVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AzurermSharedImageVersion(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? BlobUri
     {
-        get => new TerraformReference<string>(this, "blob_uri");
+        get => GetArgument<TerraformValue<string>>("blob_uri");
         set => SetArgument("blob_uri", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AzurermSharedImageVersion(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? DeletionOfReplicatedLocationsEnabled
     {
-        get => new TerraformReference<bool>(this, "deletion_of_replicated_locations_enabled");
+        get => GetArgument<TerraformValue<bool>>("deletion_of_replicated_locations_enabled");
         set => SetArgument("deletion_of_replicated_locations_enabled", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AzurermSharedImageVersion(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? EndOfLifeDate
     {
-        get => new TerraformReference<string>(this, "end_of_life_date");
+        get => GetArgument<TerraformValue<string>>("end_of_life_date");
         set => SetArgument("end_of_life_date", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AzurermSharedImageVersion(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? ExcludeFromLatest
     {
-        get => new TerraformReference<bool>(this, "exclude_from_latest");
+        get => GetArgument<TerraformValue<bool>>("exclude_from_latest");
         set => SetArgument("exclude_from_latest", value);
     }
 
@@ -161,16 +161,16 @@ public partial class AzurermSharedImageVersion(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryName is required")]
     public required TerraformValue<string> GalleryName
     {
-        get => new TerraformReference<string>(this, "gallery_name");
+        get => GetArgument<TerraformValue<string>>("gallery_name");
         set => SetArgument("gallery_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AzurermSharedImageVersion(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformValue<string> ImageName
     {
-        get => new TerraformReference<string>(this, "image_name");
+        get => GetArgument<TerraformValue<string>>("image_name");
         set => SetArgument("image_name", value);
     }
 
@@ -190,7 +190,7 @@ public partial class AzurermSharedImageVersion(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AzurermSharedImageVersion(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? ManagedImageId
     {
-        get => new TerraformReference<string>(this, "managed_image_id");
+        get => GetArgument<TerraformValue<string>>("managed_image_id");
         set => SetArgument("managed_image_id", value);
     }
 
@@ -209,7 +209,7 @@ public partial class AzurermSharedImageVersion(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -218,7 +218,7 @@ public partial class AzurermSharedImageVersion(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? OsDiskSnapshotId
     {
-        get => new TerraformReference<string>(this, "os_disk_snapshot_id");
+        get => GetArgument<TerraformValue<string>>("os_disk_snapshot_id");
         set => SetArgument("os_disk_snapshot_id", value);
     }
 
@@ -227,7 +227,7 @@ public partial class AzurermSharedImageVersion(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? ReplicationMode
     {
-        get => new TerraformReference<string>(this, "replication_mode");
+        get => GetArgument<TerraformValue<string>>("replication_mode");
         set => SetArgument("replication_mode", value);
     }
 
@@ -237,7 +237,7 @@ public partial class AzurermSharedImageVersion(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -246,7 +246,7 @@ public partial class AzurermSharedImageVersion(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? StorageAccountId
     {
-        get => new TerraformReference<string>(this, "storage_account_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
@@ -255,7 +255,7 @@ public partial class AzurermSharedImageVersion(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

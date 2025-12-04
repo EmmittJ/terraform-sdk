@@ -18,7 +18,7 @@ public class AzurermKustoScriptTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermKustoScriptTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermKustoScriptTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermKustoScriptTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermKustoScript(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<bool>? ContinueOnErrorsEnabled
     {
-        get => new TerraformReference<bool>(this, "continue_on_errors_enabled");
+        get => GetArgument<TerraformValue<bool>>("continue_on_errors_enabled");
         set => SetArgument("continue_on_errors_enabled", value);
     }
 
@@ -73,25 +73,25 @@ public partial class AzurermKustoScript(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseId is required")]
     public required TerraformValue<string> DatabaseId
     {
-        get => new TerraformReference<string>(this, "database_id");
+        get => GetArgument<TerraformValue<string>>("database_id");
         set => SetArgument("database_id", value);
     }
 
     /// <summary>
     /// The force_an_update_when_value_changed attribute.
     /// </summary>
-    public TerraformValue<string> ForceAnUpdateWhenValueChanged
+    public TerraformValue<string>? ForceAnUpdateWhenValueChanged
     {
-        get => new TerraformReference<string>(this, "force_an_update_when_value_changed");
+        get => GetArgument<TerraformValue<string>>("force_an_update_when_value_changed");
         set => SetArgument("force_an_update_when_value_changed", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermKustoScript(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermKustoScript(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string>? SasToken
     {
-        get => new TerraformReference<string>(this, "sas_token");
+        get => GetArgument<TerraformValue<string>>("sas_token");
         set => SetArgument("sas_token", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermKustoScript(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string>? ScriptContent
     {
-        get => new TerraformReference<string>(this, "script_content");
+        get => GetArgument<TerraformValue<string>>("script_content");
         set => SetArgument("script_content", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermKustoScript(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string>? Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 

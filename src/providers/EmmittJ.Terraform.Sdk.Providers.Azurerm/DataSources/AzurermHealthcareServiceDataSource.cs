@@ -18,7 +18,7 @@ public class AzurermHealthcareServiceDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermHealthcareServiceDataSource(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermHealthcareServiceDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermHealthcareServiceDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermHealthcareServiceDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -74,57 +74,43 @@ public partial class AzurermHealthcareServiceDataSource(string name) : Terraform
     /// The access_policy_object_ids attribute.
     /// </summary>
     public TerraformSet<string> AccessPolicyObjectIds
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "access_policy_object_ids").ResolveNodes(ctx));
-    }
+        => AsReference("access_policy_object_ids");
 
     /// <summary>
     /// The authentication_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AuthenticationConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "authentication_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("authentication_configuration");
 
     /// <summary>
     /// The cors_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CorsConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cors_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("cors_configuration");
 
     /// <summary>
     /// The cosmosdb_key_vault_key_versionless_id attribute.
     /// </summary>
     public TerraformValue<string> CosmosdbKeyVaultKeyVersionlessId
-    {
-        get => new TerraformReference<string>(this, "cosmosdb_key_vault_key_versionless_id");
-    }
+        => AsReference("cosmosdb_key_vault_key_versionless_id");
 
     /// <summary>
     /// The cosmosdb_throughput attribute.
     /// </summary>
     public TerraformValue<double> CosmosdbThroughput
-    {
-        get => new TerraformReference<double>(this, "cosmosdb_throughput");
-    }
+        => AsReference("cosmosdb_throughput");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     public TerraformValue<string> Kind
-    {
-        get => new TerraformReference<string>(this, "kind");
-    }
+        => AsReference("kind");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

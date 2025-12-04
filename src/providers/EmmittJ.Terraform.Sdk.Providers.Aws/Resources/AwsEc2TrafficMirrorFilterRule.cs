@@ -18,7 +18,7 @@ public class AwsEc2TrafficMirrorFilterRuleDestinationPortRangeBlock : TerraformB
     /// </summary>
     public TerraformValue<double>? FromPort
     {
-        get => new TerraformReference<double>(this, "from_port");
+        get => GetArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsEc2TrafficMirrorFilterRuleDestinationPortRangeBlock : TerraformB
     /// </summary>
     public TerraformValue<double>? ToPort
     {
-        get => new TerraformReference<double>(this, "to_port");
+        get => GetArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsEc2TrafficMirrorFilterRuleSourcePortRangeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? FromPort
     {
-        get => new TerraformReference<double>(this, "from_port");
+        get => GetArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsEc2TrafficMirrorFilterRuleSourcePortRangeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ToPort
     {
-        get => new TerraformReference<double>(this, "to_port");
+        get => GetArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -77,7 +77,7 @@ public partial class AwsEc2TrafficMirrorFilterRule(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -87,16 +87,16 @@ public partial class AwsEc2TrafficMirrorFilterRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationCidrBlock is required")]
     public required TerraformValue<string> DestinationCidrBlock
     {
-        get => new TerraformReference<string>(this, "destination_cidr_block");
+        get => GetArgument<TerraformValue<string>>("destination_cidr_block");
         set => SetArgument("destination_cidr_block", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -105,16 +105,16 @@ public partial class AwsEc2TrafficMirrorFilterRule(string name) : TerraformResou
     /// </summary>
     public TerraformValue<double>? Protocol
     {
-        get => new TerraformReference<double>(this, "protocol");
+        get => GetArgument<TerraformValue<double>>("protocol");
         set => SetArgument("protocol", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AwsEc2TrafficMirrorFilterRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleAction is required")]
     public required TerraformValue<string> RuleAction
     {
-        get => new TerraformReference<string>(this, "rule_action");
+        get => GetArgument<TerraformValue<string>>("rule_action");
         set => SetArgument("rule_action", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AwsEc2TrafficMirrorFilterRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNumber is required")]
     public required TerraformValue<double> RuleNumber
     {
-        get => new TerraformReference<double>(this, "rule_number");
+        get => GetArgument<TerraformValue<double>>("rule_number");
         set => SetArgument("rule_number", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AwsEc2TrafficMirrorFilterRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceCidrBlock is required")]
     public required TerraformValue<string> SourceCidrBlock
     {
-        get => new TerraformReference<string>(this, "source_cidr_block");
+        get => GetArgument<TerraformValue<string>>("source_cidr_block");
         set => SetArgument("source_cidr_block", value);
     }
 
@@ -154,7 +154,7 @@ public partial class AwsEc2TrafficMirrorFilterRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficDirection is required")]
     public required TerraformValue<string> TrafficDirection
     {
-        get => new TerraformReference<string>(this, "traffic_direction");
+        get => GetArgument<TerraformValue<string>>("traffic_direction");
         set => SetArgument("traffic_direction", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AwsEc2TrafficMirrorFilterRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficMirrorFilterId is required")]
     public required TerraformValue<string> TrafficMirrorFilterId
     {
-        get => new TerraformReference<string>(this, "traffic_mirror_filter_id");
+        get => GetArgument<TerraformValue<string>>("traffic_mirror_filter_id");
         set => SetArgument("traffic_mirror_filter_id", value);
     }
 
@@ -172,9 +172,7 @@ public partial class AwsEc2TrafficMirrorFilterRule(string name) : TerraformResou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// DestinationPortRange block (nesting mode: list).

@@ -19,7 +19,7 @@ public class AwsVpcIpamOperatingRegionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionName is required")]
     public required TerraformValue<string> RegionName
     {
-        get => new TerraformReference<string>(this, "region_name");
+        get => GetArgument<TerraformValue<string>>("region_name");
         set => SetArgument("region_name", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsVpcIpamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsVpcIpamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsVpcIpamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -78,7 +78,7 @@ public partial class AwsVpcIpam(string name) : TerraformResource("aws_vpc_ipam",
     /// </summary>
     public TerraformValue<bool>? Cascade
     {
-        get => new TerraformReference<bool>(this, "cascade");
+        get => GetArgument<TerraformValue<bool>>("cascade");
         set => SetArgument("cascade", value);
     }
 
@@ -87,7 +87,7 @@ public partial class AwsVpcIpam(string name) : TerraformResource("aws_vpc_ipam",
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -96,34 +96,34 @@ public partial class AwsVpcIpam(string name) : TerraformResource("aws_vpc_ipam",
     /// </summary>
     public TerraformValue<bool>? EnablePrivateGua
     {
-        get => new TerraformReference<bool>(this, "enable_private_gua");
+        get => GetArgument<TerraformValue<bool>>("enable_private_gua");
         set => SetArgument("enable_private_gua", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The metered_account attribute.
     /// </summary>
-    public TerraformValue<string> MeteredAccount
+    public TerraformValue<string>? MeteredAccount
     {
-        get => new TerraformReference<string>(this, "metered_account");
+        get => GetArgument<TerraformValue<string>>("metered_account");
         set => SetArgument("metered_account", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -132,16 +132,16 @@ public partial class AwsVpcIpam(string name) : TerraformResource("aws_vpc_ipam",
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AwsVpcIpam(string name) : TerraformResource("aws_vpc_ipam",
     /// </summary>
     public TerraformValue<string>? Tier
     {
-        get => new TerraformReference<string>(this, "tier");
+        get => GetArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 
@@ -158,49 +158,37 @@ public partial class AwsVpcIpam(string name) : TerraformResource("aws_vpc_ipam",
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The default_resource_discovery_association_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultResourceDiscoveryAssociationId
-    {
-        get => new TerraformReference<string>(this, "default_resource_discovery_association_id");
-    }
+        => AsReference("default_resource_discovery_association_id");
 
     /// <summary>
     /// The default_resource_discovery_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultResourceDiscoveryId
-    {
-        get => new TerraformReference<string>(this, "default_resource_discovery_id");
-    }
+        => AsReference("default_resource_discovery_id");
 
     /// <summary>
     /// The private_default_scope_id attribute.
     /// </summary>
     public TerraformValue<string> PrivateDefaultScopeId
-    {
-        get => new TerraformReference<string>(this, "private_default_scope_id");
-    }
+        => AsReference("private_default_scope_id");
 
     /// <summary>
     /// The public_default_scope_id attribute.
     /// </summary>
     public TerraformValue<string> PublicDefaultScopeId
-    {
-        get => new TerraformReference<string>(this, "public_default_scope_id");
-    }
+        => AsReference("public_default_scope_id");
 
     /// <summary>
     /// The scope_count attribute.
     /// </summary>
     public TerraformValue<double> ScopeCount
-    {
-        get => new TerraformReference<double>(this, "scope_count");
-    }
+        => AsReference("scope_count");
 
     /// <summary>
     /// OperatingRegions block (nesting mode: set).

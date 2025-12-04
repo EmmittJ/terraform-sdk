@@ -11,18 +11,18 @@ public partial class AwsTransferServerDataSource(string name) : TerraformDataSou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -32,16 +32,16 @@ public partial class AwsTransferServerDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformValue<string> ServerId
     {
-        get => new TerraformReference<string>(this, "server_id");
+        get => GetArgument<TerraformValue<string>>("server_id");
         set => SetArgument("server_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,96 +49,72 @@ public partial class AwsTransferServerDataSource(string name) : TerraformDataSou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The certificate attribute.
     /// </summary>
     public TerraformValue<string> Certificate
-    {
-        get => new TerraformReference<string>(this, "certificate");
-    }
+        => AsReference("certificate");
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
     public TerraformValue<string> Domain
-    {
-        get => new TerraformReference<string>(this, "domain");
-    }
+        => AsReference("domain");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// The endpoint_type attribute.
     /// </summary>
     public TerraformValue<string> EndpointType
-    {
-        get => new TerraformReference<string>(this, "endpoint_type");
-    }
+        => AsReference("endpoint_type");
 
     /// <summary>
     /// The identity_provider_type attribute.
     /// </summary>
     public TerraformValue<string> IdentityProviderType
-    {
-        get => new TerraformReference<string>(this, "identity_provider_type");
-    }
+        => AsReference("identity_provider_type");
 
     /// <summary>
     /// The invocation_role attribute.
     /// </summary>
     public TerraformValue<string> InvocationRole
-    {
-        get => new TerraformReference<string>(this, "invocation_role");
-    }
+        => AsReference("invocation_role");
 
     /// <summary>
     /// The logging_role attribute.
     /// </summary>
     public TerraformValue<string> LoggingRole
-    {
-        get => new TerraformReference<string>(this, "logging_role");
-    }
+        => AsReference("logging_role");
 
     /// <summary>
     /// The protocols attribute.
     /// </summary>
     public TerraformList<string> Protocols
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "protocols").ResolveNodes(ctx));
-    }
+        => AsReference("protocols");
 
     /// <summary>
     /// The security_policy_name attribute.
     /// </summary>
     public TerraformValue<string> SecurityPolicyName
-    {
-        get => new TerraformReference<string>(this, "security_policy_name");
-    }
+        => AsReference("security_policy_name");
 
     /// <summary>
     /// The structured_log_destinations attribute.
     /// </summary>
     public TerraformList<string> StructuredLogDestinations
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "structured_log_destinations").ResolveNodes(ctx));
-    }
+        => AsReference("structured_log_destinations");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-    {
-        get => new TerraformReference<string>(this, "url");
-    }
+        => AsReference("url");
 
 }

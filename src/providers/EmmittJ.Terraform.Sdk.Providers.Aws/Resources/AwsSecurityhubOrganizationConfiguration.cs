@@ -19,7 +19,7 @@ public class AwsSecurityhubOrganizationConfigurationOrganizationConfigurationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationType is required")]
     public required TerraformValue<string> ConfigurationType
     {
-        get => new TerraformReference<string>(this, "configuration_type");
+        get => GetArgument<TerraformValue<string>>("configuration_type");
         set => SetArgument("configuration_type", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsSecurityhubOrganizationConfigurationTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsSecurityhubOrganizationConfigurationTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsSecurityhubOrganizationConfigurationTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -79,34 +79,34 @@ public partial class AwsSecurityhubOrganizationConfiguration(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoEnable is required")]
     public required TerraformValue<bool> AutoEnable
     {
-        get => new TerraformReference<bool>(this, "auto_enable");
+        get => GetArgument<TerraformValue<bool>>("auto_enable");
         set => SetArgument("auto_enable", value);
     }
 
     /// <summary>
     /// The auto_enable_standards attribute.
     /// </summary>
-    public TerraformValue<string> AutoEnableStandards
+    public TerraformValue<string>? AutoEnableStandards
     {
-        get => new TerraformReference<string>(this, "auto_enable_standards");
+        get => GetArgument<TerraformValue<string>>("auto_enable_standards");
         set => SetArgument("auto_enable_standards", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

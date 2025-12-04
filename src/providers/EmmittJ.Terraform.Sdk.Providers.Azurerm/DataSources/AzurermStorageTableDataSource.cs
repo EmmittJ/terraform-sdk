@@ -18,7 +18,7 @@ public class AzurermStorageTableDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,7 +37,7 @@ public partial class AzurermStorageTableDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -47,7 +47,7 @@ public partial class AzurermStorageTableDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformValue<string> StorageAccountName
     {
-        get => new TerraformReference<string>(this, "storage_account_name");
+        get => GetArgument<TerraformValue<string>>("storage_account_name");
         set => SetArgument("storage_account_name", value);
     }
 
@@ -55,25 +55,19 @@ public partial class AzurermStorageTableDataSource(string name) : TerraformDataS
     /// The acl attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Acl
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "acl").ResolveNodes(ctx));
-    }
+        => AsReference("acl");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The resource_manager_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceManagerId
-    {
-        get => new TerraformReference<string>(this, "resource_manager_id");
-    }
+        => AsReference("resource_manager_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

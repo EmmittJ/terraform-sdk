@@ -18,7 +18,7 @@ public class AwsMacie2InvitationAccepterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -37,25 +37,25 @@ public partial class AwsMacie2InvitationAccepter(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdministratorAccountId is required")]
     public required TerraformValue<string> AdministratorAccountId
     {
-        get => new TerraformReference<string>(this, "administrator_account_id");
+        get => GetArgument<TerraformValue<string>>("administrator_account_id");
         set => SetArgument("administrator_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -63,9 +63,7 @@ public partial class AwsMacie2InvitationAccepter(string name) : TerraformResourc
     /// The invitation_id attribute.
     /// </summary>
     public TerraformValue<string> InvitationId
-    {
-        get => new TerraformReference<string>(this, "invitation_id");
-    }
+        => AsReference("invitation_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

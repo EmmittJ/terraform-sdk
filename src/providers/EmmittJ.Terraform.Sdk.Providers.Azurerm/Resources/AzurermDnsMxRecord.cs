@@ -19,7 +19,7 @@ public class AzurermDnsMxRecordRecordBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Exchange is required")]
     public required TerraformValue<string> Exchange
     {
-        get => new TerraformReference<string>(this, "exchange");
+        get => GetArgument<TerraformValue<string>>("exchange");
         set => SetArgument("exchange", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermDnsMxRecordRecordBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Preference is required")]
     public required TerraformValue<string> Preference
     {
-        get => new TerraformReference<string>(this, "preference");
+        get => GetArgument<TerraformValue<string>>("preference");
         set => SetArgument("preference", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermDnsMxRecordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermDnsMxRecordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermDnsMxRecordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermDnsMxRecordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -95,9 +95,9 @@ public partial class AzurermDnsMxRecord(string name) : TerraformResource("azurer
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AzurermDnsMxRecord(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AzurermDnsMxRecord(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AzurermDnsMxRecord(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AzurermDnsMxRecord(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     public required TerraformValue<double> Ttl
     {
-        get => new TerraformReference<double>(this, "ttl");
+        get => GetArgument<TerraformValue<double>>("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermDnsMxRecord(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneName is required")]
     public required TerraformValue<string> ZoneName
     {
-        get => new TerraformReference<string>(this, "zone_name");
+        get => GetArgument<TerraformValue<string>>("zone_name");
         set => SetArgument("zone_name", value);
     }
 
@@ -153,9 +153,7 @@ public partial class AzurermDnsMxRecord(string name) : TerraformResource("azurer
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-    {
-        get => new TerraformReference<string>(this, "fqdn");
-    }
+        => AsReference("fqdn");
 
     /// <summary>
     /// Record block (nesting mode: set).

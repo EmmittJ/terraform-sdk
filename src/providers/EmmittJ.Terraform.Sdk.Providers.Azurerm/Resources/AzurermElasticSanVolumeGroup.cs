@@ -17,17 +17,13 @@ public class AzurermElasticSanVolumeGroupEncryptionBlock : TerraformBlock
     /// The current_versioned_key_expiration_timestamp attribute.
     /// </summary>
     public TerraformValue<string> CurrentVersionedKeyExpirationTimestamp
-    {
-        get => new TerraformReference<string>(this, "current_versioned_key_expiration_timestamp");
-    }
+        => AsReference("current_versioned_key_expiration_timestamp");
 
     /// <summary>
     /// The current_versioned_key_id attribute.
     /// </summary>
     public TerraformValue<string> CurrentVersionedKeyId
-    {
-        get => new TerraformReference<string>(this, "current_versioned_key_id");
-    }
+        => AsReference("current_versioned_key_id");
 
     /// <summary>
     /// The key_vault_key_id attribute.
@@ -35,7 +31,7 @@ public class AzurermElasticSanVolumeGroupEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformValue<string> KeyVaultKeyId
     {
-        get => new TerraformReference<string>(this, "key_vault_key_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_key_id");
         set => SetArgument("key_vault_key_id", value);
     }
 
@@ -43,16 +39,14 @@ public class AzurermElasticSanVolumeGroupEncryptionBlock : TerraformBlock
     /// The last_key_rotation_timestamp attribute.
     /// </summary>
     public TerraformValue<string> LastKeyRotationTimestamp
-    {
-        get => new TerraformReference<string>(this, "last_key_rotation_timestamp");
-    }
+        => AsReference("last_key_rotation_timestamp");
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
     /// </summary>
     public TerraformValue<string>? UserAssignedIdentityId
     {
-        get => new TerraformReference<string>(this, "user_assigned_identity_id");
+        get => GetArgument<TerraformValue<string>>("user_assigned_identity_id");
         set => SetArgument("user_assigned_identity_id", value);
     }
 
@@ -75,7 +69,7 @@ public class AzurermElasticSanVolumeGroupIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -83,17 +77,13 @@ public class AzurermElasticSanVolumeGroupIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -101,7 +91,7 @@ public class AzurermElasticSanVolumeGroupIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -124,7 +114,7 @@ public class AzurermElasticSanVolumeGroupNetworkRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -134,7 +124,7 @@ public class AzurermElasticSanVolumeGroupNetworkRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -157,7 +147,7 @@ public class AzurermElasticSanVolumeGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -166,7 +156,7 @@ public class AzurermElasticSanVolumeGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -175,7 +165,7 @@ public class AzurermElasticSanVolumeGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -184,7 +174,7 @@ public class AzurermElasticSanVolumeGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -203,7 +193,7 @@ public partial class AzurermElasticSanVolumeGroup(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElasticSanId is required")]
     public required TerraformValue<string> ElasticSanId
     {
-        get => new TerraformReference<string>(this, "elastic_san_id");
+        get => GetArgument<TerraformValue<string>>("elastic_san_id");
         set => SetArgument("elastic_san_id", value);
     }
 
@@ -212,16 +202,16 @@ public partial class AzurermElasticSanVolumeGroup(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? EncryptionType
     {
-        get => new TerraformReference<string>(this, "encryption_type");
+        get => GetArgument<TerraformValue<string>>("encryption_type");
         set => SetArgument("encryption_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -231,7 +221,7 @@ public partial class AzurermElasticSanVolumeGroup(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -240,7 +230,7 @@ public partial class AzurermElasticSanVolumeGroup(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? ProtocolType
     {
-        get => new TerraformReference<string>(this, "protocol_type");
+        get => GetArgument<TerraformValue<string>>("protocol_type");
         set => SetArgument("protocol_type", value);
     }
 

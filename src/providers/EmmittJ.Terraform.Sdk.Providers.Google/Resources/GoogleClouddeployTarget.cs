@@ -18,7 +18,7 @@ public class GoogleClouddeployTargetAnthosClusterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Membership
     {
-        get => new TerraformReference<string>(this, "membership");
+        get => GetArgument<TerraformValue<string>>("membership");
         set => SetArgument("membership", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleClouddeployTargetAssociatedEntitiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityId is required")]
     public required TerraformValue<string> EntityId
     {
-        get => new TerraformReference<string>(this, "entity_id");
+        get => GetArgument<TerraformValue<string>>("entity_id");
         set => SetArgument("entity_id", value);
     }
 
@@ -82,7 +82,7 @@ public class GoogleClouddeployTargetAssociatedEntitiesBlockAnthosClustersBlock :
     /// </summary>
     public TerraformValue<string>? Membership
     {
-        get => new TerraformReference<string>(this, "membership");
+        get => GetArgument<TerraformValue<string>>("membership");
         set => SetArgument("membership", value);
     }
 
@@ -104,7 +104,7 @@ public class GoogleClouddeployTargetAssociatedEntitiesBlockGkeClustersBlock : Te
     /// </summary>
     public TerraformValue<string>? Cluster
     {
-        get => new TerraformReference<string>(this, "cluster");
+        get => GetArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
@@ -113,7 +113,7 @@ public class GoogleClouddeployTargetAssociatedEntitiesBlockGkeClustersBlock : Te
     /// </summary>
     public TerraformValue<bool>? InternalIp
     {
-        get => new TerraformReference<bool>(this, "internal_ip");
+        get => GetArgument<TerraformValue<bool>>("internal_ip");
         set => SetArgument("internal_ip", value);
     }
 
@@ -122,7 +122,7 @@ public class GoogleClouddeployTargetAssociatedEntitiesBlockGkeClustersBlock : Te
     /// </summary>
     public TerraformValue<string>? ProxyUrl
     {
-        get => new TerraformReference<string>(this, "proxy_url");
+        get => GetArgument<TerraformValue<string>>("proxy_url");
         set => SetArgument("proxy_url", value);
     }
 
@@ -146,7 +146,7 @@ public class GoogleClouddeployTargetCustomTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomTargetType is required")]
     public required TerraformValue<string> CustomTargetType
     {
-        get => new TerraformReference<string>(this, "custom_target_type");
+        get => GetArgument<TerraformValue<string>>("custom_target_type");
         set => SetArgument("custom_target_type", value);
     }
 
@@ -167,27 +167,27 @@ public class GoogleClouddeployTargetExecutionConfigsBlock : TerraformBlock
     /// <summary>
     /// Optional. Cloud Storage location in which to store execution outputs. This can either be a bucket (&amp;quot;gs://my-bucket&amp;quot;) or a path within a bucket (&amp;quot;gs://my-bucket/my-dir&amp;quot;). If unspecified, a default bucket located in the same region will be used.
     /// </summary>
-    public TerraformValue<string> ArtifactStorage
+    public TerraformValue<string>? ArtifactStorage
     {
-        get => new TerraformReference<string>(this, "artifact_storage");
+        get => GetArgument<TerraformValue<string>>("artifact_storage");
         set => SetArgument("artifact_storage", value);
     }
 
     /// <summary>
     /// Optional. Execution timeout for a Cloud Build Execution. This must be between 10m and 24h in seconds format. If unspecified, a default timeout of 1h is used.
     /// </summary>
-    public TerraformValue<string> ExecutionTimeout
+    public TerraformValue<string>? ExecutionTimeout
     {
-        get => new TerraformReference<string>(this, "execution_timeout");
+        get => GetArgument<TerraformValue<string>>("execution_timeout");
         set => SetArgument("execution_timeout", value);
     }
 
     /// <summary>
     /// Optional. Google service account to use for execution. If unspecified, the project execution service account (-compute@developer.gserviceaccount.com) is used.
     /// </summary>
-    public TerraformValue<string> ServiceAccount
+    public TerraformValue<string>? ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -197,7 +197,7 @@ public class GoogleClouddeployTargetExecutionConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Usages is required")]
     public TerraformList<string>? Usages
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "usages").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("usages");
         set => SetArgument("usages", value);
     }
 
@@ -206,7 +206,7 @@ public class GoogleClouddeployTargetExecutionConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Verbose
     {
-        get => new TerraformReference<bool>(this, "verbose");
+        get => GetArgument<TerraformValue<bool>>("verbose");
         set => SetArgument("verbose", value);
     }
 
@@ -215,7 +215,7 @@ public class GoogleClouddeployTargetExecutionConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? WorkerPool
     {
-        get => new TerraformReference<string>(this, "worker_pool");
+        get => GetArgument<TerraformValue<string>>("worker_pool");
         set => SetArgument("worker_pool", value);
     }
 
@@ -238,7 +238,7 @@ public class GoogleClouddeployTargetGkeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cluster
     {
-        get => new TerraformReference<string>(this, "cluster");
+        get => GetArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
@@ -247,7 +247,7 @@ public class GoogleClouddeployTargetGkeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DnsEndpoint
     {
-        get => new TerraformReference<bool>(this, "dns_endpoint");
+        get => GetArgument<TerraformValue<bool>>("dns_endpoint");
         set => SetArgument("dns_endpoint", value);
     }
 
@@ -256,7 +256,7 @@ public class GoogleClouddeployTargetGkeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? InternalIp
     {
-        get => new TerraformReference<bool>(this, "internal_ip");
+        get => GetArgument<TerraformValue<bool>>("internal_ip");
         set => SetArgument("internal_ip", value);
     }
 
@@ -265,7 +265,7 @@ public class GoogleClouddeployTargetGkeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ProxyUrl
     {
-        get => new TerraformReference<string>(this, "proxy_url");
+        get => GetArgument<TerraformValue<string>>("proxy_url");
         set => SetArgument("proxy_url", value);
     }
 
@@ -289,7 +289,7 @@ public class GoogleClouddeployTargetMultiTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetIds is required")]
     public TerraformList<string>? TargetIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "target_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("target_ids");
         set => SetArgument("target_ids", value);
     }
 
@@ -313,7 +313,7 @@ public class GoogleClouddeployTargetRunBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -336,7 +336,7 @@ public class GoogleClouddeployTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -345,7 +345,7 @@ public class GoogleClouddeployTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -354,7 +354,7 @@ public class GoogleClouddeployTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -375,7 +375,7 @@ public partial class GoogleClouddeployTarget(string name) : TerraformResource("g
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -384,7 +384,7 @@ public partial class GoogleClouddeployTarget(string name) : TerraformResource("g
     /// </summary>
     public TerraformMap<string>? DeployParameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "deploy_parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("deploy_parameters");
         set => SetArgument("deploy_parameters", value);
     }
 
@@ -393,16 +393,16 @@ public partial class GoogleClouddeployTarget(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -414,7 +414,7 @@ public partial class GoogleClouddeployTarget(string name) : TerraformResource("g
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -424,7 +424,7 @@ public partial class GoogleClouddeployTarget(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -434,16 +434,16 @@ public partial class GoogleClouddeployTarget(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -452,7 +452,7 @@ public partial class GoogleClouddeployTarget(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? RequireApproval
     {
-        get => new TerraformReference<bool>(this, "require_approval");
+        get => GetArgument<TerraformValue<bool>>("require_approval");
         set => SetArgument("require_approval", value);
     }
 
@@ -460,65 +460,49 @@ public partial class GoogleClouddeployTarget(string name) : TerraformResource("g
     /// Output only. Time at which the `Target` was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Optional. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Output only. Resource id of the `Target`.
     /// </summary>
     public TerraformValue<string> TargetId
-    {
-        get => new TerraformReference<string>(this, "target_id");
-    }
+        => AsReference("target_id");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Output only. Unique identifier of the `Target`.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Output only. Most recent time at which the `Target` was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// AnthosCluster block (nesting mode: list).

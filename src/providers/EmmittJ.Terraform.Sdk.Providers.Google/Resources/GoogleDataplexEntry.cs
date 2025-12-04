@@ -22,7 +22,7 @@ public class GoogleDataplexEntryAspectsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AspectKey is required")]
     public required TerraformValue<string> AspectKey
     {
-        get => new TerraformReference<string>(this, "aspect_key");
+        get => GetArgument<TerraformValue<string>>("aspect_key");
         set => SetArgument("aspect_key", value);
     }
 
@@ -56,17 +56,13 @@ public class GoogleDataplexEntryAspectsBlockAspectBlock : TerraformBlock
     /// The resource name of the type used to create this Aspect.
     /// </summary>
     public TerraformValue<string> AspectType
-    {
-        get => new TerraformReference<string>(this, "aspect_type");
-    }
+        => AsReference("aspect_type");
 
     /// <summary>
     /// The time when the Aspect was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The content of the aspect in JSON form, according to its aspect type schema. The maximum size of the field is 120KB (encoded as UTF-8).
@@ -74,7 +70,7 @@ public class GoogleDataplexEntryAspectsBlockAspectBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Data is required")]
     public required TerraformValue<string> Data
     {
-        get => new TerraformReference<string>(this, "data");
+        get => GetArgument<TerraformValue<string>>("data");
         set => SetArgument("data", value);
     }
 
@@ -82,17 +78,13 @@ public class GoogleDataplexEntryAspectsBlockAspectBlock : TerraformBlock
     /// The path in the entry under which the aspect is attached.
     /// </summary>
     public TerraformValue<string> Path
-    {
-        get => new TerraformReference<string>(this, "path");
-    }
+        => AsReference("path");
 
     /// <summary>
     /// The time when the Aspect was last modified.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
 }
 
@@ -113,7 +105,7 @@ public class GoogleDataplexEntryEntrySourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CreateTime
     {
-        get => new TerraformReference<string>(this, "create_time");
+        get => GetArgument<TerraformValue<string>>("create_time");
         set => SetArgument("create_time", value);
     }
 
@@ -122,7 +114,7 @@ public class GoogleDataplexEntryEntrySourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -131,7 +123,7 @@ public class GoogleDataplexEntryEntrySourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -141,7 +133,7 @@ public class GoogleDataplexEntryEntrySourceBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -151,16 +143,14 @@ public class GoogleDataplexEntryEntrySourceBlock : TerraformBlock
     /// A different value allows capturing the source location for data external to Google Cloud.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The platform containing the source system. Maximum length is 64 characters.
     /// </summary>
     public TerraformValue<string>? Platform
     {
-        get => new TerraformReference<string>(this, "platform");
+        get => GetArgument<TerraformValue<string>>("platform");
         set => SetArgument("platform", value);
     }
 
@@ -169,7 +159,7 @@ public class GoogleDataplexEntryEntrySourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Resource
     {
-        get => new TerraformReference<string>(this, "resource");
+        get => GetArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -178,7 +168,7 @@ public class GoogleDataplexEntryEntrySourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? System
     {
-        get => new TerraformReference<string>(this, "system");
+        get => GetArgument<TerraformValue<string>>("system");
         set => SetArgument("system", value);
     }
 
@@ -189,7 +179,7 @@ public class GoogleDataplexEntryEntrySourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? UpdateTime
     {
-        get => new TerraformReference<string>(this, "update_time");
+        get => GetArgument<TerraformValue<string>>("update_time");
         set => SetArgument("update_time", value);
     }
 
@@ -220,7 +210,7 @@ public class GoogleDataplexEntryEntrySourceBlockAncestorsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -229,7 +219,7 @@ public class GoogleDataplexEntryEntrySourceBlockAncestorsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -252,7 +242,7 @@ public class GoogleDataplexEntryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -261,7 +251,7 @@ public class GoogleDataplexEntryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -270,7 +260,7 @@ public class GoogleDataplexEntryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -288,7 +278,7 @@ public partial class GoogleDataplexEntry(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? EntryGroupId
     {
-        get => new TerraformReference<string>(this, "entry_group_id");
+        get => GetArgument<TerraformValue<string>>("entry_group_id");
         set => SetArgument("entry_group_id", value);
     }
 
@@ -297,7 +287,7 @@ public partial class GoogleDataplexEntry(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? EntryId
     {
-        get => new TerraformReference<string>(this, "entry_id");
+        get => GetArgument<TerraformValue<string>>("entry_id");
         set => SetArgument("entry_id", value);
     }
 
@@ -307,7 +297,7 @@ public partial class GoogleDataplexEntry(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryType is required")]
     public required TerraformValue<string> EntryType
     {
-        get => new TerraformReference<string>(this, "entry_type");
+        get => GetArgument<TerraformValue<string>>("entry_type");
         set => SetArgument("entry_type", value);
     }
 
@@ -317,16 +307,16 @@ public partial class GoogleDataplexEntry(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? FullyQualifiedName
     {
-        get => new TerraformReference<string>(this, "fully_qualified_name");
+        get => GetArgument<TerraformValue<string>>("fully_qualified_name");
         set => SetArgument("fully_qualified_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -335,7 +325,7 @@ public partial class GoogleDataplexEntry(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -344,16 +334,16 @@ public partial class GoogleDataplexEntry(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? ParentEntry
     {
-        get => new TerraformReference<string>(this, "parent_entry");
+        get => GetArgument<TerraformValue<string>>("parent_entry");
         set => SetArgument("parent_entry", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -361,25 +351,19 @@ public partial class GoogleDataplexEntry(string name) : TerraformResource("googl
     /// The time when the Entry was created in Dataplex.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The relative resource name of the entry, in the format projects/{project_number}/locations/{locationId}/entryGroups/{entryGroupId}/entries/{entryId}.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The time when the entry was last updated in Dataplex.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Aspects block (nesting mode: list).

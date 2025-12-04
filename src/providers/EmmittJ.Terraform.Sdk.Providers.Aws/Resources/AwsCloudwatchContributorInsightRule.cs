@@ -11,9 +11,9 @@ public partial class AwsCloudwatchContributorInsightRule(string name) : Terrafor
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsCloudwatchContributorInsightRule(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleDefinition is required")]
     public required TerraformValue<string> RuleDefinition
     {
-        get => new TerraformReference<string>(this, "rule_definition");
+        get => GetArgument<TerraformValue<string>>("rule_definition");
         set => SetArgument("rule_definition", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsCloudwatchContributorInsightRule(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     public required TerraformValue<string> RuleName
     {
-        get => new TerraformReference<string>(this, "rule_name");
+        get => GetArgument<TerraformValue<string>>("rule_name");
         set => SetArgument("rule_name", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsCloudwatchContributorInsightRule(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? RuleState
     {
-        get => new TerraformReference<string>(this, "rule_state");
+        get => GetArgument<TerraformValue<string>>("rule_state");
         set => SetArgument("rule_state", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsCloudwatchContributorInsightRule(string name) : Terrafor
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -59,16 +59,12 @@ public partial class AwsCloudwatchContributorInsightRule(string name) : Terrafor
     /// The resource_arn attribute.
     /// </summary>
     public TerraformValue<string> ResourceArn
-    {
-        get => new TerraformReference<string>(this, "resource_arn");
-    }
+        => AsReference("resource_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
 }

@@ -11,9 +11,9 @@ public partial class GooglePubsubTopicDataSource(string name) : TerraformDataSou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GooglePubsubTopicDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GooglePubsubTopicDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -40,17 +40,13 @@ public partial class GooglePubsubTopicDataSource(string name) : TerraformDataSou
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Settings for ingestion from a data source into this topic.
     /// </summary>
     public TerraformList<TerraformMap<object>> IngestionDataSourceSettings
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "ingestion_data_source_settings").ResolveNodes(ctx));
-    }
+        => AsReference("ingestion_data_source_settings");
 
     /// <summary>
     /// The resource name of the Cloud KMS CryptoKey to be used to protect access
@@ -60,9 +56,7 @@ public partial class GooglePubsubTopicDataSource(string name) : TerraformDataSou
     /// The expected format is &#39;projects/*/locations/*/keyRings/*/cryptoKeys/*&#39;
     /// </summary>
     public TerraformValue<string> KmsKeyName
-    {
-        get => new TerraformReference<string>(this, "kms_key_name");
-    }
+        => AsReference("kms_key_name");
 
     /// <summary>
     /// A set of key/value label pairs to assign to this Topic.
@@ -72,9 +66,7 @@ public partial class GooglePubsubTopicDataSource(string name) : TerraformDataSou
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
-    }
+        => AsReference("labels");
 
     /// <summary>
     /// Indicates the minimum duration to retain a message after it is published
@@ -87,9 +79,7 @@ public partial class GooglePubsubTopicDataSource(string name) : TerraformDataSou
     /// letter &#39;s&#39; (seconds). Cannot be more than 31 days or less than 10 minutes.
     /// </summary>
     public TerraformValue<string> MessageRetentionDuration
-    {
-        get => new TerraformReference<string>(this, "message_retention_duration");
-    }
+        => AsReference("message_retention_duration");
 
     /// <summary>
     /// Policy constraining the set of Google Cloud Platform regions where
@@ -97,26 +87,20 @@ public partial class GooglePubsubTopicDataSource(string name) : TerraformDataSou
     /// constraints are in effect.
     /// </summary>
     public TerraformList<TerraformMap<object>> MessageStoragePolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "message_storage_policy").ResolveNodes(ctx));
-    }
+        => AsReference("message_storage_policy");
 
     /// <summary>
     /// Transforms to be applied to messages published to the topic. Transforms are applied in the
     /// order specified.
     /// </summary>
     public TerraformList<TerraformMap<object>> MessageTransforms
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "message_transforms").ResolveNodes(ctx));
-    }
+        => AsReference("message_transforms");
 
     /// <summary>
     /// Settings for validating messages published against a schema.
     /// </summary>
     public TerraformList<TerraformMap<object>> SchemaSettings
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "schema_settings").ResolveNodes(ctx));
-    }
+        => AsReference("schema_settings");
 
     /// <summary>
     /// Input only. Resource manager tags to be bound to the topic. Tag keys and
@@ -129,17 +113,13 @@ public partial class GooglePubsubTopicDataSource(string name) : TerraformDataSou
     /// resource.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
 }

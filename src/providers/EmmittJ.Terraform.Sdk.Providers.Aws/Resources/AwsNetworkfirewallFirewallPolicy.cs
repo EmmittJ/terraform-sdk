@@ -18,7 +18,7 @@ public class AwsNetworkfirewallFirewallPolicyEncryptionConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<string>? KeyId
     {
-        get => new TerraformReference<string>(this, "key_id");
+        get => GetArgument<TerraformValue<string>>("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsNetworkfirewallFirewallPolicyEncryptionConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsNetworkfirewallFirewallPolicyFirewallPolicyBlock : TerraformBloc
     /// </summary>
     public TerraformSet<string>? StatefulDefaultActions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "stateful_default_actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("stateful_default_actions");
         set => SetArgument("stateful_default_actions", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsNetworkfirewallFirewallPolicyFirewallPolicyBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatelessDefaultActions is required")]
     public required TerraformSet<string> StatelessDefaultActions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "stateless_default_actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("stateless_default_actions");
         set => SetArgument("stateless_default_actions", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsNetworkfirewallFirewallPolicyFirewallPolicyBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatelessFragmentDefaultActions is required")]
     public required TerraformSet<string> StatelessFragmentDefaultActions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "stateless_fragment_default_actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("stateless_fragment_default_actions");
         set => SetArgument("stateless_fragment_default_actions", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsNetworkfirewallFirewallPolicyFirewallPolicyBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? TlsInspectionConfigurationArn
     {
-        get => new TerraformReference<string>(this, "tls_inspection_configuration_arn");
+        get => GetArgument<TerraformValue<string>>("tls_inspection_configuration_arn");
         set => SetArgument("tls_inspection_configuration_arn", value);
     }
 
@@ -172,7 +172,7 @@ public class AwsNetworkfirewallFirewallPolicyFirewallPolicyBlockPolicyVariablesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -208,7 +208,7 @@ public class AwsNetworkfirewallFirewallPolicyFirewallPolicyBlockPolicyVariablesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Definition is required")]
     public required TerraformSet<string> Definition
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "definition").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("definition");
         set => SetArgument("definition", value);
     }
 
@@ -230,7 +230,7 @@ public class AwsNetworkfirewallFirewallPolicyFirewallPolicyBlockStatefulEngineOp
     /// </summary>
     public TerraformValue<string>? RuleOrder
     {
-        get => new TerraformReference<string>(this, "rule_order");
+        get => GetArgument<TerraformValue<string>>("rule_order");
         set => SetArgument("rule_order", value);
     }
 
@@ -239,7 +239,7 @@ public class AwsNetworkfirewallFirewallPolicyFirewallPolicyBlockStatefulEngineOp
     /// </summary>
     public TerraformValue<string>? StreamExceptionPolicy
     {
-        get => new TerraformReference<string>(this, "stream_exception_policy");
+        get => GetArgument<TerraformValue<string>>("stream_exception_policy");
         set => SetArgument("stream_exception_policy", value);
     }
 
@@ -271,7 +271,7 @@ public class AwsNetworkfirewallFirewallPolicyFirewallPolicyBlockStatefulEngineOp
     /// </summary>
     public TerraformValue<double>? TcpIdleTimeoutSeconds
     {
-        get => new TerraformReference<double>(this, "tcp_idle_timeout_seconds");
+        get => GetArgument<TerraformValue<double>>("tcp_idle_timeout_seconds");
         set => SetArgument("tcp_idle_timeout_seconds", value);
     }
 
@@ -291,9 +291,9 @@ public class AwsNetworkfirewallFirewallPolicyFirewallPolicyBlockStatefulRuleGrou
     /// <summary>
     /// The deep_threat_inspection attribute.
     /// </summary>
-    public TerraformValue<string> DeepThreatInspection
+    public TerraformValue<string>? DeepThreatInspection
     {
-        get => new TerraformReference<string>(this, "deep_threat_inspection");
+        get => GetArgument<TerraformValue<string>>("deep_threat_inspection");
         set => SetArgument("deep_threat_inspection", value);
     }
 
@@ -302,7 +302,7 @@ public class AwsNetworkfirewallFirewallPolicyFirewallPolicyBlockStatefulRuleGrou
     /// </summary>
     public TerraformValue<double>? Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -312,7 +312,7 @@ public class AwsNetworkfirewallFirewallPolicyFirewallPolicyBlockStatefulRuleGrou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => new TerraformReference<string>(this, "resource_arn");
+        get => GetArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -344,7 +344,7 @@ public class AwsNetworkfirewallFirewallPolicyFirewallPolicyBlockStatefulRuleGrou
     /// </summary>
     public TerraformValue<string>? Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -367,7 +367,7 @@ public class AwsNetworkfirewallFirewallPolicyFirewallPolicyBlockStatelessCustomA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionName is required")]
     public required TerraformValue<string> ActionName
     {
-        get => new TerraformReference<string>(this, "action_name");
+        get => GetArgument<TerraformValue<string>>("action_name");
         set => SetArgument("action_name", value);
     }
 
@@ -454,7 +454,7 @@ public class AwsNetworkfirewallFirewallPolicyFirewallPolicyBlockStatelessCustomA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -477,7 +477,7 @@ public class AwsNetworkfirewallFirewallPolicyFirewallPolicyBlockStatelessRuleGro
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -487,7 +487,7 @@ public class AwsNetworkfirewallFirewallPolicyFirewallPolicyBlockStatelessRuleGro
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => new TerraformReference<string>(this, "resource_arn");
+        get => GetArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -505,16 +505,16 @@ public partial class AwsNetworkfirewallFirewallPolicy(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -524,16 +524,16 @@ public partial class AwsNetworkfirewallFirewallPolicy(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -542,16 +542,16 @@ public partial class AwsNetworkfirewallFirewallPolicy(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -559,17 +559,13 @@ public partial class AwsNetworkfirewallFirewallPolicy(string name) : TerraformRe
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The update_token attribute.
     /// </summary>
     public TerraformValue<string> UpdateToken
-    {
-        get => new TerraformReference<string>(this, "update_token");
-    }
+        => AsReference("update_token");
 
     /// <summary>
     /// EncryptionConfiguration block (nesting mode: list).

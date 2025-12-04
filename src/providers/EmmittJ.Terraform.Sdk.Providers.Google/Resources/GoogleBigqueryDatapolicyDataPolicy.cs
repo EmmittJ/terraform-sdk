@@ -18,7 +18,7 @@ public class GoogleBigqueryDatapolicyDataPolicyDataMaskingPolicyBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? PredefinedExpression
     {
-        get => new TerraformReference<string>(this, "predefined_expression");
+        get => GetArgument<TerraformValue<string>>("predefined_expression");
         set => SetArgument("predefined_expression", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleBigqueryDatapolicyDataPolicyDataMaskingPolicyBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Routine
     {
-        get => new TerraformReference<string>(this, "routine");
+        get => GetArgument<TerraformValue<string>>("routine");
         set => SetArgument("routine", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleBigqueryDatapolicyDataPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleBigqueryDatapolicyDataPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleBigqueryDatapolicyDataPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -87,7 +87,7 @@ public partial class GoogleBigqueryDatapolicyDataPolicy(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataPolicyId is required")]
     public required TerraformValue<string> DataPolicyId
     {
-        get => new TerraformReference<string>(this, "data_policy_id");
+        get => GetArgument<TerraformValue<string>>("data_policy_id");
         set => SetArgument("data_policy_id", value);
     }
 
@@ -97,16 +97,16 @@ public partial class GoogleBigqueryDatapolicyDataPolicy(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataPolicyType is required")]
     public required TerraformValue<string> DataPolicyType
     {
-        get => new TerraformReference<string>(this, "data_policy_type");
+        get => GetArgument<TerraformValue<string>>("data_policy_type");
         set => SetArgument("data_policy_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -116,7 +116,7 @@ public partial class GoogleBigqueryDatapolicyDataPolicy(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -126,16 +126,16 @@ public partial class GoogleBigqueryDatapolicyDataPolicy(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyTag is required")]
     public required TerraformValue<string> PolicyTag
     {
-        get => new TerraformReference<string>(this, "policy_tag");
+        get => GetArgument<TerraformValue<string>>("policy_tag");
         set => SetArgument("policy_tag", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -143,9 +143,7 @@ public partial class GoogleBigqueryDatapolicyDataPolicy(string name) : Terraform
     /// Resource name of this data policy, in the format of projects/{project_number}/locations/{locationId}/dataPolicies/{dataPolicyId}.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// DataMaskingPolicy block (nesting mode: list).

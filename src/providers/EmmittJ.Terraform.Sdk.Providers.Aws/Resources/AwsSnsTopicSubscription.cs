@@ -13,7 +13,7 @@ public partial class AwsSnsTopicSubscription(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<double>? ConfirmationTimeoutInMinutes
     {
-        get => new TerraformReference<double>(this, "confirmation_timeout_in_minutes");
+        get => GetArgument<TerraformValue<double>>("confirmation_timeout_in_minutes");
         set => SetArgument("confirmation_timeout_in_minutes", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsSnsTopicSubscription(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? DeliveryPolicy
     {
-        get => new TerraformReference<string>(this, "delivery_policy");
+        get => GetArgument<TerraformValue<string>>("delivery_policy");
         set => SetArgument("delivery_policy", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsSnsTopicSubscription(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformValue<string> Endpoint
     {
-        get => new TerraformReference<string>(this, "endpoint");
+        get => GetArgument<TerraformValue<string>>("endpoint");
         set => SetArgument("endpoint", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsSnsTopicSubscription(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? EndpointAutoConfirms
     {
-        get => new TerraformReference<bool>(this, "endpoint_auto_confirms");
+        get => GetArgument<TerraformValue<bool>>("endpoint_auto_confirms");
         set => SetArgument("endpoint_auto_confirms", value);
     }
 
@@ -50,25 +50,25 @@ public partial class AwsSnsTopicSubscription(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? FilterPolicy
     {
-        get => new TerraformReference<string>(this, "filter_policy");
+        get => GetArgument<TerraformValue<string>>("filter_policy");
         set => SetArgument("filter_policy", value);
     }
 
     /// <summary>
     /// The filter_policy_scope attribute.
     /// </summary>
-    public TerraformValue<string> FilterPolicyScope
+    public TerraformValue<string>? FilterPolicyScope
     {
-        get => new TerraformReference<string>(this, "filter_policy_scope");
+        get => GetArgument<TerraformValue<string>>("filter_policy_scope");
         set => SetArgument("filter_policy_scope", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -78,7 +78,7 @@ public partial class AwsSnsTopicSubscription(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -87,7 +87,7 @@ public partial class AwsSnsTopicSubscription(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? RawMessageDelivery
     {
-        get => new TerraformReference<bool>(this, "raw_message_delivery");
+        get => GetArgument<TerraformValue<bool>>("raw_message_delivery");
         set => SetArgument("raw_message_delivery", value);
     }
 
@@ -96,16 +96,16 @@ public partial class AwsSnsTopicSubscription(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? RedrivePolicy
     {
-        get => new TerraformReference<string>(this, "redrive_policy");
+        get => GetArgument<TerraformValue<string>>("redrive_policy");
         set => SetArgument("redrive_policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AwsSnsTopicSubscription(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? ReplayPolicy
     {
-        get => new TerraformReference<string>(this, "replay_policy");
+        get => GetArgument<TerraformValue<string>>("replay_policy");
         set => SetArgument("replay_policy", value);
     }
 
@@ -123,7 +123,7 @@ public partial class AwsSnsTopicSubscription(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? SubscriptionRoleArn
     {
-        get => new TerraformReference<string>(this, "subscription_role_arn");
+        get => GetArgument<TerraformValue<string>>("subscription_role_arn");
         set => SetArgument("subscription_role_arn", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AwsSnsTopicSubscription(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     public required TerraformValue<string> TopicArn
     {
-        get => new TerraformReference<string>(this, "topic_arn");
+        get => GetArgument<TerraformValue<string>>("topic_arn");
         set => SetArgument("topic_arn", value);
     }
 
@@ -141,32 +141,24 @@ public partial class AwsSnsTopicSubscription(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The confirmation_was_authenticated attribute.
     /// </summary>
     public TerraformValue<bool> ConfirmationWasAuthenticated
-    {
-        get => new TerraformReference<bool>(this, "confirmation_was_authenticated");
-    }
+        => AsReference("confirmation_was_authenticated");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// The pending_confirmation attribute.
     /// </summary>
     public TerraformValue<bool> PendingConfirmation
-    {
-        get => new TerraformReference<bool>(this, "pending_confirmation");
-    }
+        => AsReference("pending_confirmation");
 
 }

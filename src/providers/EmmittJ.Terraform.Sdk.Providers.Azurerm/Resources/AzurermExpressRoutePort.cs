@@ -18,7 +18,7 @@ public class AzurermExpressRoutePortIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -26,17 +26,13 @@ public class AzurermExpressRoutePortIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -44,7 +40,7 @@ public class AzurermExpressRoutePortIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -67,7 +63,7 @@ public class AzurermExpressRoutePortLink1Block : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AdminEnabled
     {
-        get => new TerraformReference<bool>(this, "admin_enabled");
+        get => GetArgument<TerraformValue<bool>>("admin_enabled");
         set => SetArgument("admin_enabled", value);
     }
 
@@ -75,32 +71,26 @@ public class AzurermExpressRoutePortLink1Block : TerraformBlock
     /// The connector_type attribute.
     /// </summary>
     public TerraformValue<string> ConnectorType
-    {
-        get => new TerraformReference<string>(this, "connector_type");
-    }
+        => AsReference("connector_type");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The interface_name attribute.
     /// </summary>
     public TerraformValue<string> InterfaceName
-    {
-        get => new TerraformReference<string>(this, "interface_name");
-    }
+        => AsReference("interface_name");
 
     /// <summary>
     /// The macsec_cak_keyvault_secret_id attribute.
     /// </summary>
     public TerraformValue<string>? MacsecCakKeyvaultSecretId
     {
-        get => new TerraformReference<string>(this, "macsec_cak_keyvault_secret_id");
+        get => GetArgument<TerraformValue<string>>("macsec_cak_keyvault_secret_id");
         set => SetArgument("macsec_cak_keyvault_secret_id", value);
     }
 
@@ -109,7 +99,7 @@ public class AzurermExpressRoutePortLink1Block : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MacsecCipher
     {
-        get => new TerraformReference<string>(this, "macsec_cipher");
+        get => GetArgument<TerraformValue<string>>("macsec_cipher");
         set => SetArgument("macsec_cipher", value);
     }
 
@@ -118,7 +108,7 @@ public class AzurermExpressRoutePortLink1Block : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MacsecCknKeyvaultSecretId
     {
-        get => new TerraformReference<string>(this, "macsec_ckn_keyvault_secret_id");
+        get => GetArgument<TerraformValue<string>>("macsec_ckn_keyvault_secret_id");
         set => SetArgument("macsec_ckn_keyvault_secret_id", value);
     }
 
@@ -127,7 +117,7 @@ public class AzurermExpressRoutePortLink1Block : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? MacsecSciEnabled
     {
-        get => new TerraformReference<bool>(this, "macsec_sci_enabled");
+        get => GetArgument<TerraformValue<bool>>("macsec_sci_enabled");
         set => SetArgument("macsec_sci_enabled", value);
     }
 
@@ -135,25 +125,19 @@ public class AzurermExpressRoutePortLink1Block : TerraformBlock
     /// The patch_panel_id attribute.
     /// </summary>
     public TerraformValue<string> PatchPanelId
-    {
-        get => new TerraformReference<string>(this, "patch_panel_id");
-    }
+        => AsReference("patch_panel_id");
 
     /// <summary>
     /// The rack_id attribute.
     /// </summary>
     public TerraformValue<string> RackId
-    {
-        get => new TerraformReference<string>(this, "rack_id");
-    }
+        => AsReference("rack_id");
 
     /// <summary>
     /// The router_name attribute.
     /// </summary>
     public TerraformValue<string> RouterName
-    {
-        get => new TerraformReference<string>(this, "router_name");
-    }
+        => AsReference("router_name");
 
 }
 
@@ -174,7 +158,7 @@ public class AzurermExpressRoutePortLink2Block : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AdminEnabled
     {
-        get => new TerraformReference<bool>(this, "admin_enabled");
+        get => GetArgument<TerraformValue<bool>>("admin_enabled");
         set => SetArgument("admin_enabled", value);
     }
 
@@ -182,32 +166,26 @@ public class AzurermExpressRoutePortLink2Block : TerraformBlock
     /// The connector_type attribute.
     /// </summary>
     public TerraformValue<string> ConnectorType
-    {
-        get => new TerraformReference<string>(this, "connector_type");
-    }
+        => AsReference("connector_type");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The interface_name attribute.
     /// </summary>
     public TerraformValue<string> InterfaceName
-    {
-        get => new TerraformReference<string>(this, "interface_name");
-    }
+        => AsReference("interface_name");
 
     /// <summary>
     /// The macsec_cak_keyvault_secret_id attribute.
     /// </summary>
     public TerraformValue<string>? MacsecCakKeyvaultSecretId
     {
-        get => new TerraformReference<string>(this, "macsec_cak_keyvault_secret_id");
+        get => GetArgument<TerraformValue<string>>("macsec_cak_keyvault_secret_id");
         set => SetArgument("macsec_cak_keyvault_secret_id", value);
     }
 
@@ -216,7 +194,7 @@ public class AzurermExpressRoutePortLink2Block : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MacsecCipher
     {
-        get => new TerraformReference<string>(this, "macsec_cipher");
+        get => GetArgument<TerraformValue<string>>("macsec_cipher");
         set => SetArgument("macsec_cipher", value);
     }
 
@@ -225,7 +203,7 @@ public class AzurermExpressRoutePortLink2Block : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MacsecCknKeyvaultSecretId
     {
-        get => new TerraformReference<string>(this, "macsec_ckn_keyvault_secret_id");
+        get => GetArgument<TerraformValue<string>>("macsec_ckn_keyvault_secret_id");
         set => SetArgument("macsec_ckn_keyvault_secret_id", value);
     }
 
@@ -234,7 +212,7 @@ public class AzurermExpressRoutePortLink2Block : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? MacsecSciEnabled
     {
-        get => new TerraformReference<bool>(this, "macsec_sci_enabled");
+        get => GetArgument<TerraformValue<bool>>("macsec_sci_enabled");
         set => SetArgument("macsec_sci_enabled", value);
     }
 
@@ -242,25 +220,19 @@ public class AzurermExpressRoutePortLink2Block : TerraformBlock
     /// The patch_panel_id attribute.
     /// </summary>
     public TerraformValue<string> PatchPanelId
-    {
-        get => new TerraformReference<string>(this, "patch_panel_id");
-    }
+        => AsReference("patch_panel_id");
 
     /// <summary>
     /// The rack_id attribute.
     /// </summary>
     public TerraformValue<string> RackId
-    {
-        get => new TerraformReference<string>(this, "rack_id");
-    }
+        => AsReference("rack_id");
 
     /// <summary>
     /// The router_name attribute.
     /// </summary>
     public TerraformValue<string> RouterName
-    {
-        get => new TerraformReference<string>(this, "router_name");
-    }
+        => AsReference("router_name");
 
 }
 
@@ -281,7 +253,7 @@ public class AzurermExpressRoutePortTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -290,7 +262,7 @@ public class AzurermExpressRoutePortTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -299,7 +271,7 @@ public class AzurermExpressRoutePortTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -308,7 +280,7 @@ public class AzurermExpressRoutePortTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -327,7 +299,7 @@ public partial class AzurermExpressRoutePort(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BandwidthInGbps is required")]
     public required TerraformValue<double> BandwidthInGbps
     {
-        get => new TerraformReference<double>(this, "bandwidth_in_gbps");
+        get => GetArgument<TerraformValue<double>>("bandwidth_in_gbps");
         set => SetArgument("bandwidth_in_gbps", value);
     }
 
@@ -336,7 +308,7 @@ public partial class AzurermExpressRoutePort(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? BillingType
     {
-        get => new TerraformReference<string>(this, "billing_type");
+        get => GetArgument<TerraformValue<string>>("billing_type");
         set => SetArgument("billing_type", value);
     }
 
@@ -346,16 +318,16 @@ public partial class AzurermExpressRoutePort(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Encapsulation is required")]
     public required TerraformValue<string> Encapsulation
     {
-        get => new TerraformReference<string>(this, "encapsulation");
+        get => GetArgument<TerraformValue<string>>("encapsulation");
         set => SetArgument("encapsulation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -365,7 +337,7 @@ public partial class AzurermExpressRoutePort(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -375,7 +347,7 @@ public partial class AzurermExpressRoutePort(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -385,7 +357,7 @@ public partial class AzurermExpressRoutePort(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringLocation is required")]
     public required TerraformValue<string> PeeringLocation
     {
-        get => new TerraformReference<string>(this, "peering_location");
+        get => GetArgument<TerraformValue<string>>("peering_location");
         set => SetArgument("peering_location", value);
     }
 
@@ -395,7 +367,7 @@ public partial class AzurermExpressRoutePort(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -404,7 +376,7 @@ public partial class AzurermExpressRoutePort(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -412,25 +384,19 @@ public partial class AzurermExpressRoutePort(string name) : TerraformResource("a
     /// The ethertype attribute.
     /// </summary>
     public TerraformValue<string> Ethertype
-    {
-        get => new TerraformReference<string>(this, "ethertype");
-    }
+        => AsReference("ethertype");
 
     /// <summary>
     /// The guid attribute.
     /// </summary>
     public TerraformValue<string> Guid
-    {
-        get => new TerraformReference<string>(this, "guid");
-    }
+        => AsReference("guid");
 
     /// <summary>
     /// The mtu attribute.
     /// </summary>
     public TerraformValue<string> Mtu
-    {
-        get => new TerraformReference<string>(this, "mtu");
-    }
+        => AsReference("mtu");
 
     /// <summary>
     /// Identity block (nesting mode: list).

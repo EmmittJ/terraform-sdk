@@ -18,7 +18,7 @@ public class AzurermKubernetesFleetMemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermKubernetesFleetMemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermKubernetesFleetMemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermKubernetesFleetMemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AzurermKubernetesFleetMember(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Group
     {
-        get => new TerraformReference<string>(this, "group");
+        get => GetArgument<TerraformValue<string>>("group");
         set => SetArgument("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermKubernetesFleetMember(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesClusterId is required")]
     public required TerraformValue<string> KubernetesClusterId
     {
-        get => new TerraformReference<string>(this, "kubernetes_cluster_id");
+        get => GetArgument<TerraformValue<string>>("kubernetes_cluster_id");
         set => SetArgument("kubernetes_cluster_id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermKubernetesFleetMember(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesFleetId is required")]
     public required TerraformValue<string> KubernetesFleetId
     {
-        get => new TerraformReference<string>(this, "kubernetes_fleet_id");
+        get => GetArgument<TerraformValue<string>>("kubernetes_fleet_id");
         set => SetArgument("kubernetes_fleet_id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermKubernetesFleetMember(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

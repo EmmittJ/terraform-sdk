@@ -19,7 +19,7 @@ public class AwsPricingProductDataSourceFiltersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
     public required TerraformValue<string> Field
     {
-        get => new TerraformReference<string>(this, "field");
+        get => GetArgument<TerraformValue<string>>("field");
         set => SetArgument("field", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsPricingProductDataSourceFiltersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -45,9 +45,9 @@ public partial class AwsPricingProductDataSource(string name) : TerraformDataSou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -57,7 +57,7 @@ public partial class AwsPricingProductDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCode is required")]
     public required TerraformValue<string> ServiceCode
     {
-        get => new TerraformReference<string>(this, "service_code");
+        get => GetArgument<TerraformValue<string>>("service_code");
         set => SetArgument("service_code", value);
     }
 
@@ -65,9 +65,7 @@ public partial class AwsPricingProductDataSource(string name) : TerraformDataSou
     /// The result attribute.
     /// </summary>
     public TerraformValue<string> Result
-    {
-        get => new TerraformReference<string>(this, "result");
-    }
+        => AsReference("result");
 
     /// <summary>
     /// Filters block (nesting mode: list).

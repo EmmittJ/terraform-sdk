@@ -19,7 +19,7 @@ public class AzurermAppServiceEnvironmentV3ClusterSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermAppServiceEnvironmentV3ClusterSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermAppServiceEnvironmentV3TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermAppServiceEnvironmentV3TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermAppServiceEnvironmentV3TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermAppServiceEnvironmentV3TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AzurermAppServiceEnvironmentV3(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? AllowNewPrivateEndpointConnections
     {
-        get => new TerraformReference<bool>(this, "allow_new_private_endpoint_connections");
+        get => GetArgument<TerraformValue<bool>>("allow_new_private_endpoint_connections");
         set => SetArgument("allow_new_private_endpoint_connections", value);
     }
 
@@ -106,16 +106,16 @@ public partial class AzurermAppServiceEnvironmentV3(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double>? DedicatedHostCount
     {
-        get => new TerraformReference<double>(this, "dedicated_host_count");
+        get => GetArgument<TerraformValue<double>>("dedicated_host_count");
         set => SetArgument("dedicated_host_count", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AzurermAppServiceEnvironmentV3(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? InternalLoadBalancingMode
     {
-        get => new TerraformReference<string>(this, "internal_load_balancing_mode");
+        get => GetArgument<TerraformValue<string>>("internal_load_balancing_mode");
         set => SetArgument("internal_load_balancing_mode", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AzurermAppServiceEnvironmentV3(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AzurermAppServiceEnvironmentV3(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? RemoteDebuggingEnabled
     {
-        get => new TerraformReference<bool>(this, "remote_debugging_enabled");
+        get => GetArgument<TerraformValue<bool>>("remote_debugging_enabled");
         set => SetArgument("remote_debugging_enabled", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AzurermAppServiceEnvironmentV3(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AzurermAppServiceEnvironmentV3(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AzurermAppServiceEnvironmentV3(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AzurermAppServiceEnvironmentV3(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? ZoneRedundant
     {
-        get => new TerraformReference<bool>(this, "zone_redundant");
+        get => GetArgument<TerraformValue<bool>>("zone_redundant");
         set => SetArgument("zone_redundant", value);
     }
 
@@ -189,73 +189,55 @@ public partial class AzurermAppServiceEnvironmentV3(string name) : TerraformReso
     /// The dns_suffix attribute.
     /// </summary>
     public TerraformValue<string> DnsSuffix
-    {
-        get => new TerraformReference<string>(this, "dns_suffix");
-    }
+        => AsReference("dns_suffix");
 
     /// <summary>
     /// The external_inbound_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> ExternalInboundIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "external_inbound_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("external_inbound_ip_addresses");
 
     /// <summary>
     /// The inbound_network_dependencies attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InboundNetworkDependencies
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "inbound_network_dependencies").ResolveNodes(ctx));
-    }
+        => AsReference("inbound_network_dependencies");
 
     /// <summary>
     /// The internal_inbound_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> InternalInboundIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "internal_inbound_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("internal_inbound_ip_addresses");
 
     /// <summary>
     /// The ip_ssl_address_count attribute.
     /// </summary>
     public TerraformValue<double> IpSslAddressCount
-    {
-        get => new TerraformReference<double>(this, "ip_ssl_address_count");
-    }
+        => AsReference("ip_ssl_address_count");
 
     /// <summary>
     /// The linux_outbound_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> LinuxOutboundIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "linux_outbound_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("linux_outbound_ip_addresses");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The pricing_tier attribute.
     /// </summary>
     public TerraformValue<string> PricingTier
-    {
-        get => new TerraformReference<string>(this, "pricing_tier");
-    }
+        => AsReference("pricing_tier");
 
     /// <summary>
     /// The windows_outbound_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> WindowsOutboundIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "windows_outbound_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("windows_outbound_ip_addresses");
 
     /// <summary>
     /// ClusterSetting block (nesting mode: list).

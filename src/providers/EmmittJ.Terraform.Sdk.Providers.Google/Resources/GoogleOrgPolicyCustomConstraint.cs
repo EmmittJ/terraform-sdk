@@ -18,7 +18,7 @@ public class GoogleOrgPolicyCustomConstraintTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleOrgPolicyCustomConstraintTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleOrgPolicyCustomConstraintTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleOrgPolicyCustomConstraint(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionType is required")]
     public required TerraformValue<string> ActionType
     {
-        get => new TerraformReference<string>(this, "action_type");
+        get => GetArgument<TerraformValue<string>>("action_type");
         set => SetArgument("action_type", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleOrgPolicyCustomConstraint(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Condition is required")]
     public required TerraformValue<string> Condition
     {
-        get => new TerraformReference<string>(this, "condition");
+        get => GetArgument<TerraformValue<string>>("condition");
         set => SetArgument("condition", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleOrgPolicyCustomConstraint(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -83,16 +83,16 @@ public partial class GoogleOrgPolicyCustomConstraint(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class GoogleOrgPolicyCustomConstraint(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MethodTypes is required")]
     public TerraformList<string>? MethodTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "method_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("method_types");
         set => SetArgument("method_types", value);
     }
 
@@ -112,7 +112,7 @@ public partial class GoogleOrgPolicyCustomConstraint(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -122,7 +122,7 @@ public partial class GoogleOrgPolicyCustomConstraint(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -132,7 +132,7 @@ public partial class GoogleOrgPolicyCustomConstraint(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypes is required")]
     public TerraformList<string>? ResourceTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("resource_types");
         set => SetArgument("resource_types", value);
     }
 
@@ -140,9 +140,7 @@ public partial class GoogleOrgPolicyCustomConstraint(string name) : TerraformRes
     /// Output only. The timestamp representing when the constraint was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

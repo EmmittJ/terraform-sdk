@@ -41,7 +41,7 @@ public class AwsConfigRemediationConfigurationExecutionControlsBlockSsmControlsB
     /// </summary>
     public TerraformValue<double>? ConcurrentExecutionRatePercentage
     {
-        get => new TerraformReference<double>(this, "concurrent_execution_rate_percentage");
+        get => GetArgument<TerraformValue<double>>("concurrent_execution_rate_percentage");
         set => SetArgument("concurrent_execution_rate_percentage", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsConfigRemediationConfigurationExecutionControlsBlockSsmControlsB
     /// </summary>
     public TerraformValue<double>? ErrorPercentage
     {
-        get => new TerraformReference<double>(this, "error_percentage");
+        get => GetArgument<TerraformValue<double>>("error_percentage");
         set => SetArgument("error_percentage", value);
     }
 
@@ -74,7 +74,7 @@ public class AwsConfigRemediationConfigurationParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsConfigRemediationConfigurationParameterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ResourceValue
     {
-        get => new TerraformReference<string>(this, "resource_value");
+        get => GetArgument<TerraformValue<string>>("resource_value");
         set => SetArgument("resource_value", value);
     }
 
@@ -92,16 +92,16 @@ public class AwsConfigRemediationConfigurationParameterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StaticValue
     {
-        get => new TerraformReference<string>(this, "static_value");
+        get => GetArgument<TerraformValue<string>>("static_value");
         set => SetArgument("static_value", value);
     }
 
     /// <summary>
     /// The static_values attribute.
     /// </summary>
-    public TerraformList<string> StaticValues
+    public TerraformList<string>? StaticValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "static_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("static_values");
         set => SetArgument("static_values", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AwsConfigRemediationConfiguration(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? Automatic
     {
-        get => new TerraformReference<bool>(this, "automatic");
+        get => GetArgument<TerraformValue<bool>>("automatic");
         set => SetArgument("automatic", value);
     }
 
@@ -129,16 +129,16 @@ public partial class AwsConfigRemediationConfiguration(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigRuleName is required")]
     public required TerraformValue<string> ConfigRuleName
     {
-        get => new TerraformReference<string>(this, "config_rule_name");
+        get => GetArgument<TerraformValue<string>>("config_rule_name");
         set => SetArgument("config_rule_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -147,16 +147,16 @@ public partial class AwsConfigRemediationConfiguration(string name) : TerraformR
     /// </summary>
     public TerraformValue<double>? MaximumAutomaticAttempts
     {
-        get => new TerraformReference<double>(this, "maximum_automatic_attempts");
+        get => GetArgument<TerraformValue<double>>("maximum_automatic_attempts");
         set => SetArgument("maximum_automatic_attempts", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AwsConfigRemediationConfiguration(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? ResourceTypeAttribute
     {
-        get => new TerraformReference<string>(this, "resource_type");
+        get => GetArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -174,7 +174,7 @@ public partial class AwsConfigRemediationConfiguration(string name) : TerraformR
     /// </summary>
     public TerraformValue<double>? RetryAttemptSeconds
     {
-        get => new TerraformReference<double>(this, "retry_attempt_seconds");
+        get => GetArgument<TerraformValue<double>>("retry_attempt_seconds");
         set => SetArgument("retry_attempt_seconds", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AwsConfigRemediationConfiguration(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
     public required TerraformValue<string> TargetId
     {
-        get => new TerraformReference<string>(this, "target_id");
+        get => GetArgument<TerraformValue<string>>("target_id");
         set => SetArgument("target_id", value);
     }
 
@@ -194,7 +194,7 @@ public partial class AwsConfigRemediationConfiguration(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetType is required")]
     public required TerraformValue<string> TargetType
     {
-        get => new TerraformReference<string>(this, "target_type");
+        get => GetArgument<TerraformValue<string>>("target_type");
         set => SetArgument("target_type", value);
     }
 
@@ -203,7 +203,7 @@ public partial class AwsConfigRemediationConfiguration(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? TargetVersion
     {
-        get => new TerraformReference<string>(this, "target_version");
+        get => GetArgument<TerraformValue<string>>("target_version");
         set => SetArgument("target_version", value);
     }
 
@@ -211,9 +211,7 @@ public partial class AwsConfigRemediationConfiguration(string name) : TerraformR
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// ExecutionControls block (nesting mode: list).

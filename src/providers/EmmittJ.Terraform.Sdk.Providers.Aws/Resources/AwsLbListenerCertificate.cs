@@ -14,16 +14,16 @@ public partial class AwsLbListenerCertificate(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateArn is required")]
     public required TerraformValue<string> CertificateArn
     {
-        get => new TerraformReference<string>(this, "certificate_arn");
+        get => GetArgument<TerraformValue<string>>("certificate_arn");
         set => SetArgument("certificate_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsLbListenerCertificate(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerArn is required")]
     public required TerraformValue<string> ListenerArn
     {
-        get => new TerraformReference<string>(this, "listener_arn");
+        get => GetArgument<TerraformValue<string>>("listener_arn");
         set => SetArgument("listener_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

@@ -13,7 +13,7 @@ public partial class AwsWafv2IpSet(string name) : TerraformResource("aws_wafv2_i
     /// </summary>
     public TerraformSet<string>? Addresses
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("addresses");
         set => SetArgument("addresses", value);
     }
 
@@ -22,16 +22,16 @@ public partial class AwsWafv2IpSet(string name) : TerraformResource("aws_wafv2_i
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -41,34 +41,34 @@ public partial class AwsWafv2IpSet(string name) : TerraformResource("aws_wafv2_i
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddressVersion is required")]
     public required TerraformValue<string> IpAddressVersion
     {
-        get => new TerraformReference<string>(this, "ip_address_version");
+        get => GetArgument<TerraformValue<string>>("ip_address_version");
         set => SetArgument("ip_address_version", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -78,7 +78,7 @@ public partial class AwsWafv2IpSet(string name) : TerraformResource("aws_wafv2_i
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -87,16 +87,16 @@ public partial class AwsWafv2IpSet(string name) : TerraformResource("aws_wafv2_i
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -104,16 +104,12 @@ public partial class AwsWafv2IpSet(string name) : TerraformResource("aws_wafv2_i
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The lock_token attribute.
     /// </summary>
     public TerraformValue<string> LockToken
-    {
-        get => new TerraformReference<string>(this, "lock_token");
-    }
+        => AsReference("lock_token");
 
 }

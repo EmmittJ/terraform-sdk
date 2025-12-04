@@ -17,16 +17,14 @@ public class GoogleDataprocClusterClusterConfigBlock : TerraformBlock
     ///  The name of the cloud storage bucket ultimately used to house the staging data for the cluster. If staging_bucket is specified, it will contain this value, otherwise it will be the auto generated name.
     /// </summary>
     public TerraformValue<string> Bucket
-    {
-        get => new TerraformReference<string>(this, "bucket");
-    }
+        => AsReference("bucket");
 
     /// <summary>
     /// Specifies the tier of the cluster created.
     /// </summary>
-    public TerraformValue<string> ClusterTier
+    public TerraformValue<string>? ClusterTier
     {
-        get => new TerraformReference<string>(this, "cluster_tier");
+        get => GetArgument<TerraformValue<string>>("cluster_tier");
         set => SetArgument("cluster_tier", value);
     }
 
@@ -35,16 +33,16 @@ public class GoogleDataprocClusterClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StagingBucket
     {
-        get => new TerraformReference<string>(this, "staging_bucket");
+        get => GetArgument<TerraformValue<string>>("staging_bucket");
         set => SetArgument("staging_bucket", value);
     }
 
     /// <summary>
     /// The Cloud Storage temp bucket used to store ephemeral cluster and jobs data, such as Spark and MapReduce history files. Note: If you don&#39;t explicitly specify a temp_bucket then GCP will auto create / assign one for you.
     /// </summary>
-    public TerraformValue<string> TempBucket
+    public TerraformValue<string>? TempBucket
     {
-        get => new TerraformReference<string>(this, "temp_bucket");
+        get => GetArgument<TerraformValue<string>>("temp_bucket");
         set => SetArgument("temp_bucket", value);
     }
 
@@ -205,7 +203,7 @@ public class GoogleDataprocClusterClusterConfigBlockAutoscalingConfigBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyUri is required")]
     public required TerraformValue<string> PolicyUri
     {
-        get => new TerraformReference<string>(this, "policy_uri");
+        get => GetArgument<TerraformValue<string>>("policy_uri");
         set => SetArgument("policy_uri", value);
     }
 
@@ -225,9 +223,9 @@ public class GoogleDataprocClusterClusterConfigBlockAuxiliaryNodeGroupsBlock : T
     /// <summary>
     /// A node group ID. Generated if not specified. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). Cannot begin or end with underscore or hyphen. Must consist of from 3 to 33 characters.
     /// </summary>
-    public TerraformValue<string> NodeGroupId
+    public TerraformValue<string>? NodeGroupId
     {
-        get => new TerraformReference<string>(this, "node_group_id");
+        get => GetArgument<TerraformValue<string>>("node_group_id");
         set => SetArgument("node_group_id", value);
     }
 
@@ -260,9 +258,7 @@ public class GoogleDataprocClusterClusterConfigBlockAuxiliaryNodeGroupsBlockNode
     /// The Node group resource name.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Node group roles.
@@ -270,7 +266,7 @@ public class GoogleDataprocClusterClusterConfigBlockAuxiliaryNodeGroupsBlockNode
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
     public TerraformList<string>? Roles
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "roles").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("roles");
         set => SetArgument("roles", value);
     }
 
@@ -301,34 +297,32 @@ public class GoogleDataprocClusterClusterConfigBlockAuxiliaryNodeGroupsBlockNode
     /// List of auxiliary node group instance names which have been assigned to the cluster.
     /// </summary>
     public TerraformList<string> InstanceNames
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "instance_names").ResolveNodes(ctx));
-    }
+        => AsReference("instance_names");
 
     /// <summary>
     /// The name of a Google Compute Engine machine type to create for the master
     /// </summary>
-    public TerraformValue<string> MachineType
+    public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
     /// <summary>
     /// The name of a minimum generation of CPU family for the auxiliary node group. If not specified, GCP will default to a predetermined computed value for each zone.
     /// </summary>
-    public TerraformValue<string> MinCpuPlatform
+    public TerraformValue<string>? MinCpuPlatform
     {
-        get => new TerraformReference<string>(this, "min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
     /// <summary>
     /// Specifies the number of auxiliary nodes to create. If not specified, GCP will default to a predetermined computed value.
     /// </summary>
-    public TerraformValue<double> NumInstances
+    public TerraformValue<double>? NumInstances
     {
-        get => new TerraformReference<double>(this, "num_instances");
+        get => GetArgument<TerraformValue<double>>("num_instances");
         set => SetArgument("num_instances", value);
     }
 
@@ -370,7 +364,7 @@ public class GoogleDataprocClusterClusterConfigBlockAuxiliaryNodeGroupsBlockNode
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceleratorCount is required")]
     public required TerraformValue<double> AcceleratorCount
     {
-        get => new TerraformReference<double>(this, "accelerator_count");
+        get => GetArgument<TerraformValue<double>>("accelerator_count");
         set => SetArgument("accelerator_count", value);
     }
 
@@ -380,7 +374,7 @@ public class GoogleDataprocClusterClusterConfigBlockAuxiliaryNodeGroupsBlockNode
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceleratorType is required")]
     public required TerraformValue<string> AcceleratorType
     {
-        get => new TerraformReference<string>(this, "accelerator_type");
+        get => GetArgument<TerraformValue<string>>("accelerator_type");
         set => SetArgument("accelerator_type", value);
     }
 
@@ -400,9 +394,9 @@ public class GoogleDataprocClusterClusterConfigBlockAuxiliaryNodeGroupsBlockNode
     /// <summary>
     /// Size of the primary disk attached to each node, specified in GB. The primary disk contains the boot volume and system libraries, and the smallest allowed disk size is 10GB. GCP will default to a predetermined computed value if not set (currently 500GB). Note: If SSDs are not attached, it also contains the HDFS data blocks and Hadoop working directories.
     /// </summary>
-    public TerraformValue<double> BootDiskSizeGb
+    public TerraformValue<double>? BootDiskSizeGb
     {
-        get => new TerraformReference<double>(this, "boot_disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("boot_disk_size_gb");
         set => SetArgument("boot_disk_size_gb", value);
     }
 
@@ -411,7 +405,7 @@ public class GoogleDataprocClusterClusterConfigBlockAuxiliaryNodeGroupsBlockNode
     /// </summary>
     public TerraformValue<string>? BootDiskType
     {
-        get => new TerraformReference<string>(this, "boot_disk_type");
+        get => GetArgument<TerraformValue<string>>("boot_disk_type");
         set => SetArgument("boot_disk_type", value);
     }
 
@@ -420,16 +414,16 @@ public class GoogleDataprocClusterClusterConfigBlockAuxiliaryNodeGroupsBlockNode
     /// </summary>
     public TerraformValue<string>? LocalSsdInterface
     {
-        get => new TerraformReference<string>(this, "local_ssd_interface");
+        get => GetArgument<TerraformValue<string>>("local_ssd_interface");
         set => SetArgument("local_ssd_interface", value);
     }
 
     /// <summary>
     /// The amount of local SSD disks that will be attached to each master cluster node. Defaults to 0.
     /// </summary>
-    public TerraformValue<double> NumLocalSsds
+    public TerraformValue<double>? NumLocalSsds
     {
-        get => new TerraformReference<double>(this, "num_local_ssds");
+        get => GetArgument<TerraformValue<double>>("num_local_ssds");
         set => SetArgument("num_local_ssds", value);
     }
 
@@ -476,7 +470,7 @@ public class GoogleDataprocClusterClusterConfigBlockDataprocMetricConfigBlockMet
     /// </summary>
     public TerraformSet<string>? MetricOverrides
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "metric_overrides").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("metric_overrides");
         set => SetArgument("metric_overrides", value);
     }
 
@@ -486,7 +480,7 @@ public class GoogleDataprocClusterClusterConfigBlockDataprocMetricConfigBlockMet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricSource is required")]
     public required TerraformValue<string> MetricSource
     {
-        get => new TerraformReference<string>(this, "metric_source");
+        get => GetArgument<TerraformValue<string>>("metric_source");
         set => SetArgument("metric_source", value);
     }
 
@@ -509,7 +503,7 @@ public class GoogleDataprocClusterClusterConfigBlockEncryptionConfigBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -532,7 +526,7 @@ public class GoogleDataprocClusterClusterConfigBlockEndpointConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableHttpPortAccess is required")]
     public required TerraformValue<bool> EnableHttpPortAccess
     {
-        get => new TerraformReference<bool>(this, "enable_http_port_access");
+        get => GetArgument<TerraformValue<bool>>("enable_http_port_access");
         set => SetArgument("enable_http_port_access", value);
     }
 
@@ -540,9 +534,7 @@ public class GoogleDataprocClusterClusterConfigBlockEndpointConfigBlock : Terraf
     /// The map of port descriptions to URLs. Will only be populated if enable_http_port_access is true.
     /// </summary>
     public TerraformMap<string> HttpPorts
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "http_ports").ResolveNodes(ctx));
-    }
+        => AsReference("http_ports");
 
 }
 
@@ -562,25 +554,25 @@ public class GoogleDataprocClusterClusterConfigBlockGceClusterConfigBlock : Terr
     /// </summary>
     public TerraformValue<bool>? InternalIpOnly
     {
-        get => new TerraformReference<bool>(this, "internal_ip_only");
+        get => GetArgument<TerraformValue<bool>>("internal_ip_only");
         set => SetArgument("internal_ip_only", value);
     }
 
     /// <summary>
     /// A map of the Compute Engine metadata entries to add to all instances
     /// </summary>
-    public TerraformMap<string> Metadata
+    public TerraformMap<string>? Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
     /// <summary>
     /// The name or self_link of the Google Compute Engine network to the cluster will be part of. Conflicts with subnetwork. If neither is specified, this defaults to the &amp;quot;default&amp;quot; network.
     /// </summary>
-    public TerraformValue<string> Network
+    public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -589,16 +581,16 @@ public class GoogleDataprocClusterClusterConfigBlockGceClusterConfigBlock : Terr
     /// </summary>
     public TerraformValue<string>? ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
     /// <summary>
     /// The set of Google API scopes to be made available on all of the node VMs under the service_account specified. These can be either FQDNs, or scope aliases.
     /// </summary>
-    public TerraformSet<string> ServiceAccountScopes
+    public TerraformSet<string>? ServiceAccountScopes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "service_account_scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("service_account_scopes");
         set => SetArgument("service_account_scopes", value);
     }
 
@@ -607,7 +599,7 @@ public class GoogleDataprocClusterClusterConfigBlockGceClusterConfigBlock : Terr
     /// </summary>
     public TerraformValue<string>? Subnetwork
     {
-        get => new TerraformReference<string>(this, "subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -616,16 +608,16 @@ public class GoogleDataprocClusterClusterConfigBlockGceClusterConfigBlock : Terr
     /// </summary>
     public TerraformSet<string>? Tags
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The GCP zone where your data is stored and used (i.e. where the master and the worker nodes will be created in). If region is set to &#39;global&#39; (default) then zone is mandatory, otherwise GCP is able to make use of Auto Zone Placement to determine this automatically for you. Note: This setting additionally determines and restricts which computing resources are available for use with other configs such as cluster_config.master_config.machine_type and cluster_config.worker_config.machine_type.
     /// </summary>
-    public TerraformValue<string> Zone
+    public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -687,7 +679,7 @@ public class GoogleDataprocClusterClusterConfigBlockGceClusterConfigBlockConfide
     /// </summary>
     public TerraformValue<bool>? EnableConfidentialCompute
     {
-        get => new TerraformReference<bool>(this, "enable_confidential_compute");
+        get => GetArgument<TerraformValue<bool>>("enable_confidential_compute");
         set => SetArgument("enable_confidential_compute", value);
     }
 
@@ -710,7 +702,7 @@ public class GoogleDataprocClusterClusterConfigBlockGceClusterConfigBlockNodeGro
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeGroupUri is required")]
     public required TerraformValue<string> NodeGroupUri
     {
-        get => new TerraformReference<string>(this, "node_group_uri");
+        get => GetArgument<TerraformValue<string>>("node_group_uri");
         set => SetArgument("node_group_uri", value);
     }
 
@@ -732,7 +724,7 @@ public class GoogleDataprocClusterClusterConfigBlockGceClusterConfigBlockReserva
     /// </summary>
     public TerraformValue<string>? ConsumeReservationType
     {
-        get => new TerraformReference<string>(this, "consume_reservation_type");
+        get => GetArgument<TerraformValue<string>>("consume_reservation_type");
         set => SetArgument("consume_reservation_type", value);
     }
 
@@ -741,7 +733,7 @@ public class GoogleDataprocClusterClusterConfigBlockGceClusterConfigBlockReserva
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -750,7 +742,7 @@ public class GoogleDataprocClusterClusterConfigBlockGceClusterConfigBlockReserva
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -772,7 +764,7 @@ public class GoogleDataprocClusterClusterConfigBlockGceClusterConfigBlockShielde
     /// </summary>
     public TerraformValue<bool>? EnableIntegrityMonitoring
     {
-        get => new TerraformReference<bool>(this, "enable_integrity_monitoring");
+        get => GetArgument<TerraformValue<bool>>("enable_integrity_monitoring");
         set => SetArgument("enable_integrity_monitoring", value);
     }
 
@@ -781,7 +773,7 @@ public class GoogleDataprocClusterClusterConfigBlockGceClusterConfigBlockShielde
     /// </summary>
     public TerraformValue<bool>? EnableSecureBoot
     {
-        get => new TerraformReference<bool>(this, "enable_secure_boot");
+        get => GetArgument<TerraformValue<bool>>("enable_secure_boot");
         set => SetArgument("enable_secure_boot", value);
     }
 
@@ -790,7 +782,7 @@ public class GoogleDataprocClusterClusterConfigBlockGceClusterConfigBlockShielde
     /// </summary>
     public TerraformValue<bool>? EnableVtpm
     {
-        get => new TerraformReference<bool>(this, "enable_vtpm");
+        get => GetArgument<TerraformValue<bool>>("enable_vtpm");
         set => SetArgument("enable_vtpm", value);
     }
 
@@ -813,7 +805,7 @@ public class GoogleDataprocClusterClusterConfigBlockInitializationActionBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Script is required")]
     public required TerraformValue<string> Script
     {
-        get => new TerraformReference<string>(this, "script");
+        get => GetArgument<TerraformValue<string>>("script");
         set => SetArgument("script", value);
     }
 
@@ -822,7 +814,7 @@ public class GoogleDataprocClusterClusterConfigBlockInitializationActionBlock : 
     /// </summary>
     public TerraformValue<double>? TimeoutSec
     {
-        get => new TerraformReference<double>(this, "timeout_sec");
+        get => GetArgument<TerraformValue<double>>("timeout_sec");
         set => SetArgument("timeout_sec", value);
     }
 
@@ -844,7 +836,7 @@ public class GoogleDataprocClusterClusterConfigBlockLifecycleConfigBlock : Terra
     /// </summary>
     public TerraformValue<string>? AutoDeleteTime
     {
-        get => new TerraformReference<string>(this, "auto_delete_time");
+        get => GetArgument<TerraformValue<string>>("auto_delete_time");
         set => SetArgument("auto_delete_time", value);
     }
 
@@ -853,7 +845,7 @@ public class GoogleDataprocClusterClusterConfigBlockLifecycleConfigBlock : Terra
     /// </summary>
     public TerraformValue<string>? IdleDeleteTtl
     {
-        get => new TerraformReference<string>(this, "idle_delete_ttl");
+        get => GetArgument<TerraformValue<string>>("idle_delete_ttl");
         set => SetArgument("idle_delete_ttl", value);
     }
 
@@ -861,9 +853,7 @@ public class GoogleDataprocClusterClusterConfigBlockLifecycleConfigBlock : Terra
     /// Time when the cluster became idle (most recent job finished) and became eligible for deletion due to idleness.
     /// </summary>
     public TerraformValue<string> IdleStartTime
-    {
-        get => new TerraformReference<string>(this, "idle_start_time");
-    }
+        => AsReference("idle_start_time");
 
 }
 
@@ -881,9 +871,9 @@ public class GoogleDataprocClusterClusterConfigBlockMasterConfigBlock : Terrafor
     /// <summary>
     /// The URI for the image to use for this master
     /// </summary>
-    public TerraformValue<string> ImageUri
+    public TerraformValue<string>? ImageUri
     {
-        get => new TerraformReference<string>(this, "image_uri");
+        get => GetArgument<TerraformValue<string>>("image_uri");
         set => SetArgument("image_uri", value);
     }
 
@@ -891,34 +881,32 @@ public class GoogleDataprocClusterClusterConfigBlockMasterConfigBlock : Terrafor
     /// List of master instance names which have been assigned to the cluster.
     /// </summary>
     public TerraformList<string> InstanceNames
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "instance_names").ResolveNodes(ctx));
-    }
+        => AsReference("instance_names");
 
     /// <summary>
     /// The name of a Google Compute Engine machine type to create for the master
     /// </summary>
-    public TerraformValue<string> MachineType
+    public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
     /// <summary>
     /// The name of a minimum generation of CPU family for the master. If not specified, GCP will default to a predetermined computed value for each zone.
     /// </summary>
-    public TerraformValue<string> MinCpuPlatform
+    public TerraformValue<string>? MinCpuPlatform
     {
-        get => new TerraformReference<string>(this, "min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
     /// <summary>
     /// Specifies the number of master nodes to create. If not specified, GCP will default to a predetermined computed value.
     /// </summary>
-    public TerraformValue<double> NumInstances
+    public TerraformValue<double>? NumInstances
     {
-        get => new TerraformReference<double>(this, "num_instances");
+        get => GetArgument<TerraformValue<double>>("num_instances");
         set => SetArgument("num_instances", value);
     }
 
@@ -960,7 +948,7 @@ public class GoogleDataprocClusterClusterConfigBlockMasterConfigBlockAccelerator
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceleratorCount is required")]
     public required TerraformValue<double> AcceleratorCount
     {
-        get => new TerraformReference<double>(this, "accelerator_count");
+        get => GetArgument<TerraformValue<double>>("accelerator_count");
         set => SetArgument("accelerator_count", value);
     }
 
@@ -970,7 +958,7 @@ public class GoogleDataprocClusterClusterConfigBlockMasterConfigBlockAccelerator
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceleratorType is required")]
     public required TerraformValue<string> AcceleratorType
     {
-        get => new TerraformReference<string>(this, "accelerator_type");
+        get => GetArgument<TerraformValue<string>>("accelerator_type");
         set => SetArgument("accelerator_type", value);
     }
 
@@ -990,9 +978,9 @@ public class GoogleDataprocClusterClusterConfigBlockMasterConfigBlockDiskConfigB
     /// <summary>
     /// Size of the primary disk attached to each node, specified in GB. The primary disk contains the boot volume and system libraries, and the smallest allowed disk size is 10GB. GCP will default to a predetermined computed value if not set (currently 500GB). Note: If SSDs are not attached, it also contains the HDFS data blocks and Hadoop working directories.
     /// </summary>
-    public TerraformValue<double> BootDiskSizeGb
+    public TerraformValue<double>? BootDiskSizeGb
     {
-        get => new TerraformReference<double>(this, "boot_disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("boot_disk_size_gb");
         set => SetArgument("boot_disk_size_gb", value);
     }
 
@@ -1001,7 +989,7 @@ public class GoogleDataprocClusterClusterConfigBlockMasterConfigBlockDiskConfigB
     /// </summary>
     public TerraformValue<string>? BootDiskType
     {
-        get => new TerraformReference<string>(this, "boot_disk_type");
+        get => GetArgument<TerraformValue<string>>("boot_disk_type");
         set => SetArgument("boot_disk_type", value);
     }
 
@@ -1010,16 +998,16 @@ public class GoogleDataprocClusterClusterConfigBlockMasterConfigBlockDiskConfigB
     /// </summary>
     public TerraformValue<string>? LocalSsdInterface
     {
-        get => new TerraformReference<string>(this, "local_ssd_interface");
+        get => GetArgument<TerraformValue<string>>("local_ssd_interface");
         set => SetArgument("local_ssd_interface", value);
     }
 
     /// <summary>
     /// The amount of local SSD disks that will be attached to each master cluster node. Defaults to 0.
     /// </summary>
-    public TerraformValue<double> NumLocalSsds
+    public TerraformValue<double>? NumLocalSsds
     {
-        get => new TerraformReference<double>(this, "num_local_ssds");
+        get => GetArgument<TerraformValue<double>>("num_local_ssds");
         set => SetArgument("num_local_ssds", value);
     }
 
@@ -1042,7 +1030,7 @@ public class GoogleDataprocClusterClusterConfigBlockMetastoreConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataprocMetastoreService is required")]
     public required TerraformValue<string> DataprocMetastoreService
     {
-        get => new TerraformReference<string>(this, "dataproc_metastore_service");
+        get => GetArgument<TerraformValue<string>>("dataproc_metastore_service");
         set => SetArgument("dataproc_metastore_service", value);
     }
 
@@ -1063,16 +1051,14 @@ public class GoogleDataprocClusterClusterConfigBlockPreemptibleWorkerConfigBlock
     /// List of preemptible instance names which have been assigned to the cluster.
     /// </summary>
     public TerraformList<string> InstanceNames
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "instance_names").ResolveNodes(ctx));
-    }
+        => AsReference("instance_names");
 
     /// <summary>
     /// Specifies the number of preemptible nodes to create. Defaults to 0.
     /// </summary>
-    public TerraformValue<double> NumInstances
+    public TerraformValue<double>? NumInstances
     {
-        get => new TerraformReference<double>(this, "num_instances");
+        get => GetArgument<TerraformValue<double>>("num_instances");
         set => SetArgument("num_instances", value);
     }
 
@@ -1081,7 +1067,7 @@ public class GoogleDataprocClusterClusterConfigBlockPreemptibleWorkerConfigBlock
     /// </summary>
     public TerraformValue<string>? Preemptibility
     {
-        get => new TerraformReference<string>(this, "preemptibility");
+        get => GetArgument<TerraformValue<string>>("preemptibility");
         set => SetArgument("preemptibility", value);
     }
 
@@ -1121,9 +1107,9 @@ public class GoogleDataprocClusterClusterConfigBlockPreemptibleWorkerConfigBlock
     /// <summary>
     /// Size of the primary disk attached to each preemptible worker node, specified in GB. The smallest allowed disk size is 10GB. GCP will default to a predetermined computed value if not set (currently 500GB). Note: If SSDs are not attached, it also contains the HDFS data blocks and Hadoop working directories.
     /// </summary>
-    public TerraformValue<double> BootDiskSizeGb
+    public TerraformValue<double>? BootDiskSizeGb
     {
-        get => new TerraformReference<double>(this, "boot_disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("boot_disk_size_gb");
         set => SetArgument("boot_disk_size_gb", value);
     }
 
@@ -1132,7 +1118,7 @@ public class GoogleDataprocClusterClusterConfigBlockPreemptibleWorkerConfigBlock
     /// </summary>
     public TerraformValue<string>? BootDiskType
     {
-        get => new TerraformReference<string>(this, "boot_disk_type");
+        get => GetArgument<TerraformValue<string>>("boot_disk_type");
         set => SetArgument("boot_disk_type", value);
     }
 
@@ -1141,16 +1127,16 @@ public class GoogleDataprocClusterClusterConfigBlockPreemptibleWorkerConfigBlock
     /// </summary>
     public TerraformValue<string>? LocalSsdInterface
     {
-        get => new TerraformReference<string>(this, "local_ssd_interface");
+        get => GetArgument<TerraformValue<string>>("local_ssd_interface");
         set => SetArgument("local_ssd_interface", value);
     }
 
     /// <summary>
     /// The amount of local SSD disks that will be attached to each preemptible worker node. Defaults to 0.
     /// </summary>
-    public TerraformValue<double> NumLocalSsds
+    public TerraformValue<double>? NumLocalSsds
     {
-        get => new TerraformReference<double>(this, "num_local_ssds");
+        get => GetArgument<TerraformValue<double>>("num_local_ssds");
         set => SetArgument("num_local_ssds", value);
     }
 
@@ -1171,9 +1157,7 @@ public class GoogleDataprocClusterClusterConfigBlockPreemptibleWorkerConfigBlock
     /// A list of instance selection results in the group.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstanceSelectionResults
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "instance_selection_results").ResolveNodes(ctx));
-    }
+        => AsReference("instance_selection_results");
 
     /// <summary>
     /// InstanceSelectionList block (nesting mode: list).
@@ -1210,18 +1194,18 @@ public class GoogleDataprocClusterClusterConfigBlockPreemptibleWorkerConfigBlock
     /// <summary>
     /// Full machine-type names, e.g. &amp;quot;n1-standard-16&amp;quot;.
     /// </summary>
-    public TerraformList<string> MachineTypes
+    public TerraformList<string>? MachineTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "machine_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("machine_types");
         set => SetArgument("machine_types", value);
     }
 
     /// <summary>
     /// Preference of this instance selection. Lower number means higher preference. Dataproc will first try to create a VM based on the machine-type with priority rank and fallback to next rank based on availability. Machine types and instance selections with the same priority have the same preference.
     /// </summary>
-    public TerraformValue<double> Rank
+    public TerraformValue<double>? Rank
     {
-        get => new TerraformReference<double>(this, "rank");
+        get => GetArgument<TerraformValue<double>>("rank");
         set => SetArgument("rank", value);
     }
 
@@ -1243,7 +1227,7 @@ public class GoogleDataprocClusterClusterConfigBlockPreemptibleWorkerConfigBlock
     /// </summary>
     public TerraformValue<double>? StandardCapacityBase
     {
-        get => new TerraformReference<double>(this, "standard_capacity_base");
+        get => GetArgument<TerraformValue<double>>("standard_capacity_base");
         set => SetArgument("standard_capacity_base", value);
     }
 
@@ -1252,7 +1236,7 @@ public class GoogleDataprocClusterClusterConfigBlockPreemptibleWorkerConfigBlock
     /// </summary>
     public TerraformValue<double>? StandardCapacityPercentAboveBase
     {
-        get => new TerraformReference<double>(this, "standard_capacity_percent_above_base");
+        get => GetArgument<TerraformValue<double>>("standard_capacity_percent_above_base");
         set => SetArgument("standard_capacity_percent_above_base", value);
     }
 
@@ -1308,7 +1292,7 @@ public class GoogleDataprocClusterClusterConfigBlockSecurityConfigBlockIdentityC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserServiceAccountMapping is required")]
     public required TerraformMap<string> UserServiceAccountMapping
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "user_service_account_mapping").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("user_service_account_mapping");
         set => SetArgument("user_service_account_mapping", value);
     }
 
@@ -1330,7 +1314,7 @@ public class GoogleDataprocClusterClusterConfigBlockSecurityConfigBlockKerberosC
     /// </summary>
     public TerraformValue<string>? CrossRealmTrustAdminServer
     {
-        get => new TerraformReference<string>(this, "cross_realm_trust_admin_server");
+        get => GetArgument<TerraformValue<string>>("cross_realm_trust_admin_server");
         set => SetArgument("cross_realm_trust_admin_server", value);
     }
 
@@ -1339,7 +1323,7 @@ public class GoogleDataprocClusterClusterConfigBlockSecurityConfigBlockKerberosC
     /// </summary>
     public TerraformValue<string>? CrossRealmTrustKdc
     {
-        get => new TerraformReference<string>(this, "cross_realm_trust_kdc");
+        get => GetArgument<TerraformValue<string>>("cross_realm_trust_kdc");
         set => SetArgument("cross_realm_trust_kdc", value);
     }
 
@@ -1348,7 +1332,7 @@ public class GoogleDataprocClusterClusterConfigBlockSecurityConfigBlockKerberosC
     /// </summary>
     public TerraformValue<string>? CrossRealmTrustRealm
     {
-        get => new TerraformReference<string>(this, "cross_realm_trust_realm");
+        get => GetArgument<TerraformValue<string>>("cross_realm_trust_realm");
         set => SetArgument("cross_realm_trust_realm", value);
     }
 
@@ -1358,7 +1342,7 @@ public class GoogleDataprocClusterClusterConfigBlockSecurityConfigBlockKerberosC
     /// </summary>
     public TerraformValue<string>? CrossRealmTrustSharedPasswordUri
     {
-        get => new TerraformReference<string>(this, "cross_realm_trust_shared_password_uri");
+        get => GetArgument<TerraformValue<string>>("cross_realm_trust_shared_password_uri");
         set => SetArgument("cross_realm_trust_shared_password_uri", value);
     }
 
@@ -1367,7 +1351,7 @@ public class GoogleDataprocClusterClusterConfigBlockSecurityConfigBlockKerberosC
     /// </summary>
     public TerraformValue<bool>? EnableKerberos
     {
-        get => new TerraformReference<bool>(this, "enable_kerberos");
+        get => GetArgument<TerraformValue<bool>>("enable_kerberos");
         set => SetArgument("enable_kerberos", value);
     }
 
@@ -1376,7 +1360,7 @@ public class GoogleDataprocClusterClusterConfigBlockSecurityConfigBlockKerberosC
     /// </summary>
     public TerraformValue<string>? KdcDbKeyUri
     {
-        get => new TerraformReference<string>(this, "kdc_db_key_uri");
+        get => GetArgument<TerraformValue<string>>("kdc_db_key_uri");
         set => SetArgument("kdc_db_key_uri", value);
     }
 
@@ -1385,7 +1369,7 @@ public class GoogleDataprocClusterClusterConfigBlockSecurityConfigBlockKerberosC
     /// </summary>
     public TerraformValue<string>? KeyPasswordUri
     {
-        get => new TerraformReference<string>(this, "key_password_uri");
+        get => GetArgument<TerraformValue<string>>("key_password_uri");
         set => SetArgument("key_password_uri", value);
     }
 
@@ -1396,7 +1380,7 @@ public class GoogleDataprocClusterClusterConfigBlockSecurityConfigBlockKerberosC
     /// </summary>
     public TerraformValue<string>? KeystorePasswordUri
     {
-        get => new TerraformReference<string>(this, "keystore_password_uri");
+        get => GetArgument<TerraformValue<string>>("keystore_password_uri");
         set => SetArgument("keystore_password_uri", value);
     }
 
@@ -1405,7 +1389,7 @@ public class GoogleDataprocClusterClusterConfigBlockSecurityConfigBlockKerberosC
     /// </summary>
     public TerraformValue<string>? KeystoreUri
     {
-        get => new TerraformReference<string>(this, "keystore_uri");
+        get => GetArgument<TerraformValue<string>>("keystore_uri");
         set => SetArgument("keystore_uri", value);
     }
 
@@ -1415,7 +1399,7 @@ public class GoogleDataprocClusterClusterConfigBlockSecurityConfigBlockKerberosC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyUri is required")]
     public required TerraformValue<string> KmsKeyUri
     {
-        get => new TerraformReference<string>(this, "kms_key_uri");
+        get => GetArgument<TerraformValue<string>>("kms_key_uri");
         set => SetArgument("kms_key_uri", value);
     }
 
@@ -1424,7 +1408,7 @@ public class GoogleDataprocClusterClusterConfigBlockSecurityConfigBlockKerberosC
     /// </summary>
     public TerraformValue<string>? Realm
     {
-        get => new TerraformReference<string>(this, "realm");
+        get => GetArgument<TerraformValue<string>>("realm");
         set => SetArgument("realm", value);
     }
 
@@ -1434,7 +1418,7 @@ public class GoogleDataprocClusterClusterConfigBlockSecurityConfigBlockKerberosC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootPrincipalPasswordUri is required")]
     public required TerraformValue<string> RootPrincipalPasswordUri
     {
-        get => new TerraformReference<string>(this, "root_principal_password_uri");
+        get => GetArgument<TerraformValue<string>>("root_principal_password_uri");
         set => SetArgument("root_principal_password_uri", value);
     }
 
@@ -1443,7 +1427,7 @@ public class GoogleDataprocClusterClusterConfigBlockSecurityConfigBlockKerberosC
     /// </summary>
     public TerraformValue<double>? TgtLifetimeHours
     {
-        get => new TerraformReference<double>(this, "tgt_lifetime_hours");
+        get => GetArgument<TerraformValue<double>>("tgt_lifetime_hours");
         set => SetArgument("tgt_lifetime_hours", value);
     }
 
@@ -1452,7 +1436,7 @@ public class GoogleDataprocClusterClusterConfigBlockSecurityConfigBlockKerberosC
     /// </summary>
     public TerraformValue<string>? TruststorePasswordUri
     {
-        get => new TerraformReference<string>(this, "truststore_password_uri");
+        get => GetArgument<TerraformValue<string>>("truststore_password_uri");
         set => SetArgument("truststore_password_uri", value);
     }
 
@@ -1461,7 +1445,7 @@ public class GoogleDataprocClusterClusterConfigBlockSecurityConfigBlockKerberosC
     /// </summary>
     public TerraformValue<string>? TruststoreUri
     {
-        get => new TerraformReference<string>(this, "truststore_uri");
+        get => GetArgument<TerraformValue<string>>("truststore_uri");
         set => SetArgument("truststore_uri", value);
     }
 
@@ -1481,9 +1465,9 @@ public class GoogleDataprocClusterClusterConfigBlockSoftwareConfigBlock : Terraf
     /// <summary>
     /// The Cloud Dataproc image version to use for the cluster - this controls the sets of software versions installed onto the nodes when you create clusters. If not specified, defaults to the latest version.
     /// </summary>
-    public TerraformValue<string> ImageVersion
+    public TerraformValue<string>? ImageVersion
     {
-        get => new TerraformReference<string>(this, "image_version");
+        get => GetArgument<TerraformValue<string>>("image_version");
         set => SetArgument("image_version", value);
     }
 
@@ -1492,7 +1476,7 @@ public class GoogleDataprocClusterClusterConfigBlockSoftwareConfigBlock : Terraf
     /// </summary>
     public TerraformSet<string>? OptionalComponents
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "optional_components").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("optional_components");
         set => SetArgument("optional_components", value);
     }
 
@@ -1501,7 +1485,7 @@ public class GoogleDataprocClusterClusterConfigBlockSoftwareConfigBlock : Terraf
     /// </summary>
     public TerraformMap<string>? OverrideProperties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "override_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("override_properties");
         set => SetArgument("override_properties", value);
     }
 
@@ -1509,9 +1493,7 @@ public class GoogleDataprocClusterClusterConfigBlockSoftwareConfigBlock : Terraf
     /// A list of the properties used to set the daemon config files. This will include any values supplied by the user via cluster_config.software_config.override_properties
     /// </summary>
     public TerraformMap<string> Properties
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
-    }
+        => AsReference("properties");
 
 }
 
@@ -1529,9 +1511,9 @@ public class GoogleDataprocClusterClusterConfigBlockWorkerConfigBlock : Terrafor
     /// <summary>
     /// The URI for the image to use for this master/worker
     /// </summary>
-    public TerraformValue<string> ImageUri
+    public TerraformValue<string>? ImageUri
     {
-        get => new TerraformReference<string>(this, "image_uri");
+        get => GetArgument<TerraformValue<string>>("image_uri");
         set => SetArgument("image_uri", value);
     }
 
@@ -1539,43 +1521,41 @@ public class GoogleDataprocClusterClusterConfigBlockWorkerConfigBlock : Terrafor
     /// List of master/worker instance names which have been assigned to the cluster.
     /// </summary>
     public TerraformList<string> InstanceNames
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "instance_names").ResolveNodes(ctx));
-    }
+        => AsReference("instance_names");
 
     /// <summary>
     /// The name of a Google Compute Engine machine type to create for the master/worker
     /// </summary>
-    public TerraformValue<string> MachineType
+    public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
     /// <summary>
     /// The name of a minimum generation of CPU family for the master/worker. If not specified, GCP will default to a predetermined computed value for each zone.
     /// </summary>
-    public TerraformValue<string> MinCpuPlatform
+    public TerraformValue<string>? MinCpuPlatform
     {
-        get => new TerraformReference<string>(this, "min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
     /// <summary>
     /// The minimum number of primary worker instances to create.
     /// </summary>
-    public TerraformValue<double> MinNumInstances
+    public TerraformValue<double>? MinNumInstances
     {
-        get => new TerraformReference<double>(this, "min_num_instances");
+        get => GetArgument<TerraformValue<double>>("min_num_instances");
         set => SetArgument("min_num_instances", value);
     }
 
     /// <summary>
     /// Specifies the number of worker nodes to create. If not specified, GCP will default to a predetermined computed value.
     /// </summary>
-    public TerraformValue<double> NumInstances
+    public TerraformValue<double>? NumInstances
     {
-        get => new TerraformReference<double>(this, "num_instances");
+        get => GetArgument<TerraformValue<double>>("num_instances");
         set => SetArgument("num_instances", value);
     }
 
@@ -1617,7 +1597,7 @@ public class GoogleDataprocClusterClusterConfigBlockWorkerConfigBlockAccelerator
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceleratorCount is required")]
     public required TerraformValue<double> AcceleratorCount
     {
-        get => new TerraformReference<double>(this, "accelerator_count");
+        get => GetArgument<TerraformValue<double>>("accelerator_count");
         set => SetArgument("accelerator_count", value);
     }
 
@@ -1627,7 +1607,7 @@ public class GoogleDataprocClusterClusterConfigBlockWorkerConfigBlockAccelerator
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceleratorType is required")]
     public required TerraformValue<string> AcceleratorType
     {
-        get => new TerraformReference<string>(this, "accelerator_type");
+        get => GetArgument<TerraformValue<string>>("accelerator_type");
         set => SetArgument("accelerator_type", value);
     }
 
@@ -1647,9 +1627,9 @@ public class GoogleDataprocClusterClusterConfigBlockWorkerConfigBlockDiskConfigB
     /// <summary>
     /// Size of the primary disk attached to each node, specified in GB. The primary disk contains the boot volume and system libraries, and the smallest allowed disk size is 10GB. GCP will default to a predetermined computed value if not set (currently 500GB). Note: If SSDs are not attached, it also contains the HDFS data blocks and Hadoop working directories.
     /// </summary>
-    public TerraformValue<double> BootDiskSizeGb
+    public TerraformValue<double>? BootDiskSizeGb
     {
-        get => new TerraformReference<double>(this, "boot_disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("boot_disk_size_gb");
         set => SetArgument("boot_disk_size_gb", value);
     }
 
@@ -1658,7 +1638,7 @@ public class GoogleDataprocClusterClusterConfigBlockWorkerConfigBlockDiskConfigB
     /// </summary>
     public TerraformValue<string>? BootDiskType
     {
-        get => new TerraformReference<string>(this, "boot_disk_type");
+        get => GetArgument<TerraformValue<string>>("boot_disk_type");
         set => SetArgument("boot_disk_type", value);
     }
 
@@ -1667,16 +1647,16 @@ public class GoogleDataprocClusterClusterConfigBlockWorkerConfigBlockDiskConfigB
     /// </summary>
     public TerraformValue<string>? LocalSsdInterface
     {
-        get => new TerraformReference<string>(this, "local_ssd_interface");
+        get => GetArgument<TerraformValue<string>>("local_ssd_interface");
         set => SetArgument("local_ssd_interface", value);
     }
 
     /// <summary>
     /// The amount of local SSD disks that will be attached to each master cluster node. Defaults to 0.
     /// </summary>
-    public TerraformValue<double> NumLocalSsds
+    public TerraformValue<double>? NumLocalSsds
     {
-        get => new TerraformReference<double>(this, "num_local_ssds");
+        get => GetArgument<TerraformValue<double>>("num_local_ssds");
         set => SetArgument("num_local_ssds", value);
     }
 
@@ -1699,7 +1679,7 @@ public class GoogleDataprocClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1708,7 +1688,7 @@ public class GoogleDataprocClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1717,7 +1697,7 @@ public class GoogleDataprocClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1740,7 +1720,7 @@ public class GoogleDataprocClusterVirtualClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StagingBucket
     {
-        get => new TerraformReference<string>(this, "staging_bucket");
+        get => GetArgument<TerraformValue<string>>("staging_bucket");
         set => SetArgument("staging_bucket", value);
     }
 
@@ -1815,7 +1795,7 @@ public class GoogleDataprocClusterVirtualClusterConfigBlockAuxiliaryServicesConf
     /// </summary>
     public TerraformValue<string>? DataprocMetastoreService
     {
-        get => new TerraformReference<string>(this, "dataproc_metastore_service");
+        get => GetArgument<TerraformValue<string>>("dataproc_metastore_service");
         set => SetArgument("dataproc_metastore_service", value);
     }
 
@@ -1837,7 +1817,7 @@ public class GoogleDataprocClusterVirtualClusterConfigBlockAuxiliaryServicesConf
     /// </summary>
     public TerraformValue<string>? DataprocCluster
     {
-        get => new TerraformReference<string>(this, "dataproc_cluster");
+        get => GetArgument<TerraformValue<string>>("dataproc_cluster");
         set => SetArgument("dataproc_cluster", value);
     }
 
@@ -1859,7 +1839,7 @@ public class GoogleDataprocClusterVirtualClusterConfigBlockKubernetesClusterConf
     /// </summary>
     public TerraformValue<string>? KubernetesNamespace
     {
-        get => new TerraformReference<string>(this, "kubernetes_namespace");
+        get => GetArgument<TerraformValue<string>>("kubernetes_namespace");
         set => SetArgument("kubernetes_namespace", value);
     }
 
@@ -1907,7 +1887,7 @@ public class GoogleDataprocClusterVirtualClusterConfigBlockKubernetesClusterConf
     /// </summary>
     public TerraformValue<string>? GkeClusterTarget
     {
-        get => new TerraformReference<string>(this, "gke_cluster_target");
+        get => GetArgument<TerraformValue<string>>("gke_cluster_target");
         set => SetArgument("gke_cluster_target", value);
     }
 
@@ -1939,7 +1919,7 @@ public class GoogleDataprocClusterVirtualClusterConfigBlockKubernetesClusterConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodePool is required")]
     public required TerraformValue<string> NodePool
     {
-        get => new TerraformReference<string>(this, "node_pool");
+        get => GetArgument<TerraformValue<string>>("node_pool");
         set => SetArgument("node_pool", value);
     }
 
@@ -1949,7 +1929,7 @@ public class GoogleDataprocClusterVirtualClusterConfigBlockKubernetesClusterConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
     public required TerraformSet<string> Roles
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "roles").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("roles");
         set => SetArgument("roles", value);
     }
 
@@ -1982,7 +1962,7 @@ public class GoogleDataprocClusterVirtualClusterConfigBlockKubernetesClusterConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Locations is required")]
     public required TerraformSet<string> Locations
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("locations");
         set => SetArgument("locations", value);
     }
 
@@ -2024,7 +2004,7 @@ public class GoogleDataprocClusterVirtualClusterConfigBlockKubernetesClusterConf
     /// </summary>
     public TerraformValue<double>? MaxNodeCount
     {
-        get => new TerraformReference<double>(this, "max_node_count");
+        get => GetArgument<TerraformValue<double>>("max_node_count");
         set => SetArgument("max_node_count", value);
     }
 
@@ -2033,7 +2013,7 @@ public class GoogleDataprocClusterVirtualClusterConfigBlockKubernetesClusterConf
     /// </summary>
     public TerraformValue<double>? MinNodeCount
     {
-        get => new TerraformReference<double>(this, "min_node_count");
+        get => GetArgument<TerraformValue<double>>("min_node_count");
         set => SetArgument("min_node_count", value);
     }
 
@@ -2055,7 +2035,7 @@ public class GoogleDataprocClusterVirtualClusterConfigBlockKubernetesClusterConf
     /// </summary>
     public TerraformValue<double>? LocalSsdCount
     {
-        get => new TerraformReference<double>(this, "local_ssd_count");
+        get => GetArgument<TerraformValue<double>>("local_ssd_count");
         set => SetArgument("local_ssd_count", value);
     }
 
@@ -2064,7 +2044,7 @@ public class GoogleDataprocClusterVirtualClusterConfigBlockKubernetesClusterConf
     /// </summary>
     public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -2073,7 +2053,7 @@ public class GoogleDataprocClusterVirtualClusterConfigBlockKubernetesClusterConf
     /// </summary>
     public TerraformValue<string>? MinCpuPlatform
     {
-        get => new TerraformReference<string>(this, "min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -2082,7 +2062,7 @@ public class GoogleDataprocClusterVirtualClusterConfigBlockKubernetesClusterConf
     /// </summary>
     public TerraformValue<bool>? Preemptible
     {
-        get => new TerraformReference<bool>(this, "preemptible");
+        get => GetArgument<TerraformValue<bool>>("preemptible");
         set => SetArgument("preemptible", value);
     }
 
@@ -2091,7 +2071,7 @@ public class GoogleDataprocClusterVirtualClusterConfigBlockKubernetesClusterConf
     /// </summary>
     public TerraformValue<bool>? Spot
     {
-        get => new TerraformReference<bool>(this, "spot");
+        get => GetArgument<TerraformValue<bool>>("spot");
         set => SetArgument("spot", value);
     }
 
@@ -2114,16 +2094,16 @@ public class GoogleDataprocClusterVirtualClusterConfigBlockKubernetesClusterConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentVersion is required")]
     public required TerraformMap<string> ComponentVersion
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "component_version").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("component_version");
         set => SetArgument("component_version", value);
     }
 
     /// <summary>
     /// The properties to set on daemon config files. Property keys are specified in prefix:property format, for example spark:spark.kubernetes.container.image.
     /// </summary>
-    public TerraformMap<string> Properties
+    public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -2141,16 +2121,16 @@ public partial class GoogleDataprocCluster(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string>? GracefulDecommissionTimeout
     {
-        get => new TerraformReference<string>(this, "graceful_decommission_timeout");
+        get => GetArgument<TerraformValue<string>>("graceful_decommission_timeout");
         set => SetArgument("graceful_decommission_timeout", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -2162,7 +2142,7 @@ public partial class GoogleDataprocCluster(string name) : TerraformResource("goo
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -2172,16 +2152,16 @@ public partial class GoogleDataprocCluster(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the cluster will exist. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -2190,7 +2170,7 @@ public partial class GoogleDataprocCluster(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -2198,17 +2178,13 @@ public partial class GoogleDataprocCluster(string name) : TerraformResource("goo
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// ClusterConfig block (nesting mode: list).

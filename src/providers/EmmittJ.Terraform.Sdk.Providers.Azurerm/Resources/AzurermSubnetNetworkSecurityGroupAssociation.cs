@@ -18,7 +18,7 @@ public class AzurermSubnetNetworkSecurityGroupAssociationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSubnetNetworkSecurityGroupAssociationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSubnetNetworkSecurityGroupAssociationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -52,9 +52,9 @@ public partial class AzurermSubnetNetworkSecurityGroupAssociation(string name) :
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermSubnetNetworkSecurityGroupAssociation(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkSecurityGroupId is required")]
     public required TerraformValue<string> NetworkSecurityGroupId
     {
-        get => new TerraformReference<string>(this, "network_security_group_id");
+        get => GetArgument<TerraformValue<string>>("network_security_group_id");
         set => SetArgument("network_security_group_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermSubnetNetworkSecurityGroupAssociation(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 

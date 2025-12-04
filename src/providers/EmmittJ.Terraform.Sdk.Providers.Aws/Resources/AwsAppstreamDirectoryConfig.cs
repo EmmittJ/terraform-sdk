@@ -18,7 +18,7 @@ public class AwsAppstreamDirectoryConfigCertificateBasedAuthPropertiesBlock : Te
     /// </summary>
     public TerraformValue<string>? CertificateAuthorityArn
     {
-        get => new TerraformReference<string>(this, "certificate_authority_arn");
+        get => GetArgument<TerraformValue<string>>("certificate_authority_arn");
         set => SetArgument("certificate_authority_arn", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsAppstreamDirectoryConfigCertificateBasedAuthPropertiesBlock : Te
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsAppstreamDirectoryConfigServiceAccountCredentialsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => new TerraformReference<string>(this, "account_name");
+        get => GetArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsAppstreamDirectoryConfigServiceAccountCredentialsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountPassword is required")]
     public required TerraformValue<string> AccountPassword
     {
-        get => new TerraformReference<string>(this, "account_password");
+        get => GetArgument<TerraformValue<string>>("account_password");
         set => SetArgument("account_password", value);
     }
 
@@ -80,16 +80,16 @@ public partial class AwsAppstreamDirectoryConfig(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryName is required")]
     public required TerraformValue<string> DirectoryName
     {
-        get => new TerraformReference<string>(this, "directory_name");
+        get => GetArgument<TerraformValue<string>>("directory_name");
         set => SetArgument("directory_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -99,16 +99,16 @@ public partial class AwsAppstreamDirectoryConfig(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrganizationalUnitDistinguishedNames is required")]
     public required TerraformSet<string> OrganizationalUnitDistinguishedNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "organizational_unit_distinguished_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("organizational_unit_distinguished_names");
         set => SetArgument("organizational_unit_distinguished_names", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -116,9 +116,7 @@ public partial class AwsAppstreamDirectoryConfig(string name) : TerraformResourc
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-    {
-        get => new TerraformReference<string>(this, "created_time");
-    }
+        => AsReference("created_time");
 
     /// <summary>
     /// CertificateBasedAuthProperties block (nesting mode: list).

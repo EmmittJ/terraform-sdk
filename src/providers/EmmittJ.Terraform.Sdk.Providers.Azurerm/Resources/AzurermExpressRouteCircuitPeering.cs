@@ -18,7 +18,7 @@ public class AzurermExpressRouteCircuitPeeringIpv6Block : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermExpressRouteCircuitPeeringIpv6Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryPeerAddressPrefix is required")]
     public required TerraformValue<string> PrimaryPeerAddressPrefix
     {
-        get => new TerraformReference<string>(this, "primary_peer_address_prefix");
+        get => GetArgument<TerraformValue<string>>("primary_peer_address_prefix");
         set => SetArgument("primary_peer_address_prefix", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermExpressRouteCircuitPeeringIpv6Block : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RouteFilterId
     {
-        get => new TerraformReference<string>(this, "route_filter_id");
+        get => GetArgument<TerraformValue<string>>("route_filter_id");
         set => SetArgument("route_filter_id", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermExpressRouteCircuitPeeringIpv6Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecondaryPeerAddressPrefix is required")]
     public required TerraformValue<string> SecondaryPeerAddressPrefix
     {
-        get => new TerraformReference<string>(this, "secondary_peer_address_prefix");
+        get => GetArgument<TerraformValue<string>>("secondary_peer_address_prefix");
         set => SetArgument("secondary_peer_address_prefix", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermExpressRouteCircuitPeeringIpv6BlockMicrosoftPeeringBlock : T
     /// </summary>
     public TerraformList<string>? AdvertisedCommunities
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "advertised_communities").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("advertised_communities");
         set => SetArgument("advertised_communities", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermExpressRouteCircuitPeeringIpv6BlockMicrosoftPeeringBlock : T
     /// </summary>
     public TerraformList<string>? AdvertisedPublicPrefixes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "advertised_public_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("advertised_public_prefixes");
         set => SetArgument("advertised_public_prefixes", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermExpressRouteCircuitPeeringIpv6BlockMicrosoftPeeringBlock : T
     /// </summary>
     public TerraformValue<double>? CustomerAsn
     {
-        get => new TerraformReference<double>(this, "customer_asn");
+        get => GetArgument<TerraformValue<double>>("customer_asn");
         set => SetArgument("customer_asn", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermExpressRouteCircuitPeeringIpv6BlockMicrosoftPeeringBlock : T
     /// </summary>
     public TerraformValue<string>? RoutingRegistryName
     {
-        get => new TerraformReference<string>(this, "routing_registry_name");
+        get => GetArgument<TerraformValue<string>>("routing_registry_name");
         set => SetArgument("routing_registry_name", value);
     }
 
@@ -129,7 +129,7 @@ public class AzurermExpressRouteCircuitPeeringMicrosoftPeeringConfigBlock : Terr
     /// </summary>
     public TerraformList<string>? AdvertisedCommunities
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "advertised_communities").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("advertised_communities");
         set => SetArgument("advertised_communities", value);
     }
 
@@ -139,7 +139,7 @@ public class AzurermExpressRouteCircuitPeeringMicrosoftPeeringConfigBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdvertisedPublicPrefixes is required")]
     public TerraformList<string>? AdvertisedPublicPrefixes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "advertised_public_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("advertised_public_prefixes");
         set => SetArgument("advertised_public_prefixes", value);
     }
 
@@ -148,7 +148,7 @@ public class AzurermExpressRouteCircuitPeeringMicrosoftPeeringConfigBlock : Terr
     /// </summary>
     public TerraformValue<double>? CustomerAsn
     {
-        get => new TerraformReference<double>(this, "customer_asn");
+        get => GetArgument<TerraformValue<double>>("customer_asn");
         set => SetArgument("customer_asn", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermExpressRouteCircuitPeeringMicrosoftPeeringConfigBlock : Terr
     /// </summary>
     public TerraformValue<string>? RoutingRegistryName
     {
-        get => new TerraformReference<string>(this, "routing_registry_name");
+        get => GetArgument<TerraformValue<string>>("routing_registry_name");
         set => SetArgument("routing_registry_name", value);
     }
 
@@ -180,7 +180,7 @@ public class AzurermExpressRouteCircuitPeeringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -189,7 +189,7 @@ public class AzurermExpressRouteCircuitPeeringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -198,7 +198,7 @@ public class AzurermExpressRouteCircuitPeeringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -207,7 +207,7 @@ public class AzurermExpressRouteCircuitPeeringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -226,16 +226,16 @@ public partial class AzurermExpressRouteCircuitPeering(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteCircuitName is required")]
     public required TerraformValue<string> ExpressRouteCircuitName
     {
-        get => new TerraformReference<string>(this, "express_route_circuit_name");
+        get => GetArgument<TerraformValue<string>>("express_route_circuit_name");
         set => SetArgument("express_route_circuit_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -244,16 +244,16 @@ public partial class AzurermExpressRouteCircuitPeering(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? Ipv4Enabled
     {
-        get => new TerraformReference<bool>(this, "ipv4_enabled");
+        get => GetArgument<TerraformValue<bool>>("ipv4_enabled");
         set => SetArgument("ipv4_enabled", value);
     }
 
     /// <summary>
     /// The peer_asn attribute.
     /// </summary>
-    public TerraformValue<double> PeerAsn
+    public TerraformValue<double>? PeerAsn
     {
-        get => new TerraformReference<double>(this, "peer_asn");
+        get => GetArgument<TerraformValue<double>>("peer_asn");
         set => SetArgument("peer_asn", value);
     }
 
@@ -263,7 +263,7 @@ public partial class AzurermExpressRouteCircuitPeering(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringType is required")]
     public required TerraformValue<string> PeeringType
     {
-        get => new TerraformReference<string>(this, "peering_type");
+        get => GetArgument<TerraformValue<string>>("peering_type");
         set => SetArgument("peering_type", value);
     }
 
@@ -272,7 +272,7 @@ public partial class AzurermExpressRouteCircuitPeering(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? PrimaryPeerAddressPrefix
     {
-        get => new TerraformReference<string>(this, "primary_peer_address_prefix");
+        get => GetArgument<TerraformValue<string>>("primary_peer_address_prefix");
         set => SetArgument("primary_peer_address_prefix", value);
     }
 
@@ -282,7 +282,7 @@ public partial class AzurermExpressRouteCircuitPeering(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -291,7 +291,7 @@ public partial class AzurermExpressRouteCircuitPeering(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? RouteFilterId
     {
-        get => new TerraformReference<string>(this, "route_filter_id");
+        get => GetArgument<TerraformValue<string>>("route_filter_id");
         set => SetArgument("route_filter_id", value);
     }
 
@@ -300,7 +300,7 @@ public partial class AzurermExpressRouteCircuitPeering(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? SecondaryPeerAddressPrefix
     {
-        get => new TerraformReference<string>(this, "secondary_peer_address_prefix");
+        get => GetArgument<TerraformValue<string>>("secondary_peer_address_prefix");
         set => SetArgument("secondary_peer_address_prefix", value);
     }
 
@@ -309,7 +309,7 @@ public partial class AzurermExpressRouteCircuitPeering(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? SharedKey
     {
-        get => new TerraformReference<string>(this, "shared_key");
+        get => GetArgument<TerraformValue<string>>("shared_key");
         set => SetArgument("shared_key", value);
     }
 
@@ -319,7 +319,7 @@ public partial class AzurermExpressRouteCircuitPeering(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VlanId is required")]
     public required TerraformValue<double> VlanId
     {
-        get => new TerraformReference<double>(this, "vlan_id");
+        get => GetArgument<TerraformValue<double>>("vlan_id");
         set => SetArgument("vlan_id", value);
     }
 
@@ -327,33 +327,25 @@ public partial class AzurermExpressRouteCircuitPeering(string name) : TerraformR
     /// The azure_asn attribute.
     /// </summary>
     public TerraformValue<double> AzureAsn
-    {
-        get => new TerraformReference<double>(this, "azure_asn");
-    }
+        => AsReference("azure_asn");
 
     /// <summary>
     /// The gateway_manager_etag attribute.
     /// </summary>
     public TerraformValue<string> GatewayManagerEtag
-    {
-        get => new TerraformReference<string>(this, "gateway_manager_etag");
-    }
+        => AsReference("gateway_manager_etag");
 
     /// <summary>
     /// The primary_azure_port attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAzurePort
-    {
-        get => new TerraformReference<string>(this, "primary_azure_port");
-    }
+        => AsReference("primary_azure_port");
 
     /// <summary>
     /// The secondary_azure_port attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAzurePort
-    {
-        get => new TerraformReference<string>(this, "secondary_azure_port");
-    }
+        => AsReference("secondary_azure_port");
 
     /// <summary>
     /// Ipv6 block (nesting mode: list).

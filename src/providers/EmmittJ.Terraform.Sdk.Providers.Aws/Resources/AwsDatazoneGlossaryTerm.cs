@@ -18,7 +18,7 @@ public class AwsDatazoneGlossaryTermTermRelationsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Classifies
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "classifies").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("classifies");
         set => SetArgument("classifies", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsDatazoneGlossaryTermTermRelationsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IsA
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "is_a").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("is_a");
         set => SetArgument("is_a", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsDatazoneGlossaryTermTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -68,7 +68,7 @@ public partial class AwsDatazoneGlossaryTerm(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? DomainIdentifier
     {
-        get => new TerraformReference<string>(this, "domain_identifier");
+        get => GetArgument<TerraformValue<string>>("domain_identifier");
         set => SetArgument("domain_identifier", value);
     }
 
@@ -78,7 +78,7 @@ public partial class AwsDatazoneGlossaryTerm(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlossaryIdentifier is required")]
     public required TerraformValue<string> GlossaryIdentifier
     {
-        get => new TerraformReference<string>(this, "glossary_identifier");
+        get => GetArgument<TerraformValue<string>>("glossary_identifier");
         set => SetArgument("glossary_identifier", value);
     }
 
@@ -87,7 +87,7 @@ public partial class AwsDatazoneGlossaryTerm(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? LongDescription
     {
-        get => new TerraformReference<string>(this, "long_description");
+        get => GetArgument<TerraformValue<string>>("long_description");
         set => SetArgument("long_description", value);
     }
 
@@ -97,16 +97,16 @@ public partial class AwsDatazoneGlossaryTerm(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AwsDatazoneGlossaryTerm(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? ShortDescription
     {
-        get => new TerraformReference<string>(this, "short_description");
+        get => GetArgument<TerraformValue<string>>("short_description");
         set => SetArgument("short_description", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AwsDatazoneGlossaryTerm(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -132,25 +132,19 @@ public partial class AwsDatazoneGlossaryTerm(string name) : TerraformResource("a
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
     public TerraformValue<string> CreatedBy
-    {
-        get => new TerraformReference<string>(this, "created_by");
-    }
+        => AsReference("created_by");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// TermRelations block (nesting mode: list).

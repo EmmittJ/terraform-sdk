@@ -17,17 +17,13 @@ public class AzurermCosmosdbCassandraClusterIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -35,7 +31,7 @@ public class AzurermCosmosdbCassandraClusterIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -58,7 +54,7 @@ public class AzurermCosmosdbCassandraClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -67,7 +63,7 @@ public class AzurermCosmosdbCassandraClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -76,7 +72,7 @@ public class AzurermCosmosdbCassandraClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -85,7 +81,7 @@ public class AzurermCosmosdbCassandraClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -103,7 +99,7 @@ public partial class AzurermCosmosdbCassandraCluster(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? AuthenticationMethod
     {
-        get => new TerraformReference<string>(this, "authentication_method");
+        get => GetArgument<TerraformValue<string>>("authentication_method");
         set => SetArgument("authentication_method", value);
     }
 
@@ -112,7 +108,7 @@ public partial class AzurermCosmosdbCassandraCluster(string name) : TerraformRes
     /// </summary>
     public TerraformList<string>? ClientCertificatePems
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "client_certificate_pems").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("client_certificate_pems");
         set => SetArgument("client_certificate_pems", value);
     }
 
@@ -122,7 +118,7 @@ public partial class AzurermCosmosdbCassandraCluster(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAdminPassword is required")]
     public required TerraformValue<string> DefaultAdminPassword
     {
-        get => new TerraformReference<string>(this, "default_admin_password");
+        get => GetArgument<TerraformValue<string>>("default_admin_password");
         set => SetArgument("default_admin_password", value);
     }
 
@@ -132,7 +128,7 @@ public partial class AzurermCosmosdbCassandraCluster(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DelegatedManagementSubnetId is required")]
     public required TerraformValue<string> DelegatedManagementSubnetId
     {
-        get => new TerraformReference<string>(this, "delegated_management_subnet_id");
+        get => GetArgument<TerraformValue<string>>("delegated_management_subnet_id");
         set => SetArgument("delegated_management_subnet_id", value);
     }
 
@@ -141,7 +137,7 @@ public partial class AzurermCosmosdbCassandraCluster(string name) : TerraformRes
     /// </summary>
     public TerraformList<string>? ExternalGossipCertificatePems
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "external_gossip_certificate_pems").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("external_gossip_certificate_pems");
         set => SetArgument("external_gossip_certificate_pems", value);
     }
 
@@ -150,7 +146,7 @@ public partial class AzurermCosmosdbCassandraCluster(string name) : TerraformRes
     /// </summary>
     public TerraformList<string>? ExternalSeedNodeIpAddresses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "external_seed_node_ip_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("external_seed_node_ip_addresses");
         set => SetArgument("external_seed_node_ip_addresses", value);
     }
 
@@ -159,16 +155,16 @@ public partial class AzurermCosmosdbCassandraCluster(string name) : TerraformRes
     /// </summary>
     public TerraformValue<double>? HoursBetweenBackups
     {
-        get => new TerraformReference<double>(this, "hours_between_backups");
+        get => GetArgument<TerraformValue<double>>("hours_between_backups");
         set => SetArgument("hours_between_backups", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -178,7 +174,7 @@ public partial class AzurermCosmosdbCassandraCluster(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -188,7 +184,7 @@ public partial class AzurermCosmosdbCassandraCluster(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -197,7 +193,7 @@ public partial class AzurermCosmosdbCassandraCluster(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? RepairEnabled
     {
-        get => new TerraformReference<bool>(this, "repair_enabled");
+        get => GetArgument<TerraformValue<bool>>("repair_enabled");
         set => SetArgument("repair_enabled", value);
     }
 
@@ -207,7 +203,7 @@ public partial class AzurermCosmosdbCassandraCluster(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -216,7 +212,7 @@ public partial class AzurermCosmosdbCassandraCluster(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -225,7 +221,7 @@ public partial class AzurermCosmosdbCassandraCluster(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 

@@ -45,7 +45,7 @@ public class GoogleApihubCurationEndpointBlockApplicationIntegrationEndpointDeta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerId is required")]
     public required TerraformValue<string> TriggerId
     {
-        get => new TerraformReference<string>(this, "trigger_id");
+        get => GetArgument<TerraformValue<string>>("trigger_id");
         set => SetArgument("trigger_id", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleApihubCurationEndpointBlockApplicationIntegrationEndpointDeta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -83,7 +83,7 @@ public class GoogleApihubCurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -92,7 +92,7 @@ public class GoogleApihubCurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -101,7 +101,7 @@ public class GoogleApihubCurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -129,7 +129,7 @@ public partial class GoogleApihubCuration(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CurationId is required")]
     public required TerraformValue<string> CurationId
     {
-        get => new TerraformReference<string>(this, "curation_id");
+        get => GetArgument<TerraformValue<string>>("curation_id");
         set => SetArgument("curation_id", value);
     }
 
@@ -138,7 +138,7 @@ public partial class GoogleApihubCuration(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -148,16 +148,16 @@ public partial class GoogleApihubCuration(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -167,16 +167,16 @@ public partial class GoogleApihubCuration(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -184,9 +184,7 @@ public partial class GoogleApihubCuration(string name) : TerraformResource("goog
     /// The time at which the curation was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The error code of the last execution of the curation. The error code is
@@ -197,18 +195,14 @@ public partial class GoogleApihubCuration(string name) : TerraformResource("goog
     /// UNAUTHORIZED
     /// </summary>
     public TerraformValue<string> LastExecutionErrorCode
-    {
-        get => new TerraformReference<string>(this, "last_execution_error_code");
-    }
+        => AsReference("last_execution_error_code");
 
     /// <summary>
     /// Error message describing the failure, if any, during the last execution of
     /// the curation.
     /// </summary>
     public TerraformValue<string> LastExecutionErrorMessage
-    {
-        get => new TerraformReference<string>(this, "last_execution_error_message");
-    }
+        => AsReference("last_execution_error_message");
 
     /// <summary>
     /// The last execution state of the curation.
@@ -218,9 +212,7 @@ public partial class GoogleApihubCuration(string name) : TerraformResource("goog
     /// FAILED
     /// </summary>
     public TerraformValue<string> LastExecutionState
-    {
-        get => new TerraformReference<string>(this, "last_execution_state");
-    }
+        => AsReference("last_execution_state");
 
     /// <summary>
     /// Identifier. The name of the curation.
@@ -229,9 +221,7 @@ public partial class GoogleApihubCuration(string name) : TerraformResource("goog
     /// &#39;projects/{project}/locations/{location}/curations/{curation}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The plugin instances and associated actions that are using the curation.
@@ -239,17 +229,13 @@ public partial class GoogleApihubCuration(string name) : TerraformResource("goog
     /// multiple actions in a plugin instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> PluginInstanceActions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "plugin_instance_actions").ResolveNodes(ctx));
-    }
+        => AsReference("plugin_instance_actions");
 
     /// <summary>
     /// The time at which the curation was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Endpoint block (nesting mode: list).

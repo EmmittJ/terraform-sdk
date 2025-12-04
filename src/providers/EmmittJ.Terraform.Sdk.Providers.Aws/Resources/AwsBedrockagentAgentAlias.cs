@@ -18,7 +18,7 @@ public class AwsBedrockagentAgentAliasTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsBedrockagentAgentAliasTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsBedrockagentAgentAliasTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsBedrockagentAgentAlias(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentAliasName is required")]
     public required TerraformValue<string> AgentAliasName
     {
-        get => new TerraformReference<string>(this, "agent_alias_name");
+        get => GetArgument<TerraformValue<string>>("agent_alias_name");
         set => SetArgument("agent_alias_name", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsBedrockagentAgentAlias(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
     public required TerraformValue<string> AgentId
     {
-        get => new TerraformReference<string>(this, "agent_id");
+        get => GetArgument<TerraformValue<string>>("agent_id");
         set => SetArgument("agent_id", value);
     }
 
@@ -74,25 +74,25 @@ public partial class AwsBedrockagentAgentAlias(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The routing_configuration attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>> RoutingConfiguration
+    public TerraformList<TerraformMap<object>>? RoutingConfiguration
     {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "routing_configuration").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<TerraformMap<object>>>("routing_configuration");
         set => SetArgument("routing_configuration", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AwsBedrockagentAgentAlias(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -109,33 +109,25 @@ public partial class AwsBedrockagentAgentAlias(string name) : TerraformResource(
     /// The agent_alias_arn attribute.
     /// </summary>
     public TerraformValue<string> AgentAliasArn
-    {
-        get => new TerraformReference<string>(this, "agent_alias_arn");
-    }
+        => AsReference("agent_alias_arn");
 
     /// <summary>
     /// The agent_alias_id attribute.
     /// </summary>
     public TerraformValue<string> AgentAliasId
-    {
-        get => new TerraformReference<string>(this, "agent_alias_id");
-    }
+        => AsReference("agent_alias_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

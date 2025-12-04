@@ -18,7 +18,7 @@ public class AzurermNatGatewayPublicIpAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermNatGatewayPublicIpAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermNatGatewayPublicIpAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -52,9 +52,9 @@ public partial class AzurermNatGatewayPublicIpAssociation(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermNatGatewayPublicIpAssociation(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatGatewayId is required")]
     public required TerraformValue<string> NatGatewayId
     {
-        get => new TerraformReference<string>(this, "nat_gateway_id");
+        get => GetArgument<TerraformValue<string>>("nat_gateway_id");
         set => SetArgument("nat_gateway_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermNatGatewayPublicIpAssociation(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddressId is required")]
     public required TerraformValue<string> PublicIpAddressId
     {
-        get => new TerraformReference<string>(this, "public_ip_address_id");
+        get => GetArgument<TerraformValue<string>>("public_ip_address_id");
         set => SetArgument("public_ip_address_id", value);
     }
 

@@ -11,9 +11,9 @@ public partial class GoogleBigtableTableIamPolicy(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleBigtableTableIamPolicy(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformValue<string> InstanceName
     {
-        get => new TerraformReference<string>(this, "instance_name");
+        get => GetArgument<TerraformValue<string>>("instance_name");
         set => SetArgument("instance_name", value);
     }
 
@@ -33,16 +33,16 @@ public partial class GoogleBigtableTableIamPolicy(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformValue<string> PolicyData
     {
-        get => new TerraformReference<string>(this, "policy_data");
+        get => GetArgument<TerraformValue<string>>("policy_data");
         set => SetArgument("policy_data", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -52,7 +52,7 @@ public partial class GoogleBigtableTableIamPolicy(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -60,8 +60,6 @@ public partial class GoogleBigtableTableIamPolicy(string name) : TerraformResour
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
 }

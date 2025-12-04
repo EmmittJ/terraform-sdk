@@ -14,16 +14,16 @@ public partial class GoogleAlloydbInstanceDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => new TerraformReference<string>(this, "cluster_id");
+        get => GetArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleAlloydbInstanceDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => new TerraformReference<string>(this, "instance_id");
+        get => GetArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleAlloydbInstanceDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -51,7 +51,7 @@ public partial class GoogleAlloydbInstanceDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -66,9 +66,7 @@ public partial class GoogleAlloydbInstanceDataSource(string name) : TerraformDat
     /// Possible values are: &#39;ACTIVATION_POLICY_UNSPECIFIED&#39;, &#39;ALWAYS&#39;, &#39;NEVER&#39;.&#39; Possible values: [&amp;quot;ACTIVATION_POLICY_UNSPECIFIED&amp;quot;, &amp;quot;ALWAYS&amp;quot;, &amp;quot;NEVER&amp;quot;]
     /// </summary>
     public TerraformValue<string> ActivationPolicy
-    {
-        get => new TerraformReference<string>(this, "activation_policy");
-    }
+        => AsReference("activation_policy");
 
     /// <summary>
     /// Annotations to allow client tools to store small amount of arbitrary data. This is distinct from labels.
@@ -77,9 +75,7 @@ public partial class GoogleAlloydbInstanceDataSource(string name) : TerraformDat
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
     public TerraformMap<string> Annotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
-    }
+        => AsReference("annotations");
 
     /// <summary>
     /// &#39;Availability type of an Instance. Defaults to REGIONAL for both primary and read instances.
@@ -90,74 +86,56 @@ public partial class GoogleAlloydbInstanceDataSource(string name) : TerraformDat
     /// Possible values are: &#39;AVAILABILITY_TYPE_UNSPECIFIED&#39;, &#39;ZONAL&#39;, &#39;REGIONAL&#39;.&#39; Possible values: [&amp;quot;AVAILABILITY_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;ZONAL&amp;quot;, &amp;quot;REGIONAL&amp;quot;]
     /// </summary>
     public TerraformValue<string> AvailabilityType
-    {
-        get => new TerraformReference<string>(this, "availability_type");
-    }
+        => AsReference("availability_type");
 
     /// <summary>
     /// Client connection specific configurations.
     /// </summary>
     public TerraformList<TerraformMap<object>> ClientConnectionConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "client_connection_config").ResolveNodes(ctx));
-    }
+        => AsReference("client_connection_config");
 
     /// <summary>
     /// Identifies the alloydb cluster. Must be in the format
     /// &#39;projects/{project}/locations/{location}/clusters/{cluster_id}&#39;
     /// </summary>
     public TerraformValue<string> Cluster
-    {
-        get => new TerraformReference<string>(this, "cluster");
-    }
+        => AsReference("cluster");
 
     /// <summary>
     /// Time the Instance was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Database flags. Set at instance level. * They are copied from primary instance on read instance creation. * Read instances can set new or override existing flags that are relevant for reads, e.g. for enabling columnar cache on a read instance. Flags set on read instance may or may not be present on primary.
     /// </summary>
     public TerraformMap<string> DatabaseFlags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "database_flags").ResolveNodes(ctx));
-    }
+        => AsReference("database_flags");
 
     /// <summary>
     /// User-settable and human-readable display name for the Instance.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The Compute Engine zone that the instance should serve from, per https://cloud.google.com/compute/docs/regions-zones This can ONLY be specified for ZONAL instances. If present for a REGIONAL instance, an error will be thrown. If this is absent for a ZONAL instance, instance is created in a random zone with available capacity.
     /// </summary>
     public TerraformValue<string> GceZone
-    {
-        get => new TerraformReference<string>(this, "gce_zone");
-    }
+        => AsReference("gce_zone");
 
     /// <summary>
     /// The type of the instance.
@@ -169,17 +147,13 @@ public partial class GoogleAlloydbInstanceDataSource(string name) : TerraformDat
     /// Users can undo the delete secondary instance action by importing the deleted secondary instance by calling terraform import. Possible values: [&amp;quot;PRIMARY&amp;quot;, &amp;quot;READ_POOL&amp;quot;, &amp;quot;SECONDARY&amp;quot;]
     /// </summary>
     public TerraformValue<string> InstanceType
-    {
-        get => new TerraformReference<string>(this, "instance_type");
-    }
+        => AsReference("instance_type");
 
     /// <summary>
     /// The IP address for the Instance. This is the connection endpoint for an end-user application.
     /// </summary>
     public TerraformValue<string> IpAddress
-    {
-        get => new TerraformReference<string>(this, "ip_address");
-    }
+        => AsReference("ip_address");
 
     /// <summary>
     /// User-defined labels for the alloydb instance.
@@ -188,33 +162,25 @@ public partial class GoogleAlloydbInstanceDataSource(string name) : TerraformDat
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
-    }
+        => AsReference("labels");
 
     /// <summary>
     /// Configurations for the machines that host the underlying database engine.
     /// </summary>
     public TerraformList<TerraformMap<object>> MachineConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "machine_config").ResolveNodes(ctx));
-    }
+        => AsReference("machine_config");
 
     /// <summary>
     /// The name of the instance resource.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Instance level network configuration.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "network_config").ResolveNodes(ctx));
-    }
+        => AsReference("network_config");
 
     /// <summary>
     /// The outbound public IP addresses for the instance. This is available ONLY when
@@ -222,17 +188,13 @@ public partial class GoogleAlloydbInstanceDataSource(string name) : TerraformDat
     /// for outbound connections.
     /// </summary>
     public TerraformList<string> OutboundPublicIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "outbound_public_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("outbound_public_ip_addresses");
 
     /// <summary>
     /// Configuration for Private Service Connect (PSC) for the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> PscInstanceConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "psc_instance_config").ResolveNodes(ctx));
-    }
+        => AsReference("psc_instance_config");
 
     /// <summary>
     /// The public IP addresses for the Instance. This is available ONLY when
@@ -240,65 +202,49 @@ public partial class GoogleAlloydbInstanceDataSource(string name) : TerraformDat
     /// endpoint for an end-user application.
     /// </summary>
     public TerraformValue<string> PublicIpAddress
-    {
-        get => new TerraformReference<string>(this, "public_ip_address");
-    }
+        => AsReference("public_ip_address");
 
     /// <summary>
     /// Configuration for query insights.
     /// </summary>
     public TerraformList<TerraformMap<object>> QueryInsightsConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "query_insights_config").ResolveNodes(ctx));
-    }
+        => AsReference("query_insights_config");
 
     /// <summary>
     /// Read pool specific config. If the instance type is READ_POOL, this configuration must be provided.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReadPoolConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "read_pool_config").ResolveNodes(ctx));
-    }
+        => AsReference("read_pool_config");
 
     /// <summary>
     /// Set to true if the current state of Instance does not match the user&#39;s intended state, and the service is actively updating the resource to reconcile them. This can happen due to user-triggered updates or system actions like failover or maintenance.
     /// </summary>
     public TerraformValue<bool> Reconciling
-    {
-        get => new TerraformReference<bool>(this, "reconciling");
-    }
+        => AsReference("reconciling");
 
     /// <summary>
     /// The current state of the alloydb instance.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The system-generated UID of the resource.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Time the Instance was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
 }

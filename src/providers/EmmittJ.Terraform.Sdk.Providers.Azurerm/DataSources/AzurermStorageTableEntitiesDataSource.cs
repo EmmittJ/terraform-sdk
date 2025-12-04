@@ -18,7 +18,7 @@ public class AzurermStorageTableEntitiesDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermStorageTableEntitiesDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermStorageTableEntitiesDataSource(string name) : Terraf
     /// </summary>
     public TerraformList<string>? Select
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "select").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("select");
         set => SetArgument("select", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzurermStorageTableEntitiesDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageTableId is required")]
     public required TerraformValue<string> StorageTableId
     {
-        get => new TerraformReference<string>(this, "storage_table_id");
+        get => GetArgument<TerraformValue<string>>("storage_table_id");
         set => SetArgument("storage_table_id", value);
     }
 
@@ -73,9 +73,7 @@ public partial class AzurermStorageTableEntitiesDataSource(string name) : Terraf
     /// The items attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Items
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "items").ResolveNodes(ctx));
-    }
+        => AsReference("items");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

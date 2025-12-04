@@ -18,7 +18,7 @@ public class AzurermPublicIpDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermPublicIpDataSource(string name) : TerraformDataSourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermPublicIpDataSource(string name) : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermPublicIpDataSource(string name) : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,113 +64,85 @@ public partial class AzurermPublicIpDataSource(string name) : TerraformDataSourc
     /// The allocation_method attribute.
     /// </summary>
     public TerraformValue<string> AllocationMethod
-    {
-        get => new TerraformReference<string>(this, "allocation_method");
-    }
+        => AsReference("allocation_method");
 
     /// <summary>
     /// The ddos_protection_mode attribute.
     /// </summary>
     public TerraformValue<string> DdosProtectionMode
-    {
-        get => new TerraformReference<string>(this, "ddos_protection_mode");
-    }
+        => AsReference("ddos_protection_mode");
 
     /// <summary>
     /// The ddos_protection_plan_id attribute.
     /// </summary>
     public TerraformValue<string> DdosProtectionPlanId
-    {
-        get => new TerraformReference<string>(this, "ddos_protection_plan_id");
-    }
+        => AsReference("ddos_protection_plan_id");
 
     /// <summary>
     /// The domain_name_label attribute.
     /// </summary>
     public TerraformValue<string> DomainNameLabel
-    {
-        get => new TerraformReference<string>(this, "domain_name_label");
-    }
+        => AsReference("domain_name_label");
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-    {
-        get => new TerraformReference<string>(this, "fqdn");
-    }
+        => AsReference("fqdn");
 
     /// <summary>
     /// The idle_timeout_in_minutes attribute.
     /// </summary>
     public TerraformValue<double> IdleTimeoutInMinutes
-    {
-        get => new TerraformReference<double>(this, "idle_timeout_in_minutes");
-    }
+        => AsReference("idle_timeout_in_minutes");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     public TerraformValue<string> IpAddress
-    {
-        get => new TerraformReference<string>(this, "ip_address");
-    }
+        => AsReference("ip_address");
 
     /// <summary>
     /// The ip_tags attribute.
     /// </summary>
     public TerraformMap<string> IpTags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "ip_tags").ResolveNodes(ctx));
-    }
+        => AsReference("ip_tags");
 
     /// <summary>
     /// The ip_version attribute.
     /// </summary>
     public TerraformValue<string> IpVersion
-    {
-        get => new TerraformReference<string>(this, "ip_version");
-    }
+        => AsReference("ip_version");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The reverse_fqdn attribute.
     /// </summary>
     public TerraformValue<string> ReverseFqdn
-    {
-        get => new TerraformReference<string>(this, "reverse_fqdn");
-    }
+        => AsReference("reverse_fqdn");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformValue<string> Sku
-    {
-        get => new TerraformReference<string>(this, "sku");
-    }
+        => AsReference("sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     public TerraformList<string> Zones
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "zones").ResolveNodes(ctx));
-    }
+        => AsReference("zones");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

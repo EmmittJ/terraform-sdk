@@ -19,7 +19,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformValue<string> ExecutionRoleArn
     {
-        get => new TerraformReference<string>(this, "execution_role_arn");
+        get => GetArgument<TerraformValue<string>>("execution_role_arn");
         set => SetArgument("execution_role_arn", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? JobTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "job_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("job_tags");
         set => SetArgument("job_tags", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseLabel is required")]
     public required TerraformValue<string> ReleaseLabel
     {
-        get => new TerraformReference<string>(this, "release_label");
+        get => GetArgument<TerraformValue<string>>("release_label");
         set => SetArgument("release_label", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlockConfigurationOverrid
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Classification is required")]
     public required TerraformValue<string> Classification
     {
-        get => new TerraformReference<string>(this, "classification");
+        get => GetArgument<TerraformValue<string>>("classification");
         set => SetArgument("classification", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlockConfigurationOverrid
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -158,7 +158,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlockConfigurationOverrid
     /// </summary>
     public TerraformValue<string>? Classification
     {
-        get => new TerraformReference<string>(this, "classification");
+        get => GetArgument<TerraformValue<string>>("classification");
         set => SetArgument("classification", value);
     }
 
@@ -167,7 +167,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlockConfigurationOverrid
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -189,7 +189,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlockConfigurationOverrid
     /// </summary>
     public TerraformValue<string>? PersistentAppUi
     {
-        get => new TerraformReference<string>(this, "persistent_app_ui");
+        get => GetArgument<TerraformValue<string>>("persistent_app_ui");
         set => SetArgument("persistent_app_ui", value);
     }
 
@@ -232,7 +232,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlockConfigurationOverrid
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformValue<string> LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -241,7 +241,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlockConfigurationOverrid
     /// </summary>
     public TerraformValue<string>? LogStreamNamePrefix
     {
-        get => new TerraformReference<string>(this, "log_stream_name_prefix");
+        get => GetArgument<TerraformValue<string>>("log_stream_name_prefix");
         set => SetArgument("log_stream_name_prefix", value);
     }
 
@@ -264,7 +264,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlockConfigurationOverrid
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogUri is required")]
     public required TerraformValue<string> LogUri
     {
-        get => new TerraformReference<string>(this, "log_uri");
+        get => GetArgument<TerraformValue<string>>("log_uri");
         set => SetArgument("log_uri", value);
     }
 
@@ -319,7 +319,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlockJobDriverBlockSparkS
     /// </summary>
     public TerraformValue<string>? EntryPoint
     {
-        get => new TerraformReference<string>(this, "entry_point");
+        get => GetArgument<TerraformValue<string>>("entry_point");
         set => SetArgument("entry_point", value);
     }
 
@@ -328,7 +328,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlockJobDriverBlockSparkS
     /// </summary>
     public TerraformValue<string>? SparkSqlParameters
     {
-        get => new TerraformReference<string>(this, "spark_sql_parameters");
+        get => GetArgument<TerraformValue<string>>("spark_sql_parameters");
         set => SetArgument("spark_sql_parameters", value);
     }
 
@@ -351,7 +351,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlockJobDriverBlockSparkS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryPoint is required")]
     public required TerraformValue<string> EntryPoint
     {
-        get => new TerraformReference<string>(this, "entry_point");
+        get => GetArgument<TerraformValue<string>>("entry_point");
         set => SetArgument("entry_point", value);
     }
 
@@ -360,7 +360,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlockJobDriverBlockSparkS
     /// </summary>
     public TerraformSet<string>? EntryPointArguments
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "entry_point_arguments").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("entry_point_arguments");
         set => SetArgument("entry_point_arguments", value);
     }
 
@@ -369,7 +369,7 @@ public class AwsEmrcontainersJobTemplateJobTemplateDataBlockJobDriverBlockSparkS
     /// </summary>
     public TerraformValue<string>? SparkSubmitParameters
     {
-        get => new TerraformReference<string>(this, "spark_submit_parameters");
+        get => GetArgument<TerraformValue<string>>("spark_submit_parameters");
         set => SetArgument("spark_submit_parameters", value);
     }
 
@@ -392,7 +392,7 @@ public class AwsEmrcontainersJobTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -408,9 +408,9 @@ public partial class AwsEmrcontainersJobTemplate(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -419,7 +419,7 @@ public partial class AwsEmrcontainersJobTemplate(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -429,16 +429,16 @@ public partial class AwsEmrcontainersJobTemplate(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -447,16 +447,16 @@ public partial class AwsEmrcontainersJobTemplate(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -464,9 +464,7 @@ public partial class AwsEmrcontainersJobTemplate(string name) : TerraformResourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// JobTemplateData block (nesting mode: list).

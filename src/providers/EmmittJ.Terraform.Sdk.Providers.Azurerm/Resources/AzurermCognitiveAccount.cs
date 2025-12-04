@@ -18,7 +18,7 @@ public class AzurermCognitiveAccountCustomerManagedKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? IdentityClientId
     {
-        get => new TerraformReference<string>(this, "identity_client_id");
+        get => GetArgument<TerraformValue<string>>("identity_client_id");
         set => SetArgument("identity_client_id", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermCognitiveAccountCustomerManagedKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformValue<string> KeyVaultKeyId
     {
-        get => new TerraformReference<string>(this, "key_vault_key_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_key_id");
         set => SetArgument("key_vault_key_id", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermCognitiveAccountIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -59,17 +59,13 @@ public class AzurermCognitiveAccountIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -77,7 +73,7 @@ public class AzurermCognitiveAccountIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -100,7 +96,7 @@ public class AzurermCognitiveAccountNetworkAclsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Bypass
     {
-        get => new TerraformReference<string>(this, "bypass");
+        get => GetArgument<TerraformValue<string>>("bypass");
         set => SetArgument("bypass", value);
     }
 
@@ -110,7 +106,7 @@ public class AzurermCognitiveAccountNetworkAclsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     public required TerraformValue<string> DefaultAction
     {
-        get => new TerraformReference<string>(this, "default_action");
+        get => GetArgument<TerraformValue<string>>("default_action");
         set => SetArgument("default_action", value);
     }
 
@@ -119,7 +115,7 @@ public class AzurermCognitiveAccountNetworkAclsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IpRules
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ip_rules").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("ip_rules");
         set => SetArgument("ip_rules", value);
     }
 
@@ -150,7 +146,7 @@ public class AzurermCognitiveAccountNetworkAclsBlockVirtualNetworkRulesBlock : T
     /// </summary>
     public TerraformValue<bool>? IgnoreMissingVnetServiceEndpoint
     {
-        get => new TerraformReference<bool>(this, "ignore_missing_vnet_service_endpoint");
+        get => GetArgument<TerraformValue<bool>>("ignore_missing_vnet_service_endpoint");
         set => SetArgument("ignore_missing_vnet_service_endpoint", value);
     }
 
@@ -160,7 +156,7 @@ public class AzurermCognitiveAccountNetworkAclsBlockVirtualNetworkRulesBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -184,7 +180,7 @@ public class AzurermCognitiveAccountNetworkInjectionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scenario is required")]
     public required TerraformValue<string> Scenario
     {
-        get => new TerraformReference<string>(this, "scenario");
+        get => GetArgument<TerraformValue<string>>("scenario");
         set => SetArgument("scenario", value);
     }
 
@@ -194,7 +190,7 @@ public class AzurermCognitiveAccountNetworkInjectionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -217,7 +213,7 @@ public class AzurermCognitiveAccountStorageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? IdentityClientId
     {
-        get => new TerraformReference<string>(this, "identity_client_id");
+        get => GetArgument<TerraformValue<string>>("identity_client_id");
         set => SetArgument("identity_client_id", value);
     }
 
@@ -227,7 +223,7 @@ public class AzurermCognitiveAccountStorageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => new TerraformReference<string>(this, "storage_account_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
@@ -250,7 +246,7 @@ public class AzurermCognitiveAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -259,7 +255,7 @@ public class AzurermCognitiveAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -268,7 +264,7 @@ public class AzurermCognitiveAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -277,7 +273,7 @@ public class AzurermCognitiveAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -295,7 +291,7 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? CustomQuestionAnsweringSearchServiceId
     {
-        get => new TerraformReference<string>(this, "custom_question_answering_search_service_id");
+        get => GetArgument<TerraformValue<string>>("custom_question_answering_search_service_id");
         set => SetArgument("custom_question_answering_search_service_id", value);
     }
 
@@ -304,7 +300,7 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? CustomQuestionAnsweringSearchServiceKey
     {
-        get => new TerraformReference<string>(this, "custom_question_answering_search_service_key");
+        get => GetArgument<TerraformValue<string>>("custom_question_answering_search_service_key");
         set => SetArgument("custom_question_answering_search_service_key", value);
     }
 
@@ -313,7 +309,7 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? CustomSubdomainName
     {
-        get => new TerraformReference<string>(this, "custom_subdomain_name");
+        get => GetArgument<TerraformValue<string>>("custom_subdomain_name");
         set => SetArgument("custom_subdomain_name", value);
     }
 
@@ -322,7 +318,7 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? DynamicThrottlingEnabled
     {
-        get => new TerraformReference<bool>(this, "dynamic_throttling_enabled");
+        get => GetArgument<TerraformValue<bool>>("dynamic_throttling_enabled");
         set => SetArgument("dynamic_throttling_enabled", value);
     }
 
@@ -331,16 +327,16 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformList<string>? Fqdns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "fqdns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("fqdns");
         set => SetArgument("fqdns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -350,7 +346,7 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     public required TerraformValue<string> Kind
     {
-        get => new TerraformReference<string>(this, "kind");
+        get => GetArgument<TerraformValue<string>>("kind");
         set => SetArgument("kind", value);
     }
 
@@ -359,7 +355,7 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? LocalAuthEnabled
     {
-        get => new TerraformReference<bool>(this, "local_auth_enabled");
+        get => GetArgument<TerraformValue<bool>>("local_auth_enabled");
         set => SetArgument("local_auth_enabled", value);
     }
 
@@ -369,7 +365,7 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -378,7 +374,7 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? MetricsAdvisorAadClientId
     {
-        get => new TerraformReference<string>(this, "metrics_advisor_aad_client_id");
+        get => GetArgument<TerraformValue<string>>("metrics_advisor_aad_client_id");
         set => SetArgument("metrics_advisor_aad_client_id", value);
     }
 
@@ -387,7 +383,7 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? MetricsAdvisorAadTenantId
     {
-        get => new TerraformReference<string>(this, "metrics_advisor_aad_tenant_id");
+        get => GetArgument<TerraformValue<string>>("metrics_advisor_aad_tenant_id");
         set => SetArgument("metrics_advisor_aad_tenant_id", value);
     }
 
@@ -396,7 +392,7 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? MetricsAdvisorSuperUserName
     {
-        get => new TerraformReference<string>(this, "metrics_advisor_super_user_name");
+        get => GetArgument<TerraformValue<string>>("metrics_advisor_super_user_name");
         set => SetArgument("metrics_advisor_super_user_name", value);
     }
 
@@ -405,7 +401,7 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? MetricsAdvisorWebsiteName
     {
-        get => new TerraformReference<string>(this, "metrics_advisor_website_name");
+        get => GetArgument<TerraformValue<string>>("metrics_advisor_website_name");
         set => SetArgument("metrics_advisor_website_name", value);
     }
 
@@ -415,7 +411,7 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -424,7 +420,7 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? OutboundNetworkAccessRestricted
     {
-        get => new TerraformReference<bool>(this, "outbound_network_access_restricted");
+        get => GetArgument<TerraformValue<bool>>("outbound_network_access_restricted");
         set => SetArgument("outbound_network_access_restricted", value);
     }
 
@@ -433,7 +429,7 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? ProjectManagementEnabled
     {
-        get => new TerraformReference<bool>(this, "project_management_enabled");
+        get => GetArgument<TerraformValue<bool>>("project_management_enabled");
         set => SetArgument("project_management_enabled", value);
     }
 
@@ -442,7 +438,7 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -451,7 +447,7 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? QnaRuntimeEndpoint
     {
-        get => new TerraformReference<string>(this, "qna_runtime_endpoint");
+        get => GetArgument<TerraformValue<string>>("qna_runtime_endpoint");
         set => SetArgument("qna_runtime_endpoint", value);
     }
 
@@ -461,7 +457,7 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -471,7 +467,7 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => new TerraformReference<string>(this, "sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -480,7 +476,7 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -488,25 +484,19 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "primary_access_key");
-    }
+        => AsReference("primary_access_key");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "secondary_access_key");
-    }
+        => AsReference("secondary_access_key");
 
     /// <summary>
     /// CustomerManagedKey block (nesting mode: list).

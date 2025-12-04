@@ -18,7 +18,7 @@ public class AzurermVirtualWanDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermVirtualWanDataSource(string name) : TerraformDataSou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermVirtualWanDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermVirtualWanDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,65 +64,49 @@ public partial class AzurermVirtualWanDataSource(string name) : TerraformDataSou
     /// The allow_branch_to_branch_traffic attribute.
     /// </summary>
     public TerraformValue<bool> AllowBranchToBranchTraffic
-    {
-        get => new TerraformReference<bool>(this, "allow_branch_to_branch_traffic");
-    }
+        => AsReference("allow_branch_to_branch_traffic");
 
     /// <summary>
     /// The disable_vpn_encryption attribute.
     /// </summary>
     public TerraformValue<bool> DisableVpnEncryption
-    {
-        get => new TerraformReference<bool>(this, "disable_vpn_encryption");
-    }
+        => AsReference("disable_vpn_encryption");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The office365_local_breakout_category attribute.
     /// </summary>
     public TerraformValue<string> Office365LocalBreakoutCategory
-    {
-        get => new TerraformReference<string>(this, "office365_local_breakout_category");
-    }
+        => AsReference("office365_local_breakout_category");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformValue<string> Sku
-    {
-        get => new TerraformReference<string>(this, "sku");
-    }
+        => AsReference("sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The virtual_hub_ids attribute.
     /// </summary>
     public TerraformList<string> VirtualHubIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "virtual_hub_ids").ResolveNodes(ctx));
-    }
+        => AsReference("virtual_hub_ids");
 
     /// <summary>
     /// The vpn_site_ids attribute.
     /// </summary>
     public TerraformList<string> VpnSiteIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "vpn_site_ids").ResolveNodes(ctx));
-    }
+        => AsReference("vpn_site_ids");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

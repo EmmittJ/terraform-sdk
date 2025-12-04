@@ -18,7 +18,7 @@ public class AzurermRelayHybridConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermRelayHybridConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermRelayHybridConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermRelayHybridConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermRelayHybridConnection(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermRelayHybridConnection(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermRelayHybridConnection(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelayNamespaceName is required")]
     public required TerraformValue<string> RelayNamespaceName
     {
-        get => new TerraformReference<string>(this, "relay_namespace_name");
+        get => GetArgument<TerraformValue<string>>("relay_namespace_name");
         set => SetArgument("relay_namespace_name", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermRelayHybridConnection(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? RequiresClientAuthorization
     {
-        get => new TerraformReference<bool>(this, "requires_client_authorization");
+        get => GetArgument<TerraformValue<bool>>("requires_client_authorization");
         set => SetArgument("requires_client_authorization", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermRelayHybridConnection(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermRelayHybridConnection(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? UserMetadata
     {
-        get => new TerraformReference<string>(this, "user_metadata");
+        get => GetArgument<TerraformValue<string>>("user_metadata");
         set => SetArgument("user_metadata", value);
     }
 

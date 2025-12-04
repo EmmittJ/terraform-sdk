@@ -14,25 +14,25 @@ public partial class AwsRoute53ResolverFirewallDomainListDataSource(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallDomainListId is required")]
     public required TerraformValue<string> FirewallDomainListId
     {
-        get => new TerraformReference<string>(this, "firewall_domain_list_id");
+        get => GetArgument<TerraformValue<string>>("firewall_domain_list_id");
         set => SetArgument("firewall_domain_list_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -40,72 +40,54 @@ public partial class AwsRoute53ResolverFirewallDomainListDataSource(string name)
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-    {
-        get => new TerraformReference<string>(this, "creation_time");
-    }
+        => AsReference("creation_time");
 
     /// <summary>
     /// The creator_request_id attribute.
     /// </summary>
     public TerraformValue<string> CreatorRequestId
-    {
-        get => new TerraformReference<string>(this, "creator_request_id");
-    }
+        => AsReference("creator_request_id");
 
     /// <summary>
     /// The domain_count attribute.
     /// </summary>
     public TerraformValue<double> DomainCount
-    {
-        get => new TerraformReference<double>(this, "domain_count");
-    }
+        => AsReference("domain_count");
 
     /// <summary>
     /// The managed_owner_name attribute.
     /// </summary>
     public TerraformValue<string> ManagedOwnerName
-    {
-        get => new TerraformReference<string>(this, "managed_owner_name");
-    }
+        => AsReference("managed_owner_name");
 
     /// <summary>
     /// The modification_time attribute.
     /// </summary>
     public TerraformValue<string> ModificationTime
-    {
-        get => new TerraformReference<string>(this, "modification_time");
-    }
+        => AsReference("modification_time");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The status_message attribute.
     /// </summary>
     public TerraformValue<string> StatusMessage
-    {
-        get => new TerraformReference<string>(this, "status_message");
-    }
+        => AsReference("status_message");
 
 }

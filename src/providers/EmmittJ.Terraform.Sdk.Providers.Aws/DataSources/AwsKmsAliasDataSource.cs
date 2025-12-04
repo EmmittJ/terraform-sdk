@@ -11,9 +11,9 @@ public partial class AwsKmsAliasDataSource(string name) : TerraformDataSource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsKmsAliasDataSource(string name) : TerraformDataSource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -40,24 +40,18 @@ public partial class AwsKmsAliasDataSource(string name) : TerraformDataSource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The target_key_arn attribute.
     /// </summary>
     public TerraformValue<string> TargetKeyArn
-    {
-        get => new TerraformReference<string>(this, "target_key_arn");
-    }
+        => AsReference("target_key_arn");
 
     /// <summary>
     /// The target_key_id attribute.
     /// </summary>
     public TerraformValue<string> TargetKeyId
-    {
-        get => new TerraformReference<string>(this, "target_key_id");
-    }
+        => AsReference("target_key_id");
 
 }

@@ -19,7 +19,7 @@ public class AzurermNetworkFunctionCollectorPolicyIpfxEmissionBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationTypes is required")]
     public TerraformList<string>? DestinationTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "destination_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("destination_types");
         set => SetArgument("destination_types", value);
     }
 
@@ -43,7 +43,7 @@ public class AzurermNetworkFunctionCollectorPolicyIpfxIngestionBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceResourceIds is required")]
     public required TerraformSet<string> SourceResourceIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "source_resource_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("source_resource_ids");
         set => SetArgument("source_resource_ids", value);
     }
 
@@ -66,7 +66,7 @@ public class AzurermNetworkFunctionCollectorPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -75,7 +75,7 @@ public class AzurermNetworkFunctionCollectorPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -84,7 +84,7 @@ public class AzurermNetworkFunctionCollectorPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -93,7 +93,7 @@ public class AzurermNetworkFunctionCollectorPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -109,9 +109,9 @@ public partial class AzurermNetworkFunctionCollectorPolicy(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermNetworkFunctionCollectorPolicy(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermNetworkFunctionCollectorPolicy(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AzurermNetworkFunctionCollectorPolicy(string name) : Terraf
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AzurermNetworkFunctionCollectorPolicy(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficCollectorId is required")]
     public required TerraformValue<string> TrafficCollectorId
     {
-        get => new TerraformReference<string>(this, "traffic_collector_id");
+        get => GetArgument<TerraformValue<string>>("traffic_collector_id");
         set => SetArgument("traffic_collector_id", value);
     }
 

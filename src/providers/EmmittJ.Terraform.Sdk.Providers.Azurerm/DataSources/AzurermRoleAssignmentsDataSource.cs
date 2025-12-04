@@ -18,7 +18,7 @@ public class AzurermRoleAssignmentsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermRoleAssignmentsDataSource(string name) : TerraformDa
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzurermRoleAssignmentsDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<bool>? LimitAtScope
     {
-        get => new TerraformReference<bool>(this, "limit_at_scope");
+        get => GetArgument<TerraformValue<bool>>("limit_at_scope");
         set => SetArgument("limit_at_scope", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AzurermRoleAssignmentsDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string>? PrincipalId
     {
-        get => new TerraformReference<string>(this, "principal_id");
+        get => GetArgument<TerraformValue<string>>("principal_id");
         set => SetArgument("principal_id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermRoleAssignmentsDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermRoleAssignmentsDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string>? TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -81,9 +81,7 @@ public partial class AzurermRoleAssignmentsDataSource(string name) : TerraformDa
     /// The role_assignments attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RoleAssignments
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "role_assignments").ResolveNodes(ctx));
-    }
+        => AsReference("role_assignments");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

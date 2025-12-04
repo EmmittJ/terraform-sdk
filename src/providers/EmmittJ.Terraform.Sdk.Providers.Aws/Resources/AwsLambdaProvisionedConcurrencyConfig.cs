@@ -18,7 +18,7 @@ public class AwsLambdaProvisionedConcurrencyConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsLambdaProvisionedConcurrencyConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -46,16 +46,16 @@ public partial class AwsLambdaProvisionedConcurrencyConfig(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformValue<string> FunctionName
     {
-        get => new TerraformReference<string>(this, "function_name");
+        get => GetArgument<TerraformValue<string>>("function_name");
         set => SetArgument("function_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsLambdaProvisionedConcurrencyConfig(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvisionedConcurrentExecutions is required")]
     public required TerraformValue<double> ProvisionedConcurrentExecutions
     {
-        get => new TerraformReference<double>(this, "provisioned_concurrent_executions");
+        get => GetArgument<TerraformValue<double>>("provisioned_concurrent_executions");
         set => SetArgument("provisioned_concurrent_executions", value);
     }
 
@@ -75,16 +75,16 @@ public partial class AwsLambdaProvisionedConcurrencyConfig(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Qualifier is required")]
     public required TerraformValue<string> Qualifier
     {
-        get => new TerraformReference<string>(this, "qualifier");
+        get => GetArgument<TerraformValue<string>>("qualifier");
         set => SetArgument("qualifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AwsLambdaProvisionedConcurrencyConfig(string name) : Terraf
     /// </summary>
     public TerraformValue<bool>? SkipDestroy
     {
-        get => new TerraformReference<bool>(this, "skip_destroy");
+        get => GetArgument<TerraformValue<bool>>("skip_destroy");
         set => SetArgument("skip_destroy", value);
     }
 

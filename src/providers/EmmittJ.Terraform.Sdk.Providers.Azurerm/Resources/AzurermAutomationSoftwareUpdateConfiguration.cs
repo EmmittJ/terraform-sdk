@@ -19,7 +19,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClassificationsIncluded is required")]
     public TerraformList<string>? ClassificationsIncluded
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "classifications_included").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("classifications_included");
         set => SetArgument("classifications_included", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock : TerraformB
     /// </summary>
     public TerraformList<string>? ExcludedPackages
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_packages").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excluded_packages");
         set => SetArgument("excluded_packages", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock : TerraformB
     /// </summary>
     public TerraformList<string>? IncludedPackages
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_packages").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("included_packages");
         set => SetArgument("included_packages", value);
     }
 
@@ -46,7 +46,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Reboot
     {
-        get => new TerraformReference<string>(this, "reboot");
+        get => GetArgument<TerraformValue<string>>("reboot");
         set => SetArgument("reboot", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock : Terrafo
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -101,7 +101,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock : Terrafor
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -110,7 +110,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformList<double>? AdvancedMonthDays
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "advanced_month_days").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("advanced_month_days");
         set => SetArgument("advanced_month_days", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformList<string>? AdvancedWeekDays
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "advanced_week_days").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("advanced_week_days");
         set => SetArgument("advanced_week_days", value);
     }
 
@@ -150,25 +150,23 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-    {
-        get => new TerraformReference<string>(this, "creation_time");
-    }
+        => AsReference("creation_time");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The expiry_time attribute.
     /// </summary>
-    public TerraformValue<string> ExpiryTime
+    public TerraformValue<string>? ExpiryTime
     {
-        get => new TerraformReference<string>(this, "expiry_time");
+        get => GetArgument<TerraformValue<string>>("expiry_time");
         set => SetArgument("expiry_time", value);
     }
 
@@ -177,7 +175,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? ExpiryTimeOffsetMinutes
     {
-        get => new TerraformReference<double>(this, "expiry_time_offset_minutes");
+        get => GetArgument<TerraformValue<double>>("expiry_time_offset_minutes");
         set => SetArgument("expiry_time_offset_minutes", value);
     }
 
@@ -187,7 +185,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformValue<string> Frequency
     {
-        get => new TerraformReference<string>(this, "frequency");
+        get => GetArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -196,7 +194,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? Interval
     {
-        get => new TerraformReference<double>(this, "interval");
+        get => GetArgument<TerraformValue<double>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -205,7 +203,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformValue<bool>? IsEnabled
     {
-        get => new TerraformReference<bool>(this, "is_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_enabled");
         set => SetArgument("is_enabled", value);
     }
 
@@ -213,16 +211,14 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// The last_modified_time attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedTime
-    {
-        get => new TerraformReference<string>(this, "last_modified_time");
-    }
+        => AsReference("last_modified_time");
 
     /// <summary>
     /// The next_run attribute.
     /// </summary>
-    public TerraformValue<string> NextRun
+    public TerraformValue<string>? NextRun
     {
-        get => new TerraformReference<string>(this, "next_run");
+        get => GetArgument<TerraformValue<string>>("next_run");
         set => SetArgument("next_run", value);
     }
 
@@ -231,16 +227,16 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? NextRunOffsetMinutes
     {
-        get => new TerraformReference<double>(this, "next_run_offset_minutes");
+        get => GetArgument<TerraformValue<double>>("next_run_offset_minutes");
         set => SetArgument("next_run_offset_minutes", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformValue<string> StartTime
+    public TerraformValue<string>? StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -249,7 +245,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? StartTimeOffsetMinutes
     {
-        get => new TerraformReference<double>(this, "start_time_offset_minutes");
+        get => GetArgument<TerraformValue<double>>("start_time_offset_minutes");
         set => SetArgument("start_time_offset_minutes", value);
     }
 
@@ -258,7 +254,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -291,7 +287,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlockMonthlyOcc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<string> Day
     {
-        get => new TerraformReference<string>(this, "day");
+        get => GetArgument<TerraformValue<string>>("day");
         set => SetArgument("day", value);
     }
 
@@ -301,7 +297,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlockMonthlyOcc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Occurrence is required")]
     public required TerraformValue<double> Occurrence
     {
-        get => new TerraformReference<double>(this, "occurrence");
+        get => GetArgument<TerraformValue<double>>("occurrence");
         set => SetArgument("occurrence", value);
     }
 
@@ -355,7 +351,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationTargetBlockAzureQueryBl
     /// </summary>
     public TerraformList<string>? Locations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("locations");
         set => SetArgument("locations", value);
     }
 
@@ -364,7 +360,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationTargetBlockAzureQueryBl
     /// </summary>
     public TerraformList<string>? Scope
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scope").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -373,7 +369,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationTargetBlockAzureQueryBl
     /// </summary>
     public TerraformValue<string>? TagFilter
     {
-        get => new TerraformReference<string>(this, "tag_filter");
+        get => GetArgument<TerraformValue<string>>("tag_filter");
         set => SetArgument("tag_filter", value);
     }
 
@@ -405,7 +401,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationTargetBlockAzureQueryBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tag is required")]
     public required TerraformValue<string> Tag
     {
-        get => new TerraformReference<string>(this, "tag");
+        get => GetArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -415,7 +411,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationTargetBlockAzureQueryBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -437,7 +433,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationTargetBlockNonAzureQuer
     /// </summary>
     public TerraformValue<string>? FunctionAlias
     {
-        get => new TerraformReference<string>(this, "function_alias");
+        get => GetArgument<TerraformValue<string>>("function_alias");
         set => SetArgument("function_alias", value);
     }
 
@@ -446,7 +442,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationTargetBlockNonAzureQuer
     /// </summary>
     public TerraformValue<string>? WorkspaceId
     {
-        get => new TerraformReference<string>(this, "workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -469,7 +465,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -478,7 +474,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -487,7 +483,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -496,7 +492,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -520,7 +516,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClassificationsIncluded is required")]
     public TerraformList<string>? ClassificationsIncluded
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "classifications_included").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("classifications_included");
         set => SetArgument("classifications_included", value);
     }
 
@@ -529,7 +525,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock : Terrafor
     /// </summary>
     public TerraformList<string>? ExcludedKnowledgeBaseNumbers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_knowledge_base_numbers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excluded_knowledge_base_numbers");
         set => SetArgument("excluded_knowledge_base_numbers", value);
     }
 
@@ -538,7 +534,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock : Terrafor
     /// </summary>
     public TerraformList<string>? IncludedKnowledgeBaseNumbers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_knowledge_base_numbers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("included_knowledge_base_numbers");
         set => SetArgument("included_knowledge_base_numbers", value);
     }
 
@@ -547,7 +543,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Reboot
     {
-        get => new TerraformReference<string>(this, "reboot");
+        get => GetArgument<TerraformValue<string>>("reboot");
         set => SetArgument("reboot", value);
     }
 
@@ -567,7 +563,7 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
     public required TerraformValue<string> AutomationAccountId
     {
-        get => new TerraformReference<string>(this, "automation_account_id");
+        get => GetArgument<TerraformValue<string>>("automation_account_id");
         set => SetArgument("automation_account_id", value);
     }
 
@@ -576,16 +572,16 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration(string name) :
     /// </summary>
     public TerraformValue<string>? Duration
     {
-        get => new TerraformReference<string>(this, "duration");
+        get => GetArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -595,7 +591,7 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -604,7 +600,7 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration(string name) :
     /// </summary>
     public TerraformList<string>? NonAzureComputerNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "non_azure_computer_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("non_azure_computer_names");
         set => SetArgument("non_azure_computer_names", value);
     }
 
@@ -613,7 +609,7 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration(string name) :
     /// </summary>
     public TerraformList<string>? VirtualMachineIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "virtual_machine_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("virtual_machine_ids");
         set => SetArgument("virtual_machine_ids", value);
     }
 
@@ -621,17 +617,13 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration(string name) :
     /// The error_code attribute.
     /// </summary>
     public TerraformValue<string> ErrorCode
-    {
-        get => new TerraformReference<string>(this, "error_code");
-    }
+        => AsReference("error_code");
 
     /// <summary>
     /// The error_message attribute.
     /// </summary>
     public TerraformValue<string> ErrorMessage
-    {
-        get => new TerraformReference<string>(this, "error_message");
-    }
+        => AsReference("error_message");
 
     /// <summary>
     /// Linux block (nesting mode: list).

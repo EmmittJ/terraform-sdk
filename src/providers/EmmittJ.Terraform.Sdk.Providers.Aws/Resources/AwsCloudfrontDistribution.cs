@@ -18,7 +18,7 @@ public class AwsCloudfrontDistributionCustomErrorResponseBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ErrorCachingMinTtl
     {
-        get => new TerraformReference<double>(this, "error_caching_min_ttl");
+        get => GetArgument<TerraformValue<double>>("error_caching_min_ttl");
         set => SetArgument("error_caching_min_ttl", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsCloudfrontDistributionCustomErrorResponseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ErrorCode is required")]
     public required TerraformValue<double> ErrorCode
     {
-        get => new TerraformReference<double>(this, "error_code");
+        get => GetArgument<TerraformValue<double>>("error_code");
         set => SetArgument("error_code", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsCloudfrontDistributionCustomErrorResponseBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ResponseCode
     {
-        get => new TerraformReference<double>(this, "response_code");
+        get => GetArgument<TerraformValue<double>>("response_code");
         set => SetArgument("response_code", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsCloudfrontDistributionCustomErrorResponseBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ResponsePagePath
     {
-        get => new TerraformReference<string>(this, "response_page_path");
+        get => GetArgument<TerraformValue<string>>("response_page_path");
         set => SetArgument("response_page_path", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
     public required TerraformSet<string> AllowedMethods
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_methods");
         set => SetArgument("allowed_methods", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CachePolicyId
     {
-        get => new TerraformReference<string>(this, "cache_policy_id");
+        get => GetArgument<TerraformValue<string>>("cache_policy_id");
         set => SetArgument("cache_policy_id", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CachedMethods is required")]
     public required TerraformSet<string> CachedMethods
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "cached_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("cached_methods");
         set => SetArgument("cached_methods", value);
     }
 
@@ -98,16 +98,16 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Compress
     {
-        get => new TerraformReference<bool>(this, "compress");
+        get => GetArgument<TerraformValue<bool>>("compress");
         set => SetArgument("compress", value);
     }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    public TerraformValue<double> DefaultTtl
+    public TerraformValue<double>? DefaultTtl
     {
-        get => new TerraformReference<double>(this, "default_ttl");
+        get => GetArgument<TerraformValue<double>>("default_ttl");
         set => SetArgument("default_ttl", value);
     }
 
@@ -116,16 +116,16 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FieldLevelEncryptionId
     {
-        get => new TerraformReference<string>(this, "field_level_encryption_id");
+        get => GetArgument<TerraformValue<string>>("field_level_encryption_id");
         set => SetArgument("field_level_encryption_id", value);
     }
 
     /// <summary>
     /// The max_ttl attribute.
     /// </summary>
-    public TerraformValue<double> MaxTtl
+    public TerraformValue<double>? MaxTtl
     {
-        get => new TerraformReference<double>(this, "max_ttl");
+        get => GetArgument<TerraformValue<double>>("max_ttl");
         set => SetArgument("max_ttl", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MinTtl
     {
-        get => new TerraformReference<double>(this, "min_ttl");
+        get => GetArgument<TerraformValue<double>>("min_ttl");
         set => SetArgument("min_ttl", value);
     }
 
@@ -143,7 +143,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OriginRequestPolicyId
     {
-        get => new TerraformReference<string>(this, "origin_request_policy_id");
+        get => GetArgument<TerraformValue<string>>("origin_request_policy_id");
         set => SetArgument("origin_request_policy_id", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RealtimeLogConfigArn
     {
-        get => new TerraformReference<string>(this, "realtime_log_config_arn");
+        get => GetArgument<TerraformValue<string>>("realtime_log_config_arn");
         set => SetArgument("realtime_log_config_arn", value);
     }
 
@@ -161,7 +161,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ResponseHeadersPolicyId
     {
-        get => new TerraformReference<string>(this, "response_headers_policy_id");
+        get => GetArgument<TerraformValue<string>>("response_headers_policy_id");
         set => SetArgument("response_headers_policy_id", value);
     }
 
@@ -170,7 +170,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SmoothStreaming
     {
-        get => new TerraformReference<bool>(this, "smooth_streaming");
+        get => GetArgument<TerraformValue<bool>>("smooth_streaming");
         set => SetArgument("smooth_streaming", value);
     }
 
@@ -180,25 +180,25 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetOriginId is required")]
     public required TerraformValue<string> TargetOriginId
     {
-        get => new TerraformReference<string>(this, "target_origin_id");
+        get => GetArgument<TerraformValue<string>>("target_origin_id");
         set => SetArgument("target_origin_id", value);
     }
 
     /// <summary>
     /// The trusted_key_groups attribute.
     /// </summary>
-    public TerraformList<string> TrustedKeyGroups
+    public TerraformList<string>? TrustedKeyGroups
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "trusted_key_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("trusted_key_groups");
         set => SetArgument("trusted_key_groups", value);
     }
 
     /// <summary>
     /// The trusted_signers attribute.
     /// </summary>
-    public TerraformList<string> TrustedSigners
+    public TerraformList<string>? TrustedSigners
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "trusted_signers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("trusted_signers");
         set => SetArgument("trusted_signers", value);
     }
 
@@ -208,7 +208,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ViewerProtocolPolicy is required")]
     public required TerraformValue<string> ViewerProtocolPolicy
     {
-        get => new TerraformReference<string>(this, "viewer_protocol_policy");
+        get => GetArgument<TerraformValue<string>>("viewer_protocol_policy");
         set => SetArgument("viewer_protocol_policy", value);
     }
 
@@ -268,9 +268,9 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlockForwardedValuesBl
     /// <summary>
     /// The headers attribute.
     /// </summary>
-    public TerraformSet<string> Headers
+    public TerraformSet<string>? Headers
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("headers");
         set => SetArgument("headers", value);
     }
 
@@ -280,16 +280,16 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlockForwardedValuesBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryString is required")]
     public required TerraformValue<bool> QueryString
     {
-        get => new TerraformReference<bool>(this, "query_string");
+        get => GetArgument<TerraformValue<bool>>("query_string");
         set => SetArgument("query_string", value);
     }
 
     /// <summary>
     /// The query_string_cache_keys attribute.
     /// </summary>
-    public TerraformList<string> QueryStringCacheKeys
+    public TerraformList<string>? QueryStringCacheKeys
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "query_string_cache_keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("query_string_cache_keys");
         set => SetArgument("query_string_cache_keys", value);
     }
 
@@ -325,16 +325,16 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlockForwardedValuesBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Forward is required")]
     public required TerraformValue<string> Forward
     {
-        get => new TerraformReference<string>(this, "forward");
+        get => GetArgument<TerraformValue<string>>("forward");
         set => SetArgument("forward", value);
     }
 
     /// <summary>
     /// The whitelisted_names attribute.
     /// </summary>
-    public TerraformSet<string> WhitelistedNames
+    public TerraformSet<string>? WhitelistedNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "whitelisted_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("whitelisted_names");
         set => SetArgument("whitelisted_names", value);
     }
 
@@ -357,7 +357,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlockFunctionAssociati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventType is required")]
     public required TerraformValue<string> EventType
     {
-        get => new TerraformReference<string>(this, "event_type");
+        get => GetArgument<TerraformValue<string>>("event_type");
         set => SetArgument("event_type", value);
     }
 
@@ -367,7 +367,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlockFunctionAssociati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionArn is required")]
     public required TerraformValue<string> FunctionArn
     {
-        get => new TerraformReference<string>(this, "function_arn");
+        get => GetArgument<TerraformValue<string>>("function_arn");
         set => SetArgument("function_arn", value);
     }
 
@@ -387,9 +387,9 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlockGrpcConfigBlock :
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool> Enabled
+    public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -412,7 +412,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlockLambdaFunctionAss
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventType is required")]
     public required TerraformValue<string> EventType
     {
-        get => new TerraformReference<string>(this, "event_type");
+        get => GetArgument<TerraformValue<string>>("event_type");
         set => SetArgument("event_type", value);
     }
 
@@ -421,7 +421,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlockLambdaFunctionAss
     /// </summary>
     public TerraformValue<bool>? IncludeBody
     {
-        get => new TerraformReference<bool>(this, "include_body");
+        get => GetArgument<TerraformValue<bool>>("include_body");
         set => SetArgument("include_body", value);
     }
 
@@ -431,7 +431,7 @@ public class AwsCloudfrontDistributionDefaultCacheBehaviorBlockLambdaFunctionAss
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LambdaArn is required")]
     public required TerraformValue<string> LambdaArn
     {
-        get => new TerraformReference<string>(this, "lambda_arn");
+        get => GetArgument<TerraformValue<string>>("lambda_arn");
         set => SetArgument("lambda_arn", value);
     }
 
@@ -455,7 +455,7 @@ public class AwsCloudfrontDistributionLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -464,7 +464,7 @@ public class AwsCloudfrontDistributionLoggingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IncludeCookies
     {
-        get => new TerraformReference<bool>(this, "include_cookies");
+        get => GetArgument<TerraformValue<bool>>("include_cookies");
         set => SetArgument("include_cookies", value);
     }
 
@@ -473,7 +473,7 @@ public class AwsCloudfrontDistributionLoggingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -497,7 +497,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
     public required TerraformSet<string> AllowedMethods
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_methods");
         set => SetArgument("allowed_methods", value);
     }
 
@@ -506,7 +506,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CachePolicyId
     {
-        get => new TerraformReference<string>(this, "cache_policy_id");
+        get => GetArgument<TerraformValue<string>>("cache_policy_id");
         set => SetArgument("cache_policy_id", value);
     }
 
@@ -516,7 +516,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CachedMethods is required")]
     public required TerraformSet<string> CachedMethods
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "cached_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("cached_methods");
         set => SetArgument("cached_methods", value);
     }
 
@@ -525,16 +525,16 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Compress
     {
-        get => new TerraformReference<bool>(this, "compress");
+        get => GetArgument<TerraformValue<bool>>("compress");
         set => SetArgument("compress", value);
     }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    public TerraformValue<double> DefaultTtl
+    public TerraformValue<double>? DefaultTtl
     {
-        get => new TerraformReference<double>(this, "default_ttl");
+        get => GetArgument<TerraformValue<double>>("default_ttl");
         set => SetArgument("default_ttl", value);
     }
 
@@ -543,16 +543,16 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FieldLevelEncryptionId
     {
-        get => new TerraformReference<string>(this, "field_level_encryption_id");
+        get => GetArgument<TerraformValue<string>>("field_level_encryption_id");
         set => SetArgument("field_level_encryption_id", value);
     }
 
     /// <summary>
     /// The max_ttl attribute.
     /// </summary>
-    public TerraformValue<double> MaxTtl
+    public TerraformValue<double>? MaxTtl
     {
-        get => new TerraformReference<double>(this, "max_ttl");
+        get => GetArgument<TerraformValue<double>>("max_ttl");
         set => SetArgument("max_ttl", value);
     }
 
@@ -561,7 +561,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MinTtl
     {
-        get => new TerraformReference<double>(this, "min_ttl");
+        get => GetArgument<TerraformValue<double>>("min_ttl");
         set => SetArgument("min_ttl", value);
     }
 
@@ -570,7 +570,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OriginRequestPolicyId
     {
-        get => new TerraformReference<string>(this, "origin_request_policy_id");
+        get => GetArgument<TerraformValue<string>>("origin_request_policy_id");
         set => SetArgument("origin_request_policy_id", value);
     }
 
@@ -580,7 +580,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PathPattern is required")]
     public required TerraformValue<string> PathPattern
     {
-        get => new TerraformReference<string>(this, "path_pattern");
+        get => GetArgument<TerraformValue<string>>("path_pattern");
         set => SetArgument("path_pattern", value);
     }
 
@@ -589,7 +589,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RealtimeLogConfigArn
     {
-        get => new TerraformReference<string>(this, "realtime_log_config_arn");
+        get => GetArgument<TerraformValue<string>>("realtime_log_config_arn");
         set => SetArgument("realtime_log_config_arn", value);
     }
 
@@ -598,7 +598,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ResponseHeadersPolicyId
     {
-        get => new TerraformReference<string>(this, "response_headers_policy_id");
+        get => GetArgument<TerraformValue<string>>("response_headers_policy_id");
         set => SetArgument("response_headers_policy_id", value);
     }
 
@@ -607,7 +607,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SmoothStreaming
     {
-        get => new TerraformReference<bool>(this, "smooth_streaming");
+        get => GetArgument<TerraformValue<bool>>("smooth_streaming");
         set => SetArgument("smooth_streaming", value);
     }
 
@@ -617,7 +617,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetOriginId is required")]
     public required TerraformValue<string> TargetOriginId
     {
-        get => new TerraformReference<string>(this, "target_origin_id");
+        get => GetArgument<TerraformValue<string>>("target_origin_id");
         set => SetArgument("target_origin_id", value);
     }
 
@@ -626,7 +626,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? TrustedKeyGroups
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "trusted_key_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("trusted_key_groups");
         set => SetArgument("trusted_key_groups", value);
     }
 
@@ -635,7 +635,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? TrustedSigners
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "trusted_signers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("trusted_signers");
         set => SetArgument("trusted_signers", value);
     }
 
@@ -645,7 +645,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ViewerProtocolPolicy is required")]
     public required TerraformValue<string> ViewerProtocolPolicy
     {
-        get => new TerraformReference<string>(this, "viewer_protocol_policy");
+        get => GetArgument<TerraformValue<string>>("viewer_protocol_policy");
         set => SetArgument("viewer_protocol_policy", value);
     }
 
@@ -705,9 +705,9 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlockForwardedValuesBl
     /// <summary>
     /// The headers attribute.
     /// </summary>
-    public TerraformSet<string> Headers
+    public TerraformSet<string>? Headers
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("headers");
         set => SetArgument("headers", value);
     }
 
@@ -717,16 +717,16 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlockForwardedValuesBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryString is required")]
     public required TerraformValue<bool> QueryString
     {
-        get => new TerraformReference<bool>(this, "query_string");
+        get => GetArgument<TerraformValue<bool>>("query_string");
         set => SetArgument("query_string", value);
     }
 
     /// <summary>
     /// The query_string_cache_keys attribute.
     /// </summary>
-    public TerraformList<string> QueryStringCacheKeys
+    public TerraformList<string>? QueryStringCacheKeys
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "query_string_cache_keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("query_string_cache_keys");
         set => SetArgument("query_string_cache_keys", value);
     }
 
@@ -762,7 +762,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlockForwardedValuesBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Forward is required")]
     public required TerraformValue<string> Forward
     {
-        get => new TerraformReference<string>(this, "forward");
+        get => GetArgument<TerraformValue<string>>("forward");
         set => SetArgument("forward", value);
     }
 
@@ -771,7 +771,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlockForwardedValuesBl
     /// </summary>
     public TerraformSet<string>? WhitelistedNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "whitelisted_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("whitelisted_names");
         set => SetArgument("whitelisted_names", value);
     }
 
@@ -794,7 +794,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlockFunctionAssociati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventType is required")]
     public required TerraformValue<string> EventType
     {
-        get => new TerraformReference<string>(this, "event_type");
+        get => GetArgument<TerraformValue<string>>("event_type");
         set => SetArgument("event_type", value);
     }
 
@@ -804,7 +804,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlockFunctionAssociati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionArn is required")]
     public required TerraformValue<string> FunctionArn
     {
-        get => new TerraformReference<string>(this, "function_arn");
+        get => GetArgument<TerraformValue<string>>("function_arn");
         set => SetArgument("function_arn", value);
     }
 
@@ -824,9 +824,9 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlockGrpcConfigBlock :
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool> Enabled
+    public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -849,7 +849,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlockLambdaFunctionAss
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventType is required")]
     public required TerraformValue<string> EventType
     {
-        get => new TerraformReference<string>(this, "event_type");
+        get => GetArgument<TerraformValue<string>>("event_type");
         set => SetArgument("event_type", value);
     }
 
@@ -858,7 +858,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlockLambdaFunctionAss
     /// </summary>
     public TerraformValue<bool>? IncludeBody
     {
-        get => new TerraformReference<bool>(this, "include_body");
+        get => GetArgument<TerraformValue<bool>>("include_body");
         set => SetArgument("include_body", value);
     }
 
@@ -868,7 +868,7 @@ public class AwsCloudfrontDistributionOrderedCacheBehaviorBlockLambdaFunctionAss
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LambdaArn is required")]
     public required TerraformValue<string> LambdaArn
     {
-        get => new TerraformReference<string>(this, "lambda_arn");
+        get => GetArgument<TerraformValue<string>>("lambda_arn");
         set => SetArgument("lambda_arn", value);
     }
 
@@ -891,7 +891,7 @@ public class AwsCloudfrontDistributionOriginBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ConnectionAttempts
     {
-        get => new TerraformReference<double>(this, "connection_attempts");
+        get => GetArgument<TerraformValue<double>>("connection_attempts");
         set => SetArgument("connection_attempts", value);
     }
 
@@ -900,7 +900,7 @@ public class AwsCloudfrontDistributionOriginBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ConnectionTimeout
     {
-        get => new TerraformReference<double>(this, "connection_timeout");
+        get => GetArgument<TerraformValue<double>>("connection_timeout");
         set => SetArgument("connection_timeout", value);
     }
 
@@ -910,7 +910,7 @@ public class AwsCloudfrontDistributionOriginBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -919,7 +919,7 @@ public class AwsCloudfrontDistributionOriginBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OriginAccessControlId
     {
-        get => new TerraformReference<string>(this, "origin_access_control_id");
+        get => GetArgument<TerraformValue<string>>("origin_access_control_id");
         set => SetArgument("origin_access_control_id", value);
     }
 
@@ -929,7 +929,7 @@ public class AwsCloudfrontDistributionOriginBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginId is required")]
     public required TerraformValue<string> OriginId
     {
-        get => new TerraformReference<string>(this, "origin_id");
+        get => GetArgument<TerraformValue<string>>("origin_id");
         set => SetArgument("origin_id", value);
     }
 
@@ -938,16 +938,16 @@ public class AwsCloudfrontDistributionOriginBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OriginPath
     {
-        get => new TerraformReference<string>(this, "origin_path");
+        get => GetArgument<TerraformValue<string>>("origin_path");
         set => SetArgument("origin_path", value);
     }
 
     /// <summary>
     /// The response_completion_timeout attribute.
     /// </summary>
-    public TerraformValue<double> ResponseCompletionTimeout
+    public TerraformValue<double>? ResponseCompletionTimeout
     {
-        get => new TerraformReference<double>(this, "response_completion_timeout");
+        get => GetArgument<TerraformValue<double>>("response_completion_timeout");
         set => SetArgument("response_completion_timeout", value);
     }
 
@@ -1019,7 +1019,7 @@ public class AwsCloudfrontDistributionOriginBlockCustomHeaderBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1029,7 +1029,7 @@ public class AwsCloudfrontDistributionOriginBlockCustomHeaderBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1052,7 +1052,7 @@ public class AwsCloudfrontDistributionOriginBlockCustomOriginConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpPort is required")]
     public required TerraformValue<double> HttpPort
     {
-        get => new TerraformReference<double>(this, "http_port");
+        get => GetArgument<TerraformValue<double>>("http_port");
         set => SetArgument("http_port", value);
     }
 
@@ -1062,7 +1062,7 @@ public class AwsCloudfrontDistributionOriginBlockCustomOriginConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpsPort is required")]
     public required TerraformValue<double> HttpsPort
     {
-        get => new TerraformReference<double>(this, "https_port");
+        get => GetArgument<TerraformValue<double>>("https_port");
         set => SetArgument("https_port", value);
     }
 
@@ -1071,7 +1071,7 @@ public class AwsCloudfrontDistributionOriginBlockCustomOriginConfigBlock : Terra
     /// </summary>
     public TerraformValue<string>? IpAddressType
     {
-        get => new TerraformReference<string>(this, "ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
@@ -1080,7 +1080,7 @@ public class AwsCloudfrontDistributionOriginBlockCustomOriginConfigBlock : Terra
     /// </summary>
     public TerraformValue<double>? OriginKeepaliveTimeout
     {
-        get => new TerraformReference<double>(this, "origin_keepalive_timeout");
+        get => GetArgument<TerraformValue<double>>("origin_keepalive_timeout");
         set => SetArgument("origin_keepalive_timeout", value);
     }
 
@@ -1090,7 +1090,7 @@ public class AwsCloudfrontDistributionOriginBlockCustomOriginConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginProtocolPolicy is required")]
     public required TerraformValue<string> OriginProtocolPolicy
     {
-        get => new TerraformReference<string>(this, "origin_protocol_policy");
+        get => GetArgument<TerraformValue<string>>("origin_protocol_policy");
         set => SetArgument("origin_protocol_policy", value);
     }
 
@@ -1099,7 +1099,7 @@ public class AwsCloudfrontDistributionOriginBlockCustomOriginConfigBlock : Terra
     /// </summary>
     public TerraformValue<double>? OriginReadTimeout
     {
-        get => new TerraformReference<double>(this, "origin_read_timeout");
+        get => GetArgument<TerraformValue<double>>("origin_read_timeout");
         set => SetArgument("origin_read_timeout", value);
     }
 
@@ -1109,7 +1109,7 @@ public class AwsCloudfrontDistributionOriginBlockCustomOriginConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginSslProtocols is required")]
     public required TerraformSet<string> OriginSslProtocols
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "origin_ssl_protocols").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("origin_ssl_protocols");
         set => SetArgument("origin_ssl_protocols", value);
     }
 
@@ -1132,7 +1132,7 @@ public class AwsCloudfrontDistributionOriginBlockOriginShieldBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1141,7 +1141,7 @@ public class AwsCloudfrontDistributionOriginBlockOriginShieldBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? OriginShieldRegion
     {
-        get => new TerraformReference<string>(this, "origin_shield_region");
+        get => GetArgument<TerraformValue<string>>("origin_shield_region");
         set => SetArgument("origin_shield_region", value);
     }
 
@@ -1164,7 +1164,7 @@ public class AwsCloudfrontDistributionOriginBlockS3OriginConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginAccessIdentity is required")]
     public required TerraformValue<string> OriginAccessIdentity
     {
-        get => new TerraformReference<string>(this, "origin_access_identity");
+        get => GetArgument<TerraformValue<string>>("origin_access_identity");
         set => SetArgument("origin_access_identity", value);
     }
 
@@ -1186,7 +1186,7 @@ public class AwsCloudfrontDistributionOriginBlockVpcOriginConfigBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? OriginKeepaliveTimeout
     {
-        get => new TerraformReference<double>(this, "origin_keepalive_timeout");
+        get => GetArgument<TerraformValue<double>>("origin_keepalive_timeout");
         set => SetArgument("origin_keepalive_timeout", value);
     }
 
@@ -1195,7 +1195,7 @@ public class AwsCloudfrontDistributionOriginBlockVpcOriginConfigBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? OriginReadTimeout
     {
-        get => new TerraformReference<double>(this, "origin_read_timeout");
+        get => GetArgument<TerraformValue<double>>("origin_read_timeout");
         set => SetArgument("origin_read_timeout", value);
     }
 
@@ -1205,7 +1205,7 @@ public class AwsCloudfrontDistributionOriginBlockVpcOriginConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcOriginId is required")]
     public required TerraformValue<string> VpcOriginId
     {
-        get => new TerraformReference<string>(this, "vpc_origin_id");
+        get => GetArgument<TerraformValue<string>>("vpc_origin_id");
         set => SetArgument("vpc_origin_id", value);
     }
 
@@ -1229,7 +1229,7 @@ public class AwsCloudfrontDistributionOriginGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginId is required")]
     public required TerraformValue<string> OriginId
     {
-        get => new TerraformReference<string>(this, "origin_id");
+        get => GetArgument<TerraformValue<string>>("origin_id");
         set => SetArgument("origin_id", value);
     }
 
@@ -1276,7 +1276,7 @@ public class AwsCloudfrontDistributionOriginGroupBlockFailoverCriteriaBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCodes is required")]
     public required TerraformSet<double> StatusCodes
     {
-        get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "status_codes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<double>>("status_codes");
         set => SetArgument("status_codes", value);
     }
 
@@ -1299,7 +1299,7 @@ public class AwsCloudfrontDistributionOriginGroupBlockMemberBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginId is required")]
     public required TerraformValue<string> OriginId
     {
-        get => new TerraformReference<string>(this, "origin_id");
+        get => GetArgument<TerraformValue<string>>("origin_id");
         set => SetArgument("origin_id", value);
     }
 
@@ -1346,9 +1346,9 @@ public class AwsCloudfrontDistributionRestrictionsBlockGeoRestrictionBlock : Ter
     /// <summary>
     /// The locations attribute.
     /// </summary>
-    public TerraformSet<string> Locations
+    public TerraformSet<string>? Locations
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("locations");
         set => SetArgument("locations", value);
     }
 
@@ -1358,7 +1358,7 @@ public class AwsCloudfrontDistributionRestrictionsBlockGeoRestrictionBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestrictionType is required")]
     public required TerraformValue<string> RestrictionType
     {
-        get => new TerraformReference<string>(this, "restriction_type");
+        get => GetArgument<TerraformValue<string>>("restriction_type");
         set => SetArgument("restriction_type", value);
     }
 
@@ -1381,7 +1381,7 @@ public class AwsCloudfrontDistributionViewerCertificateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AcmCertificateArn
     {
-        get => new TerraformReference<string>(this, "acm_certificate_arn");
+        get => GetArgument<TerraformValue<string>>("acm_certificate_arn");
         set => SetArgument("acm_certificate_arn", value);
     }
 
@@ -1390,7 +1390,7 @@ public class AwsCloudfrontDistributionViewerCertificateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? CloudfrontDefaultCertificate
     {
-        get => new TerraformReference<bool>(this, "cloudfront_default_certificate");
+        get => GetArgument<TerraformValue<bool>>("cloudfront_default_certificate");
         set => SetArgument("cloudfront_default_certificate", value);
     }
 
@@ -1399,7 +1399,7 @@ public class AwsCloudfrontDistributionViewerCertificateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? IamCertificateId
     {
-        get => new TerraformReference<string>(this, "iam_certificate_id");
+        get => GetArgument<TerraformValue<string>>("iam_certificate_id");
         set => SetArgument("iam_certificate_id", value);
     }
 
@@ -1408,7 +1408,7 @@ public class AwsCloudfrontDistributionViewerCertificateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MinimumProtocolVersion
     {
-        get => new TerraformReference<string>(this, "minimum_protocol_version");
+        get => GetArgument<TerraformValue<string>>("minimum_protocol_version");
         set => SetArgument("minimum_protocol_version", value);
     }
 
@@ -1417,7 +1417,7 @@ public class AwsCloudfrontDistributionViewerCertificateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SslSupportMethod
     {
-        get => new TerraformReference<string>(this, "ssl_support_method");
+        get => GetArgument<TerraformValue<string>>("ssl_support_method");
         set => SetArgument("ssl_support_method", value);
     }
 
@@ -1435,7 +1435,7 @@ public partial class AwsCloudfrontDistribution(string name) : TerraformResource(
     /// </summary>
     public TerraformSet<string>? Aliases
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "aliases").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("aliases");
         set => SetArgument("aliases", value);
     }
 
@@ -1444,7 +1444,7 @@ public partial class AwsCloudfrontDistribution(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? AnycastIpListId
     {
-        get => new TerraformReference<string>(this, "anycast_ip_list_id");
+        get => GetArgument<TerraformValue<string>>("anycast_ip_list_id");
         set => SetArgument("anycast_ip_list_id", value);
     }
 
@@ -1453,16 +1453,16 @@ public partial class AwsCloudfrontDistribution(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Comment
     {
-        get => new TerraformReference<string>(this, "comment");
+        get => GetArgument<TerraformValue<string>>("comment");
         set => SetArgument("comment", value);
     }
 
     /// <summary>
     /// The continuous_deployment_policy_id attribute.
     /// </summary>
-    public TerraformValue<string> ContinuousDeploymentPolicyId
+    public TerraformValue<string>? ContinuousDeploymentPolicyId
     {
-        get => new TerraformReference<string>(this, "continuous_deployment_policy_id");
+        get => GetArgument<TerraformValue<string>>("continuous_deployment_policy_id");
         set => SetArgument("continuous_deployment_policy_id", value);
     }
 
@@ -1471,7 +1471,7 @@ public partial class AwsCloudfrontDistribution(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? DefaultRootObject
     {
-        get => new TerraformReference<string>(this, "default_root_object");
+        get => GetArgument<TerraformValue<string>>("default_root_object");
         set => SetArgument("default_root_object", value);
     }
 
@@ -1481,7 +1481,7 @@ public partial class AwsCloudfrontDistribution(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1490,16 +1490,16 @@ public partial class AwsCloudfrontDistribution(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? HttpVersion
     {
-        get => new TerraformReference<string>(this, "http_version");
+        get => GetArgument<TerraformValue<string>>("http_version");
         set => SetArgument("http_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1508,7 +1508,7 @@ public partial class AwsCloudfrontDistribution(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? IsIpv6Enabled
     {
-        get => new TerraformReference<bool>(this, "is_ipv6_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_ipv6_enabled");
         set => SetArgument("is_ipv6_enabled", value);
     }
 
@@ -1517,7 +1517,7 @@ public partial class AwsCloudfrontDistribution(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? PriceClass
     {
-        get => new TerraformReference<string>(this, "price_class");
+        get => GetArgument<TerraformValue<string>>("price_class");
         set => SetArgument("price_class", value);
     }
 
@@ -1526,7 +1526,7 @@ public partial class AwsCloudfrontDistribution(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? RetainOnDelete
     {
-        get => new TerraformReference<bool>(this, "retain_on_delete");
+        get => GetArgument<TerraformValue<bool>>("retain_on_delete");
         set => SetArgument("retain_on_delete", value);
     }
 
@@ -1535,7 +1535,7 @@ public partial class AwsCloudfrontDistribution(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? Staging
     {
-        get => new TerraformReference<bool>(this, "staging");
+        get => GetArgument<TerraformValue<bool>>("staging");
         set => SetArgument("staging", value);
     }
 
@@ -1544,16 +1544,16 @@ public partial class AwsCloudfrontDistribution(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1562,7 +1562,7 @@ public partial class AwsCloudfrontDistribution(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? WaitForDeployment
     {
-        get => new TerraformReference<bool>(this, "wait_for_deployment");
+        get => GetArgument<TerraformValue<bool>>("wait_for_deployment");
         set => SetArgument("wait_for_deployment", value);
     }
 
@@ -1571,7 +1571,7 @@ public partial class AwsCloudfrontDistribution(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? WebAclId
     {
-        get => new TerraformReference<string>(this, "web_acl_id");
+        get => GetArgument<TerraformValue<string>>("web_acl_id");
         set => SetArgument("web_acl_id", value);
     }
 
@@ -1579,81 +1579,61 @@ public partial class AwsCloudfrontDistribution(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
     public TerraformValue<string> CallerReference
-    {
-        get => new TerraformReference<string>(this, "caller_reference");
-    }
+        => AsReference("caller_reference");
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     public TerraformValue<string> DomainName
-    {
-        get => new TerraformReference<string>(this, "domain_name");
-    }
+        => AsReference("domain_name");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
     public TerraformValue<string> HostedZoneId
-    {
-        get => new TerraformReference<string>(this, "hosted_zone_id");
-    }
+        => AsReference("hosted_zone_id");
 
     /// <summary>
     /// The in_progress_validation_batches attribute.
     /// </summary>
     public TerraformValue<double> InProgressValidationBatches
-    {
-        get => new TerraformReference<double>(this, "in_progress_validation_batches");
-    }
+        => AsReference("in_progress_validation_batches");
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedTime
-    {
-        get => new TerraformReference<string>(this, "last_modified_time");
-    }
+        => AsReference("last_modified_time");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The trusted_key_groups attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrustedKeyGroups
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "trusted_key_groups").ResolveNodes(ctx));
-    }
+        => AsReference("trusted_key_groups");
 
     /// <summary>
     /// The trusted_signers attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrustedSigners
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "trusted_signers").ResolveNodes(ctx));
-    }
+        => AsReference("trusted_signers");
 
     /// <summary>
     /// CustomErrorResponse block (nesting mode: set).

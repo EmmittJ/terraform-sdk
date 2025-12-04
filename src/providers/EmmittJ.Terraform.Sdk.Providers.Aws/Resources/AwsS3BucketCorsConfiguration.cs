@@ -18,7 +18,7 @@ public class AwsS3BucketCorsConfigurationCorsRuleBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? AllowedHeaders
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_headers");
         set => SetArgument("allowed_headers", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsS3BucketCorsConfigurationCorsRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
     public required TerraformSet<string> AllowedMethods
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_methods");
         set => SetArgument("allowed_methods", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsS3BucketCorsConfigurationCorsRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
     public required TerraformSet<string> AllowedOrigins
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_origins").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_origins");
         set => SetArgument("allowed_origins", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsS3BucketCorsConfigurationCorsRuleBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ExposeHeaders
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "expose_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("expose_headers");
         set => SetArgument("expose_headers", value);
     }
 
@@ -56,7 +56,7 @@ public class AwsS3BucketCorsConfigurationCorsRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -65,7 +65,7 @@ public class AwsS3BucketCorsConfigurationCorsRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxAgeSeconds
     {
-        get => new TerraformReference<double>(this, "max_age_seconds");
+        get => GetArgument<TerraformValue<double>>("max_age_seconds");
         set => SetArgument("max_age_seconds", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AwsS3BucketCorsConfiguration(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -93,25 +93,25 @@ public partial class AwsS3BucketCorsConfiguration(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? ExpectedBucketOwner
     {
-        get => new TerraformReference<string>(this, "expected_bucket_owner");
+        get => GetArgument<TerraformValue<string>>("expected_bucket_owner");
         set => SetArgument("expected_bucket_owner", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

@@ -11,36 +11,36 @@ public partial class AwsRedshiftOrderableClusterDataSource(string name) : Terraf
     /// <summary>
     /// The cluster_type attribute.
     /// </summary>
-    public TerraformValue<string> ClusterType
+    public TerraformValue<string>? ClusterType
     {
-        get => new TerraformReference<string>(this, "cluster_type");
+        get => GetArgument<TerraformValue<string>>("cluster_type");
         set => SetArgument("cluster_type", value);
     }
 
     /// <summary>
     /// The cluster_version attribute.
     /// </summary>
-    public TerraformValue<string> ClusterVersion
+    public TerraformValue<string>? ClusterVersion
     {
-        get => new TerraformReference<string>(this, "cluster_version");
+        get => GetArgument<TerraformValue<string>>("cluster_version");
         set => SetArgument("cluster_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The node_type attribute.
     /// </summary>
-    public TerraformValue<string> NodeType
+    public TerraformValue<string>? NodeType
     {
-        get => new TerraformReference<string>(this, "node_type");
+        get => GetArgument<TerraformValue<string>>("node_type");
         set => SetArgument("node_type", value);
     }
 
@@ -49,16 +49,16 @@ public partial class AwsRedshiftOrderableClusterDataSource(string name) : Terraf
     /// </summary>
     public TerraformList<string>? PreferredNodeTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "preferred_node_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("preferred_node_types");
         set => SetArgument("preferred_node_types", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -66,8 +66,6 @@ public partial class AwsRedshiftOrderableClusterDataSource(string name) : Terraf
     /// The availability_zones attribute.
     /// </summary>
     public TerraformList<string> AvailabilityZones
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "availability_zones").ResolveNodes(ctx));
-    }
+        => AsReference("availability_zones");
 
 }

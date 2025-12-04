@@ -18,7 +18,7 @@ public class AzurermFirewallNatRuleCollectionRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermFirewallNatRuleCollectionRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationAddresses is required")]
     public TerraformList<string>? DestinationAddresses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "destination_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("destination_addresses");
         set => SetArgument("destination_addresses", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermFirewallNatRuleCollectionRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationPorts is required")]
     public TerraformList<string>? DestinationPorts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "destination_ports").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("destination_ports");
         set => SetArgument("destination_ports", value);
     }
 
@@ -48,7 +48,7 @@ public class AzurermFirewallNatRuleCollectionRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -58,7 +58,7 @@ public class AzurermFirewallNatRuleCollectionRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocols is required")]
     public TerraformList<string>? Protocols
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "protocols").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("protocols");
         set => SetArgument("protocols", value);
     }
 
@@ -67,7 +67,7 @@ public class AzurermFirewallNatRuleCollectionRuleBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? SourceAddresses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "source_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("source_addresses");
         set => SetArgument("source_addresses", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermFirewallNatRuleCollectionRuleBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? SourceIpGroups
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "source_ip_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("source_ip_groups");
         set => SetArgument("source_ip_groups", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermFirewallNatRuleCollectionRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TranslatedAddress is required")]
     public required TerraformValue<string> TranslatedAddress
     {
-        get => new TerraformReference<string>(this, "translated_address");
+        get => GetArgument<TerraformValue<string>>("translated_address");
         set => SetArgument("translated_address", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermFirewallNatRuleCollectionRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TranslatedPort is required")]
     public required TerraformValue<string> TranslatedPort
     {
-        get => new TerraformReference<string>(this, "translated_port");
+        get => GetArgument<TerraformValue<string>>("translated_port");
         set => SetArgument("translated_port", value);
     }
 
@@ -119,7 +119,7 @@ public class AzurermFirewallNatRuleCollectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -128,7 +128,7 @@ public class AzurermFirewallNatRuleCollectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -137,7 +137,7 @@ public class AzurermFirewallNatRuleCollectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -146,7 +146,7 @@ public class AzurermFirewallNatRuleCollectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AzurermFirewallNatRuleCollection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -175,16 +175,16 @@ public partial class AzurermFirewallNatRuleCollection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzureFirewallName is required")]
     public required TerraformValue<string> AzureFirewallName
     {
-        get => new TerraformReference<string>(this, "azure_firewall_name");
+        get => GetArgument<TerraformValue<string>>("azure_firewall_name");
         set => SetArgument("azure_firewall_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -194,7 +194,7 @@ public partial class AzurermFirewallNatRuleCollection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -204,7 +204,7 @@ public partial class AzurermFirewallNatRuleCollection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -214,7 +214,7 @@ public partial class AzurermFirewallNatRuleCollection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

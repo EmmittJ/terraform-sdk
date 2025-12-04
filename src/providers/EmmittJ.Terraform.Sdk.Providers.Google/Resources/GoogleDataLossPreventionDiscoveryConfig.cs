@@ -94,7 +94,7 @@ public class GoogleDataLossPreventionDiscoveryConfigActionsBlockExportDataBlockP
     /// </summary>
     public TerraformValue<string>? DatasetId
     {
-        get => new TerraformReference<string>(this, "dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -103,7 +103,7 @@ public class GoogleDataLossPreventionDiscoveryConfigActionsBlockExportDataBlockP
     /// </summary>
     public TerraformValue<string>? ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -112,7 +112,7 @@ public class GoogleDataLossPreventionDiscoveryConfigActionsBlockExportDataBlockP
     /// </summary>
     public TerraformValue<string>? TableId
     {
-        get => new TerraformReference<string>(this, "table_id");
+        get => GetArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -134,7 +134,7 @@ public class GoogleDataLossPreventionDiscoveryConfigActionsBlockPubSubNotificati
     /// </summary>
     public TerraformValue<string>? DetailOfMessage
     {
-        get => new TerraformReference<string>(this, "detail_of_message");
+        get => GetArgument<TerraformValue<string>>("detail_of_message");
         set => SetArgument("detail_of_message", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleDataLossPreventionDiscoveryConfigActionsBlockPubSubNotificati
     /// </summary>
     public TerraformValue<string>? EventAttribute
     {
-        get => new TerraformReference<string>(this, "event");
+        get => GetArgument<TerraformValue<string>>("event");
         set => SetArgument("event", value);
     }
 
@@ -152,7 +152,7 @@ public class GoogleDataLossPreventionDiscoveryConfigActionsBlockPubSubNotificati
     /// </summary>
     public TerraformValue<string>? Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -207,7 +207,7 @@ public class GoogleDataLossPreventionDiscoveryConfigActionsBlockPubSubNotificati
     /// </summary>
     public TerraformValue<string>? LogicalOperator
     {
-        get => new TerraformReference<string>(this, "logical_operator");
+        get => GetArgument<TerraformValue<string>>("logical_operator");
         set => SetArgument("logical_operator", value);
     }
 
@@ -238,7 +238,7 @@ public class GoogleDataLossPreventionDiscoveryConfigActionsBlockPubSubNotificati
     /// </summary>
     public TerraformValue<string>? MinimumRiskScore
     {
-        get => new TerraformReference<string>(this, "minimum_risk_score");
+        get => GetArgument<TerraformValue<string>>("minimum_risk_score");
         set => SetArgument("minimum_risk_score", value);
     }
 
@@ -247,7 +247,7 @@ public class GoogleDataLossPreventionDiscoveryConfigActionsBlockPubSubNotificati
     /// </summary>
     public TerraformValue<string>? MinimumSensitivityScore
     {
-        get => new TerraformReference<string>(this, "minimum_sensitivity_score");
+        get => GetArgument<TerraformValue<string>>("minimum_sensitivity_score");
         set => SetArgument("minimum_sensitivity_score", value);
     }
 
@@ -282,7 +282,7 @@ public class GoogleDataLossPreventionDiscoveryConfigActionsBlockTagResourcesBloc
     /// </summary>
     public TerraformValue<bool>? LowerDataRiskToLow
     {
-        get => new TerraformReference<bool>(this, "lower_data_risk_to_low");
+        get => GetArgument<TerraformValue<bool>>("lower_data_risk_to_low");
         set => SetArgument("lower_data_risk_to_low", value);
     }
 
@@ -291,7 +291,7 @@ public class GoogleDataLossPreventionDiscoveryConfigActionsBlockTagResourcesBloc
     /// </summary>
     public TerraformList<string>? ProfileGenerationsToTag
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "profile_generations_to_tag").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("profile_generations_to_tag");
         set => SetArgument("profile_generations_to_tag", value);
     }
 
@@ -356,7 +356,7 @@ public class GoogleDataLossPreventionDiscoveryConfigActionsBlockTagResourcesBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => new TerraformReference<string>(this, "score");
+        get => GetArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -378,7 +378,7 @@ public class GoogleDataLossPreventionDiscoveryConfigActionsBlockTagResourcesBloc
     /// </summary>
     public TerraformValue<string>? NamespacedValue
     {
-        get => new TerraformReference<string>(this, "namespaced_value");
+        get => GetArgument<TerraformValue<string>>("namespaced_value");
         set => SetArgument("namespaced_value", value);
     }
 
@@ -401,7 +401,7 @@ public class GoogleDataLossPreventionDiscoveryConfigOrgConfigBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -433,7 +433,7 @@ public class GoogleDataLossPreventionDiscoveryConfigOrgConfigBlockLocationBlock 
     /// </summary>
     public TerraformValue<string>? FolderId
     {
-        get => new TerraformReference<string>(this, "folder_id");
+        get => GetArgument<TerraformValue<string>>("folder_id");
         set => SetArgument("folder_id", value);
     }
 
@@ -442,7 +442,7 @@ public class GoogleDataLossPreventionDiscoveryConfigOrgConfigBlockLocationBlock 
     /// </summary>
     public TerraformValue<string>? OrganizationId
     {
-        get => new TerraformReference<string>(this, "organization_id");
+        get => GetArgument<TerraformValue<string>>("organization_id");
         set => SetArgument("organization_id", value);
     }
 
@@ -488,7 +488,7 @@ public class GoogleDataLossPreventionDiscoveryConfigOtherCloudStartingLocationBl
     /// </summary>
     public TerraformValue<string>? AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -497,7 +497,7 @@ public class GoogleDataLossPreventionDiscoveryConfigOtherCloudStartingLocationBl
     /// </summary>
     public TerraformValue<bool>? AllAssetInventoryAssets
     {
-        get => new TerraformReference<bool>(this, "all_asset_inventory_assets");
+        get => GetArgument<TerraformValue<bool>>("all_asset_inventory_assets");
         set => SetArgument("all_asset_inventory_assets", value);
     }
 
@@ -679,7 +679,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockBigQueryTargetBl
     /// </summary>
     public TerraformValue<string>? Frequency
     {
-        get => new TerraformReference<string>(this, "frequency");
+        get => GetArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -701,7 +701,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockBigQueryTargetBl
     /// </summary>
     public TerraformValue<string>? Frequency
     {
-        get => new TerraformReference<string>(this, "frequency");
+        get => GetArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -710,7 +710,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockBigQueryTargetBl
     /// </summary>
     public TerraformList<string>? Types
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("types");
         set => SetArgument("types", value);
     }
 
@@ -732,7 +732,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockBigQueryTargetBl
     /// </summary>
     public TerraformValue<string>? Frequency
     {
-        get => new TerraformReference<string>(this, "frequency");
+        get => GetArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -741,7 +741,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockBigQueryTargetBl
     /// </summary>
     public TerraformList<string>? Types
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("types");
         set => SetArgument("types", value);
     }
 
@@ -763,7 +763,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockBigQueryTargetBl
     /// </summary>
     public TerraformValue<string>? CreatedAfter
     {
-        get => new TerraformReference<string>(this, "created_after");
+        get => GetArgument<TerraformValue<string>>("created_after");
         set => SetArgument("created_after", value);
     }
 
@@ -772,7 +772,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockBigQueryTargetBl
     /// </summary>
     public TerraformValue<string>? TypeCollection
     {
-        get => new TerraformReference<string>(this, "type_collection");
+        get => GetArgument<TerraformValue<string>>("type_collection");
         set => SetArgument("type_collection", value);
     }
 
@@ -814,7 +814,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockBigQueryTargetBl
     /// </summary>
     public TerraformValue<string>? MinAge
     {
-        get => new TerraformReference<string>(this, "min_age");
+        get => GetArgument<TerraformValue<string>>("min_age");
         set => SetArgument("min_age", value);
     }
 
@@ -823,7 +823,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockBigQueryTargetBl
     /// </summary>
     public TerraformValue<double>? MinRowCount
     {
-        get => new TerraformReference<double>(this, "min_row_count");
+        get => GetArgument<TerraformValue<double>>("min_row_count");
         set => SetArgument("min_row_count", value);
     }
 
@@ -845,7 +845,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockBigQueryTargetBl
     /// </summary>
     public TerraformList<string>? Types
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("types");
         set => SetArgument("types", value);
     }
 
@@ -937,7 +937,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockBigQueryTargetBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => new TerraformReference<string>(this, "dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -947,7 +947,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockBigQueryTargetBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformValue<string> TableId
     {
-        get => new TerraformReference<string>(this, "table_id");
+        get => GetArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -1014,7 +1014,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockBigQueryTargetBl
     /// </summary>
     public TerraformValue<string>? DatasetIdRegex
     {
-        get => new TerraformReference<string>(this, "dataset_id_regex");
+        get => GetArgument<TerraformValue<string>>("dataset_id_regex");
         set => SetArgument("dataset_id_regex", value);
     }
 
@@ -1023,7 +1023,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockBigQueryTargetBl
     /// </summary>
     public TerraformValue<string>? ProjectIdRegex
     {
-        get => new TerraformReference<string>(this, "project_id_regex");
+        get => GetArgument<TerraformValue<string>>("project_id_regex");
         set => SetArgument("project_id_regex", value);
     }
 
@@ -1032,7 +1032,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockBigQueryTargetBl
     /// </summary>
     public TerraformValue<string>? TableIdRegex
     {
-        get => new TerraformReference<string>(this, "table_id_regex");
+        get => GetArgument<TerraformValue<string>>("table_id_regex");
         set => SetArgument("table_id_regex", value);
     }
 
@@ -1110,7 +1110,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudSqlTargetBl
     /// </summary>
     public TerraformList<string>? DatabaseEngines
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "database_engines").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("database_engines");
         set => SetArgument("database_engines", value);
     }
 
@@ -1119,7 +1119,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudSqlTargetBl
     /// </summary>
     public TerraformList<string>? Types
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("types");
         set => SetArgument("types", value);
     }
 
@@ -1242,7 +1242,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudSqlTargetBl
     /// </summary>
     public TerraformValue<string>? DatabaseRegex
     {
-        get => new TerraformReference<string>(this, "database_regex");
+        get => GetArgument<TerraformValue<string>>("database_regex");
         set => SetArgument("database_regex", value);
     }
 
@@ -1251,7 +1251,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudSqlTargetBl
     /// </summary>
     public TerraformValue<string>? DatabaseResourceNameRegex
     {
-        get => new TerraformReference<string>(this, "database_resource_name_regex");
+        get => GetArgument<TerraformValue<string>>("database_resource_name_regex");
         set => SetArgument("database_resource_name_regex", value);
     }
 
@@ -1260,7 +1260,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudSqlTargetBl
     /// </summary>
     public TerraformValue<string>? InstanceRegex
     {
-        get => new TerraformReference<string>(this, "instance_regex");
+        get => GetArgument<TerraformValue<string>>("instance_regex");
         set => SetArgument("instance_regex", value);
     }
 
@@ -1269,7 +1269,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudSqlTargetBl
     /// </summary>
     public TerraformValue<string>? ProjectIdRegex
     {
-        get => new TerraformReference<string>(this, "project_id_regex");
+        get => GetArgument<TerraformValue<string>>("project_id_regex");
         set => SetArgument("project_id_regex", value);
     }
 
@@ -1292,7 +1292,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudSqlTargetBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -1302,7 +1302,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudSqlTargetBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseResource is required")]
     public required TerraformValue<string> DatabaseResource
     {
-        get => new TerraformReference<string>(this, "database_resource");
+        get => GetArgument<TerraformValue<string>>("database_resource");
         set => SetArgument("database_resource", value);
     }
 
@@ -1312,7 +1312,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudSqlTargetBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -1322,7 +1322,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudSqlTargetBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -1357,7 +1357,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudSqlTargetBl
     /// </summary>
     public TerraformValue<string>? RefreshFrequency
     {
-        get => new TerraformReference<string>(this, "refresh_frequency");
+        get => GetArgument<TerraformValue<string>>("refresh_frequency");
         set => SetArgument("refresh_frequency", value);
     }
 
@@ -1400,7 +1400,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudSqlTargetBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformValue<string> Frequency
     {
-        get => new TerraformReference<string>(this, "frequency");
+        get => GetArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -1422,7 +1422,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudSqlTargetBl
     /// </summary>
     public TerraformValue<string>? Frequency
     {
-        get => new TerraformReference<string>(this, "frequency");
+        get => GetArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -1431,7 +1431,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudSqlTargetBl
     /// </summary>
     public TerraformList<string>? Types
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("types");
         set => SetArgument("types", value);
     }
 
@@ -1509,7 +1509,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudStorageTarg
     /// </summary>
     public TerraformValue<string>? CreatedAfter
     {
-        get => new TerraformReference<string>(this, "created_after");
+        get => GetArgument<TerraformValue<string>>("created_after");
         set => SetArgument("created_after", value);
     }
 
@@ -1518,7 +1518,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudStorageTarg
     /// </summary>
     public TerraformValue<string>? MinAge
     {
-        get => new TerraformReference<string>(this, "min_age");
+        get => GetArgument<TerraformValue<string>>("min_age");
         set => SetArgument("min_age", value);
     }
 
@@ -1550,7 +1550,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudStorageTarg
     /// </summary>
     public TerraformList<string>? IncludedBucketAttributes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_bucket_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("included_bucket_attributes");
         set => SetArgument("included_bucket_attributes", value);
     }
 
@@ -1559,7 +1559,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudStorageTarg
     /// </summary>
     public TerraformList<string>? IncludedObjectAttributes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_object_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("included_object_attributes");
         set => SetArgument("included_object_attributes", value);
     }
 
@@ -1637,7 +1637,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudStorageTarg
     /// </summary>
     public TerraformValue<string>? BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -1646,7 +1646,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudStorageTarg
     /// </summary>
     public TerraformValue<string>? ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -1736,7 +1736,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudStorageTarg
     /// </summary>
     public TerraformValue<string>? BucketNameRegex
     {
-        get => new TerraformReference<string>(this, "bucket_name_regex");
+        get => GetArgument<TerraformValue<string>>("bucket_name_regex");
         set => SetArgument("bucket_name_regex", value);
     }
 
@@ -1745,7 +1745,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudStorageTarg
     /// </summary>
     public TerraformValue<string>? ProjectIdRegex
     {
-        get => new TerraformReference<string>(this, "project_id_regex");
+        get => GetArgument<TerraformValue<string>>("project_id_regex");
         set => SetArgument("project_id_regex", value);
     }
 
@@ -1780,7 +1780,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudStorageTarg
     /// </summary>
     public TerraformValue<string>? RefreshFrequency
     {
-        get => new TerraformReference<string>(this, "refresh_frequency");
+        get => GetArgument<TerraformValue<string>>("refresh_frequency");
         set => SetArgument("refresh_frequency", value);
     }
 
@@ -1812,7 +1812,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockCloudStorageTarg
     /// </summary>
     public TerraformValue<string>? Frequency
     {
-        get => new TerraformReference<string>(this, "frequency");
+        get => GetArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -1900,7 +1900,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockOtherCloudTarget
     /// </summary>
     public TerraformValue<string>? MinAge
     {
-        get => new TerraformReference<string>(this, "min_age");
+        get => GetArgument<TerraformValue<string>>("min_age");
         set => SetArgument("min_age", value);
     }
 
@@ -1932,7 +1932,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockOtherCloudTarget
     /// </summary>
     public TerraformList<string>? BucketTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "bucket_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("bucket_types");
         set => SetArgument("bucket_types", value);
     }
 
@@ -1941,7 +1941,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockOtherCloudTarget
     /// </summary>
     public TerraformList<string>? ObjectStorageClasses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "object_storage_classes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("object_storage_classes");
         set => SetArgument("object_storage_classes", value);
     }
 
@@ -1963,7 +1963,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockOtherCloudTarget
     /// </summary>
     public TerraformValue<string>? DataSource
     {
-        get => new TerraformReference<string>(this, "data_source");
+        get => GetArgument<TerraformValue<string>>("data_source");
         set => SetArgument("data_source", value);
     }
 
@@ -2109,7 +2109,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockOtherCloudTarget
     /// </summary>
     public TerraformValue<string>? BucketNameRegex
     {
-        get => new TerraformReference<string>(this, "bucket_name_regex");
+        get => GetArgument<TerraformValue<string>>("bucket_name_regex");
         set => SetArgument("bucket_name_regex", value);
     }
 
@@ -2141,7 +2141,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockOtherCloudTarget
     /// </summary>
     public TerraformValue<string>? AccountIdRegex
     {
-        get => new TerraformReference<string>(this, "account_id_regex");
+        get => GetArgument<TerraformValue<string>>("account_id_regex");
         set => SetArgument("account_id_regex", value);
     }
 
@@ -2199,7 +2199,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockOtherCloudTarget
     /// </summary>
     public TerraformValue<string>? BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -2231,7 +2231,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockOtherCloudTarget
     /// </summary>
     public TerraformValue<string>? AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -2253,7 +2253,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockOtherCloudTarget
     /// </summary>
     public TerraformValue<string>? RefreshFrequency
     {
-        get => new TerraformReference<string>(this, "refresh_frequency");
+        get => GetArgument<TerraformValue<string>>("refresh_frequency");
         set => SetArgument("refresh_frequency", value);
     }
 
@@ -2285,7 +2285,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockOtherCloudTarget
     /// </summary>
     public TerraformValue<string>? Frequency
     {
-        get => new TerraformReference<string>(this, "frequency");
+        get => GetArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -2321,7 +2321,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -2330,7 +2330,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -2339,7 +2339,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -2357,16 +2357,16 @@ public partial class GoogleDataLossPreventionDiscoveryConfig(string name) : Terr
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -2375,7 +2375,7 @@ public partial class GoogleDataLossPreventionDiscoveryConfig(string name) : Terr
     /// </summary>
     public TerraformList<string>? InspectTemplates
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "inspect_templates").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("inspect_templates");
         set => SetArgument("inspect_templates", value);
     }
 
@@ -2385,7 +2385,7 @@ public partial class GoogleDataLossPreventionDiscoveryConfig(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -2398,7 +2398,7 @@ public partial class GoogleDataLossPreventionDiscoveryConfig(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -2407,7 +2407,7 @@ public partial class GoogleDataLossPreventionDiscoveryConfig(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -2415,41 +2415,31 @@ public partial class GoogleDataLossPreventionDiscoveryConfig(string name) : Terr
     /// Output only. The creation timestamp of a DiscoveryConfig.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Output only. A stream of errors encountered when the config was activated. Repeated errors may result in the config automatically being paused. Output only field. Will return the last 100 errors. Whenever the config is modified this list will be cleared.
     /// </summary>
     public TerraformList<TerraformMap<object>> Errors
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "errors").ResolveNodes(ctx));
-    }
+        => AsReference("errors");
 
     /// <summary>
     /// Output only. The timestamp of the last time this config was executed
     /// </summary>
     public TerraformValue<string> LastRunTime
-    {
-        get => new TerraformReference<string>(this, "last_run_time");
-    }
+        => AsReference("last_run_time");
 
     /// <summary>
     /// Unique resource name for the DiscoveryConfig, assigned by the service when the DiscoveryConfig is created.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. The last update timestamp of a DiscoveryConfig.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Actions block (nesting mode: list).

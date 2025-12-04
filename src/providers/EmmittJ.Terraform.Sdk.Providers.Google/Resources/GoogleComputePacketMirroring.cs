@@ -19,7 +19,7 @@ public class GoogleComputePacketMirroringCollectorIlbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -43,7 +43,7 @@ public class GoogleComputePacketMirroringFilterBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? CidrRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "cidr_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("cidr_ranges");
         set => SetArgument("cidr_ranges", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleComputePacketMirroringFilterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Direction
     {
-        get => new TerraformReference<string>(this, "direction");
+        get => GetArgument<TerraformValue<string>>("direction");
         set => SetArgument("direction", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleComputePacketMirroringFilterBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? IpProtocols
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ip_protocols").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ip_protocols");
         set => SetArgument("ip_protocols", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleComputePacketMirroringMirroredResourcesBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Tags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -125,7 +125,7 @@ public class GoogleComputePacketMirroringMirroredResourcesBlockInstancesBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -148,7 +148,7 @@ public class GoogleComputePacketMirroringMirroredResourcesBlockSubnetworksBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -172,7 +172,7 @@ public class GoogleComputePacketMirroringNetworkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -195,7 +195,7 @@ public class GoogleComputePacketMirroringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -204,7 +204,7 @@ public class GoogleComputePacketMirroringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -213,7 +213,7 @@ public class GoogleComputePacketMirroringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -231,16 +231,16 @@ public partial class GoogleComputePacketMirroring(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -250,7 +250,7 @@ public partial class GoogleComputePacketMirroring(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -259,18 +259,18 @@ public partial class GoogleComputePacketMirroring(string name) : TerraformResour
     /// used to break ties in the case of two rules that apply to
     /// the same instances.
     /// </summary>
-    public TerraformValue<double> Priority
+    public TerraformValue<double>? Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -278,9 +278,9 @@ public partial class GoogleComputePacketMirroring(string name) : TerraformResour
     /// The Region in which the created address should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

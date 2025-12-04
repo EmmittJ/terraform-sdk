@@ -19,7 +19,7 @@ public class AwsConnectRoutingProfileMediaConcurrenciesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Channel is required")]
     public required TerraformValue<string> Channel
     {
-        get => new TerraformReference<string>(this, "channel");
+        get => GetArgument<TerraformValue<string>>("channel");
         set => SetArgument("channel", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsConnectRoutingProfileMediaConcurrenciesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Concurrency is required")]
     public required TerraformValue<double> Concurrency
     {
-        get => new TerraformReference<double>(this, "concurrency");
+        get => GetArgument<TerraformValue<double>>("concurrency");
         set => SetArgument("concurrency", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsConnectRoutingProfileQueueConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Channel is required")]
     public required TerraformValue<string> Channel
     {
-        get => new TerraformReference<string>(this, "channel");
+        get => GetArgument<TerraformValue<string>>("channel");
         set => SetArgument("channel", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsConnectRoutingProfileQueueConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Delay is required")]
     public required TerraformValue<double> Delay
     {
-        get => new TerraformReference<double>(this, "delay");
+        get => GetArgument<TerraformValue<double>>("delay");
         set => SetArgument("delay", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsConnectRoutingProfileQueueConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -81,9 +81,7 @@ public class AwsConnectRoutingProfileQueueConfigsBlock : TerraformBlock
     /// The queue_arn attribute.
     /// </summary>
     public TerraformValue<string> QueueArn
-    {
-        get => new TerraformReference<string>(this, "queue_arn");
-    }
+        => AsReference("queue_arn");
 
     /// <summary>
     /// The queue_id attribute.
@@ -91,7 +89,7 @@ public class AwsConnectRoutingProfileQueueConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueId is required")]
     public required TerraformValue<string> QueueId
     {
-        get => new TerraformReference<string>(this, "queue_id");
+        get => GetArgument<TerraformValue<string>>("queue_id");
         set => SetArgument("queue_id", value);
     }
 
@@ -99,9 +97,7 @@ public class AwsConnectRoutingProfileQueueConfigsBlock : TerraformBlock
     /// The queue_name attribute.
     /// </summary>
     public TerraformValue<string> QueueName
-    {
-        get => new TerraformReference<string>(this, "queue_name");
-    }
+        => AsReference("queue_name");
 
 }
 
@@ -118,7 +114,7 @@ public partial class AwsConnectRoutingProfile(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultOutboundQueueId is required")]
     public required TerraformValue<string> DefaultOutboundQueueId
     {
-        get => new TerraformReference<string>(this, "default_outbound_queue_id");
+        get => GetArgument<TerraformValue<string>>("default_outbound_queue_id");
         set => SetArgument("default_outbound_queue_id", value);
     }
 
@@ -128,16 +124,16 @@ public partial class AwsConnectRoutingProfile(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -147,7 +143,7 @@ public partial class AwsConnectRoutingProfile(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => new TerraformReference<string>(this, "instance_id");
+        get => GetArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
@@ -157,16 +153,16 @@ public partial class AwsConnectRoutingProfile(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -175,16 +171,16 @@ public partial class AwsConnectRoutingProfile(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -192,17 +188,13 @@ public partial class AwsConnectRoutingProfile(string name) : TerraformResource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The routing_profile_id attribute.
     /// </summary>
     public TerraformValue<string> RoutingProfileId
-    {
-        get => new TerraformReference<string>(this, "routing_profile_id");
-    }
+        => AsReference("routing_profile_id");
 
     /// <summary>
     /// MediaConcurrencies block (nesting mode: set).

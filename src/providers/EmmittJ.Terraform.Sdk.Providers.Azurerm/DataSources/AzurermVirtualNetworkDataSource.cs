@@ -18,7 +18,7 @@ public class AzurermVirtualNetworkDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermVirtualNetworkDataSource(string name) : TerraformDat
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermVirtualNetworkDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermVirtualNetworkDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,65 +64,49 @@ public partial class AzurermVirtualNetworkDataSource(string name) : TerraformDat
     /// The address_space attribute.
     /// </summary>
     public TerraformList<string> AddressSpace
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "address_space").ResolveNodes(ctx));
-    }
+        => AsReference("address_space");
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
     public TerraformList<string> DnsServers
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dns_servers").ResolveNodes(ctx));
-    }
+        => AsReference("dns_servers");
 
     /// <summary>
     /// The guid attribute.
     /// </summary>
     public TerraformValue<string> Guid
-    {
-        get => new TerraformReference<string>(this, "guid");
-    }
+        => AsReference("guid");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
     public TerraformList<string> Subnets
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "subnets").ResolveNodes(ctx));
-    }
+        => AsReference("subnets");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The vnet_peerings attribute.
     /// </summary>
     public TerraformMap<string> VnetPeerings
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "vnet_peerings").ResolveNodes(ctx));
-    }
+        => AsReference("vnet_peerings");
 
     /// <summary>
     /// The vnet_peerings_addresses attribute.
     /// </summary>
     public TerraformList<string> VnetPeeringsAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "vnet_peerings_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("vnet_peerings_addresses");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

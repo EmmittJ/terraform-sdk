@@ -11,9 +11,9 @@ public partial class GoogleApphubDiscoveredWorkloadDataSource(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleApphubDiscoveredWorkloadDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleApphubDiscoveredWorkloadDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleApphubDiscoveredWorkloadDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadUri is required")]
     public required TerraformValue<string> WorkloadUri
     {
-        get => new TerraformReference<string>(this, "workload_uri");
+        get => GetArgument<TerraformValue<string>>("workload_uri");
         set => SetArgument("workload_uri", value);
     }
 
@@ -50,24 +50,18 @@ public partial class GoogleApphubDiscoveredWorkloadDataSource(string name) : Ter
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The workload_properties attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> WorkloadProperties
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "workload_properties").ResolveNodes(ctx));
-    }
+        => AsReference("workload_properties");
 
     /// <summary>
     /// The workload_reference attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> WorkloadReference
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "workload_reference").ResolveNodes(ctx));
-    }
+        => AsReference("workload_reference");
 
 }

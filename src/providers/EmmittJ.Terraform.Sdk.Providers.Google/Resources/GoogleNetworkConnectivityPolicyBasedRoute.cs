@@ -18,7 +18,7 @@ public class GoogleNetworkConnectivityPolicyBasedRouteFilterBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? DestRange
     {
-        get => new TerraformReference<string>(this, "dest_range");
+        get => GetArgument<TerraformValue<string>>("dest_range");
         set => SetArgument("dest_range", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleNetworkConnectivityPolicyBasedRouteFilterBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? IpProtocol
     {
-        get => new TerraformReference<string>(this, "ip_protocol");
+        get => GetArgument<TerraformValue<string>>("ip_protocol");
         set => SetArgument("ip_protocol", value);
     }
 
@@ -37,7 +37,7 @@ public class GoogleNetworkConnectivityPolicyBasedRouteFilterBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtocolVersion is required")]
     public required TerraformValue<string> ProtocolVersion
     {
-        get => new TerraformReference<string>(this, "protocol_version");
+        get => GetArgument<TerraformValue<string>>("protocol_version");
         set => SetArgument("protocol_version", value);
     }
 
@@ -46,7 +46,7 @@ public class GoogleNetworkConnectivityPolicyBasedRouteFilterBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? SrcRange
     {
-        get => new TerraformReference<string>(this, "src_range");
+        get => GetArgument<TerraformValue<string>>("src_range");
         set => SetArgument("src_range", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleNetworkConnectivityPolicyBasedRouteInterconnectAttachmentBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -93,7 +93,7 @@ public class GoogleNetworkConnectivityPolicyBasedRouteTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleNetworkConnectivityPolicyBasedRouteTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleNetworkConnectivityPolicyBasedRouteTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -135,7 +135,7 @@ public class GoogleNetworkConnectivityPolicyBasedRouteVirtualMachineBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tags is required")]
     public TerraformList<string>? Tags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -153,16 +153,16 @@ public partial class GoogleNetworkConnectivityPolicyBasedRoute(string name) : Te
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -175,7 +175,7 @@ public partial class GoogleNetworkConnectivityPolicyBasedRoute(string name) : Te
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -185,7 +185,7 @@ public partial class GoogleNetworkConnectivityPolicyBasedRoute(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -195,7 +195,7 @@ public partial class GoogleNetworkConnectivityPolicyBasedRoute(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -204,7 +204,7 @@ public partial class GoogleNetworkConnectivityPolicyBasedRoute(string name) : Te
     /// </summary>
     public TerraformValue<string>? NextHopIlbIp
     {
-        get => new TerraformReference<string>(this, "next_hop_ilb_ip");
+        get => GetArgument<TerraformValue<string>>("next_hop_ilb_ip");
         set => SetArgument("next_hop_ilb_ip", value);
     }
 
@@ -213,7 +213,7 @@ public partial class GoogleNetworkConnectivityPolicyBasedRoute(string name) : Te
     /// </summary>
     public TerraformValue<string>? NextHopOtherRoutes
     {
-        get => new TerraformReference<string>(this, "next_hop_other_routes");
+        get => GetArgument<TerraformValue<string>>("next_hop_other_routes");
         set => SetArgument("next_hop_other_routes", value);
     }
 
@@ -222,16 +222,16 @@ public partial class GoogleNetworkConnectivityPolicyBasedRoute(string name) : Te
     /// </summary>
     public TerraformValue<double>? Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -239,50 +239,38 @@ public partial class GoogleNetworkConnectivityPolicyBasedRoute(string name) : Te
     /// Time when the policy-based route was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Type of this resource.
     /// </summary>
     public TerraformValue<string> Kind
-    {
-        get => new TerraformReference<string>(this, "kind");
-    }
+        => AsReference("kind");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Time when the policy-based route was created.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// If potential misconfigurations are detected for this route, this field will be populated with warning messages.
     /// </summary>
     public TerraformList<TerraformMap<object>> Warnings
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "warnings").ResolveNodes(ctx));
-    }
+        => AsReference("warnings");
 
     /// <summary>
     /// Filter block (nesting mode: list).

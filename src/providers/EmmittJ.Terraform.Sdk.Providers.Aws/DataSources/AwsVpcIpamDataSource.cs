@@ -14,16 +14,16 @@ public partial class AwsVpcIpamDataSource(string name) : TerraformDataSource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -31,136 +31,102 @@ public partial class AwsVpcIpamDataSource(string name) : TerraformDataSource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The default_resource_discovery_association_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultResourceDiscoveryAssociationId
-    {
-        get => new TerraformReference<string>(this, "default_resource_discovery_association_id");
-    }
+        => AsReference("default_resource_discovery_association_id");
 
     /// <summary>
     /// The default_resource_discovery_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultResourceDiscoveryId
-    {
-        get => new TerraformReference<string>(this, "default_resource_discovery_id");
-    }
+        => AsReference("default_resource_discovery_id");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The enable_private_gua attribute.
     /// </summary>
     public TerraformValue<bool> EnablePrivateGua
-    {
-        get => new TerraformReference<bool>(this, "enable_private_gua");
-    }
+        => AsReference("enable_private_gua");
 
     /// <summary>
     /// The ipam_region attribute.
     /// </summary>
     public TerraformValue<string> IpamRegion
-    {
-        get => new TerraformReference<string>(this, "ipam_region");
-    }
+        => AsReference("ipam_region");
 
     /// <summary>
     /// The metered_account attribute.
     /// </summary>
     public TerraformValue<string> MeteredAccount
-    {
-        get => new TerraformReference<string>(this, "metered_account");
-    }
+        => AsReference("metered_account");
 
     /// <summary>
     /// The operating_regions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> OperatingRegions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "operating_regions").ResolveNodes(ctx));
-    }
+        => AsReference("operating_regions");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// The private_default_scope_id attribute.
     /// </summary>
     public TerraformValue<string> PrivateDefaultScopeId
-    {
-        get => new TerraformReference<string>(this, "private_default_scope_id");
-    }
+        => AsReference("private_default_scope_id");
 
     /// <summary>
     /// The public_default_scope_id attribute.
     /// </summary>
     public TerraformValue<string> PublicDefaultScopeId
-    {
-        get => new TerraformReference<string>(this, "public_default_scope_id");
-    }
+        => AsReference("public_default_scope_id");
 
     /// <summary>
     /// The resource_discovery_association_count attribute.
     /// </summary>
     public TerraformValue<double> ResourceDiscoveryAssociationCount
-    {
-        get => new TerraformReference<double>(this, "resource_discovery_association_count");
-    }
+        => AsReference("resource_discovery_association_count");
 
     /// <summary>
     /// The scope_count attribute.
     /// </summary>
     public TerraformValue<double> ScopeCount
-    {
-        get => new TerraformReference<double>(this, "scope_count");
-    }
+        => AsReference("scope_count");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The state_message attribute.
     /// </summary>
     public TerraformValue<string> StateMessage
-    {
-        get => new TerraformReference<string>(this, "state_message");
-    }
+        => AsReference("state_message");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
     public TerraformValue<string> Tier
-    {
-        get => new TerraformReference<string>(this, "tier");
-    }
+        => AsReference("tier");
 
 }

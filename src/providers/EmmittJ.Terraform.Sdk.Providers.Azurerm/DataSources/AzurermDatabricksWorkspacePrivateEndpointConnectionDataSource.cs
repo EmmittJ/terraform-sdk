@@ -18,7 +18,7 @@ public class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSourceTimeou
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateEndpointId is required")]
     public required TerraformValue<string> PrivateEndpointId
     {
-        get => new TerraformReference<string>(this, "private_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("private_endpoint_id");
         set => SetArgument("private_endpoint_id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => new TerraformReference<string>(this, "workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -64,9 +64,7 @@ public partial class AzurermDatabricksWorkspacePrivateEndpointConnectionDataSour
     /// The connections attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Connections
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "connections").ResolveNodes(ctx));
-    }
+        => AsReference("connections");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class AzurermVirtualDesktopApplicationGroupDataSourceTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermVirtualDesktopApplicationGroupDataSource(string name
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermVirtualDesktopApplicationGroupDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermVirtualDesktopApplicationGroupDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,57 +64,43 @@ public partial class AzurermVirtualDesktopApplicationGroupDataSource(string name
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
     public TerraformValue<string> FriendlyName
-    {
-        get => new TerraformReference<string>(this, "friendly_name");
-    }
+        => AsReference("friendly_name");
 
     /// <summary>
     /// The host_pool_id attribute.
     /// </summary>
     public TerraformValue<string> HostPoolId
-    {
-        get => new TerraformReference<string>(this, "host_pool_id");
-    }
+        => AsReference("host_pool_id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceId
-    {
-        get => new TerraformReference<string>(this, "workspace_id");
-    }
+        => AsReference("workspace_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

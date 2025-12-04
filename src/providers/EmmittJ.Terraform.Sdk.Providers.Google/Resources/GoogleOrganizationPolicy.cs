@@ -19,7 +19,7 @@ public class GoogleOrganizationPolicyBooleanPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enforced is required")]
     public required TerraformValue<bool> Enforced
     {
-        get => new TerraformReference<bool>(this, "enforced");
+        get => GetArgument<TerraformValue<bool>>("enforced");
         set => SetArgument("enforced", value);
     }
 
@@ -42,16 +42,16 @@ public class GoogleOrganizationPolicyListPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? InheritFromParent
     {
-        get => new TerraformReference<bool>(this, "inherit_from_parent");
+        get => GetArgument<TerraformValue<bool>>("inherit_from_parent");
         set => SetArgument("inherit_from_parent", value);
     }
 
     /// <summary>
     /// The Google Cloud Console will try to default to a configuration that matches the value specified in this field.
     /// </summary>
-    public TerraformValue<string> SuggestedValue
+    public TerraformValue<string>? SuggestedValue
     {
-        get => new TerraformReference<string>(this, "suggested_value");
+        get => GetArgument<TerraformValue<string>>("suggested_value");
         set => SetArgument("suggested_value", value);
     }
 
@@ -93,7 +93,7 @@ public class GoogleOrganizationPolicyListPolicyBlockAllowBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? All
     {
-        get => new TerraformReference<bool>(this, "all");
+        get => GetArgument<TerraformValue<bool>>("all");
         set => SetArgument("all", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleOrganizationPolicyListPolicyBlockAllowBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -124,7 +124,7 @@ public class GoogleOrganizationPolicyListPolicyBlockDenyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? All
     {
-        get => new TerraformReference<bool>(this, "all");
+        get => GetArgument<TerraformValue<bool>>("all");
         set => SetArgument("all", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleOrganizationPolicyListPolicyBlockDenyBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -157,7 +157,7 @@ public class GoogleOrganizationPolicyRestorePolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAttribute is required")]
     public required TerraformValue<bool> DefaultAttribute
     {
-        get => new TerraformReference<bool>(this, "default");
+        get => GetArgument<TerraformValue<bool>>("default");
         set => SetArgument("default", value);
     }
 
@@ -180,7 +180,7 @@ public class GoogleOrganizationPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -189,7 +189,7 @@ public class GoogleOrganizationPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -198,7 +198,7 @@ public class GoogleOrganizationPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -207,7 +207,7 @@ public class GoogleOrganizationPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -226,16 +226,16 @@ public partial class GoogleOrganizationPolicy(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Constraint is required")]
     public required TerraformValue<string> Constraint
     {
-        get => new TerraformReference<string>(this, "constraint");
+        get => GetArgument<TerraformValue<string>>("constraint");
         set => SetArgument("constraint", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -245,16 +245,16 @@ public partial class GoogleOrganizationPolicy(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => new TerraformReference<string>(this, "org_id");
+        get => GetArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
     /// <summary>
     /// Version of the Policy. Default version is 0.
     /// </summary>
-    public TerraformValue<double> Version
+    public TerraformValue<double>? Version
     {
-        get => new TerraformReference<double>(this, "version");
+        get => GetArgument<TerraformValue<double>>("version");
         set => SetArgument("version", value);
     }
 
@@ -262,17 +262,13 @@ public partial class GoogleOrganizationPolicy(string name) : TerraformResource("
     /// The etag of the organization policy. etag is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds, representing when the variable was last updated. Example: &amp;quot;2016-10-09T12:33:37.578138407Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// BooleanPolicy block (nesting mode: list).

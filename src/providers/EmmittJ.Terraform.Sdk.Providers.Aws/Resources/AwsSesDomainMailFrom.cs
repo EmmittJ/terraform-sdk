@@ -13,7 +13,7 @@ public partial class AwsSesDomainMailFrom(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? BehaviorOnMxFailure
     {
-        get => new TerraformReference<string>(this, "behavior_on_mx_failure");
+        get => GetArgument<TerraformValue<string>>("behavior_on_mx_failure");
         set => SetArgument("behavior_on_mx_failure", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsSesDomainMailFrom(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => new TerraformReference<string>(this, "domain");
+        get => GetArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -42,16 +42,16 @@ public partial class AwsSesDomainMailFrom(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MailFromDomain is required")]
     public required TerraformValue<string> MailFromDomain
     {
-        get => new TerraformReference<string>(this, "mail_from_domain");
+        get => GetArgument<TerraformValue<string>>("mail_from_domain");
         set => SetArgument("mail_from_domain", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

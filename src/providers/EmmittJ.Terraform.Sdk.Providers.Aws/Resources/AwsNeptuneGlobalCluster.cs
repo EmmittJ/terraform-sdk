@@ -18,7 +18,7 @@ public class AwsNeptuneGlobalClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsNeptuneGlobalClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsNeptuneGlobalClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,25 +54,25 @@ public partial class AwsNeptuneGlobalCluster(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformValue<string> Engine
+    public TerraformValue<string>? Engine
     {
-        get => new TerraformReference<string>(this, "engine");
+        get => GetArgument<TerraformValue<string>>("engine");
         set => SetArgument("engine", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformValue<string> EngineVersion
+    public TerraformValue<string>? EngineVersion
     {
-        get => new TerraformReference<string>(this, "engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -82,43 +82,43 @@ public partial class AwsNeptuneGlobalCluster(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalClusterIdentifier is required")]
     public required TerraformValue<string> GlobalClusterIdentifier
     {
-        get => new TerraformReference<string>(this, "global_cluster_identifier");
+        get => GetArgument<TerraformValue<string>>("global_cluster_identifier");
         set => SetArgument("global_cluster_identifier", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The source_db_cluster_identifier attribute.
     /// </summary>
-    public TerraformValue<string> SourceDbClusterIdentifier
+    public TerraformValue<string>? SourceDbClusterIdentifier
     {
-        get => new TerraformReference<string>(this, "source_db_cluster_identifier");
+        get => GetArgument<TerraformValue<string>>("source_db_cluster_identifier");
         set => SetArgument("source_db_cluster_identifier", value);
     }
 
     /// <summary>
     /// The storage_encrypted attribute.
     /// </summary>
-    public TerraformValue<bool> StorageEncrypted
+    public TerraformValue<bool>? StorageEncrypted
     {
-        get => new TerraformReference<bool>(this, "storage_encrypted");
+        get => GetArgument<TerraformValue<bool>>("storage_encrypted");
         set => SetArgument("storage_encrypted", value);
     }
 
@@ -126,33 +126,25 @@ public partial class AwsNeptuneGlobalCluster(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The global_cluster_members attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> GlobalClusterMembers
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "global_cluster_members").ResolveNodes(ctx));
-    }
+        => AsReference("global_cluster_members");
 
     /// <summary>
     /// The global_cluster_resource_id attribute.
     /// </summary>
     public TerraformValue<string> GlobalClusterResourceId
-    {
-        get => new TerraformReference<string>(this, "global_cluster_resource_id");
-    }
+        => AsReference("global_cluster_resource_id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

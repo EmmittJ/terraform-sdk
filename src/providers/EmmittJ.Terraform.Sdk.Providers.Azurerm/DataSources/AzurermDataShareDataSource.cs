@@ -18,7 +18,7 @@ public class AzurermDataShareDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermDataShareDataSource(string name) : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformValue<string> AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermDataShareDataSource(string name) : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -64,33 +64,25 @@ public partial class AzurermDataShareDataSource(string name) : TerraformDataSour
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     public TerraformValue<string> Kind
-    {
-        get => new TerraformReference<string>(this, "kind");
-    }
+        => AsReference("kind");
 
     /// <summary>
     /// The snapshot_schedule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SnapshotSchedule
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "snapshot_schedule").ResolveNodes(ctx));
-    }
+        => AsReference("snapshot_schedule");
 
     /// <summary>
     /// The terms attribute.
     /// </summary>
     public TerraformValue<string> Terms
-    {
-        get => new TerraformReference<string>(this, "terms");
-    }
+        => AsReference("terms");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

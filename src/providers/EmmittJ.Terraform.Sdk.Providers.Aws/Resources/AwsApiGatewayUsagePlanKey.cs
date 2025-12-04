@@ -11,9 +11,9 @@ public partial class AwsApiGatewayUsagePlanKey(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsApiGatewayUsagePlanKey(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformValue<string> KeyId
     {
-        get => new TerraformReference<string>(this, "key_id");
+        get => GetArgument<TerraformValue<string>>("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsApiGatewayUsagePlanKey(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyType is required")]
     public required TerraformValue<string> KeyType
     {
-        get => new TerraformReference<string>(this, "key_type");
+        get => GetArgument<TerraformValue<string>>("key_type");
         set => SetArgument("key_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsApiGatewayUsagePlanKey(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsagePlanId is required")]
     public required TerraformValue<string> UsagePlanId
     {
-        get => new TerraformReference<string>(this, "usage_plan_id");
+        get => GetArgument<TerraformValue<string>>("usage_plan_id");
         set => SetArgument("usage_plan_id", value);
     }
 
@@ -60,16 +60,12 @@ public partial class AwsApiGatewayUsagePlanKey(string name) : TerraformResource(
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     public TerraformValue<string> Value
-    {
-        get => new TerraformReference<string>(this, "value");
-    }
+        => AsReference("value");
 
 }

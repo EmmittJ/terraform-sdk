@@ -18,7 +18,7 @@ public class AzurermSynapseRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSynapseRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSynapseRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -52,9 +52,9 @@ public partial class AzurermSynapseRoleAssignment(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermSynapseRoleAssignment(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformValue<string> PrincipalId
     {
-        get => new TerraformReference<string>(this, "principal_id");
+        get => GetArgument<TerraformValue<string>>("principal_id");
         set => SetArgument("principal_id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermSynapseRoleAssignment(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? PrincipalType
     {
-        get => new TerraformReference<string>(this, "principal_type");
+        get => GetArgument<TerraformValue<string>>("principal_type");
         set => SetArgument("principal_type", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermSynapseRoleAssignment(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
     public required TerraformValue<string> RoleName
     {
-        get => new TerraformReference<string>(this, "role_name");
+        get => GetArgument<TerraformValue<string>>("role_name");
         set => SetArgument("role_name", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermSynapseRoleAssignment(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? SynapseSparkPoolId
     {
-        get => new TerraformReference<string>(this, "synapse_spark_pool_id");
+        get => GetArgument<TerraformValue<string>>("synapse_spark_pool_id");
         set => SetArgument("synapse_spark_pool_id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermSynapseRoleAssignment(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? SynapseWorkspaceId
     {
-        get => new TerraformReference<string>(this, "synapse_workspace_id");
+        get => GetArgument<TerraformValue<string>>("synapse_workspace_id");
         set => SetArgument("synapse_workspace_id", value);
     }
 

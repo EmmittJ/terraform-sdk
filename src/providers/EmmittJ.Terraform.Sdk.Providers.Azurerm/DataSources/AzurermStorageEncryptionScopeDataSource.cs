@@ -18,7 +18,7 @@ public class AzurermStorageEncryptionScopeDataSourceTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermStorageEncryptionScopeDataSource(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermStorageEncryptionScopeDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermStorageEncryptionScopeDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => new TerraformReference<string>(this, "storage_account_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
@@ -64,17 +64,13 @@ public partial class AzurermStorageEncryptionScopeDataSource(string name) : Terr
     /// The key_vault_key_id attribute.
     /// </summary>
     public TerraformValue<string> KeyVaultKeyId
-    {
-        get => new TerraformReference<string>(this, "key_vault_key_id");
-    }
+        => AsReference("key_vault_key_id");
 
     /// <summary>
     /// The source attribute.
     /// </summary>
     public TerraformValue<string> Source
-    {
-        get => new TerraformReference<string>(this, "source");
-    }
+        => AsReference("source");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

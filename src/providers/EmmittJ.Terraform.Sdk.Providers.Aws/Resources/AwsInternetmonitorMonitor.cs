@@ -18,7 +18,7 @@ public class AwsInternetmonitorMonitorHealthEventsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? AvailabilityScoreThreshold
     {
-        get => new TerraformReference<double>(this, "availability_score_threshold");
+        get => GetArgument<TerraformValue<double>>("availability_score_threshold");
         set => SetArgument("availability_score_threshold", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsInternetmonitorMonitorHealthEventsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? PerformanceScoreThreshold
     {
-        get => new TerraformReference<double>(this, "performance_score_threshold");
+        get => GetArgument<TerraformValue<double>>("performance_score_threshold");
         set => SetArgument("performance_score_threshold", value);
     }
 
@@ -74,7 +74,7 @@ public class AwsInternetmonitorMonitorInternetMeasurementsLogDeliveryBlockS3Conf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsInternetmonitorMonitorInternetMeasurementsLogDeliveryBlockS3Conf
     /// </summary>
     public TerraformValue<string>? BucketPrefix
     {
-        get => new TerraformReference<string>(this, "bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsInternetmonitorMonitorInternetMeasurementsLogDeliveryBlockS3Conf
     /// </summary>
     public TerraformValue<string>? LogDeliveryStatus
     {
-        get => new TerraformReference<string>(this, "log_delivery_status");
+        get => GetArgument<TerraformValue<string>>("log_delivery_status");
         set => SetArgument("log_delivery_status", value);
     }
 
@@ -108,9 +108,9 @@ public partial class AwsInternetmonitorMonitor(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AwsInternetmonitorMonitor(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<double>? MaxCityNetworksToMonitor
     {
-        get => new TerraformReference<double>(this, "max_city_networks_to_monitor");
+        get => GetArgument<TerraformValue<double>>("max_city_networks_to_monitor");
         set => SetArgument("max_city_networks_to_monitor", value);
     }
 
@@ -129,16 +129,16 @@ public partial class AwsInternetmonitorMonitor(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorName is required")]
     public required TerraformValue<string> MonitorName
     {
-        get => new TerraformReference<string>(this, "monitor_name");
+        get => GetArgument<TerraformValue<string>>("monitor_name");
         set => SetArgument("monitor_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AwsInternetmonitorMonitor(string name) : TerraformResource(
     /// </summary>
     public TerraformSet<string>? Resources
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "resources").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("resources");
         set => SetArgument("resources", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AwsInternetmonitorMonitor(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -165,16 +165,16 @@ public partial class AwsInternetmonitorMonitor(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -183,7 +183,7 @@ public partial class AwsInternetmonitorMonitor(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<double>? TrafficPercentageToMonitor
     {
-        get => new TerraformReference<double>(this, "traffic_percentage_to_monitor");
+        get => GetArgument<TerraformValue<double>>("traffic_percentage_to_monitor");
         set => SetArgument("traffic_percentage_to_monitor", value);
     }
 
@@ -191,9 +191,7 @@ public partial class AwsInternetmonitorMonitor(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// HealthEventsConfig block (nesting mode: list).

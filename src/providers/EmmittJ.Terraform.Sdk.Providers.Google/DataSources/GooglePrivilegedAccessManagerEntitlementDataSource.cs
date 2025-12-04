@@ -15,16 +15,16 @@ public partial class GooglePrivilegedAccessManagerEntitlementDataSource(string n
     /// </summary>
     public TerraformValue<string>? EntitlementId
     {
-        get => new TerraformReference<string>(this, "entitlement_id");
+        get => GetArgument<TerraformValue<string>>("entitlement_id");
         set => SetArgument("entitlement_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GooglePrivilegedAccessManagerEntitlementDataSource(string n
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GooglePrivilegedAccessManagerEntitlementDataSource(string n
     /// </summary>
     public TerraformValue<string>? Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -50,43 +50,33 @@ public partial class GooglePrivilegedAccessManagerEntitlementDataSource(string n
     /// AdditionalNotificationTargets includes email addresses to be notified.
     /// </summary>
     public TerraformList<TerraformMap<object>> AdditionalNotificationTargets
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "additional_notification_targets").ResolveNodes(ctx));
-    }
+        => AsReference("additional_notification_targets");
 
     /// <summary>
     /// The approvals needed before access will be granted to a requester.
     /// No approvals will be needed if this field is null. Different types of approval workflows that can be used to gate privileged access granting.
     /// </summary>
     public TerraformList<TerraformMap<object>> ApprovalWorkflow
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "approval_workflow").ResolveNodes(ctx));
-    }
+        => AsReference("approval_workflow");
 
     /// <summary>
     /// Output only. Create time stamp. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Who can create Grants using Entitlement. This list should contain at most one entry
     /// </summary>
     public TerraformList<TerraformMap<object>> EligibleUsers
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "eligible_users").ResolveNodes(ctx));
-    }
+        => AsReference("eligible_users");
 
     /// <summary>
     /// For Resource freshness validation (https://google.aip.dev/154)
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The maximum amount of time for which access would be granted for a request.
@@ -94,50 +84,38 @@ public partial class GooglePrivilegedAccessManagerEntitlementDataSource(string n
     /// Format: calculate the time in seconds and concatenate it with &#39;s&#39; i.e. 2 hours = &amp;quot;7200s&amp;quot;, 45 minutes = &amp;quot;2700s&amp;quot;
     /// </summary>
     public TerraformValue<string> MaxRequestDuration
-    {
-        get => new TerraformReference<string>(this, "max_request_duration");
-    }
+        => AsReference("max_request_duration");
 
     /// <summary>
     /// Output Only. The entitlement&#39;s name follows a hierarchical structure, comprising the organization, folder, or project, alongside the region and a unique entitlement ID.
     /// Formats: organizations/{organization-number}/locations/{region}/entitlements/{entitlement-id}, folders/{folder-number}/locations/{region}/entitlements/{entitlement-id}, and projects/{project-id|project-number}/locations/{region}/entitlements/{entitlement-id}.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Privileged access that this service can be used to gate.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrivilegedAccess
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "privileged_access").ResolveNodes(ctx));
-    }
+        => AsReference("privileged_access");
 
     /// <summary>
     /// Defines the ways in which a requester should provide the justification while requesting for access.
     /// </summary>
     public TerraformList<TerraformMap<object>> RequesterJustificationConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "requester_justification_config").ResolveNodes(ctx));
-    }
+        => AsReference("requester_justification_config");
 
     /// <summary>
     /// Output only. The current state of the Entitlement.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Output only. Update time stamp. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
 }

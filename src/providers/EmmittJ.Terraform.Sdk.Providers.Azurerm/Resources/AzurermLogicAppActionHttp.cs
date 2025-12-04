@@ -19,7 +19,7 @@ public class AzurermLogicAppActionHttpRunAfterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionName is required")]
     public required TerraformValue<string> ActionName
     {
-        get => new TerraformReference<string>(this, "action_name");
+        get => GetArgument<TerraformValue<string>>("action_name");
         set => SetArgument("action_name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermLogicAppActionHttpRunAfterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionResult is required")]
     public required TerraformValue<string> ActionResult
     {
-        get => new TerraformReference<string>(this, "action_result");
+        get => GetArgument<TerraformValue<string>>("action_result");
         set => SetArgument("action_result", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermLogicAppActionHttpTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermLogicAppActionHttpTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermLogicAppActionHttpTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermLogicAppActionHttpTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AzurermLogicAppActionHttp(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Body
     {
-        get => new TerraformReference<string>(this, "body");
+        get => GetArgument<TerraformValue<string>>("body");
         set => SetArgument("body", value);
     }
 
@@ -106,16 +106,16 @@ public partial class AzurermLogicAppActionHttp(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Headers
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("headers");
         set => SetArgument("headers", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AzurermLogicAppActionHttp(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
     public required TerraformValue<string> LogicAppId
     {
-        get => new TerraformReference<string>(this, "logic_app_id");
+        get => GetArgument<TerraformValue<string>>("logic_app_id");
         set => SetArgument("logic_app_id", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AzurermLogicAppActionHttp(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Method is required")]
     public required TerraformValue<string> Method
     {
-        get => new TerraformReference<string>(this, "method");
+        get => GetArgument<TerraformValue<string>>("method");
         set => SetArgument("method", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermLogicAppActionHttp(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -154,7 +154,7 @@ public partial class AzurermLogicAppActionHttp(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Queries
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "queries").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("queries");
         set => SetArgument("queries", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AzurermLogicAppActionHttp(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 

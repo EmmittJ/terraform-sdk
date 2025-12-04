@@ -18,7 +18,7 @@ public class AzurermSignalrServiceCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSignalrServiceCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSignalrServiceCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AzurermSignalrServiceCustomDomain(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermSignalrServiceCustomDomain(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermSignalrServiceCustomDomain(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignalrCustomCertificateId is required")]
     public required TerraformValue<string> SignalrCustomCertificateId
     {
-        get => new TerraformReference<string>(this, "signalr_custom_certificate_id");
+        get => GetArgument<TerraformValue<string>>("signalr_custom_certificate_id");
         set => SetArgument("signalr_custom_certificate_id", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermSignalrServiceCustomDomain(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignalrServiceId is required")]
     public required TerraformValue<string> SignalrServiceId
     {
-        get => new TerraformReference<string>(this, "signalr_service_id");
+        get => GetArgument<TerraformValue<string>>("signalr_service_id");
         set => SetArgument("signalr_service_id", value);
     }
 

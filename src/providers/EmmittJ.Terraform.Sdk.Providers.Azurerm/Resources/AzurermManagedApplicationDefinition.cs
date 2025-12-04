@@ -19,7 +19,7 @@ public class AzurermManagedApplicationDefinitionAuthorizationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
     public required TerraformValue<string> RoleDefinitionId
     {
-        get => new TerraformReference<string>(this, "role_definition_id");
+        get => GetArgument<TerraformValue<string>>("role_definition_id");
         set => SetArgument("role_definition_id", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermManagedApplicationDefinitionAuthorizationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     public required TerraformValue<string> ServicePrincipalId
     {
-        get => new TerraformReference<string>(this, "service_principal_id");
+        get => GetArgument<TerraformValue<string>>("service_principal_id");
         set => SetArgument("service_principal_id", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermManagedApplicationDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermManagedApplicationDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermManagedApplicationDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermManagedApplicationDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AzurermManagedApplicationDefinition(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? CreateUiDefinition
     {
-        get => new TerraformReference<string>(this, "create_ui_definition");
+        get => GetArgument<TerraformValue<string>>("create_ui_definition");
         set => SetArgument("create_ui_definition", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AzurermManagedApplicationDefinition(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -116,16 +116,16 @@ public partial class AzurermManagedApplicationDefinition(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AzurermManagedApplicationDefinition(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermManagedApplicationDefinition(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LockLevel is required")]
     public required TerraformValue<string> LockLevel
     {
-        get => new TerraformReference<string>(this, "lock_level");
+        get => GetArgument<TerraformValue<string>>("lock_level");
         set => SetArgument("lock_level", value);
     }
 
@@ -154,7 +154,7 @@ public partial class AzurermManagedApplicationDefinition(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? MainTemplate
     {
-        get => new TerraformReference<string>(this, "main_template");
+        get => GetArgument<TerraformValue<string>>("main_template");
         set => SetArgument("main_template", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AzurermManagedApplicationDefinition(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -173,7 +173,7 @@ public partial class AzurermManagedApplicationDefinition(string name) : Terrafor
     /// </summary>
     public TerraformValue<bool>? PackageEnabled
     {
-        get => new TerraformReference<bool>(this, "package_enabled");
+        get => GetArgument<TerraformValue<bool>>("package_enabled");
         set => SetArgument("package_enabled", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AzurermManagedApplicationDefinition(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? PackageFileUri
     {
-        get => new TerraformReference<string>(this, "package_file_uri");
+        get => GetArgument<TerraformValue<string>>("package_file_uri");
         set => SetArgument("package_file_uri", value);
     }
 
@@ -192,7 +192,7 @@ public partial class AzurermManagedApplicationDefinition(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -201,7 +201,7 @@ public partial class AzurermManagedApplicationDefinition(string name) : Terrafor
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

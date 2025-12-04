@@ -18,7 +18,7 @@ public class GoogleParallelstoreInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleParallelstoreInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleParallelstoreInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleParallelstoreInstance(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGib is required")]
     public required TerraformValue<string> CapacityGib
     {
-        get => new TerraformReference<string>(this, "capacity_gib");
+        get => GetArgument<TerraformValue<string>>("capacity_gib");
         set => SetArgument("capacity_gib", value);
     }
 
@@ -68,7 +68,7 @@ public partial class GoogleParallelstoreInstance(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? DeploymentType
     {
-        get => new TerraformReference<string>(this, "deployment_type");
+        get => GetArgument<TerraformValue<string>>("deployment_type");
         set => SetArgument("deployment_type", value);
     }
 
@@ -77,7 +77,7 @@ public partial class GoogleParallelstoreInstance(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -93,7 +93,7 @@ public partial class GoogleParallelstoreInstance(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? DirectoryStripeLevel
     {
-        get => new TerraformReference<string>(this, "directory_stripe_level");
+        get => GetArgument<TerraformValue<string>>("directory_stripe_level");
         set => SetArgument("directory_stripe_level", value);
     }
 
@@ -109,16 +109,16 @@ public partial class GoogleParallelstoreInstance(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? FileStripeLevel
     {
-        get => new TerraformReference<string>(this, "file_stripe_level");
+        get => GetArgument<TerraformValue<string>>("file_stripe_level");
         set => SetArgument("file_stripe_level", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -133,7 +133,7 @@ public partial class GoogleParallelstoreInstance(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => new TerraformReference<string>(this, "instance_id");
+        get => GetArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
@@ -166,7 +166,7 @@ public partial class GoogleParallelstoreInstance(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -176,7 +176,7 @@ public partial class GoogleParallelstoreInstance(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -186,16 +186,16 @@ public partial class GoogleParallelstoreInstance(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -207,7 +207,7 @@ public partial class GoogleParallelstoreInstance(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? ReservedIpRange
     {
-        get => new TerraformReference<string>(this, "reserved_ip_range");
+        get => GetArgument<TerraformValue<string>>("reserved_ip_range");
         set => SetArgument("reserved_ip_range", value);
     }
 
@@ -216,33 +216,25 @@ public partial class GoogleParallelstoreInstance(string name) : TerraformResourc
     /// Contains a list of IPv4 addresses used for client side configuration.
     /// </summary>
     public TerraformList<string> AccessPoints
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "access_points").ResolveNodes(ctx));
-    }
+        => AsReference("access_points");
 
     /// <summary>
     /// The time when the instance was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The version of DAOS software running in the instance.
     /// </summary>
     public TerraformValue<string> DaosVersion
-    {
-        get => new TerraformReference<string>(this, "daos_version");
-    }
+        => AsReference("daos_version");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Immutable. Contains the id of the allocated IP address
@@ -251,18 +243,14 @@ public partial class GoogleParallelstoreInstance(string name) : TerraformResourc
     /// and contains the value currently used by the service.
     /// </summary>
     public TerraformValue<string> EffectiveReservedIpRange
-    {
-        get => new TerraformReference<string>(this, "effective_reserved_ip_range");
-    }
+        => AsReference("effective_reserved_ip_range");
 
     /// <summary>
     /// Identifier. The resource name of the instance, in the format
     /// &#39;projects/{project}/locations/{location}/instances/{instance_id}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The instance state.
@@ -275,26 +263,20 @@ public partial class GoogleParallelstoreInstance(string name) : TerraformResourc
     ///   UPGRADING
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The time when the instance was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

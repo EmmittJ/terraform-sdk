@@ -18,7 +18,7 @@ public class GoogleDataprocJobHadoopConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ArchiveUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "archive_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("archive_uris");
         set => SetArgument("archive_uris", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleDataprocJobHadoopConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleDataprocJobHadoopConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? FileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("file_uris");
         set => SetArgument("file_uris", value);
     }
 
@@ -45,7 +45,7 @@ public class GoogleDataprocJobHadoopConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? JarFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "jar_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("jar_file_uris");
         set => SetArgument("jar_file_uris", value);
     }
 
@@ -54,7 +54,7 @@ public class GoogleDataprocJobHadoopConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MainClass
     {
-        get => new TerraformReference<string>(this, "main_class");
+        get => GetArgument<TerraformValue<string>>("main_class");
         set => SetArgument("main_class", value);
     }
 
@@ -63,7 +63,7 @@ public class GoogleDataprocJobHadoopConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MainJarFileUri
     {
-        get => new TerraformReference<string>(this, "main_jar_file_uri");
+        get => GetArgument<TerraformValue<string>>("main_jar_file_uri");
         set => SetArgument("main_jar_file_uri", value);
     }
 
@@ -72,7 +72,7 @@ public class GoogleDataprocJobHadoopConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleDataprocJobHadoopConfigBlockLoggingConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DriverLogLevels is required")]
     public required TerraformMap<string> DriverLogLevels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "driver_log_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("driver_log_levels");
         set => SetArgument("driver_log_levels", value);
     }
 
@@ -128,7 +128,7 @@ public class GoogleDataprocJobHiveConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ContinueOnFailure
     {
-        get => new TerraformReference<bool>(this, "continue_on_failure");
+        get => GetArgument<TerraformValue<bool>>("continue_on_failure");
         set => SetArgument("continue_on_failure", value);
     }
 
@@ -137,7 +137,7 @@ public class GoogleDataprocJobHiveConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? JarFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "jar_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("jar_file_uris");
         set => SetArgument("jar_file_uris", value);
     }
 
@@ -146,7 +146,7 @@ public class GoogleDataprocJobHiveConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -155,7 +155,7 @@ public class GoogleDataprocJobHiveConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? QueryFileUri
     {
-        get => new TerraformReference<string>(this, "query_file_uri");
+        get => GetArgument<TerraformValue<string>>("query_file_uri");
         set => SetArgument("query_file_uri", value);
     }
 
@@ -164,7 +164,7 @@ public class GoogleDataprocJobHiveConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? QueryList
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "query_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("query_list");
         set => SetArgument("query_list", value);
     }
 
@@ -173,7 +173,7 @@ public class GoogleDataprocJobHiveConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? ScriptVariables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "script_variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("script_variables");
         set => SetArgument("script_variables", value);
     }
 
@@ -196,7 +196,7 @@ public class GoogleDataprocJobPigConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ContinueOnFailure
     {
-        get => new TerraformReference<bool>(this, "continue_on_failure");
+        get => GetArgument<TerraformValue<bool>>("continue_on_failure");
         set => SetArgument("continue_on_failure", value);
     }
 
@@ -205,7 +205,7 @@ public class GoogleDataprocJobPigConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? JarFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "jar_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("jar_file_uris");
         set => SetArgument("jar_file_uris", value);
     }
 
@@ -214,7 +214,7 @@ public class GoogleDataprocJobPigConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -223,7 +223,7 @@ public class GoogleDataprocJobPigConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? QueryFileUri
     {
-        get => new TerraformReference<string>(this, "query_file_uri");
+        get => GetArgument<TerraformValue<string>>("query_file_uri");
         set => SetArgument("query_file_uri", value);
     }
 
@@ -232,7 +232,7 @@ public class GoogleDataprocJobPigConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? QueryList
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "query_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("query_list");
         set => SetArgument("query_list", value);
     }
 
@@ -241,7 +241,7 @@ public class GoogleDataprocJobPigConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? ScriptVariables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "script_variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("script_variables");
         set => SetArgument("script_variables", value);
     }
 
@@ -274,7 +274,7 @@ public class GoogleDataprocJobPigConfigBlockLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DriverLogLevels is required")]
     public required TerraformMap<string> DriverLogLevels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "driver_log_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("driver_log_levels");
         set => SetArgument("driver_log_levels", value);
     }
 
@@ -298,7 +298,7 @@ public class GoogleDataprocJobPlacementBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => new TerraformReference<string>(this, "cluster_name");
+        get => GetArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -306,9 +306,7 @@ public class GoogleDataprocJobPlacementBlock : TerraformBlock
     /// Output-only. A cluster UUID generated by the Cloud Dataproc service when the job is submitted
     /// </summary>
     public TerraformValue<string> ClusterUuid
-    {
-        get => new TerraformReference<string>(this, "cluster_uuid");
-    }
+        => AsReference("cluster_uuid");
 
 }
 
@@ -329,7 +327,7 @@ public class GoogleDataprocJobPrestoConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ClientTags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "client_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("client_tags");
         set => SetArgument("client_tags", value);
     }
 
@@ -338,7 +336,7 @@ public class GoogleDataprocJobPrestoConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ContinueOnFailure
     {
-        get => new TerraformReference<bool>(this, "continue_on_failure");
+        get => GetArgument<TerraformValue<bool>>("continue_on_failure");
         set => SetArgument("continue_on_failure", value);
     }
 
@@ -347,7 +345,7 @@ public class GoogleDataprocJobPrestoConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OutputFormat
     {
-        get => new TerraformReference<string>(this, "output_format");
+        get => GetArgument<TerraformValue<string>>("output_format");
         set => SetArgument("output_format", value);
     }
 
@@ -356,7 +354,7 @@ public class GoogleDataprocJobPrestoConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -365,7 +363,7 @@ public class GoogleDataprocJobPrestoConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? QueryFileUri
     {
-        get => new TerraformReference<string>(this, "query_file_uri");
+        get => GetArgument<TerraformValue<string>>("query_file_uri");
         set => SetArgument("query_file_uri", value);
     }
 
@@ -374,7 +372,7 @@ public class GoogleDataprocJobPrestoConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? QueryList
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "query_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("query_list");
         set => SetArgument("query_list", value);
     }
 
@@ -407,7 +405,7 @@ public class GoogleDataprocJobPrestoConfigBlockLoggingConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DriverLogLevels is required")]
     public required TerraformMap<string> DriverLogLevels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "driver_log_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("driver_log_levels");
         set => SetArgument("driver_log_levels", value);
     }
 
@@ -430,7 +428,7 @@ public class GoogleDataprocJobPysparkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ArchiveUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "archive_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("archive_uris");
         set => SetArgument("archive_uris", value);
     }
 
@@ -439,7 +437,7 @@ public class GoogleDataprocJobPysparkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -448,7 +446,7 @@ public class GoogleDataprocJobPysparkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? FileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("file_uris");
         set => SetArgument("file_uris", value);
     }
 
@@ -457,7 +455,7 @@ public class GoogleDataprocJobPysparkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? JarFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "jar_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("jar_file_uris");
         set => SetArgument("jar_file_uris", value);
     }
 
@@ -467,7 +465,7 @@ public class GoogleDataprocJobPysparkConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainPythonFileUri is required")]
     public required TerraformValue<string> MainPythonFileUri
     {
-        get => new TerraformReference<string>(this, "main_python_file_uri");
+        get => GetArgument<TerraformValue<string>>("main_python_file_uri");
         set => SetArgument("main_python_file_uri", value);
     }
 
@@ -476,7 +474,7 @@ public class GoogleDataprocJobPysparkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -485,7 +483,7 @@ public class GoogleDataprocJobPysparkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? PythonFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "python_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("python_file_uris");
         set => SetArgument("python_file_uris", value);
     }
 
@@ -518,7 +516,7 @@ public class GoogleDataprocJobPysparkConfigBlockLoggingConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DriverLogLevels is required")]
     public required TerraformMap<string> DriverLogLevels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "driver_log_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("driver_log_levels");
         set => SetArgument("driver_log_levels", value);
     }
 
@@ -539,9 +537,9 @@ public class GoogleDataprocJobReferenceBlock : TerraformBlock
     /// <summary>
     /// The job ID, which must be unique within the project. The job ID is generated by the server upon job submission or provided by the user as a means to perform retries without creating duplicate jobs
     /// </summary>
-    public TerraformValue<string> JobId
+    public TerraformValue<string>? JobId
     {
-        get => new TerraformReference<string>(this, "job_id");
+        get => GetArgument<TerraformValue<string>>("job_id");
         set => SetArgument("job_id", value);
     }
 
@@ -565,7 +563,7 @@ public class GoogleDataprocJobSchedulingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxFailuresPerHour is required")]
     public required TerraformValue<double> MaxFailuresPerHour
     {
-        get => new TerraformReference<double>(this, "max_failures_per_hour");
+        get => GetArgument<TerraformValue<double>>("max_failures_per_hour");
         set => SetArgument("max_failures_per_hour", value);
     }
 
@@ -575,7 +573,7 @@ public class GoogleDataprocJobSchedulingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxFailuresTotal is required")]
     public required TerraformValue<double> MaxFailuresTotal
     {
-        get => new TerraformReference<double>(this, "max_failures_total");
+        get => GetArgument<TerraformValue<double>>("max_failures_total");
         set => SetArgument("max_failures_total", value);
     }
 
@@ -598,7 +596,7 @@ public class GoogleDataprocJobSparkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ArchiveUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "archive_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("archive_uris");
         set => SetArgument("archive_uris", value);
     }
 
@@ -607,7 +605,7 @@ public class GoogleDataprocJobSparkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -616,7 +614,7 @@ public class GoogleDataprocJobSparkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? FileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("file_uris");
         set => SetArgument("file_uris", value);
     }
 
@@ -625,7 +623,7 @@ public class GoogleDataprocJobSparkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? JarFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "jar_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("jar_file_uris");
         set => SetArgument("jar_file_uris", value);
     }
 
@@ -634,7 +632,7 @@ public class GoogleDataprocJobSparkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MainClass
     {
-        get => new TerraformReference<string>(this, "main_class");
+        get => GetArgument<TerraformValue<string>>("main_class");
         set => SetArgument("main_class", value);
     }
 
@@ -643,7 +641,7 @@ public class GoogleDataprocJobSparkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MainJarFileUri
     {
-        get => new TerraformReference<string>(this, "main_jar_file_uri");
+        get => GetArgument<TerraformValue<string>>("main_jar_file_uri");
         set => SetArgument("main_jar_file_uri", value);
     }
 
@@ -652,7 +650,7 @@ public class GoogleDataprocJobSparkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -685,7 +683,7 @@ public class GoogleDataprocJobSparkConfigBlockLoggingConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DriverLogLevels is required")]
     public required TerraformMap<string> DriverLogLevels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "driver_log_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("driver_log_levels");
         set => SetArgument("driver_log_levels", value);
     }
 
@@ -708,7 +706,7 @@ public class GoogleDataprocJobSparksqlConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? JarFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "jar_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("jar_file_uris");
         set => SetArgument("jar_file_uris", value);
     }
 
@@ -717,7 +715,7 @@ public class GoogleDataprocJobSparksqlConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -726,7 +724,7 @@ public class GoogleDataprocJobSparksqlConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? QueryFileUri
     {
-        get => new TerraformReference<string>(this, "query_file_uri");
+        get => GetArgument<TerraformValue<string>>("query_file_uri");
         set => SetArgument("query_file_uri", value);
     }
 
@@ -735,7 +733,7 @@ public class GoogleDataprocJobSparksqlConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? QueryList
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "query_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("query_list");
         set => SetArgument("query_list", value);
     }
 
@@ -744,7 +742,7 @@ public class GoogleDataprocJobSparksqlConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? ScriptVariables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "script_variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("script_variables");
         set => SetArgument("script_variables", value);
     }
 
@@ -777,7 +775,7 @@ public class GoogleDataprocJobSparksqlConfigBlockLoggingConfigBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DriverLogLevels is required")]
     public required TerraformMap<string> DriverLogLevels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "driver_log_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("driver_log_levels");
         set => SetArgument("driver_log_levels", value);
     }
 
@@ -800,7 +798,7 @@ public class GoogleDataprocJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -809,7 +807,7 @@ public class GoogleDataprocJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -827,16 +825,16 @@ public partial class GoogleDataprocJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<bool>? ForceDelete
     {
-        get => new TerraformReference<bool>(this, "force_delete");
+        get => GetArgument<TerraformValue<bool>>("force_delete");
         set => SetArgument("force_delete", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -848,16 +846,16 @@ public partial class GoogleDataprocJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// The project in which the cluster can be found and jobs subsequently run against. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -866,7 +864,7 @@ public partial class GoogleDataprocJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -874,41 +872,31 @@ public partial class GoogleDataprocJob(string name) : TerraformResource("google_
     /// Output-only. If present, the location of miscellaneous control files which may be used as part of job setup and handling. If not present, control files may be placed in the same location as driver_output_uri.
     /// </summary>
     public TerraformValue<string> DriverControlsFilesUri
-    {
-        get => new TerraformReference<string>(this, "driver_controls_files_uri");
-    }
+        => AsReference("driver_controls_files_uri");
 
     /// <summary>
     /// Output-only. A URI pointing to the location of the stdout of the job&#39;s driver program
     /// </summary>
     public TerraformValue<string> DriverOutputResourceUri
-    {
-        get => new TerraformReference<string>(this, "driver_output_resource_uri");
-    }
+        => AsReference("driver_output_resource_uri");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The status of the job.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "status").ResolveNodes(ctx));
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// HadoopConfig block (nesting mode: list).

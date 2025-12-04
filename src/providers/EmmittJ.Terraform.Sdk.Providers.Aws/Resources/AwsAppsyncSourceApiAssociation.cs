@@ -18,7 +18,7 @@ public class AwsAppsyncSourceApiAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsAppsyncSourceApiAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsAppsyncSourceApiAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,61 +54,61 @@ public partial class AwsAppsyncSourceApiAssociation(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The merged_api_arn attribute.
     /// </summary>
-    public TerraformValue<string> MergedApiArn
+    public TerraformValue<string>? MergedApiArn
     {
-        get => new TerraformReference<string>(this, "merged_api_arn");
+        get => GetArgument<TerraformValue<string>>("merged_api_arn");
         set => SetArgument("merged_api_arn", value);
     }
 
     /// <summary>
     /// The merged_api_id attribute.
     /// </summary>
-    public TerraformValue<string> MergedApiId
+    public TerraformValue<string>? MergedApiId
     {
-        get => new TerraformReference<string>(this, "merged_api_id");
+        get => GetArgument<TerraformValue<string>>("merged_api_id");
         set => SetArgument("merged_api_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The source_api_arn attribute.
     /// </summary>
-    public TerraformValue<string> SourceApiArn
+    public TerraformValue<string>? SourceApiArn
     {
-        get => new TerraformReference<string>(this, "source_api_arn");
+        get => GetArgument<TerraformValue<string>>("source_api_arn");
         set => SetArgument("source_api_arn", value);
     }
 
     /// <summary>
     /// The source_api_association_config attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>> SourceApiAssociationConfig
+    public TerraformList<TerraformMap<object>>? SourceApiAssociationConfig
     {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "source_api_association_config").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<TerraformMap<object>>>("source_api_association_config");
         set => SetArgument("source_api_association_config", value);
     }
 
     /// <summary>
     /// The source_api_id attribute.
     /// </summary>
-    public TerraformValue<string> SourceApiId
+    public TerraformValue<string>? SourceApiId
     {
-        get => new TerraformReference<string>(this, "source_api_id");
+        get => GetArgument<TerraformValue<string>>("source_api_id");
         set => SetArgument("source_api_id", value);
     }
 
@@ -116,25 +116,19 @@ public partial class AwsAppsyncSourceApiAssociation(string name) : TerraformReso
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The association_id attribute.
     /// </summary>
     public TerraformValue<string> AssociationId
-    {
-        get => new TerraformReference<string>(this, "association_id");
-    }
+        => AsReference("association_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

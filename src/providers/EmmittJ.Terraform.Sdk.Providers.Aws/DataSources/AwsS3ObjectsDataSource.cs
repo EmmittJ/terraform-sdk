@@ -14,7 +14,7 @@ public partial class AwsS3ObjectsDataSource(string name) : TerraformDataSource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsS3ObjectsDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string>? Delimiter
     {
-        get => new TerraformReference<string>(this, "delimiter");
+        get => GetArgument<TerraformValue<string>>("delimiter");
         set => SetArgument("delimiter", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsS3ObjectsDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string>? EncodingType
     {
-        get => new TerraformReference<string>(this, "encoding_type");
+        get => GetArgument<TerraformValue<string>>("encoding_type");
         set => SetArgument("encoding_type", value);
     }
 
@@ -41,16 +41,16 @@ public partial class AwsS3ObjectsDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<bool>? FetchOwner
     {
-        get => new TerraformReference<bool>(this, "fetch_owner");
+        get => GetArgument<TerraformValue<bool>>("fetch_owner");
         set => SetArgument("fetch_owner", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsS3ObjectsDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<double>? MaxKeys
     {
-        get => new TerraformReference<double>(this, "max_keys");
+        get => GetArgument<TerraformValue<double>>("max_keys");
         set => SetArgument("max_keys", value);
     }
 
@@ -68,16 +68,16 @@ public partial class AwsS3ObjectsDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -86,7 +86,7 @@ public partial class AwsS3ObjectsDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string>? RequestPayer
     {
-        get => new TerraformReference<string>(this, "request_payer");
+        get => GetArgument<TerraformValue<string>>("request_payer");
         set => SetArgument("request_payer", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsS3ObjectsDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string>? StartAfter
     {
-        get => new TerraformReference<string>(this, "start_after");
+        get => GetArgument<TerraformValue<string>>("start_after");
         set => SetArgument("start_after", value);
     }
 
@@ -103,32 +103,24 @@ public partial class AwsS3ObjectsDataSource(string name) : TerraformDataSource("
     /// The common_prefixes attribute.
     /// </summary>
     public TerraformList<string> CommonPrefixes
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "common_prefixes").ResolveNodes(ctx));
-    }
+        => AsReference("common_prefixes");
 
     /// <summary>
     /// The keys attribute.
     /// </summary>
     public TerraformList<string> KeysAttribute
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "keys").ResolveNodes(ctx));
-    }
+        => AsReference("keys");
 
     /// <summary>
     /// The owners attribute.
     /// </summary>
     public TerraformList<string> Owners
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "owners").ResolveNodes(ctx));
-    }
+        => AsReference("owners");
 
     /// <summary>
     /// The request_charged attribute.
     /// </summary>
     public TerraformValue<string> RequestCharged
-    {
-        get => new TerraformReference<string>(this, "request_charged");
-    }
+        => AsReference("request_charged");
 
 }

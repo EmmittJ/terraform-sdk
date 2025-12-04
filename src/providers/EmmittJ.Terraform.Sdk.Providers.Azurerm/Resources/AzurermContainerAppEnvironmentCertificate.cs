@@ -18,7 +18,7 @@ public class AzurermContainerAppEnvironmentCertificateTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermContainerAppEnvironmentCertificateTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermContainerAppEnvironmentCertificateTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermContainerAppEnvironmentCertificateTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermContainerAppEnvironmentCertificate(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateBlobBase64 is required")]
     public required TerraformValue<string> CertificateBlobBase64
     {
-        get => new TerraformReference<string>(this, "certificate_blob_base64");
+        get => GetArgument<TerraformValue<string>>("certificate_blob_base64");
         set => SetArgument("certificate_blob_base64", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermContainerAppEnvironmentCertificate(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificatePassword is required")]
     public required TerraformValue<string> CertificatePassword
     {
-        get => new TerraformReference<string>(this, "certificate_password");
+        get => GetArgument<TerraformValue<string>>("certificate_password");
         set => SetArgument("certificate_password", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AzurermContainerAppEnvironmentCertificate(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
     public required TerraformValue<string> ContainerAppEnvironmentId
     {
-        get => new TerraformReference<string>(this, "container_app_environment_id");
+        get => GetArgument<TerraformValue<string>>("container_app_environment_id");
         set => SetArgument("container_app_environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermContainerAppEnvironmentCertificate(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermContainerAppEnvironmentCertificate(string name) : Te
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -120,41 +120,31 @@ public partial class AzurermContainerAppEnvironmentCertificate(string name) : Te
     /// The expiration date for the Certificate.
     /// </summary>
     public TerraformValue<string> ExpirationDate
-    {
-        get => new TerraformReference<string>(this, "expiration_date");
-    }
+        => AsReference("expiration_date");
 
     /// <summary>
     /// The date of issue for the Certificate.
     /// </summary>
     public TerraformValue<string> IssueDate
-    {
-        get => new TerraformReference<string>(this, "issue_date");
-    }
+        => AsReference("issue_date");
 
     /// <summary>
     /// The Certificate Issuer.
     /// </summary>
     public TerraformValue<string> Issuer
-    {
-        get => new TerraformReference<string>(this, "issuer");
-    }
+        => AsReference("issuer");
 
     /// <summary>
     /// The Subject Name for the Certificate.
     /// </summary>
     public TerraformValue<string> SubjectName
-    {
-        get => new TerraformReference<string>(this, "subject_name");
-    }
+        => AsReference("subject_name");
 
     /// <summary>
     /// The Thumbprint of the Certificate.
     /// </summary>
     public TerraformValue<string> Thumbprint
-    {
-        get => new TerraformReference<string>(this, "thumbprint");
-    }
+        => AsReference("thumbprint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

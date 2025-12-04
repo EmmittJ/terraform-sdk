@@ -18,7 +18,7 @@ public class GoogleComputeAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleComputeAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,9 +54,9 @@ public partial class GoogleComputeAddress(string name) : TerraformResource("goog
     /// The IP address must be inside the specified subnetwork,
     /// if any. Set by the API if undefined.
     /// </summary>
-    public TerraformValue<string> Address
+    public TerraformValue<string>? Address
     {
-        get => new TerraformReference<string>(this, "address");
+        get => GetArgument<TerraformValue<string>>("address");
         set => SetArgument("address", value);
     }
 
@@ -66,7 +66,7 @@ public partial class GoogleComputeAddress(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? AddressType
     {
-        get => new TerraformReference<string>(this, "address_type");
+        get => GetArgument<TerraformValue<string>>("address_type");
         set => SetArgument("address_type", value);
     }
 
@@ -75,16 +75,16 @@ public partial class GoogleComputeAddress(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class GoogleComputeAddress(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? IpVersion
     {
-        get => new TerraformReference<string>(this, "ip_version");
+        get => GetArgument<TerraformValue<string>>("ip_version");
         set => SetArgument("ip_version", value);
     }
 
@@ -104,7 +104,7 @@ public partial class GoogleComputeAddress(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? Ipv6EndpointType
     {
-        get => new TerraformReference<string>(this, "ipv6_endpoint_type");
+        get => GetArgument<TerraformValue<string>>("ipv6_endpoint_type");
         set => SetArgument("ipv6_endpoint_type", value);
     }
 
@@ -117,7 +117,7 @@ public partial class GoogleComputeAddress(string name) : TerraformResource("goog
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -132,7 +132,7 @@ public partial class GoogleComputeAddress(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -143,7 +143,7 @@ public partial class GoogleComputeAddress(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -152,27 +152,27 @@ public partial class GoogleComputeAddress(string name) : TerraformResource("goog
     /// specified, it is assumed to be PREMIUM.
     /// This argument should not be used when configuring Internal addresses, because [network tier cannot be set for internal traffic; it&#39;s always Premium](https://cloud.google.com/network-tiers/docs/overview). Possible values: [&amp;quot;PREMIUM&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
-    public TerraformValue<string> NetworkTier
+    public TerraformValue<string>? NetworkTier
     {
-        get => new TerraformReference<string>(this, "network_tier");
+        get => GetArgument<TerraformValue<string>>("network_tier");
         set => SetArgument("network_tier", value);
     }
 
     /// <summary>
     /// The prefix length if the resource represents an IP range.
     /// </summary>
-    public TerraformValue<double> PrefixLength
+    public TerraformValue<double>? PrefixLength
     {
-        get => new TerraformReference<double>(this, "prefix_length");
+        get => GetArgument<TerraformValue<double>>("prefix_length");
         set => SetArgument("prefix_length", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -197,9 +197,9 @@ public partial class GoogleComputeAddress(string name) : TerraformResource("goog
     /// 
     /// This should only be set when using an Internal address.
     /// </summary>
-    public TerraformValue<string> Purpose
+    public TerraformValue<string>? Purpose
     {
-        get => new TerraformReference<string>(this, "purpose");
+        get => GetArgument<TerraformValue<string>>("purpose");
         set => SetArgument("purpose", value);
     }
 
@@ -207,9 +207,9 @@ public partial class GoogleComputeAddress(string name) : TerraformResource("goog
     /// The Region in which the created address should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -219,9 +219,9 @@ public partial class GoogleComputeAddress(string name) : TerraformResource("goog
     /// This field can only be used with INTERNAL type with
     /// GCE_ENDPOINT/DNS_RESOLVER purposes.
     /// </summary>
-    public TerraformValue<string> Subnetwork
+    public TerraformValue<string>? Subnetwork
     {
-        get => new TerraformReference<string>(this, "subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -229,51 +229,39 @@ public partial class GoogleComputeAddress(string name) : TerraformResource("goog
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
     /// internally during updates.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-    {
-        get => new TerraformReference<string>(this, "label_fingerprint");
-    }
+        => AsReference("label_fingerprint");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The URLs of the resources that are using this address.
     /// </summary>
     public TerraformList<string> Users
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "users").ResolveNodes(ctx));
-    }
+        => AsReference("users");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

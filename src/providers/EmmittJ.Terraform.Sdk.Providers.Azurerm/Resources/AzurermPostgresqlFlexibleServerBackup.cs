@@ -18,7 +18,7 @@ public class AzurermPostgresqlFlexibleServerBackupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermPostgresqlFlexibleServerBackupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermPostgresqlFlexibleServerBackupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -52,9 +52,9 @@ public partial class AzurermPostgresqlFlexibleServerBackup(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermPostgresqlFlexibleServerBackup(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermPostgresqlFlexibleServerBackup(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformValue<string> ServerId
     {
-        get => new TerraformReference<string>(this, "server_id");
+        get => GetArgument<TerraformValue<string>>("server_id");
         set => SetArgument("server_id", value);
     }
 
@@ -82,9 +82,7 @@ public partial class AzurermPostgresqlFlexibleServerBackup(string name) : Terraf
     /// The completed_time attribute.
     /// </summary>
     public TerraformValue<string> CompletedTime
-    {
-        get => new TerraformReference<string>(this, "completed_time");
-    }
+        => AsReference("completed_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

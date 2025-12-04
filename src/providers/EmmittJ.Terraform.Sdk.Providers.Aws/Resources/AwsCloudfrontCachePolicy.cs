@@ -18,7 +18,7 @@ public class AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlo
     /// </summary>
     public TerraformValue<bool>? EnableAcceptEncodingBrotli
     {
-        get => new TerraformReference<bool>(this, "enable_accept_encoding_brotli");
+        get => GetArgument<TerraformValue<bool>>("enable_accept_encoding_brotli");
         set => SetArgument("enable_accept_encoding_brotli", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlo
     /// </summary>
     public TerraformValue<bool>? EnableAcceptEncodingGzip
     {
-        get => new TerraformReference<bool>(this, "enable_accept_encoding_gzip");
+        get => GetArgument<TerraformValue<bool>>("enable_accept_encoding_gzip");
         set => SetArgument("enable_accept_encoding_gzip", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CookieBehavior is required")]
     public required TerraformValue<string> CookieBehavior
     {
-        get => new TerraformReference<string>(this, "cookie_behavior");
+        get => GetArgument<TerraformValue<string>>("cookie_behavior");
         set => SetArgument("cookie_behavior", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlo
     /// </summary>
     public TerraformSet<string>? Items
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "items").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("items");
         set => SetArgument("items", value);
     }
 
@@ -143,7 +143,7 @@ public class AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlo
     /// </summary>
     public TerraformValue<string>? HeaderBehavior
     {
-        get => new TerraformReference<string>(this, "header_behavior");
+        get => GetArgument<TerraformValue<string>>("header_behavior");
         set => SetArgument("header_behavior", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlo
     /// </summary>
     public TerraformSet<string>? Items
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "items").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("items");
         set => SetArgument("items", value);
     }
 
@@ -198,7 +198,7 @@ public class AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryStringBehavior is required")]
     public required TerraformValue<string> QueryStringBehavior
     {
-        get => new TerraformReference<string>(this, "query_string_behavior");
+        get => GetArgument<TerraformValue<string>>("query_string_behavior");
         set => SetArgument("query_string_behavior", value);
     }
 
@@ -230,7 +230,7 @@ public class AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlo
     /// </summary>
     public TerraformSet<string>? Items
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "items").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("items");
         set => SetArgument("items", value);
     }
 
@@ -248,7 +248,7 @@ public partial class AwsCloudfrontCachePolicy(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Comment
     {
-        get => new TerraformReference<string>(this, "comment");
+        get => GetArgument<TerraformValue<string>>("comment");
         set => SetArgument("comment", value);
     }
 
@@ -257,16 +257,16 @@ public partial class AwsCloudfrontCachePolicy(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double>? DefaultTtl
     {
-        get => new TerraformReference<double>(this, "default_ttl");
+        get => GetArgument<TerraformValue<double>>("default_ttl");
         set => SetArgument("default_ttl", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -275,7 +275,7 @@ public partial class AwsCloudfrontCachePolicy(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double>? MaxTtl
     {
-        get => new TerraformReference<double>(this, "max_ttl");
+        get => GetArgument<TerraformValue<double>>("max_ttl");
         set => SetArgument("max_ttl", value);
     }
 
@@ -284,7 +284,7 @@ public partial class AwsCloudfrontCachePolicy(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double>? MinTtl
     {
-        get => new TerraformReference<double>(this, "min_ttl");
+        get => GetArgument<TerraformValue<double>>("min_ttl");
         set => SetArgument("min_ttl", value);
     }
 
@@ -294,7 +294,7 @@ public partial class AwsCloudfrontCachePolicy(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -302,17 +302,13 @@ public partial class AwsCloudfrontCachePolicy(string name) : TerraformResource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// ParametersInCacheKeyAndForwardedToOrigin block (nesting mode: list).

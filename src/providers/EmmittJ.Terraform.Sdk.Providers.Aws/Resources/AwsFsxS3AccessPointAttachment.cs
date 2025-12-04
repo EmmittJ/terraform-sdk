@@ -19,7 +19,7 @@ public class AwsFsxS3AccessPointAttachmentOpenzfsConfigurationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
     public required TerraformValue<string> VolumeId
     {
-        get => new TerraformReference<string>(this, "volume_id");
+        get => GetArgument<TerraformValue<string>>("volume_id");
         set => SetArgument("volume_id", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsFsxS3AccessPointAttachmentOpenzfsConfigurationBlockFileSystemIde
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsFsxS3AccessPointAttachmentOpenzfsConfigurationBlockFileSystemIde
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gid is required")]
     public required TerraformValue<double> Gid
     {
-        get => new TerraformReference<double>(this, "gid");
+        get => GetArgument<TerraformValue<double>>("gid");
         set => SetArgument("gid", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsFsxS3AccessPointAttachmentOpenzfsConfigurationBlockFileSystemIde
     /// </summary>
     public TerraformList<double>? SecondaryGids
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "secondary_gids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("secondary_gids");
         set => SetArgument("secondary_gids", value);
     }
 
@@ -102,7 +102,7 @@ public class AwsFsxS3AccessPointAttachmentOpenzfsConfigurationBlockFileSystemIde
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uid is required")]
     public required TerraformValue<double> Uid
     {
-        get => new TerraformReference<double>(this, "uid");
+        get => GetArgument<TerraformValue<double>>("uid");
         set => SetArgument("uid", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsFsxS3AccessPointAttachmentS3AccessPointBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
@@ -156,7 +156,7 @@ public class AwsFsxS3AccessPointAttachmentS3AccessPointBlockVpcConfigurationBloc
     /// </summary>
     public TerraformValue<string>? VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -179,7 +179,7 @@ public class AwsFsxS3AccessPointAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -188,7 +188,7 @@ public class AwsFsxS3AccessPointAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -207,16 +207,16 @@ public partial class AwsFsxS3AccessPointAttachment(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -226,7 +226,7 @@ public partial class AwsFsxS3AccessPointAttachment(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -234,17 +234,13 @@ public partial class AwsFsxS3AccessPointAttachment(string name) : TerraformResou
     /// The s3_access_point_alias attribute.
     /// </summary>
     public TerraformValue<string> S3AccessPointAlias
-    {
-        get => new TerraformReference<string>(this, "s3_access_point_alias");
-    }
+        => AsReference("s3_access_point_alias");
 
     /// <summary>
     /// The s3_access_point_arn attribute.
     /// </summary>
     public TerraformValue<string> S3AccessPointArn
-    {
-        get => new TerraformReference<string>(this, "s3_access_point_arn");
-    }
+        => AsReference("s3_access_point_arn");
 
     /// <summary>
     /// OpenzfsConfiguration block (nesting mode: list).

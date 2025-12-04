@@ -19,7 +19,7 @@ public class AwsEbsVolumeDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsEbsVolumeDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsEbsVolumeDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -68,9 +68,9 @@ public partial class AwsEbsVolumeDataSource(string name) : TerraformDataSource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -79,25 +79,25 @@ public partial class AwsEbsVolumeDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<bool>? MostRecent
     {
-        get => new TerraformReference<bool>(this, "most_recent");
+        get => GetArgument<TerraformValue<bool>>("most_recent");
         set => SetArgument("most_recent", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -105,113 +105,85 @@ public partial class AwsEbsVolumeDataSource(string name) : TerraformDataSource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZone
-    {
-        get => new TerraformReference<string>(this, "availability_zone");
-    }
+        => AsReference("availability_zone");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     public TerraformValue<bool> Encrypted
-    {
-        get => new TerraformReference<bool>(this, "encrypted");
-    }
+        => AsReference("encrypted");
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
     public TerraformValue<double> Iops
-    {
-        get => new TerraformReference<double>(this, "iops");
-    }
+        => AsReference("iops");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-    {
-        get => new TerraformReference<string>(this, "kms_key_id");
-    }
+        => AsReference("kms_key_id");
 
     /// <summary>
     /// The multi_attach_enabled attribute.
     /// </summary>
     public TerraformValue<bool> MultiAttachEnabled
-    {
-        get => new TerraformReference<bool>(this, "multi_attach_enabled");
-    }
+        => AsReference("multi_attach_enabled");
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
     public TerraformValue<string> OutpostArn
-    {
-        get => new TerraformReference<string>(this, "outpost_arn");
-    }
+        => AsReference("outpost_arn");
 
     /// <summary>
     /// The size attribute.
     /// </summary>
     public TerraformValue<double> Size
-    {
-        get => new TerraformReference<double>(this, "size");
-    }
+        => AsReference("size");
 
     /// <summary>
     /// The snapshot_id attribute.
     /// </summary>
     public TerraformValue<string> SnapshotId
-    {
-        get => new TerraformReference<string>(this, "snapshot_id");
-    }
+        => AsReference("snapshot_id");
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
     public TerraformValue<double> Throughput
-    {
-        get => new TerraformReference<double>(this, "throughput");
-    }
+        => AsReference("throughput");
 
     /// <summary>
     /// The volume_id attribute.
     /// </summary>
     public TerraformValue<string> VolumeId
-    {
-        get => new TerraformReference<string>(this, "volume_id");
-    }
+        => AsReference("volume_id");
 
     /// <summary>
     /// The volume_initialization_rate attribute.
     /// </summary>
     public TerraformValue<double> VolumeInitializationRate
-    {
-        get => new TerraformReference<double>(this, "volume_initialization_rate");
-    }
+        => AsReference("volume_initialization_rate");
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
     public TerraformValue<string> VolumeType
-    {
-        get => new TerraformReference<string>(this, "volume_type");
-    }
+        => AsReference("volume_type");
 
     /// <summary>
     /// Filter block (nesting mode: set).

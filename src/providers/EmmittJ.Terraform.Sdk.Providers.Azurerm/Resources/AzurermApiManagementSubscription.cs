@@ -18,7 +18,7 @@ public class AzurermApiManagementSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermApiManagementSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermApiManagementSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermApiManagementSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermApiManagementSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? AllowTracing
     {
-        get => new TerraformReference<bool>(this, "allow_tracing");
+        get => GetArgument<TerraformValue<bool>>("allow_tracing");
         set => SetArgument("allow_tracing", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermApiManagementSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? ApiId
     {
-        get => new TerraformReference<string>(this, "api_id");
+        get => GetArgument<TerraformValue<string>>("api_id");
         set => SetArgument("api_id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermApiManagementSubscription(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformValue<string> ApiManagementName
     {
-        get => new TerraformReference<string>(this, "api_management_name");
+        get => GetArgument<TerraformValue<string>>("api_management_name");
         set => SetArgument("api_management_name", value);
     }
 
@@ -92,25 +92,25 @@ public partial class AzurermApiManagementSubscription(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
-    public TerraformValue<string> PrimaryKey
+    public TerraformValue<string>? PrimaryKey
     {
-        get => new TerraformReference<string>(this, "primary_key");
+        get => GetArgument<TerraformValue<string>>("primary_key");
         set => SetArgument("primary_key", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermApiManagementSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? ProductId
     {
-        get => new TerraformReference<string>(this, "product_id");
+        get => GetArgument<TerraformValue<string>>("product_id");
         set => SetArgument("product_id", value);
     }
 
@@ -129,16 +129,16 @@ public partial class AzurermApiManagementSubscription(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
-    public TerraformValue<string> SecondaryKey
+    public TerraformValue<string>? SecondaryKey
     {
-        get => new TerraformReference<string>(this, "secondary_key");
+        get => GetArgument<TerraformValue<string>>("secondary_key");
         set => SetArgument("secondary_key", value);
     }
 
@@ -147,16 +147,16 @@ public partial class AzurermApiManagementSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformValue<string> SubscriptionId
+    public TerraformValue<string>? SubscriptionId
     {
-        get => new TerraformReference<string>(this, "subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AzurermApiManagementSubscription(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? UserId
     {
-        get => new TerraformReference<string>(this, "user_id");
+        get => GetArgument<TerraformValue<string>>("user_id");
         set => SetArgument("user_id", value);
     }
 

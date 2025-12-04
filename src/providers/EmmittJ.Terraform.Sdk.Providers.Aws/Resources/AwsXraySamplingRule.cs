@@ -13,7 +13,7 @@ public partial class AwsXraySamplingRule(string name) : TerraformResource("aws_x
     /// </summary>
     public TerraformMap<string>? Attributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("attributes");
         set => SetArgument("attributes", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsXraySamplingRule(string name) : TerraformResource("aws_x
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FixedRate is required")]
     public required TerraformValue<double> FixedRate
     {
-        get => new TerraformReference<double>(this, "fixed_rate");
+        get => GetArgument<TerraformValue<double>>("fixed_rate");
         set => SetArgument("fixed_rate", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsXraySamplingRule(string name) : TerraformResource("aws_x
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -43,16 +43,16 @@ public partial class AwsXraySamplingRule(string name) : TerraformResource("aws_x
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpMethod is required")]
     public required TerraformValue<string> HttpMethod
     {
-        get => new TerraformReference<string>(this, "http_method");
+        get => GetArgument<TerraformValue<string>>("http_method");
         set => SetArgument("http_method", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -62,16 +62,16 @@ public partial class AwsXraySamplingRule(string name) : TerraformResource("aws_x
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsXraySamplingRule(string name) : TerraformResource("aws_x
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservoirSize is required")]
     public required TerraformValue<double> ReservoirSize
     {
-        get => new TerraformReference<double>(this, "reservoir_size");
+        get => GetArgument<TerraformValue<double>>("reservoir_size");
         set => SetArgument("reservoir_size", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsXraySamplingRule(string name) : TerraformResource("aws_x
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => new TerraformReference<string>(this, "resource_arn");
+        get => GetArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AwsXraySamplingRule(string name) : TerraformResource("aws_x
     /// </summary>
     public TerraformValue<string>? RuleName
     {
-        get => new TerraformReference<string>(this, "rule_name");
+        get => GetArgument<TerraformValue<string>>("rule_name");
         set => SetArgument("rule_name", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AwsXraySamplingRule(string name) : TerraformResource("aws_x
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => new TerraformReference<string>(this, "service_name");
+        get => GetArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AwsXraySamplingRule(string name) : TerraformResource("aws_x
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceType is required")]
     public required TerraformValue<string> ServiceType
     {
-        get => new TerraformReference<string>(this, "service_type");
+        get => GetArgument<TerraformValue<string>>("service_type");
         set => SetArgument("service_type", value);
     }
 
@@ -129,16 +129,16 @@ public partial class AwsXraySamplingRule(string name) : TerraformResource("aws_x
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AwsXraySamplingRule(string name) : TerraformResource("aws_x
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlPath is required")]
     public required TerraformValue<string> UrlPath
     {
-        get => new TerraformReference<string>(this, "url_path");
+        get => GetArgument<TerraformValue<string>>("url_path");
         set => SetArgument("url_path", value);
     }
 
@@ -158,7 +158,7 @@ public partial class AwsXraySamplingRule(string name) : TerraformResource("aws_x
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<double> Version
     {
-        get => new TerraformReference<double>(this, "version");
+        get => GetArgument<TerraformValue<double>>("version");
         set => SetArgument("version", value);
     }
 
@@ -166,8 +166,6 @@ public partial class AwsXraySamplingRule(string name) : TerraformResource("aws_x
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

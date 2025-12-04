@@ -19,7 +19,7 @@ public class AwsApigatewayv2StageAccessLogSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformValue<string> DestinationArn
     {
-        get => new TerraformReference<string>(this, "destination_arn");
+        get => GetArgument<TerraformValue<string>>("destination_arn");
         set => SetArgument("destination_arn", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsApigatewayv2StageAccessLogSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => new TerraformReference<string>(this, "format");
+        get => GetArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsApigatewayv2StageDefaultRouteSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DataTraceEnabled
     {
-        get => new TerraformReference<bool>(this, "data_trace_enabled");
+        get => GetArgument<TerraformValue<bool>>("data_trace_enabled");
         set => SetArgument("data_trace_enabled", value);
     }
 
@@ -61,16 +61,16 @@ public class AwsApigatewayv2StageDefaultRouteSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DetailedMetricsEnabled
     {
-        get => new TerraformReference<bool>(this, "detailed_metrics_enabled");
+        get => GetArgument<TerraformValue<bool>>("detailed_metrics_enabled");
         set => SetArgument("detailed_metrics_enabled", value);
     }
 
     /// <summary>
     /// The logging_level attribute.
     /// </summary>
-    public TerraformValue<string> LoggingLevel
+    public TerraformValue<string>? LoggingLevel
     {
-        get => new TerraformReference<string>(this, "logging_level");
+        get => GetArgument<TerraformValue<string>>("logging_level");
         set => SetArgument("logging_level", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsApigatewayv2StageDefaultRouteSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ThrottlingBurstLimit
     {
-        get => new TerraformReference<double>(this, "throttling_burst_limit");
+        get => GetArgument<TerraformValue<double>>("throttling_burst_limit");
         set => SetArgument("throttling_burst_limit", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsApigatewayv2StageDefaultRouteSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ThrottlingRateLimit
     {
-        get => new TerraformReference<double>(this, "throttling_rate_limit");
+        get => GetArgument<TerraformValue<double>>("throttling_rate_limit");
         set => SetArgument("throttling_rate_limit", value);
     }
 
@@ -111,7 +111,7 @@ public class AwsApigatewayv2StageRouteSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DataTraceEnabled
     {
-        get => new TerraformReference<bool>(this, "data_trace_enabled");
+        get => GetArgument<TerraformValue<bool>>("data_trace_enabled");
         set => SetArgument("data_trace_enabled", value);
     }
 
@@ -120,16 +120,16 @@ public class AwsApigatewayv2StageRouteSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DetailedMetricsEnabled
     {
-        get => new TerraformReference<bool>(this, "detailed_metrics_enabled");
+        get => GetArgument<TerraformValue<bool>>("detailed_metrics_enabled");
         set => SetArgument("detailed_metrics_enabled", value);
     }
 
     /// <summary>
     /// The logging_level attribute.
     /// </summary>
-    public TerraformValue<string> LoggingLevel
+    public TerraformValue<string>? LoggingLevel
     {
-        get => new TerraformReference<string>(this, "logging_level");
+        get => GetArgument<TerraformValue<string>>("logging_level");
         set => SetArgument("logging_level", value);
     }
 
@@ -139,7 +139,7 @@ public class AwsApigatewayv2StageRouteSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteKey is required")]
     public required TerraformValue<string> RouteKey
     {
-        get => new TerraformReference<string>(this, "route_key");
+        get => GetArgument<TerraformValue<string>>("route_key");
         set => SetArgument("route_key", value);
     }
 
@@ -148,7 +148,7 @@ public class AwsApigatewayv2StageRouteSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ThrottlingBurstLimit
     {
-        get => new TerraformReference<double>(this, "throttling_burst_limit");
+        get => GetArgument<TerraformValue<double>>("throttling_burst_limit");
         set => SetArgument("throttling_burst_limit", value);
     }
 
@@ -157,7 +157,7 @@ public class AwsApigatewayv2StageRouteSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ThrottlingRateLimit
     {
-        get => new TerraformReference<double>(this, "throttling_rate_limit");
+        get => GetArgument<TerraformValue<double>>("throttling_rate_limit");
         set => SetArgument("throttling_rate_limit", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AwsApigatewayv2Stage(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformValue<string> ApiId
     {
-        get => new TerraformReference<string>(this, "api_id");
+        get => GetArgument<TerraformValue<string>>("api_id");
         set => SetArgument("api_id", value);
     }
 
@@ -185,7 +185,7 @@ public partial class AwsApigatewayv2Stage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<bool>? AutoDeploy
     {
-        get => new TerraformReference<bool>(this, "auto_deploy");
+        get => GetArgument<TerraformValue<bool>>("auto_deploy");
         set => SetArgument("auto_deploy", value);
     }
 
@@ -194,16 +194,16 @@ public partial class AwsApigatewayv2Stage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? ClientCertificateId
     {
-        get => new TerraformReference<string>(this, "client_certificate_id");
+        get => GetArgument<TerraformValue<string>>("client_certificate_id");
         set => SetArgument("client_certificate_id", value);
     }
 
     /// <summary>
     /// The deployment_id attribute.
     /// </summary>
-    public TerraformValue<string> DeploymentId
+    public TerraformValue<string>? DeploymentId
     {
-        get => new TerraformReference<string>(this, "deployment_id");
+        get => GetArgument<TerraformValue<string>>("deployment_id");
         set => SetArgument("deployment_id", value);
     }
 
@@ -212,16 +212,16 @@ public partial class AwsApigatewayv2Stage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -231,16 +231,16 @@ public partial class AwsApigatewayv2Stage(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -249,7 +249,7 @@ public partial class AwsApigatewayv2Stage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string>? StageVariables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "stage_variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("stage_variables");
         set => SetArgument("stage_variables", value);
     }
 
@@ -258,16 +258,16 @@ public partial class AwsApigatewayv2Stage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -275,25 +275,19 @@ public partial class AwsApigatewayv2Stage(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The execution_arn attribute.
     /// </summary>
     public TerraformValue<string> ExecutionArn
-    {
-        get => new TerraformReference<string>(this, "execution_arn");
-    }
+        => AsReference("execution_arn");
 
     /// <summary>
     /// The invoke_url attribute.
     /// </summary>
     public TerraformValue<string> InvokeUrl
-    {
-        get => new TerraformReference<string>(this, "invoke_url");
-    }
+        => AsReference("invoke_url");
 
     /// <summary>
     /// AccessLogSettings block (nesting mode: list).

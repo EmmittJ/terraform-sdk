@@ -172,7 +172,7 @@ public class GoogleContainerClusterAddonsConfigBlockCloudrunConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disabled is required")]
     public required TerraformValue<bool> Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -181,7 +181,7 @@ public class GoogleContainerClusterAddonsConfigBlockCloudrunConfigBlock : Terraf
     /// </summary>
     public TerraformValue<string>? LoadBalancerType
     {
-        get => new TerraformReference<string>(this, "load_balancer_type");
+        get => GetArgument<TerraformValue<string>>("load_balancer_type");
         set => SetArgument("load_balancer_type", value);
     }
 
@@ -204,7 +204,7 @@ public class GoogleContainerClusterAddonsConfigBlockConfigConnectorConfigBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -227,7 +227,7 @@ public class GoogleContainerClusterAddonsConfigBlockDnsCacheConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -250,7 +250,7 @@ public class GoogleContainerClusterAddonsConfigBlockGcePersistentDiskCsiDriverCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -273,7 +273,7 @@ public class GoogleContainerClusterAddonsConfigBlockGcpFilestoreCsiDriverConfigB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -296,7 +296,7 @@ public class GoogleContainerClusterAddonsConfigBlockGcsFuseCsiDriverConfigBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -319,7 +319,7 @@ public class GoogleContainerClusterAddonsConfigBlockGkeBackupAgentConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -342,7 +342,7 @@ public class GoogleContainerClusterAddonsConfigBlockHorizontalPodAutoscalingBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disabled is required")]
     public required TerraformValue<bool> Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -365,7 +365,7 @@ public class GoogleContainerClusterAddonsConfigBlockHttpLoadBalancingBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disabled is required")]
     public required TerraformValue<bool> Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -388,7 +388,7 @@ public class GoogleContainerClusterAddonsConfigBlockLustreCsiDriverConfigBlock :
     /// </summary>
     public TerraformValue<bool>? EnableLegacyLustrePort
     {
-        get => new TerraformReference<bool>(this, "enable_legacy_lustre_port");
+        get => GetArgument<TerraformValue<bool>>("enable_legacy_lustre_port");
         set => SetArgument("enable_legacy_lustre_port", value);
     }
 
@@ -398,7 +398,7 @@ public class GoogleContainerClusterAddonsConfigBlockLustreCsiDriverConfigBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -421,7 +421,7 @@ public class GoogleContainerClusterAddonsConfigBlockNetworkPolicyConfigBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disabled is required")]
     public required TerraformValue<bool> Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -444,7 +444,7 @@ public class GoogleContainerClusterAddonsConfigBlockParallelstoreCsiDriverConfig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -467,7 +467,7 @@ public class GoogleContainerClusterAddonsConfigBlockRayOperatorConfigBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -510,7 +510,7 @@ public class GoogleContainerClusterAddonsConfigBlockRayOperatorConfigBlockRayClu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -533,7 +533,7 @@ public class GoogleContainerClusterAddonsConfigBlockRayOperatorConfigBlockRayClu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -556,7 +556,7 @@ public class GoogleContainerClusterAddonsConfigBlockStatefulHaConfigBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -583,7 +583,7 @@ public class GoogleContainerClusterAnonymousAuthenticationConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -607,7 +607,7 @@ public class GoogleContainerClusterAuthenticatorGroupsConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroup is required")]
     public required TerraformValue<string> SecurityGroup
     {
-        get => new TerraformReference<string>(this, "security_group");
+        get => GetArgument<TerraformValue<string>>("security_group");
         set => SetArgument("security_group", value);
     }
 
@@ -631,16 +631,16 @@ public class GoogleContainerClusterBinaryAuthorizationBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// Mode of operation for Binary Authorization policy evaluation.
     /// </summary>
-    public TerraformValue<string> EvaluationMode
+    public TerraformValue<string>? EvaluationMode
     {
-        get => new TerraformReference<string>(this, "evaluation_mode");
+        get => GetArgument<TerraformValue<string>>("evaluation_mode");
         set => SetArgument("evaluation_mode", value);
     }
 
@@ -661,9 +661,9 @@ public class GoogleContainerClusterClusterAutoscalingBlock : TerraformBlock
     /// <summary>
     /// The list of Google Compute Engine zones in which the NodePool&#39;s nodes can be created by NAP.
     /// </summary>
-    public TerraformList<string> AutoProvisioningLocations
+    public TerraformList<string>? AutoProvisioningLocations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "auto_provisioning_locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("auto_provisioning_locations");
         set => SetArgument("auto_provisioning_locations", value);
     }
 
@@ -672,7 +672,7 @@ public class GoogleContainerClusterClusterAutoscalingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AutoscalingProfile
     {
-        get => new TerraformReference<string>(this, "autoscaling_profile");
+        get => GetArgument<TerraformValue<string>>("autoscaling_profile");
         set => SetArgument("autoscaling_profile", value);
     }
 
@@ -681,16 +681,16 @@ public class GoogleContainerClusterClusterAutoscalingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DefaultComputeClassEnabled
     {
-        get => new TerraformReference<bool>(this, "default_compute_class_enabled");
+        get => GetArgument<TerraformValue<bool>>("default_compute_class_enabled");
         set => SetArgument("default_compute_class_enabled", value);
     }
 
     /// <summary>
     /// Whether node auto-provisioning is enabled. Resource limits for cpu and memory must be defined to enable node auto-provisioning.
     /// </summary>
-    public TerraformValue<bool> Enabled
+    public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -731,7 +731,7 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// </summary>
     public TerraformValue<string>? BootDiskKmsKey
     {
-        get => new TerraformReference<string>(this, "boot_disk_kms_key");
+        get => GetArgument<TerraformValue<string>>("boot_disk_kms_key");
         set => SetArgument("boot_disk_kms_key", value);
     }
 
@@ -740,7 +740,7 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// </summary>
     public TerraformValue<double>? DiskSize
     {
-        get => new TerraformReference<double>(this, "disk_size");
+        get => GetArgument<TerraformValue<double>>("disk_size");
         set => SetArgument("disk_size", value);
     }
 
@@ -749,7 +749,7 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// </summary>
     public TerraformValue<string>? DiskType
     {
-        get => new TerraformReference<string>(this, "disk_type");
+        get => GetArgument<TerraformValue<string>>("disk_type");
         set => SetArgument("disk_type", value);
     }
 
@@ -758,7 +758,7 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// </summary>
     public TerraformValue<string>? ImageType
     {
-        get => new TerraformReference<string>(this, "image_type");
+        get => GetArgument<TerraformValue<string>>("image_type");
         set => SetArgument("image_type", value);
     }
 
@@ -767,16 +767,16 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// </summary>
     public TerraformValue<string>? MinCpuPlatform
     {
-        get => new TerraformReference<string>(this, "min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
     /// <summary>
     /// Scopes that are used by NAP when creating node pools.
     /// </summary>
-    public TerraformList<string> OauthScopes
+    public TerraformList<string>? OauthScopes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "oauth_scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("oauth_scopes");
         set => SetArgument("oauth_scopes", value);
     }
 
@@ -785,7 +785,7 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// </summary>
     public TerraformValue<string>? ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -835,18 +835,18 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// <summary>
     /// Specifies whether the node auto-repair is enabled for the node pool. If enabled, the nodes in this node pool will be monitored and, if they fail health checks too many times, an automatic repair action will be triggered.
     /// </summary>
-    public TerraformValue<bool> AutoRepair
+    public TerraformValue<bool>? AutoRepair
     {
-        get => new TerraformReference<bool>(this, "auto_repair");
+        get => GetArgument<TerraformValue<bool>>("auto_repair");
         set => SetArgument("auto_repair", value);
     }
 
     /// <summary>
     /// Specifies whether node auto-upgrade is enabled for the node pool. If enabled, node auto-upgrade helps keep the nodes in your node pool up to date with the latest release version of Kubernetes.
     /// </summary>
-    public TerraformValue<bool> AutoUpgrade
+    public TerraformValue<bool>? AutoUpgrade
     {
-        get => new TerraformReference<bool>(this, "auto_upgrade");
+        get => GetArgument<TerraformValue<bool>>("auto_upgrade");
         set => SetArgument("auto_upgrade", value);
     }
 
@@ -854,9 +854,7 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// Specifies the Auto Upgrade knobs for the node pool.
     /// </summary>
     public TerraformList<TerraformMap<object>> UpgradeOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "upgrade_options").ResolveNodes(ctx));
-    }
+        => AsReference("upgrade_options");
 
 }
 
@@ -876,7 +874,7 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// </summary>
     public TerraformValue<bool>? EnableIntegrityMonitoring
     {
-        get => new TerraformReference<bool>(this, "enable_integrity_monitoring");
+        get => GetArgument<TerraformValue<bool>>("enable_integrity_monitoring");
         set => SetArgument("enable_integrity_monitoring", value);
     }
 
@@ -885,7 +883,7 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// </summary>
     public TerraformValue<bool>? EnableSecureBoot
     {
-        get => new TerraformReference<bool>(this, "enable_secure_boot");
+        get => GetArgument<TerraformValue<bool>>("enable_secure_boot");
         set => SetArgument("enable_secure_boot", value);
     }
 
@@ -907,7 +905,7 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// </summary>
     public TerraformValue<double>? MaxSurge
     {
-        get => new TerraformReference<double>(this, "max_surge");
+        get => GetArgument<TerraformValue<double>>("max_surge");
         set => SetArgument("max_surge", value);
     }
 
@@ -916,16 +914,16 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// </summary>
     public TerraformValue<double>? MaxUnavailable
     {
-        get => new TerraformReference<double>(this, "max_unavailable");
+        get => GetArgument<TerraformValue<double>>("max_unavailable");
         set => SetArgument("max_unavailable", value);
     }
 
     /// <summary>
     /// Update strategy of the node pool.
     /// </summary>
-    public TerraformValue<string> Strategy
+    public TerraformValue<string>? Strategy
     {
-        get => new TerraformReference<string>(this, "strategy");
+        get => GetArgument<TerraformValue<string>>("strategy");
         set => SetArgument("strategy", value);
     }
 
@@ -957,9 +955,9 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// 
     /// 																A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformValue<string> NodePoolSoakDuration
+    public TerraformValue<string>? NodePoolSoakDuration
     {
-        get => new TerraformReference<string>(this, "node_pool_soak_duration");
+        get => GetArgument<TerraformValue<string>>("node_pool_soak_duration");
         set => SetArgument("node_pool_soak_duration", value);
     }
 
@@ -989,18 +987,18 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// <summary>
     /// Number of blue nodes to drain in a batch.
     /// </summary>
-    public TerraformValue<double> BatchNodeCount
+    public TerraformValue<double>? BatchNodeCount
     {
-        get => new TerraformReference<double>(this, "batch_node_count");
+        get => GetArgument<TerraformValue<double>>("batch_node_count");
         set => SetArgument("batch_node_count", value);
     }
 
     /// <summary>
     /// Percentage of the bool pool nodes to drain in a batch. The range of this field should be (0.0, 1.0].
     /// </summary>
-    public TerraformValue<double> BatchPercentage
+    public TerraformValue<double>? BatchPercentage
     {
-        get => new TerraformReference<double>(this, "batch_percentage");
+        get => GetArgument<TerraformValue<double>>("batch_percentage");
         set => SetArgument("batch_percentage", value);
     }
 
@@ -1011,7 +1009,7 @@ public class GoogleContainerClusterClusterAutoscalingBlockAutoProvisioningDefaul
     /// </summary>
     public TerraformValue<string>? BatchSoakDuration
     {
-        get => new TerraformReference<string>(this, "batch_soak_duration");
+        get => GetArgument<TerraformValue<string>>("batch_soak_duration");
         set => SetArgument("batch_soak_duration", value);
     }
 
@@ -1034,7 +1032,7 @@ public class GoogleContainerClusterClusterAutoscalingBlockResourceLimitsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Maximum is required")]
     public required TerraformValue<double> Maximum
     {
-        get => new TerraformReference<double>(this, "maximum");
+        get => GetArgument<TerraformValue<double>>("maximum");
         set => SetArgument("maximum", value);
     }
 
@@ -1043,7 +1041,7 @@ public class GoogleContainerClusterClusterAutoscalingBlockResourceLimitsBlock : 
     /// </summary>
     public TerraformValue<double>? Minimum
     {
-        get => new TerraformReference<double>(this, "minimum");
+        get => GetArgument<TerraformValue<double>>("minimum");
         set => SetArgument("minimum", value);
     }
 
@@ -1053,7 +1051,7 @@ public class GoogleContainerClusterClusterAutoscalingBlockResourceLimitsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeAttribute is required")]
     public required TerraformValue<string> ResourceTypeAttribute
     {
-        get => new TerraformReference<string>(this, "resource_type");
+        get => GetArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -1076,7 +1074,7 @@ public class GoogleContainerClusterConfidentialNodesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConfidentialInstanceType
     {
-        get => new TerraformReference<string>(this, "confidential_instance_type");
+        get => GetArgument<TerraformValue<string>>("confidential_instance_type");
         set => SetArgument("confidential_instance_type", value);
     }
 
@@ -1086,7 +1084,7 @@ public class GoogleContainerClusterConfidentialNodesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1142,7 +1140,7 @@ public class GoogleContainerClusterControlPlaneEndpointsConfigBlockDnsEndpointCo
     /// </summary>
     public TerraformValue<bool>? AllowExternalTraffic
     {
-        get => new TerraformReference<bool>(this, "allow_external_traffic");
+        get => GetArgument<TerraformValue<bool>>("allow_external_traffic");
         set => SetArgument("allow_external_traffic", value);
     }
 
@@ -1151,7 +1149,7 @@ public class GoogleContainerClusterControlPlaneEndpointsConfigBlockDnsEndpointCo
     /// </summary>
     public TerraformValue<bool>? EnableK8sCertsViaDns
     {
-        get => new TerraformReference<bool>(this, "enable_k8s_certs_via_dns");
+        get => GetArgument<TerraformValue<bool>>("enable_k8s_certs_via_dns");
         set => SetArgument("enable_k8s_certs_via_dns", value);
     }
 
@@ -1160,16 +1158,16 @@ public class GoogleContainerClusterControlPlaneEndpointsConfigBlockDnsEndpointCo
     /// </summary>
     public TerraformValue<bool>? EnableK8sTokensViaDns
     {
-        get => new TerraformReference<bool>(this, "enable_k8s_tokens_via_dns");
+        get => GetArgument<TerraformValue<bool>>("enable_k8s_tokens_via_dns");
         set => SetArgument("enable_k8s_tokens_via_dns", value);
     }
 
     /// <summary>
     /// The cluster&#39;s DNS endpoint.
     /// </summary>
-    public TerraformValue<string> Endpoint
+    public TerraformValue<string>? Endpoint
     {
-        get => new TerraformReference<string>(this, "endpoint");
+        get => GetArgument<TerraformValue<string>>("endpoint");
         set => SetArgument("endpoint", value);
     }
 
@@ -1191,7 +1189,7 @@ public class GoogleContainerClusterControlPlaneEndpointsConfigBlockIpEndpointsCo
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1215,7 +1213,7 @@ public class GoogleContainerClusterCostManagementConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1238,7 +1236,7 @@ public class GoogleContainerClusterDatabaseEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KeyName
     {
-        get => new TerraformReference<string>(this, "key_name");
+        get => GetArgument<TerraformValue<string>>("key_name");
         set => SetArgument("key_name", value);
     }
 
@@ -1248,7 +1246,7 @@ public class GoogleContainerClusterDatabaseEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformValue<string> State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -1272,7 +1270,7 @@ public class GoogleContainerClusterDefaultSnatStatusBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disabled is required")]
     public required TerraformValue<bool> Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -1295,7 +1293,7 @@ public class GoogleContainerClusterDnsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AdditiveVpcScopeDnsDomain
     {
-        get => new TerraformReference<string>(this, "additive_vpc_scope_dns_domain");
+        get => GetArgument<TerraformValue<string>>("additive_vpc_scope_dns_domain");
         set => SetArgument("additive_vpc_scope_dns_domain", value);
     }
 
@@ -1304,7 +1302,7 @@ public class GoogleContainerClusterDnsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ClusterDns
     {
-        get => new TerraformReference<string>(this, "cluster_dns");
+        get => GetArgument<TerraformValue<string>>("cluster_dns");
         set => SetArgument("cluster_dns", value);
     }
 
@@ -1313,7 +1311,7 @@ public class GoogleContainerClusterDnsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ClusterDnsDomain
     {
-        get => new TerraformReference<string>(this, "cluster_dns_domain");
+        get => GetArgument<TerraformValue<string>>("cluster_dns_domain");
         set => SetArgument("cluster_dns_domain", value);
     }
 
@@ -1322,7 +1320,7 @@ public class GoogleContainerClusterDnsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ClusterDnsScope
     {
-        get => new TerraformReference<string>(this, "cluster_dns_scope");
+        get => GetArgument<TerraformValue<string>>("cluster_dns_scope");
         set => SetArgument("cluster_dns_scope", value);
     }
 
@@ -1346,7 +1344,7 @@ public class GoogleContainerClusterEnableK8sBetaApisBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnabledApis is required")]
     public required TerraformSet<string> EnabledApis
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "enabled_apis").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("enabled_apis");
         set => SetArgument("enabled_apis", value);
     }
 
@@ -1370,17 +1368,15 @@ public class GoogleContainerClusterEnterpriseConfigBlock : TerraformBlock
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> ClusterTier
-    {
-        get => new TerraformReference<string>(this, "cluster_tier");
-    }
+        => AsReference("cluster_tier");
 
     /// <summary>
     /// Indicates the desired cluster tier. Available options include STANDARD and ENTERPRISE.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> DesiredTier
+    public TerraformValue<string>? DesiredTier
     {
-        get => new TerraformReference<string>(this, "desired_tier");
+        get => GetArgument<TerraformValue<string>>("desired_tier");
         set => SetArgument("desired_tier", value);
     }
 
@@ -1402,32 +1398,26 @@ public class GoogleContainerClusterFleetBlock : TerraformBlock
     /// Full resource name of the registered fleet membership of the cluster.
     /// </summary>
     public TerraformValue<string> Membership
-    {
-        get => new TerraformReference<string>(this, "membership");
-    }
+        => AsReference("membership");
 
     /// <summary>
     /// Short name of the fleet membership, for example &amp;quot;member-1&amp;quot;.
     /// </summary>
     public TerraformValue<string> MembershipId
-    {
-        get => new TerraformReference<string>(this, "membership_id");
-    }
+        => AsReference("membership_id");
 
     /// <summary>
     /// Location of the fleet membership, for example &amp;quot;us-central1&amp;quot;.
     /// </summary>
     public TerraformValue<string> MembershipLocation
-    {
-        get => new TerraformReference<string>(this, "membership_location");
-    }
+        => AsReference("membership_location");
 
     /// <summary>
     /// The type of the cluster&#39;s fleet membership.
     /// </summary>
     public TerraformValue<string>? MembershipType
     {
-        get => new TerraformReference<string>(this, "membership_type");
+        get => GetArgument<TerraformValue<string>>("membership_type");
         set => SetArgument("membership_type", value);
     }
 
@@ -1435,16 +1425,14 @@ public class GoogleContainerClusterFleetBlock : TerraformBlock
     /// Whether the cluster has been registered via the fleet API.
     /// </summary>
     public TerraformValue<bool> PreRegistered
-    {
-        get => new TerraformReference<bool>(this, "pre_registered");
-    }
+        => AsReference("pre_registered");
 
     /// <summary>
     /// The Fleet host project of the cluster.
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -1468,7 +1456,7 @@ public class GoogleContainerClusterGatewayApiConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Channel is required")]
     public required TerraformValue<string> Channel
     {
-        get => new TerraformReference<string>(this, "channel");
+        get => GetArgument<TerraformValue<string>>("channel");
         set => SetArgument("channel", value);
     }
 
@@ -1493,7 +1481,7 @@ public class GoogleContainerClusterGkeAutoUpgradeConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatchMode is required")]
     public required TerraformValue<string> PatchMode
     {
-        get => new TerraformReference<string>(this, "patch_mode");
+        get => GetArgument<TerraformValue<string>>("patch_mode");
         set => SetArgument("patch_mode", value);
     }
 
@@ -1516,7 +1504,7 @@ public class GoogleContainerClusterIdentityServiceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1537,36 +1525,36 @@ public class GoogleContainerClusterIpAllocationPolicyBlock : TerraformBlock
     /// <summary>
     /// The IP address range for the cluster pod IPs. Set to blank to have a range chosen with the default size. Set to /netmask (e.g. /14) to have a range chosen with a specific netmask. Set to a CIDR notation (e.g. 10.96.0.0/14) from the RFC-1918 private networks (e.g. 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) to pick a specific range to use.
     /// </summary>
-    public TerraformValue<string> ClusterIpv4CidrBlock
+    public TerraformValue<string>? ClusterIpv4CidrBlock
     {
-        get => new TerraformReference<string>(this, "cluster_ipv4_cidr_block");
+        get => GetArgument<TerraformValue<string>>("cluster_ipv4_cidr_block");
         set => SetArgument("cluster_ipv4_cidr_block", value);
     }
 
     /// <summary>
     /// The name of the existing secondary range in the cluster&#39;s subnetwork to use for pod IP addresses. Alternatively, cluster_ipv4_cidr_block can be used to automatically create a GKE-managed one.
     /// </summary>
-    public TerraformValue<string> ClusterSecondaryRangeName
+    public TerraformValue<string>? ClusterSecondaryRangeName
     {
-        get => new TerraformReference<string>(this, "cluster_secondary_range_name");
+        get => GetArgument<TerraformValue<string>>("cluster_secondary_range_name");
         set => SetArgument("cluster_secondary_range_name", value);
     }
 
     /// <summary>
     /// The IP address range of the services IPs in this cluster. Set to blank to have a range chosen with the default size. Set to /netmask (e.g. /14) to have a range chosen with a specific netmask. Set to a CIDR notation (e.g. 10.96.0.0/14) from the RFC-1918 private networks (e.g. 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) to pick a specific range to use.
     /// </summary>
-    public TerraformValue<string> ServicesIpv4CidrBlock
+    public TerraformValue<string>? ServicesIpv4CidrBlock
     {
-        get => new TerraformReference<string>(this, "services_ipv4_cidr_block");
+        get => GetArgument<TerraformValue<string>>("services_ipv4_cidr_block");
         set => SetArgument("services_ipv4_cidr_block", value);
     }
 
     /// <summary>
     /// The name of the existing secondary range in the cluster&#39;s subnetwork to use for service ClusterIPs. Alternatively, services_ipv4_cidr_block can be used to automatically create a GKE-managed one.
     /// </summary>
-    public TerraformValue<string> ServicesSecondaryRangeName
+    public TerraformValue<string>? ServicesSecondaryRangeName
     {
-        get => new TerraformReference<string>(this, "services_secondary_range_name");
+        get => GetArgument<TerraformValue<string>>("services_secondary_range_name");
         set => SetArgument("services_secondary_range_name", value);
     }
 
@@ -1575,7 +1563,7 @@ public class GoogleContainerClusterIpAllocationPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StackType
     {
-        get => new TerraformReference<string>(this, "stack_type");
+        get => GetArgument<TerraformValue<string>>("stack_type");
         set => SetArgument("stack_type", value);
     }
 
@@ -1646,7 +1634,7 @@ public class GoogleContainerClusterIpAllocationPolicyBlockAdditionalIpRangesConf
     /// </summary>
     public TerraformList<string>? PodIpv4RangeNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "pod_ipv4_range_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("pod_ipv4_range_names");
         set => SetArgument("pod_ipv4_range_names", value);
     }
 
@@ -1656,7 +1644,7 @@ public class GoogleContainerClusterIpAllocationPolicyBlockAdditionalIpRangesConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnetwork is required")]
     public required TerraformValue<string> Subnetwork
     {
-        get => new TerraformReference<string>(this, "subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -1679,7 +1667,7 @@ public class GoogleContainerClusterIpAllocationPolicyBlockAdditionalPodRangesCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PodRangeNames is required")]
     public required TerraformSet<string> PodRangeNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "pod_range_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("pod_range_names");
         set => SetArgument("pod_range_names", value);
     }
 
@@ -1702,7 +1690,7 @@ public class GoogleContainerClusterIpAllocationPolicyBlockAutoIpamConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1725,7 +1713,7 @@ public class GoogleContainerClusterIpAllocationPolicyBlockNetworkTierConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkTier is required")]
     public required TerraformValue<string> NetworkTier
     {
-        get => new TerraformReference<string>(this, "network_tier");
+        get => GetArgument<TerraformValue<string>>("network_tier");
         set => SetArgument("network_tier", value);
     }
 
@@ -1748,7 +1736,7 @@ public class GoogleContainerClusterIpAllocationPolicyBlockPodCidrOverprovisionCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disabled is required")]
     public required TerraformValue<bool> Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -1772,7 +1760,7 @@ public class GoogleContainerClusterLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableComponents is required")]
     public TerraformList<string>? EnableComponents
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "enable_components").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("enable_components");
         set => SetArgument("enable_components", value);
     }
 
@@ -1837,9 +1825,7 @@ public class GoogleContainerClusterMaintenancePolicyBlockDailyMaintenanceWindowB
     /// The duration attribute.
     /// </summary>
     public TerraformValue<string> Duration
-    {
-        get => new TerraformReference<string>(this, "duration");
-    }
+        => AsReference("duration");
 
     /// <summary>
     /// The start_time attribute.
@@ -1847,7 +1833,7 @@ public class GoogleContainerClusterMaintenancePolicyBlockDailyMaintenanceWindowB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformValue<string> StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -1870,7 +1856,7 @@ public class GoogleContainerClusterMaintenancePolicyBlockMaintenanceExclusionBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndTime is required")]
     public required TerraformValue<string> EndTime
     {
-        get => new TerraformReference<string>(this, "end_time");
+        get => GetArgument<TerraformValue<string>>("end_time");
         set => SetArgument("end_time", value);
     }
 
@@ -1880,7 +1866,7 @@ public class GoogleContainerClusterMaintenancePolicyBlockMaintenanceExclusionBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExclusionName is required")]
     public required TerraformValue<string> ExclusionName
     {
-        get => new TerraformReference<string>(this, "exclusion_name");
+        get => GetArgument<TerraformValue<string>>("exclusion_name");
         set => SetArgument("exclusion_name", value);
     }
 
@@ -1890,7 +1876,7 @@ public class GoogleContainerClusterMaintenancePolicyBlockMaintenanceExclusionBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformValue<string> StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -1923,7 +1909,7 @@ public class GoogleContainerClusterMaintenancePolicyBlockMaintenanceExclusionBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -1946,7 +1932,7 @@ public class GoogleContainerClusterMaintenancePolicyBlockRecurringWindowBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndTime is required")]
     public required TerraformValue<string> EndTime
     {
-        get => new TerraformReference<string>(this, "end_time");
+        get => GetArgument<TerraformValue<string>>("end_time");
         set => SetArgument("end_time", value);
     }
 
@@ -1956,7 +1942,7 @@ public class GoogleContainerClusterMaintenancePolicyBlockRecurringWindowBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Recurrence is required")]
     public required TerraformValue<string> Recurrence
     {
-        get => new TerraformReference<string>(this, "recurrence");
+        get => GetArgument<TerraformValue<string>>("recurrence");
         set => SetArgument("recurrence", value);
     }
 
@@ -1966,7 +1952,7 @@ public class GoogleContainerClusterMaintenancePolicyBlockRecurringWindowBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformValue<string> StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -1988,25 +1974,19 @@ public class GoogleContainerClusterMasterAuthBlock : TerraformBlock
     /// Base64 encoded public certificate used by clients to authenticate to the cluster endpoint.
     /// </summary>
     public TerraformValue<string> ClientCertificate
-    {
-        get => new TerraformReference<string>(this, "client_certificate");
-    }
+        => AsReference("client_certificate");
 
     /// <summary>
     /// Base64 encoded private key used by clients to authenticate to the cluster endpoint.
     /// </summary>
     public TerraformValue<string> ClientKey
-    {
-        get => new TerraformReference<string>(this, "client_key");
-    }
+        => AsReference("client_key");
 
     /// <summary>
     /// Base64 encoded public certificate that is the root of trust for the cluster.
     /// </summary>
     public TerraformValue<string> ClusterCaCertificate
-    {
-        get => new TerraformReference<string>(this, "cluster_ca_certificate");
-    }
+        => AsReference("cluster_ca_certificate");
 
     /// <summary>
     /// ClientCertificateConfig block (nesting mode: list).
@@ -2040,7 +2020,7 @@ public class GoogleContainerClusterMasterAuthBlockClientCertificateConfigBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssueClientCertificate is required")]
     public required TerraformValue<bool> IssueClientCertificate
     {
-        get => new TerraformReference<bool>(this, "issue_client_certificate");
+        get => GetArgument<TerraformValue<bool>>("issue_client_certificate");
         set => SetArgument("issue_client_certificate", value);
     }
 
@@ -2061,18 +2041,18 @@ public class GoogleContainerClusterMasterAuthorizedNetworksConfigBlock : Terrafo
     /// <summary>
     /// Whether Kubernetes master is accessible via Google Compute Engine Public IPs.
     /// </summary>
-    public TerraformValue<bool> GcpPublicCidrsAccessEnabled
+    public TerraformValue<bool>? GcpPublicCidrsAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "gcp_public_cidrs_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("gcp_public_cidrs_access_enabled");
         set => SetArgument("gcp_public_cidrs_access_enabled", value);
     }
 
     /// <summary>
     /// Whether authorized networks is enforced on the private endpoint or not. Defaults to false.
     /// </summary>
-    public TerraformValue<bool> PrivateEndpointEnforcementEnabled
+    public TerraformValue<bool>? PrivateEndpointEnforcementEnabled
     {
-        get => new TerraformReference<bool>(this, "private_endpoint_enforcement_enabled");
+        get => GetArgument<TerraformValue<bool>>("private_endpoint_enforcement_enabled");
         set => SetArgument("private_endpoint_enforcement_enabled", value);
     }
 
@@ -2104,7 +2084,7 @@ public class GoogleContainerClusterMasterAuthorizedNetworksConfigBlockCidrBlocks
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrBlock is required")]
     public required TerraformValue<string> CidrBlock
     {
-        get => new TerraformReference<string>(this, "cidr_block");
+        get => GetArgument<TerraformValue<string>>("cidr_block");
         set => SetArgument("cidr_block", value);
     }
 
@@ -2113,7 +2093,7 @@ public class GoogleContainerClusterMasterAuthorizedNetworksConfigBlockCidrBlocks
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -2137,7 +2117,7 @@ public class GoogleContainerClusterMeshCertificatesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableCertificates is required")]
     public required TerraformValue<bool> EnableCertificates
     {
-        get => new TerraformReference<bool>(this, "enable_certificates");
+        get => GetArgument<TerraformValue<bool>>("enable_certificates");
         set => SetArgument("enable_certificates", value);
     }
 
@@ -2158,9 +2138,9 @@ public class GoogleContainerClusterMonitoringConfigBlock : TerraformBlock
     /// <summary>
     /// GKE components exposing metrics. Valid values include SYSTEM_COMPONENTS, APISERVER, SCHEDULER, CONTROLLER_MANAGER, STORAGE, HPA, POD, DAEMONSET, DEPLOYMENT, STATEFULSET, KUBELET, CADVISOR, DCGM and JOBSET.
     /// </summary>
-    public TerraformList<string> EnableComponents
+    public TerraformList<string>? EnableComponents
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "enable_components").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("enable_components");
         set => SetArgument("enable_components", value);
     }
 
@@ -2203,7 +2183,7 @@ public class GoogleContainerClusterMonitoringConfigBlockAdvancedDatapathObservab
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableMetrics is required")]
     public required TerraformValue<bool> EnableMetrics
     {
-        get => new TerraformReference<bool>(this, "enable_metrics");
+        get => GetArgument<TerraformValue<bool>>("enable_metrics");
         set => SetArgument("enable_metrics", value);
     }
 
@@ -2213,7 +2193,7 @@ public class GoogleContainerClusterMonitoringConfigBlockAdvancedDatapathObservab
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableRelay is required")]
     public required TerraformValue<bool> EnableRelay
     {
-        get => new TerraformReference<bool>(this, "enable_relay");
+        get => GetArgument<TerraformValue<bool>>("enable_relay");
         set => SetArgument("enable_relay", value);
     }
 
@@ -2236,7 +2216,7 @@ public class GoogleContainerClusterMonitoringConfigBlockManagedPrometheusBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -2269,7 +2249,7 @@ public class GoogleContainerClusterMonitoringConfigBlockManagedPrometheusBlockAu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -2293,7 +2273,7 @@ public class GoogleContainerClusterNetworkPerformanceConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalEgressBandwidthTier is required")]
     public required TerraformValue<string> TotalEgressBandwidthTier
     {
-        get => new TerraformReference<string>(this, "total_egress_bandwidth_tier");
+        get => GetArgument<TerraformValue<string>>("total_egress_bandwidth_tier");
         set => SetArgument("total_egress_bandwidth_tier", value);
     }
 
@@ -2317,7 +2297,7 @@ public class GoogleContainerClusterNetworkPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -2326,7 +2306,7 @@ public class GoogleContainerClusterNetworkPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ProviderAttribute
     {
-        get => new TerraformReference<string>(this, "provider");
+        get => GetArgument<TerraformValue<string>>("provider");
         set => SetArgument("provider", value);
     }
 
@@ -2349,25 +2329,25 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BootDiskKmsKey
     {
-        get => new TerraformReference<string>(this, "boot_disk_kms_key");
+        get => GetArgument<TerraformValue<string>>("boot_disk_kms_key");
         set => SetArgument("boot_disk_kms_key", value);
     }
 
     /// <summary>
     /// Size of the disk attached to each node, specified in GB. The smallest allowed disk size is 10GB.
     /// </summary>
-    public TerraformValue<double> DiskSizeGb
+    public TerraformValue<double>? DiskSizeGb
     {
-        get => new TerraformReference<double>(this, "disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
     /// <summary>
     /// Type of the disk attached to each node. Such as pd-standard, pd-balanced or pd-ssd
     /// </summary>
-    public TerraformValue<string> DiskType
+    public TerraformValue<string>? DiskType
     {
-        get => new TerraformReference<string>(this, "disk_type");
+        get => GetArgument<TerraformValue<string>>("disk_type");
         set => SetArgument("disk_type", value);
     }
 
@@ -2375,16 +2355,14 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// List of kubernetes taints applied to each node.
     /// </summary>
     public TerraformList<TerraformMap<object>> EffectiveTaints
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "effective_taints").ResolveNodes(ctx));
-    }
+        => AsReference("effective_taints");
 
     /// <summary>
     /// If enabled boot disks are configured with confidential mode.
     /// </summary>
     public TerraformValue<bool>? EnableConfidentialStorage
     {
-        get => new TerraformReference<bool>(this, "enable_confidential_storage");
+        get => GetArgument<TerraformValue<bool>>("enable_confidential_storage");
         set => SetArgument("enable_confidential_storage", value);
     }
 
@@ -2393,34 +2371,34 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? FlexStart
     {
-        get => new TerraformReference<bool>(this, "flex_start");
+        get => GetArgument<TerraformValue<bool>>("flex_start");
         set => SetArgument("flex_start", value);
     }
 
     /// <summary>
     /// The image type to use for this node. Note that for a given image type, the latest version of it will be used.
     /// </summary>
-    public TerraformValue<string> ImageType
+    public TerraformValue<string>? ImageType
     {
-        get => new TerraformReference<string>(this, "image_type");
+        get => GetArgument<TerraformValue<string>>("image_type");
         set => SetArgument("image_type", value);
     }
 
     /// <summary>
     /// The map of Kubernetes labels (key/value pairs) to be applied to each node. These will added in addition to any default label(s) that Kubernetes may apply to the node.
     /// </summary>
-    public TerraformMap<string> Labels
+    public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// The number of local SSD disks to be attached to the node.
     /// </summary>
-    public TerraformValue<double> LocalSsdCount
+    public TerraformValue<double>? LocalSsdCount
     {
-        get => new TerraformReference<double>(this, "local_ssd_count");
+        get => GetArgument<TerraformValue<double>>("local_ssd_count");
         set => SetArgument("local_ssd_count", value);
     }
 
@@ -2429,25 +2407,25 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LocalSsdEncryptionMode
     {
-        get => new TerraformReference<string>(this, "local_ssd_encryption_mode");
+        get => GetArgument<TerraformValue<string>>("local_ssd_encryption_mode");
         set => SetArgument("local_ssd_encryption_mode", value);
     }
 
     /// <summary>
     /// Type of logging agent that is used as the default value for node pools in the cluster. Valid values include DEFAULT and MAX_THROUGHPUT.
     /// </summary>
-    public TerraformValue<string> LoggingVariant
+    public TerraformValue<string>? LoggingVariant
     {
-        get => new TerraformReference<string>(this, "logging_variant");
+        get => GetArgument<TerraformValue<string>>("logging_variant");
         set => SetArgument("logging_variant", value);
     }
 
     /// <summary>
     /// The name of a Google Compute Engine machine type.
     /// </summary>
-    public TerraformValue<string> MachineType
+    public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -2456,25 +2434,25 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaxRunDuration
     {
-        get => new TerraformReference<string>(this, "max_run_duration");
+        get => GetArgument<TerraformValue<string>>("max_run_duration");
         set => SetArgument("max_run_duration", value);
     }
 
     /// <summary>
     /// The metadata key/value pairs assigned to instances in the cluster.
     /// </summary>
-    public TerraformMap<string> Metadata
+    public TerraformMap<string>? Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
     /// <summary>
     /// Minimum CPU platform to be used by this instance. The instance may be scheduled on the specified or newer CPU platform.
     /// </summary>
-    public TerraformValue<string> MinCpuPlatform
+    public TerraformValue<string>? MinCpuPlatform
     {
-        get => new TerraformReference<string>(this, "min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -2483,16 +2461,16 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? NodeGroup
     {
-        get => new TerraformReference<string>(this, "node_group");
+        get => GetArgument<TerraformValue<string>>("node_group");
         set => SetArgument("node_group", value);
     }
 
     /// <summary>
     /// The set of Google API scopes to be made available on all of the node VMs.
     /// </summary>
-    public TerraformSet<string> OauthScopes
+    public TerraformSet<string>? OauthScopes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "oauth_scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("oauth_scopes");
         set => SetArgument("oauth_scopes", value);
     }
 
@@ -2501,7 +2479,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Preemptible
     {
-        get => new TerraformReference<bool>(this, "preemptible");
+        get => GetArgument<TerraformValue<bool>>("preemptible");
         set => SetArgument("preemptible", value);
     }
 
@@ -2510,7 +2488,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? ResourceLabels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "resource_labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("resource_labels");
         set => SetArgument("resource_labels", value);
     }
 
@@ -2519,16 +2497,16 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? ResourceManagerTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "resource_manager_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("resource_manager_tags");
         set => SetArgument("resource_manager_tags", value);
     }
 
     /// <summary>
     /// The Google Cloud Platform Service Account to be used by the node VMs.
     /// </summary>
-    public TerraformValue<string> ServiceAccount
+    public TerraformValue<string>? ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -2537,7 +2515,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Spot
     {
-        get => new TerraformReference<bool>(this, "spot");
+        get => GetArgument<TerraformValue<bool>>("spot");
         set => SetArgument("spot", value);
     }
 
@@ -2546,7 +2524,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? StoragePools
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "storage_pools").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("storage_pools");
         set => SetArgument("storage_pools", value);
     }
 
@@ -2555,7 +2533,7 @@ public class GoogleContainerClusterNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Tags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -2775,7 +2753,7 @@ public class GoogleContainerClusterNodeConfigBlockAdvancedMachineFeaturesBlock :
     /// </summary>
     public TerraformValue<bool>? EnableNestedVirtualization
     {
-        get => new TerraformReference<bool>(this, "enable_nested_virtualization");
+        get => GetArgument<TerraformValue<bool>>("enable_nested_virtualization");
         set => SetArgument("enable_nested_virtualization", value);
     }
 
@@ -2784,7 +2762,7 @@ public class GoogleContainerClusterNodeConfigBlockAdvancedMachineFeaturesBlock :
     /// </summary>
     public TerraformValue<string>? PerformanceMonitoringUnit
     {
-        get => new TerraformReference<string>(this, "performance_monitoring_unit");
+        get => GetArgument<TerraformValue<string>>("performance_monitoring_unit");
         set => SetArgument("performance_monitoring_unit", value);
     }
 
@@ -2794,7 +2772,7 @@ public class GoogleContainerClusterNodeConfigBlockAdvancedMachineFeaturesBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThreadsPerCore is required")]
     public required TerraformValue<double> ThreadsPerCore
     {
-        get => new TerraformReference<double>(this, "threads_per_core");
+        get => GetArgument<TerraformValue<double>>("threads_per_core");
         set => SetArgument("threads_per_core", value);
     }
 
@@ -2814,36 +2792,36 @@ public class GoogleContainerClusterNodeConfigBlockBootDiskBlock : TerraformBlock
     /// <summary>
     /// Type of the disk attached to each node. Such as pd-standard, pd-balanced or pd-ssd
     /// </summary>
-    public TerraformValue<string> DiskType
+    public TerraformValue<string>? DiskType
     {
-        get => new TerraformReference<string>(this, "disk_type");
+        get => GetArgument<TerraformValue<string>>("disk_type");
         set => SetArgument("disk_type", value);
     }
 
     /// <summary>
     /// Configured IOPs provisioning. Only valid with disk type hyperdisk-balanced.
     /// </summary>
-    public TerraformValue<double> ProvisionedIops
+    public TerraformValue<double>? ProvisionedIops
     {
-        get => new TerraformReference<double>(this, "provisioned_iops");
+        get => GetArgument<TerraformValue<double>>("provisioned_iops");
         set => SetArgument("provisioned_iops", value);
     }
 
     /// <summary>
     /// Configured throughput provisioning. Only valid with disk type hyperdisk-balanced.
     /// </summary>
-    public TerraformValue<double> ProvisionedThroughput
+    public TerraformValue<double>? ProvisionedThroughput
     {
-        get => new TerraformReference<double>(this, "provisioned_throughput");
+        get => GetArgument<TerraformValue<double>>("provisioned_throughput");
         set => SetArgument("provisioned_throughput", value);
     }
 
     /// <summary>
     /// Size of the disk attached to each node, specified in GB. The smallest allowed disk size is 10GB.
     /// </summary>
-    public TerraformValue<double> SizeGb
+    public TerraformValue<double>? SizeGb
     {
-        get => new TerraformReference<double>(this, "size_gb");
+        get => GetArgument<TerraformValue<double>>("size_gb");
         set => SetArgument("size_gb", value);
     }
 
@@ -2865,7 +2843,7 @@ public class GoogleContainerClusterNodeConfigBlockConfidentialNodesBlock : Terra
     /// </summary>
     public TerraformValue<string>? ConfidentialInstanceType
     {
-        get => new TerraformReference<string>(this, "confidential_instance_type");
+        get => GetArgument<TerraformValue<string>>("confidential_instance_type");
         set => SetArgument("confidential_instance_type", value);
     }
 
@@ -2875,7 +2853,7 @@ public class GoogleContainerClusterNodeConfigBlockConfidentialNodesBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -2921,7 +2899,7 @@ public class GoogleContainerClusterNodeConfigBlockContainerdConfigBlockPrivateRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -2953,7 +2931,7 @@ public class GoogleContainerClusterNodeConfigBlockContainerdConfigBlockPrivateRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fqdns is required")]
     public TerraformList<string>? Fqdns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "fqdns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("fqdns");
         set => SetArgument("fqdns", value);
     }
 
@@ -2989,7 +2967,7 @@ public class GoogleContainerClusterNodeConfigBlockContainerdConfigBlockPrivateRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretUri is required")]
     public required TerraformValue<string> SecretUri
     {
-        get => new TerraformReference<string>(this, "secret_uri");
+        get => GetArgument<TerraformValue<string>>("secret_uri");
         set => SetArgument("secret_uri", value);
     }
 
@@ -3011,7 +2989,7 @@ public class GoogleContainerClusterNodeConfigBlockEphemeralStorageLocalSsdConfig
     /// </summary>
     public TerraformValue<double>? DataCacheCount
     {
-        get => new TerraformReference<double>(this, "data_cache_count");
+        get => GetArgument<TerraformValue<double>>("data_cache_count");
         set => SetArgument("data_cache_count", value);
     }
 
@@ -3021,7 +2999,7 @@ public class GoogleContainerClusterNodeConfigBlockEphemeralStorageLocalSsdConfig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalSsdCount is required")]
     public required TerraformValue<double> LocalSsdCount
     {
-        get => new TerraformReference<double>(this, "local_ssd_count");
+        get => GetArgument<TerraformValue<double>>("local_ssd_count");
         set => SetArgument("local_ssd_count", value);
     }
 
@@ -3044,7 +3022,7 @@ public class GoogleContainerClusterNodeConfigBlockFastSocketBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -3067,7 +3045,7 @@ public class GoogleContainerClusterNodeConfigBlockGcfsConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -3090,7 +3068,7 @@ public class GoogleContainerClusterNodeConfigBlockGuestAcceleratorBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
     public required TerraformValue<double> CountAttribute
     {
-        get => new TerraformReference<double>(this, "count");
+        get => GetArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -3099,7 +3077,7 @@ public class GoogleContainerClusterNodeConfigBlockGuestAcceleratorBlock : Terraf
     /// </summary>
     public TerraformValue<string>? GpuPartitionSize
     {
-        get => new TerraformReference<string>(this, "gpu_partition_size");
+        get => GetArgument<TerraformValue<string>>("gpu_partition_size");
         set => SetArgument("gpu_partition_size", value);
     }
 
@@ -3109,7 +3087,7 @@ public class GoogleContainerClusterNodeConfigBlockGuestAcceleratorBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -3152,7 +3130,7 @@ public class GoogleContainerClusterNodeConfigBlockGuestAcceleratorBlockGpuDriver
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GpuDriverVersion is required")]
     public required TerraformValue<string> GpuDriverVersion
     {
-        get => new TerraformReference<string>(this, "gpu_driver_version");
+        get => GetArgument<TerraformValue<string>>("gpu_driver_version");
         set => SetArgument("gpu_driver_version", value);
     }
 
@@ -3175,7 +3153,7 @@ public class GoogleContainerClusterNodeConfigBlockGuestAcceleratorBlockGpuSharin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GpuSharingStrategy is required")]
     public required TerraformValue<string> GpuSharingStrategy
     {
-        get => new TerraformReference<string>(this, "gpu_sharing_strategy");
+        get => GetArgument<TerraformValue<string>>("gpu_sharing_strategy");
         set => SetArgument("gpu_sharing_strategy", value);
     }
 
@@ -3185,7 +3163,7 @@ public class GoogleContainerClusterNodeConfigBlockGuestAcceleratorBlockGpuSharin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSharedClientsPerGpu is required")]
     public required TerraformValue<double> MaxSharedClientsPerGpu
     {
-        get => new TerraformReference<double>(this, "max_shared_clients_per_gpu");
+        get => GetArgument<TerraformValue<double>>("max_shared_clients_per_gpu");
         set => SetArgument("max_shared_clients_per_gpu", value);
     }
 
@@ -3208,7 +3186,7 @@ public class GoogleContainerClusterNodeConfigBlockGvnicBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -3231,7 +3209,7 @@ public class GoogleContainerClusterNodeConfigBlockHostMaintenancePolicyBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceInterval is required")]
     public required TerraformValue<string> MaintenanceInterval
     {
-        get => new TerraformReference<string>(this, "maintenance_interval");
+        get => GetArgument<TerraformValue<string>>("maintenance_interval");
         set => SetArgument("maintenance_interval", value);
     }
 
@@ -3253,7 +3231,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlock : Terraform
     /// </summary>
     public TerraformList<string>? AllowedUnsafeSysctls
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_unsafe_sysctls").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_unsafe_sysctls");
         set => SetArgument("allowed_unsafe_sysctls", value);
     }
 
@@ -3262,7 +3240,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlock : Terraform
     /// </summary>
     public TerraformValue<double>? ContainerLogMaxFiles
     {
-        get => new TerraformReference<double>(this, "container_log_max_files");
+        get => GetArgument<TerraformValue<double>>("container_log_max_files");
         set => SetArgument("container_log_max_files", value);
     }
 
@@ -3271,16 +3249,16 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlock : Terraform
     /// </summary>
     public TerraformValue<string>? ContainerLogMaxSize
     {
-        get => new TerraformReference<string>(this, "container_log_max_size");
+        get => GetArgument<TerraformValue<string>>("container_log_max_size");
         set => SetArgument("container_log_max_size", value);
     }
 
     /// <summary>
     /// Enable CPU CFS quota enforcement for containers that specify CPU limits.
     /// </summary>
-    public TerraformValue<bool> CpuCfsQuota
+    public TerraformValue<bool>? CpuCfsQuota
     {
-        get => new TerraformReference<bool>(this, "cpu_cfs_quota");
+        get => GetArgument<TerraformValue<bool>>("cpu_cfs_quota");
         set => SetArgument("cpu_cfs_quota", value);
     }
 
@@ -3289,7 +3267,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlock : Terraform
     /// </summary>
     public TerraformValue<string>? CpuCfsQuotaPeriod
     {
-        get => new TerraformReference<string>(this, "cpu_cfs_quota_period");
+        get => GetArgument<TerraformValue<string>>("cpu_cfs_quota_period");
         set => SetArgument("cpu_cfs_quota_period", value);
     }
 
@@ -3298,7 +3276,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlock : Terraform
     /// </summary>
     public TerraformValue<string>? CpuManagerPolicy
     {
-        get => new TerraformReference<string>(this, "cpu_manager_policy");
+        get => GetArgument<TerraformValue<string>>("cpu_manager_policy");
         set => SetArgument("cpu_manager_policy", value);
     }
 
@@ -3307,7 +3285,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlock : Terraform
     /// </summary>
     public TerraformValue<double>? EvictionMaxPodGracePeriodSeconds
     {
-        get => new TerraformReference<double>(this, "eviction_max_pod_grace_period_seconds");
+        get => GetArgument<TerraformValue<double>>("eviction_max_pod_grace_period_seconds");
         set => SetArgument("eviction_max_pod_grace_period_seconds", value);
     }
 
@@ -3316,7 +3294,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlock : Terraform
     /// </summary>
     public TerraformValue<double>? ImageGcHighThresholdPercent
     {
-        get => new TerraformReference<double>(this, "image_gc_high_threshold_percent");
+        get => GetArgument<TerraformValue<double>>("image_gc_high_threshold_percent");
         set => SetArgument("image_gc_high_threshold_percent", value);
     }
 
@@ -3325,7 +3303,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlock : Terraform
     /// </summary>
     public TerraformValue<double>? ImageGcLowThresholdPercent
     {
-        get => new TerraformReference<double>(this, "image_gc_low_threshold_percent");
+        get => GetArgument<TerraformValue<double>>("image_gc_low_threshold_percent");
         set => SetArgument("image_gc_low_threshold_percent", value);
     }
 
@@ -3334,7 +3312,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlock : Terraform
     /// </summary>
     public TerraformValue<string>? ImageMaximumGcAge
     {
-        get => new TerraformReference<string>(this, "image_maximum_gc_age");
+        get => GetArgument<TerraformValue<string>>("image_maximum_gc_age");
         set => SetArgument("image_maximum_gc_age", value);
     }
 
@@ -3343,25 +3321,25 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlock : Terraform
     /// </summary>
     public TerraformValue<string>? ImageMinimumGcAge
     {
-        get => new TerraformReference<string>(this, "image_minimum_gc_age");
+        get => GetArgument<TerraformValue<string>>("image_minimum_gc_age");
         set => SetArgument("image_minimum_gc_age", value);
     }
 
     /// <summary>
     /// Controls whether the kubelet read-only port is enabled. It is strongly recommended to set this to `FALSE`. Possible values: `TRUE`, `FALSE`.
     /// </summary>
-    public TerraformValue<string> InsecureKubeletReadonlyPortEnabled
+    public TerraformValue<string>? InsecureKubeletReadonlyPortEnabled
     {
-        get => new TerraformReference<string>(this, "insecure_kubelet_readonly_port_enabled");
+        get => GetArgument<TerraformValue<string>>("insecure_kubelet_readonly_port_enabled");
         set => SetArgument("insecure_kubelet_readonly_port_enabled", value);
     }
 
     /// <summary>
     /// Set the maximum number of image pulls in parallel.
     /// </summary>
-    public TerraformValue<double> MaxParallelImagePulls
+    public TerraformValue<double>? MaxParallelImagePulls
     {
-        get => new TerraformReference<double>(this, "max_parallel_image_pulls");
+        get => GetArgument<TerraformValue<double>>("max_parallel_image_pulls");
         set => SetArgument("max_parallel_image_pulls", value);
     }
 
@@ -3370,7 +3348,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlock : Terraform
     /// </summary>
     public TerraformValue<double>? PodPidsLimit
     {
-        get => new TerraformReference<double>(this, "pod_pids_limit");
+        get => GetArgument<TerraformValue<double>>("pod_pids_limit");
         set => SetArgument("pod_pids_limit", value);
     }
 
@@ -3379,7 +3357,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlock : Terraform
     /// </summary>
     public TerraformValue<bool>? SingleProcessOomKill
     {
-        get => new TerraformReference<bool>(this, "single_process_oom_kill");
+        get => GetArgument<TerraformValue<bool>>("single_process_oom_kill");
         set => SetArgument("single_process_oom_kill", value);
     }
 
@@ -3451,7 +3429,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockEvictionMini
     /// </summary>
     public TerraformValue<string>? ImagefsAvailable
     {
-        get => new TerraformReference<string>(this, "imagefs_available");
+        get => GetArgument<TerraformValue<string>>("imagefs_available");
         set => SetArgument("imagefs_available", value);
     }
 
@@ -3460,7 +3438,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockEvictionMini
     /// </summary>
     public TerraformValue<string>? ImagefsInodesFree
     {
-        get => new TerraformReference<string>(this, "imagefs_inodes_free");
+        get => GetArgument<TerraformValue<string>>("imagefs_inodes_free");
         set => SetArgument("imagefs_inodes_free", value);
     }
 
@@ -3469,7 +3447,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockEvictionMini
     /// </summary>
     public TerraformValue<string>? MemoryAvailable
     {
-        get => new TerraformReference<string>(this, "memory_available");
+        get => GetArgument<TerraformValue<string>>("memory_available");
         set => SetArgument("memory_available", value);
     }
 
@@ -3478,7 +3456,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockEvictionMini
     /// </summary>
     public TerraformValue<string>? NodefsAvailable
     {
-        get => new TerraformReference<string>(this, "nodefs_available");
+        get => GetArgument<TerraformValue<string>>("nodefs_available");
         set => SetArgument("nodefs_available", value);
     }
 
@@ -3487,7 +3465,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockEvictionMini
     /// </summary>
     public TerraformValue<string>? NodefsInodesFree
     {
-        get => new TerraformReference<string>(this, "nodefs_inodes_free");
+        get => GetArgument<TerraformValue<string>>("nodefs_inodes_free");
         set => SetArgument("nodefs_inodes_free", value);
     }
 
@@ -3496,7 +3474,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockEvictionMini
     /// </summary>
     public TerraformValue<string>? PidAvailable
     {
-        get => new TerraformReference<string>(this, "pid_available");
+        get => GetArgument<TerraformValue<string>>("pid_available");
         set => SetArgument("pid_available", value);
     }
 
@@ -3518,7 +3496,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockEvictionSoft
     /// </summary>
     public TerraformValue<string>? ImagefsAvailable
     {
-        get => new TerraformReference<string>(this, "imagefs_available");
+        get => GetArgument<TerraformValue<string>>("imagefs_available");
         set => SetArgument("imagefs_available", value);
     }
 
@@ -3527,7 +3505,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockEvictionSoft
     /// </summary>
     public TerraformValue<string>? ImagefsInodesFree
     {
-        get => new TerraformReference<string>(this, "imagefs_inodes_free");
+        get => GetArgument<TerraformValue<string>>("imagefs_inodes_free");
         set => SetArgument("imagefs_inodes_free", value);
     }
 
@@ -3536,7 +3514,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockEvictionSoft
     /// </summary>
     public TerraformValue<string>? MemoryAvailable
     {
-        get => new TerraformReference<string>(this, "memory_available");
+        get => GetArgument<TerraformValue<string>>("memory_available");
         set => SetArgument("memory_available", value);
     }
 
@@ -3545,7 +3523,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockEvictionSoft
     /// </summary>
     public TerraformValue<string>? NodefsAvailable
     {
-        get => new TerraformReference<string>(this, "nodefs_available");
+        get => GetArgument<TerraformValue<string>>("nodefs_available");
         set => SetArgument("nodefs_available", value);
     }
 
@@ -3554,7 +3532,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockEvictionSoft
     /// </summary>
     public TerraformValue<string>? NodefsInodesFree
     {
-        get => new TerraformReference<string>(this, "nodefs_inodes_free");
+        get => GetArgument<TerraformValue<string>>("nodefs_inodes_free");
         set => SetArgument("nodefs_inodes_free", value);
     }
 
@@ -3563,7 +3541,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockEvictionSoft
     /// </summary>
     public TerraformValue<string>? PidAvailable
     {
-        get => new TerraformReference<string>(this, "pid_available");
+        get => GetArgument<TerraformValue<string>>("pid_available");
         set => SetArgument("pid_available", value);
     }
 
@@ -3585,7 +3563,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockEvictionSoft
     /// </summary>
     public TerraformValue<string>? ImagefsAvailable
     {
-        get => new TerraformReference<string>(this, "imagefs_available");
+        get => GetArgument<TerraformValue<string>>("imagefs_available");
         set => SetArgument("imagefs_available", value);
     }
 
@@ -3594,7 +3572,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockEvictionSoft
     /// </summary>
     public TerraformValue<string>? ImagefsInodesFree
     {
-        get => new TerraformReference<string>(this, "imagefs_inodes_free");
+        get => GetArgument<TerraformValue<string>>("imagefs_inodes_free");
         set => SetArgument("imagefs_inodes_free", value);
     }
 
@@ -3603,7 +3581,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockEvictionSoft
     /// </summary>
     public TerraformValue<string>? MemoryAvailable
     {
-        get => new TerraformReference<string>(this, "memory_available");
+        get => GetArgument<TerraformValue<string>>("memory_available");
         set => SetArgument("memory_available", value);
     }
 
@@ -3612,7 +3590,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockEvictionSoft
     /// </summary>
     public TerraformValue<string>? NodefsAvailable
     {
-        get => new TerraformReference<string>(this, "nodefs_available");
+        get => GetArgument<TerraformValue<string>>("nodefs_available");
         set => SetArgument("nodefs_available", value);
     }
 
@@ -3621,7 +3599,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockEvictionSoft
     /// </summary>
     public TerraformValue<string>? NodefsInodesFree
     {
-        get => new TerraformReference<string>(this, "nodefs_inodes_free");
+        get => GetArgument<TerraformValue<string>>("nodefs_inodes_free");
         set => SetArgument("nodefs_inodes_free", value);
     }
 
@@ -3630,7 +3608,7 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockEvictionSoft
     /// </summary>
     public TerraformValue<string>? PidAvailable
     {
-        get => new TerraformReference<string>(this, "pid_available");
+        get => GetArgument<TerraformValue<string>>("pid_available");
         set => SetArgument("pid_available", value);
     }
 
@@ -3650,9 +3628,9 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockMemoryManage
     /// <summary>
     /// The Memory Manager policy to use. This policy guides how memory and hugepages are allocated and managed for pods on the node, influencing NUMA affinity.
     /// </summary>
-    public TerraformValue<string> Policy
+    public TerraformValue<string>? Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
@@ -3672,18 +3650,18 @@ public class GoogleContainerClusterNodeConfigBlockKubeletConfigBlockTopologyMana
     /// <summary>
     /// The Topology Manager policy to use. This policy dictates how resource alignment is handled on the node.
     /// </summary>
-    public TerraformValue<string> Policy
+    public TerraformValue<string>? Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
     /// <summary>
     /// The Topology Manager scope, defining the granularity at which policy decisions are applied. Valid values are &amp;quot;container&amp;quot; (resources are aligned per container within a pod) or &amp;quot;pod&amp;quot; (resources are aligned for the entire pod).
     /// </summary>
-    public TerraformValue<string> Scope
+    public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -3703,9 +3681,9 @@ public class GoogleContainerClusterNodeConfigBlockLinuxNodeConfigBlock : Terrafo
     /// <summary>
     /// cgroupMode specifies the cgroup mode to be used on the node.
     /// </summary>
-    public TerraformValue<string> CgroupMode
+    public TerraformValue<string>? CgroupMode
     {
-        get => new TerraformReference<string>(this, "cgroup_mode");
+        get => GetArgument<TerraformValue<string>>("cgroup_mode");
         set => SetArgument("cgroup_mode", value);
     }
 
@@ -3714,7 +3692,7 @@ public class GoogleContainerClusterNodeConfigBlockLinuxNodeConfigBlock : Terrafo
     /// </summary>
     public TerraformMap<string>? Sysctls
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "sysctls").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("sysctls");
         set => SetArgument("sysctls", value);
     }
 
@@ -3723,16 +3701,16 @@ public class GoogleContainerClusterNodeConfigBlockLinuxNodeConfigBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? TransparentHugepageDefrag
     {
-        get => new TerraformReference<string>(this, "transparent_hugepage_defrag");
+        get => GetArgument<TerraformValue<string>>("transparent_hugepage_defrag");
         set => SetArgument("transparent_hugepage_defrag", value);
     }
 
     /// <summary>
     /// The Linux kernel transparent hugepage setting.
     /// </summary>
-    public TerraformValue<string> TransparentHugepageEnabled
+    public TerraformValue<string>? TransparentHugepageEnabled
     {
-        get => new TerraformReference<string>(this, "transparent_hugepage_enabled");
+        get => GetArgument<TerraformValue<string>>("transparent_hugepage_enabled");
         set => SetArgument("transparent_hugepage_enabled", value);
     }
 
@@ -3764,7 +3742,7 @@ public class GoogleContainerClusterNodeConfigBlockLinuxNodeConfigBlockHugepagesC
     /// </summary>
     public TerraformValue<double>? HugepageSize1g
     {
-        get => new TerraformReference<double>(this, "hugepage_size_1g");
+        get => GetArgument<TerraformValue<double>>("hugepage_size_1g");
         set => SetArgument("hugepage_size_1g", value);
     }
 
@@ -3773,7 +3751,7 @@ public class GoogleContainerClusterNodeConfigBlockLinuxNodeConfigBlockHugepagesC
     /// </summary>
     public TerraformValue<double>? HugepageSize2m
     {
-        get => new TerraformReference<double>(this, "hugepage_size_2m");
+        get => GetArgument<TerraformValue<double>>("hugepage_size_2m");
         set => SetArgument("hugepage_size_2m", value);
     }
 
@@ -3796,7 +3774,7 @@ public class GoogleContainerClusterNodeConfigBlockLocalNvmeSsdBlockConfigBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalSsdCount is required")]
     public required TerraformValue<double> LocalSsdCount
     {
-        get => new TerraformReference<double>(this, "local_ssd_count");
+        get => GetArgument<TerraformValue<double>>("local_ssd_count");
         set => SetArgument("local_ssd_count", value);
     }
 
@@ -3819,7 +3797,7 @@ public class GoogleContainerClusterNodeConfigBlockReservationAffinityBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumeReservationType is required")]
     public required TerraformValue<string> ConsumeReservationType
     {
-        get => new TerraformReference<string>(this, "consume_reservation_type");
+        get => GetArgument<TerraformValue<string>>("consume_reservation_type");
         set => SetArgument("consume_reservation_type", value);
     }
 
@@ -3828,7 +3806,7 @@ public class GoogleContainerClusterNodeConfigBlockReservationAffinityBlock : Ter
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -3837,7 +3815,7 @@ public class GoogleContainerClusterNodeConfigBlockReservationAffinityBlock : Ter
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -3860,7 +3838,7 @@ public class GoogleContainerClusterNodeConfigBlockSecondaryBootDisksBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskImage is required")]
     public required TerraformValue<string> DiskImage
     {
-        get => new TerraformReference<string>(this, "disk_image");
+        get => GetArgument<TerraformValue<string>>("disk_image");
         set => SetArgument("disk_image", value);
     }
 
@@ -3869,7 +3847,7 @@ public class GoogleContainerClusterNodeConfigBlockSecondaryBootDisksBlock : Terr
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -3891,7 +3869,7 @@ public class GoogleContainerClusterNodeConfigBlockShieldedInstanceConfigBlock : 
     /// </summary>
     public TerraformValue<bool>? EnableIntegrityMonitoring
     {
-        get => new TerraformReference<bool>(this, "enable_integrity_monitoring");
+        get => GetArgument<TerraformValue<bool>>("enable_integrity_monitoring");
         set => SetArgument("enable_integrity_monitoring", value);
     }
 
@@ -3900,7 +3878,7 @@ public class GoogleContainerClusterNodeConfigBlockShieldedInstanceConfigBlock : 
     /// </summary>
     public TerraformValue<bool>? EnableSecureBoot
     {
-        get => new TerraformReference<bool>(this, "enable_secure_boot");
+        get => GetArgument<TerraformValue<bool>>("enable_secure_boot");
         set => SetArgument("enable_secure_boot", value);
     }
 
@@ -3922,7 +3900,7 @@ public class GoogleContainerClusterNodeConfigBlockSoleTenantConfigBlock : Terraf
     /// </summary>
     public TerraformValue<double>? MinNodeCpus
     {
-        get => new TerraformReference<double>(this, "min_node_cpus");
+        get => GetArgument<TerraformValue<double>>("min_node_cpus");
         set => SetArgument("min_node_cpus", value);
     }
 
@@ -3957,7 +3935,7 @@ public class GoogleContainerClusterNodeConfigBlockSoleTenantConfigBlockNodeAffin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -3967,7 +3945,7 @@ public class GoogleContainerClusterNodeConfigBlockSoleTenantConfigBlockNodeAffin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -3977,7 +3955,7 @@ public class GoogleContainerClusterNodeConfigBlockSoleTenantConfigBlockNodeAffin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -4000,7 +3978,7 @@ public class GoogleContainerClusterNodeConfigBlockTaintBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Effect is required")]
     public required TerraformValue<string> Effect
     {
-        get => new TerraformReference<string>(this, "effect");
+        get => GetArgument<TerraformValue<string>>("effect");
         set => SetArgument("effect", value);
     }
 
@@ -4010,7 +3988,7 @@ public class GoogleContainerClusterNodeConfigBlockTaintBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -4020,7 +3998,7 @@ public class GoogleContainerClusterNodeConfigBlockTaintBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4042,7 +4020,7 @@ public class GoogleContainerClusterNodeConfigBlockWindowsNodeConfigBlock : Terra
     /// </summary>
     public TerraformValue<string>? Osversion
     {
-        get => new TerraformReference<string>(this, "osversion");
+        get => GetArgument<TerraformValue<string>>("osversion");
         set => SetArgument("osversion", value);
     }
 
@@ -4065,7 +4043,7 @@ public class GoogleContainerClusterNodeConfigBlockWorkloadMetadataConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -4086,9 +4064,9 @@ public class GoogleContainerClusterNodePoolBlock : TerraformBlock
     /// <summary>
     /// The initial number of nodes for the pool. In regional or multi-zonal clusters, this is the number of nodes per zone. Changing this will force recreation of the resource.
     /// </summary>
-    public TerraformValue<double> InitialNodeCount
+    public TerraformValue<double>? InitialNodeCount
     {
-        get => new TerraformReference<double>(this, "initial_node_count");
+        get => GetArgument<TerraformValue<double>>("initial_node_count");
         set => SetArgument("initial_node_count", value);
     }
 
@@ -4096,69 +4074,65 @@ public class GoogleContainerClusterNodePoolBlock : TerraformBlock
     /// The resource URLs of the managed instance groups associated with this node pool.
     /// </summary>
     public TerraformList<string> InstanceGroupUrls
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "instance_group_urls").ResolveNodes(ctx));
-    }
+        => AsReference("instance_group_urls");
 
     /// <summary>
     /// List of instance group URLs which have been assigned to this node pool.
     /// </summary>
     public TerraformList<string> ManagedInstanceGroupUrls
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "managed_instance_group_urls").ResolveNodes(ctx));
-    }
+        => AsReference("managed_instance_group_urls");
 
     /// <summary>
     /// The maximum number of pods per node in this node pool. Note that this does not work on node pools which are &amp;quot;route-based&amp;quot; - that is, node pools belonging to clusters that do not have IP Aliasing enabled.
     /// </summary>
-    public TerraformValue<double> MaxPodsPerNode
+    public TerraformValue<double>? MaxPodsPerNode
     {
-        get => new TerraformReference<double>(this, "max_pods_per_node");
+        get => GetArgument<TerraformValue<double>>("max_pods_per_node");
         set => SetArgument("max_pods_per_node", value);
     }
 
     /// <summary>
     /// The name of the node pool. If left blank, Terraform will auto-generate a unique name.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Creates a unique name for the node pool beginning with the specified prefix. Conflicts with name.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
     /// <summary>
     /// The number of nodes per instance group. This field can be used to update the number of nodes per instance group but should not be used alongside autoscaling.
     /// </summary>
-    public TerraformValue<double> NodeCount
+    public TerraformValue<double>? NodeCount
     {
-        get => new TerraformReference<double>(this, "node_count");
+        get => GetArgument<TerraformValue<double>>("node_count");
         set => SetArgument("node_count", value);
     }
 
     /// <summary>
     /// The list of zones in which the node pool&#39;s nodes should be located. Nodes must be in the region of their regional cluster or in the same region as their cluster&#39;s zone for zonal clusters. If unspecified, the cluster-level node_locations will be used.
     /// </summary>
-    public TerraformSet<string> NodeLocations
+    public TerraformSet<string>? NodeLocations
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "node_locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("node_locations");
         set => SetArgument("node_locations", value);
     }
 
     /// <summary>
     /// The Kubernetes version for the nodes in this pool. Note that if this field and auto_upgrade are both specified, they will fight each other for what the node version should be, so setting both is highly discouraged. While a fuzzy version can be specified, it&#39;s recommended that you specify explicit versions as Terraform will see spurious diffs when fuzzy versions are used. See the google_container_engine_versions data source&#39;s version_prefix field to approximate fuzzy versions in a Terraform-compatible way.
     /// </summary>
-    public TerraformValue<string> Version
+    public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -4248,9 +4222,9 @@ public class GoogleContainerClusterNodePoolBlockAutoscalingBlock : TerraformBloc
     /// <summary>
     /// Location policy specifies the algorithm used when scaling-up the node pool. &amp;quot;BALANCED&amp;quot; - Is a best effort policy that aims to balance the sizes of available zones. &amp;quot;ANY&amp;quot; - Instructs the cluster autoscaler to prioritize utilization of unused reservations, and reduces preemption risk for Spot VMs.
     /// </summary>
-    public TerraformValue<string> LocationPolicy
+    public TerraformValue<string>? LocationPolicy
     {
-        get => new TerraformReference<string>(this, "location_policy");
+        get => GetArgument<TerraformValue<string>>("location_policy");
         set => SetArgument("location_policy", value);
     }
 
@@ -4259,7 +4233,7 @@ public class GoogleContainerClusterNodePoolBlockAutoscalingBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double>? MaxNodeCount
     {
-        get => new TerraformReference<double>(this, "max_node_count");
+        get => GetArgument<TerraformValue<double>>("max_node_count");
         set => SetArgument("max_node_count", value);
     }
 
@@ -4268,7 +4242,7 @@ public class GoogleContainerClusterNodePoolBlockAutoscalingBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double>? MinNodeCount
     {
-        get => new TerraformReference<double>(this, "min_node_count");
+        get => GetArgument<TerraformValue<double>>("min_node_count");
         set => SetArgument("min_node_count", value);
     }
 
@@ -4277,7 +4251,7 @@ public class GoogleContainerClusterNodePoolBlockAutoscalingBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double>? TotalMaxNodeCount
     {
-        get => new TerraformReference<double>(this, "total_max_node_count");
+        get => GetArgument<TerraformValue<double>>("total_max_node_count");
         set => SetArgument("total_max_node_count", value);
     }
 
@@ -4286,7 +4260,7 @@ public class GoogleContainerClusterNodePoolBlockAutoscalingBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double>? TotalMinNodeCount
     {
-        get => new TerraformReference<double>(this, "total_min_node_count");
+        get => GetArgument<TerraformValue<double>>("total_min_node_count");
         set => SetArgument("total_min_node_count", value);
     }
 
@@ -4308,7 +4282,7 @@ public class GoogleContainerClusterNodePoolBlockManagementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AutoRepair
     {
-        get => new TerraformReference<bool>(this, "auto_repair");
+        get => GetArgument<TerraformValue<bool>>("auto_repair");
         set => SetArgument("auto_repair", value);
     }
 
@@ -4317,7 +4291,7 @@ public class GoogleContainerClusterNodePoolBlockManagementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AutoUpgrade
     {
-        get => new TerraformReference<bool>(this, "auto_upgrade");
+        get => GetArgument<TerraformValue<bool>>("auto_upgrade");
         set => SetArgument("auto_upgrade", value);
     }
 
@@ -4339,34 +4313,34 @@ public class GoogleContainerClusterNodePoolBlockNetworkConfigBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? CreatePodRange
     {
-        get => new TerraformReference<bool>(this, "create_pod_range");
+        get => GetArgument<TerraformValue<bool>>("create_pod_range");
         set => SetArgument("create_pod_range", value);
     }
 
     /// <summary>
     /// Whether nodes have internal IP addresses only.
     /// </summary>
-    public TerraformValue<bool> EnablePrivateNodes
+    public TerraformValue<bool>? EnablePrivateNodes
     {
-        get => new TerraformReference<bool>(this, "enable_private_nodes");
+        get => GetArgument<TerraformValue<bool>>("enable_private_nodes");
         set => SetArgument("enable_private_nodes", value);
     }
 
     /// <summary>
     /// The IP address range for pod IPs in this node pool. Only applicable if create_pod_range is true. Set to blank to have a range chosen with the default size. Set to /netmask (e.g. /14) to have a range chosen with a specific netmask. Set to a CIDR notation (e.g. 10.96.0.0/14) to pick a specific range to use.
     /// </summary>
-    public TerraformValue<string> PodIpv4CidrBlock
+    public TerraformValue<string>? PodIpv4CidrBlock
     {
-        get => new TerraformReference<string>(this, "pod_ipv4_cidr_block");
+        get => GetArgument<TerraformValue<string>>("pod_ipv4_cidr_block");
         set => SetArgument("pod_ipv4_cidr_block", value);
     }
 
     /// <summary>
     /// The ID of the secondary range for pod IPs. If create_pod_range is true, this ID is used for the new range. If create_pod_range is false, uses an existing secondary range with this ID.
     /// </summary>
-    public TerraformValue<string> PodRange
+    public TerraformValue<string>? PodRange
     {
-        get => new TerraformReference<string>(this, "pod_range");
+        get => GetArgument<TerraformValue<string>>("pod_range");
         set => SetArgument("pod_range", value);
     }
 
@@ -4374,9 +4348,7 @@ public class GoogleContainerClusterNodePoolBlockNetworkConfigBlock : TerraformBl
     /// The subnetwork path for the node pool. Format: projects/{project}/regions/{region}/subnetworks/{subnetwork} . If the cluster is associated with multiple subnetworks, the subnetwork for the node pool is picked based on the IP utilization during node pool creation and is immutable.
     /// </summary>
     public TerraformValue<string> Subnetwork
-    {
-        get => new TerraformReference<string>(this, "subnetwork");
-    }
+        => AsReference("subnetwork");
 
     /// <summary>
     /// AdditionalNodeNetworkConfigs block (nesting mode: list).
@@ -4434,7 +4406,7 @@ public class GoogleContainerClusterNodePoolBlockNetworkConfigBlockAdditionalNode
     /// </summary>
     public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -4443,7 +4415,7 @@ public class GoogleContainerClusterNodePoolBlockNetworkConfigBlockAdditionalNode
     /// </summary>
     public TerraformValue<string>? Subnetwork
     {
-        get => new TerraformReference<string>(this, "subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -4463,9 +4435,9 @@ public class GoogleContainerClusterNodePoolBlockNetworkConfigBlockAdditionalPodN
     /// <summary>
     /// The maximum number of pods per node which use this pod network.
     /// </summary>
-    public TerraformValue<double> MaxPodsPerNode
+    public TerraformValue<double>? MaxPodsPerNode
     {
-        get => new TerraformReference<double>(this, "max_pods_per_node");
+        get => GetArgument<TerraformValue<double>>("max_pods_per_node");
         set => SetArgument("max_pods_per_node", value);
     }
 
@@ -4474,7 +4446,7 @@ public class GoogleContainerClusterNodePoolBlockNetworkConfigBlockAdditionalPodN
     /// </summary>
     public TerraformValue<string>? SecondaryPodRange
     {
-        get => new TerraformReference<string>(this, "secondary_pod_range");
+        get => GetArgument<TerraformValue<string>>("secondary_pod_range");
         set => SetArgument("secondary_pod_range", value);
     }
 
@@ -4483,7 +4455,7 @@ public class GoogleContainerClusterNodePoolBlockNetworkConfigBlockAdditionalPodN
     /// </summary>
     public TerraformValue<string>? Subnetwork
     {
-        get => new TerraformReference<string>(this, "subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -4506,7 +4478,7 @@ public class GoogleContainerClusterNodePoolBlockNetworkConfigBlockNetworkPerform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalEgressBandwidthTier is required")]
     public required TerraformValue<string> TotalEgressBandwidthTier
     {
-        get => new TerraformReference<string>(this, "total_egress_bandwidth_tier");
+        get => GetArgument<TerraformValue<string>>("total_egress_bandwidth_tier");
         set => SetArgument("total_egress_bandwidth_tier", value);
     }
 
@@ -4529,7 +4501,7 @@ public class GoogleContainerClusterNodePoolBlockNetworkConfigBlockPodCidrOverpro
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disabled is required")]
     public required TerraformValue<bool> Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -4551,25 +4523,25 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BootDiskKmsKey
     {
-        get => new TerraformReference<string>(this, "boot_disk_kms_key");
+        get => GetArgument<TerraformValue<string>>("boot_disk_kms_key");
         set => SetArgument("boot_disk_kms_key", value);
     }
 
     /// <summary>
     /// Size of the disk attached to each node, specified in GB. The smallest allowed disk size is 10GB.
     /// </summary>
-    public TerraformValue<double> DiskSizeGb
+    public TerraformValue<double>? DiskSizeGb
     {
-        get => new TerraformReference<double>(this, "disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
     /// <summary>
     /// Type of the disk attached to each node. Such as pd-standard, pd-balanced or pd-ssd
     /// </summary>
-    public TerraformValue<string> DiskType
+    public TerraformValue<string>? DiskType
     {
-        get => new TerraformReference<string>(this, "disk_type");
+        get => GetArgument<TerraformValue<string>>("disk_type");
         set => SetArgument("disk_type", value);
     }
 
@@ -4577,16 +4549,14 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// List of kubernetes taints applied to each node.
     /// </summary>
     public TerraformList<TerraformMap<object>> EffectiveTaints
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "effective_taints").ResolveNodes(ctx));
-    }
+        => AsReference("effective_taints");
 
     /// <summary>
     /// If enabled boot disks are configured with confidential mode.
     /// </summary>
     public TerraformValue<bool>? EnableConfidentialStorage
     {
-        get => new TerraformReference<bool>(this, "enable_confidential_storage");
+        get => GetArgument<TerraformValue<bool>>("enable_confidential_storage");
         set => SetArgument("enable_confidential_storage", value);
     }
 
@@ -4595,34 +4565,34 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? FlexStart
     {
-        get => new TerraformReference<bool>(this, "flex_start");
+        get => GetArgument<TerraformValue<bool>>("flex_start");
         set => SetArgument("flex_start", value);
     }
 
     /// <summary>
     /// The image type to use for this node. Note that for a given image type, the latest version of it will be used.
     /// </summary>
-    public TerraformValue<string> ImageType
+    public TerraformValue<string>? ImageType
     {
-        get => new TerraformReference<string>(this, "image_type");
+        get => GetArgument<TerraformValue<string>>("image_type");
         set => SetArgument("image_type", value);
     }
 
     /// <summary>
     /// The map of Kubernetes labels (key/value pairs) to be applied to each node. These will added in addition to any default label(s) that Kubernetes may apply to the node.
     /// </summary>
-    public TerraformMap<string> Labels
+    public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// The number of local SSD disks to be attached to the node.
     /// </summary>
-    public TerraformValue<double> LocalSsdCount
+    public TerraformValue<double>? LocalSsdCount
     {
-        get => new TerraformReference<double>(this, "local_ssd_count");
+        get => GetArgument<TerraformValue<double>>("local_ssd_count");
         set => SetArgument("local_ssd_count", value);
     }
 
@@ -4631,25 +4601,25 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LocalSsdEncryptionMode
     {
-        get => new TerraformReference<string>(this, "local_ssd_encryption_mode");
+        get => GetArgument<TerraformValue<string>>("local_ssd_encryption_mode");
         set => SetArgument("local_ssd_encryption_mode", value);
     }
 
     /// <summary>
     /// Type of logging agent that is used as the default value for node pools in the cluster. Valid values include DEFAULT and MAX_THROUGHPUT.
     /// </summary>
-    public TerraformValue<string> LoggingVariant
+    public TerraformValue<string>? LoggingVariant
     {
-        get => new TerraformReference<string>(this, "logging_variant");
+        get => GetArgument<TerraformValue<string>>("logging_variant");
         set => SetArgument("logging_variant", value);
     }
 
     /// <summary>
     /// The name of a Google Compute Engine machine type.
     /// </summary>
-    public TerraformValue<string> MachineType
+    public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -4658,25 +4628,25 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaxRunDuration
     {
-        get => new TerraformReference<string>(this, "max_run_duration");
+        get => GetArgument<TerraformValue<string>>("max_run_duration");
         set => SetArgument("max_run_duration", value);
     }
 
     /// <summary>
     /// The metadata key/value pairs assigned to instances in the cluster.
     /// </summary>
-    public TerraformMap<string> Metadata
+    public TerraformMap<string>? Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
     /// <summary>
     /// Minimum CPU platform to be used by this instance. The instance may be scheduled on the specified or newer CPU platform.
     /// </summary>
-    public TerraformValue<string> MinCpuPlatform
+    public TerraformValue<string>? MinCpuPlatform
     {
-        get => new TerraformReference<string>(this, "min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -4685,16 +4655,16 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? NodeGroup
     {
-        get => new TerraformReference<string>(this, "node_group");
+        get => GetArgument<TerraformValue<string>>("node_group");
         set => SetArgument("node_group", value);
     }
 
     /// <summary>
     /// The set of Google API scopes to be made available on all of the node VMs.
     /// </summary>
-    public TerraformSet<string> OauthScopes
+    public TerraformSet<string>? OauthScopes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "oauth_scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("oauth_scopes");
         set => SetArgument("oauth_scopes", value);
     }
 
@@ -4703,7 +4673,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Preemptible
     {
-        get => new TerraformReference<bool>(this, "preemptible");
+        get => GetArgument<TerraformValue<bool>>("preemptible");
         set => SetArgument("preemptible", value);
     }
 
@@ -4712,7 +4682,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? ResourceLabels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "resource_labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("resource_labels");
         set => SetArgument("resource_labels", value);
     }
 
@@ -4721,16 +4691,16 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? ResourceManagerTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "resource_manager_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("resource_manager_tags");
         set => SetArgument("resource_manager_tags", value);
     }
 
     /// <summary>
     /// The Google Cloud Platform Service Account to be used by the node VMs.
     /// </summary>
-    public TerraformValue<string> ServiceAccount
+    public TerraformValue<string>? ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -4739,7 +4709,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Spot
     {
-        get => new TerraformReference<bool>(this, "spot");
+        get => GetArgument<TerraformValue<bool>>("spot");
         set => SetArgument("spot", value);
     }
 
@@ -4748,7 +4718,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? StoragePools
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "storage_pools").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("storage_pools");
         set => SetArgument("storage_pools", value);
     }
 
@@ -4757,7 +4727,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Tags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -4977,7 +4947,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockAdvancedMachineFe
     /// </summary>
     public TerraformValue<bool>? EnableNestedVirtualization
     {
-        get => new TerraformReference<bool>(this, "enable_nested_virtualization");
+        get => GetArgument<TerraformValue<bool>>("enable_nested_virtualization");
         set => SetArgument("enable_nested_virtualization", value);
     }
 
@@ -4986,7 +4956,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockAdvancedMachineFe
     /// </summary>
     public TerraformValue<string>? PerformanceMonitoringUnit
     {
-        get => new TerraformReference<string>(this, "performance_monitoring_unit");
+        get => GetArgument<TerraformValue<string>>("performance_monitoring_unit");
         set => SetArgument("performance_monitoring_unit", value);
     }
 
@@ -4996,7 +4966,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockAdvancedMachineFe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThreadsPerCore is required")]
     public required TerraformValue<double> ThreadsPerCore
     {
-        get => new TerraformReference<double>(this, "threads_per_core");
+        get => GetArgument<TerraformValue<double>>("threads_per_core");
         set => SetArgument("threads_per_core", value);
     }
 
@@ -5016,36 +4986,36 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockBootDiskBlock : T
     /// <summary>
     /// Type of the disk attached to each node. Such as pd-standard, pd-balanced or pd-ssd
     /// </summary>
-    public TerraformValue<string> DiskType
+    public TerraformValue<string>? DiskType
     {
-        get => new TerraformReference<string>(this, "disk_type");
+        get => GetArgument<TerraformValue<string>>("disk_type");
         set => SetArgument("disk_type", value);
     }
 
     /// <summary>
     /// Configured IOPs provisioning. Only valid with disk type hyperdisk-balanced.
     /// </summary>
-    public TerraformValue<double> ProvisionedIops
+    public TerraformValue<double>? ProvisionedIops
     {
-        get => new TerraformReference<double>(this, "provisioned_iops");
+        get => GetArgument<TerraformValue<double>>("provisioned_iops");
         set => SetArgument("provisioned_iops", value);
     }
 
     /// <summary>
     /// Configured throughput provisioning. Only valid with disk type hyperdisk-balanced.
     /// </summary>
-    public TerraformValue<double> ProvisionedThroughput
+    public TerraformValue<double>? ProvisionedThroughput
     {
-        get => new TerraformReference<double>(this, "provisioned_throughput");
+        get => GetArgument<TerraformValue<double>>("provisioned_throughput");
         set => SetArgument("provisioned_throughput", value);
     }
 
     /// <summary>
     /// Size of the disk attached to each node, specified in GB. The smallest allowed disk size is 10GB.
     /// </summary>
-    public TerraformValue<double> SizeGb
+    public TerraformValue<double>? SizeGb
     {
-        get => new TerraformReference<double>(this, "size_gb");
+        get => GetArgument<TerraformValue<double>>("size_gb");
         set => SetArgument("size_gb", value);
     }
 
@@ -5067,7 +5037,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockConfidentialNodes
     /// </summary>
     public TerraformValue<string>? ConfidentialInstanceType
     {
-        get => new TerraformReference<string>(this, "confidential_instance_type");
+        get => GetArgument<TerraformValue<string>>("confidential_instance_type");
         set => SetArgument("confidential_instance_type", value);
     }
 
@@ -5077,7 +5047,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockConfidentialNodes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -5123,7 +5093,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockContainerdConfigB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -5155,7 +5125,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockContainerdConfigB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fqdns is required")]
     public TerraformList<string>? Fqdns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "fqdns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("fqdns");
         set => SetArgument("fqdns", value);
     }
 
@@ -5191,7 +5161,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockContainerdConfigB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretUri is required")]
     public required TerraformValue<string> SecretUri
     {
-        get => new TerraformReference<string>(this, "secret_uri");
+        get => GetArgument<TerraformValue<string>>("secret_uri");
         set => SetArgument("secret_uri", value);
     }
 
@@ -5213,7 +5183,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockEphemeralStorageL
     /// </summary>
     public TerraformValue<double>? DataCacheCount
     {
-        get => new TerraformReference<double>(this, "data_cache_count");
+        get => GetArgument<TerraformValue<double>>("data_cache_count");
         set => SetArgument("data_cache_count", value);
     }
 
@@ -5223,7 +5193,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockEphemeralStorageL
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalSsdCount is required")]
     public required TerraformValue<double> LocalSsdCount
     {
-        get => new TerraformReference<double>(this, "local_ssd_count");
+        get => GetArgument<TerraformValue<double>>("local_ssd_count");
         set => SetArgument("local_ssd_count", value);
     }
 
@@ -5246,7 +5216,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockFastSocketBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -5269,7 +5239,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockGcfsConfigBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -5292,7 +5262,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockGuestAcceleratorB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
     public required TerraformValue<double> CountAttribute
     {
-        get => new TerraformReference<double>(this, "count");
+        get => GetArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -5301,7 +5271,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockGuestAcceleratorB
     /// </summary>
     public TerraformValue<string>? GpuPartitionSize
     {
-        get => new TerraformReference<string>(this, "gpu_partition_size");
+        get => GetArgument<TerraformValue<string>>("gpu_partition_size");
         set => SetArgument("gpu_partition_size", value);
     }
 
@@ -5311,7 +5281,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockGuestAcceleratorB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -5354,7 +5324,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockGuestAcceleratorB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GpuDriverVersion is required")]
     public required TerraformValue<string> GpuDriverVersion
     {
-        get => new TerraformReference<string>(this, "gpu_driver_version");
+        get => GetArgument<TerraformValue<string>>("gpu_driver_version");
         set => SetArgument("gpu_driver_version", value);
     }
 
@@ -5377,7 +5347,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockGuestAcceleratorB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GpuSharingStrategy is required")]
     public required TerraformValue<string> GpuSharingStrategy
     {
-        get => new TerraformReference<string>(this, "gpu_sharing_strategy");
+        get => GetArgument<TerraformValue<string>>("gpu_sharing_strategy");
         set => SetArgument("gpu_sharing_strategy", value);
     }
 
@@ -5387,7 +5357,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockGuestAcceleratorB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSharedClientsPerGpu is required")]
     public required TerraformValue<double> MaxSharedClientsPerGpu
     {
-        get => new TerraformReference<double>(this, "max_shared_clients_per_gpu");
+        get => GetArgument<TerraformValue<double>>("max_shared_clients_per_gpu");
         set => SetArgument("max_shared_clients_per_gpu", value);
     }
 
@@ -5410,7 +5380,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockGvnicBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -5433,7 +5403,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockHostMaintenancePo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceInterval is required")]
     public required TerraformValue<string> MaintenanceInterval
     {
-        get => new TerraformReference<string>(this, "maintenance_interval");
+        get => GetArgument<TerraformValue<string>>("maintenance_interval");
         set => SetArgument("maintenance_interval", value);
     }
 
@@ -5455,7 +5425,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformList<string>? AllowedUnsafeSysctls
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_unsafe_sysctls").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_unsafe_sysctls");
         set => SetArgument("allowed_unsafe_sysctls", value);
     }
 
@@ -5464,7 +5434,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<double>? ContainerLogMaxFiles
     {
-        get => new TerraformReference<double>(this, "container_log_max_files");
+        get => GetArgument<TerraformValue<double>>("container_log_max_files");
         set => SetArgument("container_log_max_files", value);
     }
 
@@ -5473,16 +5443,16 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? ContainerLogMaxSize
     {
-        get => new TerraformReference<string>(this, "container_log_max_size");
+        get => GetArgument<TerraformValue<string>>("container_log_max_size");
         set => SetArgument("container_log_max_size", value);
     }
 
     /// <summary>
     /// Enable CPU CFS quota enforcement for containers that specify CPU limits.
     /// </summary>
-    public TerraformValue<bool> CpuCfsQuota
+    public TerraformValue<bool>? CpuCfsQuota
     {
-        get => new TerraformReference<bool>(this, "cpu_cfs_quota");
+        get => GetArgument<TerraformValue<bool>>("cpu_cfs_quota");
         set => SetArgument("cpu_cfs_quota", value);
     }
 
@@ -5491,7 +5461,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? CpuCfsQuotaPeriod
     {
-        get => new TerraformReference<string>(this, "cpu_cfs_quota_period");
+        get => GetArgument<TerraformValue<string>>("cpu_cfs_quota_period");
         set => SetArgument("cpu_cfs_quota_period", value);
     }
 
@@ -5500,7 +5470,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? CpuManagerPolicy
     {
-        get => new TerraformReference<string>(this, "cpu_manager_policy");
+        get => GetArgument<TerraformValue<string>>("cpu_manager_policy");
         set => SetArgument("cpu_manager_policy", value);
     }
 
@@ -5509,7 +5479,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<double>? EvictionMaxPodGracePeriodSeconds
     {
-        get => new TerraformReference<double>(this, "eviction_max_pod_grace_period_seconds");
+        get => GetArgument<TerraformValue<double>>("eviction_max_pod_grace_period_seconds");
         set => SetArgument("eviction_max_pod_grace_period_seconds", value);
     }
 
@@ -5518,7 +5488,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<double>? ImageGcHighThresholdPercent
     {
-        get => new TerraformReference<double>(this, "image_gc_high_threshold_percent");
+        get => GetArgument<TerraformValue<double>>("image_gc_high_threshold_percent");
         set => SetArgument("image_gc_high_threshold_percent", value);
     }
 
@@ -5527,7 +5497,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<double>? ImageGcLowThresholdPercent
     {
-        get => new TerraformReference<double>(this, "image_gc_low_threshold_percent");
+        get => GetArgument<TerraformValue<double>>("image_gc_low_threshold_percent");
         set => SetArgument("image_gc_low_threshold_percent", value);
     }
 
@@ -5536,7 +5506,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? ImageMaximumGcAge
     {
-        get => new TerraformReference<string>(this, "image_maximum_gc_age");
+        get => GetArgument<TerraformValue<string>>("image_maximum_gc_age");
         set => SetArgument("image_maximum_gc_age", value);
     }
 
@@ -5545,25 +5515,25 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? ImageMinimumGcAge
     {
-        get => new TerraformReference<string>(this, "image_minimum_gc_age");
+        get => GetArgument<TerraformValue<string>>("image_minimum_gc_age");
         set => SetArgument("image_minimum_gc_age", value);
     }
 
     /// <summary>
     /// Controls whether the kubelet read-only port is enabled. It is strongly recommended to set this to `FALSE`. Possible values: `TRUE`, `FALSE`.
     /// </summary>
-    public TerraformValue<string> InsecureKubeletReadonlyPortEnabled
+    public TerraformValue<string>? InsecureKubeletReadonlyPortEnabled
     {
-        get => new TerraformReference<string>(this, "insecure_kubelet_readonly_port_enabled");
+        get => GetArgument<TerraformValue<string>>("insecure_kubelet_readonly_port_enabled");
         set => SetArgument("insecure_kubelet_readonly_port_enabled", value);
     }
 
     /// <summary>
     /// Set the maximum number of image pulls in parallel.
     /// </summary>
-    public TerraformValue<double> MaxParallelImagePulls
+    public TerraformValue<double>? MaxParallelImagePulls
     {
-        get => new TerraformReference<double>(this, "max_parallel_image_pulls");
+        get => GetArgument<TerraformValue<double>>("max_parallel_image_pulls");
         set => SetArgument("max_parallel_image_pulls", value);
     }
 
@@ -5572,7 +5542,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<double>? PodPidsLimit
     {
-        get => new TerraformReference<double>(this, "pod_pids_limit");
+        get => GetArgument<TerraformValue<double>>("pod_pids_limit");
         set => SetArgument("pod_pids_limit", value);
     }
 
@@ -5581,7 +5551,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<bool>? SingleProcessOomKill
     {
-        get => new TerraformReference<bool>(this, "single_process_oom_kill");
+        get => GetArgument<TerraformValue<bool>>("single_process_oom_kill");
         set => SetArgument("single_process_oom_kill", value);
     }
 
@@ -5653,7 +5623,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? ImagefsAvailable
     {
-        get => new TerraformReference<string>(this, "imagefs_available");
+        get => GetArgument<TerraformValue<string>>("imagefs_available");
         set => SetArgument("imagefs_available", value);
     }
 
@@ -5662,7 +5632,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? ImagefsInodesFree
     {
-        get => new TerraformReference<string>(this, "imagefs_inodes_free");
+        get => GetArgument<TerraformValue<string>>("imagefs_inodes_free");
         set => SetArgument("imagefs_inodes_free", value);
     }
 
@@ -5671,7 +5641,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? MemoryAvailable
     {
-        get => new TerraformReference<string>(this, "memory_available");
+        get => GetArgument<TerraformValue<string>>("memory_available");
         set => SetArgument("memory_available", value);
     }
 
@@ -5680,7 +5650,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? NodefsAvailable
     {
-        get => new TerraformReference<string>(this, "nodefs_available");
+        get => GetArgument<TerraformValue<string>>("nodefs_available");
         set => SetArgument("nodefs_available", value);
     }
 
@@ -5689,7 +5659,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? NodefsInodesFree
     {
-        get => new TerraformReference<string>(this, "nodefs_inodes_free");
+        get => GetArgument<TerraformValue<string>>("nodefs_inodes_free");
         set => SetArgument("nodefs_inodes_free", value);
     }
 
@@ -5698,7 +5668,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? PidAvailable
     {
-        get => new TerraformReference<string>(this, "pid_available");
+        get => GetArgument<TerraformValue<string>>("pid_available");
         set => SetArgument("pid_available", value);
     }
 
@@ -5720,7 +5690,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? ImagefsAvailable
     {
-        get => new TerraformReference<string>(this, "imagefs_available");
+        get => GetArgument<TerraformValue<string>>("imagefs_available");
         set => SetArgument("imagefs_available", value);
     }
 
@@ -5729,7 +5699,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? ImagefsInodesFree
     {
-        get => new TerraformReference<string>(this, "imagefs_inodes_free");
+        get => GetArgument<TerraformValue<string>>("imagefs_inodes_free");
         set => SetArgument("imagefs_inodes_free", value);
     }
 
@@ -5738,7 +5708,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? MemoryAvailable
     {
-        get => new TerraformReference<string>(this, "memory_available");
+        get => GetArgument<TerraformValue<string>>("memory_available");
         set => SetArgument("memory_available", value);
     }
 
@@ -5747,7 +5717,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? NodefsAvailable
     {
-        get => new TerraformReference<string>(this, "nodefs_available");
+        get => GetArgument<TerraformValue<string>>("nodefs_available");
         set => SetArgument("nodefs_available", value);
     }
 
@@ -5756,7 +5726,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? NodefsInodesFree
     {
-        get => new TerraformReference<string>(this, "nodefs_inodes_free");
+        get => GetArgument<TerraformValue<string>>("nodefs_inodes_free");
         set => SetArgument("nodefs_inodes_free", value);
     }
 
@@ -5765,7 +5735,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? PidAvailable
     {
-        get => new TerraformReference<string>(this, "pid_available");
+        get => GetArgument<TerraformValue<string>>("pid_available");
         set => SetArgument("pid_available", value);
     }
 
@@ -5787,7 +5757,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? ImagefsAvailable
     {
-        get => new TerraformReference<string>(this, "imagefs_available");
+        get => GetArgument<TerraformValue<string>>("imagefs_available");
         set => SetArgument("imagefs_available", value);
     }
 
@@ -5796,7 +5766,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? ImagefsInodesFree
     {
-        get => new TerraformReference<string>(this, "imagefs_inodes_free");
+        get => GetArgument<TerraformValue<string>>("imagefs_inodes_free");
         set => SetArgument("imagefs_inodes_free", value);
     }
 
@@ -5805,7 +5775,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? MemoryAvailable
     {
-        get => new TerraformReference<string>(this, "memory_available");
+        get => GetArgument<TerraformValue<string>>("memory_available");
         set => SetArgument("memory_available", value);
     }
 
@@ -5814,7 +5784,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? NodefsAvailable
     {
-        get => new TerraformReference<string>(this, "nodefs_available");
+        get => GetArgument<TerraformValue<string>>("nodefs_available");
         set => SetArgument("nodefs_available", value);
     }
 
@@ -5823,7 +5793,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? NodefsInodesFree
     {
-        get => new TerraformReference<string>(this, "nodefs_inodes_free");
+        get => GetArgument<TerraformValue<string>>("nodefs_inodes_free");
         set => SetArgument("nodefs_inodes_free", value);
     }
 
@@ -5832,7 +5802,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// </summary>
     public TerraformValue<string>? PidAvailable
     {
-        get => new TerraformReference<string>(this, "pid_available");
+        get => GetArgument<TerraformValue<string>>("pid_available");
         set => SetArgument("pid_available", value);
     }
 
@@ -5852,9 +5822,9 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// <summary>
     /// The Memory Manager policy to use. This policy guides how memory and hugepages are allocated and managed for pods on the node, influencing NUMA affinity.
     /// </summary>
-    public TerraformValue<string> Policy
+    public TerraformValue<string>? Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
@@ -5874,18 +5844,18 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockKubeletConfigBloc
     /// <summary>
     /// The Topology Manager policy to use. This policy dictates how resource alignment is handled on the node.
     /// </summary>
-    public TerraformValue<string> Policy
+    public TerraformValue<string>? Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
     /// <summary>
     /// The Topology Manager scope, defining the granularity at which policy decisions are applied. Valid values are &amp;quot;container&amp;quot; (resources are aligned per container within a pod) or &amp;quot;pod&amp;quot; (resources are aligned for the entire pod).
     /// </summary>
-    public TerraformValue<string> Scope
+    public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -5905,9 +5875,9 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockLinuxNodeConfigBl
     /// <summary>
     /// cgroupMode specifies the cgroup mode to be used on the node.
     /// </summary>
-    public TerraformValue<string> CgroupMode
+    public TerraformValue<string>? CgroupMode
     {
-        get => new TerraformReference<string>(this, "cgroup_mode");
+        get => GetArgument<TerraformValue<string>>("cgroup_mode");
         set => SetArgument("cgroup_mode", value);
     }
 
@@ -5916,7 +5886,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockLinuxNodeConfigBl
     /// </summary>
     public TerraformMap<string>? Sysctls
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "sysctls").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("sysctls");
         set => SetArgument("sysctls", value);
     }
 
@@ -5925,16 +5895,16 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockLinuxNodeConfigBl
     /// </summary>
     public TerraformValue<string>? TransparentHugepageDefrag
     {
-        get => new TerraformReference<string>(this, "transparent_hugepage_defrag");
+        get => GetArgument<TerraformValue<string>>("transparent_hugepage_defrag");
         set => SetArgument("transparent_hugepage_defrag", value);
     }
 
     /// <summary>
     /// The Linux kernel transparent hugepage setting.
     /// </summary>
-    public TerraformValue<string> TransparentHugepageEnabled
+    public TerraformValue<string>? TransparentHugepageEnabled
     {
-        get => new TerraformReference<string>(this, "transparent_hugepage_enabled");
+        get => GetArgument<TerraformValue<string>>("transparent_hugepage_enabled");
         set => SetArgument("transparent_hugepage_enabled", value);
     }
 
@@ -5966,7 +5936,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockLinuxNodeConfigBl
     /// </summary>
     public TerraformValue<double>? HugepageSize1g
     {
-        get => new TerraformReference<double>(this, "hugepage_size_1g");
+        get => GetArgument<TerraformValue<double>>("hugepage_size_1g");
         set => SetArgument("hugepage_size_1g", value);
     }
 
@@ -5975,7 +5945,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockLinuxNodeConfigBl
     /// </summary>
     public TerraformValue<double>? HugepageSize2m
     {
-        get => new TerraformReference<double>(this, "hugepage_size_2m");
+        get => GetArgument<TerraformValue<double>>("hugepage_size_2m");
         set => SetArgument("hugepage_size_2m", value);
     }
 
@@ -5998,7 +5968,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockLocalNvmeSsdBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalSsdCount is required")]
     public required TerraformValue<double> LocalSsdCount
     {
-        get => new TerraformReference<double>(this, "local_ssd_count");
+        get => GetArgument<TerraformValue<double>>("local_ssd_count");
         set => SetArgument("local_ssd_count", value);
     }
 
@@ -6021,7 +5991,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockReservationAffini
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumeReservationType is required")]
     public required TerraformValue<string> ConsumeReservationType
     {
-        get => new TerraformReference<string>(this, "consume_reservation_type");
+        get => GetArgument<TerraformValue<string>>("consume_reservation_type");
         set => SetArgument("consume_reservation_type", value);
     }
 
@@ -6030,7 +6000,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockReservationAffini
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -6039,7 +6009,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockReservationAffini
     /// </summary>
     public TerraformSet<string>? ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -6062,7 +6032,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockSecondaryBootDisk
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskImage is required")]
     public required TerraformValue<string> DiskImage
     {
-        get => new TerraformReference<string>(this, "disk_image");
+        get => GetArgument<TerraformValue<string>>("disk_image");
         set => SetArgument("disk_image", value);
     }
 
@@ -6071,7 +6041,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockSecondaryBootDisk
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -6093,7 +6063,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockShieldedInstanceC
     /// </summary>
     public TerraformValue<bool>? EnableIntegrityMonitoring
     {
-        get => new TerraformReference<bool>(this, "enable_integrity_monitoring");
+        get => GetArgument<TerraformValue<bool>>("enable_integrity_monitoring");
         set => SetArgument("enable_integrity_monitoring", value);
     }
 
@@ -6102,7 +6072,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockShieldedInstanceC
     /// </summary>
     public TerraformValue<bool>? EnableSecureBoot
     {
-        get => new TerraformReference<bool>(this, "enable_secure_boot");
+        get => GetArgument<TerraformValue<bool>>("enable_secure_boot");
         set => SetArgument("enable_secure_boot", value);
     }
 
@@ -6124,7 +6094,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockSoleTenantConfigB
     /// </summary>
     public TerraformValue<double>? MinNodeCpus
     {
-        get => new TerraformReference<double>(this, "min_node_cpus");
+        get => GetArgument<TerraformValue<double>>("min_node_cpus");
         set => SetArgument("min_node_cpus", value);
     }
 
@@ -6159,7 +6129,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockSoleTenantConfigB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -6169,7 +6139,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockSoleTenantConfigB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -6179,7 +6149,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockSoleTenantConfigB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -6202,7 +6172,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockTaintBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Effect is required")]
     public required TerraformValue<string> Effect
     {
-        get => new TerraformReference<string>(this, "effect");
+        get => GetArgument<TerraformValue<string>>("effect");
         set => SetArgument("effect", value);
     }
 
@@ -6212,7 +6182,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockTaintBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -6222,7 +6192,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockTaintBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -6244,7 +6214,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockWindowsNodeConfig
     /// </summary>
     public TerraformValue<string>? Osversion
     {
-        get => new TerraformReference<string>(this, "osversion");
+        get => GetArgument<TerraformValue<string>>("osversion");
         set => SetArgument("osversion", value);
     }
 
@@ -6267,7 +6237,7 @@ public class GoogleContainerClusterNodePoolBlockNodeConfigBlockWorkloadMetadataC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -6289,7 +6259,7 @@ public class GoogleContainerClusterNodePoolBlockPlacementPolicyBlock : Terraform
     /// </summary>
     public TerraformValue<string>? PolicyName
     {
-        get => new TerraformReference<string>(this, "policy_name");
+        get => GetArgument<TerraformValue<string>>("policy_name");
         set => SetArgument("policy_name", value);
     }
 
@@ -6298,7 +6268,7 @@ public class GoogleContainerClusterNodePoolBlockPlacementPolicyBlock : Terraform
     /// </summary>
     public TerraformValue<string>? TpuTopology
     {
-        get => new TerraformReference<string>(this, "tpu_topology");
+        get => GetArgument<TerraformValue<string>>("tpu_topology");
         set => SetArgument("tpu_topology", value);
     }
 
@@ -6308,7 +6278,7 @@ public class GoogleContainerClusterNodePoolBlockPlacementPolicyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -6331,7 +6301,7 @@ public class GoogleContainerClusterNodePoolBlockQueuedProvisioningBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -6351,18 +6321,18 @@ public class GoogleContainerClusterNodePoolBlockUpgradeSettingsBlock : Terraform
     /// <summary>
     /// The number of additional nodes that can be added to the node pool during an upgrade. Increasing max_surge raises the number of nodes that can be upgraded simultaneously. Can be set to 0 or greater.
     /// </summary>
-    public TerraformValue<double> MaxSurge
+    public TerraformValue<double>? MaxSurge
     {
-        get => new TerraformReference<double>(this, "max_surge");
+        get => GetArgument<TerraformValue<double>>("max_surge");
         set => SetArgument("max_surge", value);
     }
 
     /// <summary>
     /// The number of nodes that can be simultaneously unavailable during an upgrade. Increasing max_unavailable raises the number of nodes that can be upgraded in parallel. Can be set to 0 or greater.
     /// </summary>
-    public TerraformValue<double> MaxUnavailable
+    public TerraformValue<double>? MaxUnavailable
     {
-        get => new TerraformReference<double>(this, "max_unavailable");
+        get => GetArgument<TerraformValue<double>>("max_unavailable");
         set => SetArgument("max_unavailable", value);
     }
 
@@ -6371,7 +6341,7 @@ public class GoogleContainerClusterNodePoolBlockUpgradeSettingsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Strategy
     {
-        get => new TerraformReference<string>(this, "strategy");
+        get => GetArgument<TerraformValue<string>>("strategy");
         set => SetArgument("strategy", value);
     }
 
@@ -6401,9 +6371,9 @@ public class GoogleContainerClusterNodePoolBlockUpgradeSettingsBlockBlueGreenSet
     /// <summary>
     /// Time needed after draining entire blue pool. After this period, blue pool will be cleaned up.
     /// </summary>
-    public TerraformValue<string> NodePoolSoakDuration
+    public TerraformValue<string>? NodePoolSoakDuration
     {
-        get => new TerraformReference<string>(this, "node_pool_soak_duration");
+        get => GetArgument<TerraformValue<string>>("node_pool_soak_duration");
         set => SetArgument("node_pool_soak_duration", value);
     }
 
@@ -6436,27 +6406,27 @@ public class GoogleContainerClusterNodePoolBlockUpgradeSettingsBlockBlueGreenSet
     /// <summary>
     /// Number of blue nodes to drain in a batch.
     /// </summary>
-    public TerraformValue<double> BatchNodeCount
+    public TerraformValue<double>? BatchNodeCount
     {
-        get => new TerraformReference<double>(this, "batch_node_count");
+        get => GetArgument<TerraformValue<double>>("batch_node_count");
         set => SetArgument("batch_node_count", value);
     }
 
     /// <summary>
     /// Percentage of the blue pool nodes to drain in a batch.
     /// </summary>
-    public TerraformValue<double> BatchPercentage
+    public TerraformValue<double>? BatchPercentage
     {
-        get => new TerraformReference<double>(this, "batch_percentage");
+        get => GetArgument<TerraformValue<double>>("batch_percentage");
         set => SetArgument("batch_percentage", value);
     }
 
     /// <summary>
     /// Soak time after each batch gets drained.
     /// </summary>
-    public TerraformValue<string> BatchSoakDuration
+    public TerraformValue<string>? BatchSoakDuration
     {
-        get => new TerraformReference<string>(this, "batch_soak_duration");
+        get => GetArgument<TerraformValue<string>>("batch_soak_duration");
         set => SetArgument("batch_soak_duration", value);
     }
 
@@ -6479,7 +6449,7 @@ public class GoogleContainerClusterNodePoolAutoConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? ResourceManagerTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "resource_manager_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("resource_manager_tags");
         set => SetArgument("resource_manager_tags", value);
     }
 
@@ -6529,9 +6499,9 @@ public class GoogleContainerClusterNodePoolAutoConfigBlockLinuxNodeConfigBlock :
     /// <summary>
     /// cgroupMode specifies the cgroup mode to be used on the node.
     /// </summary>
-    public TerraformValue<string> CgroupMode
+    public TerraformValue<string>? CgroupMode
     {
-        get => new TerraformReference<string>(this, "cgroup_mode");
+        get => GetArgument<TerraformValue<string>>("cgroup_mode");
         set => SetArgument("cgroup_mode", value);
     }
 
@@ -6553,7 +6523,7 @@ public class GoogleContainerClusterNodePoolAutoConfigBlockNetworkTagsBlock : Ter
     /// </summary>
     public TerraformList<string>? Tags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -6573,9 +6543,9 @@ public class GoogleContainerClusterNodePoolAutoConfigBlockNodeKubeletConfigBlock
     /// <summary>
     /// Controls whether the kubelet read-only port is enabled. It is strongly recommended to set this to `FALSE`. Possible values: `TRUE`, `FALSE`.
     /// </summary>
-    public TerraformValue<string> InsecureKubeletReadonlyPortEnabled
+    public TerraformValue<string>? InsecureKubeletReadonlyPortEnabled
     {
-        get => new TerraformReference<string>(this, "insecure_kubelet_readonly_port_enabled");
+        get => GetArgument<TerraformValue<string>>("insecure_kubelet_readonly_port_enabled");
         set => SetArgument("insecure_kubelet_readonly_port_enabled", value);
     }
 
@@ -6619,18 +6589,18 @@ public class GoogleContainerClusterNodePoolDefaultsBlockNodeConfigDefaultsBlock 
     /// <summary>
     /// Controls whether the kubelet read-only port is enabled. It is strongly recommended to set this to `FALSE`. Possible values: `TRUE`, `FALSE`.
     /// </summary>
-    public TerraformValue<string> InsecureKubeletReadonlyPortEnabled
+    public TerraformValue<string>? InsecureKubeletReadonlyPortEnabled
     {
-        get => new TerraformReference<string>(this, "insecure_kubelet_readonly_port_enabled");
+        get => GetArgument<TerraformValue<string>>("insecure_kubelet_readonly_port_enabled");
         set => SetArgument("insecure_kubelet_readonly_port_enabled", value);
     }
 
     /// <summary>
     /// Type of logging agent that is used as the default value for node pools in the cluster. Valid values include DEFAULT and MAX_THROUGHPUT.
     /// </summary>
-    public TerraformValue<string> LoggingVariant
+    public TerraformValue<string>? LoggingVariant
     {
-        get => new TerraformReference<string>(this, "logging_variant");
+        get => GetArgument<TerraformValue<string>>("logging_variant");
         set => SetArgument("logging_variant", value);
     }
 
@@ -6696,7 +6666,7 @@ public class GoogleContainerClusterNodePoolDefaultsBlockNodeConfigDefaultsBlockC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -6728,7 +6698,7 @@ public class GoogleContainerClusterNodePoolDefaultsBlockNodeConfigDefaultsBlockC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fqdns is required")]
     public TerraformList<string>? Fqdns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "fqdns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("fqdns");
         set => SetArgument("fqdns", value);
     }
 
@@ -6764,7 +6734,7 @@ public class GoogleContainerClusterNodePoolDefaultsBlockNodeConfigDefaultsBlockC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretUri is required")]
     public required TerraformValue<string> SecretUri
     {
-        get => new TerraformReference<string>(this, "secret_uri");
+        get => GetArgument<TerraformValue<string>>("secret_uri");
         set => SetArgument("secret_uri", value);
     }
 
@@ -6787,7 +6757,7 @@ public class GoogleContainerClusterNodePoolDefaultsBlockNodeConfigDefaultsBlockG
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -6837,7 +6807,7 @@ public class GoogleContainerClusterNotificationConfigBlockPubsubBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -6846,7 +6816,7 @@ public class GoogleContainerClusterNotificationConfigBlockPubsubBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -6879,7 +6849,7 @@ public class GoogleContainerClusterNotificationConfigBlockPubsubBlockFilterBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventType is required")]
     public TerraformList<string>? EventType
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "event_type").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("event_type");
         set => SetArgument("event_type", value);
     }
 
@@ -6908,7 +6878,7 @@ public class GoogleContainerClusterPodAutoscalingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HpaProfile is required")]
     public required TerraformValue<string> HpaProfile
     {
-        get => new TerraformReference<string>(this, "hpa_profile");
+        get => GetArgument<TerraformValue<string>>("hpa_profile");
         set => SetArgument("hpa_profile", value);
     }
 
@@ -6931,7 +6901,7 @@ public class GoogleContainerClusterPrivateClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnablePrivateEndpoint
     {
-        get => new TerraformReference<bool>(this, "enable_private_endpoint");
+        get => GetArgument<TerraformValue<bool>>("enable_private_endpoint");
         set => SetArgument("enable_private_endpoint", value);
     }
 
@@ -6940,16 +6910,16 @@ public class GoogleContainerClusterPrivateClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnablePrivateNodes
     {
-        get => new TerraformReference<bool>(this, "enable_private_nodes");
+        get => GetArgument<TerraformValue<bool>>("enable_private_nodes");
         set => SetArgument("enable_private_nodes", value);
     }
 
     /// <summary>
     /// The IP range in CIDR notation to use for the hosted master network. This range will be used for assigning private IP addresses to the cluster master(s) and the ILB VIP. This range must not overlap with any other ranges in use within the cluster&#39;s network, and it must be a /28 subnet. See Private Cluster Limitations for more details. This field only applies to private clusters, when enable_private_nodes is true.
     /// </summary>
-    public TerraformValue<string> MasterIpv4CidrBlock
+    public TerraformValue<string>? MasterIpv4CidrBlock
     {
-        get => new TerraformReference<string>(this, "master_ipv4_cidr_block");
+        get => GetArgument<TerraformValue<string>>("master_ipv4_cidr_block");
         set => SetArgument("master_ipv4_cidr_block", value);
     }
 
@@ -6957,24 +6927,20 @@ public class GoogleContainerClusterPrivateClusterConfigBlock : TerraformBlock
     /// The name of the peering between this cluster and the Google owned VPC.
     /// </summary>
     public TerraformValue<string> PeeringName
-    {
-        get => new TerraformReference<string>(this, "peering_name");
-    }
+        => AsReference("peering_name");
 
     /// <summary>
     /// The internal IP address of this cluster&#39;s master endpoint.
     /// </summary>
     public TerraformValue<string> PrivateEndpoint
-    {
-        get => new TerraformReference<string>(this, "private_endpoint");
-    }
+        => AsReference("private_endpoint");
 
     /// <summary>
     /// Subnetwork in cluster&#39;s network where master&#39;s endpoint will be provisioned.
     /// </summary>
     public TerraformValue<string>? PrivateEndpointSubnetwork
     {
-        get => new TerraformReference<string>(this, "private_endpoint_subnetwork");
+        get => GetArgument<TerraformValue<string>>("private_endpoint_subnetwork");
         set => SetArgument("private_endpoint_subnetwork", value);
     }
 
@@ -6982,9 +6948,7 @@ public class GoogleContainerClusterPrivateClusterConfigBlock : TerraformBlock
     /// The external IP address of this cluster&#39;s master endpoint.
     /// </summary>
     public TerraformValue<string> PublicEndpoint
-    {
-        get => new TerraformReference<string>(this, "public_endpoint");
-    }
+        => AsReference("public_endpoint");
 
     /// <summary>
     /// MasterGlobalAccessConfig block (nesting mode: list).
@@ -7015,7 +6979,7 @@ public class GoogleContainerClusterPrivateClusterConfigBlockMasterGlobalAccessCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -7038,7 +7002,7 @@ public class GoogleContainerClusterRbacBindingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableInsecureBindingSystemAuthenticated
     {
-        get => new TerraformReference<bool>(this, "enable_insecure_binding_system_authenticated");
+        get => GetArgument<TerraformValue<bool>>("enable_insecure_binding_system_authenticated");
         set => SetArgument("enable_insecure_binding_system_authenticated", value);
     }
 
@@ -7047,7 +7011,7 @@ public class GoogleContainerClusterRbacBindingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableInsecureBindingSystemUnauthenticated
     {
-        get => new TerraformReference<bool>(this, "enable_insecure_binding_system_unauthenticated");
+        get => GetArgument<TerraformValue<bool>>("enable_insecure_binding_system_unauthenticated");
         set => SetArgument("enable_insecure_binding_system_unauthenticated", value);
     }
 
@@ -7076,7 +7040,7 @@ public class GoogleContainerClusterReleaseChannelBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Channel is required")]
     public required TerraformValue<string> Channel
     {
-        get => new TerraformReference<string>(this, "channel");
+        get => GetArgument<TerraformValue<string>>("channel");
         set => SetArgument("channel", value);
     }
 
@@ -7099,7 +7063,7 @@ public class GoogleContainerClusterResourceUsageExportConfigBlock : TerraformBlo
     /// </summary>
     public TerraformValue<bool>? EnableNetworkEgressMetering
     {
-        get => new TerraformReference<bool>(this, "enable_network_egress_metering");
+        get => GetArgument<TerraformValue<bool>>("enable_network_egress_metering");
         set => SetArgument("enable_network_egress_metering", value);
     }
 
@@ -7108,7 +7072,7 @@ public class GoogleContainerClusterResourceUsageExportConfigBlock : TerraformBlo
     /// </summary>
     public TerraformValue<bool>? EnableResourceConsumptionMetering
     {
-        get => new TerraformReference<bool>(this, "enable_resource_consumption_metering");
+        get => GetArgument<TerraformValue<bool>>("enable_resource_consumption_metering");
         set => SetArgument("enable_resource_consumption_metering", value);
     }
 
@@ -7144,7 +7108,7 @@ public class GoogleContainerClusterResourceUsageExportConfigBlockBigqueryDestina
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => new TerraformReference<string>(this, "dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -7168,7 +7132,7 @@ public class GoogleContainerClusterSecretManagerConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -7201,16 +7165,16 @@ public class GoogleContainerClusterSecretManagerConfigBlockRotationConfigBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The interval between two consecutive rotations. Default rotation interval is 2 minutes
     /// </summary>
-    public TerraformValue<string> RotationInterval
+    public TerraformValue<string>? RotationInterval
     {
-        get => new TerraformReference<string>(this, "rotation_interval");
+        get => GetArgument<TerraformValue<string>>("rotation_interval");
         set => SetArgument("rotation_interval", value);
     }
 
@@ -7231,18 +7195,18 @@ public class GoogleContainerClusterSecurityPostureConfigBlock : TerraformBlock
     /// <summary>
     /// Sets the mode of the Kubernetes security posture API&#39;s off-cluster features. Available options include DISABLED, BASIC, and ENTERPRISE.
     /// </summary>
-    public TerraformValue<string> Mode
+    public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
     /// <summary>
     /// Sets the mode of the Kubernetes security posture API&#39;s workload vulnerability scanning. Available options include VULNERABILITY_DISABLED, VULNERABILITY_BASIC and VULNERABILITY_ENTERPRISE.
     /// </summary>
-    public TerraformValue<string> VulnerabilityMode
+    public TerraformValue<string>? VulnerabilityMode
     {
-        get => new TerraformReference<string>(this, "vulnerability_mode");
+        get => GetArgument<TerraformValue<string>>("vulnerability_mode");
         set => SetArgument("vulnerability_mode", value);
     }
 
@@ -7266,7 +7230,7 @@ public class GoogleContainerClusterServiceExternalIpsConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -7289,7 +7253,7 @@ public class GoogleContainerClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -7298,7 +7262,7 @@ public class GoogleContainerClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -7307,7 +7271,7 @@ public class GoogleContainerClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -7316,7 +7280,7 @@ public class GoogleContainerClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -7339,7 +7303,7 @@ public class GoogleContainerClusterUserManagedKeysConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AggregationCa
     {
-        get => new TerraformReference<string>(this, "aggregation_ca");
+        get => GetArgument<TerraformValue<string>>("aggregation_ca");
         set => SetArgument("aggregation_ca", value);
     }
 
@@ -7348,7 +7312,7 @@ public class GoogleContainerClusterUserManagedKeysConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ClusterCa
     {
-        get => new TerraformReference<string>(this, "cluster_ca");
+        get => GetArgument<TerraformValue<string>>("cluster_ca");
         set => SetArgument("cluster_ca", value);
     }
 
@@ -7357,7 +7321,7 @@ public class GoogleContainerClusterUserManagedKeysConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ControlPlaneDiskEncryptionKey
     {
-        get => new TerraformReference<string>(this, "control_plane_disk_encryption_key");
+        get => GetArgument<TerraformValue<string>>("control_plane_disk_encryption_key");
         set => SetArgument("control_plane_disk_encryption_key", value);
     }
 
@@ -7366,7 +7330,7 @@ public class GoogleContainerClusterUserManagedKeysConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EtcdApiCa
     {
-        get => new TerraformReference<string>(this, "etcd_api_ca");
+        get => GetArgument<TerraformValue<string>>("etcd_api_ca");
         set => SetArgument("etcd_api_ca", value);
     }
 
@@ -7375,7 +7339,7 @@ public class GoogleContainerClusterUserManagedKeysConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EtcdPeerCa
     {
-        get => new TerraformReference<string>(this, "etcd_peer_ca");
+        get => GetArgument<TerraformValue<string>>("etcd_peer_ca");
         set => SetArgument("etcd_peer_ca", value);
     }
 
@@ -7384,7 +7348,7 @@ public class GoogleContainerClusterUserManagedKeysConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? GkeopsEtcdBackupEncryptionKey
     {
-        get => new TerraformReference<string>(this, "gkeops_etcd_backup_encryption_key");
+        get => GetArgument<TerraformValue<string>>("gkeops_etcd_backup_encryption_key");
         set => SetArgument("gkeops_etcd_backup_encryption_key", value);
     }
 
@@ -7393,7 +7357,7 @@ public class GoogleContainerClusterUserManagedKeysConfigBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ServiceAccountSigningKeys
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "service_account_signing_keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("service_account_signing_keys");
         set => SetArgument("service_account_signing_keys", value);
     }
 
@@ -7402,7 +7366,7 @@ public class GoogleContainerClusterUserManagedKeysConfigBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ServiceAccountVerificationKeys
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "service_account_verification_keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("service_account_verification_keys");
         set => SetArgument("service_account_verification_keys", value);
     }
 
@@ -7426,7 +7390,7 @@ public class GoogleContainerClusterVerticalPodAutoscalingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -7449,7 +7413,7 @@ public class GoogleContainerClusterWorkloadIdentityConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? WorkloadPool
     {
-        get => new TerraformReference<string>(this, "workload_pool");
+        get => GetArgument<TerraformValue<string>>("workload_pool");
         set => SetArgument("workload_pool", value);
     }
 
@@ -7467,34 +7431,34 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool>? AllowNetAdmin
     {
-        get => new TerraformReference<bool>(this, "allow_net_admin");
+        get => GetArgument<TerraformValue<bool>>("allow_net_admin");
         set => SetArgument("allow_net_admin", value);
     }
 
     /// <summary>
     /// The IP address range of the Kubernetes pods in this cluster in CIDR notation (e.g. 10.96.0.0/14). Leave blank to have one automatically chosen or specify a /14 block in 10.0.0.0/8. This field will only work for routes-based clusters, where ip_allocation_policy is not defined.
     /// </summary>
-    public TerraformValue<string> ClusterIpv4Cidr
+    public TerraformValue<string>? ClusterIpv4Cidr
     {
-        get => new TerraformReference<string>(this, "cluster_ipv4_cidr");
+        get => GetArgument<TerraformValue<string>>("cluster_ipv4_cidr");
         set => SetArgument("cluster_ipv4_cidr", value);
     }
 
     /// <summary>
     /// The desired datapath provider for this cluster. By default, uses the IPTables-based kube-proxy implementation.
     /// </summary>
-    public TerraformValue<string> DatapathProvider
+    public TerraformValue<string>? DatapathProvider
     {
-        get => new TerraformReference<string>(this, "datapath_provider");
+        get => GetArgument<TerraformValue<string>>("datapath_provider");
         set => SetArgument("datapath_provider", value);
     }
 
     /// <summary>
     /// The default maximum number of pods per node in this cluster. This doesn&#39;t work on &amp;quot;routes-based&amp;quot; clusters, clusters that don&#39;t have IP Aliasing enabled.
     /// </summary>
-    public TerraformValue<double> DefaultMaxPodsPerNode
+    public TerraformValue<double>? DefaultMaxPodsPerNode
     {
-        get => new TerraformReference<double>(this, "default_max_pods_per_node");
+        get => GetArgument<TerraformValue<double>>("default_max_pods_per_node");
         set => SetArgument("default_max_pods_per_node", value);
     }
 
@@ -7503,7 +7467,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
@@ -7512,7 +7476,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -7521,7 +7485,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool>? DisableL4LbFirewallReconciliation
     {
-        get => new TerraformReference<bool>(this, "disable_l4_lb_firewall_reconciliation");
+        get => GetArgument<TerraformValue<bool>>("disable_l4_lb_firewall_reconciliation");
         set => SetArgument("disable_l4_lb_firewall_reconciliation", value);
     }
 
@@ -7530,7 +7494,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool>? EnableAutopilot
     {
-        get => new TerraformReference<bool>(this, "enable_autopilot");
+        get => GetArgument<TerraformValue<bool>>("enable_autopilot");
         set => SetArgument("enable_autopilot", value);
     }
 
@@ -7539,7 +7503,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool>? EnableCiliumClusterwideNetworkPolicy
     {
-        get => new TerraformReference<bool>(this, "enable_cilium_clusterwide_network_policy");
+        get => GetArgument<TerraformValue<bool>>("enable_cilium_clusterwide_network_policy");
         set => SetArgument("enable_cilium_clusterwide_network_policy", value);
     }
 
@@ -7548,16 +7512,16 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool>? EnableFqdnNetworkPolicy
     {
-        get => new TerraformReference<bool>(this, "enable_fqdn_network_policy");
+        get => GetArgument<TerraformValue<bool>>("enable_fqdn_network_policy");
         set => SetArgument("enable_fqdn_network_policy", value);
     }
 
     /// <summary>
     /// Whether Intra-node visibility is enabled for this cluster. This makes same node pod to pod traffic visible for VPC network.
     /// </summary>
-    public TerraformValue<bool> EnableIntranodeVisibility
+    public TerraformValue<bool>? EnableIntranodeVisibility
     {
-        get => new TerraformReference<bool>(this, "enable_intranode_visibility");
+        get => GetArgument<TerraformValue<bool>>("enable_intranode_visibility");
         set => SetArgument("enable_intranode_visibility", value);
     }
 
@@ -7566,7 +7530,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool>? EnableKubernetesAlpha
     {
-        get => new TerraformReference<bool>(this, "enable_kubernetes_alpha");
+        get => GetArgument<TerraformValue<bool>>("enable_kubernetes_alpha");
         set => SetArgument("enable_kubernetes_alpha", value);
     }
 
@@ -7575,7 +7539,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool>? EnableL4IlbSubsetting
     {
-        get => new TerraformReference<bool>(this, "enable_l4_ilb_subsetting");
+        get => GetArgument<TerraformValue<bool>>("enable_l4_ilb_subsetting");
         set => SetArgument("enable_l4_ilb_subsetting", value);
     }
 
@@ -7584,7 +7548,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool>? EnableLegacyAbac
     {
-        get => new TerraformReference<bool>(this, "enable_legacy_abac");
+        get => GetArgument<TerraformValue<bool>>("enable_legacy_abac");
         set => SetArgument("enable_legacy_abac", value);
     }
 
@@ -7593,7 +7557,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool>? EnableMultiNetworking
     {
-        get => new TerraformReference<bool>(this, "enable_multi_networking");
+        get => GetArgument<TerraformValue<bool>>("enable_multi_networking");
         set => SetArgument("enable_multi_networking", value);
     }
 
@@ -7602,7 +7566,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool>? EnableShieldedNodes
     {
-        get => new TerraformReference<bool>(this, "enable_shielded_nodes");
+        get => GetArgument<TerraformValue<bool>>("enable_shielded_nodes");
         set => SetArgument("enable_shielded_nodes", value);
     }
 
@@ -7611,16 +7575,16 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool>? EnableTpu
     {
-        get => new TerraformReference<bool>(this, "enable_tpu");
+        get => GetArgument<TerraformValue<bool>>("enable_tpu");
         set => SetArgument("enable_tpu", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -7629,7 +7593,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? InTransitEncryptionConfig
     {
-        get => new TerraformReference<string>(this, "in_transit_encryption_config");
+        get => GetArgument<TerraformValue<string>>("in_transit_encryption_config");
         set => SetArgument("in_transit_encryption_config", value);
     }
 
@@ -7638,25 +7602,25 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<double>? InitialNodeCount
     {
-        get => new TerraformReference<double>(this, "initial_node_count");
+        get => GetArgument<TerraformValue<double>>("initial_node_count");
         set => SetArgument("initial_node_count", value);
     }
 
     /// <summary>
     /// The location (region or zone) in which the cluster master will be created, as well as the default node location. If you specify a zone (such as us-central1-a), the cluster will be a zonal cluster with a single cluster master. If you specify a region (such as us-west1), the cluster will be a regional cluster with multiple masters spread across zones in the region, and with default node locations in those zones as well.
     /// </summary>
-    public TerraformValue<string> Location
+    public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The logging service that the cluster should write logs to. Available options include logging.googleapis.com(Legacy Stackdriver), logging.googleapis.com/kubernetes(Stackdriver Kubernetes Engine Logging), and none. Defaults to logging.googleapis.com/kubernetes.
     /// </summary>
-    public TerraformValue<string> LoggingService
+    public TerraformValue<string>? LoggingService
     {
-        get => new TerraformReference<string>(this, "logging_service");
+        get => GetArgument<TerraformValue<string>>("logging_service");
         set => SetArgument("logging_service", value);
     }
 
@@ -7665,16 +7629,16 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? MinMasterVersion
     {
-        get => new TerraformReference<string>(this, "min_master_version");
+        get => GetArgument<TerraformValue<string>>("min_master_version");
         set => SetArgument("min_master_version", value);
     }
 
     /// <summary>
     /// The monitoring service that the cluster should write metrics to. Automatically send metrics from pods in the cluster to the Google Cloud Monitoring API. VM metrics will be collected by Google Compute Engine regardless of this setting Available options include monitoring.googleapis.com(Legacy Stackdriver), monitoring.googleapis.com/kubernetes(Stackdriver Kubernetes Engine Monitoring), and none. Defaults to monitoring.googleapis.com/kubernetes.
     /// </summary>
-    public TerraformValue<string> MonitoringService
+    public TerraformValue<string>? MonitoringService
     {
-        get => new TerraformReference<string>(this, "monitoring_service");
+        get => GetArgument<TerraformValue<string>>("monitoring_service");
         set => SetArgument("monitoring_service", value);
     }
 
@@ -7684,7 +7648,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -7693,52 +7657,52 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
     /// <summary>
     /// Determines whether alias IPs or routes will be used for pod IPs in the cluster. Defaults to VPC_NATIVE for new clusters.
     /// </summary>
-    public TerraformValue<string> NetworkingMode
+    public TerraformValue<string>? NetworkingMode
     {
-        get => new TerraformReference<string>(this, "networking_mode");
+        get => GetArgument<TerraformValue<string>>("networking_mode");
         set => SetArgument("networking_mode", value);
     }
 
     /// <summary>
     /// The list of zones in which the cluster&#39;s nodes are located. Nodes must be in the region of their regional cluster or in the same region as their cluster&#39;s zone for zonal clusters. If this is specified for a zonal cluster, omit the cluster&#39;s zone.
     /// </summary>
-    public TerraformSet<string> NodeLocations
+    public TerraformSet<string>? NodeLocations
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "node_locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("node_locations");
         set => SetArgument("node_locations", value);
     }
 
     /// <summary>
     /// The Kubernetes version on the nodes. Must either be unset or set to the same value as min_master_version on create. Defaults to the default version set by GKE which is not necessarily the latest version. This only affects nodes in the default node pool. While a fuzzy version can be specified, it&#39;s recommended that you specify explicit versions as Terraform will see spurious diffs when fuzzy versions are used. See the google_container_engine_versions data source&#39;s version_prefix field to approximate fuzzy versions in a Terraform-compatible way. To update nodes in other node pools, use the version attribute on the node pool.
     /// </summary>
-    public TerraformValue<string> NodeVersion
+    public TerraformValue<string>? NodeVersion
     {
-        get => new TerraformReference<string>(this, "node_version");
+        get => GetArgument<TerraformValue<string>>("node_version");
         set => SetArgument("node_version", value);
     }
 
     /// <summary>
     /// The desired state of IPv6 connectivity to Google Services. By default, no private IPv6 access to or from Google Services (all access will be via IPv4).
     /// </summary>
-    public TerraformValue<string> PrivateIpv6GoogleAccess
+    public TerraformValue<string>? PrivateIpv6GoogleAccess
     {
-        get => new TerraformReference<string>(this, "private_ipv6_google_access");
+        get => GetArgument<TerraformValue<string>>("private_ipv6_google_access");
         set => SetArgument("private_ipv6_google_access", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -7747,7 +7711,7 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool>? RemoveDefaultNodePool
     {
-        get => new TerraformReference<bool>(this, "remove_default_node_pool");
+        get => GetArgument<TerraformValue<bool>>("remove_default_node_pool");
         set => SetArgument("remove_default_node_pool", value);
     }
 
@@ -7759,16 +7723,16 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// </summary>
     public TerraformMap<string>? ResourceLabels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "resource_labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("resource_labels");
         set => SetArgument("resource_labels", value);
     }
 
     /// <summary>
     /// The name or self_link of the Google Compute Engine subnetwork in which the cluster&#39;s instances are launched.
     /// </summary>
-    public TerraformValue<string> Subnetwork
+    public TerraformValue<string>? Subnetwork
     {
-        get => new TerraformReference<string>(this, "subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -7776,73 +7740,55 @@ public partial class GoogleContainerCluster(string name) : TerraformResource("go
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The IP address of this cluster&#39;s Kubernetes master.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// The fingerprint of the set of labels for this cluster.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-    {
-        get => new TerraformReference<string>(this, "label_fingerprint");
-    }
+        => AsReference("label_fingerprint");
 
     /// <summary>
     /// The current version of the master in the cluster. This may be different than the min_master_version set in the config if the master has been updated by GKE.
     /// </summary>
     public TerraformValue<string> MasterVersion
-    {
-        get => new TerraformReference<string>(this, "master_version");
-    }
+        => AsReference("master_version");
 
     /// <summary>
     /// The operation attribute.
     /// </summary>
     public TerraformValue<string> Operation
-    {
-        get => new TerraformReference<string>(this, "operation");
-    }
+        => AsReference("operation");
 
     /// <summary>
     /// Server-defined URL for the resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// The IP address range of the Kubernetes services in this cluster, in CIDR notation (e.g. 1.2.3.4/29). Service addresses are typically put in the last /16 from the container CIDR.
     /// </summary>
     public TerraformValue<string> ServicesIpv4Cidr
-    {
-        get => new TerraformReference<string>(this, "services_ipv4_cidr");
-    }
+        => AsReference("services_ipv4_cidr");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The IP address range of the Cloud TPUs in this cluster, in CIDR notation (e.g. 1.2.3.4/29).
     /// </summary>
     public TerraformValue<string> TpuIpv4CidrBlock
-    {
-        get => new TerraformReference<string>(this, "tpu_ipv4_cidr_block");
-    }
+        => AsReference("tpu_ipv4_cidr_block");
 
     /// <summary>
     /// AddonsConfig block (nesting mode: list).

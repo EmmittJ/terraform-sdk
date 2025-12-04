@@ -18,7 +18,7 @@ public class AzurermPaloAltoLocalRulestackDataSourceTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermPaloAltoLocalRulestackDataSource(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermPaloAltoLocalRulestackDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermPaloAltoLocalRulestackDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,81 +64,61 @@ public partial class AzurermPaloAltoLocalRulestackDataSource(string name) : Terr
     /// The anti_spyware_profile attribute.
     /// </summary>
     public TerraformValue<string> AntiSpywareProfile
-    {
-        get => new TerraformReference<string>(this, "anti_spyware_profile");
-    }
+        => AsReference("anti_spyware_profile");
 
     /// <summary>
     /// The anti_virus_profile attribute.
     /// </summary>
     public TerraformValue<string> AntiVirusProfile
-    {
-        get => new TerraformReference<string>(this, "anti_virus_profile");
-    }
+        => AsReference("anti_virus_profile");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The dns_subscription attribute.
     /// </summary>
     public TerraformValue<string> DnsSubscription
-    {
-        get => new TerraformReference<string>(this, "dns_subscription");
-    }
+        => AsReference("dns_subscription");
 
     /// <summary>
     /// The file_blocking_profile attribute.
     /// </summary>
     public TerraformValue<string> FileBlockingProfile
-    {
-        get => new TerraformReference<string>(this, "file_blocking_profile");
-    }
+        => AsReference("file_blocking_profile");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The outbound_trust_certificate attribute.
     /// </summary>
     public TerraformValue<string> OutboundTrustCertificate
-    {
-        get => new TerraformReference<string>(this, "outbound_trust_certificate");
-    }
+        => AsReference("outbound_trust_certificate");
 
     /// <summary>
     /// The outbound_untrust_certificate attribute.
     /// </summary>
     public TerraformValue<string> OutboundUntrustCertificate
-    {
-        get => new TerraformReference<string>(this, "outbound_untrust_certificate");
-    }
+        => AsReference("outbound_untrust_certificate");
 
     /// <summary>
     /// The url_filtering_profile attribute.
     /// </summary>
     public TerraformValue<string> UrlFilteringProfile
-    {
-        get => new TerraformReference<string>(this, "url_filtering_profile");
-    }
+        => AsReference("url_filtering_profile");
 
     /// <summary>
     /// The vulnerability_profile attribute.
     /// </summary>
     public TerraformValue<string> VulnerabilityProfile
-    {
-        get => new TerraformReference<string>(this, "vulnerability_profile");
-    }
+        => AsReference("vulnerability_profile");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

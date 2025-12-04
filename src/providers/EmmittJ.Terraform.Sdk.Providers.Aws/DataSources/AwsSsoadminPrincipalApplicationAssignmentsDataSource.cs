@@ -17,25 +17,19 @@ public class AwsSsoadminPrincipalApplicationAssignmentsDataSourceApplicationAssi
     /// The application_arn attribute.
     /// </summary>
     public TerraformValue<string> ApplicationArn
-    {
-        get => new TerraformReference<string>(this, "application_arn");
-    }
+        => AsReference("application_arn");
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The principal_type attribute.
     /// </summary>
     public TerraformValue<string> PrincipalType
-    {
-        get => new TerraformReference<string>(this, "principal_type");
-    }
+        => AsReference("principal_type");
 
 }
 
@@ -52,7 +46,7 @@ public partial class AwsSsoadminPrincipalApplicationAssignmentsDataSource(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     public required TerraformValue<string> InstanceArn
     {
-        get => new TerraformReference<string>(this, "instance_arn");
+        get => GetArgument<TerraformValue<string>>("instance_arn");
         set => SetArgument("instance_arn", value);
     }
 
@@ -62,7 +56,7 @@ public partial class AwsSsoadminPrincipalApplicationAssignmentsDataSource(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformValue<string> PrincipalId
     {
-        get => new TerraformReference<string>(this, "principal_id");
+        get => GetArgument<TerraformValue<string>>("principal_id");
         set => SetArgument("principal_id", value);
     }
 
@@ -72,16 +66,16 @@ public partial class AwsSsoadminPrincipalApplicationAssignmentsDataSource(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalType is required")]
     public required TerraformValue<string> PrincipalType
     {
-        get => new TerraformReference<string>(this, "principal_type");
+        get => GetArgument<TerraformValue<string>>("principal_type");
         set => SetArgument("principal_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -89,9 +83,7 @@ public partial class AwsSsoadminPrincipalApplicationAssignmentsDataSource(string
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// ApplicationAssignments block (nesting mode: list).

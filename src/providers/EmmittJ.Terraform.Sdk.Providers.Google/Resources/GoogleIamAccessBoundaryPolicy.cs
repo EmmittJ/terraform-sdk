@@ -18,7 +18,7 @@ public class GoogleIamAccessBoundaryPolicyRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleIamAccessBoundaryPolicyRulesBlockAccessBoundaryRuleBlock : Te
     /// </summary>
     public TerraformList<string>? AvailablePermissions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "available_permissions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("available_permissions");
         set => SetArgument("available_permissions", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleIamAccessBoundaryPolicyRulesBlockAccessBoundaryRuleBlock : Te
     /// </summary>
     public TerraformValue<string>? AvailableResource
     {
-        get => new TerraformReference<string>(this, "available_resource");
+        get => GetArgument<TerraformValue<string>>("available_resource");
         set => SetArgument("available_resource", value);
     }
 
@@ -92,7 +92,7 @@ public class GoogleIamAccessBoundaryPolicyRulesBlockAccessBoundaryRuleBlockAvail
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleIamAccessBoundaryPolicyRulesBlockAccessBoundaryRuleBlockAvail
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -112,7 +112,7 @@ public class GoogleIamAccessBoundaryPolicyRulesBlockAccessBoundaryRuleBlockAvail
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -122,7 +122,7 @@ public class GoogleIamAccessBoundaryPolicyRulesBlockAccessBoundaryRuleBlockAvail
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -145,7 +145,7 @@ public class GoogleIamAccessBoundaryPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -154,7 +154,7 @@ public class GoogleIamAccessBoundaryPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -163,7 +163,7 @@ public class GoogleIamAccessBoundaryPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -181,16 +181,16 @@ public partial class GoogleIamAccessBoundaryPolicy(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -200,7 +200,7 @@ public partial class GoogleIamAccessBoundaryPolicy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -210,7 +210,7 @@ public partial class GoogleIamAccessBoundaryPolicy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -218,9 +218,7 @@ public partial class GoogleIamAccessBoundaryPolicy(string name) : TerraformResou
     /// The hash of the resource. Used internally during updates.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Rules block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AwsCloudsearchDomainServiceAccessPolicyTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsCloudsearchDomainServiceAccessPolicyTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AwsCloudsearchDomainServiceAccessPolicy(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPolicy is required")]
     public required TerraformValue<string> AccessPolicy
     {
-        get => new TerraformReference<string>(this, "access_policy");
+        get => GetArgument<TerraformValue<string>>("access_policy");
         set => SetArgument("access_policy", value);
     }
 
@@ -56,25 +56,25 @@ public partial class AwsCloudsearchDomainServiceAccessPolicy(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

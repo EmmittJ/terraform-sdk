@@ -18,7 +18,7 @@ public class AzurermMobileNetworkPacketCoreControlPlaneDataSourceTimeoutsBlock :
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermMobileNetworkPacketCoreControlPlaneDataSource(string
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlaneDataSource(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlaneDataSource(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,121 +64,91 @@ public partial class AzurermMobileNetworkPacketCoreControlPlaneDataSource(string
     /// The control_plane_access_ipv4_address attribute.
     /// </summary>
     public TerraformValue<string> ControlPlaneAccessIpv4Address
-    {
-        get => new TerraformReference<string>(this, "control_plane_access_ipv4_address");
-    }
+        => AsReference("control_plane_access_ipv4_address");
 
     /// <summary>
     /// The control_plane_access_ipv4_gateway attribute.
     /// </summary>
     public TerraformValue<string> ControlPlaneAccessIpv4Gateway
-    {
-        get => new TerraformReference<string>(this, "control_plane_access_ipv4_gateway");
-    }
+        => AsReference("control_plane_access_ipv4_gateway");
 
     /// <summary>
     /// The control_plane_access_ipv4_subnet attribute.
     /// </summary>
     public TerraformValue<string> ControlPlaneAccessIpv4Subnet
-    {
-        get => new TerraformReference<string>(this, "control_plane_access_ipv4_subnet");
-    }
+        => AsReference("control_plane_access_ipv4_subnet");
 
     /// <summary>
     /// The control_plane_access_name attribute.
     /// </summary>
     public TerraformValue<string> ControlPlaneAccessName
-    {
-        get => new TerraformReference<string>(this, "control_plane_access_name");
-    }
+        => AsReference("control_plane_access_name");
 
     /// <summary>
     /// The core_network_technology attribute.
     /// </summary>
     public TerraformValue<string> CoreNetworkTechnology
-    {
-        get => new TerraformReference<string>(this, "core_network_technology");
-    }
+        => AsReference("core_network_technology");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
-    }
+        => AsReference("identity");
 
     /// <summary>
     /// The interoperability_settings_json attribute.
     /// </summary>
     public TerraformValue<string> InteroperabilitySettingsJson
-    {
-        get => new TerraformReference<string>(this, "interoperability_settings_json");
-    }
+        => AsReference("interoperability_settings_json");
 
     /// <summary>
     /// The local_diagnostics_access attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> LocalDiagnosticsAccess
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "local_diagnostics_access").ResolveNodes(ctx));
-    }
+        => AsReference("local_diagnostics_access");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Platform
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "platform").ResolveNodes(ctx));
-    }
+        => AsReference("platform");
 
     /// <summary>
     /// The site_ids attribute.
     /// </summary>
     public TerraformList<string> SiteIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "site_ids").ResolveNodes(ctx));
-    }
+        => AsReference("site_ids");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformValue<string> Sku
-    {
-        get => new TerraformReference<string>(this, "sku");
-    }
+        => AsReference("sku");
 
     /// <summary>
     /// The software_version attribute.
     /// </summary>
     public TerraformValue<string> SoftwareVersion
-    {
-        get => new TerraformReference<string>(this, "software_version");
-    }
+        => AsReference("software_version");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The user_equipment_mtu_in_bytes attribute.
     /// </summary>
     public TerraformValue<double> UserEquipmentMtuInBytes
-    {
-        get => new TerraformReference<double>(this, "user_equipment_mtu_in_bytes");
-    }
+        => AsReference("user_equipment_mtu_in_bytes");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

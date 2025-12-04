@@ -19,7 +19,7 @@ public class GoogleDnsManagedZoneCloudLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableLogging is required")]
     public required TerraformValue<bool> EnableLogging
     {
-        get => new TerraformReference<bool>(this, "enable_logging");
+        get => GetArgument<TerraformValue<bool>>("enable_logging");
         set => SetArgument("enable_logging", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleDnsManagedZoneDnssecConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Kind
     {
-        get => new TerraformReference<string>(this, "kind");
+        get => GetArgument<TerraformValue<string>>("kind");
         set => SetArgument("kind", value);
     }
 
@@ -50,9 +50,9 @@ public class GoogleDnsManagedZoneDnssecConfigBlock : TerraformBlock
     /// Specifies the mechanism used to provide authenticated denial-of-existence responses.
     /// non_existence can only be updated when the state is &#39;off&#39;. Possible values: [&amp;quot;nsec&amp;quot;, &amp;quot;nsec3&amp;quot;]
     /// </summary>
-    public TerraformValue<string> NonExistence
+    public TerraformValue<string>? NonExistence
     {
-        get => new TerraformReference<string>(this, "non_existence");
+        get => GetArgument<TerraformValue<string>>("non_existence");
         set => SetArgument("non_existence", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleDnsManagedZoneDnssecConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -92,7 +92,7 @@ public class GoogleDnsManagedZoneDnssecConfigBlockDefaultKeySpecsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Algorithm
     {
-        get => new TerraformReference<string>(this, "algorithm");
+        get => GetArgument<TerraformValue<string>>("algorithm");
         set => SetArgument("algorithm", value);
     }
 
@@ -101,7 +101,7 @@ public class GoogleDnsManagedZoneDnssecConfigBlockDefaultKeySpecsBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? KeyLength
     {
-        get => new TerraformReference<double>(this, "key_length");
+        get => GetArgument<TerraformValue<double>>("key_length");
         set => SetArgument("key_length", value);
     }
 
@@ -115,7 +115,7 @@ public class GoogleDnsManagedZoneDnssecConfigBlockDefaultKeySpecsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? KeyType
     {
-        get => new TerraformReference<string>(this, "key_type");
+        get => GetArgument<TerraformValue<string>>("key_type");
         set => SetArgument("key_type", value);
     }
 
@@ -124,7 +124,7 @@ public class GoogleDnsManagedZoneDnssecConfigBlockDefaultKeySpecsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Kind
     {
-        get => new TerraformReference<string>(this, "kind");
+        get => GetArgument<TerraformValue<string>>("kind");
         set => SetArgument("kind", value);
     }
 
@@ -172,7 +172,7 @@ public class GoogleDnsManagedZoneForwardingConfigBlockTargetNameServersBlock : T
     /// </summary>
     public TerraformValue<string>? DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -183,7 +183,7 @@ public class GoogleDnsManagedZoneForwardingConfigBlockTargetNameServersBlock : T
     /// </summary>
     public TerraformValue<string>? ForwardingPath
     {
-        get => new TerraformReference<string>(this, "forwarding_path");
+        get => GetArgument<TerraformValue<string>>("forwarding_path");
         set => SetArgument("forwarding_path", value);
     }
 
@@ -192,7 +192,7 @@ public class GoogleDnsManagedZoneForwardingConfigBlockTargetNameServersBlock : T
     /// </summary>
     public TerraformValue<string>? Ipv4Address
     {
-        get => new TerraformReference<string>(this, "ipv4_address");
+        get => GetArgument<TerraformValue<string>>("ipv4_address");
         set => SetArgument("ipv4_address", value);
     }
 
@@ -244,7 +244,7 @@ public class GoogleDnsManagedZonePeeringConfigBlockTargetNetworkBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkUrl is required")]
     public required TerraformValue<string> NetworkUrl
     {
-        get => new TerraformReference<string>(this, "network_url");
+        get => GetArgument<TerraformValue<string>>("network_url");
         set => SetArgument("network_url", value);
     }
 
@@ -301,7 +301,7 @@ public class GoogleDnsManagedZonePrivateVisibilityConfigBlockGkeClustersBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GkeClusterName is required")]
     public required TerraformValue<string> GkeClusterName
     {
-        get => new TerraformReference<string>(this, "gke_cluster_name");
+        get => GetArgument<TerraformValue<string>>("gke_cluster_name");
         set => SetArgument("gke_cluster_name", value);
     }
 
@@ -326,7 +326,7 @@ public class GoogleDnsManagedZonePrivateVisibilityConfigBlockNetworksBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkUrl is required")]
     public required TerraformValue<string> NetworkUrl
     {
-        get => new TerraformReference<string>(this, "network_url");
+        get => GetArgument<TerraformValue<string>>("network_url");
         set => SetArgument("network_url", value);
     }
 
@@ -349,7 +349,7 @@ public class GoogleDnsManagedZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -358,7 +358,7 @@ public class GoogleDnsManagedZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -367,7 +367,7 @@ public class GoogleDnsManagedZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -385,7 +385,7 @@ public partial class GoogleDnsManagedZone(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -395,7 +395,7 @@ public partial class GoogleDnsManagedZone(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsName is required")]
     public required TerraformValue<string> DnsName
     {
-        get => new TerraformReference<string>(this, "dns_name");
+        get => GetArgument<TerraformValue<string>>("dns_name");
         set => SetArgument("dns_name", value);
     }
 
@@ -404,16 +404,16 @@ public partial class GoogleDnsManagedZone(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<bool>? ForceDestroy
     {
-        get => new TerraformReference<bool>(this, "force_destroy");
+        get => GetArgument<TerraformValue<bool>>("force_destroy");
         set => SetArgument("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -426,7 +426,7 @@ public partial class GoogleDnsManagedZone(string name) : TerraformResource("goog
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -437,16 +437,16 @@ public partial class GoogleDnsManagedZone(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -456,7 +456,7 @@ public partial class GoogleDnsManagedZone(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? Visibility
     {
-        get => new TerraformReference<string>(this, "visibility");
+        get => GetArgument<TerraformValue<string>>("visibility");
         set => SetArgument("visibility", value);
     }
 
@@ -465,43 +465,33 @@ public partial class GoogleDnsManagedZone(string name) : TerraformResource("goog
     /// This is in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTime
-    {
-        get => new TerraformReference<string>(this, "creation_time");
-    }
+        => AsReference("creation_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Unique identifier for the resource; defined by the server.
     /// </summary>
     public TerraformValue<double> ManagedZoneId
-    {
-        get => new TerraformReference<double>(this, "managed_zone_id");
-    }
+        => AsReference("managed_zone_id");
 
     /// <summary>
     /// Delegate your managed_zone to these virtual name servers;
     /// defined by the server
     /// </summary>
     public TerraformList<string> NameServers
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "name_servers").ResolveNodes(ctx));
-    }
+        => AsReference("name_servers");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// CloudLoggingConfig block (nesting mode: list).

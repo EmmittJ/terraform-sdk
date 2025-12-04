@@ -18,7 +18,7 @@ public class AzurermFirewallDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,18 +34,18 @@ public partial class AzurermFirewallDataSource(string name) : TerraformDataSourc
     /// <summary>
     /// The dns_proxy_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> DnsProxyEnabled
+    public TerraformValue<bool>? DnsProxyEnabled
     {
-        get => new TerraformReference<bool>(this, "dns_proxy_enabled");
+        get => GetArgument<TerraformValue<bool>>("dns_proxy_enabled");
         set => SetArgument("dns_proxy_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermFirewallDataSource(string name) : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzurermFirewallDataSource(string name) : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -73,89 +73,67 @@ public partial class AzurermFirewallDataSource(string name) : TerraformDataSourc
     /// The dns_servers attribute.
     /// </summary>
     public TerraformList<string> DnsServers
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dns_servers").ResolveNodes(ctx));
-    }
+        => AsReference("dns_servers");
 
     /// <summary>
     /// The firewall_policy_id attribute.
     /// </summary>
     public TerraformValue<string> FirewallPolicyId
-    {
-        get => new TerraformReference<string>(this, "firewall_policy_id");
-    }
+        => AsReference("firewall_policy_id");
 
     /// <summary>
     /// The ip_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IpConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "ip_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("ip_configuration");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The management_ip_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagementIpConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "management_ip_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("management_ip_configuration");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     public TerraformValue<string> SkuName
-    {
-        get => new TerraformReference<string>(this, "sku_name");
-    }
+        => AsReference("sku_name");
 
     /// <summary>
     /// The sku_tier attribute.
     /// </summary>
     public TerraformValue<string> SkuTier
-    {
-        get => new TerraformReference<string>(this, "sku_tier");
-    }
+        => AsReference("sku_tier");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The threat_intel_mode attribute.
     /// </summary>
     public TerraformValue<string> ThreatIntelMode
-    {
-        get => new TerraformReference<string>(this, "threat_intel_mode");
-    }
+        => AsReference("threat_intel_mode");
 
     /// <summary>
     /// The virtual_hub attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> VirtualHub
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "virtual_hub").ResolveNodes(ctx));
-    }
+        => AsReference("virtual_hub");
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     public TerraformList<string> Zones
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "zones").ResolveNodes(ctx));
-    }
+        => AsReference("zones");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

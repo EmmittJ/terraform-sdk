@@ -18,7 +18,7 @@ public class AwsGrafanaLicenseAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsGrafanaLicenseAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -45,16 +45,16 @@ public partial class AwsGrafanaLicenseAssociation(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? GrafanaToken
     {
-        get => new TerraformReference<string>(this, "grafana_token");
+        get => GetArgument<TerraformValue<string>>("grafana_token");
         set => SetArgument("grafana_token", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AwsGrafanaLicenseAssociation(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseType is required")]
     public required TerraformValue<string> LicenseType
     {
-        get => new TerraformReference<string>(this, "license_type");
+        get => GetArgument<TerraformValue<string>>("license_type");
         set => SetArgument("license_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsGrafanaLicenseAssociation(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => new TerraformReference<string>(this, "workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -91,17 +91,13 @@ public partial class AwsGrafanaLicenseAssociation(string name) : TerraformResour
     /// The free_trial_expiration attribute.
     /// </summary>
     public TerraformValue<string> FreeTrialExpiration
-    {
-        get => new TerraformReference<string>(this, "free_trial_expiration");
-    }
+        => AsReference("free_trial_expiration");
 
     /// <summary>
     /// The license_expiration attribute.
     /// </summary>
     public TerraformValue<string> LicenseExpiration
-    {
-        get => new TerraformReference<string>(this, "license_expiration");
-    }
+        => AsReference("license_expiration");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

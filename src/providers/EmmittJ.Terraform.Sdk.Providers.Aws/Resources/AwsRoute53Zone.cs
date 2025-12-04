@@ -18,7 +18,7 @@ public class AwsRoute53ZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsRoute53ZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsRoute53ZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -60,16 +60,16 @@ public class AwsRoute53ZoneVpcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
     /// <summary>
     /// The vpc_region attribute.
     /// </summary>
-    public TerraformValue<string> VpcRegion
+    public TerraformValue<string>? VpcRegion
     {
-        get => new TerraformReference<string>(this, "vpc_region");
+        get => GetArgument<TerraformValue<string>>("vpc_region");
         set => SetArgument("vpc_region", value);
     }
 
@@ -87,7 +87,7 @@ public partial class AwsRoute53Zone(string name) : TerraformResource("aws_route5
     /// </summary>
     public TerraformValue<string>? Comment
     {
-        get => new TerraformReference<string>(this, "comment");
+        get => GetArgument<TerraformValue<string>>("comment");
         set => SetArgument("comment", value);
     }
 
@@ -96,7 +96,7 @@ public partial class AwsRoute53Zone(string name) : TerraformResource("aws_route5
     /// </summary>
     public TerraformValue<string>? DelegationSetId
     {
-        get => new TerraformReference<string>(this, "delegation_set_id");
+        get => GetArgument<TerraformValue<string>>("delegation_set_id");
         set => SetArgument("delegation_set_id", value);
     }
 
@@ -105,16 +105,16 @@ public partial class AwsRoute53Zone(string name) : TerraformResource("aws_route5
     /// </summary>
     public TerraformValue<bool>? ForceDestroy
     {
-        get => new TerraformReference<bool>(this, "force_destroy");
+        get => GetArgument<TerraformValue<bool>>("force_destroy");
         set => SetArgument("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AwsRoute53Zone(string name) : TerraformResource("aws_route5
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -133,16 +133,16 @@ public partial class AwsRoute53Zone(string name) : TerraformResource("aws_route5
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -150,33 +150,25 @@ public partial class AwsRoute53Zone(string name) : TerraformResource("aws_route5
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
     public TerraformList<string> NameServers
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "name_servers").ResolveNodes(ctx));
-    }
+        => AsReference("name_servers");
 
     /// <summary>
     /// The primary_name_server attribute.
     /// </summary>
     public TerraformValue<string> PrimaryNameServer
-    {
-        get => new TerraformReference<string>(this, "primary_name_server");
-    }
+        => AsReference("primary_name_server");
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
     public TerraformValue<string> ZoneId
-    {
-        get => new TerraformReference<string>(this, "zone_id");
-    }
+        => AsReference("zone_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

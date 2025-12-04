@@ -19,7 +19,7 @@ public class GoogleBeyondcorpSecurityGatewayHubsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -50,9 +50,7 @@ public class GoogleBeyondcorpSecurityGatewayHubsBlockInternetGatewayBlock : Terr
     /// Output only. List of IP addresses assigned to the Cloud NAT.
     /// </summary>
     public TerraformList<string> AssignedIps
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "assigned_ips").ResolveNodes(ctx));
-    }
+        => AsReference("assigned_ips");
 
 }
 
@@ -73,7 +71,7 @@ public class GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock : Terraform
     /// </summary>
     public TerraformList<string>? AllowedClientHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_client_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_client_headers");
         set => SetArgument("allowed_client_headers", value);
     }
 
@@ -82,7 +80,7 @@ public class GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock : Terraform
     /// </summary>
     public TerraformValue<bool>? ClientIp
     {
-        get => new TerraformReference<bool>(this, "client_ip");
+        get => GetArgument<TerraformValue<bool>>("client_ip");
         set => SetArgument("client_ip", value);
     }
 
@@ -91,7 +89,7 @@ public class GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock : Terraform
     /// </summary>
     public TerraformValue<string>? GatewayIdentity
     {
-        get => new TerraformReference<string>(this, "gateway_identity");
+        get => GetArgument<TerraformValue<string>>("gateway_identity");
         set => SetArgument("gateway_identity", value);
     }
 
@@ -104,7 +102,7 @@ public class GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlock : Terraform
     /// </summary>
     public TerraformMap<string>? MetadataHeaders
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata_headers");
         set => SetArgument("metadata_headers", value);
     }
 
@@ -136,7 +134,7 @@ public class GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlockContextualHe
     /// </summary>
     public TerraformValue<string>? OutputType
     {
-        get => new TerraformReference<string>(this, "output_type");
+        get => GetArgument<TerraformValue<string>>("output_type");
         set => SetArgument("output_type", value);
     }
 
@@ -188,7 +186,7 @@ public class GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlockContextualHe
     /// </summary>
     public TerraformValue<string>? OutputType
     {
-        get => new TerraformReference<string>(this, "output_type");
+        get => GetArgument<TerraformValue<string>>("output_type");
         set => SetArgument("output_type", value);
     }
 
@@ -210,7 +208,7 @@ public class GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlockContextualHe
     /// </summary>
     public TerraformValue<string>? OutputType
     {
-        get => new TerraformReference<string>(this, "output_type");
+        get => GetArgument<TerraformValue<string>>("output_type");
         set => SetArgument("output_type", value);
     }
 
@@ -232,7 +230,7 @@ public class GoogleBeyondcorpSecurityGatewayProxyProtocolConfigBlockContextualHe
     /// </summary>
     public TerraformValue<string>? OutputType
     {
-        get => new TerraformReference<string>(this, "output_type");
+        get => GetArgument<TerraformValue<string>>("output_type");
         set => SetArgument("output_type", value);
     }
 
@@ -301,7 +299,7 @@ public class GoogleBeyondcorpSecurityGatewayServiceDiscoveryBlockApiGatewayBlock
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -324,7 +322,7 @@ public class GoogleBeyondcorpSecurityGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -333,7 +331,7 @@ public class GoogleBeyondcorpSecurityGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -342,7 +340,7 @@ public class GoogleBeyondcorpSecurityGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -361,16 +359,16 @@ public partial class GoogleBeyondcorpSecurityGateway(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -380,16 +378,16 @@ public partial class GoogleBeyondcorpSecurityGateway(string name) : TerraformRes
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -402,7 +400,7 @@ public partial class GoogleBeyondcorpSecurityGateway(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGatewayId is required")]
     public required TerraformValue<string> SecurityGatewayId
     {
-        get => new TerraformReference<string>(this, "security_gateway_id");
+        get => GetArgument<TerraformValue<string>>("security_gateway_id");
         set => SetArgument("security_gateway_id", value);
     }
 
@@ -410,34 +408,26 @@ public partial class GoogleBeyondcorpSecurityGateway(string name) : TerraformRes
     /// Output only. Timestamp when the resource was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Service account used for operations that involve resources in consumer projects.
     /// </summary>
     public TerraformValue<string> DelegatingServiceAccount
-    {
-        get => new TerraformReference<string>(this, "delegating_service_account");
-    }
+        => AsReference("delegating_service_account");
 
     /// <summary>
     /// Output only. IP addresses that will be used for establishing
     /// connection to the endpoints.
     /// </summary>
     public TerraformList<string> ExternalIps
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "external_ips").ResolveNodes(ctx));
-    }
+        => AsReference("external_ips");
 
     /// <summary>
     /// Identifier. Name of the resource.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. The operational state of the SecurityGateway.
@@ -451,17 +441,13 @@ public partial class GoogleBeyondcorpSecurityGateway(string name) : TerraformRes
     /// ERROR
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Output only. Timestamp when the resource was last modified.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Hubs block (nesting mode: set).

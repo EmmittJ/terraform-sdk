@@ -18,7 +18,7 @@ public class AzurermWebPubsubPrivateLinkResourceDataSourceTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermWebPubsubPrivateLinkResourceDataSource(string name) 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermWebPubsubPrivateLinkResourceDataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubId is required")]
     public required TerraformValue<string> WebPubsubId
     {
-        get => new TerraformReference<string>(this, "web_pubsub_id");
+        get => GetArgument<TerraformValue<string>>("web_pubsub_id");
         set => SetArgument("web_pubsub_id", value);
     }
 
@@ -54,9 +54,7 @@ public partial class AzurermWebPubsubPrivateLinkResourceDataSource(string name) 
     /// The shared_private_link_resource_types attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SharedPrivateLinkResourceTypes
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "shared_private_link_resource_types").ResolveNodes(ctx));
-    }
+        => AsReference("shared_private_link_resource_types");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

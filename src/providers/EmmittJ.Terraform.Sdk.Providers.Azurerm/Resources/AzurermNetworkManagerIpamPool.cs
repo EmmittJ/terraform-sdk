@@ -18,7 +18,7 @@ public class AzurermNetworkManagerIpamPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermNetworkManagerIpamPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermNetworkManagerIpamPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermNetworkManagerIpamPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermNetworkManagerIpamPool(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefixes is required")]
     public TerraformList<string>? AddressPrefixes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "address_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("address_prefixes");
         set => SetArgument("address_prefixes", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermNetworkManagerIpamPool(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -82,16 +82,16 @@ public partial class AzurermNetworkManagerIpamPool(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermNetworkManagerIpamPool(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermNetworkManagerIpamPool(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermNetworkManagerIpamPool(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
     public required TerraformValue<string> NetworkManagerId
     {
-        get => new TerraformReference<string>(this, "network_manager_id");
+        get => GetArgument<TerraformValue<string>>("network_manager_id");
         set => SetArgument("network_manager_id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermNetworkManagerIpamPool(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? ParentPoolName
     {
-        get => new TerraformReference<string>(this, "parent_pool_name");
+        get => GetArgument<TerraformValue<string>>("parent_pool_name");
         set => SetArgument("parent_pool_name", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AzurermNetworkManagerIpamPool(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

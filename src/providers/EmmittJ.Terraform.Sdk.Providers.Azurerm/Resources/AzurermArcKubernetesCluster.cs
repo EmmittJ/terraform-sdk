@@ -17,17 +17,13 @@ public class AzurermArcKubernetesClusterIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -35,7 +31,7 @@ public class AzurermArcKubernetesClusterIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -58,7 +54,7 @@ public class AzurermArcKubernetesClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -67,7 +63,7 @@ public class AzurermArcKubernetesClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -76,7 +72,7 @@ public class AzurermArcKubernetesClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -85,7 +81,7 @@ public class AzurermArcKubernetesClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -104,16 +100,16 @@ public partial class AzurermArcKubernetesCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentPublicKeyCertificate is required")]
     public required TerraformValue<string> AgentPublicKeyCertificate
     {
-        get => new TerraformReference<string>(this, "agent_public_key_certificate");
+        get => GetArgument<TerraformValue<string>>("agent_public_key_certificate");
         set => SetArgument("agent_public_key_certificate", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -123,7 +119,7 @@ public partial class AzurermArcKubernetesCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -133,7 +129,7 @@ public partial class AzurermArcKubernetesCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -143,7 +139,7 @@ public partial class AzurermArcKubernetesCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -152,7 +148,7 @@ public partial class AzurermArcKubernetesCluster(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -160,57 +156,43 @@ public partial class AzurermArcKubernetesCluster(string name) : TerraformResourc
     /// The agent_version attribute.
     /// </summary>
     public TerraformValue<string> AgentVersion
-    {
-        get => new TerraformReference<string>(this, "agent_version");
-    }
+        => AsReference("agent_version");
 
     /// <summary>
     /// The distribution attribute.
     /// </summary>
     public TerraformValue<string> Distribution
-    {
-        get => new TerraformReference<string>(this, "distribution");
-    }
+        => AsReference("distribution");
 
     /// <summary>
     /// The infrastructure attribute.
     /// </summary>
     public TerraformValue<string> Infrastructure
-    {
-        get => new TerraformReference<string>(this, "infrastructure");
-    }
+        => AsReference("infrastructure");
 
     /// <summary>
     /// The kubernetes_version attribute.
     /// </summary>
     public TerraformValue<string> KubernetesVersion
-    {
-        get => new TerraformReference<string>(this, "kubernetes_version");
-    }
+        => AsReference("kubernetes_version");
 
     /// <summary>
     /// The offering attribute.
     /// </summary>
     public TerraformValue<string> Offering
-    {
-        get => new TerraformReference<string>(this, "offering");
-    }
+        => AsReference("offering");
 
     /// <summary>
     /// The total_core_count attribute.
     /// </summary>
     public TerraformValue<double> TotalCoreCount
-    {
-        get => new TerraformReference<double>(this, "total_core_count");
-    }
+        => AsReference("total_core_count");
 
     /// <summary>
     /// The total_node_count attribute.
     /// </summary>
     public TerraformValue<double> TotalNodeCount
-    {
-        get => new TerraformReference<double>(this, "total_node_count");
-    }
+        => AsReference("total_node_count");
 
     /// <summary>
     /// Identity block (nesting mode: list).

@@ -22,7 +22,7 @@ public class GoogleCloudSchedulerJobAppEngineHttpTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Body
     {
-        get => new TerraformReference<string>(this, "body");
+        get => GetArgument<TerraformValue<string>>("body");
         set => SetArgument("body", value);
     }
 
@@ -33,7 +33,7 @@ public class GoogleCloudSchedulerJobAppEngineHttpTargetBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Headers
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("headers");
         set => SetArgument("headers", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleCloudSchedulerJobAppEngineHttpTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? HttpMethod
     {
-        get => new TerraformReference<string>(this, "http_method");
+        get => GetArgument<TerraformValue<string>>("http_method");
         set => SetArgument("http_method", value);
     }
 
@@ -56,7 +56,7 @@ public class GoogleCloudSchedulerJobAppEngineHttpTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeUri is required")]
     public required TerraformValue<string> RelativeUri
     {
-        get => new TerraformReference<string>(this, "relative_uri");
+        get => GetArgument<TerraformValue<string>>("relative_uri");
         set => SetArgument("relative_uri", value);
     }
 
@@ -89,7 +89,7 @@ public class GoogleCloudSchedulerJobAppEngineHttpTargetBlockAppEngineRoutingBloc
     /// </summary>
     public TerraformValue<string>? Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleCloudSchedulerJobAppEngineHttpTargetBlockAppEngineRoutingBloc
     /// </summary>
     public TerraformValue<string>? Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleCloudSchedulerJobAppEngineHttpTargetBlockAppEngineRoutingBloc
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -136,7 +136,7 @@ public class GoogleCloudSchedulerJobHttpTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Body
     {
-        get => new TerraformReference<string>(this, "body");
+        get => GetArgument<TerraformValue<string>>("body");
         set => SetArgument("body", value);
     }
 
@@ -146,7 +146,7 @@ public class GoogleCloudSchedulerJobHttpTargetBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Headers
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("headers");
         set => SetArgument("headers", value);
     }
 
@@ -155,7 +155,7 @@ public class GoogleCloudSchedulerJobHttpTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? HttpMethod
     {
-        get => new TerraformReference<string>(this, "http_method");
+        get => GetArgument<TerraformValue<string>>("http_method");
         set => SetArgument("http_method", value);
     }
 
@@ -165,7 +165,7 @@ public class GoogleCloudSchedulerJobHttpTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -208,7 +208,7 @@ public class GoogleCloudSchedulerJobHttpTargetBlockOauthTokenBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -219,7 +219,7 @@ public class GoogleCloudSchedulerJobHttpTargetBlockOauthTokenBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountEmail is required")]
     public required TerraformValue<string> ServiceAccountEmail
     {
-        get => new TerraformReference<string>(this, "service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -242,7 +242,7 @@ public class GoogleCloudSchedulerJobHttpTargetBlockOidcTokenBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Audience
     {
-        get => new TerraformReference<string>(this, "audience");
+        get => GetArgument<TerraformValue<string>>("audience");
         set => SetArgument("audience", value);
     }
 
@@ -253,7 +253,7 @@ public class GoogleCloudSchedulerJobHttpTargetBlockOidcTokenBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountEmail is required")]
     public required TerraformValue<string> ServiceAccountEmail
     {
-        get => new TerraformReference<string>(this, "service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -277,7 +277,7 @@ public class GoogleCloudSchedulerJobPubsubTargetBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Attributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("attributes");
         set => SetArgument("attributes", value);
     }
 
@@ -289,7 +289,7 @@ public class GoogleCloudSchedulerJobPubsubTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Data
     {
-        get => new TerraformReference<string>(this, "data");
+        get => GetArgument<TerraformValue<string>>("data");
         set => SetArgument("data", value);
     }
 
@@ -302,7 +302,7 @@ public class GoogleCloudSchedulerJobPubsubTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicName is required")]
     public required TerraformValue<string> TopicName
     {
-        get => new TerraformReference<string>(this, "topic_name");
+        get => GetArgument<TerraformValue<string>>("topic_name");
         set => SetArgument("topic_name", value);
     }
 
@@ -324,9 +324,9 @@ public class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlock
     /// The maximum amount of time to wait before retrying a job after it fails.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;.
     /// </summary>
-    public TerraformValue<string> MaxBackoffDuration
+    public TerraformValue<string>? MaxBackoffDuration
     {
-        get => new TerraformReference<string>(this, "max_backoff_duration");
+        get => GetArgument<TerraformValue<string>>("max_backoff_duration");
         set => SetArgument("max_backoff_duration", value);
     }
 
@@ -336,9 +336,9 @@ public class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlock
     /// then doubles maxDoublings times, then increases linearly,
     /// and finally retries retries at intervals of maxBackoffDuration up to retryCount times.
     /// </summary>
-    public TerraformValue<double> MaxDoublings
+    public TerraformValue<double>? MaxDoublings
     {
-        get => new TerraformReference<double>(this, "max_doublings");
+        get => GetArgument<TerraformValue<double>>("max_doublings");
         set => SetArgument("max_doublings", value);
     }
 
@@ -347,9 +347,9 @@ public class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlock
     /// If specified with retryCount, the job will be retried until both limits are reached.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;.
     /// </summary>
-    public TerraformValue<string> MaxRetryDuration
+    public TerraformValue<string>? MaxRetryDuration
     {
-        get => new TerraformReference<string>(this, "max_retry_duration");
+        get => GetArgument<TerraformValue<string>>("max_retry_duration");
         set => SetArgument("max_retry_duration", value);
     }
 
@@ -357,9 +357,9 @@ public class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlock
     /// The minimum amount of time to wait before retrying a job after it fails.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;.
     /// </summary>
-    public TerraformValue<string> MinBackoffDuration
+    public TerraformValue<string>? MinBackoffDuration
     {
-        get => new TerraformReference<string>(this, "min_backoff_duration");
+        get => GetArgument<TerraformValue<string>>("min_backoff_duration");
         set => SetArgument("min_backoff_duration", value);
     }
 
@@ -368,9 +368,9 @@ public class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlock
     /// job using the exponential backoff procedure described by maxDoublings.
     /// Values greater than 5 and negative values are not allowed.
     /// </summary>
-    public TerraformValue<double> RetryCount
+    public TerraformValue<double>? RetryCount
     {
-        get => new TerraformReference<double>(this, "retry_count");
+        get => GetArgument<TerraformValue<double>>("retry_count");
         set => SetArgument("retry_count", value);
     }
 
@@ -393,7 +393,7 @@ public class GoogleCloudSchedulerJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -402,7 +402,7 @@ public class GoogleCloudSchedulerJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -411,7 +411,7 @@ public class GoogleCloudSchedulerJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -436,7 +436,7 @@ public partial class GoogleCloudSchedulerJob(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? AttemptDeadline
     {
-        get => new TerraformReference<string>(this, "attempt_deadline");
+        get => GetArgument<TerraformValue<string>>("attempt_deadline");
         set => SetArgument("attempt_deadline", value);
     }
 
@@ -446,16 +446,16 @@ public partial class GoogleCloudSchedulerJob(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -465,34 +465,34 @@ public partial class GoogleCloudSchedulerJob(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Sets the job to a paused state. Jobs default to being enabled when this property is not set.
     /// </summary>
-    public TerraformValue<bool> Paused
+    public TerraformValue<bool>? Paused
     {
-        get => new TerraformReference<bool>(this, "paused");
+        get => GetArgument<TerraformValue<bool>>("paused");
         set => SetArgument("paused", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Region where the scheduler job resides. If it is not provided, Terraform will use the provider default.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -501,7 +501,7 @@ public partial class GoogleCloudSchedulerJob(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? Schedule
     {
-        get => new TerraformReference<string>(this, "schedule");
+        get => GetArgument<TerraformValue<string>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -511,7 +511,7 @@ public partial class GoogleCloudSchedulerJob(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -519,9 +519,7 @@ public partial class GoogleCloudSchedulerJob(string name) : TerraformResource("g
     /// State of the job.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// AppEngineHttpTarget block (nesting mode: list).

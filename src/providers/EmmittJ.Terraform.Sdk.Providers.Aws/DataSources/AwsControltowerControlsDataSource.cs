@@ -11,18 +11,18 @@ public partial class AwsControltowerControlsDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsControltowerControlsDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetIdentifier is required")]
     public required TerraformValue<string> TargetIdentifier
     {
-        get => new TerraformReference<string>(this, "target_identifier");
+        get => GetArgument<TerraformValue<string>>("target_identifier");
         set => SetArgument("target_identifier", value);
     }
 
@@ -40,8 +40,6 @@ public partial class AwsControltowerControlsDataSource(string name) : TerraformD
     /// The enabled_controls attribute.
     /// </summary>
     public TerraformList<string> EnabledControls
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "enabled_controls").ResolveNodes(ctx));
-    }
+        => AsReference("enabled_controls");
 
 }

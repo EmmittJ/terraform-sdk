@@ -11,9 +11,9 @@ public partial class AwsQuicksightUser(string name) : TerraformResource("aws_qui
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string> AwsAccountId
+    public TerraformValue<string>? AwsAccountId
     {
-        get => new TerraformReference<string>(this, "aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsQuicksightUser(string name) : TerraformResource("aws_qui
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -32,16 +32,16 @@ public partial class AwsQuicksightUser(string name) : TerraformResource("aws_qui
     /// </summary>
     public TerraformValue<string>? IamArn
     {
-        get => new TerraformReference<string>(this, "iam_arn");
+        get => GetArgument<TerraformValue<string>>("iam_arn");
         set => SetArgument("iam_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsQuicksightUser(string name) : TerraformResource("aws_qui
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityType is required")]
     public required TerraformValue<string> IdentityType
     {
-        get => new TerraformReference<string>(this, "identity_type");
+        get => GetArgument<TerraformValue<string>>("identity_type");
         set => SetArgument("identity_type", value);
     }
 
@@ -60,16 +60,16 @@ public partial class AwsQuicksightUser(string name) : TerraformResource("aws_qui
     /// </summary>
     public TerraformValue<string>? NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -78,16 +78,16 @@ public partial class AwsQuicksightUser(string name) : TerraformResource("aws_qui
     /// </summary>
     public TerraformValue<string>? SessionName
     {
-        get => new TerraformReference<string>(this, "session_name");
+        get => GetArgument<TerraformValue<string>>("session_name");
         set => SetArgument("session_name", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformValue<string> UserName
+    public TerraformValue<string>? UserName
     {
-        get => new TerraformReference<string>(this, "user_name");
+        get => GetArgument<TerraformValue<string>>("user_name");
         set => SetArgument("user_name", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsQuicksightUser(string name) : TerraformResource("aws_qui
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserRole is required")]
     public required TerraformValue<string> UserRole
     {
-        get => new TerraformReference<string>(this, "user_role");
+        get => GetArgument<TerraformValue<string>>("user_role");
         set => SetArgument("user_role", value);
     }
 
@@ -105,16 +105,12 @@ public partial class AwsQuicksightUser(string name) : TerraformResource("aws_qui
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The user_invitation_url attribute.
     /// </summary>
     public TerraformValue<string> UserInvitationUrl
-    {
-        get => new TerraformReference<string>(this, "user_invitation_url");
-    }
+        => AsReference("user_invitation_url");
 
 }

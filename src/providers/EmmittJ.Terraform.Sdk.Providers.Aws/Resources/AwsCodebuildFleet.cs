@@ -16,45 +16,45 @@ public class AwsCodebuildFleetComputeConfigurationBlock : TerraformBlock
     /// <summary>
     /// The disk attribute.
     /// </summary>
-    public TerraformValue<double> Disk
+    public TerraformValue<double>? Disk
     {
-        get => new TerraformReference<double>(this, "disk");
+        get => GetArgument<TerraformValue<double>>("disk");
         set => SetArgument("disk", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformValue<string> InstanceType
+    public TerraformValue<string>? InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
     /// <summary>
     /// The machine_type attribute.
     /// </summary>
-    public TerraformValue<string> MachineType
+    public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
     /// <summary>
     /// The memory attribute.
     /// </summary>
-    public TerraformValue<double> Memory
+    public TerraformValue<double>? Memory
     {
-        get => new TerraformReference<double>(this, "memory");
+        get => GetArgument<TerraformValue<double>>("memory");
         set => SetArgument("memory", value);
     }
 
     /// <summary>
     /// The vcpu attribute.
     /// </summary>
-    public TerraformValue<double> Vcpu
+    public TerraformValue<double>? Vcpu
     {
-        get => new TerraformReference<double>(this, "vcpu");
+        get => GetArgument<TerraformValue<double>>("vcpu");
         set => SetArgument("vcpu", value);
     }
 
@@ -76,16 +76,14 @@ public class AwsCodebuildFleetScalingConfigurationBlock : TerraformBlock
     /// The desired_capacity attribute.
     /// </summary>
     public TerraformValue<double> DesiredCapacity
-    {
-        get => new TerraformReference<double>(this, "desired_capacity");
-    }
+        => AsReference("desired_capacity");
 
     /// <summary>
     /// The max_capacity attribute.
     /// </summary>
     public TerraformValue<double>? MaxCapacity
     {
-        get => new TerraformReference<double>(this, "max_capacity");
+        get => GetArgument<TerraformValue<double>>("max_capacity");
         set => SetArgument("max_capacity", value);
     }
 
@@ -94,7 +92,7 @@ public class AwsCodebuildFleetScalingConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ScalingType
     {
-        get => new TerraformReference<string>(this, "scaling_type");
+        get => GetArgument<TerraformValue<string>>("scaling_type");
         set => SetArgument("scaling_type", value);
     }
 
@@ -125,7 +123,7 @@ public class AwsCodebuildFleetScalingConfigurationBlockTargetTrackingScalingConf
     /// </summary>
     public TerraformValue<string>? MetricType
     {
-        get => new TerraformReference<string>(this, "metric_type");
+        get => GetArgument<TerraformValue<string>>("metric_type");
         set => SetArgument("metric_type", value);
     }
 
@@ -134,7 +132,7 @@ public class AwsCodebuildFleetScalingConfigurationBlockTargetTrackingScalingConf
     /// </summary>
     public TerraformValue<double>? TargetValue
     {
-        get => new TerraformReference<double>(this, "target_value");
+        get => GetArgument<TerraformValue<double>>("target_value");
         set => SetArgument("target_value", value);
     }
 
@@ -158,7 +156,7 @@ public class AwsCodebuildFleetVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -168,7 +166,7 @@ public class AwsCodebuildFleetVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public required TerraformSet<string> Subnets
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnets").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -178,7 +176,7 @@ public class AwsCodebuildFleetVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -197,7 +195,7 @@ public partial class AwsCodebuildFleet(string name) : TerraformResource("aws_cod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseCapacity is required")]
     public required TerraformValue<double> BaseCapacity
     {
-        get => new TerraformReference<double>(this, "base_capacity");
+        get => GetArgument<TerraformValue<double>>("base_capacity");
         set => SetArgument("base_capacity", value);
     }
 
@@ -207,7 +205,7 @@ public partial class AwsCodebuildFleet(string name) : TerraformResource("aws_cod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeType is required")]
     public required TerraformValue<string> ComputeType
     {
-        get => new TerraformReference<string>(this, "compute_type");
+        get => GetArgument<TerraformValue<string>>("compute_type");
         set => SetArgument("compute_type", value);
     }
 
@@ -217,7 +215,7 @@ public partial class AwsCodebuildFleet(string name) : TerraformResource("aws_cod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentType is required")]
     public required TerraformValue<string> EnvironmentType
     {
-        get => new TerraformReference<string>(this, "environment_type");
+        get => GetArgument<TerraformValue<string>>("environment_type");
         set => SetArgument("environment_type", value);
     }
 
@@ -226,7 +224,7 @@ public partial class AwsCodebuildFleet(string name) : TerraformResource("aws_cod
     /// </summary>
     public TerraformValue<string>? FleetServiceRole
     {
-        get => new TerraformReference<string>(this, "fleet_service_role");
+        get => GetArgument<TerraformValue<string>>("fleet_service_role");
         set => SetArgument("fleet_service_role", value);
     }
 
@@ -235,7 +233,7 @@ public partial class AwsCodebuildFleet(string name) : TerraformResource("aws_cod
     /// </summary>
     public TerraformValue<string>? ImageId
     {
-        get => new TerraformReference<string>(this, "image_id");
+        get => GetArgument<TerraformValue<string>>("image_id");
         set => SetArgument("image_id", value);
     }
 
@@ -245,25 +243,25 @@ public partial class AwsCodebuildFleet(string name) : TerraformResource("aws_cod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The overflow_behavior attribute.
     /// </summary>
-    public TerraformValue<string> OverflowBehavior
+    public TerraformValue<string>? OverflowBehavior
     {
-        get => new TerraformReference<string>(this, "overflow_behavior");
+        get => GetArgument<TerraformValue<string>>("overflow_behavior");
         set => SetArgument("overflow_behavior", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -272,16 +270,16 @@ public partial class AwsCodebuildFleet(string name) : TerraformResource("aws_cod
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -289,41 +287,31 @@ public partial class AwsCodebuildFleet(string name) : TerraformResource("aws_cod
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created attribute.
     /// </summary>
     public TerraformValue<string> Created
-    {
-        get => new TerraformReference<string>(this, "created");
-    }
+        => AsReference("created");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
     public TerraformValue<string> LastModified
-    {
-        get => new TerraformReference<string>(this, "last_modified");
-    }
+        => AsReference("last_modified");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Status
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "status").ResolveNodes(ctx));
-    }
+        => AsReference("status");
 
     /// <summary>
     /// ComputeConfiguration block (nesting mode: list).

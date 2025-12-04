@@ -51,7 +51,7 @@ public class AwsKendraExperienceConfigurationBlockContentSourceConfigurationBloc
     /// </summary>
     public TerraformSet<string>? DataSourceIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "data_source_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("data_source_ids");
         set => SetArgument("data_source_ids", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsKendraExperienceConfigurationBlockContentSourceConfigurationBloc
     /// </summary>
     public TerraformValue<bool>? DirectPutContent
     {
-        get => new TerraformReference<bool>(this, "direct_put_content");
+        get => GetArgument<TerraformValue<bool>>("direct_put_content");
         set => SetArgument("direct_put_content", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsKendraExperienceConfigurationBlockContentSourceConfigurationBloc
     /// </summary>
     public TerraformSet<string>? FaqIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "faq_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("faq_ids");
         set => SetArgument("faq_ids", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsKendraExperienceConfigurationBlockUserIdentityConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityAttributeName is required")]
     public required TerraformValue<string> IdentityAttributeName
     {
-        get => new TerraformReference<string>(this, "identity_attribute_name");
+        get => GetArgument<TerraformValue<string>>("identity_attribute_name");
         set => SetArgument("identity_attribute_name", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsKendraExperienceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsKendraExperienceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsKendraExperienceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -151,16 +151,16 @@ public partial class AwsKendraExperience(string name) : TerraformResource("aws_k
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AwsKendraExperience(string name) : TerraformResource("aws_k
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexId is required")]
     public required TerraformValue<string> IndexId
     {
-        get => new TerraformReference<string>(this, "index_id");
+        get => GetArgument<TerraformValue<string>>("index_id");
         set => SetArgument("index_id", value);
     }
 
@@ -180,16 +180,16 @@ public partial class AwsKendraExperience(string name) : TerraformResource("aws_k
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AwsKendraExperience(string name) : TerraformResource("aws_k
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -207,33 +207,25 @@ public partial class AwsKendraExperience(string name) : TerraformResource("aws_k
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The endpoints attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Endpoints
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "endpoints").ResolveNodes(ctx));
-    }
+        => AsReference("endpoints");
 
     /// <summary>
     /// The experience_id attribute.
     /// </summary>
     public TerraformValue<string> ExperienceId
-    {
-        get => new TerraformReference<string>(this, "experience_id");
-    }
+        => AsReference("experience_id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// Configuration block (nesting mode: list).

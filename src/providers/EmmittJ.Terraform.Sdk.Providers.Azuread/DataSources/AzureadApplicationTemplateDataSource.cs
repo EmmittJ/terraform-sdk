@@ -18,7 +18,7 @@ public class AzureadApplicationTemplateDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,27 +34,27 @@ public partial class AzureadApplicationTemplateDataSource(string name) : Terrafo
     /// <summary>
     /// The display name for the application template
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The application template&#39;s ID
     /// </summary>
-    public TerraformValue<string> TemplateId
+    public TerraformValue<string>? TemplateId
     {
-        get => new TerraformReference<string>(this, "template_id");
+        get => GetArgument<TerraformValue<string>>("template_id");
         set => SetArgument("template_id", value);
     }
 
@@ -62,49 +62,37 @@ public partial class AzureadApplicationTemplateDataSource(string name) : Terrafo
     /// List of categories for this templated application
     /// </summary>
     public TerraformList<string> Categories
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "categories").ResolveNodes(ctx));
-    }
+        => AsReference("categories");
 
     /// <summary>
     /// Home page URL of the templated application
     /// </summary>
     public TerraformValue<string> HomepageUrl
-    {
-        get => new TerraformReference<string>(this, "homepage_url");
-    }
+        => AsReference("homepage_url");
 
     /// <summary>
     /// URL to retrieve the logo for this templated application
     /// </summary>
     public TerraformValue<string> LogoUrl
-    {
-        get => new TerraformReference<string>(this, "logo_url");
-    }
+        => AsReference("logo_url");
 
     /// <summary>
     /// Name of the publisher for this templated application
     /// </summary>
     public TerraformValue<string> Publisher
-    {
-        get => new TerraformReference<string>(this, "publisher");
-    }
+        => AsReference("publisher");
 
     /// <summary>
     /// The provisioning modes supported by this templated application
     /// </summary>
     public TerraformList<string> SupportedProvisioningTypes
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supported_provisioning_types").ResolveNodes(ctx));
-    }
+        => AsReference("supported_provisioning_types");
 
     /// <summary>
     /// The single sign on modes supported by this templated application
     /// </summary>
     public TerraformList<string> SupportedSingleSignOnModes
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supported_single_sign_on_modes").ResolveNodes(ctx));
-    }
+        => AsReference("supported_single_sign_on_modes");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

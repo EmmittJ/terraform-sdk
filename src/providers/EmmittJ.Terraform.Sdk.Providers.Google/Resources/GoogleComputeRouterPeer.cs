@@ -18,7 +18,7 @@ public class GoogleComputeRouterPeerAdvertisedIpRangesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleComputeRouterPeerAdvertisedIpRangesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Range is required")]
     public required TerraformValue<string> Range
     {
-        get => new TerraformReference<string>(this, "range");
+        get => GetArgument<TerraformValue<string>>("range");
         set => SetArgument("range", value);
     }
 
@@ -56,7 +56,7 @@ public class GoogleComputeRouterPeerBfdBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MinReceiveInterval
     {
-        get => new TerraformReference<double>(this, "min_receive_interval");
+        get => GetArgument<TerraformValue<double>>("min_receive_interval");
         set => SetArgument("min_receive_interval", value);
     }
 
@@ -69,7 +69,7 @@ public class GoogleComputeRouterPeerBfdBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MinTransmitInterval
     {
-        get => new TerraformReference<double>(this, "min_transmit_interval");
+        get => GetArgument<TerraformValue<double>>("min_transmit_interval");
         set => SetArgument("min_transmit_interval", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleComputeRouterPeerBfdBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Multiplier
     {
-        get => new TerraformReference<double>(this, "multiplier");
+        get => GetArgument<TerraformValue<double>>("multiplier");
         set => SetArgument("multiplier", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleComputeRouterPeerBfdBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SessionInitializationMode is required")]
     public required TerraformValue<string> SessionInitializationMode
     {
-        get => new TerraformReference<string>(this, "session_initialization_mode");
+        get => GetArgument<TerraformValue<string>>("session_initialization_mode");
         set => SetArgument("session_initialization_mode", value);
     }
 
@@ -119,7 +119,7 @@ public class GoogleComputeRouterPeerCustomLearnedIpRangesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Range is required")]
     public required TerraformValue<string> Range
     {
-        get => new TerraformReference<string>(this, "range");
+        get => GetArgument<TerraformValue<string>>("range");
         set => SetArgument("range", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleComputeRouterPeerMd5AuthenticationKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -154,7 +154,7 @@ public class GoogleComputeRouterPeerMd5AuthenticationKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -177,7 +177,7 @@ public class GoogleComputeRouterPeerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -186,7 +186,7 @@ public class GoogleComputeRouterPeerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -195,7 +195,7 @@ public class GoogleComputeRouterPeerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -214,7 +214,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? AdvertiseMode
     {
-        get => new TerraformReference<string>(this, "advertise_mode");
+        get => GetArgument<TerraformValue<string>>("advertise_mode");
         set => SetArgument("advertise_mode", value);
     }
 
@@ -234,7 +234,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// </summary>
     public TerraformList<string>? AdvertisedGroups
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "advertised_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("advertised_groups");
         set => SetArgument("advertised_groups", value);
     }
 
@@ -245,7 +245,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<double>? AdvertisedRoutePriority
     {
-        get => new TerraformReference<double>(this, "advertised_route_priority");
+        get => GetArgument<TerraformValue<double>>("advertised_route_priority");
         set => SetArgument("advertised_route_priority", value);
     }
 
@@ -256,7 +256,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<double>? CustomLearnedRoutePriority
     {
-        get => new TerraformReference<double>(this, "custom_learned_route_priority");
+        get => GetArgument<TerraformValue<double>>("custom_learned_route_priority");
         set => SetArgument("custom_learned_route_priority", value);
     }
 
@@ -268,16 +268,16 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? Enable
     {
-        get => new TerraformReference<bool>(this, "enable");
+        get => GetArgument<TerraformValue<bool>>("enable");
         set => SetArgument("enable", value);
     }
 
     /// <summary>
     /// Enable IPv4 traffic over BGP Peer. It is enabled by default if the peerIpAddress is version 4.
     /// </summary>
-    public TerraformValue<bool> EnableIpv4
+    public TerraformValue<bool>? EnableIpv4
     {
-        get => new TerraformReference<bool>(this, "enable_ipv4");
+        get => GetArgument<TerraformValue<bool>>("enable_ipv4");
         set => SetArgument("enable_ipv4", value);
     }
 
@@ -286,7 +286,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? EnableIpv6
     {
-        get => new TerraformReference<bool>(this, "enable_ipv6");
+        get => GetArgument<TerraformValue<bool>>("enable_ipv6");
         set => SetArgument("enable_ipv6", value);
     }
 
@@ -296,16 +296,16 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// </summary>
     public TerraformList<string>? ExportPolicies
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "export_policies").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("export_policies");
         set => SetArgument("export_policies", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -315,7 +315,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// </summary>
     public TerraformList<string>? ImportPolicies
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "import_policies").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("import_policies");
         set => SetArgument("import_policies", value);
     }
 
@@ -325,7 +325,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterfaceAttribute is required")]
     public required TerraformValue<string> InterfaceAttribute
     {
-        get => new TerraformReference<string>(this, "interface");
+        get => GetArgument<TerraformValue<string>>("interface");
         set => SetArgument("interface", value);
     }
 
@@ -333,18 +333,18 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// IP address of the interface inside Google Cloud Platform.
     /// Only IPv4 is supported.
     /// </summary>
-    public TerraformValue<string> IpAddress
+    public TerraformValue<string>? IpAddress
     {
-        get => new TerraformReference<string>(this, "ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
     /// <summary>
     /// IPv4 address of the interface inside Google Cloud Platform.
     /// </summary>
-    public TerraformValue<string> Ipv4NexthopAddress
+    public TerraformValue<string>? Ipv4NexthopAddress
     {
-        get => new TerraformReference<string>(this, "ipv4_nexthop_address");
+        get => GetArgument<TerraformValue<string>>("ipv4_nexthop_address");
         set => SetArgument("ipv4_nexthop_address", value);
     }
 
@@ -354,9 +354,9 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// If you do not specify the next hop addresses, Google Cloud automatically
     /// assigns unused addresses from the 2600:2d00:0:2::/64 or 2600:2d00:0:3::/64 range for you.
     /// </summary>
-    public TerraformValue<string> Ipv6NexthopAddress
+    public TerraformValue<string>? Ipv6NexthopAddress
     {
-        get => new TerraformReference<string>(this, "ipv6_nexthop_address");
+        get => GetArgument<TerraformValue<string>>("ipv6_nexthop_address");
         set => SetArgument("ipv6_nexthop_address", value);
     }
 
@@ -371,7 +371,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -382,7 +382,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAsn is required")]
     public required TerraformValue<double> PeerAsn
     {
-        get => new TerraformReference<double>(this, "peer_asn");
+        get => GetArgument<TerraformValue<double>>("peer_asn");
         set => SetArgument("peer_asn", value);
     }
 
@@ -390,18 +390,18 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// IP address of the BGP interface outside Google Cloud Platform.
     /// Only IPv4 is supported. Required if &#39;ip_address&#39; is set.
     /// </summary>
-    public TerraformValue<string> PeerIpAddress
+    public TerraformValue<string>? PeerIpAddress
     {
-        get => new TerraformReference<string>(this, "peer_ip_address");
+        get => GetArgument<TerraformValue<string>>("peer_ip_address");
         set => SetArgument("peer_ip_address", value);
     }
 
     /// <summary>
     /// IPv4 address of the BGP interface outside Google Cloud Platform.
     /// </summary>
-    public TerraformValue<string> PeerIpv4NexthopAddress
+    public TerraformValue<string>? PeerIpv4NexthopAddress
     {
-        get => new TerraformReference<string>(this, "peer_ipv4_nexthop_address");
+        get => GetArgument<TerraformValue<string>>("peer_ipv4_nexthop_address");
         set => SetArgument("peer_ipv4_nexthop_address", value);
     }
 
@@ -411,18 +411,18 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// If you do not specify the next hop addresses, Google Cloud automatically
     /// assigns unused addresses from the 2600:2d00:0:2::/64 or 2600:2d00:0:3::/64 range for you.
     /// </summary>
-    public TerraformValue<string> PeerIpv6NexthopAddress
+    public TerraformValue<string>? PeerIpv6NexthopAddress
     {
-        get => new TerraformReference<string>(this, "peer_ipv6_nexthop_address");
+        get => GetArgument<TerraformValue<string>>("peer_ipv6_nexthop_address");
         set => SetArgument("peer_ipv6_nexthop_address", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -430,9 +430,9 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// Region where the router and BgpPeer reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -442,7 +442,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
     public required TerraformValue<string> Router
     {
-        get => new TerraformReference<string>(this, "router");
+        get => GetArgument<TerraformValue<string>>("router");
         set => SetArgument("router", value);
     }
 
@@ -454,7 +454,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? RouterApplianceInstance
     {
-        get => new TerraformReference<string>(this, "router_appliance_instance");
+        get => GetArgument<TerraformValue<string>>("router_appliance_instance");
         set => SetArgument("router_appliance_instance", value);
     }
 
@@ -463,7 +463,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? ZeroAdvertisedRoutePriority
     {
-        get => new TerraformReference<bool>(this, "zero_advertised_route_priority");
+        get => GetArgument<TerraformValue<bool>>("zero_advertised_route_priority");
         set => SetArgument("zero_advertised_route_priority", value);
     }
 
@@ -472,7 +472,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? ZeroCustomLearnedRoutePriority
     {
-        get => new TerraformReference<bool>(this, "zero_custom_learned_route_priority");
+        get => GetArgument<TerraformValue<bool>>("zero_custom_learned_route_priority");
         set => SetArgument("zero_custom_learned_route_priority", value);
     }
 
@@ -480,17 +480,13 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// An internal boolean field for provider use for zero_advertised_route_priority.
     /// </summary>
     public TerraformValue<bool> IsAdvertisedRoutePrioritySet
-    {
-        get => new TerraformReference<bool>(this, "is_advertised_route_priority_set");
-    }
+        => AsReference("is_advertised_route_priority_set");
 
     /// <summary>
     /// An internal boolean field for provider use.
     /// </summary>
     public TerraformValue<bool> IsCustomLearnedPrioritySet
-    {
-        get => new TerraformReference<bool>(this, "is_custom_learned_priority_set");
-    }
+        => AsReference("is_custom_learned_priority_set");
 
     /// <summary>
     /// The resource that configures and manages this BGP peer.
@@ -505,9 +501,7 @@ public partial class GoogleComputeRouterPeer(string name) : TerraformResource("g
     /// or deleted.
     /// </summary>
     public TerraformValue<string> ManagementType
-    {
-        get => new TerraformReference<string>(this, "management_type");
-    }
+        => AsReference("management_type");
 
     /// <summary>
     /// AdvertisedIpRanges block (nesting mode: set).

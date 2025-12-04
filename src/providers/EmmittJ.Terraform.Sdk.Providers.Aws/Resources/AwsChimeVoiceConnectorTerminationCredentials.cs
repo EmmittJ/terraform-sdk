@@ -19,7 +19,7 @@ public class AwsChimeVoiceConnectorTerminationCredentialsCredentialsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsChimeVoiceConnectorTerminationCredentialsCredentialsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -45,18 +45,18 @@ public partial class AwsChimeVoiceConnectorTerminationCredentials(string name) :
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AwsChimeVoiceConnectorTerminationCredentials(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
     public required TerraformValue<string> VoiceConnectorId
     {
-        get => new TerraformReference<string>(this, "voice_connector_id");
+        get => GetArgument<TerraformValue<string>>("voice_connector_id");
         set => SetArgument("voice_connector_id", value);
     }
 

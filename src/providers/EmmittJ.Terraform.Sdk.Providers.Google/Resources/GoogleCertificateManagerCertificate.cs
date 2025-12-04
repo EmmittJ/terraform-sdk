@@ -18,16 +18,14 @@ public class GoogleCertificateManagerCertificateManagedBlock : TerraformBlock
     /// specified for this Managed Certificate.
     /// </summary>
     public TerraformList<TerraformMap<object>> AuthorizationAttemptInfo
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "authorization_attempt_info").ResolveNodes(ctx));
-    }
+        => AsReference("authorization_attempt_info");
 
     /// <summary>
     /// Authorizations that will be used for performing domain authorization. Either issuanceConfig or dnsAuthorizations should be specificed, but not both.
     /// </summary>
     public TerraformList<string>? DnsAuthorizations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dns_authorizations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("dns_authorizations");
         set => SetArgument("dns_authorizations", value);
     }
 
@@ -37,7 +35,7 @@ public class GoogleCertificateManagerCertificateManagedBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Domains
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "domains").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("domains");
         set => SetArgument("domains", value);
     }
 
@@ -48,7 +46,7 @@ public class GoogleCertificateManagerCertificateManagedBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? IssuanceConfig
     {
-        get => new TerraformReference<string>(this, "issuance_config");
+        get => GetArgument<TerraformValue<string>>("issuance_config");
         set => SetArgument("issuance_config", value);
     }
 
@@ -56,17 +54,13 @@ public class GoogleCertificateManagerCertificateManagedBlock : TerraformBlock
     /// Information about issues with provisioning this Managed Certificate.
     /// </summary>
     public TerraformList<TerraformMap<object>> ProvisioningIssue
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "provisioning_issue").ResolveNodes(ctx));
-    }
+        => AsReference("provisioning_issue");
 
     /// <summary>
     /// A state of this Managed Certificate.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
 }
 
@@ -90,7 +84,7 @@ public class GoogleCertificateManagerCertificateSelfManagedBlock : TerraformBloc
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? CertificatePem
     {
-        get => new TerraformReference<string>(this, "certificate_pem");
+        get => GetArgument<TerraformValue<string>>("certificate_pem");
         set => SetArgument("certificate_pem", value);
     }
 
@@ -101,7 +95,7 @@ public class GoogleCertificateManagerCertificateSelfManagedBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? PemCertificate
     {
-        get => new TerraformReference<string>(this, "pem_certificate");
+        get => GetArgument<TerraformValue<string>>("pem_certificate");
         set => SetArgument("pem_certificate", value);
     }
 
@@ -110,7 +104,7 @@ public class GoogleCertificateManagerCertificateSelfManagedBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? PemPrivateKey
     {
-        get => new TerraformReference<string>(this, "pem_private_key");
+        get => GetArgument<TerraformValue<string>>("pem_private_key");
         set => SetArgument("pem_private_key", value);
     }
 
@@ -120,7 +114,7 @@ public class GoogleCertificateManagerCertificateSelfManagedBlock : TerraformBloc
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? PrivateKeyPem
     {
-        get => new TerraformReference<string>(this, "private_key_pem");
+        get => GetArgument<TerraformValue<string>>("private_key_pem");
         set => SetArgument("private_key_pem", value);
     }
 
@@ -143,7 +137,7 @@ public class GoogleCertificateManagerCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -152,7 +146,7 @@ public class GoogleCertificateManagerCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -161,7 +155,7 @@ public class GoogleCertificateManagerCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -179,16 +173,16 @@ public partial class GoogleCertificateManagerCertificate(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -200,7 +194,7 @@ public partial class GoogleCertificateManagerCertificate(string name) : Terrafor
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -209,7 +203,7 @@ public partial class GoogleCertificateManagerCertificate(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -221,16 +215,16 @@ public partial class GoogleCertificateManagerCertificate(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -251,7 +245,7 @@ public partial class GoogleCertificateManagerCertificate(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -259,26 +253,20 @@ public partial class GoogleCertificateManagerCertificate(string name) : Terrafor
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The list of Subject Alternative Names of dnsName type defined in the certificate (see RFC 5280 4.2.1.6)
     /// </summary>
     public TerraformList<string> SanDnsnames
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "san_dnsnames").ResolveNodes(ctx));
-    }
+        => AsReference("san_dnsnames");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Managed block (nesting mode: list).

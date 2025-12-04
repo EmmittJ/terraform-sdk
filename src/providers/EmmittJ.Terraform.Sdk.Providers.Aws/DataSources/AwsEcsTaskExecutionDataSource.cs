@@ -18,7 +18,7 @@ public class AwsEcsTaskExecutionDataSourceCapacityProviderStrategyBlock : Terraf
     /// </summary>
     public TerraformValue<double>? BaseAttribute
     {
-        get => new TerraformReference<double>(this, "base");
+        get => GetArgument<TerraformValue<double>>("base");
         set => SetArgument("base", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsEcsTaskExecutionDataSourceCapacityProviderStrategyBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityProvider is required")]
     public required TerraformValue<string> CapacityProvider
     {
-        get => new TerraformReference<string>(this, "capacity_provider");
+        get => GetArgument<TerraformValue<string>>("capacity_provider");
         set => SetArgument("capacity_provider", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsEcsTaskExecutionDataSourceCapacityProviderStrategyBlock : Terraf
     /// </summary>
     public TerraformValue<double>? Weight
     {
-        get => new TerraformReference<double>(this, "weight");
+        get => GetArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsEcsTaskExecutionDataSourceNetworkConfigurationBlock : TerraformB
     /// </summary>
     public TerraformValue<bool>? AssignPublicIp
     {
-        get => new TerraformReference<bool>(this, "assign_public_ip");
+        get => GetArgument<TerraformValue<bool>>("assign_public_ip");
         set => SetArgument("assign_public_ip", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsEcsTaskExecutionDataSourceNetworkConfigurationBlock : TerraformB
     /// </summary>
     public TerraformSet<string>? SecurityGroups
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_groups");
         set => SetArgument("security_groups", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsEcsTaskExecutionDataSourceNetworkConfigurationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public required TerraformSet<string> Subnets
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnets").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -102,7 +102,7 @@ public class AwsEcsTaskExecutionDataSourceOverridesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cpu
     {
-        get => new TerraformReference<string>(this, "cpu");
+        get => GetArgument<TerraformValue<string>>("cpu");
         set => SetArgument("cpu", value);
     }
 
@@ -111,7 +111,7 @@ public class AwsEcsTaskExecutionDataSourceOverridesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ExecutionRoleArn
     {
-        get => new TerraformReference<string>(this, "execution_role_arn");
+        get => GetArgument<TerraformValue<string>>("execution_role_arn");
         set => SetArgument("execution_role_arn", value);
     }
 
@@ -120,7 +120,7 @@ public class AwsEcsTaskExecutionDataSourceOverridesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Memory
     {
-        get => new TerraformReference<string>(this, "memory");
+        get => GetArgument<TerraformValue<string>>("memory");
         set => SetArgument("memory", value);
     }
 
@@ -129,7 +129,7 @@ public class AwsEcsTaskExecutionDataSourceOverridesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TaskRoleArn
     {
-        get => new TerraformReference<string>(this, "task_role_arn");
+        get => GetArgument<TerraformValue<string>>("task_role_arn");
         set => SetArgument("task_role_arn", value);
     }
 
@@ -160,7 +160,7 @@ public class AwsEcsTaskExecutionDataSourceOverridesBlockContainerOverridesBlock 
     /// </summary>
     public TerraformList<string>? Command
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "command").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("command");
         set => SetArgument("command", value);
     }
 
@@ -169,7 +169,7 @@ public class AwsEcsTaskExecutionDataSourceOverridesBlockContainerOverridesBlock 
     /// </summary>
     public TerraformValue<double>? Cpu
     {
-        get => new TerraformReference<double>(this, "cpu");
+        get => GetArgument<TerraformValue<double>>("cpu");
         set => SetArgument("cpu", value);
     }
 
@@ -178,7 +178,7 @@ public class AwsEcsTaskExecutionDataSourceOverridesBlockContainerOverridesBlock 
     /// </summary>
     public TerraformValue<double>? Memory
     {
-        get => new TerraformReference<double>(this, "memory");
+        get => GetArgument<TerraformValue<double>>("memory");
         set => SetArgument("memory", value);
     }
 
@@ -187,7 +187,7 @@ public class AwsEcsTaskExecutionDataSourceOverridesBlockContainerOverridesBlock 
     /// </summary>
     public TerraformValue<double>? MemoryReservation
     {
-        get => new TerraformReference<double>(this, "memory_reservation");
+        get => GetArgument<TerraformValue<double>>("memory_reservation");
         set => SetArgument("memory_reservation", value);
     }
 
@@ -197,7 +197,7 @@ public class AwsEcsTaskExecutionDataSourceOverridesBlockContainerOverridesBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -238,7 +238,7 @@ public class AwsEcsTaskExecutionDataSourceOverridesBlockContainerOverridesBlockE
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -248,7 +248,7 @@ public class AwsEcsTaskExecutionDataSourceOverridesBlockContainerOverridesBlockE
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -271,7 +271,7 @@ public class AwsEcsTaskExecutionDataSourceOverridesBlockContainerOverridesBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -281,7 +281,7 @@ public class AwsEcsTaskExecutionDataSourceOverridesBlockContainerOverridesBlockR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -304,7 +304,7 @@ public class AwsEcsTaskExecutionDataSourcePlacementConstraintsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -314,7 +314,7 @@ public class AwsEcsTaskExecutionDataSourcePlacementConstraintsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -337,7 +337,7 @@ public class AwsEcsTaskExecutionDataSourcePlacementStrategyBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Field
     {
-        get => new TerraformReference<string>(this, "field");
+        get => GetArgument<TerraformValue<string>>("field");
         set => SetArgument("field", value);
     }
 
@@ -347,7 +347,7 @@ public class AwsEcsTaskExecutionDataSourcePlacementStrategyBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -365,7 +365,7 @@ public partial class AwsEcsTaskExecutionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? ClientToken
     {
-        get => new TerraformReference<string>(this, "client_token");
+        get => GetArgument<TerraformValue<string>>("client_token");
         set => SetArgument("client_token", value);
     }
 
@@ -375,7 +375,7 @@ public partial class AwsEcsTaskExecutionDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => new TerraformReference<string>(this, "cluster");
+        get => GetArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
@@ -384,7 +384,7 @@ public partial class AwsEcsTaskExecutionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<double>? DesiredCount
     {
-        get => new TerraformReference<double>(this, "desired_count");
+        get => GetArgument<TerraformValue<double>>("desired_count");
         set => SetArgument("desired_count", value);
     }
 
@@ -393,7 +393,7 @@ public partial class AwsEcsTaskExecutionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<bool>? EnableEcsManagedTags
     {
-        get => new TerraformReference<bool>(this, "enable_ecs_managed_tags");
+        get => GetArgument<TerraformValue<bool>>("enable_ecs_managed_tags");
         set => SetArgument("enable_ecs_managed_tags", value);
     }
 
@@ -402,7 +402,7 @@ public partial class AwsEcsTaskExecutionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<bool>? EnableExecuteCommand
     {
-        get => new TerraformReference<bool>(this, "enable_execute_command");
+        get => GetArgument<TerraformValue<bool>>("enable_execute_command");
         set => SetArgument("enable_execute_command", value);
     }
 
@@ -411,16 +411,16 @@ public partial class AwsEcsTaskExecutionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? Group
     {
-        get => new TerraformReference<string>(this, "group");
+        get => GetArgument<TerraformValue<string>>("group");
         set => SetArgument("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -429,7 +429,7 @@ public partial class AwsEcsTaskExecutionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? LaunchType
     {
-        get => new TerraformReference<string>(this, "launch_type");
+        get => GetArgument<TerraformValue<string>>("launch_type");
         set => SetArgument("launch_type", value);
     }
 
@@ -438,7 +438,7 @@ public partial class AwsEcsTaskExecutionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? PlatformVersion
     {
-        get => new TerraformReference<string>(this, "platform_version");
+        get => GetArgument<TerraformValue<string>>("platform_version");
         set => SetArgument("platform_version", value);
     }
 
@@ -447,7 +447,7 @@ public partial class AwsEcsTaskExecutionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? PropagateTags
     {
-        get => new TerraformReference<string>(this, "propagate_tags");
+        get => GetArgument<TerraformValue<string>>("propagate_tags");
         set => SetArgument("propagate_tags", value);
     }
 
@@ -456,16 +456,16 @@ public partial class AwsEcsTaskExecutionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? ReferenceId
     {
-        get => new TerraformReference<string>(this, "reference_id");
+        get => GetArgument<TerraformValue<string>>("reference_id");
         set => SetArgument("reference_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -474,7 +474,7 @@ public partial class AwsEcsTaskExecutionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? StartedBy
     {
-        get => new TerraformReference<string>(this, "started_by");
+        get => GetArgument<TerraformValue<string>>("started_by");
         set => SetArgument("started_by", value);
     }
 
@@ -483,7 +483,7 @@ public partial class AwsEcsTaskExecutionDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -493,7 +493,7 @@ public partial class AwsEcsTaskExecutionDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinition is required")]
     public required TerraformValue<string> TaskDefinition
     {
-        get => new TerraformReference<string>(this, "task_definition");
+        get => GetArgument<TerraformValue<string>>("task_definition");
         set => SetArgument("task_definition", value);
     }
 
@@ -501,9 +501,7 @@ public partial class AwsEcsTaskExecutionDataSource(string name) : TerraformDataS
     /// The task_arns attribute.
     /// </summary>
     public TerraformList<string> TaskArns
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "task_arns").ResolveNodes(ctx));
-    }
+        => AsReference("task_arns");
 
     /// <summary>
     /// CapacityProviderStrategy block (nesting mode: set).

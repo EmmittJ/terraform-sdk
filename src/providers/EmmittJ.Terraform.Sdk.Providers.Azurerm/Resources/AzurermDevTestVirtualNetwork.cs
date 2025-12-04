@@ -17,16 +17,14 @@ public class AzurermDevTestVirtualNetworkSubnetBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The use_in_virtual_machine_creation attribute.
     /// </summary>
     public TerraformValue<string>? UseInVirtualMachineCreation
     {
-        get => new TerraformReference<string>(this, "use_in_virtual_machine_creation");
+        get => GetArgument<TerraformValue<string>>("use_in_virtual_machine_creation");
         set => SetArgument("use_in_virtual_machine_creation", value);
     }
 
@@ -35,7 +33,7 @@ public class AzurermDevTestVirtualNetworkSubnetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? UsePublicIpAddress
     {
-        get => new TerraformReference<string>(this, "use_public_ip_address");
+        get => GetArgument<TerraformValue<string>>("use_public_ip_address");
         set => SetArgument("use_public_ip_address", value);
     }
 
@@ -89,7 +87,7 @@ public class AzurermDevTestVirtualNetworkSubnetBlockSharedPublicIpAddressBlockAl
     /// </summary>
     public TerraformValue<double>? BackendPort
     {
-        get => new TerraformReference<double>(this, "backend_port");
+        get => GetArgument<TerraformValue<double>>("backend_port");
         set => SetArgument("backend_port", value);
     }
 
@@ -98,7 +96,7 @@ public class AzurermDevTestVirtualNetworkSubnetBlockSharedPublicIpAddressBlockAl
     /// </summary>
     public TerraformValue<string>? TransportProtocol
     {
-        get => new TerraformReference<string>(this, "transport_protocol");
+        get => GetArgument<TerraformValue<string>>("transport_protocol");
         set => SetArgument("transport_protocol", value);
     }
 
@@ -121,7 +119,7 @@ public class AzurermDevTestVirtualNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -130,7 +128,7 @@ public class AzurermDevTestVirtualNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -139,7 +137,7 @@ public class AzurermDevTestVirtualNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -148,7 +146,7 @@ public class AzurermDevTestVirtualNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -166,16 +164,16 @@ public partial class AzurermDevTestVirtualNetwork(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -185,7 +183,7 @@ public partial class AzurermDevTestVirtualNetwork(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabName is required")]
     public required TerraformValue<string> LabName
     {
-        get => new TerraformReference<string>(this, "lab_name");
+        get => GetArgument<TerraformValue<string>>("lab_name");
         set => SetArgument("lab_name", value);
     }
 
@@ -195,7 +193,7 @@ public partial class AzurermDevTestVirtualNetwork(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -205,7 +203,7 @@ public partial class AzurermDevTestVirtualNetwork(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -214,7 +212,7 @@ public partial class AzurermDevTestVirtualNetwork(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -222,9 +220,7 @@ public partial class AzurermDevTestVirtualNetwork(string name) : TerraformResour
     /// The unique_identifier attribute.
     /// </summary>
     public TerraformValue<string> UniqueIdentifier
-    {
-        get => new TerraformReference<string>(this, "unique_identifier");
-    }
+        => AsReference("unique_identifier");
 
     /// <summary>
     /// Subnet block (nesting mode: list).

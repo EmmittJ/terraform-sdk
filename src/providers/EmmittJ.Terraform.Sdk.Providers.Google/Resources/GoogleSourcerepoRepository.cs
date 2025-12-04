@@ -21,7 +21,7 @@ public class GoogleSourcerepoRepositoryPubsubConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageFormat is required")]
     public required TerraformValue<string> MessageFormat
     {
-        get => new TerraformReference<string>(this, "message_format");
+        get => GetArgument<TerraformValue<string>>("message_format");
         set => SetArgument("message_format", value);
     }
 
@@ -31,9 +31,9 @@ public class GoogleSourcerepoRepositoryPubsubConfigsBlock : TerraformBlock
     /// the caller needs to have iam.serviceAccounts.actAs permission on this service account.
     /// If unspecified, it defaults to the compute engine default service account.
     /// </summary>
-    public TerraformValue<string> ServiceAccountEmail
+    public TerraformValue<string>? ServiceAccountEmail
     {
-        get => new TerraformReference<string>(this, "service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -43,7 +43,7 @@ public class GoogleSourcerepoRepositoryPubsubConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformValue<string> Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -66,7 +66,7 @@ public class GoogleSourcerepoRepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -75,7 +75,7 @@ public class GoogleSourcerepoRepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleSourcerepoRepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -102,16 +102,16 @@ public partial class GoogleSourcerepoRepository(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? CreateIgnoreAlreadyExists
     {
-        get => new TerraformReference<bool>(this, "create_ignore_already_exists");
+        get => GetArgument<TerraformValue<bool>>("create_ignore_already_exists");
         set => SetArgument("create_ignore_already_exists", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -122,16 +122,16 @@ public partial class GoogleSourcerepoRepository(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -139,17 +139,13 @@ public partial class GoogleSourcerepoRepository(string name) : TerraformResource
     /// The disk usage of the repo, in bytes.
     /// </summary>
     public TerraformValue<double> Size
-    {
-        get => new TerraformReference<double>(this, "size");
-    }
+        => AsReference("size");
 
     /// <summary>
     /// URL to clone the repository from Google Cloud Source Repositories.
     /// </summary>
     public TerraformValue<string> Url
-    {
-        get => new TerraformReference<string>(this, "url");
-    }
+        => AsReference("url");
 
     /// <summary>
     /// PubsubConfigs block (nesting mode: set).

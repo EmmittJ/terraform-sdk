@@ -19,7 +19,7 @@ public class AzureadSynchronizationJobProvisionOnDemandParameterBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleId is required")]
     public required TerraformValue<string> RuleId
     {
-        get => new TerraformReference<string>(this, "rule_id");
+        get => GetArgument<TerraformValue<string>>("rule_id");
         set => SetArgument("rule_id", value);
     }
 
@@ -54,7 +54,7 @@ public class AzureadSynchronizationJobProvisionOnDemandParameterBlockSubjectBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformValue<string> ObjectId
     {
-        get => new TerraformReference<string>(this, "object_id");
+        get => GetArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -64,7 +64,7 @@ public class AzureadSynchronizationJobProvisionOnDemandParameterBlockSubjectBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectTypeName is required")]
     public required TerraformValue<string> ObjectTypeName
     {
-        get => new TerraformReference<string>(this, "object_type_name");
+        get => GetArgument<TerraformValue<string>>("object_type_name");
         set => SetArgument("object_type_name", value);
     }
 
@@ -87,7 +87,7 @@ public class AzureadSynchronizationJobProvisionOnDemandTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -96,7 +96,7 @@ public class AzureadSynchronizationJobProvisionOnDemandTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -105,7 +105,7 @@ public class AzureadSynchronizationJobProvisionOnDemandTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -121,9 +121,9 @@ public partial class AzureadSynchronizationJobProvisionOnDemand(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AzureadSynchronizationJobProvisionOnDemand(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     public required TerraformValue<string> ServicePrincipalId
     {
-        get => new TerraformReference<string>(this, "service_principal_id");
+        get => GetArgument<TerraformValue<string>>("service_principal_id");
         set => SetArgument("service_principal_id", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AzureadSynchronizationJobProvisionOnDemand(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynchronizationJobId is required")]
     public required TerraformValue<string> SynchronizationJobId
     {
-        get => new TerraformReference<string>(this, "synchronization_job_id");
+        get => GetArgument<TerraformValue<string>>("synchronization_job_id");
         set => SetArgument("synchronization_job_id", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AzureadSynchronizationJobProvisionOnDemand(string name) : T
     /// </summary>
     public TerraformMap<string>? Triggers
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "triggers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("triggers");
         set => SetArgument("triggers", value);
     }
 

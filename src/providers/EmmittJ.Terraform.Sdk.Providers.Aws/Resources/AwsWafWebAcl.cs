@@ -19,7 +19,7 @@ public class AwsWafWebAclDefaultActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsWafWebAclLoggingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogDestination is required")]
     public required TerraformValue<string> LogDestination
     {
-        get => new TerraformReference<string>(this, "log_destination");
+        get => GetArgument<TerraformValue<string>>("log_destination");
         set => SetArgument("log_destination", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsWafWebAclLoggingConfigurationBlockRedactedFieldsBlockFieldToMatc
     /// </summary>
     public TerraformValue<string>? Data
     {
-        get => new TerraformReference<string>(this, "data");
+        get => GetArgument<TerraformValue<string>>("data");
         set => SetArgument("data", value);
     }
 
@@ -110,7 +110,7 @@ public class AwsWafWebAclLoggingConfigurationBlockRedactedFieldsBlockFieldToMatc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsWafWebAclRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -144,7 +144,7 @@ public class AwsWafWebAclRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleId is required")]
     public required TerraformValue<string> RuleId
     {
-        get => new TerraformReference<string>(this, "rule_id");
+        get => GetArgument<TerraformValue<string>>("rule_id");
         set => SetArgument("rule_id", value);
     }
 
@@ -153,7 +153,7 @@ public class AwsWafWebAclRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -196,7 +196,7 @@ public class AwsWafWebAclRulesBlockActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -219,7 +219,7 @@ public class AwsWafWebAclRulesBlockOverrideActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -235,9 +235,9 @@ public partial class AwsWafWebAcl(string name) : TerraformResource("aws_waf_web_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -247,7 +247,7 @@ public partial class AwsWafWebAcl(string name) : TerraformResource("aws_waf_web_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformValue<string> MetricName
     {
-        get => new TerraformReference<string>(this, "metric_name");
+        get => GetArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -257,7 +257,7 @@ public partial class AwsWafWebAcl(string name) : TerraformResource("aws_waf_web_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -266,16 +266,16 @@ public partial class AwsWafWebAcl(string name) : TerraformResource("aws_waf_web_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -283,9 +283,7 @@ public partial class AwsWafWebAcl(string name) : TerraformResource("aws_waf_web_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// DefaultAction block (nesting mode: list).

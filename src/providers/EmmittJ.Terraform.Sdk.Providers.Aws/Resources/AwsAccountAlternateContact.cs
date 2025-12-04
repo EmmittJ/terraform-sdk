@@ -18,7 +18,7 @@ public class AwsAccountAlternateContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsAccountAlternateContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsAccountAlternateContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsAccountAlternateContact(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsAccountAlternateContact(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlternateContactType is required")]
     public required TerraformValue<string> AlternateContactType
     {
-        get => new TerraformReference<string>(this, "alternate_contact_type");
+        get => GetArgument<TerraformValue<string>>("alternate_contact_type");
         set => SetArgument("alternate_contact_type", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AwsAccountAlternateContact(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     public required TerraformValue<string> EmailAddress
     {
-        get => new TerraformReference<string>(this, "email_address");
+        get => GetArgument<TerraformValue<string>>("email_address");
         set => SetArgument("email_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AwsAccountAlternateContact(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AwsAccountAlternateContact(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => new TerraformReference<string>(this, "phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AwsAccountAlternateContact(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 

@@ -18,7 +18,7 @@ public class AwsRdsReservedInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsRdsReservedInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsRdsReservedInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -52,9 +52,9 @@ public partial class AwsRdsReservedInstance(string name) : TerraformResource("aw
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsRdsReservedInstance(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<double>? InstanceCount
     {
-        get => new TerraformReference<double>(this, "instance_count");
+        get => GetArgument<TerraformValue<double>>("instance_count");
         set => SetArgument("instance_count", value);
     }
 
@@ -73,16 +73,16 @@ public partial class AwsRdsReservedInstance(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OfferingId is required")]
     public required TerraformValue<string> OfferingId
     {
-        get => new TerraformReference<string>(this, "offering_id");
+        get => GetArgument<TerraformValue<string>>("offering_id");
         set => SetArgument("offering_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsRdsReservedInstance(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? ReservationId
     {
-        get => new TerraformReference<string>(this, "reservation_id");
+        get => GetArgument<TerraformValue<string>>("reservation_id");
         set => SetArgument("reservation_id", value);
     }
 
@@ -100,16 +100,16 @@ public partial class AwsRdsReservedInstance(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -117,105 +117,79 @@ public partial class AwsRdsReservedInstance(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The currency_code attribute.
     /// </summary>
     public TerraformValue<string> CurrencyCode
-    {
-        get => new TerraformReference<string>(this, "currency_code");
-    }
+        => AsReference("currency_code");
 
     /// <summary>
     /// The db_instance_class attribute.
     /// </summary>
     public TerraformValue<string> DbInstanceClass
-    {
-        get => new TerraformReference<string>(this, "db_instance_class");
-    }
+        => AsReference("db_instance_class");
 
     /// <summary>
     /// The duration attribute.
     /// </summary>
     public TerraformValue<double> Duration
-    {
-        get => new TerraformReference<double>(this, "duration");
-    }
+        => AsReference("duration");
 
     /// <summary>
     /// The fixed_price attribute.
     /// </summary>
     public TerraformValue<double> FixedPrice
-    {
-        get => new TerraformReference<double>(this, "fixed_price");
-    }
+        => AsReference("fixed_price");
 
     /// <summary>
     /// The lease_id attribute.
     /// </summary>
     public TerraformValue<string> LeaseId
-    {
-        get => new TerraformReference<string>(this, "lease_id");
-    }
+        => AsReference("lease_id");
 
     /// <summary>
     /// The multi_az attribute.
     /// </summary>
     public TerraformValue<bool> MultiAz
-    {
-        get => new TerraformReference<bool>(this, "multi_az");
-    }
+        => AsReference("multi_az");
 
     /// <summary>
     /// The offering_type attribute.
     /// </summary>
     public TerraformValue<string> OfferingType
-    {
-        get => new TerraformReference<string>(this, "offering_type");
-    }
+        => AsReference("offering_type");
 
     /// <summary>
     /// The product_description attribute.
     /// </summary>
     public TerraformValue<string> ProductDescription
-    {
-        get => new TerraformReference<string>(this, "product_description");
-    }
+        => AsReference("product_description");
 
     /// <summary>
     /// The recurring_charges attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RecurringCharges
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "recurring_charges").ResolveNodes(ctx));
-    }
+        => AsReference("recurring_charges");
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     public TerraformValue<string> StartTime
-    {
-        get => new TerraformReference<string>(this, "start_time");
-    }
+        => AsReference("start_time");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The usage_price attribute.
     /// </summary>
     public TerraformValue<double> UsagePrice
-    {
-        get => new TerraformReference<double>(this, "usage_price");
-    }
+        => AsReference("usage_price");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

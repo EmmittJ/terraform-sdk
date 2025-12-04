@@ -18,7 +18,7 @@ public class AwsConnectUserIdentityInfoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsConnectUserIdentityInfoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FirstName
     {
-        get => new TerraformReference<string>(this, "first_name");
+        get => GetArgument<TerraformValue<string>>("first_name");
         set => SetArgument("first_name", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsConnectUserIdentityInfoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LastName
     {
-        get => new TerraformReference<string>(this, "last_name");
+        get => GetArgument<TerraformValue<string>>("last_name");
         set => SetArgument("last_name", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsConnectUserIdentityInfoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SecondaryEmail
     {
-        get => new TerraformReference<string>(this, "secondary_email");
+        get => GetArgument<TerraformValue<string>>("secondary_email");
         set => SetArgument("secondary_email", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsConnectUserPhoneConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? AfterContactWorkTimeLimit
     {
-        get => new TerraformReference<double>(this, "after_contact_work_time_limit");
+        get => GetArgument<TerraformValue<double>>("after_contact_work_time_limit");
         set => SetArgument("after_contact_work_time_limit", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsConnectUserPhoneConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AutoAccept
     {
-        get => new TerraformReference<bool>(this, "auto_accept");
+        get => GetArgument<TerraformValue<bool>>("auto_accept");
         set => SetArgument("auto_accept", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsConnectUserPhoneConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DeskPhoneNumber
     {
-        get => new TerraformReference<string>(this, "desk_phone_number");
+        get => GetArgument<TerraformValue<string>>("desk_phone_number");
         set => SetArgument("desk_phone_number", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsConnectUserPhoneConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneType is required")]
     public required TerraformValue<string> PhoneType
     {
-        get => new TerraformReference<string>(this, "phone_type");
+        get => GetArgument<TerraformValue<string>>("phone_type");
         set => SetArgument("phone_type", value);
     }
 
@@ -112,9 +112,9 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     /// <summary>
     /// The directory_user_id attribute.
     /// </summary>
-    public TerraformValue<string> DirectoryUserId
+    public TerraformValue<string>? DirectoryUserId
     {
-        get => new TerraformReference<string>(this, "directory_user_id");
+        get => GetArgument<TerraformValue<string>>("directory_user_id");
         set => SetArgument("directory_user_id", value);
     }
 
@@ -123,16 +123,16 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     /// </summary>
     public TerraformValue<string>? HierarchyGroupId
     {
-        get => new TerraformReference<string>(this, "hierarchy_group_id");
+        get => GetArgument<TerraformValue<string>>("hierarchy_group_id");
         set => SetArgument("hierarchy_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => new TerraformReference<string>(this, "instance_id");
+        get => GetArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -161,16 +161,16 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutingProfileId is required")]
     public required TerraformValue<string> RoutingProfileId
     {
-        get => new TerraformReference<string>(this, "routing_profile_id");
+        get => GetArgument<TerraformValue<string>>("routing_profile_id");
         set => SetArgument("routing_profile_id", value);
     }
 
@@ -190,7 +190,7 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityProfileIds is required")]
     public required TerraformSet<string> SecurityProfileIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_profile_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_profile_ids");
         set => SetArgument("security_profile_ids", value);
     }
 
@@ -199,16 +199,16 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -216,17 +216,13 @@ public partial class AwsConnectUser(string name) : TerraformResource("aws_connec
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
     public TerraformValue<string> UserId
-    {
-        get => new TerraformReference<string>(this, "user_id");
-    }
+        => AsReference("user_id");
 
     /// <summary>
     /// IdentityInfo block (nesting mode: list).

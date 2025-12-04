@@ -18,7 +18,7 @@ public class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationB
     /// </summary>
     public TerraformValue<double>? GlobalConfidenceLevel
     {
-        get => new TerraformReference<double>(this, "global_confidence_level");
+        get => GetArgument<TerraformValue<double>>("global_confidence_level");
         set => SetArgument("global_confidence_level", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationB
     /// </summary>
     public TerraformList<string>? GlobalEnforcedUrls
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "global_enforced_urls").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("global_enforced_urls");
         set => SetArgument("global_enforced_urls", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationB
     /// </summary>
     public TerraformList<string>? GlobalExemptUrls
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "global_exempt_urls").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("global_exempt_urls");
         set => SetArgument("global_exempt_urls", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationB
     /// </summary>
     public TerraformValue<string>? BuiltInPatternId
     {
-        get => new TerraformReference<string>(this, "built_in_pattern_id");
+        get => GetArgument<TerraformValue<string>>("built_in_pattern_id");
         set => SetArgument("built_in_pattern_id", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationB
     /// </summary>
     public TerraformValue<double>? ConfidenceLevel
     {
-        get => new TerraformReference<double>(this, "confidence_level");
+        get => GetArgument<TerraformValue<double>>("confidence_level");
         set => SetArgument("confidence_level", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationB
     /// </summary>
     public TerraformList<string>? EnforcedUrls
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "enforced_urls").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("enforced_urls");
         set => SetArgument("enforced_urls", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationB
     /// </summary>
     public TerraformList<string>? ExemptUrls
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exempt_urls").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exempt_urls");
         set => SetArgument("exempt_urls", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationB
     /// </summary>
     public TerraformValue<string>? KeywordRegex
     {
-        get => new TerraformReference<string>(this, "keyword_regex");
+        get => GetArgument<TerraformValue<string>>("keyword_regex");
         set => SetArgument("keyword_regex", value);
     }
 
@@ -143,7 +143,7 @@ public class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationB
     /// </summary>
     public TerraformValue<string>? PatternDescription
     {
-        get => new TerraformReference<string>(this, "pattern_description");
+        get => GetArgument<TerraformValue<string>>("pattern_description");
         set => SetArgument("pattern_description", value);
     }
 
@@ -153,7 +153,7 @@ public class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatternName is required")]
     public required TerraformValue<string> PatternName
     {
-        get => new TerraformReference<string>(this, "pattern_name");
+        get => GetArgument<TerraformValue<string>>("pattern_name");
         set => SetArgument("pattern_name", value);
     }
 
@@ -163,7 +163,7 @@ public class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatternRegex is required")]
     public required TerraformValue<string> PatternRegex
     {
-        get => new TerraformReference<string>(this, "pattern_regex");
+        get => GetArgument<TerraformValue<string>>("pattern_regex");
         set => SetArgument("pattern_regex", value);
     }
 
@@ -185,7 +185,7 @@ public class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationB
     /// </summary>
     public TerraformValue<string>? RedactionPlaceHolderText
     {
-        get => new TerraformReference<string>(this, "redaction_place_holder_text");
+        get => GetArgument<TerraformValue<string>>("redaction_place_holder_text");
         set => SetArgument("redaction_place_holder_text", value);
     }
 
@@ -195,7 +195,7 @@ public class AwsWorkspaceswebDataProtectionSettingsInlineRedactionConfigurationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedactionPlaceHolderType is required")]
     public required TerraformValue<string> RedactionPlaceHolderType
     {
-        get => new TerraformReference<string>(this, "redaction_place_holder_type");
+        get => GetArgument<TerraformValue<string>>("redaction_place_holder_type");
         set => SetArgument("redaction_place_holder_type", value);
     }
 
@@ -213,7 +213,7 @@ public partial class AwsWorkspaceswebDataProtectionSettings(string name) : Terra
     /// </summary>
     public TerraformMap<string>? AdditionalEncryptionContext
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_encryption_context").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("additional_encryption_context");
         set => SetArgument("additional_encryption_context", value);
     }
 
@@ -222,7 +222,7 @@ public partial class AwsWorkspaceswebDataProtectionSettings(string name) : Terra
     /// </summary>
     public TerraformValue<string>? CustomerManagedKey
     {
-        get => new TerraformReference<string>(this, "customer_managed_key");
+        get => GetArgument<TerraformValue<string>>("customer_managed_key");
         set => SetArgument("customer_managed_key", value);
     }
 
@@ -231,7 +231,7 @@ public partial class AwsWorkspaceswebDataProtectionSettings(string name) : Terra
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -241,16 +241,16 @@ public partial class AwsWorkspaceswebDataProtectionSettings(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -259,7 +259,7 @@ public partial class AwsWorkspaceswebDataProtectionSettings(string name) : Terra
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -267,25 +267,19 @@ public partial class AwsWorkspaceswebDataProtectionSettings(string name) : Terra
     /// The associated_portal_arns attribute.
     /// </summary>
     public TerraformList<string> AssociatedPortalArns
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "associated_portal_arns").ResolveNodes(ctx));
-    }
+        => AsReference("associated_portal_arns");
 
     /// <summary>
     /// The data_protection_settings_arn attribute.
     /// </summary>
     public TerraformValue<string> DataProtectionSettingsArn
-    {
-        get => new TerraformReference<string>(this, "data_protection_settings_arn");
-    }
+        => AsReference("data_protection_settings_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// InlineRedactionConfiguration block (nesting mode: list).

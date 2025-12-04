@@ -18,7 +18,7 @@ public class AwsDatazoneUserProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsDatazoneUserProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -46,25 +46,25 @@ public partial class AwsDatazoneUserProfile(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     public required TerraformValue<string> DomainIdentifier
     {
-        get => new TerraformReference<string>(this, "domain_identifier");
+        get => GetArgument<TerraformValue<string>>("domain_identifier");
         set => SetArgument("domain_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformValue<string> Status
+    public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AwsDatazoneUserProfile(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserIdentifier is required")]
     public required TerraformValue<string> UserIdentifier
     {
-        get => new TerraformReference<string>(this, "user_identifier");
+        get => GetArgument<TerraformValue<string>>("user_identifier");
         set => SetArgument("user_identifier", value);
     }
 
     /// <summary>
     /// The user_type attribute.
     /// </summary>
-    public TerraformValue<string> UserType
+    public TerraformValue<string>? UserType
     {
-        get => new TerraformReference<string>(this, "user_type");
+        get => GetArgument<TerraformValue<string>>("user_type");
         set => SetArgument("user_type", value);
     }
 
@@ -91,25 +91,19 @@ public partial class AwsDatazoneUserProfile(string name) : TerraformResource("aw
     /// The details attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Details
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "details").ResolveNodes(ctx));
-    }
+        => AsReference("details");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

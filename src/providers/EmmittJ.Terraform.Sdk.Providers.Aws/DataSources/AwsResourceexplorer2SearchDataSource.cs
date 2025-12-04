@@ -14,25 +14,25 @@ public partial class AwsResourceexplorer2SearchDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryString is required")]
     public required TerraformValue<string> QueryString
     {
-        get => new TerraformReference<string>(this, "query_string");
+        get => GetArgument<TerraformValue<string>>("query_string");
         set => SetArgument("query_string", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The view_arn attribute.
     /// </summary>
-    public TerraformValue<string> ViewArn
+    public TerraformValue<string>? ViewArn
     {
-        get => new TerraformReference<string>(this, "view_arn");
+        get => GetArgument<TerraformValue<string>>("view_arn");
         set => SetArgument("view_arn", value);
     }
 
@@ -40,24 +40,18 @@ public partial class AwsResourceexplorer2SearchDataSource(string name) : Terrafo
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The resource_count attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ResourceCount
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "resource_count").ResolveNodes(ctx));
-    }
+        => AsReference("resource_count");
 
     /// <summary>
     /// The resources attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Resources
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "resources").ResolveNodes(ctx));
-    }
+        => AsReference("resources");
 
 }

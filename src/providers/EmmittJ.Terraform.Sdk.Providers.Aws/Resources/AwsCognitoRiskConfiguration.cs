@@ -98,7 +98,7 @@ public class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlockAct
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventAction is required")]
     public required TerraformValue<string> EventAction
     {
-        get => new TerraformReference<string>(this, "event_action");
+        get => GetArgument<TerraformValue<string>>("event_action");
         set => SetArgument("event_action", value);
     }
 
@@ -108,7 +108,7 @@ public class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlockAct
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Notify is required")]
     public required TerraformValue<bool> Notify
     {
-        get => new TerraformReference<bool>(this, "notify");
+        get => GetArgument<TerraformValue<bool>>("notify");
         set => SetArgument("notify", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlockAct
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventAction is required")]
     public required TerraformValue<string> EventAction
     {
-        get => new TerraformReference<string>(this, "event_action");
+        get => GetArgument<TerraformValue<string>>("event_action");
         set => SetArgument("event_action", value);
     }
 
@@ -141,7 +141,7 @@ public class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlockAct
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Notify is required")]
     public required TerraformValue<bool> Notify
     {
-        get => new TerraformReference<bool>(this, "notify");
+        get => GetArgument<TerraformValue<bool>>("notify");
         set => SetArgument("notify", value);
     }
 
@@ -164,7 +164,7 @@ public class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlockAct
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventAction is required")]
     public required TerraformValue<string> EventAction
     {
-        get => new TerraformReference<string>(this, "event_action");
+        get => GetArgument<TerraformValue<string>>("event_action");
         set => SetArgument("event_action", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlockAct
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Notify is required")]
     public required TerraformValue<bool> Notify
     {
-        get => new TerraformReference<bool>(this, "notify");
+        get => GetArgument<TerraformValue<bool>>("notify");
         set => SetArgument("notify", value);
     }
 
@@ -196,7 +196,7 @@ public class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlockNot
     /// </summary>
     public TerraformValue<string>? From
     {
-        get => new TerraformReference<string>(this, "from");
+        get => GetArgument<TerraformValue<string>>("from");
         set => SetArgument("from", value);
     }
 
@@ -205,7 +205,7 @@ public class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlockNot
     /// </summary>
     public TerraformValue<string>? ReplyTo
     {
-        get => new TerraformReference<string>(this, "reply_to");
+        get => GetArgument<TerraformValue<string>>("reply_to");
         set => SetArgument("reply_to", value);
     }
 
@@ -215,7 +215,7 @@ public class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlockNot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceArn is required")]
     public required TerraformValue<string> SourceArn
     {
-        get => new TerraformReference<string>(this, "source_arn");
+        get => GetArgument<TerraformValue<string>>("source_arn");
         set => SetArgument("source_arn", value);
     }
 
@@ -268,7 +268,7 @@ public class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlockNot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HtmlBody is required")]
     public required TerraformValue<string> HtmlBody
     {
-        get => new TerraformReference<string>(this, "html_body");
+        get => GetArgument<TerraformValue<string>>("html_body");
         set => SetArgument("html_body", value);
     }
 
@@ -278,7 +278,7 @@ public class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlockNot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
     public required TerraformValue<string> Subject
     {
-        get => new TerraformReference<string>(this, "subject");
+        get => GetArgument<TerraformValue<string>>("subject");
         set => SetArgument("subject", value);
     }
 
@@ -288,7 +288,7 @@ public class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlockNot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextBody is required")]
     public required TerraformValue<string> TextBody
     {
-        get => new TerraformReference<string>(this, "text_body");
+        get => GetArgument<TerraformValue<string>>("text_body");
         set => SetArgument("text_body", value);
     }
 
@@ -311,7 +311,7 @@ public class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlockNot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HtmlBody is required")]
     public required TerraformValue<string> HtmlBody
     {
-        get => new TerraformReference<string>(this, "html_body");
+        get => GetArgument<TerraformValue<string>>("html_body");
         set => SetArgument("html_body", value);
     }
 
@@ -321,7 +321,7 @@ public class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlockNot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
     public required TerraformValue<string> Subject
     {
-        get => new TerraformReference<string>(this, "subject");
+        get => GetArgument<TerraformValue<string>>("subject");
         set => SetArgument("subject", value);
     }
 
@@ -331,7 +331,7 @@ public class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlockNot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextBody is required")]
     public required TerraformValue<string> TextBody
     {
-        get => new TerraformReference<string>(this, "text_body");
+        get => GetArgument<TerraformValue<string>>("text_body");
         set => SetArgument("text_body", value);
     }
 
@@ -354,7 +354,7 @@ public class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlockNot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HtmlBody is required")]
     public required TerraformValue<string> HtmlBody
     {
-        get => new TerraformReference<string>(this, "html_body");
+        get => GetArgument<TerraformValue<string>>("html_body");
         set => SetArgument("html_body", value);
     }
 
@@ -364,7 +364,7 @@ public class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlockNot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
     public required TerraformValue<string> Subject
     {
-        get => new TerraformReference<string>(this, "subject");
+        get => GetArgument<TerraformValue<string>>("subject");
         set => SetArgument("subject", value);
     }
 
@@ -374,7 +374,7 @@ public class AwsCognitoRiskConfigurationAccountTakeoverRiskConfigurationBlockNot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextBody is required")]
     public required TerraformValue<string> TextBody
     {
-        get => new TerraformReference<string>(this, "text_body");
+        get => GetArgument<TerraformValue<string>>("text_body");
         set => SetArgument("text_body", value);
     }
 
@@ -395,9 +395,9 @@ public class AwsCognitoRiskConfigurationCompromisedCredentialsRiskConfigurationB
     /// <summary>
     /// The event_filter attribute.
     /// </summary>
-    public TerraformSet<string> EventFilter
+    public TerraformSet<string>? EventFilter
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "event_filter").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("event_filter");
         set => SetArgument("event_filter", value);
     }
 
@@ -433,7 +433,7 @@ public class AwsCognitoRiskConfigurationCompromisedCredentialsRiskConfigurationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventAction is required")]
     public required TerraformValue<string> EventAction
     {
-        get => new TerraformReference<string>(this, "event_action");
+        get => GetArgument<TerraformValue<string>>("event_action");
         set => SetArgument("event_action", value);
     }
 
@@ -456,7 +456,7 @@ public class AwsCognitoRiskConfigurationRiskExceptionConfigurationBlock : Terraf
     /// </summary>
     public TerraformSet<string>? BlockedIpRangeList
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "blocked_ip_range_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("blocked_ip_range_list");
         set => SetArgument("blocked_ip_range_list", value);
     }
 
@@ -465,7 +465,7 @@ public class AwsCognitoRiskConfigurationRiskExceptionConfigurationBlock : Terraf
     /// </summary>
     public TerraformSet<string>? SkippedIpRangeList
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "skipped_ip_range_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("skipped_ip_range_list");
         set => SetArgument("skipped_ip_range_list", value);
     }
 
@@ -483,25 +483,25 @@ public partial class AwsCognitoRiskConfiguration(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -511,7 +511,7 @@ public partial class AwsCognitoRiskConfiguration(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformValue<string> UserPoolId
     {
-        get => new TerraformReference<string>(this, "user_pool_id");
+        get => GetArgument<TerraformValue<string>>("user_pool_id");
         set => SetArgument("user_pool_id", value);
     }
 

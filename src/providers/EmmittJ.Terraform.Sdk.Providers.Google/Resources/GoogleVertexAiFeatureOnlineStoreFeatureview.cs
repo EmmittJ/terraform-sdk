@@ -19,7 +19,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityIdColumns is required")]
     public TerraformList<string>? EntityIdColumns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "entity_id_columns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("entity_id_columns");
         set => SetArgument("entity_id_columns", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewBigQuerySourceBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewFeatureRegistrySourceBlo
     /// </summary>
     public TerraformValue<string>? ProjectNumber
     {
-        get => new TerraformReference<string>(this, "project_number");
+        get => GetArgument<TerraformValue<string>>("project_number");
         set => SetArgument("project_number", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewFeatureRegistrySourceBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureGroupId is required")]
     public required TerraformValue<string> FeatureGroupId
     {
-        get => new TerraformReference<string>(this, "feature_group_id");
+        get => GetArgument<TerraformValue<string>>("feature_group_id");
         set => SetArgument("feature_group_id", value);
     }
 
@@ -97,7 +97,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewFeatureRegistrySourceBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureIds is required")]
     public TerraformList<string>? FeatureIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "feature_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("feature_ids");
         set => SetArgument("feature_ids", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewSyncConfigBlock : Terraf
     /// </summary>
     public TerraformValue<bool>? Continuous
     {
-        get => new TerraformReference<bool>(this, "continuous");
+        get => GetArgument<TerraformValue<bool>>("continuous");
         set => SetArgument("continuous", value);
     }
 
@@ -128,9 +128,9 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewSyncConfigBlock : Terraf
     /// Cron schedule (https://en.wikipedia.org/wiki/Cron) to launch scheduled runs.
     /// To explicitly set a timezone to the cron tab, apply a prefix in the cron tab: &amp;quot;CRON_TZ=${IANA_TIME_ZONE}&amp;quot; or &amp;quot;TZ=${IANA_TIME_ZONE}&amp;quot;.
     /// </summary>
-    public TerraformValue<string> Cron
+    public TerraformValue<string>? Cron
     {
-        get => new TerraformReference<string>(this, "cron");
+        get => GetArgument<TerraformValue<string>>("cron");
         set => SetArgument("cron", value);
     }
 
@@ -153,7 +153,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -162,7 +162,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -171,7 +171,7 @@ public class GoogleVertexAiFeatureOnlineStoreFeatureviewTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -190,16 +190,16 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureview(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureOnlineStore is required")]
     public required TerraformValue<string> FeatureOnlineStore
     {
-        get => new TerraformReference<string>(this, "feature_online_store");
+        get => GetArgument<TerraformValue<string>>("feature_online_store");
         set => SetArgument("feature_online_store", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -212,7 +212,7 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureview(string name) : 
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -221,25 +221,25 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureview(string name) : 
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The region for the resource. It should be the same as the featureonlinestore region.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -247,34 +247,26 @@ public partial class GoogleVertexAiFeatureOnlineStoreFeatureview(string name) : 
     /// The timestamp of when the featureOnlinestore was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The timestamp of when the featureOnlinestore was last updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// BigQuerySource block (nesting mode: list).

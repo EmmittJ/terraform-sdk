@@ -18,7 +18,7 @@ public class AwsEmrReleaseLabelsDataSourceFiltersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Application
     {
-        get => new TerraformReference<string>(this, "application");
+        get => GetArgument<TerraformValue<string>>("application");
         set => SetArgument("application", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsEmrReleaseLabelsDataSourceFiltersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -43,18 +43,18 @@ public partial class AwsEmrReleaseLabelsDataSource(string name) : TerraformDataS
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -62,9 +62,7 @@ public partial class AwsEmrReleaseLabelsDataSource(string name) : TerraformDataS
     /// The release_labels attribute.
     /// </summary>
     public TerraformList<string> ReleaseLabels
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "release_labels").ResolveNodes(ctx));
-    }
+        => AsReference("release_labels");
 
     /// <summary>
     /// Filters block (nesting mode: list).

@@ -15,7 +15,7 @@ public partial class GoogleMonitoringIstioCanonicalServiceDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CanonicalService is required")]
     public required TerraformValue<string> CanonicalService
     {
-        get => new TerraformReference<string>(this, "canonical_service");
+        get => GetArgument<TerraformValue<string>>("canonical_service");
         set => SetArgument("canonical_service", value);
     }
 
@@ -26,16 +26,16 @@ public partial class GoogleMonitoringIstioCanonicalServiceDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CanonicalServiceNamespace is required")]
     public required TerraformValue<string> CanonicalServiceNamespace
     {
-        get => new TerraformReference<string>(this, "canonical_service_namespace");
+        get => GetArgument<TerraformValue<string>>("canonical_service_namespace");
         set => SetArgument("canonical_service_namespace", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class GoogleMonitoringIstioCanonicalServiceDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeshUid is required")]
     public required TerraformValue<string> MeshUid
     {
-        get => new TerraformReference<string>(this, "mesh_uid");
+        get => GetArgument<TerraformValue<string>>("mesh_uid");
         set => SetArgument("mesh_uid", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleMonitoringIstioCanonicalServiceDataSource(string name
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -63,35 +63,27 @@ public partial class GoogleMonitoringIstioCanonicalServiceDataSource(string name
     /// Name used for UI elements listing this Service.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The full resource name for this service. The syntax is:
     /// projects/[PROJECT_ID]/services/[SERVICE_ID].
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// An optional service ID to use. If not given, the server will generate a
     /// service ID.
     /// </summary>
     public TerraformValue<string> ServiceId
-    {
-        get => new TerraformReference<string>(this, "service_id");
-    }
+        => AsReference("service_id");
 
     /// <summary>
     /// Configuration for how to query telemetry on a Service.
     /// </summary>
     public TerraformList<TerraformMap<object>> Telemetry
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "telemetry").ResolveNodes(ctx));
-    }
+        => AsReference("telemetry");
 
     /// <summary>
     /// Labels which have been used to annotate the service. Label keys must start
@@ -102,8 +94,6 @@ public partial class GoogleMonitoringIstioCanonicalServiceDataSource(string name
     /// the empty string may be supplied for the label value.
     /// </summary>
     public TerraformMap<string> UserLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "user_labels").ResolveNodes(ctx));
-    }
+        => AsReference("user_labels");
 
 }

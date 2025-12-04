@@ -18,7 +18,7 @@ public class GoogleDataflowJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -34,9 +34,9 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// <summary>
     /// List of experiments that should be used by the job. An example value is [&amp;quot;enable_stackdriver_agent_metrics&amp;quot;].
     /// </summary>
-    public TerraformSet<string> AdditionalExperiments
+    public TerraformSet<string>? AdditionalExperiments
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "additional_experiments").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("additional_experiments");
         set => SetArgument("additional_experiments", value);
     }
 
@@ -45,16 +45,16 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<bool>? EnableStreamingEngine
     {
-        get => new TerraformReference<bool>(this, "enable_streaming_engine");
+        get => GetArgument<TerraformValue<bool>>("enable_streaming_engine");
         set => SetArgument("enable_streaming_engine", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -63,7 +63,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? IpConfiguration
     {
-        get => new TerraformReference<string>(this, "ip_configuration");
+        get => GetArgument<TerraformValue<string>>("ip_configuration");
         set => SetArgument("ip_configuration", value);
     }
 
@@ -72,7 +72,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -82,7 +82,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -91,7 +91,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -100,7 +100,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<double>? MaxWorkers
     {
-        get => new TerraformReference<double>(this, "max_workers");
+        get => GetArgument<TerraformValue<double>>("max_workers");
         set => SetArgument("max_workers", value);
     }
 
@@ -110,7 +110,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -119,7 +119,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -128,7 +128,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? OnDelete
     {
-        get => new TerraformReference<string>(this, "on_delete");
+        get => GetArgument<TerraformValue<string>>("on_delete");
         set => SetArgument("on_delete", value);
     }
 
@@ -137,16 +137,16 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
     /// <summary>
     /// The project in which the resource belongs.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -155,7 +155,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -164,7 +164,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? ServiceAccountEmail
     {
-        get => new TerraformReference<string>(this, "service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -173,7 +173,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<bool>? SkipWaitOnJobTermination
     {
-        get => new TerraformReference<bool>(this, "skip_wait_on_job_termination");
+        get => GetArgument<TerraformValue<bool>>("skip_wait_on_job_termination");
         set => SetArgument("skip_wait_on_job_termination", value);
     }
 
@@ -182,7 +182,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? Subnetwork
     {
-        get => new TerraformReference<string>(this, "subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -192,7 +192,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TempGcsLocation is required")]
     public required TerraformValue<string> TempGcsLocation
     {
-        get => new TerraformReference<string>(this, "temp_gcs_location");
+        get => GetArgument<TerraformValue<string>>("temp_gcs_location");
         set => SetArgument("temp_gcs_location", value);
     }
 
@@ -202,7 +202,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateGcsPath is required")]
     public required TerraformValue<string> TemplateGcsPath
     {
-        get => new TerraformReference<string>(this, "template_gcs_path");
+        get => GetArgument<TerraformValue<string>>("template_gcs_path");
         set => SetArgument("template_gcs_path", value);
     }
 
@@ -211,7 +211,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformMap<string>? TransformNameMapping
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "transform_name_mapping").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("transform_name_mapping");
         set => SetArgument("transform_name_mapping", value);
     }
 
@@ -220,7 +220,7 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -228,41 +228,31 @@ public partial class GoogleDataflowJob(string name) : TerraformResource("google_
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The unique ID of this job.
     /// </summary>
     public TerraformValue<string> JobId
-    {
-        get => new TerraformReference<string>(this, "job_id");
-    }
+        => AsReference("job_id");
 
     /// <summary>
     /// The current state of the resource, selected from the JobState enum.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The type of this job, selected from the JobType enum.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

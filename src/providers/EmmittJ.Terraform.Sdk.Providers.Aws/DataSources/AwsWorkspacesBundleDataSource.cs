@@ -13,16 +13,16 @@ public partial class AwsWorkspacesBundleDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? BundleId
     {
-        get => new TerraformReference<string>(this, "bundle_id");
+        get => GetArgument<TerraformValue<string>>("bundle_id");
         set => SetArgument("bundle_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsWorkspacesBundleDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -40,16 +40,16 @@ public partial class AwsWorkspacesBundleDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? Owner
     {
-        get => new TerraformReference<string>(this, "owner");
+        get => GetArgument<TerraformValue<string>>("owner");
         set => SetArgument("owner", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -57,32 +57,24 @@ public partial class AwsWorkspacesBundleDataSource(string name) : TerraformDataS
     /// The compute_type attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ComputeType
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "compute_type").ResolveNodes(ctx));
-    }
+        => AsReference("compute_type");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The root_storage attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RootStorage
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "root_storage").ResolveNodes(ctx));
-    }
+        => AsReference("root_storage");
 
     /// <summary>
     /// The user_storage attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> UserStorage
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "user_storage").ResolveNodes(ctx));
-    }
+        => AsReference("user_storage");
 
 }

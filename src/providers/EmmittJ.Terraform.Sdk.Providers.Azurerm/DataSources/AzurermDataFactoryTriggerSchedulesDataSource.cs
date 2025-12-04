@@ -18,7 +18,7 @@ public class AzurermDataFactoryTriggerSchedulesDataSourceTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermDataFactoryTriggerSchedulesDataSource(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => new TerraformReference<string>(this, "data_factory_id");
+        get => GetArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -54,9 +54,7 @@ public partial class AzurermDataFactoryTriggerSchedulesDataSource(string name) :
     /// The items attribute.
     /// </summary>
     public TerraformList<string> Items
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "items").ResolveNodes(ctx));
-    }
+        => AsReference("items");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

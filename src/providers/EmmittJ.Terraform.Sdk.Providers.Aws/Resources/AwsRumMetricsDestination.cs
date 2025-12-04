@@ -14,7 +14,7 @@ public partial class AwsRumMetricsDestination(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppMonitorName is required")]
     public required TerraformValue<string> AppMonitorName
     {
-        get => new TerraformReference<string>(this, "app_monitor_name");
+        get => GetArgument<TerraformValue<string>>("app_monitor_name");
         set => SetArgument("app_monitor_name", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsRumMetricsDestination(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformValue<string> Destination
     {
-        get => new TerraformReference<string>(this, "destination");
+        get => GetArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsRumMetricsDestination(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? DestinationArn
     {
-        get => new TerraformReference<string>(this, "destination_arn");
+        get => GetArgument<TerraformValue<string>>("destination_arn");
         set => SetArgument("destination_arn", value);
     }
 
@@ -42,25 +42,25 @@ public partial class AwsRumMetricsDestination(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? IamRoleArn
     {
-        get => new TerraformReference<string>(this, "iam_role_arn");
+        get => GetArgument<TerraformValue<string>>("iam_role_arn");
         set => SetArgument("iam_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

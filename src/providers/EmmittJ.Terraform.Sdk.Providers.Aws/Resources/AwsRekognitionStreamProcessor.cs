@@ -19,7 +19,7 @@ public class AwsRekognitionStreamProcessorDataSharingPreferenceBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OptIn is required")]
     public required TerraformValue<bool> OptIn
     {
-        get => new TerraformReference<bool>(this, "opt_in");
+        get => GetArgument<TerraformValue<bool>>("opt_in");
         set => SetArgument("opt_in", value);
     }
 
@@ -65,7 +65,7 @@ public class AwsRekognitionStreamProcessorInputBlockKinesisVideoStreamBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsRekognitionStreamProcessorNotificationChannelBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? SnsTopicArn
     {
-        get => new TerraformReference<string>(this, "sns_topic_arn");
+        get => GetArgument<TerraformValue<string>>("sns_topic_arn");
         set => SetArgument("sns_topic_arn", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsRekognitionStreamProcessorOutputBlockKinesisDataStreamBlock : Te
     /// </summary>
     public TerraformValue<string>? Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -164,7 +164,7 @@ public class AwsRekognitionStreamProcessorOutputBlockS3DestinationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -173,7 +173,7 @@ public class AwsRekognitionStreamProcessorOutputBlockS3DestinationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? KeyPrefix
     {
-        get => new TerraformReference<string>(this, "key_prefix");
+        get => GetArgument<TerraformValue<string>>("key_prefix");
         set => SetArgument("key_prefix", value);
     }
 
@@ -227,7 +227,7 @@ public class AwsRekognitionStreamProcessorRegionsOfInterestBlockBoundingBoxBlock
     /// </summary>
     public TerraformValue<double>? Height
     {
-        get => new TerraformReference<double>(this, "height");
+        get => GetArgument<TerraformValue<double>>("height");
         set => SetArgument("height", value);
     }
 
@@ -236,7 +236,7 @@ public class AwsRekognitionStreamProcessorRegionsOfInterestBlockBoundingBoxBlock
     /// </summary>
     public TerraformValue<double>? Left
     {
-        get => new TerraformReference<double>(this, "left");
+        get => GetArgument<TerraformValue<double>>("left");
         set => SetArgument("left", value);
     }
 
@@ -245,7 +245,7 @@ public class AwsRekognitionStreamProcessorRegionsOfInterestBlockBoundingBoxBlock
     /// </summary>
     public TerraformValue<double>? Top
     {
-        get => new TerraformReference<double>(this, "top");
+        get => GetArgument<TerraformValue<double>>("top");
         set => SetArgument("top", value);
     }
 
@@ -254,7 +254,7 @@ public class AwsRekognitionStreamProcessorRegionsOfInterestBlockBoundingBoxBlock
     /// </summary>
     public TerraformValue<double>? Width
     {
-        get => new TerraformReference<double>(this, "width");
+        get => GetArgument<TerraformValue<double>>("width");
         set => SetArgument("width", value);
     }
 
@@ -276,7 +276,7 @@ public class AwsRekognitionStreamProcessorRegionsOfInterestBlockPolygonBlock : T
     /// </summary>
     public TerraformValue<double>? X
     {
-        get => new TerraformReference<double>(this, "x");
+        get => GetArgument<TerraformValue<double>>("x");
         set => SetArgument("x", value);
     }
 
@@ -285,7 +285,7 @@ public class AwsRekognitionStreamProcessorRegionsOfInterestBlockPolygonBlock : T
     /// </summary>
     public TerraformValue<double>? Y
     {
-        get => new TerraformReference<double>(this, "y");
+        get => GetArgument<TerraformValue<double>>("y");
         set => SetArgument("y", value);
     }
 
@@ -339,16 +339,16 @@ public class AwsRekognitionStreamProcessorSettingsBlockConnectedHomeBlock : Terr
     /// </summary>
     public TerraformList<string>? Labels
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// The minimum confidence required to label an object in the video.
     /// </summary>
-    public TerraformValue<double> MinConfidence
+    public TerraformValue<double>? MinConfidence
     {
-        get => new TerraformReference<double>(this, "min_confidence");
+        get => GetArgument<TerraformValue<double>>("min_confidence");
         set => SetArgument("min_confidence", value);
     }
 
@@ -371,16 +371,16 @@ public class AwsRekognitionStreamProcessorSettingsBlockFaceSearchBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformValue<string> CollectionId
     {
-        get => new TerraformReference<string>(this, "collection_id");
+        get => GetArgument<TerraformValue<string>>("collection_id");
         set => SetArgument("collection_id", value);
     }
 
     /// <summary>
     /// Minimum face match confidence score that must be met to return a result for a recognized face.
     /// </summary>
-    public TerraformValue<double> FaceMatchThreshold
+    public TerraformValue<double>? FaceMatchThreshold
     {
-        get => new TerraformReference<double>(this, "face_match_threshold");
+        get => GetArgument<TerraformValue<double>>("face_match_threshold");
         set => SetArgument("face_match_threshold", value);
     }
 
@@ -403,7 +403,7 @@ public class AwsRekognitionStreamProcessorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -412,7 +412,7 @@ public class AwsRekognitionStreamProcessorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -421,7 +421,7 @@ public class AwsRekognitionStreamProcessorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -439,7 +439,7 @@ public partial class AwsRekognitionStreamProcessor(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -449,16 +449,16 @@ public partial class AwsRekognitionStreamProcessor(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -468,7 +468,7 @@ public partial class AwsRekognitionStreamProcessor(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -477,7 +477,7 @@ public partial class AwsRekognitionStreamProcessor(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -485,26 +485,20 @@ public partial class AwsRekognitionStreamProcessor(string name) : TerraformResou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The stream_processor_arn attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> StreamProcessorArn
-    {
-        get => new TerraformReference<string>(this, "stream_processor_arn");
-    }
+        => AsReference("stream_processor_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// DataSharingPreference block (nesting mode: list).

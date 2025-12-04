@@ -18,7 +18,7 @@ public class AwsQuicksightIamPolicyAssignmentIdentitiesBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Group
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "group").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("group");
         set => SetArgument("group", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsQuicksightIamPolicyAssignmentIdentitiesBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? User
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "user").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("user");
         set => SetArgument("user", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AwsQuicksightIamPolicyAssignment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssignmentName is required")]
     public required TerraformValue<string> AssignmentName
     {
-        get => new TerraformReference<string>(this, "assignment_name");
+        get => GetArgument<TerraformValue<string>>("assignment_name");
         set => SetArgument("assignment_name", value);
     }
 
@@ -56,25 +56,25 @@ public partial class AwsQuicksightIamPolicyAssignment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssignmentStatus is required")]
     public required TerraformValue<string> AssignmentStatus
     {
-        get => new TerraformReference<string>(this, "assignment_status");
+        get => GetArgument<TerraformValue<string>>("assignment_status");
         set => SetArgument("assignment_status", value);
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string> AwsAccountId
+    public TerraformValue<string>? AwsAccountId
     {
-        get => new TerraformReference<string>(this, "aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    public TerraformValue<string> NamespaceAttribute
+    public TerraformValue<string>? NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -83,16 +83,16 @@ public partial class AwsQuicksightIamPolicyAssignment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? PolicyArn
     {
-        get => new TerraformReference<string>(this, "policy_arn");
+        get => GetArgument<TerraformValue<string>>("policy_arn");
         set => SetArgument("policy_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -100,17 +100,13 @@ public partial class AwsQuicksightIamPolicyAssignment(string name) : TerraformRe
     /// The assignment_id attribute.
     /// </summary>
     public TerraformValue<string> AssignmentId
-    {
-        get => new TerraformReference<string>(this, "assignment_id");
-    }
+        => AsReference("assignment_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// Identities block (nesting mode: list).

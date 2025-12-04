@@ -22,7 +22,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CoolDownPeriod
     {
-        get => new TerraformReference<string>(this, "cool_down_period");
+        get => GetArgument<TerraformValue<string>>("cool_down_period");
         set => SetArgument("cool_down_period", value);
     }
 
@@ -32,7 +32,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxClusterNodeCount
     {
-        get => new TerraformReference<double>(this, "max_cluster_node_count");
+        get => GetArgument<TerraformValue<double>>("max_cluster_node_count");
         set => SetArgument("max_cluster_node_count", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MinClusterNodeCount
     {
-        get => new TerraformReference<double>(this, "min_cluster_node_count");
+        get => GetArgument<TerraformValue<double>>("min_cluster_node_count");
         set => SetArgument("min_cluster_node_count", value);
     }
 
@@ -77,7 +77,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlockAutoscalingPolicie
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalePolicyId is required")]
     public required TerraformValue<string> AutoscalePolicyId
     {
-        get => new TerraformReference<string>(this, "autoscale_policy_id");
+        get => GetArgument<TerraformValue<string>>("autoscale_policy_id");
         set => SetArgument("autoscale_policy_id", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlockAutoscalingPolicie
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeTypeId is required")]
     public required TerraformValue<string> NodeTypeId
     {
-        get => new TerraformReference<string>(this, "node_type_id");
+        get => GetArgument<TerraformValue<string>>("node_type_id");
         set => SetArgument("node_type_id", value);
     }
 
@@ -98,7 +98,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlockAutoscalingPolicie
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleOutSize is required")]
     public required TerraformValue<double> ScaleOutSize
     {
-        get => new TerraformReference<double>(this, "scale_out_size");
+        get => GetArgument<TerraformValue<double>>("scale_out_size");
         set => SetArgument("scale_out_size", value);
     }
 
@@ -151,7 +151,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlockAutoscalingPolicie
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleIn is required")]
     public required TerraformValue<double> ScaleIn
     {
-        get => new TerraformReference<double>(this, "scale_in");
+        get => GetArgument<TerraformValue<double>>("scale_in");
         set => SetArgument("scale_in", value);
     }
 
@@ -161,7 +161,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlockAutoscalingPolicie
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleOut is required")]
     public required TerraformValue<double> ScaleOut
     {
-        get => new TerraformReference<double>(this, "scale_out");
+        get => GetArgument<TerraformValue<double>>("scale_out");
         set => SetArgument("scale_out", value);
     }
 
@@ -184,7 +184,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlockAutoscalingPolicie
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleIn is required")]
     public required TerraformValue<double> ScaleIn
     {
-        get => new TerraformReference<double>(this, "scale_in");
+        get => GetArgument<TerraformValue<double>>("scale_in");
         set => SetArgument("scale_in", value);
     }
 
@@ -194,7 +194,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlockAutoscalingPolicie
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleOut is required")]
     public required TerraformValue<double> ScaleOut
     {
-        get => new TerraformReference<double>(this, "scale_out");
+        get => GetArgument<TerraformValue<double>>("scale_out");
         set => SetArgument("scale_out", value);
     }
 
@@ -217,7 +217,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlockAutoscalingPolicie
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleIn is required")]
     public required TerraformValue<double> ScaleIn
     {
-        get => new TerraformReference<double>(this, "scale_in");
+        get => GetArgument<TerraformValue<double>>("scale_in");
         set => SetArgument("scale_in", value);
     }
 
@@ -227,7 +227,7 @@ public class GoogleVmwareengineClusterAutoscalingSettingsBlockAutoscalingPolicie
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleOut is required")]
     public required TerraformValue<double> ScaleOut
     {
-        get => new TerraformReference<double>(this, "scale_out");
+        get => GetArgument<TerraformValue<double>>("scale_out");
         set => SetArgument("scale_out", value);
     }
 
@@ -253,7 +253,7 @@ public class GoogleVmwareengineClusterNodeTypeConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? CustomCoreCount
     {
-        get => new TerraformReference<double>(this, "custom_core_count");
+        get => GetArgument<TerraformValue<double>>("custom_core_count");
         set => SetArgument("custom_core_count", value);
     }
 
@@ -263,7 +263,7 @@ public class GoogleVmwareengineClusterNodeTypeConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformValue<double> NodeCount
     {
-        get => new TerraformReference<double>(this, "node_count");
+        get => GetArgument<TerraformValue<double>>("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -273,7 +273,7 @@ public class GoogleVmwareengineClusterNodeTypeConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeTypeId is required")]
     public required TerraformValue<string> NodeTypeId
     {
-        get => new TerraformReference<string>(this, "node_type_id");
+        get => GetArgument<TerraformValue<string>>("node_type_id");
         set => SetArgument("node_type_id", value);
     }
 
@@ -296,7 +296,7 @@ public class GoogleVmwareengineClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -305,7 +305,7 @@ public class GoogleVmwareengineClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -314,7 +314,7 @@ public class GoogleVmwareengineClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -330,9 +330,9 @@ public partial class GoogleVmwareengineCluster(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -342,7 +342,7 @@ public partial class GoogleVmwareengineCluster(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -354,7 +354,7 @@ public partial class GoogleVmwareengineCluster(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -364,34 +364,26 @@ public partial class GoogleVmwareengineCluster(string name) : TerraformResource(
     /// up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// True if the cluster is a management cluster; false otherwise.
     /// There can only be one management cluster in a private cloud and it has to be the first one.
     /// </summary>
     public TerraformValue<bool> Management
-    {
-        get => new TerraformReference<bool>(this, "management");
-    }
+        => AsReference("management");
 
     /// <summary>
     /// State of the Cluster.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Last updated time of this resource.
@@ -399,9 +391,7 @@ public partial class GoogleVmwareengineCluster(string name) : TerraformResource(
     /// fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// AutoscalingSettings block (nesting mode: list).

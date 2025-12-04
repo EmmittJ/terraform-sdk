@@ -18,7 +18,7 @@ public class GoogleNetappVolumeBackupConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? BackupPolicies
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "backup_policies").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("backup_policies");
         set => SetArgument("backup_policies", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleNetappVolumeBackupConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BackupVault
     {
-        get => new TerraformReference<string>(this, "backup_vault");
+        get => GetArgument<TerraformValue<string>>("backup_vault");
         set => SetArgument("backup_vault", value);
     }
 
@@ -37,7 +37,7 @@ public class GoogleNetappVolumeBackupConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ScheduledBackupEnabled
     {
-        get => new TerraformReference<bool>(this, "scheduled_backup_enabled");
+        get => GetArgument<TerraformValue<bool>>("scheduled_backup_enabled");
         set => SetArgument("scheduled_backup_enabled", value);
     }
 
@@ -61,9 +61,9 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
     /// &#39;projects/{project_id}/locations/{location}/hostGroups/{host_group_id}&#39;
     /// This field can be updated after the block device is created.
     /// </summary>
-    public TerraformList<string> HostGroups
+    public TerraformList<string>? HostGroups
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "host_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("host_groups");
         set => SetArgument("host_groups", value);
     }
 
@@ -72,9 +72,7 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
     /// for ISCSI volumes
     /// </summary>
     public TerraformValue<string> Identifier
-    {
-        get => new TerraformReference<string>(this, "identifier");
-    }
+        => AsReference("identifier");
 
     /// <summary>
     /// User-defined name for the block device, unique within the Volume. In case
@@ -85,9 +83,9 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
     ///     and the following special characters: &amp;quot;-&amp;quot;, &amp;quot;_&amp;quot;, &amp;quot;}&amp;quot;, &amp;quot;{&amp;quot;, &amp;quot;.&amp;quot;.
     /// *   Spaces are not allowed.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -98,7 +96,7 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
     public required TerraformValue<string> OsType
     {
-        get => new TerraformReference<string>(this, "os_type");
+        get => GetArgument<TerraformValue<string>>("os_type");
         set => SetArgument("os_type", value);
     }
 
@@ -109,9 +107,7 @@ public class GoogleNetappVolumeBlockDevicesBlock : TerraformBlock
     /// the parent Volume&#39;s &#39;capacity_gib&#39;.
     /// </summary>
     public TerraformValue<double> SizeGib
-    {
-        get => new TerraformReference<double>(this, "size_gib");
-    }
+        => AsReference("size_gib");
 
 }
 
@@ -157,7 +153,7 @@ public class GoogleNetappVolumeExportPolicyBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AccessType
     {
-        get => new TerraformReference<string>(this, "access_type");
+        get => GetArgument<TerraformValue<string>>("access_type");
         set => SetArgument("access_type", value);
     }
 
@@ -166,7 +162,7 @@ public class GoogleNetappVolumeExportPolicyBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AllowedClients
     {
-        get => new TerraformReference<string>(this, "allowed_clients");
+        get => GetArgument<TerraformValue<string>>("allowed_clients");
         set => SetArgument("allowed_clients", value);
     }
 
@@ -175,16 +171,16 @@ public class GoogleNetappVolumeExportPolicyBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? AnonUid
     {
-        get => new TerraformReference<double>(this, "anon_uid");
+        get => GetArgument<TerraformValue<double>>("anon_uid");
         set => SetArgument("anon_uid", value);
     }
 
     /// <summary>
     /// If enabled, the root user (UID = 0) of the specified clients doesn&#39;t get mapped to nobody (UID = 65534). This is also known as no_root_squash.
     /// </summary>
-    public TerraformValue<string> HasRootAccess
+    public TerraformValue<string>? HasRootAccess
     {
-        get => new TerraformReference<string>(this, "has_root_access");
+        get => GetArgument<TerraformValue<string>>("has_root_access");
         set => SetArgument("has_root_access", value);
     }
 
@@ -193,7 +189,7 @@ public class GoogleNetappVolumeExportPolicyBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Kerberos5ReadOnly
     {
-        get => new TerraformReference<bool>(this, "kerberos5_read_only");
+        get => GetArgument<TerraformValue<bool>>("kerberos5_read_only");
         set => SetArgument("kerberos5_read_only", value);
     }
 
@@ -202,7 +198,7 @@ public class GoogleNetappVolumeExportPolicyBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Kerberos5ReadWrite
     {
-        get => new TerraformReference<bool>(this, "kerberos5_read_write");
+        get => GetArgument<TerraformValue<bool>>("kerberos5_read_write");
         set => SetArgument("kerberos5_read_write", value);
     }
 
@@ -211,7 +207,7 @@ public class GoogleNetappVolumeExportPolicyBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Kerberos5iReadOnly
     {
-        get => new TerraformReference<bool>(this, "kerberos5i_read_only");
+        get => GetArgument<TerraformValue<bool>>("kerberos5i_read_only");
         set => SetArgument("kerberos5i_read_only", value);
     }
 
@@ -220,7 +216,7 @@ public class GoogleNetappVolumeExportPolicyBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Kerberos5iReadWrite
     {
-        get => new TerraformReference<bool>(this, "kerberos5i_read_write");
+        get => GetArgument<TerraformValue<bool>>("kerberos5i_read_write");
         set => SetArgument("kerberos5i_read_write", value);
     }
 
@@ -229,7 +225,7 @@ public class GoogleNetappVolumeExportPolicyBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Kerberos5pReadOnly
     {
-        get => new TerraformReference<bool>(this, "kerberos5p_read_only");
+        get => GetArgument<TerraformValue<bool>>("kerberos5p_read_only");
         set => SetArgument("kerberos5p_read_only", value);
     }
 
@@ -238,7 +234,7 @@ public class GoogleNetappVolumeExportPolicyBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Kerberos5pReadWrite
     {
-        get => new TerraformReference<bool>(this, "kerberos5p_read_write");
+        get => GetArgument<TerraformValue<bool>>("kerberos5p_read_write");
         set => SetArgument("kerberos5p_read_write", value);
     }
 
@@ -247,7 +243,7 @@ public class GoogleNetappVolumeExportPolicyBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Nfsv3
     {
-        get => new TerraformReference<bool>(this, "nfsv3");
+        get => GetArgument<TerraformValue<bool>>("nfsv3");
         set => SetArgument("nfsv3", value);
     }
 
@@ -256,16 +252,16 @@ public class GoogleNetappVolumeExportPolicyBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Nfsv4
     {
-        get => new TerraformReference<bool>(this, "nfsv4");
+        get => GetArgument<TerraformValue<bool>>("nfsv4");
         set => SetArgument("nfsv4", value);
     }
 
     /// <summary>
     /// SquashMode defines how remote user privileges are restricted when accessing an NFS export. It controls how the user identities (like root) are mapped to anonymous users to limit access and enforce security. Possible values: [&amp;quot;NO_ROOT_SQUASH&amp;quot;, &amp;quot;ROOT_SQUASH&amp;quot;, &amp;quot;ALL_SQUASH&amp;quot;]
     /// </summary>
-    public TerraformValue<string> SquashMode
+    public TerraformValue<string>? SquashMode
     {
-        get => new TerraformReference<string>(this, "squash_mode");
+        get => GetArgument<TerraformValue<string>>("squash_mode");
         set => SetArgument("squash_mode", value);
     }
 
@@ -288,7 +284,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ClusterLocation
     {
-        get => new TerraformReference<string>(this, "cluster_location");
+        get => GetArgument<TerraformValue<string>>("cluster_location");
         set => SetArgument("cluster_location", value);
     }
 
@@ -297,7 +293,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -306,7 +302,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? HybridReplicationType
     {
-        get => new TerraformReference<string>(this, "hybrid_replication_type");
+        get => GetArgument<TerraformValue<string>>("hybrid_replication_type");
         set => SetArgument("hybrid_replication_type", value);
     }
 
@@ -316,7 +312,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -325,7 +321,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? LargeVolumeConstituentCount
     {
-        get => new TerraformReference<double>(this, "large_volume_constituent_count");
+        get => GetArgument<TerraformValue<double>>("large_volume_constituent_count");
         set => SetArgument("large_volume_constituent_count", value);
     }
 
@@ -334,7 +330,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PeerClusterName
     {
-        get => new TerraformReference<string>(this, "peer_cluster_name");
+        get => GetArgument<TerraformValue<string>>("peer_cluster_name");
         set => SetArgument("peer_cluster_name", value);
     }
 
@@ -343,7 +339,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? PeerIpAddresses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "peer_ip_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("peer_ip_addresses");
         set => SetArgument("peer_ip_addresses", value);
     }
 
@@ -352,7 +348,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PeerSvmName
     {
-        get => new TerraformReference<string>(this, "peer_svm_name");
+        get => GetArgument<TerraformValue<string>>("peer_svm_name");
         set => SetArgument("peer_svm_name", value);
     }
 
@@ -361,7 +357,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PeerVolumeName
     {
-        get => new TerraformReference<string>(this, "peer_volume_name");
+        get => GetArgument<TerraformValue<string>>("peer_volume_name");
         set => SetArgument("peer_volume_name", value);
     }
 
@@ -370,7 +366,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Replication
     {
-        get => new TerraformReference<string>(this, "replication");
+        get => GetArgument<TerraformValue<string>>("replication");
         set => SetArgument("replication", value);
     }
 
@@ -379,7 +375,7 @@ public class GoogleNetappVolumeHybridReplicationParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ReplicationSchedule
     {
-        get => new TerraformReference<string>(this, "replication_schedule");
+        get => GetArgument<TerraformValue<string>>("replication_schedule");
         set => SetArgument("replication_schedule", value);
     }
 
@@ -404,7 +400,7 @@ public class GoogleNetappVolumeRestoreParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SourceBackup
     {
-        get => new TerraformReference<string>(this, "source_backup");
+        get => GetArgument<TerraformValue<string>>("source_backup");
         set => SetArgument("source_backup", value);
     }
 
@@ -415,7 +411,7 @@ public class GoogleNetappVolumeRestoreParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SourceSnapshot
     {
-        get => new TerraformReference<string>(this, "source_snapshot");
+        get => GetArgument<TerraformValue<string>>("source_snapshot");
         set => SetArgument("source_snapshot", value);
     }
 
@@ -439,7 +435,7 @@ public class GoogleNetappVolumeSnapshotPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -501,7 +497,7 @@ public class GoogleNetappVolumeSnapshotPolicyBlockDailyScheduleBlock : Terraform
     /// </summary>
     public TerraformValue<double>? Hour
     {
-        get => new TerraformReference<double>(this, "hour");
+        get => GetArgument<TerraformValue<double>>("hour");
         set => SetArgument("hour", value);
     }
 
@@ -510,7 +506,7 @@ public class GoogleNetappVolumeSnapshotPolicyBlockDailyScheduleBlock : Terraform
     /// </summary>
     public TerraformValue<double>? Minute
     {
-        get => new TerraformReference<double>(this, "minute");
+        get => GetArgument<TerraformValue<double>>("minute");
         set => SetArgument("minute", value);
     }
 
@@ -520,7 +516,7 @@ public class GoogleNetappVolumeSnapshotPolicyBlockDailyScheduleBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotsToKeep is required")]
     public required TerraformValue<double> SnapshotsToKeep
     {
-        get => new TerraformReference<double>(this, "snapshots_to_keep");
+        get => GetArgument<TerraformValue<double>>("snapshots_to_keep");
         set => SetArgument("snapshots_to_keep", value);
     }
 
@@ -542,7 +538,7 @@ public class GoogleNetappVolumeSnapshotPolicyBlockHourlyScheduleBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? Minute
     {
-        get => new TerraformReference<double>(this, "minute");
+        get => GetArgument<TerraformValue<double>>("minute");
         set => SetArgument("minute", value);
     }
 
@@ -552,7 +548,7 @@ public class GoogleNetappVolumeSnapshotPolicyBlockHourlyScheduleBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotsToKeep is required")]
     public required TerraformValue<double> SnapshotsToKeep
     {
-        get => new TerraformReference<double>(this, "snapshots_to_keep");
+        get => GetArgument<TerraformValue<double>>("snapshots_to_keep");
         set => SetArgument("snapshots_to_keep", value);
     }
 
@@ -574,7 +570,7 @@ public class GoogleNetappVolumeSnapshotPolicyBlockMonthlyScheduleBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? DaysOfMonth
     {
-        get => new TerraformReference<string>(this, "days_of_month");
+        get => GetArgument<TerraformValue<string>>("days_of_month");
         set => SetArgument("days_of_month", value);
     }
 
@@ -583,7 +579,7 @@ public class GoogleNetappVolumeSnapshotPolicyBlockMonthlyScheduleBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? Hour
     {
-        get => new TerraformReference<double>(this, "hour");
+        get => GetArgument<TerraformValue<double>>("hour");
         set => SetArgument("hour", value);
     }
 
@@ -592,7 +588,7 @@ public class GoogleNetappVolumeSnapshotPolicyBlockMonthlyScheduleBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? Minute
     {
-        get => new TerraformReference<double>(this, "minute");
+        get => GetArgument<TerraformValue<double>>("minute");
         set => SetArgument("minute", value);
     }
 
@@ -602,7 +598,7 @@ public class GoogleNetappVolumeSnapshotPolicyBlockMonthlyScheduleBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotsToKeep is required")]
     public required TerraformValue<double> SnapshotsToKeep
     {
-        get => new TerraformReference<double>(this, "snapshots_to_keep");
+        get => GetArgument<TerraformValue<double>>("snapshots_to_keep");
         set => SetArgument("snapshots_to_keep", value);
     }
 
@@ -624,7 +620,7 @@ public class GoogleNetappVolumeSnapshotPolicyBlockWeeklyScheduleBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Day
     {
-        get => new TerraformReference<string>(this, "day");
+        get => GetArgument<TerraformValue<string>>("day");
         set => SetArgument("day", value);
     }
 
@@ -633,7 +629,7 @@ public class GoogleNetappVolumeSnapshotPolicyBlockWeeklyScheduleBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? Hour
     {
-        get => new TerraformReference<double>(this, "hour");
+        get => GetArgument<TerraformValue<double>>("hour");
         set => SetArgument("hour", value);
     }
 
@@ -642,7 +638,7 @@ public class GoogleNetappVolumeSnapshotPolicyBlockWeeklyScheduleBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? Minute
     {
-        get => new TerraformReference<double>(this, "minute");
+        get => GetArgument<TerraformValue<double>>("minute");
         set => SetArgument("minute", value);
     }
 
@@ -652,7 +648,7 @@ public class GoogleNetappVolumeSnapshotPolicyBlockWeeklyScheduleBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotsToKeep is required")]
     public required TerraformValue<double> SnapshotsToKeep
     {
-        get => new TerraformReference<double>(this, "snapshots_to_keep");
+        get => GetArgument<TerraformValue<double>>("snapshots_to_keep");
         set => SetArgument("snapshots_to_keep", value);
     }
 
@@ -676,7 +672,7 @@ public class GoogleNetappVolumeTieringPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? CoolingThresholdDays
     {
-        get => new TerraformReference<double>(this, "cooling_threshold_days");
+        get => GetArgument<TerraformValue<double>>("cooling_threshold_days");
         set => SetArgument("cooling_threshold_days", value);
     }
 
@@ -686,7 +682,7 @@ public class GoogleNetappVolumeTieringPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? HotTierBypassModeEnabled
     {
-        get => new TerraformReference<bool>(this, "hot_tier_bypass_mode_enabled");
+        get => GetArgument<TerraformValue<bool>>("hot_tier_bypass_mode_enabled");
         set => SetArgument("hot_tier_bypass_mode_enabled", value);
     }
 
@@ -695,7 +691,7 @@ public class GoogleNetappVolumeTieringPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TierAction
     {
-        get => new TerraformReference<string>(this, "tier_action");
+        get => GetArgument<TerraformValue<string>>("tier_action");
         set => SetArgument("tier_action", value);
     }
 
@@ -718,7 +714,7 @@ public class GoogleNetappVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -727,7 +723,7 @@ public class GoogleNetappVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -736,7 +732,7 @@ public class GoogleNetappVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -755,7 +751,7 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGib is required")]
     public required TerraformValue<string> CapacityGib
     {
-        get => new TerraformReference<string>(this, "capacity_gib");
+        get => GetArgument<TerraformValue<string>>("capacity_gib");
         set => SetArgument("capacity_gib", value);
     }
 
@@ -767,7 +763,7 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? DeletionPolicy
     {
-        get => new TerraformReference<string>(this, "deletion_policy");
+        get => GetArgument<TerraformValue<string>>("deletion_policy");
         set => SetArgument("deletion_policy", value);
     }
 
@@ -776,16 +772,16 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -794,7 +790,7 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<bool>? KerberosEnabled
     {
-        get => new TerraformReference<bool>(this, "kerberos_enabled");
+        get => GetArgument<TerraformValue<bool>>("kerberos_enabled");
         set => SetArgument("kerberos_enabled", value);
     }
 
@@ -807,7 +803,7 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -816,7 +812,7 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<bool>? LargeCapacity
     {
-        get => new TerraformReference<bool>(this, "large_capacity");
+        get => GetArgument<TerraformValue<bool>>("large_capacity");
         set => SetArgument("large_capacity", value);
     }
 
@@ -826,7 +822,7 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -836,7 +832,7 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<bool>? MultipleEndpoints
     {
-        get => new TerraformReference<bool>(this, "multiple_endpoints");
+        get => GetArgument<TerraformValue<bool>>("multiple_endpoints");
         set => SetArgument("multiple_endpoints", value);
     }
 
@@ -846,16 +842,16 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -865,7 +861,7 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocols is required")]
     public TerraformList<string>? Protocols
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "protocols").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("protocols");
         set => SetArgument("protocols", value);
     }
 
@@ -874,7 +870,7 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     /// </summary>
     public TerraformList<string>? RestrictedActions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "restricted_actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("restricted_actions");
         set => SetArgument("restricted_actions", value);
     }
 
@@ -882,9 +878,9 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     /// Security Style of the Volume. Use UNIX to use UNIX or NFSV4 ACLs for file permissions.
     /// Use NTFS to use NTFS ACLs for file permissions. Can only be set for volumes which use SMB together with NFS as protocol. Possible values: [&amp;quot;NTFS&amp;quot;, &amp;quot;UNIX&amp;quot;]
     /// </summary>
-    public TerraformValue<string> SecurityStyle
+    public TerraformValue<string>? SecurityStyle
     {
-        get => new TerraformReference<string>(this, "security_style");
+        get => GetArgument<TerraformValue<string>>("security_style");
         set => SetArgument("security_style", value);
     }
 
@@ -893,16 +889,16 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? ShareName
     {
-        get => new TerraformReference<string>(this, "share_name");
+        get => GetArgument<TerraformValue<string>>("share_name");
         set => SetArgument("share_name", value);
     }
 
     /// <summary>
     /// Settings for volumes with SMB access. Possible values: [&amp;quot;ENCRYPT_DATA&amp;quot;, &amp;quot;BROWSABLE&amp;quot;, &amp;quot;CHANGE_NOTIFY&amp;quot;, &amp;quot;NON_BROWSABLE&amp;quot;, &amp;quot;OPLOCKS&amp;quot;, &amp;quot;SHOW_SNAPSHOT&amp;quot;, &amp;quot;SHOW_PREVIOUS_VERSIONS&amp;quot;, &amp;quot;ACCESS_BASED_ENUMERATION&amp;quot;, &amp;quot;CONTINUOUSLY_AVAILABLE&amp;quot;]
     /// </summary>
-    public TerraformList<string> SmbSettings
+    public TerraformList<string>? SmbSettings
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "smb_settings").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("smb_settings");
         set => SetArgument("smb_settings", value);
     }
 
@@ -911,7 +907,7 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<bool>? SnapshotDirectory
     {
-        get => new TerraformReference<bool>(this, "snapshot_directory");
+        get => GetArgument<TerraformValue<bool>>("snapshot_directory");
         set => SetArgument("snapshot_directory", value);
     }
 
@@ -921,25 +917,25 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePool is required")]
     public required TerraformValue<string> StoragePool
     {
-        get => new TerraformReference<string>(this, "storage_pool");
+        get => GetArgument<TerraformValue<string>>("storage_pool");
         set => SetArgument("storage_pool", value);
     }
 
     /// <summary>
     /// Optional. Custom Performance Total Throughput of the pool (in MiB/s).
     /// </summary>
-    public TerraformValue<double> ThroughputMibps
+    public TerraformValue<double>? ThroughputMibps
     {
-        get => new TerraformReference<double>(this, "throughput_mibps");
+        get => GetArgument<TerraformValue<double>>("throughput_mibps");
         set => SetArgument("throughput_mibps", value);
     }
 
     /// <summary>
     /// Unix permission the mount point will be created with. Default is 0770. Applicable for UNIX security style volumes only.
     /// </summary>
-    public TerraformValue<string> UnixPermissions
+    public TerraformValue<string>? UnixPermissions
     {
-        get => new TerraformReference<string>(this, "unix_permissions");
+        get => GetArgument<TerraformValue<string>>("unix_permissions");
         set => SetArgument("unix_permissions", value);
     }
 
@@ -947,154 +943,116 @@ public partial class GoogleNetappVolume(string name) : TerraformResource("google
     /// Reports the resource name of the Active Directory policy being used. Inherited from storage pool.
     /// </summary>
     public TerraformValue<string> ActiveDirectory
-    {
-        get => new TerraformReference<string>(this, "active_directory");
-    }
+        => AsReference("active_directory");
 
     /// <summary>
     /// Output only. Size of the volume cold tier data in GiB.
     /// </summary>
     public TerraformValue<string> ColdTierSizeGib
-    {
-        get => new TerraformReference<string>(this, "cold_tier_size_gib");
-    }
+        => AsReference("cold_tier_size_gib");
 
     /// <summary>
     /// Create time of the volume. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format. Examples: &amp;quot;2023-06-22T09:13:01.617Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Reports the data-at-rest encryption type of the volume. Inherited from storage pool.
     /// </summary>
     public TerraformValue<string> EncryptionType
-    {
-        get => new TerraformReference<string>(this, "encryption_type");
-    }
+        => AsReference("encryption_type");
 
     /// <summary>
     /// Indicates whether the volume is part of a volume replication relationship.
     /// </summary>
     public TerraformValue<bool> HasReplication
-    {
-        get => new TerraformReference<bool>(this, "has_replication");
-    }
+        => AsReference("has_replication");
 
     /// <summary>
     /// Total hot tier data rounded down to the nearest GiB used by the volume. This field is only used for flex Service Level
     /// </summary>
     public TerraformValue<string> HotTierSizeUsedGib
-    {
-        get => new TerraformReference<string>(this, "hot_tier_size_used_gib");
-    }
+        => AsReference("hot_tier_size_used_gib");
 
     /// <summary>
     /// Reports the CMEK policy resurce name being used for volume encryption. Inherited from storage pool.
     /// </summary>
     public TerraformValue<string> KmsConfig
-    {
-        get => new TerraformReference<string>(this, "kms_config");
-    }
+        => AsReference("kms_config");
 
     /// <summary>
     /// Flag indicating if the volume is NFS LDAP enabled or not. Inherited from storage pool.
     /// </summary>
     public TerraformValue<bool> LdapEnabled
-    {
-        get => new TerraformReference<bool>(this, "ldap_enabled");
-    }
+        => AsReference("ldap_enabled");
 
     /// <summary>
     /// Reports mount instructions for this volume.
     /// </summary>
     public TerraformList<TerraformMap<object>> MountOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "mount_options").ResolveNodes(ctx));
-    }
+        => AsReference("mount_options");
 
     /// <summary>
     /// VPC network name with format: &#39;projects/{{project}}/global/networks/{{network}}&#39;. Inherited from storage pool.
     /// </summary>
     public TerraformValue<string> Network
-    {
-        get => new TerraformReference<string>(this, "network");
-    }
+        => AsReference("network");
 
     /// <summary>
     /// Name of the Private Service Access allocated range. Inherited from storage pool.
     /// </summary>
     public TerraformValue<string> PsaRange
-    {
-        get => new TerraformReference<string>(this, "psa_range");
-    }
+        => AsReference("psa_range");
 
     /// <summary>
     /// Specifies the replica zone for regional volume.
     /// </summary>
     public TerraformValue<string> ReplicaZone
-    {
-        get => new TerraformReference<string>(this, "replica_zone");
-    }
+        => AsReference("replica_zone");
 
     /// <summary>
     /// Service level of the volume. Inherited from storage pool. Supported values are : PREMIUM, EXTREME, STANDARD, FLEX.
     /// </summary>
     public TerraformValue<string> ServiceLevel
-    {
-        get => new TerraformReference<string>(this, "service_level");
-    }
+        => AsReference("service_level");
 
     /// <summary>
     /// State of the volume.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// State details of the volume.
     /// </summary>
     public TerraformValue<string> StateDetails
-    {
-        get => new TerraformReference<string>(this, "state_details");
-    }
+        => AsReference("state_details");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Used capacity of the volume (in GiB). This is computed periodically and it does not represent the realtime usage.
     /// </summary>
     public TerraformValue<string> UsedGib
-    {
-        get => new TerraformReference<string>(this, "used_gib");
-    }
+        => AsReference("used_gib");
 
     /// <summary>
     /// Specifies the active zone for regional volume.
     /// </summary>
     public TerraformValue<string> Zone
-    {
-        get => new TerraformReference<string>(this, "zone");
-    }
+        => AsReference("zone");
 
     /// <summary>
     /// BackupConfig block (nesting mode: list).

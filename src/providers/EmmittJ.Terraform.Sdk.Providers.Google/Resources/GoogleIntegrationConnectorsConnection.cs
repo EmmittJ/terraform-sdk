@@ -18,7 +18,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? AuthKey
     {
-        get => new TerraformReference<string>(this, "auth_key");
+        get => GetArgument<TerraformValue<string>>("auth_key");
         set => SetArgument("auth_key", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformValue<string> AuthType
     {
-        get => new TerraformReference<string>(this, "auth_type");
+        get => GetArgument<TerraformValue<string>>("auth_type");
         set => SetArgument("auth_type", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockAdditionalVaria
     /// </summary>
     public TerraformValue<bool>? BooleanValue
     {
-        get => new TerraformReference<bool>(this, "boolean_value");
+        get => GetArgument<TerraformValue<bool>>("boolean_value");
         set => SetArgument("boolean_value", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockAdditionalVaria
     /// </summary>
     public TerraformValue<double>? IntegerValue
     {
-        get => new TerraformReference<double>(this, "integer_value");
+        get => GetArgument<TerraformValue<double>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -128,7 +128,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockAdditionalVaria
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -137,7 +137,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockAdditionalVaria
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -181,7 +181,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockAdditionalVaria
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -191,7 +191,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockAdditionalVaria
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -214,7 +214,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockAdditionalVaria
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -236,7 +236,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockOauth2AuthCodeF
     /// </summary>
     public TerraformValue<string>? AuthUri
     {
-        get => new TerraformReference<string>(this, "auth_uri");
+        get => GetArgument<TerraformValue<string>>("auth_uri");
         set => SetArgument("auth_uri", value);
     }
 
@@ -245,7 +245,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockOauth2AuthCodeF
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -254,7 +254,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockOauth2AuthCodeF
     /// </summary>
     public TerraformValue<bool>? EnablePkce
     {
-        get => new TerraformReference<bool>(this, "enable_pkce");
+        get => GetArgument<TerraformValue<bool>>("enable_pkce");
         set => SetArgument("enable_pkce", value);
     }
 
@@ -263,7 +263,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockOauth2AuthCodeF
     /// </summary>
     public TerraformList<string>? Scopes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("scopes");
         set => SetArgument("scopes", value);
     }
 
@@ -297,7 +297,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockOauth2AuthCodeF
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -320,7 +320,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockOauth2ClientCre
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -354,7 +354,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockOauth2ClientCre
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -411,7 +411,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockOauth2JwtBearer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -433,7 +433,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockOauth2JwtBearer
     /// </summary>
     public TerraformValue<string>? Audience
     {
-        get => new TerraformReference<string>(this, "audience");
+        get => GetArgument<TerraformValue<string>>("audience");
         set => SetArgument("audience", value);
     }
 
@@ -442,7 +442,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockOauth2JwtBearer
     /// </summary>
     public TerraformValue<string>? Issuer
     {
-        get => new TerraformReference<string>(this, "issuer");
+        get => GetArgument<TerraformValue<string>>("issuer");
         set => SetArgument("issuer", value);
     }
 
@@ -451,7 +451,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockOauth2JwtBearer
     /// </summary>
     public TerraformValue<string>? Subject
     {
-        get => new TerraformReference<string>(this, "subject");
+        get => GetArgument<TerraformValue<string>>("subject");
         set => SetArgument("subject", value);
     }
 
@@ -473,7 +473,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockSshPublicKeyBlo
     /// </summary>
     public TerraformValue<string>? CertType
     {
-        get => new TerraformReference<string>(this, "cert_type");
+        get => GetArgument<TerraformValue<string>>("cert_type");
         set => SetArgument("cert_type", value);
     }
 
@@ -483,7 +483,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockSshPublicKeyBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -527,7 +527,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockSshPublicKeyBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -551,7 +551,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockSshPublicKeyBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -574,7 +574,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockUserPasswordBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -608,7 +608,7 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlockUserPasswordBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -631,7 +631,7 @@ public class GoogleIntegrationConnectorsConnectionConfigVariableBlock : Terrafor
     /// </summary>
     public TerraformValue<bool>? BooleanValue
     {
-        get => new TerraformReference<bool>(this, "boolean_value");
+        get => GetArgument<TerraformValue<bool>>("boolean_value");
         set => SetArgument("boolean_value", value);
     }
 
@@ -640,7 +640,7 @@ public class GoogleIntegrationConnectorsConnectionConfigVariableBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? IntegerValue
     {
-        get => new TerraformReference<double>(this, "integer_value");
+        get => GetArgument<TerraformValue<double>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -650,7 +650,7 @@ public class GoogleIntegrationConnectorsConnectionConfigVariableBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -659,7 +659,7 @@ public class GoogleIntegrationConnectorsConnectionConfigVariableBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -703,7 +703,7 @@ public class GoogleIntegrationConnectorsConnectionConfigVariableBlockEncryptionK
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -713,7 +713,7 @@ public class GoogleIntegrationConnectorsConnectionConfigVariableBlockEncryptionK
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -736,7 +736,7 @@ public class GoogleIntegrationConnectorsConnectionConfigVariableBlockSecretValue
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -760,7 +760,7 @@ public class GoogleIntegrationConnectorsConnectionDestinationConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -791,7 +791,7 @@ public class GoogleIntegrationConnectorsConnectionDestinationConfigBlockDestinat
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -800,7 +800,7 @@ public class GoogleIntegrationConnectorsConnectionDestinationConfigBlockDestinat
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -809,7 +809,7 @@ public class GoogleIntegrationConnectorsConnectionDestinationConfigBlockDestinat
     /// </summary>
     public TerraformValue<string>? ServiceAttachment
     {
-        get => new TerraformReference<string>(this, "service_attachment");
+        get => GetArgument<TerraformValue<string>>("service_attachment");
         set => SetArgument("service_attachment", value);
     }
 
@@ -832,7 +832,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlock : Terrafor
     /// </summary>
     public TerraformValue<bool>? EnrichmentEnabled
     {
-        get => new TerraformReference<bool>(this, "enrichment_enabled");
+        get => GetArgument<TerraformValue<bool>>("enrichment_enabled");
         set => SetArgument("enrichment_enabled", value);
     }
 
@@ -886,7 +886,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockAdditionalV
     /// </summary>
     public TerraformValue<bool>? BooleanValue
     {
-        get => new TerraformReference<bool>(this, "boolean_value");
+        get => GetArgument<TerraformValue<bool>>("boolean_value");
         set => SetArgument("boolean_value", value);
     }
 
@@ -895,7 +895,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockAdditionalV
     /// </summary>
     public TerraformValue<double>? IntegerValue
     {
-        get => new TerraformReference<double>(this, "integer_value");
+        get => GetArgument<TerraformValue<double>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -905,7 +905,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockAdditionalV
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -914,7 +914,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockAdditionalV
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -958,7 +958,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockAdditionalV
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -967,7 +967,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockAdditionalV
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -990,7 +990,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockAdditionalV
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -1012,7 +1012,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockAuthConfigB
     /// </summary>
     public TerraformValue<string>? AuthKey
     {
-        get => new TerraformReference<string>(this, "auth_key");
+        get => GetArgument<TerraformValue<string>>("auth_key");
         set => SetArgument("auth_key", value);
     }
 
@@ -1022,7 +1022,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockAuthConfigB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformValue<string> AuthType
     {
-        get => new TerraformReference<string>(this, "auth_type");
+        get => GetArgument<TerraformValue<string>>("auth_type");
         set => SetArgument("auth_type", value);
     }
 
@@ -1066,7 +1066,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockAuthConfigB
     /// </summary>
     public TerraformValue<bool>? BooleanValue
     {
-        get => new TerraformReference<bool>(this, "boolean_value");
+        get => GetArgument<TerraformValue<bool>>("boolean_value");
         set => SetArgument("boolean_value", value);
     }
 
@@ -1075,7 +1075,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockAuthConfigB
     /// </summary>
     public TerraformValue<double>? IntegerValue
     {
-        get => new TerraformReference<double>(this, "integer_value");
+        get => GetArgument<TerraformValue<double>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -1085,7 +1085,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockAuthConfigB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1094,7 +1094,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockAuthConfigB
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -1138,7 +1138,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockAuthConfigB
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -1147,7 +1147,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockAuthConfigB
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1170,7 +1170,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockAuthConfigB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -1192,7 +1192,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockAuthConfigB
     /// </summary>
     public TerraformValue<string>? Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -1226,7 +1226,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockAuthConfigB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -1248,7 +1248,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockRegistratio
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1279,7 +1279,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockRegistratio
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -1288,7 +1288,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockRegistratio
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -1297,7 +1297,7 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlockRegistratio
     /// </summary>
     public TerraformValue<string>? ServiceAttachment
     {
-        get => new TerraformReference<string>(this, "service_attachment");
+        get => GetArgument<TerraformValue<string>>("service_attachment");
         set => SetArgument("service_attachment", value);
     }
 
@@ -1321,7 +1321,7 @@ public class GoogleIntegrationConnectorsConnectionLockConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Locked is required")]
     public required TerraformValue<bool> Locked
     {
-        get => new TerraformReference<bool>(this, "locked");
+        get => GetArgument<TerraformValue<bool>>("locked");
         set => SetArgument("locked", value);
     }
 
@@ -1330,7 +1330,7 @@ public class GoogleIntegrationConnectorsConnectionLockConfigBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Reason
     {
-        get => new TerraformReference<string>(this, "reason");
+        get => GetArgument<TerraformValue<string>>("reason");
         set => SetArgument("reason", value);
     }
 
@@ -1354,16 +1354,16 @@ public class GoogleIntegrationConnectorsConnectionLogConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// Log configuration level. Possible values: [&amp;quot;LOG_LEVEL_UNSPECIFIED&amp;quot;, &amp;quot;ERROR&amp;quot;, &amp;quot;INFO&amp;quot;, &amp;quot;DEBUG&amp;quot;]
     /// </summary>
-    public TerraformValue<string> Level
+    public TerraformValue<string>? Level
     {
-        get => new TerraformReference<string>(this, "level");
+        get => GetArgument<TerraformValue<string>>("level");
         set => SetArgument("level", value);
     }
 
@@ -1384,18 +1384,18 @@ public class GoogleIntegrationConnectorsConnectionNodeConfigBlock : TerraformBlo
     /// <summary>
     /// Minimum number of nodes in the runtime nodes.
     /// </summary>
-    public TerraformValue<double> MaxNodeCount
+    public TerraformValue<double>? MaxNodeCount
     {
-        get => new TerraformReference<double>(this, "max_node_count");
+        get => GetArgument<TerraformValue<double>>("max_node_count");
         set => SetArgument("max_node_count", value);
     }
 
     /// <summary>
     /// Minimum number of nodes in the runtime nodes.
     /// </summary>
-    public TerraformValue<double> MinNodeCount
+    public TerraformValue<double>? MinNodeCount
     {
-        get => new TerraformReference<double>(this, "min_node_count");
+        get => GetArgument<TerraformValue<double>>("min_node_count");
         set => SetArgument("min_node_count", value);
     }
 
@@ -1418,7 +1418,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? ClientCertType
     {
-        get => new TerraformReference<string>(this, "client_cert_type");
+        get => GetArgument<TerraformValue<string>>("client_cert_type");
         set => SetArgument("client_cert_type", value);
     }
 
@@ -1427,7 +1427,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? ServerCertType
     {
-        get => new TerraformReference<string>(this, "server_cert_type");
+        get => GetArgument<TerraformValue<string>>("server_cert_type");
         set => SetArgument("server_cert_type", value);
     }
 
@@ -1436,7 +1436,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? TrustModel
     {
-        get => new TerraformReference<string>(this, "trust_model");
+        get => GetArgument<TerraformValue<string>>("trust_model");
         set => SetArgument("trust_model", value);
     }
 
@@ -1446,7 +1446,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1455,7 +1455,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool>? UseSsl
     {
-        get => new TerraformReference<bool>(this, "use_ssl");
+        get => GetArgument<TerraformValue<bool>>("use_ssl");
         set => SetArgument("use_ssl", value);
     }
 
@@ -1526,7 +1526,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlockAdditionalVariab
     /// </summary>
     public TerraformValue<bool>? BooleanValue
     {
-        get => new TerraformReference<bool>(this, "boolean_value");
+        get => GetArgument<TerraformValue<bool>>("boolean_value");
         set => SetArgument("boolean_value", value);
     }
 
@@ -1535,7 +1535,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlockAdditionalVariab
     /// </summary>
     public TerraformValue<double>? IntegerValue
     {
-        get => new TerraformReference<double>(this, "integer_value");
+        get => GetArgument<TerraformValue<double>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -1545,7 +1545,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlockAdditionalVariab
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1554,7 +1554,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlockAdditionalVariab
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -1598,7 +1598,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlockAdditionalVariab
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -1607,7 +1607,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlockAdditionalVariab
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1630,7 +1630,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlockAdditionalVariab
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -1653,7 +1653,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlockClientCertificat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -1676,7 +1676,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlockClientPrivateKey
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -1699,7 +1699,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlockClientPrivateKey
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -1722,7 +1722,7 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlockPrivateServerCer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -1745,7 +1745,7 @@ public class GoogleIntegrationConnectorsConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1754,7 +1754,7 @@ public class GoogleIntegrationConnectorsConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1763,7 +1763,7 @@ public class GoogleIntegrationConnectorsConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1782,7 +1782,7 @@ public partial class GoogleIntegrationConnectorsConnection(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorVersion is required")]
     public required TerraformValue<string> ConnectorVersion
     {
-        get => new TerraformReference<string>(this, "connector_version");
+        get => GetArgument<TerraformValue<string>>("connector_version");
         set => SetArgument("connector_version", value);
     }
 
@@ -1791,7 +1791,7 @@ public partial class GoogleIntegrationConnectorsConnection(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -1800,16 +1800,16 @@ public partial class GoogleIntegrationConnectorsConnection(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? EventingEnablementType
     {
-        get => new TerraformReference<string>(this, "eventing_enablement_type");
+        get => GetArgument<TerraformValue<string>>("eventing_enablement_type");
         set => SetArgument("eventing_enablement_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1822,7 +1822,7 @@ public partial class GoogleIntegrationConnectorsConnection(string name) : Terraf
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -1832,7 +1832,7 @@ public partial class GoogleIntegrationConnectorsConnection(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1842,25 +1842,25 @@ public partial class GoogleIntegrationConnectorsConnection(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Service account needed for runtime plane to access Google Cloud resources.
     /// </summary>
-    public TerraformValue<string> ServiceAccount
+    public TerraformValue<string>? ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -1869,7 +1869,7 @@ public partial class GoogleIntegrationConnectorsConnection(string name) : Terraf
     /// </summary>
     public TerraformValue<bool>? Suspended
     {
-        get => new TerraformReference<bool>(this, "suspended");
+        get => GetArgument<TerraformValue<bool>>("suspended");
         set => SetArgument("suspended", value);
     }
 
@@ -1877,91 +1877,69 @@ public partial class GoogleIntegrationConnectorsConnection(string name) : Terraf
     /// Connection revision. This field is only updated when the connection is created or updated by User.
     /// </summary>
     public TerraformValue<string> ConnectionRevision
-    {
-        get => new TerraformReference<string>(this, "connection_revision");
-    }
+        => AsReference("connection_revision");
 
     /// <summary>
     /// This configuration provides infra configs like rate limit threshold which need to be configurable for every connector version.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConnectorVersionInfraConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "connector_version_infra_config").ResolveNodes(ctx));
-    }
+        => AsReference("connector_version_infra_config");
 
     /// <summary>
     /// Flag to mark the version indicating the launch stage.
     /// </summary>
     public TerraformValue<string> ConnectorVersionLaunchStage
-    {
-        get => new TerraformReference<string>(this, "connector_version_launch_stage");
-    }
+        => AsReference("connector_version_launch_stage");
 
     /// <summary>
     /// Time the Namespace was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Eventing Runtime Data.
     /// </summary>
     public TerraformList<TerraformMap<object>> EventingRuntimeData
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "eventing_runtime_data").ResolveNodes(ctx));
-    }
+        => AsReference("eventing_runtime_data");
 
     /// <summary>
     /// The name of the Service Directory service name. Used for Private Harpoon to resolve the ILB address.
     /// e.g. &amp;quot;projects/cloud-connectors-e2e-testing/locations/us-central1/namespaces/istio-system/services/istio-ingressgateway-connectors&amp;quot;
     /// </summary>
     public TerraformValue<string> ServiceDirectory
-    {
-        get => new TerraformReference<string>(this, "service_directory");
-    }
+        => AsReference("service_directory");
 
     /// <summary>
     /// Status of the Integration Connector.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "status").ResolveNodes(ctx));
-    }
+        => AsReference("status");
 
     /// <summary>
     /// This subscription type enum states the subscription type of the project.
     /// </summary>
     public TerraformValue<string> SubscriptionType
-    {
-        get => new TerraformReference<string>(this, "subscription_type");
-    }
+        => AsReference("subscription_type");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Time the Namespace was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// AuthConfig block (nesting mode: list).

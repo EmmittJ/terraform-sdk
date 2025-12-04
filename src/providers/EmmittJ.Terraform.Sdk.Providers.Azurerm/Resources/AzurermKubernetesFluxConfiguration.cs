@@ -18,7 +18,7 @@ public class AzurermKubernetesFluxConfigurationBlobStorageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AccountKey
     {
-        get => new TerraformReference<string>(this, "account_key");
+        get => GetArgument<TerraformValue<string>>("account_key");
         set => SetArgument("account_key", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermKubernetesFluxConfigurationBlobStorageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerId is required")]
     public required TerraformValue<string> ContainerId
     {
-        get => new TerraformReference<string>(this, "container_id");
+        get => GetArgument<TerraformValue<string>>("container_id");
         set => SetArgument("container_id", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermKubernetesFluxConfigurationBlobStorageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LocalAuthReference
     {
-        get => new TerraformReference<string>(this, "local_auth_reference");
+        get => GetArgument<TerraformValue<string>>("local_auth_reference");
         set => SetArgument("local_auth_reference", value);
     }
 
@@ -46,7 +46,7 @@ public class AzurermKubernetesFluxConfigurationBlobStorageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SasToken
     {
-        get => new TerraformReference<string>(this, "sas_token");
+        get => GetArgument<TerraformValue<string>>("sas_token");
         set => SetArgument("sas_token", value);
     }
 
@@ -55,7 +55,7 @@ public class AzurermKubernetesFluxConfigurationBlobStorageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SyncIntervalInSeconds
     {
-        get => new TerraformReference<double>(this, "sync_interval_in_seconds");
+        get => GetArgument<TerraformValue<double>>("sync_interval_in_seconds");
         set => SetArgument("sync_interval_in_seconds", value);
     }
 
@@ -64,7 +64,7 @@ public class AzurermKubernetesFluxConfigurationBlobStorageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? TimeoutInSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_in_seconds");
         set => SetArgument("timeout_in_seconds", value);
     }
 
@@ -107,7 +107,7 @@ public class AzurermKubernetesFluxConfigurationBlobStorageBlockManagedIdentityBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -129,7 +129,7 @@ public class AzurermKubernetesFluxConfigurationBlobStorageBlockServicePrincipalB
     /// </summary>
     public TerraformValue<string>? ClientCertificateBase64
     {
-        get => new TerraformReference<string>(this, "client_certificate_base64");
+        get => GetArgument<TerraformValue<string>>("client_certificate_base64");
         set => SetArgument("client_certificate_base64", value);
     }
 
@@ -138,7 +138,7 @@ public class AzurermKubernetesFluxConfigurationBlobStorageBlockServicePrincipalB
     /// </summary>
     public TerraformValue<string>? ClientCertificatePassword
     {
-        get => new TerraformReference<string>(this, "client_certificate_password");
+        get => GetArgument<TerraformValue<string>>("client_certificate_password");
         set => SetArgument("client_certificate_password", value);
     }
 
@@ -147,7 +147,7 @@ public class AzurermKubernetesFluxConfigurationBlobStorageBlockServicePrincipalB
     /// </summary>
     public TerraformValue<bool>? ClientCertificateSendChain
     {
-        get => new TerraformReference<bool>(this, "client_certificate_send_chain");
+        get => GetArgument<TerraformValue<bool>>("client_certificate_send_chain");
         set => SetArgument("client_certificate_send_chain", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermKubernetesFluxConfigurationBlobStorageBlockServicePrincipalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -166,7 +166,7 @@ public class AzurermKubernetesFluxConfigurationBlobStorageBlockServicePrincipalB
     /// </summary>
     public TerraformValue<string>? ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -176,7 +176,7 @@ public class AzurermKubernetesFluxConfigurationBlobStorageBlockServicePrincipalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -199,7 +199,7 @@ public class AzurermKubernetesFluxConfigurationBucketBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AccessKey
     {
-        get => new TerraformReference<string>(this, "access_key");
+        get => GetArgument<TerraformValue<string>>("access_key");
         set => SetArgument("access_key", value);
     }
 
@@ -209,7 +209,7 @@ public class AzurermKubernetesFluxConfigurationBucketBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -218,7 +218,7 @@ public class AzurermKubernetesFluxConfigurationBucketBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LocalAuthReference
     {
-        get => new TerraformReference<string>(this, "local_auth_reference");
+        get => GetArgument<TerraformValue<string>>("local_auth_reference");
         set => SetArgument("local_auth_reference", value);
     }
 
@@ -227,7 +227,7 @@ public class AzurermKubernetesFluxConfigurationBucketBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SecretKeyBase64
     {
-        get => new TerraformReference<string>(this, "secret_key_base64");
+        get => GetArgument<TerraformValue<string>>("secret_key_base64");
         set => SetArgument("secret_key_base64", value);
     }
 
@@ -236,7 +236,7 @@ public class AzurermKubernetesFluxConfigurationBucketBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SyncIntervalInSeconds
     {
-        get => new TerraformReference<double>(this, "sync_interval_in_seconds");
+        get => GetArgument<TerraformValue<double>>("sync_interval_in_seconds");
         set => SetArgument("sync_interval_in_seconds", value);
     }
 
@@ -245,7 +245,7 @@ public class AzurermKubernetesFluxConfigurationBucketBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? TimeoutInSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_in_seconds");
         set => SetArgument("timeout_in_seconds", value);
     }
 
@@ -254,7 +254,7 @@ public class AzurermKubernetesFluxConfigurationBucketBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? TlsEnabled
     {
-        get => new TerraformReference<bool>(this, "tls_enabled");
+        get => GetArgument<TerraformValue<bool>>("tls_enabled");
         set => SetArgument("tls_enabled", value);
     }
 
@@ -264,7 +264,7 @@ public class AzurermKubernetesFluxConfigurationBucketBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -287,7 +287,7 @@ public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? HttpsCaCertBase64
     {
-        get => new TerraformReference<string>(this, "https_ca_cert_base64");
+        get => GetArgument<TerraformValue<string>>("https_ca_cert_base64");
         set => SetArgument("https_ca_cert_base64", value);
     }
 
@@ -296,7 +296,7 @@ public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? HttpsKeyBase64
     {
-        get => new TerraformReference<string>(this, "https_key_base64");
+        get => GetArgument<TerraformValue<string>>("https_key_base64");
         set => SetArgument("https_key_base64", value);
     }
 
@@ -305,7 +305,7 @@ public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? HttpsUser
     {
-        get => new TerraformReference<string>(this, "https_user");
+        get => GetArgument<TerraformValue<string>>("https_user");
         set => SetArgument("https_user", value);
     }
 
@@ -314,7 +314,7 @@ public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? LocalAuthReference
     {
-        get => new TerraformReference<string>(this, "local_auth_reference");
+        get => GetArgument<TerraformValue<string>>("local_auth_reference");
         set => SetArgument("local_auth_reference", value);
     }
 
@@ -323,7 +323,7 @@ public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? ProviderAttribute
     {
-        get => new TerraformReference<string>(this, "provider");
+        get => GetArgument<TerraformValue<string>>("provider");
         set => SetArgument("provider", value);
     }
 
@@ -333,7 +333,7 @@ public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReferenceType is required")]
     public required TerraformValue<string> ReferenceType
     {
-        get => new TerraformReference<string>(this, "reference_type");
+        get => GetArgument<TerraformValue<string>>("reference_type");
         set => SetArgument("reference_type", value);
     }
 
@@ -343,7 +343,7 @@ public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReferenceValue is required")]
     public required TerraformValue<string> ReferenceValue
     {
-        get => new TerraformReference<string>(this, "reference_value");
+        get => GetArgument<TerraformValue<string>>("reference_value");
         set => SetArgument("reference_value", value);
     }
 
@@ -352,7 +352,7 @@ public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? SshKnownHostsBase64
     {
-        get => new TerraformReference<string>(this, "ssh_known_hosts_base64");
+        get => GetArgument<TerraformValue<string>>("ssh_known_hosts_base64");
         set => SetArgument("ssh_known_hosts_base64", value);
     }
 
@@ -361,7 +361,7 @@ public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? SshPrivateKeyBase64
     {
-        get => new TerraformReference<string>(this, "ssh_private_key_base64");
+        get => GetArgument<TerraformValue<string>>("ssh_private_key_base64");
         set => SetArgument("ssh_private_key_base64", value);
     }
 
@@ -370,7 +370,7 @@ public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : TerraformBlo
     /// </summary>
     public TerraformValue<double>? SyncIntervalInSeconds
     {
-        get => new TerraformReference<double>(this, "sync_interval_in_seconds");
+        get => GetArgument<TerraformValue<double>>("sync_interval_in_seconds");
         set => SetArgument("sync_interval_in_seconds", value);
     }
 
@@ -379,7 +379,7 @@ public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : TerraformBlo
     /// </summary>
     public TerraformValue<double>? TimeoutInSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_in_seconds");
         set => SetArgument("timeout_in_seconds", value);
     }
 
@@ -389,7 +389,7 @@ public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -412,7 +412,7 @@ public class AzurermKubernetesFluxConfigurationKustomizationsBlock : TerraformBl
     /// </summary>
     public TerraformList<string>? DependsOnAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "depends_on").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("depends_on");
         set => SetArgument("depends_on", value);
     }
 
@@ -421,7 +421,7 @@ public class AzurermKubernetesFluxConfigurationKustomizationsBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? GarbageCollectionEnabled
     {
-        get => new TerraformReference<bool>(this, "garbage_collection_enabled");
+        get => GetArgument<TerraformValue<bool>>("garbage_collection_enabled");
         set => SetArgument("garbage_collection_enabled", value);
     }
 
@@ -431,7 +431,7 @@ public class AzurermKubernetesFluxConfigurationKustomizationsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -440,7 +440,7 @@ public class AzurermKubernetesFluxConfigurationKustomizationsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -449,7 +449,7 @@ public class AzurermKubernetesFluxConfigurationKustomizationsBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? RecreatingEnabled
     {
-        get => new TerraformReference<bool>(this, "recreating_enabled");
+        get => GetArgument<TerraformValue<bool>>("recreating_enabled");
         set => SetArgument("recreating_enabled", value);
     }
 
@@ -458,7 +458,7 @@ public class AzurermKubernetesFluxConfigurationKustomizationsBlock : TerraformBl
     /// </summary>
     public TerraformValue<double>? RetryIntervalInSeconds
     {
-        get => new TerraformReference<double>(this, "retry_interval_in_seconds");
+        get => GetArgument<TerraformValue<double>>("retry_interval_in_seconds");
         set => SetArgument("retry_interval_in_seconds", value);
     }
 
@@ -467,7 +467,7 @@ public class AzurermKubernetesFluxConfigurationKustomizationsBlock : TerraformBl
     /// </summary>
     public TerraformValue<double>? SyncIntervalInSeconds
     {
-        get => new TerraformReference<double>(this, "sync_interval_in_seconds");
+        get => GetArgument<TerraformValue<double>>("sync_interval_in_seconds");
         set => SetArgument("sync_interval_in_seconds", value);
     }
 
@@ -476,7 +476,7 @@ public class AzurermKubernetesFluxConfigurationKustomizationsBlock : TerraformBl
     /// </summary>
     public TerraformValue<double>? TimeoutInSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_in_seconds");
         set => SetArgument("timeout_in_seconds", value);
     }
 
@@ -485,7 +485,7 @@ public class AzurermKubernetesFluxConfigurationKustomizationsBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? Wait
     {
-        get => new TerraformReference<bool>(this, "wait");
+        get => GetArgument<TerraformValue<bool>>("wait");
         set => SetArgument("wait", value);
     }
 
@@ -517,7 +517,7 @@ public class AzurermKubernetesFluxConfigurationKustomizationsBlockPostBuildBlock
     /// </summary>
     public TerraformMap<string>? Substitute
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "substitute").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("substitute");
         set => SetArgument("substitute", value);
     }
 
@@ -549,7 +549,7 @@ public class AzurermKubernetesFluxConfigurationKustomizationsBlockPostBuildBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     public required TerraformValue<string> Kind
     {
-        get => new TerraformReference<string>(this, "kind");
+        get => GetArgument<TerraformValue<string>>("kind");
         set => SetArgument("kind", value);
     }
 
@@ -559,7 +559,7 @@ public class AzurermKubernetesFluxConfigurationKustomizationsBlockPostBuildBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -568,7 +568,7 @@ public class AzurermKubernetesFluxConfigurationKustomizationsBlockPostBuildBlock
     /// </summary>
     public TerraformValue<bool>? Optional
     {
-        get => new TerraformReference<bool>(this, "optional");
+        get => GetArgument<TerraformValue<bool>>("optional");
         set => SetArgument("optional", value);
     }
 
@@ -591,7 +591,7 @@ public class AzurermKubernetesFluxConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -600,7 +600,7 @@ public class AzurermKubernetesFluxConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -609,7 +609,7 @@ public class AzurermKubernetesFluxConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -618,7 +618,7 @@ public class AzurermKubernetesFluxConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -637,7 +637,7 @@ public partial class AzurermKubernetesFluxConfiguration(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => new TerraformReference<string>(this, "cluster_id");
+        get => GetArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
@@ -646,16 +646,16 @@ public partial class AzurermKubernetesFluxConfiguration(string name) : Terraform
     /// </summary>
     public TerraformValue<bool>? ContinuousReconciliationEnabled
     {
-        get => new TerraformReference<bool>(this, "continuous_reconciliation_enabled");
+        get => GetArgument<TerraformValue<bool>>("continuous_reconciliation_enabled");
         set => SetArgument("continuous_reconciliation_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -665,7 +665,7 @@ public partial class AzurermKubernetesFluxConfiguration(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -675,7 +675,7 @@ public partial class AzurermKubernetesFluxConfiguration(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceAttribute is required")]
     public required TerraformValue<string> NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -684,7 +684,7 @@ public partial class AzurermKubernetesFluxConfiguration(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 

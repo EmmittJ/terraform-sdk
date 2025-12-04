@@ -45,7 +45,7 @@ public class AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlockFirewallBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorFirewallPolicyId is required")]
     public required TerraformValue<string> CdnFrontdoorFirewallPolicyId
     {
-        get => new TerraformReference<string>(this, "cdn_frontdoor_firewall_policy_id");
+        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_firewall_policy_id");
         set => SetArgument("cdn_frontdoor_firewall_policy_id", value);
     }
 
@@ -81,7 +81,7 @@ public class AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlockFirewallBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatternsToMatch is required")]
     public TerraformList<string>? PatternsToMatch
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "patterns_to_match").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("patterns_to_match");
         set => SetArgument("patterns_to_match", value);
     }
 
@@ -115,9 +115,7 @@ public class AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlockFirewallBlock
     /// The active attribute.
     /// </summary>
     public TerraformValue<bool> Active
-    {
-        get => new TerraformReference<bool>(this, "active");
-    }
+        => AsReference("active");
 
     /// <summary>
     /// The cdn_frontdoor_domain_id attribute.
@@ -125,7 +123,7 @@ public class AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlockFirewallBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorDomainId is required")]
     public required TerraformValue<string> CdnFrontdoorDomainId
     {
-        get => new TerraformReference<string>(this, "cdn_frontdoor_domain_id");
+        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_domain_id");
         set => SetArgument("cdn_frontdoor_domain_id", value);
     }
 
@@ -148,7 +146,7 @@ public class AzurermCdnFrontdoorSecurityPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -157,7 +155,7 @@ public class AzurermCdnFrontdoorSecurityPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -166,7 +164,7 @@ public class AzurermCdnFrontdoorSecurityPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -175,7 +173,7 @@ public class AzurermCdnFrontdoorSecurityPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -194,16 +192,16 @@ public partial class AzurermCdnFrontdoorSecurityPolicy(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorProfileId is required")]
     public required TerraformValue<string> CdnFrontdoorProfileId
     {
-        get => new TerraformReference<string>(this, "cdn_frontdoor_profile_id");
+        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_profile_id");
         set => SetArgument("cdn_frontdoor_profile_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -213,7 +211,7 @@ public partial class AzurermCdnFrontdoorSecurityPolicy(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

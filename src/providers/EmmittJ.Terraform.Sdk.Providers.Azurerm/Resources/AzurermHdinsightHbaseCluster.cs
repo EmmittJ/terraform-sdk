@@ -19,7 +19,7 @@ public class AzurermHdinsightHbaseClusterComponentVersionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hbase is required")]
     public required TerraformValue<string> Hbase
     {
-        get => new TerraformReference<string>(this, "hbase");
+        get => GetArgument<TerraformValue<string>>("hbase");
         set => SetArgument("hbase", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermHdinsightHbaseClusterComputeIsolationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ComputeIsolationEnabled
     {
-        get => new TerraformReference<bool>(this, "compute_isolation_enabled");
+        get => GetArgument<TerraformValue<bool>>("compute_isolation_enabled");
         set => SetArgument("compute_isolation_enabled", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermHdinsightHbaseClusterComputeIsolationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? HostSku
     {
-        get => new TerraformReference<string>(this, "host_sku");
+        get => GetArgument<TerraformValue<string>>("host_sku");
         set => SetArgument("host_sku", value);
     }
 
@@ -74,7 +74,7 @@ public class AzurermHdinsightHbaseClusterDiskEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EncryptionAlgorithm
     {
-        get => new TerraformReference<string>(this, "encryption_algorithm");
+        get => GetArgument<TerraformValue<string>>("encryption_algorithm");
         set => SetArgument("encryption_algorithm", value);
     }
 
@@ -83,7 +83,7 @@ public class AzurermHdinsightHbaseClusterDiskEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EncryptionAtHostEnabled
     {
-        get => new TerraformReference<bool>(this, "encryption_at_host_enabled");
+        get => GetArgument<TerraformValue<bool>>("encryption_at_host_enabled");
         set => SetArgument("encryption_at_host_enabled", value);
     }
 
@@ -92,7 +92,7 @@ public class AzurermHdinsightHbaseClusterDiskEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KeyVaultKeyId
     {
-        get => new TerraformReference<string>(this, "key_vault_key_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_key_id");
         set => SetArgument("key_vault_key_id", value);
     }
 
@@ -101,7 +101,7 @@ public class AzurermHdinsightHbaseClusterDiskEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KeyVaultManagedIdentityId
     {
-        get => new TerraformReference<string>(this, "key_vault_managed_identity_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_managed_identity_id");
         set => SetArgument("key_vault_managed_identity_id", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermHdinsightHbaseClusterExtensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
-        get => new TerraformReference<string>(this, "log_analytics_workspace_id");
+        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
@@ -135,7 +135,7 @@ public class AzurermHdinsightHbaseClusterExtensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKey is required")]
     public required TerraformValue<string> PrimaryKey
     {
-        get => new TerraformReference<string>(this, "primary_key");
+        get => GetArgument<TerraformValue<string>>("primary_key");
         set => SetArgument("primary_key", value);
     }
 
@@ -159,7 +159,7 @@ public class AzurermHdinsightHbaseClusterGatewayBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermHdinsightHbaseClusterGatewayBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -236,7 +236,7 @@ public class AzurermHdinsightHbaseClusterMetastoresBlockAmbariBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -246,7 +246,7 @@ public class AzurermHdinsightHbaseClusterMetastoresBlockAmbariBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -256,7 +256,7 @@ public class AzurermHdinsightHbaseClusterMetastoresBlockAmbariBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformValue<string> Server
     {
-        get => new TerraformReference<string>(this, "server");
+        get => GetArgument<TerraformValue<string>>("server");
         set => SetArgument("server", value);
     }
 
@@ -266,7 +266,7 @@ public class AzurermHdinsightHbaseClusterMetastoresBlockAmbariBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -289,7 +289,7 @@ public class AzurermHdinsightHbaseClusterMetastoresBlockHiveBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -299,7 +299,7 @@ public class AzurermHdinsightHbaseClusterMetastoresBlockHiveBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -309,7 +309,7 @@ public class AzurermHdinsightHbaseClusterMetastoresBlockHiveBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformValue<string> Server
     {
-        get => new TerraformReference<string>(this, "server");
+        get => GetArgument<TerraformValue<string>>("server");
         set => SetArgument("server", value);
     }
 
@@ -319,7 +319,7 @@ public class AzurermHdinsightHbaseClusterMetastoresBlockHiveBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -342,7 +342,7 @@ public class AzurermHdinsightHbaseClusterMetastoresBlockOozieBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -352,7 +352,7 @@ public class AzurermHdinsightHbaseClusterMetastoresBlockOozieBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -362,7 +362,7 @@ public class AzurermHdinsightHbaseClusterMetastoresBlockOozieBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformValue<string> Server
     {
-        get => new TerraformReference<string>(this, "server");
+        get => GetArgument<TerraformValue<string>>("server");
         set => SetArgument("server", value);
     }
 
@@ -372,7 +372,7 @@ public class AzurermHdinsightHbaseClusterMetastoresBlockOozieBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -396,7 +396,7 @@ public class AzurermHdinsightHbaseClusterMonitorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
-        get => new TerraformReference<string>(this, "log_analytics_workspace_id");
+        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
@@ -406,7 +406,7 @@ public class AzurermHdinsightHbaseClusterMonitorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryKey is required")]
     public required TerraformValue<string> PrimaryKey
     {
-        get => new TerraformReference<string>(this, "primary_key");
+        get => GetArgument<TerraformValue<string>>("primary_key");
         set => SetArgument("primary_key", value);
     }
 
@@ -429,7 +429,7 @@ public class AzurermHdinsightHbaseClusterNetworkBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConnectionDirection
     {
-        get => new TerraformReference<string>(this, "connection_direction");
+        get => GetArgument<TerraformValue<string>>("connection_direction");
         set => SetArgument("connection_direction", value);
     }
 
@@ -438,7 +438,7 @@ public class AzurermHdinsightHbaseClusterNetworkBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PrivateLinkEnabled
     {
-        get => new TerraformReference<bool>(this, "private_link_enabled");
+        get => GetArgument<TerraformValue<bool>>("private_link_enabled");
         set => SetArgument("private_link_enabled", value);
     }
 
@@ -462,7 +462,7 @@ public class AzurermHdinsightHbaseClusterPrivateLinkConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     public required TerraformValue<string> GroupId
     {
-        get => new TerraformReference<string>(this, "group_id");
+        get => GetArgument<TerraformValue<string>>("group_id");
         set => SetArgument("group_id", value);
     }
 
@@ -472,7 +472,7 @@ public class AzurermHdinsightHbaseClusterPrivateLinkConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -508,7 +508,7 @@ public class AzurermHdinsightHbaseClusterPrivateLinkConfigurationBlockIpConfigur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -517,7 +517,7 @@ public class AzurermHdinsightHbaseClusterPrivateLinkConfigurationBlockIpConfigur
     /// </summary>
     public TerraformValue<bool>? Primary
     {
-        get => new TerraformReference<bool>(this, "primary");
+        get => GetArgument<TerraformValue<bool>>("primary");
         set => SetArgument("primary", value);
     }
 
@@ -526,7 +526,7 @@ public class AzurermHdinsightHbaseClusterPrivateLinkConfigurationBlockIpConfigur
     /// </summary>
     public TerraformValue<string>? PrivateIpAddress
     {
-        get => new TerraformReference<string>(this, "private_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_ip_address");
         set => SetArgument("private_ip_address", value);
     }
 
@@ -535,7 +535,7 @@ public class AzurermHdinsightHbaseClusterPrivateLinkConfigurationBlockIpConfigur
     /// </summary>
     public TerraformValue<string>? PrivateIpAllocationMethod
     {
-        get => new TerraformReference<string>(this, "private_ip_allocation_method");
+        get => GetArgument<TerraformValue<string>>("private_ip_allocation_method");
         set => SetArgument("private_ip_allocation_method", value);
     }
 
@@ -544,7 +544,7 @@ public class AzurermHdinsightHbaseClusterPrivateLinkConfigurationBlockIpConfigur
     /// </summary>
     public TerraformValue<string>? SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -619,7 +619,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockHeadNodeBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -628,7 +628,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockHeadNodeBlock : TerraformBloc
     /// </summary>
     public TerraformSet<string>? SshKeys
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ssh_keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("ssh_keys");
         set => SetArgument("ssh_keys", value);
     }
 
@@ -637,7 +637,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockHeadNodeBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -647,7 +647,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockHeadNodeBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -656,7 +656,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockHeadNodeBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? VirtualNetworkId
     {
-        get => new TerraformReference<string>(this, "virtual_network_id");
+        get => GetArgument<TerraformValue<string>>("virtual_network_id");
         set => SetArgument("virtual_network_id", value);
     }
 
@@ -666,7 +666,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockHeadNodeBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
     public required TerraformValue<string> VmSize
     {
-        get => new TerraformReference<string>(this, "vm_size");
+        get => GetArgument<TerraformValue<string>>("vm_size");
         set => SetArgument("vm_size", value);
     }
 
@@ -698,7 +698,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockHeadNodeBlockScriptActionsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -707,7 +707,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockHeadNodeBlockScriptActionsBlo
     /// </summary>
     public TerraformValue<string>? Parameters
     {
-        get => new TerraformReference<string>(this, "parameters");
+        get => GetArgument<TerraformValue<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -717,7 +717,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockHeadNodeBlockScriptActionsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -739,7 +739,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockWorkerNodeBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -748,7 +748,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockWorkerNodeBlock : TerraformBl
     /// </summary>
     public TerraformSet<string>? SshKeys
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ssh_keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("ssh_keys");
         set => SetArgument("ssh_keys", value);
     }
 
@@ -757,7 +757,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockWorkerNodeBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -767,7 +767,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockWorkerNodeBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetInstanceCount is required")]
     public required TerraformValue<double> TargetInstanceCount
     {
-        get => new TerraformReference<double>(this, "target_instance_count");
+        get => GetArgument<TerraformValue<double>>("target_instance_count");
         set => SetArgument("target_instance_count", value);
     }
 
@@ -777,7 +777,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockWorkerNodeBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -786,7 +786,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockWorkerNodeBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? VirtualNetworkId
     {
-        get => new TerraformReference<string>(this, "virtual_network_id");
+        get => GetArgument<TerraformValue<string>>("virtual_network_id");
         set => SetArgument("virtual_network_id", value);
     }
 
@@ -796,7 +796,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockWorkerNodeBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
     public required TerraformValue<string> VmSize
     {
-        get => new TerraformReference<string>(this, "vm_size");
+        get => GetArgument<TerraformValue<string>>("vm_size");
         set => SetArgument("vm_size", value);
     }
 
@@ -861,7 +861,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockWorkerNodeBlockAutoscaleBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timezone is required")]
     public required TerraformValue<string> Timezone
     {
-        get => new TerraformReference<string>(this, "timezone");
+        get => GetArgument<TerraformValue<string>>("timezone");
         set => SetArgument("timezone", value);
     }
 
@@ -896,7 +896,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockWorkerNodeBlockAutoscaleBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Days is required")]
     public TerraformList<string>? Days
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "days").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("days");
         set => SetArgument("days", value);
     }
 
@@ -906,7 +906,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockWorkerNodeBlockAutoscaleBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetInstanceCount is required")]
     public required TerraformValue<double> TargetInstanceCount
     {
-        get => new TerraformReference<double>(this, "target_instance_count");
+        get => GetArgument<TerraformValue<double>>("target_instance_count");
         set => SetArgument("target_instance_count", value);
     }
 
@@ -916,7 +916,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockWorkerNodeBlockAutoscaleBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Time is required")]
     public required TerraformValue<string> Time
     {
-        get => new TerraformReference<string>(this, "time");
+        get => GetArgument<TerraformValue<string>>("time");
         set => SetArgument("time", value);
     }
 
@@ -939,7 +939,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockWorkerNodeBlockScriptActionsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -948,7 +948,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockWorkerNodeBlockScriptActionsB
     /// </summary>
     public TerraformValue<string>? Parameters
     {
-        get => new TerraformReference<string>(this, "parameters");
+        get => GetArgument<TerraformValue<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -958,7 +958,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockWorkerNodeBlockScriptActionsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -980,7 +980,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockZookeeperNodeBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -989,7 +989,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockZookeeperNodeBlock : Terrafor
     /// </summary>
     public TerraformSet<string>? SshKeys
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ssh_keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("ssh_keys");
         set => SetArgument("ssh_keys", value);
     }
 
@@ -998,7 +998,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockZookeeperNodeBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -1008,7 +1008,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockZookeeperNodeBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -1017,7 +1017,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockZookeeperNodeBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? VirtualNetworkId
     {
-        get => new TerraformReference<string>(this, "virtual_network_id");
+        get => GetArgument<TerraformValue<string>>("virtual_network_id");
         set => SetArgument("virtual_network_id", value);
     }
 
@@ -1027,7 +1027,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockZookeeperNodeBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
     public required TerraformValue<string> VmSize
     {
-        get => new TerraformReference<string>(this, "vm_size");
+        get => GetArgument<TerraformValue<string>>("vm_size");
         set => SetArgument("vm_size", value);
     }
 
@@ -1059,7 +1059,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockZookeeperNodeBlockScriptActio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1068,7 +1068,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockZookeeperNodeBlockScriptActio
     /// </summary>
     public TerraformValue<string>? Parameters
     {
-        get => new TerraformReference<string>(this, "parameters");
+        get => GetArgument<TerraformValue<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -1078,7 +1078,7 @@ public class AzurermHdinsightHbaseClusterRolesBlockZookeeperNodeBlockScriptActio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -1102,7 +1102,7 @@ public class AzurermHdinsightHbaseClusterSecurityProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AaddsResourceId is required")]
     public required TerraformValue<string> AaddsResourceId
     {
-        get => new TerraformReference<string>(this, "aadds_resource_id");
+        get => GetArgument<TerraformValue<string>>("aadds_resource_id");
         set => SetArgument("aadds_resource_id", value);
     }
 
@@ -1111,7 +1111,7 @@ public class AzurermHdinsightHbaseClusterSecurityProfileBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ClusterUsersGroupDns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "cluster_users_group_dns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("cluster_users_group_dns");
         set => SetArgument("cluster_users_group_dns", value);
     }
 
@@ -1121,7 +1121,7 @@ public class AzurermHdinsightHbaseClusterSecurityProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -1131,7 +1131,7 @@ public class AzurermHdinsightHbaseClusterSecurityProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainUserPassword is required")]
     public required TerraformValue<string> DomainUserPassword
     {
-        get => new TerraformReference<string>(this, "domain_user_password");
+        get => GetArgument<TerraformValue<string>>("domain_user_password");
         set => SetArgument("domain_user_password", value);
     }
 
@@ -1141,7 +1141,7 @@ public class AzurermHdinsightHbaseClusterSecurityProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainUsername is required")]
     public required TerraformValue<string> DomainUsername
     {
-        get => new TerraformReference<string>(this, "domain_username");
+        get => GetArgument<TerraformValue<string>>("domain_username");
         set => SetArgument("domain_username", value);
     }
 
@@ -1151,7 +1151,7 @@ public class AzurermHdinsightHbaseClusterSecurityProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LdapsUrls is required")]
     public required TerraformSet<string> LdapsUrls
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ldaps_urls").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("ldaps_urls");
         set => SetArgument("ldaps_urls", value);
     }
 
@@ -1161,7 +1161,7 @@ public class AzurermHdinsightHbaseClusterSecurityProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MsiResourceId is required")]
     public required TerraformValue<string> MsiResourceId
     {
-        get => new TerraformReference<string>(this, "msi_resource_id");
+        get => GetArgument<TerraformValue<string>>("msi_resource_id");
         set => SetArgument("msi_resource_id", value);
     }
 
@@ -1185,7 +1185,7 @@ public class AzurermHdinsightHbaseClusterStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsDefault is required")]
     public required TerraformValue<bool> IsDefault
     {
-        get => new TerraformReference<bool>(this, "is_default");
+        get => GetArgument<TerraformValue<bool>>("is_default");
         set => SetArgument("is_default", value);
     }
 
@@ -1195,7 +1195,7 @@ public class AzurermHdinsightHbaseClusterStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountKey is required")]
     public required TerraformValue<string> StorageAccountKey
     {
-        get => new TerraformReference<string>(this, "storage_account_key");
+        get => GetArgument<TerraformValue<string>>("storage_account_key");
         set => SetArgument("storage_account_key", value);
     }
 
@@ -1205,7 +1205,7 @@ public class AzurermHdinsightHbaseClusterStorageAccountBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerId is required")]
     public required TerraformValue<string> StorageContainerId
     {
-        get => new TerraformReference<string>(this, "storage_container_id");
+        get => GetArgument<TerraformValue<string>>("storage_container_id");
         set => SetArgument("storage_container_id", value);
     }
 
@@ -1214,7 +1214,7 @@ public class AzurermHdinsightHbaseClusterStorageAccountBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StorageResourceId
     {
-        get => new TerraformReference<string>(this, "storage_resource_id");
+        get => GetArgument<TerraformValue<string>>("storage_resource_id");
         set => SetArgument("storage_resource_id", value);
     }
 
@@ -1238,7 +1238,7 @@ public class AzurermHdinsightHbaseClusterStorageAccountGen2Block : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilesystemId is required")]
     public required TerraformValue<string> FilesystemId
     {
-        get => new TerraformReference<string>(this, "filesystem_id");
+        get => GetArgument<TerraformValue<string>>("filesystem_id");
         set => SetArgument("filesystem_id", value);
     }
 
@@ -1248,7 +1248,7 @@ public class AzurermHdinsightHbaseClusterStorageAccountGen2Block : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsDefault is required")]
     public required TerraformValue<bool> IsDefault
     {
-        get => new TerraformReference<bool>(this, "is_default");
+        get => GetArgument<TerraformValue<bool>>("is_default");
         set => SetArgument("is_default", value);
     }
 
@@ -1258,7 +1258,7 @@ public class AzurermHdinsightHbaseClusterStorageAccountGen2Block : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedIdentityResourceId is required")]
     public required TerraformValue<string> ManagedIdentityResourceId
     {
-        get => new TerraformReference<string>(this, "managed_identity_resource_id");
+        get => GetArgument<TerraformValue<string>>("managed_identity_resource_id");
         set => SetArgument("managed_identity_resource_id", value);
     }
 
@@ -1268,7 +1268,7 @@ public class AzurermHdinsightHbaseClusterStorageAccountGen2Block : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageResourceId is required")]
     public required TerraformValue<string> StorageResourceId
     {
-        get => new TerraformReference<string>(this, "storage_resource_id");
+        get => GetArgument<TerraformValue<string>>("storage_resource_id");
         set => SetArgument("storage_resource_id", value);
     }
 
@@ -1291,7 +1291,7 @@ public class AzurermHdinsightHbaseClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1300,7 +1300,7 @@ public class AzurermHdinsightHbaseClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1309,7 +1309,7 @@ public class AzurermHdinsightHbaseClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -1318,7 +1318,7 @@ public class AzurermHdinsightHbaseClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1337,16 +1337,16 @@ public partial class AzurermHdinsightHbaseCluster(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterVersion is required")]
     public required TerraformValue<string> ClusterVersion
     {
-        get => new TerraformReference<string>(this, "cluster_version");
+        get => GetArgument<TerraformValue<string>>("cluster_version");
         set => SetArgument("cluster_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1356,7 +1356,7 @@ public partial class AzurermHdinsightHbaseCluster(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1366,7 +1366,7 @@ public partial class AzurermHdinsightHbaseCluster(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1376,7 +1376,7 @@ public partial class AzurermHdinsightHbaseCluster(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -1385,7 +1385,7 @@ public partial class AzurermHdinsightHbaseCluster(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -1395,7 +1395,7 @@ public partial class AzurermHdinsightHbaseCluster(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformValue<string> Tier
     {
-        get => new TerraformReference<string>(this, "tier");
+        get => GetArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 
@@ -1404,7 +1404,7 @@ public partial class AzurermHdinsightHbaseCluster(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? TlsMinVersion
     {
-        get => new TerraformReference<string>(this, "tls_min_version");
+        get => GetArgument<TerraformValue<string>>("tls_min_version");
         set => SetArgument("tls_min_version", value);
     }
 
@@ -1412,17 +1412,13 @@ public partial class AzurermHdinsightHbaseCluster(string name) : TerraformResour
     /// The https_endpoint attribute.
     /// </summary>
     public TerraformValue<string> HttpsEndpoint
-    {
-        get => new TerraformReference<string>(this, "https_endpoint");
-    }
+        => AsReference("https_endpoint");
 
     /// <summary>
     /// The ssh_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SshEndpoint
-    {
-        get => new TerraformReference<string>(this, "ssh_endpoint");
-    }
+        => AsReference("ssh_endpoint");
 
     /// <summary>
     /// ComponentVersion block (nesting mode: list).

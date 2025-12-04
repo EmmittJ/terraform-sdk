@@ -19,7 +19,7 @@ public class AzurermAutomationAccountEncryptionBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? KeySource
     {
-        get => new TerraformReference<string>(this, "key_source");
+        get => GetArgument<TerraformValue<string>>("key_source");
         set => SetArgument("key_source", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermAutomationAccountEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformValue<string> KeyVaultKeyId
     {
-        get => new TerraformReference<string>(this, "key_vault_key_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_key_id");
         set => SetArgument("key_vault_key_id", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermAutomationAccountEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? UserAssignedIdentityId
     {
-        get => new TerraformReference<string>(this, "user_assigned_identity_id");
+        get => GetArgument<TerraformValue<string>>("user_assigned_identity_id");
         set => SetArgument("user_assigned_identity_id", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermAutomationAccountIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -69,17 +69,13 @@ public class AzurermAutomationAccountIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -87,7 +83,7 @@ public class AzurermAutomationAccountIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -110,7 +106,7 @@ public class AzurermAutomationAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -119,7 +115,7 @@ public class AzurermAutomationAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -128,7 +124,7 @@ public class AzurermAutomationAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -137,7 +133,7 @@ public class AzurermAutomationAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -153,9 +149,9 @@ public partial class AzurermAutomationAccount(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -164,7 +160,7 @@ public partial class AzurermAutomationAccount(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? LocalAuthenticationEnabled
     {
-        get => new TerraformReference<bool>(this, "local_authentication_enabled");
+        get => GetArgument<TerraformValue<bool>>("local_authentication_enabled");
         set => SetArgument("local_authentication_enabled", value);
     }
 
@@ -174,7 +170,7 @@ public partial class AzurermAutomationAccount(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -184,7 +180,7 @@ public partial class AzurermAutomationAccount(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -193,7 +189,7 @@ public partial class AzurermAutomationAccount(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -203,7 +199,7 @@ public partial class AzurermAutomationAccount(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -213,7 +209,7 @@ public partial class AzurermAutomationAccount(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => new TerraformReference<string>(this, "sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -222,7 +218,7 @@ public partial class AzurermAutomationAccount(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -230,41 +226,31 @@ public partial class AzurermAutomationAccount(string name) : TerraformResource("
     /// The dsc_primary_access_key attribute.
     /// </summary>
     public TerraformValue<string> DscPrimaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "dsc_primary_access_key");
-    }
+        => AsReference("dsc_primary_access_key");
 
     /// <summary>
     /// The dsc_secondary_access_key attribute.
     /// </summary>
     public TerraformValue<string> DscSecondaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "dsc_secondary_access_key");
-    }
+        => AsReference("dsc_secondary_access_key");
 
     /// <summary>
     /// The dsc_server_endpoint attribute.
     /// </summary>
     public TerraformValue<string> DscServerEndpoint
-    {
-        get => new TerraformReference<string>(this, "dsc_server_endpoint");
-    }
+        => AsReference("dsc_server_endpoint");
 
     /// <summary>
     /// The hybrid_service_url attribute.
     /// </summary>
     public TerraformValue<string> HybridServiceUrl
-    {
-        get => new TerraformReference<string>(this, "hybrid_service_url");
-    }
+        => AsReference("hybrid_service_url");
 
     /// <summary>
     /// The private_endpoint_connection attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrivateEndpointConnection
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "private_endpoint_connection").ResolveNodes(ctx));
-    }
+        => AsReference("private_endpoint_connection");
 
     /// <summary>
     /// Encryption block (nesting mode: list).

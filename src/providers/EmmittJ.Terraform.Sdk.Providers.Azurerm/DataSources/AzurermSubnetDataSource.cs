@@ -18,7 +18,7 @@ public class AzurermSubnetDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermSubnetDataSource(string name) : TerraformDataSource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermSubnetDataSource(string name) : TerraformDataSource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermSubnetDataSource(string name) : TerraformDataSource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermSubnetDataSource(string name) : TerraformDataSource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkName is required")]
     public required TerraformValue<string> VirtualNetworkName
     {
-        get => new TerraformReference<string>(this, "virtual_network_name");
+        get => GetArgument<TerraformValue<string>>("virtual_network_name");
         set => SetArgument("virtual_network_name", value);
     }
 
@@ -74,65 +74,49 @@ public partial class AzurermSubnetDataSource(string name) : TerraformDataSource(
     /// The address_prefix attribute.
     /// </summary>
     public TerraformValue<string> AddressPrefix
-    {
-        get => new TerraformReference<string>(this, "address_prefix");
-    }
+        => AsReference("address_prefix");
 
     /// <summary>
     /// The address_prefixes attribute.
     /// </summary>
     public TerraformList<string> AddressPrefixes
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "address_prefixes").ResolveNodes(ctx));
-    }
+        => AsReference("address_prefixes");
 
     /// <summary>
     /// The default_outbound_access_enabled attribute.
     /// </summary>
     public TerraformValue<bool> DefaultOutboundAccessEnabled
-    {
-        get => new TerraformReference<bool>(this, "default_outbound_access_enabled");
-    }
+        => AsReference("default_outbound_access_enabled");
 
     /// <summary>
     /// The network_security_group_id attribute.
     /// </summary>
     public TerraformValue<string> NetworkSecurityGroupId
-    {
-        get => new TerraformReference<string>(this, "network_security_group_id");
-    }
+        => AsReference("network_security_group_id");
 
     /// <summary>
     /// The private_endpoint_network_policies attribute.
     /// </summary>
     public TerraformValue<string> PrivateEndpointNetworkPolicies
-    {
-        get => new TerraformReference<string>(this, "private_endpoint_network_policies");
-    }
+        => AsReference("private_endpoint_network_policies");
 
     /// <summary>
     /// The private_link_service_network_policies_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PrivateLinkServiceNetworkPoliciesEnabled
-    {
-        get => new TerraformReference<bool>(this, "private_link_service_network_policies_enabled");
-    }
+        => AsReference("private_link_service_network_policies_enabled");
 
     /// <summary>
     /// The route_table_id attribute.
     /// </summary>
     public TerraformValue<string> RouteTableId
-    {
-        get => new TerraformReference<string>(this, "route_table_id");
-    }
+        => AsReference("route_table_id");
 
     /// <summary>
     /// The service_endpoints attribute.
     /// </summary>
     public TerraformList<string> ServiceEndpoints
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "service_endpoints").ResolveNodes(ctx));
-    }
+        => AsReference("service_endpoints");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

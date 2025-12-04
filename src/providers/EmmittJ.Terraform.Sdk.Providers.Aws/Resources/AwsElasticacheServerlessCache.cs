@@ -47,18 +47,18 @@ public class AwsElasticacheServerlessCacheCacheUsageLimitsBlockDataStorageBlock 
     /// <summary>
     /// The maximum attribute.
     /// </summary>
-    public TerraformValue<double> Maximum
+    public TerraformValue<double>? Maximum
     {
-        get => new TerraformReference<double>(this, "maximum");
+        get => GetArgument<TerraformValue<double>>("maximum");
         set => SetArgument("maximum", value);
     }
 
     /// <summary>
     /// The minimum attribute.
     /// </summary>
-    public TerraformValue<double> Minimum
+    public TerraformValue<double>? Minimum
     {
-        get => new TerraformReference<double>(this, "minimum");
+        get => GetArgument<TerraformValue<double>>("minimum");
         set => SetArgument("minimum", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsElasticacheServerlessCacheCacheUsageLimitsBlockDataStorageBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -88,18 +88,18 @@ public class AwsElasticacheServerlessCacheCacheUsageLimitsBlockEcpuPerSecondBloc
     /// <summary>
     /// The maximum attribute.
     /// </summary>
-    public TerraformValue<double> Maximum
+    public TerraformValue<double>? Maximum
     {
-        get => new TerraformReference<double>(this, "maximum");
+        get => GetArgument<TerraformValue<double>>("maximum");
         set => SetArgument("maximum", value);
     }
 
     /// <summary>
     /// The minimum attribute.
     /// </summary>
-    public TerraformValue<double> Minimum
+    public TerraformValue<double>? Minimum
     {
-        get => new TerraformReference<double>(this, "minimum");
+        get => GetArgument<TerraformValue<double>>("minimum");
         set => SetArgument("minimum", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsElasticacheServerlessCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsElasticacheServerlessCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsElasticacheServerlessCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -156,18 +156,18 @@ public partial class AwsElasticacheServerlessCache(string name) : TerraformResou
     /// <summary>
     /// The daily_snapshot_time attribute.
     /// </summary>
-    public TerraformValue<string> DailySnapshotTime
+    public TerraformValue<string>? DailySnapshotTime
     {
-        get => new TerraformReference<string>(this, "daily_snapshot_time");
+        get => GetArgument<TerraformValue<string>>("daily_snapshot_time");
         set => SetArgument("daily_snapshot_time", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string> Description
+    public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AwsElasticacheServerlessCache(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
     public required TerraformValue<string> Engine
     {
-        get => new TerraformReference<string>(this, "engine");
+        get => GetArgument<TerraformValue<string>>("engine");
         set => SetArgument("engine", value);
     }
 
@@ -186,16 +186,16 @@ public partial class AwsElasticacheServerlessCache(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
     /// <summary>
     /// The major_engine_version attribute.
     /// </summary>
-    public TerraformValue<string> MajorEngineVersion
+    public TerraformValue<string>? MajorEngineVersion
     {
-        get => new TerraformReference<string>(this, "major_engine_version");
+        get => GetArgument<TerraformValue<string>>("major_engine_version");
         set => SetArgument("major_engine_version", value);
     }
 
@@ -205,25 +205,25 @@ public partial class AwsElasticacheServerlessCache(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string> SecurityGroupIds
+    public TerraformSet<string>? SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -232,25 +232,25 @@ public partial class AwsElasticacheServerlessCache(string name) : TerraformResou
     /// </summary>
     public TerraformList<string>? SnapshotArnsToRestore
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "snapshot_arns_to_restore").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("snapshot_arns_to_restore");
         set => SetArgument("snapshot_arns_to_restore", value);
     }
 
     /// <summary>
     /// The snapshot_retention_limit attribute.
     /// </summary>
-    public TerraformValue<double> SnapshotRetentionLimit
+    public TerraformValue<double>? SnapshotRetentionLimit
     {
-        get => new TerraformReference<double>(this, "snapshot_retention_limit");
+        get => GetArgument<TerraformValue<double>>("snapshot_retention_limit");
         set => SetArgument("snapshot_retention_limit", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformSet<string> SubnetIds
+    public TerraformSet<string>? SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -259,7 +259,7 @@ public partial class AwsElasticacheServerlessCache(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -268,7 +268,7 @@ public partial class AwsElasticacheServerlessCache(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? UserGroupId
     {
-        get => new TerraformReference<string>(this, "user_group_id");
+        get => GetArgument<TerraformValue<string>>("user_group_id");
         set => SetArgument("user_group_id", value);
     }
 
@@ -276,65 +276,49 @@ public partial class AwsElasticacheServerlessCache(string name) : TerraformResou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Endpoint
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "endpoint").ResolveNodes(ctx));
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// The full_engine_version attribute.
     /// </summary>
     public TerraformValue<string> FullEngineVersion
-    {
-        get => new TerraformReference<string>(this, "full_engine_version");
-    }
+        => AsReference("full_engine_version");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The reader_endpoint attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReaderEndpoint
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "reader_endpoint").ResolveNodes(ctx));
-    }
+        => AsReference("reader_endpoint");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// CacheUsageLimits block (nesting mode: list).

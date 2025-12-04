@@ -18,7 +18,7 @@ public class AzurermDatabricksWorkspaceDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermDatabricksWorkspaceDataSource(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermDatabricksWorkspaceDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermDatabricksWorkspaceDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzurermDatabricksWorkspaceDataSource(string name) : Terrafo
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -73,65 +73,49 @@ public partial class AzurermDatabricksWorkspaceDataSource(string name) : Terrafo
     /// The custom_parameters attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CustomParameters
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "custom_parameters").ResolveNodes(ctx));
-    }
+        => AsReference("custom_parameters");
 
     /// <summary>
     /// The enhanced_security_compliance attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EnhancedSecurityCompliance
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "enhanced_security_compliance").ResolveNodes(ctx));
-    }
+        => AsReference("enhanced_security_compliance");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The managed_disk_identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedDiskIdentity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "managed_disk_identity").ResolveNodes(ctx));
-    }
+        => AsReference("managed_disk_identity");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformValue<string> Sku
-    {
-        get => new TerraformReference<string>(this, "sku");
-    }
+        => AsReference("sku");
 
     /// <summary>
     /// The storage_account_identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StorageAccountIdentity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "storage_account_identity").ResolveNodes(ctx));
-    }
+        => AsReference("storage_account_identity");
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceId
-    {
-        get => new TerraformReference<string>(this, "workspace_id");
-    }
+        => AsReference("workspace_id");
 
     /// <summary>
     /// The workspace_url attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceUrl
-    {
-        get => new TerraformReference<string>(this, "workspace_url");
-    }
+        => AsReference("workspace_url");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

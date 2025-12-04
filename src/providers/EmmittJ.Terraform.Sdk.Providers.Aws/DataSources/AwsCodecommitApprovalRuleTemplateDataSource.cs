@@ -11,9 +11,9 @@ public partial class AwsCodecommitApprovalRuleTemplateDataSource(string name) : 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsCodecommitApprovalRuleTemplateDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -40,56 +40,42 @@ public partial class AwsCodecommitApprovalRuleTemplateDataSource(string name) : 
     /// The approval_rule_template_id attribute.
     /// </summary>
     public TerraformValue<string> ApprovalRuleTemplateId
-    {
-        get => new TerraformReference<string>(this, "approval_rule_template_id");
-    }
+        => AsReference("approval_rule_template_id");
 
     /// <summary>
     /// The content attribute.
     /// </summary>
     public TerraformValue<string> Content
-    {
-        get => new TerraformReference<string>(this, "content");
-    }
+        => AsReference("content");
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
     public TerraformValue<string> CreationDate
-    {
-        get => new TerraformReference<string>(this, "creation_date");
-    }
+        => AsReference("creation_date");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The last_modified_date attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedDate
-    {
-        get => new TerraformReference<string>(this, "last_modified_date");
-    }
+        => AsReference("last_modified_date");
 
     /// <summary>
     /// The last_modified_user attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedUser
-    {
-        get => new TerraformReference<string>(this, "last_modified_user");
-    }
+        => AsReference("last_modified_user");
 
     /// <summary>
     /// The rule_content_sha256 attribute.
     /// </summary>
     public TerraformValue<string> RuleContentSha256
-    {
-        get => new TerraformReference<string>(this, "rule_content_sha256");
-    }
+        => AsReference("rule_content_sha256");
 
 }

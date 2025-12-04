@@ -18,7 +18,7 @@ public class GoogleResourceManagerCapabilityTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleResourceManagerCapabilityTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleResourceManagerCapabilityTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,16 +55,16 @@ public partial class GoogleResourceManagerCapability(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapabilityName is required")]
     public required TerraformValue<string> CapabilityName
     {
-        get => new TerraformReference<string>(this, "capability_name");
+        get => GetArgument<TerraformValue<string>>("capability_name");
         set => SetArgument("capability_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleResourceManagerCapability(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -84,7 +84,7 @@ public partial class GoogleResourceManagerCapability(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<bool> Value
     {
-        get => new TerraformReference<bool>(this, "value");
+        get => GetArgument<TerraformValue<bool>>("value");
         set => SetArgument("value", value);
     }
 

@@ -19,7 +19,7 @@ public class AwsLambdaCodeSigningConfigAllowedPublishersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningProfileVersionArns is required")]
     public required TerraformSet<string> SigningProfileVersionArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "signing_profile_version_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("signing_profile_version_arns");
         set => SetArgument("signing_profile_version_arns", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsLambdaCodeSigningConfigPoliciesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UntrustedArtifactOnDeployment is required")]
     public required TerraformValue<string> UntrustedArtifactOnDeployment
     {
-        get => new TerraformReference<string>(this, "untrusted_artifact_on_deployment");
+        get => GetArgument<TerraformValue<string>>("untrusted_artifact_on_deployment");
         set => SetArgument("untrusted_artifact_on_deployment", value);
     }
 
@@ -61,25 +61,25 @@ public partial class AwsLambdaCodeSigningConfig(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -88,16 +88,16 @@ public partial class AwsLambdaCodeSigningConfig(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -105,25 +105,19 @@ public partial class AwsLambdaCodeSigningConfig(string name) : TerraformResource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The config_id attribute.
     /// </summary>
     public TerraformValue<string> ConfigId
-    {
-        get => new TerraformReference<string>(this, "config_id");
-    }
+        => AsReference("config_id");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
     public TerraformValue<string> LastModified
-    {
-        get => new TerraformReference<string>(this, "last_modified");
-    }
+        => AsReference("last_modified");
 
     /// <summary>
     /// AllowedPublishers block (nesting mode: list).

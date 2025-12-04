@@ -14,25 +14,25 @@ public partial class AwsRoute53recoverycontrolconfigRoutingControl(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterArn is required")]
     public required TerraformValue<string> ClusterArn
     {
-        get => new TerraformReference<string>(this, "cluster_arn");
+        get => GetArgument<TerraformValue<string>>("cluster_arn");
         set => SetArgument("cluster_arn", value);
     }
 
     /// <summary>
     /// The control_panel_arn attribute.
     /// </summary>
-    public TerraformValue<string> ControlPanelArn
+    public TerraformValue<string>? ControlPanelArn
     {
-        get => new TerraformReference<string>(this, "control_panel_arn");
+        get => GetArgument<TerraformValue<string>>("control_panel_arn");
         set => SetArgument("control_panel_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsRoute53recoverycontrolconfigRoutingControl(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -50,16 +50,12 @@ public partial class AwsRoute53recoverycontrolconfigRoutingControl(string name) 
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }

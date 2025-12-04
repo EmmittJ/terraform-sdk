@@ -16,9 +16,9 @@ public class AwsSecuritylakeAwsLogSourceSourceBlock : TerraformBlock
     /// <summary>
     /// The accounts attribute.
     /// </summary>
-    public TerraformSet<string> Accounts
+    public TerraformSet<string>? Accounts
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "accounts").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("accounts");
         set => SetArgument("accounts", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsSecuritylakeAwsLogSourceSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Regions is required")]
     public required TerraformSet<string> Regions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("regions");
         set => SetArgument("regions", value);
     }
 
@@ -38,16 +38,16 @@ public class AwsSecuritylakeAwsLogSourceSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceName is required")]
     public required TerraformValue<string> SourceName
     {
-        get => new TerraformReference<string>(this, "source_name");
+        get => GetArgument<TerraformValue<string>>("source_name");
         set => SetArgument("source_name", value);
     }
 
     /// <summary>
     /// The source_version attribute.
     /// </summary>
-    public TerraformValue<string> SourceVersion
+    public TerraformValue<string>? SourceVersion
     {
-        get => new TerraformReference<string>(this, "source_version");
+        get => GetArgument<TerraformValue<string>>("source_version");
         set => SetArgument("source_version", value);
     }
 
@@ -63,9 +63,9 @@ public partial class AwsSecuritylakeAwsLogSource(string name) : TerraformResourc
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -73,9 +73,7 @@ public partial class AwsSecuritylakeAwsLogSource(string name) : TerraformResourc
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// Source block (nesting mode: list).

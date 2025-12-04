@@ -18,7 +18,7 @@ public class AwsRoute53HostedZoneDnssecTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsRoute53HostedZoneDnssecTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsRoute53HostedZoneDnssecTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AwsRoute53HostedZoneDnssec(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostedZoneId is required")]
     public required TerraformValue<string> HostedZoneId
     {
-        get => new TerraformReference<string>(this, "hosted_zone_id");
+        get => GetArgument<TerraformValue<string>>("hosted_zone_id");
         set => SetArgument("hosted_zone_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsRoute53HostedZoneDnssec(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? SigningStatus
     {
-        get => new TerraformReference<string>(this, "signing_status");
+        get => GetArgument<TerraformValue<string>>("signing_status");
         set => SetArgument("signing_status", value);
     }
 

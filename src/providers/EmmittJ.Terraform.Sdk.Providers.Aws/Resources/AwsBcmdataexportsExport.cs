@@ -18,7 +18,7 @@ public class AwsBcmdataexportsExportExportBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -26,9 +26,7 @@ public class AwsBcmdataexportsExportExportBlock : TerraformBlock
     /// The export_arn attribute.
     /// </summary>
     public TerraformValue<string> ExportArn
-    {
-        get => new TerraformReference<string>(this, "export_arn");
-    }
+        => AsReference("export_arn");
 
     /// <summary>
     /// The name attribute.
@@ -36,7 +34,7 @@ public class AwsBcmdataexportsExportExportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -86,7 +84,7 @@ public class AwsBcmdataexportsExportExportBlockDataQueryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryStatement is required")]
     public required TerraformValue<string> QueryStatement
     {
-        get => new TerraformReference<string>(this, "query_statement");
+        get => GetArgument<TerraformValue<string>>("query_statement");
         set => SetArgument("query_statement", value);
     }
 
@@ -95,7 +93,7 @@ public class AwsBcmdataexportsExportExportBlockDataQueryBlock : TerraformBlock
     /// </summary>
     public TerraformMap<TerraformMap<string>>? TableConfigurations
     {
-        get => TerraformMap<TerraformMap<string>>.Lazy(ctx => new TerraformReference<TerraformMap<TerraformMap<string>>>(this, "table_configurations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<TerraformMap<string>>>("table_configurations");
         set => SetArgument("table_configurations", value);
     }
 
@@ -140,7 +138,7 @@ public class AwsBcmdataexportsExportExportBlockDestinationConfigurationsBlockS3D
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Bucket is required")]
     public required TerraformValue<string> S3Bucket
     {
-        get => new TerraformReference<string>(this, "s3_bucket");
+        get => GetArgument<TerraformValue<string>>("s3_bucket");
         set => SetArgument("s3_bucket", value);
     }
 
@@ -150,7 +148,7 @@ public class AwsBcmdataexportsExportExportBlockDestinationConfigurationsBlockS3D
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Prefix is required")]
     public required TerraformValue<string> S3Prefix
     {
-        get => new TerraformReference<string>(this, "s3_prefix");
+        get => GetArgument<TerraformValue<string>>("s3_prefix");
         set => SetArgument("s3_prefix", value);
     }
 
@@ -160,7 +158,7 @@ public class AwsBcmdataexportsExportExportBlockDestinationConfigurationsBlockS3D
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Region is required")]
     public required TerraformValue<string> S3Region
     {
-        get => new TerraformReference<string>(this, "s3_region");
+        get => GetArgument<TerraformValue<string>>("s3_region");
         set => SetArgument("s3_region", value);
     }
 
@@ -192,7 +190,7 @@ public class AwsBcmdataexportsExportExportBlockDestinationConfigurationsBlockS3D
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Compression is required")]
     public required TerraformValue<string> Compression
     {
-        get => new TerraformReference<string>(this, "compression");
+        get => GetArgument<TerraformValue<string>>("compression");
         set => SetArgument("compression", value);
     }
 
@@ -202,7 +200,7 @@ public class AwsBcmdataexportsExportExportBlockDestinationConfigurationsBlockS3D
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => new TerraformReference<string>(this, "format");
+        get => GetArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
@@ -212,7 +210,7 @@ public class AwsBcmdataexportsExportExportBlockDestinationConfigurationsBlockS3D
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutputType is required")]
     public required TerraformValue<string> OutputType
     {
-        get => new TerraformReference<string>(this, "output_type");
+        get => GetArgument<TerraformValue<string>>("output_type");
         set => SetArgument("output_type", value);
     }
 
@@ -222,7 +220,7 @@ public class AwsBcmdataexportsExportExportBlockDestinationConfigurationsBlockS3D
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Overwrite is required")]
     public required TerraformValue<string> Overwrite
     {
-        get => new TerraformReference<string>(this, "overwrite");
+        get => GetArgument<TerraformValue<string>>("overwrite");
         set => SetArgument("overwrite", value);
     }
 
@@ -245,7 +243,7 @@ public class AwsBcmdataexportsExportExportBlockRefreshCadenceBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformValue<string> Frequency
     {
-        get => new TerraformReference<string>(this, "frequency");
+        get => GetArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -268,7 +266,7 @@ public class AwsBcmdataexportsExportTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -277,7 +275,7 @@ public class AwsBcmdataexportsExportTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -295,7 +293,7 @@ public partial class AwsBcmdataexportsExport(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -303,26 +301,20 @@ public partial class AwsBcmdataexportsExport(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Export block (nesting mode: list).

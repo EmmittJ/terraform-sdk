@@ -11,9 +11,9 @@ public partial class AwsSyntheticsRuntimeVersionsDataSource(string name) : Terra
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -21,16 +21,12 @@ public partial class AwsSyntheticsRuntimeVersionsDataSource(string name) : Terra
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The runtime_versions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RuntimeVersions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "runtime_versions").ResolveNodes(ctx));
-    }
+        => AsReference("runtime_versions");
 
 }

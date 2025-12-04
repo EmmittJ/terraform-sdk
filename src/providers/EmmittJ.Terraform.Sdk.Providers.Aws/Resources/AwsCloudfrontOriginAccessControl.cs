@@ -13,16 +13,16 @@ public partial class AwsCloudfrontOriginAccessControl(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsCloudfrontOriginAccessControl(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsCloudfrontOriginAccessControl(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginAccessControlOriginType is required")]
     public required TerraformValue<string> OriginAccessControlOriginType
     {
-        get => new TerraformReference<string>(this, "origin_access_control_origin_type");
+        get => GetArgument<TerraformValue<string>>("origin_access_control_origin_type");
         set => SetArgument("origin_access_control_origin_type", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsCloudfrontOriginAccessControl(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningBehavior is required")]
     public required TerraformValue<string> SigningBehavior
     {
-        get => new TerraformReference<string>(this, "signing_behavior");
+        get => GetArgument<TerraformValue<string>>("signing_behavior");
         set => SetArgument("signing_behavior", value);
     }
 
@@ -62,7 +62,7 @@ public partial class AwsCloudfrontOriginAccessControl(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningProtocol is required")]
     public required TerraformValue<string> SigningProtocol
     {
-        get => new TerraformReference<string>(this, "signing_protocol");
+        get => GetArgument<TerraformValue<string>>("signing_protocol");
         set => SetArgument("signing_protocol", value);
     }
 
@@ -70,16 +70,12 @@ public partial class AwsCloudfrontOriginAccessControl(string name) : TerraformRe
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
 }

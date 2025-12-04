@@ -19,7 +19,7 @@ public class GoogleNotebooksInstanceAcceleratorConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreCount is required")]
     public required TerraformValue<double> CoreCount
     {
-        get => new TerraformReference<double>(this, "core_count");
+        get => GetArgument<TerraformValue<double>>("core_count");
         set => SetArgument("core_count", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleNotebooksInstanceAcceleratorConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -54,7 +54,7 @@ public class GoogleNotebooksInstanceContainerImageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformValue<string> Repository
     {
-        get => new TerraformReference<string>(this, "repository");
+        get => GetArgument<TerraformValue<string>>("repository");
         set => SetArgument("repository", value);
     }
 
@@ -63,7 +63,7 @@ public class GoogleNotebooksInstanceContainerImageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Tag
     {
-        get => new TerraformReference<string>(this, "tag");
+        get => GetArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleNotebooksInstanceReservationAffinityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumeReservationType is required")]
     public required TerraformValue<string> ConsumeReservationType
     {
-        get => new TerraformReference<string>(this, "consume_reservation_type");
+        get => GetArgument<TerraformValue<string>>("consume_reservation_type");
         set => SetArgument("consume_reservation_type", value);
     }
 
@@ -96,7 +96,7 @@ public class GoogleNotebooksInstanceReservationAffinityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleNotebooksInstanceReservationAffinityBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -131,7 +131,7 @@ public class GoogleNotebooksInstanceShieldedInstanceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableIntegrityMonitoring
     {
-        get => new TerraformReference<bool>(this, "enable_integrity_monitoring");
+        get => GetArgument<TerraformValue<bool>>("enable_integrity_monitoring");
         set => SetArgument("enable_integrity_monitoring", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleNotebooksInstanceShieldedInstanceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableSecureBoot
     {
-        get => new TerraformReference<bool>(this, "enable_secure_boot");
+        get => GetArgument<TerraformValue<bool>>("enable_secure_boot");
         set => SetArgument("enable_secure_boot", value);
     }
 
@@ -153,7 +153,7 @@ public class GoogleNotebooksInstanceShieldedInstanceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableVtpm
     {
-        get => new TerraformReference<bool>(this, "enable_vtpm");
+        get => GetArgument<TerraformValue<bool>>("enable_vtpm");
         set => SetArgument("enable_vtpm", value);
     }
 
@@ -176,7 +176,7 @@ public class GoogleNotebooksInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -185,7 +185,7 @@ public class GoogleNotebooksInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -194,7 +194,7 @@ public class GoogleNotebooksInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -217,7 +217,7 @@ public class GoogleNotebooksInstanceVmImageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ImageFamily
     {
-        get => new TerraformReference<string>(this, "image_family");
+        get => GetArgument<TerraformValue<string>>("image_family");
         set => SetArgument("image_family", value);
     }
 
@@ -226,7 +226,7 @@ public class GoogleNotebooksInstanceVmImageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ImageName
     {
-        get => new TerraformReference<string>(this, "image_name");
+        get => GetArgument<TerraformValue<string>>("image_name");
         set => SetArgument("image_name", value);
     }
 
@@ -237,7 +237,7 @@ public class GoogleNotebooksInstanceVmImageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformValue<string> Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -258,7 +258,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<double>? BootDiskSizeGb
     {
-        get => new TerraformReference<double>(this, "boot_disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("boot_disk_size_gb");
         set => SetArgument("boot_disk_size_gb", value);
     }
 
@@ -267,16 +267,16 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? BootDiskType
     {
-        get => new TerraformReference<string>(this, "boot_disk_type");
+        get => GetArgument<TerraformValue<string>>("boot_disk_type");
         set => SetArgument("boot_disk_type", value);
     }
 
     /// <summary>
     /// Instance creation time
     /// </summary>
-    public TerraformValue<string> CreateTime
+    public TerraformValue<string>? CreateTime
     {
-        get => new TerraformReference<string>(this, "create_time");
+        get => GetArgument<TerraformValue<string>>("create_time");
         set => SetArgument("create_time", value);
     }
 
@@ -286,7 +286,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? CustomGpuDriverPath
     {
-        get => new TerraformReference<string>(this, "custom_gpu_driver_path");
+        get => GetArgument<TerraformValue<string>>("custom_gpu_driver_path");
         set => SetArgument("custom_gpu_driver_path", value);
     }
 
@@ -298,7 +298,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<double>? DataDiskSizeGb
     {
-        get => new TerraformReference<double>(this, "data_disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("data_disk_size_gb");
         set => SetArgument("data_disk_size_gb", value);
     }
 
@@ -307,7 +307,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? DataDiskType
     {
-        get => new TerraformReference<string>(this, "data_disk_type");
+        get => GetArgument<TerraformValue<string>>("data_disk_type");
         set => SetArgument("data_disk_type", value);
     }
 
@@ -316,25 +316,25 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? DesiredState
     {
-        get => new TerraformReference<string>(this, "desired_state");
+        get => GetArgument<TerraformValue<string>>("desired_state");
         set => SetArgument("desired_state", value);
     }
 
     /// <summary>
     /// Disk encryption method used on the boot and data disks, defaults to GMEK. Possible values: [&amp;quot;DISK_ENCRYPTION_UNSPECIFIED&amp;quot;, &amp;quot;GMEK&amp;quot;, &amp;quot;CMEK&amp;quot;]
     /// </summary>
-    public TerraformValue<string> DiskEncryption
+    public TerraformValue<string>? DiskEncryption
     {
-        get => new TerraformReference<string>(this, "disk_encryption");
+        get => GetArgument<TerraformValue<string>>("disk_encryption");
         set => SetArgument("disk_encryption", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -345,7 +345,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? InstallGpuDriver
     {
-        get => new TerraformReference<bool>(this, "install_gpu_driver");
+        get => GetArgument<TerraformValue<bool>>("install_gpu_driver");
         set => SetArgument("install_gpu_driver", value);
     }
 
@@ -358,7 +358,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformList<string>? InstanceOwners
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "instance_owners").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("instance_owners");
         set => SetArgument("instance_owners", value);
     }
 
@@ -368,7 +368,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -382,7 +382,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -392,7 +392,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -402,7 +402,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineType is required")]
     public required TerraformValue<string> MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -412,7 +412,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformMap<string>? Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -422,7 +422,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -430,9 +430,9 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// The name of the VPC that this instance is in.
     /// Format: projects/{project_id}/global/networks/{network_id}
     /// </summary>
-    public TerraformValue<string> Network
+    public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -441,7 +441,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? NicType
     {
-        get => new TerraformReference<string>(this, "nic_type");
+        get => GetArgument<TerraformValue<string>>("nic_type");
         set => SetArgument("nic_type", value);
     }
 
@@ -450,7 +450,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? NoProxyAccess
     {
-        get => new TerraformReference<bool>(this, "no_proxy_access");
+        get => GetArgument<TerraformValue<bool>>("no_proxy_access");
         set => SetArgument("no_proxy_access", value);
     }
 
@@ -459,7 +459,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? NoPublicIp
     {
-        get => new TerraformReference<bool>(this, "no_public_ip");
+        get => GetArgument<TerraformValue<bool>>("no_public_ip");
         set => SetArgument("no_public_ip", value);
     }
 
@@ -468,7 +468,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? NoRemoveDataDisk
     {
-        get => new TerraformReference<bool>(this, "no_remove_data_disk");
+        get => GetArgument<TerraformValue<bool>>("no_remove_data_disk");
         set => SetArgument("no_remove_data_disk", value);
     }
 
@@ -479,16 +479,16 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? PostStartupScript
     {
-        get => new TerraformReference<string>(this, "post_startup_script");
+        get => GetArgument<TerraformValue<string>>("post_startup_script");
         set => SetArgument("post_startup_script", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -499,9 +499,9 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// permission to use the instance. If not specified,
     /// the Compute Engine default service account is used.
     /// </summary>
-    public TerraformValue<string> ServiceAccount
+    public TerraformValue<string>? ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -511,9 +511,9 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// - https://www.googleapis.com/auth/cloud-platform
     /// - https://www.googleapis.com/auth/userinfo.email
     /// </summary>
-    public TerraformList<string> ServiceAccountScopes
+    public TerraformList<string>? ServiceAccountScopes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "service_account_scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("service_account_scopes");
         set => SetArgument("service_account_scopes", value);
     }
 
@@ -521,27 +521,27 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// The name of the subnet that this instance is in.
     /// Format: projects/{project_id}/regions/{region}/subnetworks/{subnetwork_id}
     /// </summary>
-    public TerraformValue<string> Subnet
+    public TerraformValue<string>? Subnet
     {
-        get => new TerraformReference<string>(this, "subnet");
+        get => GetArgument<TerraformValue<string>>("subnet");
         set => SetArgument("subnet", value);
     }
 
     /// <summary>
     /// The Compute Engine tags to add to instance.
     /// </summary>
-    public TerraformList<string> Tags
+    public TerraformList<string>? Tags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// Instance update time.
     /// </summary>
-    public TerraformValue<string> UpdateTime
+    public TerraformValue<string>? UpdateTime
     {
-        get => new TerraformReference<string>(this, "update_time");
+        get => GetArgument<TerraformValue<string>>("update_time");
         set => SetArgument("update_time", value);
     }
 
@@ -549,9 +549,7 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The proxy endpoint that is used to access the Jupyter notebook.
@@ -560,26 +558,20 @@ public partial class GoogleNotebooksInstance(string name) : TerraformResource("g
     /// the population of this value.
     /// </summary>
     public TerraformValue<string> ProxyUri
-    {
-        get => new TerraformReference<string>(this, "proxy_uri");
-    }
+        => AsReference("proxy_uri");
 
     /// <summary>
     /// The state of this instance.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// AcceleratorConfig block (nesting mode: list).

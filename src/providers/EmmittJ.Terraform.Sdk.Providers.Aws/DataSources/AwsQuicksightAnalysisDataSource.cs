@@ -14,43 +14,43 @@ public partial class AwsQuicksightAnalysisDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AnalysisId is required")]
     public required TerraformValue<string> AnalysisId
     {
-        get => new TerraformReference<string>(this, "analysis_id");
+        get => GetArgument<TerraformValue<string>>("analysis_id");
         set => SetArgument("analysis_id", value);
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string> AwsAccountId
+    public TerraformValue<string>? AwsAccountId
     {
-        get => new TerraformReference<string>(this, "aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -58,72 +58,54 @@ public partial class AwsQuicksightAnalysisDataSource(string name) : TerraformDat
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-    {
-        get => new TerraformReference<string>(this, "created_time");
-    }
+        => AsReference("created_time");
 
     /// <summary>
     /// The definition attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Definition
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "definition").ResolveNodes(ctx));
-    }
+        => AsReference("definition");
 
     /// <summary>
     /// The last_published_time attribute.
     /// </summary>
     public TerraformValue<string> LastPublishedTime
-    {
-        get => new TerraformReference<string>(this, "last_published_time");
-    }
+        => AsReference("last_published_time");
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedTime
-    {
-        get => new TerraformReference<string>(this, "last_updated_time");
-    }
+        => AsReference("last_updated_time");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Permissions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "permissions").ResolveNodes(ctx));
-    }
+        => AsReference("permissions");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The theme_arn attribute.
     /// </summary>
     public TerraformValue<string> ThemeArn
-    {
-        get => new TerraformReference<string>(this, "theme_arn");
-    }
+        => AsReference("theme_arn");
 
 }

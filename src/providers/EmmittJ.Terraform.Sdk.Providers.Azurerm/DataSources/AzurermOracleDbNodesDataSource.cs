@@ -18,7 +18,7 @@ public class AzurermOracleDbNodesDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermOracleDbNodesDataSource(string name) : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudVmClusterId is required")]
     public required TerraformValue<string> CloudVmClusterId
     {
-        get => new TerraformReference<string>(this, "cloud_vm_cluster_id");
+        get => GetArgument<TerraformValue<string>>("cloud_vm_cluster_id");
         set => SetArgument("cloud_vm_cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -54,9 +54,7 @@ public partial class AzurermOracleDbNodesDataSource(string name) : TerraformData
     /// The db_nodes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DbNodes
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "db_nodes").ResolveNodes(ctx));
-    }
+        => AsReference("db_nodes");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

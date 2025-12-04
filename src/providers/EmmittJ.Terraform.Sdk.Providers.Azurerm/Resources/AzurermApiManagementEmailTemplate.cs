@@ -18,7 +18,7 @@ public class AzurermApiManagementEmailTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermApiManagementEmailTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermApiManagementEmailTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermApiManagementEmailTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermApiManagementEmailTemplate(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformValue<string> ApiManagementName
     {
-        get => new TerraformReference<string>(this, "api_management_name");
+        get => GetArgument<TerraformValue<string>>("api_management_name");
         set => SetArgument("api_management_name", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzurermApiManagementEmailTemplate(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
     public required TerraformValue<string> Body
     {
-        get => new TerraformReference<string>(this, "body");
+        get => GetArgument<TerraformValue<string>>("body");
         set => SetArgument("body", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermApiManagementEmailTemplate(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermApiManagementEmailTemplate(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
     public required TerraformValue<string> Subject
     {
-        get => new TerraformReference<string>(this, "subject");
+        get => GetArgument<TerraformValue<string>>("subject");
         set => SetArgument("subject", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermApiManagementEmailTemplate(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateName is required")]
     public required TerraformValue<string> TemplateName
     {
-        get => new TerraformReference<string>(this, "template_name");
+        get => GetArgument<TerraformValue<string>>("template_name");
         set => SetArgument("template_name", value);
     }
 
@@ -121,17 +121,13 @@ public partial class AzurermApiManagementEmailTemplate(string name) : TerraformR
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The title attribute.
     /// </summary>
     public TerraformValue<string> Title
-    {
-        get => new TerraformReference<string>(this, "title");
-    }
+        => AsReference("title");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

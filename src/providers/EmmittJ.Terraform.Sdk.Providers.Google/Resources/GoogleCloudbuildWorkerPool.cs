@@ -19,7 +19,7 @@ public class GoogleCloudbuildWorkerPoolNetworkConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeredNetwork is required")]
     public required TerraformValue<string> PeeredNetwork
     {
-        get => new TerraformReference<string>(this, "peered_network");
+        get => GetArgument<TerraformValue<string>>("peered_network");
         set => SetArgument("peered_network", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleCloudbuildWorkerPoolNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PeeredNetworkIpRange
     {
-        get => new TerraformReference<string>(this, "peered_network_ip_range");
+        get => GetArgument<TerraformValue<string>>("peered_network_ip_range");
         set => SetArgument("peered_network_ip_range", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleCloudbuildWorkerPoolPrivateServiceConnectBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkAttachment is required")]
     public required TerraformValue<string> NetworkAttachment
     {
-        get => new TerraformReference<string>(this, "network_attachment");
+        get => GetArgument<TerraformValue<string>>("network_attachment");
         set => SetArgument("network_attachment", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleCloudbuildWorkerPoolPrivateServiceConnectBlock : TerraformBlo
     /// </summary>
     public TerraformValue<bool>? RouteAllTraffic
     {
-        get => new TerraformReference<bool>(this, "route_all_traffic");
+        get => GetArgument<TerraformValue<bool>>("route_all_traffic");
         set => SetArgument("route_all_traffic", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleCloudbuildWorkerPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -93,7 +93,7 @@ public class GoogleCloudbuildWorkerPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleCloudbuildWorkerPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -125,7 +125,7 @@ public class GoogleCloudbuildWorkerPoolWorkerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? DiskSizeGb
     {
-        get => new TerraformReference<double>(this, "disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -134,7 +134,7 @@ public class GoogleCloudbuildWorkerPoolWorkerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableNestedVirtualization
     {
-        get => new TerraformReference<bool>(this, "enable_nested_virtualization");
+        get => GetArgument<TerraformValue<bool>>("enable_nested_virtualization");
         set => SetArgument("enable_nested_virtualization", value);
     }
 
@@ -143,16 +143,16 @@ public class GoogleCloudbuildWorkerPoolWorkerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
     /// <summary>
     /// If true, workers are created without any public address, which prevents network egress to public IPs.
     /// </summary>
-    public TerraformValue<bool> NoExternalIp
+    public TerraformValue<bool>? NoExternalIp
     {
-        get => new TerraformReference<bool>(this, "no_external_ip");
+        get => GetArgument<TerraformValue<bool>>("no_external_ip");
         set => SetArgument("no_external_ip", value);
     }
 
@@ -173,7 +173,7 @@ public partial class GoogleCloudbuildWorkerPool(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -182,16 +182,16 @@ public partial class GoogleCloudbuildWorkerPool(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -201,7 +201,7 @@ public partial class GoogleCloudbuildWorkerPool(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -211,16 +211,16 @@ public partial class GoogleCloudbuildWorkerPool(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -228,49 +228,37 @@ public partial class GoogleCloudbuildWorkerPool(string name) : TerraformResource
     /// Output only. Time at which the request to create the `WorkerPool` was received.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Output only. Time at which the request to delete the `WorkerPool` was received.
     /// </summary>
     public TerraformValue<string> DeleteTime
-    {
-        get => new TerraformReference<string>(this, "delete_time");
-    }
+        => AsReference("delete_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// Output only. `WorkerPool` state. Possible values: STATE_UNSPECIFIED, PENDING, APPROVED, REJECTED, CANCELLED
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Output only. A unique identifier for the `WorkerPool`.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Output only. Time at which the request to update the `WorkerPool` was received.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// NetworkConfig block (nesting mode: list).

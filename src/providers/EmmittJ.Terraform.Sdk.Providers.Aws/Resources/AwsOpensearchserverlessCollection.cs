@@ -18,7 +18,7 @@ public class AwsOpensearchserverlessCollectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsOpensearchserverlessCollectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AwsOpensearchserverlessCollection(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -55,25 +55,25 @@ public partial class AwsOpensearchserverlessCollection(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
     /// </summary>
-    public TerraformValue<string> StandbyReplicas
+    public TerraformValue<string>? StandbyReplicas
     {
-        get => new TerraformReference<string>(this, "standby_replicas");
+        get => GetArgument<TerraformValue<string>>("standby_replicas");
         set => SetArgument("standby_replicas", value);
     }
 
@@ -82,16 +82,16 @@ public partial class AwsOpensearchserverlessCollection(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
     /// </summary>
-    public TerraformValue<string> Type
+    public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -99,49 +99,37 @@ public partial class AwsOpensearchserverlessCollection(string name) : TerraformR
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
     /// </summary>
     public TerraformValue<string> CollectionEndpoint
-    {
-        get => new TerraformReference<string>(this, "collection_endpoint");
-    }
+        => AsReference("collection_endpoint");
 
     /// <summary>
     /// Collection-specific endpoint used to access OpenSearch Dashboards.
     /// </summary>
     public TerraformValue<string> DashboardEndpoint
-    {
-        get => new TerraformReference<string>(this, "dashboard_endpoint");
-    }
+        => AsReference("dashboard_endpoint");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
     /// </summary>
     public TerraformValue<string> KmsKeyArn
-    {
-        get => new TerraformReference<string>(this, "kms_key_arn");
-    }
+        => AsReference("kms_key_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

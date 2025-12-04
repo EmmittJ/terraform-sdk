@@ -18,7 +18,7 @@ public class AzurermBotChannelSlackTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermBotChannelSlackTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermBotChannelSlackTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermBotChannelSlackTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermBotChannelSlack(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
     public required TerraformValue<string> BotName
     {
-        get => new TerraformReference<string>(this, "bot_name");
+        get => GetArgument<TerraformValue<string>>("bot_name");
         set => SetArgument("bot_name", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermBotChannelSlack(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AzurermBotChannelSlack(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformValue<string> ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermBotChannelSlack(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? LandingPageUrl
     {
-        get => new TerraformReference<string>(this, "landing_page_url");
+        get => GetArgument<TerraformValue<string>>("landing_page_url");
         set => SetArgument("landing_page_url", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermBotChannelSlack(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermBotChannelSlack(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermBotChannelSlack(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? SigningSecret
     {
-        get => new TerraformReference<string>(this, "signing_secret");
+        get => GetArgument<TerraformValue<string>>("signing_secret");
         set => SetArgument("signing_secret", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AzurermBotChannelSlack(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerificationToken is required")]
     public required TerraformValue<string> VerificationToken
     {
-        get => new TerraformReference<string>(this, "verification_token");
+        get => GetArgument<TerraformValue<string>>("verification_token");
         set => SetArgument("verification_token", value);
     }
 

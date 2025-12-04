@@ -20,7 +20,7 @@ public class GoogleFilestoreInstanceFileSharesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGb is required")]
     public required TerraformValue<double> CapacityGb
     {
-        get => new TerraformReference<double>(this, "capacity_gb");
+        get => GetArgument<TerraformValue<double>>("capacity_gb");
         set => SetArgument("capacity_gb", value);
     }
 
@@ -30,7 +30,7 @@ public class GoogleFilestoreInstanceFileSharesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -41,7 +41,7 @@ public class GoogleFilestoreInstanceFileSharesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SourceBackup
     {
-        get => new TerraformReference<string>(this, "source_backup");
+        get => GetArgument<TerraformValue<string>>("source_backup");
         set => SetArgument("source_backup", value);
     }
 
@@ -74,7 +74,7 @@ public class GoogleFilestoreInstanceFileSharesBlockNfsExportOptionsBlock : Terra
     /// </summary>
     public TerraformValue<string>? AccessMode
     {
-        get => new TerraformReference<string>(this, "access_mode");
+        get => GetArgument<TerraformValue<string>>("access_mode");
         set => SetArgument("access_mode", value);
     }
 
@@ -85,7 +85,7 @@ public class GoogleFilestoreInstanceFileSharesBlockNfsExportOptionsBlock : Terra
     /// </summary>
     public TerraformValue<double>? AnonGid
     {
-        get => new TerraformReference<double>(this, "anon_gid");
+        get => GetArgument<TerraformValue<double>>("anon_gid");
         set => SetArgument("anon_gid", value);
     }
 
@@ -96,7 +96,7 @@ public class GoogleFilestoreInstanceFileSharesBlockNfsExportOptionsBlock : Terra
     /// </summary>
     public TerraformValue<double>? AnonUid
     {
-        get => new TerraformReference<double>(this, "anon_uid");
+        get => GetArgument<TerraformValue<double>>("anon_uid");
         set => SetArgument("anon_uid", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleFilestoreInstanceFileSharesBlockNfsExportOptionsBlock : Terra
     /// </summary>
     public TerraformList<string>? IpRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ip_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ip_ranges");
         set => SetArgument("ip_ranges", value);
     }
 
@@ -117,7 +117,7 @@ public class GoogleFilestoreInstanceFileSharesBlockNfsExportOptionsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -127,7 +127,7 @@ public class GoogleFilestoreInstanceFileSharesBlockNfsExportOptionsBlock : Terra
     /// </summary>
     public TerraformValue<string>? SquashMode
     {
-        get => new TerraformReference<string>(this, "squash_mode");
+        get => GetArgument<TerraformValue<string>>("squash_mode");
         set => SetArgument("squash_mode", value);
     }
 
@@ -150,7 +150,7 @@ public class GoogleFilestoreInstanceInitialReplicationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Role
     {
-        get => new TerraformReference<string>(this, "role");
+        get => GetArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 
@@ -182,7 +182,7 @@ public class GoogleFilestoreInstanceInitialReplicationBlockReplicasBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerInstance is required")]
     public required TerraformValue<string> PeerInstance
     {
-        get => new TerraformReference<string>(this, "peer_instance");
+        get => GetArgument<TerraformValue<string>>("peer_instance");
         set => SetArgument("peer_instance", value);
     }
 
@@ -207,7 +207,7 @@ public class GoogleFilestoreInstanceNetworksBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConnectMode
     {
-        get => new TerraformReference<string>(this, "connect_mode");
+        get => GetArgument<TerraformValue<string>>("connect_mode");
         set => SetArgument("connect_mode", value);
     }
 
@@ -215,9 +215,7 @@ public class GoogleFilestoreInstanceNetworksBlock : TerraformBlock
     /// A list of IPv4 or IPv6 addresses.
     /// </summary>
     public TerraformList<string> IpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("ip_addresses");
 
     /// <summary>
     /// IP versions for which the instance has
@@ -226,7 +224,7 @@ public class GoogleFilestoreInstanceNetworksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Modes is required")]
     public TerraformList<string>? Modes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "modes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("modes");
         set => SetArgument("modes", value);
     }
 
@@ -237,7 +235,7 @@ public class GoogleFilestoreInstanceNetworksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -245,9 +243,9 @@ public class GoogleFilestoreInstanceNetworksBlock : TerraformBlock
     /// A /29 CIDR block that identifies the range of IP
     /// addresses reserved for this instance.
     /// </summary>
-    public TerraformValue<string> ReservedIpRange
+    public TerraformValue<string>? ReservedIpRange
     {
-        get => new TerraformReference<string>(this, "reserved_ip_range");
+        get => GetArgument<TerraformValue<string>>("reserved_ip_range");
         set => SetArgument("reserved_ip_range", value);
     }
 
@@ -282,7 +280,7 @@ public class GoogleFilestoreInstanceNetworksBlockPscConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EndpointProject
     {
-        get => new TerraformReference<string>(this, "endpoint_project");
+        get => GetArgument<TerraformValue<string>>("endpoint_project");
         set => SetArgument("endpoint_project", value);
     }
 
@@ -339,7 +337,7 @@ public class GoogleFilestoreInstancePerformanceConfigBlockFixedIopsBlock : Terra
     /// </summary>
     public TerraformValue<double>? MaxIops
     {
-        get => new TerraformReference<double>(this, "max_iops");
+        get => GetArgument<TerraformValue<double>>("max_iops");
         set => SetArgument("max_iops", value);
     }
 
@@ -365,7 +363,7 @@ public class GoogleFilestoreInstancePerformanceConfigBlockIopsPerTbBlock : Terra
     /// </summary>
     public TerraformValue<double>? MaxIopsPerTb
     {
-        get => new TerraformReference<double>(this, "max_iops_per_tb");
+        get => GetArgument<TerraformValue<double>>("max_iops_per_tb");
         set => SetArgument("max_iops_per_tb", value);
     }
 
@@ -388,7 +386,7 @@ public class GoogleFilestoreInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -397,7 +395,7 @@ public class GoogleFilestoreInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -406,7 +404,7 @@ public class GoogleFilestoreInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -424,7 +422,7 @@ public partial class GoogleFilestoreInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? DeletionProtectionEnabled
     {
-        get => new TerraformReference<bool>(this, "deletion_protection_enabled");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection_enabled");
         set => SetArgument("deletion_protection_enabled", value);
     }
 
@@ -433,7 +431,7 @@ public partial class GoogleFilestoreInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? DeletionProtectionReason
     {
-        get => new TerraformReference<string>(this, "deletion_protection_reason");
+        get => GetArgument<TerraformValue<string>>("deletion_protection_reason");
         set => SetArgument("deletion_protection_reason", value);
     }
 
@@ -442,16 +440,16 @@ public partial class GoogleFilestoreInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -460,7 +458,7 @@ public partial class GoogleFilestoreInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -473,16 +471,16 @@ public partial class GoogleFilestoreInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// The name of the location of the instance. This can be a region for ENTERPRISE tier instances.
     /// </summary>
-    public TerraformValue<string> Location
+    public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -492,16 +490,16 @@ public partial class GoogleFilestoreInstance(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -513,7 +511,7 @@ public partial class GoogleFilestoreInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -530,7 +528,7 @@ public partial class GoogleFilestoreInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -541,7 +539,7 @@ public partial class GoogleFilestoreInstance(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformValue<string> Tier
     {
-        get => new TerraformReference<string>(this, "tier");
+        get => GetArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 
@@ -549,9 +547,9 @@ public partial class GoogleFilestoreInstance(string name) : TerraformResource("g
     /// The name of the Filestore zone of the instance.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> Zone
+    public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -559,43 +557,33 @@ public partial class GoogleFilestoreInstance(string name) : TerraformResource("g
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Output only fields for replication configuration.
     /// </summary>
     public TerraformList<TerraformMap<object>> EffectiveReplication
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "effective_replication").ResolveNodes(ctx));
-    }
+        => AsReference("effective_replication");
 
     /// <summary>
     /// Server-specified ETag for the instance resource to prevent
     /// simultaneous updates from overwriting each other.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// FileShares block (nesting mode: list).

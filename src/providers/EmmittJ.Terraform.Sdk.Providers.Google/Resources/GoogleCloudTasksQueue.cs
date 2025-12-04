@@ -17,9 +17,7 @@ public class GoogleCloudTasksQueueAppEngineRoutingOverrideBlock : TerraformBlock
     /// The host that the task is sent to.
     /// </summary>
     public TerraformValue<string> Host
-    {
-        get => new TerraformReference<string>(this, "host");
-    }
+        => AsReference("host");
 
     /// <summary>
     /// App instance.
@@ -28,7 +26,7 @@ public class GoogleCloudTasksQueueAppEngineRoutingOverrideBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -39,7 +37,7 @@ public class GoogleCloudTasksQueueAppEngineRoutingOverrideBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -50,7 +48,7 @@ public class GoogleCloudTasksQueueAppEngineRoutingOverrideBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -74,9 +72,9 @@ public class GoogleCloudTasksQueueHttpTargetBlock : TerraformBlock
     /// When specified, it overrides HttpRequest for the task.
     /// Note that if the value is set to GET the body of the task will be ignored at execution time. Possible values: [&amp;quot;HTTP_METHOD_UNSPECIFIED&amp;quot;, &amp;quot;POST&amp;quot;, &amp;quot;GET&amp;quot;, &amp;quot;HEAD&amp;quot;, &amp;quot;PUT&amp;quot;, &amp;quot;DELETE&amp;quot;, &amp;quot;PATCH&amp;quot;, &amp;quot;OPTIONS&amp;quot;]
     /// </summary>
-    public TerraformValue<string> HttpMethod
+    public TerraformValue<string>? HttpMethod
     {
-        get => new TerraformReference<string>(this, "http_method");
+        get => GetArgument<TerraformValue<string>>("http_method");
         set => SetArgument("http_method", value);
     }
 
@@ -164,7 +162,7 @@ public class GoogleCloudTasksQueueHttpTargetBlockHeaderOverridesBlockHeaderBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -174,7 +172,7 @@ public class GoogleCloudTasksQueueHttpTargetBlockHeaderOverridesBlockHeaderBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -195,9 +193,9 @@ public class GoogleCloudTasksQueueHttpTargetBlockOauthTokenBlock : TerraformBloc
     /// OAuth scope to be used for generating OAuth access token.
     /// If not specified, &amp;quot;https://www.googleapis.com/auth/cloud-platform&amp;quot; will be used.
     /// </summary>
-    public TerraformValue<string> Scope
+    public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -209,7 +207,7 @@ public class GoogleCloudTasksQueueHttpTargetBlockOauthTokenBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountEmail is required")]
     public required TerraformValue<string> ServiceAccountEmail
     {
-        get => new TerraformReference<string>(this, "service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -229,9 +227,9 @@ public class GoogleCloudTasksQueueHttpTargetBlockOidcTokenBlock : TerraformBlock
     /// <summary>
     /// Audience to be used when generating OIDC token. If not specified, the URI specified in target will be used.
     /// </summary>
-    public TerraformValue<string> Audience
+    public TerraformValue<string>? Audience
     {
-        get => new TerraformReference<string>(this, "audience");
+        get => GetArgument<TerraformValue<string>>("audience");
         set => SetArgument("audience", value);
     }
 
@@ -243,7 +241,7 @@ public class GoogleCloudTasksQueueHttpTargetBlockOidcTokenBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountEmail is required")]
     public required TerraformValue<string> ServiceAccountEmail
     {
-        get => new TerraformReference<string>(this, "service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -270,7 +268,7 @@ public class GoogleCloudTasksQueueHttpTargetBlockUriOverrideBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -284,7 +282,7 @@ public class GoogleCloudTasksQueueHttpTargetBlockUriOverrideBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Port
     {
-        get => new TerraformReference<string>(this, "port");
+        get => GetArgument<TerraformValue<string>>("port");
         set => SetArgument("port", value);
     }
 
@@ -293,9 +291,9 @@ public class GoogleCloudTasksQueueHttpTargetBlockUriOverrideBlock : TerraformBlo
     /// 
     /// When specified, the task URI scheme is replaced by the provided value (HTTP or HTTPS). Possible values: [&amp;quot;HTTP&amp;quot;, &amp;quot;HTTPS&amp;quot;]
     /// </summary>
-    public TerraformValue<string> Scheme
+    public TerraformValue<string>? Scheme
     {
-        get => new TerraformReference<string>(this, "scheme");
+        get => GetArgument<TerraformValue<string>>("scheme");
         set => SetArgument("scheme", value);
     }
 
@@ -304,9 +302,9 @@ public class GoogleCloudTasksQueueHttpTargetBlockUriOverrideBlock : TerraformBlo
     /// 
     /// When specified, determines the Target UriOverride mode. If not specified, it defaults to ALWAYS. Possible values: [&amp;quot;ALWAYS&amp;quot;, &amp;quot;IF_NOT_EXISTS&amp;quot;]
     /// </summary>
-    public TerraformValue<string> UriOverrideEnforceMode
+    public TerraformValue<string>? UriOverrideEnforceMode
     {
-        get => new TerraformReference<string>(this, "uri_override_enforce_mode");
+        get => GetArgument<TerraformValue<string>>("uri_override_enforce_mode");
         set => SetArgument("uri_override_enforce_mode", value);
     }
 
@@ -346,9 +344,9 @@ public class GoogleCloudTasksQueueHttpTargetBlockUriOverrideBlockPathOverrideBlo
     /// <summary>
     /// The URI path (e.g., /users/1234). Default is an empty string.
     /// </summary>
-    public TerraformValue<string> Path
+    public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -368,9 +366,9 @@ public class GoogleCloudTasksQueueHttpTargetBlockUriOverrideBlockQueryOverrideBl
     /// <summary>
     /// The query parameters (e.g., qparam1=123&amp;amp;qparam2=456). Default is an empty string.
     /// </summary>
-    public TerraformValue<string> QueryParams
+    public TerraformValue<string>? QueryParams
     {
-        get => new TerraformReference<string>(this, "query_params");
+        get => GetArgument<TerraformValue<string>>("query_params");
         set => SetArgument("query_params", value);
     }
 
@@ -397,9 +395,7 @@ public class GoogleCloudTasksQueueRateLimitsBlock : TerraformBlock
     /// resource usage when many tasks are enqueued in a short period of time.
     /// </summary>
     public TerraformValue<double> MaxBurstSize
-    {
-        get => new TerraformReference<double>(this, "max_burst_size");
-    }
+        => AsReference("max_burst_size");
 
     /// <summary>
     /// The maximum number of concurrent tasks that Cloud Tasks allows to
@@ -407,9 +403,9 @@ public class GoogleCloudTasksQueueRateLimitsBlock : TerraformBlock
     /// reached, Cloud Tasks stops dispatching tasks until the number of
     /// concurrent requests decreases.
     /// </summary>
-    public TerraformValue<double> MaxConcurrentDispatches
+    public TerraformValue<double>? MaxConcurrentDispatches
     {
-        get => new TerraformReference<double>(this, "max_concurrent_dispatches");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_dispatches");
         set => SetArgument("max_concurrent_dispatches", value);
     }
 
@@ -418,9 +414,9 @@ public class GoogleCloudTasksQueueRateLimitsBlock : TerraformBlock
     /// 
     /// If unspecified when the queue is created, Cloud Tasks will pick the default.
     /// </summary>
-    public TerraformValue<double> MaxDispatchesPerSecond
+    public TerraformValue<double>? MaxDispatchesPerSecond
     {
-        get => new TerraformReference<double>(this, "max_dispatches_per_second");
+        get => GetArgument<TerraformValue<double>>("max_dispatches_per_second");
         set => SetArgument("max_dispatches_per_second", value);
     }
 
@@ -450,9 +446,9 @@ public class GoogleCloudTasksQueueRetryConfigBlock : TerraformBlock
     /// 
     /// -1 indicates unlimited attempts.
     /// </summary>
-    public TerraformValue<double> MaxAttempts
+    public TerraformValue<double>? MaxAttempts
     {
-        get => new TerraformReference<double>(this, "max_attempts");
+        get => GetArgument<TerraformValue<double>>("max_attempts");
         set => SetArgument("max_attempts", value);
     }
 
@@ -461,9 +457,9 @@ public class GoogleCloudTasksQueueRetryConfigBlock : TerraformBlock
     /// maxBackoff duration after it fails, if the queue&#39;s RetryConfig
     /// specifies that the task should be retried.
     /// </summary>
-    public TerraformValue<string> MaxBackoff
+    public TerraformValue<string>? MaxBackoff
     {
-        get => new TerraformReference<string>(this, "max_backoff");
+        get => GetArgument<TerraformValue<string>>("max_backoff");
         set => SetArgument("max_backoff", value);
     }
 
@@ -474,9 +470,9 @@ public class GoogleCloudTasksQueueRetryConfigBlock : TerraformBlock
     /// then increases linearly, and finally retries retries at intervals of maxBackoff
     /// up to maxAttempts times.
     /// </summary>
-    public TerraformValue<double> MaxDoublings
+    public TerraformValue<double>? MaxDoublings
     {
-        get => new TerraformReference<double>(this, "max_doublings");
+        get => GetArgument<TerraformValue<double>>("max_doublings");
         set => SetArgument("max_doublings", value);
     }
 
@@ -489,9 +485,9 @@ public class GoogleCloudTasksQueueRetryConfigBlock : TerraformBlock
     /// 
     /// If zero, then the task age is unlimited.
     /// </summary>
-    public TerraformValue<string> MaxRetryDuration
+    public TerraformValue<string>? MaxRetryDuration
     {
-        get => new TerraformReference<string>(this, "max_retry_duration");
+        get => GetArgument<TerraformValue<string>>("max_retry_duration");
         set => SetArgument("max_retry_duration", value);
     }
 
@@ -500,9 +496,9 @@ public class GoogleCloudTasksQueueRetryConfigBlock : TerraformBlock
     /// maxBackoff duration after it fails, if the queue&#39;s RetryConfig
     /// specifies that the task should be retried.
     /// </summary>
-    public TerraformValue<string> MinBackoff
+    public TerraformValue<string>? MinBackoff
     {
-        get => new TerraformReference<string>(this, "min_backoff");
+        get => GetArgument<TerraformValue<string>>("min_backoff");
         set => SetArgument("min_backoff", value);
     }
 
@@ -528,7 +524,7 @@ public class GoogleCloudTasksQueueStackdriverLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SamplingRatio is required")]
     public required TerraformValue<double> SamplingRatio
     {
-        get => new TerraformReference<double>(this, "sampling_ratio");
+        get => GetArgument<TerraformValue<double>>("sampling_ratio");
         set => SetArgument("sampling_ratio", value);
     }
 
@@ -551,7 +547,7 @@ public class GoogleCloudTasksQueueTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -560,7 +556,7 @@ public class GoogleCloudTasksQueueTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -569,7 +565,7 @@ public class GoogleCloudTasksQueueTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -590,16 +586,16 @@ public partial class GoogleCloudTasksQueue(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string>? DesiredState
     {
-        get => new TerraformReference<string>(this, "desired_state");
+        get => GetArgument<TerraformValue<string>>("desired_state");
         set => SetArgument("desired_state", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -609,7 +605,7 @@ public partial class GoogleCloudTasksQueue(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -619,16 +615,16 @@ public partial class GoogleCloudTasksQueue(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -636,9 +632,7 @@ public partial class GoogleCloudTasksQueue(string name) : TerraformResource("goo
     /// The current state of the queue.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// AppEngineRoutingOverride block (nesting mode: list).

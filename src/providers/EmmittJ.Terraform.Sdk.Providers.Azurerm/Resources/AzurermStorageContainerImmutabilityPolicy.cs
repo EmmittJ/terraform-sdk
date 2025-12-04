@@ -18,7 +18,7 @@ public class AzurermStorageContainerImmutabilityPolicyTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermStorageContainerImmutabilityPolicyTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermStorageContainerImmutabilityPolicyTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermStorageContainerImmutabilityPolicyTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermStorageContainerImmutabilityPolicy(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermStorageContainerImmutabilityPolicy(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImmutabilityPeriodInDays is required")]
     public required TerraformValue<double> ImmutabilityPeriodInDays
     {
-        get => new TerraformReference<double>(this, "immutability_period_in_days");
+        get => GetArgument<TerraformValue<double>>("immutability_period_in_days");
         set => SetArgument("immutability_period_in_days", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermStorageContainerImmutabilityPolicy(string name) : Te
     /// </summary>
     public TerraformValue<bool>? Locked
     {
-        get => new TerraformReference<bool>(this, "locked");
+        get => GetArgument<TerraformValue<bool>>("locked");
         set => SetArgument("locked", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermStorageContainerImmutabilityPolicy(string name) : Te
     /// </summary>
     public TerraformValue<bool>? ProtectedAppendWritesAllEnabled
     {
-        get => new TerraformReference<bool>(this, "protected_append_writes_all_enabled");
+        get => GetArgument<TerraformValue<bool>>("protected_append_writes_all_enabled");
         set => SetArgument("protected_append_writes_all_enabled", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermStorageContainerImmutabilityPolicy(string name) : Te
     /// </summary>
     public TerraformValue<bool>? ProtectedAppendWritesEnabled
     {
-        get => new TerraformReference<bool>(this, "protected_append_writes_enabled");
+        get => GetArgument<TerraformValue<bool>>("protected_append_writes_enabled");
         set => SetArgument("protected_append_writes_enabled", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermStorageContainerImmutabilityPolicy(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerResourceManagerId is required")]
     public required TerraformValue<string> StorageContainerResourceManagerId
     {
-        get => new TerraformReference<string>(this, "storage_container_resource_manager_id");
+        get => GetArgument<TerraformValue<string>>("storage_container_resource_manager_id");
         set => SetArgument("storage_container_resource_manager_id", value);
     }
 

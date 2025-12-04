@@ -18,7 +18,7 @@ public class AwsNetworkmanagerAttachmentAccepterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -37,7 +37,7 @@ public partial class AwsNetworkmanagerAttachmentAccepter(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentId is required")]
     public required TerraformValue<string> AttachmentId
     {
-        get => new TerraformReference<string>(this, "attachment_id");
+        get => GetArgument<TerraformValue<string>>("attachment_id");
         set => SetArgument("attachment_id", value);
     }
 
@@ -47,16 +47,16 @@ public partial class AwsNetworkmanagerAttachmentAccepter(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentType is required")]
     public required TerraformValue<string> AttachmentType
     {
-        get => new TerraformReference<string>(this, "attachment_type");
+        get => GetArgument<TerraformValue<string>>("attachment_type");
         set => SetArgument("attachment_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,73 +64,55 @@ public partial class AwsNetworkmanagerAttachmentAccepter(string name) : Terrafor
     /// The attachment_policy_rule_number attribute.
     /// </summary>
     public TerraformValue<double> AttachmentPolicyRuleNumber
-    {
-        get => new TerraformReference<double>(this, "attachment_policy_rule_number");
-    }
+        => AsReference("attachment_policy_rule_number");
 
     /// <summary>
     /// The core_network_arn attribute.
     /// </summary>
     public TerraformValue<string> CoreNetworkArn
-    {
-        get => new TerraformReference<string>(this, "core_network_arn");
-    }
+        => AsReference("core_network_arn");
 
     /// <summary>
     /// The core_network_id attribute.
     /// </summary>
     public TerraformValue<string> CoreNetworkId
-    {
-        get => new TerraformReference<string>(this, "core_network_id");
-    }
+        => AsReference("core_network_id");
 
     /// <summary>
     /// The edge_location attribute.
     /// </summary>
     public TerraformValue<string> EdgeLocation
-    {
-        get => new TerraformReference<string>(this, "edge_location");
-    }
+        => AsReference("edge_location");
 
     /// <summary>
     /// The edge_locations attribute.
     /// </summary>
     public TerraformList<string> EdgeLocations
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "edge_locations").ResolveNodes(ctx));
-    }
+        => AsReference("edge_locations");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-    {
-        get => new TerraformReference<string>(this, "owner_account_id");
-    }
+        => AsReference("owner_account_id");
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
     public TerraformValue<string> ResourceArn
-    {
-        get => new TerraformReference<string>(this, "resource_arn");
-    }
+        => AsReference("resource_arn");
 
     /// <summary>
     /// The segment_name attribute.
     /// </summary>
     public TerraformValue<string> SegmentName
-    {
-        get => new TerraformReference<string>(this, "segment_name");
-    }
+        => AsReference("segment_name");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

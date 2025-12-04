@@ -52,7 +52,7 @@ public class AwsIdentitystoreGroupDataSourceAlternateIdentifierBlockExternalIdBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsIdentitystoreGroupDataSourceAlternateIdentifierBlockExternalIdBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformValue<string> Issuer
     {
-        get => new TerraformReference<string>(this, "issuer");
+        get => GetArgument<TerraformValue<string>>("issuer");
         set => SetArgument("issuer", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsIdentitystoreGroupDataSourceAlternateIdentifierBlockUniqueAttrib
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributePath is required")]
     public required TerraformValue<string> AttributePath
     {
-        get => new TerraformReference<string>(this, "attribute_path");
+        get => GetArgument<TerraformValue<string>>("attribute_path");
         set => SetArgument("attribute_path", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsIdentitystoreGroupDataSourceAlternateIdentifierBlockUniqueAttrib
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributeValue is required")]
     public required TerraformValue<string> AttributeValue
     {
-        get => new TerraformReference<string>(this, "attribute_value");
+        get => GetArgument<TerraformValue<string>>("attribute_value");
         set => SetArgument("attribute_value", value);
     }
 
@@ -111,18 +111,18 @@ public partial class AwsIdentitystoreGroupDataSource(string name) : TerraformDat
     /// <summary>
     /// The group_id attribute.
     /// </summary>
-    public TerraformValue<string> GroupId
+    public TerraformValue<string>? GroupId
     {
-        get => new TerraformReference<string>(this, "group_id");
+        get => GetArgument<TerraformValue<string>>("group_id");
         set => SetArgument("group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -132,16 +132,16 @@ public partial class AwsIdentitystoreGroupDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityStoreId is required")]
     public required TerraformValue<string> IdentityStoreId
     {
-        get => new TerraformReference<string>(this, "identity_store_id");
+        get => GetArgument<TerraformValue<string>>("identity_store_id");
         set => SetArgument("identity_store_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -149,25 +149,19 @@ public partial class AwsIdentitystoreGroupDataSource(string name) : TerraformDat
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The external_ids attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ExternalIds
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "external_ids").ResolveNodes(ctx));
-    }
+        => AsReference("external_ids");
 
     /// <summary>
     /// AlternateIdentifier block (nesting mode: list).

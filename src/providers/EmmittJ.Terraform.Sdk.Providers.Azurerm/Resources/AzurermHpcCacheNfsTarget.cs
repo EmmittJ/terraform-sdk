@@ -18,7 +18,7 @@ public class AzurermHpcCacheNfsTargetNamespaceJunctionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AccessPolicyName
     {
-        get => new TerraformReference<string>(this, "access_policy_name");
+        get => GetArgument<TerraformValue<string>>("access_policy_name");
         set => SetArgument("access_policy_name", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermHpcCacheNfsTargetNamespaceJunctionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespacePath is required")]
     public required TerraformValue<string> NamespacePath
     {
-        get => new TerraformReference<string>(this, "namespace_path");
+        get => GetArgument<TerraformValue<string>>("namespace_path");
         set => SetArgument("namespace_path", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermHpcCacheNfsTargetNamespaceJunctionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NfsExport is required")]
     public required TerraformValue<string> NfsExport
     {
-        get => new TerraformReference<string>(this, "nfs_export");
+        get => GetArgument<TerraformValue<string>>("nfs_export");
         set => SetArgument("nfs_export", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermHpcCacheNfsTargetNamespaceJunctionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TargetPath
     {
-        get => new TerraformReference<string>(this, "target_path");
+        get => GetArgument<TerraformValue<string>>("target_path");
         set => SetArgument("target_path", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermHpcCacheNfsTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermHpcCacheNfsTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermHpcCacheNfsTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermHpcCacheNfsTargetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -117,16 +117,16 @@ public partial class AzurermHpcCacheNfsTarget(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheName is required")]
     public required TerraformValue<string> CacheName
     {
-        get => new TerraformReference<string>(this, "cache_name");
+        get => GetArgument<TerraformValue<string>>("cache_name");
         set => SetArgument("cache_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AzurermHpcCacheNfsTarget(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AzurermHpcCacheNfsTarget(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AzurermHpcCacheNfsTarget(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetHostName is required")]
     public required TerraformValue<string> TargetHostName
     {
-        get => new TerraformReference<string>(this, "target_host_name");
+        get => GetArgument<TerraformValue<string>>("target_host_name");
         set => SetArgument("target_host_name", value);
     }
 
@@ -166,7 +166,7 @@ public partial class AzurermHpcCacheNfsTarget(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsageModel is required")]
     public required TerraformValue<string> UsageModel
     {
-        get => new TerraformReference<string>(this, "usage_model");
+        get => GetArgument<TerraformValue<string>>("usage_model");
         set => SetArgument("usage_model", value);
     }
 
@@ -175,7 +175,7 @@ public partial class AzurermHpcCacheNfsTarget(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double>? VerificationTimerInSeconds
     {
-        get => new TerraformReference<double>(this, "verification_timer_in_seconds");
+        get => GetArgument<TerraformValue<double>>("verification_timer_in_seconds");
         set => SetArgument("verification_timer_in_seconds", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AzurermHpcCacheNfsTarget(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double>? WriteBackTimerInSeconds
     {
-        get => new TerraformReference<double>(this, "write_back_timer_in_seconds");
+        get => GetArgument<TerraformValue<double>>("write_back_timer_in_seconds");
         set => SetArgument("write_back_timer_in_seconds", value);
     }
 

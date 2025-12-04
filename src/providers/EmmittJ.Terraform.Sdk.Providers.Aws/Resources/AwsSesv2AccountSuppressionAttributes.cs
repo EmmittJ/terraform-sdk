@@ -11,9 +11,9 @@ public partial class AwsSesv2AccountSuppressionAttributes(string name) : Terrafo
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsSesv2AccountSuppressionAttributes(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SuppressedReasons is required")]
     public required TerraformSet<string> SuppressedReasons
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "suppressed_reasons").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("suppressed_reasons");
         set => SetArgument("suppressed_reasons", value);
     }
 
@@ -31,8 +31,6 @@ public partial class AwsSesv2AccountSuppressionAttributes(string name) : Terrafo
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
 }

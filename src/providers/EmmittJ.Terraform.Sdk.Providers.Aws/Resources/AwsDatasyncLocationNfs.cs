@@ -18,7 +18,7 @@ public class AwsDatasyncLocationNfsMountOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsDatasyncLocationNfsOnPremConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentArns is required")]
     public required TerraformSet<string> AgentArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "agent_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("agent_arns");
         set => SetArgument("agent_arns", value);
     }
 
@@ -58,18 +58,18 @@ public partial class AwsDatasyncLocationNfs(string name) : TerraformResource("aw
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsDatasyncLocationNfs(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerHostname is required")]
     public required TerraformValue<string> ServerHostname
     {
-        get => new TerraformReference<string>(this, "server_hostname");
+        get => GetArgument<TerraformValue<string>>("server_hostname");
         set => SetArgument("server_hostname", value);
     }
 
@@ -89,7 +89,7 @@ public partial class AwsDatasyncLocationNfs(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subdirectory is required")]
     public required TerraformValue<string> Subdirectory
     {
-        get => new TerraformReference<string>(this, "subdirectory");
+        get => GetArgument<TerraformValue<string>>("subdirectory");
         set => SetArgument("subdirectory", value);
     }
 
@@ -98,16 +98,16 @@ public partial class AwsDatasyncLocationNfs(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -115,17 +115,13 @@ public partial class AwsDatasyncLocationNfs(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     public TerraformValue<string> Uri
-    {
-        get => new TerraformReference<string>(this, "uri");
-    }
+        => AsReference("uri");
 
     /// <summary>
     /// MountOptions block (nesting mode: list).

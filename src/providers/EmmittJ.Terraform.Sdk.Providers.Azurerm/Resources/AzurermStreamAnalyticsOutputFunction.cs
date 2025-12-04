@@ -18,7 +18,7 @@ public class AzurermStreamAnalyticsOutputFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermStreamAnalyticsOutputFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermStreamAnalyticsOutputFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermStreamAnalyticsOutputFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermStreamAnalyticsOutputFunction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
     public required TerraformValue<string> ApiKey
     {
-        get => new TerraformReference<string>(this, "api_key");
+        get => GetArgument<TerraformValue<string>>("api_key");
         set => SetArgument("api_key", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermStreamAnalyticsOutputFunction(string name) : Terrafo
     /// </summary>
     public TerraformValue<double>? BatchMaxCount
     {
-        get => new TerraformReference<double>(this, "batch_max_count");
+        get => GetArgument<TerraformValue<double>>("batch_max_count");
         set => SetArgument("batch_max_count", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermStreamAnalyticsOutputFunction(string name) : Terrafo
     /// </summary>
     public TerraformValue<double>? BatchMaxInBytes
     {
-        get => new TerraformReference<double>(this, "batch_max_in_bytes");
+        get => GetArgument<TerraformValue<double>>("batch_max_in_bytes");
         set => SetArgument("batch_max_in_bytes", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermStreamAnalyticsOutputFunction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionApp is required")]
     public required TerraformValue<string> FunctionApp
     {
-        get => new TerraformReference<string>(this, "function_app");
+        get => GetArgument<TerraformValue<string>>("function_app");
         set => SetArgument("function_app", value);
     }
 
@@ -102,16 +102,16 @@ public partial class AzurermStreamAnalyticsOutputFunction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformValue<string> FunctionName
     {
-        get => new TerraformReference<string>(this, "function_name");
+        get => GetArgument<TerraformValue<string>>("function_name");
         set => SetArgument("function_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermStreamAnalyticsOutputFunction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermStreamAnalyticsOutputFunction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AzurermStreamAnalyticsOutputFunction(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformValue<string> StreamAnalyticsJobName
     {
-        get => new TerraformReference<string>(this, "stream_analytics_job_name");
+        get => GetArgument<TerraformValue<string>>("stream_analytics_job_name");
         set => SetArgument("stream_analytics_job_name", value);
     }
 

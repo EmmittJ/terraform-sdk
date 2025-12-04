@@ -18,7 +18,7 @@ public class AwsDatasyncTaskExcludesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FilterType
     {
-        get => new TerraformReference<string>(this, "filter_type");
+        get => GetArgument<TerraformValue<string>>("filter_type");
         set => SetArgument("filter_type", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsDatasyncTaskExcludesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsDatasyncTaskIncludesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FilterType
     {
-        get => new TerraformReference<string>(this, "filter_type");
+        get => GetArgument<TerraformValue<string>>("filter_type");
         set => SetArgument("filter_type", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsDatasyncTaskIncludesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Atime
     {
-        get => new TerraformReference<string>(this, "atime");
+        get => GetArgument<TerraformValue<string>>("atime");
         set => SetArgument("atime", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? BytesPerSecond
     {
-        get => new TerraformReference<double>(this, "bytes_per_second");
+        get => GetArgument<TerraformValue<double>>("bytes_per_second");
         set => SetArgument("bytes_per_second", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Gid
     {
-        get => new TerraformReference<string>(this, "gid");
+        get => GetArgument<TerraformValue<string>>("gid");
         set => SetArgument("gid", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LogLevel
     {
-        get => new TerraformReference<string>(this, "log_level");
+        get => GetArgument<TerraformValue<string>>("log_level");
         set => SetArgument("log_level", value);
     }
 
@@ -118,7 +118,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Mtime
     {
-        get => new TerraformReference<string>(this, "mtime");
+        get => GetArgument<TerraformValue<string>>("mtime");
         set => SetArgument("mtime", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ObjectTags
     {
-        get => new TerraformReference<string>(this, "object_tags");
+        get => GetArgument<TerraformValue<string>>("object_tags");
         set => SetArgument("object_tags", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OverwriteMode
     {
-        get => new TerraformReference<string>(this, "overwrite_mode");
+        get => GetArgument<TerraformValue<string>>("overwrite_mode");
         set => SetArgument("overwrite_mode", value);
     }
 
@@ -145,7 +145,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PosixPermissions
     {
-        get => new TerraformReference<string>(this, "posix_permissions");
+        get => GetArgument<TerraformValue<string>>("posix_permissions");
         set => SetArgument("posix_permissions", value);
     }
 
@@ -154,7 +154,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PreserveDeletedFiles
     {
-        get => new TerraformReference<string>(this, "preserve_deleted_files");
+        get => GetArgument<TerraformValue<string>>("preserve_deleted_files");
         set => SetArgument("preserve_deleted_files", value);
     }
 
@@ -163,16 +163,16 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PreserveDevices
     {
-        get => new TerraformReference<string>(this, "preserve_devices");
+        get => GetArgument<TerraformValue<string>>("preserve_devices");
         set => SetArgument("preserve_devices", value);
     }
 
     /// <summary>
     /// The security_descriptor_copy_flags attribute.
     /// </summary>
-    public TerraformValue<string> SecurityDescriptorCopyFlags
+    public TerraformValue<string>? SecurityDescriptorCopyFlags
     {
-        get => new TerraformReference<string>(this, "security_descriptor_copy_flags");
+        get => GetArgument<TerraformValue<string>>("security_descriptor_copy_flags");
         set => SetArgument("security_descriptor_copy_flags", value);
     }
 
@@ -181,7 +181,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TaskQueueing
     {
-        get => new TerraformReference<string>(this, "task_queueing");
+        get => GetArgument<TerraformValue<string>>("task_queueing");
         set => SetArgument("task_queueing", value);
     }
 
@@ -190,7 +190,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TransferMode
     {
-        get => new TerraformReference<string>(this, "transfer_mode");
+        get => GetArgument<TerraformValue<string>>("transfer_mode");
         set => SetArgument("transfer_mode", value);
     }
 
@@ -199,7 +199,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Uid
     {
-        get => new TerraformReference<string>(this, "uid");
+        get => GetArgument<TerraformValue<string>>("uid");
         set => SetArgument("uid", value);
     }
 
@@ -208,7 +208,7 @@ public class AwsDatasyncTaskOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? VerifyMode
     {
-        get => new TerraformReference<string>(this, "verify_mode");
+        get => GetArgument<TerraformValue<string>>("verify_mode");
         set => SetArgument("verify_mode", value);
     }
 
@@ -232,7 +232,7 @@ public class AwsDatasyncTaskScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     public required TerraformValue<string> ScheduleExpression
     {
-        get => new TerraformReference<string>(this, "schedule_expression");
+        get => GetArgument<TerraformValue<string>>("schedule_expression");
         set => SetArgument("schedule_expression", value);
     }
 
@@ -255,7 +255,7 @@ public class AwsDatasyncTaskTaskReportConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OutputType
     {
-        get => new TerraformReference<string>(this, "output_type");
+        get => GetArgument<TerraformValue<string>>("output_type");
         set => SetArgument("output_type", value);
     }
 
@@ -264,7 +264,7 @@ public class AwsDatasyncTaskTaskReportConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ReportLevel
     {
-        get => new TerraformReference<string>(this, "report_level");
+        get => GetArgument<TerraformValue<string>>("report_level");
         set => SetArgument("report_level", value);
     }
 
@@ -273,7 +273,7 @@ public class AwsDatasyncTaskTaskReportConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? S3ObjectVersioning
     {
-        get => new TerraformReference<string>(this, "s3_object_versioning");
+        get => GetArgument<TerraformValue<string>>("s3_object_versioning");
         set => SetArgument("s3_object_versioning", value);
     }
 
@@ -318,7 +318,7 @@ public class AwsDatasyncTaskTaskReportConfigBlockReportOverridesBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? DeletedOverride
     {
-        get => new TerraformReference<string>(this, "deleted_override");
+        get => GetArgument<TerraformValue<string>>("deleted_override");
         set => SetArgument("deleted_override", value);
     }
 
@@ -327,7 +327,7 @@ public class AwsDatasyncTaskTaskReportConfigBlockReportOverridesBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? SkippedOverride
     {
-        get => new TerraformReference<string>(this, "skipped_override");
+        get => GetArgument<TerraformValue<string>>("skipped_override");
         set => SetArgument("skipped_override", value);
     }
 
@@ -336,7 +336,7 @@ public class AwsDatasyncTaskTaskReportConfigBlockReportOverridesBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? TransferredOverride
     {
-        get => new TerraformReference<string>(this, "transferred_override");
+        get => GetArgument<TerraformValue<string>>("transferred_override");
         set => SetArgument("transferred_override", value);
     }
 
@@ -345,7 +345,7 @@ public class AwsDatasyncTaskTaskReportConfigBlockReportOverridesBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? VerifiedOverride
     {
-        get => new TerraformReference<string>(this, "verified_override");
+        get => GetArgument<TerraformValue<string>>("verified_override");
         set => SetArgument("verified_override", value);
     }
 
@@ -368,7 +368,7 @@ public class AwsDatasyncTaskTaskReportConfigBlockS3DestinationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketAccessRoleArn is required")]
     public required TerraformValue<string> BucketAccessRoleArn
     {
-        get => new TerraformReference<string>(this, "bucket_access_role_arn");
+        get => GetArgument<TerraformValue<string>>("bucket_access_role_arn");
         set => SetArgument("bucket_access_role_arn", value);
     }
 
@@ -378,7 +378,7 @@ public class AwsDatasyncTaskTaskReportConfigBlockS3DestinationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketArn is required")]
     public required TerraformValue<string> S3BucketArn
     {
-        get => new TerraformReference<string>(this, "s3_bucket_arn");
+        get => GetArgument<TerraformValue<string>>("s3_bucket_arn");
         set => SetArgument("s3_bucket_arn", value);
     }
 
@@ -387,7 +387,7 @@ public class AwsDatasyncTaskTaskReportConfigBlockS3DestinationBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Subdirectory
     {
-        get => new TerraformReference<string>(this, "subdirectory");
+        get => GetArgument<TerraformValue<string>>("subdirectory");
         set => SetArgument("subdirectory", value);
     }
 
@@ -410,7 +410,7 @@ public class AwsDatasyncTaskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -428,7 +428,7 @@ public partial class AwsDatasyncTask(string name) : TerraformResource("aws_datas
     /// </summary>
     public TerraformValue<string>? CloudwatchLogGroupArn
     {
-        get => new TerraformReference<string>(this, "cloudwatch_log_group_arn");
+        get => GetArgument<TerraformValue<string>>("cloudwatch_log_group_arn");
         set => SetArgument("cloudwatch_log_group_arn", value);
     }
 
@@ -438,16 +438,16 @@ public partial class AwsDatasyncTask(string name) : TerraformResource("aws_datas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationLocationArn is required")]
     public required TerraformValue<string> DestinationLocationArn
     {
-        get => new TerraformReference<string>(this, "destination_location_arn");
+        get => GetArgument<TerraformValue<string>>("destination_location_arn");
         set => SetArgument("destination_location_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -456,16 +456,16 @@ public partial class AwsDatasyncTask(string name) : TerraformResource("aws_datas
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -475,7 +475,7 @@ public partial class AwsDatasyncTask(string name) : TerraformResource("aws_datas
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceLocationArn is required")]
     public required TerraformValue<string> SourceLocationArn
     {
-        get => new TerraformReference<string>(this, "source_location_arn");
+        get => GetArgument<TerraformValue<string>>("source_location_arn");
         set => SetArgument("source_location_arn", value);
     }
 
@@ -484,25 +484,25 @@ public partial class AwsDatasyncTask(string name) : TerraformResource("aws_datas
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The task_mode attribute.
     /// </summary>
-    public TerraformValue<string> TaskMode
+    public TerraformValue<string>? TaskMode
     {
-        get => new TerraformReference<string>(this, "task_mode");
+        get => GetArgument<TerraformValue<string>>("task_mode");
         set => SetArgument("task_mode", value);
     }
 
@@ -510,9 +510,7 @@ public partial class AwsDatasyncTask(string name) : TerraformResource("aws_datas
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Excludes block (nesting mode: list).

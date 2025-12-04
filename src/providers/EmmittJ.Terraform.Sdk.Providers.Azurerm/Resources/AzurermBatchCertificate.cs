@@ -18,7 +18,7 @@ public class AzurermBatchCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermBatchCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermBatchCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermBatchCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermBatchCertificate(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => new TerraformReference<string>(this, "account_name");
+        get => GetArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermBatchCertificate(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Certificate is required")]
     public required TerraformValue<string> Certificate
     {
-        get => new TerraformReference<string>(this, "certificate");
+        get => GetArgument<TerraformValue<string>>("certificate");
         set => SetArgument("certificate", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AzurermBatchCertificate(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => new TerraformReference<string>(this, "format");
+        get => GetArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermBatchCertificate(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermBatchCertificate(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermBatchCertificate(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thumbprint is required")]
     public required TerraformValue<string> Thumbprint
     {
-        get => new TerraformReference<string>(this, "thumbprint");
+        get => GetArgument<TerraformValue<string>>("thumbprint");
         set => SetArgument("thumbprint", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AzurermBatchCertificate(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThumbprintAlgorithm is required")]
     public required TerraformValue<string> ThumbprintAlgorithm
     {
-        get => new TerraformReference<string>(this, "thumbprint_algorithm");
+        get => GetArgument<TerraformValue<string>>("thumbprint_algorithm");
         set => SetArgument("thumbprint_algorithm", value);
     }
 
@@ -140,17 +140,13 @@ public partial class AzurermBatchCertificate(string name) : TerraformResource("a
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The public_data attribute.
     /// </summary>
     public TerraformValue<string> PublicData
-    {
-        get => new TerraformReference<string>(this, "public_data");
-    }
+        => AsReference("public_data");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

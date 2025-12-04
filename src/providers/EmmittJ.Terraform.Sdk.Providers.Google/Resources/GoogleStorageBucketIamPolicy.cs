@@ -18,7 +18,7 @@ public class GoogleStorageBucketIamPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -37,16 +37,16 @@ public partial class GoogleStorageBucketIamPolicy(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class GoogleStorageBucketIamPolicy(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformValue<string> PolicyData
     {
-        get => new TerraformReference<string>(this, "policy_data");
+        get => GetArgument<TerraformValue<string>>("policy_data");
         set => SetArgument("policy_data", value);
     }
 
@@ -64,9 +64,7 @@ public partial class GoogleStorageBucketIamPolicy(string name) : TerraformResour
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

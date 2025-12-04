@@ -13,7 +13,7 @@ public partial class AwsWorkspaceswebBrowserSettings(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? AdditionalEncryptionContext
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_encryption_context").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("additional_encryption_context");
         set => SetArgument("additional_encryption_context", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsWorkspaceswebBrowserSettings(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BrowserPolicy is required")]
     public required TerraformValue<string> BrowserPolicy
     {
-        get => new TerraformReference<string>(this, "browser_policy");
+        get => GetArgument<TerraformValue<string>>("browser_policy");
         set => SetArgument("browser_policy", value);
     }
 
@@ -32,16 +32,16 @@ public partial class AwsWorkspaceswebBrowserSettings(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? CustomerManagedKey
     {
-        get => new TerraformReference<string>(this, "customer_managed_key");
+        get => GetArgument<TerraformValue<string>>("customer_managed_key");
         set => SetArgument("customer_managed_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsWorkspaceswebBrowserSettings(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -58,24 +58,18 @@ public partial class AwsWorkspaceswebBrowserSettings(string name) : TerraformRes
     /// The associated_portal_arns attribute.
     /// </summary>
     public TerraformList<string> AssociatedPortalArns
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "associated_portal_arns").ResolveNodes(ctx));
-    }
+        => AsReference("associated_portal_arns");
 
     /// <summary>
     /// The browser_settings_arn attribute.
     /// </summary>
     public TerraformValue<string> BrowserSettingsArn
-    {
-        get => new TerraformReference<string>(this, "browser_settings_arn");
-    }
+        => AsReference("browser_settings_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
 }

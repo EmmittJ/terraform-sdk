@@ -18,7 +18,7 @@ public class GoogleMigrationCenterPreferenceSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleMigrationCenterPreferenceSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleMigrationCenterPreferenceSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlock : 
     /// </summary>
     public TerraformValue<string>? CommitmentPlan
     {
-        get => new TerraformReference<string>(this, "commitment_plan");
+        get => GetArgument<TerraformValue<string>>("commitment_plan");
         set => SetArgument("commitment_plan", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlock : 
     /// </summary>
     public TerraformValue<string>? SizingOptimizationStrategy
     {
-        get => new TerraformReference<string>(this, "sizing_optimization_strategy");
+        get => GetArgument<TerraformValue<string>>("sizing_optimization_strategy");
         set => SetArgument("sizing_optimization_strategy", value);
     }
 
@@ -77,7 +77,7 @@ public class GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlock : 
     /// </summary>
     public TerraformValue<string>? TargetProduct
     {
-        get => new TerraformReference<string>(this, "target_product");
+        get => GetArgument<TerraformValue<string>>("target_product");
         set => SetArgument("target_product", value);
     }
 
@@ -139,7 +139,7 @@ public class GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlockCom
     /// </summary>
     public TerraformValue<string>? LicenseType
     {
-        get => new TerraformReference<string>(this, "license_type");
+        get => GetArgument<TerraformValue<string>>("license_type");
         set => SetArgument("license_type", value);
     }
 
@@ -193,7 +193,7 @@ public class GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlockCom
     /// </summary>
     public TerraformValue<string>? Code
     {
-        get => new TerraformReference<string>(this, "code");
+        get => GetArgument<TerraformValue<string>>("code");
         set => SetArgument("code", value);
     }
 
@@ -215,7 +215,7 @@ public class GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlockReg
     /// </summary>
     public TerraformList<string>? PreferredRegions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "preferred_regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("preferred_regions");
         set => SetArgument("preferred_regions", value);
     }
 
@@ -237,7 +237,7 @@ public class GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlockSol
     /// </summary>
     public TerraformValue<string>? CommitmentPlan
     {
-        get => new TerraformReference<string>(this, "commitment_plan");
+        get => GetArgument<TerraformValue<string>>("commitment_plan");
         set => SetArgument("commitment_plan", value);
     }
 
@@ -246,7 +246,7 @@ public class GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlockSol
     /// </summary>
     public TerraformValue<double>? CpuOvercommitRatio
     {
-        get => new TerraformReference<double>(this, "cpu_overcommit_ratio");
+        get => GetArgument<TerraformValue<double>>("cpu_overcommit_ratio");
         set => SetArgument("cpu_overcommit_ratio", value);
     }
 
@@ -255,7 +255,7 @@ public class GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlockSol
     /// </summary>
     public TerraformValue<string>? HostMaintenancePolicy
     {
-        get => new TerraformReference<string>(this, "host_maintenance_policy");
+        get => GetArgument<TerraformValue<string>>("host_maintenance_policy");
         set => SetArgument("host_maintenance_policy", value);
     }
 
@@ -286,7 +286,7 @@ public class GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlockSol
     /// </summary>
     public TerraformValue<string>? NodeName
     {
-        get => new TerraformReference<string>(this, "node_name");
+        get => GetArgument<TerraformValue<string>>("node_name");
         set => SetArgument("node_name", value);
     }
 
@@ -308,7 +308,7 @@ public class GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlockVmw
     /// </summary>
     public TerraformValue<string>? CommitmentPlan
     {
-        get => new TerraformReference<string>(this, "commitment_plan");
+        get => GetArgument<TerraformValue<string>>("commitment_plan");
         set => SetArgument("commitment_plan", value);
     }
 
@@ -317,7 +317,7 @@ public class GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlockVmw
     /// </summary>
     public TerraformValue<double>? CpuOvercommitRatio
     {
-        get => new TerraformReference<double>(this, "cpu_overcommit_ratio");
+        get => GetArgument<TerraformValue<double>>("cpu_overcommit_ratio");
         set => SetArgument("cpu_overcommit_ratio", value);
     }
 
@@ -326,7 +326,7 @@ public class GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlockVmw
     /// </summary>
     public TerraformValue<double>? MemoryOvercommitRatio
     {
-        get => new TerraformReference<double>(this, "memory_overcommit_ratio");
+        get => GetArgument<TerraformValue<double>>("memory_overcommit_ratio");
         set => SetArgument("memory_overcommit_ratio", value);
     }
 
@@ -335,7 +335,7 @@ public class GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlockVmw
     /// </summary>
     public TerraformValue<double>? StorageDeduplicationCompressionRatio
     {
-        get => new TerraformReference<double>(this, "storage_deduplication_compression_ratio");
+        get => GetArgument<TerraformValue<double>>("storage_deduplication_compression_ratio");
         set => SetArgument("storage_deduplication_compression_ratio", value);
     }
 
@@ -353,7 +353,7 @@ public partial class GoogleMigrationCenterPreferenceSet(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -362,16 +362,16 @@ public partial class GoogleMigrationCenterPreferenceSet(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -381,7 +381,7 @@ public partial class GoogleMigrationCenterPreferenceSet(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -391,16 +391,16 @@ public partial class GoogleMigrationCenterPreferenceSet(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreferenceSetId is required")]
     public required TerraformValue<string> PreferenceSetId
     {
-        get => new TerraformReference<string>(this, "preference_set_id");
+        get => GetArgument<TerraformValue<string>>("preference_set_id");
         set => SetArgument("preference_set_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -408,25 +408,19 @@ public partial class GoogleMigrationCenterPreferenceSet(string name) : Terraform
     /// Output only. The timestamp when the preference set was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Output only. Name of the preference set.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. The timestamp when the preference set was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

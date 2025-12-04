@@ -51,7 +51,7 @@ public class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlockUserInputBl
     /// </summary>
     public TerraformValue<bool>? EnableSentimentAnalysis
     {
-        get => new TerraformReference<bool>(this, "enable_sentiment_analysis");
+        get => GetArgument<TerraformValue<bool>>("enable_sentiment_analysis");
         set => SetArgument("enable_sentiment_analysis", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlockUserInputBl
     /// </summary>
     public TerraformValue<string>? InjectedParameters
     {
-        get => new TerraformReference<string>(this, "injected_parameters");
+        get => GetArgument<TerraformValue<string>>("injected_parameters");
         set => SetArgument("injected_parameters", value);
     }
 
@@ -69,7 +69,7 @@ public class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlockUserInputBl
     /// </summary>
     public TerraformValue<bool>? IsWebhookEnabled
     {
-        get => new TerraformReference<bool>(this, "is_webhook_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_webhook_enabled");
         set => SetArgument("is_webhook_enabled", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlockUserInputBl
     /// </summary>
     public TerraformValue<string>? LanguageCode
     {
-        get => new TerraformReference<string>(this, "language_code");
+        get => GetArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -154,7 +154,7 @@ public class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlockUserInputBl
     /// </summary>
     public TerraformValue<string>? Digits
     {
-        get => new TerraformReference<string>(this, "digits");
+        get => GetArgument<TerraformValue<string>>("digits");
         set => SetArgument("digits", value);
     }
 
@@ -163,7 +163,7 @@ public class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlockUserInputBl
     /// </summary>
     public TerraformValue<string>? FinishDigit
     {
-        get => new TerraformReference<string>(this, "finish_digit");
+        get => GetArgument<TerraformValue<string>>("finish_digit");
         set => SetArgument("finish_digit", value);
     }
 
@@ -186,7 +186,7 @@ public class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlockUserInputBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventAttribute is required")]
     public required TerraformValue<string> EventAttribute
     {
-        get => new TerraformReference<string>(this, "event");
+        get => GetArgument<TerraformValue<string>>("event");
         set => SetArgument("event", value);
     }
 
@@ -209,7 +209,7 @@ public class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlockUserInputBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -231,7 +231,7 @@ public class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlockVirtualAgen
     /// </summary>
     public TerraformValue<string>? SessionParameters
     {
-        get => new TerraformReference<string>(this, "session_parameters");
+        get => GetArgument<TerraformValue<string>>("session_parameters");
         set => SetArgument("session_parameters", value);
     }
 
@@ -281,9 +281,7 @@ public class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlockVirtualAgen
     /// The human-readable name of the page, unique within the flow.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The unique identifier of the page.
@@ -291,7 +289,7 @@ public class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlockVirtualAgen
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -313,7 +311,7 @@ public class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlockVirtualAgen
     /// </summary>
     public TerraformList<string>? Text
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "text").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -334,9 +332,7 @@ public class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlockVirtualAgen
     /// The human-readable name of the intent, unique within the agent.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The unique identifier of the intent.
@@ -344,7 +340,7 @@ public class GoogleDialogflowCxTestCaseTestCaseConversationTurnsBlockVirtualAgen
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -369,7 +365,7 @@ public class GoogleDialogflowCxTestCaseTestConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Flow
     {
-        get => new TerraformReference<string>(this, "flow");
+        get => GetArgument<TerraformValue<string>>("flow");
         set => SetArgument("flow", value);
     }
 
@@ -380,7 +376,7 @@ public class GoogleDialogflowCxTestCaseTestConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Page
     {
-        get => new TerraformReference<string>(this, "page");
+        get => GetArgument<TerraformValue<string>>("page");
         set => SetArgument("page", value);
     }
 
@@ -389,7 +385,7 @@ public class GoogleDialogflowCxTestCaseTestConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? TrackingParameters
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tracking_parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("tracking_parameters");
         set => SetArgument("tracking_parameters", value);
     }
 
@@ -412,7 +408,7 @@ public class GoogleDialogflowCxTestCaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -421,7 +417,7 @@ public class GoogleDialogflowCxTestCaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -430,7 +426,7 @@ public class GoogleDialogflowCxTestCaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -449,16 +445,16 @@ public partial class GoogleDialogflowCxTestCase(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -467,7 +463,7 @@ public partial class GoogleDialogflowCxTestCase(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Notes
     {
-        get => new TerraformReference<string>(this, "notes");
+        get => GetArgument<TerraformValue<string>>("notes");
         set => SetArgument("notes", value);
     }
 
@@ -477,7 +473,7 @@ public partial class GoogleDialogflowCxTestCase(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -487,7 +483,7 @@ public partial class GoogleDialogflowCxTestCase(string name) : TerraformResource
     /// </summary>
     public TerraformList<string>? Tags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -495,26 +491,20 @@ public partial class GoogleDialogflowCxTestCase(string name) : TerraformResource
     /// When the test was created. A timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTime
-    {
-        get => new TerraformReference<string>(this, "creation_time");
-    }
+        => AsReference("creation_time");
 
     /// <summary>
     /// The latest test result.
     /// </summary>
     public TerraformList<TerraformMap<object>> LastTestResult
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "last_test_result").ResolveNodes(ctx));
-    }
+        => AsReference("last_test_result");
 
     /// <summary>
     /// The unique identifier of the test case.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/testCases/&amp;lt;TestCase ID&amp;gt;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// TestCaseConversationTurns block (nesting mode: list).

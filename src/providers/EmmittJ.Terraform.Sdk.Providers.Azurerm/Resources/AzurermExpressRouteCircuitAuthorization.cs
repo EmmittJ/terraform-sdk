@@ -18,7 +18,7 @@ public class AzurermExpressRouteCircuitAuthorizationTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermExpressRouteCircuitAuthorizationTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermExpressRouteCircuitAuthorizationTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AzurermExpressRouteCircuitAuthorization(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressRouteCircuitName is required")]
     public required TerraformValue<string> ExpressRouteCircuitName
     {
-        get => new TerraformReference<string>(this, "express_route_circuit_name");
+        get => GetArgument<TerraformValue<string>>("express_route_circuit_name");
         set => SetArgument("express_route_circuit_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermExpressRouteCircuitAuthorization(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermExpressRouteCircuitAuthorization(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -92,17 +92,13 @@ public partial class AzurermExpressRouteCircuitAuthorization(string name) : Terr
     /// The authorization_key attribute.
     /// </summary>
     public TerraformValue<string> AuthorizationKey
-    {
-        get => new TerraformReference<string>(this, "authorization_key");
-    }
+        => AsReference("authorization_key");
 
     /// <summary>
     /// The authorization_use_status attribute.
     /// </summary>
     public TerraformValue<string> AuthorizationUseStatus
-    {
-        get => new TerraformReference<string>(this, "authorization_use_status");
-    }
+        => AsReference("authorization_use_status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

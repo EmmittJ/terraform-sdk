@@ -18,7 +18,7 @@ public class AwsCustomerprofilesProfileAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Address1
     {
-        get => new TerraformReference<string>(this, "address_1");
+        get => GetArgument<TerraformValue<string>>("address_1");
         set => SetArgument("address_1", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsCustomerprofilesProfileAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Address2
     {
-        get => new TerraformReference<string>(this, "address_2");
+        get => GetArgument<TerraformValue<string>>("address_2");
         set => SetArgument("address_2", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsCustomerprofilesProfileAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Address3
     {
-        get => new TerraformReference<string>(this, "address_3");
+        get => GetArgument<TerraformValue<string>>("address_3");
         set => SetArgument("address_3", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsCustomerprofilesProfileAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Address4
     {
-        get => new TerraformReference<string>(this, "address_4");
+        get => GetArgument<TerraformValue<string>>("address_4");
         set => SetArgument("address_4", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsCustomerprofilesProfileAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? City
     {
-        get => new TerraformReference<string>(this, "city");
+        get => GetArgument<TerraformValue<string>>("city");
         set => SetArgument("city", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsCustomerprofilesProfileAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Country
     {
-        get => new TerraformReference<string>(this, "country");
+        get => GetArgument<TerraformValue<string>>("country");
         set => SetArgument("country", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsCustomerprofilesProfileAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? County
     {
-        get => new TerraformReference<string>(this, "county");
+        get => GetArgument<TerraformValue<string>>("county");
         set => SetArgument("county", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsCustomerprofilesProfileAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PostalCode
     {
-        get => new TerraformReference<string>(this, "postal_code");
+        get => GetArgument<TerraformValue<string>>("postal_code");
         set => SetArgument("postal_code", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsCustomerprofilesProfileAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Province
     {
-        get => new TerraformReference<string>(this, "province");
+        get => GetArgument<TerraformValue<string>>("province");
         set => SetArgument("province", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsCustomerprofilesProfileAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Address1
     {
-        get => new TerraformReference<string>(this, "address_1");
+        get => GetArgument<TerraformValue<string>>("address_1");
         set => SetArgument("address_1", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Address2
     {
-        get => new TerraformReference<string>(this, "address_2");
+        get => GetArgument<TerraformValue<string>>("address_2");
         set => SetArgument("address_2", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Address3
     {
-        get => new TerraformReference<string>(this, "address_3");
+        get => GetArgument<TerraformValue<string>>("address_3");
         set => SetArgument("address_3", value);
     }
 
@@ -149,7 +149,7 @@ public class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Address4
     {
-        get => new TerraformReference<string>(this, "address_4");
+        get => GetArgument<TerraformValue<string>>("address_4");
         set => SetArgument("address_4", value);
     }
 
@@ -158,7 +158,7 @@ public class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? City
     {
-        get => new TerraformReference<string>(this, "city");
+        get => GetArgument<TerraformValue<string>>("city");
         set => SetArgument("city", value);
     }
 
@@ -167,7 +167,7 @@ public class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Country
     {
-        get => new TerraformReference<string>(this, "country");
+        get => GetArgument<TerraformValue<string>>("country");
         set => SetArgument("country", value);
     }
 
@@ -176,7 +176,7 @@ public class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? County
     {
-        get => new TerraformReference<string>(this, "county");
+        get => GetArgument<TerraformValue<string>>("county");
         set => SetArgument("county", value);
     }
 
@@ -185,7 +185,7 @@ public class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PostalCode
     {
-        get => new TerraformReference<string>(this, "postal_code");
+        get => GetArgument<TerraformValue<string>>("postal_code");
         set => SetArgument("postal_code", value);
     }
 
@@ -194,7 +194,7 @@ public class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Province
     {
-        get => new TerraformReference<string>(this, "province");
+        get => GetArgument<TerraformValue<string>>("province");
         set => SetArgument("province", value);
     }
 
@@ -203,7 +203,7 @@ public class AwsCustomerprofilesProfileBillingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -226,7 +226,7 @@ public class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Address1
     {
-        get => new TerraformReference<string>(this, "address_1");
+        get => GetArgument<TerraformValue<string>>("address_1");
         set => SetArgument("address_1", value);
     }
 
@@ -235,7 +235,7 @@ public class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Address2
     {
-        get => new TerraformReference<string>(this, "address_2");
+        get => GetArgument<TerraformValue<string>>("address_2");
         set => SetArgument("address_2", value);
     }
 
@@ -244,7 +244,7 @@ public class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Address3
     {
-        get => new TerraformReference<string>(this, "address_3");
+        get => GetArgument<TerraformValue<string>>("address_3");
         set => SetArgument("address_3", value);
     }
 
@@ -253,7 +253,7 @@ public class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Address4
     {
-        get => new TerraformReference<string>(this, "address_4");
+        get => GetArgument<TerraformValue<string>>("address_4");
         set => SetArgument("address_4", value);
     }
 
@@ -262,7 +262,7 @@ public class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? City
     {
-        get => new TerraformReference<string>(this, "city");
+        get => GetArgument<TerraformValue<string>>("city");
         set => SetArgument("city", value);
     }
 
@@ -271,7 +271,7 @@ public class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Country
     {
-        get => new TerraformReference<string>(this, "country");
+        get => GetArgument<TerraformValue<string>>("country");
         set => SetArgument("country", value);
     }
 
@@ -280,7 +280,7 @@ public class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? County
     {
-        get => new TerraformReference<string>(this, "county");
+        get => GetArgument<TerraformValue<string>>("county");
         set => SetArgument("county", value);
     }
 
@@ -289,7 +289,7 @@ public class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PostalCode
     {
-        get => new TerraformReference<string>(this, "postal_code");
+        get => GetArgument<TerraformValue<string>>("postal_code");
         set => SetArgument("postal_code", value);
     }
 
@@ -298,7 +298,7 @@ public class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Province
     {
-        get => new TerraformReference<string>(this, "province");
+        get => GetArgument<TerraformValue<string>>("province");
         set => SetArgument("province", value);
     }
 
@@ -307,7 +307,7 @@ public class AwsCustomerprofilesProfileMailingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -330,7 +330,7 @@ public class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Address1
     {
-        get => new TerraformReference<string>(this, "address_1");
+        get => GetArgument<TerraformValue<string>>("address_1");
         set => SetArgument("address_1", value);
     }
 
@@ -339,7 +339,7 @@ public class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Address2
     {
-        get => new TerraformReference<string>(this, "address_2");
+        get => GetArgument<TerraformValue<string>>("address_2");
         set => SetArgument("address_2", value);
     }
 
@@ -348,7 +348,7 @@ public class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Address3
     {
-        get => new TerraformReference<string>(this, "address_3");
+        get => GetArgument<TerraformValue<string>>("address_3");
         set => SetArgument("address_3", value);
     }
 
@@ -357,7 +357,7 @@ public class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Address4
     {
-        get => new TerraformReference<string>(this, "address_4");
+        get => GetArgument<TerraformValue<string>>("address_4");
         set => SetArgument("address_4", value);
     }
 
@@ -366,7 +366,7 @@ public class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? City
     {
-        get => new TerraformReference<string>(this, "city");
+        get => GetArgument<TerraformValue<string>>("city");
         set => SetArgument("city", value);
     }
 
@@ -375,7 +375,7 @@ public class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Country
     {
-        get => new TerraformReference<string>(this, "country");
+        get => GetArgument<TerraformValue<string>>("country");
         set => SetArgument("country", value);
     }
 
@@ -384,7 +384,7 @@ public class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? County
     {
-        get => new TerraformReference<string>(this, "county");
+        get => GetArgument<TerraformValue<string>>("county");
         set => SetArgument("county", value);
     }
 
@@ -393,7 +393,7 @@ public class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PostalCode
     {
-        get => new TerraformReference<string>(this, "postal_code");
+        get => GetArgument<TerraformValue<string>>("postal_code");
         set => SetArgument("postal_code", value);
     }
 
@@ -402,7 +402,7 @@ public class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Province
     {
-        get => new TerraformReference<string>(this, "province");
+        get => GetArgument<TerraformValue<string>>("province");
         set => SetArgument("province", value);
     }
 
@@ -411,7 +411,7 @@ public class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -429,7 +429,7 @@ public partial class AwsCustomerprofilesProfile(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? AccountNumber
     {
-        get => new TerraformReference<string>(this, "account_number");
+        get => GetArgument<TerraformValue<string>>("account_number");
         set => SetArgument("account_number", value);
     }
 
@@ -438,7 +438,7 @@ public partial class AwsCustomerprofilesProfile(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? AdditionalInformation
     {
-        get => new TerraformReference<string>(this, "additional_information");
+        get => GetArgument<TerraformValue<string>>("additional_information");
         set => SetArgument("additional_information", value);
     }
 
@@ -447,7 +447,7 @@ public partial class AwsCustomerprofilesProfile(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Attributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("attributes");
         set => SetArgument("attributes", value);
     }
 
@@ -456,7 +456,7 @@ public partial class AwsCustomerprofilesProfile(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? BirthDate
     {
-        get => new TerraformReference<string>(this, "birth_date");
+        get => GetArgument<TerraformValue<string>>("birth_date");
         set => SetArgument("birth_date", value);
     }
 
@@ -465,7 +465,7 @@ public partial class AwsCustomerprofilesProfile(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? BusinessEmailAddress
     {
-        get => new TerraformReference<string>(this, "business_email_address");
+        get => GetArgument<TerraformValue<string>>("business_email_address");
         set => SetArgument("business_email_address", value);
     }
 
@@ -474,7 +474,7 @@ public partial class AwsCustomerprofilesProfile(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? BusinessName
     {
-        get => new TerraformReference<string>(this, "business_name");
+        get => GetArgument<TerraformValue<string>>("business_name");
         set => SetArgument("business_name", value);
     }
 
@@ -483,7 +483,7 @@ public partial class AwsCustomerprofilesProfile(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? BusinessPhoneNumber
     {
-        get => new TerraformReference<string>(this, "business_phone_number");
+        get => GetArgument<TerraformValue<string>>("business_phone_number");
         set => SetArgument("business_phone_number", value);
     }
 
@@ -493,7 +493,7 @@ public partial class AwsCustomerprofilesProfile(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -502,7 +502,7 @@ public partial class AwsCustomerprofilesProfile(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? EmailAddress
     {
-        get => new TerraformReference<string>(this, "email_address");
+        get => GetArgument<TerraformValue<string>>("email_address");
         set => SetArgument("email_address", value);
     }
 
@@ -511,7 +511,7 @@ public partial class AwsCustomerprofilesProfile(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? FirstName
     {
-        get => new TerraformReference<string>(this, "first_name");
+        get => GetArgument<TerraformValue<string>>("first_name");
         set => SetArgument("first_name", value);
     }
 
@@ -520,7 +520,7 @@ public partial class AwsCustomerprofilesProfile(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? GenderString
     {
-        get => new TerraformReference<string>(this, "gender_string");
+        get => GetArgument<TerraformValue<string>>("gender_string");
         set => SetArgument("gender_string", value);
     }
 
@@ -529,16 +529,16 @@ public partial class AwsCustomerprofilesProfile(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? HomePhoneNumber
     {
-        get => new TerraformReference<string>(this, "home_phone_number");
+        get => GetArgument<TerraformValue<string>>("home_phone_number");
         set => SetArgument("home_phone_number", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -547,7 +547,7 @@ public partial class AwsCustomerprofilesProfile(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? LastName
     {
-        get => new TerraformReference<string>(this, "last_name");
+        get => GetArgument<TerraformValue<string>>("last_name");
         set => SetArgument("last_name", value);
     }
 
@@ -556,7 +556,7 @@ public partial class AwsCustomerprofilesProfile(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? MiddleName
     {
-        get => new TerraformReference<string>(this, "middle_name");
+        get => GetArgument<TerraformValue<string>>("middle_name");
         set => SetArgument("middle_name", value);
     }
 
@@ -565,7 +565,7 @@ public partial class AwsCustomerprofilesProfile(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? MobilePhoneNumber
     {
-        get => new TerraformReference<string>(this, "mobile_phone_number");
+        get => GetArgument<TerraformValue<string>>("mobile_phone_number");
         set => SetArgument("mobile_phone_number", value);
     }
 
@@ -574,7 +574,7 @@ public partial class AwsCustomerprofilesProfile(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? PartyTypeString
     {
-        get => new TerraformReference<string>(this, "party_type_string");
+        get => GetArgument<TerraformValue<string>>("party_type_string");
         set => SetArgument("party_type_string", value);
     }
 
@@ -583,7 +583,7 @@ public partial class AwsCustomerprofilesProfile(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? PersonalEmailAddress
     {
-        get => new TerraformReference<string>(this, "personal_email_address");
+        get => GetArgument<TerraformValue<string>>("personal_email_address");
         set => SetArgument("personal_email_address", value);
     }
 
@@ -592,16 +592,16 @@ public partial class AwsCustomerprofilesProfile(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? PhoneNumber
     {
-        get => new TerraformReference<string>(this, "phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

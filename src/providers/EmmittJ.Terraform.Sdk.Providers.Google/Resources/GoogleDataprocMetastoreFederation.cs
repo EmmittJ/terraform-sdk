@@ -19,7 +19,7 @@ public class GoogleDataprocMetastoreFederationBackendMetastoresBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetastoreType is required")]
     public required TerraformValue<string> MetastoreType
     {
-        get => new TerraformReference<string>(this, "metastore_type");
+        get => GetArgument<TerraformValue<string>>("metastore_type");
         set => SetArgument("metastore_type", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleDataprocMetastoreFederationBackendMetastoresBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -39,7 +39,7 @@ public class GoogleDataprocMetastoreFederationBackendMetastoresBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rank is required")]
     public required TerraformValue<string> Rank
     {
-        get => new TerraformReference<string>(this, "rank");
+        get => GetArgument<TerraformValue<string>>("rank");
         set => SetArgument("rank", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleDataprocMetastoreFederationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleDataprocMetastoreFederationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleDataprocMetastoreFederationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -100,7 +100,7 @@ public partial class GoogleDataprocMetastoreFederation(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
@@ -112,16 +112,16 @@ public partial class GoogleDataprocMetastoreFederation(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FederationId is required")]
     public required TerraformValue<string> FederationId
     {
-        get => new TerraformReference<string>(this, "federation_id");
+        get => GetArgument<TerraformValue<string>>("federation_id");
         set => SetArgument("federation_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -133,7 +133,7 @@ public partial class GoogleDataprocMetastoreFederation(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -142,16 +142,16 @@ public partial class GoogleDataprocMetastoreFederation(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -162,7 +162,7 @@ public partial class GoogleDataprocMetastoreFederation(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -172,7 +172,7 @@ public partial class GoogleDataprocMetastoreFederation(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -180,74 +180,56 @@ public partial class GoogleDataprocMetastoreFederation(string name) : TerraformR
     /// Output only. The time when the metastore federation was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The URI of the endpoint used to access the metastore federation.
     /// </summary>
     public TerraformValue<string> EndpointUri
-    {
-        get => new TerraformReference<string>(this, "endpoint_uri");
-    }
+        => AsReference("endpoint_uri");
 
     /// <summary>
     /// The relative resource name of the metastore federation.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The current state of the metastore federation.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Additional information about the current state of the metastore federation, if available.
     /// </summary>
     public TerraformValue<string> StateMessage
-    {
-        get => new TerraformReference<string>(this, "state_message");
-    }
+        => AsReference("state_message");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The globally unique resource identifier of the metastore federation.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Output only. The time when the metastore federation was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// BackendMetastores block (nesting mode: set).

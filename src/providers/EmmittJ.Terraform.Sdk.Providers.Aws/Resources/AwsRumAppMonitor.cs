@@ -18,7 +18,7 @@ public class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowCookies
     {
-        get => new TerraformReference<bool>(this, "allow_cookies");
+        get => GetArgument<TerraformValue<bool>>("allow_cookies");
         set => SetArgument("allow_cookies", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableXray
     {
-        get => new TerraformReference<bool>(this, "enable_xray");
+        get => GetArgument<TerraformValue<bool>>("enable_xray");
         set => SetArgument("enable_xray", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ExcludedPages
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "excluded_pages").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("excluded_pages");
         set => SetArgument("excluded_pages", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? FavoritePages
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "favorite_pages").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("favorite_pages");
         set => SetArgument("favorite_pages", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? GuestRoleArn
     {
-        get => new TerraformReference<string>(this, "guest_role_arn");
+        get => GetArgument<TerraformValue<string>>("guest_role_arn");
         set => SetArgument("guest_role_arn", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? IdentityPoolId
     {
-        get => new TerraformReference<string>(this, "identity_pool_id");
+        get => GetArgument<TerraformValue<string>>("identity_pool_id");
         set => SetArgument("identity_pool_id", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IncludedPages
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "included_pages").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("included_pages");
         set => SetArgument("included_pages", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SessionSampleRate
     {
-        get => new TerraformReference<double>(this, "session_sample_rate");
+        get => GetArgument<TerraformValue<double>>("session_sample_rate");
         set => SetArgument("session_sample_rate", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Telemetries
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "telemetries").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("telemetries");
         set => SetArgument("telemetries", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsRumAppMonitorCustomEventsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AwsRumAppMonitor(string name) : TerraformResource("aws_rum_
     /// </summary>
     public TerraformValue<bool>? CwLogEnabled
     {
-        get => new TerraformReference<bool>(this, "cw_log_enabled");
+        get => GetArgument<TerraformValue<bool>>("cw_log_enabled");
         set => SetArgument("cw_log_enabled", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AwsRumAppMonitor(string name) : TerraformResource("aws_rum_
     /// </summary>
     public TerraformValue<string>? Domain
     {
-        get => new TerraformReference<string>(this, "domain");
+        get => GetArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
@@ -149,16 +149,16 @@ public partial class AwsRumAppMonitor(string name) : TerraformResource("aws_rum_
     /// </summary>
     public TerraformList<string>? DomainList
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "domain_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("domain_list");
         set => SetArgument("domain_list", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -168,16 +168,16 @@ public partial class AwsRumAppMonitor(string name) : TerraformResource("aws_rum_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -186,16 +186,16 @@ public partial class AwsRumAppMonitor(string name) : TerraformResource("aws_rum_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -203,25 +203,19 @@ public partial class AwsRumAppMonitor(string name) : TerraformResource("aws_rum_
     /// The app_monitor_id attribute.
     /// </summary>
     public TerraformValue<string> AppMonitorId
-    {
-        get => new TerraformReference<string>(this, "app_monitor_id");
-    }
+        => AsReference("app_monitor_id");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The cw_log_group attribute.
     /// </summary>
     public TerraformValue<string> CwLogGroup
-    {
-        get => new TerraformReference<string>(this, "cw_log_group");
-    }
+        => AsReference("cw_log_group");
 
     /// <summary>
     /// AppMonitorConfiguration block (nesting mode: list).

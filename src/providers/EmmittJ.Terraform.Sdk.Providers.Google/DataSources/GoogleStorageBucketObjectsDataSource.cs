@@ -14,16 +14,16 @@ public partial class GoogleStorageBucketObjectsDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleStorageBucketObjectsDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? MatchGlob
     {
-        get => new TerraformReference<string>(this, "match_glob");
+        get => GetArgument<TerraformValue<string>>("match_glob");
         set => SetArgument("match_glob", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleStorageBucketObjectsDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -49,8 +49,6 @@ public partial class GoogleStorageBucketObjectsDataSource(string name) : Terrafo
     /// The bucket_objects attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> BucketObjects
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "bucket_objects").ResolveNodes(ctx));
-    }
+        => AsReference("bucket_objects");
 
 }

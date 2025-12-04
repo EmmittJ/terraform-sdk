@@ -11,9 +11,9 @@ public partial class AwsMemorydbClusterDataSource(string name) : TerraformDataSo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,25 +23,25 @@ public partial class AwsMemorydbClusterDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,192 +49,144 @@ public partial class AwsMemorydbClusterDataSource(string name) : TerraformDataSo
     /// The acl_name attribute.
     /// </summary>
     public TerraformValue<string> AclName
-    {
-        get => new TerraformReference<string>(this, "acl_name");
-    }
+        => AsReference("acl_name");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The auto_minor_version_upgrade attribute.
     /// </summary>
     public TerraformValue<bool> AutoMinorVersionUpgrade
-    {
-        get => new TerraformReference<bool>(this, "auto_minor_version_upgrade");
-    }
+        => AsReference("auto_minor_version_upgrade");
 
     /// <summary>
     /// The cluster_endpoint attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ClusterEndpoint
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cluster_endpoint").ResolveNodes(ctx));
-    }
+        => AsReference("cluster_endpoint");
 
     /// <summary>
     /// The data_tiering attribute.
     /// </summary>
     public TerraformValue<bool> DataTiering
-    {
-        get => new TerraformReference<bool>(this, "data_tiering");
-    }
+        => AsReference("data_tiering");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
     public TerraformValue<string> Engine
-    {
-        get => new TerraformReference<string>(this, "engine");
-    }
+        => AsReference("engine");
 
     /// <summary>
     /// The engine_patch_version attribute.
     /// </summary>
     public TerraformValue<string> EnginePatchVersion
-    {
-        get => new TerraformReference<string>(this, "engine_patch_version");
-    }
+        => AsReference("engine_patch_version");
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
     public TerraformValue<string> EngineVersion
-    {
-        get => new TerraformReference<string>(this, "engine_version");
-    }
+        => AsReference("engine_version");
 
     /// <summary>
     /// The final_snapshot_name attribute.
     /// </summary>
     public TerraformValue<string> FinalSnapshotName
-    {
-        get => new TerraformReference<string>(this, "final_snapshot_name");
-    }
+        => AsReference("final_snapshot_name");
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyArn
-    {
-        get => new TerraformReference<string>(this, "kms_key_arn");
-    }
+        => AsReference("kms_key_arn");
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
     public TerraformValue<string> MaintenanceWindow
-    {
-        get => new TerraformReference<string>(this, "maintenance_window");
-    }
+        => AsReference("maintenance_window");
 
     /// <summary>
     /// The node_type attribute.
     /// </summary>
     public TerraformValue<string> NodeType
-    {
-        get => new TerraformReference<string>(this, "node_type");
-    }
+        => AsReference("node_type");
 
     /// <summary>
     /// The num_replicas_per_shard attribute.
     /// </summary>
     public TerraformValue<double> NumReplicasPerShard
-    {
-        get => new TerraformReference<double>(this, "num_replicas_per_shard");
-    }
+        => AsReference("num_replicas_per_shard");
 
     /// <summary>
     /// The num_shards attribute.
     /// </summary>
     public TerraformValue<double> NumShards
-    {
-        get => new TerraformReference<double>(this, "num_shards");
-    }
+        => AsReference("num_shards");
 
     /// <summary>
     /// The parameter_group_name attribute.
     /// </summary>
     public TerraformValue<string> ParameterGroupName
-    {
-        get => new TerraformReference<string>(this, "parameter_group_name");
-    }
+        => AsReference("parameter_group_name");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     public TerraformValue<double> Port
-    {
-        get => new TerraformReference<double>(this, "port");
-    }
+        => AsReference("port");
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     public TerraformSet<string> SecurityGroupIds
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
-    }
+        => AsReference("security_group_ids");
 
     /// <summary>
     /// The shards attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Shards
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "shards").ResolveNodes(ctx));
-    }
+        => AsReference("shards");
 
     /// <summary>
     /// The snapshot_retention_limit attribute.
     /// </summary>
     public TerraformValue<double> SnapshotRetentionLimit
-    {
-        get => new TerraformReference<double>(this, "snapshot_retention_limit");
-    }
+        => AsReference("snapshot_retention_limit");
 
     /// <summary>
     /// The snapshot_window attribute.
     /// </summary>
     public TerraformValue<string> SnapshotWindow
-    {
-        get => new TerraformReference<string>(this, "snapshot_window");
-    }
+        => AsReference("snapshot_window");
 
     /// <summary>
     /// The sns_topic_arn attribute.
     /// </summary>
     public TerraformValue<string> SnsTopicArn
-    {
-        get => new TerraformReference<string>(this, "sns_topic_arn");
-    }
+        => AsReference("sns_topic_arn");
 
     /// <summary>
     /// The subnet_group_name attribute.
     /// </summary>
     public TerraformValue<string> SubnetGroupName
-    {
-        get => new TerraformReference<string>(this, "subnet_group_name");
-    }
+        => AsReference("subnet_group_name");
 
     /// <summary>
     /// The tls_enabled attribute.
     /// </summary>
     public TerraformValue<bool> TlsEnabled
-    {
-        get => new TerraformReference<bool>(this, "tls_enabled");
-    }
+        => AsReference("tls_enabled");
 
 }

@@ -61,7 +61,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingScopedAccessSettingsB
     /// </summary>
     public TerraformList<string>? AccessLevels
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "access_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("access_levels");
         set => SetArgument("access_levels", value);
     }
 
@@ -93,7 +93,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingScopedAccessSettingsB
     /// </summary>
     public TerraformValue<string>? MaxInactivity
     {
-        get => new TerraformReference<string>(this, "max_inactivity");
+        get => GetArgument<TerraformValue<string>>("max_inactivity");
         set => SetArgument("max_inactivity", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingScopedAccessSettingsB
     /// </summary>
     public TerraformValue<string>? SessionLength
     {
-        get => new TerraformReference<string>(this, "session_length");
+        get => GetArgument<TerraformValue<string>>("session_length");
         set => SetArgument("session_length", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingScopedAccessSettingsB
     /// </summary>
     public TerraformValue<bool>? SessionLengthEnabled
     {
-        get => new TerraformReference<bool>(this, "session_length_enabled");
+        get => GetArgument<TerraformValue<bool>>("session_length_enabled");
         set => SetArgument("session_length_enabled", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingScopedAccessSettingsB
     /// </summary>
     public TerraformValue<string>? SessionReauthMethod
     {
-        get => new TerraformReference<string>(this, "session_reauth_method");
+        get => GetArgument<TerraformValue<string>>("session_reauth_method");
         set => SetArgument("session_reauth_method", value);
     }
 
@@ -129,7 +129,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingScopedAccessSettingsB
     /// </summary>
     public TerraformValue<bool>? UseOidcMaxAge
     {
-        get => new TerraformReference<bool>(this, "use_oidc_max_age");
+        get => GetArgument<TerraformValue<bool>>("use_oidc_max_age");
         set => SetArgument("use_oidc_max_age", value);
     }
 
@@ -151,7 +151,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingScopedAccessSettingsB
     /// </summary>
     public TerraformList<string>? AccessLevels
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "access_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("access_levels");
         set => SetArgument("access_levels", value);
     }
 
@@ -219,7 +219,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingScopedAccessSettingsB
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -228,7 +228,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingScopedAccessSettingsB
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -251,7 +251,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingSessionSettingsBlock 
     /// </summary>
     public TerraformValue<string>? MaxInactivity
     {
-        get => new TerraformReference<string>(this, "max_inactivity");
+        get => GetArgument<TerraformValue<string>>("max_inactivity");
         set => SetArgument("max_inactivity", value);
     }
 
@@ -260,7 +260,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingSessionSettingsBlock 
     /// </summary>
     public TerraformValue<string>? SessionLength
     {
-        get => new TerraformReference<string>(this, "session_length");
+        get => GetArgument<TerraformValue<string>>("session_length");
         set => SetArgument("session_length", value);
     }
 
@@ -269,7 +269,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingSessionSettingsBlock 
     /// </summary>
     public TerraformValue<bool>? SessionLengthEnabled
     {
-        get => new TerraformReference<bool>(this, "session_length_enabled");
+        get => GetArgument<TerraformValue<bool>>("session_length_enabled");
         set => SetArgument("session_length_enabled", value);
     }
 
@@ -278,7 +278,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingSessionSettingsBlock 
     /// </summary>
     public TerraformValue<string>? SessionReauthMethod
     {
-        get => new TerraformReference<string>(this, "session_reauth_method");
+        get => GetArgument<TerraformValue<string>>("session_reauth_method");
         set => SetArgument("session_reauth_method", value);
     }
 
@@ -287,7 +287,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingSessionSettingsBlock 
     /// </summary>
     public TerraformValue<bool>? UseOidcMaxAge
     {
-        get => new TerraformReference<bool>(this, "use_oidc_max_age");
+        get => GetArgument<TerraformValue<bool>>("use_oidc_max_age");
         set => SetArgument("use_oidc_max_age", value);
     }
 
@@ -310,7 +310,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -319,7 +319,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -328,7 +328,7 @@ public class GoogleAccessContextManagerGcpUserAccessBindingTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -346,7 +346,7 @@ public partial class GoogleAccessContextManagerGcpUserAccessBinding(string name)
     /// </summary>
     public TerraformList<string>? AccessLevels
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "access_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("access_levels");
         set => SetArgument("access_levels", value);
     }
 
@@ -356,16 +356,16 @@ public partial class GoogleAccessContextManagerGcpUserAccessBinding(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupKey is required")]
     public required TerraformValue<string> GroupKey
     {
-        get => new TerraformReference<string>(this, "group_key");
+        get => GetArgument<TerraformValue<string>>("group_key");
         set => SetArgument("group_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -375,7 +375,7 @@ public partial class GoogleAccessContextManagerGcpUserAccessBinding(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrganizationId is required")]
     public required TerraformValue<string> OrganizationId
     {
-        get => new TerraformReference<string>(this, "organization_id");
+        get => GetArgument<TerraformValue<string>>("organization_id");
         set => SetArgument("organization_id", value);
     }
 
@@ -383,9 +383,7 @@ public partial class GoogleAccessContextManagerGcpUserAccessBinding(string name)
     /// Immutable. Assigned by the server during creation. The last segment has an arbitrary length and has only URI unreserved characters (as defined by RFC 3986 Section 2.3). Should not be specified by the client during creation. Example: &amp;quot;organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// ScopedAccessSettings block (nesting mode: list).

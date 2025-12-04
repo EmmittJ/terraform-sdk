@@ -17,9 +17,9 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// Specifies the cache setting for all responses from this backend.
     /// The possible values are: USE_ORIGIN_HEADERS, FORCE_CACHE_ALL and CACHE_ALL_STATIC Possible values: [&amp;quot;USE_ORIGIN_HEADERS&amp;quot;, &amp;quot;FORCE_CACHE_ALL&amp;quot;, &amp;quot;CACHE_ALL_STATIC&amp;quot;]
     /// </summary>
-    public TerraformValue<string> CacheMode
+    public TerraformValue<string>? CacheMode
     {
-        get => new TerraformReference<string>(this, "cache_mode");
+        get => GetArgument<TerraformValue<string>>("cache_mode");
         set => SetArgument("cache_mode", value);
     }
 
@@ -27,9 +27,9 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// Specifies the maximum allowed TTL for cached content served by this origin. When the
     /// &#39;cache_mode&#39; is set to &amp;quot;USE_ORIGIN_HEADERS&amp;quot;, you must omit this field.
     /// </summary>
-    public TerraformValue<double> ClientTtl
+    public TerraformValue<double>? ClientTtl
     {
-        get => new TerraformReference<double>(this, "client_ttl");
+        get => GetArgument<TerraformValue<double>>("client_ttl");
         set => SetArgument("client_ttl", value);
     }
 
@@ -38,9 +38,9 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// that do not have an existing valid TTL (max-age or s-max-age). When the &#39;cache_mode&#39;
     /// is set to &amp;quot;USE_ORIGIN_HEADERS&amp;quot;, you must omit this field.
     /// </summary>
-    public TerraformValue<double> DefaultTtl
+    public TerraformValue<double>? DefaultTtl
     {
-        get => new TerraformReference<double>(this, "default_ttl");
+        get => GetArgument<TerraformValue<double>>("default_ttl");
         set => SetArgument("default_ttl", value);
     }
 
@@ -48,18 +48,18 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// Specifies the maximum allowed TTL for cached content served by this origin. When the
     /// &#39;cache_mode&#39; is set to &amp;quot;USE_ORIGIN_HEADERS&amp;quot;, you must omit this field.
     /// </summary>
-    public TerraformValue<double> MaxTtl
+    public TerraformValue<double>? MaxTtl
     {
-        get => new TerraformReference<double>(this, "max_ttl");
+        get => GetArgument<TerraformValue<double>>("max_ttl");
         set => SetArgument("max_ttl", value);
     }
 
     /// <summary>
     /// Negative caching allows per-status code TTLs to be set, in order to apply fine-grained caching for common errors or redirects.
     /// </summary>
-    public TerraformValue<bool> NegativeCaching
+    public TerraformValue<bool>? NegativeCaching
     {
-        get => new TerraformReference<bool>(this, "negative_caching");
+        get => GetArgument<TerraformValue<bool>>("negative_caching");
         set => SetArgument("negative_caching", value);
     }
 
@@ -68,16 +68,16 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? RequestCoalescing
     {
-        get => new TerraformReference<bool>(this, "request_coalescing");
+        get => GetArgument<TerraformValue<bool>>("request_coalescing");
         set => SetArgument("request_coalescing", value);
     }
 
     /// <summary>
     /// Serve existing content from the cache (if available) when revalidating content with the origin, or when an error is encountered when refreshing the cache.
     /// </summary>
-    public TerraformValue<double> ServeWhileStale
+    public TerraformValue<double>? ServeWhileStale
     {
-        get => new TerraformReference<double>(this, "serve_while_stale");
+        get => GetArgument<TerraformValue<double>>("serve_while_stale");
         set => SetArgument("serve_while_stale", value);
     }
 
@@ -93,7 +93,7 @@ public class GoogleComputeBackendBucketCdnPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SignedUrlCacheMaxAgeSec
     {
-        get => new TerraformReference<double>(this, "signed_url_cache_max_age_sec");
+        get => GetArgument<TerraformValue<double>>("signed_url_cache_max_age_sec");
         set => SetArgument("signed_url_cache_max_age_sec", value);
     }
 
@@ -144,7 +144,7 @@ public class GoogleComputeBackendBucketCdnPolicyBlockBypassCacheOnRequestHeaders
     /// </summary>
     public TerraformValue<string>? HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -167,7 +167,7 @@ public class GoogleComputeBackendBucketCdnPolicyBlockCacheKeyPolicyBlock : Terra
     /// </summary>
     public TerraformList<string>? IncludeHttpHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "include_http_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("include_http_headers");
         set => SetArgument("include_http_headers", value);
     }
 
@@ -178,7 +178,7 @@ public class GoogleComputeBackendBucketCdnPolicyBlockCacheKeyPolicyBlock : Terra
     /// </summary>
     public TerraformList<string>? QueryStringWhitelist
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "query_string_whitelist").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("query_string_whitelist");
         set => SetArgument("query_string_whitelist", value);
     }
 
@@ -201,7 +201,7 @@ public class GoogleComputeBackendBucketCdnPolicyBlockNegativeCachingPolicyBlock 
     /// </summary>
     public TerraformValue<double>? Code
     {
-        get => new TerraformReference<double>(this, "code");
+        get => GetArgument<TerraformValue<double>>("code");
         set => SetArgument("code", value);
     }
 
@@ -211,7 +211,7 @@ public class GoogleComputeBackendBucketCdnPolicyBlockNegativeCachingPolicyBlock 
     /// </summary>
     public TerraformValue<double>? Ttl
     {
-        get => new TerraformReference<double>(this, "ttl");
+        get => GetArgument<TerraformValue<double>>("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -236,7 +236,7 @@ public class GoogleComputeBackendBucketParamsAttributeBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? ResourceManagerTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "resource_manager_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("resource_manager_tags");
         set => SetArgument("resource_manager_tags", value);
     }
 
@@ -259,7 +259,7 @@ public class GoogleComputeBackendBucketTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -268,7 +268,7 @@ public class GoogleComputeBackendBucketTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -277,7 +277,7 @@ public class GoogleComputeBackendBucketTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -296,7 +296,7 @@ public partial class GoogleComputeBackendBucket(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -305,7 +305,7 @@ public partial class GoogleComputeBackendBucket(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? CompressionMode
     {
-        get => new TerraformReference<string>(this, "compression_mode");
+        get => GetArgument<TerraformValue<string>>("compression_mode");
         set => SetArgument("compression_mode", value);
     }
 
@@ -314,7 +314,7 @@ public partial class GoogleComputeBackendBucket(string name) : TerraformResource
     /// </summary>
     public TerraformList<string>? CustomResponseHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "custom_response_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("custom_response_headers");
         set => SetArgument("custom_response_headers", value);
     }
 
@@ -324,7 +324,7 @@ public partial class GoogleComputeBackendBucket(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -333,7 +333,7 @@ public partial class GoogleComputeBackendBucket(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? EdgeSecurityPolicy
     {
-        get => new TerraformReference<string>(this, "edge_security_policy");
+        get => GetArgument<TerraformValue<string>>("edge_security_policy");
         set => SetArgument("edge_security_policy", value);
     }
 
@@ -343,16 +343,16 @@ public partial class GoogleComputeBackendBucket(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? EnableCdn
     {
-        get => new TerraformReference<bool>(this, "enable_cdn");
+        get => GetArgument<TerraformValue<bool>>("enable_cdn");
         set => SetArgument("enable_cdn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -363,7 +363,7 @@ public partial class GoogleComputeBackendBucket(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? LoadBalancingScheme
     {
-        get => new TerraformReference<string>(this, "load_balancing_scheme");
+        get => GetArgument<TerraformValue<string>>("load_balancing_scheme");
         set => SetArgument("load_balancing_scheme", value);
     }
 
@@ -379,16 +379,16 @@ public partial class GoogleComputeBackendBucket(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -396,17 +396,13 @@ public partial class GoogleComputeBackendBucket(string name) : TerraformResource
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// CdnPolicy block (nesting mode: list).

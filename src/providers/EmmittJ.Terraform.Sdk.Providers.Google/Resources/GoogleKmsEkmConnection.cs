@@ -16,9 +16,9 @@ public class GoogleKmsEkmConnectionServiceResolversBlock : TerraformBlock
     /// <summary>
     /// Optional. The filter applied to the endpoints of the resolved service. If no filter is specified, all endpoints will be considered. An endpoint will be chosen arbitrarily from the filtered list for each request. For endpoint filter syntax and examples, see https://cloud.google.com/service-directory/docs/reference/rpc/google.cloud.servicedirectory.v1#resolveservicerequest.
     /// </summary>
-    public TerraformValue<string> EndpointFilter
+    public TerraformValue<string>? EndpointFilter
     {
-        get => new TerraformReference<string>(this, "endpoint_filter");
+        get => GetArgument<TerraformValue<string>>("endpoint_filter");
         set => SetArgument("endpoint_filter", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleKmsEkmConnectionServiceResolversBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => new TerraformReference<string>(this, "hostname");
+        get => GetArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -38,7 +38,7 @@ public class GoogleKmsEkmConnectionServiceResolversBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceDirectoryService is required")]
     public required TerraformValue<string> ServiceDirectoryService
     {
-        get => new TerraformReference<string>(this, "service_directory_service");
+        get => GetArgument<TerraformValue<string>>("service_directory_service");
         set => SetArgument("service_directory_service", value);
     }
 
@@ -71,35 +71,27 @@ public class GoogleKmsEkmConnectionServiceResolversBlockServerCertificatesBlock 
     /// Output only. The issuer distinguished name in RFC 2253 format. Only present if parsed is true.
     /// </summary>
     public TerraformValue<string> Issuer
-    {
-        get => new TerraformReference<string>(this, "issuer");
-    }
+        => AsReference("issuer");
 
     /// <summary>
     /// Output only. The certificate is not valid after this time. Only present if parsed is true.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> NotAfterTime
-    {
-        get => new TerraformReference<string>(this, "not_after_time");
-    }
+        => AsReference("not_after_time");
 
     /// <summary>
     /// Output only. The certificate is not valid before this time. Only present if parsed is true.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> NotBeforeTime
-    {
-        get => new TerraformReference<string>(this, "not_before_time");
-    }
+        => AsReference("not_before_time");
 
     /// <summary>
     /// Output only. True if the certificate was parsed successfully.
     /// </summary>
     public TerraformValue<bool> Parsed
-    {
-        get => new TerraformReference<bool>(this, "parsed");
-    }
+        => AsReference("parsed");
 
     /// <summary>
     /// Required. The raw certificate bytes in DER format. A base64-encoded string.
@@ -107,7 +99,7 @@ public class GoogleKmsEkmConnectionServiceResolversBlockServerCertificatesBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RawDer is required")]
     public required TerraformValue<string> RawDer
     {
-        get => new TerraformReference<string>(this, "raw_der");
+        get => GetArgument<TerraformValue<string>>("raw_der");
         set => SetArgument("raw_der", value);
     }
 
@@ -115,32 +107,26 @@ public class GoogleKmsEkmConnectionServiceResolversBlockServerCertificatesBlock 
     /// Output only. The certificate serial number as a hex string. Only present if parsed is true.
     /// </summary>
     public TerraformValue<string> SerialNumber
-    {
-        get => new TerraformReference<string>(this, "serial_number");
-    }
+        => AsReference("serial_number");
 
     /// <summary>
     /// Output only. The SHA-256 certificate fingerprint as a hex string. Only present if parsed is true.
     /// </summary>
     public TerraformValue<string> Sha256Fingerprint
-    {
-        get => new TerraformReference<string>(this, "sha256_fingerprint");
-    }
+        => AsReference("sha256_fingerprint");
 
     /// <summary>
     /// Output only. The subject distinguished name in RFC 2253 format. Only present if parsed is true.
     /// </summary>
     public TerraformValue<string> Subject
-    {
-        get => new TerraformReference<string>(this, "subject");
-    }
+        => AsReference("subject");
 
     /// <summary>
     /// Output only. The subject Alternative DNS names. Only present if parsed is true.
     /// </summary>
-    public TerraformList<string> SubjectAlternativeDnsNames
+    public TerraformList<string>? SubjectAlternativeDnsNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "subject_alternative_dns_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("subject_alternative_dns_names");
         set => SetArgument("subject_alternative_dns_names", value);
     }
 
@@ -163,7 +149,7 @@ public class GoogleKmsEkmConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -172,7 +158,7 @@ public class GoogleKmsEkmConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -181,7 +167,7 @@ public class GoogleKmsEkmConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -197,27 +183,27 @@ public partial class GoogleKmsEkmConnection(string name) : TerraformResource("go
     /// <summary>
     /// Optional. Identifies the EKM Crypto Space that this EkmConnection maps to. Note: This field is required if KeyManagementMode is CLOUD_KMS.
     /// </summary>
-    public TerraformValue<string> CryptoSpacePath
+    public TerraformValue<string>? CryptoSpacePath
     {
-        get => new TerraformReference<string>(this, "crypto_space_path");
+        get => GetArgument<TerraformValue<string>>("crypto_space_path");
         set => SetArgument("crypto_space_path", value);
     }
 
     /// <summary>
     /// Optional. Etag of the currently stored EkmConnection.
     /// </summary>
-    public TerraformValue<string> Etag
+    public TerraformValue<string>? Etag
     {
-        get => new TerraformReference<string>(this, "etag");
+        get => GetArgument<TerraformValue<string>>("etag");
         set => SetArgument("etag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -226,7 +212,7 @@ public partial class GoogleKmsEkmConnection(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? KeyManagementMode
     {
-        get => new TerraformReference<string>(this, "key_management_mode");
+        get => GetArgument<TerraformValue<string>>("key_management_mode");
         set => SetArgument("key_management_mode", value);
     }
 
@@ -237,7 +223,7 @@ public partial class GoogleKmsEkmConnection(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -247,16 +233,16 @@ public partial class GoogleKmsEkmConnection(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -265,9 +251,7 @@ public partial class GoogleKmsEkmConnection(string name) : TerraformResource("go
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// ServiceResolvers block (nesting mode: list).

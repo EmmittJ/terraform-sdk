@@ -18,7 +18,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Actions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("actions");
         set => SetArgument("actions", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Effect
     {
-        get => new TerraformReference<string>(this, "effect");
+        get => GetArgument<TerraformValue<string>>("effect");
         set => SetArgument("effect", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? NotActions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "not_actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("not_actions");
         set => SetArgument("not_actions", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? NotResources
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "not_resources").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("not_resources");
         set => SetArgument("not_resources", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Resources
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "resources").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("resources");
         set => SetArgument("resources", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Sid
     {
-        get => new TerraformReference<string>(this, "sid");
+        get => GetArgument<TerraformValue<string>>("sid");
         set => SetArgument("sid", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlockConditionBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Test is required")]
     public required TerraformValue<string> Test
     {
-        get => new TerraformReference<string>(this, "test");
+        get => GetArgument<TerraformValue<string>>("test");
         set => SetArgument("test", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlockConditionBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlockConditionBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Variable is required")]
     public required TerraformValue<string> Variable
     {
-        get => new TerraformReference<string>(this, "variable");
+        get => GetArgument<TerraformValue<string>>("variable");
         set => SetArgument("variable", value);
     }
 
@@ -156,7 +156,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlockNotPrincipalsBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifiers is required")]
     public required TerraformSet<string> Identifiers
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identifiers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identifiers");
         set => SetArgument("identifiers", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlockNotPrincipalsBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -189,7 +189,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlockPrincipalsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifiers is required")]
     public required TerraformSet<string> Identifiers
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identifiers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identifiers");
         set => SetArgument("identifiers", value);
     }
 
@@ -199,7 +199,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlockPrincipalsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -215,9 +215,9 @@ public partial class AwsIamPolicyDocumentDataSource(string name) : TerraformData
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -227,7 +227,7 @@ public partial class AwsIamPolicyDocumentDataSource(string name) : TerraformData
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? OverrideJson
     {
-        get => new TerraformReference<string>(this, "override_json");
+        get => GetArgument<TerraformValue<string>>("override_json");
         set => SetArgument("override_json", value);
     }
 
@@ -236,7 +236,7 @@ public partial class AwsIamPolicyDocumentDataSource(string name) : TerraformData
     /// </summary>
     public TerraformList<string>? OverridePolicyDocuments
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "override_policy_documents").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("override_policy_documents");
         set => SetArgument("override_policy_documents", value);
     }
 
@@ -245,7 +245,7 @@ public partial class AwsIamPolicyDocumentDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string>? PolicyId
     {
-        get => new TerraformReference<string>(this, "policy_id");
+        get => GetArgument<TerraformValue<string>>("policy_id");
         set => SetArgument("policy_id", value);
     }
 
@@ -255,7 +255,7 @@ public partial class AwsIamPolicyDocumentDataSource(string name) : TerraformData
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? SourceJson
     {
-        get => new TerraformReference<string>(this, "source_json");
+        get => GetArgument<TerraformValue<string>>("source_json");
         set => SetArgument("source_json", value);
     }
 
@@ -264,7 +264,7 @@ public partial class AwsIamPolicyDocumentDataSource(string name) : TerraformData
     /// </summary>
     public TerraformList<string>? SourcePolicyDocuments
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "source_policy_documents").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("source_policy_documents");
         set => SetArgument("source_policy_documents", value);
     }
 
@@ -273,7 +273,7 @@ public partial class AwsIamPolicyDocumentDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -281,17 +281,13 @@ public partial class AwsIamPolicyDocumentDataSource(string name) : TerraformData
     /// The json attribute.
     /// </summary>
     public TerraformValue<string> Json
-    {
-        get => new TerraformReference<string>(this, "json");
-    }
+        => AsReference("json");
 
     /// <summary>
     /// The minified_json attribute.
     /// </summary>
     public TerraformValue<string> MinifiedJson
-    {
-        get => new TerraformReference<string>(this, "minified_json");
-    }
+        => AsReference("minified_json");
 
     /// <summary>
     /// Statement block (nesting mode: list).

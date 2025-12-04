@@ -18,7 +18,7 @@ public class AwsCloudfrontContinuousDeploymentPolicyStagingDistributionDnsNamesB
     /// </summary>
     public TerraformSet<string>? Items
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "items").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("items");
         set => SetArgument("items", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsCloudfrontContinuousDeploymentPolicyStagingDistributionDnsNamesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Quantity is required")]
     public required TerraformValue<double> Quantity
     {
-        get => new TerraformReference<double>(this, "quantity");
+        get => GetArgument<TerraformValue<double>>("quantity");
         set => SetArgument("quantity", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -93,7 +93,7 @@ public class AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlockSingleHead
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Header is required")]
     public required TerraformValue<string> Header
     {
-        get => new TerraformReference<string>(this, "header");
+        get => GetArgument<TerraformValue<string>>("header");
         set => SetArgument("header", value);
     }
 
@@ -103,7 +103,7 @@ public class AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlockSingleHead
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlockSingleWeig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformValue<double> Weight
     {
-        get => new TerraformReference<double>(this, "weight");
+        get => GetArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -158,7 +158,7 @@ public class AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlockSingleWeig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdleTtl is required")]
     public required TerraformValue<double> IdleTtl
     {
-        get => new TerraformReference<double>(this, "idle_ttl");
+        get => GetArgument<TerraformValue<double>>("idle_ttl");
         set => SetArgument("idle_ttl", value);
     }
 
@@ -168,7 +168,7 @@ public class AwsCloudfrontContinuousDeploymentPolicyTrafficConfigBlockSingleWeig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumTtl is required")]
     public required TerraformValue<double> MaximumTtl
     {
-        get => new TerraformReference<double>(this, "maximum_ttl");
+        get => GetArgument<TerraformValue<double>>("maximum_ttl");
         set => SetArgument("maximum_ttl", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AwsCloudfrontContinuousDeploymentPolicy(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -195,33 +195,25 @@ public partial class AwsCloudfrontContinuousDeploymentPolicy(string name) : Terr
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedTime
-    {
-        get => new TerraformReference<string>(this, "last_modified_time");
-    }
+        => AsReference("last_modified_time");
 
     /// <summary>
     /// StagingDistributionDnsNames block (nesting mode: list).

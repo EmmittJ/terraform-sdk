@@ -19,7 +19,7 @@ public class AwsDatasyncLocationEfsEc2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupArns is required")]
     public required TerraformSet<string> SecurityGroupArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_arns");
         set => SetArgument("security_group_arns", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsDatasyncLocationEfsEc2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetArn is required")]
     public required TerraformValue<string> SubnetArn
     {
-        get => new TerraformReference<string>(this, "subnet_arn");
+        get => GetArgument<TerraformValue<string>>("subnet_arn");
         set => SetArgument("subnet_arn", value);
     }
 
@@ -47,7 +47,7 @@ public partial class AwsDatasyncLocationEfs(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? AccessPointArn
     {
-        get => new TerraformReference<string>(this, "access_point_arn");
+        get => GetArgument<TerraformValue<string>>("access_point_arn");
         set => SetArgument("access_point_arn", value);
     }
 
@@ -57,7 +57,7 @@ public partial class AwsDatasyncLocationEfs(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EfsFileSystemArn is required")]
     public required TerraformValue<string> EfsFileSystemArn
     {
-        get => new TerraformReference<string>(this, "efs_file_system_arn");
+        get => GetArgument<TerraformValue<string>>("efs_file_system_arn");
         set => SetArgument("efs_file_system_arn", value);
     }
 
@@ -66,16 +66,16 @@ public partial class AwsDatasyncLocationEfs(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? FileSystemAccessRoleArn
     {
-        get => new TerraformReference<string>(this, "file_system_access_role_arn");
+        get => GetArgument<TerraformValue<string>>("file_system_access_role_arn");
         set => SetArgument("file_system_access_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AwsDatasyncLocationEfs(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? InTransitEncryption
     {
-        get => new TerraformReference<string>(this, "in_transit_encryption");
+        get => GetArgument<TerraformValue<string>>("in_transit_encryption");
         set => SetArgument("in_transit_encryption", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AwsDatasyncLocationEfs(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? Subdirectory
     {
-        get => new TerraformReference<string>(this, "subdirectory");
+        get => GetArgument<TerraformValue<string>>("subdirectory");
         set => SetArgument("subdirectory", value);
     }
 
@@ -111,16 +111,16 @@ public partial class AwsDatasyncLocationEfs(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -128,17 +128,13 @@ public partial class AwsDatasyncLocationEfs(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     public TerraformValue<string> Uri
-    {
-        get => new TerraformReference<string>(this, "uri");
-    }
+        => AsReference("uri");
 
     /// <summary>
     /// Ec2Config block (nesting mode: list).

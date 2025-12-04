@@ -18,7 +18,7 @@ public class AwsLexv2modelsSlotMultipleValuesSettingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowMultipleValues
     {
-        get => new TerraformReference<bool>(this, "allow_multiple_values");
+        get => GetArgument<TerraformValue<bool>>("allow_multiple_values");
         set => SetArgument("allow_multiple_values", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsLexv2modelsSlotObfuscationSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObfuscationSettingType is required")]
     public required TerraformValue<string> ObfuscationSettingType
     {
-        get => new TerraformReference<string>(this, "obfuscation_setting_type");
+        get => GetArgument<TerraformValue<string>>("obfuscation_setting_type");
         set => SetArgument("obfuscation_setting_type", value);
     }
 
@@ -65,7 +65,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotTypeId is required")]
     public required TerraformValue<string> SlotTypeId
     {
-        get => new TerraformReference<string>(this, "slot_type_id");
+        get => GetArgument<TerraformValue<string>>("slot_type_id");
         set => SetArgument("slot_type_id", value);
     }
 
@@ -210,7 +210,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultValue is required")]
     public required TerraformValue<string> DefaultValue
     {
-        get => new TerraformReference<string>(this, "default_value");
+        get => GetArgument<TerraformValue<string>>("default_value");
         set => SetArgument("default_value", value);
     }
 
@@ -232,7 +232,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -242,7 +242,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRetries is required")]
     public required TerraformValue<double> MaxRetries
     {
-        get => new TerraformReference<double>(this, "max_retries");
+        get => GetArgument<TerraformValue<double>>("max_retries");
         set => SetArgument("max_retries", value);
     }
 
@@ -251,7 +251,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<string>? MessageSelectionStrategy
     {
-        get => new TerraformReference<string>(this, "message_selection_strategy");
+        get => GetArgument<TerraformValue<string>>("message_selection_strategy");
         set => SetArgument("message_selection_strategy", value);
     }
 
@@ -372,7 +372,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -394,7 +394,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -403,7 +403,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -413,7 +413,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -445,7 +445,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -455,7 +455,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -478,7 +478,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -501,7 +501,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -573,7 +573,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -595,7 +595,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -604,7 +604,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -614,7 +614,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -646,7 +646,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -656,7 +656,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -679,7 +679,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -702,7 +702,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -724,7 +724,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -734,7 +734,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -784,7 +784,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowAudioInput is required")]
     public required TerraformValue<bool> AllowAudioInput
     {
-        get => new TerraformReference<bool>(this, "allow_audio_input");
+        get => GetArgument<TerraformValue<bool>>("allow_audio_input");
         set => SetArgument("allow_audio_input", value);
     }
 
@@ -794,7 +794,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowDtmfInput is required")]
     public required TerraformValue<bool> AllowDtmfInput
     {
-        get => new TerraformReference<bool>(this, "allow_dtmf_input");
+        get => GetArgument<TerraformValue<bool>>("allow_dtmf_input");
         set => SetArgument("allow_dtmf_input", value);
     }
 
@@ -817,7 +817,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTimeoutMs is required")]
     public required TerraformValue<double> StartTimeoutMs
     {
-        get => new TerraformReference<double>(this, "start_timeout_ms");
+        get => GetArgument<TerraformValue<double>>("start_timeout_ms");
         set => SetArgument("start_timeout_ms", value);
     }
 
@@ -858,7 +858,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndTimeoutMs is required")]
     public required TerraformValue<double> EndTimeoutMs
     {
-        get => new TerraformReference<double>(this, "end_timeout_ms");
+        get => GetArgument<TerraformValue<double>>("end_timeout_ms");
         set => SetArgument("end_timeout_ms", value);
     }
 
@@ -868,7 +868,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxLengthMs is required")]
     public required TerraformValue<double> MaxLengthMs
     {
-        get => new TerraformReference<double>(this, "max_length_ms");
+        get => GetArgument<TerraformValue<double>>("max_length_ms");
         set => SetArgument("max_length_ms", value);
     }
 
@@ -891,7 +891,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeletionCharacter is required")]
     public required TerraformValue<string> DeletionCharacter
     {
-        get => new TerraformReference<string>(this, "deletion_character");
+        get => GetArgument<TerraformValue<string>>("deletion_character");
         set => SetArgument("deletion_character", value);
     }
 
@@ -901,7 +901,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndCharacter is required")]
     public required TerraformValue<string> EndCharacter
     {
-        get => new TerraformReference<string>(this, "end_character");
+        get => GetArgument<TerraformValue<string>>("end_character");
         set => SetArgument("end_character", value);
     }
 
@@ -911,7 +911,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndTimeoutMs is required")]
     public required TerraformValue<double> EndTimeoutMs
     {
-        get => new TerraformReference<double>(this, "end_timeout_ms");
+        get => GetArgument<TerraformValue<double>>("end_timeout_ms");
         set => SetArgument("end_timeout_ms", value);
     }
 
@@ -921,7 +921,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxLength is required")]
     public required TerraformValue<double> MaxLength
     {
-        get => new TerraformReference<double>(this, "max_length");
+        get => GetArgument<TerraformValue<double>>("max_length");
         set => SetArgument("max_length", value);
     }
 
@@ -944,7 +944,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTimeoutMs is required")]
     public required TerraformValue<double> StartTimeoutMs
     {
-        get => new TerraformReference<double>(this, "start_timeout_ms");
+        get => GetArgument<TerraformValue<double>>("start_timeout_ms");
         set => SetArgument("start_timeout_ms", value);
     }
 
@@ -967,7 +967,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Utterance is required")]
     public required TerraformValue<string> Utterance
     {
-        get => new TerraformReference<string>(this, "utterance");
+        get => GetArgument<TerraformValue<string>>("utterance");
         set => SetArgument("utterance", value);
     }
 
@@ -989,7 +989,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<bool>? Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -1038,7 +1038,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -1150,7 +1150,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1172,7 +1172,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -1181,7 +1181,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -1191,7 +1191,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -1223,7 +1223,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -1233,7 +1233,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1256,7 +1256,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1279,7 +1279,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1351,7 +1351,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1373,7 +1373,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -1382,7 +1382,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -1392,7 +1392,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -1424,7 +1424,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -1434,7 +1434,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1457,7 +1457,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1480,7 +1480,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1502,7 +1502,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -1512,7 +1512,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrequencyInSeconds is required")]
     public required TerraformValue<double> FrequencyInSeconds
     {
-        get => new TerraformReference<double>(this, "frequency_in_seconds");
+        get => GetArgument<TerraformValue<double>>("frequency_in_seconds");
         set => SetArgument("frequency_in_seconds", value);
     }
 
@@ -1522,7 +1522,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeoutInSeconds is required")]
     public required TerraformValue<double> TimeoutInSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_in_seconds");
         set => SetArgument("timeout_in_seconds", value);
     }
 
@@ -1634,7 +1634,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1656,7 +1656,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -1665,7 +1665,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -1675,7 +1675,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -1707,7 +1707,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -1717,7 +1717,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1740,7 +1740,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1763,7 +1763,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1835,7 +1835,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1857,7 +1857,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -1866,7 +1866,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -1876,7 +1876,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -1908,7 +1908,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -1918,7 +1918,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1941,7 +1941,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1964,7 +1964,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1986,7 +1986,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -2098,7 +2098,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2120,7 +2120,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -2129,7 +2129,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -2139,7 +2139,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -2171,7 +2171,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -2181,7 +2181,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2204,7 +2204,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2227,7 +2227,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2299,7 +2299,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2321,7 +2321,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -2330,7 +2330,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -2340,7 +2340,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -2372,7 +2372,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -2382,7 +2382,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2405,7 +2405,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2428,7 +2428,7 @@ public class AwsLexv2modelsSlotSubSlotSettingBlockSlotSpecificationBlockValueEli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2451,7 +2451,7 @@ public class AwsLexv2modelsSlotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -2460,7 +2460,7 @@ public class AwsLexv2modelsSlotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -2469,7 +2469,7 @@ public class AwsLexv2modelsSlotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -2493,7 +2493,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotConstraint is required")]
     public required TerraformValue<string> SlotConstraint
     {
-        get => new TerraformReference<string>(this, "slot_constraint");
+        get => GetArgument<TerraformValue<string>>("slot_constraint");
         set => SetArgument("slot_constraint", value);
     }
 
@@ -2583,7 +2583,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockDefaultValueSpecifica
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultValue is required")]
     public required TerraformValue<string> DefaultValue
     {
-        get => new TerraformReference<string>(this, "default_value");
+        get => GetArgument<TerraformValue<string>>("default_value");
         set => SetArgument("default_value", value);
     }
 
@@ -2605,7 +2605,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -2615,7 +2615,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRetries is required")]
     public required TerraformValue<double> MaxRetries
     {
-        get => new TerraformReference<double>(this, "max_retries");
+        get => GetArgument<TerraformValue<double>>("max_retries");
         set => SetArgument("max_retries", value);
     }
 
@@ -2624,7 +2624,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     /// </summary>
     public TerraformValue<string>? MessageSelectionStrategy
     {
-        get => new TerraformReference<string>(this, "message_selection_strategy");
+        get => GetArgument<TerraformValue<string>>("message_selection_strategy");
         set => SetArgument("message_selection_strategy", value);
     }
 
@@ -2745,7 +2745,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2767,7 +2767,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -2776,7 +2776,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -2786,7 +2786,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -2818,7 +2818,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -2828,7 +2828,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2851,7 +2851,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2874,7 +2874,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2946,7 +2946,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2968,7 +2968,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -2977,7 +2977,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -2987,7 +2987,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -3019,7 +3019,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -3029,7 +3029,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3052,7 +3052,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3075,7 +3075,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3097,7 +3097,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -3107,7 +3107,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -3157,7 +3157,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowAudioInput is required")]
     public required TerraformValue<bool> AllowAudioInput
     {
-        get => new TerraformReference<bool>(this, "allow_audio_input");
+        get => GetArgument<TerraformValue<bool>>("allow_audio_input");
         set => SetArgument("allow_audio_input", value);
     }
 
@@ -3167,7 +3167,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowDtmfInput is required")]
     public required TerraformValue<bool> AllowDtmfInput
     {
-        get => new TerraformReference<bool>(this, "allow_dtmf_input");
+        get => GetArgument<TerraformValue<bool>>("allow_dtmf_input");
         set => SetArgument("allow_dtmf_input", value);
     }
 
@@ -3190,7 +3190,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTimeoutMs is required")]
     public required TerraformValue<double> StartTimeoutMs
     {
-        get => new TerraformReference<double>(this, "start_timeout_ms");
+        get => GetArgument<TerraformValue<double>>("start_timeout_ms");
         set => SetArgument("start_timeout_ms", value);
     }
 
@@ -3231,7 +3231,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndTimeoutMs is required")]
     public required TerraformValue<double> EndTimeoutMs
     {
-        get => new TerraformReference<double>(this, "end_timeout_ms");
+        get => GetArgument<TerraformValue<double>>("end_timeout_ms");
         set => SetArgument("end_timeout_ms", value);
     }
 
@@ -3241,7 +3241,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxLengthMs is required")]
     public required TerraformValue<double> MaxLengthMs
     {
-        get => new TerraformReference<double>(this, "max_length_ms");
+        get => GetArgument<TerraformValue<double>>("max_length_ms");
         set => SetArgument("max_length_ms", value);
     }
 
@@ -3264,7 +3264,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeletionCharacter is required")]
     public required TerraformValue<string> DeletionCharacter
     {
-        get => new TerraformReference<string>(this, "deletion_character");
+        get => GetArgument<TerraformValue<string>>("deletion_character");
         set => SetArgument("deletion_character", value);
     }
 
@@ -3274,7 +3274,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndCharacter is required")]
     public required TerraformValue<string> EndCharacter
     {
-        get => new TerraformReference<string>(this, "end_character");
+        get => GetArgument<TerraformValue<string>>("end_character");
         set => SetArgument("end_character", value);
     }
 
@@ -3284,7 +3284,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndTimeoutMs is required")]
     public required TerraformValue<double> EndTimeoutMs
     {
-        get => new TerraformReference<double>(this, "end_timeout_ms");
+        get => GetArgument<TerraformValue<double>>("end_timeout_ms");
         set => SetArgument("end_timeout_ms", value);
     }
 
@@ -3294,7 +3294,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxLength is required")]
     public required TerraformValue<double> MaxLength
     {
-        get => new TerraformReference<double>(this, "max_length");
+        get => GetArgument<TerraformValue<double>>("max_length");
         set => SetArgument("max_length", value);
     }
 
@@ -3317,7 +3317,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockPromptSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTimeoutMs is required")]
     public required TerraformValue<double> StartTimeoutMs
     {
-        get => new TerraformReference<double>(this, "start_timeout_ms");
+        get => GetArgument<TerraformValue<double>>("start_timeout_ms");
         set => SetArgument("start_timeout_ms", value);
     }
 
@@ -3340,7 +3340,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockSampleUtteranceBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Utterance is required")]
     public required TerraformValue<string> Utterance
     {
-        get => new TerraformReference<string>(this, "utterance");
+        get => GetArgument<TerraformValue<string>>("utterance");
         set => SetArgument("utterance", value);
     }
 
@@ -3363,7 +3363,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockSlotResolutionSetting
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotResolutionStrategy is required")]
     public required TerraformValue<string> SlotResolutionStrategy
     {
-        get => new TerraformReference<string>(this, "slot_resolution_strategy");
+        get => GetArgument<TerraformValue<string>>("slot_resolution_strategy");
         set => SetArgument("slot_resolution_strategy", value);
     }
 
@@ -3385,7 +3385,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     /// </summary>
     public TerraformValue<bool>? Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -3434,7 +3434,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -3546,7 +3546,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3568,7 +3568,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -3577,7 +3577,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -3587,7 +3587,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -3619,7 +3619,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -3629,7 +3629,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3652,7 +3652,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3675,7 +3675,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3747,7 +3747,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3769,7 +3769,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -3778,7 +3778,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -3788,7 +3788,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -3820,7 +3820,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -3830,7 +3830,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3853,7 +3853,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3876,7 +3876,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3898,7 +3898,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -3908,7 +3908,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrequencyInSeconds is required")]
     public required TerraformValue<double> FrequencyInSeconds
     {
-        get => new TerraformReference<double>(this, "frequency_in_seconds");
+        get => GetArgument<TerraformValue<double>>("frequency_in_seconds");
         set => SetArgument("frequency_in_seconds", value);
     }
 
@@ -3918,7 +3918,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeoutInSeconds is required")]
     public required TerraformValue<double> TimeoutInSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_in_seconds");
         set => SetArgument("timeout_in_seconds", value);
     }
 
@@ -4030,7 +4030,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4052,7 +4052,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -4061,7 +4061,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -4071,7 +4071,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -4103,7 +4103,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -4113,7 +4113,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4136,7 +4136,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4159,7 +4159,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4231,7 +4231,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4253,7 +4253,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -4262,7 +4262,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -4272,7 +4272,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -4304,7 +4304,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -4314,7 +4314,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4337,7 +4337,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4360,7 +4360,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4382,7 +4382,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -4494,7 +4494,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4516,7 +4516,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -4525,7 +4525,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -4535,7 +4535,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -4567,7 +4567,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -4577,7 +4577,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4600,7 +4600,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4623,7 +4623,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4695,7 +4695,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4717,7 +4717,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -4726,7 +4726,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -4736,7 +4736,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -4768,7 +4768,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -4778,7 +4778,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4801,7 +4801,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4824,7 +4824,7 @@ public class AwsLexv2modelsSlotValueElicitationSettingBlockWaitAndContinueSpecif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4843,7 +4843,7 @@ public partial class AwsLexv2modelsSlot(string name) : TerraformResource("aws_le
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotId is required")]
     public required TerraformValue<string> BotId
     {
-        get => new TerraformReference<string>(this, "bot_id");
+        get => GetArgument<TerraformValue<string>>("bot_id");
         set => SetArgument("bot_id", value);
     }
 
@@ -4853,7 +4853,7 @@ public partial class AwsLexv2modelsSlot(string name) : TerraformResource("aws_le
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotVersion is required")]
     public required TerraformValue<string> BotVersion
     {
-        get => new TerraformReference<string>(this, "bot_version");
+        get => GetArgument<TerraformValue<string>>("bot_version");
         set => SetArgument("bot_version", value);
     }
 
@@ -4862,7 +4862,7 @@ public partial class AwsLexv2modelsSlot(string name) : TerraformResource("aws_le
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -4872,7 +4872,7 @@ public partial class AwsLexv2modelsSlot(string name) : TerraformResource("aws_le
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntentId is required")]
     public required TerraformValue<string> IntentId
     {
-        get => new TerraformReference<string>(this, "intent_id");
+        get => GetArgument<TerraformValue<string>>("intent_id");
         set => SetArgument("intent_id", value);
     }
 
@@ -4882,7 +4882,7 @@ public partial class AwsLexv2modelsSlot(string name) : TerraformResource("aws_le
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocaleId is required")]
     public required TerraformValue<string> LocaleId
     {
-        get => new TerraformReference<string>(this, "locale_id");
+        get => GetArgument<TerraformValue<string>>("locale_id");
         set => SetArgument("locale_id", value);
     }
 
@@ -4892,25 +4892,25 @@ public partial class AwsLexv2modelsSlot(string name) : TerraformResource("aws_le
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The slot_type_id attribute.
     /// </summary>
-    public TerraformValue<string> SlotTypeId
+    public TerraformValue<string>? SlotTypeId
     {
-        get => new TerraformReference<string>(this, "slot_type_id");
+        get => GetArgument<TerraformValue<string>>("slot_type_id");
         set => SetArgument("slot_type_id", value);
     }
 
@@ -4918,17 +4918,13 @@ public partial class AwsLexv2modelsSlot(string name) : TerraformResource("aws_le
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The slot_id attribute.
     /// </summary>
     public TerraformValue<string> SlotId
-    {
-        get => new TerraformReference<string>(this, "slot_id");
-    }
+        => AsReference("slot_id");
 
     /// <summary>
     /// MultipleValuesSetting block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanAzureToAzureSettingsBlock
     /// </summary>
     public TerraformValue<string>? PrimaryEdgeZone
     {
-        get => new TerraformReference<string>(this, "primary_edge_zone");
+        get => GetArgument<TerraformValue<string>>("primary_edge_zone");
         set => SetArgument("primary_edge_zone", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanAzureToAzureSettingsBlock
     /// </summary>
     public TerraformValue<string>? PrimaryZone
     {
-        get => new TerraformReference<string>(this, "primary_zone");
+        get => GetArgument<TerraformValue<string>>("primary_zone");
         set => SetArgument("primary_zone", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanAzureToAzureSettingsBlock
     /// </summary>
     public TerraformValue<string>? RecoveryEdgeZone
     {
-        get => new TerraformReference<string>(this, "recovery_edge_zone");
+        get => GetArgument<TerraformValue<string>>("recovery_edge_zone");
         set => SetArgument("recovery_edge_zone", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanAzureToAzureSettingsBlock
     /// </summary>
     public TerraformValue<string>? RecoveryZone
     {
-        get => new TerraformReference<string>(this, "recovery_zone");
+        get => GetArgument<TerraformValue<string>>("recovery_zone");
         set => SetArgument("recovery_zone", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlock : 
     /// </summary>
     public TerraformList<string>? ReplicatedProtectedItems
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "replicated_protected_items").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("replicated_protected_items");
         set => SetArgument("replicated_protected_items", value);
     }
 
@@ -108,7 +108,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPos
     /// </summary>
     public TerraformValue<string>? FabricLocation
     {
-        get => new TerraformReference<string>(this, "fabric_location");
+        get => GetArgument<TerraformValue<string>>("fabric_location");
         set => SetArgument("fabric_location", value);
     }
 
@@ -118,7 +118,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPos
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverDirections is required")]
     public required TerraformSet<string> FailOverDirections
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "fail_over_directions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("fail_over_directions");
         set => SetArgument("fail_over_directions", value);
     }
 
@@ -128,7 +128,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPos
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverTypes is required")]
     public required TerraformSet<string> FailOverTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "fail_over_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("fail_over_types");
         set => SetArgument("fail_over_types", value);
     }
 
@@ -137,7 +137,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPos
     /// </summary>
     public TerraformValue<string>? ManualActionInstruction
     {
-        get => new TerraformReference<string>(this, "manual_action_instruction");
+        get => GetArgument<TerraformValue<string>>("manual_action_instruction");
         set => SetArgument("manual_action_instruction", value);
     }
 
@@ -147,7 +147,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPos
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -156,7 +156,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPos
     /// </summary>
     public TerraformValue<string>? RunbookId
     {
-        get => new TerraformReference<string>(this, "runbook_id");
+        get => GetArgument<TerraformValue<string>>("runbook_id");
         set => SetArgument("runbook_id", value);
     }
 
@@ -165,7 +165,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPos
     /// </summary>
     public TerraformValue<string>? ScriptPath
     {
-        get => new TerraformReference<string>(this, "script_path");
+        get => GetArgument<TerraformValue<string>>("script_path");
         set => SetArgument("script_path", value);
     }
 
@@ -175,7 +175,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPos
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -197,7 +197,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPre
     /// </summary>
     public TerraformValue<string>? FabricLocation
     {
-        get => new TerraformReference<string>(this, "fabric_location");
+        get => GetArgument<TerraformValue<string>>("fabric_location");
         set => SetArgument("fabric_location", value);
     }
 
@@ -207,7 +207,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPre
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverDirections is required")]
     public required TerraformSet<string> FailOverDirections
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "fail_over_directions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("fail_over_directions");
         set => SetArgument("fail_over_directions", value);
     }
 
@@ -217,7 +217,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPre
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverTypes is required")]
     public required TerraformSet<string> FailOverTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "fail_over_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("fail_over_types");
         set => SetArgument("fail_over_types", value);
     }
 
@@ -226,7 +226,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPre
     /// </summary>
     public TerraformValue<string>? ManualActionInstruction
     {
-        get => new TerraformReference<string>(this, "manual_action_instruction");
+        get => GetArgument<TerraformValue<string>>("manual_action_instruction");
         set => SetArgument("manual_action_instruction", value);
     }
 
@@ -236,7 +236,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPre
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -245,7 +245,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPre
     /// </summary>
     public TerraformValue<string>? RunbookId
     {
-        get => new TerraformReference<string>(this, "runbook_id");
+        get => GetArgument<TerraformValue<string>>("runbook_id");
         set => SetArgument("runbook_id", value);
     }
 
@@ -254,7 +254,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPre
     /// </summary>
     public TerraformValue<string>? ScriptPath
     {
-        get => new TerraformReference<string>(this, "script_path");
+        get => GetArgument<TerraformValue<string>>("script_path");
         set => SetArgument("script_path", value);
     }
 
@@ -264,7 +264,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlockPre
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -318,7 +318,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     /// </summary>
     public TerraformValue<string>? FabricLocation
     {
-        get => new TerraformReference<string>(this, "fabric_location");
+        get => GetArgument<TerraformValue<string>>("fabric_location");
         set => SetArgument("fabric_location", value);
     }
 
@@ -328,7 +328,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverDirections is required")]
     public required TerraformSet<string> FailOverDirections
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "fail_over_directions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("fail_over_directions");
         set => SetArgument("fail_over_directions", value);
     }
 
@@ -338,7 +338,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverTypes is required")]
     public required TerraformSet<string> FailOverTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "fail_over_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("fail_over_types");
         set => SetArgument("fail_over_types", value);
     }
 
@@ -347,7 +347,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     /// </summary>
     public TerraformValue<string>? ManualActionInstruction
     {
-        get => new TerraformReference<string>(this, "manual_action_instruction");
+        get => GetArgument<TerraformValue<string>>("manual_action_instruction");
         set => SetArgument("manual_action_instruction", value);
     }
 
@@ -357,7 +357,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -366,7 +366,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     /// </summary>
     public TerraformValue<string>? RunbookId
     {
-        get => new TerraformReference<string>(this, "runbook_id");
+        get => GetArgument<TerraformValue<string>>("runbook_id");
         set => SetArgument("runbook_id", value);
     }
 
@@ -375,7 +375,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     /// </summary>
     public TerraformValue<string>? ScriptPath
     {
-        get => new TerraformReference<string>(this, "script_path");
+        get => GetArgument<TerraformValue<string>>("script_path");
         set => SetArgument("script_path", value);
     }
 
@@ -385,7 +385,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -407,7 +407,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     /// </summary>
     public TerraformValue<string>? FabricLocation
     {
-        get => new TerraformReference<string>(this, "fabric_location");
+        get => GetArgument<TerraformValue<string>>("fabric_location");
         set => SetArgument("fabric_location", value);
     }
 
@@ -417,7 +417,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverDirections is required")]
     public required TerraformSet<string> FailOverDirections
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "fail_over_directions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("fail_over_directions");
         set => SetArgument("fail_over_directions", value);
     }
 
@@ -427,7 +427,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverTypes is required")]
     public required TerraformSet<string> FailOverTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "fail_over_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("fail_over_types");
         set => SetArgument("fail_over_types", value);
     }
 
@@ -436,7 +436,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     /// </summary>
     public TerraformValue<string>? ManualActionInstruction
     {
-        get => new TerraformReference<string>(this, "manual_action_instruction");
+        get => GetArgument<TerraformValue<string>>("manual_action_instruction");
         set => SetArgument("manual_action_instruction", value);
     }
 
@@ -446,7 +446,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -455,7 +455,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     /// </summary>
     public TerraformValue<string>? RunbookId
     {
-        get => new TerraformReference<string>(this, "runbook_id");
+        get => GetArgument<TerraformValue<string>>("runbook_id");
         set => SetArgument("runbook_id", value);
     }
 
@@ -464,7 +464,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     /// </summary>
     public TerraformValue<string>? ScriptPath
     {
-        get => new TerraformReference<string>(this, "script_path");
+        get => GetArgument<TerraformValue<string>>("script_path");
         set => SetArgument("script_path", value);
     }
 
@@ -474,7 +474,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -528,7 +528,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     /// </summary>
     public TerraformValue<string>? FabricLocation
     {
-        get => new TerraformReference<string>(this, "fabric_location");
+        get => GetArgument<TerraformValue<string>>("fabric_location");
         set => SetArgument("fabric_location", value);
     }
 
@@ -538,7 +538,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverDirections is required")]
     public required TerraformSet<string> FailOverDirections
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "fail_over_directions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("fail_over_directions");
         set => SetArgument("fail_over_directions", value);
     }
 
@@ -548,7 +548,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverTypes is required")]
     public required TerraformSet<string> FailOverTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "fail_over_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("fail_over_types");
         set => SetArgument("fail_over_types", value);
     }
 
@@ -557,7 +557,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     /// </summary>
     public TerraformValue<string>? ManualActionInstruction
     {
-        get => new TerraformReference<string>(this, "manual_action_instruction");
+        get => GetArgument<TerraformValue<string>>("manual_action_instruction");
         set => SetArgument("manual_action_instruction", value);
     }
 
@@ -567,7 +567,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -576,7 +576,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     /// </summary>
     public TerraformValue<string>? RunbookId
     {
-        get => new TerraformReference<string>(this, "runbook_id");
+        get => GetArgument<TerraformValue<string>>("runbook_id");
         set => SetArgument("runbook_id", value);
     }
 
@@ -585,7 +585,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     /// </summary>
     public TerraformValue<string>? ScriptPath
     {
-        get => new TerraformReference<string>(this, "script_path");
+        get => GetArgument<TerraformValue<string>>("script_path");
         set => SetArgument("script_path", value);
     }
 
@@ -595,7 +595,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -617,7 +617,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     /// </summary>
     public TerraformValue<string>? FabricLocation
     {
-        get => new TerraformReference<string>(this, "fabric_location");
+        get => GetArgument<TerraformValue<string>>("fabric_location");
         set => SetArgument("fabric_location", value);
     }
 
@@ -627,7 +627,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverDirections is required")]
     public required TerraformSet<string> FailOverDirections
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "fail_over_directions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("fail_over_directions");
         set => SetArgument("fail_over_directions", value);
     }
 
@@ -637,7 +637,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailOverTypes is required")]
     public required TerraformSet<string> FailOverTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "fail_over_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("fail_over_types");
         set => SetArgument("fail_over_types", value);
     }
 
@@ -646,7 +646,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     /// </summary>
     public TerraformValue<string>? ManualActionInstruction
     {
-        get => new TerraformReference<string>(this, "manual_action_instruction");
+        get => GetArgument<TerraformValue<string>>("manual_action_instruction");
         set => SetArgument("manual_action_instruction", value);
     }
 
@@ -656,7 +656,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -665,7 +665,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     /// </summary>
     public TerraformValue<string>? RunbookId
     {
-        get => new TerraformReference<string>(this, "runbook_id");
+        get => GetArgument<TerraformValue<string>>("runbook_id");
         set => SetArgument("runbook_id", value);
     }
 
@@ -674,7 +674,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     /// </summary>
     public TerraformValue<string>? ScriptPath
     {
-        get => new TerraformReference<string>(this, "script_path");
+        get => GetArgument<TerraformValue<string>>("script_path");
         set => SetArgument("script_path", value);
     }
 
@@ -684,7 +684,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -707,7 +707,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -716,7 +716,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -725,7 +725,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -734,7 +734,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -750,9 +750,9 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlan(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -762,7 +762,7 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlan(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -772,7 +772,7 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlan(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
     public required TerraformValue<string> RecoveryVaultId
     {
-        get => new TerraformReference<string>(this, "recovery_vault_id");
+        get => GetArgument<TerraformValue<string>>("recovery_vault_id");
         set => SetArgument("recovery_vault_id", value);
     }
 
@@ -782,7 +782,7 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlan(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRecoveryFabricId is required")]
     public required TerraformValue<string> SourceRecoveryFabricId
     {
-        get => new TerraformReference<string>(this, "source_recovery_fabric_id");
+        get => GetArgument<TerraformValue<string>>("source_recovery_fabric_id");
         set => SetArgument("source_recovery_fabric_id", value);
     }
 
@@ -792,7 +792,7 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlan(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRecoveryFabricId is required")]
     public required TerraformValue<string> TargetRecoveryFabricId
     {
-        get => new TerraformReference<string>(this, "target_recovery_fabric_id");
+        get => GetArgument<TerraformValue<string>>("target_recovery_fabric_id");
         set => SetArgument("target_recovery_fabric_id", value);
     }
 

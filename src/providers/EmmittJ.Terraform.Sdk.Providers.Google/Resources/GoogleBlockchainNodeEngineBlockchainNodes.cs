@@ -17,16 +17,14 @@ public class GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock : Ter
     /// User-provided key-value pairs
     /// </summary>
     public TerraformList<TerraformMap<object>> AdditionalEndpoints
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "additional_endpoints").ResolveNodes(ctx));
-    }
+        => AsReference("additional_endpoints");
 
     /// <summary>
     /// Enables JSON-RPC access to functions in the admin namespace. Defaults to false.
     /// </summary>
     public TerraformValue<bool>? ApiEnableAdmin
     {
-        get => new TerraformReference<bool>(this, "api_enable_admin");
+        get => GetArgument<TerraformValue<bool>>("api_enable_admin");
         set => SetArgument("api_enable_admin", value);
     }
 
@@ -35,7 +33,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock : Ter
     /// </summary>
     public TerraformValue<bool>? ApiEnableDebug
     {
-        get => new TerraformReference<bool>(this, "api_enable_debug");
+        get => GetArgument<TerraformValue<bool>>("api_enable_debug");
         set => SetArgument("api_enable_debug", value);
     }
 
@@ -44,7 +42,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock : Ter
     /// </summary>
     public TerraformValue<string>? ConsensusClient
     {
-        get => new TerraformReference<string>(this, "consensus_client");
+        get => GetArgument<TerraformValue<string>>("consensus_client");
         set => SetArgument("consensus_client", value);
     }
 
@@ -53,7 +51,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock : Ter
     /// </summary>
     public TerraformValue<string>? ExecutionClient
     {
-        get => new TerraformReference<string>(this, "execution_client");
+        get => GetArgument<TerraformValue<string>>("execution_client");
         set => SetArgument("execution_client", value);
     }
 
@@ -62,7 +60,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -71,7 +69,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlock : Ter
     /// </summary>
     public TerraformValue<string>? NodeType
     {
-        get => new TerraformReference<string>(this, "node_type");
+        get => GetArgument<TerraformValue<string>>("node_type");
         set => SetArgument("node_type", value);
     }
 
@@ -113,7 +111,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlockGethDe
     /// </summary>
     public TerraformValue<string>? GarbageCollectionMode
     {
-        get => new TerraformReference<string>(this, "garbage_collection_mode");
+        get => GetArgument<TerraformValue<string>>("garbage_collection_mode");
         set => SetArgument("garbage_collection_mode", value);
     }
 
@@ -135,7 +133,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodesEthereumDetailsBlockValida
     /// </summary>
     public TerraformList<string>? MevRelayUrls
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "mev_relay_urls").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("mev_relay_urls");
         set => SetArgument("mev_relay_urls", value);
     }
 
@@ -158,7 +156,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodesTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -167,7 +165,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodesTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -176,7 +174,7 @@ public class GoogleBlockchainNodeEngineBlockchainNodesTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -195,7 +193,7 @@ public partial class GoogleBlockchainNodeEngineBlockchainNodes(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockchainNodeId is required")]
     public required TerraformValue<string> BlockchainNodeId
     {
-        get => new TerraformReference<string>(this, "blockchain_node_id");
+        get => GetArgument<TerraformValue<string>>("blockchain_node_id");
         set => SetArgument("blockchain_node_id", value);
     }
 
@@ -204,16 +202,16 @@ public partial class GoogleBlockchainNodeEngineBlockchainNodes(string name) : Te
     /// </summary>
     public TerraformValue<string>? BlockchainType
     {
-        get => new TerraformReference<string>(this, "blockchain_type");
+        get => GetArgument<TerraformValue<string>>("blockchain_type");
         set => SetArgument("blockchain_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -226,7 +224,7 @@ public partial class GoogleBlockchainNodeEngineBlockchainNodes(string name) : Te
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -236,16 +234,16 @@ public partial class GoogleBlockchainNodeEngineBlockchainNodes(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -253,50 +251,38 @@ public partial class GoogleBlockchainNodeEngineBlockchainNodes(string name) : Te
     /// The connection information through which to interact with a blockchain node.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConnectionInfo
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "connection_info").ResolveNodes(ctx));
-    }
+        => AsReference("connection_info");
 
     /// <summary>
     /// The timestamp at which the blockchain node was first created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The fully qualified name of the blockchain node. e.g. projects/my-project/locations/us-central1/blockchainNodes/my-node.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The timestamp at which the blockchain node was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// EthereumDetails block (nesting mode: list).

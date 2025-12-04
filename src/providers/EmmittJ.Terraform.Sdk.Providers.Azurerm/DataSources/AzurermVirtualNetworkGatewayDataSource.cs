@@ -18,7 +18,7 @@ public class AzurermVirtualNetworkGatewayDataSourceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermVirtualNetworkGatewayDataSource(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermVirtualNetworkGatewayDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermVirtualNetworkGatewayDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,113 +64,85 @@ public partial class AzurermVirtualNetworkGatewayDataSource(string name) : Terra
     /// The active_active attribute.
     /// </summary>
     public TerraformValue<bool> ActiveActive
-    {
-        get => new TerraformReference<bool>(this, "active_active");
-    }
+        => AsReference("active_active");
 
     /// <summary>
     /// The bgp_settings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> BgpSettings
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "bgp_settings").ResolveNodes(ctx));
-    }
+        => AsReference("bgp_settings");
 
     /// <summary>
     /// The custom_route attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CustomRoute
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "custom_route").ResolveNodes(ctx));
-    }
+        => AsReference("custom_route");
 
     /// <summary>
     /// The default_local_network_gateway_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultLocalNetworkGatewayId
-    {
-        get => new TerraformReference<string>(this, "default_local_network_gateway_id");
-    }
+        => AsReference("default_local_network_gateway_id");
 
     /// <summary>
     /// The enable_bgp attribute.
     /// </summary>
     public TerraformValue<bool> EnableBgp
-    {
-        get => new TerraformReference<bool>(this, "enable_bgp");
-    }
+        => AsReference("enable_bgp");
 
     /// <summary>
     /// The generation attribute.
     /// </summary>
     public TerraformValue<string> Generation
-    {
-        get => new TerraformReference<string>(this, "generation");
-    }
+        => AsReference("generation");
 
     /// <summary>
     /// The ip_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IpConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "ip_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("ip_configuration");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The private_ip_address_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PrivateIpAddressEnabled
-    {
-        get => new TerraformReference<bool>(this, "private_ip_address_enabled");
-    }
+        => AsReference("private_ip_address_enabled");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformValue<string> Sku
-    {
-        get => new TerraformReference<string>(this, "sku");
-    }
+        => AsReference("sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// The vpn_client_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> VpnClientConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "vpn_client_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("vpn_client_configuration");
 
     /// <summary>
     /// The vpn_type attribute.
     /// </summary>
     public TerraformValue<string> VpnType
-    {
-        get => new TerraformReference<string>(this, "vpn_type");
-    }
+        => AsReference("vpn_type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class AwsSubnetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsSubnetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -45,25 +45,25 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// </summary>
     public TerraformValue<bool>? AssignIpv6AddressOnCreation
     {
-        get => new TerraformReference<bool>(this, "assign_ipv6_address_on_creation");
+        get => GetArgument<TerraformValue<bool>>("assign_ipv6_address_on_creation");
         set => SetArgument("assign_ipv6_address_on_creation", value);
     }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformValue<string> AvailabilityZone
+    public TerraformValue<string>? AvailabilityZone
     {
-        get => new TerraformReference<string>(this, "availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
     /// <summary>
     /// The availability_zone_id attribute.
     /// </summary>
-    public TerraformValue<string> AvailabilityZoneId
+    public TerraformValue<string>? AvailabilityZoneId
     {
-        get => new TerraformReference<string>(this, "availability_zone_id");
+        get => GetArgument<TerraformValue<string>>("availability_zone_id");
         set => SetArgument("availability_zone_id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// </summary>
     public TerraformValue<string>? CidrBlock
     {
-        get => new TerraformReference<string>(this, "cidr_block");
+        get => GetArgument<TerraformValue<string>>("cidr_block");
         set => SetArgument("cidr_block", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// </summary>
     public TerraformValue<string>? CustomerOwnedIpv4Pool
     {
-        get => new TerraformReference<string>(this, "customer_owned_ipv4_pool");
+        get => GetArgument<TerraformValue<string>>("customer_owned_ipv4_pool");
         set => SetArgument("customer_owned_ipv4_pool", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// </summary>
     public TerraformValue<bool>? EnableDns64
     {
-        get => new TerraformReference<bool>(this, "enable_dns64");
+        get => GetArgument<TerraformValue<bool>>("enable_dns64");
         set => SetArgument("enable_dns64", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// </summary>
     public TerraformValue<double>? EnableLniAtDeviceIndex
     {
-        get => new TerraformReference<double>(this, "enable_lni_at_device_index");
+        get => GetArgument<TerraformValue<double>>("enable_lni_at_device_index");
         set => SetArgument("enable_lni_at_device_index", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// </summary>
     public TerraformValue<bool>? EnableResourceNameDnsARecordOnLaunch
     {
-        get => new TerraformReference<bool>(this, "enable_resource_name_dns_a_record_on_launch");
+        get => GetArgument<TerraformValue<bool>>("enable_resource_name_dns_a_record_on_launch");
         set => SetArgument("enable_resource_name_dns_a_record_on_launch", value);
     }
 
@@ -117,16 +117,16 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// </summary>
     public TerraformValue<bool>? EnableResourceNameDnsAaaaRecordOnLaunch
     {
-        get => new TerraformReference<bool>(this, "enable_resource_name_dns_aaaa_record_on_launch");
+        get => GetArgument<TerraformValue<bool>>("enable_resource_name_dns_aaaa_record_on_launch");
         set => SetArgument("enable_resource_name_dns_aaaa_record_on_launch", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// </summary>
     public TerraformValue<string>? Ipv6CidrBlock
     {
-        get => new TerraformReference<string>(this, "ipv6_cidr_block");
+        get => GetArgument<TerraformValue<string>>("ipv6_cidr_block");
         set => SetArgument("ipv6_cidr_block", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// </summary>
     public TerraformValue<bool>? Ipv6Native
     {
-        get => new TerraformReference<bool>(this, "ipv6_native");
+        get => GetArgument<TerraformValue<bool>>("ipv6_native");
         set => SetArgument("ipv6_native", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// </summary>
     public TerraformValue<bool>? MapCustomerOwnedIpOnLaunch
     {
-        get => new TerraformReference<bool>(this, "map_customer_owned_ip_on_launch");
+        get => GetArgument<TerraformValue<bool>>("map_customer_owned_ip_on_launch");
         set => SetArgument("map_customer_owned_ip_on_launch", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// </summary>
     public TerraformValue<bool>? MapPublicIpOnLaunch
     {
-        get => new TerraformReference<bool>(this, "map_public_ip_on_launch");
+        get => GetArgument<TerraformValue<bool>>("map_public_ip_on_launch");
         set => SetArgument("map_public_ip_on_launch", value);
     }
 
@@ -171,25 +171,25 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// </summary>
     public TerraformValue<string>? OutpostArn
     {
-        get => new TerraformReference<string>(this, "outpost_arn");
+        get => GetArgument<TerraformValue<string>>("outpost_arn");
         set => SetArgument("outpost_arn", value);
     }
 
     /// <summary>
     /// The private_dns_hostname_type_on_launch attribute.
     /// </summary>
-    public TerraformValue<string> PrivateDnsHostnameTypeOnLaunch
+    public TerraformValue<string>? PrivateDnsHostnameTypeOnLaunch
     {
-        get => new TerraformReference<string>(this, "private_dns_hostname_type_on_launch");
+        get => GetArgument<TerraformValue<string>>("private_dns_hostname_type_on_launch");
         set => SetArgument("private_dns_hostname_type_on_launch", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -198,16 +198,16 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -217,7 +217,7 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -225,25 +225,19 @@ public partial class AwsSubnet(string name) : TerraformResource("aws_subnet", na
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The ipv6_cidr_block_association_id attribute.
     /// </summary>
     public TerraformValue<string> Ipv6CidrBlockAssociationId
-    {
-        get => new TerraformReference<string>(this, "ipv6_cidr_block_association_id");
-    }
+        => AsReference("ipv6_cidr_block_association_id");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

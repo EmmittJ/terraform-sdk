@@ -18,7 +18,7 @@ public class AwsDbOptionGroupOptionBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? DbSecurityGroupMemberships
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "db_security_group_memberships").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("db_security_group_memberships");
         set => SetArgument("db_security_group_memberships", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsDbOptionGroupOptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OptionName is required")]
     public required TerraformValue<string> OptionName
     {
-        get => new TerraformReference<string>(this, "option_name");
+        get => GetArgument<TerraformValue<string>>("option_name");
         set => SetArgument("option_name", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsDbOptionGroupOptionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsDbOptionGroupOptionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -55,7 +55,7 @@ public class AwsDbOptionGroupOptionBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? VpcSecurityGroupMemberships
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "vpc_security_group_memberships").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_memberships");
         set => SetArgument("vpc_security_group_memberships", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsDbOptionGroupOptionBlockOptionSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsDbOptionGroupOptionBlockOptionSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -120,7 +120,7 @@ public class AwsDbOptionGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -139,16 +139,16 @@ public partial class AwsDbOptionGroup(string name) : TerraformResource("aws_db_o
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineName is required")]
     public required TerraformValue<string> EngineName
     {
-        get => new TerraformReference<string>(this, "engine_name");
+        get => GetArgument<TerraformValue<string>>("engine_name");
         set => SetArgument("engine_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -158,25 +158,25 @@ public partial class AwsDbOptionGroup(string name) : TerraformResource("aws_db_o
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MajorEngineVersion is required")]
     public required TerraformValue<string> MajorEngineVersion
     {
-        get => new TerraformReference<string>(this, "major_engine_version");
+        get => GetArgument<TerraformValue<string>>("major_engine_version");
         set => SetArgument("major_engine_version", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -185,16 +185,16 @@ public partial class AwsDbOptionGroup(string name) : TerraformResource("aws_db_o
     /// </summary>
     public TerraformValue<string>? OptionGroupDescription
     {
-        get => new TerraformReference<string>(this, "option_group_description");
+        get => GetArgument<TerraformValue<string>>("option_group_description");
         set => SetArgument("option_group_description", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -203,7 +203,7 @@ public partial class AwsDbOptionGroup(string name) : TerraformResource("aws_db_o
     /// </summary>
     public TerraformValue<bool>? SkipDestroy
     {
-        get => new TerraformReference<bool>(this, "skip_destroy");
+        get => GetArgument<TerraformValue<bool>>("skip_destroy");
         set => SetArgument("skip_destroy", value);
     }
 
@@ -212,16 +212,16 @@ public partial class AwsDbOptionGroup(string name) : TerraformResource("aws_db_o
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -229,9 +229,7 @@ public partial class AwsDbOptionGroup(string name) : TerraformResource("aws_db_o
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Option block (nesting mode: set).

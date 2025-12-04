@@ -17,16 +17,16 @@ public partial class GoogleOracleDatabaseAutonomousDatabaseDataSource(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDatabaseId is required")]
     public required TerraformValue<string> AutonomousDatabaseId
     {
-        get => new TerraformReference<string>(this, "autonomous_database_id");
+        get => GetArgument<TerraformValue<string>>("autonomous_database_id");
         set => SetArgument("autonomous_database_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -36,7 +36,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabaseDataSource(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -45,7 +45,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabaseDataSource(string nam
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -53,25 +53,19 @@ public partial class GoogleOracleDatabaseAutonomousDatabaseDataSource(string nam
     /// The password for the default ADMIN user.
     /// </summary>
     public TerraformValue<string> AdminPassword
-    {
-        get => new TerraformReference<string>(this, "admin_password");
-    }
+        => AsReference("admin_password");
 
     /// <summary>
     /// The subnet CIDR range for the Autonmous Database.
     /// </summary>
     public TerraformValue<string> Cidr
-    {
-        get => new TerraformReference<string>(this, "cidr");
-    }
+        => AsReference("cidr");
 
     /// <summary>
     /// The date and time that the Autonomous Database was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The name of the Autonomous Database. The database name must be unique in
@@ -79,43 +73,33 @@ public partial class GoogleOracleDatabaseAutonomousDatabaseDataSource(string nam
     /// contain a maximum of 30 alphanumeric characters.
     /// </summary>
     public TerraformValue<string> Database
-    {
-        get => new TerraformReference<string>(this, "database");
-    }
+        => AsReference("database");
 
     /// <summary>
     /// Whether or not to allow Terraform to destroy the instance. Unless this field is set to false in Terraform state, a terraform destroy or terraform apply that would delete the instance will fail.
     /// </summary>
     public TerraformValue<bool> DeletionProtection
-    {
-        get => new TerraformReference<bool>(this, "deletion_protection");
-    }
+        => AsReference("deletion_protection");
 
     /// <summary>
     /// The display name for the Autonomous Database. The name does not have to
     /// be unique within your project.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The ID of the subscription entitlement associated with the Autonomous
     /// Database.
     /// </summary>
     public TerraformValue<string> EntitlementId
-    {
-        get => new TerraformReference<string>(this, "entitlement_id");
-    }
+        => AsReference("entitlement_id");
 
     /// <summary>
     /// The labels or tags associated with the Autonomous Database. 
@@ -124,27 +108,21 @@ public partial class GoogleOracleDatabaseAutonomousDatabaseDataSource(string nam
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
-    }
+        => AsReference("labels");
 
     /// <summary>
     /// Identifier. The name of the Autonomous Database resource in the following format:
     /// projects/{project}/locations/{region}/autonomousDatabases/{autonomous_database}
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The name of the VPC network used by the Autonomous Database.
     /// Format: projects/{project}/global/networks/{network}
     /// </summary>
     public TerraformValue<string> Network
-    {
-        get => new TerraformReference<string>(this, "network");
-    }
+        => AsReference("network");
 
     /// <summary>
     /// The name of the OdbNetwork associated with the Autonomous Database.
@@ -154,9 +132,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabaseDataSource(string nam
     /// the odb_subnet and backup_odb_subnet.
     /// </summary>
     public TerraformValue<string> OdbNetwork
-    {
-        get => new TerraformReference<string>(this, "odb_network");
-    }
+        => AsReference("odb_network");
 
     /// <summary>
     /// The name of the OdbSubnet associated with the Autonomous Database for
@@ -164,25 +140,19 @@ public partial class GoogleOracleDatabaseAutonomousDatabaseDataSource(string nam
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
     public TerraformValue<string> OdbSubnet
-    {
-        get => new TerraformReference<string>(this, "odb_subnet");
-    }
+        => AsReference("odb_subnet");
 
     /// <summary>
     /// The properties of an Autonomous Database.
     /// </summary>
     public TerraformList<TerraformMap<object>> Properties
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "properties").ResolveNodes(ctx));
-    }
+        => AsReference("properties");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
 }

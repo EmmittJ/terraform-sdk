@@ -14,16 +14,16 @@ public partial class AwsOrganizationsDelegatedServicesDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformValue<string> AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,8 +31,6 @@ public partial class AwsOrganizationsDelegatedServicesDataSource(string name) : 
     /// The delegated_services attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> DelegatedServices
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "delegated_services").ResolveNodes(ctx));
-    }
+        => AsReference("delegated_services");
 
 }

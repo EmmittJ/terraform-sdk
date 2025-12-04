@@ -18,7 +18,7 @@ public class AwsAthenaWorkgroupConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? BytesScannedCutoffPerQuery
     {
-        get => new TerraformReference<double>(this, "bytes_scanned_cutoff_per_query");
+        get => GetArgument<TerraformValue<double>>("bytes_scanned_cutoff_per_query");
         set => SetArgument("bytes_scanned_cutoff_per_query", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsAthenaWorkgroupConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnforceWorkgroupConfiguration
     {
-        get => new TerraformReference<bool>(this, "enforce_workgroup_configuration");
+        get => GetArgument<TerraformValue<bool>>("enforce_workgroup_configuration");
         set => SetArgument("enforce_workgroup_configuration", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsAthenaWorkgroupConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ExecutionRole
     {
-        get => new TerraformReference<string>(this, "execution_role");
+        get => GetArgument<TerraformValue<string>>("execution_role");
         set => SetArgument("execution_role", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsAthenaWorkgroupConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PublishCloudwatchMetricsEnabled
     {
-        get => new TerraformReference<bool>(this, "publish_cloudwatch_metrics_enabled");
+        get => GetArgument<TerraformValue<bool>>("publish_cloudwatch_metrics_enabled");
         set => SetArgument("publish_cloudwatch_metrics_enabled", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsAthenaWorkgroupConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? RequesterPaysEnabled
     {
-        get => new TerraformReference<bool>(this, "requester_pays_enabled");
+        get => GetArgument<TerraformValue<bool>>("requester_pays_enabled");
         set => SetArgument("requester_pays_enabled", value);
     }
 
@@ -105,16 +105,14 @@ public class AwsAthenaWorkgroupConfigurationBlockEngineVersionBlock : TerraformB
     /// The effective_engine_version attribute.
     /// </summary>
     public TerraformValue<string> EffectiveEngineVersion
-    {
-        get => new TerraformReference<string>(this, "effective_engine_version");
-    }
+        => AsReference("effective_engine_version");
 
     /// <summary>
     /// The selected_engine_version attribute.
     /// </summary>
     public TerraformValue<string>? SelectedEngineVersion
     {
-        get => new TerraformReference<string>(this, "selected_engine_version");
+        get => GetArgument<TerraformValue<string>>("selected_engine_version");
         set => SetArgument("selected_engine_version", value);
     }
 
@@ -136,7 +134,7 @@ public class AwsAthenaWorkgroupConfigurationBlockIdentityCenterConfigurationBloc
     /// </summary>
     public TerraformValue<bool>? EnableIdentityCenter
     {
-        get => new TerraformReference<bool>(this, "enable_identity_center");
+        get => GetArgument<TerraformValue<bool>>("enable_identity_center");
         set => SetArgument("enable_identity_center", value);
     }
 
@@ -145,7 +143,7 @@ public class AwsAthenaWorkgroupConfigurationBlockIdentityCenterConfigurationBloc
     /// </summary>
     public TerraformValue<string>? IdentityCenterInstanceArn
     {
-        get => new TerraformReference<string>(this, "identity_center_instance_arn");
+        get => GetArgument<TerraformValue<string>>("identity_center_instance_arn");
         set => SetArgument("identity_center_instance_arn", value);
     }
 
@@ -167,7 +165,7 @@ public class AwsAthenaWorkgroupConfigurationBlockResultConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<string>? ExpectedBucketOwner
     {
-        get => new TerraformReference<string>(this, "expected_bucket_owner");
+        get => GetArgument<TerraformValue<string>>("expected_bucket_owner");
         set => SetArgument("expected_bucket_owner", value);
     }
 
@@ -176,7 +174,7 @@ public class AwsAthenaWorkgroupConfigurationBlockResultConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<string>? OutputLocation
     {
-        get => new TerraformReference<string>(this, "output_location");
+        get => GetArgument<TerraformValue<string>>("output_location");
         set => SetArgument("output_location", value);
     }
 
@@ -219,7 +217,7 @@ public class AwsAthenaWorkgroupConfigurationBlockResultConfigurationBlockAclConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3AclOption is required")]
     public required TerraformValue<string> S3AclOption
     {
-        get => new TerraformReference<string>(this, "s3_acl_option");
+        get => GetArgument<TerraformValue<string>>("s3_acl_option");
         set => SetArgument("s3_acl_option", value);
     }
 
@@ -241,7 +239,7 @@ public class AwsAthenaWorkgroupConfigurationBlockResultConfigurationBlockEncrypt
     /// </summary>
     public TerraformValue<string>? EncryptionOption
     {
-        get => new TerraformReference<string>(this, "encryption_option");
+        get => GetArgument<TerraformValue<string>>("encryption_option");
         set => SetArgument("encryption_option", value);
     }
 
@@ -250,7 +248,7 @@ public class AwsAthenaWorkgroupConfigurationBlockResultConfigurationBlockEncrypt
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -268,7 +266,7 @@ public partial class AwsAthenaWorkgroup(string name) : TerraformResource("aws_at
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -277,16 +275,16 @@ public partial class AwsAthenaWorkgroup(string name) : TerraformResource("aws_at
     /// </summary>
     public TerraformValue<bool>? ForceDestroy
     {
-        get => new TerraformReference<bool>(this, "force_destroy");
+        get => GetArgument<TerraformValue<bool>>("force_destroy");
         set => SetArgument("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -296,16 +294,16 @@ public partial class AwsAthenaWorkgroup(string name) : TerraformResource("aws_at
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -314,7 +312,7 @@ public partial class AwsAthenaWorkgroup(string name) : TerraformResource("aws_at
     /// </summary>
     public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -323,16 +321,16 @@ public partial class AwsAthenaWorkgroup(string name) : TerraformResource("aws_at
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -340,9 +338,7 @@ public partial class AwsAthenaWorkgroup(string name) : TerraformResource("aws_at
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Configuration block (nesting mode: list).

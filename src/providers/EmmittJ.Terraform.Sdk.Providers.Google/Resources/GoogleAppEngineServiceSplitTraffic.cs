@@ -19,7 +19,7 @@ public class GoogleAppEngineServiceSplitTrafficSplitBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Allocations is required")]
     public required TerraformMap<string> Allocations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "allocations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("allocations");
         set => SetArgument("allocations", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleAppEngineServiceSplitTrafficSplitBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ShardBy
     {
-        get => new TerraformReference<string>(this, "shard_by");
+        get => GetArgument<TerraformValue<string>>("shard_by");
         set => SetArgument("shard_by", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleAppEngineServiceSplitTrafficTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleAppEngineServiceSplitTrafficTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -69,7 +69,7 @@ public class GoogleAppEngineServiceSplitTrafficTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -85,9 +85,9 @@ public partial class GoogleAppEngineServiceSplitTraffic(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -96,16 +96,16 @@ public partial class GoogleAppEngineServiceSplitTraffic(string name) : Terraform
     /// </summary>
     public TerraformValue<bool>? MigrateTraffic
     {
-        get => new TerraformReference<bool>(this, "migrate_traffic");
+        get => GetArgument<TerraformValue<bool>>("migrate_traffic");
         set => SetArgument("migrate_traffic", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -115,7 +115,7 @@ public partial class GoogleAppEngineServiceSplitTraffic(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 

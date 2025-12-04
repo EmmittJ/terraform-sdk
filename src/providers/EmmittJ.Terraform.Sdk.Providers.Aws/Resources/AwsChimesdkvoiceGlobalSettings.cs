@@ -18,7 +18,7 @@ public class AwsChimesdkvoiceGlobalSettingsVoiceConnectorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CdrBucket
     {
-        get => new TerraformReference<string>(this, "cdr_bucket");
+        get => GetArgument<TerraformValue<string>>("cdr_bucket");
         set => SetArgument("cdr_bucket", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AwsChimesdkvoiceGlobalSettings(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 

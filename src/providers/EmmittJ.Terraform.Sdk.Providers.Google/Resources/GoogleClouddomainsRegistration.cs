@@ -20,7 +20,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Privacy is required")]
     public required TerraformValue<string> Privacy
     {
-        get => new TerraformReference<string>(this, "privacy");
+        get => GetArgument<TerraformValue<string>>("privacy");
         set => SetArgument("privacy", value);
     }
 
@@ -82,7 +82,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockAdminContactBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockAdminContactBlock
     /// </summary>
     public TerraformValue<string>? FaxNumber
     {
-        get => new TerraformReference<string>(this, "fax_number");
+        get => GetArgument<TerraformValue<string>>("fax_number");
         set => SetArgument("fax_number", value);
     }
 
@@ -101,7 +101,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockAdminContactBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => new TerraformReference<string>(this, "phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -141,7 +141,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockAdminContactBlock
     /// </summary>
     public TerraformList<string>? AddressLines
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "address_lines").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("address_lines");
         set => SetArgument("address_lines", value);
     }
 
@@ -153,7 +153,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockAdminContactBlock
     /// </summary>
     public TerraformValue<string>? AdministrativeArea
     {
-        get => new TerraformReference<string>(this, "administrative_area");
+        get => GetArgument<TerraformValue<string>>("administrative_area");
         set => SetArgument("administrative_area", value);
     }
 
@@ -163,7 +163,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockAdminContactBlock
     /// </summary>
     public TerraformValue<string>? Locality
     {
-        get => new TerraformReference<string>(this, "locality");
+        get => GetArgument<TerraformValue<string>>("locality");
         set => SetArgument("locality", value);
     }
 
@@ -172,7 +172,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockAdminContactBlock
     /// </summary>
     public TerraformValue<string>? Organization
     {
-        get => new TerraformReference<string>(this, "organization");
+        get => GetArgument<TerraformValue<string>>("organization");
         set => SetArgument("organization", value);
     }
 
@@ -182,7 +182,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockAdminContactBlock
     /// </summary>
     public TerraformValue<string>? PostalCode
     {
-        get => new TerraformReference<string>(this, "postal_code");
+        get => GetArgument<TerraformValue<string>>("postal_code");
         set => SetArgument("postal_code", value);
     }
 
@@ -192,7 +192,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockAdminContactBlock
     /// </summary>
     public TerraformList<string>? Recipients
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "recipients").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("recipients");
         set => SetArgument("recipients", value);
     }
 
@@ -204,7 +204,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockAdminContactBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionCode is required")]
     public required TerraformValue<string> RegionCode
     {
-        get => new TerraformReference<string>(this, "region_code");
+        get => GetArgument<TerraformValue<string>>("region_code");
         set => SetArgument("region_code", value);
     }
 
@@ -227,7 +227,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockRegistrantContact
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -236,7 +236,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockRegistrantContact
     /// </summary>
     public TerraformValue<string>? FaxNumber
     {
-        get => new TerraformReference<string>(this, "fax_number");
+        get => GetArgument<TerraformValue<string>>("fax_number");
         set => SetArgument("fax_number", value);
     }
 
@@ -246,7 +246,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockRegistrantContact
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => new TerraformReference<string>(this, "phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -286,7 +286,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockRegistrantContact
     /// </summary>
     public TerraformList<string>? AddressLines
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "address_lines").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("address_lines");
         set => SetArgument("address_lines", value);
     }
 
@@ -298,7 +298,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockRegistrantContact
     /// </summary>
     public TerraformValue<string>? AdministrativeArea
     {
-        get => new TerraformReference<string>(this, "administrative_area");
+        get => GetArgument<TerraformValue<string>>("administrative_area");
         set => SetArgument("administrative_area", value);
     }
 
@@ -308,7 +308,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockRegistrantContact
     /// </summary>
     public TerraformValue<string>? Locality
     {
-        get => new TerraformReference<string>(this, "locality");
+        get => GetArgument<TerraformValue<string>>("locality");
         set => SetArgument("locality", value);
     }
 
@@ -317,7 +317,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockRegistrantContact
     /// </summary>
     public TerraformValue<string>? Organization
     {
-        get => new TerraformReference<string>(this, "organization");
+        get => GetArgument<TerraformValue<string>>("organization");
         set => SetArgument("organization", value);
     }
 
@@ -327,7 +327,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockRegistrantContact
     /// </summary>
     public TerraformValue<string>? PostalCode
     {
-        get => new TerraformReference<string>(this, "postal_code");
+        get => GetArgument<TerraformValue<string>>("postal_code");
         set => SetArgument("postal_code", value);
     }
 
@@ -337,7 +337,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockRegistrantContact
     /// </summary>
     public TerraformList<string>? Recipients
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "recipients").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("recipients");
         set => SetArgument("recipients", value);
     }
 
@@ -349,7 +349,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockRegistrantContact
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionCode is required")]
     public required TerraformValue<string> RegionCode
     {
-        get => new TerraformReference<string>(this, "region_code");
+        get => GetArgument<TerraformValue<string>>("region_code");
         set => SetArgument("region_code", value);
     }
 
@@ -372,7 +372,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockTechnicalContactB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -381,7 +381,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockTechnicalContactB
     /// </summary>
     public TerraformValue<string>? FaxNumber
     {
-        get => new TerraformReference<string>(this, "fax_number");
+        get => GetArgument<TerraformValue<string>>("fax_number");
         set => SetArgument("fax_number", value);
     }
 
@@ -391,7 +391,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockTechnicalContactB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => new TerraformReference<string>(this, "phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -431,7 +431,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockTechnicalContactB
     /// </summary>
     public TerraformList<string>? AddressLines
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "address_lines").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("address_lines");
         set => SetArgument("address_lines", value);
     }
 
@@ -443,7 +443,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockTechnicalContactB
     /// </summary>
     public TerraformValue<string>? AdministrativeArea
     {
-        get => new TerraformReference<string>(this, "administrative_area");
+        get => GetArgument<TerraformValue<string>>("administrative_area");
         set => SetArgument("administrative_area", value);
     }
 
@@ -453,7 +453,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockTechnicalContactB
     /// </summary>
     public TerraformValue<string>? Locality
     {
-        get => new TerraformReference<string>(this, "locality");
+        get => GetArgument<TerraformValue<string>>("locality");
         set => SetArgument("locality", value);
     }
 
@@ -462,7 +462,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockTechnicalContactB
     /// </summary>
     public TerraformValue<string>? Organization
     {
-        get => new TerraformReference<string>(this, "organization");
+        get => GetArgument<TerraformValue<string>>("organization");
         set => SetArgument("organization", value);
     }
 
@@ -472,7 +472,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockTechnicalContactB
     /// </summary>
     public TerraformValue<string>? PostalCode
     {
-        get => new TerraformReference<string>(this, "postal_code");
+        get => GetArgument<TerraformValue<string>>("postal_code");
         set => SetArgument("postal_code", value);
     }
 
@@ -482,7 +482,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockTechnicalContactB
     /// </summary>
     public TerraformList<string>? Recipients
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "recipients").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("recipients");
         set => SetArgument("recipients", value);
     }
 
@@ -494,7 +494,7 @@ public class GoogleClouddomainsRegistrationContactSettingsBlockTechnicalContactB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionCode is required")]
     public required TerraformValue<string> RegionCode
     {
-        get => new TerraformReference<string>(this, "region_code");
+        get => GetArgument<TerraformValue<string>>("region_code");
         set => SetArgument("region_code", value);
     }
 
@@ -551,7 +551,7 @@ public class GoogleClouddomainsRegistrationDnsSettingsBlockCustomDnsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NameServers is required")]
     public TerraformList<string>? NameServers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "name_servers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("name_servers");
         set => SetArgument("name_servers", value);
     }
 
@@ -582,7 +582,7 @@ public class GoogleClouddomainsRegistrationDnsSettingsBlockCustomDnsBlockDsRecor
     /// </summary>
     public TerraformValue<string>? Algorithm
     {
-        get => new TerraformReference<string>(this, "algorithm");
+        get => GetArgument<TerraformValue<string>>("algorithm");
         set => SetArgument("algorithm", value);
     }
 
@@ -591,7 +591,7 @@ public class GoogleClouddomainsRegistrationDnsSettingsBlockCustomDnsBlockDsRecor
     /// </summary>
     public TerraformValue<string>? Digest
     {
-        get => new TerraformReference<string>(this, "digest");
+        get => GetArgument<TerraformValue<string>>("digest");
         set => SetArgument("digest", value);
     }
 
@@ -600,7 +600,7 @@ public class GoogleClouddomainsRegistrationDnsSettingsBlockCustomDnsBlockDsRecor
     /// </summary>
     public TerraformValue<string>? DigestType
     {
-        get => new TerraformReference<string>(this, "digest_type");
+        get => GetArgument<TerraformValue<string>>("digest_type");
         set => SetArgument("digest_type", value);
     }
 
@@ -609,7 +609,7 @@ public class GoogleClouddomainsRegistrationDnsSettingsBlockCustomDnsBlockDsRecor
     /// </summary>
     public TerraformValue<double>? KeyTag
     {
-        get => new TerraformReference<double>(this, "key_tag");
+        get => GetArgument<TerraformValue<double>>("key_tag");
         set => SetArgument("key_tag", value);
     }
 
@@ -632,7 +632,7 @@ public class GoogleClouddomainsRegistrationDnsSettingsBlockGlueRecordsBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => new TerraformReference<string>(this, "host_name");
+        get => GetArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
@@ -642,7 +642,7 @@ public class GoogleClouddomainsRegistrationDnsSettingsBlockGlueRecordsBlock : Te
     /// </summary>
     public TerraformList<string>? Ipv4Addresses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ipv4_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ipv4_addresses");
         set => SetArgument("ipv4_addresses", value);
     }
 
@@ -652,7 +652,7 @@ public class GoogleClouddomainsRegistrationDnsSettingsBlockGlueRecordsBlock : Te
     /// </summary>
     public TerraformList<string>? Ipv6Addresses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ipv6_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ipv6_addresses");
         set => SetArgument("ipv6_addresses", value);
     }
 
@@ -680,9 +680,9 @@ public class GoogleClouddomainsRegistrationManagementSettingsBlock : TerraformBl
     /// problems with the billing account or reported domain abuse. In such cases, check the issues field on the Registration. After
     /// the problem is resolved, the renewalMethod is automatically updated to preferredRenewalMethod in a few hours.
     /// </summary>
-    public TerraformValue<string> PreferredRenewalMethod
+    public TerraformValue<string>? PreferredRenewalMethod
     {
-        get => new TerraformReference<string>(this, "preferred_renewal_method");
+        get => GetArgument<TerraformValue<string>>("preferred_renewal_method");
         set => SetArgument("preferred_renewal_method", value);
     }
 
@@ -693,16 +693,14 @@ public class GoogleClouddomainsRegistrationManagementSettingsBlock : TerraformBl
     /// renewalMethod is automatically updated to preferredRenewalMethod in a few hours.
     /// </summary>
     public TerraformValue<string> RenewalMethod
-    {
-        get => new TerraformReference<string>(this, "renewal_method");
-    }
+        => AsReference("renewal_method");
 
     /// <summary>
     /// Controls whether the domain can be transferred to another registrar. Values are UNLOCKED or LOCKED.
     /// </summary>
-    public TerraformValue<string> TransferLockState
+    public TerraformValue<string>? TransferLockState
     {
-        get => new TerraformReference<string>(this, "transfer_lock_state");
+        get => GetArgument<TerraformValue<string>>("transfer_lock_state");
         set => SetArgument("transfer_lock_state", value);
     }
 
@@ -725,7 +723,7 @@ public class GoogleClouddomainsRegistrationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -734,7 +732,7 @@ public class GoogleClouddomainsRegistrationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -743,7 +741,7 @@ public class GoogleClouddomainsRegistrationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -766,7 +764,7 @@ public class GoogleClouddomainsRegistrationYearlyPriceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CurrencyCode
     {
-        get => new TerraformReference<string>(this, "currency_code");
+        get => GetArgument<TerraformValue<string>>("currency_code");
         set => SetArgument("currency_code", value);
     }
 
@@ -775,7 +773,7 @@ public class GoogleClouddomainsRegistrationYearlyPriceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Units
     {
-        get => new TerraformReference<string>(this, "units");
+        get => GetArgument<TerraformValue<string>>("units");
         set => SetArgument("units", value);
     }
 
@@ -793,7 +791,7 @@ public partial class GoogleClouddomainsRegistration(string name) : TerraformReso
     /// </summary>
     public TerraformList<string>? ContactNotices
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "contact_notices").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("contact_notices");
         set => SetArgument("contact_notices", value);
     }
 
@@ -803,7 +801,7 @@ public partial class GoogleClouddomainsRegistration(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -812,16 +810,16 @@ public partial class GoogleClouddomainsRegistration(string name) : TerraformReso
     /// </summary>
     public TerraformList<string>? DomainNotices
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "domain_notices").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("domain_notices");
         set => SetArgument("domain_notices", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -833,7 +831,7 @@ public partial class GoogleClouddomainsRegistration(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -843,16 +841,16 @@ public partial class GoogleClouddomainsRegistration(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -860,74 +858,56 @@ public partial class GoogleClouddomainsRegistration(string name) : TerraformReso
     /// Output only. Time at which the automation was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Output only. Time at which the automation was updated.
     /// </summary>
     public TerraformValue<string> ExpireTime
-    {
-        get => new TerraformReference<string>(this, "expire_time");
-    }
+        => AsReference("expire_time");
 
     /// <summary>
     /// Output only. The set of issues with the Registration that require attention.
     /// </summary>
     public TerraformList<string> Issues
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "issues").ResolveNodes(ctx));
-    }
+        => AsReference("issues");
 
     /// <summary>
     /// Output only. Name of the Registration resource, in the format projects/*/locations/*/registrations/&amp;lt;domain_name&amp;gt;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. The reason the domain registration failed. Only set for domains in REGISTRATION_FAILED state.
     /// </summary>
     public TerraformValue<string> RegisterFailureReason
-    {
-        get => new TerraformReference<string>(this, "register_failure_reason");
-    }
+        => AsReference("register_failure_reason");
 
     /// <summary>
     /// Output only. The current state of the Registration.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Output only. Set of options for the contactSettings.privacy field that this Registration supports.
     /// </summary>
     public TerraformList<string> SupportedPrivacy
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supported_privacy").ResolveNodes(ctx));
-    }
+        => AsReference("supported_privacy");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// ContactSettings block (nesting mode: list).

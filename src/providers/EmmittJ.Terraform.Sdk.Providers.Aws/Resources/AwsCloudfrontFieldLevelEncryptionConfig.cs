@@ -19,7 +19,7 @@ public class AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardWhenContentTypeIsUnknown is required")]
     public required TerraformValue<bool> ForwardWhenContentTypeIsUnknown
     {
-        get => new TerraformReference<bool>(this, "forward_when_content_type_is_unknown");
+        get => GetArgument<TerraformValue<bool>>("forward_when_content_type_is_unknown");
         set => SetArgument("forward_when_content_type_is_unknown", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformValue<string> ContentType
     {
-        get => new TerraformReference<string>(this, "content_type");
+        get => GetArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => new TerraformReference<string>(this, "format");
+        get => GetArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBloc
     /// </summary>
     public TerraformValue<string>? ProfileId
     {
-        get => new TerraformReference<string>(this, "profile_id");
+        get => GetArgument<TerraformValue<string>>("profile_id");
         set => SetArgument("profile_id", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardWhenQueryArgProfileIsUnknown is required")]
     public required TerraformValue<bool> ForwardWhenQueryArgProfileIsUnknown
     {
-        get => new TerraformReference<bool>(this, "forward_when_query_arg_profile_is_unknown");
+        get => GetArgument<TerraformValue<bool>>("forward_when_query_arg_profile_is_unknown");
         set => SetArgument("forward_when_query_arg_profile_is_unknown", value);
     }
 
@@ -178,7 +178,7 @@ public class AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlockQu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileId is required")]
     public required TerraformValue<string> ProfileId
     {
-        get => new TerraformReference<string>(this, "profile_id");
+        get => GetArgument<TerraformValue<string>>("profile_id");
         set => SetArgument("profile_id", value);
     }
 
@@ -188,7 +188,7 @@ public class AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlockQu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryArg is required")]
     public required TerraformValue<string> QueryArg
     {
-        get => new TerraformReference<string>(this, "query_arg");
+        get => GetArgument<TerraformValue<string>>("query_arg");
         set => SetArgument("query_arg", value);
     }
 
@@ -206,16 +206,16 @@ public partial class AwsCloudfrontFieldLevelEncryptionConfig(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Comment
     {
-        get => new TerraformReference<string>(this, "comment");
+        get => GetArgument<TerraformValue<string>>("comment");
         set => SetArgument("comment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -223,25 +223,19 @@ public partial class AwsCloudfrontFieldLevelEncryptionConfig(string name) : Terr
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
     public TerraformValue<string> CallerReference
-    {
-        get => new TerraformReference<string>(this, "caller_reference");
-    }
+        => AsReference("caller_reference");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// ContentTypeProfileConfig block (nesting mode: list).

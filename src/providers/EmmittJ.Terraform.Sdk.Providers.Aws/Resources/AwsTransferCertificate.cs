@@ -14,7 +14,7 @@ public partial class AwsTransferCertificate(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Certificate is required")]
     public required TerraformValue<string> Certificate
     {
-        get => new TerraformReference<string>(this, "certificate");
+        get => GetArgument<TerraformValue<string>>("certificate");
         set => SetArgument("certificate", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsTransferCertificate(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? CertificateChain
     {
-        get => new TerraformReference<string>(this, "certificate_chain");
+        get => GetArgument<TerraformValue<string>>("certificate_chain");
         set => SetArgument("certificate_chain", value);
     }
 
@@ -32,16 +32,16 @@ public partial class AwsTransferCertificate(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -50,16 +50,16 @@ public partial class AwsTransferCertificate(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? PrivateKey
     {
-        get => new TerraformReference<string>(this, "private_key");
+        get => GetArgument<TerraformValue<string>>("private_key");
         set => SetArgument("private_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -68,16 +68,16 @@ public partial class AwsTransferCertificate(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -87,7 +87,7 @@ public partial class AwsTransferCertificate(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Usage is required")]
     public required TerraformValue<string> Usage
     {
-        get => new TerraformReference<string>(this, "usage");
+        get => GetArgument<TerraformValue<string>>("usage");
         set => SetArgument("usage", value);
     }
 
@@ -95,32 +95,24 @@ public partial class AwsTransferCertificate(string name) : TerraformResource("aw
     /// The active_date attribute.
     /// </summary>
     public TerraformValue<string> ActiveDate
-    {
-        get => new TerraformReference<string>(this, "active_date");
-    }
+        => AsReference("active_date");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The certificate_id attribute.
     /// </summary>
     public TerraformValue<string> CertificateId
-    {
-        get => new TerraformReference<string>(this, "certificate_id");
-    }
+        => AsReference("certificate_id");
 
     /// <summary>
     /// The inactive_date attribute.
     /// </summary>
     public TerraformValue<string> InactiveDate
-    {
-        get => new TerraformReference<string>(this, "inactive_date");
-    }
+        => AsReference("inactive_date");
 
 }

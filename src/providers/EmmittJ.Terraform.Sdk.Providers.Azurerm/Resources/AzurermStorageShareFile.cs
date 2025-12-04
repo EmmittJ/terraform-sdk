@@ -18,7 +18,7 @@ public class AzurermStorageShareFileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermStorageShareFileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermStorageShareFileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermStorageShareFileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermStorageShareFile(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? ContentDisposition
     {
-        get => new TerraformReference<string>(this, "content_disposition");
+        get => GetArgument<TerraformValue<string>>("content_disposition");
         set => SetArgument("content_disposition", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermStorageShareFile(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? ContentEncoding
     {
-        get => new TerraformReference<string>(this, "content_encoding");
+        get => GetArgument<TerraformValue<string>>("content_encoding");
         set => SetArgument("content_encoding", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermStorageShareFile(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? ContentMd5
     {
-        get => new TerraformReference<string>(this, "content_md5");
+        get => GetArgument<TerraformValue<string>>("content_md5");
         set => SetArgument("content_md5", value);
     }
 
@@ -90,16 +90,16 @@ public partial class AzurermStorageShareFile(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? ContentType
     {
-        get => new TerraformReference<string>(this, "content_type");
+        get => GetArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AzurermStorageShareFile(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermStorageShareFile(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzurermStorageShareFile(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AzurermStorageShareFile(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AzurermStorageShareFile(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageShareId is required")]
     public required TerraformValue<string> StorageShareId
     {
-        get => new TerraformReference<string>(this, "storage_share_id");
+        get => GetArgument<TerraformValue<string>>("storage_share_id");
         set => SetArgument("storage_share_id", value);
     }
 
@@ -154,9 +154,7 @@ public partial class AzurermStorageShareFile(string name) : TerraformResource("a
     /// The content_length attribute.
     /// </summary>
     public TerraformValue<double> ContentLength
-    {
-        get => new TerraformReference<double>(this, "content_length");
-    }
+        => AsReference("content_length");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

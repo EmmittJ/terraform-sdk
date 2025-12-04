@@ -18,7 +18,7 @@ public class AzurermNetappVolumeQuotaRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermNetappVolumeQuotaRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermNetappVolumeQuotaRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermNetappVolumeQuotaRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermNetappVolumeQuotaRule(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermNetappVolumeQuotaRule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermNetappVolumeQuotaRule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermNetappVolumeQuotaRule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuotaSizeInKib is required")]
     public required TerraformValue<double> QuotaSizeInKib
     {
-        get => new TerraformReference<double>(this, "quota_size_in_kib");
+        get => GetArgument<TerraformValue<double>>("quota_size_in_kib");
         set => SetArgument("quota_size_in_kib", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermNetappVolumeQuotaRule(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? QuotaTarget
     {
-        get => new TerraformReference<string>(this, "quota_target");
+        get => GetArgument<TerraformValue<string>>("quota_target");
         set => SetArgument("quota_target", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermNetappVolumeQuotaRule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuotaType is required")]
     public required TerraformValue<string> QuotaType
     {
-        get => new TerraformReference<string>(this, "quota_type");
+        get => GetArgument<TerraformValue<string>>("quota_type");
         set => SetArgument("quota_type", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermNetappVolumeQuotaRule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
     public required TerraformValue<string> VolumeId
     {
-        get => new TerraformReference<string>(this, "volume_id");
+        get => GetArgument<TerraformValue<string>>("volume_id");
         set => SetArgument("volume_id", value);
     }
 

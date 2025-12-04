@@ -19,7 +19,7 @@ public class AwsCognitoResourceServerScopeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeDescription is required")]
     public required TerraformValue<string> ScopeDescription
     {
-        get => new TerraformReference<string>(this, "scope_description");
+        get => GetArgument<TerraformValue<string>>("scope_description");
         set => SetArgument("scope_description", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsCognitoResourceServerScopeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeName is required")]
     public required TerraformValue<string> ScopeName
     {
-        get => new TerraformReference<string>(this, "scope_name");
+        get => GetArgument<TerraformValue<string>>("scope_name");
         set => SetArgument("scope_name", value);
     }
 
@@ -45,9 +45,9 @@ public partial class AwsCognitoResourceServer(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -57,7 +57,7 @@ public partial class AwsCognitoResourceServer(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformValue<string> Identifier
     {
-        get => new TerraformReference<string>(this, "identifier");
+        get => GetArgument<TerraformValue<string>>("identifier");
         set => SetArgument("identifier", value);
     }
 
@@ -67,16 +67,16 @@ public partial class AwsCognitoResourceServer(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -86,7 +86,7 @@ public partial class AwsCognitoResourceServer(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformValue<string> UserPoolId
     {
-        get => new TerraformReference<string>(this, "user_pool_id");
+        get => GetArgument<TerraformValue<string>>("user_pool_id");
         set => SetArgument("user_pool_id", value);
     }
 
@@ -94,9 +94,7 @@ public partial class AwsCognitoResourceServer(string name) : TerraformResource("
     /// The scope_identifiers attribute.
     /// </summary>
     public TerraformList<string> ScopeIdentifiers
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scope_identifiers").ResolveNodes(ctx));
-    }
+        => AsReference("scope_identifiers");
 
     /// <summary>
     /// Scope block (nesting mode: set).

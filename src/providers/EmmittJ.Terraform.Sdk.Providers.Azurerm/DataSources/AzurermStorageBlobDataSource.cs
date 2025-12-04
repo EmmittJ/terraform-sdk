@@ -18,7 +18,7 @@ public class AzurermStorageBlobDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,18 +34,18 @@ public partial class AzurermStorageBlobDataSource(string name) : TerraformDataSo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformMap<string> Metadata
+    public TerraformMap<string>? Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermStorageBlobDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzurermStorageBlobDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformValue<string> StorageAccountName
     {
-        get => new TerraformReference<string>(this, "storage_account_name");
+        get => GetArgument<TerraformValue<string>>("storage_account_name");
         set => SetArgument("storage_account_name", value);
     }
 
@@ -75,7 +75,7 @@ public partial class AzurermStorageBlobDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
     public required TerraformValue<string> StorageContainerName
     {
-        get => new TerraformReference<string>(this, "storage_container_name");
+        get => GetArgument<TerraformValue<string>>("storage_container_name");
         set => SetArgument("storage_container_name", value);
     }
 
@@ -83,49 +83,37 @@ public partial class AzurermStorageBlobDataSource(string name) : TerraformDataSo
     /// The access_tier attribute.
     /// </summary>
     public TerraformValue<string> AccessTier
-    {
-        get => new TerraformReference<string>(this, "access_tier");
-    }
+        => AsReference("access_tier");
 
     /// <summary>
     /// The content_md5 attribute.
     /// </summary>
     public TerraformValue<string> ContentMd5
-    {
-        get => new TerraformReference<string>(this, "content_md5");
-    }
+        => AsReference("content_md5");
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
     public TerraformValue<string> ContentType
-    {
-        get => new TerraformReference<string>(this, "content_type");
-    }
+        => AsReference("content_type");
 
     /// <summary>
     /// The encryption_scope attribute.
     /// </summary>
     public TerraformValue<string> EncryptionScope
-    {
-        get => new TerraformReference<string>(this, "encryption_scope");
-    }
+        => AsReference("encryption_scope");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-    {
-        get => new TerraformReference<string>(this, "url");
-    }
+        => AsReference("url");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

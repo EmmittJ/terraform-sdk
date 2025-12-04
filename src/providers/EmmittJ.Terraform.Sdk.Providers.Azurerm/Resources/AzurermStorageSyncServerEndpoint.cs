@@ -18,7 +18,7 @@ public class AzurermStorageSyncServerEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermStorageSyncServerEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermStorageSyncServerEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermStorageSyncServerEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AzurermStorageSyncServerEndpoint(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? CloudTieringEnabled
     {
-        get => new TerraformReference<bool>(this, "cloud_tiering_enabled");
+        get => GetArgument<TerraformValue<bool>>("cloud_tiering_enabled");
         set => SetArgument("cloud_tiering_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermStorageSyncServerEndpoint(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? InitialDownloadPolicy
     {
-        get => new TerraformReference<string>(this, "initial_download_policy");
+        get => GetArgument<TerraformValue<string>>("initial_download_policy");
         set => SetArgument("initial_download_policy", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AzurermStorageSyncServerEndpoint(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? LocalCacheMode
     {
-        get => new TerraformReference<string>(this, "local_cache_mode");
+        get => GetArgument<TerraformValue<string>>("local_cache_mode");
         set => SetArgument("local_cache_mode", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermStorageSyncServerEndpoint(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermStorageSyncServerEndpoint(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegisteredServerId is required")]
     public required TerraformValue<string> RegisteredServerId
     {
-        get => new TerraformReference<string>(this, "registered_server_id");
+        get => GetArgument<TerraformValue<string>>("registered_server_id");
         set => SetArgument("registered_server_id", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermStorageSyncServerEndpoint(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerLocalPath is required")]
     public required TerraformValue<string> ServerLocalPath
     {
-        get => new TerraformReference<string>(this, "server_local_path");
+        get => GetArgument<TerraformValue<string>>("server_local_path");
         set => SetArgument("server_local_path", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermStorageSyncServerEndpoint(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageSyncGroupId is required")]
     public required TerraformValue<string> StorageSyncGroupId
     {
-        get => new TerraformReference<string>(this, "storage_sync_group_id");
+        get => GetArgument<TerraformValue<string>>("storage_sync_group_id");
         set => SetArgument("storage_sync_group_id", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AzurermStorageSyncServerEndpoint(string name) : TerraformRe
     /// </summary>
     public TerraformValue<double>? TierFilesOlderThanDays
     {
-        get => new TerraformReference<double>(this, "tier_files_older_than_days");
+        get => GetArgument<TerraformValue<double>>("tier_files_older_than_days");
         set => SetArgument("tier_files_older_than_days", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AzurermStorageSyncServerEndpoint(string name) : TerraformRe
     /// </summary>
     public TerraformValue<double>? VolumeFreeSpacePercent
     {
-        get => new TerraformReference<double>(this, "volume_free_space_percent");
+        get => GetArgument<TerraformValue<double>>("volume_free_space_percent");
         set => SetArgument("volume_free_space_percent", value);
     }
 

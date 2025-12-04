@@ -19,7 +19,7 @@ public class GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -27,18 +27,14 @@ public class GoogleEdgecontainerNodePoolLocalDiskEncryptionBlock : TerraformBloc
     /// The Cloud KMS CryptoKeyVersion currently in use for protecting node local disks. Only applicable if kmsKey is set.
     /// </summary>
     public TerraformValue<string> KmsKeyActiveVersion
-    {
-        get => new TerraformReference<string>(this, "kms_key_active_version");
-    }
+        => AsReference("kms_key_active_version");
 
     /// <summary>
     /// Availability of the Cloud KMS CryptoKey. If not KEY_AVAILABLE, then nodes may go offline as they cannot access their local data.
     /// This can be caused by a lack of permissions to use the key, or if the key is disabled or deleted.
     /// </summary>
     public TerraformValue<string> KmsKeyState
-    {
-        get => new TerraformReference<string>(this, "kms_key_state");
-    }
+        => AsReference("kms_key_state");
 
 }
 
@@ -57,9 +53,9 @@ public class GoogleEdgecontainerNodePoolNodeConfigBlock : TerraformBlock
     /// <summary>
     /// &amp;quot;The Kubernetes node labels&amp;quot;
     /// </summary>
-    public TerraformMap<string> Labels
+    public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -82,7 +78,7 @@ public class GoogleEdgecontainerNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -91,7 +87,7 @@ public class GoogleEdgecontainerNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -100,7 +96,7 @@ public class GoogleEdgecontainerNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -119,16 +115,16 @@ public partial class GoogleEdgecontainerNodePool(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => new TerraformReference<string>(this, "cluster");
+        get => GetArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -140,7 +136,7 @@ public partial class GoogleEdgecontainerNodePool(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -150,7 +146,7 @@ public partial class GoogleEdgecontainerNodePool(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -159,9 +155,9 @@ public partial class GoogleEdgecontainerNodePool(string name) : TerraformResourc
     /// The filtering language accepts strings like &amp;quot;name=&amp;lt;name&amp;gt;&amp;quot;, and is
     /// documented in more detail in [AIP-160](https://google.aip.dev/160).
     /// </summary>
-    public TerraformValue<string> MachineFilter
+    public TerraformValue<string>? MachineFilter
     {
-        get => new TerraformReference<string>(this, "machine_filter");
+        get => GetArgument<TerraformValue<string>>("machine_filter");
         set => SetArgument("machine_filter", value);
     }
 
@@ -171,7 +167,7 @@ public partial class GoogleEdgecontainerNodePool(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -181,7 +177,7 @@ public partial class GoogleEdgecontainerNodePool(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformValue<double> NodeCount
     {
-        get => new TerraformReference<double>(this, "node_count");
+        get => GetArgument<TerraformValue<double>>("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -191,16 +187,16 @@ public partial class GoogleEdgecontainerNodePool(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeLocation is required")]
     public required TerraformValue<string> NodeLocation
     {
-        get => new TerraformReference<string>(this, "node_location");
+        get => GetArgument<TerraformValue<string>>("node_location");
         set => SetArgument("node_location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -208,42 +204,32 @@ public partial class GoogleEdgecontainerNodePool(string name) : TerraformResourc
     /// The time when the node pool was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The lowest release version among all worker nodes.
     /// </summary>
     public TerraformValue<string> NodeVersion
-    {
-        get => new TerraformReference<string>(this, "node_version");
-    }
+        => AsReference("node_version");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The time when the node pool was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// LocalDiskEncryption block (nesting mode: list).

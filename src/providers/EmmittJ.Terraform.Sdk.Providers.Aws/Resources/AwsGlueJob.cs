@@ -18,25 +18,25 @@ public class AwsGlueJobCommandBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The python_version attribute.
     /// </summary>
-    public TerraformValue<string> PythonVersion
+    public TerraformValue<string>? PythonVersion
     {
-        get => new TerraformReference<string>(this, "python_version");
+        get => GetArgument<TerraformValue<string>>("python_version");
         set => SetArgument("python_version", value);
     }
 
     /// <summary>
     /// The runtime attribute.
     /// </summary>
-    public TerraformValue<string> Runtime
+    public TerraformValue<string>? Runtime
     {
-        get => new TerraformReference<string>(this, "runtime");
+        get => GetArgument<TerraformValue<string>>("runtime");
         set => SetArgument("runtime", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsGlueJobCommandBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScriptLocation is required")]
     public required TerraformValue<string> ScriptLocation
     {
-        get => new TerraformReference<string>(this, "script_location");
+        get => GetArgument<TerraformValue<string>>("script_location");
         set => SetArgument("script_location", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsGlueJobExecutionPropertyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxConcurrentRuns
     {
-        get => new TerraformReference<double>(this, "max_concurrent_runs");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_runs");
         set => SetArgument("max_concurrent_runs", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsGlueJobNotificationPropertyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? NotifyDelayAfter
     {
-        get => new TerraformReference<double>(this, "notify_delay_after");
+        get => GetArgument<TerraformValue<double>>("notify_delay_after");
         set => SetArgument("notify_delay_after", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsGlueJobSourceControlDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AuthStrategy
     {
-        get => new TerraformReference<string>(this, "auth_strategy");
+        get => GetArgument<TerraformValue<string>>("auth_strategy");
         set => SetArgument("auth_strategy", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsGlueJobSourceControlDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AuthToken
     {
-        get => new TerraformReference<string>(this, "auth_token");
+        get => GetArgument<TerraformValue<string>>("auth_token");
         set => SetArgument("auth_token", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsGlueJobSourceControlDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Branch
     {
-        get => new TerraformReference<string>(this, "branch");
+        get => GetArgument<TerraformValue<string>>("branch");
         set => SetArgument("branch", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsGlueJobSourceControlDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Folder
     {
-        get => new TerraformReference<string>(this, "folder");
+        get => GetArgument<TerraformValue<string>>("folder");
         set => SetArgument("folder", value);
     }
 
@@ -151,7 +151,7 @@ public class AwsGlueJobSourceControlDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LastCommitId
     {
-        get => new TerraformReference<string>(this, "last_commit_id");
+        get => GetArgument<TerraformValue<string>>("last_commit_id");
         set => SetArgument("last_commit_id", value);
     }
 
@@ -160,7 +160,7 @@ public class AwsGlueJobSourceControlDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Owner
     {
-        get => new TerraformReference<string>(this, "owner");
+        get => GetArgument<TerraformValue<string>>("owner");
         set => SetArgument("owner", value);
     }
 
@@ -169,7 +169,7 @@ public class AwsGlueJobSourceControlDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ProviderAttribute
     {
-        get => new TerraformReference<string>(this, "provider");
+        get => GetArgument<TerraformValue<string>>("provider");
         set => SetArgument("provider", value);
     }
 
@@ -178,7 +178,7 @@ public class AwsGlueJobSourceControlDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Repository
     {
-        get => new TerraformReference<string>(this, "repository");
+        get => GetArgument<TerraformValue<string>>("repository");
         set => SetArgument("repository", value);
     }
 
@@ -196,7 +196,7 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// </summary>
     public TerraformList<string>? Connections
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "connections").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("connections");
         set => SetArgument("connections", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// </summary>
     public TerraformMap<string>? DefaultArguments
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "default_arguments").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("default_arguments");
         set => SetArgument("default_arguments", value);
     }
 
@@ -214,7 +214,7 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -223,34 +223,34 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// </summary>
     public TerraformValue<string>? ExecutionClass
     {
-        get => new TerraformReference<string>(this, "execution_class");
+        get => GetArgument<TerraformValue<string>>("execution_class");
         set => SetArgument("execution_class", value);
     }
 
     /// <summary>
     /// The glue_version attribute.
     /// </summary>
-    public TerraformValue<string> GlueVersion
+    public TerraformValue<string>? GlueVersion
     {
-        get => new TerraformReference<string>(this, "glue_version");
+        get => GetArgument<TerraformValue<string>>("glue_version");
         set => SetArgument("glue_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The job_mode attribute.
     /// </summary>
-    public TerraformValue<string> JobMode
+    public TerraformValue<string>? JobMode
     {
-        get => new TerraformReference<string>(this, "job_mode");
+        get => GetArgument<TerraformValue<string>>("job_mode");
         set => SetArgument("job_mode", value);
     }
 
@@ -259,7 +259,7 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// </summary>
     public TerraformValue<bool>? JobRunQueuingEnabled
     {
-        get => new TerraformReference<bool>(this, "job_run_queuing_enabled");
+        get => GetArgument<TerraformValue<bool>>("job_run_queuing_enabled");
         set => SetArgument("job_run_queuing_enabled", value);
     }
 
@@ -268,16 +268,16 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// </summary>
     public TerraformValue<string>? MaintenanceWindow
     {
-        get => new TerraformReference<string>(this, "maintenance_window");
+        get => GetArgument<TerraformValue<string>>("maintenance_window");
         set => SetArgument("maintenance_window", value);
     }
 
     /// <summary>
     /// The max_capacity attribute.
     /// </summary>
-    public TerraformValue<double> MaxCapacity
+    public TerraformValue<double>? MaxCapacity
     {
-        get => new TerraformReference<double>(this, "max_capacity");
+        get => GetArgument<TerraformValue<double>>("max_capacity");
         set => SetArgument("max_capacity", value);
     }
 
@@ -286,7 +286,7 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// </summary>
     public TerraformValue<double>? MaxRetries
     {
-        get => new TerraformReference<double>(this, "max_retries");
+        get => GetArgument<TerraformValue<double>>("max_retries");
         set => SetArgument("max_retries", value);
     }
 
@@ -296,7 +296,7 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -305,25 +305,25 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// </summary>
     public TerraformMap<string>? NonOverridableArguments
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "non_overridable_arguments").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("non_overridable_arguments");
         set => SetArgument("non_overridable_arguments", value);
     }
 
     /// <summary>
     /// The number_of_workers attribute.
     /// </summary>
-    public TerraformValue<double> NumberOfWorkers
+    public TerraformValue<double>? NumberOfWorkers
     {
-        get => new TerraformReference<double>(this, "number_of_workers");
+        get => GetArgument<TerraformValue<double>>("number_of_workers");
         set => SetArgument("number_of_workers", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -333,7 +333,7 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -342,7 +342,7 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// </summary>
     public TerraformValue<string>? SecurityConfiguration
     {
-        get => new TerraformReference<string>(this, "security_configuration");
+        get => GetArgument<TerraformValue<string>>("security_configuration");
         set => SetArgument("security_configuration", value);
     }
 
@@ -351,34 +351,34 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    public TerraformValue<double> Timeout
+    public TerraformValue<double>? Timeout
     {
-        get => new TerraformReference<double>(this, "timeout");
+        get => GetArgument<TerraformValue<double>>("timeout");
         set => SetArgument("timeout", value);
     }
 
     /// <summary>
     /// The worker_type attribute.
     /// </summary>
-    public TerraformValue<string> WorkerType
+    public TerraformValue<string>? WorkerType
     {
-        get => new TerraformReference<string>(this, "worker_type");
+        get => GetArgument<TerraformValue<string>>("worker_type");
         set => SetArgument("worker_type", value);
     }
 
@@ -386,9 +386,7 @@ public partial class AwsGlueJob(string name) : TerraformResource("aws_glue_job",
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Command block (nesting mode: list).

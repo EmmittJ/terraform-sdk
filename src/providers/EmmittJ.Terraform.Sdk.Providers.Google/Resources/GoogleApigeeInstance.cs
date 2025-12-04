@@ -19,7 +19,7 @@ public class GoogleApigeeInstanceAccessLoggingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -31,7 +31,7 @@ public class GoogleApigeeInstanceAccessLoggingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -54,7 +54,7 @@ public class GoogleApigeeInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -63,7 +63,7 @@ public class GoogleApigeeInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -72,7 +72,7 @@ public class GoogleApigeeInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -91,9 +91,9 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     /// which the customers can provide during the instance creation. By default, the customer
     /// project associated with the Apigee organization will be included to the list.
     /// </summary>
-    public TerraformList<string> ConsumerAcceptList
+    public TerraformList<string>? ConsumerAcceptList
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "consumer_accept_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("consumer_accept_list");
         set => SetArgument("consumer_accept_list", value);
     }
 
@@ -102,7 +102,7 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -112,7 +112,7 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? DiskEncryptionKeyName
     {
-        get => new TerraformReference<string>(this, "disk_encryption_key_name");
+        get => GetArgument<TerraformValue<string>>("disk_encryption_key_name");
         set => SetArgument("disk_encryption_key_name", value);
     }
 
@@ -121,16 +121,16 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -145,7 +145,7 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? IpRange
     {
-        get => new TerraformReference<string>(this, "ip_range");
+        get => GetArgument<TerraformValue<string>>("ip_range");
         set => SetArgument("ip_range", value);
     }
 
@@ -155,7 +155,7 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -165,7 +165,7 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -176,7 +176,7 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => new TerraformReference<string>(this, "org_id");
+        get => GetArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -184,9 +184,9 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     /// The size of the CIDR block range that will be reserved by the instance. For valid values,
     /// see [CidrRange](https://cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.instances#CidrRange) on the documentation.
     /// </summary>
-    public TerraformValue<string> PeeringCidrRange
+    public TerraformValue<string>? PeeringCidrRange
     {
-        get => new TerraformReference<string>(this, "peering_cidr_range");
+        get => GetArgument<TerraformValue<string>>("peering_cidr_range");
         set => SetArgument("peering_cidr_range", value);
     }
 
@@ -194,17 +194,13 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     /// Output only. Hostname or IP address of the exposed Apigee endpoint used by clients to connect to the service.
     /// </summary>
     public TerraformValue<string> Host
-    {
-        get => new TerraformReference<string>(this, "host");
-    }
+        => AsReference("host");
 
     /// <summary>
     /// Output only. Port number of the exposed Apigee endpoint.
     /// </summary>
     public TerraformValue<string> Port
-    {
-        get => new TerraformReference<string>(this, "port");
-    }
+        => AsReference("port");
 
     /// <summary>
     /// Output only. Resource name of the service attachment created for the instance in
@@ -212,9 +208,7 @@ public partial class GoogleApigeeInstance(string name) : TerraformResource("goog
     /// forward traffic to this service attachment using the PSC endpoints.
     /// </summary>
     public TerraformValue<string> ServiceAttachment
-    {
-        get => new TerraformReference<string>(this, "service_attachment");
-    }
+        => AsReference("service_attachment");
 
     /// <summary>
     /// AccessLoggingConfig block (nesting mode: list).

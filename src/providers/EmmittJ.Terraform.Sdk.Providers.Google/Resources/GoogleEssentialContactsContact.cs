@@ -18,7 +18,7 @@ public class GoogleEssentialContactsContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleEssentialContactsContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleEssentialContactsContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,16 +55,16 @@ public partial class GoogleEssentialContactsContact(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleEssentialContactsContact(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageTag is required")]
     public required TerraformValue<string> LanguageTag
     {
-        get => new TerraformReference<string>(this, "language_tag");
+        get => GetArgument<TerraformValue<string>>("language_tag");
         set => SetArgument("language_tag", value);
     }
 
@@ -84,7 +84,7 @@ public partial class GoogleEssentialContactsContact(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationCategorySubscriptions is required")]
     public TerraformList<string>? NotificationCategorySubscriptions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "notification_category_subscriptions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("notification_category_subscriptions");
         set => SetArgument("notification_category_subscriptions", value);
     }
 
@@ -94,7 +94,7 @@ public partial class GoogleEssentialContactsContact(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -102,9 +102,7 @@ public partial class GoogleEssentialContactsContact(string name) : TerraformReso
     /// The identifier for the contact. Format: {resourceType}/{resource_id}/contacts/{contact_id}
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

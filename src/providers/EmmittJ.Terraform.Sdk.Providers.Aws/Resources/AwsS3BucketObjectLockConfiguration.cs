@@ -44,7 +44,7 @@ public class AwsS3BucketObjectLockConfigurationRuleBlockDefaultRetentionBlock : 
     /// </summary>
     public TerraformValue<double>? Days
     {
-        get => new TerraformReference<double>(this, "days");
+        get => GetArgument<TerraformValue<double>>("days");
         set => SetArgument("days", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsS3BucketObjectLockConfigurationRuleBlockDefaultRetentionBlock : 
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsS3BucketObjectLockConfigurationRuleBlockDefaultRetentionBlock : 
     /// </summary>
     public TerraformValue<double>? Years
     {
-        get => new TerraformReference<double>(this, "years");
+        get => GetArgument<TerraformValue<double>>("years");
         set => SetArgument("years", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsS3BucketObjectLockConfiguration(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -90,16 +90,16 @@ public partial class AwsS3BucketObjectLockConfiguration(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? ExpectedBucketOwner
     {
-        get => new TerraformReference<string>(this, "expected_bucket_owner");
+        get => GetArgument<TerraformValue<string>>("expected_bucket_owner");
         set => SetArgument("expected_bucket_owner", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -108,16 +108,16 @@ public partial class AwsS3BucketObjectLockConfiguration(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? ObjectLockEnabled
     {
-        get => new TerraformReference<string>(this, "object_lock_enabled");
+        get => GetArgument<TerraformValue<string>>("object_lock_enabled");
         set => SetArgument("object_lock_enabled", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AwsS3BucketObjectLockConfiguration(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Token
     {
-        get => new TerraformReference<string>(this, "token");
+        get => GetArgument<TerraformValue<string>>("token");
         set => SetArgument("token", value);
     }
 

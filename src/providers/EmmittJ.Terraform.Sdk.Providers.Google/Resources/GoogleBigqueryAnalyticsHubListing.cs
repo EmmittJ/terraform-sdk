@@ -19,7 +19,7 @@ public class GoogleBigqueryAnalyticsHubListingBigqueryDatasetBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformValue<string> Dataset
     {
-        get => new TerraformReference<string>(this, "dataset");
+        get => GetArgument<TerraformValue<string>>("dataset");
         set => SetArgument("dataset", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleBigqueryAnalyticsHubListingBigqueryDatasetBlockSelectedResour
     /// </summary>
     public TerraformValue<string>? Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -74,7 +74,7 @@ public class GoogleBigqueryAnalyticsHubListingDataProviderBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -83,7 +83,7 @@ public class GoogleBigqueryAnalyticsHubListingDataProviderBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PrimaryContact
     {
-        get => new TerraformReference<string>(this, "primary_contact");
+        get => GetArgument<TerraformValue<string>>("primary_contact");
         set => SetArgument("primary_contact", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleBigqueryAnalyticsHubListingPublisherBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -116,7 +116,7 @@ public class GoogleBigqueryAnalyticsHubListingPublisherBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PrimaryContact
     {
-        get => new TerraformReference<string>(this, "primary_contact");
+        get => GetArgument<TerraformValue<string>>("primary_contact");
         set => SetArgument("primary_contact", value);
     }
 
@@ -140,7 +140,7 @@ public class GoogleBigqueryAnalyticsHubListingPubsubTopicBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? DataAffinityRegions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "data_affinity_regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("data_affinity_regions");
         set => SetArgument("data_affinity_regions", value);
     }
 
@@ -150,7 +150,7 @@ public class GoogleBigqueryAnalyticsHubListingPubsubTopicBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformValue<string> Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -173,7 +173,7 @@ public class GoogleBigqueryAnalyticsHubListingRestrictedExportConfigBlock : Terr
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -181,16 +181,14 @@ public class GoogleBigqueryAnalyticsHubListingRestrictedExportConfigBlock : Terr
     /// If true, restrict direct table access(read api/tabledata.list) on linked table.
     /// </summary>
     public TerraformValue<bool> RestrictDirectTableAccess
-    {
-        get => new TerraformReference<bool>(this, "restrict_direct_table_access");
-    }
+        => AsReference("restrict_direct_table_access");
 
     /// <summary>
     /// If true, restrict export of query result derived from restricted linked dataset table.
     /// </summary>
     public TerraformValue<bool>? RestrictQueryResult
     {
-        get => new TerraformReference<bool>(this, "restrict_query_result");
+        get => GetArgument<TerraformValue<bool>>("restrict_query_result");
         set => SetArgument("restrict_query_result", value);
     }
 
@@ -213,7 +211,7 @@ public class GoogleBigqueryAnalyticsHubListingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -222,7 +220,7 @@ public class GoogleBigqueryAnalyticsHubListingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -231,7 +229,7 @@ public class GoogleBigqueryAnalyticsHubListingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -249,7 +247,7 @@ public partial class GoogleBigqueryAnalyticsHubListing(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? AllowOnlyMetadataSharing
     {
-        get => new TerraformReference<bool>(this, "allow_only_metadata_sharing");
+        get => GetArgument<TerraformValue<bool>>("allow_only_metadata_sharing");
         set => SetArgument("allow_only_metadata_sharing", value);
     }
 
@@ -258,7 +256,7 @@ public partial class GoogleBigqueryAnalyticsHubListing(string name) : TerraformR
     /// </summary>
     public TerraformList<string>? Categories
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "categories").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("categories");
         set => SetArgument("categories", value);
     }
 
@@ -268,7 +266,7 @@ public partial class GoogleBigqueryAnalyticsHubListing(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataExchangeId is required")]
     public required TerraformValue<string> DataExchangeId
     {
-        get => new TerraformReference<string>(this, "data_exchange_id");
+        get => GetArgument<TerraformValue<string>>("data_exchange_id");
         set => SetArgument("data_exchange_id", value);
     }
 
@@ -277,7 +275,7 @@ public partial class GoogleBigqueryAnalyticsHubListing(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? DeleteCommercial
     {
-        get => new TerraformReference<bool>(this, "delete_commercial");
+        get => GetArgument<TerraformValue<bool>>("delete_commercial");
         set => SetArgument("delete_commercial", value);
     }
 
@@ -286,16 +284,16 @@ public partial class GoogleBigqueryAnalyticsHubListing(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// Specifies the type of discovery on the discovery page. Cannot be set for a restricted listing. Note that this does not control the visibility of the exchange/listing which is defined by IAM permission. Possible values: [&amp;quot;DISCOVERY_TYPE_PRIVATE&amp;quot;, &amp;quot;DISCOVERY_TYPE_PUBLIC&amp;quot;]
     /// </summary>
-    public TerraformValue<string> DiscoveryType
+    public TerraformValue<string>? DiscoveryType
     {
-        get => new TerraformReference<string>(this, "discovery_type");
+        get => GetArgument<TerraformValue<string>>("discovery_type");
         set => SetArgument("discovery_type", value);
     }
 
@@ -305,7 +303,7 @@ public partial class GoogleBigqueryAnalyticsHubListing(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -314,7 +312,7 @@ public partial class GoogleBigqueryAnalyticsHubListing(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Documentation
     {
-        get => new TerraformReference<string>(this, "documentation");
+        get => GetArgument<TerraformValue<string>>("documentation");
         set => SetArgument("documentation", value);
     }
 
@@ -323,16 +321,16 @@ public partial class GoogleBigqueryAnalyticsHubListing(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Icon
     {
-        get => new TerraformReference<string>(this, "icon");
+        get => GetArgument<TerraformValue<string>>("icon");
         set => SetArgument("icon", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -342,7 +340,7 @@ public partial class GoogleBigqueryAnalyticsHubListing(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListingId is required")]
     public required TerraformValue<string> ListingId
     {
-        get => new TerraformReference<string>(this, "listing_id");
+        get => GetArgument<TerraformValue<string>>("listing_id");
         set => SetArgument("listing_id", value);
     }
 
@@ -352,7 +350,7 @@ public partial class GoogleBigqueryAnalyticsHubListing(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -361,7 +359,7 @@ public partial class GoogleBigqueryAnalyticsHubListing(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? LogLinkedDatasetQueryUserEmail
     {
-        get => new TerraformReference<bool>(this, "log_linked_dataset_query_user_email");
+        get => GetArgument<TerraformValue<bool>>("log_linked_dataset_query_user_email");
         set => SetArgument("log_linked_dataset_query_user_email", value);
     }
 
@@ -370,16 +368,16 @@ public partial class GoogleBigqueryAnalyticsHubListing(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? PrimaryContact
     {
-        get => new TerraformReference<string>(this, "primary_contact");
+        get => GetArgument<TerraformValue<string>>("primary_contact");
         set => SetArgument("primary_contact", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -388,7 +386,7 @@ public partial class GoogleBigqueryAnalyticsHubListing(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? RequestAccess
     {
-        get => new TerraformReference<string>(this, "request_access");
+        get => GetArgument<TerraformValue<string>>("request_access");
         set => SetArgument("request_access", value);
     }
 
@@ -396,25 +394,19 @@ public partial class GoogleBigqueryAnalyticsHubListing(string name) : TerraformR
     /// Commercial info contains the information about the commercial data products associated with the listing.
     /// </summary>
     public TerraformList<TerraformMap<object>> CommercialInfo
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "commercial_info").ResolveNodes(ctx));
-    }
+        => AsReference("commercial_info");
 
     /// <summary>
     /// The resource name of the listing. e.g. &amp;quot;projects/myproject/locations/US/dataExchanges/123/listings/456&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Current state of the listing.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// BigqueryDataset block (nesting mode: list).

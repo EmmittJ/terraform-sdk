@@ -18,7 +18,7 @@ public class AzurermMonitorDataCollectionEndpointDataSourceTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermMonitorDataCollectionEndpointDataSource(string name)
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermMonitorDataCollectionEndpointDataSource(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermMonitorDataCollectionEndpointDataSource(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,73 +64,55 @@ public partial class AzurermMonitorDataCollectionEndpointDataSource(string name)
     /// The configuration_access_endpoint attribute.
     /// </summary>
     public TerraformValue<string> ConfigurationAccessEndpoint
-    {
-        get => new TerraformReference<string>(this, "configuration_access_endpoint");
-    }
+        => AsReference("configuration_access_endpoint");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The immutable_id attribute.
     /// </summary>
     public TerraformValue<string> ImmutableId
-    {
-        get => new TerraformReference<string>(this, "immutable_id");
-    }
+        => AsReference("immutable_id");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     public TerraformValue<string> Kind
-    {
-        get => new TerraformReference<string>(this, "kind");
-    }
+        => AsReference("kind");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The logs_ingestion_endpoint attribute.
     /// </summary>
     public TerraformValue<string> LogsIngestionEndpoint
-    {
-        get => new TerraformReference<string>(this, "logs_ingestion_endpoint");
-    }
+        => AsReference("logs_ingestion_endpoint");
 
     /// <summary>
     /// The metrics_ingestion_endpoint attribute.
     /// </summary>
     public TerraformValue<string> MetricsIngestionEndpoint
-    {
-        get => new TerraformReference<string>(this, "metrics_ingestion_endpoint");
-    }
+        => AsReference("metrics_ingestion_endpoint");
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PublicNetworkAccessEnabled
-    {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
-    }
+        => AsReference("public_network_access_enabled");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

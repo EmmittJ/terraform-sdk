@@ -18,7 +18,7 @@ public class AzurermAppServicePublicCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermAppServicePublicCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermAppServicePublicCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermAppServicePublicCertificate(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceName is required")]
     public required TerraformValue<string> AppServiceName
     {
-        get => new TerraformReference<string>(this, "app_service_name");
+        get => GetArgument<TerraformValue<string>>("app_service_name");
         set => SetArgument("app_service_name", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzurermAppServicePublicCertificate(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Blob is required")]
     public required TerraformValue<string> Blob
     {
-        get => new TerraformReference<string>(this, "blob");
+        get => GetArgument<TerraformValue<string>>("blob");
         set => SetArgument("blob", value);
     }
 
@@ -75,7 +75,7 @@ public partial class AzurermAppServicePublicCertificate(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateLocation is required")]
     public required TerraformValue<string> CertificateLocation
     {
-        get => new TerraformReference<string>(this, "certificate_location");
+        get => GetArgument<TerraformValue<string>>("certificate_location");
         set => SetArgument("certificate_location", value);
     }
 
@@ -85,16 +85,16 @@ public partial class AzurermAppServicePublicCertificate(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateName is required")]
     public required TerraformValue<string> CertificateName
     {
-        get => new TerraformReference<string>(this, "certificate_name");
+        get => GetArgument<TerraformValue<string>>("certificate_name");
         set => SetArgument("certificate_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AzurermAppServicePublicCertificate(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -112,9 +112,7 @@ public partial class AzurermAppServicePublicCertificate(string name) : Terraform
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-    {
-        get => new TerraformReference<string>(this, "thumbprint");
-    }
+        => AsReference("thumbprint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

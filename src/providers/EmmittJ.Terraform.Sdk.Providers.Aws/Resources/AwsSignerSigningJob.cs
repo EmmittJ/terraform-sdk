@@ -45,7 +45,7 @@ public class AwsSignerSigningJobDestinationBlockS3Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsSignerSigningJobDestinationBlockS3Block : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsSignerSigningJobSourceBlockS3Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsSignerSigningJobSourceBlockS3Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsSignerSigningJobSourceBlockS3Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -140,9 +140,9 @@ public partial class AwsSignerSigningJob(string name) : TerraformResource("aws_s
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AwsSignerSigningJob(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<bool>? IgnoreSigningJobFailure
     {
-        get => new TerraformReference<bool>(this, "ignore_signing_job_failure");
+        get => GetArgument<TerraformValue<bool>>("ignore_signing_job_failure");
         set => SetArgument("ignore_signing_job_failure", value);
     }
 
@@ -161,16 +161,16 @@ public partial class AwsSignerSigningJob(string name) : TerraformResource("aws_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileName is required")]
     public required TerraformValue<string> ProfileName
     {
-        get => new TerraformReference<string>(this, "profile_name");
+        get => GetArgument<TerraformValue<string>>("profile_name");
         set => SetArgument("profile_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -178,113 +178,85 @@ public partial class AwsSignerSigningJob(string name) : TerraformResource("aws_s
     /// The completed_at attribute.
     /// </summary>
     public TerraformValue<string> CompletedAt
-    {
-        get => new TerraformReference<string>(this, "completed_at");
-    }
+        => AsReference("completed_at");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The job_id attribute.
     /// </summary>
     public TerraformValue<string> JobId
-    {
-        get => new TerraformReference<string>(this, "job_id");
-    }
+        => AsReference("job_id");
 
     /// <summary>
     /// The job_invoker attribute.
     /// </summary>
     public TerraformValue<string> JobInvoker
-    {
-        get => new TerraformReference<string>(this, "job_invoker");
-    }
+        => AsReference("job_invoker");
 
     /// <summary>
     /// The job_owner attribute.
     /// </summary>
     public TerraformValue<string> JobOwner
-    {
-        get => new TerraformReference<string>(this, "job_owner");
-    }
+        => AsReference("job_owner");
 
     /// <summary>
     /// The platform_display_name attribute.
     /// </summary>
     public TerraformValue<string> PlatformDisplayName
-    {
-        get => new TerraformReference<string>(this, "platform_display_name");
-    }
+        => AsReference("platform_display_name");
 
     /// <summary>
     /// The platform_id attribute.
     /// </summary>
     public TerraformValue<string> PlatformId
-    {
-        get => new TerraformReference<string>(this, "platform_id");
-    }
+        => AsReference("platform_id");
 
     /// <summary>
     /// The profile_version attribute.
     /// </summary>
     public TerraformValue<string> ProfileVersion
-    {
-        get => new TerraformReference<string>(this, "profile_version");
-    }
+        => AsReference("profile_version");
 
     /// <summary>
     /// The requested_by attribute.
     /// </summary>
     public TerraformValue<string> RequestedBy
-    {
-        get => new TerraformReference<string>(this, "requested_by");
-    }
+        => AsReference("requested_by");
 
     /// <summary>
     /// The revocation_record attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RevocationRecord
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "revocation_record").ResolveNodes(ctx));
-    }
+        => AsReference("revocation_record");
 
     /// <summary>
     /// The signature_expires_at attribute.
     /// </summary>
     public TerraformValue<string> SignatureExpiresAt
-    {
-        get => new TerraformReference<string>(this, "signature_expires_at");
-    }
+        => AsReference("signature_expires_at");
 
     /// <summary>
     /// The signed_object attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SignedObject
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "signed_object").ResolveNodes(ctx));
-    }
+        => AsReference("signed_object");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The status_reason attribute.
     /// </summary>
     public TerraformValue<string> StatusReason
-    {
-        get => new TerraformReference<string>(this, "status_reason");
-    }
+        => AsReference("status_reason");
 
     /// <summary>
     /// Destination block (nesting mode: list).

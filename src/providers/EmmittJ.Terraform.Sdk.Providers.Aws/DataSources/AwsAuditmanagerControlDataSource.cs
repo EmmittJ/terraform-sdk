@@ -14,16 +14,16 @@ public partial class AwsAuditmanagerControlDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsAuditmanagerControlDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -41,64 +41,48 @@ public partial class AwsAuditmanagerControlDataSource(string name) : TerraformDa
     /// The action_plan_instructions attribute.
     /// </summary>
     public TerraformValue<string> ActionPlanInstructions
-    {
-        get => new TerraformReference<string>(this, "action_plan_instructions");
-    }
+        => AsReference("action_plan_instructions");
 
     /// <summary>
     /// The action_plan_title attribute.
     /// </summary>
     public TerraformValue<string> ActionPlanTitle
-    {
-        get => new TerraformReference<string>(this, "action_plan_title");
-    }
+        => AsReference("action_plan_title");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The control_mapping_sources attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ControlMappingSources
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "control_mapping_sources").ResolveNodes(ctx));
-    }
+        => AsReference("control_mapping_sources");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The testing_information attribute.
     /// </summary>
     public TerraformValue<string> TestingInformation
-    {
-        get => new TerraformReference<string>(this, "testing_information");
-    }
+        => AsReference("testing_information");
 
 }

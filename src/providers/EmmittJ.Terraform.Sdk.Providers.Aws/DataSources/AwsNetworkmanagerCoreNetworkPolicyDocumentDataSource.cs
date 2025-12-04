@@ -18,7 +18,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPolic
     /// </summary>
     public TerraformValue<string>? ConditionLogic
     {
-        get => new TerraformReference<string>(this, "condition_logic");
+        get => GetArgument<TerraformValue<string>>("condition_logic");
         set => SetArgument("condition_logic", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPolic
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPolic
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNumber is required")]
     public required TerraformValue<double> RuleNumber
     {
-        get => new TerraformReference<double>(this, "rule_number");
+        get => GetArgument<TerraformValue<double>>("rule_number");
         set => SetArgument("rule_number", value);
     }
 
@@ -84,7 +84,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPolic
     /// </summary>
     public TerraformValue<string>? AddToNetworkFunctionGroup
     {
-        get => new TerraformReference<string>(this, "add_to_network_function_group");
+        get => GetArgument<TerraformValue<string>>("add_to_network_function_group");
         set => SetArgument("add_to_network_function_group", value);
     }
 
@@ -93,7 +93,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPolic
     /// </summary>
     public TerraformValue<string>? AssociationMethod
     {
-        get => new TerraformReference<string>(this, "association_method");
+        get => GetArgument<TerraformValue<string>>("association_method");
         set => SetArgument("association_method", value);
     }
 
@@ -102,7 +102,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPolic
     /// </summary>
     public TerraformValue<bool>? RequireAcceptance
     {
-        get => new TerraformReference<bool>(this, "require_acceptance");
+        get => GetArgument<TerraformValue<bool>>("require_acceptance");
         set => SetArgument("require_acceptance", value);
     }
 
@@ -111,7 +111,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPolic
     /// </summary>
     public TerraformValue<string>? Segment
     {
-        get => new TerraformReference<string>(this, "segment");
+        get => GetArgument<TerraformValue<string>>("segment");
         set => SetArgument("segment", value);
     }
 
@@ -120,7 +120,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPolic
     /// </summary>
     public TerraformValue<string>? TagValueOfKey
     {
-        get => new TerraformReference<string>(this, "tag_value_of_key");
+        get => GetArgument<TerraformValue<string>>("tag_value_of_key");
         set => SetArgument("tag_value_of_key", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPolic
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -151,7 +151,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPolic
     /// </summary>
     public TerraformValue<string>? OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -161,7 +161,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPolic
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -170,7 +170,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceAttachmentPolic
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -194,7 +194,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AsnRanges is required")]
     public required TerraformSet<string> AsnRanges
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "asn_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("asn_ranges");
         set => SetArgument("asn_ranges", value);
     }
 
@@ -203,7 +203,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConf
     /// </summary>
     public TerraformValue<bool>? DnsSupport
     {
-        get => new TerraformReference<bool>(this, "dns_support");
+        get => GetArgument<TerraformValue<bool>>("dns_support");
         set => SetArgument("dns_support", value);
     }
 
@@ -212,7 +212,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConf
     /// </summary>
     public TerraformSet<string>? InsideCidrBlocks
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "inside_cidr_blocks").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("inside_cidr_blocks");
         set => SetArgument("inside_cidr_blocks", value);
     }
 
@@ -221,7 +221,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConf
     /// </summary>
     public TerraformValue<bool>? SecurityGroupReferencingSupport
     {
-        get => new TerraformReference<bool>(this, "security_group_referencing_support");
+        get => GetArgument<TerraformValue<bool>>("security_group_referencing_support");
         set => SetArgument("security_group_referencing_support", value);
     }
 
@@ -230,7 +230,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConf
     /// </summary>
     public TerraformValue<bool>? VpnEcmpSupport
     {
-        get => new TerraformReference<bool>(this, "vpn_ecmp_support");
+        get => GetArgument<TerraformValue<bool>>("vpn_ecmp_support");
         set => SetArgument("vpn_ecmp_support", value);
     }
 
@@ -264,7 +264,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConf
     /// </summary>
     public TerraformValue<string>? Asn
     {
-        get => new TerraformReference<string>(this, "asn");
+        get => GetArgument<TerraformValue<string>>("asn");
         set => SetArgument("asn", value);
     }
 
@@ -273,7 +273,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConf
     /// </summary>
     public TerraformList<string>? InsideCidrBlocks
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "inside_cidr_blocks").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("inside_cidr_blocks");
         set => SetArgument("inside_cidr_blocks", value);
     }
 
@@ -283,7 +283,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceCoreNetworkConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -306,7 +306,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunction
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -316,7 +316,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -326,7 +326,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceNetworkFunction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequireAttachmentAcceptance is required")]
     public required TerraformValue<bool> RequireAttachmentAcceptance
     {
-        get => new TerraformReference<bool>(this, "require_attachment_acceptance");
+        get => GetArgument<TerraformValue<bool>>("require_attachment_acceptance");
         set => SetArgument("require_attachment_acceptance", value);
     }
 
@@ -350,7 +350,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -359,7 +359,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -368,7 +368,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     /// </summary>
     public TerraformSet<string>? DestinationCidrBlocks
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "destination_cidr_blocks").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("destination_cidr_blocks");
         set => SetArgument("destination_cidr_blocks", value);
     }
 
@@ -377,7 +377,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     /// </summary>
     public TerraformSet<string>? Destinations
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "destinations").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("destinations");
         set => SetArgument("destinations", value);
     }
 
@@ -386,7 +386,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -396,7 +396,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Segment is required")]
     public required TerraformValue<string> Segment
     {
-        get => new TerraformReference<string>(this, "segment");
+        get => GetArgument<TerraformValue<string>>("segment");
         set => SetArgument("segment", value);
     }
 
@@ -405,7 +405,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     /// </summary>
     public TerraformSet<string>? ShareWith
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "share_with").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("share_with");
         set => SetArgument("share_with", value);
     }
 
@@ -414,7 +414,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     /// </summary>
     public TerraformSet<string>? ShareWithExcept
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "share_with_except").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("share_with_except");
         set => SetArgument("share_with_except", value);
     }
 
@@ -456,7 +456,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     /// </summary>
     public TerraformSet<string>? NetworkFunctionGroups
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "network_function_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("network_function_groups");
         set => SetArgument("network_function_groups", value);
     }
 
@@ -487,7 +487,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     /// </summary>
     public TerraformSet<TerraformSet<string>>? EdgeSets
     {
-        get => TerraformSet<TerraformSet<string>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformSet<string>>>(this, "edge_sets").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<TerraformSet<string>>>("edge_sets");
         set => SetArgument("edge_sets", value);
     }
 
@@ -497,7 +497,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? UseEdge
     {
-        get => new TerraformReference<string>(this, "use_edge");
+        get => GetArgument<TerraformValue<string>>("use_edge");
         set => SetArgument("use_edge", value);
     }
 
@@ -506,7 +506,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     /// </summary>
     public TerraformValue<string>? UseEdgeLocation
     {
-        get => new TerraformReference<string>(this, "use_edge_location");
+        get => GetArgument<TerraformValue<string>>("use_edge_location");
         set => SetArgument("use_edge_location", value);
     }
 
@@ -528,7 +528,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentActionsB
     /// </summary>
     public TerraformSet<string>? Segments
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "segments").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("segments");
         set => SetArgument("segments", value);
     }
 
@@ -551,7 +551,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock :
     /// </summary>
     public TerraformSet<string>? AllowFilter
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allow_filter").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allow_filter");
         set => SetArgument("allow_filter", value);
     }
 
@@ -560,7 +560,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock :
     /// </summary>
     public TerraformSet<string>? DenyFilter
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "deny_filter").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("deny_filter");
         set => SetArgument("deny_filter", value);
     }
 
@@ -569,7 +569,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock :
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -578,7 +578,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock :
     /// </summary>
     public TerraformSet<string>? EdgeLocations
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "edge_locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("edge_locations");
         set => SetArgument("edge_locations", value);
     }
 
@@ -587,7 +587,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock :
     /// </summary>
     public TerraformValue<bool>? IsolateAttachments
     {
-        get => new TerraformReference<bool>(this, "isolate_attachments");
+        get => GetArgument<TerraformValue<bool>>("isolate_attachments");
         set => SetArgument("isolate_attachments", value);
     }
 
@@ -597,7 +597,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -606,7 +606,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock :
     /// </summary>
     public TerraformValue<bool>? RequireAttachmentAcceptance
     {
-        get => new TerraformReference<bool>(this, "require_attachment_acceptance");
+        get => GetArgument<TerraformValue<bool>>("require_attachment_acceptance");
         set => SetArgument("require_attachment_acceptance", value);
     }
 
@@ -622,9 +622,9 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource(string
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -633,7 +633,7 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource(string
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -641,9 +641,7 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource(string
     /// The json attribute.
     /// </summary>
     public TerraformValue<string> Json
-    {
-        get => new TerraformReference<string>(this, "json");
-    }
+        => AsReference("json");
 
     /// <summary>
     /// AttachmentPolicies block (nesting mode: list).

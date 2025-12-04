@@ -18,7 +18,7 @@ public class GoogleDataprocMetastoreTableIamBindingConditionBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleDataprocMetastoreTableIamBindingConditionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -38,7 +38,7 @@ public class GoogleDataprocMetastoreTableIamBindingConditionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -57,25 +57,25 @@ public partial class GoogleDataprocMetastoreTableIamBinding(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseId is required")]
     public required TerraformValue<string> DatabaseId
     {
-        get => new TerraformReference<string>(this, "database_id");
+        get => GetArgument<TerraformValue<string>>("database_id");
         set => SetArgument("database_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformValue<string> Location
+    public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -85,16 +85,16 @@ public partial class GoogleDataprocMetastoreTableIamBinding(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Members is required")]
     public required TerraformSet<string> Members
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "members").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("members");
         set => SetArgument("members", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -104,7 +104,7 @@ public partial class GoogleDataprocMetastoreTableIamBinding(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => new TerraformReference<string>(this, "role");
+        get => GetArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 
@@ -114,7 +114,7 @@ public partial class GoogleDataprocMetastoreTableIamBinding(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformValue<string> ServiceId
     {
-        get => new TerraformReference<string>(this, "service_id");
+        get => GetArgument<TerraformValue<string>>("service_id");
         set => SetArgument("service_id", value);
     }
 
@@ -124,7 +124,7 @@ public partial class GoogleDataprocMetastoreTableIamBinding(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -132,9 +132,7 @@ public partial class GoogleDataprocMetastoreTableIamBinding(string name) : Terra
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Condition block (nesting mode: list).

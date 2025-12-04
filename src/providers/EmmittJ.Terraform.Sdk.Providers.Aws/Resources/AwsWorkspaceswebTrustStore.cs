@@ -19,7 +19,7 @@ public class AwsWorkspaceswebTrustStoreCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
     public required TerraformValue<string> Body
     {
-        get => new TerraformReference<string>(this, "body");
+        get => GetArgument<TerraformValue<string>>("body");
         set => SetArgument("body", value);
     }
 
@@ -27,41 +27,31 @@ public class AwsWorkspaceswebTrustStoreCertificateBlock : TerraformBlock
     /// The issuer attribute.
     /// </summary>
     public TerraformValue<string> Issuer
-    {
-        get => new TerraformReference<string>(this, "issuer");
-    }
+        => AsReference("issuer");
 
     /// <summary>
     /// The not_valid_after attribute.
     /// </summary>
     public TerraformValue<string> NotValidAfter
-    {
-        get => new TerraformReference<string>(this, "not_valid_after");
-    }
+        => AsReference("not_valid_after");
 
     /// <summary>
     /// The not_valid_before attribute.
     /// </summary>
     public TerraformValue<string> NotValidBefore
-    {
-        get => new TerraformReference<string>(this, "not_valid_before");
-    }
+        => AsReference("not_valid_before");
 
     /// <summary>
     /// The subject attribute.
     /// </summary>
     public TerraformValue<string> Subject
-    {
-        get => new TerraformReference<string>(this, "subject");
-    }
+        => AsReference("subject");
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-    {
-        get => new TerraformReference<string>(this, "thumbprint");
-    }
+        => AsReference("thumbprint");
 
 }
 
@@ -75,9 +65,9 @@ public partial class AwsWorkspaceswebTrustStore(string name) : TerraformResource
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -86,7 +76,7 @@ public partial class AwsWorkspaceswebTrustStore(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -94,25 +84,19 @@ public partial class AwsWorkspaceswebTrustStore(string name) : TerraformResource
     /// The associated_portal_arns attribute.
     /// </summary>
     public TerraformList<string> AssociatedPortalArns
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "associated_portal_arns").ResolveNodes(ctx));
-    }
+        => AsReference("associated_portal_arns");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// The trust_store_arn attribute.
     /// </summary>
     public TerraformValue<string> TrustStoreArn
-    {
-        get => new TerraformReference<string>(this, "trust_store_arn");
-    }
+        => AsReference("trust_store_arn");
 
     /// <summary>
     /// Certificate block (nesting mode: set).

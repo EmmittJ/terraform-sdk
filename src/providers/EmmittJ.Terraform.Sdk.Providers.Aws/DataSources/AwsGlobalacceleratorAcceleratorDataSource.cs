@@ -11,18 +11,18 @@ public partial class AwsGlobalacceleratorAcceleratorDataSource(string name) : Te
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformValue<string> Arn
+    public TerraformValue<string>? Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -30,72 +30,54 @@ public partial class AwsGlobalacceleratorAcceleratorDataSource(string name) : Te
     /// The attributes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Attributes
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "attributes").ResolveNodes(ctx));
-    }
+        => AsReference("attributes");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-    {
-        get => new TerraformReference<string>(this, "dns_name");
-    }
+        => AsReference("dns_name");
 
     /// <summary>
     /// The dual_stack_dns_name attribute.
     /// </summary>
     public TerraformValue<string> DualStackDnsName
-    {
-        get => new TerraformReference<string>(this, "dual_stack_dns_name");
-    }
+        => AsReference("dual_stack_dns_name");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-    {
-        get => new TerraformReference<bool>(this, "enabled");
-    }
+        => AsReference("enabled");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
     public TerraformValue<string> HostedZoneId
-    {
-        get => new TerraformReference<string>(this, "hosted_zone_id");
-    }
+        => AsReference("hosted_zone_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
     public TerraformValue<string> IpAddressType
-    {
-        get => new TerraformReference<string>(this, "ip_address_type");
-    }
+        => AsReference("ip_address_type");
 
     /// <summary>
     /// The ip_sets attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IpSets
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "ip_sets").ResolveNodes(ctx));
-    }
+        => AsReference("ip_sets");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
 }

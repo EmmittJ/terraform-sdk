@@ -18,7 +18,7 @@ public class AwsConfigConfigurationRecorderRecordingGroupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllSupported
     {
-        get => new TerraformReference<bool>(this, "all_supported");
+        get => GetArgument<TerraformValue<bool>>("all_supported");
         set => SetArgument("all_supported", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsConfigConfigurationRecorderRecordingGroupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IncludeGlobalResourceTypes
     {
-        get => new TerraformReference<bool>(this, "include_global_resource_types");
+        get => GetArgument<TerraformValue<bool>>("include_global_resource_types");
         set => SetArgument("include_global_resource_types", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsConfigConfigurationRecorderRecordingGroupBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ResourceTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "resource_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("resource_types");
         set => SetArgument("resource_types", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsConfigConfigurationRecorderRecordingGroupBlockExclusionByResourc
     /// </summary>
     public TerraformSet<string>? ResourceTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "resource_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("resource_types");
         set => SetArgument("resource_types", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsConfigConfigurationRecorderRecordingGroupBlockRecordingStrategyB
     /// </summary>
     public TerraformValue<string>? UseOnly
     {
-        get => new TerraformReference<string>(this, "use_only");
+        get => GetArgument<TerraformValue<string>>("use_only");
         set => SetArgument("use_only", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsConfigConfigurationRecorderRecordingModeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RecordingFrequency
     {
-        get => new TerraformReference<string>(this, "recording_frequency");
+        get => GetArgument<TerraformValue<string>>("recording_frequency");
         set => SetArgument("recording_frequency", value);
     }
 
@@ -153,7 +153,7 @@ public class AwsConfigConfigurationRecorderRecordingModeBlockRecordingModeOverri
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -163,7 +163,7 @@ public class AwsConfigConfigurationRecorderRecordingModeBlockRecordingModeOverri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordingFrequency is required")]
     public required TerraformValue<string> RecordingFrequency
     {
-        get => new TerraformReference<string>(this, "recording_frequency");
+        get => GetArgument<TerraformValue<string>>("recording_frequency");
         set => SetArgument("recording_frequency", value);
     }
 
@@ -173,7 +173,7 @@ public class AwsConfigConfigurationRecorderRecordingModeBlockRecordingModeOverri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypes is required")]
     public required TerraformSet<string> ResourceTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "resource_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("resource_types");
         set => SetArgument("resource_types", value);
     }
 
@@ -189,9 +189,9 @@ public partial class AwsConfigConfigurationRecorder(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -200,16 +200,16 @@ public partial class AwsConfigConfigurationRecorder(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -219,7 +219,7 @@ public partial class AwsConfigConfigurationRecorder(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 

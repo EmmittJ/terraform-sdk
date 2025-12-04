@@ -11,9 +11,9 @@ public partial class AwsIamUserPolicyAttachment(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsIamUserPolicyAttachment(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArn is required")]
     public required TerraformValue<string> PolicyArn
     {
-        get => new TerraformReference<string>(this, "policy_arn");
+        get => GetArgument<TerraformValue<string>>("policy_arn");
         set => SetArgument("policy_arn", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsIamUserPolicyAttachment(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformValue<string> User
     {
-        get => new TerraformReference<string>(this, "user");
+        get => GetArgument<TerraformValue<string>>("user");
         set => SetArgument("user", value);
     }
 

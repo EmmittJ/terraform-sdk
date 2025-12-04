@@ -13,7 +13,7 @@ public partial class GoogleActiveFolderDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string>? ApiMethod
     {
-        get => new TerraformReference<string>(this, "api_method");
+        get => GetArgument<TerraformValue<string>>("api_method");
         set => SetArgument("api_method", value);
     }
 
@@ -23,16 +23,16 @@ public partial class GoogleActiveFolderDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleActiveFolderDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -50,8 +50,6 @@ public partial class GoogleActiveFolderDataSource(string name) : TerraformDataSo
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
 }

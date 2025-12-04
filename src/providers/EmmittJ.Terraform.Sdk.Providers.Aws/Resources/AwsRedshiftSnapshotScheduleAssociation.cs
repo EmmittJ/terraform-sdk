@@ -14,25 +14,25 @@ public partial class AwsRedshiftSnapshotScheduleAssociation(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformValue<string> ClusterIdentifier
     {
-        get => new TerraformReference<string>(this, "cluster_identifier");
+        get => GetArgument<TerraformValue<string>>("cluster_identifier");
         set => SetArgument("cluster_identifier", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsRedshiftSnapshotScheduleAssociation(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleIdentifier is required")]
     public required TerraformValue<string> ScheduleIdentifier
     {
-        get => new TerraformReference<string>(this, "schedule_identifier");
+        get => GetArgument<TerraformValue<string>>("schedule_identifier");
         set => SetArgument("schedule_identifier", value);
     }
 

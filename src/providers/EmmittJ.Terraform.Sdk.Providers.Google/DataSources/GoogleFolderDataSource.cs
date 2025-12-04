@@ -14,16 +14,16 @@ public partial class GoogleFolderDataSource(string name) : TerraformDataSource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformValue<string> Folder
     {
-        get => new TerraformReference<string>(this, "folder");
+        get => GetArgument<TerraformValue<string>>("folder");
         set => SetArgument("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleFolderDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<bool>? LookupOrganization
     {
-        get => new TerraformReference<bool>(this, "lookup_organization");
+        get => GetArgument<TerraformValue<bool>>("lookup_organization");
         set => SetArgument("lookup_organization", value);
     }
 
@@ -40,80 +40,60 @@ public partial class GoogleFolderDataSource(string name) : TerraformDataSource("
     /// The configured_capabilities attribute.
     /// </summary>
     public TerraformList<string> ConfiguredCapabilities
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "configured_capabilities").ResolveNodes(ctx));
-    }
+        => AsReference("configured_capabilities");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The deletion_protection attribute.
     /// </summary>
     public TerraformValue<bool> DeletionProtection
-    {
-        get => new TerraformReference<bool>(this, "deletion_protection");
-    }
+        => AsReference("deletion_protection");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The folder_id attribute.
     /// </summary>
     public TerraformValue<string> FolderId
-    {
-        get => new TerraformReference<string>(this, "folder_id");
-    }
+        => AsReference("folder_id");
 
     /// <summary>
     /// The lifecycle_state attribute.
     /// </summary>
     public TerraformValue<string> LifecycleState
-    {
-        get => new TerraformReference<string>(this, "lifecycle_state");
-    }
+        => AsReference("lifecycle_state");
 
     /// <summary>
     /// The management_project attribute.
     /// </summary>
     public TerraformValue<string> ManagementProject
-    {
-        get => new TerraformReference<string>(this, "management_project");
-    }
+        => AsReference("management_project");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The organization attribute.
     /// </summary>
     public TerraformValue<string> Organization
-    {
-        get => new TerraformReference<string>(this, "organization");
-    }
+        => AsReference("organization");
 
     /// <summary>
     /// The parent attribute.
     /// </summary>
     public TerraformValue<string> Parent
-    {
-        get => new TerraformReference<string>(this, "parent");
-    }
+        => AsReference("parent");
 
 }

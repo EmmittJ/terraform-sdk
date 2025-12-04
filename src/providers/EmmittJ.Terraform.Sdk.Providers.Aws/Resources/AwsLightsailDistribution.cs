@@ -19,7 +19,7 @@ public class AwsLightsailDistributionCacheBehaviorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Behavior is required")]
     public required TerraformValue<string> Behavior
     {
-        get => new TerraformReference<string>(this, "behavior");
+        get => GetArgument<TerraformValue<string>>("behavior");
         set => SetArgument("behavior", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsLightsailDistributionCacheBehaviorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsLightsailDistributionCacheBehaviorSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AllowedHttpMethods
     {
-        get => new TerraformReference<string>(this, "allowed_http_methods");
+        get => GetArgument<TerraformValue<string>>("allowed_http_methods");
         set => SetArgument("allowed_http_methods", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsLightsailDistributionCacheBehaviorSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CachedHttpMethods
     {
-        get => new TerraformReference<string>(this, "cached_http_methods");
+        get => GetArgument<TerraformValue<string>>("cached_http_methods");
         set => SetArgument("cached_http_methods", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsLightsailDistributionCacheBehaviorSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? DefaultTtl
     {
-        get => new TerraformReference<double>(this, "default_ttl");
+        get => GetArgument<TerraformValue<double>>("default_ttl");
         set => SetArgument("default_ttl", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsLightsailDistributionCacheBehaviorSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaximumTtl
     {
-        get => new TerraformReference<double>(this, "maximum_ttl");
+        get => GetArgument<TerraformValue<double>>("maximum_ttl");
         set => SetArgument("maximum_ttl", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsLightsailDistributionCacheBehaviorSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MinimumTtl
     {
-        get => new TerraformReference<double>(this, "minimum_ttl");
+        get => GetArgument<TerraformValue<double>>("minimum_ttl");
         set => SetArgument("minimum_ttl", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsLightsailDistributionCacheBehaviorSettingsBlockForwardedCookiesB
     /// </summary>
     public TerraformSet<string>? CookiesAllowList
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "cookies_allow_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("cookies_allow_list");
         set => SetArgument("cookies_allow_list", value);
     }
 
@@ -149,7 +149,7 @@ public class AwsLightsailDistributionCacheBehaviorSettingsBlockForwardedCookiesB
     /// </summary>
     public TerraformValue<string>? Option
     {
-        get => new TerraformReference<string>(this, "option");
+        get => GetArgument<TerraformValue<string>>("option");
         set => SetArgument("option", value);
     }
 
@@ -171,7 +171,7 @@ public class AwsLightsailDistributionCacheBehaviorSettingsBlockForwardedHeadersB
     /// </summary>
     public TerraformSet<string>? HeadersAllowList
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "headers_allow_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("headers_allow_list");
         set => SetArgument("headers_allow_list", value);
     }
 
@@ -180,7 +180,7 @@ public class AwsLightsailDistributionCacheBehaviorSettingsBlockForwardedHeadersB
     /// </summary>
     public TerraformValue<string>? Option
     {
-        get => new TerraformReference<string>(this, "option");
+        get => GetArgument<TerraformValue<string>>("option");
         set => SetArgument("option", value);
     }
 
@@ -202,7 +202,7 @@ public class AwsLightsailDistributionCacheBehaviorSettingsBlockForwardedQueryStr
     /// </summary>
     public TerraformValue<bool>? Option
     {
-        get => new TerraformReference<bool>(this, "option");
+        get => GetArgument<TerraformValue<bool>>("option");
         set => SetArgument("option", value);
     }
 
@@ -211,7 +211,7 @@ public class AwsLightsailDistributionCacheBehaviorSettingsBlockForwardedQueryStr
     /// </summary>
     public TerraformSet<string>? QueryStringsAllowedList
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "query_strings_allowed_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("query_strings_allowed_list");
         set => SetArgument("query_strings_allowed_list", value);
     }
 
@@ -235,7 +235,7 @@ public class AwsLightsailDistributionDefaultCacheBehaviorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Behavior is required")]
     public required TerraformValue<string> Behavior
     {
-        get => new TerraformReference<string>(this, "behavior");
+        get => GetArgument<TerraformValue<string>>("behavior");
         set => SetArgument("behavior", value);
     }
 
@@ -259,7 +259,7 @@ public class AwsLightsailDistributionOriginBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -268,7 +268,7 @@ public class AwsLightsailDistributionOriginBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ProtocolPolicy
     {
-        get => new TerraformReference<string>(this, "protocol_policy");
+        get => GetArgument<TerraformValue<string>>("protocol_policy");
         set => SetArgument("protocol_policy", value);
     }
 
@@ -278,7 +278,7 @@ public class AwsLightsailDistributionOriginBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionName is required")]
     public required TerraformValue<string> RegionName
     {
-        get => new TerraformReference<string>(this, "region_name");
+        get => GetArgument<TerraformValue<string>>("region_name");
         set => SetArgument("region_name", value);
     }
 
@@ -286,9 +286,7 @@ public class AwsLightsailDistributionOriginBlock : TerraformBlock
     /// The resource type of the origin resource (e.g., Instance).
     /// </summary>
     public TerraformValue<string> ResourceTypeAttribute
-    {
-        get => new TerraformReference<string>(this, "resource_type");
-    }
+        => AsReference("resource_type");
 
 }
 
@@ -309,7 +307,7 @@ public class AwsLightsailDistributionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -318,7 +316,7 @@ public class AwsLightsailDistributionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -327,7 +325,7 @@ public class AwsLightsailDistributionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -346,7 +344,7 @@ public partial class AwsLightsailDistribution(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BundleId is required")]
     public required TerraformValue<string> BundleId
     {
-        get => new TerraformReference<string>(this, "bundle_id");
+        get => GetArgument<TerraformValue<string>>("bundle_id");
         set => SetArgument("bundle_id", value);
     }
 
@@ -355,16 +353,16 @@ public partial class AwsLightsailDistribution(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? CertificateName
     {
-        get => new TerraformReference<string>(this, "certificate_name");
+        get => GetArgument<TerraformValue<string>>("certificate_name");
         set => SetArgument("certificate_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -373,7 +371,7 @@ public partial class AwsLightsailDistribution(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? IpAddressType
     {
-        get => new TerraformReference<string>(this, "ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
@@ -382,7 +380,7 @@ public partial class AwsLightsailDistribution(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? IsEnabled
     {
-        get => new TerraformReference<bool>(this, "is_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_enabled");
         set => SetArgument("is_enabled", value);
     }
 
@@ -392,16 +390,16 @@ public partial class AwsLightsailDistribution(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -410,16 +408,16 @@ public partial class AwsLightsailDistribution(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -427,73 +425,55 @@ public partial class AwsLightsailDistribution(string name) : TerraformResource("
     /// The alternate domain names of the distribution.
     /// </summary>
     public TerraformList<string> AlternativeDomainNames
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "alternative_domain_names").ResolveNodes(ctx));
-    }
+        => AsReference("alternative_domain_names");
 
     /// <summary>
     /// The Amazon Resource Name (ARN) of the distribution.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The timestamp when the distribution was created.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The domain name of the distribution.
     /// </summary>
     public TerraformValue<string> DomainName
-    {
-        get => new TerraformReference<string>(this, "domain_name");
-    }
+        => AsReference("domain_name");
 
     /// <summary>
     /// An object that describes the location of the distribution, such as the AWS Region and Availability Zone.
     /// </summary>
     public TerraformList<TerraformMap<object>> Location
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "location").ResolveNodes(ctx));
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The public DNS of the origin.
     /// </summary>
     public TerraformValue<string> OriginPublicDns
-    {
-        get => new TerraformReference<string>(this, "origin_public_dns");
-    }
+        => AsReference("origin_public_dns");
 
     /// <summary>
     /// The Lightsail resource type (e.g., Distribution).
     /// </summary>
     public TerraformValue<string> ResourceTypeAttribute
-    {
-        get => new TerraformReference<string>(this, "resource_type");
-    }
+        => AsReference("resource_type");
 
     /// <summary>
     /// The status of the distribution.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
     /// </summary>
     public TerraformValue<string> SupportCode
-    {
-        get => new TerraformReference<string>(this, "support_code");
-    }
+        => AsReference("support_code");
 
     /// <summary>
     /// CacheBehavior block (nesting mode: set).

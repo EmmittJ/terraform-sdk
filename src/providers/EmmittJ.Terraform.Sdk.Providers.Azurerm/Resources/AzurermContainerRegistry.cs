@@ -19,7 +19,7 @@ public class AzurermContainerRegistryGeoreplicationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermContainerRegistryGeoreplicationsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? RegionalEndpointEnabled
     {
-        get => new TerraformReference<bool>(this, "regional_endpoint_enabled");
+        get => GetArgument<TerraformValue<bool>>("regional_endpoint_enabled");
         set => SetArgument("regional_endpoint_enabled", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermContainerRegistryGeoreplicationsBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -46,7 +46,7 @@ public class AzurermContainerRegistryGeoreplicationsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ZoneRedundancyEnabled
     {
-        get => new TerraformReference<bool>(this, "zone_redundancy_enabled");
+        get => GetArgument<TerraformValue<bool>>("zone_redundancy_enabled");
         set => SetArgument("zone_redundancy_enabled", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermContainerRegistryIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -77,17 +77,13 @@ public class AzurermContainerRegistryIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -95,7 +91,7 @@ public class AzurermContainerRegistryIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -118,7 +114,7 @@ public class AzurermContainerRegistryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -127,7 +123,7 @@ public class AzurermContainerRegistryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -136,7 +132,7 @@ public class AzurermContainerRegistryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -145,7 +141,7 @@ public class AzurermContainerRegistryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -163,7 +159,7 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? AdminEnabled
     {
-        get => new TerraformReference<bool>(this, "admin_enabled");
+        get => GetArgument<TerraformValue<bool>>("admin_enabled");
         set => SetArgument("admin_enabled", value);
     }
 
@@ -172,7 +168,7 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? AnonymousPullEnabled
     {
-        get => new TerraformReference<bool>(this, "anonymous_pull_enabled");
+        get => GetArgument<TerraformValue<bool>>("anonymous_pull_enabled");
         set => SetArgument("anonymous_pull_enabled", value);
     }
 
@@ -181,16 +177,16 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? DataEndpointEnabled
     {
-        get => new TerraformReference<bool>(this, "data_endpoint_enabled");
+        get => GetArgument<TerraformValue<bool>>("data_endpoint_enabled");
         set => SetArgument("data_endpoint_enabled", value);
     }
 
     /// <summary>
     /// The encryption attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>> Encryption
+    public TerraformList<TerraformMap<object>>? Encryption
     {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "encryption").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<TerraformMap<object>>>("encryption");
         set => SetArgument("encryption", value);
     }
 
@@ -199,16 +195,16 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? ExportPolicyEnabled
     {
-        get => new TerraformReference<bool>(this, "export_policy_enabled");
+        get => GetArgument<TerraformValue<bool>>("export_policy_enabled");
         set => SetArgument("export_policy_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -218,7 +214,7 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -228,7 +224,7 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -237,16 +233,16 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? NetworkRuleBypassOption
     {
-        get => new TerraformReference<string>(this, "network_rule_bypass_option");
+        get => GetArgument<TerraformValue<string>>("network_rule_bypass_option");
         set => SetArgument("network_rule_bypass_option", value);
     }
 
     /// <summary>
     /// The network_rule_set attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>> NetworkRuleSet
+    public TerraformList<TerraformMap<object>>? NetworkRuleSet
     {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "network_rule_set").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<TerraformMap<object>>>("network_rule_set");
         set => SetArgument("network_rule_set", value);
     }
 
@@ -255,7 +251,7 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -264,7 +260,7 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? QuarantinePolicyEnabled
     {
-        get => new TerraformReference<bool>(this, "quarantine_policy_enabled");
+        get => GetArgument<TerraformValue<bool>>("quarantine_policy_enabled");
         set => SetArgument("quarantine_policy_enabled", value);
     }
 
@@ -274,7 +270,7 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -283,7 +279,7 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double>? RetentionPolicyInDays
     {
-        get => new TerraformReference<double>(this, "retention_policy_in_days");
+        get => GetArgument<TerraformValue<double>>("retention_policy_in_days");
         set => SetArgument("retention_policy_in_days", value);
     }
 
@@ -293,7 +289,7 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformValue<string> Sku
     {
-        get => new TerraformReference<string>(this, "sku");
+        get => GetArgument<TerraformValue<string>>("sku");
         set => SetArgument("sku", value);
     }
 
@@ -302,7 +298,7 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -311,7 +307,7 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? TrustPolicyEnabled
     {
-        get => new TerraformReference<bool>(this, "trust_policy_enabled");
+        get => GetArgument<TerraformValue<bool>>("trust_policy_enabled");
         set => SetArgument("trust_policy_enabled", value);
     }
 
@@ -320,7 +316,7 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? ZoneRedundancyEnabled
     {
-        get => new TerraformReference<bool>(this, "zone_redundancy_enabled");
+        get => GetArgument<TerraformValue<bool>>("zone_redundancy_enabled");
         set => SetArgument("zone_redundancy_enabled", value);
     }
 
@@ -328,33 +324,25 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     /// The admin_password attribute.
     /// </summary>
     public TerraformValue<string> AdminPassword
-    {
-        get => new TerraformReference<string>(this, "admin_password");
-    }
+        => AsReference("admin_password");
 
     /// <summary>
     /// The admin_username attribute.
     /// </summary>
     public TerraformValue<string> AdminUsername
-    {
-        get => new TerraformReference<string>(this, "admin_username");
-    }
+        => AsReference("admin_username");
 
     /// <summary>
     /// The data_endpoint_host_names attribute.
     /// </summary>
     public TerraformSet<string> DataEndpointHostNames
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "data_endpoint_host_names").ResolveNodes(ctx));
-    }
+        => AsReference("data_endpoint_host_names");
 
     /// <summary>
     /// The login_server attribute.
     /// </summary>
     public TerraformValue<string> LoginServer
-    {
-        get => new TerraformReference<string>(this, "login_server");
-    }
+        => AsReference("login_server");
 
     /// <summary>
     /// Georeplications block (nesting mode: list).

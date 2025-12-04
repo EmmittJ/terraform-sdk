@@ -19,7 +19,7 @@ public class AwsSsmcontactsContactChannelDeliveryAddressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SimpleAddress is required")]
     public required TerraformValue<string> SimpleAddress
     {
-        get => new TerraformReference<string>(this, "simple_address");
+        get => GetArgument<TerraformValue<string>>("simple_address");
         set => SetArgument("simple_address", value);
     }
 
@@ -38,16 +38,16 @@ public partial class AwsSsmcontactsContactChannel(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactId is required")]
     public required TerraformValue<string> ContactId
     {
-        get => new TerraformReference<string>(this, "contact_id");
+        get => GetArgument<TerraformValue<string>>("contact_id");
         set => SetArgument("contact_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -57,16 +57,16 @@ public partial class AwsSsmcontactsContactChannel(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -76,7 +76,7 @@ public partial class AwsSsmcontactsContactChannel(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -84,17 +84,13 @@ public partial class AwsSsmcontactsContactChannel(string name) : TerraformResour
     /// The activation_status attribute.
     /// </summary>
     public TerraformValue<string> ActivationStatus
-    {
-        get => new TerraformReference<string>(this, "activation_status");
-    }
+        => AsReference("activation_status");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// DeliveryAddress block (nesting mode: list).

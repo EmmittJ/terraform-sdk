@@ -14,34 +14,34 @@ public partial class AwsSesv2ConfigurationSetDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationSetName is required")]
     public required TerraformValue<string> ConfigurationSetName
     {
-        get => new TerraformReference<string>(this, "configuration_set_name");
+        get => GetArgument<TerraformValue<string>>("configuration_set_name");
         set => SetArgument("configuration_set_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,56 +49,42 @@ public partial class AwsSesv2ConfigurationSetDataSource(string name) : Terraform
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The delivery_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DeliveryOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "delivery_options").ResolveNodes(ctx));
-    }
+        => AsReference("delivery_options");
 
     /// <summary>
     /// The reputation_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReputationOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "reputation_options").ResolveNodes(ctx));
-    }
+        => AsReference("reputation_options");
 
     /// <summary>
     /// The sending_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SendingOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "sending_options").ResolveNodes(ctx));
-    }
+        => AsReference("sending_options");
 
     /// <summary>
     /// The suppression_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SuppressionOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "suppression_options").ResolveNodes(ctx));
-    }
+        => AsReference("suppression_options");
 
     /// <summary>
     /// The tracking_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrackingOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "tracking_options").ResolveNodes(ctx));
-    }
+        => AsReference("tracking_options");
 
     /// <summary>
     /// The vdm_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> VdmOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "vdm_options").ResolveNodes(ctx));
-    }
+        => AsReference("vdm_options");
 
 }

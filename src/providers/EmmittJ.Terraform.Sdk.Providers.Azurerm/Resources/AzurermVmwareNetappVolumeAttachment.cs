@@ -18,7 +18,7 @@ public class AzurermVmwareNetappVolumeAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermVmwareNetappVolumeAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermVmwareNetappVolumeAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -52,9 +52,9 @@ public partial class AzurermVmwareNetappVolumeAttachment(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermVmwareNetappVolumeAttachment(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermVmwareNetappVolumeAttachment(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetappVolumeId is required")]
     public required TerraformValue<string> NetappVolumeId
     {
-        get => new TerraformReference<string>(this, "netapp_volume_id");
+        get => GetArgument<TerraformValue<string>>("netapp_volume_id");
         set => SetArgument("netapp_volume_id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermVmwareNetappVolumeAttachment(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareClusterId is required")]
     public required TerraformValue<string> VmwareClusterId
     {
-        get => new TerraformReference<string>(this, "vmware_cluster_id");
+        get => GetArgument<TerraformValue<string>>("vmware_cluster_id");
         set => SetArgument("vmware_cluster_id", value);
     }
 

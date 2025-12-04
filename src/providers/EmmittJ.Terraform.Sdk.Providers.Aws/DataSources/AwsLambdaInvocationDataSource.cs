@@ -14,16 +14,16 @@ public partial class AwsLambdaInvocationDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformValue<string> FunctionName
     {
-        get => new TerraformReference<string>(this, "function_name");
+        get => GetArgument<TerraformValue<string>>("function_name");
         set => SetArgument("function_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsLambdaInvocationDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Input is required")]
     public required TerraformValue<string> Input
     {
-        get => new TerraformReference<string>(this, "input");
+        get => GetArgument<TerraformValue<string>>("input");
         set => SetArgument("input", value);
     }
 
@@ -42,16 +42,16 @@ public partial class AwsLambdaInvocationDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? Qualifier
     {
-        get => new TerraformReference<string>(this, "qualifier");
+        get => GetArgument<TerraformValue<string>>("qualifier");
         set => SetArgument("qualifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -59,8 +59,6 @@ public partial class AwsLambdaInvocationDataSource(string name) : TerraformDataS
     /// The result attribute.
     /// </summary>
     public TerraformValue<string> Result
-    {
-        get => new TerraformReference<string>(this, "result");
-    }
+        => AsReference("result");
 
 }

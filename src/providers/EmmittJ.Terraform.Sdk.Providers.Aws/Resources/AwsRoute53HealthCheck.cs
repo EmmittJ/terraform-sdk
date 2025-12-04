@@ -13,7 +13,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<double>? ChildHealthThreshold
     {
-        get => new TerraformReference<double>(this, "child_health_threshold");
+        get => GetArgument<TerraformValue<double>>("child_health_threshold");
         set => SetArgument("child_health_threshold", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformSet<string>? ChildHealthchecks
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "child_healthchecks").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("child_healthchecks");
         set => SetArgument("child_healthchecks", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? CloudwatchAlarmName
     {
-        get => new TerraformReference<string>(this, "cloudwatch_alarm_name");
+        get => GetArgument<TerraformValue<string>>("cloudwatch_alarm_name");
         set => SetArgument("cloudwatch_alarm_name", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? CloudwatchAlarmRegion
     {
-        get => new TerraformReference<string>(this, "cloudwatch_alarm_region");
+        get => GetArgument<TerraformValue<string>>("cloudwatch_alarm_region");
         set => SetArgument("cloudwatch_alarm_region", value);
     }
 
@@ -49,25 +49,25 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
     /// <summary>
     /// The enable_sni attribute.
     /// </summary>
-    public TerraformValue<bool> EnableSni
+    public TerraformValue<bool>? EnableSni
     {
-        get => new TerraformReference<bool>(this, "enable_sni");
+        get => GetArgument<TerraformValue<bool>>("enable_sni");
         set => SetArgument("enable_sni", value);
     }
 
     /// <summary>
     /// The failure_threshold attribute.
     /// </summary>
-    public TerraformValue<double> FailureThreshold
+    public TerraformValue<double>? FailureThreshold
     {
-        get => new TerraformReference<double>(this, "failure_threshold");
+        get => GetArgument<TerraformValue<double>>("failure_threshold");
         set => SetArgument("failure_threshold", value);
     }
 
@@ -76,16 +76,16 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? Fqdn
     {
-        get => new TerraformReference<string>(this, "fqdn");
+        get => GetArgument<TerraformValue<string>>("fqdn");
         set => SetArgument("fqdn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? InsufficientDataHealthStatus
     {
-        get => new TerraformReference<string>(this, "insufficient_data_health_status");
+        get => GetArgument<TerraformValue<string>>("insufficient_data_health_status");
         set => SetArgument("insufficient_data_health_status", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<bool>? InvertHealthcheck
     {
-        get => new TerraformReference<bool>(this, "invert_healthcheck");
+        get => GetArgument<TerraformValue<bool>>("invert_healthcheck");
         set => SetArgument("invert_healthcheck", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? IpAddress
     {
-        get => new TerraformReference<string>(this, "ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<bool>? MeasureLatency
     {
-        get => new TerraformReference<bool>(this, "measure_latency");
+        get => GetArgument<TerraformValue<bool>>("measure_latency");
         set => SetArgument("measure_latency", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? ReferenceName
     {
-        get => new TerraformReference<string>(this, "reference_name");
+        get => GetArgument<TerraformValue<string>>("reference_name");
         set => SetArgument("reference_name", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformSet<string>? Regions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("regions");
         set => SetArgument("regions", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<double>? RequestInterval
     {
-        get => new TerraformReference<double>(this, "request_interval");
+        get => GetArgument<TerraformValue<double>>("request_interval");
         set => SetArgument("request_interval", value);
     }
 
@@ -166,7 +166,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? ResourcePath
     {
-        get => new TerraformReference<string>(this, "resource_path");
+        get => GetArgument<TerraformValue<string>>("resource_path");
         set => SetArgument("resource_path", value);
     }
 
@@ -175,7 +175,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? RoutingControlArn
     {
-        get => new TerraformReference<string>(this, "routing_control_arn");
+        get => GetArgument<TerraformValue<string>>("routing_control_arn");
         set => SetArgument("routing_control_arn", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? SearchString
     {
-        get => new TerraformReference<string>(this, "search_string");
+        get => GetArgument<TerraformValue<string>>("search_string");
         set => SetArgument("search_string", value);
     }
 
@@ -193,25 +193,25 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public TerraformMap<string> Triggers
+    public TerraformMap<string>? Triggers
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "triggers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("triggers");
         set => SetArgument("triggers", value);
     }
 
@@ -221,7 +221,7 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -229,8 +229,6 @@ public partial class AwsRoute53HealthCheck(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

@@ -18,7 +18,7 @@ public class AzurermLbBackendAddressPoolAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermLbBackendAddressPoolAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermLbBackendAddressPoolAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermLbBackendAddressPoolAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermLbBackendAddressPoolAddress(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? BackendAddressIpConfigurationId
     {
-        get => new TerraformReference<string>(this, "backend_address_ip_configuration_id");
+        get => GetArgument<TerraformValue<string>>("backend_address_ip_configuration_id");
         set => SetArgument("backend_address_ip_configuration_id", value);
     }
 
@@ -73,16 +73,16 @@ public partial class AzurermLbBackendAddressPoolAddress(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendAddressPoolId is required")]
     public required TerraformValue<string> BackendAddressPoolId
     {
-        get => new TerraformReference<string>(this, "backend_address_pool_id");
+        get => GetArgument<TerraformValue<string>>("backend_address_pool_id");
         set => SetArgument("backend_address_pool_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermLbBackendAddressPoolAddress(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? IpAddress
     {
-        get => new TerraformReference<string>(this, "ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermLbBackendAddressPoolAddress(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermLbBackendAddressPoolAddress(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? VirtualNetworkId
     {
-        get => new TerraformReference<string>(this, "virtual_network_id");
+        get => GetArgument<TerraformValue<string>>("virtual_network_id");
         set => SetArgument("virtual_network_id", value);
     }
 
@@ -118,9 +118,7 @@ public partial class AzurermLbBackendAddressPoolAddress(string name) : Terraform
     /// The inbound_nat_rule_port_mapping attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InboundNatRulePortMapping
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "inbound_nat_rule_port_mapping").ResolveNodes(ctx));
-    }
+        => AsReference("inbound_nat_rule_port_mapping");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

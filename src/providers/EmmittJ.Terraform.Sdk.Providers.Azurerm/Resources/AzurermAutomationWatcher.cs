@@ -18,7 +18,7 @@ public class AzurermAutomationWatcherTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermAutomationWatcherTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermAutomationWatcherTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermAutomationWatcherTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermAutomationWatcher(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
     public required TerraformValue<string> AutomationAccountId
     {
-        get => new TerraformReference<string>(this, "automation_account_id");
+        get => GetArgument<TerraformValue<string>>("automation_account_id");
         set => SetArgument("automation_account_id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermAutomationWatcher(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermAutomationWatcher(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Etag
     {
-        get => new TerraformReference<string>(this, "etag");
+        get => GetArgument<TerraformValue<string>>("etag");
         set => SetArgument("etag", value);
     }
 
@@ -92,16 +92,16 @@ public partial class AzurermAutomationWatcher(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionFrequencyInSeconds is required")]
     public required TerraformValue<double> ExecutionFrequencyInSeconds
     {
-        get => new TerraformReference<double>(this, "execution_frequency_in_seconds");
+        get => GetArgument<TerraformValue<double>>("execution_frequency_in_seconds");
         set => SetArgument("execution_frequency_in_seconds", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermAutomationWatcher(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermAutomationWatcher(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermAutomationWatcher(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScriptName is required")]
     public required TerraformValue<string> ScriptName
     {
-        get => new TerraformReference<string>(this, "script_name");
+        get => GetArgument<TerraformValue<string>>("script_name");
         set => SetArgument("script_name", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AzurermAutomationWatcher(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? ScriptParameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "script_parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("script_parameters");
         set => SetArgument("script_parameters", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AzurermAutomationWatcher(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScriptRunOn is required")]
     public required TerraformValue<string> ScriptRunOn
     {
-        get => new TerraformReference<string>(this, "script_run_on");
+        get => GetArgument<TerraformValue<string>>("script_run_on");
         set => SetArgument("script_run_on", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AzurermAutomationWatcher(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -167,9 +167,7 @@ public partial class AzurermAutomationWatcher(string name) : TerraformResource("
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

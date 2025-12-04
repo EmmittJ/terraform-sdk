@@ -18,7 +18,7 @@ public class GooglePrivilegedAccessManagerEntitlementAdditionalNotificationTarge
     /// </summary>
     public TerraformSet<string>? AdminEmailRecipients
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "admin_email_recipients").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("admin_email_recipients");
         set => SetArgument("admin_email_recipients", value);
     }
 
@@ -27,7 +27,7 @@ public class GooglePrivilegedAccessManagerEntitlementAdditionalNotificationTarge
     /// </summary>
     public TerraformSet<string>? RequesterEmailRecipients
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "requester_email_recipients").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("requester_email_recipients");
         set => SetArgument("requester_email_recipients", value);
     }
 
@@ -76,7 +76,7 @@ public class GooglePrivilegedAccessManagerEntitlementApprovalWorkflowBlockManual
     /// </summary>
     public TerraformValue<bool>? RequireApproverJustification
     {
-        get => new TerraformReference<bool>(this, "require_approver_justification");
+        get => GetArgument<TerraformValue<bool>>("require_approver_justification");
         set => SetArgument("require_approver_justification", value);
     }
 
@@ -113,7 +113,7 @@ public class GooglePrivilegedAccessManagerEntitlementApprovalWorkflowBlockManual
     /// </summary>
     public TerraformValue<double>? ApprovalsNeeded
     {
-        get => new TerraformReference<double>(this, "approvals_needed");
+        get => GetArgument<TerraformValue<double>>("approvals_needed");
         set => SetArgument("approvals_needed", value);
     }
 
@@ -122,7 +122,7 @@ public class GooglePrivilegedAccessManagerEntitlementApprovalWorkflowBlockManual
     /// </summary>
     public TerraformSet<string>? ApproverEmailRecipients
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "approver_email_recipients").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("approver_email_recipients");
         set => SetArgument("approver_email_recipients", value);
     }
 
@@ -158,7 +158,7 @@ public class GooglePrivilegedAccessManagerEntitlementApprovalWorkflowBlockManual
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principals is required")]
     public required TerraformSet<string> Principals
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "principals").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("principals");
         set => SetArgument("principals", value);
     }
 
@@ -182,7 +182,7 @@ public class GooglePrivilegedAccessManagerEntitlementEligibleUsersBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principals is required")]
     public required TerraformSet<string> Principals
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "principals").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("principals");
         set => SetArgument("principals", value);
     }
 
@@ -232,7 +232,7 @@ public class GooglePrivilegedAccessManagerEntitlementPrivilegedAccessBlockGcpIam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformValue<string> Resource
     {
-        get => new TerraformReference<string>(this, "resource");
+        get => GetArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -242,7 +242,7 @@ public class GooglePrivilegedAccessManagerEntitlementPrivilegedAccessBlockGcpIam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeAttribute is required")]
     public required TerraformValue<string> ResourceTypeAttribute
     {
-        get => new TerraformReference<string>(this, "resource_type");
+        get => GetArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -277,7 +277,7 @@ public class GooglePrivilegedAccessManagerEntitlementPrivilegedAccessBlockGcpIam
     /// </summary>
     public TerraformValue<string>? ConditionExpression
     {
-        get => new TerraformReference<string>(this, "condition_expression");
+        get => GetArgument<TerraformValue<string>>("condition_expression");
         set => SetArgument("condition_expression", value);
     }
 
@@ -287,7 +287,7 @@ public class GooglePrivilegedAccessManagerEntitlementPrivilegedAccessBlockGcpIam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => new TerraformReference<string>(this, "role");
+        get => GetArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 
@@ -370,7 +370,7 @@ public class GooglePrivilegedAccessManagerEntitlementTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -379,7 +379,7 @@ public class GooglePrivilegedAccessManagerEntitlementTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -388,7 +388,7 @@ public class GooglePrivilegedAccessManagerEntitlementTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -409,16 +409,16 @@ public partial class GooglePrivilegedAccessManagerEntitlement(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntitlementId is required")]
     public required TerraformValue<string> EntitlementId
     {
-        get => new TerraformReference<string>(this, "entitlement_id");
+        get => GetArgument<TerraformValue<string>>("entitlement_id");
         set => SetArgument("entitlement_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -428,7 +428,7 @@ public partial class GooglePrivilegedAccessManagerEntitlement(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -440,7 +440,7 @@ public partial class GooglePrivilegedAccessManagerEntitlement(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRequestDuration is required")]
     public required TerraformValue<string> MaxRequestDuration
     {
-        get => new TerraformReference<string>(this, "max_request_duration");
+        get => GetArgument<TerraformValue<string>>("max_request_duration");
         set => SetArgument("max_request_duration", value);
     }
 
@@ -450,7 +450,7 @@ public partial class GooglePrivilegedAccessManagerEntitlement(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -459,43 +459,33 @@ public partial class GooglePrivilegedAccessManagerEntitlement(string name) : Ter
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// For Resource freshness validation (https://google.aip.dev/154)
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Output Only. The entitlement&#39;s name follows a hierarchical structure, comprising the organization, folder, or project, alongside the region and a unique entitlement ID.
     /// Formats: organizations/{organization-number}/locations/{region}/entitlements/{entitlement-id}, folders/{folder-number}/locations/{region}/entitlements/{entitlement-id}, and projects/{project-id|project-number}/locations/{region}/entitlements/{entitlement-id}.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. The current state of the Entitlement.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Output only. Update time stamp. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// AdditionalNotificationTargets block (nesting mode: list).

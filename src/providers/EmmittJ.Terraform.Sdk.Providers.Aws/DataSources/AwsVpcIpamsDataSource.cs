@@ -19,7 +19,7 @@ public class AwsVpcIpamsDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsVpcIpamsDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -47,16 +47,16 @@ public partial class AwsVpcIpamsDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformList<string>? IpamIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ipam_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ipam_ids");
         set => SetArgument("ipam_ids", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -64,9 +64,7 @@ public partial class AwsVpcIpamsDataSource(string name) : TerraformDataSource("a
     /// The ipams attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Ipams
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "ipams").ResolveNodes(ctx));
-    }
+        => AsReference("ipams");
 
     /// <summary>
     /// Filter block (nesting mode: set).

@@ -18,7 +18,7 @@ public class AzurermSpringCloudDevToolPortalSsoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSpringCloudDevToolPortalSsoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSpringCloudDevToolPortalSsoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MetadataUrl
     {
-        get => new TerraformReference<string>(this, "metadata_url");
+        get => GetArgument<TerraformValue<string>>("metadata_url");
         set => SetArgument("metadata_url", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSpringCloudDevToolPortalSsoBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Scope
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "scope").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermSpringCloudDevToolPortalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermSpringCloudDevToolPortalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermSpringCloudDevToolPortalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermSpringCloudDevToolPortalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -111,27 +111,27 @@ public partial class AzurermSpringCloudDevToolPortal(string name) : TerraformRes
     /// <summary>
     /// The application_accelerator_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> ApplicationAcceleratorEnabled
+    public TerraformValue<bool>? ApplicationAcceleratorEnabled
     {
-        get => new TerraformReference<bool>(this, "application_accelerator_enabled");
+        get => GetArgument<TerraformValue<bool>>("application_accelerator_enabled");
         set => SetArgument("application_accelerator_enabled", value);
     }
 
     /// <summary>
     /// The application_live_view_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> ApplicationLiveViewEnabled
+    public TerraformValue<bool>? ApplicationLiveViewEnabled
     {
-        get => new TerraformReference<bool>(this, "application_live_view_enabled");
+        get => GetArgument<TerraformValue<bool>>("application_live_view_enabled");
         set => SetArgument("application_live_view_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AzurermSpringCloudDevToolPortal(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AzurermSpringCloudDevToolPortal(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -160,7 +160,7 @@ public partial class AzurermSpringCloudDevToolPortal(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformValue<string> SpringCloudServiceId
     {
-        get => new TerraformReference<string>(this, "spring_cloud_service_id");
+        get => GetArgument<TerraformValue<string>>("spring_cloud_service_id");
         set => SetArgument("spring_cloud_service_id", value);
     }
 

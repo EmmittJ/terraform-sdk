@@ -18,7 +18,7 @@ public class AzurermEventhubConsumerGroupDataSourceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermEventhubConsumerGroupDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubName is required")]
     public required TerraformValue<string> EventhubName
     {
-        get => new TerraformReference<string>(this, "eventhub_name");
+        get => GetArgument<TerraformValue<string>>("eventhub_name");
         set => SetArgument("eventhub_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermEventhubConsumerGroupDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermEventhubConsumerGroupDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
     public required TerraformValue<string> NamespaceName
     {
-        get => new TerraformReference<string>(this, "namespace_name");
+        get => GetArgument<TerraformValue<string>>("namespace_name");
         set => SetArgument("namespace_name", value);
     }
 
@@ -76,7 +76,7 @@ public partial class AzurermEventhubConsumerGroupDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -84,9 +84,7 @@ public partial class AzurermEventhubConsumerGroupDataSource(string name) : Terra
     /// The user_metadata attribute.
     /// </summary>
     public TerraformValue<string> UserMetadata
-    {
-        get => new TerraformReference<string>(this, "user_metadata");
-    }
+        => AsReference("user_metadata");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

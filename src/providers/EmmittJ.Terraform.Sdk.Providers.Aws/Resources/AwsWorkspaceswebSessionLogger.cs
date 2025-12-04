@@ -18,7 +18,7 @@ public class AwsWorkspaceswebSessionLoggerEventFilterBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Include
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "include").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("include");
         set => SetArgument("include", value);
     }
 
@@ -86,16 +86,16 @@ public class AwsWorkspaceswebSessionLoggerLogConfigurationBlockS3Block : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The bucket_owner attribute.
     /// </summary>
-    public TerraformValue<string> BucketOwner
+    public TerraformValue<string>? BucketOwner
     {
-        get => new TerraformReference<string>(this, "bucket_owner");
+        get => GetArgument<TerraformValue<string>>("bucket_owner");
         set => SetArgument("bucket_owner", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsWorkspaceswebSessionLoggerLogConfigurationBlockS3Block : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderStructure is required")]
     public required TerraformValue<string> FolderStructure
     {
-        get => new TerraformReference<string>(this, "folder_structure");
+        get => GetArgument<TerraformValue<string>>("folder_structure");
         set => SetArgument("folder_structure", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsWorkspaceswebSessionLoggerLogConfigurationBlockS3Block : Terrafo
     /// </summary>
     public TerraformValue<string>? KeyPrefix
     {
-        get => new TerraformReference<string>(this, "key_prefix");
+        get => GetArgument<TerraformValue<string>>("key_prefix");
         set => SetArgument("key_prefix", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsWorkspaceswebSessionLoggerLogConfigurationBlockS3Block : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogFileFormat is required")]
     public required TerraformValue<string> LogFileFormat
     {
-        get => new TerraformReference<string>(this, "log_file_format");
+        get => GetArgument<TerraformValue<string>>("log_file_format");
         set => SetArgument("log_file_format", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AwsWorkspaceswebSessionLogger(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? AdditionalEncryptionContext
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_encryption_context").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("additional_encryption_context");
         set => SetArgument("additional_encryption_context", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AwsWorkspaceswebSessionLogger(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? CustomerManagedKey
     {
-        get => new TerraformReference<string>(this, "customer_managed_key");
+        get => GetArgument<TerraformValue<string>>("customer_managed_key");
         set => SetArgument("customer_managed_key", value);
     }
 
@@ -160,16 +160,16 @@ public partial class AwsWorkspaceswebSessionLogger(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -178,7 +178,7 @@ public partial class AwsWorkspaceswebSessionLogger(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -186,25 +186,19 @@ public partial class AwsWorkspaceswebSessionLogger(string name) : TerraformResou
     /// The associated_portal_arns attribute.
     /// </summary>
     public TerraformList<string> AssociatedPortalArns
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "associated_portal_arns").ResolveNodes(ctx));
-    }
+        => AsReference("associated_portal_arns");
 
     /// <summary>
     /// The session_logger_arn attribute.
     /// </summary>
     public TerraformValue<string> SessionLoggerArn
-    {
-        get => new TerraformReference<string>(this, "session_logger_arn");
-    }
+        => AsReference("session_logger_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// EventFilter block (nesting mode: list).

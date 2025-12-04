@@ -18,7 +18,7 @@ public class GoogleSqlSslCertTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleSqlSslCertTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,16 +46,16 @@ public partial class GoogleSqlSslCert(string name) : TerraformResource("google_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommonName is required")]
     public required TerraformValue<string> CommonName
     {
-        get => new TerraformReference<string>(this, "common_name");
+        get => GetArgument<TerraformValue<string>>("common_name");
         set => SetArgument("common_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -65,16 +65,16 @@ public partial class GoogleSqlSslCert(string name) : TerraformResource("google_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -82,57 +82,43 @@ public partial class GoogleSqlSslCert(string name) : TerraformResource("google_s
     /// The actual certificate data for this client certificate.
     /// </summary>
     public TerraformValue<string> Cert
-    {
-        get => new TerraformReference<string>(this, "cert");
-    }
+        => AsReference("cert");
 
     /// <summary>
     /// The serial number extracted from the certificate data.
     /// </summary>
     public TerraformValue<string> CertSerialNumber
-    {
-        get => new TerraformReference<string>(this, "cert_serial_number");
-    }
+        => AsReference("cert_serial_number");
 
     /// <summary>
     /// The time when the certificate was created in RFC 3339 format, for example 2012-11-15T16:19:00.094Z.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The time when the certificate expires in RFC 3339 format, for example 2012-11-15T16:19:00.094Z.
     /// </summary>
     public TerraformValue<string> ExpirationTime
-    {
-        get => new TerraformReference<string>(this, "expiration_time");
-    }
+        => AsReference("expiration_time");
 
     /// <summary>
     /// The private key associated with the client certificate.
     /// </summary>
     public TerraformValue<string> PrivateKey
-    {
-        get => new TerraformReference<string>(this, "private_key");
-    }
+        => AsReference("private_key");
 
     /// <summary>
     /// The CA cert of the server this client cert was generated from.
     /// </summary>
     public TerraformValue<string> ServerCaCert
-    {
-        get => new TerraformReference<string>(this, "server_ca_cert");
-    }
+        => AsReference("server_ca_cert");
 
     /// <summary>
     /// The SHA1 Fingerprint of the certificate.
     /// </summary>
     public TerraformValue<string> Sha1Fingerprint
-    {
-        get => new TerraformReference<string>(this, "sha1_fingerprint");
-    }
+        => AsReference("sha1_fingerprint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

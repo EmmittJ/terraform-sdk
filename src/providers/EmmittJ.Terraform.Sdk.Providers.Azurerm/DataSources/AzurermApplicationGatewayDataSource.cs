@@ -18,7 +18,7 @@ public class AzurermApplicationGatewayDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermApplicationGatewayDataSource(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermApplicationGatewayDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermApplicationGatewayDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,257 +64,193 @@ public partial class AzurermApplicationGatewayDataSource(string name) : Terrafor
     /// The authentication_certificate attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AuthenticationCertificate
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "authentication_certificate").ResolveNodes(ctx));
-    }
+        => AsReference("authentication_certificate");
 
     /// <summary>
     /// The autoscale_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AutoscaleConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "autoscale_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("autoscale_configuration");
 
     /// <summary>
     /// The backend_address_pool attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> BackendAddressPool
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "backend_address_pool").ResolveNodes(ctx));
-    }
+        => AsReference("backend_address_pool");
 
     /// <summary>
     /// The backend_http_settings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> BackendHttpSettings
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "backend_http_settings").ResolveNodes(ctx));
-    }
+        => AsReference("backend_http_settings");
 
     /// <summary>
     /// The custom_error_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CustomErrorConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "custom_error_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("custom_error_configuration");
 
     /// <summary>
     /// The fips_enabled attribute.
     /// </summary>
     public TerraformValue<bool> FipsEnabled
-    {
-        get => new TerraformReference<bool>(this, "fips_enabled");
-    }
+        => AsReference("fips_enabled");
 
     /// <summary>
     /// The firewall_policy_id attribute.
     /// </summary>
     public TerraformValue<string> FirewallPolicyId
-    {
-        get => new TerraformReference<string>(this, "firewall_policy_id");
-    }
+        => AsReference("firewall_policy_id");
 
     /// <summary>
     /// The force_firewall_policy_association attribute.
     /// </summary>
     public TerraformValue<bool> ForceFirewallPolicyAssociation
-    {
-        get => new TerraformReference<bool>(this, "force_firewall_policy_association");
-    }
+        => AsReference("force_firewall_policy_association");
 
     /// <summary>
     /// The frontend_ip_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FrontendIpConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "frontend_ip_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("frontend_ip_configuration");
 
     /// <summary>
     /// The frontend_port attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FrontendPort
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "frontend_port").ResolveNodes(ctx));
-    }
+        => AsReference("frontend_port");
 
     /// <summary>
     /// The gateway_ip_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> GatewayIpConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "gateway_ip_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("gateway_ip_configuration");
 
     /// <summary>
     /// The global attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> GlobalAttribute
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "global").ResolveNodes(ctx));
-    }
+        => AsReference("global");
 
     /// <summary>
     /// The http2_enabled attribute.
     /// </summary>
     public TerraformValue<bool> Http2Enabled
-    {
-        get => new TerraformReference<bool>(this, "http2_enabled");
-    }
+        => AsReference("http2_enabled");
 
     /// <summary>
     /// The http_listener attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> HttpListener
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "http_listener").ResolveNodes(ctx));
-    }
+        => AsReference("http_listener");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
-    }
+        => AsReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The private_endpoint_connection attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrivateEndpointConnection
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "private_endpoint_connection").ResolveNodes(ctx));
-    }
+        => AsReference("private_endpoint_connection");
 
     /// <summary>
     /// The private_link_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrivateLinkConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "private_link_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("private_link_configuration");
 
     /// <summary>
     /// The probe attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Probe
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "probe").ResolveNodes(ctx));
-    }
+        => AsReference("probe");
 
     /// <summary>
     /// The redirect_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RedirectConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "redirect_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("redirect_configuration");
 
     /// <summary>
     /// The request_routing_rule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RequestRoutingRule
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "request_routing_rule").ResolveNodes(ctx));
-    }
+        => AsReference("request_routing_rule");
 
     /// <summary>
     /// The rewrite_rule_set attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RewriteRuleSet
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "rewrite_rule_set").ResolveNodes(ctx));
-    }
+        => AsReference("rewrite_rule_set");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Sku
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "sku").ResolveNodes(ctx));
-    }
+        => AsReference("sku");
 
     /// <summary>
     /// The ssl_certificate attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SslCertificate
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "ssl_certificate").ResolveNodes(ctx));
-    }
+        => AsReference("ssl_certificate");
 
     /// <summary>
     /// The ssl_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SslPolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "ssl_policy").ResolveNodes(ctx));
-    }
+        => AsReference("ssl_policy");
 
     /// <summary>
     /// The ssl_profile attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SslProfile
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "ssl_profile").ResolveNodes(ctx));
-    }
+        => AsReference("ssl_profile");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The trusted_client_certificate attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrustedClientCertificate
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "trusted_client_certificate").ResolveNodes(ctx));
-    }
+        => AsReference("trusted_client_certificate");
 
     /// <summary>
     /// The trusted_root_certificate attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrustedRootCertificate
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "trusted_root_certificate").ResolveNodes(ctx));
-    }
+        => AsReference("trusted_root_certificate");
 
     /// <summary>
     /// The url_path_map attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> UrlPathMap
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "url_path_map").ResolveNodes(ctx));
-    }
+        => AsReference("url_path_map");
 
     /// <summary>
     /// The waf_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> WafConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "waf_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("waf_configuration");
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     public TerraformList<string> Zones
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "zones").ResolveNodes(ctx));
-    }
+        => AsReference("zones");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

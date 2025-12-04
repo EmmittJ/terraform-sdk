@@ -18,7 +18,7 @@ public class AzurermResourcesDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,18 +34,18 @@ public partial class AzurermResourcesDataSource(string name) : TerraformDataSour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -54,25 +54,25 @@ public partial class AzurermResourcesDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformMap<string>? RequiredTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "required_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("required_tags");
         set => SetArgument("required_tags", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformValue<string> ResourceGroupName
+    public TerraformValue<string>? ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string> Type
+    public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -80,9 +80,7 @@ public partial class AzurermResourcesDataSource(string name) : TerraformDataSour
     /// The resources attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Resources
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "resources").ResolveNodes(ctx));
-    }
+        => AsReference("resources");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

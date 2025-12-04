@@ -17,9 +17,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
     /// Time the AccessPolicy was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Description of the ServicePerimeter and its use. Does not affect
@@ -27,7 +25,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -39,7 +37,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -63,7 +61,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
     /// </summary>
     public TerraformValue<string>? PerimeterType
     {
-        get => new TerraformReference<string>(this, "perimeter_type");
+        get => GetArgument<TerraformValue<string>>("perimeter_type");
         set => SetArgument("perimeter_type", value);
     }
 
@@ -73,7 +71,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -81,9 +79,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
     /// Time the AccessPolicy was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Use explicit dry run spec flag. Ordinarily, a dry-run spec implicitly exists
@@ -98,7 +94,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlock :
     /// </summary>
     public TerraformValue<bool>? UseExplicitDryRunSpec
     {
-        get => new TerraformReference<bool>(this, "use_explicit_dry_run_spec");
+        get => GetArgument<TerraformValue<bool>>("use_explicit_dry_run_spec");
         set => SetArgument("use_explicit_dry_run_spec", value);
     }
 
@@ -149,7 +145,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformSet<string>? AccessLevels
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "access_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("access_levels");
         set => SetArgument("access_levels", value);
     }
 
@@ -160,7 +156,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformSet<string>? Resources
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "resources").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("resources");
         set => SetArgument("resources", value);
     }
 
@@ -173,7 +169,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformSet<string>? RestrictedServices
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "restricted_services").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("restricted_services");
         set => SetArgument("restricted_services", value);
     }
 
@@ -223,7 +219,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -269,7 +265,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformSet<string>? Identities
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identities").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identities");
         set => SetArgument("identities", value);
     }
 
@@ -280,7 +276,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformValue<string>? IdentityType
     {
-        get => new TerraformReference<string>(this, "identity_type");
+        get => GetArgument<TerraformValue<string>>("identity_type");
         set => SetArgument("identity_type", value);
     }
 
@@ -289,7 +285,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformValue<string>? SourceRestriction
     {
-        get => new TerraformReference<string>(this, "source_restriction");
+        get => GetArgument<TerraformValue<string>>("source_restriction");
         set => SetArgument("source_restriction", value);
     }
 
@@ -320,7 +316,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformValue<string>? AccessLevel
     {
-        get => new TerraformReference<string>(this, "access_level");
+        get => GetArgument<TerraformValue<string>>("access_level");
         set => SetArgument("access_level", value);
     }
 
@@ -334,7 +330,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformValue<string>? Resource
     {
-        get => new TerraformReference<string>(this, "resource");
+        get => GetArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -358,7 +354,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformSet<string>? ExternalResources
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "external_resources").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("external_resources");
         set => SetArgument("external_resources", value);
     }
 
@@ -371,7 +367,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformSet<string>? Resources
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "resources").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("resources");
         set => SetArgument("resources", value);
     }
 
@@ -382,7 +378,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformSet<string>? Roles
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "roles").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("roles");
         set => SetArgument("roles", value);
     }
 
@@ -415,7 +411,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformValue<string>? ServiceName
     {
-        get => new TerraformReference<string>(this, "service_name");
+        get => GetArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -448,7 +444,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformValue<string>? Method
     {
-        get => new TerraformReference<string>(this, "method");
+        get => GetArgument<TerraformValue<string>>("method");
         set => SetArgument("method", value);
     }
 
@@ -458,7 +454,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformValue<string>? Permission
     {
-        get => new TerraformReference<string>(this, "permission");
+        get => GetArgument<TerraformValue<string>>("permission");
         set => SetArgument("permission", value);
     }
 
@@ -480,7 +476,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -524,7 +520,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformSet<string>? Identities
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identities").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identities");
         set => SetArgument("identities", value);
     }
 
@@ -535,7 +531,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformValue<string>? IdentityType
     {
-        get => new TerraformReference<string>(this, "identity_type");
+        get => GetArgument<TerraformValue<string>>("identity_type");
         set => SetArgument("identity_type", value);
     }
 
@@ -573,7 +569,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformValue<string>? AccessLevel
     {
-        get => new TerraformReference<string>(this, "access_level");
+        get => GetArgument<TerraformValue<string>>("access_level");
         set => SetArgument("access_level", value);
     }
 
@@ -587,7 +583,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformValue<string>? Resource
     {
-        get => new TerraformReference<string>(this, "resource");
+        get => GetArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -616,7 +612,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformSet<string>? Resources
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "resources").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("resources");
         set => SetArgument("resources", value);
     }
 
@@ -627,7 +623,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformSet<string>? Roles
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "roles").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("roles");
         set => SetArgument("roles", value);
     }
 
@@ -660,7 +656,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformValue<string>? ServiceName
     {
-        get => new TerraformReference<string>(this, "service_name");
+        get => GetArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -693,7 +689,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformValue<string>? Method
     {
-        get => new TerraformReference<string>(this, "method");
+        get => GetArgument<TerraformValue<string>>("method");
         set => SetArgument("method", value);
     }
 
@@ -703,7 +699,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformValue<string>? Permission
     {
-        get => new TerraformReference<string>(this, "permission");
+        get => GetArgument<TerraformValue<string>>("permission");
         set => SetArgument("permission", value);
     }
 
@@ -726,7 +722,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformSet<string>? AllowedServices
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_services").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_services");
         set => SetArgument("allowed_services", value);
     }
 
@@ -736,7 +732,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSp
     /// </summary>
     public TerraformValue<bool>? EnableRestriction
     {
-        get => new TerraformReference<bool>(this, "enable_restriction");
+        get => GetArgument<TerraformValue<bool>>("enable_restriction");
         set => SetArgument("enable_restriction", value);
     }
 
@@ -767,7 +763,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformSet<string>? AccessLevels
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "access_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("access_levels");
         set => SetArgument("access_levels", value);
     }
 
@@ -778,7 +774,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformSet<string>? Resources
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "resources").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("resources");
         set => SetArgument("resources", value);
     }
 
@@ -791,7 +787,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformSet<string>? RestrictedServices
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "restricted_services").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("restricted_services");
         set => SetArgument("restricted_services", value);
     }
 
@@ -841,7 +837,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -885,7 +881,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformSet<string>? Identities
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identities").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identities");
         set => SetArgument("identities", value);
     }
 
@@ -896,7 +892,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformValue<string>? IdentityType
     {
-        get => new TerraformReference<string>(this, "identity_type");
+        get => GetArgument<TerraformValue<string>>("identity_type");
         set => SetArgument("identity_type", value);
     }
 
@@ -905,7 +901,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformValue<string>? SourceRestriction
     {
-        get => new TerraformReference<string>(this, "source_restriction");
+        get => GetArgument<TerraformValue<string>>("source_restriction");
         set => SetArgument("source_restriction", value);
     }
 
@@ -936,7 +932,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformValue<string>? AccessLevel
     {
-        get => new TerraformReference<string>(this, "access_level");
+        get => GetArgument<TerraformValue<string>>("access_level");
         set => SetArgument("access_level", value);
     }
 
@@ -950,7 +946,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformValue<string>? Resource
     {
-        get => new TerraformReference<string>(this, "resource");
+        get => GetArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -974,7 +970,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformSet<string>? ExternalResources
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "external_resources").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("external_resources");
         set => SetArgument("external_resources", value);
     }
 
@@ -987,7 +983,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformSet<string>? Resources
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "resources").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("resources");
         set => SetArgument("resources", value);
     }
 
@@ -998,7 +994,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformSet<string>? Roles
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "roles").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("roles");
         set => SetArgument("roles", value);
     }
 
@@ -1031,7 +1027,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformValue<string>? ServiceName
     {
-        get => new TerraformReference<string>(this, "service_name");
+        get => GetArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -1064,7 +1060,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformValue<string>? Method
     {
-        get => new TerraformReference<string>(this, "method");
+        get => GetArgument<TerraformValue<string>>("method");
         set => SetArgument("method", value);
     }
 
@@ -1074,7 +1070,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformValue<string>? Permission
     {
-        get => new TerraformReference<string>(this, "permission");
+        get => GetArgument<TerraformValue<string>>("permission");
         set => SetArgument("permission", value);
     }
 
@@ -1096,7 +1092,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -1140,7 +1136,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformSet<string>? Identities
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identities").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identities");
         set => SetArgument("identities", value);
     }
 
@@ -1151,7 +1147,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformValue<string>? IdentityType
     {
-        get => new TerraformReference<string>(this, "identity_type");
+        get => GetArgument<TerraformValue<string>>("identity_type");
         set => SetArgument("identity_type", value);
     }
 
@@ -1189,7 +1185,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformValue<string>? AccessLevel
     {
-        get => new TerraformReference<string>(this, "access_level");
+        get => GetArgument<TerraformValue<string>>("access_level");
         set => SetArgument("access_level", value);
     }
 
@@ -1203,7 +1199,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformValue<string>? Resource
     {
-        get => new TerraformReference<string>(this, "resource");
+        get => GetArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -1232,7 +1228,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformSet<string>? Resources
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "resources").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("resources");
         set => SetArgument("resources", value);
     }
 
@@ -1243,7 +1239,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformSet<string>? Roles
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "roles").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("roles");
         set => SetArgument("roles", value);
     }
 
@@ -1276,7 +1272,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformValue<string>? ServiceName
     {
-        get => new TerraformReference<string>(this, "service_name");
+        get => GetArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -1309,7 +1305,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformValue<string>? Method
     {
-        get => new TerraformReference<string>(this, "method");
+        get => GetArgument<TerraformValue<string>>("method");
         set => SetArgument("method", value);
     }
 
@@ -1319,7 +1315,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformValue<string>? Permission
     {
-        get => new TerraformReference<string>(this, "permission");
+        get => GetArgument<TerraformValue<string>>("permission");
         set => SetArgument("permission", value);
     }
 
@@ -1342,7 +1338,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformSet<string>? AllowedServices
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_services").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_services");
         set => SetArgument("allowed_services", value);
     }
 
@@ -1352,7 +1348,7 @@ public class GoogleAccessContextManagerServicePerimetersServicePerimetersBlockSt
     /// </summary>
     public TerraformValue<bool>? EnableRestriction
     {
-        get => new TerraformReference<bool>(this, "enable_restriction");
+        get => GetArgument<TerraformValue<bool>>("enable_restriction");
         set => SetArgument("enable_restriction", value);
     }
 
@@ -1375,7 +1371,7 @@ public class GoogleAccessContextManagerServicePerimetersTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1384,7 +1380,7 @@ public class GoogleAccessContextManagerServicePerimetersTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1393,7 +1389,7 @@ public class GoogleAccessContextManagerServicePerimetersTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1409,9 +1405,9 @@ public partial class GoogleAccessContextManagerServicePerimeters(string name) : 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1422,7 +1418,7 @@ public partial class GoogleAccessContextManagerServicePerimeters(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 

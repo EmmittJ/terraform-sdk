@@ -19,7 +19,7 @@ public class GoogleMonitoringUptimeCheckConfigContentMatchersBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => new TerraformReference<string>(this, "content");
+        get => GetArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleMonitoringUptimeCheckConfigContentMatchersBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Matcher
     {
-        get => new TerraformReference<string>(this, "matcher");
+        get => GetArgument<TerraformValue<string>>("matcher");
         set => SetArgument("matcher", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleMonitoringUptimeCheckConfigContentMatchersBlockJsonPathMatche
     /// </summary>
     public TerraformValue<string>? JsonMatcher
     {
-        get => new TerraformReference<string>(this, "json_matcher");
+        get => GetArgument<TerraformValue<string>>("json_matcher");
         set => SetArgument("json_matcher", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleMonitoringUptimeCheckConfigContentMatchersBlockJsonPathMatche
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JsonPath is required")]
     public required TerraformValue<string> JsonPath
     {
-        get => new TerraformReference<string>(this, "json_path");
+        get => GetArgument<TerraformValue<string>>("json_path");
         set => SetArgument("json_path", value);
     }
 
@@ -93,7 +93,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Body
     {
-        get => new TerraformReference<string>(this, "body");
+        get => GetArgument<TerraformValue<string>>("body");
         set => SetArgument("body", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ContentType
     {
-        get => new TerraformReference<string>(this, "content_type");
+        get => GetArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -111,16 +111,16 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CustomContentType
     {
-        get => new TerraformReference<string>(this, "custom_content_type");
+        get => GetArgument<TerraformValue<string>>("custom_content_type");
         set => SetArgument("custom_content_type", value);
     }
 
     /// <summary>
     /// The list of headers to send as part of the uptime check request. If two headers have the same key and different values, they should be entered as a single header, with the value being a comma-separated list of all the desired values as described in [RFC 2616 (page 31)](https://www.w3.org/Protocols/rfc2616/rfc2616.txt). Entering two separate headers with the same key in a Create call will cause the first to be overwritten by the second. The maximum number of headers allowed is 100.
     /// </summary>
-    public TerraformMap<string> Headers
+    public TerraformMap<string>? Headers
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("headers");
         set => SetArgument("headers", value);
     }
 
@@ -129,7 +129,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? MaskHeaders
     {
-        get => new TerraformReference<bool>(this, "mask_headers");
+        get => GetArgument<TerraformValue<bool>>("mask_headers");
         set => SetArgument("mask_headers", value);
     }
 
@@ -138,16 +138,16 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
     /// <summary>
     /// The port to the page to run the check against. Will be combined with &#39;host&#39; (specified within the [&#39;monitored_resource&#39;](#nested_monitored_resource)) and path to construct the full URL. Optional (defaults to 80 without SSL, or 443 with SSL).
     /// </summary>
-    public TerraformValue<double> Port
+    public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -156,7 +156,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RequestMethod
     {
-        get => new TerraformReference<string>(this, "request_method");
+        get => GetArgument<TerraformValue<string>>("request_method");
         set => SetArgument("request_method", value);
     }
 
@@ -165,7 +165,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? UseSsl
     {
-        get => new TerraformReference<bool>(this, "use_ssl");
+        get => GetArgument<TerraformValue<bool>>("use_ssl");
         set => SetArgument("use_ssl", value);
     }
 
@@ -174,7 +174,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ValidateSsl
     {
-        get => new TerraformReference<bool>(this, "validate_ssl");
+        get => GetArgument<TerraformValue<bool>>("validate_ssl");
         set => SetArgument("validate_ssl", value);
     }
 
@@ -235,7 +235,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlockAcceptedResponseStat
     /// </summary>
     public TerraformValue<string>? StatusClass
     {
-        get => new TerraformReference<string>(this, "status_class");
+        get => GetArgument<TerraformValue<string>>("status_class");
         set => SetArgument("status_class", value);
     }
 
@@ -244,7 +244,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlockAcceptedResponseStat
     /// </summary>
     public TerraformValue<double>? StatusValue
     {
-        get => new TerraformReference<double>(this, "status_value");
+        get => GetArgument<TerraformValue<double>>("status_value");
         set => SetArgument("status_value", value);
     }
 
@@ -266,7 +266,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlockAuthInfoBlock : Terr
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -275,7 +275,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlockAuthInfoBlock : Terr
     /// </summary>
     public TerraformValue<string>? PasswordWo
     {
-        get => new TerraformReference<string>(this, "password_wo");
+        get => GetArgument<TerraformValue<string>>("password_wo");
         set => SetArgument("password_wo", value);
     }
 
@@ -284,7 +284,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlockAuthInfoBlock : Terr
     /// </summary>
     public TerraformValue<string>? PasswordWoVersion
     {
-        get => new TerraformReference<string>(this, "password_wo_version");
+        get => GetArgument<TerraformValue<string>>("password_wo_version");
         set => SetArgument("password_wo_version", value);
     }
 
@@ -294,7 +294,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlockAuthInfoBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -317,7 +317,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlockPingConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PingsCount is required")]
     public required TerraformValue<double> PingsCount
     {
-        get => new TerraformReference<double>(this, "pings_count");
+        get => GetArgument<TerraformValue<double>>("pings_count");
         set => SetArgument("pings_count", value);
     }
 
@@ -339,7 +339,7 @@ public class GoogleMonitoringUptimeCheckConfigHttpCheckBlockServiceAgentAuthenti
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -363,7 +363,7 @@ public class GoogleMonitoringUptimeCheckConfigMonitoredResourceBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Labels is required")]
     public required TerraformMap<string> Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -373,7 +373,7 @@ public class GoogleMonitoringUptimeCheckConfigMonitoredResourceBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -396,7 +396,7 @@ public class GoogleMonitoringUptimeCheckConfigResourceGroupBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? GroupId
     {
-        get => new TerraformReference<string>(this, "group_id");
+        get => GetArgument<TerraformValue<string>>("group_id");
         set => SetArgument("group_id", value);
     }
 
@@ -405,7 +405,7 @@ public class GoogleMonitoringUptimeCheckConfigResourceGroupBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? ResourceTypeAttribute
     {
-        get => new TerraformReference<string>(this, "resource_type");
+        get => GetArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -455,7 +455,7 @@ public class GoogleMonitoringUptimeCheckConfigSyntheticMonitorBlockCloudFunction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -479,7 +479,7 @@ public class GoogleMonitoringUptimeCheckConfigTcpCheckBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -512,7 +512,7 @@ public class GoogleMonitoringUptimeCheckConfigTcpCheckBlockPingConfigBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PingsCount is required")]
     public required TerraformValue<double> PingsCount
     {
-        get => new TerraformReference<double>(this, "pings_count");
+        get => GetArgument<TerraformValue<double>>("pings_count");
         set => SetArgument("pings_count", value);
     }
 
@@ -535,7 +535,7 @@ public class GoogleMonitoringUptimeCheckConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -544,7 +544,7 @@ public class GoogleMonitoringUptimeCheckConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -553,7 +553,7 @@ public class GoogleMonitoringUptimeCheckConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -569,9 +569,9 @@ public partial class GoogleMonitoringUptimeCheckConfig(string name) : TerraformR
     /// <summary>
     /// The checker type to use for the check. If the monitored resource type is &#39;servicedirectory_service&#39;, &#39;checker_type&#39; must be set to &#39;VPC_CHECKERS&#39;. Possible values: [&amp;quot;STATIC_IP_CHECKERS&amp;quot;, &amp;quot;VPC_CHECKERS&amp;quot;]
     /// </summary>
-    public TerraformValue<string> CheckerType
+    public TerraformValue<string>? CheckerType
     {
-        get => new TerraformReference<string>(this, "checker_type");
+        get => GetArgument<TerraformValue<string>>("checker_type");
         set => SetArgument("checker_type", value);
     }
 
@@ -581,16 +581,16 @@ public partial class GoogleMonitoringUptimeCheckConfig(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -599,7 +599,7 @@ public partial class GoogleMonitoringUptimeCheckConfig(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? LogCheckFailures
     {
-        get => new TerraformReference<bool>(this, "log_check_failures");
+        get => GetArgument<TerraformValue<bool>>("log_check_failures");
         set => SetArgument("log_check_failures", value);
     }
 
@@ -608,16 +608,16 @@ public partial class GoogleMonitoringUptimeCheckConfig(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Period
     {
-        get => new TerraformReference<string>(this, "period");
+        get => GetArgument<TerraformValue<string>>("period");
         set => SetArgument("period", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -626,7 +626,7 @@ public partial class GoogleMonitoringUptimeCheckConfig(string name) : TerraformR
     /// </summary>
     public TerraformList<string>? SelectedRegions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "selected_regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("selected_regions");
         set => SetArgument("selected_regions", value);
     }
 
@@ -636,7 +636,7 @@ public partial class GoogleMonitoringUptimeCheckConfig(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timeout is required")]
     public required TerraformValue<string> Timeout
     {
-        get => new TerraformReference<string>(this, "timeout");
+        get => GetArgument<TerraformValue<string>>("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -645,7 +645,7 @@ public partial class GoogleMonitoringUptimeCheckConfig(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? UserLabels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "user_labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("user_labels");
         set => SetArgument("user_labels", value);
     }
 
@@ -653,17 +653,13 @@ public partial class GoogleMonitoringUptimeCheckConfig(string name) : TerraformR
     /// A unique resource name for this UptimeCheckConfig. The format is &#39;projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID]&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The id of the uptime check
     /// </summary>
     public TerraformValue<string> UptimeCheckId
-    {
-        get => new TerraformReference<string>(this, "uptime_check_id");
-    }
+        => AsReference("uptime_check_id");
 
     /// <summary>
     /// ContentMatchers block (nesting mode: list).

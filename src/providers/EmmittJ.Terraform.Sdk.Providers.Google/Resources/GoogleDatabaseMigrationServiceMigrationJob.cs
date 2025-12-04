@@ -40,7 +40,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobDumpFlagsBlockDumpFlagsBl
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -49,7 +49,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobDumpFlagsBlockDumpFlagsBl
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -72,7 +72,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobPerformanceConfigBlock : 
     /// </summary>
     public TerraformValue<string>? DumpParallelLevel
     {
-        get => new TerraformReference<string>(this, "dump_parallel_level");
+        get => GetArgument<TerraformValue<string>>("dump_parallel_level");
         set => SetArgument("dump_parallel_level", value);
     }
 
@@ -96,7 +96,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlo
     /// </summary>
     public TerraformValue<string>? Vm
     {
-        get => new TerraformReference<string>(this, "vm");
+        get => GetArgument<TerraformValue<string>>("vm");
         set => SetArgument("vm", value);
     }
 
@@ -106,7 +106,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlo
     /// </summary>
     public TerraformValue<string>? VmIp
     {
-        get => new TerraformReference<string>(this, "vm_ip");
+        get => GetArgument<TerraformValue<string>>("vm_ip");
         set => SetArgument("vm_ip", value);
     }
 
@@ -116,7 +116,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlo
     /// </summary>
     public TerraformValue<double>? VmPort
     {
-        get => new TerraformReference<double>(this, "vm_port");
+        get => GetArgument<TerraformValue<double>>("vm_port");
         set => SetArgument("vm_port", value);
     }
 
@@ -125,7 +125,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobReverseSshConnectivityBlo
     /// </summary>
     public TerraformValue<string>? Vpc
     {
-        get => new TerraformReference<string>(this, "vpc");
+        get => GetArgument<TerraformValue<string>>("vpc");
         set => SetArgument("vpc", value);
     }
 
@@ -162,7 +162,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -171,7 +171,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -180,7 +180,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -203,7 +203,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobVpcPeeringConnectivityBlo
     /// </summary>
     public TerraformValue<string>? Vpc
     {
-        get => new TerraformReference<string>(this, "vpc");
+        get => GetArgument<TerraformValue<string>>("vpc");
         set => SetArgument("vpc", value);
     }
 
@@ -222,7 +222,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformValue<string> Destination
     {
-        get => new TerraformReference<string>(this, "destination");
+        get => GetArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
@@ -231,7 +231,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob(string name) : T
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -242,7 +242,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob(string name) : T
     /// </summary>
     public TerraformValue<string>? DumpPath
     {
-        get => new TerraformReference<string>(this, "dump_path");
+        get => GetArgument<TerraformValue<string>>("dump_path");
         set => SetArgument("dump_path", value);
     }
 
@@ -252,16 +252,16 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob(string name) : T
     /// </summary>
     public TerraformValue<string>? DumpType
     {
-        get => new TerraformReference<string>(this, "dump_type");
+        get => GetArgument<TerraformValue<string>>("dump_type");
         set => SetArgument("dump_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -274,7 +274,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob(string name) : T
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -283,7 +283,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob(string name) : T
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -293,16 +293,16 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MigrationJobId is required")]
     public required TerraformValue<string> MigrationJobId
     {
-        get => new TerraformReference<string>(this, "migration_job_id");
+        get => GetArgument<TerraformValue<string>>("migration_job_id");
         set => SetArgument("migration_job_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -312,7 +312,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -322,7 +322,7 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -330,58 +330,44 @@ public partial class GoogleDatabaseMigrationServiceMigrationJob(string name) : T
     /// Output only. The timestamp when the resource was created. A timestamp in RFC3339 UTC &#39;Zulu&#39; format, accurate to nanoseconds. Example: &#39;2014-10-02T15:01:23.045123456Z&#39;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Output only. The error details in case of state FAILED.
     /// </summary>
     public TerraformList<TerraformMap<object>> Error
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "error").ResolveNodes(ctx));
-    }
+        => AsReference("error");
 
     /// <summary>
     /// The name of this migration job resource in the form of projects/{project}/locations/{location}/migrationJobs/{migrationJob}.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The current migration job phase.
     /// </summary>
     public TerraformValue<string> Phase
-    {
-        get => new TerraformReference<string>(this, "phase");
-    }
+        => AsReference("phase");
 
     /// <summary>
     /// The current migration job state.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// DumpFlags block (nesting mode: list).

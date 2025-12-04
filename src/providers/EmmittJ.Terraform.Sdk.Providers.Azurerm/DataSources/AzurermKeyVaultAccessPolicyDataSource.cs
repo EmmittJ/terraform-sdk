@@ -18,7 +18,7 @@ public class AzurermKeyVaultAccessPolicyDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermKeyVaultAccessPolicyDataSource(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermKeyVaultAccessPolicyDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -54,25 +54,19 @@ public partial class AzurermKeyVaultAccessPolicyDataSource(string name) : Terraf
     /// The certificate_permissions attribute.
     /// </summary>
     public TerraformList<string> CertificatePermissions
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "certificate_permissions").ResolveNodes(ctx));
-    }
+        => AsReference("certificate_permissions");
 
     /// <summary>
     /// The key_permissions attribute.
     /// </summary>
     public TerraformList<string> KeyPermissions
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "key_permissions").ResolveNodes(ctx));
-    }
+        => AsReference("key_permissions");
 
     /// <summary>
     /// The secret_permissions attribute.
     /// </summary>
     public TerraformList<string> SecretPermissions
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "secret_permissions").ResolveNodes(ctx));
-    }
+        => AsReference("secret_permissions");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

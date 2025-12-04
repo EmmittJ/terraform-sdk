@@ -19,7 +19,7 @@ public class AwsComputeoptimizerRecommendationPreferencesExternalMetricsPreferen
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsComputeoptimizerRecommendationPreferencesPreferredResourceBlock 
     /// </summary>
     public TerraformSet<string>? ExcludeList
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "exclude_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("exclude_list");
         set => SetArgument("exclude_list", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsComputeoptimizerRecommendationPreferencesPreferredResourceBlock 
     /// </summary>
     public TerraformSet<string>? IncludeList
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "include_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("include_list");
         set => SetArgument("include_list", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsComputeoptimizerRecommendationPreferencesPreferredResourceBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsComputeoptimizerRecommendationPreferencesScopeBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsComputeoptimizerRecommendationPreferencesScopeBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -119,7 +119,7 @@ public class AwsComputeoptimizerRecommendationPreferencesUtilizationPreferenceBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformValue<string> MetricName
     {
-        get => new TerraformReference<string>(this, "metric_name");
+        get => GetArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -151,7 +151,7 @@ public class AwsComputeoptimizerRecommendationPreferencesUtilizationPreferenceBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Headroom is required")]
     public required TerraformValue<string> Headroom
     {
-        get => new TerraformReference<string>(this, "headroom");
+        get => GetArgument<TerraformValue<string>>("headroom");
         set => SetArgument("headroom", value);
     }
 
@@ -160,7 +160,7 @@ public class AwsComputeoptimizerRecommendationPreferencesUtilizationPreferenceBl
     /// </summary>
     public TerraformValue<string>? Threshold
     {
-        get => new TerraformReference<string>(this, "threshold");
+        get => GetArgument<TerraformValue<string>>("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -178,7 +178,7 @@ public partial class AwsComputeoptimizerRecommendationPreferences(string name) :
     /// </summary>
     public TerraformValue<string>? EnhancedInfrastructureMetrics
     {
-        get => new TerraformReference<string>(this, "enhanced_infrastructure_metrics");
+        get => GetArgument<TerraformValue<string>>("enhanced_infrastructure_metrics");
         set => SetArgument("enhanced_infrastructure_metrics", value);
     }
 
@@ -187,25 +187,25 @@ public partial class AwsComputeoptimizerRecommendationPreferences(string name) :
     /// </summary>
     public TerraformValue<string>? InferredWorkloadTypes
     {
-        get => new TerraformReference<string>(this, "inferred_workload_types");
+        get => GetArgument<TerraformValue<string>>("inferred_workload_types");
         set => SetArgument("inferred_workload_types", value);
     }
 
     /// <summary>
     /// The look_back_period attribute.
     /// </summary>
-    public TerraformValue<string> LookBackPeriod
+    public TerraformValue<string>? LookBackPeriod
     {
-        get => new TerraformReference<string>(this, "look_back_period");
+        get => GetArgument<TerraformValue<string>>("look_back_period");
         set => SetArgument("look_back_period", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -215,7 +215,7 @@ public partial class AwsComputeoptimizerRecommendationPreferences(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeAttribute is required")]
     public required TerraformValue<string> ResourceTypeAttribute
     {
-        get => new TerraformReference<string>(this, "resource_type");
+        get => GetArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -224,7 +224,7 @@ public partial class AwsComputeoptimizerRecommendationPreferences(string name) :
     /// </summary>
     public TerraformValue<string>? SavingsEstimationMode
     {
-        get => new TerraformReference<string>(this, "savings_estimation_mode");
+        get => GetArgument<TerraformValue<string>>("savings_estimation_mode");
         set => SetArgument("savings_estimation_mode", value);
     }
 
@@ -232,9 +232,7 @@ public partial class AwsComputeoptimizerRecommendationPreferences(string name) :
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// ExternalMetricsPreference block (nesting mode: list).

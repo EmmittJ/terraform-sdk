@@ -14,7 +14,7 @@ public partial class GoogleHealthcareConsentStoreIamPolicyDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsentStoreId is required")]
     public required TerraformValue<string> ConsentStoreId
     {
-        get => new TerraformReference<string>(this, "consent_store_id");
+        get => GetArgument<TerraformValue<string>>("consent_store_id");
         set => SetArgument("consent_store_id", value);
     }
 
@@ -24,16 +24,16 @@ public partial class GoogleHealthcareConsentStoreIamPolicyDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformValue<string> Dataset
     {
-        get => new TerraformReference<string>(this, "dataset");
+        get => GetArgument<TerraformValue<string>>("dataset");
         set => SetArgument("dataset", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -41,16 +41,12 @@ public partial class GoogleHealthcareConsentStoreIamPolicyDataSource(string name
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     public TerraformValue<string> PolicyData
-    {
-        get => new TerraformReference<string>(this, "policy_data");
-    }
+        => AsReference("policy_data");
 
 }

@@ -13,7 +13,7 @@ public partial class AwsXrayResourcePolicy(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<bool>? BypassPolicyLockoutCheck
     {
-        get => new TerraformReference<bool>(this, "bypass_policy_lockout_check");
+        get => GetArgument<TerraformValue<bool>>("bypass_policy_lockout_check");
         set => SetArgument("bypass_policy_lockout_check", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsXrayResourcePolicy(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDocument is required")]
     public required TerraformValue<string> PolicyDocument
     {
-        get => new TerraformReference<string>(this, "policy_document");
+        get => GetArgument<TerraformValue<string>>("policy_document");
         set => SetArgument("policy_document", value);
     }
 
@@ -33,25 +33,25 @@ public partial class AwsXrayResourcePolicy(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyName is required")]
     public required TerraformValue<string> PolicyName
     {
-        get => new TerraformReference<string>(this, "policy_name");
+        get => GetArgument<TerraformValue<string>>("policy_name");
         set => SetArgument("policy_name", value);
     }
 
     /// <summary>
     /// The policy_revision_id attribute.
     /// </summary>
-    public TerraformValue<string> PolicyRevisionId
+    public TerraformValue<string>? PolicyRevisionId
     {
-        get => new TerraformReference<string>(this, "policy_revision_id");
+        get => GetArgument<TerraformValue<string>>("policy_revision_id");
         set => SetArgument("policy_revision_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -59,8 +59,6 @@ public partial class AwsXrayResourcePolicy(string name) : TerraformResource("aws
     /// The last_updated_time attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedTime
-    {
-        get => new TerraformReference<string>(this, "last_updated_time");
-    }
+        => AsReference("last_updated_time");
 
 }

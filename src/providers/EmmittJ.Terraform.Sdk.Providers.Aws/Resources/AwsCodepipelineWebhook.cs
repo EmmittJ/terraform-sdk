@@ -18,7 +18,7 @@ public class AwsCodepipelineWebhookAuthenticationConfigurationBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? AllowedIpRange
     {
-        get => new TerraformReference<string>(this, "allowed_ip_range");
+        get => GetArgument<TerraformValue<string>>("allowed_ip_range");
         set => SetArgument("allowed_ip_range", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsCodepipelineWebhookAuthenticationConfigurationBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? SecretToken
     {
-        get => new TerraformReference<string>(this, "secret_token");
+        get => GetArgument<TerraformValue<string>>("secret_token");
         set => SetArgument("secret_token", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsCodepipelineWebhookFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JsonPath is required")]
     public required TerraformValue<string> JsonPath
     {
-        get => new TerraformReference<string>(this, "json_path");
+        get => GetArgument<TerraformValue<string>>("json_path");
         set => SetArgument("json_path", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsCodepipelineWebhookFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchEquals is required")]
     public required TerraformValue<string> MatchEquals
     {
-        get => new TerraformReference<string>(this, "match_equals");
+        get => GetArgument<TerraformValue<string>>("match_equals");
         set => SetArgument("match_equals", value);
     }
 
@@ -80,16 +80,16 @@ public partial class AwsCodepipelineWebhook(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authentication is required")]
     public required TerraformValue<string> Authentication
     {
-        get => new TerraformReference<string>(this, "authentication");
+        get => GetArgument<TerraformValue<string>>("authentication");
         set => SetArgument("authentication", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -99,16 +99,16 @@ public partial class AwsCodepipelineWebhook(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -117,16 +117,16 @@ public partial class AwsCodepipelineWebhook(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AwsCodepipelineWebhook(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetAction is required")]
     public required TerraformValue<string> TargetAction
     {
-        get => new TerraformReference<string>(this, "target_action");
+        get => GetArgument<TerraformValue<string>>("target_action");
         set => SetArgument("target_action", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AwsCodepipelineWebhook(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetPipeline is required")]
     public required TerraformValue<string> TargetPipeline
     {
-        get => new TerraformReference<string>(this, "target_pipeline");
+        get => GetArgument<TerraformValue<string>>("target_pipeline");
         set => SetArgument("target_pipeline", value);
     }
 
@@ -154,17 +154,13 @@ public partial class AwsCodepipelineWebhook(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-    {
-        get => new TerraformReference<string>(this, "url");
-    }
+        => AsReference("url");
 
     /// <summary>
     /// AuthenticationConfiguration block (nesting mode: list).

@@ -42,7 +42,7 @@ public class GoogleFolderAccessApprovalSettingsEnrolledServicesBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudProduct is required")]
     public required TerraformValue<string> CloudProduct
     {
-        get => new TerraformReference<string>(this, "cloud_product");
+        get => GetArgument<TerraformValue<string>>("cloud_product");
         set => SetArgument("cloud_product", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleFolderAccessApprovalSettingsEnrolledServicesBlock : Terraform
     /// </summary>
     public TerraformValue<string>? EnrollmentLevel
     {
-        get => new TerraformReference<string>(this, "enrollment_level");
+        get => GetArgument<TerraformValue<string>>("enrollment_level");
         set => SetArgument("enrollment_level", value);
     }
 
@@ -74,7 +74,7 @@ public class GoogleFolderAccessApprovalSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -83,7 +83,7 @@ public class GoogleFolderAccessApprovalSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -92,7 +92,7 @@ public class GoogleFolderAccessApprovalSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -112,7 +112,7 @@ public partial class GoogleFolderAccessApprovalSettings(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? ActiveKeyVersion
     {
-        get => new TerraformReference<string>(this, "active_key_version");
+        get => GetArgument<TerraformValue<string>>("active_key_version");
         set => SetArgument("active_key_version", value);
     }
 
@@ -122,16 +122,16 @@ public partial class GoogleFolderAccessApprovalSettings(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderId is required")]
     public required TerraformValue<string> FolderId
     {
-        get => new TerraformReference<string>(this, "folder_id");
+        get => GetArgument<TerraformValue<string>>("folder_id");
         set => SetArgument("folder_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -140,9 +140,9 @@ public partial class GoogleFolderAccessApprovalSettings(string name) : Terraform
     /// Notifications relating to a resource will be sent to all emails in the settings of ancestor
     /// resources of that resource. A maximum of 50 email addresses are allowed.
     /// </summary>
-    public TerraformSet<string> NotificationEmails
+    public TerraformSet<string>? NotificationEmails
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "notification_emails").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("notification_emails");
         set => SetArgument("notification_emails", value);
     }
 
@@ -150,17 +150,13 @@ public partial class GoogleFolderAccessApprovalSettings(string name) : Terraform
     /// If the field is true, that indicates that an ancestor of this Folder has set active_key_version.
     /// </summary>
     public TerraformValue<bool> AncestorHasActiveKeyVersion
-    {
-        get => new TerraformReference<bool>(this, "ancestor_has_active_key_version");
-    }
+        => AsReference("ancestor_has_active_key_version");
 
     /// <summary>
     /// If the field is true, that indicates that at least one service is enrolled for Access Approval in one or more ancestors of the Folder.
     /// </summary>
     public TerraformValue<bool> EnrolledAncestor
-    {
-        get => new TerraformReference<bool>(this, "enrolled_ancestor");
-    }
+        => AsReference("enrolled_ancestor");
 
     /// <summary>
     /// If the field is true, that indicates that there is some configuration issue with the active_key_version
@@ -169,17 +165,13 @@ public partial class GoogleFolderAccessApprovalSettings(string name) : Terraform
     /// as key versions are inherited top-down.
     /// </summary>
     public TerraformValue<bool> InvalidKeyVersion
-    {
-        get => new TerraformReference<bool>(this, "invalid_key_version");
-    }
+        => AsReference("invalid_key_version");
 
     /// <summary>
     /// The resource name of the settings. Format is &amp;quot;folders/{folder_id}/accessApprovalSettings&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// EnrolledServices block (nesting mode: set).

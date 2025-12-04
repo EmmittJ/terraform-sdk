@@ -18,7 +18,7 @@ public class AzurermMaintenanceConfigurationDataSourceTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermMaintenanceConfigurationDataSource(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermMaintenanceConfigurationDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermMaintenanceConfigurationDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,65 +64,49 @@ public partial class AzurermMaintenanceConfigurationDataSource(string name) : Te
     /// The in_guest_user_patch_mode attribute.
     /// </summary>
     public TerraformValue<string> InGuestUserPatchMode
-    {
-        get => new TerraformReference<string>(this, "in_guest_user_patch_mode");
-    }
+        => AsReference("in_guest_user_patch_mode");
 
     /// <summary>
     /// The install_patches attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstallPatches
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "install_patches").ResolveNodes(ctx));
-    }
+        => AsReference("install_patches");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The properties attribute.
     /// </summary>
     public TerraformMap<string> Properties
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
-    }
+        => AsReference("properties");
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     public TerraformValue<string> Scope
-    {
-        get => new TerraformReference<string>(this, "scope");
-    }
+        => AsReference("scope");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The visibility attribute.
     /// </summary>
     public TerraformValue<string> Visibility
-    {
-        get => new TerraformReference<string>(this, "visibility");
-    }
+        => AsReference("visibility");
 
     /// <summary>
     /// The window attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Window
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "window").ResolveNodes(ctx));
-    }
+        => AsReference("window");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

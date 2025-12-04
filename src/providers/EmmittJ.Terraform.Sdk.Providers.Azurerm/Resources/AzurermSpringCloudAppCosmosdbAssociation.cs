@@ -18,7 +18,7 @@ public class AzurermSpringCloudAppCosmosdbAssociationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSpringCloudAppCosmosdbAssociationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSpringCloudAppCosmosdbAssociationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSpringCloudAppCosmosdbAssociationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermSpringCloudAppCosmosdbAssociation(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiType is required")]
     public required TerraformValue<string> ApiType
     {
-        get => new TerraformReference<string>(this, "api_type");
+        get => GetArgument<TerraformValue<string>>("api_type");
         set => SetArgument("api_type", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermSpringCloudAppCosmosdbAssociation(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbAccessKey is required")]
     public required TerraformValue<string> CosmosdbAccessKey
     {
-        get => new TerraformReference<string>(this, "cosmosdb_access_key");
+        get => GetArgument<TerraformValue<string>>("cosmosdb_access_key");
         set => SetArgument("cosmosdb_access_key", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermSpringCloudAppCosmosdbAssociation(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbAccountId is required")]
     public required TerraformValue<string> CosmosdbAccountId
     {
-        get => new TerraformReference<string>(this, "cosmosdb_account_id");
+        get => GetArgument<TerraformValue<string>>("cosmosdb_account_id");
         set => SetArgument("cosmosdb_account_id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermSpringCloudAppCosmosdbAssociation(string name) : Ter
     /// </summary>
     public TerraformValue<string>? CosmosdbCassandraKeyspaceName
     {
-        get => new TerraformReference<string>(this, "cosmosdb_cassandra_keyspace_name");
+        get => GetArgument<TerraformValue<string>>("cosmosdb_cassandra_keyspace_name");
         set => SetArgument("cosmosdb_cassandra_keyspace_name", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermSpringCloudAppCosmosdbAssociation(string name) : Ter
     /// </summary>
     public TerraformValue<string>? CosmosdbGremlinDatabaseName
     {
-        get => new TerraformReference<string>(this, "cosmosdb_gremlin_database_name");
+        get => GetArgument<TerraformValue<string>>("cosmosdb_gremlin_database_name");
         set => SetArgument("cosmosdb_gremlin_database_name", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermSpringCloudAppCosmosdbAssociation(string name) : Ter
     /// </summary>
     public TerraformValue<string>? CosmosdbGremlinGraphName
     {
-        get => new TerraformReference<string>(this, "cosmosdb_gremlin_graph_name");
+        get => GetArgument<TerraformValue<string>>("cosmosdb_gremlin_graph_name");
         set => SetArgument("cosmosdb_gremlin_graph_name", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermSpringCloudAppCosmosdbAssociation(string name) : Ter
     /// </summary>
     public TerraformValue<string>? CosmosdbMongoDatabaseName
     {
-        get => new TerraformReference<string>(this, "cosmosdb_mongo_database_name");
+        get => GetArgument<TerraformValue<string>>("cosmosdb_mongo_database_name");
         set => SetArgument("cosmosdb_mongo_database_name", value);
     }
 
@@ -129,16 +129,16 @@ public partial class AzurermSpringCloudAppCosmosdbAssociation(string name) : Ter
     /// </summary>
     public TerraformValue<string>? CosmosdbSqlDatabaseName
     {
-        get => new TerraformReference<string>(this, "cosmosdb_sql_database_name");
+        get => GetArgument<TerraformValue<string>>("cosmosdb_sql_database_name");
         set => SetArgument("cosmosdb_sql_database_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AzurermSpringCloudAppCosmosdbAssociation(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -158,7 +158,7 @@ public partial class AzurermSpringCloudAppCosmosdbAssociation(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
     public required TerraformValue<string> SpringCloudAppId
     {
-        get => new TerraformReference<string>(this, "spring_cloud_app_id");
+        get => GetArgument<TerraformValue<string>>("spring_cloud_app_id");
         set => SetArgument("spring_cloud_app_id", value);
     }
 

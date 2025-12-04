@@ -18,7 +18,7 @@ public class AzurermVirtualMachineDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermVirtualMachineDataSource(string name) : TerraformDat
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermVirtualMachineDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermVirtualMachineDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,57 +64,43 @@ public partial class AzurermVirtualMachineDataSource(string name) : TerraformDat
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
-    }
+        => AsReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The power_state attribute.
     /// </summary>
     public TerraformValue<string> PowerState
-    {
-        get => new TerraformReference<string>(this, "power_state");
-    }
+        => AsReference("power_state");
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
-    {
-        get => new TerraformReference<string>(this, "private_ip_address");
-    }
+        => AsReference("private_ip_address");
 
     /// <summary>
     /// The private_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PrivateIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "private_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("private_ip_addresses");
 
     /// <summary>
     /// The public_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PublicIpAddress
-    {
-        get => new TerraformReference<string>(this, "public_ip_address");
-    }
+        => AsReference("public_ip_address");
 
     /// <summary>
     /// The public_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PublicIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "public_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("public_ip_addresses");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

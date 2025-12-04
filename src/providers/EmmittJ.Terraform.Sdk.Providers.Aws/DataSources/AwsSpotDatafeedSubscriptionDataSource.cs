@@ -11,9 +11,9 @@ public partial class AwsSpotDatafeedSubscriptionDataSource(string name) : Terraf
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -21,16 +21,12 @@ public partial class AwsSpotDatafeedSubscriptionDataSource(string name) : Terraf
     /// The bucket attribute.
     /// </summary>
     public TerraformValue<string> Bucket
-    {
-        get => new TerraformReference<string>(this, "bucket");
-    }
+        => AsReference("bucket");
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
     public TerraformValue<string> Prefix
-    {
-        get => new TerraformReference<string>(this, "prefix");
-    }
+        => AsReference("prefix");
 
 }

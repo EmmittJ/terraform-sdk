@@ -18,7 +18,7 @@ public class AzurermHealthcareMedtechServiceDataSourceTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermHealthcareMedtechServiceDataSource(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermHealthcareMedtechServiceDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermHealthcareMedtechServiceDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => new TerraformReference<string>(this, "workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -64,41 +64,31 @@ public partial class AzurermHealthcareMedtechServiceDataSource(string name) : Te
     /// The device_mapping_json attribute.
     /// </summary>
     public TerraformValue<string> DeviceMappingJson
-    {
-        get => new TerraformReference<string>(this, "device_mapping_json");
-    }
+        => AsReference("device_mapping_json");
 
     /// <summary>
     /// The eventhub_consumer_group_name attribute.
     /// </summary>
     public TerraformValue<string> EventhubConsumerGroupName
-    {
-        get => new TerraformReference<string>(this, "eventhub_consumer_group_name");
-    }
+        => AsReference("eventhub_consumer_group_name");
 
     /// <summary>
     /// The eventhub_name attribute.
     /// </summary>
     public TerraformValue<string> EventhubName
-    {
-        get => new TerraformReference<string>(this, "eventhub_name");
-    }
+        => AsReference("eventhub_name");
 
     /// <summary>
     /// The eventhub_namespace_name attribute.
     /// </summary>
     public TerraformValue<string> EventhubNamespaceName
-    {
-        get => new TerraformReference<string>(this, "eventhub_namespace_name");
-    }
+        => AsReference("eventhub_namespace_name");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
-    }
+        => AsReference("identity");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

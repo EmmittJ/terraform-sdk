@@ -18,7 +18,7 @@ public class AzureadInvitationMessageBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AdditionalRecipients
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "additional_recipients").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("additional_recipients");
         set => SetArgument("additional_recipients", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadInvitationMessageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Body
     {
-        get => new TerraformReference<string>(this, "body");
+        get => GetArgument<TerraformValue<string>>("body");
         set => SetArgument("body", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadInvitationMessageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Language
     {
-        get => new TerraformReference<string>(this, "language");
+        get => GetArgument<TerraformValue<string>>("language");
         set => SetArgument("language", value);
     }
 
@@ -59,7 +59,7 @@ public class AzureadInvitationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -68,7 +68,7 @@ public class AzureadInvitationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -77,7 +77,7 @@ public class AzureadInvitationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -93,9 +93,9 @@ public partial class AzureadInvitation(string name) : TerraformResource("azuread
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AzureadInvitation(string name) : TerraformResource("azuread
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectUrl is required")]
     public required TerraformValue<string> RedirectUrl
     {
-        get => new TerraformReference<string>(this, "redirect_url");
+        get => GetArgument<TerraformValue<string>>("redirect_url");
         set => SetArgument("redirect_url", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AzureadInvitation(string name) : TerraformResource("azuread
     /// </summary>
     public TerraformValue<string>? UserDisplayName
     {
-        get => new TerraformReference<string>(this, "user_display_name");
+        get => GetArgument<TerraformValue<string>>("user_display_name");
         set => SetArgument("user_display_name", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AzureadInvitation(string name) : TerraformResource("azuread
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserEmailAddress is required")]
     public required TerraformValue<string> UserEmailAddress
     {
-        get => new TerraformReference<string>(this, "user_email_address");
+        get => GetArgument<TerraformValue<string>>("user_email_address");
         set => SetArgument("user_email_address", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AzureadInvitation(string name) : TerraformResource("azuread
     /// </summary>
     public TerraformValue<string>? UserType
     {
-        get => new TerraformReference<string>(this, "user_type");
+        get => GetArgument<TerraformValue<string>>("user_type");
         set => SetArgument("user_type", value);
     }
 
@@ -141,17 +141,13 @@ public partial class AzureadInvitation(string name) : TerraformResource("azuread
     /// The URL the user can use to redeem their invitation
     /// </summary>
     public TerraformValue<string> RedeemUrl
-    {
-        get => new TerraformReference<string>(this, "redeem_url");
-    }
+        => AsReference("redeem_url");
 
     /// <summary>
     /// Object ID of the invited user
     /// </summary>
     public TerraformValue<string> UserId
-    {
-        get => new TerraformReference<string>(this, "user_id");
-    }
+        => AsReference("user_id");
 
     /// <summary>
     /// Message block (nesting mode: list).

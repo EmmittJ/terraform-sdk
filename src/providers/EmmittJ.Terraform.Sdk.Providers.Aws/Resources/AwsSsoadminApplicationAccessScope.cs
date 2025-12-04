@@ -14,7 +14,7 @@ public partial class AwsSsoadminApplicationAccessScope(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationArn is required")]
     public required TerraformValue<string> ApplicationArn
     {
-        get => new TerraformReference<string>(this, "application_arn");
+        get => GetArgument<TerraformValue<string>>("application_arn");
         set => SetArgument("application_arn", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsSsoadminApplicationAccessScope(string name) : TerraformR
     /// </summary>
     public TerraformList<string>? AuthorizedTargets
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "authorized_targets").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("authorized_targets");
         set => SetArgument("authorized_targets", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsSsoadminApplicationAccessScope(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -50,8 +50,6 @@ public partial class AwsSsoadminApplicationAccessScope(string name) : TerraformR
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
 }

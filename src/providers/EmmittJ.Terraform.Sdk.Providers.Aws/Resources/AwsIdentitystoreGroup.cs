@@ -13,7 +13,7 @@ public partial class AwsIdentitystoreGroup(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsIdentitystoreGroup(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -42,16 +42,16 @@ public partial class AwsIdentitystoreGroup(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityStoreId is required")]
     public required TerraformValue<string> IdentityStoreId
     {
-        get => new TerraformReference<string>(this, "identity_store_id");
+        get => GetArgument<TerraformValue<string>>("identity_store_id");
         set => SetArgument("identity_store_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -59,24 +59,18 @@ public partial class AwsIdentitystoreGroup(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The external_ids attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ExternalIds
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "external_ids").ResolveNodes(ctx));
-    }
+        => AsReference("external_ids");
 
     /// <summary>
     /// The group_id attribute.
     /// </summary>
     public TerraformValue<string> GroupId
-    {
-        get => new TerraformReference<string>(this, "group_id");
-    }
+        => AsReference("group_id");
 
 }

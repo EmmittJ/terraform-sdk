@@ -18,7 +18,7 @@ public class GoogleDeploymentManagerDeploymentLabelsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleDeploymentManagerDeploymentLabelsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -86,7 +86,7 @@ public class GoogleDeploymentManagerDeploymentTargetBlockConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => new TerraformReference<string>(this, "content");
+        get => GetArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleDeploymentManagerDeploymentTargetBlockImportsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Content
     {
-        get => new TerraformReference<string>(this, "content");
+        get => GetArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleDeploymentManagerDeploymentTargetBlockImportsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -141,7 +141,7 @@ public class GoogleDeploymentManagerDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -150,7 +150,7 @@ public class GoogleDeploymentManagerDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -159,7 +159,7 @@ public class GoogleDeploymentManagerDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -181,7 +181,7 @@ public partial class GoogleDeploymentManagerDeployment(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? CreatePolicy
     {
-        get => new TerraformReference<string>(this, "create_policy");
+        get => GetArgument<TerraformValue<string>>("create_policy");
         set => SetArgument("create_policy", value);
     }
 
@@ -195,7 +195,7 @@ public partial class GoogleDeploymentManagerDeployment(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? DeletePolicy
     {
-        get => new TerraformReference<string>(this, "delete_policy");
+        get => GetArgument<TerraformValue<string>>("delete_policy");
         set => SetArgument("delete_policy", value);
     }
 
@@ -204,16 +204,16 @@ public partial class GoogleDeploymentManagerDeployment(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -223,7 +223,7 @@ public partial class GoogleDeploymentManagerDeployment(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -239,16 +239,16 @@ public partial class GoogleDeploymentManagerDeployment(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? Preview
     {
-        get => new TerraformReference<bool>(this, "preview");
+        get => GetArgument<TerraformValue<bool>>("preview");
         set => SetArgument("preview", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -256,26 +256,20 @@ public partial class GoogleDeploymentManagerDeployment(string name) : TerraformR
     /// Unique identifier for deployment. Output only.
     /// </summary>
     public TerraformValue<string> DeploymentId
-    {
-        get => new TerraformReference<string>(this, "deployment_id");
-    }
+        => AsReference("deployment_id");
 
     /// <summary>
     /// Output only. URL of the manifest representing the last manifest that
     /// was successfully deployed.
     /// </summary>
     public TerraformValue<string> Manifest
-    {
-        get => new TerraformReference<string>(this, "manifest");
-    }
+        => AsReference("manifest");
 
     /// <summary>
     /// Output only. Server defined URL for the resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Labels block (nesting mode: set).

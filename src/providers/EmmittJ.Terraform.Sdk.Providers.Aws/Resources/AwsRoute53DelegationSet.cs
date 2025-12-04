@@ -11,9 +11,9 @@ public partial class AwsRoute53DelegationSet(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsRoute53DelegationSet(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? ReferenceName
     {
-        get => new TerraformReference<string>(this, "reference_name");
+        get => GetArgument<TerraformValue<string>>("reference_name");
         set => SetArgument("reference_name", value);
     }
 
@@ -30,16 +30,12 @@ public partial class AwsRoute53DelegationSet(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
     public TerraformList<string> NameServers
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "name_servers").ResolveNodes(ctx));
-    }
+        => AsReference("name_servers");
 
 }

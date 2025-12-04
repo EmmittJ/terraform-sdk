@@ -14,16 +14,16 @@ public partial class AwsWorkspaceswebUserSettingsAssociation(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortalArn is required")]
     public required TerraformValue<string> PortalArn
     {
-        get => new TerraformReference<string>(this, "portal_arn");
+        get => GetArgument<TerraformValue<string>>("portal_arn");
         set => SetArgument("portal_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsWorkspaceswebUserSettingsAssociation(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserSettingsArn is required")]
     public required TerraformValue<string> UserSettingsArn
     {
-        get => new TerraformReference<string>(this, "user_settings_arn");
+        get => GetArgument<TerraformValue<string>>("user_settings_arn");
         set => SetArgument("user_settings_arn", value);
     }
 

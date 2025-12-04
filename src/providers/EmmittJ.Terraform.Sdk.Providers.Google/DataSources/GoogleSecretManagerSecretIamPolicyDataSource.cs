@@ -11,18 +11,18 @@ public partial class GoogleSecretManagerSecretIamPolicyDataSource(string name) :
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleSecretManagerSecretIamPolicyDataSource(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformValue<string> SecretId
     {
-        get => new TerraformReference<string>(this, "secret_id");
+        get => GetArgument<TerraformValue<string>>("secret_id");
         set => SetArgument("secret_id", value);
     }
 
@@ -40,16 +40,12 @@ public partial class GoogleSecretManagerSecretIamPolicyDataSource(string name) :
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     public TerraformValue<string> PolicyData
-    {
-        get => new TerraformReference<string>(this, "policy_data");
-    }
+        => AsReference("policy_data");
 
 }

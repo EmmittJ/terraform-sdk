@@ -18,7 +18,7 @@ public class AzurermLogicAppTriggerHttpRequestTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermLogicAppTriggerHttpRequestTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermLogicAppTriggerHttpRequestTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermLogicAppTriggerHttpRequestTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermLogicAppTriggerHttpRequest(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermLogicAppTriggerHttpRequest(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
     public required TerraformValue<string> LogicAppId
     {
-        get => new TerraformReference<string>(this, "logic_app_id");
+        get => GetArgument<TerraformValue<string>>("logic_app_id");
         set => SetArgument("logic_app_id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermLogicAppTriggerHttpRequest(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Method
     {
-        get => new TerraformReference<string>(this, "method");
+        get => GetArgument<TerraformValue<string>>("method");
         set => SetArgument("method", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermLogicAppTriggerHttpRequest(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermLogicAppTriggerHttpRequest(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? RelativePath
     {
-        get => new TerraformReference<string>(this, "relative_path");
+        get => GetArgument<TerraformValue<string>>("relative_path");
         set => SetArgument("relative_path", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermLogicAppTriggerHttpRequest(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => new TerraformReference<string>(this, "schema");
+        get => GetArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -119,9 +119,7 @@ public partial class AzurermLogicAppTriggerHttpRequest(string name) : TerraformR
     /// The callback_url attribute.
     /// </summary>
     public TerraformValue<string> CallbackUrl
-    {
-        get => new TerraformReference<string>(this, "callback_url");
-    }
+        => AsReference("callback_url");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

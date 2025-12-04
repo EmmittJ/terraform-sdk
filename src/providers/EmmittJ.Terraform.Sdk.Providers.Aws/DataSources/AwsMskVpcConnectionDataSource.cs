@@ -14,34 +14,34 @@ public partial class AwsMskVpcConnectionDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,40 +49,30 @@ public partial class AwsMskVpcConnectionDataSource(string name) : TerraformDataS
     /// The authentication attribute.
     /// </summary>
     public TerraformValue<string> Authentication
-    {
-        get => new TerraformReference<string>(this, "authentication");
-    }
+        => AsReference("authentication");
 
     /// <summary>
     /// The client_subnets attribute.
     /// </summary>
     public TerraformSet<string> ClientSubnets
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "client_subnets").ResolveNodes(ctx));
-    }
+        => AsReference("client_subnets");
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
     public TerraformSet<string> SecurityGroups
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_groups").ResolveNodes(ctx));
-    }
+        => AsReference("security_groups");
 
     /// <summary>
     /// The target_cluster_arn attribute.
     /// </summary>
     public TerraformValue<string> TargetClusterArn
-    {
-        get => new TerraformReference<string>(this, "target_cluster_arn");
-    }
+        => AsReference("target_cluster_arn");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-    {
-        get => new TerraformReference<string>(this, "vpc_id");
-    }
+        => AsReference("vpc_id");
 
 }

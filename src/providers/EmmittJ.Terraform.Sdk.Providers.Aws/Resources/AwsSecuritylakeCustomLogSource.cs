@@ -50,7 +50,7 @@ public class AwsSecuritylakeCustomLogSourceConfigurationBlockCrawlerConfiguratio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsSecuritylakeCustomLogSourceConfigurationBlockProviderIdentityBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalId is required")]
     public required TerraformValue<string> ExternalId
     {
-        get => new TerraformReference<string>(this, "external_id");
+        get => GetArgument<TerraformValue<string>>("external_id");
         set => SetArgument("external_id", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsSecuritylakeCustomLogSourceConfigurationBlockProviderIdentityBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformValue<string> Principal
     {
-        get => new TerraformReference<string>(this, "principal");
+        get => GetArgument<TerraformValue<string>>("principal");
         set => SetArgument("principal", value);
     }
 
@@ -101,16 +101,16 @@ public partial class AwsSecuritylakeCustomLogSource(string name) : TerraformReso
     /// </summary>
     public TerraformSet<string>? EventClasses
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "event_classes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("event_classes");
         set => SetArgument("event_classes", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -120,16 +120,16 @@ public partial class AwsSecuritylakeCustomLogSource(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceName is required")]
     public required TerraformValue<string> SourceName
     {
-        get => new TerraformReference<string>(this, "source_name");
+        get => GetArgument<TerraformValue<string>>("source_name");
         set => SetArgument("source_name", value);
     }
 
     /// <summary>
     /// The source_version attribute.
     /// </summary>
-    public TerraformValue<string> SourceVersion
+    public TerraformValue<string>? SourceVersion
     {
-        get => new TerraformReference<string>(this, "source_version");
+        get => GetArgument<TerraformValue<string>>("source_version");
         set => SetArgument("source_version", value);
     }
 
@@ -137,25 +137,19 @@ public partial class AwsSecuritylakeCustomLogSource(string name) : TerraformReso
     /// The attributes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Attributes
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "attributes").ResolveNodes(ctx));
-    }
+        => AsReference("attributes");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The provider_details attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ProviderDetails
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "provider_details").ResolveNodes(ctx));
-    }
+        => AsReference("provider_details");
 
     /// <summary>
     /// Configuration block (nesting mode: list).

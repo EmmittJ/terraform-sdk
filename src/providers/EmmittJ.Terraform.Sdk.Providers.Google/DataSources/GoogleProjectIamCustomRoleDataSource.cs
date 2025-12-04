@@ -11,9 +11,9 @@ public partial class GoogleProjectIamCustomRoleDataSource(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleProjectIamCustomRoleDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleProjectIamCustomRoleDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     public required TerraformValue<string> RoleId
     {
-        get => new TerraformReference<string>(this, "role_id");
+        get => GetArgument<TerraformValue<string>>("role_id");
         set => SetArgument("role_id", value);
     }
 
@@ -40,48 +40,36 @@ public partial class GoogleProjectIamCustomRoleDataSource(string name) : Terrafo
     /// The current deleted state of the role.
     /// </summary>
     public TerraformValue<bool> Deleted
-    {
-        get => new TerraformReference<bool>(this, "deleted");
-    }
+        => AsReference("deleted");
 
     /// <summary>
     /// A human-readable description for the role.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The name of the role in the format projects/{{project}}/roles/{{role_id}}. Like id, this field can be used as a reference in other resources such as IAM role bindings.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The names of the permissions this role grants when bound in an IAM policy. At least one permission must be specified.
     /// </summary>
     public TerraformSet<string> Permissions
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "permissions").ResolveNodes(ctx));
-    }
+        => AsReference("permissions");
 
     /// <summary>
     /// The current launch stage of the role. Defaults to GA.
     /// </summary>
     public TerraformValue<string> Stage
-    {
-        get => new TerraformReference<string>(this, "stage");
-    }
+        => AsReference("stage");
 
     /// <summary>
     /// A human-readable title for the role.
     /// </summary>
     public TerraformValue<string> Title
-    {
-        get => new TerraformReference<string>(this, "title");
-    }
+        => AsReference("title");
 
 }

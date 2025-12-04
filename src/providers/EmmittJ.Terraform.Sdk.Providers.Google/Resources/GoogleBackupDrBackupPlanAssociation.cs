@@ -18,7 +18,7 @@ public class GoogleBackupDrBackupPlanAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleBackupDrBackupPlanAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleBackupDrBackupPlanAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -58,7 +58,7 @@ public partial class GoogleBackupDrBackupPlanAssociation(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlan is required")]
     public required TerraformValue<string> BackupPlan
     {
-        get => new TerraformReference<string>(this, "backup_plan");
+        get => GetArgument<TerraformValue<string>>("backup_plan");
         set => SetArgument("backup_plan", value);
     }
 
@@ -68,16 +68,16 @@ public partial class GoogleBackupDrBackupPlanAssociation(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlanAssociationId is required")]
     public required TerraformValue<string> BackupPlanAssociationId
     {
-        get => new TerraformReference<string>(this, "backup_plan_association_id");
+        get => GetArgument<TerraformValue<string>>("backup_plan_association_id");
         set => SetArgument("backup_plan_association_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -87,16 +87,16 @@ public partial class GoogleBackupDrBackupPlanAssociation(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -106,7 +106,7 @@ public partial class GoogleBackupDrBackupPlanAssociation(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformValue<string> Resource
     {
-        get => new TerraformReference<string>(this, "resource");
+        get => GetArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -117,7 +117,7 @@ public partial class GoogleBackupDrBackupPlanAssociation(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeAttribute is required")]
     public required TerraformValue<string> ResourceTypeAttribute
     {
-        get => new TerraformReference<string>(this, "resource_type");
+        get => GetArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -125,49 +125,37 @@ public partial class GoogleBackupDrBackupPlanAssociation(string name) : Terrafor
     /// The time when the instance was created
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Resource name of data source which will be used as storage location for backups taken
     /// </summary>
     public TerraformValue<string> DataSource
-    {
-        get => new TerraformReference<string>(this, "data_source");
-    }
+        => AsReference("data_source");
 
     /// <summary>
     /// The point in time when the last successful backup was captured from the source
     /// </summary>
     public TerraformValue<string> LastSuccessfulBackupConsistencyTime
-    {
-        get => new TerraformReference<string>(this, "last_successful_backup_consistency_time");
-    }
+        => AsReference("last_successful_backup_consistency_time");
 
     /// <summary>
     /// The name of backup plan association resource created
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Message for rules config info
     /// </summary>
     public TerraformList<TerraformMap<object>> RulesConfigInfo
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "rules_config_info").ResolveNodes(ctx));
-    }
+        => AsReference("rules_config_info");
 
     /// <summary>
     /// The time when the instance was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

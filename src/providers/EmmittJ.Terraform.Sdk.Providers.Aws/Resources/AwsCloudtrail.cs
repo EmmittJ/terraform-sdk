@@ -18,7 +18,7 @@ public class AwsCloudtrailAdvancedEventSelectorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsCloudtrailAdvancedEventSelectorBlockFieldSelectorBlock : Terrafo
     /// </summary>
     public TerraformList<string>? EndsWith
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ends_with").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ends_with");
         set => SetArgument("ends_with", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsCloudtrailAdvancedEventSelectorBlockFieldSelectorBlock : Terrafo
     /// </summary>
     public TerraformList<string>? EqualsAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "equals").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("equals");
         set => SetArgument("equals", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsCloudtrailAdvancedEventSelectorBlockFieldSelectorBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
     public required TerraformValue<string> Field
     {
-        get => new TerraformReference<string>(this, "field");
+        get => GetArgument<TerraformValue<string>>("field");
         set => SetArgument("field", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsCloudtrailAdvancedEventSelectorBlockFieldSelectorBlock : Terrafo
     /// </summary>
     public TerraformList<string>? NotEndsWith
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "not_ends_with").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("not_ends_with");
         set => SetArgument("not_ends_with", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsCloudtrailAdvancedEventSelectorBlockFieldSelectorBlock : Terrafo
     /// </summary>
     public TerraformList<string>? NotEquals
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "not_equals").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("not_equals");
         set => SetArgument("not_equals", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsCloudtrailAdvancedEventSelectorBlockFieldSelectorBlock : Terrafo
     /// </summary>
     public TerraformList<string>? NotStartsWith
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "not_starts_with").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("not_starts_with");
         set => SetArgument("not_starts_with", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsCloudtrailAdvancedEventSelectorBlockFieldSelectorBlock : Terrafo
     /// </summary>
     public TerraformList<string>? StartsWith
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "starts_with").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("starts_with");
         set => SetArgument("starts_with", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsCloudtrailEventSelectorBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ExcludeManagementEventSources
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "exclude_management_event_sources").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("exclude_management_event_sources");
         set => SetArgument("exclude_management_event_sources", value);
     }
 
@@ -139,7 +139,7 @@ public class AwsCloudtrailEventSelectorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IncludeManagementEvents
     {
-        get => new TerraformReference<bool>(this, "include_management_events");
+        get => GetArgument<TerraformValue<bool>>("include_management_events");
         set => SetArgument("include_management_events", value);
     }
 
@@ -148,7 +148,7 @@ public class AwsCloudtrailEventSelectorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ReadWriteType
     {
-        get => new TerraformReference<string>(this, "read_write_type");
+        get => GetArgument<TerraformValue<string>>("read_write_type");
         set => SetArgument("read_write_type", value);
     }
 
@@ -180,7 +180,7 @@ public class AwsCloudtrailEventSelectorBlockDataResourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -190,7 +190,7 @@ public class AwsCloudtrailEventSelectorBlockDataResourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -214,7 +214,7 @@ public class AwsCloudtrailInsightSelectorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InsightType is required")]
     public required TerraformValue<string> InsightType
     {
-        get => new TerraformReference<string>(this, "insight_type");
+        get => GetArgument<TerraformValue<string>>("insight_type");
         set => SetArgument("insight_type", value);
     }
 
@@ -232,7 +232,7 @@ public partial class AwsCloudtrail(string name) : TerraformResource("aws_cloudtr
     /// </summary>
     public TerraformValue<string>? CloudWatchLogsGroupArn
     {
-        get => new TerraformReference<string>(this, "cloud_watch_logs_group_arn");
+        get => GetArgument<TerraformValue<string>>("cloud_watch_logs_group_arn");
         set => SetArgument("cloud_watch_logs_group_arn", value);
     }
 
@@ -241,7 +241,7 @@ public partial class AwsCloudtrail(string name) : TerraformResource("aws_cloudtr
     /// </summary>
     public TerraformValue<string>? CloudWatchLogsRoleArn
     {
-        get => new TerraformReference<string>(this, "cloud_watch_logs_role_arn");
+        get => GetArgument<TerraformValue<string>>("cloud_watch_logs_role_arn");
         set => SetArgument("cloud_watch_logs_role_arn", value);
     }
 
@@ -250,7 +250,7 @@ public partial class AwsCloudtrail(string name) : TerraformResource("aws_cloudtr
     /// </summary>
     public TerraformValue<bool>? EnableLogFileValidation
     {
-        get => new TerraformReference<bool>(this, "enable_log_file_validation");
+        get => GetArgument<TerraformValue<bool>>("enable_log_file_validation");
         set => SetArgument("enable_log_file_validation", value);
     }
 
@@ -259,16 +259,16 @@ public partial class AwsCloudtrail(string name) : TerraformResource("aws_cloudtr
     /// </summary>
     public TerraformValue<bool>? EnableLogging
     {
-        get => new TerraformReference<bool>(this, "enable_logging");
+        get => GetArgument<TerraformValue<bool>>("enable_logging");
         set => SetArgument("enable_logging", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -277,7 +277,7 @@ public partial class AwsCloudtrail(string name) : TerraformResource("aws_cloudtr
     /// </summary>
     public TerraformValue<bool>? IncludeGlobalServiceEvents
     {
-        get => new TerraformReference<bool>(this, "include_global_service_events");
+        get => GetArgument<TerraformValue<bool>>("include_global_service_events");
         set => SetArgument("include_global_service_events", value);
     }
 
@@ -286,7 +286,7 @@ public partial class AwsCloudtrail(string name) : TerraformResource("aws_cloudtr
     /// </summary>
     public TerraformValue<bool>? IsMultiRegionTrail
     {
-        get => new TerraformReference<bool>(this, "is_multi_region_trail");
+        get => GetArgument<TerraformValue<bool>>("is_multi_region_trail");
         set => SetArgument("is_multi_region_trail", value);
     }
 
@@ -295,7 +295,7 @@ public partial class AwsCloudtrail(string name) : TerraformResource("aws_cloudtr
     /// </summary>
     public TerraformValue<bool>? IsOrganizationTrail
     {
-        get => new TerraformReference<bool>(this, "is_organization_trail");
+        get => GetArgument<TerraformValue<bool>>("is_organization_trail");
         set => SetArgument("is_organization_trail", value);
     }
 
@@ -304,7 +304,7 @@ public partial class AwsCloudtrail(string name) : TerraformResource("aws_cloudtr
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -314,16 +314,16 @@ public partial class AwsCloudtrail(string name) : TerraformResource("aws_cloudtr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -333,7 +333,7 @@ public partial class AwsCloudtrail(string name) : TerraformResource("aws_cloudtr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformValue<string> S3BucketName
     {
-        get => new TerraformReference<string>(this, "s3_bucket_name");
+        get => GetArgument<TerraformValue<string>>("s3_bucket_name");
         set => SetArgument("s3_bucket_name", value);
     }
 
@@ -342,7 +342,7 @@ public partial class AwsCloudtrail(string name) : TerraformResource("aws_cloudtr
     /// </summary>
     public TerraformValue<string>? S3KeyPrefix
     {
-        get => new TerraformReference<string>(this, "s3_key_prefix");
+        get => GetArgument<TerraformValue<string>>("s3_key_prefix");
         set => SetArgument("s3_key_prefix", value);
     }
 
@@ -351,7 +351,7 @@ public partial class AwsCloudtrail(string name) : TerraformResource("aws_cloudtr
     /// </summary>
     public TerraformValue<string>? SnsTopicName
     {
-        get => new TerraformReference<string>(this, "sns_topic_name");
+        get => GetArgument<TerraformValue<string>>("sns_topic_name");
         set => SetArgument("sns_topic_name", value);
     }
 
@@ -360,16 +360,16 @@ public partial class AwsCloudtrail(string name) : TerraformResource("aws_cloudtr
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -377,25 +377,19 @@ public partial class AwsCloudtrail(string name) : TerraformResource("aws_cloudtr
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The home_region attribute.
     /// </summary>
     public TerraformValue<string> HomeRegion
-    {
-        get => new TerraformReference<string>(this, "home_region");
-    }
+        => AsReference("home_region");
 
     /// <summary>
     /// The sns_topic_arn attribute.
     /// </summary>
     public TerraformValue<string> SnsTopicArn
-    {
-        get => new TerraformReference<string>(this, "sns_topic_arn");
-    }
+        => AsReference("sns_topic_arn");
 
     /// <summary>
     /// AdvancedEventSelector block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AzurermIothubFileUploadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermIothubFileUploadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermIothubFileUploadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermIothubFileUploadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermIothubFileUpload(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? AuthenticationType
     {
-        get => new TerraformReference<string>(this, "authentication_type");
+        get => GetArgument<TerraformValue<string>>("authentication_type");
         set => SetArgument("authentication_type", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermIothubFileUpload(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     public required TerraformValue<string> ConnectionString
     {
-        get => new TerraformReference<string>(this, "connection_string");
+        get => GetArgument<TerraformValue<string>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermIothubFileUpload(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformValue<string> ContainerName
     {
-        get => new TerraformReference<string>(this, "container_name");
+        get => GetArgument<TerraformValue<string>>("container_name");
         set => SetArgument("container_name", value);
     }
 
@@ -92,16 +92,16 @@ public partial class AzurermIothubFileUpload(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? DefaultTtl
     {
-        get => new TerraformReference<string>(this, "default_ttl");
+        get => GetArgument<TerraformValue<string>>("default_ttl");
         set => SetArgument("default_ttl", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermIothubFileUpload(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? IdentityId
     {
-        get => new TerraformReference<string>(this, "identity_id");
+        get => GetArgument<TerraformValue<string>>("identity_id");
         set => SetArgument("identity_id", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermIothubFileUpload(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     public required TerraformValue<string> IothubId
     {
-        get => new TerraformReference<string>(this, "iothub_id");
+        get => GetArgument<TerraformValue<string>>("iothub_id");
         set => SetArgument("iothub_id", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermIothubFileUpload(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? LockDuration
     {
-        get => new TerraformReference<string>(this, "lock_duration");
+        get => GetArgument<TerraformValue<string>>("lock_duration");
         set => SetArgument("lock_duration", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzurermIothubFileUpload(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<double>? MaxDeliveryCount
     {
-        get => new TerraformReference<double>(this, "max_delivery_count");
+        get => GetArgument<TerraformValue<double>>("max_delivery_count");
         set => SetArgument("max_delivery_count", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AzurermIothubFileUpload(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? NotificationsEnabled
     {
-        get => new TerraformReference<bool>(this, "notifications_enabled");
+        get => GetArgument<TerraformValue<bool>>("notifications_enabled");
         set => SetArgument("notifications_enabled", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AzurermIothubFileUpload(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? SasTtl
     {
-        get => new TerraformReference<string>(this, "sas_ttl");
+        get => GetArgument<TerraformValue<string>>("sas_ttl");
         set => SetArgument("sas_ttl", value);
     }
 

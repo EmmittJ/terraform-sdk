@@ -18,7 +18,7 @@ public class AwsRoute53KeySigningKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsRoute53KeySigningKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsRoute53KeySigningKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AwsRoute53KeySigningKey(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostedZoneId is required")]
     public required TerraformValue<string> HostedZoneId
     {
-        get => new TerraformReference<string>(this, "hosted_zone_id");
+        get => GetArgument<TerraformValue<string>>("hosted_zone_id");
         set => SetArgument("hosted_zone_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsRoute53KeySigningKey(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyManagementServiceArn is required")]
     public required TerraformValue<string> KeyManagementServiceArn
     {
-        get => new TerraformReference<string>(this, "key_management_service_arn");
+        get => GetArgument<TerraformValue<string>>("key_management_service_arn");
         set => SetArgument("key_management_service_arn", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AwsRoute53KeySigningKey(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AwsRoute53KeySigningKey(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -101,81 +101,61 @@ public partial class AwsRoute53KeySigningKey(string name) : TerraformResource("a
     /// The digest_algorithm_mnemonic attribute.
     /// </summary>
     public TerraformValue<string> DigestAlgorithmMnemonic
-    {
-        get => new TerraformReference<string>(this, "digest_algorithm_mnemonic");
-    }
+        => AsReference("digest_algorithm_mnemonic");
 
     /// <summary>
     /// The digest_algorithm_type attribute.
     /// </summary>
     public TerraformValue<double> DigestAlgorithmType
-    {
-        get => new TerraformReference<double>(this, "digest_algorithm_type");
-    }
+        => AsReference("digest_algorithm_type");
 
     /// <summary>
     /// The digest_value attribute.
     /// </summary>
     public TerraformValue<string> DigestValue
-    {
-        get => new TerraformReference<string>(this, "digest_value");
-    }
+        => AsReference("digest_value");
 
     /// <summary>
     /// The dnskey_record attribute.
     /// </summary>
     public TerraformValue<string> DnskeyRecord
-    {
-        get => new TerraformReference<string>(this, "dnskey_record");
-    }
+        => AsReference("dnskey_record");
 
     /// <summary>
     /// The ds_record attribute.
     /// </summary>
     public TerraformValue<string> DsRecord
-    {
-        get => new TerraformReference<string>(this, "ds_record");
-    }
+        => AsReference("ds_record");
 
     /// <summary>
     /// The flag attribute.
     /// </summary>
     public TerraformValue<double> Flag
-    {
-        get => new TerraformReference<double>(this, "flag");
-    }
+        => AsReference("flag");
 
     /// <summary>
     /// The key_tag attribute.
     /// </summary>
     public TerraformValue<double> KeyTag
-    {
-        get => new TerraformReference<double>(this, "key_tag");
-    }
+        => AsReference("key_tag");
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     public TerraformValue<string> PublicKey
-    {
-        get => new TerraformReference<string>(this, "public_key");
-    }
+        => AsReference("public_key");
 
     /// <summary>
     /// The signing_algorithm_mnemonic attribute.
     /// </summary>
     public TerraformValue<string> SigningAlgorithmMnemonic
-    {
-        get => new TerraformReference<string>(this, "signing_algorithm_mnemonic");
-    }
+        => AsReference("signing_algorithm_mnemonic");
 
     /// <summary>
     /// The signing_algorithm_type attribute.
     /// </summary>
     public TerraformValue<double> SigningAlgorithmType
-    {
-        get => new TerraformReference<double>(this, "signing_algorithm_type");
-    }
+        => AsReference("signing_algorithm_type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

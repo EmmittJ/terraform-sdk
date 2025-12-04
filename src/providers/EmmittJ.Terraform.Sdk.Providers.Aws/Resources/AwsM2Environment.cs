@@ -19,7 +19,7 @@ public class AwsM2EnvironmentHighAvailabilityConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredCapacity is required")]
     public required TerraformValue<double> DesiredCapacity
     {
-        get => new TerraformReference<double>(this, "desired_capacity");
+        get => GetArgument<TerraformValue<double>>("desired_capacity");
         set => SetArgument("desired_capacity", value);
     }
 
@@ -74,7 +74,7 @@ public class AwsM2EnvironmentStorageConfigurationBlockEfsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformValue<string> FileSystemId
     {
-        get => new TerraformReference<string>(this, "file_system_id");
+        get => GetArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
@@ -84,7 +84,7 @@ public class AwsM2EnvironmentStorageConfigurationBlockEfsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPoint is required")]
     public required TerraformValue<string> MountPoint
     {
-        get => new TerraformReference<string>(this, "mount_point");
+        get => GetArgument<TerraformValue<string>>("mount_point");
         set => SetArgument("mount_point", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsM2EnvironmentStorageConfigurationBlockFsxBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformValue<string> FileSystemId
     {
-        get => new TerraformReference<string>(this, "file_system_id");
+        get => GetArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsM2EnvironmentStorageConfigurationBlockFsxBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPoint is required")]
     public required TerraformValue<string> MountPoint
     {
-        get => new TerraformReference<string>(this, "mount_point");
+        get => GetArgument<TerraformValue<string>>("mount_point");
         set => SetArgument("mount_point", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsM2EnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -149,7 +149,7 @@ public class AwsM2EnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -158,7 +158,7 @@ public class AwsM2EnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AwsM2Environment(string name) : TerraformResource("aws_m2_e
     /// </summary>
     public TerraformValue<bool>? ApplyChangesDuringMaintenanceWindow
     {
-        get => new TerraformReference<bool>(this, "apply_changes_during_maintenance_window");
+        get => GetArgument<TerraformValue<bool>>("apply_changes_during_maintenance_window");
         set => SetArgument("apply_changes_during_maintenance_window", value);
     }
 
@@ -185,7 +185,7 @@ public partial class AwsM2Environment(string name) : TerraformResource("aws_m2_e
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -195,16 +195,16 @@ public partial class AwsM2Environment(string name) : TerraformResource("aws_m2_e
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineType is required")]
     public required TerraformValue<string> EngineType
     {
-        get => new TerraformReference<string>(this, "engine_type");
+        get => GetArgument<TerraformValue<string>>("engine_type");
         set => SetArgument("engine_type", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformValue<string> EngineVersion
+    public TerraformValue<string>? EngineVersion
     {
-        get => new TerraformReference<string>(this, "engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -213,7 +213,7 @@ public partial class AwsM2Environment(string name) : TerraformResource("aws_m2_e
     /// </summary>
     public TerraformValue<bool>? ForceUpdate
     {
-        get => new TerraformReference<bool>(this, "force_update");
+        get => GetArgument<TerraformValue<bool>>("force_update");
         set => SetArgument("force_update", value);
     }
 
@@ -223,7 +223,7 @@ public partial class AwsM2Environment(string name) : TerraformResource("aws_m2_e
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -232,7 +232,7 @@ public partial class AwsM2Environment(string name) : TerraformResource("aws_m2_e
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -242,52 +242,52 @@ public partial class AwsM2Environment(string name) : TerraformResource("aws_m2_e
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public TerraformValue<string> PreferredMaintenanceWindow
+    public TerraformValue<string>? PreferredMaintenanceWindow
     {
-        get => new TerraformReference<string>(this, "preferred_maintenance_window");
+        get => GetArgument<TerraformValue<string>>("preferred_maintenance_window");
         set => SetArgument("preferred_maintenance_window", value);
     }
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    public TerraformValue<bool> PubliclyAccessible
+    public TerraformValue<bool>? PubliclyAccessible
     {
-        get => new TerraformReference<bool>(this, "publicly_accessible");
+        get => GetArgument<TerraformValue<bool>>("publicly_accessible");
         set => SetArgument("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string> SecurityGroupIds
+    public TerraformSet<string>? SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformSet<string> SubnetIds
+    public TerraformSet<string>? SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -296,7 +296,7 @@ public partial class AwsM2Environment(string name) : TerraformResource("aws_m2_e
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -304,41 +304,31 @@ public partial class AwsM2Environment(string name) : TerraformResource("aws_m2_e
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The environment_id attribute.
     /// </summary>
     public TerraformValue<string> EnvironmentId
-    {
-        get => new TerraformReference<string>(this, "environment_id");
-    }
+        => AsReference("environment_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The load_balancer_arn attribute.
     /// </summary>
     public TerraformValue<string> LoadBalancerArn
-    {
-        get => new TerraformReference<string>(this, "load_balancer_arn");
-    }
+        => AsReference("load_balancer_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// HighAvailabilityConfig block (nesting mode: list).

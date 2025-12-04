@@ -17,16 +17,14 @@ public class AwsAmplifyDomainAssociationCertificateSettingsBlock : TerraformBloc
     /// The certificate_verification_dns_record attribute.
     /// </summary>
     public TerraformValue<string> CertificateVerificationDnsRecord
-    {
-        get => new TerraformReference<string>(this, "certificate_verification_dns_record");
-    }
+        => AsReference("certificate_verification_dns_record");
 
     /// <summary>
     /// The custom_certificate_arn attribute.
     /// </summary>
     public TerraformValue<string>? CustomCertificateArn
     {
-        get => new TerraformReference<string>(this, "custom_certificate_arn");
+        get => GetArgument<TerraformValue<string>>("custom_certificate_arn");
         set => SetArgument("custom_certificate_arn", value);
     }
 
@@ -36,7 +34,7 @@ public class AwsAmplifyDomainAssociationCertificateSettingsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -60,7 +58,7 @@ public class AwsAmplifyDomainAssociationSubDomainBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
     public required TerraformValue<string> BranchName
     {
-        get => new TerraformReference<string>(this, "branch_name");
+        get => GetArgument<TerraformValue<string>>("branch_name");
         set => SetArgument("branch_name", value);
     }
 
@@ -68,9 +66,7 @@ public class AwsAmplifyDomainAssociationSubDomainBlock : TerraformBlock
     /// The dns_record attribute.
     /// </summary>
     public TerraformValue<string> DnsRecord
-    {
-        get => new TerraformReference<string>(this, "dns_record");
-    }
+        => AsReference("dns_record");
 
     /// <summary>
     /// The prefix attribute.
@@ -78,7 +74,7 @@ public class AwsAmplifyDomainAssociationSubDomainBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
     public required TerraformValue<string> Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -86,9 +82,7 @@ public class AwsAmplifyDomainAssociationSubDomainBlock : TerraformBlock
     /// The verified attribute.
     /// </summary>
     public TerraformValue<bool> Verified
-    {
-        get => new TerraformReference<bool>(this, "verified");
-    }
+        => AsReference("verified");
 
 }
 
@@ -105,7 +99,7 @@ public partial class AwsAmplifyDomainAssociation(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformValue<string> AppId
     {
-        get => new TerraformReference<string>(this, "app_id");
+        get => GetArgument<TerraformValue<string>>("app_id");
         set => SetArgument("app_id", value);
     }
 
@@ -115,7 +109,7 @@ public partial class AwsAmplifyDomainAssociation(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -124,25 +118,25 @@ public partial class AwsAmplifyDomainAssociation(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool>? EnableAutoSubDomain
     {
-        get => new TerraformReference<bool>(this, "enable_auto_sub_domain");
+        get => GetArgument<TerraformValue<bool>>("enable_auto_sub_domain");
         set => SetArgument("enable_auto_sub_domain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -151,7 +145,7 @@ public partial class AwsAmplifyDomainAssociation(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool>? WaitForVerification
     {
-        get => new TerraformReference<bool>(this, "wait_for_verification");
+        get => GetArgument<TerraformValue<bool>>("wait_for_verification");
         set => SetArgument("wait_for_verification", value);
     }
 
@@ -159,17 +153,13 @@ public partial class AwsAmplifyDomainAssociation(string name) : TerraformResourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The certificate_verification_dns_record attribute.
     /// </summary>
     public TerraformValue<string> CertificateVerificationDnsRecord
-    {
-        get => new TerraformReference<string>(this, "certificate_verification_dns_record");
-    }
+        => AsReference("certificate_verification_dns_record");
 
     /// <summary>
     /// CertificateSettings block (nesting mode: list).

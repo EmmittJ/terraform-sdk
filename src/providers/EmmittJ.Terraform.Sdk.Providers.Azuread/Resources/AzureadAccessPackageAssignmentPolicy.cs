@@ -18,7 +18,7 @@ public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlock : Terrafo
     /// </summary>
     public TerraformValue<bool>? ApprovalRequired
     {
-        get => new TerraformReference<bool>(this, "approval_required");
+        get => GetArgument<TerraformValue<bool>>("approval_required");
         set => SetArgument("approval_required", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlock : Terrafo
     /// </summary>
     public TerraformValue<bool>? ApprovalRequiredForExtension
     {
-        get => new TerraformReference<bool>(this, "approval_required_for_extension");
+        get => GetArgument<TerraformValue<bool>>("approval_required_for_extension");
         set => SetArgument("approval_required_for_extension", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlock : Terrafo
     /// </summary>
     public TerraformValue<bool>? RequestorJustificationRequired
     {
-        get => new TerraformReference<bool>(this, "requestor_justification_required");
+        get => GetArgument<TerraformValue<bool>>("requestor_justification_required");
         set => SetArgument("requestor_justification_required", value);
     }
 
@@ -67,7 +67,7 @@ public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlockApprovalSt
     /// </summary>
     public TerraformValue<bool>? AlternativeApprovalEnabled
     {
-        get => new TerraformReference<bool>(this, "alternative_approval_enabled");
+        get => GetArgument<TerraformValue<bool>>("alternative_approval_enabled");
         set => SetArgument("alternative_approval_enabled", value);
     }
 
@@ -77,7 +77,7 @@ public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlockApprovalSt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApprovalTimeoutInDays is required")]
     public required TerraformValue<double> ApprovalTimeoutInDays
     {
-        get => new TerraformReference<double>(this, "approval_timeout_in_days");
+        get => GetArgument<TerraformValue<double>>("approval_timeout_in_days");
         set => SetArgument("approval_timeout_in_days", value);
     }
 
@@ -86,7 +86,7 @@ public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlockApprovalSt
     /// </summary>
     public TerraformValue<bool>? ApproverJustificationRequired
     {
-        get => new TerraformReference<bool>(this, "approver_justification_required");
+        get => GetArgument<TerraformValue<bool>>("approver_justification_required");
         set => SetArgument("approver_justification_required", value);
     }
 
@@ -95,7 +95,7 @@ public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlockApprovalSt
     /// </summary>
     public TerraformValue<double>? EnableAlternativeApprovalInDays
     {
-        get => new TerraformReference<double>(this, "enable_alternative_approval_in_days");
+        get => GetArgument<TerraformValue<double>>("enable_alternative_approval_in_days");
         set => SetArgument("enable_alternative_approval_in_days", value);
     }
 
@@ -135,7 +135,7 @@ public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlockApprovalSt
     /// </summary>
     public TerraformValue<bool>? Backup
     {
-        get => new TerraformReference<bool>(this, "backup");
+        get => GetArgument<TerraformValue<bool>>("backup");
         set => SetArgument("backup", value);
     }
 
@@ -144,7 +144,7 @@ public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlockApprovalSt
     /// </summary>
     public TerraformValue<string>? ObjectId
     {
-        get => new TerraformReference<string>(this, "object_id");
+        get => GetArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -154,7 +154,7 @@ public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlockApprovalSt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubjectType is required")]
     public required TerraformValue<string> SubjectType
     {
-        get => new TerraformReference<string>(this, "subject_type");
+        get => GetArgument<TerraformValue<string>>("subject_type");
         set => SetArgument("subject_type", value);
     }
 
@@ -176,7 +176,7 @@ public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlockApprovalSt
     /// </summary>
     public TerraformValue<bool>? Backup
     {
-        get => new TerraformReference<bool>(this, "backup");
+        get => GetArgument<TerraformValue<bool>>("backup");
         set => SetArgument("backup", value);
     }
 
@@ -185,7 +185,7 @@ public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlockApprovalSt
     /// </summary>
     public TerraformValue<string>? ObjectId
     {
-        get => new TerraformReference<string>(this, "object_id");
+        get => GetArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -195,7 +195,7 @@ public class AzureadAccessPackageAssignmentPolicyApprovalSettingsBlockApprovalSt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubjectType is required")]
     public required TerraformValue<string> SubjectType
     {
-        get => new TerraformReference<string>(this, "subject_type");
+        get => GetArgument<TerraformValue<string>>("subject_type");
         set => SetArgument("subject_type", value);
     }
 
@@ -218,7 +218,7 @@ public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock :
     /// </summary>
     public TerraformValue<bool>? AccessRecommendationEnabled
     {
-        get => new TerraformReference<bool>(this, "access_recommendation_enabled");
+        get => GetArgument<TerraformValue<bool>>("access_recommendation_enabled");
         set => SetArgument("access_recommendation_enabled", value);
     }
 
@@ -227,7 +227,7 @@ public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock :
     /// </summary>
     public TerraformValue<string>? AccessReviewTimeoutBehavior
     {
-        get => new TerraformReference<string>(this, "access_review_timeout_behavior");
+        get => GetArgument<TerraformValue<string>>("access_review_timeout_behavior");
         set => SetArgument("access_review_timeout_behavior", value);
     }
 
@@ -236,7 +236,7 @@ public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock :
     /// </summary>
     public TerraformValue<bool>? ApproverJustificationRequired
     {
-        get => new TerraformReference<bool>(this, "approver_justification_required");
+        get => GetArgument<TerraformValue<bool>>("approver_justification_required");
         set => SetArgument("approver_justification_required", value);
     }
 
@@ -245,7 +245,7 @@ public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock :
     /// </summary>
     public TerraformValue<double>? DurationInDays
     {
-        get => new TerraformReference<double>(this, "duration_in_days");
+        get => GetArgument<TerraformValue<double>>("duration_in_days");
         set => SetArgument("duration_in_days", value);
     }
 
@@ -254,7 +254,7 @@ public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock :
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -263,7 +263,7 @@ public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock :
     /// </summary>
     public TerraformValue<string>? ReviewFrequency
     {
-        get => new TerraformReference<string>(this, "review_frequency");
+        get => GetArgument<TerraformValue<string>>("review_frequency");
         set => SetArgument("review_frequency", value);
     }
 
@@ -272,7 +272,7 @@ public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock :
     /// </summary>
     public TerraformValue<string>? ReviewType
     {
-        get => new TerraformReference<string>(this, "review_type");
+        get => GetArgument<TerraformValue<string>>("review_type");
         set => SetArgument("review_type", value);
     }
 
@@ -281,7 +281,7 @@ public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlock :
     /// </summary>
     public TerraformValue<string>? StartingOn
     {
-        get => new TerraformReference<string>(this, "starting_on");
+        get => GetArgument<TerraformValue<string>>("starting_on");
         set => SetArgument("starting_on", value);
     }
 
@@ -312,7 +312,7 @@ public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlockRe
     /// </summary>
     public TerraformValue<bool>? Backup
     {
-        get => new TerraformReference<bool>(this, "backup");
+        get => GetArgument<TerraformValue<bool>>("backup");
         set => SetArgument("backup", value);
     }
 
@@ -321,7 +321,7 @@ public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlockRe
     /// </summary>
     public TerraformValue<string>? ObjectId
     {
-        get => new TerraformReference<string>(this, "object_id");
+        get => GetArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -331,7 +331,7 @@ public class AzureadAccessPackageAssignmentPolicyAssignmentReviewSettingsBlockRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubjectType is required")]
     public required TerraformValue<string> SubjectType
     {
-        get => new TerraformReference<string>(this, "subject_type");
+        get => GetArgument<TerraformValue<string>>("subject_type");
         set => SetArgument("subject_type", value);
     }
 
@@ -354,7 +354,7 @@ public class AzureadAccessPackageAssignmentPolicyQuestionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Required
     {
-        get => new TerraformReference<bool>(this, "required");
+        get => GetArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -363,7 +363,7 @@ public class AzureadAccessPackageAssignmentPolicyQuestionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Sequence
     {
-        get => new TerraformReference<double>(this, "sequence");
+        get => GetArgument<TerraformValue<double>>("sequence");
         set => SetArgument("sequence", value);
     }
 
@@ -408,7 +408,7 @@ public class AzureadAccessPackageAssignmentPolicyQuestionBlockChoiceBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActualValue is required")]
     public required TerraformValue<string> ActualValue
     {
-        get => new TerraformReference<string>(this, "actual_value");
+        get => GetArgument<TerraformValue<string>>("actual_value");
         set => SetArgument("actual_value", value);
     }
 
@@ -444,7 +444,7 @@ public class AzureadAccessPackageAssignmentPolicyQuestionBlockChoiceBlockDisplay
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultText is required")]
     public required TerraformValue<string> DefaultText
     {
-        get => new TerraformReference<string>(this, "default_text");
+        get => GetArgument<TerraformValue<string>>("default_text");
         set => SetArgument("default_text", value);
     }
 
@@ -476,7 +476,7 @@ public class AzureadAccessPackageAssignmentPolicyQuestionBlockChoiceBlockDisplay
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => new TerraformReference<string>(this, "content");
+        get => GetArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -486,7 +486,7 @@ public class AzureadAccessPackageAssignmentPolicyQuestionBlockChoiceBlockDisplay
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformValue<string> LanguageCode
     {
-        get => new TerraformReference<string>(this, "language_code");
+        get => GetArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -509,7 +509,7 @@ public class AzureadAccessPackageAssignmentPolicyQuestionBlockTextBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultText is required")]
     public required TerraformValue<string> DefaultText
     {
-        get => new TerraformReference<string>(this, "default_text");
+        get => GetArgument<TerraformValue<string>>("default_text");
         set => SetArgument("default_text", value);
     }
 
@@ -541,7 +541,7 @@ public class AzureadAccessPackageAssignmentPolicyQuestionBlockTextBlockLocalized
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => new TerraformReference<string>(this, "content");
+        get => GetArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -551,7 +551,7 @@ public class AzureadAccessPackageAssignmentPolicyQuestionBlockTextBlockLocalized
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformValue<string> LanguageCode
     {
-        get => new TerraformReference<string>(this, "language_code");
+        get => GetArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -574,7 +574,7 @@ public class AzureadAccessPackageAssignmentPolicyRequestorSettingsBlock : Terraf
     /// </summary>
     public TerraformValue<bool>? RequestsAccepted
     {
-        get => new TerraformReference<bool>(this, "requests_accepted");
+        get => GetArgument<TerraformValue<bool>>("requests_accepted");
         set => SetArgument("requests_accepted", value);
     }
 
@@ -583,7 +583,7 @@ public class AzureadAccessPackageAssignmentPolicyRequestorSettingsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? ScopeType
     {
-        get => new TerraformReference<string>(this, "scope_type");
+        get => GetArgument<TerraformValue<string>>("scope_type");
         set => SetArgument("scope_type", value);
     }
 
@@ -614,7 +614,7 @@ public class AzureadAccessPackageAssignmentPolicyRequestorSettingsBlockRequestor
     /// </summary>
     public TerraformValue<bool>? Backup
     {
-        get => new TerraformReference<bool>(this, "backup");
+        get => GetArgument<TerraformValue<bool>>("backup");
         set => SetArgument("backup", value);
     }
 
@@ -623,7 +623,7 @@ public class AzureadAccessPackageAssignmentPolicyRequestorSettingsBlockRequestor
     /// </summary>
     public TerraformValue<string>? ObjectId
     {
-        get => new TerraformReference<string>(this, "object_id");
+        get => GetArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -633,7 +633,7 @@ public class AzureadAccessPackageAssignmentPolicyRequestorSettingsBlockRequestor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubjectType is required")]
     public required TerraformValue<string> SubjectType
     {
-        get => new TerraformReference<string>(this, "subject_type");
+        get => GetArgument<TerraformValue<string>>("subject_type");
         set => SetArgument("subject_type", value);
     }
 
@@ -656,7 +656,7 @@ public class AzureadAccessPackageAssignmentPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -665,7 +665,7 @@ public class AzureadAccessPackageAssignmentPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -674,7 +674,7 @@ public class AzureadAccessPackageAssignmentPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -683,7 +683,7 @@ public class AzureadAccessPackageAssignmentPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -702,7 +702,7 @@ public partial class AzureadAccessPackageAssignmentPolicy(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPackageId is required")]
     public required TerraformValue<string> AccessPackageId
     {
-        get => new TerraformReference<string>(this, "access_package_id");
+        get => GetArgument<TerraformValue<string>>("access_package_id");
         set => SetArgument("access_package_id", value);
     }
 
@@ -712,7 +712,7 @@ public partial class AzureadAccessPackageAssignmentPolicy(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -722,7 +722,7 @@ public partial class AzureadAccessPackageAssignmentPolicy(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -731,7 +731,7 @@ public partial class AzureadAccessPackageAssignmentPolicy(string name) : Terrafo
     /// </summary>
     public TerraformValue<double>? DurationInDays
     {
-        get => new TerraformReference<double>(this, "duration_in_days");
+        get => GetArgument<TerraformValue<double>>("duration_in_days");
         set => SetArgument("duration_in_days", value);
     }
 
@@ -740,7 +740,7 @@ public partial class AzureadAccessPackageAssignmentPolicy(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? ExpirationDate
     {
-        get => new TerraformReference<string>(this, "expiration_date");
+        get => GetArgument<TerraformValue<string>>("expiration_date");
         set => SetArgument("expiration_date", value);
     }
 
@@ -749,16 +749,16 @@ public partial class AzureadAccessPackageAssignmentPolicy(string name) : Terrafo
     /// </summary>
     public TerraformValue<bool>? ExtensionEnabled
     {
-        get => new TerraformReference<bool>(this, "extension_enabled");
+        get => GetArgument<TerraformValue<bool>>("extension_enabled");
         set => SetArgument("extension_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 

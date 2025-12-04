@@ -11,9 +11,9 @@ public partial class GoogleGkeHubMembershipDataSource(string name) : TerraformDa
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -24,7 +24,7 @@ public partial class GoogleGkeHubMembershipDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -34,7 +34,7 @@ public partial class GoogleGkeHubMembershipDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MembershipId is required")]
     public required TerraformValue<string> MembershipId
     {
-        get => new TerraformReference<string>(this, "membership_id");
+        get => GetArgument<TerraformValue<string>>("membership_id");
         set => SetArgument("membership_id", value);
     }
 
@@ -43,7 +43,7 @@ public partial class GoogleGkeHubMembershipDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -53,25 +53,19 @@ public partial class GoogleGkeHubMembershipDataSource(string name) : TerraformDa
     /// https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity
     /// </summary>
     public TerraformList<TerraformMap<object>> Authority
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "authority").ResolveNodes(ctx));
-    }
+        => AsReference("authority");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// If this Membership is a Kubernetes API server hosted on GKE, this is a self link to its GCP resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> Endpoint
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "endpoint").ResolveNodes(ctx));
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// Labels to apply to this membership.
@@ -81,25 +75,19 @@ public partial class GoogleGkeHubMembershipDataSource(string name) : TerraformDa
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
-    }
+        => AsReference("labels");
 
     /// <summary>
     /// The unique identifier of the membership.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
 }

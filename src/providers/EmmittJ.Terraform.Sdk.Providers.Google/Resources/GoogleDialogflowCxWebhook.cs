@@ -28,7 +28,7 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AllowedCaCerts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_ca_certs").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_ca_certs");
         set => SetArgument("allowed_ca_certs", value);
     }
 
@@ -38,7 +38,7 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? HttpMethod
     {
-        get => new TerraformReference<string>(this, "http_method");
+        get => GetArgument<TerraformValue<string>>("http_method");
         set => SetArgument("http_method", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? ParameterMapping
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameter_mapping").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameter_mapping");
         set => SetArgument("parameter_mapping", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RequestBody
     {
-        get => new TerraformReference<string>(this, "request_body");
+        get => GetArgument<TerraformValue<string>>("request_body");
         set => SetArgument("request_body", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? RequestHeaders
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "request_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("request_headers");
         set => SetArgument("request_headers", value);
     }
 
@@ -79,7 +79,7 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SecretVersionForUsernamePassword
     {
-        get => new TerraformReference<string>(this, "secret_version_for_username_password");
+        get => GetArgument<TerraformValue<string>>("secret_version_for_username_password");
         set => SetArgument("secret_version_for_username_password", value);
     }
 
@@ -90,7 +90,7 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ServiceAgentAuth
     {
-        get => new TerraformReference<string>(this, "service_agent_auth");
+        get => GetArgument<TerraformValue<string>>("service_agent_auth");
         set => SetArgument("service_agent_auth", value);
     }
 
@@ -100,7 +100,7 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? WebhookType
     {
-        get => new TerraformReference<string>(this, "webhook_type");
+        get => GetArgument<TerraformValue<string>>("webhook_type");
         set => SetArgument("webhook_type", value);
     }
 
@@ -151,7 +151,7 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlockOauthConfigBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -162,7 +162,7 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlockOauthConfigBlock : T
     /// </summary>
     public TerraformValue<string>? ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -171,7 +171,7 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlockOauthConfigBlock : T
     /// </summary>
     public TerraformList<string>? Scopes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("scopes");
         set => SetArgument("scopes", value);
     }
 
@@ -183,7 +183,7 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlockOauthConfigBlock : T
     /// </summary>
     public TerraformValue<string>? SecretVersionForClientSecret
     {
-        get => new TerraformReference<string>(this, "secret_version_for_client_secret");
+        get => GetArgument<TerraformValue<string>>("secret_version_for_client_secret");
         set => SetArgument("secret_version_for_client_secret", value);
     }
 
@@ -194,7 +194,7 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlockOauthConfigBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenEndpoint is required")]
     public required TerraformValue<string> TokenEndpoint
     {
-        get => new TerraformReference<string>(this, "token_endpoint");
+        get => GetArgument<TerraformValue<string>>("token_endpoint");
         set => SetArgument("token_endpoint", value);
     }
 
@@ -217,7 +217,7 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlockSecretVersionsForReq
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -228,7 +228,7 @@ public class GoogleDialogflowCxWebhookGenericWebServiceBlockSecretVersionsForReq
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -252,7 +252,7 @@ public class GoogleDialogflowCxWebhookServiceDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -294,7 +294,7 @@ public class GoogleDialogflowCxWebhookServiceDirectoryBlockGenericWebServiceBloc
     /// </summary>
     public TerraformList<string>? AllowedCaCerts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_ca_certs").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_ca_certs");
         set => SetArgument("allowed_ca_certs", value);
     }
 
@@ -304,7 +304,7 @@ public class GoogleDialogflowCxWebhookServiceDirectoryBlockGenericWebServiceBloc
     /// </summary>
     public TerraformValue<string>? HttpMethod
     {
-        get => new TerraformReference<string>(this, "http_method");
+        get => GetArgument<TerraformValue<string>>("http_method");
         set => SetArgument("http_method", value);
     }
 
@@ -316,7 +316,7 @@ public class GoogleDialogflowCxWebhookServiceDirectoryBlockGenericWebServiceBloc
     /// </summary>
     public TerraformMap<string>? ParameterMapping
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameter_mapping").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameter_mapping");
         set => SetArgument("parameter_mapping", value);
     }
 
@@ -325,7 +325,7 @@ public class GoogleDialogflowCxWebhookServiceDirectoryBlockGenericWebServiceBloc
     /// </summary>
     public TerraformValue<string>? RequestBody
     {
-        get => new TerraformReference<string>(this, "request_body");
+        get => GetArgument<TerraformValue<string>>("request_body");
         set => SetArgument("request_body", value);
     }
 
@@ -334,7 +334,7 @@ public class GoogleDialogflowCxWebhookServiceDirectoryBlockGenericWebServiceBloc
     /// </summary>
     public TerraformMap<string>? RequestHeaders
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "request_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("request_headers");
         set => SetArgument("request_headers", value);
     }
 
@@ -345,7 +345,7 @@ public class GoogleDialogflowCxWebhookServiceDirectoryBlockGenericWebServiceBloc
     /// </summary>
     public TerraformValue<string>? SecretVersionForUsernamePassword
     {
-        get => new TerraformReference<string>(this, "secret_version_for_username_password");
+        get => GetArgument<TerraformValue<string>>("secret_version_for_username_password");
         set => SetArgument("secret_version_for_username_password", value);
     }
 
@@ -356,7 +356,7 @@ public class GoogleDialogflowCxWebhookServiceDirectoryBlockGenericWebServiceBloc
     /// </summary>
     public TerraformValue<string>? ServiceAgentAuth
     {
-        get => new TerraformReference<string>(this, "service_agent_auth");
+        get => GetArgument<TerraformValue<string>>("service_agent_auth");
         set => SetArgument("service_agent_auth", value);
     }
 
@@ -366,7 +366,7 @@ public class GoogleDialogflowCxWebhookServiceDirectoryBlockGenericWebServiceBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -375,7 +375,7 @@ public class GoogleDialogflowCxWebhookServiceDirectoryBlockGenericWebServiceBloc
     /// </summary>
     public TerraformValue<string>? WebhookType
     {
-        get => new TerraformReference<string>(this, "webhook_type");
+        get => GetArgument<TerraformValue<string>>("webhook_type");
         set => SetArgument("webhook_type", value);
     }
 
@@ -417,7 +417,7 @@ public class GoogleDialogflowCxWebhookServiceDirectoryBlockGenericWebServiceBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -428,7 +428,7 @@ public class GoogleDialogflowCxWebhookServiceDirectoryBlockGenericWebServiceBloc
     /// </summary>
     public TerraformValue<string>? ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -437,7 +437,7 @@ public class GoogleDialogflowCxWebhookServiceDirectoryBlockGenericWebServiceBloc
     /// </summary>
     public TerraformList<string>? Scopes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("scopes");
         set => SetArgument("scopes", value);
     }
 
@@ -449,7 +449,7 @@ public class GoogleDialogflowCxWebhookServiceDirectoryBlockGenericWebServiceBloc
     /// </summary>
     public TerraformValue<string>? SecretVersionForClientSecret
     {
-        get => new TerraformReference<string>(this, "secret_version_for_client_secret");
+        get => GetArgument<TerraformValue<string>>("secret_version_for_client_secret");
         set => SetArgument("secret_version_for_client_secret", value);
     }
 
@@ -460,7 +460,7 @@ public class GoogleDialogflowCxWebhookServiceDirectoryBlockGenericWebServiceBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenEndpoint is required")]
     public required TerraformValue<string> TokenEndpoint
     {
-        get => new TerraformReference<string>(this, "token_endpoint");
+        get => GetArgument<TerraformValue<string>>("token_endpoint");
         set => SetArgument("token_endpoint", value);
     }
 
@@ -483,7 +483,7 @@ public class GoogleDialogflowCxWebhookServiceDirectoryBlockGenericWebServiceBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -494,7 +494,7 @@ public class GoogleDialogflowCxWebhookServiceDirectoryBlockGenericWebServiceBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -517,7 +517,7 @@ public class GoogleDialogflowCxWebhookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -526,7 +526,7 @@ public class GoogleDialogflowCxWebhookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -535,7 +535,7 @@ public class GoogleDialogflowCxWebhookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -553,7 +553,7 @@ public partial class GoogleDialogflowCxWebhook(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -563,7 +563,7 @@ public partial class GoogleDialogflowCxWebhook(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -572,7 +572,7 @@ public partial class GoogleDialogflowCxWebhook(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? EnableSpellCorrection
     {
-        get => new TerraformReference<bool>(this, "enable_spell_correction");
+        get => GetArgument<TerraformValue<bool>>("enable_spell_correction");
         set => SetArgument("enable_spell_correction", value);
     }
 
@@ -581,16 +581,16 @@ public partial class GoogleDialogflowCxWebhook(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? EnableStackdriverLogging
     {
-        get => new TerraformReference<bool>(this, "enable_stackdriver_logging");
+        get => GetArgument<TerraformValue<bool>>("enable_stackdriver_logging");
         set => SetArgument("enable_stackdriver_logging", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -600,7 +600,7 @@ public partial class GoogleDialogflowCxWebhook(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -609,7 +609,7 @@ public partial class GoogleDialogflowCxWebhook(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? SecuritySettings
     {
-        get => new TerraformReference<string>(this, "security_settings");
+        get => GetArgument<TerraformValue<string>>("security_settings");
         set => SetArgument("security_settings", value);
     }
 
@@ -618,7 +618,7 @@ public partial class GoogleDialogflowCxWebhook(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Timeout
     {
-        get => new TerraformReference<string>(this, "timeout");
+        get => GetArgument<TerraformValue<string>>("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -627,17 +627,13 @@ public partial class GoogleDialogflowCxWebhook(string name) : TerraformResource(
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/webhooks/&amp;lt;Webhook ID&amp;gt;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Deprecated. Name of the start flow in this agent. A start flow will be automatically created when the agent is created, and can only be deleted by deleting the agent. Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/flows/&amp;lt;Flow ID&amp;gt;.
     /// </summary>
     public TerraformValue<string> StartFlow
-    {
-        get => new TerraformReference<string>(this, "start_flow");
-    }
+        => AsReference("start_flow");
 
     /// <summary>
     /// GenericWebService block (nesting mode: list).

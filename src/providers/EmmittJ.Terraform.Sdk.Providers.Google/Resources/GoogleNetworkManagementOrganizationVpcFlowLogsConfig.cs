@@ -18,7 +18,7 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfigTimeoutsBlock :
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfigTimeoutsBlock :
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfigTimeoutsBlock :
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -53,9 +53,9 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig(string
     /// Optional. The aggregation interval for the logs. Default value is
     /// INTERVAL_5_SEC.   Possible values: INTERVAL_5_SEC INTERVAL_30_SEC INTERVAL_1_MIN INTERVAL_5_MIN INTERVAL_10_MIN INTERVAL_15_MIN
     /// </summary>
-    public TerraformValue<string> AggregationInterval
+    public TerraformValue<string>? AggregationInterval
     {
-        get => new TerraformReference<string>(this, "aggregation_interval");
+        get => GetArgument<TerraformValue<string>>("aggregation_interval");
         set => SetArgument("aggregation_interval", value);
     }
 
@@ -67,9 +67,9 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig(string
     /// CROSS_PROJECT_METADATA_ENABLED
     /// CROSS_PROJECT_METADATA_DISABLED Possible values: [&amp;quot;CROSS_PROJECT_METADATA_ENABLED&amp;quot;, &amp;quot;CROSS_PROJECT_METADATA_DISABLED&amp;quot;]
     /// </summary>
-    public TerraformValue<string> CrossProjectMetadata
+    public TerraformValue<string>? CrossProjectMetadata
     {
-        get => new TerraformReference<string>(this, "cross_project_metadata");
+        get => GetArgument<TerraformValue<string>>("cross_project_metadata");
         set => SetArgument("cross_project_metadata", value);
     }
 
@@ -79,7 +79,7 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig(string
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -88,7 +88,7 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig(string
     /// </summary>
     public TerraformValue<string>? FilterExpr
     {
-        get => new TerraformReference<string>(this, "filter_expr");
+        get => GetArgument<TerraformValue<string>>("filter_expr");
         set => SetArgument("filter_expr", value);
     }
 
@@ -98,18 +98,18 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig(string
     /// sampling rate to 0.0 is not allowed. If you want to disable VPC Flow Logs, use
     /// the state field instead. Default value is 1.0
     /// </summary>
-    public TerraformValue<double> FlowSampling
+    public TerraformValue<double>? FlowSampling
     {
-        get => new TerraformReference<double>(this, "flow_sampling");
+        get => GetArgument<TerraformValue<double>>("flow_sampling");
         set => SetArgument("flow_sampling", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -122,7 +122,7 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig(string
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -134,7 +134,7 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -143,9 +143,9 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig(string
     /// should be added to the reported VPC flow logs. Default value is INCLUDE_ALL_METADATA.
     ///   Possible values:  METADATA_UNSPECIFIED INCLUDE_ALL_METADATA EXCLUDE_ALL_METADATA CUSTOM_METADATA
     /// </summary>
-    public TerraformValue<string> Metadata
+    public TerraformValue<string>? Metadata
     {
-        get => new TerraformReference<string>(this, "metadata");
+        get => GetArgument<TerraformValue<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -155,7 +155,7 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig(string
     /// </summary>
     public TerraformList<string>? MetadataFields
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "metadata_fields").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("metadata_fields");
         set => SetArgument("metadata_fields", value);
     }
 
@@ -165,7 +165,7 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformValue<string> Organization
     {
-        get => new TerraformReference<string>(this, "organization");
+        get => GetArgument<TerraformValue<string>>("organization");
         set => SetArgument("organization", value);
     }
 
@@ -174,9 +174,9 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig(string
     /// is ENABLED. When creating a new configuration, it must be enabled.
     /// Possible values: ENABLED DISABLED
     /// </summary>
-    public TerraformValue<string> State
+    public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -186,7 +186,7 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcFlowLogsConfigId is required")]
     public required TerraformValue<string> VpcFlowLogsConfigId
     {
-        get => new TerraformReference<string>(this, "vpc_flow_logs_config_id");
+        get => GetArgument<TerraformValue<string>>("vpc_flow_logs_config_id");
         set => SetArgument("vpc_flow_logs_config_id", value);
     }
 
@@ -194,42 +194,32 @@ public partial class GoogleNetworkManagementOrganizationVpcFlowLogsConfig(string
     /// Output only. The time the config was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Identifier. Unique name of the configuration using the form:     &#39;organizations/{org_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Output only. The time the config was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

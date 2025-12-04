@@ -18,7 +18,7 @@ public class AzurermSecurityCenterAssessmentPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSecurityCenterAssessmentPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSecurityCenterAssessmentPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSecurityCenterAssessmentPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermSecurityCenterAssessmentPolicy(string name) : Terraf
     /// <summary>
     /// The categories attribute.
     /// </summary>
-    public TerraformSet<string> Categories
+    public TerraformSet<string>? Categories
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "categories").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("categories");
         set => SetArgument("categories", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermSecurityCenterAssessmentPolicy(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -83,16 +83,16 @@ public partial class AzurermSecurityCenterAssessmentPolicy(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermSecurityCenterAssessmentPolicy(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? ImplementationEffort
     {
-        get => new TerraformReference<string>(this, "implementation_effort");
+        get => GetArgument<TerraformValue<string>>("implementation_effort");
         set => SetArgument("implementation_effort", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermSecurityCenterAssessmentPolicy(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? RemediationDescription
     {
-        get => new TerraformReference<string>(this, "remediation_description");
+        get => GetArgument<TerraformValue<string>>("remediation_description");
         set => SetArgument("remediation_description", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermSecurityCenterAssessmentPolicy(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Severity
     {
-        get => new TerraformReference<string>(this, "severity");
+        get => GetArgument<TerraformValue<string>>("severity");
         set => SetArgument("severity", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermSecurityCenterAssessmentPolicy(string name) : Terraf
     /// </summary>
     public TerraformSet<string>? Threats
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "threats").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("threats");
         set => SetArgument("threats", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AzurermSecurityCenterAssessmentPolicy(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? UserImpact
     {
-        get => new TerraformReference<string>(this, "user_impact");
+        get => GetArgument<TerraformValue<string>>("user_impact");
         set => SetArgument("user_impact", value);
     }
 
@@ -145,9 +145,7 @@ public partial class AzurermSecurityCenterAssessmentPolicy(string name) : Terraf
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class AwsGrafanaWorkspaceSamlConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsGrafanaWorkspaceSamlConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     /// </summary>
     public TerraformList<string>? AdminRoleValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "admin_role_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("admin_role_values");
         set => SetArgument("admin_role_values", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     /// </summary>
     public TerraformList<string>? AllowedOrganizations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_organizations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_organizations");
         set => SetArgument("allowed_organizations", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EditorRoleValues is required")]
     public TerraformList<string>? EditorRoleValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "editor_role_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("editor_role_values");
         set => SetArgument("editor_role_values", value);
     }
 
     /// <summary>
     /// The email_assertion attribute.
     /// </summary>
-    public TerraformValue<string> EmailAssertion
+    public TerraformValue<string>? EmailAssertion
     {
-        get => new TerraformReference<string>(this, "email_assertion");
+        get => GetArgument<TerraformValue<string>>("email_assertion");
         set => SetArgument("email_assertion", value);
     }
 
@@ -82,16 +82,16 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? GroupsAssertion
     {
-        get => new TerraformReference<string>(this, "groups_assertion");
+        get => GetArgument<TerraformValue<string>>("groups_assertion");
         set => SetArgument("groups_assertion", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? IdpMetadataUrl
     {
-        get => new TerraformReference<string>(this, "idp_metadata_url");
+        get => GetArgument<TerraformValue<string>>("idp_metadata_url");
         set => SetArgument("idp_metadata_url", value);
     }
 
@@ -109,34 +109,34 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? IdpMetadataXml
     {
-        get => new TerraformReference<string>(this, "idp_metadata_xml");
+        get => GetArgument<TerraformValue<string>>("idp_metadata_xml");
         set => SetArgument("idp_metadata_xml", value);
     }
 
     /// <summary>
     /// The login_assertion attribute.
     /// </summary>
-    public TerraformValue<string> LoginAssertion
+    public TerraformValue<string>? LoginAssertion
     {
-        get => new TerraformReference<string>(this, "login_assertion");
+        get => GetArgument<TerraformValue<string>>("login_assertion");
         set => SetArgument("login_assertion", value);
     }
 
     /// <summary>
     /// The login_validity_duration attribute.
     /// </summary>
-    public TerraformValue<double> LoginValidityDuration
+    public TerraformValue<double>? LoginValidityDuration
     {
-        get => new TerraformReference<double>(this, "login_validity_duration");
+        get => GetArgument<TerraformValue<double>>("login_validity_duration");
         set => SetArgument("login_validity_duration", value);
     }
 
     /// <summary>
     /// The name_assertion attribute.
     /// </summary>
-    public TerraformValue<string> NameAssertion
+    public TerraformValue<string>? NameAssertion
     {
-        get => new TerraformReference<string>(this, "name_assertion");
+        get => GetArgument<TerraformValue<string>>("name_assertion");
         set => SetArgument("name_assertion", value);
     }
 
@@ -145,16 +145,16 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? OrgAssertion
     {
-        get => new TerraformReference<string>(this, "org_assertion");
+        get => GetArgument<TerraformValue<string>>("org_assertion");
         set => SetArgument("org_assertion", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? RoleAssertion
     {
-        get => new TerraformReference<string>(this, "role_assertion");
+        get => GetArgument<TerraformValue<string>>("role_assertion");
         set => SetArgument("role_assertion", value);
     }
 
@@ -173,7 +173,7 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => new TerraformReference<string>(this, "workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -181,9 +181,7 @@ public partial class AwsGrafanaWorkspaceSamlConfiguration(string name) : Terrafo
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

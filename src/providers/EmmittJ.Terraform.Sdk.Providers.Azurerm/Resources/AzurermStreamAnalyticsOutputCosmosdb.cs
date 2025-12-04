@@ -18,7 +18,7 @@ public class AzurermStreamAnalyticsOutputCosmosdbTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermStreamAnalyticsOutputCosmosdbTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermStreamAnalyticsOutputCosmosdbTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermStreamAnalyticsOutputCosmosdbTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermStreamAnalyticsOutputCosmosdb(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? AuthenticationMode
     {
-        get => new TerraformReference<string>(this, "authentication_mode");
+        get => GetArgument<TerraformValue<string>>("authentication_mode");
         set => SetArgument("authentication_mode", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermStreamAnalyticsOutputCosmosdb(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformValue<string> ContainerName
     {
-        get => new TerraformReference<string>(this, "container_name");
+        get => GetArgument<TerraformValue<string>>("container_name");
         set => SetArgument("container_name", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermStreamAnalyticsOutputCosmosdb(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbAccountKey is required")]
     public required TerraformValue<string> CosmosdbAccountKey
     {
-        get => new TerraformReference<string>(this, "cosmosdb_account_key");
+        get => GetArgument<TerraformValue<string>>("cosmosdb_account_key");
         set => SetArgument("cosmosdb_account_key", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermStreamAnalyticsOutputCosmosdb(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbSqlDatabaseId is required")]
     public required TerraformValue<string> CosmosdbSqlDatabaseId
     {
-        get => new TerraformReference<string>(this, "cosmosdb_sql_database_id");
+        get => GetArgument<TerraformValue<string>>("cosmosdb_sql_database_id");
         set => SetArgument("cosmosdb_sql_database_id", value);
     }
 
@@ -102,16 +102,16 @@ public partial class AzurermStreamAnalyticsOutputCosmosdb(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? DocumentId
     {
-        get => new TerraformReference<string>(this, "document_id");
+        get => GetArgument<TerraformValue<string>>("document_id");
         set => SetArgument("document_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermStreamAnalyticsOutputCosmosdb(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermStreamAnalyticsOutputCosmosdb(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? PartitionKey
     {
-        get => new TerraformReference<string>(this, "partition_key");
+        get => GetArgument<TerraformValue<string>>("partition_key");
         set => SetArgument("partition_key", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AzurermStreamAnalyticsOutputCosmosdb(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
     public required TerraformValue<string> StreamAnalyticsJobId
     {
-        get => new TerraformReference<string>(this, "stream_analytics_job_id");
+        get => GetArgument<TerraformValue<string>>("stream_analytics_job_id");
         set => SetArgument("stream_analytics_job_id", value);
     }
 

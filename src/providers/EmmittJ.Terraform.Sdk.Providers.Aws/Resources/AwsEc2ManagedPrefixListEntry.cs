@@ -14,7 +14,7 @@ public partial class AwsEc2ManagedPrefixListEntry(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidr is required")]
     public required TerraformValue<string> Cidr
     {
-        get => new TerraformReference<string>(this, "cidr");
+        get => GetArgument<TerraformValue<string>>("cidr");
         set => SetArgument("cidr", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsEc2ManagedPrefixListEntry(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -42,16 +42,16 @@ public partial class AwsEc2ManagedPrefixListEntry(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrefixListId is required")]
     public required TerraformValue<string> PrefixListId
     {
-        get => new TerraformReference<string>(this, "prefix_list_id");
+        get => GetArgument<TerraformValue<string>>("prefix_list_id");
         set => SetArgument("prefix_list_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

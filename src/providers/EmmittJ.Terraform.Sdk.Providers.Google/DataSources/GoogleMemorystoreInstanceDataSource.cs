@@ -11,9 +11,9 @@ public partial class GoogleMemorystoreInstanceDataSource(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleMemorystoreInstanceDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => new TerraformReference<string>(this, "instance_id");
+        get => GetArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleMemorystoreInstanceDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -50,7 +50,7 @@ public partial class GoogleMemorystoreInstanceDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -60,138 +60,104 @@ public partial class GoogleMemorystoreInstanceDataSource(string name) : Terrafor
     /// IAM_AUTH
     /// </summary>
     public TerraformValue<string> AuthorizationMode
-    {
-        get => new TerraformReference<string>(this, "authorization_mode");
-    }
+        => AsReference("authorization_mode");
 
     /// <summary>
     /// The automated backup config for a instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> AutomatedBackupConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "automated_backup_config").ResolveNodes(ctx));
-    }
+        => AsReference("automated_backup_config");
 
     /// <summary>
     /// This field is used to determine the available maintenance versions for the self service update.
     /// </summary>
     public TerraformList<string> AvailableMaintenanceVersions
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "available_maintenance_versions").ResolveNodes(ctx));
-    }
+        => AsReference("available_maintenance_versions");
 
     /// <summary>
     /// The backup collection full resource name.
     /// Example: projects/{project}/locations/{location}/backupCollections/{collection}
     /// </summary>
     public TerraformValue<string> BackupCollection
-    {
-        get => new TerraformReference<string>(this, "backup_collection");
-    }
+        => AsReference("backup_collection");
 
     /// <summary>
     /// Output only. Creation timestamp of the instance.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Cross instance replication config
     /// </summary>
     public TerraformList<TerraformMap<object>> CrossInstanceReplicationConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cross_instance_replication_config").ResolveNodes(ctx));
-    }
+        => AsReference("cross_instance_replication_config");
 
     /// <summary>
     /// Optional. If set to true deletion of the instance will fail.
     /// </summary>
     public TerraformValue<bool> DeletionProtectionEnabled
-    {
-        get => new TerraformReference<bool>(this, "deletion_protection_enabled");
-    }
+        => AsReference("deletion_protection_enabled");
 
     /// <summary>
     /// Immutable. User inputs for the auto-created endpoints connections.
     /// </summary>
     public TerraformList<TerraformMap<object>> DesiredAutoCreatedEndpoints
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "desired_auto_created_endpoints").ResolveNodes(ctx));
-    }
+        => AsReference("desired_auto_created_endpoints");
 
     /// <summary>
     /// &#39;desired_psc_auto_connections&#39; is deprecated  Use &#39;desired_auto_created_endpoints&#39; instead &#39;terraform import&#39; will only work with desired_auto_created_endpoints&#39;.
     /// </summary>
     public TerraformList<TerraformMap<object>> DesiredPscAutoConnections
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "desired_psc_auto_connections").ResolveNodes(ctx));
-    }
+        => AsReference("desired_psc_auto_connections");
 
     /// <summary>
     /// Deprecated. Output only. Endpoints clients can connect to the instance through.
     /// </summary>
     public TerraformList<TerraformMap<object>> DiscoveryEndpoints
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "discovery_endpoints").ResolveNodes(ctx));
-    }
+        => AsReference("discovery_endpoints");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// This field represents the actual maintenance version of the cluster.
     /// </summary>
     public TerraformValue<string> EffectiveMaintenanceVersion
-    {
-        get => new TerraformReference<string>(this, "effective_maintenance_version");
-    }
+        => AsReference("effective_maintenance_version");
 
     /// <summary>
     /// Endpoints for the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> Endpoints
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "endpoints").ResolveNodes(ctx));
-    }
+        => AsReference("endpoints");
 
     /// <summary>
     /// Optional. User-provided engine configurations for the instance.
     /// </summary>
     public TerraformMap<string> EngineConfigs
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "engine_configs").ResolveNodes(ctx));
-    }
+        => AsReference("engine_configs");
 
     /// <summary>
     /// Optional. Engine version of the instance.
     /// </summary>
     public TerraformValue<string> EngineVersion
-    {
-        get => new TerraformReference<string>(this, "engine_version");
-    }
+        => AsReference("engine_version");
 
     /// <summary>
     /// GCS source for the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> GcsSource
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "gcs_source").ResolveNodes(ctx));
-    }
+        => AsReference("gcs_source");
 
     /// <summary>
     /// The KMS key used to encrypt the at-rest data of the cluster
     /// </summary>
     public TerraformValue<string> KmsKey
-    {
-        get => new TerraformReference<string>(this, "kms_key");
-    }
+        => AsReference("kms_key");
 
     /// <summary>
     /// Optional. Labels to represent user-provided metadata. 
@@ -200,50 +166,38 @@ public partial class GoogleMemorystoreInstanceDataSource(string name) : Terrafor
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
-    }
+        => AsReference("labels");
 
     /// <summary>
     /// Maintenance policy for a cluster
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenancePolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "maintenance_policy").ResolveNodes(ctx));
-    }
+        => AsReference("maintenance_policy");
 
     /// <summary>
     /// Upcoming maintenance schedule.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenanceSchedule
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "maintenance_schedule").ResolveNodes(ctx));
-    }
+        => AsReference("maintenance_schedule");
 
     /// <summary>
     /// This field can be used to trigger self service update to indicate the desired maintenance version. The input to this field can be determined by the available_maintenance_versions field.
     /// *Note*: This field can only be specified when updating an existing cluster to a newer version. Downgrades are currently not supported!
     /// </summary>
     public TerraformValue<string> MaintenanceVersion
-    {
-        get => new TerraformReference<string>(this, "maintenance_version");
-    }
+        => AsReference("maintenance_version");
 
     /// <summary>
     /// Managed backup source for the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedBackupSource
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "managed_backup_source").ResolveNodes(ctx));
-    }
+        => AsReference("managed_backup_source");
 
     /// <summary>
     /// Instance&#39;s Certificate Authority. This field will only be populated if instance&#39;s transit_encryption_mode is SERVER_AUTHENTICATION
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedServerCa
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "managed_server_ca").ResolveNodes(ctx));
-    }
+        => AsReference("managed_server_ca");
 
     /// <summary>
     /// Optional. cluster or cluster-disabled. 
@@ -252,26 +206,20 @@ public partial class GoogleMemorystoreInstanceDataSource(string name) : Terrafor
     ///  CLUSTER_DISABLED Possible values: [&amp;quot;CLUSTER&amp;quot;, &amp;quot;CLUSTER_DISABLED&amp;quot;]
     /// </summary>
     public TerraformValue<string> Mode
-    {
-        get => new TerraformReference<string>(this, "mode");
-    }
+        => AsReference("mode");
 
     /// <summary>
     /// Identifier. Unique name of the instance.
     /// Format: projects/{project}/locations/{location}/instances/{instance}
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Represents configuration for nodes of the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> NodeConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "node_config").ResolveNodes(ctx));
-    }
+        => AsReference("node_config");
 
     /// <summary>
     /// Optional. Machine type for individual nodes of the instance. 
@@ -282,49 +230,37 @@ public partial class GoogleMemorystoreInstanceDataSource(string name) : Terrafor
     /// STANDARD_SMALL
     /// </summary>
     public TerraformValue<string> NodeType
-    {
-        get => new TerraformReference<string>(this, "node_type");
-    }
+        => AsReference("node_type");
 
     /// <summary>
     /// Represents persistence configuration for a instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> PersistenceConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "persistence_config").ResolveNodes(ctx));
-    }
+        => AsReference("persistence_config");
 
     /// <summary>
     /// Configuration of a service attachment of the cluster, for creating PSC connections.
     /// </summary>
     public TerraformList<TerraformMap<object>> PscAttachmentDetails
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "psc_attachment_details").ResolveNodes(ctx));
-    }
+        => AsReference("psc_attachment_details");
 
     /// <summary>
     /// Output only. User inputs and resource details of the auto-created PSC connections.
     /// </summary>
     public TerraformList<TerraformMap<object>> PscAutoConnections
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "psc_auto_connections").ResolveNodes(ctx));
-    }
+        => AsReference("psc_auto_connections");
 
     /// <summary>
     /// Optional. Number of replica nodes per shard. If omitted the default is 0 replicas.
     /// </summary>
     public TerraformValue<double> ReplicaCount
-    {
-        get => new TerraformReference<double>(this, "replica_count");
-    }
+        => AsReference("replica_count");
 
     /// <summary>
     /// Required. Number of shards for the instance.
     /// </summary>
     public TerraformValue<double> ShardCount
-    {
-        get => new TerraformReference<double>(this, "shard_count");
-    }
+        => AsReference("shard_count");
 
     /// <summary>
     /// Output only. Current state of the instance. 
@@ -335,26 +271,20 @@ public partial class GoogleMemorystoreInstanceDataSource(string name) : Terrafor
     /// DELETING
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Additional information about the state of the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> StateInfo
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "state_info").ResolveNodes(ctx));
-    }
+        => AsReference("state_info");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Optional. Immutable. In-transit encryption mode of the instance. 
@@ -363,32 +293,24 @@ public partial class GoogleMemorystoreInstanceDataSource(string name) : Terrafor
     /// SERVER_AUTHENTICATION
     /// </summary>
     public TerraformValue<string> TransitEncryptionMode
-    {
-        get => new TerraformReference<string>(this, "transit_encryption_mode");
-    }
+        => AsReference("transit_encryption_mode");
 
     /// <summary>
     /// Output only. System assigned, unique identifier for the instance.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Output only. Latest update timestamp of the instance.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Zone distribution configuration for allocation of instance resources.
     /// </summary>
     public TerraformList<TerraformMap<object>> ZoneDistributionConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "zone_distribution_config").ResolveNodes(ctx));
-    }
+        => AsReference("zone_distribution_config");
 
 }

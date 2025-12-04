@@ -11,9 +11,9 @@ public partial class GoogleDnsRecordSetDataSource(string name) : TerraformDataSo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleDnsRecordSetDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedZone is required")]
     public required TerraformValue<string> ManagedZone
     {
-        get => new TerraformReference<string>(this, "managed_zone");
+        get => GetArgument<TerraformValue<string>>("managed_zone");
         set => SetArgument("managed_zone", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleDnsRecordSetDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleDnsRecordSetDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -52,7 +52,7 @@ public partial class GoogleDnsRecordSetDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -60,16 +60,12 @@ public partial class GoogleDnsRecordSetDataSource(string name) : TerraformDataSo
     /// The rrdatas attribute.
     /// </summary>
     public TerraformList<string> Rrdatas
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "rrdatas").ResolveNodes(ctx));
-    }
+        => AsReference("rrdatas");
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
     public TerraformValue<double> Ttl
-    {
-        get => new TerraformReference<double>(this, "ttl");
-    }
+        => AsReference("ttl");
 
 }

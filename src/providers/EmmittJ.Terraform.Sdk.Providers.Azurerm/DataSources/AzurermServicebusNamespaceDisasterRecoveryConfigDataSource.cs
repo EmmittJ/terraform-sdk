@@ -18,7 +18,7 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfigDataSourceTimeoutsB
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -36,16 +36,16 @@ public partial class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource(
     /// </summary>
     public TerraformValue<string>? AliasAuthorizationRuleId
     {
-        get => new TerraformReference<string>(this, "alias_authorization_rule_id");
+        get => GetArgument<TerraformValue<string>>("alias_authorization_rule_id");
         set => SetArgument("alias_authorization_rule_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The namespace_id attribute.
     /// </summary>
-    public TerraformValue<string> NamespaceId
+    public TerraformValue<string>? NamespaceId
     {
-        get => new TerraformReference<string>(this, "namespace_id");
+        get => GetArgument<TerraformValue<string>>("namespace_id");
         set => SetArgument("namespace_id", value);
     }
 
@@ -72,9 +72,9 @@ public partial class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource(
     /// The namespace_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> NamespaceName
+    public TerraformValue<string>? NamespaceName
     {
-        get => new TerraformReference<string>(this, "namespace_name");
+        get => GetArgument<TerraformValue<string>>("namespace_name");
         set => SetArgument("namespace_name", value);
     }
 
@@ -82,9 +82,9 @@ public partial class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource(
     /// The resource_group_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> ResourceGroupName
+    public TerraformValue<string>? ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -92,41 +92,31 @@ public partial class AzurermServicebusNamespaceDisasterRecoveryConfigDataSource(
     /// The default_primary_key attribute.
     /// </summary>
     public TerraformValue<string> DefaultPrimaryKey
-    {
-        get => new TerraformReference<string>(this, "default_primary_key");
-    }
+        => AsReference("default_primary_key");
 
     /// <summary>
     /// The default_secondary_key attribute.
     /// </summary>
     public TerraformValue<string> DefaultSecondaryKey
-    {
-        get => new TerraformReference<string>(this, "default_secondary_key");
-    }
+        => AsReference("default_secondary_key");
 
     /// <summary>
     /// The partner_namespace_id attribute.
     /// </summary>
     public TerraformValue<string> PartnerNamespaceId
-    {
-        get => new TerraformReference<string>(this, "partner_namespace_id");
-    }
+        => AsReference("partner_namespace_id");
 
     /// <summary>
     /// The primary_connection_string_alias attribute.
     /// </summary>
     public TerraformValue<string> PrimaryConnectionStringAlias
-    {
-        get => new TerraformReference<string>(this, "primary_connection_string_alias");
-    }
+        => AsReference("primary_connection_string_alias");
 
     /// <summary>
     /// The secondary_connection_string_alias attribute.
     /// </summary>
     public TerraformValue<string> SecondaryConnectionStringAlias
-    {
-        get => new TerraformReference<string>(this, "secondary_connection_string_alias");
-    }
+        => AsReference("secondary_connection_string_alias");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

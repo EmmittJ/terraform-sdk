@@ -16,9 +16,9 @@ public class AwsRoute53ResolverEndpointIpAddressBlock : TerraformBlock
     /// <summary>
     /// The ip attribute.
     /// </summary>
-    public TerraformValue<string> Ip
+    public TerraformValue<string>? Ip
     {
-        get => new TerraformReference<string>(this, "ip");
+        get => GetArgument<TerraformValue<string>>("ip");
         set => SetArgument("ip", value);
     }
 
@@ -26,16 +26,14 @@ public class AwsRoute53ResolverEndpointIpAddressBlock : TerraformBlock
     /// The ip_id attribute.
     /// </summary>
     public TerraformValue<string> IpId
-    {
-        get => new TerraformReference<string>(this, "ip_id");
-    }
+        => AsReference("ip_id");
 
     /// <summary>
     /// The ipv6 attribute.
     /// </summary>
-    public TerraformValue<string> Ipv6
+    public TerraformValue<string>? Ipv6
     {
-        get => new TerraformReference<string>(this, "ipv6");
+        get => GetArgument<TerraformValue<string>>("ipv6");
         set => SetArgument("ipv6", value);
     }
 
@@ -45,7 +43,7 @@ public class AwsRoute53ResolverEndpointIpAddressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -68,7 +66,7 @@ public class AwsRoute53ResolverEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -77,7 +75,7 @@ public class AwsRoute53ResolverEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -86,7 +84,7 @@ public class AwsRoute53ResolverEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -105,16 +103,16 @@ public partial class AwsRoute53ResolverEndpoint(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformValue<string> Direction
     {
-        get => new TerraformReference<string>(this, "direction");
+        get => GetArgument<TerraformValue<string>>("direction");
         set => SetArgument("direction", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -123,34 +121,34 @@ public partial class AwsRoute53ResolverEndpoint(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The protocols attribute.
     /// </summary>
-    public TerraformSet<string> Protocols
+    public TerraformSet<string>? Protocols
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "protocols").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("protocols");
         set => SetArgument("protocols", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The resolver_endpoint_type attribute.
     /// </summary>
-    public TerraformValue<string> ResolverEndpointType
+    public TerraformValue<string>? ResolverEndpointType
     {
-        get => new TerraformReference<string>(this, "resolver_endpoint_type");
+        get => GetArgument<TerraformValue<string>>("resolver_endpoint_type");
         set => SetArgument("resolver_endpoint_type", value);
     }
 
@@ -160,7 +158,7 @@ public partial class AwsRoute53ResolverEndpoint(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -169,16 +167,16 @@ public partial class AwsRoute53ResolverEndpoint(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -186,17 +184,13 @@ public partial class AwsRoute53ResolverEndpoint(string name) : TerraformResource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The host_vpc_id attribute.
     /// </summary>
     public TerraformValue<string> HostVpcId
-    {
-        get => new TerraformReference<string>(this, "host_vpc_id");
-    }
+        => AsReference("host_vpc_id");
 
     /// <summary>
     /// IpAddress block (nesting mode: set).

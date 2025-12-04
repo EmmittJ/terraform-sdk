@@ -11,27 +11,27 @@ public partial class AwsTransferWebAppCustomization(string name) : TerraformReso
     /// <summary>
     /// The favicon_file attribute.
     /// </summary>
-    public TerraformValue<string> FaviconFile
+    public TerraformValue<string>? FaviconFile
     {
-        get => new TerraformReference<string>(this, "favicon_file");
+        get => GetArgument<TerraformValue<string>>("favicon_file");
         set => SetArgument("favicon_file", value);
     }
 
     /// <summary>
     /// The logo_file attribute.
     /// </summary>
-    public TerraformValue<string> LogoFile
+    public TerraformValue<string>? LogoFile
     {
-        get => new TerraformReference<string>(this, "logo_file");
+        get => GetArgument<TerraformValue<string>>("logo_file");
         set => SetArgument("logo_file", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsTransferWebAppCustomization(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsTransferWebAppCustomization(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebAppId is required")]
     public required TerraformValue<string> WebAppId
     {
-        get => new TerraformReference<string>(this, "web_app_id");
+        get => GetArgument<TerraformValue<string>>("web_app_id");
         set => SetArgument("web_app_id", value);
     }
 

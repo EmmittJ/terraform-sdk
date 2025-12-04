@@ -18,7 +18,7 @@ public class GoogleManagedKafkaTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleManagedKafkaTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleManagedKafkaTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleManagedKafkaTopic(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => new TerraformReference<string>(this, "cluster");
+        get => GetArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
@@ -64,16 +64,16 @@ public partial class GoogleManagedKafkaTopic(string name) : TerraformResource("g
     /// </summary>
     public TerraformMap<string>? Configs
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "configs").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("configs");
         set => SetArgument("configs", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class GoogleManagedKafkaTopic(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -92,16 +92,16 @@ public partial class GoogleManagedKafkaTopic(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<double>? PartitionCount
     {
-        get => new TerraformReference<double>(this, "partition_count");
+        get => GetArgument<TerraformValue<double>>("partition_count");
         set => SetArgument("partition_count", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -111,7 +111,7 @@ public partial class GoogleManagedKafkaTopic(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationFactor is required")]
     public required TerraformValue<double> ReplicationFactor
     {
-        get => new TerraformReference<double>(this, "replication_factor");
+        get => GetArgument<TerraformValue<double>>("replication_factor");
         set => SetArgument("replication_factor", value);
     }
 
@@ -121,7 +121,7 @@ public partial class GoogleManagedKafkaTopic(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicId is required")]
     public required TerraformValue<string> TopicId
     {
-        get => new TerraformReference<string>(this, "topic_id");
+        get => GetArgument<TerraformValue<string>>("topic_id");
         set => SetArgument("topic_id", value);
     }
 
@@ -129,9 +129,7 @@ public partial class GoogleManagedKafkaTopic(string name) : TerraformResource("g
     /// The name of the topic. The &#39;topic&#39; segment is used when connecting directly to the cluster. Must be in the format &#39;projects/PROJECT_ID/locations/LOCATION/clusters/CLUSTER_ID/topics/TOPIC_ID&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

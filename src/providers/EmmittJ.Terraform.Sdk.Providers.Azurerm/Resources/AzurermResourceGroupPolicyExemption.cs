@@ -18,7 +18,7 @@ public class AzurermResourceGroupPolicyExemptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermResourceGroupPolicyExemptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermResourceGroupPolicyExemptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermResourceGroupPolicyExemptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermResourceGroupPolicyExemption(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermResourceGroupPolicyExemption(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermResourceGroupPolicyExemption(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExemptionCategory is required")]
     public required TerraformValue<string> ExemptionCategory
     {
-        get => new TerraformReference<string>(this, "exemption_category");
+        get => GetArgument<TerraformValue<string>>("exemption_category");
         set => SetArgument("exemption_category", value);
     }
 
@@ -91,25 +91,25 @@ public partial class AzurermResourceGroupPolicyExemption(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? ExpiresOn
     {
-        get => new TerraformReference<string>(this, "expires_on");
+        get => GetArgument<TerraformValue<string>>("expires_on");
         set => SetArgument("expires_on", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformValue<string> Metadata
+    public TerraformValue<string>? Metadata
     {
-        get => new TerraformReference<string>(this, "metadata");
+        get => GetArgument<TerraformValue<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermResourceGroupPolicyExemption(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermResourceGroupPolicyExemption(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyAssignmentId is required")]
     public required TerraformValue<string> PolicyAssignmentId
     {
-        get => new TerraformReference<string>(this, "policy_assignment_id");
+        get => GetArgument<TerraformValue<string>>("policy_assignment_id");
         set => SetArgument("policy_assignment_id", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzurermResourceGroupPolicyExemption(string name) : Terrafor
     /// </summary>
     public TerraformList<string>? PolicyDefinitionReferenceIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "policy_definition_reference_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("policy_definition_reference_ids");
         set => SetArgument("policy_definition_reference_ids", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AzurermResourceGroupPolicyExemption(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
     public required TerraformValue<string> ResourceGroupId
     {
-        get => new TerraformReference<string>(this, "resource_group_id");
+        get => GetArgument<TerraformValue<string>>("resource_group_id");
         set => SetArgument("resource_group_id", value);
     }
 

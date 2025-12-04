@@ -18,7 +18,7 @@ public class AwsOdbNetworkPeeringConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsOdbNetworkPeeringConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsOdbNetworkPeeringConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsOdbNetworkPeeringConnection(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsOdbNetworkPeeringConnection(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbNetworkId is required")]
     public required TerraformValue<string> OdbNetworkId
     {
-        get => new TerraformReference<string>(this, "odb_network_id");
+        get => GetArgument<TerraformValue<string>>("odb_network_id");
         set => SetArgument("odb_network_id", value);
     }
 
@@ -75,16 +75,16 @@ public partial class AwsOdbNetworkPeeringConnection(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerNetworkId is required")]
     public required TerraformValue<string> PeerNetworkId
     {
-        get => new TerraformReference<string>(this, "peer_network_id");
+        get => GetArgument<TerraformValue<string>>("peer_network_id");
         set => SetArgument("peer_network_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AwsOdbNetworkPeeringConnection(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -101,81 +101,61 @@ public partial class AwsOdbNetworkPeeringConnection(string name) : TerraformReso
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Created time of the odb network peering connection.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// ARN of the odb network peering connection.
     /// </summary>
     public TerraformValue<string> OdbNetworkArn
-    {
-        get => new TerraformReference<string>(this, "odb_network_arn");
-    }
+        => AsReference("odb_network_arn");
 
     /// <summary>
     /// Type of the odb peering connection.
     /// </summary>
     public TerraformValue<string> OdbPeeringConnectionType
-    {
-        get => new TerraformReference<string>(this, "odb_peering_connection_type");
-    }
+        => AsReference("odb_peering_connection_type");
 
     /// <summary>
     /// ARN of the peer network peering connection.
     /// </summary>
     public TerraformValue<string> PeerNetworkArn
-    {
-        get => new TerraformReference<string>(this, "peer_network_arn");
-    }
+        => AsReference("peer_network_arn");
 
     /// <summary>
     /// Progress of the odb network peering connection.
     /// </summary>
     public TerraformValue<double> PercentProgress
-    {
-        get => new TerraformReference<double>(this, "percent_progress");
-    }
+        => AsReference("percent_progress");
 
     /// <summary>
     /// Status of the odb network peering connection.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The reason for the current status of the ODB peering connection..
     /// </summary>
     public TerraformValue<string> StatusReason
-    {
-        get => new TerraformReference<string>(this, "status_reason");
-    }
+        => AsReference("status_reason");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

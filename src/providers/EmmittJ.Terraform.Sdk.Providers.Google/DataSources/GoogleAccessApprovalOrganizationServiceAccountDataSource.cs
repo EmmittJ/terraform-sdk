@@ -11,9 +11,9 @@ public partial class GoogleAccessApprovalOrganizationServiceAccountDataSource(st
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleAccessApprovalOrganizationServiceAccountDataSource(st
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrganizationId is required")]
     public required TerraformValue<string> OrganizationId
     {
-        get => new TerraformReference<string>(this, "organization_id");
+        get => GetArgument<TerraformValue<string>>("organization_id");
         set => SetArgument("organization_id", value);
     }
 
@@ -31,16 +31,12 @@ public partial class GoogleAccessApprovalOrganizationServiceAccountDataSource(st
     /// The account_email attribute.
     /// </summary>
     public TerraformValue<string> AccountEmail
-    {
-        get => new TerraformReference<string>(this, "account_email");
-    }
+        => AsReference("account_email");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
 }

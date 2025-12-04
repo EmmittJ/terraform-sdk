@@ -18,7 +18,7 @@ public class AzurermSecurityCenterAssessmentStatusBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cause
     {
-        get => new TerraformReference<string>(this, "cause");
+        get => GetArgument<TerraformValue<string>>("cause");
         set => SetArgument("cause", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermSecurityCenterAssessmentStatusBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Code is required")]
     public required TerraformValue<string> Code
     {
-        get => new TerraformReference<string>(this, "code");
+        get => GetArgument<TerraformValue<string>>("code");
         set => SetArgument("code", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermSecurityCenterAssessmentStatusBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermSecurityCenterAssessmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermSecurityCenterAssessmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermSecurityCenterAssessmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermSecurityCenterAssessmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AzurermSecurityCenterAssessment(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? AdditionalData
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_data").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("additional_data");
         set => SetArgument("additional_data", value);
     }
 
@@ -115,16 +115,16 @@ public partial class AzurermSecurityCenterAssessment(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssessmentPolicyId is required")]
     public required TerraformValue<string> AssessmentPolicyId
     {
-        get => new TerraformReference<string>(this, "assessment_policy_id");
+        get => GetArgument<TerraformValue<string>>("assessment_policy_id");
         set => SetArgument("assessment_policy_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AzurermSecurityCenterAssessment(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformValue<string> TargetResourceId
     {
-        get => new TerraformReference<string>(this, "target_resource_id");
+        get => GetArgument<TerraformValue<string>>("target_resource_id");
         set => SetArgument("target_resource_id", value);
     }
 

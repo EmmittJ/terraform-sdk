@@ -19,7 +19,7 @@ public class AwsAutoscalingGroupTagTagBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsAutoscalingGroupTagTagBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PropagateAtLaunch is required")]
     public required TerraformValue<bool> PropagateAtLaunch
     {
-        get => new TerraformReference<bool>(this, "propagate_at_launch");
+        get => GetArgument<TerraformValue<bool>>("propagate_at_launch");
         set => SetArgument("propagate_at_launch", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsAutoscalingGroupTagTagBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -58,25 +58,25 @@ public partial class AwsAutoscalingGroupTag(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingGroupName is required")]
     public required TerraformValue<string> AutoscalingGroupName
     {
-        get => new TerraformReference<string>(this, "autoscaling_group_name");
+        get => GetArgument<TerraformValue<string>>("autoscaling_group_name");
         set => SetArgument("autoscaling_group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

@@ -44,7 +44,7 @@ public class AzurermDynatraceMonitorEnvironmentPropertiesBlockEnvironmentInfoBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     public required TerraformValue<string> EnvironmentId
     {
-        get => new TerraformReference<string>(this, "environment_id");
+        get => GetArgument<TerraformValue<string>>("environment_id");
         set => SetArgument("environment_id", value);
     }
 
@@ -66,17 +66,13 @@ public class AzurermDynatraceMonitorIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -84,7 +80,7 @@ public class AzurermDynatraceMonitorIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -107,7 +103,7 @@ public class AzurermDynatraceMonitorPlanBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BillingCycle
     {
-        get => new TerraformReference<string>(this, "billing_cycle");
+        get => GetArgument<TerraformValue<string>>("billing_cycle");
         set => SetArgument("billing_cycle", value);
     }
 
@@ -115,9 +111,7 @@ public class AzurermDynatraceMonitorPlanBlock : TerraformBlock
     /// The effective_date attribute.
     /// </summary>
     public TerraformValue<string> EffectiveDate
-    {
-        get => new TerraformReference<string>(this, "effective_date");
-    }
+        => AsReference("effective_date");
 
     /// <summary>
     /// The plan attribute.
@@ -125,7 +119,7 @@ public class AzurermDynatraceMonitorPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     public required TerraformValue<string> Plan
     {
-        get => new TerraformReference<string>(this, "plan");
+        get => GetArgument<TerraformValue<string>>("plan");
         set => SetArgument("plan", value);
     }
 
@@ -134,7 +128,7 @@ public class AzurermDynatraceMonitorPlanBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? UsageType
     {
-        get => new TerraformReference<string>(this, "usage_type");
+        get => GetArgument<TerraformValue<string>>("usage_type");
         set => SetArgument("usage_type", value);
     }
 
@@ -157,7 +151,7 @@ public class AzurermDynatraceMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -166,7 +160,7 @@ public class AzurermDynatraceMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -175,7 +169,7 @@ public class AzurermDynatraceMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -184,7 +178,7 @@ public class AzurermDynatraceMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -208,7 +202,7 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Country is required")]
     public required TerraformValue<string> Country
     {
-        get => new TerraformReference<string>(this, "country");
+        get => GetArgument<TerraformValue<string>>("country");
         set => SetArgument("country", value);
     }
 
@@ -218,7 +212,7 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -228,7 +222,7 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirstName is required")]
     public required TerraformValue<string> FirstName
     {
-        get => new TerraformReference<string>(this, "first_name");
+        get => GetArgument<TerraformValue<string>>("first_name");
         set => SetArgument("first_name", value);
     }
 
@@ -238,7 +232,7 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LastName is required")]
     public required TerraformValue<string> LastName
     {
-        get => new TerraformReference<string>(this, "last_name");
+        get => GetArgument<TerraformValue<string>>("last_name");
         set => SetArgument("last_name", value);
     }
 
@@ -248,7 +242,7 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => new TerraformReference<string>(this, "phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -264,9 +258,9 @@ public partial class AzurermDynatraceMonitor(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -276,7 +270,7 @@ public partial class AzurermDynatraceMonitor(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -286,7 +280,7 @@ public partial class AzurermDynatraceMonitor(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MarketplaceSubscription is required")]
     public required TerraformValue<string> MarketplaceSubscription
     {
-        get => new TerraformReference<string>(this, "marketplace_subscription");
+        get => GetArgument<TerraformValue<string>>("marketplace_subscription");
         set => SetArgument("marketplace_subscription", value);
     }
 
@@ -295,7 +289,7 @@ public partial class AzurermDynatraceMonitor(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? MonitoringEnabled
     {
-        get => new TerraformReference<bool>(this, "monitoring_enabled");
+        get => GetArgument<TerraformValue<bool>>("monitoring_enabled");
         set => SetArgument("monitoring_enabled", value);
     }
 
@@ -305,7 +299,7 @@ public partial class AzurermDynatraceMonitor(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -315,7 +309,7 @@ public partial class AzurermDynatraceMonitor(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -324,7 +318,7 @@ public partial class AzurermDynatraceMonitor(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

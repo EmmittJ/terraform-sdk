@@ -30,6 +30,6 @@ public class TerraformLocals : TerraformBlock, ITerraformNamedReferenceable
         => TerraformExpression.Identifier("local");
 
     /// <inheritdoc/>
-    public TerraformExpression AsReference(string name)
+    public override TerraformExpression AsReference(string name)
         => TerraformExpression.Identifier($"local.{name}");
 }

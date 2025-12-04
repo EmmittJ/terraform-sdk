@@ -19,7 +19,7 @@ public class AzurermNginxDeploymentAutoScaleProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
     public required TerraformValue<double> MaxCapacity
     {
-        get => new TerraformReference<double>(this, "max_capacity");
+        get => GetArgument<TerraformValue<double>>("max_capacity");
         set => SetArgument("max_capacity", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermNginxDeploymentAutoScaleProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
     public required TerraformValue<double> MinCapacity
     {
-        get => new TerraformReference<double>(this, "min_capacity");
+        get => GetArgument<TerraformValue<double>>("min_capacity");
         set => SetArgument("min_capacity", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermNginxDeploymentAutoScaleProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermNginxDeploymentFrontendPrivateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocationMethod is required")]
     public required TerraformValue<string> AllocationMethod
     {
-        get => new TerraformReference<string>(this, "allocation_method");
+        get => GetArgument<TerraformValue<string>>("allocation_method");
         set => SetArgument("allocation_method", value);
     }
 
@@ -73,7 +73,7 @@ public class AzurermNginxDeploymentFrontendPrivateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     public required TerraformValue<string> IpAddress
     {
-        get => new TerraformReference<string>(this, "ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -83,7 +83,7 @@ public class AzurermNginxDeploymentFrontendPrivateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermNginxDeploymentFrontendPublicBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? IpAddress
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ip_address").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -129,7 +129,7 @@ public class AzurermNginxDeploymentIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -137,17 +137,13 @@ public class AzurermNginxDeploymentIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -155,7 +151,7 @@ public class AzurermNginxDeploymentIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -179,7 +175,7 @@ public class AzurermNginxDeploymentLoggingStorageAccountBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ContainerName
     {
-        get => new TerraformReference<string>(this, "container_name");
+        get => GetArgument<TerraformValue<string>>("container_name");
         set => SetArgument("container_name", value);
     }
 
@@ -188,7 +184,7 @@ public class AzurermNginxDeploymentLoggingStorageAccountBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -212,7 +208,7 @@ public class AzurermNginxDeploymentNetworkInterfaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -235,7 +231,7 @@ public class AzurermNginxDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -244,7 +240,7 @@ public class AzurermNginxDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -253,7 +249,7 @@ public class AzurermNginxDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -262,7 +258,7 @@ public class AzurermNginxDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -286,7 +282,7 @@ public class AzurermNginxDeploymentWebApplicationFirewallBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActivationStateEnabled is required")]
     public required TerraformValue<bool> ActivationStateEnabled
     {
-        get => new TerraformReference<bool>(this, "activation_state_enabled");
+        get => GetArgument<TerraformValue<bool>>("activation_state_enabled");
         set => SetArgument("activation_state_enabled", value);
     }
 
@@ -294,9 +290,7 @@ public class AzurermNginxDeploymentWebApplicationFirewallBlock : TerraformBlock
     /// The status attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "status").ResolveNodes(ctx));
-    }
+        => AsReference("status");
 
 }
 
@@ -312,7 +306,7 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? AutomaticUpgradeChannel
     {
-        get => new TerraformReference<string>(this, "automatic_upgrade_channel");
+        get => GetArgument<TerraformValue<string>>("automatic_upgrade_channel");
         set => SetArgument("automatic_upgrade_channel", value);
     }
 
@@ -321,7 +315,7 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<double>? Capacity
     {
-        get => new TerraformReference<double>(this, "capacity");
+        get => GetArgument<TerraformValue<double>>("capacity");
         set => SetArgument("capacity", value);
     }
 
@@ -330,7 +324,7 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? DiagnoseSupportEnabled
     {
-        get => new TerraformReference<bool>(this, "diagnose_support_enabled");
+        get => GetArgument<TerraformValue<bool>>("diagnose_support_enabled");
         set => SetArgument("diagnose_support_enabled", value);
     }
 
@@ -339,16 +333,16 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -358,7 +352,7 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -366,9 +360,9 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     /// The managed_resource_group attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> ManagedResourceGroup
+    public TerraformValue<string>? ManagedResourceGroup
     {
-        get => new TerraformReference<string>(this, "managed_resource_group");
+        get => GetArgument<TerraformValue<string>>("managed_resource_group");
         set => SetArgument("managed_resource_group", value);
     }
 
@@ -378,7 +372,7 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -388,7 +382,7 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -398,7 +392,7 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformValue<string> Sku
     {
-        get => new TerraformReference<string>(this, "sku");
+        get => GetArgument<TerraformValue<string>>("sku");
         set => SetArgument("sku", value);
     }
 
@@ -407,7 +401,7 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -415,25 +409,19 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     /// The dataplane_api_endpoint attribute.
     /// </summary>
     public TerraformValue<string> DataplaneApiEndpoint
-    {
-        get => new TerraformReference<string>(this, "dataplane_api_endpoint");
-    }
+        => AsReference("dataplane_api_endpoint");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     public TerraformValue<string> IpAddress
-    {
-        get => new TerraformReference<string>(this, "ip_address");
-    }
+        => AsReference("ip_address");
 
     /// <summary>
     /// The nginx_version attribute.
     /// </summary>
     public TerraformValue<string> NginxVersion
-    {
-        get => new TerraformReference<string>(this, "nginx_version");
-    }
+        => AsReference("nginx_version");
 
     /// <summary>
     /// AutoScaleProfile block (nesting mode: list).

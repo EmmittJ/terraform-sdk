@@ -13,16 +13,16 @@ public partial class AwsSsmPatchBaselineDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<bool>? DefaultBaseline
     {
-        get => new TerraformReference<bool>(this, "default_baseline");
+        get => GetArgument<TerraformValue<bool>>("default_baseline");
         set => SetArgument("default_baseline", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsSsmPatchBaselineDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsSsmPatchBaselineDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? OperatingSystem
     {
-        get => new TerraformReference<string>(this, "operating_system");
+        get => GetArgument<TerraformValue<string>>("operating_system");
         set => SetArgument("operating_system", value);
     }
 
@@ -50,16 +50,16 @@ public partial class AwsSsmPatchBaselineDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Owner is required")]
     public required TerraformValue<string> Owner
     {
-        get => new TerraformReference<string>(this, "owner");
+        get => GetArgument<TerraformValue<string>>("owner");
         set => SetArgument("owner", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -67,96 +67,72 @@ public partial class AwsSsmPatchBaselineDataSource(string name) : TerraformDataS
     /// The approval_rule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ApprovalRule
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "approval_rule").ResolveNodes(ctx));
-    }
+        => AsReference("approval_rule");
 
     /// <summary>
     /// The approved_patches attribute.
     /// </summary>
     public TerraformList<string> ApprovedPatches
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "approved_patches").ResolveNodes(ctx));
-    }
+        => AsReference("approved_patches");
 
     /// <summary>
     /// The approved_patches_compliance_level attribute.
     /// </summary>
     public TerraformValue<string> ApprovedPatchesComplianceLevel
-    {
-        get => new TerraformReference<string>(this, "approved_patches_compliance_level");
-    }
+        => AsReference("approved_patches_compliance_level");
 
     /// <summary>
     /// The approved_patches_enable_non_security attribute.
     /// </summary>
     public TerraformValue<bool> ApprovedPatchesEnableNonSecurity
-    {
-        get => new TerraformReference<bool>(this, "approved_patches_enable_non_security");
-    }
+        => AsReference("approved_patches_enable_non_security");
 
     /// <summary>
     /// The available_security_updates_compliance_status attribute.
     /// </summary>
     public TerraformValue<string> AvailableSecurityUpdatesComplianceStatus
-    {
-        get => new TerraformReference<string>(this, "available_security_updates_compliance_status");
-    }
+        => AsReference("available_security_updates_compliance_status");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The global_filter attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> GlobalFilter
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "global_filter").ResolveNodes(ctx));
-    }
+        => AsReference("global_filter");
 
     /// <summary>
     /// The json attribute.
     /// </summary>
     public TerraformValue<string> Json
-    {
-        get => new TerraformReference<string>(this, "json");
-    }
+        => AsReference("json");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The rejected_patches attribute.
     /// </summary>
     public TerraformList<string> RejectedPatches
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "rejected_patches").ResolveNodes(ctx));
-    }
+        => AsReference("rejected_patches");
 
     /// <summary>
     /// The rejected_patches_action attribute.
     /// </summary>
     public TerraformValue<string> RejectedPatchesAction
-    {
-        get => new TerraformReference<string>(this, "rejected_patches_action");
-    }
+        => AsReference("rejected_patches_action");
 
     /// <summary>
     /// The source attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Source
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "source").ResolveNodes(ctx));
-    }
+        => AsReference("source");
 
 }

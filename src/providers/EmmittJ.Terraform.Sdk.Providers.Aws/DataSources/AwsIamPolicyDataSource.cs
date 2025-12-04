@@ -11,27 +11,27 @@ public partial class AwsIamPolicyDataSource(string name) : TerraformDataSource("
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformValue<string> Arn
+    public TerraformValue<string>? Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -40,16 +40,16 @@ public partial class AwsIamPolicyDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string>? PathPrefix
     {
-        get => new TerraformReference<string>(this, "path_prefix");
+        get => GetArgument<TerraformValue<string>>("path_prefix");
         set => SetArgument("path_prefix", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -57,40 +57,30 @@ public partial class AwsIamPolicyDataSource(string name) : TerraformDataSource("
     /// The attachment_count attribute.
     /// </summary>
     public TerraformValue<double> AttachmentCount
-    {
-        get => new TerraformReference<double>(this, "attachment_count");
-    }
+        => AsReference("attachment_count");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     public TerraformValue<string> Path
-    {
-        get => new TerraformReference<string>(this, "path");
-    }
+        => AsReference("path");
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
     public TerraformValue<string> Policy
-    {
-        get => new TerraformReference<string>(this, "policy");
-    }
+        => AsReference("policy");
 
     /// <summary>
     /// The policy_id attribute.
     /// </summary>
     public TerraformValue<string> PolicyId
-    {
-        get => new TerraformReference<string>(this, "policy_id");
-    }
+        => AsReference("policy_id");
 
 }

@@ -19,7 +19,7 @@ public class AzurermFunctionAppFunctionFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => new TerraformReference<string>(this, "content");
+        get => GetArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermFunctionAppFunctionFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermFunctionAppFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermFunctionAppFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermFunctionAppFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermFunctionAppFunctionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -98,7 +98,7 @@ public partial class AzurermFunctionAppFunction(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigJson is required")]
     public required TerraformValue<string> ConfigJson
     {
-        get => new TerraformReference<string>(this, "config_json");
+        get => GetArgument<TerraformValue<string>>("config_json");
         set => SetArgument("config_json", value);
     }
 
@@ -107,7 +107,7 @@ public partial class AzurermFunctionAppFunction(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -117,16 +117,16 @@ public partial class AzurermFunctionAppFunction(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppId is required")]
     public required TerraformValue<string> FunctionAppId
     {
-        get => new TerraformReference<string>(this, "function_app_id");
+        get => GetArgument<TerraformValue<string>>("function_app_id");
         set => SetArgument("function_app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AzurermFunctionAppFunction(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Language
     {
-        get => new TerraformReference<string>(this, "language");
+        get => GetArgument<TerraformValue<string>>("language");
         set => SetArgument("language", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermFunctionAppFunction(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -154,7 +154,7 @@ public partial class AzurermFunctionAppFunction(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? TestData
     {
-        get => new TerraformReference<string>(this, "test_data");
+        get => GetArgument<TerraformValue<string>>("test_data");
         set => SetArgument("test_data", value);
     }
 
@@ -162,57 +162,43 @@ public partial class AzurermFunctionAppFunction(string name) : TerraformResource
     /// The URL of the configuration JSON.
     /// </summary>
     public TerraformValue<string> ConfigUrl
-    {
-        get => new TerraformReference<string>(this, "config_url");
-    }
+        => AsReference("config_url");
 
     /// <summary>
     /// The invocation URL.
     /// </summary>
     public TerraformValue<string> InvocationUrl
-    {
-        get => new TerraformReference<string>(this, "invocation_url");
-    }
+        => AsReference("invocation_url");
 
     /// <summary>
     /// The Script root path URL.
     /// </summary>
     public TerraformValue<string> ScriptRootPathUrl
-    {
-        get => new TerraformReference<string>(this, "script_root_path_url");
-    }
+        => AsReference("script_root_path_url");
 
     /// <summary>
     /// The script URL.
     /// </summary>
     public TerraformValue<string> ScriptUrl
-    {
-        get => new TerraformReference<string>(this, "script_url");
-    }
+        => AsReference("script_url");
 
     /// <summary>
     /// The URL for the Secrets File.
     /// </summary>
     public TerraformValue<string> SecretsFileUrl
-    {
-        get => new TerraformReference<string>(this, "secrets_file_url");
-    }
+        => AsReference("secrets_file_url");
 
     /// <summary>
     /// The Test data URL.
     /// </summary>
     public TerraformValue<string> TestDataUrl
-    {
-        get => new TerraformReference<string>(this, "test_data_url");
-    }
+        => AsReference("test_data_url");
 
     /// <summary>
     /// The function URL.
     /// </summary>
     public TerraformValue<string> Url
-    {
-        get => new TerraformReference<string>(this, "url");
-    }
+        => AsReference("url");
 
     /// <summary>
     /// File block (nesting mode: list).

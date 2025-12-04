@@ -18,7 +18,7 @@ public class AzurermStorageAccountAzureFilesAuthenticationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DefaultShareLevelPermission
     {
-        get => new TerraformReference<string>(this, "default_share_level_permission");
+        get => GetArgument<TerraformValue<string>>("default_share_level_permission");
         set => SetArgument("default_share_level_permission", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermStorageAccountAzureFilesAuthenticationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryType is required")]
     public required TerraformValue<string> DirectoryType
     {
-        get => new TerraformReference<string>(this, "directory_type");
+        get => GetArgument<TerraformValue<string>>("directory_type");
         set => SetArgument("directory_type", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermStorageAccountAzureFilesAuthenticationBlockActiveDirectoryBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainGuid is required")]
     public required TerraformValue<string> DomainGuid
     {
-        get => new TerraformReference<string>(this, "domain_guid");
+        get => GetArgument<TerraformValue<string>>("domain_guid");
         set => SetArgument("domain_guid", value);
     }
 
@@ -71,7 +71,7 @@ public class AzurermStorageAccountAzureFilesAuthenticationBlockActiveDirectoryBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -80,7 +80,7 @@ public class AzurermStorageAccountAzureFilesAuthenticationBlockActiveDirectoryBl
     /// </summary>
     public TerraformValue<string>? DomainSid
     {
-        get => new TerraformReference<string>(this, "domain_sid");
+        get => GetArgument<TerraformValue<string>>("domain_sid");
         set => SetArgument("domain_sid", value);
     }
 
@@ -89,7 +89,7 @@ public class AzurermStorageAccountAzureFilesAuthenticationBlockActiveDirectoryBl
     /// </summary>
     public TerraformValue<string>? ForestName
     {
-        get => new TerraformReference<string>(this, "forest_name");
+        get => GetArgument<TerraformValue<string>>("forest_name");
         set => SetArgument("forest_name", value);
     }
 
@@ -98,7 +98,7 @@ public class AzurermStorageAccountAzureFilesAuthenticationBlockActiveDirectoryBl
     /// </summary>
     public TerraformValue<string>? NetbiosDomainName
     {
-        get => new TerraformReference<string>(this, "netbios_domain_name");
+        get => GetArgument<TerraformValue<string>>("netbios_domain_name");
         set => SetArgument("netbios_domain_name", value);
     }
 
@@ -107,7 +107,7 @@ public class AzurermStorageAccountAzureFilesAuthenticationBlockActiveDirectoryBl
     /// </summary>
     public TerraformValue<string>? StorageSid
     {
-        get => new TerraformReference<string>(this, "storage_sid");
+        get => GetArgument<TerraformValue<string>>("storage_sid");
         set => SetArgument("storage_sid", value);
     }
 
@@ -130,7 +130,7 @@ public class AzurermStorageAccountBlobPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ChangeFeedEnabled
     {
-        get => new TerraformReference<bool>(this, "change_feed_enabled");
+        get => GetArgument<TerraformValue<bool>>("change_feed_enabled");
         set => SetArgument("change_feed_enabled", value);
     }
 
@@ -139,16 +139,16 @@ public class AzurermStorageAccountBlobPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ChangeFeedRetentionInDays
     {
-        get => new TerraformReference<double>(this, "change_feed_retention_in_days");
+        get => GetArgument<TerraformValue<double>>("change_feed_retention_in_days");
         set => SetArgument("change_feed_retention_in_days", value);
     }
 
     /// <summary>
     /// The default_service_version attribute.
     /// </summary>
-    public TerraformValue<string> DefaultServiceVersion
+    public TerraformValue<string>? DefaultServiceVersion
     {
-        get => new TerraformReference<string>(this, "default_service_version");
+        get => GetArgument<TerraformValue<string>>("default_service_version");
         set => SetArgument("default_service_version", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermStorageAccountBlobPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? LastAccessTimeEnabled
     {
-        get => new TerraformReference<bool>(this, "last_access_time_enabled");
+        get => GetArgument<TerraformValue<bool>>("last_access_time_enabled");
         set => SetArgument("last_access_time_enabled", value);
     }
 
@@ -166,7 +166,7 @@ public class AzurermStorageAccountBlobPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? VersioningEnabled
     {
-        get => new TerraformReference<bool>(this, "versioning_enabled");
+        get => GetArgument<TerraformValue<bool>>("versioning_enabled");
         set => SetArgument("versioning_enabled", value);
     }
 
@@ -228,7 +228,7 @@ public class AzurermStorageAccountBlobPropertiesBlockContainerDeleteRetentionPol
     /// </summary>
     public TerraformValue<double>? Days
     {
-        get => new TerraformReference<double>(this, "days");
+        get => GetArgument<TerraformValue<double>>("days");
         set => SetArgument("days", value);
     }
 
@@ -251,7 +251,7 @@ public class AzurermStorageAccountBlobPropertiesBlockCorsRuleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedHeaders is required")]
     public TerraformList<string>? AllowedHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_headers");
         set => SetArgument("allowed_headers", value);
     }
 
@@ -261,7 +261,7 @@ public class AzurermStorageAccountBlobPropertiesBlockCorsRuleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
     public TerraformList<string>? AllowedMethods
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_methods");
         set => SetArgument("allowed_methods", value);
     }
 
@@ -271,7 +271,7 @@ public class AzurermStorageAccountBlobPropertiesBlockCorsRuleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
     public TerraformList<string>? AllowedOrigins
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_origins").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_origins");
         set => SetArgument("allowed_origins", value);
     }
 
@@ -281,7 +281,7 @@ public class AzurermStorageAccountBlobPropertiesBlockCorsRuleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExposedHeaders is required")]
     public TerraformList<string>? ExposedHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exposed_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exposed_headers");
         set => SetArgument("exposed_headers", value);
     }
 
@@ -291,7 +291,7 @@ public class AzurermStorageAccountBlobPropertiesBlockCorsRuleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAgeInSeconds is required")]
     public required TerraformValue<double> MaxAgeInSeconds
     {
-        get => new TerraformReference<double>(this, "max_age_in_seconds");
+        get => GetArgument<TerraformValue<double>>("max_age_in_seconds");
         set => SetArgument("max_age_in_seconds", value);
     }
 
@@ -313,7 +313,7 @@ public class AzurermStorageAccountBlobPropertiesBlockDeleteRetentionPolicyBlock 
     /// </summary>
     public TerraformValue<double>? Days
     {
-        get => new TerraformReference<double>(this, "days");
+        get => GetArgument<TerraformValue<double>>("days");
         set => SetArgument("days", value);
     }
 
@@ -322,7 +322,7 @@ public class AzurermStorageAccountBlobPropertiesBlockDeleteRetentionPolicyBlock 
     /// </summary>
     public TerraformValue<bool>? PermanentDeleteEnabled
     {
-        get => new TerraformReference<bool>(this, "permanent_delete_enabled");
+        get => GetArgument<TerraformValue<bool>>("permanent_delete_enabled");
         set => SetArgument("permanent_delete_enabled", value);
     }
 
@@ -345,7 +345,7 @@ public class AzurermStorageAccountBlobPropertiesBlockRestorePolicyBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Days is required")]
     public required TerraformValue<double> Days
     {
-        get => new TerraformReference<double>(this, "days");
+        get => GetArgument<TerraformValue<double>>("days");
         set => SetArgument("days", value);
     }
 
@@ -369,7 +369,7 @@ public class AzurermStorageAccountCustomDomainBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -378,7 +378,7 @@ public class AzurermStorageAccountCustomDomainBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? UseSubdomain
     {
-        get => new TerraformReference<bool>(this, "use_subdomain");
+        get => GetArgument<TerraformValue<bool>>("use_subdomain");
         set => SetArgument("use_subdomain", value);
     }
 
@@ -401,7 +401,7 @@ public class AzurermStorageAccountCustomerManagedKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KeyVaultKeyId
     {
-        get => new TerraformReference<string>(this, "key_vault_key_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_key_id");
         set => SetArgument("key_vault_key_id", value);
     }
 
@@ -410,7 +410,7 @@ public class AzurermStorageAccountCustomerManagedKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ManagedHsmKeyId
     {
-        get => new TerraformReference<string>(this, "managed_hsm_key_id");
+        get => GetArgument<TerraformValue<string>>("managed_hsm_key_id");
         set => SetArgument("managed_hsm_key_id", value);
     }
 
@@ -420,7 +420,7 @@ public class AzurermStorageAccountCustomerManagedKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserAssignedIdentityId is required")]
     public required TerraformValue<string> UserAssignedIdentityId
     {
-        get => new TerraformReference<string>(this, "user_assigned_identity_id");
+        get => GetArgument<TerraformValue<string>>("user_assigned_identity_id");
         set => SetArgument("user_assigned_identity_id", value);
     }
 
@@ -443,7 +443,7 @@ public class AzurermStorageAccountIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -451,17 +451,13 @@ public class AzurermStorageAccountIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -469,7 +465,7 @@ public class AzurermStorageAccountIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -493,7 +489,7 @@ public class AzurermStorageAccountImmutabilityPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowProtectedAppendWrites is required")]
     public required TerraformValue<bool> AllowProtectedAppendWrites
     {
-        get => new TerraformReference<bool>(this, "allow_protected_append_writes");
+        get => GetArgument<TerraformValue<bool>>("allow_protected_append_writes");
         set => SetArgument("allow_protected_append_writes", value);
     }
 
@@ -503,7 +499,7 @@ public class AzurermStorageAccountImmutabilityPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeriodSinceCreationInDays is required")]
     public required TerraformValue<double> PeriodSinceCreationInDays
     {
-        get => new TerraformReference<double>(this, "period_since_creation_in_days");
+        get => GetArgument<TerraformValue<double>>("period_since_creation_in_days");
         set => SetArgument("period_since_creation_in_days", value);
     }
 
@@ -513,7 +509,7 @@ public class AzurermStorageAccountImmutabilityPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformValue<string> State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -534,9 +530,9 @@ public class AzurermStorageAccountNetworkRulesBlock : TerraformBlock
     /// <summary>
     /// The bypass attribute.
     /// </summary>
-    public TerraformSet<string> Bypass
+    public TerraformSet<string>? Bypass
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "bypass").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("bypass");
         set => SetArgument("bypass", value);
     }
 
@@ -546,25 +542,25 @@ public class AzurermStorageAccountNetworkRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     public required TerraformValue<string> DefaultAction
     {
-        get => new TerraformReference<string>(this, "default_action");
+        get => GetArgument<TerraformValue<string>>("default_action");
         set => SetArgument("default_action", value);
     }
 
     /// <summary>
     /// The ip_rules attribute.
     /// </summary>
-    public TerraformSet<string> IpRules
+    public TerraformSet<string>? IpRules
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ip_rules").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("ip_rules");
         set => SetArgument("ip_rules", value);
     }
 
     /// <summary>
     /// The virtual_network_subnet_ids attribute.
     /// </summary>
-    public TerraformSet<string> VirtualNetworkSubnetIds
+    public TerraformSet<string>? VirtualNetworkSubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "virtual_network_subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("virtual_network_subnet_ids");
         set => SetArgument("virtual_network_subnet_ids", value);
     }
 
@@ -596,16 +592,16 @@ public class AzurermStorageAccountNetworkRulesBlockPrivateLinkAccessBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointResourceId is required")]
     public required TerraformValue<string> EndpointResourceId
     {
-        get => new TerraformReference<string>(this, "endpoint_resource_id");
+        get => GetArgument<TerraformValue<string>>("endpoint_resource_id");
         set => SetArgument("endpoint_resource_id", value);
     }
 
     /// <summary>
     /// The endpoint_tenant_id attribute.
     /// </summary>
-    public TerraformValue<string> EndpointTenantId
+    public TerraformValue<string>? EndpointTenantId
     {
-        get => new TerraformReference<string>(this, "endpoint_tenant_id");
+        get => GetArgument<TerraformValue<string>>("endpoint_tenant_id");
         set => SetArgument("endpoint_tenant_id", value);
     }
 
@@ -683,7 +679,7 @@ public class AzurermStorageAccountQueuePropertiesBlockCorsRuleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedHeaders is required")]
     public TerraformList<string>? AllowedHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_headers");
         set => SetArgument("allowed_headers", value);
     }
 
@@ -693,7 +689,7 @@ public class AzurermStorageAccountQueuePropertiesBlockCorsRuleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
     public TerraformList<string>? AllowedMethods
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_methods");
         set => SetArgument("allowed_methods", value);
     }
 
@@ -703,7 +699,7 @@ public class AzurermStorageAccountQueuePropertiesBlockCorsRuleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
     public TerraformList<string>? AllowedOrigins
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_origins").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_origins");
         set => SetArgument("allowed_origins", value);
     }
 
@@ -713,7 +709,7 @@ public class AzurermStorageAccountQueuePropertiesBlockCorsRuleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExposedHeaders is required")]
     public TerraformList<string>? ExposedHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exposed_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exposed_headers");
         set => SetArgument("exposed_headers", value);
     }
 
@@ -723,7 +719,7 @@ public class AzurermStorageAccountQueuePropertiesBlockCorsRuleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAgeInSeconds is required")]
     public required TerraformValue<double> MaxAgeInSeconds
     {
-        get => new TerraformReference<double>(this, "max_age_in_seconds");
+        get => GetArgument<TerraformValue<double>>("max_age_in_seconds");
         set => SetArgument("max_age_in_seconds", value);
     }
 
@@ -746,7 +742,7 @@ public class AzurermStorageAccountQueuePropertiesBlockHourMetricsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -755,7 +751,7 @@ public class AzurermStorageAccountQueuePropertiesBlockHourMetricsBlock : Terrafo
     /// </summary>
     public TerraformValue<bool>? IncludeApis
     {
-        get => new TerraformReference<bool>(this, "include_apis");
+        get => GetArgument<TerraformValue<bool>>("include_apis");
         set => SetArgument("include_apis", value);
     }
 
@@ -764,7 +760,7 @@ public class AzurermStorageAccountQueuePropertiesBlockHourMetricsBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? RetentionPolicyDays
     {
-        get => new TerraformReference<double>(this, "retention_policy_days");
+        get => GetArgument<TerraformValue<double>>("retention_policy_days");
         set => SetArgument("retention_policy_days", value);
     }
 
@@ -774,7 +770,7 @@ public class AzurermStorageAccountQueuePropertiesBlockHourMetricsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -797,7 +793,7 @@ public class AzurermStorageAccountQueuePropertiesBlockLoggingBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Delete is required")]
     public required TerraformValue<bool> Delete
     {
-        get => new TerraformReference<bool>(this, "delete");
+        get => GetArgument<TerraformValue<bool>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -807,7 +803,7 @@ public class AzurermStorageAccountQueuePropertiesBlockLoggingBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Read is required")]
     public required TerraformValue<bool> Read
     {
-        get => new TerraformReference<bool>(this, "read");
+        get => GetArgument<TerraformValue<bool>>("read");
         set => SetArgument("read", value);
     }
 
@@ -816,7 +812,7 @@ public class AzurermStorageAccountQueuePropertiesBlockLoggingBlock : TerraformBl
     /// </summary>
     public TerraformValue<double>? RetentionPolicyDays
     {
-        get => new TerraformReference<double>(this, "retention_policy_days");
+        get => GetArgument<TerraformValue<double>>("retention_policy_days");
         set => SetArgument("retention_policy_days", value);
     }
 
@@ -826,7 +822,7 @@ public class AzurermStorageAccountQueuePropertiesBlockLoggingBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -836,7 +832,7 @@ public class AzurermStorageAccountQueuePropertiesBlockLoggingBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Write is required")]
     public required TerraformValue<bool> Write
     {
-        get => new TerraformReference<bool>(this, "write");
+        get => GetArgument<TerraformValue<bool>>("write");
         set => SetArgument("write", value);
     }
 
@@ -859,7 +855,7 @@ public class AzurermStorageAccountQueuePropertiesBlockMinuteMetricsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -868,7 +864,7 @@ public class AzurermStorageAccountQueuePropertiesBlockMinuteMetricsBlock : Terra
     /// </summary>
     public TerraformValue<bool>? IncludeApis
     {
-        get => new TerraformReference<bool>(this, "include_apis");
+        get => GetArgument<TerraformValue<bool>>("include_apis");
         set => SetArgument("include_apis", value);
     }
 
@@ -877,7 +873,7 @@ public class AzurermStorageAccountQueuePropertiesBlockMinuteMetricsBlock : Terra
     /// </summary>
     public TerraformValue<double>? RetentionPolicyDays
     {
-        get => new TerraformReference<double>(this, "retention_policy_days");
+        get => GetArgument<TerraformValue<double>>("retention_policy_days");
         set => SetArgument("retention_policy_days", value);
     }
 
@@ -887,7 +883,7 @@ public class AzurermStorageAccountQueuePropertiesBlockMinuteMetricsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -910,7 +906,7 @@ public class AzurermStorageAccountRoutingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Choice
     {
-        get => new TerraformReference<string>(this, "choice");
+        get => GetArgument<TerraformValue<string>>("choice");
         set => SetArgument("choice", value);
     }
 
@@ -919,7 +915,7 @@ public class AzurermStorageAccountRoutingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PublishInternetEndpoints
     {
-        get => new TerraformReference<bool>(this, "publish_internet_endpoints");
+        get => GetArgument<TerraformValue<bool>>("publish_internet_endpoints");
         set => SetArgument("publish_internet_endpoints", value);
     }
 
@@ -928,7 +924,7 @@ public class AzurermStorageAccountRoutingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PublishMicrosoftEndpoints
     {
-        get => new TerraformReference<bool>(this, "publish_microsoft_endpoints");
+        get => GetArgument<TerraformValue<bool>>("publish_microsoft_endpoints");
         set => SetArgument("publish_microsoft_endpoints", value);
     }
 
@@ -951,7 +947,7 @@ public class AzurermStorageAccountSasPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ExpirationAction
     {
-        get => new TerraformReference<string>(this, "expiration_action");
+        get => GetArgument<TerraformValue<string>>("expiration_action");
         set => SetArgument("expiration_action", value);
     }
 
@@ -961,7 +957,7 @@ public class AzurermStorageAccountSasPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpirationPeriod is required")]
     public required TerraformValue<string> ExpirationPeriod
     {
-        get => new TerraformReference<string>(this, "expiration_period");
+        get => GetArgument<TerraformValue<string>>("expiration_period");
         set => SetArgument("expiration_period", value);
     }
 
@@ -1028,7 +1024,7 @@ public class AzurermStorageAccountSharePropertiesBlockCorsRuleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedHeaders is required")]
     public TerraformList<string>? AllowedHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_headers");
         set => SetArgument("allowed_headers", value);
     }
 
@@ -1038,7 +1034,7 @@ public class AzurermStorageAccountSharePropertiesBlockCorsRuleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
     public TerraformList<string>? AllowedMethods
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_methods");
         set => SetArgument("allowed_methods", value);
     }
 
@@ -1048,7 +1044,7 @@ public class AzurermStorageAccountSharePropertiesBlockCorsRuleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
     public TerraformList<string>? AllowedOrigins
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_origins").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_origins");
         set => SetArgument("allowed_origins", value);
     }
 
@@ -1058,7 +1054,7 @@ public class AzurermStorageAccountSharePropertiesBlockCorsRuleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExposedHeaders is required")]
     public TerraformList<string>? ExposedHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exposed_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exposed_headers");
         set => SetArgument("exposed_headers", value);
     }
 
@@ -1068,7 +1064,7 @@ public class AzurermStorageAccountSharePropertiesBlockCorsRuleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAgeInSeconds is required")]
     public required TerraformValue<double> MaxAgeInSeconds
     {
-        get => new TerraformReference<double>(this, "max_age_in_seconds");
+        get => GetArgument<TerraformValue<double>>("max_age_in_seconds");
         set => SetArgument("max_age_in_seconds", value);
     }
 
@@ -1090,7 +1086,7 @@ public class AzurermStorageAccountSharePropertiesBlockRetentionPolicyBlock : Ter
     /// </summary>
     public TerraformValue<double>? Days
     {
-        get => new TerraformReference<double>(this, "days");
+        get => GetArgument<TerraformValue<double>>("days");
         set => SetArgument("days", value);
     }
 
@@ -1112,7 +1108,7 @@ public class AzurermStorageAccountSharePropertiesBlockSmbBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? AuthenticationTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "authentication_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("authentication_types");
         set => SetArgument("authentication_types", value);
     }
 
@@ -1121,7 +1117,7 @@ public class AzurermStorageAccountSharePropertiesBlockSmbBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ChannelEncryptionType
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "channel_encryption_type").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("channel_encryption_type");
         set => SetArgument("channel_encryption_type", value);
     }
 
@@ -1130,7 +1126,7 @@ public class AzurermStorageAccountSharePropertiesBlockSmbBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? KerberosTicketEncryptionType
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "kerberos_ticket_encryption_type").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("kerberos_ticket_encryption_type");
         set => SetArgument("kerberos_ticket_encryption_type", value);
     }
 
@@ -1139,7 +1135,7 @@ public class AzurermStorageAccountSharePropertiesBlockSmbBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? MultichannelEnabled
     {
-        get => new TerraformReference<bool>(this, "multichannel_enabled");
+        get => GetArgument<TerraformValue<bool>>("multichannel_enabled");
         set => SetArgument("multichannel_enabled", value);
     }
 
@@ -1148,7 +1144,7 @@ public class AzurermStorageAccountSharePropertiesBlockSmbBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Versions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "versions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("versions");
         set => SetArgument("versions", value);
     }
 
@@ -1172,7 +1168,7 @@ public class AzurermStorageAccountStaticWebsiteBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Error404Document
     {
-        get => new TerraformReference<string>(this, "error_404_document");
+        get => GetArgument<TerraformValue<string>>("error_404_document");
         set => SetArgument("error_404_document", value);
     }
 
@@ -1181,7 +1177,7 @@ public class AzurermStorageAccountStaticWebsiteBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? IndexDocument
     {
-        get => new TerraformReference<string>(this, "index_document");
+        get => GetArgument<TerraformValue<string>>("index_document");
         set => SetArgument("index_document", value);
     }
 
@@ -1204,7 +1200,7 @@ public class AzurermStorageAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1213,7 +1209,7 @@ public class AzurermStorageAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1222,7 +1218,7 @@ public class AzurermStorageAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -1231,7 +1227,7 @@ public class AzurermStorageAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1247,9 +1243,9 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// <summary>
     /// The access_tier attribute.
     /// </summary>
-    public TerraformValue<string> AccessTier
+    public TerraformValue<string>? AccessTier
     {
-        get => new TerraformReference<string>(this, "access_tier");
+        get => GetArgument<TerraformValue<string>>("access_tier");
         set => SetArgument("access_tier", value);
     }
 
@@ -1258,7 +1254,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? AccountKind
     {
-        get => new TerraformReference<string>(this, "account_kind");
+        get => GetArgument<TerraformValue<string>>("account_kind");
         set => SetArgument("account_kind", value);
     }
 
@@ -1268,7 +1264,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountReplicationType is required")]
     public required TerraformValue<string> AccountReplicationType
     {
-        get => new TerraformReference<string>(this, "account_replication_type");
+        get => GetArgument<TerraformValue<string>>("account_replication_type");
         set => SetArgument("account_replication_type", value);
     }
 
@@ -1278,7 +1274,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountTier is required")]
     public required TerraformValue<string> AccountTier
     {
-        get => new TerraformReference<string>(this, "account_tier");
+        get => GetArgument<TerraformValue<string>>("account_tier");
         set => SetArgument("account_tier", value);
     }
 
@@ -1287,7 +1283,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? AllowNestedItemsToBePublic
     {
-        get => new TerraformReference<bool>(this, "allow_nested_items_to_be_public");
+        get => GetArgument<TerraformValue<bool>>("allow_nested_items_to_be_public");
         set => SetArgument("allow_nested_items_to_be_public", value);
     }
 
@@ -1296,7 +1292,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? AllowedCopyScope
     {
-        get => new TerraformReference<string>(this, "allowed_copy_scope");
+        get => GetArgument<TerraformValue<string>>("allowed_copy_scope");
         set => SetArgument("allowed_copy_scope", value);
     }
 
@@ -1305,7 +1301,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? CrossTenantReplicationEnabled
     {
-        get => new TerraformReference<bool>(this, "cross_tenant_replication_enabled");
+        get => GetArgument<TerraformValue<bool>>("cross_tenant_replication_enabled");
         set => SetArgument("cross_tenant_replication_enabled", value);
     }
 
@@ -1314,7 +1310,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? DefaultToOauthAuthentication
     {
-        get => new TerraformReference<bool>(this, "default_to_oauth_authentication");
+        get => GetArgument<TerraformValue<bool>>("default_to_oauth_authentication");
         set => SetArgument("default_to_oauth_authentication", value);
     }
 
@@ -1323,7 +1319,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? DnsEndpointType
     {
-        get => new TerraformReference<string>(this, "dns_endpoint_type");
+        get => GetArgument<TerraformValue<string>>("dns_endpoint_type");
         set => SetArgument("dns_endpoint_type", value);
     }
 
@@ -1332,7 +1328,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? EdgeZone
     {
-        get => new TerraformReference<string>(this, "edge_zone");
+        get => GetArgument<TerraformValue<string>>("edge_zone");
         set => SetArgument("edge_zone", value);
     }
 
@@ -1341,16 +1337,16 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? HttpsTrafficOnlyEnabled
     {
-        get => new TerraformReference<bool>(this, "https_traffic_only_enabled");
+        get => GetArgument<TerraformValue<bool>>("https_traffic_only_enabled");
         set => SetArgument("https_traffic_only_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1359,7 +1355,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? InfrastructureEncryptionEnabled
     {
-        get => new TerraformReference<bool>(this, "infrastructure_encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("infrastructure_encryption_enabled");
         set => SetArgument("infrastructure_encryption_enabled", value);
     }
 
@@ -1368,16 +1364,16 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? IsHnsEnabled
     {
-        get => new TerraformReference<bool>(this, "is_hns_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_hns_enabled");
         set => SetArgument("is_hns_enabled", value);
     }
 
     /// <summary>
     /// The large_file_share_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> LargeFileShareEnabled
+    public TerraformValue<bool>? LargeFileShareEnabled
     {
-        get => new TerraformReference<bool>(this, "large_file_share_enabled");
+        get => GetArgument<TerraformValue<bool>>("large_file_share_enabled");
         set => SetArgument("large_file_share_enabled", value);
     }
 
@@ -1386,7 +1382,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? LocalUserEnabled
     {
-        get => new TerraformReference<bool>(this, "local_user_enabled");
+        get => GetArgument<TerraformValue<bool>>("local_user_enabled");
         set => SetArgument("local_user_enabled", value);
     }
 
@@ -1396,7 +1392,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1405,7 +1401,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? MinTlsVersion
     {
-        get => new TerraformReference<string>(this, "min_tls_version");
+        get => GetArgument<TerraformValue<string>>("min_tls_version");
         set => SetArgument("min_tls_version", value);
     }
 
@@ -1415,7 +1411,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1424,7 +1420,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? Nfsv3Enabled
     {
-        get => new TerraformReference<bool>(this, "nfsv3_enabled");
+        get => GetArgument<TerraformValue<bool>>("nfsv3_enabled");
         set => SetArgument("nfsv3_enabled", value);
     }
 
@@ -1433,7 +1429,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? ProvisionedBillingModelVersion
     {
-        get => new TerraformReference<string>(this, "provisioned_billing_model_version");
+        get => GetArgument<TerraformValue<string>>("provisioned_billing_model_version");
         set => SetArgument("provisioned_billing_model_version", value);
     }
 
@@ -1442,7 +1438,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -1451,7 +1447,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? QueueEncryptionKeyType
     {
-        get => new TerraformReference<string>(this, "queue_encryption_key_type");
+        get => GetArgument<TerraformValue<string>>("queue_encryption_key_type");
         set => SetArgument("queue_encryption_key_type", value);
     }
 
@@ -1461,7 +1457,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -1470,7 +1466,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? SftpEnabled
     {
-        get => new TerraformReference<bool>(this, "sftp_enabled");
+        get => GetArgument<TerraformValue<bool>>("sftp_enabled");
         set => SetArgument("sftp_enabled", value);
     }
 
@@ -1479,7 +1475,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? SharedAccessKeyEnabled
     {
-        get => new TerraformReference<bool>(this, "shared_access_key_enabled");
+        get => GetArgument<TerraformValue<bool>>("shared_access_key_enabled");
         set => SetArgument("shared_access_key_enabled", value);
     }
 
@@ -1488,7 +1484,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? TableEncryptionKeyType
     {
-        get => new TerraformReference<string>(this, "table_encryption_key_type");
+        get => GetArgument<TerraformValue<string>>("table_encryption_key_type");
         set => SetArgument("table_encryption_key_type", value);
     }
 
@@ -1497,7 +1493,7 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -1505,577 +1501,433 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// The primary_access_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "primary_access_key");
-    }
+        => AsReference("primary_access_key");
 
     /// <summary>
     /// The primary_blob_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimaryBlobConnectionString
-    {
-        get => new TerraformReference<string>(this, "primary_blob_connection_string");
-    }
+        => AsReference("primary_blob_connection_string");
 
     /// <summary>
     /// The primary_blob_endpoint attribute.
     /// </summary>
     public TerraformValue<string> PrimaryBlobEndpoint
-    {
-        get => new TerraformReference<string>(this, "primary_blob_endpoint");
-    }
+        => AsReference("primary_blob_endpoint");
 
     /// <summary>
     /// The primary_blob_host attribute.
     /// </summary>
     public TerraformValue<string> PrimaryBlobHost
-    {
-        get => new TerraformReference<string>(this, "primary_blob_host");
-    }
+        => AsReference("primary_blob_host");
 
     /// <summary>
     /// The primary_blob_internet_endpoint attribute.
     /// </summary>
     public TerraformValue<string> PrimaryBlobInternetEndpoint
-    {
-        get => new TerraformReference<string>(this, "primary_blob_internet_endpoint");
-    }
+        => AsReference("primary_blob_internet_endpoint");
 
     /// <summary>
     /// The primary_blob_internet_host attribute.
     /// </summary>
     public TerraformValue<string> PrimaryBlobInternetHost
-    {
-        get => new TerraformReference<string>(this, "primary_blob_internet_host");
-    }
+        => AsReference("primary_blob_internet_host");
 
     /// <summary>
     /// The primary_blob_microsoft_endpoint attribute.
     /// </summary>
     public TerraformValue<string> PrimaryBlobMicrosoftEndpoint
-    {
-        get => new TerraformReference<string>(this, "primary_blob_microsoft_endpoint");
-    }
+        => AsReference("primary_blob_microsoft_endpoint");
 
     /// <summary>
     /// The primary_blob_microsoft_host attribute.
     /// </summary>
     public TerraformValue<string> PrimaryBlobMicrosoftHost
-    {
-        get => new TerraformReference<string>(this, "primary_blob_microsoft_host");
-    }
+        => AsReference("primary_blob_microsoft_host");
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimaryConnectionString
-    {
-        get => new TerraformReference<string>(this, "primary_connection_string");
-    }
+        => AsReference("primary_connection_string");
 
     /// <summary>
     /// The primary_dfs_endpoint attribute.
     /// </summary>
     public TerraformValue<string> PrimaryDfsEndpoint
-    {
-        get => new TerraformReference<string>(this, "primary_dfs_endpoint");
-    }
+        => AsReference("primary_dfs_endpoint");
 
     /// <summary>
     /// The primary_dfs_host attribute.
     /// </summary>
     public TerraformValue<string> PrimaryDfsHost
-    {
-        get => new TerraformReference<string>(this, "primary_dfs_host");
-    }
+        => AsReference("primary_dfs_host");
 
     /// <summary>
     /// The primary_dfs_internet_endpoint attribute.
     /// </summary>
     public TerraformValue<string> PrimaryDfsInternetEndpoint
-    {
-        get => new TerraformReference<string>(this, "primary_dfs_internet_endpoint");
-    }
+        => AsReference("primary_dfs_internet_endpoint");
 
     /// <summary>
     /// The primary_dfs_internet_host attribute.
     /// </summary>
     public TerraformValue<string> PrimaryDfsInternetHost
-    {
-        get => new TerraformReference<string>(this, "primary_dfs_internet_host");
-    }
+        => AsReference("primary_dfs_internet_host");
 
     /// <summary>
     /// The primary_dfs_microsoft_endpoint attribute.
     /// </summary>
     public TerraformValue<string> PrimaryDfsMicrosoftEndpoint
-    {
-        get => new TerraformReference<string>(this, "primary_dfs_microsoft_endpoint");
-    }
+        => AsReference("primary_dfs_microsoft_endpoint");
 
     /// <summary>
     /// The primary_dfs_microsoft_host attribute.
     /// </summary>
     public TerraformValue<string> PrimaryDfsMicrosoftHost
-    {
-        get => new TerraformReference<string>(this, "primary_dfs_microsoft_host");
-    }
+        => AsReference("primary_dfs_microsoft_host");
 
     /// <summary>
     /// The primary_file_endpoint attribute.
     /// </summary>
     public TerraformValue<string> PrimaryFileEndpoint
-    {
-        get => new TerraformReference<string>(this, "primary_file_endpoint");
-    }
+        => AsReference("primary_file_endpoint");
 
     /// <summary>
     /// The primary_file_host attribute.
     /// </summary>
     public TerraformValue<string> PrimaryFileHost
-    {
-        get => new TerraformReference<string>(this, "primary_file_host");
-    }
+        => AsReference("primary_file_host");
 
     /// <summary>
     /// The primary_file_internet_endpoint attribute.
     /// </summary>
     public TerraformValue<string> PrimaryFileInternetEndpoint
-    {
-        get => new TerraformReference<string>(this, "primary_file_internet_endpoint");
-    }
+        => AsReference("primary_file_internet_endpoint");
 
     /// <summary>
     /// The primary_file_internet_host attribute.
     /// </summary>
     public TerraformValue<string> PrimaryFileInternetHost
-    {
-        get => new TerraformReference<string>(this, "primary_file_internet_host");
-    }
+        => AsReference("primary_file_internet_host");
 
     /// <summary>
     /// The primary_file_microsoft_endpoint attribute.
     /// </summary>
     public TerraformValue<string> PrimaryFileMicrosoftEndpoint
-    {
-        get => new TerraformReference<string>(this, "primary_file_microsoft_endpoint");
-    }
+        => AsReference("primary_file_microsoft_endpoint");
 
     /// <summary>
     /// The primary_file_microsoft_host attribute.
     /// </summary>
     public TerraformValue<string> PrimaryFileMicrosoftHost
-    {
-        get => new TerraformReference<string>(this, "primary_file_microsoft_host");
-    }
+        => AsReference("primary_file_microsoft_host");
 
     /// <summary>
     /// The primary_location attribute.
     /// </summary>
     public TerraformValue<string> PrimaryLocation
-    {
-        get => new TerraformReference<string>(this, "primary_location");
-    }
+        => AsReference("primary_location");
 
     /// <summary>
     /// The primary_queue_endpoint attribute.
     /// </summary>
     public TerraformValue<string> PrimaryQueueEndpoint
-    {
-        get => new TerraformReference<string>(this, "primary_queue_endpoint");
-    }
+        => AsReference("primary_queue_endpoint");
 
     /// <summary>
     /// The primary_queue_host attribute.
     /// </summary>
     public TerraformValue<string> PrimaryQueueHost
-    {
-        get => new TerraformReference<string>(this, "primary_queue_host");
-    }
+        => AsReference("primary_queue_host");
 
     /// <summary>
     /// The primary_queue_microsoft_endpoint attribute.
     /// </summary>
     public TerraformValue<string> PrimaryQueueMicrosoftEndpoint
-    {
-        get => new TerraformReference<string>(this, "primary_queue_microsoft_endpoint");
-    }
+        => AsReference("primary_queue_microsoft_endpoint");
 
     /// <summary>
     /// The primary_queue_microsoft_host attribute.
     /// </summary>
     public TerraformValue<string> PrimaryQueueMicrosoftHost
-    {
-        get => new TerraformReference<string>(this, "primary_queue_microsoft_host");
-    }
+        => AsReference("primary_queue_microsoft_host");
 
     /// <summary>
     /// The primary_table_endpoint attribute.
     /// </summary>
     public TerraformValue<string> PrimaryTableEndpoint
-    {
-        get => new TerraformReference<string>(this, "primary_table_endpoint");
-    }
+        => AsReference("primary_table_endpoint");
 
     /// <summary>
     /// The primary_table_host attribute.
     /// </summary>
     public TerraformValue<string> PrimaryTableHost
-    {
-        get => new TerraformReference<string>(this, "primary_table_host");
-    }
+        => AsReference("primary_table_host");
 
     /// <summary>
     /// The primary_table_microsoft_endpoint attribute.
     /// </summary>
     public TerraformValue<string> PrimaryTableMicrosoftEndpoint
-    {
-        get => new TerraformReference<string>(this, "primary_table_microsoft_endpoint");
-    }
+        => AsReference("primary_table_microsoft_endpoint");
 
     /// <summary>
     /// The primary_table_microsoft_host attribute.
     /// </summary>
     public TerraformValue<string> PrimaryTableMicrosoftHost
-    {
-        get => new TerraformReference<string>(this, "primary_table_microsoft_host");
-    }
+        => AsReference("primary_table_microsoft_host");
 
     /// <summary>
     /// The primary_web_endpoint attribute.
     /// </summary>
     public TerraformValue<string> PrimaryWebEndpoint
-    {
-        get => new TerraformReference<string>(this, "primary_web_endpoint");
-    }
+        => AsReference("primary_web_endpoint");
 
     /// <summary>
     /// The primary_web_host attribute.
     /// </summary>
     public TerraformValue<string> PrimaryWebHost
-    {
-        get => new TerraformReference<string>(this, "primary_web_host");
-    }
+        => AsReference("primary_web_host");
 
     /// <summary>
     /// The primary_web_internet_endpoint attribute.
     /// </summary>
     public TerraformValue<string> PrimaryWebInternetEndpoint
-    {
-        get => new TerraformReference<string>(this, "primary_web_internet_endpoint");
-    }
+        => AsReference("primary_web_internet_endpoint");
 
     /// <summary>
     /// The primary_web_internet_host attribute.
     /// </summary>
     public TerraformValue<string> PrimaryWebInternetHost
-    {
-        get => new TerraformReference<string>(this, "primary_web_internet_host");
-    }
+        => AsReference("primary_web_internet_host");
 
     /// <summary>
     /// The primary_web_microsoft_endpoint attribute.
     /// </summary>
     public TerraformValue<string> PrimaryWebMicrosoftEndpoint
-    {
-        get => new TerraformReference<string>(this, "primary_web_microsoft_endpoint");
-    }
+        => AsReference("primary_web_microsoft_endpoint");
 
     /// <summary>
     /// The primary_web_microsoft_host attribute.
     /// </summary>
     public TerraformValue<string> PrimaryWebMicrosoftHost
-    {
-        get => new TerraformReference<string>(this, "primary_web_microsoft_host");
-    }
+        => AsReference("primary_web_microsoft_host");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "secondary_access_key");
-    }
+        => AsReference("secondary_access_key");
 
     /// <summary>
     /// The secondary_blob_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondaryBlobConnectionString
-    {
-        get => new TerraformReference<string>(this, "secondary_blob_connection_string");
-    }
+        => AsReference("secondary_blob_connection_string");
 
     /// <summary>
     /// The secondary_blob_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SecondaryBlobEndpoint
-    {
-        get => new TerraformReference<string>(this, "secondary_blob_endpoint");
-    }
+        => AsReference("secondary_blob_endpoint");
 
     /// <summary>
     /// The secondary_blob_host attribute.
     /// </summary>
     public TerraformValue<string> SecondaryBlobHost
-    {
-        get => new TerraformReference<string>(this, "secondary_blob_host");
-    }
+        => AsReference("secondary_blob_host");
 
     /// <summary>
     /// The secondary_blob_internet_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SecondaryBlobInternetEndpoint
-    {
-        get => new TerraformReference<string>(this, "secondary_blob_internet_endpoint");
-    }
+        => AsReference("secondary_blob_internet_endpoint");
 
     /// <summary>
     /// The secondary_blob_internet_host attribute.
     /// </summary>
     public TerraformValue<string> SecondaryBlobInternetHost
-    {
-        get => new TerraformReference<string>(this, "secondary_blob_internet_host");
-    }
+        => AsReference("secondary_blob_internet_host");
 
     /// <summary>
     /// The secondary_blob_microsoft_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SecondaryBlobMicrosoftEndpoint
-    {
-        get => new TerraformReference<string>(this, "secondary_blob_microsoft_endpoint");
-    }
+        => AsReference("secondary_blob_microsoft_endpoint");
 
     /// <summary>
     /// The secondary_blob_microsoft_host attribute.
     /// </summary>
     public TerraformValue<string> SecondaryBlobMicrosoftHost
-    {
-        get => new TerraformReference<string>(this, "secondary_blob_microsoft_host");
-    }
+        => AsReference("secondary_blob_microsoft_host");
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondaryConnectionString
-    {
-        get => new TerraformReference<string>(this, "secondary_connection_string");
-    }
+        => AsReference("secondary_connection_string");
 
     /// <summary>
     /// The secondary_dfs_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SecondaryDfsEndpoint
-    {
-        get => new TerraformReference<string>(this, "secondary_dfs_endpoint");
-    }
+        => AsReference("secondary_dfs_endpoint");
 
     /// <summary>
     /// The secondary_dfs_host attribute.
     /// </summary>
     public TerraformValue<string> SecondaryDfsHost
-    {
-        get => new TerraformReference<string>(this, "secondary_dfs_host");
-    }
+        => AsReference("secondary_dfs_host");
 
     /// <summary>
     /// The secondary_dfs_internet_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SecondaryDfsInternetEndpoint
-    {
-        get => new TerraformReference<string>(this, "secondary_dfs_internet_endpoint");
-    }
+        => AsReference("secondary_dfs_internet_endpoint");
 
     /// <summary>
     /// The secondary_dfs_internet_host attribute.
     /// </summary>
     public TerraformValue<string> SecondaryDfsInternetHost
-    {
-        get => new TerraformReference<string>(this, "secondary_dfs_internet_host");
-    }
+        => AsReference("secondary_dfs_internet_host");
 
     /// <summary>
     /// The secondary_dfs_microsoft_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SecondaryDfsMicrosoftEndpoint
-    {
-        get => new TerraformReference<string>(this, "secondary_dfs_microsoft_endpoint");
-    }
+        => AsReference("secondary_dfs_microsoft_endpoint");
 
     /// <summary>
     /// The secondary_dfs_microsoft_host attribute.
     /// </summary>
     public TerraformValue<string> SecondaryDfsMicrosoftHost
-    {
-        get => new TerraformReference<string>(this, "secondary_dfs_microsoft_host");
-    }
+        => AsReference("secondary_dfs_microsoft_host");
 
     /// <summary>
     /// The secondary_file_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SecondaryFileEndpoint
-    {
-        get => new TerraformReference<string>(this, "secondary_file_endpoint");
-    }
+        => AsReference("secondary_file_endpoint");
 
     /// <summary>
     /// The secondary_file_host attribute.
     /// </summary>
     public TerraformValue<string> SecondaryFileHost
-    {
-        get => new TerraformReference<string>(this, "secondary_file_host");
-    }
+        => AsReference("secondary_file_host");
 
     /// <summary>
     /// The secondary_file_internet_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SecondaryFileInternetEndpoint
-    {
-        get => new TerraformReference<string>(this, "secondary_file_internet_endpoint");
-    }
+        => AsReference("secondary_file_internet_endpoint");
 
     /// <summary>
     /// The secondary_file_internet_host attribute.
     /// </summary>
     public TerraformValue<string> SecondaryFileInternetHost
-    {
-        get => new TerraformReference<string>(this, "secondary_file_internet_host");
-    }
+        => AsReference("secondary_file_internet_host");
 
     /// <summary>
     /// The secondary_file_microsoft_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SecondaryFileMicrosoftEndpoint
-    {
-        get => new TerraformReference<string>(this, "secondary_file_microsoft_endpoint");
-    }
+        => AsReference("secondary_file_microsoft_endpoint");
 
     /// <summary>
     /// The secondary_file_microsoft_host attribute.
     /// </summary>
     public TerraformValue<string> SecondaryFileMicrosoftHost
-    {
-        get => new TerraformReference<string>(this, "secondary_file_microsoft_host");
-    }
+        => AsReference("secondary_file_microsoft_host");
 
     /// <summary>
     /// The secondary_location attribute.
     /// </summary>
     public TerraformValue<string> SecondaryLocation
-    {
-        get => new TerraformReference<string>(this, "secondary_location");
-    }
+        => AsReference("secondary_location");
 
     /// <summary>
     /// The secondary_queue_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SecondaryQueueEndpoint
-    {
-        get => new TerraformReference<string>(this, "secondary_queue_endpoint");
-    }
+        => AsReference("secondary_queue_endpoint");
 
     /// <summary>
     /// The secondary_queue_host attribute.
     /// </summary>
     public TerraformValue<string> SecondaryQueueHost
-    {
-        get => new TerraformReference<string>(this, "secondary_queue_host");
-    }
+        => AsReference("secondary_queue_host");
 
     /// <summary>
     /// The secondary_queue_microsoft_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SecondaryQueueMicrosoftEndpoint
-    {
-        get => new TerraformReference<string>(this, "secondary_queue_microsoft_endpoint");
-    }
+        => AsReference("secondary_queue_microsoft_endpoint");
 
     /// <summary>
     /// The secondary_queue_microsoft_host attribute.
     /// </summary>
     public TerraformValue<string> SecondaryQueueMicrosoftHost
-    {
-        get => new TerraformReference<string>(this, "secondary_queue_microsoft_host");
-    }
+        => AsReference("secondary_queue_microsoft_host");
 
     /// <summary>
     /// The secondary_table_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SecondaryTableEndpoint
-    {
-        get => new TerraformReference<string>(this, "secondary_table_endpoint");
-    }
+        => AsReference("secondary_table_endpoint");
 
     /// <summary>
     /// The secondary_table_host attribute.
     /// </summary>
     public TerraformValue<string> SecondaryTableHost
-    {
-        get => new TerraformReference<string>(this, "secondary_table_host");
-    }
+        => AsReference("secondary_table_host");
 
     /// <summary>
     /// The secondary_table_microsoft_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SecondaryTableMicrosoftEndpoint
-    {
-        get => new TerraformReference<string>(this, "secondary_table_microsoft_endpoint");
-    }
+        => AsReference("secondary_table_microsoft_endpoint");
 
     /// <summary>
     /// The secondary_table_microsoft_host attribute.
     /// </summary>
     public TerraformValue<string> SecondaryTableMicrosoftHost
-    {
-        get => new TerraformReference<string>(this, "secondary_table_microsoft_host");
-    }
+        => AsReference("secondary_table_microsoft_host");
 
     /// <summary>
     /// The secondary_web_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SecondaryWebEndpoint
-    {
-        get => new TerraformReference<string>(this, "secondary_web_endpoint");
-    }
+        => AsReference("secondary_web_endpoint");
 
     /// <summary>
     /// The secondary_web_host attribute.
     /// </summary>
     public TerraformValue<string> SecondaryWebHost
-    {
-        get => new TerraformReference<string>(this, "secondary_web_host");
-    }
+        => AsReference("secondary_web_host");
 
     /// <summary>
     /// The secondary_web_internet_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SecondaryWebInternetEndpoint
-    {
-        get => new TerraformReference<string>(this, "secondary_web_internet_endpoint");
-    }
+        => AsReference("secondary_web_internet_endpoint");
 
     /// <summary>
     /// The secondary_web_internet_host attribute.
     /// </summary>
     public TerraformValue<string> SecondaryWebInternetHost
-    {
-        get => new TerraformReference<string>(this, "secondary_web_internet_host");
-    }
+        => AsReference("secondary_web_internet_host");
 
     /// <summary>
     /// The secondary_web_microsoft_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SecondaryWebMicrosoftEndpoint
-    {
-        get => new TerraformReference<string>(this, "secondary_web_microsoft_endpoint");
-    }
+        => AsReference("secondary_web_microsoft_endpoint");
 
     /// <summary>
     /// The secondary_web_microsoft_host attribute.
     /// </summary>
     public TerraformValue<string> SecondaryWebMicrosoftHost
-    {
-        get => new TerraformReference<string>(this, "secondary_web_microsoft_host");
-    }
+        => AsReference("secondary_web_microsoft_host");
 
     /// <summary>
     /// AzureFilesAuthentication block (nesting mode: list).

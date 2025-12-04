@@ -18,16 +18,16 @@ public class AwsEfsReplicationConfigurationDestinationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AvailabilityZoneName
     {
-        get => new TerraformReference<string>(this, "availability_zone_name");
+        get => GetArgument<TerraformValue<string>>("availability_zone_name");
         set => SetArgument("availability_zone_name", value);
     }
 
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
-    public TerraformValue<string> FileSystemId
+    public TerraformValue<string>? FileSystemId
     {
-        get => new TerraformReference<string>(this, "file_system_id");
+        get => GetArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
@@ -36,16 +36,16 @@ public class AwsEfsReplicationConfigurationDestinationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -53,9 +53,7 @@ public class AwsEfsReplicationConfigurationDestinationBlock : TerraformBlock
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }
 
@@ -76,7 +74,7 @@ public class AwsEfsReplicationConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -85,7 +83,7 @@ public class AwsEfsReplicationConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -101,18 +99,18 @@ public partial class AwsEfsReplicationConfiguration(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -122,7 +120,7 @@ public partial class AwsEfsReplicationConfiguration(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceFileSystemId is required")]
     public required TerraformValue<string> SourceFileSystemId
     {
-        get => new TerraformReference<string>(this, "source_file_system_id");
+        get => GetArgument<TerraformValue<string>>("source_file_system_id");
         set => SetArgument("source_file_system_id", value);
     }
 
@@ -130,33 +128,25 @@ public partial class AwsEfsReplicationConfiguration(string name) : TerraformReso
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-    {
-        get => new TerraformReference<string>(this, "creation_time");
-    }
+        => AsReference("creation_time");
 
     /// <summary>
     /// The original_source_file_system_arn attribute.
     /// </summary>
     public TerraformValue<string> OriginalSourceFileSystemArn
-    {
-        get => new TerraformReference<string>(this, "original_source_file_system_arn");
-    }
+        => AsReference("original_source_file_system_arn");
 
     /// <summary>
     /// The source_file_system_arn attribute.
     /// </summary>
     public TerraformValue<string> SourceFileSystemArn
-    {
-        get => new TerraformReference<string>(this, "source_file_system_arn");
-    }
+        => AsReference("source_file_system_arn");
 
     /// <summary>
     /// The source_file_system_region attribute.
     /// </summary>
     public TerraformValue<string> SourceFileSystemRegion
-    {
-        get => new TerraformReference<string>(this, "source_file_system_region");
-    }
+        => AsReference("source_file_system_region");
 
     /// <summary>
     /// Destination block (nesting mode: list).

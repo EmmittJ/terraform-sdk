@@ -17,17 +17,13 @@ public class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBlock
     /// The format of the key.
     /// </summary>
     public TerraformValue<string> Format
-    {
-        get => new TerraformReference<string>(this, "format");
-    }
+        => AsReference("format");
 
     /// <summary>
     /// The key data. The format of the key is represented by the format field.
     /// </summary>
     public TerraformValue<string> Key
-    {
-        get => new TerraformReference<string>(this, "key");
-    }
+        => AsReference("key");
 
     /// <summary>
     /// The specifications for the key. Possible values: [&amp;quot;RSA_2048&amp;quot;, &amp;quot;RSA_3072&amp;quot;, &amp;quot;RSA_4096&amp;quot;]
@@ -35,7 +31,7 @@ public class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeySpec is required")]
     public required TerraformValue<string> KeySpec
     {
-        get => new TerraformReference<string>(this, "key_spec");
+        get => GetArgument<TerraformValue<string>>("key_spec");
         set => SetArgument("key_spec", value);
     }
 
@@ -48,9 +44,7 @@ public class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBlock
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot;, &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot; or &amp;quot;2014-10-02T15:01:23+05:30&amp;quot;.
     /// </summary>
     public TerraformValue<string> NotAfterTime
-    {
-        get => new TerraformReference<string>(this, "not_after_time");
-    }
+        => AsReference("not_after_time");
 
     /// <summary>
     /// Earliest timestamp when this key is valid. Attempts to use this key before this time will fail.
@@ -61,9 +55,7 @@ public class GoogleIamWorkforcePoolProviderKeyKeyDataBlock : TerraformBlock
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot;, &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot; or &amp;quot;2014-10-02T15:01:23+05:30&amp;quot;.
     /// </summary>
     public TerraformValue<string> NotBeforeTime
-    {
-        get => new TerraformReference<string>(this, "not_before_time");
-    }
+        => AsReference("not_before_time");
 
 }
 
@@ -84,7 +76,7 @@ public class GoogleIamWorkforcePoolProviderKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -93,7 +85,7 @@ public class GoogleIamWorkforcePoolProviderKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -109,9 +101,9 @@ public partial class GoogleIamWorkforcePoolProviderKey(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -121,7 +113,7 @@ public partial class GoogleIamWorkforcePoolProviderKey(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformValue<string> KeyId
     {
-        get => new TerraformReference<string>(this, "key_id");
+        get => GetArgument<TerraformValue<string>>("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -131,7 +123,7 @@ public partial class GoogleIamWorkforcePoolProviderKey(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -141,7 +133,7 @@ public partial class GoogleIamWorkforcePoolProviderKey(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderId is required")]
     public required TerraformValue<string> ProviderId
     {
-        get => new TerraformReference<string>(this, "provider_id");
+        get => GetArgument<TerraformValue<string>>("provider_id");
         set => SetArgument("provider_id", value);
     }
 
@@ -151,7 +143,7 @@ public partial class GoogleIamWorkforcePoolProviderKey(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Use is required")]
     public required TerraformValue<string> Use
     {
-        get => new TerraformReference<string>(this, "use");
+        get => GetArgument<TerraformValue<string>>("use");
         set => SetArgument("use", value);
     }
 
@@ -161,7 +153,7 @@ public partial class GoogleIamWorkforcePoolProviderKey(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     public required TerraformValue<string> WorkforcePoolId
     {
-        get => new TerraformReference<string>(this, "workforce_pool_id");
+        get => GetArgument<TerraformValue<string>>("workforce_pool_id");
         set => SetArgument("workforce_pool_id", value);
     }
 
@@ -170,26 +162,20 @@ public partial class GoogleIamWorkforcePoolProviderKey(string name) : TerraformR
     /// Note that the key may get purged before this time if the total limit of keys per provider is exceeded.
     /// </summary>
     public TerraformValue<string> ExpireTime
-    {
-        get => new TerraformReference<string>(this, "expire_time");
-    }
+        => AsReference("expire_time");
 
     /// <summary>
     /// Identifier. The resource name of the key.
     /// Format: &#39;locations/{location}/workforcePools/{workforcePoolId}/providers/{providerId}/keys/{keyId}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The state of the key.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// KeyData block (nesting mode: list).

@@ -11,9 +11,9 @@ public partial class AwsS3outpostsEndpoint(string name) : TerraformResource("aws
     /// <summary>
     /// The access_type attribute.
     /// </summary>
-    public TerraformValue<string> AccessType
+    public TerraformValue<string>? AccessType
     {
-        get => new TerraformReference<string>(this, "access_type");
+        get => GetArgument<TerraformValue<string>>("access_type");
         set => SetArgument("access_type", value);
     }
 
@@ -22,16 +22,16 @@ public partial class AwsS3outpostsEndpoint(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? CustomerOwnedIpv4Pool
     {
-        get => new TerraformReference<string>(this, "customer_owned_ipv4_pool");
+        get => GetArgument<TerraformValue<string>>("customer_owned_ipv4_pool");
         set => SetArgument("customer_owned_ipv4_pool", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -41,16 +41,16 @@ public partial class AwsS3outpostsEndpoint(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutpostId is required")]
     public required TerraformValue<string> OutpostId
     {
-        get => new TerraformReference<string>(this, "outpost_id");
+        get => GetArgument<TerraformValue<string>>("outpost_id");
         set => SetArgument("outpost_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsS3outpostsEndpoint(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupId is required")]
     public required TerraformValue<string> SecurityGroupId
     {
-        get => new TerraformReference<string>(this, "security_group_id");
+        get => GetArgument<TerraformValue<string>>("security_group_id");
         set => SetArgument("security_group_id", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsS3outpostsEndpoint(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -78,32 +78,24 @@ public partial class AwsS3outpostsEndpoint(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
     public TerraformValue<string> CidrBlock
-    {
-        get => new TerraformReference<string>(this, "cidr_block");
-    }
+        => AsReference("cidr_block");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-    {
-        get => new TerraformReference<string>(this, "creation_time");
-    }
+        => AsReference("creation_time");
 
     /// <summary>
     /// The network_interfaces attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> NetworkInterfaces
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "network_interfaces").ResolveNodes(ctx));
-    }
+        => AsReference("network_interfaces");
 
 }

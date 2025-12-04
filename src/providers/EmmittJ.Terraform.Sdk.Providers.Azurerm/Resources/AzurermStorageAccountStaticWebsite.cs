@@ -18,7 +18,7 @@ public class AzurermStorageAccountStaticWebsiteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermStorageAccountStaticWebsiteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermStorageAccountStaticWebsiteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermStorageAccountStaticWebsiteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AzurermStorageAccountStaticWebsite(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Error404Document
     {
-        get => new TerraformReference<string>(this, "error_404_document");
+        get => GetArgument<TerraformValue<string>>("error_404_document");
         set => SetArgument("error_404_document", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermStorageAccountStaticWebsite(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? IndexDocument
     {
-        get => new TerraformReference<string>(this, "index_document");
+        get => GetArgument<TerraformValue<string>>("index_document");
         set => SetArgument("index_document", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermStorageAccountStaticWebsite(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => new TerraformReference<string>(this, "storage_account_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 

@@ -19,7 +19,7 @@ public class GoogleIntegrationsAuthConfigClientCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptedPrivateKey is required")]
     public required TerraformValue<string> EncryptedPrivateKey
     {
-        get => new TerraformReference<string>(this, "encrypted_private_key");
+        get => GetArgument<TerraformValue<string>>("encrypted_private_key");
         set => SetArgument("encrypted_private_key", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleIntegrationsAuthConfigClientCertificateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Passphrase
     {
-        get => new TerraformReference<string>(this, "passphrase");
+        get => GetArgument<TerraformValue<string>>("passphrase");
         set => SetArgument("passphrase", value);
     }
 
@@ -39,7 +39,7 @@ public class GoogleIntegrationsAuthConfigClientCertificateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslCertificate is required")]
     public required TerraformValue<string> SslCertificate
     {
-        get => new TerraformReference<string>(this, "ssl_certificate");
+        get => GetArgument<TerraformValue<string>>("ssl_certificate");
         set => SetArgument("ssl_certificate", value);
     }
 
@@ -63,7 +63,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CredentialType is required")]
     public required TerraformValue<string> CredentialType
     {
-        get => new TerraformReference<string>(this, "credential_type");
+        get => GetArgument<TerraformValue<string>>("credential_type");
         set => SetArgument("credential_type", value);
     }
 
@@ -155,7 +155,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockAuthTokenBlock 
     /// </summary>
     public TerraformValue<string>? Token
     {
-        get => new TerraformReference<string>(this, "token");
+        get => GetArgument<TerraformValue<string>>("token");
         set => SetArgument("token", value);
     }
 
@@ -164,7 +164,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockAuthTokenBlock 
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -185,16 +185,14 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockJwtBlock : Terr
     /// The token calculated by the header, payload and signature.
     /// </summary>
     public TerraformValue<string> Jwt
-    {
-        get => new TerraformReference<string>(this, "jwt");
-    }
+        => AsReference("jwt");
 
     /// <summary>
     /// Identifies which algorithm is used to generate the signature.
     /// </summary>
     public TerraformValue<string>? JwtHeader
     {
-        get => new TerraformReference<string>(this, "jwt_header");
+        get => GetArgument<TerraformValue<string>>("jwt_header");
         set => SetArgument("jwt_header", value);
     }
 
@@ -203,7 +201,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockJwtBlock : Terr
     /// </summary>
     public TerraformValue<string>? JwtPayload
     {
-        get => new TerraformReference<string>(this, "jwt_payload");
+        get => GetArgument<TerraformValue<string>>("jwt_payload");
         set => SetArgument("jwt_payload", value);
     }
 
@@ -212,7 +210,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockJwtBlock : Terr
     /// </summary>
     public TerraformValue<string>? Secret
     {
-        get => new TerraformReference<string>(this, "secret");
+        get => GetArgument<TerraformValue<string>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -234,7 +232,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockOauth2Authoriza
     /// </summary>
     public TerraformValue<string>? AuthEndpoint
     {
-        get => new TerraformReference<string>(this, "auth_endpoint");
+        get => GetArgument<TerraformValue<string>>("auth_endpoint");
         set => SetArgument("auth_endpoint", value);
     }
 
@@ -243,7 +241,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockOauth2Authoriza
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -252,7 +250,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockOauth2Authoriza
     /// </summary>
     public TerraformValue<string>? ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -261,7 +259,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockOauth2Authoriza
     /// </summary>
     public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -270,7 +268,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockOauth2Authoriza
     /// </summary>
     public TerraformValue<string>? TokenEndpoint
     {
-        get => new TerraformReference<string>(this, "token_endpoint");
+        get => GetArgument<TerraformValue<string>>("token_endpoint");
         set => SetArgument("token_endpoint", value);
     }
 
@@ -292,7 +290,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockOauth2ClientCre
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -301,7 +299,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockOauth2ClientCre
     /// </summary>
     public TerraformValue<string>? ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -310,7 +308,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockOauth2ClientCre
     /// </summary>
     public TerraformValue<string>? RequestType
     {
-        get => new TerraformReference<string>(this, "request_type");
+        get => GetArgument<TerraformValue<string>>("request_type");
         set => SetArgument("request_type", value);
     }
 
@@ -319,7 +317,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockOauth2ClientCre
     /// </summary>
     public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -328,7 +326,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockOauth2ClientCre
     /// </summary>
     public TerraformValue<string>? TokenEndpoint
     {
-        get => new TerraformReference<string>(this, "token_endpoint");
+        get => GetArgument<TerraformValue<string>>("token_endpoint");
         set => SetArgument("token_endpoint", value);
     }
 
@@ -438,7 +436,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockOauth2ClientCre
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -483,7 +481,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockOauth2ClientCre
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -505,7 +503,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockOidcTokenBlock 
     /// </summary>
     public TerraformValue<string>? Audience
     {
-        get => new TerraformReference<string>(this, "audience");
+        get => GetArgument<TerraformValue<string>>("audience");
         set => SetArgument("audience", value);
     }
 
@@ -514,7 +512,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockOidcTokenBlock 
     /// </summary>
     public TerraformValue<string>? ServiceAccountEmail
     {
-        get => new TerraformReference<string>(this, "service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -522,9 +520,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockOidcTokenBlock 
     /// ID token obtained for the service account.
     /// </summary>
     public TerraformValue<string> Token
-    {
-        get => new TerraformReference<string>(this, "token");
-    }
+        => AsReference("token");
 
     /// <summary>
     /// The approximate time until the token retrieved is valid.
@@ -532,9 +528,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockOidcTokenBlock 
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> TokenExpireTime
-    {
-        get => new TerraformReference<string>(this, "token_expire_time");
-    }
+        => AsReference("token_expire_time");
 
 }
 
@@ -554,7 +548,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockServiceAccountC
     /// </summary>
     public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -563,7 +557,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockServiceAccountC
     /// </summary>
     public TerraformValue<string>? ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -585,7 +579,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockUsernameAndPass
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -594,7 +588,7 @@ public class GoogleIntegrationsAuthConfigDecryptedCredentialBlockUsernameAndPass
     /// </summary>
     public TerraformValue<string>? Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -617,7 +611,7 @@ public class GoogleIntegrationsAuthConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -626,7 +620,7 @@ public class GoogleIntegrationsAuthConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -635,7 +629,7 @@ public class GoogleIntegrationsAuthConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -653,7 +647,7 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -663,7 +657,7 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -674,16 +668,16 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     /// </summary>
     public TerraformList<string>? ExpiryNotificationDuration
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "expiry_notification_duration").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("expiry_notification_duration");
         set => SetArgument("expiry_notification_duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -693,7 +687,7 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -704,16 +698,16 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? OverrideValidTime
     {
-        get => new TerraformReference<string>(this, "override_valid_time");
+        get => GetArgument<TerraformValue<string>>("override_valid_time");
         set => SetArgument("override_valid_time", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -722,7 +716,7 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Visibility
     {
-        get => new TerraformReference<string>(this, "visibility");
+        get => GetArgument<TerraformValue<string>>("visibility");
         set => SetArgument("visibility", value);
     }
 
@@ -730,9 +724,7 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     /// Certificate id for client certificate.
     /// </summary>
     public TerraformValue<string> CertificateId
-    {
-        get => new TerraformReference<string>(this, "certificate_id");
-    }
+        => AsReference("certificate_id");
 
     /// <summary>
     /// The timestamp when the auth config is created.
@@ -740,25 +732,19 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The creator&#39;s email address. Generated based on the End User Credentials/LOAS role of the user making the call.
     /// </summary>
     public TerraformValue<string> CreatorEmail
-    {
-        get => new TerraformReference<string>(this, "creator_email");
-    }
+        => AsReference("creator_email");
 
     /// <summary>
     /// Credential type of the encrypted credential.
     /// </summary>
     public TerraformValue<string> CredentialType
-    {
-        get => new TerraformReference<string>(this, "credential_type");
-    }
+        => AsReference("credential_type");
 
     /// <summary>
     /// Auth credential encrypted by Cloud KMS. Can be decrypted as Credential with proper KMS key.
@@ -766,41 +752,31 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     /// A base64-encoded string.
     /// </summary>
     public TerraformValue<string> EncryptedCredential
-    {
-        get => new TerraformReference<string>(this, "encrypted_credential");
-    }
+        => AsReference("encrypted_credential");
 
     /// <summary>
     /// The last modifier&#39;s email address. Generated based on the End User Credentials/LOAS role of the user making the call.
     /// </summary>
     public TerraformValue<string> LastModifierEmail
-    {
-        get => new TerraformReference<string>(this, "last_modifier_email");
-    }
+        => AsReference("last_modifier_email");
 
     /// <summary>
     /// Resource name of the auth config.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The reason / details of the current status.
     /// </summary>
     public TerraformValue<string> Reason
-    {
-        get => new TerraformReference<string>(this, "reason");
-    }
+        => AsReference("reason");
 
     /// <summary>
     /// The status of the auth config.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The timestamp when the auth config is modified.
@@ -808,9 +784,7 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// The time until the auth config is valid. Empty or max value is considered the auth config won&#39;t expire.
@@ -818,9 +792,7 @@ public partial class GoogleIntegrationsAuthConfig(string name) : TerraformResour
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> ValidTime
-    {
-        get => new TerraformReference<string>(this, "valid_time");
-    }
+        => AsReference("valid_time");
 
     /// <summary>
     /// ClientCertificate block (nesting mode: list).

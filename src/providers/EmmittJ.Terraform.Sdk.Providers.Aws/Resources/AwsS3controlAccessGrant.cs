@@ -18,7 +18,7 @@ public class AwsS3controlAccessGrantAccessGrantsLocationConfigurationBlock : Ter
     /// </summary>
     public TerraformValue<string>? S3SubPrefix
     {
-        get => new TerraformReference<string>(this, "s3_sub_prefix");
+        get => GetArgument<TerraformValue<string>>("s3_sub_prefix");
         set => SetArgument("s3_sub_prefix", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsS3controlAccessGrantGranteeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GranteeIdentifier is required")]
     public required TerraformValue<string> GranteeIdentifier
     {
-        get => new TerraformReference<string>(this, "grantee_identifier");
+        get => GetArgument<TerraformValue<string>>("grantee_identifier");
         set => SetArgument("grantee_identifier", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsS3controlAccessGrantGranteeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GranteeType is required")]
     public required TerraformValue<string> GranteeType
     {
-        get => new TerraformReference<string>(this, "grantee_type");
+        get => GetArgument<TerraformValue<string>>("grantee_type");
         set => SetArgument("grantee_type", value);
     }
 
@@ -71,16 +71,16 @@ public partial class AwsS3controlAccessGrant(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessGrantsLocationId is required")]
     public required TerraformValue<string> AccessGrantsLocationId
     {
-        get => new TerraformReference<string>(this, "access_grants_location_id");
+        get => GetArgument<TerraformValue<string>>("access_grants_location_id");
         set => SetArgument("access_grants_location_id", value);
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformValue<string> AccountId
+    public TerraformValue<string>? AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -90,16 +90,16 @@ public partial class AwsS3controlAccessGrant(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
     public required TerraformValue<string> Permission
     {
-        get => new TerraformReference<string>(this, "permission");
+        get => GetArgument<TerraformValue<string>>("permission");
         set => SetArgument("permission", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AwsS3controlAccessGrant(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? S3PrefixType
     {
-        get => new TerraformReference<string>(this, "s3_prefix_type");
+        get => GetArgument<TerraformValue<string>>("s3_prefix_type");
         set => SetArgument("s3_prefix_type", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsS3controlAccessGrant(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -125,41 +125,31 @@ public partial class AwsS3controlAccessGrant(string name) : TerraformResource("a
     /// The access_grant_arn attribute.
     /// </summary>
     public TerraformValue<string> AccessGrantArn
-    {
-        get => new TerraformReference<string>(this, "access_grant_arn");
-    }
+        => AsReference("access_grant_arn");
 
     /// <summary>
     /// The access_grant_id attribute.
     /// </summary>
     public TerraformValue<string> AccessGrantId
-    {
-        get => new TerraformReference<string>(this, "access_grant_id");
-    }
+        => AsReference("access_grant_id");
 
     /// <summary>
     /// The grant_scope attribute.
     /// </summary>
     public TerraformValue<string> GrantScope
-    {
-        get => new TerraformReference<string>(this, "grant_scope");
-    }
+        => AsReference("grant_scope");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// AccessGrantsLocationConfiguration block (nesting mode: list).

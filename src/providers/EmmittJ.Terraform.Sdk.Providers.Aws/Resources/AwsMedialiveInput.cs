@@ -19,7 +19,7 @@ public class AwsMedialiveInputDestinationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamName is required")]
     public required TerraformValue<string> StreamName
     {
-        get => new TerraformReference<string>(this, "stream_name");
+        get => GetArgument<TerraformValue<string>>("stream_name");
         set => SetArgument("stream_name", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsMedialiveInputInputDevicesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsMedialiveInputMediaConnectFlowsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FlowArn is required")]
     public required TerraformValue<string> FlowArn
     {
-        get => new TerraformReference<string>(this, "flow_arn");
+        get => GetArgument<TerraformValue<string>>("flow_arn");
         set => SetArgument("flow_arn", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsMedialiveInputSourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PasswordParam is required")]
     public required TerraformValue<string> PasswordParam
     {
-        get => new TerraformReference<string>(this, "password_param");
+        get => GetArgument<TerraformValue<string>>("password_param");
         set => SetArgument("password_param", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsMedialiveInputSourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -111,7 +111,7 @@ public class AwsMedialiveInputSourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsMedialiveInputTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -143,7 +143,7 @@ public class AwsMedialiveInputTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsMedialiveInputTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsMedialiveInputVpcBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? SecurityGroupIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -185,7 +185,7 @@ public class AwsMedialiveInputVpcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public TerraformList<string>? SubnetIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -201,9 +201,9 @@ public partial class AwsMedialiveInput(string name) : TerraformResource("aws_med
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -212,7 +212,7 @@ public partial class AwsMedialiveInput(string name) : TerraformResource("aws_med
     /// </summary>
     public TerraformList<string>? InputSecurityGroups
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "input_security_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("input_security_groups");
         set => SetArgument("input_security_groups", value);
     }
 
@@ -222,25 +222,25 @@ public partial class AwsMedialiveInput(string name) : TerraformResource("aws_med
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformValue<string> RoleArn
+    public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -249,16 +249,16 @@ public partial class AwsMedialiveInput(string name) : TerraformResource("aws_med
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -268,7 +268,7 @@ public partial class AwsMedialiveInput(string name) : TerraformResource("aws_med
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -276,41 +276,31 @@ public partial class AwsMedialiveInput(string name) : TerraformResource("aws_med
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The attached_channels attribute.
     /// </summary>
     public TerraformList<string> AttachedChannels
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "attached_channels").ResolveNodes(ctx));
-    }
+        => AsReference("attached_channels");
 
     /// <summary>
     /// The input_class attribute.
     /// </summary>
     public TerraformValue<string> InputClass
-    {
-        get => new TerraformReference<string>(this, "input_class");
-    }
+        => AsReference("input_class");
 
     /// <summary>
     /// The input_partner_ids attribute.
     /// </summary>
     public TerraformList<string> InputPartnerIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "input_partner_ids").ResolveNodes(ctx));
-    }
+        => AsReference("input_partner_ids");
 
     /// <summary>
     /// The input_source_type attribute.
     /// </summary>
     public TerraformValue<string> InputSourceType
-    {
-        get => new TerraformReference<string>(this, "input_source_type");
-    }
+        => AsReference("input_source_type");
 
     /// <summary>
     /// Destinations block (nesting mode: set).

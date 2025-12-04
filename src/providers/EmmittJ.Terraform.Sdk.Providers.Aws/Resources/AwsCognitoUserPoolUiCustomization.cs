@@ -13,7 +13,7 @@ public partial class AwsCognitoUserPoolUiCustomization(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -22,16 +22,16 @@ public partial class AwsCognitoUserPoolUiCustomization(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Css
     {
-        get => new TerraformReference<string>(this, "css");
+        get => GetArgument<TerraformValue<string>>("css");
         set => SetArgument("css", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -40,16 +40,16 @@ public partial class AwsCognitoUserPoolUiCustomization(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? ImageFile
     {
-        get => new TerraformReference<string>(this, "image_file");
+        get => GetArgument<TerraformValue<string>>("image_file");
         set => SetArgument("image_file", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsCognitoUserPoolUiCustomization(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformValue<string> UserPoolId
     {
-        get => new TerraformReference<string>(this, "user_pool_id");
+        get => GetArgument<TerraformValue<string>>("user_pool_id");
         set => SetArgument("user_pool_id", value);
     }
 
@@ -67,32 +67,24 @@ public partial class AwsCognitoUserPoolUiCustomization(string name) : TerraformR
     /// The creation_date attribute.
     /// </summary>
     public TerraformValue<string> CreationDate
-    {
-        get => new TerraformReference<string>(this, "creation_date");
-    }
+        => AsReference("creation_date");
 
     /// <summary>
     /// The css_version attribute.
     /// </summary>
     public TerraformValue<string> CssVersion
-    {
-        get => new TerraformReference<string>(this, "css_version");
-    }
+        => AsReference("css_version");
 
     /// <summary>
     /// The image_url attribute.
     /// </summary>
     public TerraformValue<string> ImageUrl
-    {
-        get => new TerraformReference<string>(this, "image_url");
-    }
+        => AsReference("image_url");
 
     /// <summary>
     /// The last_modified_date attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedDate
-    {
-        get => new TerraformReference<string>(this, "last_modified_date");
-    }
+        => AsReference("last_modified_date");
 
 }

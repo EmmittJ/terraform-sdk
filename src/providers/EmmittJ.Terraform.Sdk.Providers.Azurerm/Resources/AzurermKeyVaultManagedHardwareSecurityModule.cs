@@ -19,7 +19,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bypass is required")]
     public required TerraformValue<string> Bypass
     {
-        get => new TerraformReference<string>(this, "bypass");
+        get => GetArgument<TerraformValue<string>>("bypass");
         set => SetArgument("bypass", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     public required TerraformValue<string> DefaultAction
     {
-        get => new TerraformReference<string>(this, "default_action");
+        get => GetArgument<TerraformValue<string>>("default_action");
         set => SetArgument("default_action", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -98,16 +98,16 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminObjectIds is required")]
     public required TerraformSet<string> AdminObjectIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "admin_object_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("admin_object_ids");
         set => SetArgument("admin_object_ids", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     /// </summary>
     public TerraformValue<bool>? PurgeProtectionEnabled
     {
-        get => new TerraformReference<bool>(this, "purge_protection_enabled");
+        get => GetArgument<TerraformValue<bool>>("purge_protection_enabled");
         set => SetArgument("purge_protection_enabled", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     /// </summary>
     public TerraformList<string>? SecurityDomainKeyVaultCertificateIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "security_domain_key_vault_certificate_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("security_domain_key_vault_certificate_ids");
         set => SetArgument("security_domain_key_vault_certificate_ids", value);
     }
 
@@ -173,7 +173,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     /// </summary>
     public TerraformValue<double>? SecurityDomainQuorum
     {
-        get => new TerraformReference<double>(this, "security_domain_quorum");
+        get => GetArgument<TerraformValue<double>>("security_domain_quorum");
         set => SetArgument("security_domain_quorum", value);
     }
 
@@ -183,7 +183,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => new TerraformReference<string>(this, "sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -192,7 +192,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     /// </summary>
     public TerraformValue<double>? SoftDeleteRetentionDays
     {
-        get => new TerraformReference<double>(this, "soft_delete_retention_days");
+        get => GetArgument<TerraformValue<double>>("soft_delete_retention_days");
         set => SetArgument("soft_delete_retention_days", value);
     }
 
@@ -201,7 +201,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -211,7 +211,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -219,17 +219,13 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     /// The hsm_uri attribute.
     /// </summary>
     public TerraformValue<string> HsmUri
-    {
-        get => new TerraformReference<string>(this, "hsm_uri");
-    }
+        => AsReference("hsm_uri");
 
     /// <summary>
     /// The security_domain_encrypted_data attribute.
     /// </summary>
     public TerraformValue<string> SecurityDomainEncryptedData
-    {
-        get => new TerraformReference<string>(this, "security_domain_encrypted_data");
-    }
+        => AsReference("security_domain_encrypted_data");
 
     /// <summary>
     /// NetworkAcls block (nesting mode: list).

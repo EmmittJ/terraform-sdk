@@ -14,16 +14,16 @@ public partial class AwsSecurityhubStandardsControlAssociation(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssociationStatus is required")]
     public required TerraformValue<string> AssociationStatus
     {
-        get => new TerraformReference<string>(this, "association_status");
+        get => GetArgument<TerraformValue<string>>("association_status");
         set => SetArgument("association_status", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsSecurityhubStandardsControlAssociation(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityControlId is required")]
     public required TerraformValue<string> SecurityControlId
     {
-        get => new TerraformReference<string>(this, "security_control_id");
+        get => GetArgument<TerraformValue<string>>("security_control_id");
         set => SetArgument("security_control_id", value);
     }
 
@@ -43,7 +43,7 @@ public partial class AwsSecurityhubStandardsControlAssociation(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StandardsArn is required")]
     public required TerraformValue<string> StandardsArn
     {
-        get => new TerraformReference<string>(this, "standards_arn");
+        get => GetArgument<TerraformValue<string>>("standards_arn");
         set => SetArgument("standards_arn", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsSecurityhubStandardsControlAssociation(string name) : Te
     /// </summary>
     public TerraformValue<string>? UpdatedReason
     {
-        get => new TerraformReference<string>(this, "updated_reason");
+        get => GetArgument<TerraformValue<string>>("updated_reason");
         set => SetArgument("updated_reason", value);
     }
 
@@ -60,8 +60,6 @@ public partial class AwsSecurityhubStandardsControlAssociation(string name) : Te
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
 }

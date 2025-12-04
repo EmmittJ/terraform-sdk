@@ -20,7 +20,7 @@ public class GoogleDialogflowCxIntentParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityType is required")]
     public required TerraformValue<string> EntityType
     {
-        get => new TerraformReference<string>(this, "entity_type");
+        get => GetArgument<TerraformValue<string>>("entity_type");
         set => SetArgument("entity_type", value);
     }
 
@@ -30,7 +30,7 @@ public class GoogleDialogflowCxIntentParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -39,7 +39,7 @@ public class GoogleDialogflowCxIntentParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IsList
     {
-        get => new TerraformReference<bool>(this, "is_list");
+        get => GetArgument<TerraformValue<bool>>("is_list");
         set => SetArgument("is_list", value);
     }
 
@@ -49,7 +49,7 @@ public class GoogleDialogflowCxIntentParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Redact
     {
-        get => new TerraformReference<bool>(this, "redact");
+        get => GetArgument<TerraformValue<bool>>("redact");
         set => SetArgument("redact", value);
     }
 
@@ -72,7 +72,7 @@ public class GoogleDialogflowCxIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -81,7 +81,7 @@ public class GoogleDialogflowCxIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -90,7 +90,7 @@ public class GoogleDialogflowCxIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -112,16 +112,14 @@ public class GoogleDialogflowCxIntentTrainingPhrasesBlock : TerraformBlock
     /// The unique identifier of the training phrase.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// Indicates how many times this example was added to the intent.
     /// </summary>
     public TerraformValue<double>? RepeatCount
     {
-        get => new TerraformReference<double>(this, "repeat_count");
+        get => GetArgument<TerraformValue<double>>("repeat_count");
         set => SetArgument("repeat_count", value);
     }
 
@@ -155,7 +153,7 @@ public class GoogleDialogflowCxIntentTrainingPhrasesBlockPartsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? ParameterId
     {
-        get => new TerraformReference<string>(this, "parameter_id");
+        get => GetArgument<TerraformValue<string>>("parameter_id");
         set => SetArgument("parameter_id", value);
     }
 
@@ -165,7 +163,7 @@ public class GoogleDialogflowCxIntentTrainingPhrasesBlockPartsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -183,7 +181,7 @@ public partial class GoogleDialogflowCxIntent(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -193,16 +191,16 @@ public partial class GoogleDialogflowCxIntent(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -214,7 +212,7 @@ public partial class GoogleDialogflowCxIntent(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? IsDefaultNegativeIntent
     {
-        get => new TerraformReference<bool>(this, "is_default_negative_intent");
+        get => GetArgument<TerraformValue<bool>>("is_default_negative_intent");
         set => SetArgument("is_default_negative_intent", value);
     }
 
@@ -226,7 +224,7 @@ public partial class GoogleDialogflowCxIntent(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? IsDefaultWelcomeIntent
     {
-        get => new TerraformReference<bool>(this, "is_default_welcome_intent");
+        get => GetArgument<TerraformValue<bool>>("is_default_welcome_intent");
         set => SetArgument("is_default_welcome_intent", value);
     }
 
@@ -237,7 +235,7 @@ public partial class GoogleDialogflowCxIntent(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? IsFallback
     {
-        get => new TerraformReference<bool>(this, "is_fallback");
+        get => GetArgument<TerraformValue<bool>>("is_fallback");
         set => SetArgument("is_fallback", value);
     }
 
@@ -252,7 +250,7 @@ public partial class GoogleDialogflowCxIntent(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -263,7 +261,7 @@ public partial class GoogleDialogflowCxIntent(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? LanguageCode
     {
-        get => new TerraformReference<string>(this, "language_code");
+        get => GetArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -273,7 +271,7 @@ public partial class GoogleDialogflowCxIntent(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -284,7 +282,7 @@ public partial class GoogleDialogflowCxIntent(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double>? Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -292,27 +290,21 @@ public partial class GoogleDialogflowCxIntent(string name) : TerraformResource("
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The unique identifier of the intent.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/intents/&amp;lt;Intent ID&amp;gt;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Parameters block (nesting mode: list).

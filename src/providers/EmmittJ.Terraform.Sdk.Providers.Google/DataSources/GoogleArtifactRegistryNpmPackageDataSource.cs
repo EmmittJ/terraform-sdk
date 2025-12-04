@@ -11,9 +11,9 @@ public partial class GoogleArtifactRegistryNpmPackageDataSource(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleArtifactRegistryNpmPackageDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleArtifactRegistryNpmPackageDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PackageName is required")]
     public required TerraformValue<string> PackageName
     {
-        get => new TerraformReference<string>(this, "package_name");
+        get => GetArgument<TerraformValue<string>>("package_name");
         set => SetArgument("package_name", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleArtifactRegistryNpmPackageDataSource(string name) : T
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -52,7 +52,7 @@ public partial class GoogleArtifactRegistryNpmPackageDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformValue<string> RepositoryId
     {
-        get => new TerraformReference<string>(this, "repository_id");
+        get => GetArgument<TerraformValue<string>>("repository_id");
         set => SetArgument("repository_id", value);
     }
 
@@ -60,40 +60,30 @@ public partial class GoogleArtifactRegistryNpmPackageDataSource(string name) : T
     /// The time the package was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The fully qualified name of the Npm package.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The tags associated with the Npm package.
     /// </summary>
     public TerraformList<string> Tags
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The time the package was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// The version of the Npm package.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
 }

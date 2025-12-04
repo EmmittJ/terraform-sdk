@@ -21,7 +21,7 @@ public class GoogleDnsResponsePolicyGkeClustersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GkeClusterName is required")]
     public required TerraformValue<string> GkeClusterName
     {
-        get => new TerraformReference<string>(this, "gke_cluster_name");
+        get => GetArgument<TerraformValue<string>>("gke_cluster_name");
         set => SetArgument("gke_cluster_name", value);
     }
 
@@ -47,7 +47,7 @@ public class GoogleDnsResponsePolicyNetworksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkUrl is required")]
     public required TerraformValue<string> NetworkUrl
     {
-        get => new TerraformReference<string>(this, "network_url");
+        get => GetArgument<TerraformValue<string>>("network_url");
         set => SetArgument("network_url", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleDnsResponsePolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -79,7 +79,7 @@ public class GoogleDnsResponsePolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -88,7 +88,7 @@ public class GoogleDnsResponsePolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -106,25 +106,25 @@ public partial class GoogleDnsResponsePolicy(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -134,7 +134,7 @@ public partial class GoogleDnsResponsePolicy(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponsePolicyName is required")]
     public required TerraformValue<string> ResponsePolicyName
     {
-        get => new TerraformReference<string>(this, "response_policy_name");
+        get => GetArgument<TerraformValue<string>>("response_policy_name");
         set => SetArgument("response_policy_name", value);
     }
 

@@ -11,9 +11,9 @@ public partial class AwsS3AccountPublicAccessBlock(string name) : TerraformResou
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformValue<string> AccountId
+    public TerraformValue<string>? AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsS3AccountPublicAccessBlock(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? BlockPublicAcls
     {
-        get => new TerraformReference<bool>(this, "block_public_acls");
+        get => GetArgument<TerraformValue<bool>>("block_public_acls");
         set => SetArgument("block_public_acls", value);
     }
 
@@ -31,16 +31,16 @@ public partial class AwsS3AccountPublicAccessBlock(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? BlockPublicPolicy
     {
-        get => new TerraformReference<bool>(this, "block_public_policy");
+        get => GetArgument<TerraformValue<bool>>("block_public_policy");
         set => SetArgument("block_public_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsS3AccountPublicAccessBlock(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? IgnorePublicAcls
     {
-        get => new TerraformReference<bool>(this, "ignore_public_acls");
+        get => GetArgument<TerraformValue<bool>>("ignore_public_acls");
         set => SetArgument("ignore_public_acls", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsS3AccountPublicAccessBlock(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? RestrictPublicBuckets
     {
-        get => new TerraformReference<bool>(this, "restrict_public_buckets");
+        get => GetArgument<TerraformValue<bool>>("restrict_public_buckets");
         set => SetArgument("restrict_public_buckets", value);
     }
 

@@ -16,9 +16,9 @@ public class AwsConfigConfigRuleEvaluationModeBlock : TerraformBlock
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformValue<string> Mode
+    public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsConfigConfigRuleScopeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ComplianceResourceId
     {
-        get => new TerraformReference<string>(this, "compliance_resource_id");
+        get => GetArgument<TerraformValue<string>>("compliance_resource_id");
         set => SetArgument("compliance_resource_id", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsConfigConfigRuleScopeBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ComplianceResourceTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "compliance_resource_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("compliance_resource_types");
         set => SetArgument("compliance_resource_types", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsConfigConfigRuleScopeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TagKey
     {
-        get => new TerraformReference<string>(this, "tag_key");
+        get => GetArgument<TerraformValue<string>>("tag_key");
         set => SetArgument("tag_key", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsConfigConfigRuleScopeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TagValue
     {
-        get => new TerraformReference<string>(this, "tag_value");
+        get => GetArgument<TerraformValue<string>>("tag_value");
         set => SetArgument("tag_value", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsConfigConfigRuleSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Owner is required")]
     public required TerraformValue<string> Owner
     {
-        get => new TerraformReference<string>(this, "owner");
+        get => GetArgument<TerraformValue<string>>("owner");
         set => SetArgument("owner", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsConfigConfigRuleSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SourceIdentifier
     {
-        get => new TerraformReference<string>(this, "source_identifier");
+        get => GetArgument<TerraformValue<string>>("source_identifier");
         set => SetArgument("source_identifier", value);
     }
 
@@ -143,7 +143,7 @@ public class AwsConfigConfigRuleSourceBlockCustomPolicyDetailsBlock : TerraformB
     /// </summary>
     public TerraformValue<bool>? EnableDebugLogDelivery
     {
-        get => new TerraformReference<bool>(this, "enable_debug_log_delivery");
+        get => GetArgument<TerraformValue<bool>>("enable_debug_log_delivery");
         set => SetArgument("enable_debug_log_delivery", value);
     }
 
@@ -153,7 +153,7 @@ public class AwsConfigConfigRuleSourceBlockCustomPolicyDetailsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyRuntime is required")]
     public required TerraformValue<string> PolicyRuntime
     {
-        get => new TerraformReference<string>(this, "policy_runtime");
+        get => GetArgument<TerraformValue<string>>("policy_runtime");
         set => SetArgument("policy_runtime", value);
     }
 
@@ -163,7 +163,7 @@ public class AwsConfigConfigRuleSourceBlockCustomPolicyDetailsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyText is required")]
     public required TerraformValue<string> PolicyText
     {
-        get => new TerraformReference<string>(this, "policy_text");
+        get => GetArgument<TerraformValue<string>>("policy_text");
         set => SetArgument("policy_text", value);
     }
 
@@ -185,7 +185,7 @@ public class AwsConfigConfigRuleSourceBlockSourceDetailBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EventSource
     {
-        get => new TerraformReference<string>(this, "event_source");
+        get => GetArgument<TerraformValue<string>>("event_source");
         set => SetArgument("event_source", value);
     }
 
@@ -194,7 +194,7 @@ public class AwsConfigConfigRuleSourceBlockSourceDetailBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaximumExecutionFrequency
     {
-        get => new TerraformReference<string>(this, "maximum_execution_frequency");
+        get => GetArgument<TerraformValue<string>>("maximum_execution_frequency");
         set => SetArgument("maximum_execution_frequency", value);
     }
 
@@ -203,7 +203,7 @@ public class AwsConfigConfigRuleSourceBlockSourceDetailBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MessageType
     {
-        get => new TerraformReference<string>(this, "message_type");
+        get => GetArgument<TerraformValue<string>>("message_type");
         set => SetArgument("message_type", value);
     }
 
@@ -221,16 +221,16 @@ public partial class AwsConfigConfigRule(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -239,7 +239,7 @@ public partial class AwsConfigConfigRule(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformValue<string>? InputParameters
     {
-        get => new TerraformReference<string>(this, "input_parameters");
+        get => GetArgument<TerraformValue<string>>("input_parameters");
         set => SetArgument("input_parameters", value);
     }
 
@@ -248,7 +248,7 @@ public partial class AwsConfigConfigRule(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformValue<string>? MaximumExecutionFrequency
     {
-        get => new TerraformReference<string>(this, "maximum_execution_frequency");
+        get => GetArgument<TerraformValue<string>>("maximum_execution_frequency");
         set => SetArgument("maximum_execution_frequency", value);
     }
 
@@ -258,16 +258,16 @@ public partial class AwsConfigConfigRule(string name) : TerraformResource("aws_c
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -276,16 +276,16 @@ public partial class AwsConfigConfigRule(string name) : TerraformResource("aws_c
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -293,17 +293,13 @@ public partial class AwsConfigConfigRule(string name) : TerraformResource("aws_c
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The rule_id attribute.
     /// </summary>
     public TerraformValue<string> RuleId
-    {
-        get => new TerraformReference<string>(this, "rule_id");
-    }
+        => AsReference("rule_id");
 
     /// <summary>
     /// EvaluationMode block (nesting mode: set).

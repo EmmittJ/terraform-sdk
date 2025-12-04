@@ -18,7 +18,7 @@ public class AwsSagemakerDeviceDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsSagemakerDeviceDeviceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformValue<string> DeviceName
     {
-        get => new TerraformReference<string>(this, "device_name");
+        get => GetArgument<TerraformValue<string>>("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsSagemakerDeviceDeviceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? IotThingName
     {
-        get => new TerraformReference<string>(this, "iot_thing_name");
+        get => GetArgument<TerraformValue<string>>("iot_thing_name");
         set => SetArgument("iot_thing_name", value);
     }
 
@@ -56,25 +56,25 @@ public partial class AwsSagemakerDevice(string name) : TerraformResource("aws_sa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceFleetName is required")]
     public required TerraformValue<string> DeviceFleetName
     {
-        get => new TerraformReference<string>(this, "device_fleet_name");
+        get => GetArgument<TerraformValue<string>>("device_fleet_name");
         set => SetArgument("device_fleet_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -82,17 +82,13 @@ public partial class AwsSagemakerDevice(string name) : TerraformResource("aws_sa
     /// The agent_version attribute.
     /// </summary>
     public TerraformValue<string> AgentVersion
-    {
-        get => new TerraformReference<string>(this, "agent_version");
-    }
+        => AsReference("agent_version");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Device block (nesting mode: list).

@@ -39,16 +39,14 @@ public class AwsTransferWebAppIdentityProviderDetailsBlockIdentityCenterConfigBl
     /// The application_arn attribute.
     /// </summary>
     public TerraformValue<string> ApplicationArn
-    {
-        get => new TerraformReference<string>(this, "application_arn");
-    }
+        => AsReference("application_arn");
 
     /// <summary>
     /// The instance_arn attribute.
     /// </summary>
     public TerraformValue<string>? InstanceArn
     {
-        get => new TerraformReference<string>(this, "instance_arn");
+        get => GetArgument<TerraformValue<string>>("instance_arn");
         set => SetArgument("instance_arn", value);
     }
 
@@ -57,7 +55,7 @@ public class AwsTransferWebAppIdentityProviderDetailsBlockIdentityCenterConfigBl
     /// </summary>
     public TerraformValue<string>? Role
     {
-        get => new TerraformReference<string>(this, "role");
+        get => GetArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 
@@ -73,18 +71,18 @@ public partial class AwsTransferWebApp(string name) : TerraformResource("aws_tra
     /// <summary>
     /// The access_endpoint attribute.
     /// </summary>
-    public TerraformValue<string> AccessEndpoint
+    public TerraformValue<string>? AccessEndpoint
     {
-        get => new TerraformReference<string>(this, "access_endpoint");
+        get => GetArgument<TerraformValue<string>>("access_endpoint");
         set => SetArgument("access_endpoint", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -93,25 +91,25 @@ public partial class AwsTransferWebApp(string name) : TerraformResource("aws_tra
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The web_app_endpoint_policy attribute.
     /// </summary>
-    public TerraformValue<string> WebAppEndpointPolicy
+    public TerraformValue<string>? WebAppEndpointPolicy
     {
-        get => new TerraformReference<string>(this, "web_app_endpoint_policy");
+        get => GetArgument<TerraformValue<string>>("web_app_endpoint_policy");
         set => SetArgument("web_app_endpoint_policy", value);
     }
 
     /// <summary>
     /// The web_app_units attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>> WebAppUnits
+    public TerraformList<TerraformMap<object>>? WebAppUnits
     {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "web_app_units").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<TerraformMap<object>>>("web_app_units");
         set => SetArgument("web_app_units", value);
     }
 
@@ -119,25 +117,19 @@ public partial class AwsTransferWebApp(string name) : TerraformResource("aws_tra
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// The web_app_id attribute.
     /// </summary>
     public TerraformValue<string> WebAppId
-    {
-        get => new TerraformReference<string>(this, "web_app_id");
-    }
+        => AsReference("web_app_id");
 
     /// <summary>
     /// IdentityProviderDetails block (nesting mode: list).

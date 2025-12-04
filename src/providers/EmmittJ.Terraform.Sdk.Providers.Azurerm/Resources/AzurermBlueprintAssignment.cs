@@ -18,7 +18,7 @@ public class AzurermBlueprintAssignmentIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -26,17 +26,13 @@ public class AzurermBlueprintAssignmentIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -44,7 +40,7 @@ public class AzurermBlueprintAssignmentIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -67,7 +63,7 @@ public class AzurermBlueprintAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -76,7 +72,7 @@ public class AzurermBlueprintAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -85,7 +81,7 @@ public class AzurermBlueprintAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -94,7 +90,7 @@ public class AzurermBlueprintAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -110,9 +106,9 @@ public partial class AzurermBlueprintAssignment(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -122,7 +118,7 @@ public partial class AzurermBlueprintAssignment(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -131,7 +127,7 @@ public partial class AzurermBlueprintAssignment(string name) : TerraformResource
     /// </summary>
     public TerraformList<string>? LockExcludeActions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "lock_exclude_actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("lock_exclude_actions");
         set => SetArgument("lock_exclude_actions", value);
     }
 
@@ -140,7 +136,7 @@ public partial class AzurermBlueprintAssignment(string name) : TerraformResource
     /// </summary>
     public TerraformList<string>? LockExcludePrincipals
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "lock_exclude_principals").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("lock_exclude_principals");
         set => SetArgument("lock_exclude_principals", value);
     }
 
@@ -149,7 +145,7 @@ public partial class AzurermBlueprintAssignment(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? LockMode
     {
-        get => new TerraformReference<string>(this, "lock_mode");
+        get => GetArgument<TerraformValue<string>>("lock_mode");
         set => SetArgument("lock_mode", value);
     }
 
@@ -159,7 +155,7 @@ public partial class AzurermBlueprintAssignment(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -168,7 +164,7 @@ public partial class AzurermBlueprintAssignment(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? ParameterValues
     {
-        get => new TerraformReference<string>(this, "parameter_values");
+        get => GetArgument<TerraformValue<string>>("parameter_values");
         set => SetArgument("parameter_values", value);
     }
 
@@ -177,7 +173,7 @@ public partial class AzurermBlueprintAssignment(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? ResourceGroups
     {
-        get => new TerraformReference<string>(this, "resource_groups");
+        get => GetArgument<TerraformValue<string>>("resource_groups");
         set => SetArgument("resource_groups", value);
     }
 
@@ -187,7 +183,7 @@ public partial class AzurermBlueprintAssignment(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetSubscriptionId is required")]
     public required TerraformValue<string> TargetSubscriptionId
     {
-        get => new TerraformReference<string>(this, "target_subscription_id");
+        get => GetArgument<TerraformValue<string>>("target_subscription_id");
         set => SetArgument("target_subscription_id", value);
     }
 
@@ -197,7 +193,7 @@ public partial class AzurermBlueprintAssignment(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionId is required")]
     public required TerraformValue<string> VersionId
     {
-        get => new TerraformReference<string>(this, "version_id");
+        get => GetArgument<TerraformValue<string>>("version_id");
         set => SetArgument("version_id", value);
     }
 
@@ -205,33 +201,25 @@ public partial class AzurermBlueprintAssignment(string name) : TerraformResource
     /// The blueprint_name attribute.
     /// </summary>
     public TerraformValue<string> BlueprintName
-    {
-        get => new TerraformReference<string>(this, "blueprint_name");
-    }
+        => AsReference("blueprint_name");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// Identity block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AwsOpensearchDomainSamlOptionsSamlOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsOpensearchDomainSamlOptionsSamlOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MasterBackendRole
     {
-        get => new TerraformReference<string>(this, "master_backend_role");
+        get => GetArgument<TerraformValue<string>>("master_backend_role");
         set => SetArgument("master_backend_role", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsOpensearchDomainSamlOptionsSamlOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MasterUserName
     {
-        get => new TerraformReference<string>(this, "master_user_name");
+        get => GetArgument<TerraformValue<string>>("master_user_name");
         set => SetArgument("master_user_name", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsOpensearchDomainSamlOptionsSamlOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RolesKey
     {
-        get => new TerraformReference<string>(this, "roles_key");
+        get => GetArgument<TerraformValue<string>>("roles_key");
         set => SetArgument("roles_key", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsOpensearchDomainSamlOptionsSamlOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SessionTimeoutMinutes
     {
-        get => new TerraformReference<double>(this, "session_timeout_minutes");
+        get => GetArgument<TerraformValue<double>>("session_timeout_minutes");
         set => SetArgument("session_timeout_minutes", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsOpensearchDomainSamlOptionsSamlOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SubjectKey
     {
-        get => new TerraformReference<string>(this, "subject_key");
+        get => GetArgument<TerraformValue<string>>("subject_key");
         set => SetArgument("subject_key", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsOpensearchDomainSamlOptionsSamlOptionsBlockIdpBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityId is required")]
     public required TerraformValue<string> EntityId
     {
-        get => new TerraformReference<string>(this, "entity_id");
+        get => GetArgument<TerraformValue<string>>("entity_id");
         set => SetArgument("entity_id", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsOpensearchDomainSamlOptionsSamlOptionsBlockIdpBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetadataContent is required")]
     public required TerraformValue<string> MetadataContent
     {
-        get => new TerraformReference<string>(this, "metadata_content");
+        get => GetArgument<TerraformValue<string>>("metadata_content");
         set => SetArgument("metadata_content", value);
     }
 
@@ -129,7 +129,7 @@ public class AwsOpensearchDomainSamlOptionsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -138,7 +138,7 @@ public class AwsOpensearchDomainSamlOptionsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -157,25 +157,25 @@ public partial class AwsOpensearchDomainSamlOptions(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

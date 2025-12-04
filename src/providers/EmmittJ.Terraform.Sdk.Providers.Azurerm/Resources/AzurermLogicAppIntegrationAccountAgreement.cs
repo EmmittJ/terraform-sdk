@@ -19,7 +19,7 @@ public class AzurermLogicAppIntegrationAccountAgreementGuestIdentityBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Qualifier is required")]
     public required TerraformValue<string> Qualifier
     {
-        get => new TerraformReference<string>(this, "qualifier");
+        get => GetArgument<TerraformValue<string>>("qualifier");
         set => SetArgument("qualifier", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermLogicAppIntegrationAccountAgreementGuestIdentityBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermLogicAppIntegrationAccountAgreementHostIdentityBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Qualifier is required")]
     public required TerraformValue<string> Qualifier
     {
-        get => new TerraformReference<string>(this, "qualifier");
+        get => GetArgument<TerraformValue<string>>("qualifier");
         set => SetArgument("qualifier", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermLogicAppIntegrationAccountAgreementHostIdentityBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermLogicAppIntegrationAccountAgreementTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermLogicAppIntegrationAccountAgreementTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermLogicAppIntegrationAccountAgreementTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermLogicAppIntegrationAccountAgreementTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AzurermLogicAppIntegrationAccountAgreement(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgreementType is required")]
     public required TerraformValue<string> AgreementType
     {
-        get => new TerraformReference<string>(this, "agreement_type");
+        get => GetArgument<TerraformValue<string>>("agreement_type");
         set => SetArgument("agreement_type", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AzurermLogicAppIntegrationAccountAgreement(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => new TerraformReference<string>(this, "content");
+        get => GetArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AzurermLogicAppIntegrationAccountAgreement(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GuestPartnerName is required")]
     public required TerraformValue<string> GuestPartnerName
     {
-        get => new TerraformReference<string>(this, "guest_partner_name");
+        get => GetArgument<TerraformValue<string>>("guest_partner_name");
         set => SetArgument("guest_partner_name", value);
     }
 
@@ -162,16 +162,16 @@ public partial class AzurermLogicAppIntegrationAccountAgreement(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostPartnerName is required")]
     public required TerraformValue<string> HostPartnerName
     {
-        get => new TerraformReference<string>(this, "host_partner_name");
+        get => GetArgument<TerraformValue<string>>("host_partner_name");
         set => SetArgument("host_partner_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AzurermLogicAppIntegrationAccountAgreement(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationAccountName is required")]
     public required TerraformValue<string> IntegrationAccountName
     {
-        get => new TerraformReference<string>(this, "integration_account_name");
+        get => GetArgument<TerraformValue<string>>("integration_account_name");
         set => SetArgument("integration_account_name", value);
     }
 
@@ -190,7 +190,7 @@ public partial class AzurermLogicAppIntegrationAccountAgreement(string name) : T
     /// </summary>
     public TerraformMap<string>? Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AzurermLogicAppIntegrationAccountAgreement(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -210,7 +210,7 @@ public partial class AzurermLogicAppIntegrationAccountAgreement(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

@@ -16,9 +16,9 @@ public class AwsLambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigBlock
     /// <summary>
     /// The consumer_group_id attribute.
     /// </summary>
-    public TerraformValue<string> ConsumerGroupId
+    public TerraformValue<string>? ConsumerGroupId
     {
-        get => new TerraformReference<string>(this, "consumer_group_id");
+        get => GetArgument<TerraformValue<string>>("consumer_group_id");
         set => SetArgument("consumer_group_id", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsLambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigBlock
     /// </summary>
     public TerraformValue<string>? EventRecordFormat
     {
-        get => new TerraformReference<string>(this, "event_record_format");
+        get => GetArgument<TerraformValue<string>>("event_record_format");
         set => SetArgument("event_record_format", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsLambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigBlock
     /// </summary>
     public TerraformValue<string>? SchemaRegistryUri
     {
-        get => new TerraformReference<string>(this, "schema_registry_uri");
+        get => GetArgument<TerraformValue<string>>("schema_registry_uri");
         set => SetArgument("schema_registry_uri", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsLambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -108,7 +108,7 @@ public class AwsLambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigBlock
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsLambdaEventSourceMappingAmazonManagedKafkaEventSourceConfigBlock
     /// </summary>
     public TerraformValue<string>? Attribute
     {
-        get => new TerraformReference<string>(this, "attribute");
+        get => GetArgument<TerraformValue<string>>("attribute");
         set => SetArgument("attribute", value);
     }
 
@@ -177,7 +177,7 @@ public class AwsLambdaEventSourceMappingDestinationConfigBlockOnFailureBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformValue<string> DestinationArn
     {
-        get => new TerraformReference<string>(this, "destination_arn");
+        get => GetArgument<TerraformValue<string>>("destination_arn");
         set => SetArgument("destination_arn", value);
     }
 
@@ -200,7 +200,7 @@ public class AwsLambdaEventSourceMappingDocumentDbEventSourceConfigBlock : Terra
     /// </summary>
     public TerraformValue<string>? CollectionName
     {
-        get => new TerraformReference<string>(this, "collection_name");
+        get => GetArgument<TerraformValue<string>>("collection_name");
         set => SetArgument("collection_name", value);
     }
 
@@ -210,7 +210,7 @@ public class AwsLambdaEventSourceMappingDocumentDbEventSourceConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -219,7 +219,7 @@ public class AwsLambdaEventSourceMappingDocumentDbEventSourceConfigBlock : Terra
     /// </summary>
     public TerraformValue<string>? FullDocument
     {
-        get => new TerraformReference<string>(this, "full_document");
+        get => GetArgument<TerraformValue<string>>("full_document");
         set => SetArgument("full_document", value);
     }
 
@@ -265,7 +265,7 @@ public class AwsLambdaEventSourceMappingFilterCriteriaBlockFilterBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Pattern
     {
-        get => new TerraformReference<string>(this, "pattern");
+        get => GetArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -289,7 +289,7 @@ public class AwsLambdaEventSourceMappingMetricsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Metrics is required")]
     public required TerraformSet<string> Metrics
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "metrics").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("metrics");
         set => SetArgument("metrics", value);
     }
 
@@ -310,18 +310,18 @@ public class AwsLambdaEventSourceMappingProvisionedPollerConfigBlock : Terraform
     /// <summary>
     /// The maximum_pollers attribute.
     /// </summary>
-    public TerraformValue<double> MaximumPollers
+    public TerraformValue<double>? MaximumPollers
     {
-        get => new TerraformReference<double>(this, "maximum_pollers");
+        get => GetArgument<TerraformValue<double>>("maximum_pollers");
         set => SetArgument("maximum_pollers", value);
     }
 
     /// <summary>
     /// The minimum_pollers attribute.
     /// </summary>
-    public TerraformValue<double> MinimumPollers
+    public TerraformValue<double>? MinimumPollers
     {
-        get => new TerraformReference<double>(this, "minimum_pollers");
+        get => GetArgument<TerraformValue<double>>("minimum_pollers");
         set => SetArgument("minimum_pollers", value);
     }
 
@@ -344,7 +344,7 @@ public class AwsLambdaEventSourceMappingScalingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaximumConcurrency
     {
-        get => new TerraformReference<double>(this, "maximum_concurrency");
+        get => GetArgument<TerraformValue<double>>("maximum_concurrency");
         set => SetArgument("maximum_concurrency", value);
     }
 
@@ -368,7 +368,7 @@ public class AwsLambdaEventSourceMappingSelfManagedEventSourceBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoints is required")]
     public required TerraformMap<string> Endpoints
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "endpoints").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("endpoints");
         set => SetArgument("endpoints", value);
     }
 
@@ -389,9 +389,9 @@ public class AwsLambdaEventSourceMappingSelfManagedKafkaEventSourceConfigBlock :
     /// <summary>
     /// The consumer_group_id attribute.
     /// </summary>
-    public TerraformValue<string> ConsumerGroupId
+    public TerraformValue<string>? ConsumerGroupId
     {
-        get => new TerraformReference<string>(this, "consumer_group_id");
+        get => GetArgument<TerraformValue<string>>("consumer_group_id");
         set => SetArgument("consumer_group_id", value);
     }
 
@@ -423,7 +423,7 @@ public class AwsLambdaEventSourceMappingSelfManagedKafkaEventSourceConfigBlockSc
     /// </summary>
     public TerraformValue<string>? EventRecordFormat
     {
-        get => new TerraformReference<string>(this, "event_record_format");
+        get => GetArgument<TerraformValue<string>>("event_record_format");
         set => SetArgument("event_record_format", value);
     }
 
@@ -432,7 +432,7 @@ public class AwsLambdaEventSourceMappingSelfManagedKafkaEventSourceConfigBlockSc
     /// </summary>
     public TerraformValue<string>? SchemaRegistryUri
     {
-        get => new TerraformReference<string>(this, "schema_registry_uri");
+        get => GetArgument<TerraformValue<string>>("schema_registry_uri");
         set => SetArgument("schema_registry_uri", value);
     }
 
@@ -472,7 +472,7 @@ public class AwsLambdaEventSourceMappingSelfManagedKafkaEventSourceConfigBlockSc
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -481,7 +481,7 @@ public class AwsLambdaEventSourceMappingSelfManagedKafkaEventSourceConfigBlockSc
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -503,7 +503,7 @@ public class AwsLambdaEventSourceMappingSelfManagedKafkaEventSourceConfigBlockSc
     /// </summary>
     public TerraformValue<string>? Attribute
     {
-        get => new TerraformReference<string>(this, "attribute");
+        get => GetArgument<TerraformValue<string>>("attribute");
         set => SetArgument("attribute", value);
     }
 
@@ -527,7 +527,7 @@ public class AwsLambdaEventSourceMappingSourceAccessConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -537,7 +537,7 @@ public class AwsLambdaEventSourceMappingSourceAccessConfigurationBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -555,7 +555,7 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double>? BatchSize
     {
-        get => new TerraformReference<double>(this, "batch_size");
+        get => GetArgument<TerraformValue<double>>("batch_size");
         set => SetArgument("batch_size", value);
     }
 
@@ -564,7 +564,7 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool>? BisectBatchOnFunctionError
     {
-        get => new TerraformReference<bool>(this, "bisect_batch_on_function_error");
+        get => GetArgument<TerraformValue<bool>>("bisect_batch_on_function_error");
         set => SetArgument("bisect_batch_on_function_error", value);
     }
 
@@ -573,7 +573,7 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -582,7 +582,7 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? EventSourceArn
     {
-        get => new TerraformReference<string>(this, "event_source_arn");
+        get => GetArgument<TerraformValue<string>>("event_source_arn");
         set => SetArgument("event_source_arn", value);
     }
 
@@ -592,7 +592,7 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformValue<string> FunctionName
     {
-        get => new TerraformReference<string>(this, "function_name");
+        get => GetArgument<TerraformValue<string>>("function_name");
         set => SetArgument("function_name", value);
     }
 
@@ -601,16 +601,16 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// </summary>
     public TerraformSet<string>? FunctionResponseTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "function_response_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("function_response_types");
         set => SetArgument("function_response_types", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -619,7 +619,7 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -628,34 +628,34 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double>? MaximumBatchingWindowInSeconds
     {
-        get => new TerraformReference<double>(this, "maximum_batching_window_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_batching_window_in_seconds");
         set => SetArgument("maximum_batching_window_in_seconds", value);
     }
 
     /// <summary>
     /// The maximum_record_age_in_seconds attribute.
     /// </summary>
-    public TerraformValue<double> MaximumRecordAgeInSeconds
+    public TerraformValue<double>? MaximumRecordAgeInSeconds
     {
-        get => new TerraformReference<double>(this, "maximum_record_age_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_record_age_in_seconds");
         set => SetArgument("maximum_record_age_in_seconds", value);
     }
 
     /// <summary>
     /// The maximum_retry_attempts attribute.
     /// </summary>
-    public TerraformValue<double> MaximumRetryAttempts
+    public TerraformValue<double>? MaximumRetryAttempts
     {
-        get => new TerraformReference<double>(this, "maximum_retry_attempts");
+        get => GetArgument<TerraformValue<double>>("maximum_retry_attempts");
         set => SetArgument("maximum_retry_attempts", value);
     }
 
     /// <summary>
     /// The parallelization_factor attribute.
     /// </summary>
-    public TerraformValue<double> ParallelizationFactor
+    public TerraformValue<double>? ParallelizationFactor
     {
-        get => new TerraformReference<double>(this, "parallelization_factor");
+        get => GetArgument<TerraformValue<double>>("parallelization_factor");
         set => SetArgument("parallelization_factor", value);
     }
 
@@ -664,16 +664,16 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// </summary>
     public TerraformList<string>? Queues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "queues").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("queues");
         set => SetArgument("queues", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -682,7 +682,7 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? StartingPosition
     {
-        get => new TerraformReference<string>(this, "starting_position");
+        get => GetArgument<TerraformValue<string>>("starting_position");
         set => SetArgument("starting_position", value);
     }
 
@@ -691,7 +691,7 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? StartingPositionTimestamp
     {
-        get => new TerraformReference<string>(this, "starting_position_timestamp");
+        get => GetArgument<TerraformValue<string>>("starting_position_timestamp");
         set => SetArgument("starting_position_timestamp", value);
     }
 
@@ -700,16 +700,16 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -718,7 +718,7 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// </summary>
     public TerraformSet<string>? Topics
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "topics").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("topics");
         set => SetArgument("topics", value);
     }
 
@@ -727,7 +727,7 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double>? TumblingWindowInSeconds
     {
-        get => new TerraformReference<double>(this, "tumbling_window_in_seconds");
+        get => GetArgument<TerraformValue<double>>("tumbling_window_in_seconds");
         set => SetArgument("tumbling_window_in_seconds", value);
     }
 
@@ -735,57 +735,43 @@ public partial class AwsLambdaEventSourceMapping(string name) : TerraformResourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The function_arn attribute.
     /// </summary>
     public TerraformValue<string> FunctionArn
-    {
-        get => new TerraformReference<string>(this, "function_arn");
-    }
+        => AsReference("function_arn");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
     public TerraformValue<string> LastModified
-    {
-        get => new TerraformReference<string>(this, "last_modified");
-    }
+        => AsReference("last_modified");
 
     /// <summary>
     /// The last_processing_result attribute.
     /// </summary>
     public TerraformValue<string> LastProcessingResult
-    {
-        get => new TerraformReference<string>(this, "last_processing_result");
-    }
+        => AsReference("last_processing_result");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The state_transition_reason attribute.
     /// </summary>
     public TerraformValue<string> StateTransitionReason
-    {
-        get => new TerraformReference<string>(this, "state_transition_reason");
-    }
+        => AsReference("state_transition_reason");
 
     /// <summary>
     /// The uuid attribute.
     /// </summary>
     public TerraformValue<string> Uuid
-    {
-        get => new TerraformReference<string>(this, "uuid");
-    }
+        => AsReference("uuid");
 
     /// <summary>
     /// AmazonManagedKafkaEventSourceConfig block (nesting mode: list).

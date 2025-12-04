@@ -18,7 +18,7 @@ public class GoogleIapClientTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleIapClientTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -49,7 +49,7 @@ public partial class GoogleIapClient(string name) : TerraformResource("google_ia
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Brand is required")]
     public required TerraformValue<string> Brand
     {
-        get => new TerraformReference<string>(this, "brand");
+        get => GetArgument<TerraformValue<string>>("brand");
         set => SetArgument("brand", value);
     }
 
@@ -59,16 +59,16 @@ public partial class GoogleIapClient(string name) : TerraformResource("google_ia
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -76,17 +76,13 @@ public partial class GoogleIapClient(string name) : TerraformResource("google_ia
     /// Output only. Unique identifier of the OAuth client.
     /// </summary>
     public TerraformValue<string> ClientId
-    {
-        get => new TerraformReference<string>(this, "client_id");
-    }
+        => AsReference("client_id");
 
     /// <summary>
     /// Output only. Client secret of the OAuth client.
     /// </summary>
     public TerraformValue<string> Secret
-    {
-        get => new TerraformReference<string>(this, "secret");
-    }
+        => AsReference("secret");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

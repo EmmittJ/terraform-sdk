@@ -18,7 +18,7 @@ public class AzureadAccessPackageResourceCatalogAssociationTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadAccessPackageResourceCatalogAssociationTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadAccessPackageResourceCatalogAssociationTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AzureadAccessPackageResourceCatalogAssociation(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     public required TerraformValue<string> CatalogId
     {
-        get => new TerraformReference<string>(this, "catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzureadAccessPackageResourceCatalogAssociation(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceOriginId is required")]
     public required TerraformValue<string> ResourceOriginId
     {
-        get => new TerraformReference<string>(this, "resource_origin_id");
+        get => GetArgument<TerraformValue<string>>("resource_origin_id");
         set => SetArgument("resource_origin_id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzureadAccessPackageResourceCatalogAssociation(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceOriginSystem is required")]
     public required TerraformValue<string> ResourceOriginSystem
     {
-        get => new TerraformReference<string>(this, "resource_origin_system");
+        get => GetArgument<TerraformValue<string>>("resource_origin_system");
         set => SetArgument("resource_origin_system", value);
     }
 

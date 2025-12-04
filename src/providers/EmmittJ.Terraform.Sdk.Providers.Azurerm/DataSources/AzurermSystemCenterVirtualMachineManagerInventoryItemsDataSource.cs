@@ -18,7 +18,7 @@ public class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSourceTim
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataS
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InventoryType is required")]
     public required TerraformValue<string> InventoryType
     {
-        get => new TerraformReference<string>(this, "inventory_type");
+        get => GetArgument<TerraformValue<string>>("inventory_type");
         set => SetArgument("inventory_type", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SystemCenterVirtualMachineManagerServerId is required")]
     public required TerraformValue<string> SystemCenterVirtualMachineManagerServerId
     {
-        get => new TerraformReference<string>(this, "system_center_virtual_machine_manager_server_id");
+        get => GetArgument<TerraformValue<string>>("system_center_virtual_machine_manager_server_id");
         set => SetArgument("system_center_virtual_machine_manager_server_id", value);
     }
 
@@ -64,9 +64,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataS
     /// The inventory_items attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InventoryItems
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "inventory_items").ResolveNodes(ctx));
-    }
+        => AsReference("inventory_items");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -13,7 +13,7 @@ public partial class AwsRedshiftLogging(string name) : TerraformResource("aws_re
     /// </summary>
     public TerraformValue<string>? BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsRedshiftLogging(string name) : TerraformResource("aws_re
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformValue<string> ClusterIdentifier
     {
-        get => new TerraformReference<string>(this, "cluster_identifier");
+        get => GetArgument<TerraformValue<string>>("cluster_identifier");
         set => SetArgument("cluster_identifier", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsRedshiftLogging(string name) : TerraformResource("aws_re
     /// </summary>
     public TerraformValue<string>? LogDestinationType
     {
-        get => new TerraformReference<string>(this, "log_destination_type");
+        get => GetArgument<TerraformValue<string>>("log_destination_type");
         set => SetArgument("log_destination_type", value);
     }
 
@@ -41,16 +41,16 @@ public partial class AwsRedshiftLogging(string name) : TerraformResource("aws_re
     /// </summary>
     public TerraformSet<string>? LogExports
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "log_exports").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("log_exports");
         set => SetArgument("log_exports", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsRedshiftLogging(string name) : TerraformResource("aws_re
     /// </summary>
     public TerraformValue<string>? S3KeyPrefix
     {
-        get => new TerraformReference<string>(this, "s3_key_prefix");
+        get => GetArgument<TerraformValue<string>>("s3_key_prefix");
         set => SetArgument("s3_key_prefix", value);
     }
 
@@ -68,8 +68,6 @@ public partial class AwsRedshiftLogging(string name) : TerraformResource("aws_re
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
 }

@@ -18,7 +18,7 @@ public class AzurermCdnFrontdoorCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermCdnFrontdoorCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermCdnFrontdoorCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermCdnFrontdoorCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -66,9 +66,9 @@ public class AzurermCdnFrontdoorCustomDomainTlsBlock : TerraformBlock
     /// <summary>
     /// The cdn_frontdoor_secret_id attribute.
     /// </summary>
-    public TerraformValue<string> CdnFrontdoorSecretId
+    public TerraformValue<string>? CdnFrontdoorSecretId
     {
-        get => new TerraformReference<string>(this, "cdn_frontdoor_secret_id");
+        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_secret_id");
         set => SetArgument("cdn_frontdoor_secret_id", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermCdnFrontdoorCustomDomainTlsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CertificateType
     {
-        get => new TerraformReference<string>(this, "certificate_type");
+        get => GetArgument<TerraformValue<string>>("certificate_type");
         set => SetArgument("certificate_type", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermCdnFrontdoorCustomDomainTlsBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? MinimumTlsVersion
     {
-        get => new TerraformReference<string>(this, "minimum_tls_version");
+        get => GetArgument<TerraformValue<string>>("minimum_tls_version");
         set => SetArgument("minimum_tls_version", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AzurermCdnFrontdoorCustomDomain(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorProfileId is required")]
     public required TerraformValue<string> CdnFrontdoorProfileId
     {
-        get => new TerraformReference<string>(this, "cdn_frontdoor_profile_id");
+        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_profile_id");
         set => SetArgument("cdn_frontdoor_profile_id", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AzurermCdnFrontdoorCustomDomain(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? DnsZoneId
     {
-        get => new TerraformReference<string>(this, "dns_zone_id");
+        get => GetArgument<TerraformValue<string>>("dns_zone_id");
         set => SetArgument("dns_zone_id", value);
     }
 
@@ -125,16 +125,16 @@ public partial class AzurermCdnFrontdoorCustomDomain(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => new TerraformReference<string>(this, "host_name");
+        get => GetArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AzurermCdnFrontdoorCustomDomain(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -152,17 +152,13 @@ public partial class AzurermCdnFrontdoorCustomDomain(string name) : TerraformRes
     /// The expiration_date attribute.
     /// </summary>
     public TerraformValue<string> ExpirationDate
-    {
-        get => new TerraformReference<string>(this, "expiration_date");
-    }
+        => AsReference("expiration_date");
 
     /// <summary>
     /// The validation_token attribute.
     /// </summary>
     public TerraformValue<string> ValidationToken
-    {
-        get => new TerraformReference<string>(this, "validation_token");
-    }
+        => AsReference("validation_token");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

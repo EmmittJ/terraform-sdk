@@ -18,7 +18,7 @@ public class AzurermLbNatPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermLbNatPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermLbNatPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermLbNatPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermLbNatPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPort is required")]
     public required TerraformValue<double> BackendPort
     {
-        get => new TerraformReference<double>(this, "backend_port");
+        get => GetArgument<TerraformValue<double>>("backend_port");
         set => SetArgument("backend_port", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermLbNatPool(string name) : TerraformResource("azurerm_
     /// </summary>
     public TerraformValue<bool>? FloatingIpEnabled
     {
-        get => new TerraformReference<bool>(this, "floating_ip_enabled");
+        get => GetArgument<TerraformValue<bool>>("floating_ip_enabled");
         set => SetArgument("floating_ip_enabled", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermLbNatPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendIpConfigurationName is required")]
     public required TerraformValue<string> FrontendIpConfigurationName
     {
-        get => new TerraformReference<string>(this, "frontend_ip_configuration_name");
+        get => GetArgument<TerraformValue<string>>("frontend_ip_configuration_name");
         set => SetArgument("frontend_ip_configuration_name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermLbNatPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendPortEnd is required")]
     public required TerraformValue<double> FrontendPortEnd
     {
-        get => new TerraformReference<double>(this, "frontend_port_end");
+        get => GetArgument<TerraformValue<double>>("frontend_port_end");
         set => SetArgument("frontend_port_end", value);
     }
 
@@ -103,16 +103,16 @@ public partial class AzurermLbNatPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendPortStart is required")]
     public required TerraformValue<double> FrontendPortStart
     {
-        get => new TerraformReference<double>(this, "frontend_port_start");
+        get => GetArgument<TerraformValue<double>>("frontend_port_start");
         set => SetArgument("frontend_port_start", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermLbNatPool(string name) : TerraformResource("azurerm_
     /// </summary>
     public TerraformValue<double>? IdleTimeoutInMinutes
     {
-        get => new TerraformReference<double>(this, "idle_timeout_in_minutes");
+        get => GetArgument<TerraformValue<double>>("idle_timeout_in_minutes");
         set => SetArgument("idle_timeout_in_minutes", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermLbNatPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
     public required TerraformValue<string> LoadbalancerId
     {
-        get => new TerraformReference<string>(this, "loadbalancer_id");
+        get => GetArgument<TerraformValue<string>>("loadbalancer_id");
         set => SetArgument("loadbalancer_id", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AzurermLbNatPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AzurermLbNatPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -161,7 +161,7 @@ public partial class AzurermLbNatPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AzurermLbNatPool(string name) : TerraformResource("azurerm_
     /// </summary>
     public TerraformValue<bool>? TcpResetEnabled
     {
-        get => new TerraformReference<bool>(this, "tcp_reset_enabled");
+        get => GetArgument<TerraformValue<bool>>("tcp_reset_enabled");
         set => SetArgument("tcp_reset_enabled", value);
     }
 
@@ -178,9 +178,7 @@ public partial class AzurermLbNatPool(string name) : TerraformResource("azurerm_
     /// The frontend_ip_configuration_id attribute.
     /// </summary>
     public TerraformValue<string> FrontendIpConfigurationId
-    {
-        get => new TerraformReference<string>(this, "frontend_ip_configuration_id");
-    }
+        => AsReference("frontend_ip_configuration_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

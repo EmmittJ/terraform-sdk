@@ -18,7 +18,7 @@ public class AzurermBillingEnrollmentAccountScopeDataSourceTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,7 +37,7 @@ public partial class AzurermBillingEnrollmentAccountScopeDataSource(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccountName is required")]
     public required TerraformValue<string> BillingAccountName
     {
-        get => new TerraformReference<string>(this, "billing_account_name");
+        get => GetArgument<TerraformValue<string>>("billing_account_name");
         set => SetArgument("billing_account_name", value);
     }
 
@@ -47,16 +47,16 @@ public partial class AzurermBillingEnrollmentAccountScopeDataSource(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnrollmentAccountName is required")]
     public required TerraformValue<string> EnrollmentAccountName
     {
-        get => new TerraformReference<string>(this, "enrollment_account_name");
+        get => GetArgument<TerraformValue<string>>("enrollment_account_name");
         set => SetArgument("enrollment_account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 

@@ -19,7 +19,7 @@ public class AwsCloudwatchEventPermissionConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsCloudwatchEventPermissionConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsCloudwatchEventPermissionConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -57,7 +57,7 @@ public partial class AwsCloudwatchEventPermission(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -66,16 +66,16 @@ public partial class AwsCloudwatchEventPermission(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? EventBusName
     {
-        get => new TerraformReference<string>(this, "event_bus_name");
+        get => GetArgument<TerraformValue<string>>("event_bus_name");
         set => SetArgument("event_bus_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -85,16 +85,16 @@ public partial class AwsCloudwatchEventPermission(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformValue<string> Principal
     {
-        get => new TerraformReference<string>(this, "principal");
+        get => GetArgument<TerraformValue<string>>("principal");
         set => SetArgument("principal", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AwsCloudwatchEventPermission(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatementId is required")]
     public required TerraformValue<string> StatementId
     {
-        get => new TerraformReference<string>(this, "statement_id");
+        get => GetArgument<TerraformValue<string>>("statement_id");
         set => SetArgument("statement_id", value);
     }
 

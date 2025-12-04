@@ -27,7 +27,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? CooldownPeriod
     {
-        get => new TerraformReference<double>(this, "cooldown_period");
+        get => GetArgument<TerraformValue<double>>("cooldown_period");
         set => SetArgument("cooldown_period", value);
     }
 
@@ -40,7 +40,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxReplicas is required")]
     public required TerraformValue<double> MaxReplicas
     {
-        get => new TerraformReference<double>(this, "max_replicas");
+        get => GetArgument<TerraformValue<double>>("max_replicas");
         set => SetArgument("max_replicas", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReplicas is required")]
     public required TerraformValue<double> MinReplicas
     {
-        get => new TerraformReference<double>(this, "min_replicas");
+        get => GetArgument<TerraformValue<double>>("min_replicas");
         set => SetArgument("min_replicas", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -136,7 +136,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlockCpuUtilizationBlock : 
     /// </summary>
     public TerraformValue<string>? PredictiveMethod
     {
-        get => new TerraformReference<string>(this, "predictive_method");
+        get => GetArgument<TerraformValue<string>>("predictive_method");
         set => SetArgument("predictive_method", value);
     }
 
@@ -158,7 +158,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlockCpuUtilizationBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformValue<double> Target
     {
-        get => new TerraformReference<double>(this, "target");
+        get => GetArgument<TerraformValue<double>>("target");
         set => SetArgument("target", value);
     }
 
@@ -183,7 +183,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlockLoadBalancingUtilizati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformValue<double> Target
     {
-        get => new TerraformReference<double>(this, "target");
+        get => GetArgument<TerraformValue<double>>("target");
         set => SetArgument("target", value);
     }
 
@@ -236,7 +236,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlockMetricBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -249,7 +249,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlockMetricBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -273,7 +273,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlockMetricBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? SingleInstanceAssignment
     {
-        get => new TerraformReference<double>(this, "single_instance_assignment");
+        get => GetArgument<TerraformValue<double>>("single_instance_assignment");
         set => SetArgument("single_instance_assignment", value);
     }
 
@@ -290,7 +290,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlockMetricBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? Target
     {
-        get => new TerraformReference<double>(this, "target");
+        get => GetArgument<TerraformValue<double>>("target");
         set => SetArgument("target", value);
     }
 
@@ -300,7 +300,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlockMetricBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -323,7 +323,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlockScaleInControlBlock : 
     /// </summary>
     public TerraformValue<double>? TimeWindowSec
     {
-        get => new TerraformReference<double>(this, "time_window_sec");
+        get => GetArgument<TerraformValue<double>>("time_window_sec");
         set => SetArgument("time_window_sec", value);
     }
 
@@ -356,7 +356,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlockScaleInControlBlockMax
     /// </summary>
     public TerraformValue<double>? FixedAttribute
     {
-        get => new TerraformReference<double>(this, "fixed");
+        get => GetArgument<TerraformValue<double>>("fixed");
         set => SetArgument("fixed", value);
     }
 
@@ -366,7 +366,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlockScaleInControlBlockMax
     /// </summary>
     public TerraformValue<double>? Percent
     {
-        get => new TerraformReference<double>(this, "percent");
+        get => GetArgument<TerraformValue<double>>("percent");
         set => SetArgument("percent", value);
     }
 
@@ -388,7 +388,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlockScalingSchedulesBlock 
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -397,7 +397,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlockScalingSchedulesBlock 
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -407,7 +407,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlockScalingSchedulesBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DurationSec is required")]
     public required TerraformValue<double> DurationSec
     {
-        get => new TerraformReference<double>(this, "duration_sec");
+        get => GetArgument<TerraformValue<double>>("duration_sec");
         set => SetArgument("duration_sec", value);
     }
 
@@ -417,7 +417,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlockScalingSchedulesBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinRequiredReplicas is required")]
     public required TerraformValue<double> MinRequiredReplicas
     {
-        get => new TerraformReference<double>(this, "min_required_replicas");
+        get => GetArgument<TerraformValue<double>>("min_required_replicas");
         set => SetArgument("min_required_replicas", value);
     }
 
@@ -427,7 +427,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlockScalingSchedulesBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -437,7 +437,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlockScalingSchedulesBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformValue<string> Schedule
     {
-        get => new TerraformReference<string>(this, "schedule");
+        get => GetArgument<TerraformValue<string>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -446,7 +446,7 @@ public class GoogleComputeAutoscalerAutoscalingPolicyBlockScalingSchedulesBlock 
     /// </summary>
     public TerraformValue<string>? TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -469,7 +469,7 @@ public class GoogleComputeAutoscalerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -478,7 +478,7 @@ public class GoogleComputeAutoscalerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -487,7 +487,7 @@ public class GoogleComputeAutoscalerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -505,16 +505,16 @@ public partial class GoogleComputeAutoscaler(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -528,16 +528,16 @@ public partial class GoogleComputeAutoscaler(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -547,16 +547,16 @@ public partial class GoogleComputeAutoscaler(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformValue<string> Target
     {
-        get => new TerraformReference<string>(this, "target");
+        get => GetArgument<TerraformValue<string>>("target");
         set => SetArgument("target", value);
     }
 
     /// <summary>
     /// URL of the zone where the instance group resides.
     /// </summary>
-    public TerraformValue<string> Zone
+    public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -564,17 +564,13 @@ public partial class GoogleComputeAutoscaler(string name) : TerraformResource("g
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// AutoscalingPolicy block (nesting mode: list).

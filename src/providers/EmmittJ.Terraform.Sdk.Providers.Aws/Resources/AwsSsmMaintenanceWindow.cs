@@ -13,7 +13,7 @@ public partial class AwsSsmMaintenanceWindow(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? AllowUnassociatedTargets
     {
-        get => new TerraformReference<bool>(this, "allow_unassociated_targets");
+        get => GetArgument<TerraformValue<bool>>("allow_unassociated_targets");
         set => SetArgument("allow_unassociated_targets", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsSsmMaintenanceWindow(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cutoff is required")]
     public required TerraformValue<double> Cutoff
     {
-        get => new TerraformReference<double>(this, "cutoff");
+        get => GetArgument<TerraformValue<double>>("cutoff");
         set => SetArgument("cutoff", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsSsmMaintenanceWindow(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsSsmMaintenanceWindow(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<double> Duration
     {
-        get => new TerraformReference<double>(this, "duration");
+        get => GetArgument<TerraformValue<double>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsSsmMaintenanceWindow(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -60,16 +60,16 @@ public partial class AwsSsmMaintenanceWindow(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? EndDate
     {
-        get => new TerraformReference<string>(this, "end_date");
+        get => GetArgument<TerraformValue<string>>("end_date");
         set => SetArgument("end_date", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -79,16 +79,16 @@ public partial class AwsSsmMaintenanceWindow(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -98,7 +98,7 @@ public partial class AwsSsmMaintenanceWindow(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformValue<string> Schedule
     {
-        get => new TerraformReference<string>(this, "schedule");
+        get => GetArgument<TerraformValue<string>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -107,7 +107,7 @@ public partial class AwsSsmMaintenanceWindow(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<double>? ScheduleOffset
     {
-        get => new TerraformReference<double>(this, "schedule_offset");
+        get => GetArgument<TerraformValue<double>>("schedule_offset");
         set => SetArgument("schedule_offset", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AwsSsmMaintenanceWindow(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? ScheduleTimezone
     {
-        get => new TerraformReference<string>(this, "schedule_timezone");
+        get => GetArgument<TerraformValue<string>>("schedule_timezone");
         set => SetArgument("schedule_timezone", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AwsSsmMaintenanceWindow(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? StartDate
     {
-        get => new TerraformReference<string>(this, "start_date");
+        get => GetArgument<TerraformValue<string>>("start_date");
         set => SetArgument("start_date", value);
     }
 
@@ -134,16 +134,16 @@ public partial class AwsSsmMaintenanceWindow(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 

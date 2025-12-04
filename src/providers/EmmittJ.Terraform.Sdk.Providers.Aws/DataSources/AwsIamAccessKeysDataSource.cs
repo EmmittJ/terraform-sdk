@@ -11,9 +11,9 @@ public partial class AwsIamAccessKeysDataSource(string name) : TerraformDataSour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsIamAccessKeysDataSource(string name) : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformValue<string> User
     {
-        get => new TerraformReference<string>(this, "user");
+        get => GetArgument<TerraformValue<string>>("user");
         set => SetArgument("user", value);
     }
 
@@ -31,8 +31,6 @@ public partial class AwsIamAccessKeysDataSource(string name) : TerraformDataSour
     /// The access_keys attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> AccessKeys
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "access_keys").ResolveNodes(ctx));
-    }
+        => AsReference("access_keys");
 
 }

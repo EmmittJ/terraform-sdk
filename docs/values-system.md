@@ -9,14 +9,14 @@ The Values system provides the type-safe foundation for representing Terraform v
 `TerraformValue<T>` is the primary type used for all Terraform resource properties. It represents a value that can be either:
 
 - A **literal value** (e.g., `"us-west-2"`, `443`, `true`)
-- A **reference** to another resource's attribute (e.g., `vpc["id"]`)
+- A **reference** to another resource's attribute (e.g., `vpc.AsReference("id")`)
 - A **computed expression** (e.g., `Tf.Join("-", ["app", "server"])`)
 
 ```csharp
 // All of these are TerraformValue<string>
-TerraformValue<string> region = "us-west-2";           // Literal
-TerraformValue<string> vpcId = vpc["id"];              // Reference
-TerraformValue<string> name = Tf.Join("-", ["app"]);  // Expression
+TerraformValue<string> region = "us-west-2";                  // Literal
+TerraformValue<string> vpcId = vpc.AsReference("id");         // Reference
+TerraformValue<string> name = Tf.Join("-", ["app"]);          // Expression
 ```
 
 **Key Design Points:**
@@ -101,9 +101,9 @@ var tags = new TerraformMap<string>
 
 ## References
 
-### TerraformReference\<T\>
+### Creating References with AsReference()
 
-Represents a reference to another resource's attribute.
+Use `AsReference(attributeName)` to create a reference to a resource's attribute:
 
 ```csharp
 var vpc = new TerraformResource("aws_vpc", "main")
@@ -111,16 +111,33 @@ var vpc = new TerraformResource("aws_vpc", "main")
     ["cidr_block"] = "10.0.0.0/16"
 };
 
-// Creates TerraformReference<string> that resolves to: aws_vpc.main.id
+// Creates reference expression that resolves to: aws_vpc.main.id
 var subnet = new TerraformResource("aws_subnet", "public")
 {
-    ["vpc_id"] = vpc["id"]  // Reference
+    ["vpc_id"] = vpc.AsReference("id")  // Reference
 };
 ```
 
-**Reference Resolution:**
+### Indexer vs AsReference()
 
-When a reference is resolved, the SDK generates the appropriate HCL identifier:
+The indexer (`[]`) and `AsReference()` serve different purposes:
+
+```csharp
+// Indexer - for setting/getting actual stored values
+resource["cidr_block"] = "10.0.0.0/16";  // Set a value
+var storedValue = resource["cidr_block"]; // Get stored value back
+
+// AsReference() - for creating Terraform references
+subnet["vpc_id"] = vpc.AsReference("id");  // Reference to vpc.id
+```
+
+**Key distinction:**
+- `resource["key"]` returns the actual stored value (for iteration, modification)
+- `resource.AsReference("key")` returns a reference expression for HCL generation
+
+### TerraformReference\<T\>
+
+Internally, `AsReference()` returns a `TerraformExpression` that generates the appropriate HCL identifier.
 
 ## ITerraformResolvable Interface
 
@@ -283,12 +300,12 @@ var config = new TerraformMap<object>
 {
     ["database"] = new TerraformMap<object>
     {
-        ["host"] = dbInstance["endpoint"],
+        ["host"] = dbInstance.AsReference("endpoint"),
         ["port"] = 5432,
         ["credentials"] = new TerraformMap<string>
         {
-            ["username"] = dbUser["name"],
-            ["password"] = dbPassword["value"]
+            ["username"] = dbUser.AsReference("name"),
+            ["password"] = dbPassword.AsReference("value")
         }
     }
 };

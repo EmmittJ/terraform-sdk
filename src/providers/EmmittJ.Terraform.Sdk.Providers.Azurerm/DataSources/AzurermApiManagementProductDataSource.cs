@@ -18,7 +18,7 @@ public class AzurermApiManagementProductDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermApiManagementProductDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformValue<string> ApiManagementName
     {
-        get => new TerraformReference<string>(this, "api_management_name");
+        get => GetArgument<TerraformValue<string>>("api_management_name");
         set => SetArgument("api_management_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermApiManagementProductDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
     public required TerraformValue<string> ProductId
     {
-        get => new TerraformReference<string>(this, "product_id");
+        get => GetArgument<TerraformValue<string>>("product_id");
         set => SetArgument("product_id", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermApiManagementProductDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -74,57 +74,43 @@ public partial class AzurermApiManagementProductDataSource(string name) : Terraf
     /// The approval_required attribute.
     /// </summary>
     public TerraformValue<bool> ApprovalRequired
-    {
-        get => new TerraformReference<bool>(this, "approval_required");
-    }
+        => AsReference("approval_required");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The published attribute.
     /// </summary>
     public TerraformValue<bool> Published
-    {
-        get => new TerraformReference<bool>(this, "published");
-    }
+        => AsReference("published");
 
     /// <summary>
     /// The subscription_required attribute.
     /// </summary>
     public TerraformValue<bool> SubscriptionRequired
-    {
-        get => new TerraformReference<bool>(this, "subscription_required");
-    }
+        => AsReference("subscription_required");
 
     /// <summary>
     /// The subscriptions_limit attribute.
     /// </summary>
     public TerraformValue<double> SubscriptionsLimit
-    {
-        get => new TerraformReference<double>(this, "subscriptions_limit");
-    }
+        => AsReference("subscriptions_limit");
 
     /// <summary>
     /// The terms attribute.
     /// </summary>
     public TerraformValue<string> Terms
-    {
-        get => new TerraformReference<string>(this, "terms");
-    }
+        => AsReference("terms");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

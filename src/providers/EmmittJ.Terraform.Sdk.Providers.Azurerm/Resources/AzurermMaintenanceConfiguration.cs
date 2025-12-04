@@ -18,7 +18,7 @@ public class AzurermMaintenanceConfigurationInstallPatchesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Reboot
     {
-        get => new TerraformReference<string>(this, "reboot");
+        get => GetArgument<TerraformValue<string>>("reboot");
         set => SetArgument("reboot", value);
     }
 
@@ -58,7 +58,7 @@ public class AzurermMaintenanceConfigurationInstallPatchesBlockLinuxBlock : Terr
     /// </summary>
     public TerraformList<string>? ClassificationsToInclude
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "classifications_to_include").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("classifications_to_include");
         set => SetArgument("classifications_to_include", value);
     }
 
@@ -67,7 +67,7 @@ public class AzurermMaintenanceConfigurationInstallPatchesBlockLinuxBlock : Terr
     /// </summary>
     public TerraformList<string>? PackageNamesMaskToExclude
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "package_names_mask_to_exclude").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("package_names_mask_to_exclude");
         set => SetArgument("package_names_mask_to_exclude", value);
     }
 
@@ -76,7 +76,7 @@ public class AzurermMaintenanceConfigurationInstallPatchesBlockLinuxBlock : Terr
     /// </summary>
     public TerraformList<string>? PackageNamesMaskToInclude
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "package_names_mask_to_include").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("package_names_mask_to_include");
         set => SetArgument("package_names_mask_to_include", value);
     }
 
@@ -98,7 +98,7 @@ public class AzurermMaintenanceConfigurationInstallPatchesBlockWindowsBlock : Te
     /// </summary>
     public TerraformList<string>? ClassificationsToInclude
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "classifications_to_include").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("classifications_to_include");
         set => SetArgument("classifications_to_include", value);
     }
 
@@ -107,7 +107,7 @@ public class AzurermMaintenanceConfigurationInstallPatchesBlockWindowsBlock : Te
     /// </summary>
     public TerraformList<string>? KbNumbersToExclude
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "kb_numbers_to_exclude").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("kb_numbers_to_exclude");
         set => SetArgument("kb_numbers_to_exclude", value);
     }
 
@@ -116,7 +116,7 @@ public class AzurermMaintenanceConfigurationInstallPatchesBlockWindowsBlock : Te
     /// </summary>
     public TerraformList<string>? KbNumbersToInclude
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "kb_numbers_to_include").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("kb_numbers_to_include");
         set => SetArgument("kb_numbers_to_include", value);
     }
 
@@ -139,7 +139,7 @@ public class AzurermMaintenanceConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -148,7 +148,7 @@ public class AzurermMaintenanceConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermMaintenanceConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -166,7 +166,7 @@ public class AzurermMaintenanceConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -189,7 +189,7 @@ public class AzurermMaintenanceConfigurationWindowBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Duration
     {
-        get => new TerraformReference<string>(this, "duration");
+        get => GetArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -198,7 +198,7 @@ public class AzurermMaintenanceConfigurationWindowBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ExpirationDateTime
     {
-        get => new TerraformReference<string>(this, "expiration_date_time");
+        get => GetArgument<TerraformValue<string>>("expiration_date_time");
         set => SetArgument("expiration_date_time", value);
     }
 
@@ -207,7 +207,7 @@ public class AzurermMaintenanceConfigurationWindowBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RecurEvery
     {
-        get => new TerraformReference<string>(this, "recur_every");
+        get => GetArgument<TerraformValue<string>>("recur_every");
         set => SetArgument("recur_every", value);
     }
 
@@ -217,7 +217,7 @@ public class AzurermMaintenanceConfigurationWindowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDateTime is required")]
     public required TerraformValue<string> StartDateTime
     {
-        get => new TerraformReference<string>(this, "start_date_time");
+        get => GetArgument<TerraformValue<string>>("start_date_time");
         set => SetArgument("start_date_time", value);
     }
 
@@ -227,7 +227,7 @@ public class AzurermMaintenanceConfigurationWindowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformValue<string> TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -243,9 +243,9 @@ public partial class AzurermMaintenanceConfiguration(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -254,7 +254,7 @@ public partial class AzurermMaintenanceConfiguration(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? InGuestUserPatchMode
     {
-        get => new TerraformReference<string>(this, "in_guest_user_patch_mode");
+        get => GetArgument<TerraformValue<string>>("in_guest_user_patch_mode");
         set => SetArgument("in_guest_user_patch_mode", value);
     }
 
@@ -264,7 +264,7 @@ public partial class AzurermMaintenanceConfiguration(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -274,7 +274,7 @@ public partial class AzurermMaintenanceConfiguration(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -283,7 +283,7 @@ public partial class AzurermMaintenanceConfiguration(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -293,7 +293,7 @@ public partial class AzurermMaintenanceConfiguration(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -303,7 +303,7 @@ public partial class AzurermMaintenanceConfiguration(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -312,7 +312,7 @@ public partial class AzurermMaintenanceConfiguration(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -321,7 +321,7 @@ public partial class AzurermMaintenanceConfiguration(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? Visibility
     {
-        get => new TerraformReference<string>(this, "visibility");
+        get => GetArgument<TerraformValue<string>>("visibility");
         set => SetArgument("visibility", value);
     }
 

@@ -18,7 +18,7 @@ public class AzurermDataShareDatasetDataLakeGen2DataSourceTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermDataShareDatasetDataLakeGen2DataSource(string name) 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermDataShareDatasetDataLakeGen2DataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermDataShareDatasetDataLakeGen2DataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareId is required")]
     public required TerraformValue<string> ShareId
     {
-        get => new TerraformReference<string>(this, "share_id");
+        get => GetArgument<TerraformValue<string>>("share_id");
         set => SetArgument("share_id", value);
     }
 
@@ -64,41 +64,31 @@ public partial class AzurermDataShareDatasetDataLakeGen2DataSource(string name) 
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The file_path attribute.
     /// </summary>
     public TerraformValue<string> FilePath
-    {
-        get => new TerraformReference<string>(this, "file_path");
-    }
+        => AsReference("file_path");
 
     /// <summary>
     /// The file_system_name attribute.
     /// </summary>
     public TerraformValue<string> FileSystemName
-    {
-        get => new TerraformReference<string>(this, "file_system_name");
-    }
+        => AsReference("file_system_name");
 
     /// <summary>
     /// The folder_path attribute.
     /// </summary>
     public TerraformValue<string> FolderPath
-    {
-        get => new TerraformReference<string>(this, "folder_path");
-    }
+        => AsReference("folder_path");
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     public TerraformValue<string> StorageAccountId
-    {
-        get => new TerraformReference<string>(this, "storage_account_id");
-    }
+        => AsReference("storage_account_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

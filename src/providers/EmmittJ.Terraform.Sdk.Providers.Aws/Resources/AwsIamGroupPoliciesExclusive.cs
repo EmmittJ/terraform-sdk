@@ -14,7 +14,7 @@ public partial class AwsIamGroupPoliciesExclusive(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     public required TerraformValue<string> GroupName
     {
-        get => new TerraformReference<string>(this, "group_name");
+        get => GetArgument<TerraformValue<string>>("group_name");
         set => SetArgument("group_name", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsIamGroupPoliciesExclusive(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyNames is required")]
     public required TerraformSet<string> PolicyNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "policy_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("policy_names");
         set => SetArgument("policy_names", value);
     }
 

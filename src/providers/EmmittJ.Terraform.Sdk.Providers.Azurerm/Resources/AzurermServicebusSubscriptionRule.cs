@@ -18,7 +18,7 @@ public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : Terraform
     /// </summary>
     public TerraformValue<string>? ContentType
     {
-        get => new TerraformReference<string>(this, "content_type");
+        get => GetArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : Terraform
     /// </summary>
     public TerraformValue<string>? CorrelationId
     {
-        get => new TerraformReference<string>(this, "correlation_id");
+        get => GetArgument<TerraformValue<string>>("correlation_id");
         set => SetArgument("correlation_id", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Label
     {
-        get => new TerraformReference<string>(this, "label");
+        get => GetArgument<TerraformValue<string>>("label");
         set => SetArgument("label", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : Terraform
     /// </summary>
     public TerraformValue<string>? MessageId
     {
-        get => new TerraformReference<string>(this, "message_id");
+        get => GetArgument<TerraformValue<string>>("message_id");
         set => SetArgument("message_id", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : Terraform
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : Terraform
     /// </summary>
     public TerraformValue<string>? ReplyTo
     {
-        get => new TerraformReference<string>(this, "reply_to");
+        get => GetArgument<TerraformValue<string>>("reply_to");
         set => SetArgument("reply_to", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : Terraform
     /// </summary>
     public TerraformValue<string>? ReplyToSessionId
     {
-        get => new TerraformReference<string>(this, "reply_to_session_id");
+        get => GetArgument<TerraformValue<string>>("reply_to_session_id");
         set => SetArgument("reply_to_session_id", value);
     }
 
@@ -81,7 +81,7 @@ public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : Terraform
     /// </summary>
     public TerraformValue<string>? SessionId
     {
-        get => new TerraformReference<string>(this, "session_id");
+        get => GetArgument<TerraformValue<string>>("session_id");
         set => SetArgument("session_id", value);
     }
 
@@ -90,7 +90,7 @@ public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : Terraform
     /// </summary>
     public TerraformValue<string>? To
     {
-        get => new TerraformReference<string>(this, "to");
+        get => GetArgument<TerraformValue<string>>("to");
         set => SetArgument("to", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermServicebusSubscriptionRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermServicebusSubscriptionRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermServicebusSubscriptionRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermServicebusSubscriptionRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -158,7 +158,7 @@ public partial class AzurermServicebusSubscriptionRule(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -168,16 +168,16 @@ public partial class AzurermServicebusSubscriptionRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterType is required")]
     public required TerraformValue<string> FilterType
     {
-        get => new TerraformReference<string>(this, "filter_type");
+        get => GetArgument<TerraformValue<string>>("filter_type");
         set => SetArgument("filter_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AzurermServicebusSubscriptionRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -196,7 +196,7 @@ public partial class AzurermServicebusSubscriptionRule(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? SqlFilter
     {
-        get => new TerraformReference<string>(this, "sql_filter");
+        get => GetArgument<TerraformValue<string>>("sql_filter");
         set => SetArgument("sql_filter", value);
     }
 
@@ -206,7 +206,7 @@ public partial class AzurermServicebusSubscriptionRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformValue<string> SubscriptionId
     {
-        get => new TerraformReference<string>(this, "subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 
@@ -214,9 +214,7 @@ public partial class AzurermServicebusSubscriptionRule(string name) : TerraformR
     /// The sql_filter_compatibility_level attribute.
     /// </summary>
     public TerraformValue<double> SqlFilterCompatibilityLevel
-    {
-        get => new TerraformReference<double>(this, "sql_filter_compatibility_level");
-    }
+        => AsReference("sql_filter_compatibility_level");
 
     /// <summary>
     /// CorrelationFilter block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AzurermAutomationHybridRunbookWorkerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermAutomationHybridRunbookWorkerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermAutomationHybridRunbookWorkerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AzurermAutomationHybridRunbookWorker(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     public required TerraformValue<string> AutomationAccountName
     {
-        get => new TerraformReference<string>(this, "automation_account_name");
+        get => GetArgument<TerraformValue<string>>("automation_account_name");
         set => SetArgument("automation_account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermAutomationHybridRunbookWorker(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermAutomationHybridRunbookWorker(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmResourceId is required")]
     public required TerraformValue<string> VmResourceId
     {
-        get => new TerraformReference<string>(this, "vm_resource_id");
+        get => GetArgument<TerraformValue<string>>("vm_resource_id");
         set => SetArgument("vm_resource_id", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermAutomationHybridRunbookWorker(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkerGroupName is required")]
     public required TerraformValue<string> WorkerGroupName
     {
-        get => new TerraformReference<string>(this, "worker_group_name");
+        get => GetArgument<TerraformValue<string>>("worker_group_name");
         set => SetArgument("worker_group_name", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AzurermAutomationHybridRunbookWorker(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkerId is required")]
     public required TerraformValue<string> WorkerId
     {
-        get => new TerraformReference<string>(this, "worker_id");
+        get => GetArgument<TerraformValue<string>>("worker_id");
         set => SetArgument("worker_id", value);
     }
 
@@ -112,41 +112,31 @@ public partial class AzurermAutomationHybridRunbookWorker(string name) : Terrafo
     /// The ip attribute.
     /// </summary>
     public TerraformValue<string> Ip
-    {
-        get => new TerraformReference<string>(this, "ip");
-    }
+        => AsReference("ip");
 
     /// <summary>
     /// The last_seen_date_time attribute.
     /// </summary>
     public TerraformValue<string> LastSeenDateTime
-    {
-        get => new TerraformReference<string>(this, "last_seen_date_time");
-    }
+        => AsReference("last_seen_date_time");
 
     /// <summary>
     /// The registration_date_time attribute.
     /// </summary>
     public TerraformValue<string> RegistrationDateTime
-    {
-        get => new TerraformReference<string>(this, "registration_date_time");
-    }
+        => AsReference("registration_date_time");
 
     /// <summary>
     /// The worker_name attribute.
     /// </summary>
     public TerraformValue<string> WorkerName
-    {
-        get => new TerraformReference<string>(this, "worker_name");
-    }
+        => AsReference("worker_name");
 
     /// <summary>
     /// The worker_type attribute.
     /// </summary>
     public TerraformValue<string> WorkerType
-    {
-        get => new TerraformReference<string>(this, "worker_type");
-    }
+        => AsReference("worker_type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

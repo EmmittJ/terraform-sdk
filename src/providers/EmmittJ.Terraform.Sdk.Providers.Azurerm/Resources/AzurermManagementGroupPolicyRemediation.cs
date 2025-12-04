@@ -18,7 +18,7 @@ public class AzurermManagementGroupPolicyRemediationTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermManagementGroupPolicyRemediationTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermManagementGroupPolicyRemediationTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermManagementGroupPolicyRemediationTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AzurermManagementGroupPolicyRemediation(string name) : Terr
     /// </summary>
     public TerraformValue<double>? FailurePercentage
     {
-        get => new TerraformReference<double>(this, "failure_percentage");
+        get => GetArgument<TerraformValue<double>>("failure_percentage");
         set => SetArgument("failure_percentage", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermManagementGroupPolicyRemediation(string name) : Terr
     /// </summary>
     public TerraformList<string>? LocationFilters
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "location_filters").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("location_filters");
         set => SetArgument("location_filters", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermManagementGroupPolicyRemediation(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
     public required TerraformValue<string> ManagementGroupId
     {
-        get => new TerraformReference<string>(this, "management_group_id");
+        get => GetArgument<TerraformValue<string>>("management_group_id");
         set => SetArgument("management_group_id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermManagementGroupPolicyRemediation(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermManagementGroupPolicyRemediation(string name) : Terr
     /// </summary>
     public TerraformValue<double>? ParallelDeployments
     {
-        get => new TerraformReference<double>(this, "parallel_deployments");
+        get => GetArgument<TerraformValue<double>>("parallel_deployments");
         set => SetArgument("parallel_deployments", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermManagementGroupPolicyRemediation(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyAssignmentId is required")]
     public required TerraformValue<string> PolicyAssignmentId
     {
-        get => new TerraformReference<string>(this, "policy_assignment_id");
+        get => GetArgument<TerraformValue<string>>("policy_assignment_id");
         set => SetArgument("policy_assignment_id", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermManagementGroupPolicyRemediation(string name) : Terr
     /// </summary>
     public TerraformValue<string>? PolicyDefinitionReferenceId
     {
-        get => new TerraformReference<string>(this, "policy_definition_reference_id");
+        get => GetArgument<TerraformValue<string>>("policy_definition_reference_id");
         set => SetArgument("policy_definition_reference_id", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzurermManagementGroupPolicyRemediation(string name) : Terr
     /// </summary>
     public TerraformValue<double>? ResourceCount
     {
-        get => new TerraformReference<double>(this, "resource_count");
+        get => GetArgument<TerraformValue<double>>("resource_count");
         set => SetArgument("resource_count", value);
     }
 

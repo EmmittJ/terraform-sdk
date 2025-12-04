@@ -11,9 +11,9 @@ public partial class AwsSqsQueuesDataSource(string name) : TerraformDataSource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,16 +22,16 @@ public partial class AwsSqsQueuesDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string>? QueueNamePrefix
     {
-        get => new TerraformReference<string>(this, "queue_name_prefix");
+        get => GetArgument<TerraformValue<string>>("queue_name_prefix");
         set => SetArgument("queue_name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -39,8 +39,6 @@ public partial class AwsSqsQueuesDataSource(string name) : TerraformDataSource("
     /// The queue_urls attribute.
     /// </summary>
     public TerraformSet<string> QueueUrls
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "queue_urls").ResolveNodes(ctx));
-    }
+        => AsReference("queue_urls");
 
 }

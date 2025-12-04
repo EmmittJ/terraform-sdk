@@ -18,7 +18,7 @@ public class AzurermAppServiceSourceControlGithubActionConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<bool>? GenerateWorkflowFile
     {
-        get => new TerraformReference<bool>(this, "generate_workflow_file");
+        get => GetArgument<TerraformValue<bool>>("generate_workflow_file");
         set => SetArgument("generate_workflow_file", value);
     }
 
@@ -26,9 +26,7 @@ public class AzurermAppServiceSourceControlGithubActionConfigurationBlock : Terr
     /// Denotes this action uses a Linux base image.
     /// </summary>
     public TerraformValue<bool> LinuxAction
-    {
-        get => new TerraformReference<bool>(this, "linux_action");
-    }
+        => AsReference("linux_action");
 
     /// <summary>
     /// CodeConfiguration block (nesting mode: list).
@@ -69,7 +67,7 @@ public class AzurermAppServiceSourceControlGithubActionConfigurationBlockCodeCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeStack is required")]
     public required TerraformValue<string> RuntimeStack
     {
-        get => new TerraformReference<string>(this, "runtime_stack");
+        get => GetArgument<TerraformValue<string>>("runtime_stack");
         set => SetArgument("runtime_stack", value);
     }
 
@@ -79,7 +77,7 @@ public class AzurermAppServiceSourceControlGithubActionConfigurationBlockCodeCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeVersion is required")]
     public required TerraformValue<string> RuntimeVersion
     {
-        get => new TerraformReference<string>(this, "runtime_version");
+        get => GetArgument<TerraformValue<string>>("runtime_version");
         set => SetArgument("runtime_version", value);
     }
 
@@ -102,7 +100,7 @@ public class AzurermAppServiceSourceControlGithubActionConfigurationBlockContain
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformValue<string> ImageName
     {
-        get => new TerraformReference<string>(this, "image_name");
+        get => GetArgument<TerraformValue<string>>("image_name");
         set => SetArgument("image_name", value);
     }
 
@@ -111,7 +109,7 @@ public class AzurermAppServiceSourceControlGithubActionConfigurationBlockContain
     /// </summary>
     public TerraformValue<string>? RegistryPassword
     {
-        get => new TerraformReference<string>(this, "registry_password");
+        get => GetArgument<TerraformValue<string>>("registry_password");
         set => SetArgument("registry_password", value);
     }
 
@@ -121,7 +119,7 @@ public class AzurermAppServiceSourceControlGithubActionConfigurationBlockContain
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegistryUrl is required")]
     public required TerraformValue<string> RegistryUrl
     {
-        get => new TerraformReference<string>(this, "registry_url");
+        get => GetArgument<TerraformValue<string>>("registry_url");
         set => SetArgument("registry_url", value);
     }
 
@@ -130,7 +128,7 @@ public class AzurermAppServiceSourceControlGithubActionConfigurationBlockContain
     /// </summary>
     public TerraformValue<string>? RegistryUsername
     {
-        get => new TerraformReference<string>(this, "registry_username");
+        get => GetArgument<TerraformValue<string>>("registry_username");
         set => SetArgument("registry_username", value);
     }
 
@@ -153,7 +151,7 @@ public class AzurermAppServiceSourceControlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -162,7 +160,7 @@ public class AzurermAppServiceSourceControlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -171,7 +169,7 @@ public class AzurermAppServiceSourceControlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -190,34 +188,34 @@ public partial class AzurermAppServiceSourceControl(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformValue<string> AppId
     {
-        get => new TerraformReference<string>(this, "app_id");
+        get => GetArgument<TerraformValue<string>>("app_id");
         set => SetArgument("app_id", value);
     }
 
     /// <summary>
     /// The branch name to use for deployments.
     /// </summary>
-    public TerraformValue<string> Branch
+    public TerraformValue<string>? Branch
     {
-        get => new TerraformReference<string>(this, "branch");
+        get => GetArgument<TerraformValue<string>>("branch");
         set => SetArgument("branch", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The URL for the repository.
     /// </summary>
-    public TerraformValue<string> RepoUrl
+    public TerraformValue<string>? RepoUrl
     {
-        get => new TerraformReference<string>(this, "repo_url");
+        get => GetArgument<TerraformValue<string>>("repo_url");
         set => SetArgument("repo_url", value);
     }
 
@@ -226,7 +224,7 @@ public partial class AzurermAppServiceSourceControl(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? RollbackEnabled
     {
-        get => new TerraformReference<bool>(this, "rollback_enabled");
+        get => GetArgument<TerraformValue<bool>>("rollback_enabled");
         set => SetArgument("rollback_enabled", value);
     }
 
@@ -235,7 +233,7 @@ public partial class AzurermAppServiceSourceControl(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? UseLocalGit
     {
-        get => new TerraformReference<bool>(this, "use_local_git");
+        get => GetArgument<TerraformValue<bool>>("use_local_git");
         set => SetArgument("use_local_git", value);
     }
 
@@ -244,7 +242,7 @@ public partial class AzurermAppServiceSourceControl(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? UseManualIntegration
     {
-        get => new TerraformReference<bool>(this, "use_manual_integration");
+        get => GetArgument<TerraformValue<bool>>("use_manual_integration");
         set => SetArgument("use_manual_integration", value);
     }
 
@@ -253,7 +251,7 @@ public partial class AzurermAppServiceSourceControl(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? UseMercurial
     {
-        get => new TerraformReference<bool>(this, "use_mercurial");
+        get => GetArgument<TerraformValue<bool>>("use_mercurial");
         set => SetArgument("use_mercurial", value);
     }
 
@@ -261,17 +259,13 @@ public partial class AzurermAppServiceSourceControl(string name) : TerraformReso
     /// The SCM Type in use. This value is decoded by the service from the repository information supplied.
     /// </summary>
     public TerraformValue<string> ScmType
-    {
-        get => new TerraformReference<string>(this, "scm_type");
-    }
+        => AsReference("scm_type");
 
     /// <summary>
     /// Indicates if the Slot uses a GitHub action for deployment. This value is decoded by the service from the repository information supplied.
     /// </summary>
     public TerraformValue<bool> UsesGithubAction
-    {
-        get => new TerraformReference<bool>(this, "uses_github_action");
-    }
+        => AsReference("uses_github_action");
 
     /// <summary>
     /// GithubActionConfiguration block (nesting mode: list).

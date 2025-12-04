@@ -18,7 +18,7 @@ public class AwsDatazoneEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsDatazoneEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsDatazoneEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsDatazoneEnvironmentUserParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsDatazoneEnvironmentUserParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -84,27 +84,27 @@ public partial class AwsDatazoneEnvironment(string name) : TerraformResource("aw
     /// <summary>
     /// The account_identifier attribute.
     /// </summary>
-    public TerraformValue<string> AccountIdentifier
+    public TerraformValue<string>? AccountIdentifier
     {
-        get => new TerraformReference<string>(this, "account_identifier");
+        get => GetArgument<TerraformValue<string>>("account_identifier");
         set => SetArgument("account_identifier", value);
     }
 
     /// <summary>
     /// The account_region attribute.
     /// </summary>
-    public TerraformValue<string> AccountRegion
+    public TerraformValue<string>? AccountRegion
     {
-        get => new TerraformReference<string>(this, "account_region");
+        get => GetArgument<TerraformValue<string>>("account_region");
         set => SetArgument("account_region", value);
     }
 
     /// <summary>
     /// The blueprint_identifier attribute.
     /// </summary>
-    public TerraformValue<string> BlueprintIdentifier
+    public TerraformValue<string>? BlueprintIdentifier
     {
-        get => new TerraformReference<string>(this, "blueprint_identifier");
+        get => GetArgument<TerraformValue<string>>("blueprint_identifier");
         set => SetArgument("blueprint_identifier", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AwsDatazoneEnvironment(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -123,7 +123,7 @@ public partial class AwsDatazoneEnvironment(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     public required TerraformValue<string> DomainIdentifier
     {
-        get => new TerraformReference<string>(this, "domain_identifier");
+        get => GetArgument<TerraformValue<string>>("domain_identifier");
         set => SetArgument("domain_identifier", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AwsDatazoneEnvironment(string name) : TerraformResource("aw
     /// </summary>
     public TerraformList<string>? GlossaryTerms
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "glossary_terms").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("glossary_terms");
         set => SetArgument("glossary_terms", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AwsDatazoneEnvironment(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AwsDatazoneEnvironment(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileIdentifier is required")]
     public required TerraformValue<string> ProfileIdentifier
     {
-        get => new TerraformReference<string>(this, "profile_identifier");
+        get => GetArgument<TerraformValue<string>>("profile_identifier");
         set => SetArgument("profile_identifier", value);
     }
 
@@ -162,16 +162,16 @@ public partial class AwsDatazoneEnvironment(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectIdentifier is required")]
     public required TerraformValue<string> ProjectIdentifier
     {
-        get => new TerraformReference<string>(this, "project_identifier");
+        get => GetArgument<TerraformValue<string>>("project_identifier");
         set => SetArgument("project_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -179,49 +179,37 @@ public partial class AwsDatazoneEnvironment(string name) : TerraformResource("aw
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
     public TerraformValue<string> CreatedBy
-    {
-        get => new TerraformReference<string>(this, "created_by");
-    }
+        => AsReference("created_by");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The last_deployment attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> LastDeployment
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "last_deployment").ResolveNodes(ctx));
-    }
+        => AsReference("last_deployment");
 
     /// <summary>
     /// The provider_environment attribute.
     /// </summary>
     public TerraformValue<string> ProviderEnvironment
-    {
-        get => new TerraformReference<string>(this, "provider_environment");
-    }
+        => AsReference("provider_environment");
 
     /// <summary>
     /// The provisioned_resources attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ProvisionedResources
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "provisioned_resources").ResolveNodes(ctx));
-    }
+        => AsReference("provisioned_resources");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

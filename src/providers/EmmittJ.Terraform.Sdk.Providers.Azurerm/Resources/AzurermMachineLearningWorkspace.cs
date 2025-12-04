@@ -19,7 +19,7 @@ public class AzurermMachineLearningWorkspaceEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformValue<string> KeyId
     {
-        get => new TerraformReference<string>(this, "key_id");
+        get => GetArgument<TerraformValue<string>>("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermMachineLearningWorkspaceEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformValue<string> KeyVaultId
     {
-        get => new TerraformReference<string>(this, "key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermMachineLearningWorkspaceEncryptionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? UserAssignedIdentityId
     {
-        get => new TerraformReference<string>(this, "user_assigned_identity_id");
+        get => GetArgument<TerraformValue<string>>("user_assigned_identity_id");
         set => SetArgument("user_assigned_identity_id", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermMachineLearningWorkspaceFeatureStoreBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ComputerSparkRuntimeVersion
     {
-        get => new TerraformReference<string>(this, "computer_spark_runtime_version");
+        get => GetArgument<TerraformValue<string>>("computer_spark_runtime_version");
         set => SetArgument("computer_spark_runtime_version", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermMachineLearningWorkspaceFeatureStoreBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OfflineConnectionName
     {
-        get => new TerraformReference<string>(this, "offline_connection_name");
+        get => GetArgument<TerraformValue<string>>("offline_connection_name");
         set => SetArgument("offline_connection_name", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermMachineLearningWorkspaceFeatureStoreBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OnlineConnectionName
     {
-        get => new TerraformReference<string>(this, "online_connection_name");
+        get => GetArgument<TerraformValue<string>>("online_connection_name");
         set => SetArgument("online_connection_name", value);
     }
 
@@ -102,7 +102,7 @@ public class AzurermMachineLearningWorkspaceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -110,17 +110,13 @@ public class AzurermMachineLearningWorkspaceIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -128,7 +124,7 @@ public class AzurermMachineLearningWorkspaceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -149,9 +145,9 @@ public class AzurermMachineLearningWorkspaceManagedNetworkBlock : TerraformBlock
     /// <summary>
     /// The isolation_mode attribute.
     /// </summary>
-    public TerraformValue<string> IsolationMode
+    public TerraformValue<string>? IsolationMode
     {
-        get => new TerraformReference<string>(this, "isolation_mode");
+        get => GetArgument<TerraformValue<string>>("isolation_mode");
         set => SetArgument("isolation_mode", value);
     }
 
@@ -160,7 +156,7 @@ public class AzurermMachineLearningWorkspaceManagedNetworkBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ProvisionOnCreationEnabled
     {
-        get => new TerraformReference<bool>(this, "provision_on_creation_enabled");
+        get => GetArgument<TerraformValue<bool>>("provision_on_creation_enabled");
         set => SetArgument("provision_on_creation_enabled", value);
     }
 
@@ -183,7 +179,7 @@ public class AzurermMachineLearningWorkspaceServerlessComputeBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? PublicIpEnabled
     {
-        get => new TerraformReference<bool>(this, "public_ip_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_ip_enabled");
         set => SetArgument("public_ip_enabled", value);
     }
 
@@ -192,7 +188,7 @@ public class AzurermMachineLearningWorkspaceServerlessComputeBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -215,7 +211,7 @@ public class AzurermMachineLearningWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -224,7 +220,7 @@ public class AzurermMachineLearningWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -233,7 +229,7 @@ public class AzurermMachineLearningWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -242,7 +238,7 @@ public class AzurermMachineLearningWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -261,7 +257,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationInsightsId is required")]
     public required TerraformValue<string> ApplicationInsightsId
     {
-        get => new TerraformReference<string>(this, "application_insights_id");
+        get => GetArgument<TerraformValue<string>>("application_insights_id");
         set => SetArgument("application_insights_id", value);
     }
 
@@ -270,7 +266,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? ContainerRegistryId
     {
-        get => new TerraformReference<string>(this, "container_registry_id");
+        get => GetArgument<TerraformValue<string>>("container_registry_id");
         set => SetArgument("container_registry_id", value);
     }
 
@@ -279,7 +275,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -288,7 +284,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? FriendlyName
     {
-        get => new TerraformReference<string>(this, "friendly_name");
+        get => GetArgument<TerraformValue<string>>("friendly_name");
         set => SetArgument("friendly_name", value);
     }
 
@@ -297,16 +293,16 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? HighBusinessImpact
     {
-        get => new TerraformReference<bool>(this, "high_business_impact");
+        get => GetArgument<TerraformValue<bool>>("high_business_impact");
         set => SetArgument("high_business_impact", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -315,7 +311,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? ImageBuildComputeName
     {
-        get => new TerraformReference<string>(this, "image_build_compute_name");
+        get => GetArgument<TerraformValue<string>>("image_build_compute_name");
         set => SetArgument("image_build_compute_name", value);
     }
 
@@ -325,7 +321,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformValue<string> KeyVaultId
     {
-        get => new TerraformReference<string>(this, "key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -334,7 +330,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? Kind
     {
-        get => new TerraformReference<string>(this, "kind");
+        get => GetArgument<TerraformValue<string>>("kind");
         set => SetArgument("kind", value);
     }
 
@@ -344,7 +340,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -354,7 +350,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -363,7 +359,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? PrimaryUserAssignedIdentity
     {
-        get => new TerraformReference<string>(this, "primary_user_assigned_identity");
+        get => GetArgument<TerraformValue<string>>("primary_user_assigned_identity");
         set => SetArgument("primary_user_assigned_identity", value);
     }
 
@@ -372,7 +368,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -382,7 +378,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -391,7 +387,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? ServiceSideEncryptionEnabled
     {
-        get => new TerraformReference<bool>(this, "service_side_encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("service_side_encryption_enabled");
         set => SetArgument("service_side_encryption_enabled", value);
     }
 
@@ -400,7 +396,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? SkuName
     {
-        get => new TerraformReference<string>(this, "sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -410,7 +406,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => new TerraformReference<string>(this, "storage_account_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
@@ -419,7 +415,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -428,7 +424,7 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? V1LegacyModeEnabled
     {
-        get => new TerraformReference<bool>(this, "v1_legacy_mode_enabled");
+        get => GetArgument<TerraformValue<bool>>("v1_legacy_mode_enabled");
         set => SetArgument("v1_legacy_mode_enabled", value);
     }
 
@@ -436,17 +432,13 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     /// The discovery_url attribute.
     /// </summary>
     public TerraformValue<string> DiscoveryUrl
-    {
-        get => new TerraformReference<string>(this, "discovery_url");
-    }
+        => AsReference("discovery_url");
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceId
-    {
-        get => new TerraformReference<string>(this, "workspace_id");
-    }
+        => AsReference("workspace_id");
 
     /// <summary>
     /// Encryption block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AwsS3BucketAnalyticsConfigurationFilterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsS3BucketAnalyticsConfigurationFilterBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsS3BucketAnalyticsConfigurationStorageClassAnalysisBlockDataExpor
     /// </summary>
     public TerraformValue<string>? OutputSchemaVersion
     {
-        get => new TerraformReference<string>(this, "output_schema_version");
+        get => GetArgument<TerraformValue<string>>("output_schema_version");
         set => SetArgument("output_schema_version", value);
     }
 
@@ -137,7 +137,7 @@ public class AwsS3BucketAnalyticsConfigurationStorageClassAnalysisBlockDataExpor
     /// </summary>
     public TerraformValue<string>? BucketAccountId
     {
-        get => new TerraformReference<string>(this, "bucket_account_id");
+        get => GetArgument<TerraformValue<string>>("bucket_account_id");
         set => SetArgument("bucket_account_id", value);
     }
 
@@ -147,7 +147,7 @@ public class AwsS3BucketAnalyticsConfigurationStorageClassAnalysisBlockDataExpor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
     public required TerraformValue<string> BucketArn
     {
-        get => new TerraformReference<string>(this, "bucket_arn");
+        get => GetArgument<TerraformValue<string>>("bucket_arn");
         set => SetArgument("bucket_arn", value);
     }
 
@@ -156,7 +156,7 @@ public class AwsS3BucketAnalyticsConfigurationStorageClassAnalysisBlockDataExpor
     /// </summary>
     public TerraformValue<string>? Format
     {
-        get => new TerraformReference<string>(this, "format");
+        get => GetArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsS3BucketAnalyticsConfigurationStorageClassAnalysisBlockDataExpor
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -184,16 +184,16 @@ public partial class AwsS3BucketAnalyticsConfiguration(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -203,16 +203,16 @@ public partial class AwsS3BucketAnalyticsConfiguration(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

@@ -80,7 +80,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockRequestHeaderActionBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderAction is required")]
     public required TerraformValue<string> HeaderAction
     {
-        get => new TerraformReference<string>(this, "header_action");
+        get => GetArgument<TerraformValue<string>>("header_action");
         set => SetArgument("header_action", value);
     }
 
@@ -90,7 +90,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockRequestHeaderActionBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -99,7 +99,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockRequestHeaderActionBlock : Terra
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockResponseHeaderActionBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderAction is required")]
     public required TerraformValue<string> HeaderAction
     {
-        get => new TerraformReference<string>(this, "header_action");
+        get => GetArgument<TerraformValue<string>>("header_action");
         set => SetArgument("header_action", value);
     }
 
@@ -132,7 +132,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockResponseHeaderActionBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -141,7 +141,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockResponseHeaderActionBlock : Terr
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -163,7 +163,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockRouteConfigurationOverrideAction
     /// </summary>
     public TerraformValue<string>? CacheBehavior
     {
-        get => new TerraformReference<string>(this, "cache_behavior");
+        get => GetArgument<TerraformValue<string>>("cache_behavior");
         set => SetArgument("cache_behavior", value);
     }
 
@@ -172,7 +172,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockRouteConfigurationOverrideAction
     /// </summary>
     public TerraformValue<string>? CacheDuration
     {
-        get => new TerraformReference<string>(this, "cache_duration");
+        get => GetArgument<TerraformValue<string>>("cache_duration");
         set => SetArgument("cache_duration", value);
     }
 
@@ -181,7 +181,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockRouteConfigurationOverrideAction
     /// </summary>
     public TerraformValue<string>? CdnFrontdoorOriginGroupId
     {
-        get => new TerraformReference<string>(this, "cdn_frontdoor_origin_group_id");
+        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_origin_group_id");
         set => SetArgument("cdn_frontdoor_origin_group_id", value);
     }
 
@@ -190,7 +190,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockRouteConfigurationOverrideAction
     /// </summary>
     public TerraformValue<bool>? CompressionEnabled
     {
-        get => new TerraformReference<bool>(this, "compression_enabled");
+        get => GetArgument<TerraformValue<bool>>("compression_enabled");
         set => SetArgument("compression_enabled", value);
     }
 
@@ -199,7 +199,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockRouteConfigurationOverrideAction
     /// </summary>
     public TerraformValue<string>? ForwardingProtocol
     {
-        get => new TerraformReference<string>(this, "forwarding_protocol");
+        get => GetArgument<TerraformValue<string>>("forwarding_protocol");
         set => SetArgument("forwarding_protocol", value);
     }
 
@@ -208,7 +208,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockRouteConfigurationOverrideAction
     /// </summary>
     public TerraformValue<string>? QueryStringCachingBehavior
     {
-        get => new TerraformReference<string>(this, "query_string_caching_behavior");
+        get => GetArgument<TerraformValue<string>>("query_string_caching_behavior");
         set => SetArgument("query_string_caching_behavior", value);
     }
 
@@ -217,7 +217,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockRouteConfigurationOverrideAction
     /// </summary>
     public TerraformList<string>? QueryStringParameters
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "query_string_parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("query_string_parameters");
         set => SetArgument("query_string_parameters", value);
     }
 
@@ -239,7 +239,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockUrlRedirectActionBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? DestinationFragment
     {
-        get => new TerraformReference<string>(this, "destination_fragment");
+        get => GetArgument<TerraformValue<string>>("destination_fragment");
         set => SetArgument("destination_fragment", value);
     }
 
@@ -249,7 +249,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockUrlRedirectActionBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationHostname is required")]
     public required TerraformValue<string> DestinationHostname
     {
-        get => new TerraformReference<string>(this, "destination_hostname");
+        get => GetArgument<TerraformValue<string>>("destination_hostname");
         set => SetArgument("destination_hostname", value);
     }
 
@@ -258,7 +258,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockUrlRedirectActionBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? DestinationPath
     {
-        get => new TerraformReference<string>(this, "destination_path");
+        get => GetArgument<TerraformValue<string>>("destination_path");
         set => SetArgument("destination_path", value);
     }
 
@@ -267,7 +267,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockUrlRedirectActionBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? QueryString
     {
-        get => new TerraformReference<string>(this, "query_string");
+        get => GetArgument<TerraformValue<string>>("query_string");
         set => SetArgument("query_string", value);
     }
 
@@ -276,7 +276,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockUrlRedirectActionBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? RedirectProtocol
     {
-        get => new TerraformReference<string>(this, "redirect_protocol");
+        get => GetArgument<TerraformValue<string>>("redirect_protocol");
         set => SetArgument("redirect_protocol", value);
     }
 
@@ -286,7 +286,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockUrlRedirectActionBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectType is required")]
     public required TerraformValue<string> RedirectType
     {
-        get => new TerraformReference<string>(this, "redirect_type");
+        get => GetArgument<TerraformValue<string>>("redirect_type");
         set => SetArgument("redirect_type", value);
     }
 
@@ -309,7 +309,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockUrlRewriteActionBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformValue<string> Destination
     {
-        get => new TerraformReference<string>(this, "destination");
+        get => GetArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
@@ -318,7 +318,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockUrlRewriteActionBlock : Terrafor
     /// </summary>
     public TerraformValue<bool>? PreserveUnmatchedPath
     {
-        get => new TerraformReference<bool>(this, "preserve_unmatched_path");
+        get => GetArgument<TerraformValue<bool>>("preserve_unmatched_path");
         set => SetArgument("preserve_unmatched_path", value);
     }
 
@@ -328,7 +328,7 @@ public class AzurermCdnFrontdoorRuleActionsBlockUrlRewriteActionBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourcePattern is required")]
     public required TerraformValue<string> SourcePattern
     {
-        get => new TerraformReference<string>(this, "source_pattern");
+        get => GetArgument<TerraformValue<string>>("source_pattern");
         set => SetArgument("source_pattern", value);
     }
 
@@ -535,7 +535,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockClientPortConditionBlock : Te
     /// </summary>
     public TerraformList<string>? MatchValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "match_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -544,7 +544,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockClientPortConditionBlock : Te
     /// </summary>
     public TerraformValue<bool>? NegateCondition
     {
-        get => new TerraformReference<bool>(this, "negate_condition");
+        get => GetArgument<TerraformValue<bool>>("negate_condition");
         set => SetArgument("negate_condition", value);
     }
 
@@ -554,7 +554,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockClientPortConditionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -577,7 +577,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockCookiesConditionBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CookieName is required")]
     public required TerraformValue<string> CookieName
     {
-        get => new TerraformReference<string>(this, "cookie_name");
+        get => GetArgument<TerraformValue<string>>("cookie_name");
         set => SetArgument("cookie_name", value);
     }
 
@@ -586,7 +586,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockCookiesConditionBlock : Terra
     /// </summary>
     public TerraformList<string>? MatchValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "match_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -595,7 +595,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockCookiesConditionBlock : Terra
     /// </summary>
     public TerraformValue<bool>? NegateCondition
     {
-        get => new TerraformReference<bool>(this, "negate_condition");
+        get => GetArgument<TerraformValue<bool>>("negate_condition");
         set => SetArgument("negate_condition", value);
     }
 
@@ -605,7 +605,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockCookiesConditionBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -614,7 +614,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockCookiesConditionBlock : Terra
     /// </summary>
     public TerraformSet<string>? Transforms
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "transforms").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("transforms");
         set => SetArgument("transforms", value);
     }
 
@@ -636,7 +636,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockHostNameConditionBlock : Terr
     /// </summary>
     public TerraformList<string>? MatchValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "match_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -645,7 +645,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockHostNameConditionBlock : Terr
     /// </summary>
     public TerraformValue<bool>? NegateCondition
     {
-        get => new TerraformReference<bool>(this, "negate_condition");
+        get => GetArgument<TerraformValue<bool>>("negate_condition");
         set => SetArgument("negate_condition", value);
     }
 
@@ -655,7 +655,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockHostNameConditionBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -664,7 +664,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockHostNameConditionBlock : Terr
     /// </summary>
     public TerraformSet<string>? Transforms
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "transforms").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("transforms");
         set => SetArgument("transforms", value);
     }
 
@@ -687,7 +687,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockHttpVersionConditionBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchValues is required")]
     public required TerraformSet<string> MatchValues
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -696,7 +696,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockHttpVersionConditionBlock : T
     /// </summary>
     public TerraformValue<bool>? NegateCondition
     {
-        get => new TerraformReference<bool>(this, "negate_condition");
+        get => GetArgument<TerraformValue<bool>>("negate_condition");
         set => SetArgument("negate_condition", value);
     }
 
@@ -705,7 +705,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockHttpVersionConditionBlock : T
     /// </summary>
     public TerraformValue<string>? OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -727,7 +727,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockIsDeviceConditionBlock : Terr
     /// </summary>
     public TerraformList<string>? MatchValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "match_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -736,7 +736,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockIsDeviceConditionBlock : Terr
     /// </summary>
     public TerraformValue<bool>? NegateCondition
     {
-        get => new TerraformReference<bool>(this, "negate_condition");
+        get => GetArgument<TerraformValue<bool>>("negate_condition");
         set => SetArgument("negate_condition", value);
     }
 
@@ -745,7 +745,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockIsDeviceConditionBlock : Terr
     /// </summary>
     public TerraformValue<string>? OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -767,7 +767,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockPostArgsConditionBlock : Terr
     /// </summary>
     public TerraformList<string>? MatchValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "match_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -776,7 +776,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockPostArgsConditionBlock : Terr
     /// </summary>
     public TerraformValue<bool>? NegateCondition
     {
-        get => new TerraformReference<bool>(this, "negate_condition");
+        get => GetArgument<TerraformValue<bool>>("negate_condition");
         set => SetArgument("negate_condition", value);
     }
 
@@ -786,7 +786,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockPostArgsConditionBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -796,7 +796,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockPostArgsConditionBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostArgsName is required")]
     public required TerraformValue<string> PostArgsName
     {
-        get => new TerraformReference<string>(this, "post_args_name");
+        get => GetArgument<TerraformValue<string>>("post_args_name");
         set => SetArgument("post_args_name", value);
     }
 
@@ -805,7 +805,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockPostArgsConditionBlock : Terr
     /// </summary>
     public TerraformSet<string>? Transforms
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "transforms").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("transforms");
         set => SetArgument("transforms", value);
     }
 
@@ -827,7 +827,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockQueryStringConditionBlock : T
     /// </summary>
     public TerraformList<string>? MatchValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "match_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -836,7 +836,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockQueryStringConditionBlock : T
     /// </summary>
     public TerraformValue<bool>? NegateCondition
     {
-        get => new TerraformReference<bool>(this, "negate_condition");
+        get => GetArgument<TerraformValue<bool>>("negate_condition");
         set => SetArgument("negate_condition", value);
     }
 
@@ -846,7 +846,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockQueryStringConditionBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -855,7 +855,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockQueryStringConditionBlock : T
     /// </summary>
     public TerraformSet<string>? Transforms
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "transforms").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("transforms");
         set => SetArgument("transforms", value);
     }
 
@@ -877,7 +877,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRemoteAddressConditionBlock :
     /// </summary>
     public TerraformList<string>? MatchValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "match_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -886,7 +886,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRemoteAddressConditionBlock :
     /// </summary>
     public TerraformValue<bool>? NegateCondition
     {
-        get => new TerraformReference<bool>(this, "negate_condition");
+        get => GetArgument<TerraformValue<bool>>("negate_condition");
         set => SetArgument("negate_condition", value);
     }
 
@@ -895,7 +895,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRemoteAddressConditionBlock :
     /// </summary>
     public TerraformValue<string>? OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -918,7 +918,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRequestBodyConditionBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchValues is required")]
     public TerraformList<string>? MatchValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "match_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -927,7 +927,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRequestBodyConditionBlock : T
     /// </summary>
     public TerraformValue<bool>? NegateCondition
     {
-        get => new TerraformReference<bool>(this, "negate_condition");
+        get => GetArgument<TerraformValue<bool>>("negate_condition");
         set => SetArgument("negate_condition", value);
     }
 
@@ -937,7 +937,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRequestBodyConditionBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -946,7 +946,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRequestBodyConditionBlock : T
     /// </summary>
     public TerraformSet<string>? Transforms
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "transforms").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("transforms");
         set => SetArgument("transforms", value);
     }
 
@@ -969,7 +969,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRequestHeaderConditionBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -978,7 +978,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRequestHeaderConditionBlock :
     /// </summary>
     public TerraformList<string>? MatchValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "match_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -987,7 +987,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRequestHeaderConditionBlock :
     /// </summary>
     public TerraformValue<bool>? NegateCondition
     {
-        get => new TerraformReference<bool>(this, "negate_condition");
+        get => GetArgument<TerraformValue<bool>>("negate_condition");
         set => SetArgument("negate_condition", value);
     }
 
@@ -997,7 +997,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRequestHeaderConditionBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -1006,7 +1006,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRequestHeaderConditionBlock :
     /// </summary>
     public TerraformSet<string>? Transforms
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "transforms").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("transforms");
         set => SetArgument("transforms", value);
     }
 
@@ -1029,7 +1029,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRequestMethodConditionBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchValues is required")]
     public required TerraformSet<string> MatchValues
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -1038,7 +1038,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRequestMethodConditionBlock :
     /// </summary>
     public TerraformValue<bool>? NegateCondition
     {
-        get => new TerraformReference<bool>(this, "negate_condition");
+        get => GetArgument<TerraformValue<bool>>("negate_condition");
         set => SetArgument("negate_condition", value);
     }
 
@@ -1047,7 +1047,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRequestMethodConditionBlock :
     /// </summary>
     public TerraformValue<string>? OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -1069,7 +1069,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRequestSchemeConditionBlock :
     /// </summary>
     public TerraformList<string>? MatchValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "match_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -1078,7 +1078,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRequestSchemeConditionBlock :
     /// </summary>
     public TerraformValue<bool>? NegateCondition
     {
-        get => new TerraformReference<bool>(this, "negate_condition");
+        get => GetArgument<TerraformValue<bool>>("negate_condition");
         set => SetArgument("negate_condition", value);
     }
 
@@ -1087,7 +1087,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRequestSchemeConditionBlock :
     /// </summary>
     public TerraformValue<string>? OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -1109,7 +1109,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRequestUriConditionBlock : Te
     /// </summary>
     public TerraformList<string>? MatchValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "match_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -1118,7 +1118,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRequestUriConditionBlock : Te
     /// </summary>
     public TerraformValue<bool>? NegateCondition
     {
-        get => new TerraformReference<bool>(this, "negate_condition");
+        get => GetArgument<TerraformValue<bool>>("negate_condition");
         set => SetArgument("negate_condition", value);
     }
 
@@ -1128,7 +1128,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRequestUriConditionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -1137,7 +1137,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockRequestUriConditionBlock : Te
     /// </summary>
     public TerraformSet<string>? Transforms
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "transforms").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("transforms");
         set => SetArgument("transforms", value);
     }
 
@@ -1160,7 +1160,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockServerPortConditionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchValues is required")]
     public required TerraformSet<string> MatchValues
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -1169,7 +1169,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockServerPortConditionBlock : Te
     /// </summary>
     public TerraformValue<bool>? NegateCondition
     {
-        get => new TerraformReference<bool>(this, "negate_condition");
+        get => GetArgument<TerraformValue<bool>>("negate_condition");
         set => SetArgument("negate_condition", value);
     }
 
@@ -1179,7 +1179,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockServerPortConditionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -1201,7 +1201,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockSocketAddressConditionBlock :
     /// </summary>
     public TerraformList<string>? MatchValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "match_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -1210,7 +1210,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockSocketAddressConditionBlock :
     /// </summary>
     public TerraformValue<bool>? NegateCondition
     {
-        get => new TerraformReference<bool>(this, "negate_condition");
+        get => GetArgument<TerraformValue<bool>>("negate_condition");
         set => SetArgument("negate_condition", value);
     }
 
@@ -1219,7 +1219,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockSocketAddressConditionBlock :
     /// </summary>
     public TerraformValue<string>? OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -1242,7 +1242,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockSslProtocolConditionBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchValues is required")]
     public required TerraformSet<string> MatchValues
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "match_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -1251,7 +1251,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockSslProtocolConditionBlock : T
     /// </summary>
     public TerraformValue<bool>? NegateCondition
     {
-        get => new TerraformReference<bool>(this, "negate_condition");
+        get => GetArgument<TerraformValue<bool>>("negate_condition");
         set => SetArgument("negate_condition", value);
     }
 
@@ -1260,7 +1260,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockSslProtocolConditionBlock : T
     /// </summary>
     public TerraformValue<string>? OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -1283,7 +1283,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockUrlFileExtensionConditionBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchValues is required")]
     public TerraformList<string>? MatchValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "match_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -1292,7 +1292,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockUrlFileExtensionConditionBloc
     /// </summary>
     public TerraformValue<bool>? NegateCondition
     {
-        get => new TerraformReference<bool>(this, "negate_condition");
+        get => GetArgument<TerraformValue<bool>>("negate_condition");
         set => SetArgument("negate_condition", value);
     }
 
@@ -1302,7 +1302,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockUrlFileExtensionConditionBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -1311,7 +1311,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockUrlFileExtensionConditionBloc
     /// </summary>
     public TerraformSet<string>? Transforms
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "transforms").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("transforms");
         set => SetArgument("transforms", value);
     }
 
@@ -1333,7 +1333,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockUrlFilenameConditionBlock : T
     /// </summary>
     public TerraformList<string>? MatchValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "match_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -1342,7 +1342,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockUrlFilenameConditionBlock : T
     /// </summary>
     public TerraformValue<bool>? NegateCondition
     {
-        get => new TerraformReference<bool>(this, "negate_condition");
+        get => GetArgument<TerraformValue<bool>>("negate_condition");
         set => SetArgument("negate_condition", value);
     }
 
@@ -1352,7 +1352,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockUrlFilenameConditionBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -1361,7 +1361,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockUrlFilenameConditionBlock : T
     /// </summary>
     public TerraformSet<string>? Transforms
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "transforms").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("transforms");
         set => SetArgument("transforms", value);
     }
 
@@ -1383,7 +1383,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockUrlPathConditionBlock : Terra
     /// </summary>
     public TerraformList<string>? MatchValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "match_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -1392,7 +1392,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockUrlPathConditionBlock : Terra
     /// </summary>
     public TerraformValue<bool>? NegateCondition
     {
-        get => new TerraformReference<bool>(this, "negate_condition");
+        get => GetArgument<TerraformValue<bool>>("negate_condition");
         set => SetArgument("negate_condition", value);
     }
 
@@ -1402,7 +1402,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockUrlPathConditionBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -1411,7 +1411,7 @@ public class AzurermCdnFrontdoorRuleConditionsBlockUrlPathConditionBlock : Terra
     /// </summary>
     public TerraformSet<string>? Transforms
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "transforms").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("transforms");
         set => SetArgument("transforms", value);
     }
 
@@ -1434,7 +1434,7 @@ public class AzurermCdnFrontdoorRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1443,7 +1443,7 @@ public class AzurermCdnFrontdoorRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1452,7 +1452,7 @@ public class AzurermCdnFrontdoorRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -1461,7 +1461,7 @@ public class AzurermCdnFrontdoorRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1479,7 +1479,7 @@ public partial class AzurermCdnFrontdoorRule(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? BehaviorOnMatch
     {
-        get => new TerraformReference<string>(this, "behavior_on_match");
+        get => GetArgument<TerraformValue<string>>("behavior_on_match");
         set => SetArgument("behavior_on_match", value);
     }
 
@@ -1489,16 +1489,16 @@ public partial class AzurermCdnFrontdoorRule(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorRuleSetId is required")]
     public required TerraformValue<string> CdnFrontdoorRuleSetId
     {
-        get => new TerraformReference<string>(this, "cdn_frontdoor_rule_set_id");
+        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_rule_set_id");
         set => SetArgument("cdn_frontdoor_rule_set_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1508,7 +1508,7 @@ public partial class AzurermCdnFrontdoorRule(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1518,7 +1518,7 @@ public partial class AzurermCdnFrontdoorRule(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformValue<double> Order
     {
-        get => new TerraformReference<double>(this, "order");
+        get => GetArgument<TerraformValue<double>>("order");
         set => SetArgument("order", value);
     }
 
@@ -1526,9 +1526,7 @@ public partial class AzurermCdnFrontdoorRule(string name) : TerraformResource("a
     /// The cdn_frontdoor_rule_set_name attribute.
     /// </summary>
     public TerraformValue<string> CdnFrontdoorRuleSetName
-    {
-        get => new TerraformReference<string>(this, "cdn_frontdoor_rule_set_name");
-    }
+        => AsReference("cdn_frontdoor_rule_set_name");
 
     /// <summary>
     /// Actions block (nesting mode: list).

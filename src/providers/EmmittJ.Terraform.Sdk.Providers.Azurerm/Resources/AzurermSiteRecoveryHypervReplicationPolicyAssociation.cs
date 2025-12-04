@@ -18,7 +18,7 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociationTimeoutsBlock 
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociationTimeoutsBlock 
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociationTimeoutsBlock 
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AzurermSiteRecoveryHypervReplicationPolicyAssociation(strin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HypervSiteId is required")]
     public required TerraformValue<string> HypervSiteId
     {
-        get => new TerraformReference<string>(this, "hyperv_site_id");
+        get => GetArgument<TerraformValue<string>>("hyperv_site_id");
         set => SetArgument("hyperv_site_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermSiteRecoveryHypervReplicationPolicyAssociation(strin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermSiteRecoveryHypervReplicationPolicyAssociation(strin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     public required TerraformValue<string> PolicyId
     {
-        get => new TerraformReference<string>(this, "policy_id");
+        get => GetArgument<TerraformValue<string>>("policy_id");
         set => SetArgument("policy_id", value);
     }
 

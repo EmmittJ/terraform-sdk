@@ -18,7 +18,7 @@ public class AzurermMobileNetworkPacketCoreDataPlaneTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermMobileNetworkPacketCoreDataPlaneTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermMobileNetworkPacketCoreDataPlaneTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermMobileNetworkPacketCoreDataPlaneTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermMobileNetworkPacketCoreDataPlane(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermMobileNetworkPacketCoreDataPlane(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermMobileNetworkPacketCoreDataPlane(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkPacketCoreControlPlaneId is required")]
     public required TerraformValue<string> MobileNetworkPacketCoreControlPlaneId
     {
-        get => new TerraformReference<string>(this, "mobile_network_packet_core_control_plane_id");
+        get => GetArgument<TerraformValue<string>>("mobile_network_packet_core_control_plane_id");
         set => SetArgument("mobile_network_packet_core_control_plane_id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermMobileNetworkPacketCoreDataPlane(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermMobileNetworkPacketCoreDataPlane(string name) : Terr
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermMobileNetworkPacketCoreDataPlane(string name) : Terr
     /// </summary>
     public TerraformValue<string>? UserPlaneAccessIpv4Address
     {
-        get => new TerraformReference<string>(this, "user_plane_access_ipv4_address");
+        get => GetArgument<TerraformValue<string>>("user_plane_access_ipv4_address");
         set => SetArgument("user_plane_access_ipv4_address", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermMobileNetworkPacketCoreDataPlane(string name) : Terr
     /// </summary>
     public TerraformValue<string>? UserPlaneAccessIpv4Gateway
     {
-        get => new TerraformReference<string>(this, "user_plane_access_ipv4_gateway");
+        get => GetArgument<TerraformValue<string>>("user_plane_access_ipv4_gateway");
         set => SetArgument("user_plane_access_ipv4_gateway", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermMobileNetworkPacketCoreDataPlane(string name) : Terr
     /// </summary>
     public TerraformValue<string>? UserPlaneAccessIpv4Subnet
     {
-        get => new TerraformReference<string>(this, "user_plane_access_ipv4_subnet");
+        get => GetArgument<TerraformValue<string>>("user_plane_access_ipv4_subnet");
         set => SetArgument("user_plane_access_ipv4_subnet", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzurermMobileNetworkPacketCoreDataPlane(string name) : Terr
     /// </summary>
     public TerraformValue<string>? UserPlaneAccessName
     {
-        get => new TerraformReference<string>(this, "user_plane_access_name");
+        get => GetArgument<TerraformValue<string>>("user_plane_access_name");
         set => SetArgument("user_plane_access_name", value);
     }
 

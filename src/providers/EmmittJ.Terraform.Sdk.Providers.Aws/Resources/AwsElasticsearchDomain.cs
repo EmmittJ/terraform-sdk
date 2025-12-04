@@ -19,7 +19,7 @@ public class AwsElasticsearchDomainAdvancedSecurityOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsElasticsearchDomainAdvancedSecurityOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? InternalUserDatabaseEnabled
     {
-        get => new TerraformReference<bool>(this, "internal_user_database_enabled");
+        get => GetArgument<TerraformValue<bool>>("internal_user_database_enabled");
         set => SetArgument("internal_user_database_enabled", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsElasticsearchDomainAdvancedSecurityOptionsBlockMasterUserOptions
     /// </summary>
     public TerraformValue<string>? MasterUserArn
     {
-        get => new TerraformReference<string>(this, "master_user_arn");
+        get => GetArgument<TerraformValue<string>>("master_user_arn");
         set => SetArgument("master_user_arn", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsElasticsearchDomainAdvancedSecurityOptionsBlockMasterUserOptions
     /// </summary>
     public TerraformValue<string>? MasterUserName
     {
-        get => new TerraformReference<string>(this, "master_user_name");
+        get => GetArgument<TerraformValue<string>>("master_user_name");
         set => SetArgument("master_user_name", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsElasticsearchDomainAdvancedSecurityOptionsBlockMasterUserOptions
     /// </summary>
     public TerraformValue<string>? MasterUserPassword
     {
-        get => new TerraformReference<string>(this, "master_user_password");
+        get => GetArgument<TerraformValue<string>>("master_user_password");
         set => SetArgument("master_user_password", value);
     }
 
@@ -102,16 +102,16 @@ public class AwsElasticsearchDomainAutoTuneOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredState is required")]
     public required TerraformValue<string> DesiredState
     {
-        get => new TerraformReference<string>(this, "desired_state");
+        get => GetArgument<TerraformValue<string>>("desired_state");
         set => SetArgument("desired_state", value);
     }
 
     /// <summary>
     /// The rollback_on_disable attribute.
     /// </summary>
-    public TerraformValue<string> RollbackOnDisable
+    public TerraformValue<string>? RollbackOnDisable
     {
-        get => new TerraformReference<string>(this, "rollback_on_disable");
+        get => GetArgument<TerraformValue<string>>("rollback_on_disable");
         set => SetArgument("rollback_on_disable", value);
     }
 
@@ -143,7 +143,7 @@ public class AwsElasticsearchDomainAutoTuneOptionsBlockMaintenanceScheduleBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CronExpressionForRecurrence is required")]
     public required TerraformValue<string> CronExpressionForRecurrence
     {
-        get => new TerraformReference<string>(this, "cron_expression_for_recurrence");
+        get => GetArgument<TerraformValue<string>>("cron_expression_for_recurrence");
         set => SetArgument("cron_expression_for_recurrence", value);
     }
 
@@ -153,7 +153,7 @@ public class AwsElasticsearchDomainAutoTuneOptionsBlockMaintenanceScheduleBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartAt is required")]
     public required TerraformValue<string> StartAt
     {
-        get => new TerraformReference<string>(this, "start_at");
+        get => GetArgument<TerraformValue<string>>("start_at");
         set => SetArgument("start_at", value);
     }
 
@@ -189,7 +189,7 @@ public class AwsElasticsearchDomainAutoTuneOptionsBlockMaintenanceScheduleBlockD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -199,7 +199,7 @@ public class AwsElasticsearchDomainAutoTuneOptionsBlockMaintenanceScheduleBlockD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => new TerraformReference<double>(this, "value");
+        get => GetArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -222,7 +222,7 @@ public class AwsElasticsearchDomainClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? DedicatedMasterCount
     {
-        get => new TerraformReference<double>(this, "dedicated_master_count");
+        get => GetArgument<TerraformValue<double>>("dedicated_master_count");
         set => SetArgument("dedicated_master_count", value);
     }
 
@@ -231,7 +231,7 @@ public class AwsElasticsearchDomainClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DedicatedMasterEnabled
     {
-        get => new TerraformReference<bool>(this, "dedicated_master_enabled");
+        get => GetArgument<TerraformValue<bool>>("dedicated_master_enabled");
         set => SetArgument("dedicated_master_enabled", value);
     }
 
@@ -240,7 +240,7 @@ public class AwsElasticsearchDomainClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DedicatedMasterType
     {
-        get => new TerraformReference<string>(this, "dedicated_master_type");
+        get => GetArgument<TerraformValue<string>>("dedicated_master_type");
         set => SetArgument("dedicated_master_type", value);
     }
 
@@ -249,7 +249,7 @@ public class AwsElasticsearchDomainClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? InstanceCount
     {
-        get => new TerraformReference<double>(this, "instance_count");
+        get => GetArgument<TerraformValue<double>>("instance_count");
         set => SetArgument("instance_count", value);
     }
 
@@ -258,7 +258,7 @@ public class AwsElasticsearchDomainClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -267,7 +267,7 @@ public class AwsElasticsearchDomainClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? WarmCount
     {
-        get => new TerraformReference<double>(this, "warm_count");
+        get => GetArgument<TerraformValue<double>>("warm_count");
         set => SetArgument("warm_count", value);
     }
 
@@ -276,7 +276,7 @@ public class AwsElasticsearchDomainClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? WarmEnabled
     {
-        get => new TerraformReference<bool>(this, "warm_enabled");
+        get => GetArgument<TerraformValue<bool>>("warm_enabled");
         set => SetArgument("warm_enabled", value);
     }
 
@@ -285,7 +285,7 @@ public class AwsElasticsearchDomainClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? WarmType
     {
-        get => new TerraformReference<string>(this, "warm_type");
+        get => GetArgument<TerraformValue<string>>("warm_type");
         set => SetArgument("warm_type", value);
     }
 
@@ -294,7 +294,7 @@ public class AwsElasticsearchDomainClusterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ZoneAwarenessEnabled
     {
-        get => new TerraformReference<bool>(this, "zone_awareness_enabled");
+        get => GetArgument<TerraformValue<bool>>("zone_awareness_enabled");
         set => SetArgument("zone_awareness_enabled", value);
     }
 
@@ -334,9 +334,9 @@ public class AwsElasticsearchDomainClusterConfigBlockColdStorageOptionsBlock : T
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool> Enabled
+    public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -358,7 +358,7 @@ public class AwsElasticsearchDomainClusterConfigBlockZoneAwarenessConfigBlock : 
     /// </summary>
     public TerraformValue<double>? AvailabilityZoneCount
     {
-        get => new TerraformReference<double>(this, "availability_zone_count");
+        get => GetArgument<TerraformValue<double>>("availability_zone_count");
         set => SetArgument("availability_zone_count", value);
     }
 
@@ -381,7 +381,7 @@ public class AwsElasticsearchDomainCognitoOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -391,7 +391,7 @@ public class AwsElasticsearchDomainCognitoOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolId is required")]
     public required TerraformValue<string> IdentityPoolId
     {
-        get => new TerraformReference<string>(this, "identity_pool_id");
+        get => GetArgument<TerraformValue<string>>("identity_pool_id");
         set => SetArgument("identity_pool_id", value);
     }
 
@@ -401,7 +401,7 @@ public class AwsElasticsearchDomainCognitoOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -411,7 +411,7 @@ public class AwsElasticsearchDomainCognitoOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformValue<string> UserPoolId
     {
-        get => new TerraformReference<string>(this, "user_pool_id");
+        get => GetArgument<TerraformValue<string>>("user_pool_id");
         set => SetArgument("user_pool_id", value);
     }
 
@@ -434,7 +434,7 @@ public class AwsElasticsearchDomainDomainEndpointOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CustomEndpoint
     {
-        get => new TerraformReference<string>(this, "custom_endpoint");
+        get => GetArgument<TerraformValue<string>>("custom_endpoint");
         set => SetArgument("custom_endpoint", value);
     }
 
@@ -443,7 +443,7 @@ public class AwsElasticsearchDomainDomainEndpointOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CustomEndpointCertificateArn
     {
-        get => new TerraformReference<string>(this, "custom_endpoint_certificate_arn");
+        get => GetArgument<TerraformValue<string>>("custom_endpoint_certificate_arn");
         set => SetArgument("custom_endpoint_certificate_arn", value);
     }
 
@@ -452,7 +452,7 @@ public class AwsElasticsearchDomainDomainEndpointOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? CustomEndpointEnabled
     {
-        get => new TerraformReference<bool>(this, "custom_endpoint_enabled");
+        get => GetArgument<TerraformValue<bool>>("custom_endpoint_enabled");
         set => SetArgument("custom_endpoint_enabled", value);
     }
 
@@ -461,16 +461,16 @@ public class AwsElasticsearchDomainDomainEndpointOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnforceHttps
     {
-        get => new TerraformReference<bool>(this, "enforce_https");
+        get => GetArgument<TerraformValue<bool>>("enforce_https");
         set => SetArgument("enforce_https", value);
     }
 
     /// <summary>
     /// The tls_security_policy attribute.
     /// </summary>
-    public TerraformValue<string> TlsSecurityPolicy
+    public TerraformValue<string>? TlsSecurityPolicy
     {
-        get => new TerraformReference<string>(this, "tls_security_policy");
+        get => GetArgument<TerraformValue<string>>("tls_security_policy");
         set => SetArgument("tls_security_policy", value);
     }
 
@@ -494,25 +494,25 @@ public class AwsElasticsearchDomainEbsOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EbsEnabled is required")]
     public required TerraformValue<bool> EbsEnabled
     {
-        get => new TerraformReference<bool>(this, "ebs_enabled");
+        get => GetArgument<TerraformValue<bool>>("ebs_enabled");
         set => SetArgument("ebs_enabled", value);
     }
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    public TerraformValue<double> Iops
+    public TerraformValue<double>? Iops
     {
-        get => new TerraformReference<double>(this, "iops");
+        get => GetArgument<TerraformValue<double>>("iops");
         set => SetArgument("iops", value);
     }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformValue<double> Throughput
+    public TerraformValue<double>? Throughput
     {
-        get => new TerraformReference<double>(this, "throughput");
+        get => GetArgument<TerraformValue<double>>("throughput");
         set => SetArgument("throughput", value);
     }
 
@@ -521,16 +521,16 @@ public class AwsElasticsearchDomainEbsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? VolumeSize
     {
-        get => new TerraformReference<double>(this, "volume_size");
+        get => GetArgument<TerraformValue<double>>("volume_size");
         set => SetArgument("volume_size", value);
     }
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
-    public TerraformValue<string> VolumeType
+    public TerraformValue<string>? VolumeType
     {
-        get => new TerraformReference<string>(this, "volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -554,16 +554,16 @@ public class AwsElasticsearchDomainEncryptAtRestBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string> KmsKeyId
+    public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -587,7 +587,7 @@ public class AwsElasticsearchDomainLogPublishingOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudwatchLogGroupArn is required")]
     public required TerraformValue<string> CloudwatchLogGroupArn
     {
-        get => new TerraformReference<string>(this, "cloudwatch_log_group_arn");
+        get => GetArgument<TerraformValue<string>>("cloudwatch_log_group_arn");
         set => SetArgument("cloudwatch_log_group_arn", value);
     }
 
@@ -596,7 +596,7 @@ public class AwsElasticsearchDomainLogPublishingOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -606,7 +606,7 @@ public class AwsElasticsearchDomainLogPublishingOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
     public required TerraformValue<string> LogType
     {
-        get => new TerraformReference<string>(this, "log_type");
+        get => GetArgument<TerraformValue<string>>("log_type");
         set => SetArgument("log_type", value);
     }
 
@@ -630,7 +630,7 @@ public class AwsElasticsearchDomainNodeToNodeEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -654,7 +654,7 @@ public class AwsElasticsearchDomainSnapshotOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomatedSnapshotStartHour is required")]
     public required TerraformValue<double> AutomatedSnapshotStartHour
     {
-        get => new TerraformReference<double>(this, "automated_snapshot_start_hour");
+        get => GetArgument<TerraformValue<double>>("automated_snapshot_start_hour");
         set => SetArgument("automated_snapshot_start_hour", value);
     }
 
@@ -677,7 +677,7 @@ public class AwsElasticsearchDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -686,7 +686,7 @@ public class AwsElasticsearchDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -695,7 +695,7 @@ public class AwsElasticsearchDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -717,16 +717,14 @@ public class AwsElasticsearchDomainVpcOptionsBlock : TerraformBlock
     /// The availability_zones attribute.
     /// </summary>
     public TerraformSet<string> AvailabilityZones
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "availability_zones").ResolveNodes(ctx));
-    }
+        => AsReference("availability_zones");
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     public TerraformSet<string>? SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -735,7 +733,7 @@ public class AwsElasticsearchDomainVpcOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -743,9 +741,7 @@ public class AwsElasticsearchDomainVpcOptionsBlock : TerraformBlock
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-    {
-        get => new TerraformReference<string>(this, "vpc_id");
-    }
+        => AsReference("vpc_id");
 
 }
 
@@ -759,18 +755,18 @@ public partial class AwsElasticsearchDomain(string name) : TerraformResource("aw
     /// <summary>
     /// The access_policies attribute.
     /// </summary>
-    public TerraformValue<string> AccessPolicies
+    public TerraformValue<string>? AccessPolicies
     {
-        get => new TerraformReference<string>(this, "access_policies");
+        get => GetArgument<TerraformValue<string>>("access_policies");
         set => SetArgument("access_policies", value);
     }
 
     /// <summary>
     /// The advanced_options attribute.
     /// </summary>
-    public TerraformMap<string> AdvancedOptions
+    public TerraformMap<string>? AdvancedOptions
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "advanced_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("advanced_options");
         set => SetArgument("advanced_options", value);
     }
 
@@ -780,7 +776,7 @@ public partial class AwsElasticsearchDomain(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -789,25 +785,25 @@ public partial class AwsElasticsearchDomain(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? ElasticsearchVersion
     {
-        get => new TerraformReference<string>(this, "elasticsearch_version");
+        get => GetArgument<TerraformValue<string>>("elasticsearch_version");
         set => SetArgument("elasticsearch_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -816,16 +812,16 @@ public partial class AwsElasticsearchDomain(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -833,33 +829,25 @@ public partial class AwsElasticsearchDomain(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The domain_id attribute.
     /// </summary>
     public TerraformValue<string> DomainId
-    {
-        get => new TerraformReference<string>(this, "domain_id");
-    }
+        => AsReference("domain_id");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// The kibana_endpoint attribute.
     /// </summary>
     public TerraformValue<string> KibanaEndpoint
-    {
-        get => new TerraformReference<string>(this, "kibana_endpoint");
-    }
+        => AsReference("kibana_endpoint");
 
     /// <summary>
     /// AdvancedSecurityOptions block (nesting mode: list).

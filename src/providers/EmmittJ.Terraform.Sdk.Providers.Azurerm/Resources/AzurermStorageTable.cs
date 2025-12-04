@@ -19,7 +19,7 @@ public class AzurermStorageTableAclBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermStorageTableAclBlockAccessPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expiry is required")]
     public required TerraformValue<string> Expiry
     {
-        get => new TerraformReference<string>(this, "expiry");
+        get => GetArgument<TerraformValue<string>>("expiry");
         set => SetArgument("expiry", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermStorageTableAclBlockAccessPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     public required TerraformValue<string> Permissions
     {
-        get => new TerraformReference<string>(this, "permissions");
+        get => GetArgument<TerraformValue<string>>("permissions");
         set => SetArgument("permissions", value);
     }
 
@@ -71,7 +71,7 @@ public class AzurermStorageTableAclBlockAccessPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformValue<string> Start
     {
-        get => new TerraformReference<string>(this, "start");
+        get => GetArgument<TerraformValue<string>>("start");
         set => SetArgument("start", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermStorageTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermStorageTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermStorageTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermStorageTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -137,9 +137,9 @@ public partial class AzurermStorageTable(string name) : TerraformResource("azure
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -149,7 +149,7 @@ public partial class AzurermStorageTable(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AzurermStorageTable(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformValue<string> StorageAccountName
     {
-        get => new TerraformReference<string>(this, "storage_account_name");
+        get => GetArgument<TerraformValue<string>>("storage_account_name");
         set => SetArgument("storage_account_name", value);
     }
 
@@ -167,9 +167,7 @@ public partial class AzurermStorageTable(string name) : TerraformResource("azure
     /// The Resource Manager ID of this Storage Table.
     /// </summary>
     public TerraformValue<string> ResourceManagerId
-    {
-        get => new TerraformReference<string>(this, "resource_manager_id");
-    }
+        => AsReference("resource_manager_id");
 
     /// <summary>
     /// Acl block (nesting mode: set).

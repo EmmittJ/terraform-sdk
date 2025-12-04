@@ -14,7 +14,7 @@ public partial class AwsTimestreamwriteTableDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -24,16 +24,16 @@ public partial class AwsTimestreamwriteTableDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -41,56 +41,42 @@ public partial class AwsTimestreamwriteTableDataSource(string name) : TerraformD
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-    {
-        get => new TerraformReference<string>(this, "creation_time");
-    }
+        => AsReference("creation_time");
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedTime
-    {
-        get => new TerraformReference<string>(this, "last_updated_time");
-    }
+        => AsReference("last_updated_time");
 
     /// <summary>
     /// The magnetic_store_write_properties attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MagneticStoreWriteProperties
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "magnetic_store_write_properties").ResolveNodes(ctx));
-    }
+        => AsReference("magnetic_store_write_properties");
 
     /// <summary>
     /// The retention_properties attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RetentionProperties
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "retention_properties").ResolveNodes(ctx));
-    }
+        => AsReference("retention_properties");
 
     /// <summary>
     /// The schema attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Schema
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "schema").ResolveNodes(ctx));
-    }
+        => AsReference("schema");
 
     /// <summary>
     /// The table_status attribute.
     /// </summary>
     public TerraformValue<string> TableStatus
-    {
-        get => new TerraformReference<string>(this, "table_status");
-    }
+        => AsReference("table_status");
 
 }

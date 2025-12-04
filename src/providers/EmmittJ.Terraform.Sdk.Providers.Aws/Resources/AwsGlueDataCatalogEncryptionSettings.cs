@@ -57,7 +57,7 @@ public class AwsGlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsBl
     /// </summary>
     public TerraformValue<string>? AwsKmsKeyId
     {
-        get => new TerraformReference<string>(this, "aws_kms_key_id");
+        get => GetArgument<TerraformValue<string>>("aws_kms_key_id");
         set => SetArgument("aws_kms_key_id", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsGlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReturnConnectionPasswordEncrypted is required")]
     public required TerraformValue<bool> ReturnConnectionPasswordEncrypted
     {
-        get => new TerraformReference<bool>(this, "return_connection_password_encrypted");
+        get => GetArgument<TerraformValue<bool>>("return_connection_password_encrypted");
         set => SetArgument("return_connection_password_encrypted", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsGlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogEncryptionMode is required")]
     public required TerraformValue<string> CatalogEncryptionMode
     {
-        get => new TerraformReference<string>(this, "catalog_encryption_mode");
+        get => GetArgument<TerraformValue<string>>("catalog_encryption_mode");
         set => SetArgument("catalog_encryption_mode", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsGlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsBl
     /// </summary>
     public TerraformValue<string>? CatalogEncryptionServiceRole
     {
-        get => new TerraformReference<string>(this, "catalog_encryption_service_role");
+        get => GetArgument<TerraformValue<string>>("catalog_encryption_service_role");
         set => SetArgument("catalog_encryption_service_role", value);
     }
 
@@ -108,7 +108,7 @@ public class AwsGlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsBl
     /// </summary>
     public TerraformValue<string>? SseAwsKmsKeyId
     {
-        get => new TerraformReference<string>(this, "sse_aws_kms_key_id");
+        get => GetArgument<TerraformValue<string>>("sse_aws_kms_key_id");
         set => SetArgument("sse_aws_kms_key_id", value);
     }
 
@@ -124,27 +124,27 @@ public partial class AwsGlueDataCatalogEncryptionSettings(string name) : Terrafo
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformValue<string> CatalogId
+    public TerraformValue<string>? CatalogId
     {
-        get => new TerraformReference<string>(this, "catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

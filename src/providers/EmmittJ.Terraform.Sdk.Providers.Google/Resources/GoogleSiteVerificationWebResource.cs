@@ -20,7 +20,7 @@ public class GoogleSiteVerificationWebResourceSiteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformValue<string> Identifier
     {
-        get => new TerraformReference<string>(this, "identifier");
+        get => GetArgument<TerraformValue<string>>("identifier");
         set => SetArgument("identifier", value);
     }
 
@@ -30,7 +30,7 @@ public class GoogleSiteVerificationWebResourceSiteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleSiteVerificationWebResourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleSiteVerificationWebResourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -78,9 +78,9 @@ public partial class GoogleSiteVerificationWebResource(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class GoogleSiteVerificationWebResource(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerificationMethod is required")]
     public required TerraformValue<string> VerificationMethod
     {
-        get => new TerraformReference<string>(this, "verification_method");
+        get => GetArgument<TerraformValue<string>>("verification_method");
         set => SetArgument("verification_method", value);
     }
 
@@ -100,17 +100,13 @@ public partial class GoogleSiteVerificationWebResource(string name) : TerraformR
     /// for example verified owners of the containing domain—are not included in this list.
     /// </summary>
     public TerraformList<string> Owners
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "owners").ResolveNodes(ctx));
-    }
+        => AsReference("owners");
 
     /// <summary>
     /// The string used to identify this web resource.
     /// </summary>
     public TerraformValue<string> WebResourceId
-    {
-        get => new TerraformReference<string>(this, "web_resource_id");
-    }
+        => AsReference("web_resource_id");
 
     /// <summary>
     /// Site block (nesting mode: list).

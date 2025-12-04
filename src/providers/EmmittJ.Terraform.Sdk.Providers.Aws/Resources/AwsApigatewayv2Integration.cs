@@ -19,7 +19,7 @@ public class AwsApigatewayv2IntegrationResponseParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mappings is required")]
     public required TerraformMap<string> Mappings
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "mappings").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("mappings");
         set => SetArgument("mappings", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsApigatewayv2IntegrationResponseParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
     public required TerraformValue<string> StatusCode
     {
-        get => new TerraformReference<string>(this, "status_code");
+        get => GetArgument<TerraformValue<string>>("status_code");
         set => SetArgument("status_code", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsApigatewayv2IntegrationTlsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ServerNameToVerify
     {
-        get => new TerraformReference<string>(this, "server_name_to_verify");
+        get => GetArgument<TerraformValue<string>>("server_name_to_verify");
         set => SetArgument("server_name_to_verify", value);
     }
 
@@ -71,7 +71,7 @@ public partial class AwsApigatewayv2Integration(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformValue<string> ApiId
     {
-        get => new TerraformReference<string>(this, "api_id");
+        get => GetArgument<TerraformValue<string>>("api_id");
         set => SetArgument("api_id", value);
     }
 
@@ -80,7 +80,7 @@ public partial class AwsApigatewayv2Integration(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? ConnectionId
     {
-        get => new TerraformReference<string>(this, "connection_id");
+        get => GetArgument<TerraformValue<string>>("connection_id");
         set => SetArgument("connection_id", value);
     }
 
@@ -89,7 +89,7 @@ public partial class AwsApigatewayv2Integration(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? ConnectionType
     {
-        get => new TerraformReference<string>(this, "connection_type");
+        get => GetArgument<TerraformValue<string>>("connection_type");
         set => SetArgument("connection_type", value);
     }
 
@@ -98,7 +98,7 @@ public partial class AwsApigatewayv2Integration(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? ContentHandlingStrategy
     {
-        get => new TerraformReference<string>(this, "content_handling_strategy");
+        get => GetArgument<TerraformValue<string>>("content_handling_strategy");
         set => SetArgument("content_handling_strategy", value);
     }
 
@@ -107,7 +107,7 @@ public partial class AwsApigatewayv2Integration(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? CredentialsArn
     {
-        get => new TerraformReference<string>(this, "credentials_arn");
+        get => GetArgument<TerraformValue<string>>("credentials_arn");
         set => SetArgument("credentials_arn", value);
     }
 
@@ -116,16 +116,16 @@ public partial class AwsApigatewayv2Integration(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AwsApigatewayv2Integration(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? IntegrationMethod
     {
-        get => new TerraformReference<string>(this, "integration_method");
+        get => GetArgument<TerraformValue<string>>("integration_method");
         set => SetArgument("integration_method", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AwsApigatewayv2Integration(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? IntegrationSubtype
     {
-        get => new TerraformReference<string>(this, "integration_subtype");
+        get => GetArgument<TerraformValue<string>>("integration_subtype");
         set => SetArgument("integration_subtype", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AwsApigatewayv2Integration(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationType is required")]
     public required TerraformValue<string> IntegrationType
     {
-        get => new TerraformReference<string>(this, "integration_type");
+        get => GetArgument<TerraformValue<string>>("integration_type");
         set => SetArgument("integration_type", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AwsApigatewayv2Integration(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? IntegrationUri
     {
-        get => new TerraformReference<string>(this, "integration_uri");
+        get => GetArgument<TerraformValue<string>>("integration_uri");
         set => SetArgument("integration_uri", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AwsApigatewayv2Integration(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? PassthroughBehavior
     {
-        get => new TerraformReference<string>(this, "passthrough_behavior");
+        get => GetArgument<TerraformValue<string>>("passthrough_behavior");
         set => SetArgument("passthrough_behavior", value);
     }
 
@@ -180,16 +180,16 @@ public partial class AwsApigatewayv2Integration(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? PayloadFormatVersion
     {
-        get => new TerraformReference<string>(this, "payload_format_version");
+        get => GetArgument<TerraformValue<string>>("payload_format_version");
         set => SetArgument("payload_format_version", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -198,7 +198,7 @@ public partial class AwsApigatewayv2Integration(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? RequestParameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "request_parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("request_parameters");
         set => SetArgument("request_parameters", value);
     }
 
@@ -207,7 +207,7 @@ public partial class AwsApigatewayv2Integration(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? RequestTemplates
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "request_templates").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("request_templates");
         set => SetArgument("request_templates", value);
     }
 
@@ -216,16 +216,16 @@ public partial class AwsApigatewayv2Integration(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? TemplateSelectionExpression
     {
-        get => new TerraformReference<string>(this, "template_selection_expression");
+        get => GetArgument<TerraformValue<string>>("template_selection_expression");
         set => SetArgument("template_selection_expression", value);
     }
 
     /// <summary>
     /// The timeout_milliseconds attribute.
     /// </summary>
-    public TerraformValue<double> TimeoutMilliseconds
+    public TerraformValue<double>? TimeoutMilliseconds
     {
-        get => new TerraformReference<double>(this, "timeout_milliseconds");
+        get => GetArgument<TerraformValue<double>>("timeout_milliseconds");
         set => SetArgument("timeout_milliseconds", value);
     }
 
@@ -233,9 +233,7 @@ public partial class AwsApigatewayv2Integration(string name) : TerraformResource
     /// The integration_response_selection_expression attribute.
     /// </summary>
     public TerraformValue<string> IntegrationResponseSelectionExpression
-    {
-        get => new TerraformReference<string>(this, "integration_response_selection_expression");
-    }
+        => AsReference("integration_response_selection_expression");
 
     /// <summary>
     /// ResponseParameters block (nesting mode: set).

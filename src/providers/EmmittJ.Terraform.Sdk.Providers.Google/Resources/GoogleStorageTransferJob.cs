@@ -18,7 +18,7 @@ public class GoogleStorageTransferJobEventStreamBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EventStreamExpirationTime
     {
-        get => new TerraformReference<string>(this, "event_stream_expiration_time");
+        get => GetArgument<TerraformValue<string>>("event_stream_expiration_time");
         set => SetArgument("event_stream_expiration_time", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleStorageTransferJobEventStreamBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EventStreamStartTime
     {
-        get => new TerraformReference<string>(this, "event_stream_start_time");
+        get => GetArgument<TerraformValue<string>>("event_stream_start_time");
         set => SetArgument("event_stream_start_time", value);
     }
 
@@ -37,7 +37,7 @@ public class GoogleStorageTransferJobEventStreamBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleStorageTransferJobLoggingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableOnPremGcsTransferLogs
     {
-        get => new TerraformReference<bool>(this, "enable_on_prem_gcs_transfer_logs");
+        get => GetArgument<TerraformValue<bool>>("enable_on_prem_gcs_transfer_logs");
         set => SetArgument("enable_on_prem_gcs_transfer_logs", value);
     }
 
@@ -69,7 +69,7 @@ public class GoogleStorageTransferJobLoggingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? LogActionStates
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "log_action_states").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("log_action_states");
         set => SetArgument("log_action_states", value);
     }
 
@@ -78,7 +78,7 @@ public class GoogleStorageTransferJobLoggingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? LogActions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "log_actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("log_actions");
         set => SetArgument("log_actions", value);
     }
 
@@ -101,7 +101,7 @@ public class GoogleStorageTransferJobNotificationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? EventTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "event_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("event_types");
         set => SetArgument("event_types", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleStorageTransferJobNotificationConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PayloadFormat is required")]
     public required TerraformValue<string> PayloadFormat
     {
-        get => new TerraformReference<string>(this, "payload_format");
+        get => GetArgument<TerraformValue<string>>("payload_format");
         set => SetArgument("payload_format", value);
     }
 
@@ -121,7 +121,7 @@ public class GoogleStorageTransferJobNotificationConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     public required TerraformValue<string> PubsubTopic
     {
-        get => new TerraformReference<string>(this, "pubsub_topic");
+        get => GetArgument<TerraformValue<string>>("pubsub_topic");
         set => SetArgument("pubsub_topic", value);
     }
 
@@ -198,7 +198,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockGcsDataSinkBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -207,7 +207,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockGcsDataSinkBlock : Terr
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -230,7 +230,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockGcsDataSourceBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -239,7 +239,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockGcsDataSourceBlock : Te
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -261,7 +261,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockObjectConditionsBlock :
     /// </summary>
     public TerraformList<string>? ExcludePrefixes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclude_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclude_prefixes");
         set => SetArgument("exclude_prefixes", value);
     }
 
@@ -270,7 +270,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockObjectConditionsBlock :
     /// </summary>
     public TerraformList<string>? IncludePrefixes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "include_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("include_prefixes");
         set => SetArgument("include_prefixes", value);
     }
 
@@ -279,7 +279,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockObjectConditionsBlock :
     /// </summary>
     public TerraformValue<string>? LastModifiedBefore
     {
-        get => new TerraformReference<string>(this, "last_modified_before");
+        get => GetArgument<TerraformValue<string>>("last_modified_before");
         set => SetArgument("last_modified_before", value);
     }
 
@@ -288,7 +288,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockObjectConditionsBlock :
     /// </summary>
     public TerraformValue<string>? LastModifiedSince
     {
-        get => new TerraformReference<string>(this, "last_modified_since");
+        get => GetArgument<TerraformValue<string>>("last_modified_since");
         set => SetArgument("last_modified_since", value);
     }
 
@@ -297,7 +297,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockObjectConditionsBlock :
     /// </summary>
     public TerraformValue<string>? MaxTimeElapsedSinceLastModification
     {
-        get => new TerraformReference<string>(this, "max_time_elapsed_since_last_modification");
+        get => GetArgument<TerraformValue<string>>("max_time_elapsed_since_last_modification");
         set => SetArgument("max_time_elapsed_since_last_modification", value);
     }
 
@@ -306,7 +306,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockObjectConditionsBlock :
     /// </summary>
     public TerraformValue<string>? MinTimeElapsedSinceLastModification
     {
-        get => new TerraformReference<string>(this, "min_time_elapsed_since_last_modification");
+        get => GetArgument<TerraformValue<string>>("min_time_elapsed_since_last_modification");
         set => SetArgument("min_time_elapsed_since_last_modification", value);
     }
 
@@ -328,7 +328,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockTransferOptionsBlock : 
     /// </summary>
     public TerraformValue<bool>? DeleteObjectsFromSourceAfterTransfer
     {
-        get => new TerraformReference<bool>(this, "delete_objects_from_source_after_transfer");
+        get => GetArgument<TerraformValue<bool>>("delete_objects_from_source_after_transfer");
         set => SetArgument("delete_objects_from_source_after_transfer", value);
     }
 
@@ -337,7 +337,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockTransferOptionsBlock : 
     /// </summary>
     public TerraformValue<bool>? DeleteObjectsUniqueInSink
     {
-        get => new TerraformReference<bool>(this, "delete_objects_unique_in_sink");
+        get => GetArgument<TerraformValue<bool>>("delete_objects_unique_in_sink");
         set => SetArgument("delete_objects_unique_in_sink", value);
     }
 
@@ -346,7 +346,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockTransferOptionsBlock : 
     /// </summary>
     public TerraformValue<bool>? OverwriteObjectsAlreadyExistingInSink
     {
-        get => new TerraformReference<bool>(this, "overwrite_objects_already_existing_in_sink");
+        get => GetArgument<TerraformValue<bool>>("overwrite_objects_already_existing_in_sink");
         set => SetArgument("overwrite_objects_already_existing_in_sink", value);
     }
 
@@ -355,7 +355,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockTransferOptionsBlock : 
     /// </summary>
     public TerraformValue<string>? OverwriteWhen
     {
-        get => new TerraformReference<string>(this, "overwrite_when");
+        get => GetArgument<TerraformValue<string>>("overwrite_when");
         set => SetArgument("overwrite_when", value);
     }
 
@@ -387,7 +387,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockTransferOptionsBlockMet
     /// </summary>
     public TerraformValue<string>? Acl
     {
-        get => new TerraformReference<string>(this, "acl");
+        get => GetArgument<TerraformValue<string>>("acl");
         set => SetArgument("acl", value);
     }
 
@@ -396,7 +396,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockTransferOptionsBlockMet
     /// </summary>
     public TerraformValue<string>? Gid
     {
-        get => new TerraformReference<string>(this, "gid");
+        get => GetArgument<TerraformValue<string>>("gid");
         set => SetArgument("gid", value);
     }
 
@@ -405,7 +405,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockTransferOptionsBlockMet
     /// </summary>
     public TerraformValue<string>? KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -414,7 +414,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockTransferOptionsBlockMet
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -423,7 +423,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockTransferOptionsBlockMet
     /// </summary>
     public TerraformValue<string>? StorageClass
     {
-        get => new TerraformReference<string>(this, "storage_class");
+        get => GetArgument<TerraformValue<string>>("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -432,7 +432,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockTransferOptionsBlockMet
     /// </summary>
     public TerraformValue<string>? Symlink
     {
-        get => new TerraformReference<string>(this, "symlink");
+        get => GetArgument<TerraformValue<string>>("symlink");
         set => SetArgument("symlink", value);
     }
 
@@ -441,7 +441,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockTransferOptionsBlockMet
     /// </summary>
     public TerraformValue<string>? TemporaryHold
     {
-        get => new TerraformReference<string>(this, "temporary_hold");
+        get => GetArgument<TerraformValue<string>>("temporary_hold");
         set => SetArgument("temporary_hold", value);
     }
 
@@ -450,7 +450,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockTransferOptionsBlockMet
     /// </summary>
     public TerraformValue<string>? TimeCreated
     {
-        get => new TerraformReference<string>(this, "time_created");
+        get => GetArgument<TerraformValue<string>>("time_created");
         set => SetArgument("time_created", value);
     }
 
@@ -459,7 +459,7 @@ public class GoogleStorageTransferJobReplicationSpecBlockTransferOptionsBlockMet
     /// </summary>
     public TerraformValue<string>? Uid
     {
-        get => new TerraformReference<string>(this, "uid");
+        get => GetArgument<TerraformValue<string>>("uid");
         set => SetArgument("uid", value);
     }
 
@@ -482,7 +482,7 @@ public class GoogleStorageTransferJobScheduleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RepeatInterval
     {
-        get => new TerraformReference<string>(this, "repeat_interval");
+        get => GetArgument<TerraformValue<string>>("repeat_interval");
         set => SetArgument("repeat_interval", value);
     }
 
@@ -538,7 +538,7 @@ public class GoogleStorageTransferJobScheduleBlockScheduleEndDateBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<double> Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -548,7 +548,7 @@ public class GoogleStorageTransferJobScheduleBlockScheduleEndDateBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Month is required")]
     public required TerraformValue<double> Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -558,7 +558,7 @@ public class GoogleStorageTransferJobScheduleBlockScheduleEndDateBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Year is required")]
     public required TerraformValue<double> Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -581,7 +581,7 @@ public class GoogleStorageTransferJobScheduleBlockScheduleStartDateBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<double> Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -591,7 +591,7 @@ public class GoogleStorageTransferJobScheduleBlockScheduleStartDateBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Month is required")]
     public required TerraformValue<double> Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -601,7 +601,7 @@ public class GoogleStorageTransferJobScheduleBlockScheduleStartDateBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Year is required")]
     public required TerraformValue<double> Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -624,7 +624,7 @@ public class GoogleStorageTransferJobScheduleBlockStartTimeOfDayBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hours is required")]
     public required TerraformValue<double> Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -634,7 +634,7 @@ public class GoogleStorageTransferJobScheduleBlockStartTimeOfDayBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minutes is required")]
     public required TerraformValue<double> Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -644,7 +644,7 @@ public class GoogleStorageTransferJobScheduleBlockStartTimeOfDayBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Nanos is required")]
     public required TerraformValue<double> Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -654,7 +654,7 @@ public class GoogleStorageTransferJobScheduleBlockStartTimeOfDayBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<double> Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -675,18 +675,18 @@ public class GoogleStorageTransferJobTransferSpecBlock : TerraformBlock
     /// <summary>
     /// Specifies the agent pool name associated with the posix data source. When unspecified, the default name is used.
     /// </summary>
-    public TerraformValue<string> SinkAgentPoolName
+    public TerraformValue<string>? SinkAgentPoolName
     {
-        get => new TerraformReference<string>(this, "sink_agent_pool_name");
+        get => GetArgument<TerraformValue<string>>("sink_agent_pool_name");
         set => SetArgument("sink_agent_pool_name", value);
     }
 
     /// <summary>
     /// Specifies the agent pool name associated with the posix data source. When unspecified, the default name is used.
     /// </summary>
-    public TerraformValue<string> SourceAgentPoolName
+    public TerraformValue<string>? SourceAgentPoolName
     {
-        get => new TerraformReference<string>(this, "source_agent_pool_name");
+        get => GetArgument<TerraformValue<string>>("source_agent_pool_name");
         set => SetArgument("source_agent_pool_name", value);
     }
 
@@ -829,7 +829,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAwsS3CompatibleDataSourceB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -839,7 +839,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAwsS3CompatibleDataSourceB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformValue<string> Endpoint
     {
-        get => new TerraformReference<string>(this, "endpoint");
+        get => GetArgument<TerraformValue<string>>("endpoint");
         set => SetArgument("endpoint", value);
     }
 
@@ -848,7 +848,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAwsS3CompatibleDataSourceB
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -857,7 +857,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAwsS3CompatibleDataSourceB
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -889,7 +889,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAwsS3CompatibleDataSourceB
     /// </summary>
     public TerraformValue<string>? AuthMethod
     {
-        get => new TerraformReference<string>(this, "auth_method");
+        get => GetArgument<TerraformValue<string>>("auth_method");
         set => SetArgument("auth_method", value);
     }
 
@@ -898,7 +898,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAwsS3CompatibleDataSourceB
     /// </summary>
     public TerraformValue<string>? ListApi
     {
-        get => new TerraformReference<string>(this, "list_api");
+        get => GetArgument<TerraformValue<string>>("list_api");
         set => SetArgument("list_api", value);
     }
 
@@ -907,7 +907,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAwsS3CompatibleDataSourceB
     /// </summary>
     public TerraformValue<string>? Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -916,7 +916,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAwsS3CompatibleDataSourceB
     /// </summary>
     public TerraformValue<string>? RequestModel
     {
-        get => new TerraformReference<string>(this, "request_model");
+        get => GetArgument<TerraformValue<string>>("request_model");
         set => SetArgument("request_model", value);
     }
 
@@ -939,7 +939,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAwsS3DataSourceBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -948,7 +948,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAwsS3DataSourceBlock : Ter
     /// </summary>
     public TerraformValue<string>? CloudfrontDomain
     {
-        get => new TerraformReference<string>(this, "cloudfront_domain");
+        get => GetArgument<TerraformValue<string>>("cloudfront_domain");
         set => SetArgument("cloudfront_domain", value);
     }
 
@@ -957,7 +957,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAwsS3DataSourceBlock : Ter
     /// </summary>
     public TerraformValue<string>? CredentialsSecret
     {
-        get => new TerraformReference<string>(this, "credentials_secret");
+        get => GetArgument<TerraformValue<string>>("credentials_secret");
         set => SetArgument("credentials_secret", value);
     }
 
@@ -966,7 +966,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAwsS3DataSourceBlock : Ter
     /// </summary>
     public TerraformValue<bool>? ManagedPrivateNetwork
     {
-        get => new TerraformReference<bool>(this, "managed_private_network");
+        get => GetArgument<TerraformValue<bool>>("managed_private_network");
         set => SetArgument("managed_private_network", value);
     }
 
@@ -975,7 +975,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAwsS3DataSourceBlock : Ter
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -984,7 +984,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAwsS3DataSourceBlock : Ter
     /// </summary>
     public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1017,7 +1017,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAwsS3DataSourceBlockAwsAcc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessKeyId is required")]
     public required TerraformValue<string> AccessKeyId
     {
-        get => new TerraformReference<string>(this, "access_key_id");
+        get => GetArgument<TerraformValue<string>>("access_key_id");
         set => SetArgument("access_key_id", value);
     }
 
@@ -1027,7 +1027,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAwsS3DataSourceBlockAwsAcc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretAccessKey is required")]
     public required TerraformValue<string> SecretAccessKey
     {
-        get => new TerraformReference<string>(this, "secret_access_key");
+        get => GetArgument<TerraformValue<string>>("secret_access_key");
         set => SetArgument("secret_access_key", value);
     }
 
@@ -1050,7 +1050,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAzureBlobStorageDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Container is required")]
     public required TerraformValue<string> Container
     {
-        get => new TerraformReference<string>(this, "container");
+        get => GetArgument<TerraformValue<string>>("container");
         set => SetArgument("container", value);
     }
 
@@ -1059,16 +1059,16 @@ public class GoogleStorageTransferJobTransferSpecBlockAzureBlobStorageDataSource
     /// </summary>
     public TerraformValue<string>? CredentialsSecret
     {
-        get => new TerraformReference<string>(this, "credentials_secret");
+        get => GetArgument<TerraformValue<string>>("credentials_secret");
         set => SetArgument("credentials_secret", value);
     }
 
     /// <summary>
     /// Root path to transfer objects. Must be an empty string or full path name that ends with a &#39;/&#39;. This field is treated as an object prefix. As such, it should generally not begin with a &#39;/&#39;.
     /// </summary>
-    public TerraformValue<string> Path
+    public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1078,7 +1078,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAzureBlobStorageDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccount is required")]
     public required TerraformValue<string> StorageAccount
     {
-        get => new TerraformReference<string>(this, "storage_account");
+        get => GetArgument<TerraformValue<string>>("storage_account");
         set => SetArgument("storage_account", value);
     }
 
@@ -1121,7 +1121,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAzureBlobStorageDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SasToken is required")]
     public required TerraformValue<string> SasToken
     {
-        get => new TerraformReference<string>(this, "sas_token");
+        get => GetArgument<TerraformValue<string>>("sas_token");
         set => SetArgument("sas_token", value);
     }
 
@@ -1144,7 +1144,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAzureBlobStorageDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -1154,7 +1154,7 @@ public class GoogleStorageTransferJobTransferSpecBlockAzureBlobStorageDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -1177,7 +1177,7 @@ public class GoogleStorageTransferJobTransferSpecBlockGcsDataSinkBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -1186,7 +1186,7 @@ public class GoogleStorageTransferJobTransferSpecBlockGcsDataSinkBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1209,7 +1209,7 @@ public class GoogleStorageTransferJobTransferSpecBlockGcsDataSourceBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -1218,7 +1218,7 @@ public class GoogleStorageTransferJobTransferSpecBlockGcsDataSourceBlock : Terra
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1241,7 +1241,7 @@ public class GoogleStorageTransferJobTransferSpecBlockHdfsDataSourceBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1264,7 +1264,7 @@ public class GoogleStorageTransferJobTransferSpecBlockHttpDataSourceBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListUrl is required")]
     public required TerraformValue<string> ListUrl
     {
-        get => new TerraformReference<string>(this, "list_url");
+        get => GetArgument<TerraformValue<string>>("list_url");
         set => SetArgument("list_url", value);
     }
 
@@ -1286,7 +1286,7 @@ public class GoogleStorageTransferJobTransferSpecBlockObjectConditionsBlock : Te
     /// </summary>
     public TerraformList<string>? ExcludePrefixes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclude_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclude_prefixes");
         set => SetArgument("exclude_prefixes", value);
     }
 
@@ -1295,7 +1295,7 @@ public class GoogleStorageTransferJobTransferSpecBlockObjectConditionsBlock : Te
     /// </summary>
     public TerraformList<string>? IncludePrefixes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "include_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("include_prefixes");
         set => SetArgument("include_prefixes", value);
     }
 
@@ -1304,7 +1304,7 @@ public class GoogleStorageTransferJobTransferSpecBlockObjectConditionsBlock : Te
     /// </summary>
     public TerraformValue<string>? LastModifiedBefore
     {
-        get => new TerraformReference<string>(this, "last_modified_before");
+        get => GetArgument<TerraformValue<string>>("last_modified_before");
         set => SetArgument("last_modified_before", value);
     }
 
@@ -1313,7 +1313,7 @@ public class GoogleStorageTransferJobTransferSpecBlockObjectConditionsBlock : Te
     /// </summary>
     public TerraformValue<string>? LastModifiedSince
     {
-        get => new TerraformReference<string>(this, "last_modified_since");
+        get => GetArgument<TerraformValue<string>>("last_modified_since");
         set => SetArgument("last_modified_since", value);
     }
 
@@ -1322,7 +1322,7 @@ public class GoogleStorageTransferJobTransferSpecBlockObjectConditionsBlock : Te
     /// </summary>
     public TerraformValue<string>? MaxTimeElapsedSinceLastModification
     {
-        get => new TerraformReference<string>(this, "max_time_elapsed_since_last_modification");
+        get => GetArgument<TerraformValue<string>>("max_time_elapsed_since_last_modification");
         set => SetArgument("max_time_elapsed_since_last_modification", value);
     }
 
@@ -1331,7 +1331,7 @@ public class GoogleStorageTransferJobTransferSpecBlockObjectConditionsBlock : Te
     /// </summary>
     public TerraformValue<string>? MinTimeElapsedSinceLastModification
     {
-        get => new TerraformReference<string>(this, "min_time_elapsed_since_last_modification");
+        get => GetArgument<TerraformValue<string>>("min_time_elapsed_since_last_modification");
         set => SetArgument("min_time_elapsed_since_last_modification", value);
     }
 
@@ -1354,7 +1354,7 @@ public class GoogleStorageTransferJobTransferSpecBlockPosixDataSinkBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootDirectory is required")]
     public required TerraformValue<string> RootDirectory
     {
-        get => new TerraformReference<string>(this, "root_directory");
+        get => GetArgument<TerraformValue<string>>("root_directory");
         set => SetArgument("root_directory", value);
     }
 
@@ -1377,7 +1377,7 @@ public class GoogleStorageTransferJobTransferSpecBlockPosixDataSourceBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootDirectory is required")]
     public required TerraformValue<string> RootDirectory
     {
-        get => new TerraformReference<string>(this, "root_directory");
+        get => GetArgument<TerraformValue<string>>("root_directory");
         set => SetArgument("root_directory", value);
     }
 
@@ -1400,7 +1400,7 @@ public class GoogleStorageTransferJobTransferSpecBlockTransferManifestBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1422,7 +1422,7 @@ public class GoogleStorageTransferJobTransferSpecBlockTransferOptionsBlock : Ter
     /// </summary>
     public TerraformValue<bool>? DeleteObjectsFromSourceAfterTransfer
     {
-        get => new TerraformReference<bool>(this, "delete_objects_from_source_after_transfer");
+        get => GetArgument<TerraformValue<bool>>("delete_objects_from_source_after_transfer");
         set => SetArgument("delete_objects_from_source_after_transfer", value);
     }
 
@@ -1431,7 +1431,7 @@ public class GoogleStorageTransferJobTransferSpecBlockTransferOptionsBlock : Ter
     /// </summary>
     public TerraformValue<bool>? DeleteObjectsUniqueInSink
     {
-        get => new TerraformReference<bool>(this, "delete_objects_unique_in_sink");
+        get => GetArgument<TerraformValue<bool>>("delete_objects_unique_in_sink");
         set => SetArgument("delete_objects_unique_in_sink", value);
     }
 
@@ -1440,7 +1440,7 @@ public class GoogleStorageTransferJobTransferSpecBlockTransferOptionsBlock : Ter
     /// </summary>
     public TerraformValue<bool>? OverwriteObjectsAlreadyExistingInSink
     {
-        get => new TerraformReference<bool>(this, "overwrite_objects_already_existing_in_sink");
+        get => GetArgument<TerraformValue<bool>>("overwrite_objects_already_existing_in_sink");
         set => SetArgument("overwrite_objects_already_existing_in_sink", value);
     }
 
@@ -1449,7 +1449,7 @@ public class GoogleStorageTransferJobTransferSpecBlockTransferOptionsBlock : Ter
     /// </summary>
     public TerraformValue<string>? OverwriteWhen
     {
-        get => new TerraformReference<string>(this, "overwrite_when");
+        get => GetArgument<TerraformValue<string>>("overwrite_when");
         set => SetArgument("overwrite_when", value);
     }
 
@@ -1481,7 +1481,7 @@ public class GoogleStorageTransferJobTransferSpecBlockTransferOptionsBlockMetada
     /// </summary>
     public TerraformValue<string>? Acl
     {
-        get => new TerraformReference<string>(this, "acl");
+        get => GetArgument<TerraformValue<string>>("acl");
         set => SetArgument("acl", value);
     }
 
@@ -1490,7 +1490,7 @@ public class GoogleStorageTransferJobTransferSpecBlockTransferOptionsBlockMetada
     /// </summary>
     public TerraformValue<string>? Gid
     {
-        get => new TerraformReference<string>(this, "gid");
+        get => GetArgument<TerraformValue<string>>("gid");
         set => SetArgument("gid", value);
     }
 
@@ -1499,7 +1499,7 @@ public class GoogleStorageTransferJobTransferSpecBlockTransferOptionsBlockMetada
     /// </summary>
     public TerraformValue<string>? KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -1508,7 +1508,7 @@ public class GoogleStorageTransferJobTransferSpecBlockTransferOptionsBlockMetada
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -1517,7 +1517,7 @@ public class GoogleStorageTransferJobTransferSpecBlockTransferOptionsBlockMetada
     /// </summary>
     public TerraformValue<string>? StorageClass
     {
-        get => new TerraformReference<string>(this, "storage_class");
+        get => GetArgument<TerraformValue<string>>("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -1526,7 +1526,7 @@ public class GoogleStorageTransferJobTransferSpecBlockTransferOptionsBlockMetada
     /// </summary>
     public TerraformValue<string>? Symlink
     {
-        get => new TerraformReference<string>(this, "symlink");
+        get => GetArgument<TerraformValue<string>>("symlink");
         set => SetArgument("symlink", value);
     }
 
@@ -1535,7 +1535,7 @@ public class GoogleStorageTransferJobTransferSpecBlockTransferOptionsBlockMetada
     /// </summary>
     public TerraformValue<string>? TemporaryHold
     {
-        get => new TerraformReference<string>(this, "temporary_hold");
+        get => GetArgument<TerraformValue<string>>("temporary_hold");
         set => SetArgument("temporary_hold", value);
     }
 
@@ -1544,7 +1544,7 @@ public class GoogleStorageTransferJobTransferSpecBlockTransferOptionsBlockMetada
     /// </summary>
     public TerraformValue<string>? TimeCreated
     {
-        get => new TerraformReference<string>(this, "time_created");
+        get => GetArgument<TerraformValue<string>>("time_created");
         set => SetArgument("time_created", value);
     }
 
@@ -1553,7 +1553,7 @@ public class GoogleStorageTransferJobTransferSpecBlockTransferOptionsBlockMetada
     /// </summary>
     public TerraformValue<string>? Uid
     {
-        get => new TerraformReference<string>(this, "uid");
+        get => GetArgument<TerraformValue<string>>("uid");
         set => SetArgument("uid", value);
     }
 
@@ -1572,34 +1572,34 @@ public partial class GoogleStorageTransferJob(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name of the Transfer Job.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -1608,7 +1608,7 @@ public partial class GoogleStorageTransferJob(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -1617,7 +1617,7 @@ public partial class GoogleStorageTransferJob(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -1625,25 +1625,19 @@ public partial class GoogleStorageTransferJob(string name) : TerraformResource("
     /// When the Transfer Job was created.
     /// </summary>
     public TerraformValue<string> CreationTime
-    {
-        get => new TerraformReference<string>(this, "creation_time");
-    }
+        => AsReference("creation_time");
 
     /// <summary>
     /// When the Transfer Job was deleted.
     /// </summary>
     public TerraformValue<string> DeletionTime
-    {
-        get => new TerraformReference<string>(this, "deletion_time");
-    }
+        => AsReference("deletion_time");
 
     /// <summary>
     /// When the Transfer Job was last modified.
     /// </summary>
     public TerraformValue<string> LastModificationTime
-    {
-        get => new TerraformReference<string>(this, "last_modification_time");
-    }
+        => AsReference("last_modification_time");
 
     /// <summary>
     /// EventStream block (nesting mode: list).

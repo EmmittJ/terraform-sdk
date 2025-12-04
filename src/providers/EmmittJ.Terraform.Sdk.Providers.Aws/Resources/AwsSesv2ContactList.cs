@@ -19,7 +19,7 @@ public class AwsSesv2ContactListTopicBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultSubscriptionStatus is required")]
     public required TerraformValue<string> DefaultSubscriptionStatus
     {
-        get => new TerraformReference<string>(this, "default_subscription_status");
+        get => GetArgument<TerraformValue<string>>("default_subscription_status");
         set => SetArgument("default_subscription_status", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsSesv2ContactListTopicBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsSesv2ContactListTopicBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -48,7 +48,7 @@ public class AwsSesv2ContactListTopicBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicName is required")]
     public required TerraformValue<string> TopicName
     {
-        get => new TerraformReference<string>(this, "topic_name");
+        get => GetArgument<TerraformValue<string>>("topic_name");
         set => SetArgument("topic_name", value);
     }
 
@@ -67,7 +67,7 @@ public partial class AwsSesv2ContactList(string name) : TerraformResource("aws_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactListName is required")]
     public required TerraformValue<string> ContactListName
     {
-        get => new TerraformReference<string>(this, "contact_list_name");
+        get => GetArgument<TerraformValue<string>>("contact_list_name");
         set => SetArgument("contact_list_name", value);
     }
 
@@ -76,25 +76,25 @@ public partial class AwsSesv2ContactList(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -103,16 +103,16 @@ public partial class AwsSesv2ContactList(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -120,25 +120,19 @@ public partial class AwsSesv2ContactList(string name) : TerraformResource("aws_s
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_timestamp attribute.
     /// </summary>
     public TerraformValue<string> CreatedTimestamp
-    {
-        get => new TerraformReference<string>(this, "created_timestamp");
-    }
+        => AsReference("created_timestamp");
 
     /// <summary>
     /// The last_updated_timestamp attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedTimestamp
-    {
-        get => new TerraformReference<string>(this, "last_updated_timestamp");
-    }
+        => AsReference("last_updated_timestamp");
 
     /// <summary>
     /// Topic block (nesting mode: set).

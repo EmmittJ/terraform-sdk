@@ -18,7 +18,7 @@ public class AzurermNetworkManagerNetworkGroupDataSourceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermNetworkManagerNetworkGroupDataSource(string name) : 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermNetworkManagerNetworkGroupDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermNetworkManagerNetworkGroupDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
     public required TerraformValue<string> NetworkManagerId
     {
-        get => new TerraformReference<string>(this, "network_manager_id");
+        get => GetArgument<TerraformValue<string>>("network_manager_id");
         set => SetArgument("network_manager_id", value);
     }
 
@@ -64,9 +64,7 @@ public partial class AzurermNetworkManagerNetworkGroupDataSource(string name) : 
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

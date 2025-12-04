@@ -202,7 +202,7 @@ public class AzurermProviderFeaturesBlockApiManagementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PurgeSoftDeleteOnDestroy
     {
-        get => new TerraformReference<bool>(this, "purge_soft_delete_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("purge_soft_delete_on_destroy");
         set => SetArgument("purge_soft_delete_on_destroy", value);
     }
 
@@ -211,7 +211,7 @@ public class AzurermProviderFeaturesBlockApiManagementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? RecoverSoftDeleted
     {
-        get => new TerraformReference<bool>(this, "recover_soft_deleted");
+        get => GetArgument<TerraformValue<bool>>("recover_soft_deleted");
         set => SetArgument("recover_soft_deleted", value);
     }
 
@@ -233,7 +233,7 @@ public class AzurermProviderFeaturesBlockAppConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PurgeSoftDeleteOnDestroy
     {
-        get => new TerraformReference<bool>(this, "purge_soft_delete_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("purge_soft_delete_on_destroy");
         set => SetArgument("purge_soft_delete_on_destroy", value);
     }
 
@@ -242,7 +242,7 @@ public class AzurermProviderFeaturesBlockAppConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? RecoverSoftDeleted
     {
-        get => new TerraformReference<bool>(this, "recover_soft_deleted");
+        get => GetArgument<TerraformValue<bool>>("recover_soft_deleted");
         set => SetArgument("recover_soft_deleted", value);
     }
 
@@ -264,7 +264,7 @@ public class AzurermProviderFeaturesBlockApplicationInsightsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<bool>? DisableGeneratedRule
     {
-        get => new TerraformReference<bool>(this, "disable_generated_rule");
+        get => GetArgument<TerraformValue<bool>>("disable_generated_rule");
         set => SetArgument("disable_generated_rule", value);
     }
 
@@ -286,7 +286,7 @@ public class AzurermProviderFeaturesBlockCognitiveAccountBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PurgeSoftDeleteOnDestroy
     {
-        get => new TerraformReference<bool>(this, "purge_soft_delete_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("purge_soft_delete_on_destroy");
         set => SetArgument("purge_soft_delete_on_destroy", value);
     }
 
@@ -308,7 +308,7 @@ public class AzurermProviderFeaturesBlockDatabricksWorkspaceBlock : TerraformBlo
     /// </summary>
     public TerraformValue<bool>? ForceDelete
     {
-        get => new TerraformReference<bool>(this, "force_delete");
+        get => GetArgument<TerraformValue<bool>>("force_delete");
         set => SetArgument("force_delete", value);
     }
 
@@ -330,7 +330,7 @@ public class AzurermProviderFeaturesBlockKeyVaultBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PurgeSoftDeleteOnDestroy
     {
-        get => new TerraformReference<bool>(this, "purge_soft_delete_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("purge_soft_delete_on_destroy");
         set => SetArgument("purge_soft_delete_on_destroy", value);
     }
 
@@ -339,7 +339,7 @@ public class AzurermProviderFeaturesBlockKeyVaultBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PurgeSoftDeletedCertificatesOnDestroy
     {
-        get => new TerraformReference<bool>(this, "purge_soft_deleted_certificates_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("purge_soft_deleted_certificates_on_destroy");
         set => SetArgument("purge_soft_deleted_certificates_on_destroy", value);
     }
 
@@ -348,7 +348,7 @@ public class AzurermProviderFeaturesBlockKeyVaultBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PurgeSoftDeletedHardwareSecurityModuleKeysOnDestroy
     {
-        get => new TerraformReference<bool>(this, "purge_soft_deleted_hardware_security_module_keys_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("purge_soft_deleted_hardware_security_module_keys_on_destroy");
         set => SetArgument("purge_soft_deleted_hardware_security_module_keys_on_destroy", value);
     }
 
@@ -357,7 +357,7 @@ public class AzurermProviderFeaturesBlockKeyVaultBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PurgeSoftDeletedHardwareSecurityModulesOnDestroy
     {
-        get => new TerraformReference<bool>(this, "purge_soft_deleted_hardware_security_modules_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("purge_soft_deleted_hardware_security_modules_on_destroy");
         set => SetArgument("purge_soft_deleted_hardware_security_modules_on_destroy", value);
     }
 
@@ -366,7 +366,7 @@ public class AzurermProviderFeaturesBlockKeyVaultBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PurgeSoftDeletedKeysOnDestroy
     {
-        get => new TerraformReference<bool>(this, "purge_soft_deleted_keys_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("purge_soft_deleted_keys_on_destroy");
         set => SetArgument("purge_soft_deleted_keys_on_destroy", value);
     }
 
@@ -375,7 +375,7 @@ public class AzurermProviderFeaturesBlockKeyVaultBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PurgeSoftDeletedSecretsOnDestroy
     {
-        get => new TerraformReference<bool>(this, "purge_soft_deleted_secrets_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("purge_soft_deleted_secrets_on_destroy");
         set => SetArgument("purge_soft_deleted_secrets_on_destroy", value);
     }
 
@@ -384,7 +384,7 @@ public class AzurermProviderFeaturesBlockKeyVaultBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? RecoverSoftDeletedCertificates
     {
-        get => new TerraformReference<bool>(this, "recover_soft_deleted_certificates");
+        get => GetArgument<TerraformValue<bool>>("recover_soft_deleted_certificates");
         set => SetArgument("recover_soft_deleted_certificates", value);
     }
 
@@ -393,7 +393,7 @@ public class AzurermProviderFeaturesBlockKeyVaultBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? RecoverSoftDeletedHardwareSecurityModuleKeys
     {
-        get => new TerraformReference<bool>(this, "recover_soft_deleted_hardware_security_module_keys");
+        get => GetArgument<TerraformValue<bool>>("recover_soft_deleted_hardware_security_module_keys");
         set => SetArgument("recover_soft_deleted_hardware_security_module_keys", value);
     }
 
@@ -402,7 +402,7 @@ public class AzurermProviderFeaturesBlockKeyVaultBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? RecoverSoftDeletedKeyVaults
     {
-        get => new TerraformReference<bool>(this, "recover_soft_deleted_key_vaults");
+        get => GetArgument<TerraformValue<bool>>("recover_soft_deleted_key_vaults");
         set => SetArgument("recover_soft_deleted_key_vaults", value);
     }
 
@@ -411,7 +411,7 @@ public class AzurermProviderFeaturesBlockKeyVaultBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? RecoverSoftDeletedKeys
     {
-        get => new TerraformReference<bool>(this, "recover_soft_deleted_keys");
+        get => GetArgument<TerraformValue<bool>>("recover_soft_deleted_keys");
         set => SetArgument("recover_soft_deleted_keys", value);
     }
 
@@ -420,7 +420,7 @@ public class AzurermProviderFeaturesBlockKeyVaultBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? RecoverSoftDeletedSecrets
     {
-        get => new TerraformReference<bool>(this, "recover_soft_deleted_secrets");
+        get => GetArgument<TerraformValue<bool>>("recover_soft_deleted_secrets");
         set => SetArgument("recover_soft_deleted_secrets", value);
     }
 
@@ -442,7 +442,7 @@ public class AzurermProviderFeaturesBlockLogAnalyticsWorkspaceBlock : TerraformB
     /// </summary>
     public TerraformValue<bool>? PermanentlyDeleteOnDestroy
     {
-        get => new TerraformReference<bool>(this, "permanently_delete_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("permanently_delete_on_destroy");
         set => SetArgument("permanently_delete_on_destroy", value);
     }
 
@@ -464,7 +464,7 @@ public class AzurermProviderFeaturesBlockMachineLearningBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PurgeSoftDeletedWorkspaceOnDestroy
     {
-        get => new TerraformReference<bool>(this, "purge_soft_deleted_workspace_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("purge_soft_deleted_workspace_on_destroy");
         set => SetArgument("purge_soft_deleted_workspace_on_destroy", value);
     }
 
@@ -486,7 +486,7 @@ public class AzurermProviderFeaturesBlockManagedDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ExpandWithoutDowntime
     {
-        get => new TerraformReference<bool>(this, "expand_without_downtime");
+        get => GetArgument<TerraformValue<bool>>("expand_without_downtime");
         set => SetArgument("expand_without_downtime", value);
     }
 
@@ -508,7 +508,7 @@ public class AzurermProviderFeaturesBlockNetappBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DeleteBackupsOnBackupVaultDestroy
     {
-        get => new TerraformReference<bool>(this, "delete_backups_on_backup_vault_destroy");
+        get => GetArgument<TerraformValue<bool>>("delete_backups_on_backup_vault_destroy");
         set => SetArgument("delete_backups_on_backup_vault_destroy", value);
     }
 
@@ -517,7 +517,7 @@ public class AzurermProviderFeaturesBlockNetappBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PreventVolumeDestruction
     {
-        get => new TerraformReference<bool>(this, "prevent_volume_destruction");
+        get => GetArgument<TerraformValue<bool>>("prevent_volume_destruction");
         set => SetArgument("prevent_volume_destruction", value);
     }
 
@@ -539,7 +539,7 @@ public class AzurermProviderFeaturesBlockPostgresqlFlexibleServerBlock : Terrafo
     /// </summary>
     public TerraformValue<bool>? RestartServerOnConfigurationValueChange
     {
-        get => new TerraformReference<bool>(this, "restart_server_on_configuration_value_change");
+        get => GetArgument<TerraformValue<bool>>("restart_server_on_configuration_value_change");
         set => SetArgument("restart_server_on_configuration_value_change", value);
     }
 
@@ -561,7 +561,7 @@ public class AzurermProviderFeaturesBlockRecoveryServiceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PurgeProtectedItemsFromVaultOnDestroy
     {
-        get => new TerraformReference<bool>(this, "purge_protected_items_from_vault_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("purge_protected_items_from_vault_on_destroy");
         set => SetArgument("purge_protected_items_from_vault_on_destroy", value);
     }
 
@@ -570,7 +570,7 @@ public class AzurermProviderFeaturesBlockRecoveryServiceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? VmBackupStopProtectionAndRetainDataOnDestroy
     {
-        get => new TerraformReference<bool>(this, "vm_backup_stop_protection_and_retain_data_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("vm_backup_stop_protection_and_retain_data_on_destroy");
         set => SetArgument("vm_backup_stop_protection_and_retain_data_on_destroy", value);
     }
 
@@ -579,7 +579,7 @@ public class AzurermProviderFeaturesBlockRecoveryServiceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? VmBackupSuspendProtectionAndRetainDataOnDestroy
     {
-        get => new TerraformReference<bool>(this, "vm_backup_suspend_protection_and_retain_data_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("vm_backup_suspend_protection_and_retain_data_on_destroy");
         set => SetArgument("vm_backup_suspend_protection_and_retain_data_on_destroy", value);
     }
 
@@ -601,7 +601,7 @@ public class AzurermProviderFeaturesBlockRecoveryServicesVaultsBlock : Terraform
     /// </summary>
     public TerraformValue<bool>? RecoverSoftDeletedBackupProtectedVm
     {
-        get => new TerraformReference<bool>(this, "recover_soft_deleted_backup_protected_vm");
+        get => GetArgument<TerraformValue<bool>>("recover_soft_deleted_backup_protected_vm");
         set => SetArgument("recover_soft_deleted_backup_protected_vm", value);
     }
 
@@ -623,7 +623,7 @@ public class AzurermProviderFeaturesBlockResourceGroupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PreventDeletionIfContainsResources
     {
-        get => new TerraformReference<bool>(this, "prevent_deletion_if_contains_resources");
+        get => GetArgument<TerraformValue<bool>>("prevent_deletion_if_contains_resources");
         set => SetArgument("prevent_deletion_if_contains_resources", value);
     }
 
@@ -645,7 +645,7 @@ public class AzurermProviderFeaturesBlockStorageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DataPlaneAvailable
     {
-        get => new TerraformReference<bool>(this, "data_plane_available");
+        get => GetArgument<TerraformValue<bool>>("data_plane_available");
         set => SetArgument("data_plane_available", value);
     }
 
@@ -667,7 +667,7 @@ public class AzurermProviderFeaturesBlockSubscriptionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PreventCancellationOnDestroy
     {
-        get => new TerraformReference<bool>(this, "prevent_cancellation_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("prevent_cancellation_on_destroy");
         set => SetArgument("prevent_cancellation_on_destroy", value);
     }
 
@@ -690,7 +690,7 @@ public class AzurermProviderFeaturesBlockTemplateDeploymentBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeleteNestedItemsDuringDeletion is required")]
     public required TerraformValue<bool> DeleteNestedItemsDuringDeletion
     {
-        get => new TerraformReference<bool>(this, "delete_nested_items_during_deletion");
+        get => GetArgument<TerraformValue<bool>>("delete_nested_items_during_deletion");
         set => SetArgument("delete_nested_items_during_deletion", value);
     }
 
@@ -712,7 +712,7 @@ public class AzurermProviderFeaturesBlockVirtualMachineBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DeleteOsDiskOnDeletion
     {
-        get => new TerraformReference<bool>(this, "delete_os_disk_on_deletion");
+        get => GetArgument<TerraformValue<bool>>("delete_os_disk_on_deletion");
         set => SetArgument("delete_os_disk_on_deletion", value);
     }
 
@@ -721,7 +721,7 @@ public class AzurermProviderFeaturesBlockVirtualMachineBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DetachImplicitDataDiskOnDeletion
     {
-        get => new TerraformReference<bool>(this, "detach_implicit_data_disk_on_deletion");
+        get => GetArgument<TerraformValue<bool>>("detach_implicit_data_disk_on_deletion");
         set => SetArgument("detach_implicit_data_disk_on_deletion", value);
     }
 
@@ -731,7 +731,7 @@ public class AzurermProviderFeaturesBlockVirtualMachineBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool>? GracefulShutdown
     {
-        get => new TerraformReference<bool>(this, "graceful_shutdown");
+        get => GetArgument<TerraformValue<bool>>("graceful_shutdown");
         set => SetArgument("graceful_shutdown", value);
     }
 
@@ -740,7 +740,7 @@ public class AzurermProviderFeaturesBlockVirtualMachineBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SkipShutdownAndForceDelete
     {
-        get => new TerraformReference<bool>(this, "skip_shutdown_and_force_delete");
+        get => GetArgument<TerraformValue<bool>>("skip_shutdown_and_force_delete");
         set => SetArgument("skip_shutdown_and_force_delete", value);
     }
 
@@ -762,7 +762,7 @@ public class AzurermProviderFeaturesBlockVirtualMachineScaleSetBlock : Terraform
     /// </summary>
     public TerraformValue<bool>? ForceDelete
     {
-        get => new TerraformReference<bool>(this, "force_delete");
+        get => GetArgument<TerraformValue<bool>>("force_delete");
         set => SetArgument("force_delete", value);
     }
 
@@ -771,7 +771,7 @@ public class AzurermProviderFeaturesBlockVirtualMachineScaleSetBlock : Terraform
     /// </summary>
     public TerraformValue<bool>? ReimageOnManualUpgrade
     {
-        get => new TerraformReference<bool>(this, "reimage_on_manual_upgrade");
+        get => GetArgument<TerraformValue<bool>>("reimage_on_manual_upgrade");
         set => SetArgument("reimage_on_manual_upgrade", value);
     }
 
@@ -780,7 +780,7 @@ public class AzurermProviderFeaturesBlockVirtualMachineScaleSetBlock : Terraform
     /// </summary>
     public TerraformValue<bool>? RollInstancesWhenRequired
     {
-        get => new TerraformReference<bool>(this, "roll_instances_when_required");
+        get => GetArgument<TerraformValue<bool>>("roll_instances_when_required");
         set => SetArgument("roll_instances_when_required", value);
     }
 
@@ -789,7 +789,7 @@ public class AzurermProviderFeaturesBlockVirtualMachineScaleSetBlock : Terraform
     /// </summary>
     public TerraformValue<bool>? ScaleToZeroBeforeDeletion
     {
-        get => new TerraformReference<bool>(this, "scale_to_zero_before_deletion");
+        get => GetArgument<TerraformValue<bool>>("scale_to_zero_before_deletion");
         set => SetArgument("scale_to_zero_before_deletion", value);
     }
 
@@ -809,7 +809,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? AdoPipelineServiceConnectionId
     {
-        get => new TerraformReference<string>(this, "ado_pipeline_service_connection_id");
+        get => GetArgument<TerraformValue<string>>("ado_pipeline_service_connection_id");
         set => SetArgument("ado_pipeline_service_connection_id", value);
     }
 
@@ -819,7 +819,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformList<string>? AuxiliaryTenantIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "auxiliary_tenant_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("auxiliary_tenant_ids");
         set => SetArgument("auxiliary_tenant_ids", value);
     }
 
@@ -829,7 +829,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? ClientCertificate
     {
-        get => new TerraformReference<string>(this, "client_certificate");
+        get => GetArgument<TerraformValue<string>>("client_certificate");
         set => SetArgument("client_certificate", value);
     }
 
@@ -839,7 +839,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? ClientCertificatePassword
     {
-        get => new TerraformReference<string>(this, "client_certificate_password");
+        get => GetArgument<TerraformValue<string>>("client_certificate_password");
         set => SetArgument("client_certificate_password", value);
     }
 
@@ -849,7 +849,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? ClientCertificatePath
     {
-        get => new TerraformReference<string>(this, "client_certificate_path");
+        get => GetArgument<TerraformValue<string>>("client_certificate_path");
         set => SetArgument("client_certificate_path", value);
     }
 
@@ -859,7 +859,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -869,7 +869,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? ClientIdFilePath
     {
-        get => new TerraformReference<string>(this, "client_id_file_path");
+        get => GetArgument<TerraformValue<string>>("client_id_file_path");
         set => SetArgument("client_id_file_path", value);
     }
 
@@ -879,7 +879,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -889,7 +889,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? ClientSecretFilePath
     {
-        get => new TerraformReference<string>(this, "client_secret_file_path");
+        get => GetArgument<TerraformValue<string>>("client_secret_file_path");
         set => SetArgument("client_secret_file_path", value);
     }
 
@@ -899,7 +899,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<bool>? DisableCorrelationRequestId
     {
-        get => new TerraformReference<bool>(this, "disable_correlation_request_id");
+        get => GetArgument<TerraformValue<bool>>("disable_correlation_request_id");
         set => SetArgument("disable_correlation_request_id", value);
     }
 
@@ -909,7 +909,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<bool>? DisableTerraformPartnerId
     {
-        get => new TerraformReference<bool>(this, "disable_terraform_partner_id");
+        get => GetArgument<TerraformValue<bool>>("disable_terraform_partner_id");
         set => SetArgument("disable_terraform_partner_id", value);
     }
 
@@ -919,7 +919,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? Environment
     {
-        get => new TerraformReference<string>(this, "environment");
+        get => GetArgument<TerraformValue<string>>("environment");
         set => SetArgument("environment", value);
     }
 
@@ -929,7 +929,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? MetadataHost
     {
-        get => new TerraformReference<string>(this, "metadata_host");
+        get => GetArgument<TerraformValue<string>>("metadata_host");
         set => SetArgument("metadata_host", value);
     }
 
@@ -939,7 +939,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? MsiApiVersion
     {
-        get => new TerraformReference<string>(this, "msi_api_version");
+        get => GetArgument<TerraformValue<string>>("msi_api_version");
         set => SetArgument("msi_api_version", value);
     }
 
@@ -949,7 +949,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? MsiEndpoint
     {
-        get => new TerraformReference<string>(this, "msi_endpoint");
+        get => GetArgument<TerraformValue<string>>("msi_endpoint");
         set => SetArgument("msi_endpoint", value);
     }
 
@@ -959,7 +959,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? OidcRequestToken
     {
-        get => new TerraformReference<string>(this, "oidc_request_token");
+        get => GetArgument<TerraformValue<string>>("oidc_request_token");
         set => SetArgument("oidc_request_token", value);
     }
 
@@ -969,7 +969,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? OidcRequestUrl
     {
-        get => new TerraformReference<string>(this, "oidc_request_url");
+        get => GetArgument<TerraformValue<string>>("oidc_request_url");
         set => SetArgument("oidc_request_url", value);
     }
 
@@ -979,7 +979,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? OidcToken
     {
-        get => new TerraformReference<string>(this, "oidc_token");
+        get => GetArgument<TerraformValue<string>>("oidc_token");
         set => SetArgument("oidc_token", value);
     }
 
@@ -989,7 +989,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? OidcTokenFilePath
     {
-        get => new TerraformReference<string>(this, "oidc_token_file_path");
+        get => GetArgument<TerraformValue<string>>("oidc_token_file_path");
         set => SetArgument("oidc_token_file_path", value);
     }
 
@@ -999,7 +999,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? PartnerId
     {
-        get => new TerraformReference<string>(this, "partner_id");
+        get => GetArgument<TerraformValue<string>>("partner_id");
         set => SetArgument("partner_id", value);
     }
 
@@ -1009,7 +1009,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? ResourceProviderRegistrations
     {
-        get => new TerraformReference<string>(this, "resource_provider_registrations");
+        get => GetArgument<TerraformValue<string>>("resource_provider_registrations");
         set => SetArgument("resource_provider_registrations", value);
     }
 
@@ -1019,7 +1019,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformList<string>? ResourceProvidersToRegister
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_providers_to_register").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("resource_providers_to_register");
         set => SetArgument("resource_providers_to_register", value);
     }
 
@@ -1030,7 +1030,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool>? SkipProviderRegistration
     {
-        get => new TerraformReference<bool>(this, "skip_provider_registration");
+        get => GetArgument<TerraformValue<bool>>("skip_provider_registration");
         set => SetArgument("skip_provider_registration", value);
     }
 
@@ -1040,7 +1040,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<bool>? StorageUseAzuread
     {
-        get => new TerraformReference<bool>(this, "storage_use_azuread");
+        get => GetArgument<TerraformValue<bool>>("storage_use_azuread");
         set => SetArgument("storage_use_azuread", value);
     }
 
@@ -1050,7 +1050,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? SubscriptionId
     {
-        get => new TerraformReference<string>(this, "subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 
@@ -1060,7 +1060,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -1070,7 +1070,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<bool>? UseAksWorkloadIdentity
     {
-        get => new TerraformReference<bool>(this, "use_aks_workload_identity");
+        get => GetArgument<TerraformValue<bool>>("use_aks_workload_identity");
         set => SetArgument("use_aks_workload_identity", value);
     }
 
@@ -1080,7 +1080,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<bool>? UseCli
     {
-        get => new TerraformReference<bool>(this, "use_cli");
+        get => GetArgument<TerraformValue<bool>>("use_cli");
         set => SetArgument("use_cli", value);
     }
 
@@ -1090,7 +1090,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<bool>? UseMsi
     {
-        get => new TerraformReference<bool>(this, "use_msi");
+        get => GetArgument<TerraformValue<bool>>("use_msi");
         set => SetArgument("use_msi", value);
     }
 
@@ -1100,7 +1100,7 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
     /// </summary>
     public TerraformValue<bool>? UseOidc
     {
-        get => new TerraformReference<bool>(this, "use_oidc");
+        get => GetArgument<TerraformValue<bool>>("use_oidc");
         set => SetArgument("use_oidc", value);
     }
 

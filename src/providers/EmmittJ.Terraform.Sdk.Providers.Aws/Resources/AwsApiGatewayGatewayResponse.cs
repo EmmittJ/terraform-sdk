@@ -11,18 +11,18 @@ public partial class AwsApiGatewayGatewayResponse(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsApiGatewayGatewayResponse(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? ResponseParameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "response_parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("response_parameters");
         set => SetArgument("response_parameters", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsApiGatewayGatewayResponse(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? ResponseTemplates
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "response_templates").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("response_templates");
         set => SetArgument("response_templates", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsApiGatewayGatewayResponse(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponseType is required")]
     public required TerraformValue<string> ResponseType
     {
-        get => new TerraformReference<string>(this, "response_type");
+        get => GetArgument<TerraformValue<string>>("response_type");
         set => SetArgument("response_type", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsApiGatewayGatewayResponse(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformValue<string> RestApiId
     {
-        get => new TerraformReference<string>(this, "rest_api_id");
+        get => GetArgument<TerraformValue<string>>("rest_api_id");
         set => SetArgument("rest_api_id", value);
     }
 
@@ -69,7 +69,7 @@ public partial class AwsApiGatewayGatewayResponse(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? StatusCode
     {
-        get => new TerraformReference<string>(this, "status_code");
+        get => GetArgument<TerraformValue<string>>("status_code");
         set => SetArgument("status_code", value);
     }
 

@@ -14,7 +14,7 @@ public partial class AwsIamUserPoliciesExclusive(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyNames is required")]
     public required TerraformSet<string> PolicyNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "policy_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("policy_names");
         set => SetArgument("policy_names", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsIamUserPoliciesExclusive(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformValue<string> UserName
     {
-        get => new TerraformReference<string>(this, "user_name");
+        get => GetArgument<TerraformValue<string>>("user_name");
         set => SetArgument("user_name", value);
     }
 

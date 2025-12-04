@@ -18,7 +18,7 @@ public class AzurermRedisCacheAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermRedisCacheAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermRedisCacheAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermRedisCacheAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermRedisCacheAccessPolicy(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermRedisCacheAccessPolicy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermRedisCacheAccessPolicy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     public required TerraformValue<string> Permissions
     {
-        get => new TerraformReference<string>(this, "permissions");
+        get => GetArgument<TerraformValue<string>>("permissions");
         set => SetArgument("permissions", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermRedisCacheAccessPolicy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedisCacheId is required")]
     public required TerraformValue<string> RedisCacheId
     {
-        get => new TerraformReference<string>(this, "redis_cache_id");
+        get => GetArgument<TerraformValue<string>>("redis_cache_id");
         set => SetArgument("redis_cache_id", value);
     }
 

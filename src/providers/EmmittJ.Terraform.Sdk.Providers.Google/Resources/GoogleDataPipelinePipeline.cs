@@ -18,16 +18,14 @@ public class GoogleDataPipelinePipelineScheduleInfoBlock : TerraformBlock
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> NextJobTime
-    {
-        get => new TerraformReference<string>(this, "next_job_time");
-    }
+        => AsReference("next_job_time");
 
     /// <summary>
     /// Unix-cron format of the schedule. This information is retrieved from the linked Cloud Scheduler.
     /// </summary>
     public TerraformValue<string>? Schedule
     {
-        get => new TerraformReference<string>(this, "schedule");
+        get => GetArgument<TerraformValue<string>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -36,7 +34,7 @@ public class GoogleDataPipelinePipelineScheduleInfoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -59,7 +57,7 @@ public class GoogleDataPipelinePipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -68,7 +66,7 @@ public class GoogleDataPipelinePipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -77,7 +75,7 @@ public class GoogleDataPipelinePipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -134,7 +132,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -144,7 +142,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -153,7 +151,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformValue<bool>? ValidateOnly
     {
-        get => new TerraformReference<bool>(this, "validate_only");
+        get => GetArgument<TerraformValue<bool>>("validate_only");
         set => SetArgument("validate_only", value);
     }
 
@@ -188,7 +186,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformValue<string>? ContainerSpecGcsPath
     {
-        get => new TerraformReference<string>(this, "container_spec_gcs_path");
+        get => GetArgument<TerraformValue<string>>("container_spec_gcs_path");
         set => SetArgument("container_spec_gcs_path", value);
     }
 
@@ -198,7 +196,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobName is required")]
     public required TerraformValue<string> JobName
     {
-        get => new TerraformReference<string>(this, "job_name");
+        get => GetArgument<TerraformValue<string>>("job_name");
         set => SetArgument("job_name", value);
     }
 
@@ -208,7 +206,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformMap<string>? LaunchOptions
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "launch_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("launch_options");
         set => SetArgument("launch_options", value);
     }
 
@@ -218,7 +216,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -228,7 +226,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformMap<string>? TransformNameMappings
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "transform_name_mappings").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("transform_name_mappings");
         set => SetArgument("transform_name_mappings", value);
     }
 
@@ -237,7 +235,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformValue<bool>? Update
     {
-        get => new TerraformReference<bool>(this, "update");
+        get => GetArgument<TerraformValue<bool>>("update");
         set => SetArgument("update", value);
     }
 
@@ -269,7 +267,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformList<string>? AdditionalExperiments
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "additional_experiments").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("additional_experiments");
         set => SetArgument("additional_experiments", value);
     }
 
@@ -280,7 +278,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformMap<string>? AdditionalUserLabels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_user_labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("additional_user_labels");
         set => SetArgument("additional_user_labels", value);
     }
 
@@ -289,7 +287,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformValue<bool>? EnableStreamingEngine
     {
-        get => new TerraformReference<bool>(this, "enable_streaming_engine");
+        get => GetArgument<TerraformValue<bool>>("enable_streaming_engine");
         set => SetArgument("enable_streaming_engine", value);
     }
 
@@ -299,7 +297,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformValue<string>? FlexrsGoal
     {
-        get => new TerraformReference<string>(this, "flexrs_goal");
+        get => GetArgument<TerraformValue<string>>("flexrs_goal");
         set => SetArgument("flexrs_goal", value);
     }
 
@@ -309,7 +307,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformValue<string>? IpConfiguration
     {
-        get => new TerraformReference<string>(this, "ip_configuration");
+        get => GetArgument<TerraformValue<string>>("ip_configuration");
         set => SetArgument("ip_configuration", value);
     }
 
@@ -318,7 +316,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -327,7 +325,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -336,7 +334,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformValue<double>? MaxWorkers
     {
-        get => new TerraformReference<double>(this, "max_workers");
+        get => GetArgument<TerraformValue<double>>("max_workers");
         set => SetArgument("max_workers", value);
     }
 
@@ -345,7 +343,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -354,7 +352,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformValue<double>? NumWorkers
     {
-        get => new TerraformReference<double>(this, "num_workers");
+        get => GetArgument<TerraformValue<double>>("num_workers");
         set => SetArgument("num_workers", value);
     }
 
@@ -363,7 +361,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformValue<string>? ServiceAccountEmail
     {
-        get => new TerraformReference<string>(this, "service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -372,7 +370,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformValue<string>? Subnetwork
     {
-        get => new TerraformReference<string>(this, "subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -381,7 +379,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformValue<string>? TempLocation
     {
-        get => new TerraformReference<string>(this, "temp_location");
+        get => GetArgument<TerraformValue<string>>("temp_location");
         set => SetArgument("temp_location", value);
     }
 
@@ -390,7 +388,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformValue<string>? WorkerRegion
     {
-        get => new TerraformReference<string>(this, "worker_region");
+        get => GetArgument<TerraformValue<string>>("worker_region");
         set => SetArgument("worker_region", value);
     }
 
@@ -399,7 +397,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformValue<string>? WorkerZone
     {
-        get => new TerraformReference<string>(this, "worker_zone");
+        get => GetArgument<TerraformValue<string>>("worker_zone");
         set => SetArgument("worker_zone", value);
     }
 
@@ -408,7 +406,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowFlexTemplateRequestB
     /// </summary>
     public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -430,7 +428,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformValue<string>? GcsPath
     {
-        get => new TerraformReference<string>(this, "gcs_path");
+        get => GetArgument<TerraformValue<string>>("gcs_path");
         set => SetArgument("gcs_path", value);
     }
 
@@ -439,7 +437,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -449,7 +447,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -458,7 +456,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformValue<bool>? ValidateOnly
     {
-        get => new TerraformReference<bool>(this, "validate_only");
+        get => GetArgument<TerraformValue<bool>>("validate_only");
         set => SetArgument("validate_only", value);
     }
 
@@ -491,7 +489,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobName is required")]
     public required TerraformValue<string> JobName
     {
-        get => new TerraformReference<string>(this, "job_name");
+        get => GetArgument<TerraformValue<string>>("job_name");
         set => SetArgument("job_name", value);
     }
 
@@ -501,7 +499,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -511,7 +509,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformMap<string>? TransformNameMapping
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "transform_name_mapping").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("transform_name_mapping");
         set => SetArgument("transform_name_mapping", value);
     }
 
@@ -520,7 +518,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformValue<bool>? Update
     {
-        get => new TerraformReference<bool>(this, "update");
+        get => GetArgument<TerraformValue<bool>>("update");
         set => SetArgument("update", value);
     }
 
@@ -552,7 +550,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformList<string>? AdditionalExperiments
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "additional_experiments").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("additional_experiments");
         set => SetArgument("additional_experiments", value);
     }
 
@@ -563,7 +561,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformMap<string>? AdditionalUserLabels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_user_labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("additional_user_labels");
         set => SetArgument("additional_user_labels", value);
     }
 
@@ -572,7 +570,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformValue<bool>? BypassTempDirValidation
     {
-        get => new TerraformReference<bool>(this, "bypass_temp_dir_validation");
+        get => GetArgument<TerraformValue<bool>>("bypass_temp_dir_validation");
         set => SetArgument("bypass_temp_dir_validation", value);
     }
 
@@ -581,7 +579,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformValue<bool>? EnableStreamingEngine
     {
-        get => new TerraformReference<bool>(this, "enable_streaming_engine");
+        get => GetArgument<TerraformValue<bool>>("enable_streaming_engine");
         set => SetArgument("enable_streaming_engine", value);
     }
 
@@ -591,7 +589,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformValue<string>? IpConfiguration
     {
-        get => new TerraformReference<string>(this, "ip_configuration");
+        get => GetArgument<TerraformValue<string>>("ip_configuration");
         set => SetArgument("ip_configuration", value);
     }
 
@@ -600,7 +598,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -609,7 +607,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -618,16 +616,16 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformValue<double>? MaxWorkers
     {
-        get => new TerraformReference<double>(this, "max_workers");
+        get => GetArgument<TerraformValue<double>>("max_workers");
         set => SetArgument("max_workers", value);
     }
 
     /// <summary>
     /// Network to which VMs will be assigned. If empty or unspecified, the service will use the network &amp;quot;default&amp;quot;.
     /// </summary>
-    public TerraformValue<string> Network
+    public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -636,7 +634,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformValue<double>? NumWorkers
     {
-        get => new TerraformReference<double>(this, "num_workers");
+        get => GetArgument<TerraformValue<double>>("num_workers");
         set => SetArgument("num_workers", value);
     }
 
@@ -645,7 +643,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformValue<string>? ServiceAccountEmail
     {
-        get => new TerraformReference<string>(this, "service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -654,7 +652,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformValue<string>? Subnetwork
     {
-        get => new TerraformReference<string>(this, "subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -663,7 +661,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformValue<string>? TempLocation
     {
-        get => new TerraformReference<string>(this, "temp_location");
+        get => GetArgument<TerraformValue<string>>("temp_location");
         set => SetArgument("temp_location", value);
     }
 
@@ -672,7 +670,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformValue<string>? WorkerRegion
     {
-        get => new TerraformReference<string>(this, "worker_region");
+        get => GetArgument<TerraformValue<string>>("worker_region");
         set => SetArgument("worker_region", value);
     }
 
@@ -681,7 +679,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformValue<string>? WorkerZone
     {
-        get => new TerraformReference<string>(this, "worker_zone");
+        get => GetArgument<TerraformValue<string>>("worker_zone");
         set => SetArgument("worker_zone", value);
     }
 
@@ -690,7 +688,7 @@ public class GoogleDataPipelinePipelineWorkloadBlockDataflowLaunchTemplateReques
     /// </summary>
     public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -708,16 +706,16 @@ public partial class GoogleDataPipelinePipeline(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -730,7 +728,7 @@ public partial class GoogleDataPipelinePipeline(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -740,16 +738,16 @@ public partial class GoogleDataPipelinePipeline(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? PipelineSources
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "pipeline_sources").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("pipeline_sources");
         set => SetArgument("pipeline_sources", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -758,16 +756,16 @@ public partial class GoogleDataPipelinePipeline(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// Optional. A service account email to be used with the Cloud Scheduler job. If not specified, the default compute engine service account will be used.
     /// </summary>
-    public TerraformValue<string> SchedulerServiceAccountEmail
+    public TerraformValue<string>? SchedulerServiceAccountEmail
     {
-        get => new TerraformReference<string>(this, "scheduler_service_account_email");
+        get => GetArgument<TerraformValue<string>>("scheduler_service_account_email");
         set => SetArgument("scheduler_service_account_email", value);
     }
 
@@ -778,7 +776,7 @@ public partial class GoogleDataPipelinePipeline(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformValue<string> State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -789,7 +787,7 @@ public partial class GoogleDataPipelinePipeline(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -798,26 +796,20 @@ public partial class GoogleDataPipelinePipeline(string name) : TerraformResource
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Number of jobs.
     /// </summary>
     public TerraformValue<double> JobCount
-    {
-        get => new TerraformReference<double>(this, "job_count");
-    }
+        => AsReference("job_count");
 
     /// <summary>
     /// The timestamp when the pipeline was last modified. Set by the Data Pipelines service.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> LastUpdateTime
-    {
-        get => new TerraformReference<string>(this, "last_update_time");
-    }
+        => AsReference("last_update_time");
 
     /// <summary>
     /// ScheduleInfo block (nesting mode: list).

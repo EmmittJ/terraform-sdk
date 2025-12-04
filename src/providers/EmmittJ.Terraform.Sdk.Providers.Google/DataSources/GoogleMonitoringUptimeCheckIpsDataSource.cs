@@ -11,9 +11,9 @@ public partial class GoogleMonitoringUptimeCheckIpsDataSource(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -21,8 +21,6 @@ public partial class GoogleMonitoringUptimeCheckIpsDataSource(string name) : Ter
     /// The uptime_check_ips attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> UptimeCheckIps
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "uptime_check_ips").ResolveNodes(ctx));
-    }
+        => AsReference("uptime_check_ips");
 
 }

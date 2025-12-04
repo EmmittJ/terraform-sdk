@@ -72,7 +72,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockApiKeyBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockApiKeyBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockBasicBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockBasicBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -177,7 +177,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockInvocationHttpParame
     /// </summary>
     public TerraformValue<bool>? IsValueSecret
     {
-        get => new TerraformReference<bool>(this, "is_value_secret");
+        get => GetArgument<TerraformValue<bool>>("is_value_secret");
         set => SetArgument("is_value_secret", value);
     }
 
@@ -186,7 +186,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockInvocationHttpParame
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -195,7 +195,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockInvocationHttpParame
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -217,7 +217,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockInvocationHttpParame
     /// </summary>
     public TerraformValue<bool>? IsValueSecret
     {
-        get => new TerraformReference<bool>(this, "is_value_secret");
+        get => GetArgument<TerraformValue<bool>>("is_value_secret");
         set => SetArgument("is_value_secret", value);
     }
 
@@ -226,7 +226,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockInvocationHttpParame
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -235,7 +235,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockInvocationHttpParame
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -257,7 +257,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockInvocationHttpParame
     /// </summary>
     public TerraformValue<bool>? IsValueSecret
     {
-        get => new TerraformReference<bool>(this, "is_value_secret");
+        get => GetArgument<TerraformValue<bool>>("is_value_secret");
         set => SetArgument("is_value_secret", value);
     }
 
@@ -266,7 +266,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockInvocationHttpParame
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -275,7 +275,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockInvocationHttpParame
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -298,7 +298,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockOauthBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationEndpoint is required")]
     public required TerraformValue<string> AuthorizationEndpoint
     {
-        get => new TerraformReference<string>(this, "authorization_endpoint");
+        get => GetArgument<TerraformValue<string>>("authorization_endpoint");
         set => SetArgument("authorization_endpoint", value);
     }
 
@@ -308,7 +308,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockOauthBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpMethod is required")]
     public required TerraformValue<string> HttpMethod
     {
-        get => new TerraformReference<string>(this, "http_method");
+        get => GetArgument<TerraformValue<string>>("http_method");
         set => SetArgument("http_method", value);
     }
 
@@ -354,7 +354,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockOauthBlockClientPara
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -364,7 +364,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockOauthBlockClientPara
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformValue<string> ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -426,7 +426,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockOauthBlockOauthHttpP
     /// </summary>
     public TerraformValue<bool>? IsValueSecret
     {
-        get => new TerraformReference<bool>(this, "is_value_secret");
+        get => GetArgument<TerraformValue<bool>>("is_value_secret");
         set => SetArgument("is_value_secret", value);
     }
 
@@ -435,7 +435,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockOauthBlockOauthHttpP
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -444,7 +444,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockOauthBlockOauthHttpP
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -466,7 +466,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockOauthBlockOauthHttpP
     /// </summary>
     public TerraformValue<bool>? IsValueSecret
     {
-        get => new TerraformReference<bool>(this, "is_value_secret");
+        get => GetArgument<TerraformValue<bool>>("is_value_secret");
         set => SetArgument("is_value_secret", value);
     }
 
@@ -475,7 +475,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockOauthBlockOauthHttpP
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -484,7 +484,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockOauthBlockOauthHttpP
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -506,7 +506,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockOauthBlockOauthHttpP
     /// </summary>
     public TerraformValue<bool>? IsValueSecret
     {
-        get => new TerraformReference<bool>(this, "is_value_secret");
+        get => GetArgument<TerraformValue<bool>>("is_value_secret");
         set => SetArgument("is_value_secret", value);
     }
 
@@ -515,7 +515,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockOauthBlockOauthHttpP
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -524,7 +524,7 @@ public class AwsCloudwatchEventConnectionAuthParametersBlockOauthBlockOauthHttpP
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -572,9 +572,7 @@ public class AwsCloudwatchEventConnectionInvocationConnectivityParametersBlockRe
     /// The resource_association_arn attribute.
     /// </summary>
     public TerraformValue<string> ResourceAssociationArn
-    {
-        get => new TerraformReference<string>(this, "resource_association_arn");
-    }
+        => AsReference("resource_association_arn");
 
     /// <summary>
     /// The resource_configuration_arn attribute.
@@ -582,7 +580,7 @@ public class AwsCloudwatchEventConnectionInvocationConnectivityParametersBlockRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceConfigurationArn is required")]
     public required TerraformValue<string> ResourceConfigurationArn
     {
-        get => new TerraformReference<string>(this, "resource_configuration_arn");
+        get => GetArgument<TerraformValue<string>>("resource_configuration_arn");
         set => SetArgument("resource_configuration_arn", value);
     }
 
@@ -601,7 +599,7 @@ public partial class AwsCloudwatchEventConnection(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationType is required")]
     public required TerraformValue<string> AuthorizationType
     {
-        get => new TerraformReference<string>(this, "authorization_type");
+        get => GetArgument<TerraformValue<string>>("authorization_type");
         set => SetArgument("authorization_type", value);
     }
 
@@ -610,16 +608,16 @@ public partial class AwsCloudwatchEventConnection(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -628,7 +626,7 @@ public partial class AwsCloudwatchEventConnection(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? KmsKeyIdentifier
     {
-        get => new TerraformReference<string>(this, "kms_key_identifier");
+        get => GetArgument<TerraformValue<string>>("kms_key_identifier");
         set => SetArgument("kms_key_identifier", value);
     }
 
@@ -638,16 +636,16 @@ public partial class AwsCloudwatchEventConnection(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -655,17 +653,13 @@ public partial class AwsCloudwatchEventConnection(string name) : TerraformResour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The secret_arn attribute.
     /// </summary>
     public TerraformValue<string> SecretArn
-    {
-        get => new TerraformReference<string>(this, "secret_arn");
-    }
+        => AsReference("secret_arn");
 
     /// <summary>
     /// AuthParameters block (nesting mode: list).

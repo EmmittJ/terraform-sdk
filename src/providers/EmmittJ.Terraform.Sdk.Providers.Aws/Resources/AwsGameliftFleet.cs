@@ -18,7 +18,7 @@ public class AwsGameliftFleetCertificateConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CertificateType
     {
-        get => new TerraformReference<string>(this, "certificate_type");
+        get => GetArgument<TerraformValue<string>>("certificate_type");
         set => SetArgument("certificate_type", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsGameliftFleetEc2InboundPermissionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformValue<double> FromPort
     {
-        get => new TerraformReference<double>(this, "from_port");
+        get => GetArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsGameliftFleetEc2InboundPermissionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpRange is required")]
     public required TerraformValue<string> IpRange
     {
-        get => new TerraformReference<string>(this, "ip_range");
+        get => GetArgument<TerraformValue<string>>("ip_range");
         set => SetArgument("ip_range", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsGameliftFleetEc2InboundPermissionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsGameliftFleetEc2InboundPermissionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformValue<double> ToPort
     {
-        get => new TerraformReference<double>(this, "to_port");
+        get => GetArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsGameliftFleetResourceCreationLimitPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? NewGameSessionsPerCreator
     {
-        get => new TerraformReference<double>(this, "new_game_sessions_per_creator");
+        get => GetArgument<TerraformValue<double>>("new_game_sessions_per_creator");
         set => SetArgument("new_game_sessions_per_creator", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsGameliftFleetResourceCreationLimitPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? PolicyPeriodInMinutes
     {
-        get => new TerraformReference<double>(this, "policy_period_in_minutes");
+        get => GetArgument<TerraformValue<double>>("policy_period_in_minutes");
         set => SetArgument("policy_period_in_minutes", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsGameliftFleetRuntimeConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? GameSessionActivationTimeoutSeconds
     {
-        get => new TerraformReference<double>(this, "game_session_activation_timeout_seconds");
+        get => GetArgument<TerraformValue<double>>("game_session_activation_timeout_seconds");
         set => SetArgument("game_session_activation_timeout_seconds", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsGameliftFleetRuntimeConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxConcurrentGameSessionActivations
     {
-        get => new TerraformReference<double>(this, "max_concurrent_game_session_activations");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_game_session_activations");
         set => SetArgument("max_concurrent_game_session_activations", value);
     }
 
@@ -169,7 +169,7 @@ public class AwsGameliftFleetRuntimeConfigurationBlockServerProcessBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConcurrentExecutions is required")]
     public required TerraformValue<double> ConcurrentExecutions
     {
-        get => new TerraformReference<double>(this, "concurrent_executions");
+        get => GetArgument<TerraformValue<double>>("concurrent_executions");
         set => SetArgument("concurrent_executions", value);
     }
 
@@ -179,7 +179,7 @@ public class AwsGameliftFleetRuntimeConfigurationBlockServerProcessBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LaunchPath is required")]
     public required TerraformValue<string> LaunchPath
     {
-        get => new TerraformReference<string>(this, "launch_path");
+        get => GetArgument<TerraformValue<string>>("launch_path");
         set => SetArgument("launch_path", value);
     }
 
@@ -188,7 +188,7 @@ public class AwsGameliftFleetRuntimeConfigurationBlockServerProcessBlock : Terra
     /// </summary>
     public TerraformValue<string>? Parameters
     {
-        get => new TerraformReference<string>(this, "parameters");
+        get => GetArgument<TerraformValue<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -211,7 +211,7 @@ public class AwsGameliftFleetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -220,7 +220,7 @@ public class AwsGameliftFleetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -238,7 +238,7 @@ public partial class AwsGameliftFleet(string name) : TerraformResource("aws_game
     /// </summary>
     public TerraformValue<string>? BuildId
     {
-        get => new TerraformReference<string>(this, "build_id");
+        get => GetArgument<TerraformValue<string>>("build_id");
         set => SetArgument("build_id", value);
     }
 
@@ -247,7 +247,7 @@ public partial class AwsGameliftFleet(string name) : TerraformResource("aws_game
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -257,7 +257,7 @@ public partial class AwsGameliftFleet(string name) : TerraformResource("aws_game
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ec2InstanceType is required")]
     public required TerraformValue<string> Ec2InstanceType
     {
-        get => new TerraformReference<string>(this, "ec2_instance_type");
+        get => GetArgument<TerraformValue<string>>("ec2_instance_type");
         set => SetArgument("ec2_instance_type", value);
     }
 
@@ -266,16 +266,16 @@ public partial class AwsGameliftFleet(string name) : TerraformResource("aws_game
     /// </summary>
     public TerraformValue<string>? FleetType
     {
-        get => new TerraformReference<string>(this, "fleet_type");
+        get => GetArgument<TerraformValue<string>>("fleet_type");
         set => SetArgument("fleet_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -284,16 +284,16 @@ public partial class AwsGameliftFleet(string name) : TerraformResource("aws_game
     /// </summary>
     public TerraformValue<string>? InstanceRoleArn
     {
-        get => new TerraformReference<string>(this, "instance_role_arn");
+        get => GetArgument<TerraformValue<string>>("instance_role_arn");
         set => SetArgument("instance_role_arn", value);
     }
 
     /// <summary>
     /// The metric_groups attribute.
     /// </summary>
-    public TerraformList<string> MetricGroups
+    public TerraformList<string>? MetricGroups
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "metric_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("metric_groups");
         set => SetArgument("metric_groups", value);
     }
 
@@ -303,7 +303,7 @@ public partial class AwsGameliftFleet(string name) : TerraformResource("aws_game
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -312,16 +312,16 @@ public partial class AwsGameliftFleet(string name) : TerraformResource("aws_game
     /// </summary>
     public TerraformValue<string>? NewGameSessionProtectionPolicy
     {
-        get => new TerraformReference<string>(this, "new_game_session_protection_policy");
+        get => GetArgument<TerraformValue<string>>("new_game_session_protection_policy");
         set => SetArgument("new_game_session_protection_policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -330,7 +330,7 @@ public partial class AwsGameliftFleet(string name) : TerraformResource("aws_game
     /// </summary>
     public TerraformValue<string>? ScriptId
     {
-        get => new TerraformReference<string>(this, "script_id");
+        get => GetArgument<TerraformValue<string>>("script_id");
         set => SetArgument("script_id", value);
     }
 
@@ -339,16 +339,16 @@ public partial class AwsGameliftFleet(string name) : TerraformResource("aws_game
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -356,41 +356,31 @@ public partial class AwsGameliftFleet(string name) : TerraformResource("aws_game
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The build_arn attribute.
     /// </summary>
     public TerraformValue<string> BuildArn
-    {
-        get => new TerraformReference<string>(this, "build_arn");
-    }
+        => AsReference("build_arn");
 
     /// <summary>
     /// The log_paths attribute.
     /// </summary>
     public TerraformList<string> LogPaths
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "log_paths").ResolveNodes(ctx));
-    }
+        => AsReference("log_paths");
 
     /// <summary>
     /// The operating_system attribute.
     /// </summary>
     public TerraformValue<string> OperatingSystem
-    {
-        get => new TerraformReference<string>(this, "operating_system");
-    }
+        => AsReference("operating_system");
 
     /// <summary>
     /// The script_arn attribute.
     /// </summary>
     public TerraformValue<string> ScriptArn
-    {
-        get => new TerraformReference<string>(this, "script_arn");
-    }
+        => AsReference("script_arn");
 
     /// <summary>
     /// CertificateConfiguration block (nesting mode: list).

@@ -11,9 +11,9 @@ public partial class GoogleComputeInstanceDataSource(string name) : TerraformDat
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleComputeInstanceDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleComputeInstanceDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -40,7 +40,7 @@ public partial class GoogleComputeInstanceDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string>? SelfLink
     {
-        get => new TerraformReference<string>(this, "self_link");
+        get => GetArgument<TerraformValue<string>>("self_link");
         set => SetArgument("self_link", value);
     }
 
@@ -49,7 +49,7 @@ public partial class GoogleComputeInstanceDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -57,65 +57,49 @@ public partial class GoogleComputeInstanceDataSource(string name) : TerraformDat
     /// Controls for advanced machine-related behavior features.
     /// </summary>
     public TerraformList<TerraformMap<object>> AdvancedMachineFeatures
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "advanced_machine_features").ResolveNodes(ctx));
-    }
+        => AsReference("advanced_machine_features");
 
     /// <summary>
     /// If true, allows Terraform to stop the instance to update its properties. If you try to update a property that requires stopping the instance without setting this field, the update will fail.
     /// </summary>
     public TerraformValue<bool> AllowStoppingForUpdate
-    {
-        get => new TerraformReference<bool>(this, "allow_stopping_for_update");
-    }
+        => AsReference("allow_stopping_for_update");
 
     /// <summary>
     /// List of disks attached to the instance
     /// </summary>
     public TerraformList<TerraformMap<object>> AttachedDisk
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "attached_disk").ResolveNodes(ctx));
-    }
+        => AsReference("attached_disk");
 
     /// <summary>
     /// The boot disk for the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> BootDisk
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "boot_disk").ResolveNodes(ctx));
-    }
+        => AsReference("boot_disk");
 
     /// <summary>
     /// Whether sending and receiving of packets with non-matching source or destination IPs is allowed.
     /// </summary>
     public TerraformValue<bool> CanIpForward
-    {
-        get => new TerraformReference<bool>(this, "can_ip_forward");
-    }
+        => AsReference("can_ip_forward");
 
     /// <summary>
     /// The Confidential VM config being used by the instance.  on_host_maintenance has to be set to TERMINATE or this will fail to create.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConfidentialInstanceConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "confidential_instance_config").ResolveNodes(ctx));
-    }
+        => AsReference("confidential_instance_config");
 
     /// <summary>
     /// The CPU platform used by this instance.
     /// </summary>
     public TerraformValue<string> CpuPlatform
-    {
-        get => new TerraformReference<string>(this, "cpu_platform");
-    }
+        => AsReference("cpu_platform");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// 
@@ -124,97 +108,73 @@ public partial class GoogleComputeInstanceDataSource(string name) : TerraformDat
     /// 					For more information about the status of the instance, see [Instance life cycle](https://cloud.google.com/compute/docs/instances/instance-life-cycle).
     /// </summary>
     public TerraformValue<string> CurrentStatus
-    {
-        get => new TerraformReference<string>(this, "current_status");
-    }
+        => AsReference("current_status");
 
     /// <summary>
     /// Whether deletion protection is enabled on this instance.
     /// </summary>
     public TerraformValue<bool> DeletionProtection
-    {
-        get => new TerraformReference<bool>(this, "deletion_protection");
-    }
+        => AsReference("deletion_protection");
 
     /// <summary>
     /// A brief description of the resource.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// Desired status of the instance. Either &amp;quot;RUNNING&amp;quot;, &amp;quot;SUSPENDED&amp;quot; or &amp;quot;TERMINATED&amp;quot;.
     /// </summary>
     public TerraformValue<string> DesiredStatus
-    {
-        get => new TerraformReference<string>(this, "desired_status");
-    }
+        => AsReference("desired_status");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Whether the instance has virtual displays enabled.
     /// </summary>
     public TerraformValue<bool> EnableDisplay
-    {
-        get => new TerraformReference<bool>(this, "enable_display");
-    }
+        => AsReference("enable_display");
 
     /// <summary>
     /// List of the type and count of accelerator cards attached to the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> GuestAccelerator
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "guest_accelerator").ResolveNodes(ctx));
-    }
+        => AsReference("guest_accelerator");
 
     /// <summary>
     /// A custom hostname for the instance. Must be a fully qualified DNS name and RFC-1035-valid. Valid format is a series of labels 1-63 characters long matching the regular expression [a-z]([-a-z0-9]*[a-z0-9]), concatenated with periods. The entire hostname must not exceed 253 characters. Changing this forces a new resource to be created.
     /// </summary>
     public TerraformValue<string> Hostname
-    {
-        get => new TerraformReference<string>(this, "hostname");
-    }
+        => AsReference("hostname");
 
     /// <summary>
     /// Encryption key used to provide data encryption on the given instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstanceEncryptionKey
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "instance_encryption_key").ResolveNodes(ctx));
-    }
+        => AsReference("instance_encryption_key");
 
     /// <summary>
     /// The server-assigned unique identifier of this instance.
     /// </summary>
     public TerraformValue<string> InstanceId
-    {
-        get => new TerraformReference<string>(this, "instance_id");
-    }
+        => AsReference("instance_id");
 
     /// <summary>
     /// Action to be taken when a customer&#39;s encryption key is revoked. Supports &amp;quot;STOP&amp;quot; and &amp;quot;NONE&amp;quot;, with &amp;quot;NONE&amp;quot; being the default.
     /// </summary>
     public TerraformValue<string> KeyRevocationActionType
-    {
-        get => new TerraformReference<string>(this, "key_revocation_action_type");
-    }
+        => AsReference("key_revocation_action_type");
 
     /// <summary>
     /// The unique fingerprint of the labels.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-    {
-        get => new TerraformReference<string>(this, "label_fingerprint");
-    }
+        => AsReference("label_fingerprint");
 
     /// <summary>
     /// A set of key/value label pairs assigned to the instance.
@@ -223,144 +183,108 @@ public partial class GoogleComputeInstanceDataSource(string name) : TerraformDat
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
-    }
+        => AsReference("labels");
 
     /// <summary>
     /// The machine type to create.
     /// </summary>
     public TerraformValue<string> MachineType
-    {
-        get => new TerraformReference<string>(this, "machine_type");
-    }
+        => AsReference("machine_type");
 
     /// <summary>
     /// Metadata key/value pairs made available within the instance.
     /// </summary>
     public TerraformMap<string> Metadata
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
-    }
+        => AsReference("metadata");
 
     /// <summary>
     /// The unique fingerprint of the metadata.
     /// </summary>
     public TerraformValue<string> MetadataFingerprint
-    {
-        get => new TerraformReference<string>(this, "metadata_fingerprint");
-    }
+        => AsReference("metadata_fingerprint");
 
     /// <summary>
     /// Metadata startup scripts made available within the instance.
     /// </summary>
     public TerraformValue<string> MetadataStartupScript
-    {
-        get => new TerraformReference<string>(this, "metadata_startup_script");
-    }
+        => AsReference("metadata_startup_script");
 
     /// <summary>
     /// The minimum CPU platform specified for the VM instance.
     /// </summary>
     public TerraformValue<string> MinCpuPlatform
-    {
-        get => new TerraformReference<string>(this, "min_cpu_platform");
-    }
+        => AsReference("min_cpu_platform");
 
     /// <summary>
     /// The networks attached to the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkInterface
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "network_interface").ResolveNodes(ctx));
-    }
+        => AsReference("network_interface");
 
     /// <summary>
     /// Configures network performance settings for the instance. If not specified, the instance will be created with its default network performance configuration.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkPerformanceConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "network_performance_config").ResolveNodes(ctx));
-    }
+        => AsReference("network_performance_config");
 
     /// <summary>
     /// Stores additional params passed with the request, but not persisted as part of resource payload.
     /// </summary>
     public TerraformList<TerraformMap<object>> ParamsAttribute
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "params").ResolveNodes(ctx));
-    }
+        => AsReference("params");
 
     /// <summary>
     /// Specifies the reservations that this instance can consume from.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReservationAffinity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "reservation_affinity").ResolveNodes(ctx));
-    }
+        => AsReference("reservation_affinity");
 
     /// <summary>
     /// A list of self_links of resource policies to attach to the instance. Currently a max of 1 resource policy is supported.
     /// </summary>
     public TerraformList<string> ResourcePolicies
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_policies").ResolveNodes(ctx));
-    }
+        => AsReference("resource_policies");
 
     /// <summary>
     /// The scheduling strategy being used by the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> Scheduling
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "scheduling").ResolveNodes(ctx));
-    }
+        => AsReference("scheduling");
 
     /// <summary>
     /// The scratch disks attached to the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> ScratchDisk
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "scratch_disk").ResolveNodes(ctx));
-    }
+        => AsReference("scratch_disk");
 
     /// <summary>
     /// The service account to attach to the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServiceAccount
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "service_account").ResolveNodes(ctx));
-    }
+        => AsReference("service_account");
 
     /// <summary>
     /// The shielded vm config being used by the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> ShieldedInstanceConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "shielded_instance_config").ResolveNodes(ctx));
-    }
+        => AsReference("shielded_instance_config");
 
     /// <summary>
     /// The list of tags attached to the instance.
     /// </summary>
     public TerraformSet<string> Tags
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The unique fingerprint of the tags.
     /// </summary>
     public TerraformValue<string> TagsFingerprint
-    {
-        get => new TerraformReference<string>(this, "tags_fingerprint");
-    }
+        => AsReference("tags_fingerprint");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
 }

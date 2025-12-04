@@ -18,7 +18,7 @@ public class AwsSesv2ConfigurationSetEventDestinationEventDestinationBlock : Ter
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsSesv2ConfigurationSetEventDestinationEventDestinationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchingEventTypes is required")]
     public required TerraformSet<string> MatchingEventTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "matching_event_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("matching_event_types");
         set => SetArgument("matching_event_types", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsSesv2ConfigurationSetEventDestinationEventDestinationBlockCloudW
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultDimensionValue is required")]
     public required TerraformValue<string> DefaultDimensionValue
     {
-        get => new TerraformReference<string>(this, "default_dimension_value");
+        get => GetArgument<TerraformValue<string>>("default_dimension_value");
         set => SetArgument("default_dimension_value", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsSesv2ConfigurationSetEventDestinationEventDestinationBlockCloudW
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DimensionName is required")]
     public required TerraformValue<string> DimensionName
     {
-        get => new TerraformReference<string>(this, "dimension_name");
+        get => GetArgument<TerraformValue<string>>("dimension_name");
         set => SetArgument("dimension_name", value);
     }
 
@@ -146,7 +146,7 @@ public class AwsSesv2ConfigurationSetEventDestinationEventDestinationBlockCloudW
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DimensionValueSource is required")]
     public required TerraformValue<string> DimensionValueSource
     {
-        get => new TerraformReference<string>(this, "dimension_value_source");
+        get => GetArgument<TerraformValue<string>>("dimension_value_source");
         set => SetArgument("dimension_value_source", value);
     }
 
@@ -169,7 +169,7 @@ public class AwsSesv2ConfigurationSetEventDestinationEventDestinationBlockEventB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventBusArn is required")]
     public required TerraformValue<string> EventBusArn
     {
-        get => new TerraformReference<string>(this, "event_bus_arn");
+        get => GetArgument<TerraformValue<string>>("event_bus_arn");
         set => SetArgument("event_bus_arn", value);
     }
 
@@ -192,7 +192,7 @@ public class AwsSesv2ConfigurationSetEventDestinationEventDestinationBlockKinesi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryStreamArn is required")]
     public required TerraformValue<string> DeliveryStreamArn
     {
-        get => new TerraformReference<string>(this, "delivery_stream_arn");
+        get => GetArgument<TerraformValue<string>>("delivery_stream_arn");
         set => SetArgument("delivery_stream_arn", value);
     }
 
@@ -202,7 +202,7 @@ public class AwsSesv2ConfigurationSetEventDestinationEventDestinationBlockKinesi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformValue<string> IamRoleArn
     {
-        get => new TerraformReference<string>(this, "iam_role_arn");
+        get => GetArgument<TerraformValue<string>>("iam_role_arn");
         set => SetArgument("iam_role_arn", value);
     }
 
@@ -225,7 +225,7 @@ public class AwsSesv2ConfigurationSetEventDestinationEventDestinationBlockPinpoi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationArn is required")]
     public required TerraformValue<string> ApplicationArn
     {
-        get => new TerraformReference<string>(this, "application_arn");
+        get => GetArgument<TerraformValue<string>>("application_arn");
         set => SetArgument("application_arn", value);
     }
 
@@ -248,7 +248,7 @@ public class AwsSesv2ConfigurationSetEventDestinationEventDestinationBlockSnsDes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     public required TerraformValue<string> TopicArn
     {
-        get => new TerraformReference<string>(this, "topic_arn");
+        get => GetArgument<TerraformValue<string>>("topic_arn");
         set => SetArgument("topic_arn", value);
     }
 
@@ -267,7 +267,7 @@ public partial class AwsSesv2ConfigurationSetEventDestination(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationSetName is required")]
     public required TerraformValue<string> ConfigurationSetName
     {
-        get => new TerraformReference<string>(this, "configuration_set_name");
+        get => GetArgument<TerraformValue<string>>("configuration_set_name");
         set => SetArgument("configuration_set_name", value);
     }
 
@@ -277,25 +277,25 @@ public partial class AwsSesv2ConfigurationSetEventDestination(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventDestinationName is required")]
     public required TerraformValue<string> EventDestinationName
     {
-        get => new TerraformReference<string>(this, "event_destination_name");
+        get => GetArgument<TerraformValue<string>>("event_destination_name");
         set => SetArgument("event_destination_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

@@ -11,9 +11,9 @@ public partial class GoogleBigqueryDatasetsDataSource(string name) : TerraformDa
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleBigqueryDatasetsDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -30,8 +30,6 @@ public partial class GoogleBigqueryDatasetsDataSource(string name) : TerraformDa
     /// The datasets attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Datasets
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "datasets").ResolveNodes(ctx));
-    }
+        => AsReference("datasets");
 
 }

@@ -14,7 +14,7 @@ public partial class AwsOutpostsAssetsDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -23,25 +23,25 @@ public partial class AwsOutpostsAssetsDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformSet<string>? HostIdFilter
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "host_id_filter").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("host_id_filter");
         set => SetArgument("host_id_filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsOutpostsAssetsDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformSet<string>? StatusIdFilter
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "status_id_filter").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("status_id_filter");
         set => SetArgument("status_id_filter", value);
     }
 
@@ -58,8 +58,6 @@ public partial class AwsOutpostsAssetsDataSource(string name) : TerraformDataSou
     /// The asset_ids attribute.
     /// </summary>
     public TerraformList<string> AssetIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "asset_ids").ResolveNodes(ctx));
-    }
+        => AsReference("asset_ids");
 
 }

@@ -18,7 +18,7 @@ public class AwsCodestarconnectionsHostTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsCodestarconnectionsHostTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsCodestarconnectionsHostTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsCodestarconnectionsHostVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsCodestarconnectionsHostVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsCodestarconnectionsHostVpcConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TlsCertificate
     {
-        get => new TerraformReference<string>(this, "tls_certificate");
+        get => GetArgument<TerraformValue<string>>("tls_certificate");
         set => SetArgument("tls_certificate", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsCodestarconnectionsHostVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -105,9 +105,9 @@ public partial class AwsCodestarconnectionsHost(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsCodestarconnectionsHost(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AwsCodestarconnectionsHost(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderEndpoint is required")]
     public required TerraformValue<string> ProviderEndpoint
     {
-        get => new TerraformReference<string>(this, "provider_endpoint");
+        get => GetArgument<TerraformValue<string>>("provider_endpoint");
         set => SetArgument("provider_endpoint", value);
     }
 
@@ -137,16 +137,16 @@ public partial class AwsCodestarconnectionsHost(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderType is required")]
     public required TerraformValue<string> ProviderType
     {
-        get => new TerraformReference<string>(this, "provider_type");
+        get => GetArgument<TerraformValue<string>>("provider_type");
         set => SetArgument("provider_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -154,17 +154,13 @@ public partial class AwsCodestarconnectionsHost(string name) : TerraformResource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -22,7 +22,7 @@ public class GoogleComputeInterconnectMacsecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? FailOpen
     {
-        get => new TerraformReference<bool>(this, "fail_open");
+        get => GetArgument<TerraformValue<bool>>("fail_open");
         set => SetArgument("fail_open", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleComputeInterconnectMacsecBlockPreSharedKeysBlock : TerraformB
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool>? FailOpen
     {
-        get => new TerraformReference<bool>(this, "fail_open");
+        get => GetArgument<TerraformValue<bool>>("fail_open");
         set => SetArgument("fail_open", value);
     }
 
@@ -75,7 +75,7 @@ public class GoogleComputeInterconnectMacsecBlockPreSharedKeysBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -88,7 +88,7 @@ public class GoogleComputeInterconnectMacsecBlockPreSharedKeysBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleComputeInterconnectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleComputeInterconnectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -129,7 +129,7 @@ public class GoogleComputeInterconnectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -149,7 +149,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? AdminEnabled
     {
-        get => new TerraformReference<bool>(this, "admin_enabled");
+        get => GetArgument<TerraformValue<bool>>("admin_enabled");
         set => SetArgument("admin_enabled", value);
     }
 
@@ -160,7 +160,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? CustomerName
     {
-        get => new TerraformReference<string>(this, "customer_name");
+        get => GetArgument<TerraformValue<string>>("customer_name");
         set => SetArgument("customer_name", value);
     }
 
@@ -169,16 +169,16 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -191,7 +191,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterconnectType is required")]
     public required TerraformValue<string> InterconnectType
     {
-        get => new TerraformReference<string>(this, "interconnect_type");
+        get => GetArgument<TerraformValue<string>>("interconnect_type");
         set => SetArgument("interconnect_type", value);
     }
 
@@ -205,7 +205,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -219,7 +219,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkType is required")]
     public required TerraformValue<string> LinkType
     {
-        get => new TerraformReference<string>(this, "link_type");
+        get => GetArgument<TerraformValue<string>>("link_type");
         set => SetArgument("link_type", value);
     }
 
@@ -230,7 +230,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -240,7 +240,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? MacsecEnabled
     {
-        get => new TerraformReference<bool>(this, "macsec_enabled");
+        get => GetArgument<TerraformValue<bool>>("macsec_enabled");
         set => SetArgument("macsec_enabled", value);
     }
 
@@ -254,7 +254,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -267,16 +267,16 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? NocContactEmail
     {
-        get => new TerraformReference<string>(this, "noc_contact_email");
+        get => GetArgument<TerraformValue<string>>("noc_contact_email");
         set => SetArgument("noc_contact_email", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -286,7 +286,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? RemoteLocation
     {
-        get => new TerraformReference<string>(this, "remote_location");
+        get => GetArgument<TerraformValue<string>>("remote_location");
         set => SetArgument("remote_location", value);
     }
 
@@ -299,7 +299,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     /// </summary>
     public TerraformList<string>? RequestedFeatures
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "requested_features").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("requested_features");
         set => SetArgument("requested_features", value);
     }
 
@@ -309,7 +309,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequestedLinkCount is required")]
     public required TerraformValue<double> RequestedLinkCount
     {
-        get => new TerraformReference<double>(this, "requested_link_count");
+        get => GetArgument<TerraformValue<double>>("requested_link_count");
         set => SetArgument("requested_link_count", value);
     }
 
@@ -320,76 +320,58 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     /// ports and MACsec isn&#39;t supported and enabling MACsec fails).
     /// </summary>
     public TerraformList<string> AvailableFeatures
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "available_features").ResolveNodes(ctx));
-    }
+        => AsReference("available_features");
 
     /// <summary>
     /// A list of CircuitInfo objects, that describe the individual circuits in this LAG.
     /// </summary>
     public TerraformList<TerraformMap<object>> CircuitInfos
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "circuit_infos").ResolveNodes(ctx));
-    }
+        => AsReference("circuit_infos");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// A list of outages expected for this Interconnect.
     /// </summary>
     public TerraformList<TerraformMap<object>> ExpectedOutages
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "expected_outages").ResolveNodes(ctx));
-    }
+        => AsReference("expected_outages");
 
     /// <summary>
     /// IP address configured on the Google side of the Interconnect link.
     /// This can be used only for ping tests.
     /// </summary>
     public TerraformValue<string> GoogleIpAddress
-    {
-        get => new TerraformReference<string>(this, "google_ip_address");
-    }
+        => AsReference("google_ip_address");
 
     /// <summary>
     /// Google reference ID to be used when raising support tickets with Google or otherwise to debug
     /// backend connectivity issues.
     /// </summary>
     public TerraformValue<string> GoogleReferenceId
-    {
-        get => new TerraformReference<string>(this, "google_reference_id");
-    }
+        => AsReference("google_reference_id");
 
     /// <summary>
     /// A list of the URLs of all InterconnectAttachments configured to use this Interconnect.
     /// </summary>
     public TerraformList<string> InterconnectAttachments
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "interconnect_attachments").ResolveNodes(ctx));
-    }
+        => AsReference("interconnect_attachments");
 
     /// <summary>
     /// URLs of InterconnectGroups that include this Interconnect.
     /// Order is arbitrary and items are unique.
     /// </summary>
     public TerraformSet<string> InterconnectGroups
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "interconnect_groups").ResolveNodes(ctx));
-    }
+        => AsReference("interconnect_groups");
 
     /// <summary>
     /// A fingerprint for the labels being applied to this Interconnect, which is essentially a hash
@@ -399,9 +381,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     /// otherwise the request will fail with error 412 conditionNotMet.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-    {
-        get => new TerraformReference<string>(this, "label_fingerprint");
-    }
+        => AsReference("label_fingerprint");
 
     /// <summary>
     /// The current status of this Interconnect&#39;s functionality, which can take one of the following:
@@ -413,9 +393,7 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     ///   attachments may be provisioned or updated on this Interconnect.
     /// </summary>
     public TerraformValue<string> OperationalStatus
-    {
-        get => new TerraformReference<string>(this, "operational_status");
-    }
+        => AsReference("operational_status");
 
     /// <summary>
     /// IP address configured on the customer side of the Interconnect link.
@@ -423,25 +401,19 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     /// This can be used only for ping tests.
     /// </summary>
     public TerraformValue<string> PeerIpAddress
-    {
-        get => new TerraformReference<string>(this, "peer_ip_address");
-    }
+        => AsReference("peer_ip_address");
 
     /// <summary>
     /// Number of links actually provisioned in this interconnect.
     /// </summary>
     public TerraformValue<double> ProvisionedLinkCount
-    {
-        get => new TerraformReference<double>(this, "provisioned_link_count");
-    }
+        => AsReference("provisioned_link_count");
 
     /// <summary>
     /// Reserved for future use.
     /// </summary>
     public TerraformValue<bool> SatisfiesPzs
-    {
-        get => new TerraformReference<bool>(this, "satisfies_pzs");
-    }
+        => AsReference("satisfies_pzs");
 
     /// <summary>
     /// The current state of Interconnect functionality, which can take one of the following values:
@@ -453,18 +425,14 @@ public partial class GoogleComputeInterconnect(string name) : TerraformResource(
     ///    be provisioned or updated on this Interconnect.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Macsec block (nesting mode: list).

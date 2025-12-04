@@ -11,18 +11,18 @@ public partial class AwsCloudfrontResponseHeadersPolicyDataSource(string name) :
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -30,64 +30,48 @@ public partial class AwsCloudfrontResponseHeadersPolicyDataSource(string name) :
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
     public TerraformValue<string> Comment
-    {
-        get => new TerraformReference<string>(this, "comment");
-    }
+        => AsReference("comment");
 
     /// <summary>
     /// The cors_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CorsConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cors_config").ResolveNodes(ctx));
-    }
+        => AsReference("cors_config");
 
     /// <summary>
     /// The custom_headers_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CustomHeadersConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "custom_headers_config").ResolveNodes(ctx));
-    }
+        => AsReference("custom_headers_config");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The remove_headers_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RemoveHeadersConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "remove_headers_config").ResolveNodes(ctx));
-    }
+        => AsReference("remove_headers_config");
 
     /// <summary>
     /// The security_headers_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SecurityHeadersConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "security_headers_config").ResolveNodes(ctx));
-    }
+        => AsReference("security_headers_config");
 
     /// <summary>
     /// The server_timing_headers_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServerTimingHeadersConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "server_timing_headers_config").ResolveNodes(ctx));
-    }
+        => AsReference("server_timing_headers_config");
 
 }

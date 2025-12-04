@@ -18,7 +18,7 @@ public class AwsCloudformationStackInstancesDeploymentTargetsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? AccountFilterType
     {
-        get => new TerraformReference<string>(this, "account_filter_type");
+        get => GetArgument<TerraformValue<string>>("account_filter_type");
         set => SetArgument("account_filter_type", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsCloudformationStackInstancesDeploymentTargetsBlock : TerraformBl
     /// </summary>
     public TerraformSet<string>? Accounts
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "accounts").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("accounts");
         set => SetArgument("accounts", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsCloudformationStackInstancesDeploymentTargetsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? AccountsUrl
     {
-        get => new TerraformReference<string>(this, "accounts_url");
+        get => GetArgument<TerraformValue<string>>("accounts_url");
         set => SetArgument("accounts_url", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsCloudformationStackInstancesDeploymentTargetsBlock : TerraformBl
     /// </summary>
     public TerraformSet<string>? OrganizationalUnitIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "organizational_unit_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("organizational_unit_ids");
         set => SetArgument("organizational_unit_ids", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsCloudformationStackInstancesOperationPreferencesBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? ConcurrencyMode
     {
-        get => new TerraformReference<string>(this, "concurrency_mode");
+        get => GetArgument<TerraformValue<string>>("concurrency_mode");
         set => SetArgument("concurrency_mode", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsCloudformationStackInstancesOperationPreferencesBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? FailureToleranceCount
     {
-        get => new TerraformReference<double>(this, "failure_tolerance_count");
+        get => GetArgument<TerraformValue<double>>("failure_tolerance_count");
         set => SetArgument("failure_tolerance_count", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsCloudformationStackInstancesOperationPreferencesBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? FailureTolerancePercentage
     {
-        get => new TerraformReference<double>(this, "failure_tolerance_percentage");
+        get => GetArgument<TerraformValue<double>>("failure_tolerance_percentage");
         set => SetArgument("failure_tolerance_percentage", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsCloudformationStackInstancesOperationPreferencesBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? MaxConcurrentCount
     {
-        get => new TerraformReference<double>(this, "max_concurrent_count");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_count");
         set => SetArgument("max_concurrent_count", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsCloudformationStackInstancesOperationPreferencesBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? MaxConcurrentPercentage
     {
-        get => new TerraformReference<double>(this, "max_concurrent_percentage");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_percentage");
         set => SetArgument("max_concurrent_percentage", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsCloudformationStackInstancesOperationPreferencesBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? RegionConcurrencyType
     {
-        get => new TerraformReference<string>(this, "region_concurrency_type");
+        get => GetArgument<TerraformValue<string>>("region_concurrency_type");
         set => SetArgument("region_concurrency_type", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsCloudformationStackInstancesOperationPreferencesBlock : Terrafor
     /// </summary>
     public TerraformList<string>? RegionOrder
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "region_order").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("region_order");
         set => SetArgument("region_order", value);
     }
 
@@ -145,7 +145,7 @@ public class AwsCloudformationStackInstancesTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -154,7 +154,7 @@ public class AwsCloudformationStackInstancesTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -163,7 +163,7 @@ public class AwsCloudformationStackInstancesTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -179,9 +179,9 @@ public partial class AwsCloudformationStackInstances(string name) : TerraformRes
     /// <summary>
     /// The accounts attribute.
     /// </summary>
-    public TerraformSet<string> Accounts
+    public TerraformSet<string>? Accounts
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "accounts").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("accounts");
         set => SetArgument("accounts", value);
     }
 
@@ -190,16 +190,16 @@ public partial class AwsCloudformationStackInstances(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? CallAs
     {
-        get => new TerraformReference<string>(this, "call_as");
+        get => GetArgument<TerraformValue<string>>("call_as");
         set => SetArgument("call_as", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -208,25 +208,25 @@ public partial class AwsCloudformationStackInstances(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? ParameterOverrides
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameter_overrides").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameter_overrides");
         set => SetArgument("parameter_overrides", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The regions attribute.
     /// </summary>
-    public TerraformSet<string> Regions
+    public TerraformSet<string>? Regions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("regions");
         set => SetArgument("regions", value);
     }
 
@@ -235,7 +235,7 @@ public partial class AwsCloudformationStackInstances(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? RetainStacks
     {
-        get => new TerraformReference<bool>(this, "retain_stacks");
+        get => GetArgument<TerraformValue<bool>>("retain_stacks");
         set => SetArgument("retain_stacks", value);
     }
 
@@ -245,7 +245,7 @@ public partial class AwsCloudformationStackInstances(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StackSetName is required")]
     public required TerraformValue<string> StackSetName
     {
-        get => new TerraformReference<string>(this, "stack_set_name");
+        get => GetArgument<TerraformValue<string>>("stack_set_name");
         set => SetArgument("stack_set_name", value);
     }
 
@@ -253,17 +253,13 @@ public partial class AwsCloudformationStackInstances(string name) : TerraformRes
     /// List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set.
     /// </summary>
     public TerraformList<TerraformMap<object>> StackInstanceSummaries
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "stack_instance_summaries").ResolveNodes(ctx));
-    }
+        => AsReference("stack_instance_summaries");
 
     /// <summary>
     /// The stack_set_id attribute.
     /// </summary>
     public TerraformValue<string> StackSetId
-    {
-        get => new TerraformReference<string>(this, "stack_set_id");
-    }
+        => AsReference("stack_set_id");
 
     /// <summary>
     /// DeploymentTargets block (nesting mode: list).

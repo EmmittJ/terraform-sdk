@@ -13,7 +13,7 @@ public partial class AwsCloudwatchEventRule(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsCloudwatchEventRule(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? EventBusName
     {
-        get => new TerraformReference<string>(this, "event_bus_name");
+        get => GetArgument<TerraformValue<string>>("event_bus_name");
         set => SetArgument("event_bus_name", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsCloudwatchEventRule(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? EventPattern
     {
-        get => new TerraformReference<string>(this, "event_pattern");
+        get => GetArgument<TerraformValue<string>>("event_pattern");
         set => SetArgument("event_pattern", value);
     }
 
@@ -40,16 +40,16 @@ public partial class AwsCloudwatchEventRule(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<bool>? ForceDestroy
     {
-        get => new TerraformReference<bool>(this, "force_destroy");
+        get => GetArgument<TerraformValue<bool>>("force_destroy");
         set => SetArgument("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -59,34 +59,34 @@ public partial class AwsCloudwatchEventRule(string name) : TerraformResource("aw
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool>? IsEnabled
     {
-        get => new TerraformReference<bool>(this, "is_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_enabled");
         set => SetArgument("is_enabled", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsCloudwatchEventRule(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AwsCloudwatchEventRule(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? ScheduleExpression
     {
-        get => new TerraformReference<string>(this, "schedule_expression");
+        get => GetArgument<TerraformValue<string>>("schedule_expression");
         set => SetArgument("schedule_expression", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AwsCloudwatchEventRule(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -122,16 +122,16 @@ public partial class AwsCloudwatchEventRule(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -139,8 +139,6 @@ public partial class AwsCloudwatchEventRule(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

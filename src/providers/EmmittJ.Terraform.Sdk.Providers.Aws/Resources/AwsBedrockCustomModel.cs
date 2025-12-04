@@ -19,7 +19,7 @@ public class AwsBedrockCustomModelOutputDataConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformValue<string> S3Uri
     {
-        get => new TerraformReference<string>(this, "s3_uri");
+        get => GetArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsBedrockCustomModelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsBedrockCustomModelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -75,7 +75,7 @@ public class AwsBedrockCustomModelTrainingDataConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformValue<string> S3Uri
     {
-        get => new TerraformReference<string>(this, "s3_uri");
+        get => GetArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsBedrockCustomModelValidationDataConfigBlockValidatorBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformValue<string> S3Uri
     {
-        get => new TerraformReference<string>(this, "s3_uri");
+        get => GetArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -145,7 +145,7 @@ public class AwsBedrockCustomModelVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsBedrockCustomModelVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -174,7 +174,7 @@ public partial class AwsBedrockCustomModel(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseModelIdentifier is required")]
     public required TerraformValue<string> BaseModelIdentifier
     {
-        get => new TerraformReference<string>(this, "base_model_identifier");
+        get => GetArgument<TerraformValue<string>>("base_model_identifier");
         set => SetArgument("base_model_identifier", value);
     }
 
@@ -183,7 +183,7 @@ public partial class AwsBedrockCustomModel(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? CustomModelKmsKeyId
     {
-        get => new TerraformReference<string>(this, "custom_model_kms_key_id");
+        get => GetArgument<TerraformValue<string>>("custom_model_kms_key_id");
         set => SetArgument("custom_model_kms_key_id", value);
     }
 
@@ -193,16 +193,16 @@ public partial class AwsBedrockCustomModel(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomModelName is required")]
     public required TerraformValue<string> CustomModelName
     {
-        get => new TerraformReference<string>(this, "custom_model_name");
+        get => GetArgument<TerraformValue<string>>("custom_model_name");
         set => SetArgument("custom_model_name", value);
     }
 
     /// <summary>
     /// The customization_type attribute.
     /// </summary>
-    public TerraformValue<string> CustomizationType
+    public TerraformValue<string>? CustomizationType
     {
-        get => new TerraformReference<string>(this, "customization_type");
+        get => GetArgument<TerraformValue<string>>("customization_type");
         set => SetArgument("customization_type", value);
     }
 
@@ -212,7 +212,7 @@ public partial class AwsBedrockCustomModel(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hyperparameters is required")]
     public required TerraformMap<string> Hyperparameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "hyperparameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("hyperparameters");
         set => SetArgument("hyperparameters", value);
     }
 
@@ -222,16 +222,16 @@ public partial class AwsBedrockCustomModel(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobName is required")]
     public required TerraformValue<string> JobName
     {
-        get => new TerraformReference<string>(this, "job_name");
+        get => GetArgument<TerraformValue<string>>("job_name");
         set => SetArgument("job_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -241,7 +241,7 @@ public partial class AwsBedrockCustomModel(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -250,7 +250,7 @@ public partial class AwsBedrockCustomModel(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -258,58 +258,44 @@ public partial class AwsBedrockCustomModel(string name) : TerraformResource("aws
     /// The custom_model_arn attribute.
     /// </summary>
     public TerraformValue<string> CustomModelArn
-    {
-        get => new TerraformReference<string>(this, "custom_model_arn");
-    }
+        => AsReference("custom_model_arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The job_arn attribute.
     /// </summary>
     public TerraformValue<string> JobArn
-    {
-        get => new TerraformReference<string>(this, "job_arn");
-    }
+        => AsReference("job_arn");
 
     /// <summary>
     /// The job_status attribute.
     /// </summary>
     public TerraformValue<string> JobStatus
-    {
-        get => new TerraformReference<string>(this, "job_status");
-    }
+        => AsReference("job_status");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// The training_metrics attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrainingMetrics
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "training_metrics").ResolveNodes(ctx));
-    }
+        => AsReference("training_metrics");
 
     /// <summary>
     /// The validation_metrics attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ValidationMetrics
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "validation_metrics").ResolveNodes(ctx));
-    }
+        => AsReference("validation_metrics");
 
     /// <summary>
     /// OutputDataConfig block (nesting mode: list).

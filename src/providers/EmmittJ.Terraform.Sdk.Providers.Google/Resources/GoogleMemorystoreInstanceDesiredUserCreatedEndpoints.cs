@@ -66,9 +66,7 @@ public class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCrea
     ///  CONNECTION_TYPE_READER
     /// </summary>
     public TerraformValue<string> ConnectionType
-    {
-        get => new TerraformReference<string>(this, "connection_type");
-    }
+        => AsReference("connection_type");
 
     /// <summary>
     /// The URI of the consumer side forwarding rule.
@@ -78,7 +76,7 @@ public class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCrea
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardingRule is required")]
     public required TerraformValue<string> ForwardingRule
     {
-        get => new TerraformReference<string>(this, "forwarding_rule");
+        get => GetArgument<TerraformValue<string>>("forwarding_rule");
         set => SetArgument("forwarding_rule", value);
     }
 
@@ -88,7 +86,7 @@ public class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCrea
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     public required TerraformValue<string> IpAddress
     {
-        get => new TerraformReference<string>(this, "ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -99,16 +97,16 @@ public class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCrea
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
     /// <summary>
     /// The consumer project_id where the forwarding rule is created from.
     /// </summary>
-    public TerraformValue<string> ProjectId
+    public TerraformValue<string>? ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -119,7 +117,7 @@ public class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCrea
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PscConnectionId is required")]
     public required TerraformValue<string> PscConnectionId
     {
-        get => new TerraformReference<string>(this, "psc_connection_id");
+        get => GetArgument<TerraformValue<string>>("psc_connection_id");
         set => SetArgument("psc_connection_id", value);
     }
 
@@ -130,9 +128,7 @@ public class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCrea
     ///  NOT_FOUND
     /// </summary>
     public TerraformValue<string> PscConnectionStatus
-    {
-        get => new TerraformReference<string>(this, "psc_connection_status");
-    }
+        => AsReference("psc_connection_status");
 
     /// <summary>
     /// The service attachment which is the target of the PSC connection, in the form of projects/{project-id}/regions/{region}/serviceAttachments/{service-attachment-id}.
@@ -140,7 +136,7 @@ public class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCrea
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAttachment is required")]
     public required TerraformValue<string> ServiceAttachment
     {
-        get => new TerraformReference<string>(this, "service_attachment");
+        get => GetArgument<TerraformValue<string>>("service_attachment");
         set => SetArgument("service_attachment", value);
     }
 
@@ -163,7 +159,7 @@ public class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsTimeoutsBlock :
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -172,7 +168,7 @@ public class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsTimeoutsBlock :
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -181,7 +177,7 @@ public class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsTimeoutsBlock :
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -197,9 +193,9 @@ public partial class GoogleMemorystoreInstanceDesiredUserCreatedEndpoints(string
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -209,16 +205,16 @@ public partial class GoogleMemorystoreInstanceDesiredUserCreatedEndpoints(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -228,7 +224,7 @@ public partial class GoogleMemorystoreInstanceDesiredUserCreatedEndpoints(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

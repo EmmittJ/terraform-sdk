@@ -18,7 +18,7 @@ public class GoogleSqlDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleSqlDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleSqlDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -56,9 +56,9 @@ public partial class GoogleSqlDatabase(string name) : TerraformResource("google_
     /// for more details and supported values. Postgres databases only support
     /// a value of &#39;UTF8&#39; at creation time.
     /// </summary>
-    public TerraformValue<string> Charset
+    public TerraformValue<string>? Charset
     {
-        get => new TerraformReference<string>(this, "charset");
+        get => GetArgument<TerraformValue<string>>("charset");
         set => SetArgument("charset", value);
     }
 
@@ -69,9 +69,9 @@ public partial class GoogleSqlDatabase(string name) : TerraformResource("google_
     /// for more details and supported values. Postgres databases only support
     /// a value of &#39;en_US.UTF8&#39; at creation time.
     /// </summary>
-    public TerraformValue<string> Collation
+    public TerraformValue<string>? Collation
     {
-        get => new TerraformReference<string>(this, "collation");
+        get => GetArgument<TerraformValue<string>>("collation");
         set => SetArgument("collation", value);
     }
 
@@ -83,16 +83,16 @@ public partial class GoogleSqlDatabase(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? DeletionPolicy
     {
-        get => new TerraformReference<string>(this, "deletion_policy");
+        get => GetArgument<TerraformValue<string>>("deletion_policy");
         set => SetArgument("deletion_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class GoogleSqlDatabase(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -114,16 +114,16 @@ public partial class GoogleSqlDatabase(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -131,9 +131,7 @@ public partial class GoogleSqlDatabase(string name) : TerraformResource("google_
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

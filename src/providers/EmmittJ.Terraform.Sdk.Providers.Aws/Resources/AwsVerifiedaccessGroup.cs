@@ -18,7 +18,7 @@ public class AwsVerifiedaccessGroupSseConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? CustomerManagedKeyEnabled
     {
-        get => new TerraformReference<bool>(this, "customer_managed_key_enabled");
+        get => GetArgument<TerraformValue<bool>>("customer_managed_key_enabled");
         set => SetArgument("customer_managed_key_enabled", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsVerifiedaccessGroupSseConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -43,18 +43,18 @@ public partial class AwsVerifiedaccessGroup(string name) : TerraformResource("aw
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string> Description
+    public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AwsVerifiedaccessGroup(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? PolicyDocument
     {
-        get => new TerraformReference<string>(this, "policy_document");
+        get => GetArgument<TerraformValue<string>>("policy_document");
         set => SetArgument("policy_document", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -81,16 +81,16 @@ public partial class AwsVerifiedaccessGroup(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AwsVerifiedaccessGroup(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifiedaccessInstanceId is required")]
     public required TerraformValue<string> VerifiedaccessInstanceId
     {
-        get => new TerraformReference<string>(this, "verifiedaccess_instance_id");
+        get => GetArgument<TerraformValue<string>>("verifiedaccess_instance_id");
         set => SetArgument("verifiedaccess_instance_id", value);
     }
 
@@ -108,49 +108,37 @@ public partial class AwsVerifiedaccessGroup(string name) : TerraformResource("aw
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-    {
-        get => new TerraformReference<string>(this, "creation_time");
-    }
+        => AsReference("creation_time");
 
     /// <summary>
     /// The deletion_time attribute.
     /// </summary>
     public TerraformValue<string> DeletionTime
-    {
-        get => new TerraformReference<string>(this, "deletion_time");
-    }
+        => AsReference("deletion_time");
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedTime
-    {
-        get => new TerraformReference<string>(this, "last_updated_time");
-    }
+        => AsReference("last_updated_time");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     public TerraformValue<string> Owner
-    {
-        get => new TerraformReference<string>(this, "owner");
-    }
+        => AsReference("owner");
 
     /// <summary>
     /// The verifiedaccess_group_arn attribute.
     /// </summary>
     public TerraformValue<string> VerifiedaccessGroupArn
-    {
-        get => new TerraformReference<string>(this, "verifiedaccess_group_arn");
-    }
+        => AsReference("verifiedaccess_group_arn");
 
     /// <summary>
     /// The verifiedaccess_group_id attribute.
     /// </summary>
     public TerraformValue<string> VerifiedaccessGroupId
-    {
-        get => new TerraformReference<string>(this, "verifiedaccess_group_id");
-    }
+        => AsReference("verifiedaccess_group_id");
 
     /// <summary>
     /// SseConfiguration block (nesting mode: list).

@@ -19,9 +19,9 @@ public class GoogleIamPrincipalAccessBoundaryPolicyDetailsBlock : TerraformBlock
     /// PAB policy version will be set to the current latest version, and this version
     /// won&#39;t get updated when new versions are released.
     /// </summary>
-    public TerraformValue<string> EnforcementVersion
+    public TerraformValue<string>? EnforcementVersion
     {
-        get => new TerraformReference<string>(this, "enforcement_version");
+        get => GetArgument<TerraformValue<string>>("enforcement_version");
         set => SetArgument("enforcement_version", value);
     }
 
@@ -55,7 +55,7 @@ public class GoogleIamPrincipalAccessBoundaryPolicyDetailsBlockRulesBlock : Terr
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -66,7 +66,7 @@ public class GoogleIamPrincipalAccessBoundaryPolicyDetailsBlockRulesBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Effect is required")]
     public required TerraformValue<string> Effect
     {
-        get => new TerraformReference<string>(this, "effect");
+        get => GetArgument<TerraformValue<string>>("effect");
         set => SetArgument("effect", value);
     }
 
@@ -83,7 +83,7 @@ public class GoogleIamPrincipalAccessBoundaryPolicyDetailsBlockRulesBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resources is required")]
     public TerraformList<string>? Resources
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resources").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("resources");
         set => SetArgument("resources", value);
     }
 
@@ -106,7 +106,7 @@ public class GoogleIamPrincipalAccessBoundaryPolicyTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -115,7 +115,7 @@ public class GoogleIamPrincipalAccessBoundaryPolicyTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -124,7 +124,7 @@ public class GoogleIamPrincipalAccessBoundaryPolicyTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -147,7 +147,7 @@ public partial class GoogleIamPrincipalAccessBoundaryPolicy(string name) : Terra
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -156,16 +156,16 @@ public partial class GoogleIamPrincipalAccessBoundaryPolicy(string name) : Terra
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -175,7 +175,7 @@ public partial class GoogleIamPrincipalAccessBoundaryPolicy(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -185,7 +185,7 @@ public partial class GoogleIamPrincipalAccessBoundaryPolicy(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformValue<string> Organization
     {
-        get => new TerraformReference<string>(this, "organization");
+        get => GetArgument<TerraformValue<string>>("organization");
         set => SetArgument("organization", value);
     }
 
@@ -196,7 +196,7 @@ public partial class GoogleIamPrincipalAccessBoundaryPolicy(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalAccessBoundaryPolicyId is required")]
     public required TerraformValue<string> PrincipalAccessBoundaryPolicyId
     {
-        get => new TerraformReference<string>(this, "principal_access_boundary_policy_id");
+        get => GetArgument<TerraformValue<string>>("principal_access_boundary_policy_id");
         set => SetArgument("principal_access_boundary_policy_id", value);
     }
 
@@ -204,50 +204,38 @@ public partial class GoogleIamPrincipalAccessBoundaryPolicy(string name) : Terra
     /// Output only. The time when the principal access boundary policy was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// The etag for the principal access boundary. If this is provided on update, it must match the server&#39;s etag.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Identifier. The resource name of the principal access boundary policy.  The following format is supported:
     ///  &#39;organizations/{organization_id}/locations/{location}/principalAccessBoundaryPolicies/{policy_id}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. The globally unique ID of the principal access boundary policy.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Output only. The time when the principal access boundary policy was most recently updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Details block (nesting mode: list).

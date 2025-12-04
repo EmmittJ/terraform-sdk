@@ -18,7 +18,7 @@ public class AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock :
     /// </summary>
     public TerraformValue<string>? AuthenticationType
     {
-        get => new TerraformReference<string>(this, "authentication_type");
+        get => GetArgument<TerraformValue<string>>("authentication_type");
         set => SetArgument("authentication_type", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock :
     /// </summary>
     public TerraformValue<string>? AutomationAccountId
     {
-        get => new TerraformReference<string>(this, "automation_account_id");
+        get => GetArgument<TerraformValue<string>>("automation_account_id");
         set => SetArgument("automation_account_id", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock :
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -102,9 +102,9 @@ public partial class AzurermSiteRecoveryProtectionContainerMapping(string name) 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AzurermSiteRecoveryProtectionContainerMapping(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AzurermSiteRecoveryProtectionContainerMapping(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryFabricName is required")]
     public required TerraformValue<string> RecoveryFabricName
     {
-        get => new TerraformReference<string>(this, "recovery_fabric_name");
+        get => GetArgument<TerraformValue<string>>("recovery_fabric_name");
         set => SetArgument("recovery_fabric_name", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AzurermSiteRecoveryProtectionContainerMapping(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryReplicationPolicyId is required")]
     public required TerraformValue<string> RecoveryReplicationPolicyId
     {
-        get => new TerraformReference<string>(this, "recovery_replication_policy_id");
+        get => GetArgument<TerraformValue<string>>("recovery_replication_policy_id");
         set => SetArgument("recovery_replication_policy_id", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AzurermSiteRecoveryProtectionContainerMapping(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoverySourceProtectionContainerName is required")]
     public required TerraformValue<string> RecoverySourceProtectionContainerName
     {
-        get => new TerraformReference<string>(this, "recovery_source_protection_container_name");
+        get => GetArgument<TerraformValue<string>>("recovery_source_protection_container_name");
         set => SetArgument("recovery_source_protection_container_name", value);
     }
 
@@ -154,7 +154,7 @@ public partial class AzurermSiteRecoveryProtectionContainerMapping(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryTargetProtectionContainerId is required")]
     public required TerraformValue<string> RecoveryTargetProtectionContainerId
     {
-        get => new TerraformReference<string>(this, "recovery_target_protection_container_id");
+        get => GetArgument<TerraformValue<string>>("recovery_target_protection_container_id");
         set => SetArgument("recovery_target_protection_container_id", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AzurermSiteRecoveryProtectionContainerMapping(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     public required TerraformValue<string> RecoveryVaultName
     {
-        get => new TerraformReference<string>(this, "recovery_vault_name");
+        get => GetArgument<TerraformValue<string>>("recovery_vault_name");
         set => SetArgument("recovery_vault_name", value);
     }
 
@@ -174,7 +174,7 @@ public partial class AzurermSiteRecoveryProtectionContainerMapping(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

@@ -19,7 +19,7 @@ public class AwsS3controlBucketLifecycleConfigurationRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsS3controlBucketLifecycleConfigurationRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsS3controlBucketLifecycleConfigurationRuleBlockAbortIncompleteMul
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DaysAfterInitiation is required")]
     public required TerraformValue<double> DaysAfterInitiation
     {
-        get => new TerraformReference<double>(this, "days_after_initiation");
+        get => GetArgument<TerraformValue<double>>("days_after_initiation");
         set => SetArgument("days_after_initiation", value);
     }
 
@@ -103,7 +103,7 @@ public class AwsS3controlBucketLifecycleConfigurationRuleBlockExpirationBlock : 
     /// </summary>
     public TerraformValue<string>? Date
     {
-        get => new TerraformReference<string>(this, "date");
+        get => GetArgument<TerraformValue<string>>("date");
         set => SetArgument("date", value);
     }
 
@@ -112,7 +112,7 @@ public class AwsS3controlBucketLifecycleConfigurationRuleBlockExpirationBlock : 
     /// </summary>
     public TerraformValue<double>? Days
     {
-        get => new TerraformReference<double>(this, "days");
+        get => GetArgument<TerraformValue<double>>("days");
         set => SetArgument("days", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsS3controlBucketLifecycleConfigurationRuleBlockExpirationBlock : 
     /// </summary>
     public TerraformValue<bool>? ExpiredObjectDeleteMarker
     {
-        get => new TerraformReference<bool>(this, "expired_object_delete_marker");
+        get => GetArgument<TerraformValue<bool>>("expired_object_delete_marker");
         set => SetArgument("expired_object_delete_marker", value);
     }
 
@@ -143,7 +143,7 @@ public class AwsS3controlBucketLifecycleConfigurationRuleBlockFilterBlock : Terr
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsS3controlBucketLifecycleConfigurationRuleBlockFilterBlock : Terr
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -171,25 +171,25 @@ public partial class AwsS3controlBucketLifecycleConfiguration(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

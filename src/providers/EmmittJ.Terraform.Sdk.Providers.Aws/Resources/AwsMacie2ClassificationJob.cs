@@ -146,27 +146,27 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockBucketCriteriaBlockEx
     /// <summary>
     /// The comparator attribute.
     /// </summary>
-    public TerraformValue<string> Comparator
+    public TerraformValue<string>? Comparator
     {
-        get => new TerraformReference<string>(this, "comparator");
+        get => GetArgument<TerraformValue<string>>("comparator");
         set => SetArgument("comparator", value);
     }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformValue<string> Key
+    public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
-    public TerraformList<string> ValuesAttribute
+    public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -186,9 +186,9 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockBucketCriteriaBlockEx
     /// <summary>
     /// The comparator attribute.
     /// </summary>
-    public TerraformValue<string> Comparator
+    public TerraformValue<string>? Comparator
     {
-        get => new TerraformReference<string>(this, "comparator");
+        get => GetArgument<TerraformValue<string>>("comparator");
         set => SetArgument("comparator", value);
     }
 
@@ -217,18 +217,18 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockBucketCriteriaBlockEx
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformValue<string> Key
+    public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformValue<string> Value
+    public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -303,27 +303,27 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockBucketCriteriaBlockIn
     /// <summary>
     /// The comparator attribute.
     /// </summary>
-    public TerraformValue<string> Comparator
+    public TerraformValue<string>? Comparator
     {
-        get => new TerraformReference<string>(this, "comparator");
+        get => GetArgument<TerraformValue<string>>("comparator");
         set => SetArgument("comparator", value);
     }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformValue<string> Key
+    public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
-    public TerraformList<string> ValuesAttribute
+    public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -343,9 +343,9 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockBucketCriteriaBlockIn
     /// <summary>
     /// The comparator attribute.
     /// </summary>
-    public TerraformValue<string> Comparator
+    public TerraformValue<string>? Comparator
     {
-        get => new TerraformReference<string>(this, "comparator");
+        get => GetArgument<TerraformValue<string>>("comparator");
         set => SetArgument("comparator", value);
     }
 
@@ -374,18 +374,18 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockBucketCriteriaBlockIn
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformValue<string> Key
+    public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformValue<string> Value
+    public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -408,7 +408,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockBucketDefinitionsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformValue<string> AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -418,7 +418,7 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockBucketDefinitionsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Buckets is required")]
     public TerraformList<string>? Buckets
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "buckets").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("buckets");
         set => SetArgument("buckets", value);
     }
 
@@ -526,27 +526,27 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockExcludesB
     /// <summary>
     /// The comparator attribute.
     /// </summary>
-    public TerraformValue<string> Comparator
+    public TerraformValue<string>? Comparator
     {
-        get => new TerraformReference<string>(this, "comparator");
+        get => GetArgument<TerraformValue<string>>("comparator");
         set => SetArgument("comparator", value);
     }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformValue<string> Key
+    public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
-    public TerraformList<string> ValuesAttribute
+    public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -566,27 +566,27 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockExcludesB
     /// <summary>
     /// The comparator attribute.
     /// </summary>
-    public TerraformValue<string> Comparator
+    public TerraformValue<string>? Comparator
     {
-        get => new TerraformReference<string>(this, "comparator");
+        get => GetArgument<TerraformValue<string>>("comparator");
         set => SetArgument("comparator", value);
     }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformValue<string> Key
+    public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
     /// <summary>
     /// The target attribute.
     /// </summary>
-    public TerraformValue<string> Target
+    public TerraformValue<string>? Target
     {
-        get => new TerraformReference<string>(this, "target");
+        get => GetArgument<TerraformValue<string>>("target");
         set => SetArgument("target", value);
     }
 
@@ -615,18 +615,18 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockExcludesB
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformValue<string> Key
+    public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformValue<string> Value
+    public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -701,27 +701,27 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockIncludesB
     /// <summary>
     /// The comparator attribute.
     /// </summary>
-    public TerraformValue<string> Comparator
+    public TerraformValue<string>? Comparator
     {
-        get => new TerraformReference<string>(this, "comparator");
+        get => GetArgument<TerraformValue<string>>("comparator");
         set => SetArgument("comparator", value);
     }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformValue<string> Key
+    public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
-    public TerraformList<string> ValuesAttribute
+    public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -741,27 +741,27 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockIncludesB
     /// <summary>
     /// The comparator attribute.
     /// </summary>
-    public TerraformValue<string> Comparator
+    public TerraformValue<string>? Comparator
     {
-        get => new TerraformReference<string>(this, "comparator");
+        get => GetArgument<TerraformValue<string>>("comparator");
         set => SetArgument("comparator", value);
     }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformValue<string> Key
+    public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
     /// <summary>
     /// The target attribute.
     /// </summary>
-    public TerraformValue<string> Target
+    public TerraformValue<string>? Target
     {
-        get => new TerraformReference<string>(this, "target");
+        get => GetArgument<TerraformValue<string>>("target");
         set => SetArgument("target", value);
     }
 
@@ -790,18 +790,18 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlockScopingBlockIncludesB
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformValue<string> Key
+    public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformValue<string> Value
+    public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -824,25 +824,25 @@ public class AwsMacie2ClassificationJobScheduleFrequencyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DailySchedule
     {
-        get => new TerraformReference<bool>(this, "daily_schedule");
+        get => GetArgument<TerraformValue<bool>>("daily_schedule");
         set => SetArgument("daily_schedule", value);
     }
 
     /// <summary>
     /// The monthly_schedule attribute.
     /// </summary>
-    public TerraformValue<double> MonthlySchedule
+    public TerraformValue<double>? MonthlySchedule
     {
-        get => new TerraformReference<double>(this, "monthly_schedule");
+        get => GetArgument<TerraformValue<double>>("monthly_schedule");
         set => SetArgument("monthly_schedule", value);
     }
 
     /// <summary>
     /// The weekly_schedule attribute.
     /// </summary>
-    public TerraformValue<string> WeeklySchedule
+    public TerraformValue<string>? WeeklySchedule
     {
-        get => new TerraformReference<string>(this, "weekly_schedule");
+        get => GetArgument<TerraformValue<string>>("weekly_schedule");
         set => SetArgument("weekly_schedule", value);
     }
 
@@ -865,7 +865,7 @@ public class AwsMacie2ClassificationJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -874,7 +874,7 @@ public class AwsMacie2ClassificationJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -890,27 +890,27 @@ public partial class AwsMacie2ClassificationJob(string name) : TerraformResource
     /// <summary>
     /// The custom_data_identifier_ids attribute.
     /// </summary>
-    public TerraformList<string> CustomDataIdentifierIds
+    public TerraformList<string>? CustomDataIdentifierIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "custom_data_identifier_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("custom_data_identifier_ids");
         set => SetArgument("custom_data_identifier_ids", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string> Description
+    public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -919,16 +919,16 @@ public partial class AwsMacie2ClassificationJob(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? InitialRun
     {
-        get => new TerraformReference<bool>(this, "initial_run");
+        get => GetArgument<TerraformValue<bool>>("initial_run");
         set => SetArgument("initial_run", value);
     }
 
     /// <summary>
     /// The job_status attribute.
     /// </summary>
-    public TerraformValue<string> JobStatus
+    public TerraformValue<string>? JobStatus
     {
-        get => new TerraformReference<string>(this, "job_status");
+        get => GetArgument<TerraformValue<string>>("job_status");
         set => SetArgument("job_status", value);
     }
 
@@ -938,43 +938,43 @@ public partial class AwsMacie2ClassificationJob(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobType is required")]
     public required TerraformValue<string> JobType
     {
-        get => new TerraformReference<string>(this, "job_type");
+        get => GetArgument<TerraformValue<string>>("job_type");
         set => SetArgument("job_type", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The sampling_percentage attribute.
     /// </summary>
-    public TerraformValue<double> SamplingPercentage
+    public TerraformValue<double>? SamplingPercentage
     {
-        get => new TerraformReference<double>(this, "sampling_percentage");
+        get => GetArgument<TerraformValue<double>>("sampling_percentage");
         set => SetArgument("sampling_percentage", value);
     }
 
@@ -983,16 +983,16 @@ public partial class AwsMacie2ClassificationJob(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1000,33 +1000,25 @@ public partial class AwsMacie2ClassificationJob(string name) : TerraformResource
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The job_arn attribute.
     /// </summary>
     public TerraformValue<string> JobArn
-    {
-        get => new TerraformReference<string>(this, "job_arn");
-    }
+        => AsReference("job_arn");
 
     /// <summary>
     /// The job_id attribute.
     /// </summary>
     public TerraformValue<string> JobId
-    {
-        get => new TerraformReference<string>(this, "job_id");
-    }
+        => AsReference("job_id");
 
     /// <summary>
     /// The user_paused_details attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> UserPausedDetails
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "user_paused_details").ResolveNodes(ctx));
-    }
+        => AsReference("user_paused_details");
 
     /// <summary>
     /// S3JobDefinition block (nesting mode: list).

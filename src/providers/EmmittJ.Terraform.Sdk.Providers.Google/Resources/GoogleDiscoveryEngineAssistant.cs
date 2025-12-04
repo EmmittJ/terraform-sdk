@@ -51,7 +51,7 @@ public class GoogleDiscoveryEngineAssistantCustomerPolicyBlockBannedPhrasesBlock
     /// </summary>
     public TerraformValue<bool>? IgnoreDiacritics
     {
-        get => new TerraformReference<bool>(this, "ignore_diacritics");
+        get => GetArgument<TerraformValue<bool>>("ignore_diacritics");
         set => SetArgument("ignore_diacritics", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleDiscoveryEngineAssistantCustomerPolicyBlockBannedPhrasesBlock
     /// </summary>
     public TerraformValue<string>? MatchType
     {
-        get => new TerraformReference<string>(this, "match_type");
+        get => GetArgument<TerraformValue<string>>("match_type");
         set => SetArgument("match_type", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleDiscoveryEngineAssistantCustomerPolicyBlockBannedPhrasesBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Phrase is required")]
     public required TerraformValue<string> Phrase
     {
-        get => new TerraformReference<string>(this, "phrase");
+        get => GetArgument<TerraformValue<string>>("phrase");
         set => SetArgument("phrase", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleDiscoveryEngineAssistantCustomerPolicyBlockModelArmorConfigBl
     /// </summary>
     public TerraformValue<string>? FailureMode
     {
-        get => new TerraformReference<string>(this, "failure_mode");
+        get => GetArgument<TerraformValue<string>>("failure_mode");
         set => SetArgument("failure_mode", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleDiscoveryEngineAssistantCustomerPolicyBlockModelArmorConfigBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponseTemplate is required")]
     public required TerraformValue<string> ResponseTemplate
     {
-        get => new TerraformReference<string>(this, "response_template");
+        get => GetArgument<TerraformValue<string>>("response_template");
         set => SetArgument("response_template", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleDiscoveryEngineAssistantCustomerPolicyBlockModelArmorConfigBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPromptTemplate is required")]
     public required TerraformValue<string> UserPromptTemplate
     {
-        get => new TerraformReference<string>(this, "user_prompt_template");
+        get => GetArgument<TerraformValue<string>>("user_prompt_template");
         set => SetArgument("user_prompt_template", value);
     }
 
@@ -148,7 +148,7 @@ public class GoogleDiscoveryEngineAssistantGenerationConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? DefaultLanguage
     {
-        get => new TerraformReference<string>(this, "default_language");
+        get => GetArgument<TerraformValue<string>>("default_language");
         set => SetArgument("default_language", value);
     }
 
@@ -180,7 +180,7 @@ public class GoogleDiscoveryEngineAssistantGenerationConfigBlockSystemInstructio
     /// </summary>
     public TerraformValue<string>? AdditionalSystemInstruction
     {
-        get => new TerraformReference<string>(this, "additional_system_instruction");
+        get => GetArgument<TerraformValue<string>>("additional_system_instruction");
         set => SetArgument("additional_system_instruction", value);
     }
 
@@ -203,7 +203,7 @@ public class GoogleDiscoveryEngineAssistantTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -212,7 +212,7 @@ public class GoogleDiscoveryEngineAssistantTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -221,7 +221,7 @@ public class GoogleDiscoveryEngineAssistantTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -240,7 +240,7 @@ public partial class GoogleDiscoveryEngineAssistant(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssistantId is required")]
     public required TerraformValue<string> AssistantId
     {
-        get => new TerraformReference<string>(this, "assistant_id");
+        get => GetArgument<TerraformValue<string>>("assistant_id");
         set => SetArgument("assistant_id", value);
     }
 
@@ -250,7 +250,7 @@ public partial class GoogleDiscoveryEngineAssistant(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformValue<string> CollectionId
     {
-        get => new TerraformReference<string>(this, "collection_id");
+        get => GetArgument<TerraformValue<string>>("collection_id");
         set => SetArgument("collection_id", value);
     }
 
@@ -260,7 +260,7 @@ public partial class GoogleDiscoveryEngineAssistant(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -272,7 +272,7 @@ public partial class GoogleDiscoveryEngineAssistant(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -282,16 +282,16 @@ public partial class GoogleDiscoveryEngineAssistant(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
     public required TerraformValue<string> EngineId
     {
-        get => new TerraformReference<string>(this, "engine_id");
+        get => GetArgument<TerraformValue<string>>("engine_id");
         set => SetArgument("engine_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -302,16 +302,16 @@ public partial class GoogleDiscoveryEngineAssistant(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -321,7 +321,7 @@ public partial class GoogleDiscoveryEngineAssistant(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? WebGroundingType
     {
-        get => new TerraformReference<string>(this, "web_grounding_type");
+        get => GetArgument<TerraformValue<string>>("web_grounding_type");
         set => SetArgument("web_grounding_type", value);
     }
 
@@ -333,9 +333,7 @@ public partial class GoogleDiscoveryEngineAssistant(string name) : TerraformReso
     /// It must be a UTF-8 encoded string with a length limit of 1024 characters.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// CustomerPolicy block (nesting mode: list).

@@ -14,7 +14,7 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformValue<string> AppId
     {
-        get => new TerraformReference<string>(this, "app_id");
+        get => GetArgument<TerraformValue<string>>("app_id");
         set => SetArgument("app_id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     /// </summary>
     public TerraformValue<string>? BackendEnvironmentArn
     {
-        get => new TerraformReference<string>(this, "backend_environment_arn");
+        get => GetArgument<TerraformValue<string>>("backend_environment_arn");
         set => SetArgument("backend_environment_arn", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     /// </summary>
     public TerraformValue<string>? BasicAuthCredentials
     {
-        get => new TerraformReference<string>(this, "basic_auth_credentials");
+        get => GetArgument<TerraformValue<string>>("basic_auth_credentials");
         set => SetArgument("basic_auth_credentials", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
     public required TerraformValue<string> BranchName
     {
-        get => new TerraformReference<string>(this, "branch_name");
+        get => GetArgument<TerraformValue<string>>("branch_name");
         set => SetArgument("branch_name", value);
     }
 
@@ -51,16 +51,16 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -69,7 +69,7 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     /// </summary>
     public TerraformValue<bool>? EnableAutoBuild
     {
-        get => new TerraformReference<bool>(this, "enable_auto_build");
+        get => GetArgument<TerraformValue<bool>>("enable_auto_build");
         set => SetArgument("enable_auto_build", value);
     }
 
@@ -78,7 +78,7 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     /// </summary>
     public TerraformValue<bool>? EnableBasicAuth
     {
-        get => new TerraformReference<bool>(this, "enable_basic_auth");
+        get => GetArgument<TerraformValue<bool>>("enable_basic_auth");
         set => SetArgument("enable_basic_auth", value);
     }
 
@@ -87,7 +87,7 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     /// </summary>
     public TerraformValue<bool>? EnableNotification
     {
-        get => new TerraformReference<bool>(this, "enable_notification");
+        get => GetArgument<TerraformValue<bool>>("enable_notification");
         set => SetArgument("enable_notification", value);
     }
 
@@ -96,7 +96,7 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     /// </summary>
     public TerraformValue<bool>? EnablePerformanceMode
     {
-        get => new TerraformReference<bool>(this, "enable_performance_mode");
+        get => GetArgument<TerraformValue<bool>>("enable_performance_mode");
         set => SetArgument("enable_performance_mode", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     /// </summary>
     public TerraformValue<bool>? EnablePullRequestPreview
     {
-        get => new TerraformReference<bool>(this, "enable_pull_request_preview");
+        get => GetArgument<TerraformValue<bool>>("enable_pull_request_preview");
         set => SetArgument("enable_pull_request_preview", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     /// </summary>
     public TerraformValue<bool>? EnableSkewProtection
     {
-        get => new TerraformReference<bool>(this, "enable_skew_protection");
+        get => GetArgument<TerraformValue<bool>>("enable_skew_protection");
         set => SetArgument("enable_skew_protection", value);
     }
 
@@ -123,7 +123,7 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     /// </summary>
     public TerraformMap<string>? EnvironmentVariables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "environment_variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("environment_variables");
         set => SetArgument("environment_variables", value);
     }
 
@@ -132,16 +132,16 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     /// </summary>
     public TerraformValue<string>? Framework
     {
-        get => new TerraformReference<string>(this, "framework");
+        get => GetArgument<TerraformValue<string>>("framework");
         set => SetArgument("framework", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -150,16 +150,16 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     /// </summary>
     public TerraformValue<string>? PullRequestEnvironmentName
     {
-        get => new TerraformReference<string>(this, "pull_request_environment_name");
+        get => GetArgument<TerraformValue<string>>("pull_request_environment_name");
         set => SetArgument("pull_request_environment_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -168,7 +168,7 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     /// </summary>
     public TerraformValue<string>? Stage
     {
-        get => new TerraformReference<string>(this, "stage");
+        get => GetArgument<TerraformValue<string>>("stage");
         set => SetArgument("stage", value);
     }
 
@@ -177,16 +177,16 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -195,7 +195,7 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     /// </summary>
     public TerraformValue<string>? Ttl
     {
-        get => new TerraformReference<string>(this, "ttl");
+        get => GetArgument<TerraformValue<string>>("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -203,40 +203,30 @@ public partial class AwsAmplifyBranch(string name) : TerraformResource("aws_ampl
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The associated_resources attribute.
     /// </summary>
     public TerraformList<string> AssociatedResources
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "associated_resources").ResolveNodes(ctx));
-    }
+        => AsReference("associated_resources");
 
     /// <summary>
     /// The custom_domains attribute.
     /// </summary>
     public TerraformList<string> CustomDomains
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "custom_domains").ResolveNodes(ctx));
-    }
+        => AsReference("custom_domains");
 
     /// <summary>
     /// The destination_branch attribute.
     /// </summary>
     public TerraformValue<string> DestinationBranch
-    {
-        get => new TerraformReference<string>(this, "destination_branch");
-    }
+        => AsReference("destination_branch");
 
     /// <summary>
     /// The source_branch attribute.
     /// </summary>
     public TerraformValue<string> SourceBranch
-    {
-        get => new TerraformReference<string>(this, "source_branch");
-    }
+        => AsReference("source_branch");
 
 }

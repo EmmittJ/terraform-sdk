@@ -18,7 +18,7 @@ public class AzurermApplicationInsightsApiKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermApplicationInsightsApiKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermApplicationInsightsApiKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AzurermApplicationInsightsApiKey(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationInsightsId is required")]
     public required TerraformValue<string> ApplicationInsightsId
     {
-        get => new TerraformReference<string>(this, "application_insights_id");
+        get => GetArgument<TerraformValue<string>>("application_insights_id");
         set => SetArgument("application_insights_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermApplicationInsightsApiKey(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermApplicationInsightsApiKey(string name) : TerraformRe
     /// </summary>
     public TerraformSet<string>? ReadPermissions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "read_permissions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("read_permissions");
         set => SetArgument("read_permissions", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermApplicationInsightsApiKey(string name) : TerraformRe
     /// </summary>
     public TerraformSet<string>? WritePermissions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "write_permissions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("write_permissions");
         set => SetArgument("write_permissions", value);
     }
 
@@ -100,9 +100,7 @@ public partial class AzurermApplicationInsightsApiKey(string name) : TerraformRe
     /// The api_key attribute.
     /// </summary>
     public TerraformValue<string> ApiKey
-    {
-        get => new TerraformReference<string>(this, "api_key");
-    }
+        => AsReference("api_key");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -11,9 +11,9 @@ public partial class GoogleArtifactRegistryDockerImagesDataSource(string name) :
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleArtifactRegistryDockerImagesDataSource(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleArtifactRegistryDockerImagesDataSource(string name) :
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleArtifactRegistryDockerImagesDataSource(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformValue<string> RepositoryId
     {
-        get => new TerraformReference<string>(this, "repository_id");
+        get => GetArgument<TerraformValue<string>>("repository_id");
         set => SetArgument("repository_id", value);
     }
 
@@ -50,8 +50,6 @@ public partial class GoogleArtifactRegistryDockerImagesDataSource(string name) :
     /// The docker_images attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DockerImages
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "docker_images").ResolveNodes(ctx));
-    }
+        => AsReference("docker_images");
 
 }

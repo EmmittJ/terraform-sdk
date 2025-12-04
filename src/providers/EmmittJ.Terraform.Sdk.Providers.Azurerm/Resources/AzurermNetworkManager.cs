@@ -18,7 +18,7 @@ public class AzurermNetworkManagerScopeBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ManagementGroupIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "management_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("management_group_ids");
         set => SetArgument("management_group_ids", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermNetworkManagerScopeBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? SubscriptionIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "subscription_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("subscription_ids");
         set => SetArgument("subscription_ids", value);
     }
 
@@ -50,7 +50,7 @@ public class AzurermNetworkManagerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermNetworkManagerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermNetworkManagerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermNetworkManagerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -95,16 +95,16 @@ public partial class AzurermNetworkManager(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AzurermNetworkManager(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AzurermNetworkManager(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AzurermNetworkManager(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AzurermNetworkManager(string name) : TerraformResource("azu
     /// </summary>
     public TerraformList<string>? ScopeAccesses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scope_accesses").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("scope_accesses");
         set => SetArgument("scope_accesses", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AzurermNetworkManager(string name) : TerraformResource("azu
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -160,9 +160,7 @@ public partial class AzurermNetworkManager(string name) : TerraformResource("azu
     /// The cross_tenant_scopes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CrossTenantScopes
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cross_tenant_scopes").ResolveNodes(ctx));
-    }
+        => AsReference("cross_tenant_scopes");
 
     /// <summary>
     /// Scope block (nesting mode: list).

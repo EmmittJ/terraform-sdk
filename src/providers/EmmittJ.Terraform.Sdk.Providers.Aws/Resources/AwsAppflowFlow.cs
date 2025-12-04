@@ -18,7 +18,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ApiVersion
     {
-        get => new TerraformReference<string>(this, "api_version");
+        get => GetArgument<TerraformValue<string>>("api_version");
         set => SetArgument("api_version", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConnectorProfileName
     {
-        get => new TerraformReference<string>(this, "connector_profile_name");
+        get => GetArgument<TerraformValue<string>>("connector_profile_name");
         set => SetArgument("connector_profile_name", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorType is required")]
     public required TerraformValue<string> ConnectorType
     {
-        get => new TerraformReference<string>(this, "connector_type");
+        get => GetArgument<TerraformValue<string>>("connector_type");
         set => SetArgument("connector_type", value);
     }
 
@@ -215,7 +215,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformMap<string>? CustomProperties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "custom_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("custom_properties");
         set => SetArgument("custom_properties", value);
     }
 
@@ -225,7 +225,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityName is required")]
     public required TerraformValue<string> EntityName
     {
-        get => new TerraformReference<string>(this, "entity_name");
+        get => GetArgument<TerraformValue<string>>("entity_name");
         set => SetArgument("entity_name", value);
     }
 
@@ -234,7 +234,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformList<string>? IdFieldNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "id_field_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("id_field_names");
         set => SetArgument("id_field_names", value);
     }
 
@@ -243,7 +243,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? WriteOperationType
     {
-        get => new TerraformReference<string>(this, "write_operation_type");
+        get => GetArgument<TerraformValue<string>>("write_operation_type");
         set => SetArgument("write_operation_type", value);
     }
 
@@ -275,7 +275,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -284,7 +284,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketPrefix
     {
-        get => new TerraformReference<string>(this, "bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -293,7 +293,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<bool>? FailOnFirstDestinationError
     {
-        get => new TerraformReference<bool>(this, "fail_on_first_destination_error");
+        get => GetArgument<TerraformValue<bool>>("fail_on_first_destination_error");
         set => SetArgument("fail_on_first_destination_error", value);
     }
 
@@ -316,7 +316,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -325,7 +325,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? ObjectTypeName
     {
-        get => new TerraformReference<string>(this, "object_type_name");
+        get => GetArgument<TerraformValue<string>>("object_type_name");
         set => SetArgument("object_type_name", value);
     }
 
@@ -348,7 +348,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -380,7 +380,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -389,7 +389,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketPrefix
     {
-        get => new TerraformReference<string>(this, "bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -398,7 +398,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<bool>? FailOnFirstDestinationError
     {
-        get => new TerraformReference<bool>(this, "fail_on_first_destination_error");
+        get => GetArgument<TerraformValue<bool>>("fail_on_first_destination_error");
         set => SetArgument("fail_on_first_destination_error", value);
     }
 
@@ -421,7 +421,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -453,7 +453,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -462,7 +462,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketPrefix
     {
-        get => new TerraformReference<string>(this, "bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -471,7 +471,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<bool>? FailOnFirstDestinationError
     {
-        get => new TerraformReference<bool>(this, "fail_on_first_destination_error");
+        get => GetArgument<TerraformValue<bool>>("fail_on_first_destination_error");
         set => SetArgument("fail_on_first_destination_error", value);
     }
 
@@ -507,7 +507,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -539,7 +539,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -548,7 +548,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketPrefix
     {
-        get => new TerraformReference<string>(this, "bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -557,7 +557,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<bool>? FailOnFirstDestinationError
     {
-        get => new TerraformReference<bool>(this, "fail_on_first_destination_error");
+        get => GetArgument<TerraformValue<bool>>("fail_on_first_destination_error");
         set => SetArgument("fail_on_first_destination_error", value);
     }
 
@@ -579,7 +579,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketPrefix
     {
-        get => new TerraformReference<string>(this, "bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -589,7 +589,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntermediateBucketName is required")]
     public required TerraformValue<string> IntermediateBucketName
     {
-        get => new TerraformReference<string>(this, "intermediate_bucket_name");
+        get => GetArgument<TerraformValue<string>>("intermediate_bucket_name");
         set => SetArgument("intermediate_bucket_name", value);
     }
 
@@ -599,7 +599,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -631,7 +631,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -640,7 +640,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketPrefix
     {
-        get => new TerraformReference<string>(this, "bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -649,7 +649,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<bool>? FailOnFirstDestinationError
     {
-        get => new TerraformReference<bool>(this, "fail_on_first_destination_error");
+        get => GetArgument<TerraformValue<bool>>("fail_on_first_destination_error");
         set => SetArgument("fail_on_first_destination_error", value);
     }
 
@@ -672,16 +672,16 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
     /// <summary>
     /// The bucket_prefix attribute.
     /// </summary>
-    public TerraformValue<string> BucketPrefix
+    public TerraformValue<string>? BucketPrefix
     {
-        get => new TerraformReference<string>(this, "bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -713,16 +713,16 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? FileType
     {
-        get => new TerraformReference<string>(this, "file_type");
+        get => GetArgument<TerraformValue<string>>("file_type");
         set => SetArgument("file_type", value);
     }
 
     /// <summary>
     /// The preserve_source_data_typing attribute.
     /// </summary>
-    public TerraformValue<bool> PreserveSourceDataTyping
+    public TerraformValue<bool>? PreserveSourceDataTyping
     {
-        get => new TerraformReference<bool>(this, "preserve_source_data_typing");
+        get => GetArgument<TerraformValue<bool>>("preserve_source_data_typing");
         set => SetArgument("preserve_source_data_typing", value);
     }
 
@@ -762,18 +762,18 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// <summary>
     /// The aggregation_type attribute.
     /// </summary>
-    public TerraformValue<string> AggregationType
+    public TerraformValue<string>? AggregationType
     {
-        get => new TerraformReference<string>(this, "aggregation_type");
+        get => GetArgument<TerraformValue<string>>("aggregation_type");
         set => SetArgument("aggregation_type", value);
     }
 
     /// <summary>
     /// The target_file_size attribute.
     /// </summary>
-    public TerraformValue<double> TargetFileSize
+    public TerraformValue<double>? TargetFileSize
     {
-        get => new TerraformReference<double>(this, "target_file_size");
+        get => GetArgument<TerraformValue<double>>("target_file_size");
         set => SetArgument("target_file_size", value);
     }
 
@@ -795,16 +795,16 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? PrefixFormat
     {
-        get => new TerraformReference<string>(this, "prefix_format");
+        get => GetArgument<TerraformValue<string>>("prefix_format");
         set => SetArgument("prefix_format", value);
     }
 
     /// <summary>
     /// The prefix_hierarchy attribute.
     /// </summary>
-    public TerraformList<string> PrefixHierarchy
+    public TerraformList<string>? PrefixHierarchy
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "prefix_hierarchy").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("prefix_hierarchy");
         set => SetArgument("prefix_hierarchy", value);
     }
 
@@ -813,7 +813,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? PrefixType
     {
-        get => new TerraformReference<string>(this, "prefix_type");
+        get => GetArgument<TerraformValue<string>>("prefix_type");
         set => SetArgument("prefix_type", value);
     }
 
@@ -835,7 +835,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? DataTransferApi
     {
-        get => new TerraformReference<string>(this, "data_transfer_api");
+        get => GetArgument<TerraformValue<string>>("data_transfer_api");
         set => SetArgument("data_transfer_api", value);
     }
 
@@ -844,7 +844,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformList<string>? IdFieldNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "id_field_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("id_field_names");
         set => SetArgument("id_field_names", value);
     }
 
@@ -854,7 +854,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -863,7 +863,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? WriteOperationType
     {
-        get => new TerraformReference<string>(this, "write_operation_type");
+        get => GetArgument<TerraformValue<string>>("write_operation_type");
         set => SetArgument("write_operation_type", value);
     }
 
@@ -895,7 +895,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -904,7 +904,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketPrefix
     {
-        get => new TerraformReference<string>(this, "bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -913,7 +913,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<bool>? FailOnFirstDestinationError
     {
-        get => new TerraformReference<bool>(this, "fail_on_first_destination_error");
+        get => GetArgument<TerraformValue<bool>>("fail_on_first_destination_error");
         set => SetArgument("fail_on_first_destination_error", value);
     }
 
@@ -935,7 +935,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformList<string>? IdFieldNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "id_field_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("id_field_names");
         set => SetArgument("id_field_names", value);
     }
 
@@ -945,7 +945,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectPath is required")]
     public required TerraformValue<string> ObjectPath
     {
-        get => new TerraformReference<string>(this, "object_path");
+        get => GetArgument<TerraformValue<string>>("object_path");
         set => SetArgument("object_path", value);
     }
 
@@ -954,7 +954,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? WriteOperationType
     {
-        get => new TerraformReference<string>(this, "write_operation_type");
+        get => GetArgument<TerraformValue<string>>("write_operation_type");
         set => SetArgument("write_operation_type", value);
     }
 
@@ -996,7 +996,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -1005,7 +1005,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketPrefix
     {
-        get => new TerraformReference<string>(this, "bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -1014,7 +1014,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<bool>? FailOnFirstDestinationError
     {
-        get => new TerraformReference<bool>(this, "fail_on_first_destination_error");
+        get => GetArgument<TerraformValue<bool>>("fail_on_first_destination_error");
         set => SetArgument("fail_on_first_destination_error", value);
     }
 
@@ -1036,7 +1036,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -1045,7 +1045,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketPrefix
     {
-        get => new TerraformReference<string>(this, "bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -1067,7 +1067,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketPrefix
     {
-        get => new TerraformReference<string>(this, "bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -1077,7 +1077,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntermediateBucketName is required")]
     public required TerraformValue<string> IntermediateBucketName
     {
-        get => new TerraformReference<string>(this, "intermediate_bucket_name");
+        get => GetArgument<TerraformValue<string>>("intermediate_bucket_name");
         set => SetArgument("intermediate_bucket_name", value);
     }
 
@@ -1087,7 +1087,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -1119,7 +1119,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -1128,7 +1128,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketPrefix
     {
-        get => new TerraformReference<string>(this, "bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -1137,7 +1137,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<bool>? FailOnFirstDestinationError
     {
-        get => new TerraformReference<bool>(this, "fail_on_first_destination_error");
+        get => GetArgument<TerraformValue<bool>>("fail_on_first_destination_error");
         set => SetArgument("fail_on_first_destination_error", value);
     }
 
@@ -1160,7 +1160,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -1169,7 +1169,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketPrefix
     {
-        get => new TerraformReference<string>(this, "bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -1204,7 +1204,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? FileType
     {
-        get => new TerraformReference<string>(this, "file_type");
+        get => GetArgument<TerraformValue<string>>("file_type");
         set => SetArgument("file_type", value);
     }
 
@@ -1249,7 +1249,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? AggregationType
     {
-        get => new TerraformReference<string>(this, "aggregation_type");
+        get => GetArgument<TerraformValue<string>>("aggregation_type");
         set => SetArgument("aggregation_type", value);
     }
 
@@ -1271,16 +1271,16 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? PrefixFormat
     {
-        get => new TerraformReference<string>(this, "prefix_format");
+        get => GetArgument<TerraformValue<string>>("prefix_format");
         set => SetArgument("prefix_format", value);
     }
 
     /// <summary>
     /// The prefix_hierarchy attribute.
     /// </summary>
-    public TerraformList<string> PrefixHierarchy
+    public TerraformList<string>? PrefixHierarchy
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "prefix_hierarchy").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("prefix_hierarchy");
         set => SetArgument("prefix_hierarchy", value);
     }
 
@@ -1290,7 +1290,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrefixType is required")]
     public required TerraformValue<string> PrefixType
     {
-        get => new TerraformReference<string>(this, "prefix_type");
+        get => GetArgument<TerraformValue<string>>("prefix_type");
         set => SetArgument("prefix_type", value);
     }
 
@@ -1312,7 +1312,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformList<string>? IdFieldNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "id_field_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("id_field_names");
         set => SetArgument("id_field_names", value);
     }
 
@@ -1322,7 +1322,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -1331,7 +1331,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? WriteOperationType
     {
-        get => new TerraformReference<string>(this, "write_operation_type");
+        get => GetArgument<TerraformValue<string>>("write_operation_type");
         set => SetArgument("write_operation_type", value);
     }
 
@@ -1363,7 +1363,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -1372,7 +1372,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<string>? BucketPrefix
     {
-        get => new TerraformReference<string>(this, "bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -1381,7 +1381,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlockDestinationConnectorPropert
     /// </summary>
     public TerraformValue<bool>? FailOnFirstDestinationError
     {
-        get => new TerraformReference<bool>(this, "fail_on_first_destination_error");
+        get => GetArgument<TerraformValue<bool>>("fail_on_first_destination_error");
         set => SetArgument("fail_on_first_destination_error", value);
     }
 
@@ -1428,7 +1428,7 @@ public class AwsAppflowFlowMetadataCatalogConfigBlockGlueDataCatalogBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -1438,7 +1438,7 @@ public class AwsAppflowFlowMetadataCatalogConfigBlockGlueDataCatalogBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1448,7 +1448,7 @@ public class AwsAppflowFlowMetadataCatalogConfigBlockGlueDataCatalogBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TablePrefix is required")]
     public required TerraformValue<string> TablePrefix
     {
-        get => new TerraformReference<string>(this, "table_prefix");
+        get => GetArgument<TerraformValue<string>>("table_prefix");
         set => SetArgument("table_prefix", value);
     }
 
@@ -1471,7 +1471,7 @@ public class AwsAppflowFlowSourceFlowConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ApiVersion
     {
-        get => new TerraformReference<string>(this, "api_version");
+        get => GetArgument<TerraformValue<string>>("api_version");
         set => SetArgument("api_version", value);
     }
 
@@ -1480,7 +1480,7 @@ public class AwsAppflowFlowSourceFlowConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConnectorProfileName
     {
-        get => new TerraformReference<string>(this, "connector_profile_name");
+        get => GetArgument<TerraformValue<string>>("connector_profile_name");
         set => SetArgument("connector_profile_name", value);
     }
 
@@ -1490,7 +1490,7 @@ public class AwsAppflowFlowSourceFlowConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorType is required")]
     public required TerraformValue<string> ConnectorType
     {
-        get => new TerraformReference<string>(this, "connector_type");
+        get => GetArgument<TerraformValue<string>>("connector_type");
         set => SetArgument("connector_type", value);
     }
 
@@ -1535,7 +1535,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockIncrementalPullConfigBlock : Ter
     /// </summary>
     public TerraformValue<string>? DatetimeTypeFieldName
     {
-        get => new TerraformReference<string>(this, "datetime_type_field_name");
+        get => GetArgument<TerraformValue<string>>("datetime_type_field_name");
         set => SetArgument("datetime_type_field_name", value);
     }
 
@@ -1731,7 +1731,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockAm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -1753,7 +1753,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockCu
     /// </summary>
     public TerraformMap<string>? CustomProperties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "custom_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("custom_properties");
         set => SetArgument("custom_properties", value);
     }
 
@@ -1763,7 +1763,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockCu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityName is required")]
     public required TerraformValue<string> EntityName
     {
-        get => new TerraformReference<string>(this, "entity_name");
+        get => GetArgument<TerraformValue<string>>("entity_name");
         set => SetArgument("entity_name", value);
     }
 
@@ -1786,7 +1786,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -1809,7 +1809,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockDy
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -1832,7 +1832,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockGo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -1855,7 +1855,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockIn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -1878,7 +1878,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockMa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -1901,7 +1901,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockS3
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -1911,7 +1911,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockS3
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketPrefix is required")]
     public required TerraformValue<string> BucketPrefix
     {
-        get => new TerraformReference<string>(this, "bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -1943,7 +1943,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockS3
     /// </summary>
     public TerraformValue<string>? S3InputFileType
     {
-        get => new TerraformReference<string>(this, "s3_input_file_type");
+        get => GetArgument<TerraformValue<string>>("s3_input_file_type");
         set => SetArgument("s3_input_file_type", value);
     }
 
@@ -1965,7 +1965,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockSa
     /// </summary>
     public TerraformValue<string>? DataTransferApi
     {
-        get => new TerraformReference<string>(this, "data_transfer_api");
+        get => GetArgument<TerraformValue<string>>("data_transfer_api");
         set => SetArgument("data_transfer_api", value);
     }
 
@@ -1974,7 +1974,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockSa
     /// </summary>
     public TerraformValue<bool>? EnableDynamicFieldUpdate
     {
-        get => new TerraformReference<bool>(this, "enable_dynamic_field_update");
+        get => GetArgument<TerraformValue<bool>>("enable_dynamic_field_update");
         set => SetArgument("enable_dynamic_field_update", value);
     }
 
@@ -1983,7 +1983,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockSa
     /// </summary>
     public TerraformValue<bool>? IncludeDeletedRecords
     {
-        get => new TerraformReference<bool>(this, "include_deleted_records");
+        get => GetArgument<TerraformValue<bool>>("include_deleted_records");
         set => SetArgument("include_deleted_records", value);
     }
 
@@ -1993,7 +1993,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockSa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -2016,7 +2016,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockSa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectPath is required")]
     public required TerraformValue<string> ObjectPath
     {
-        get => new TerraformReference<string>(this, "object_path");
+        get => GetArgument<TerraformValue<string>>("object_path");
         set => SetArgument("object_path", value);
     }
 
@@ -2059,7 +2059,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockSa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxPageSize is required")]
     public required TerraformValue<double> MaxPageSize
     {
-        get => new TerraformReference<double>(this, "max_page_size");
+        get => GetArgument<TerraformValue<double>>("max_page_size");
         set => SetArgument("max_page_size", value);
     }
 
@@ -2082,7 +2082,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockSa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxPageSize is required")]
     public required TerraformValue<double> MaxPageSize
     {
-        get => new TerraformReference<double>(this, "max_page_size");
+        get => GetArgument<TerraformValue<double>>("max_page_size");
         set => SetArgument("max_page_size", value);
     }
 
@@ -2105,7 +2105,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockSe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -2128,7 +2128,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockSi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -2151,7 +2151,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockSl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -2174,7 +2174,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockTr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -2196,7 +2196,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockVe
     /// </summary>
     public TerraformValue<string>? DocumentType
     {
-        get => new TerraformReference<string>(this, "document_type");
+        get => GetArgument<TerraformValue<string>>("document_type");
         set => SetArgument("document_type", value);
     }
 
@@ -2205,7 +2205,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockVe
     /// </summary>
     public TerraformValue<bool>? IncludeAllVersions
     {
-        get => new TerraformReference<bool>(this, "include_all_versions");
+        get => GetArgument<TerraformValue<bool>>("include_all_versions");
         set => SetArgument("include_all_versions", value);
     }
 
@@ -2214,7 +2214,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockVe
     /// </summary>
     public TerraformValue<bool>? IncludeRenditions
     {
-        get => new TerraformReference<bool>(this, "include_renditions");
+        get => GetArgument<TerraformValue<bool>>("include_renditions");
         set => SetArgument("include_renditions", value);
     }
 
@@ -2223,7 +2223,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockVe
     /// </summary>
     public TerraformValue<bool>? IncludeSourceFiles
     {
-        get => new TerraformReference<bool>(this, "include_source_files");
+        get => GetArgument<TerraformValue<bool>>("include_source_files");
         set => SetArgument("include_source_files", value);
     }
 
@@ -2233,7 +2233,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockVe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -2256,7 +2256,7 @@ public class AwsAppflowFlowSourceFlowConfigBlockSourceConnectorPropertiesBlockZe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -2279,16 +2279,16 @@ public class AwsAppflowFlowTaskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DestinationField
     {
-        get => new TerraformReference<string>(this, "destination_field");
+        get => GetArgument<TerraformValue<string>>("destination_field");
         set => SetArgument("destination_field", value);
     }
 
     /// <summary>
     /// The source_fields attribute.
     /// </summary>
-    public TerraformList<string> SourceFields
+    public TerraformList<string>? SourceFields
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "source_fields").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("source_fields");
         set => SetArgument("source_fields", value);
     }
 
@@ -2297,7 +2297,7 @@ public class AwsAppflowFlowTaskBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? TaskProperties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "task_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("task_properties");
         set => SetArgument("task_properties", value);
     }
 
@@ -2307,7 +2307,7 @@ public class AwsAppflowFlowTaskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskType is required")]
     public required TerraformValue<string> TaskType
     {
-        get => new TerraformReference<string>(this, "task_type");
+        get => GetArgument<TerraformValue<string>>("task_type");
         set => SetArgument("task_type", value);
     }
 
@@ -2338,7 +2338,7 @@ public class AwsAppflowFlowTaskBlockConnectorOperatorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Amplitude
     {
-        get => new TerraformReference<string>(this, "amplitude");
+        get => GetArgument<TerraformValue<string>>("amplitude");
         set => SetArgument("amplitude", value);
     }
 
@@ -2347,7 +2347,7 @@ public class AwsAppflowFlowTaskBlockConnectorOperatorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CustomConnector
     {
-        get => new TerraformReference<string>(this, "custom_connector");
+        get => GetArgument<TerraformValue<string>>("custom_connector");
         set => SetArgument("custom_connector", value);
     }
 
@@ -2356,7 +2356,7 @@ public class AwsAppflowFlowTaskBlockConnectorOperatorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Datadog
     {
-        get => new TerraformReference<string>(this, "datadog");
+        get => GetArgument<TerraformValue<string>>("datadog");
         set => SetArgument("datadog", value);
     }
 
@@ -2365,7 +2365,7 @@ public class AwsAppflowFlowTaskBlockConnectorOperatorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Dynatrace
     {
-        get => new TerraformReference<string>(this, "dynatrace");
+        get => GetArgument<TerraformValue<string>>("dynatrace");
         set => SetArgument("dynatrace", value);
     }
 
@@ -2374,7 +2374,7 @@ public class AwsAppflowFlowTaskBlockConnectorOperatorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? GoogleAnalytics
     {
-        get => new TerraformReference<string>(this, "google_analytics");
+        get => GetArgument<TerraformValue<string>>("google_analytics");
         set => SetArgument("google_analytics", value);
     }
 
@@ -2383,7 +2383,7 @@ public class AwsAppflowFlowTaskBlockConnectorOperatorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? InforNexus
     {
-        get => new TerraformReference<string>(this, "infor_nexus");
+        get => GetArgument<TerraformValue<string>>("infor_nexus");
         set => SetArgument("infor_nexus", value);
     }
 
@@ -2392,7 +2392,7 @@ public class AwsAppflowFlowTaskBlockConnectorOperatorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Marketo
     {
-        get => new TerraformReference<string>(this, "marketo");
+        get => GetArgument<TerraformValue<string>>("marketo");
         set => SetArgument("marketo", value);
     }
 
@@ -2401,7 +2401,7 @@ public class AwsAppflowFlowTaskBlockConnectorOperatorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? S3
     {
-        get => new TerraformReference<string>(this, "s3");
+        get => GetArgument<TerraformValue<string>>("s3");
         set => SetArgument("s3", value);
     }
 
@@ -2410,7 +2410,7 @@ public class AwsAppflowFlowTaskBlockConnectorOperatorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Salesforce
     {
-        get => new TerraformReference<string>(this, "salesforce");
+        get => GetArgument<TerraformValue<string>>("salesforce");
         set => SetArgument("salesforce", value);
     }
 
@@ -2419,7 +2419,7 @@ public class AwsAppflowFlowTaskBlockConnectorOperatorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SapoData
     {
-        get => new TerraformReference<string>(this, "sapo_data");
+        get => GetArgument<TerraformValue<string>>("sapo_data");
         set => SetArgument("sapo_data", value);
     }
 
@@ -2428,7 +2428,7 @@ public class AwsAppflowFlowTaskBlockConnectorOperatorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ServiceNow
     {
-        get => new TerraformReference<string>(this, "service_now");
+        get => GetArgument<TerraformValue<string>>("service_now");
         set => SetArgument("service_now", value);
     }
 
@@ -2437,7 +2437,7 @@ public class AwsAppflowFlowTaskBlockConnectorOperatorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Singular
     {
-        get => new TerraformReference<string>(this, "singular");
+        get => GetArgument<TerraformValue<string>>("singular");
         set => SetArgument("singular", value);
     }
 
@@ -2446,7 +2446,7 @@ public class AwsAppflowFlowTaskBlockConnectorOperatorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Slack
     {
-        get => new TerraformReference<string>(this, "slack");
+        get => GetArgument<TerraformValue<string>>("slack");
         set => SetArgument("slack", value);
     }
 
@@ -2455,7 +2455,7 @@ public class AwsAppflowFlowTaskBlockConnectorOperatorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Trendmicro
     {
-        get => new TerraformReference<string>(this, "trendmicro");
+        get => GetArgument<TerraformValue<string>>("trendmicro");
         set => SetArgument("trendmicro", value);
     }
 
@@ -2464,7 +2464,7 @@ public class AwsAppflowFlowTaskBlockConnectorOperatorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Veeva
     {
-        get => new TerraformReference<string>(this, "veeva");
+        get => GetArgument<TerraformValue<string>>("veeva");
         set => SetArgument("veeva", value);
     }
 
@@ -2473,7 +2473,7 @@ public class AwsAppflowFlowTaskBlockConnectorOperatorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Zendesk
     {
-        get => new TerraformReference<string>(this, "zendesk");
+        get => GetArgument<TerraformValue<string>>("zendesk");
         set => SetArgument("zendesk", value);
     }
 
@@ -2497,7 +2497,7 @@ public class AwsAppflowFlowTriggerConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerType is required")]
     public required TerraformValue<string> TriggerType
     {
-        get => new TerraformReference<string>(this, "trigger_type");
+        get => GetArgument<TerraformValue<string>>("trigger_type");
         set => SetArgument("trigger_type", value);
     }
 
@@ -2552,7 +2552,7 @@ public class AwsAppflowFlowTriggerConfigBlockTriggerPropertiesBlockScheduledBloc
     /// </summary>
     public TerraformValue<string>? DataPullMode
     {
-        get => new TerraformReference<string>(this, "data_pull_mode");
+        get => GetArgument<TerraformValue<string>>("data_pull_mode");
         set => SetArgument("data_pull_mode", value);
     }
 
@@ -2561,7 +2561,7 @@ public class AwsAppflowFlowTriggerConfigBlockTriggerPropertiesBlockScheduledBloc
     /// </summary>
     public TerraformValue<string>? FirstExecutionFrom
     {
-        get => new TerraformReference<string>(this, "first_execution_from");
+        get => GetArgument<TerraformValue<string>>("first_execution_from");
         set => SetArgument("first_execution_from", value);
     }
 
@@ -2570,7 +2570,7 @@ public class AwsAppflowFlowTriggerConfigBlockTriggerPropertiesBlockScheduledBloc
     /// </summary>
     public TerraformValue<string>? ScheduleEndTime
     {
-        get => new TerraformReference<string>(this, "schedule_end_time");
+        get => GetArgument<TerraformValue<string>>("schedule_end_time");
         set => SetArgument("schedule_end_time", value);
     }
 
@@ -2580,7 +2580,7 @@ public class AwsAppflowFlowTriggerConfigBlockTriggerPropertiesBlockScheduledBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     public required TerraformValue<string> ScheduleExpression
     {
-        get => new TerraformReference<string>(this, "schedule_expression");
+        get => GetArgument<TerraformValue<string>>("schedule_expression");
         set => SetArgument("schedule_expression", value);
     }
 
@@ -2589,7 +2589,7 @@ public class AwsAppflowFlowTriggerConfigBlockTriggerPropertiesBlockScheduledBloc
     /// </summary>
     public TerraformValue<double>? ScheduleOffset
     {
-        get => new TerraformReference<double>(this, "schedule_offset");
+        get => GetArgument<TerraformValue<double>>("schedule_offset");
         set => SetArgument("schedule_offset", value);
     }
 
@@ -2598,7 +2598,7 @@ public class AwsAppflowFlowTriggerConfigBlockTriggerPropertiesBlockScheduledBloc
     /// </summary>
     public TerraformValue<string>? ScheduleStartTime
     {
-        get => new TerraformReference<string>(this, "schedule_start_time");
+        get => GetArgument<TerraformValue<string>>("schedule_start_time");
         set => SetArgument("schedule_start_time", value);
     }
 
@@ -2607,7 +2607,7 @@ public class AwsAppflowFlowTriggerConfigBlockTriggerPropertiesBlockScheduledBloc
     /// </summary>
     public TerraformValue<string>? Timezone
     {
-        get => new TerraformReference<string>(this, "timezone");
+        get => GetArgument<TerraformValue<string>>("timezone");
         set => SetArgument("timezone", value);
     }
 
@@ -2625,25 +2625,25 @@ public partial class AwsAppflowFlow(string name) : TerraformResource("aws_appflo
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kms_arn attribute.
     /// </summary>
-    public TerraformValue<string> KmsArn
+    public TerraformValue<string>? KmsArn
     {
-        get => new TerraformReference<string>(this, "kms_arn");
+        get => GetArgument<TerraformValue<string>>("kms_arn");
         set => SetArgument("kms_arn", value);
     }
 
@@ -2653,16 +2653,16 @@ public partial class AwsAppflowFlow(string name) : TerraformResource("aws_appflo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -2671,16 +2671,16 @@ public partial class AwsAppflowFlow(string name) : TerraformResource("aws_appflo
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -2688,17 +2688,13 @@ public partial class AwsAppflowFlow(string name) : TerraformResource("aws_appflo
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The flow_status attribute.
     /// </summary>
     public TerraformValue<string> FlowStatus
-    {
-        get => new TerraformReference<string>(this, "flow_status");
-    }
+        => AsReference("flow_status");
 
     /// <summary>
     /// DestinationFlowConfig block (nesting mode: list).

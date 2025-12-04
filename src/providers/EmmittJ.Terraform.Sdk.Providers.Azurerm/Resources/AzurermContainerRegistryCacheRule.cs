@@ -18,7 +18,7 @@ public class AzurermContainerRegistryCacheRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermContainerRegistryCacheRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermContainerRegistryCacheRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermContainerRegistryCacheRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermContainerRegistryCacheRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
     public required TerraformValue<string> ContainerRegistryId
     {
-        get => new TerraformReference<string>(this, "container_registry_id");
+        get => GetArgument<TerraformValue<string>>("container_registry_id");
         set => SetArgument("container_registry_id", value);
     }
 
@@ -73,16 +73,16 @@ public partial class AzurermContainerRegistryCacheRule(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? CredentialSetId
     {
-        get => new TerraformReference<string>(this, "credential_set_id");
+        get => GetArgument<TerraformValue<string>>("credential_set_id");
         set => SetArgument("credential_set_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermContainerRegistryCacheRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermContainerRegistryCacheRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRepo is required")]
     public required TerraformValue<string> SourceRepo
     {
-        get => new TerraformReference<string>(this, "source_repo");
+        get => GetArgument<TerraformValue<string>>("source_repo");
         set => SetArgument("source_repo", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermContainerRegistryCacheRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRepo is required")]
     public required TerraformValue<string> TargetRepo
     {
-        get => new TerraformReference<string>(this, "target_repo");
+        get => GetArgument<TerraformValue<string>>("target_repo");
         set => SetArgument("target_repo", value);
     }
 

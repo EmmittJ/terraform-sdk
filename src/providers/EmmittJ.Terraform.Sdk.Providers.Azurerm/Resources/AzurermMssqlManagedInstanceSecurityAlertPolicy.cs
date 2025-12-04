@@ -18,7 +18,7 @@ public class AzurermMssqlManagedInstanceSecurityAlertPolicyTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermMssqlManagedInstanceSecurityAlertPolicyTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermMssqlManagedInstanceSecurityAlertPolicyTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermMssqlManagedInstanceSecurityAlertPolicyTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermMssqlManagedInstanceSecurityAlertPolicy(string name)
     /// </summary>
     public TerraformSet<string>? DisabledAlerts
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "disabled_alerts").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("disabled_alerts");
         set => SetArgument("disabled_alerts", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermMssqlManagedInstanceSecurityAlertPolicy(string name)
     /// </summary>
     public TerraformValue<bool>? EmailAccountAdminsEnabled
     {
-        get => new TerraformReference<bool>(this, "email_account_admins_enabled");
+        get => GetArgument<TerraformValue<bool>>("email_account_admins_enabled");
         set => SetArgument("email_account_admins_enabled", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermMssqlManagedInstanceSecurityAlertPolicy(string name)
     /// </summary>
     public TerraformSet<string>? EmailAddresses
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "email_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("email_addresses");
         set => SetArgument("email_addresses", value);
     }
 
@@ -90,16 +90,16 @@ public partial class AzurermMssqlManagedInstanceSecurityAlertPolicy(string name)
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermMssqlManagedInstanceSecurityAlertPolicy(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceName is required")]
     public required TerraformValue<string> ManagedInstanceName
     {
-        get => new TerraformReference<string>(this, "managed_instance_name");
+        get => GetArgument<TerraformValue<string>>("managed_instance_name");
         set => SetArgument("managed_instance_name", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermMssqlManagedInstanceSecurityAlertPolicy(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermMssqlManagedInstanceSecurityAlertPolicy(string name)
     /// </summary>
     public TerraformValue<double>? RetentionDays
     {
-        get => new TerraformReference<double>(this, "retention_days");
+        get => GetArgument<TerraformValue<double>>("retention_days");
         set => SetArgument("retention_days", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AzurermMssqlManagedInstanceSecurityAlertPolicy(string name)
     /// </summary>
     public TerraformValue<string>? StorageAccountAccessKey
     {
-        get => new TerraformReference<string>(this, "storage_account_access_key");
+        get => GetArgument<TerraformValue<string>>("storage_account_access_key");
         set => SetArgument("storage_account_access_key", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AzurermMssqlManagedInstanceSecurityAlertPolicy(string name)
     /// </summary>
     public TerraformValue<string>? StorageEndpoint
     {
-        get => new TerraformReference<string>(this, "storage_endpoint");
+        get => GetArgument<TerraformValue<string>>("storage_endpoint");
         set => SetArgument("storage_endpoint", value);
     }
 

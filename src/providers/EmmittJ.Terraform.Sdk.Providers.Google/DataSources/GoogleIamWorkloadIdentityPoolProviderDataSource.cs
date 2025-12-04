@@ -11,9 +11,9 @@ public partial class GoogleIamWorkloadIdentityPoolProviderDataSource(string name
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleIamWorkloadIdentityPoolProviderDataSource(string name
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -34,7 +34,7 @@ public partial class GoogleIamWorkloadIdentityPoolProviderDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolId is required")]
     public required TerraformValue<string> WorkloadIdentityPoolId
     {
-        get => new TerraformReference<string>(this, "workload_identity_pool_id");
+        get => GetArgument<TerraformValue<string>>("workload_identity_pool_id");
         set => SetArgument("workload_identity_pool_id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class GoogleIamWorkloadIdentityPoolProviderDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolProviderId is required")]
     public required TerraformValue<string> WorkloadIdentityPoolProviderId
     {
-        get => new TerraformReference<string>(this, "workload_identity_pool_provider_id");
+        get => GetArgument<TerraformValue<string>>("workload_identity_pool_provider_id");
         set => SetArgument("workload_identity_pool_provider_id", value);
     }
 
@@ -72,9 +72,7 @@ public partial class GoogleIamWorkloadIdentityPoolProviderDataSource(string name
     /// &#39;&#39;&#39;
     /// </summary>
     public TerraformValue<string> AttributeCondition
-    {
-        get => new TerraformReference<string>(this, "attribute_condition");
-    }
+        => AsReference("attribute_condition");
 
     /// <summary>
     /// Maps attributes from authentication credentials issued by an external identity provider
@@ -139,67 +137,51 @@ public partial class GoogleIamWorkloadIdentityPoolProviderDataSource(string name
     ///     &#39;&#39;&#39;
     /// </summary>
     public TerraformMap<string> AttributeMapping
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "attribute_mapping").ResolveNodes(ctx));
-    }
+        => AsReference("attribute_mapping");
 
     /// <summary>
     /// An Amazon Web Services identity provider. Not compatible with the property oidc or saml.
     /// </summary>
     public TerraformList<TerraformMap<object>> Aws
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "aws").ResolveNodes(ctx));
-    }
+        => AsReference("aws");
 
     /// <summary>
     /// A description for the provider. Cannot exceed 256 characters.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// Whether the provider is disabled. You cannot use a disabled provider to exchange tokens.
     /// However, existing tokens still grant access.
     /// </summary>
     public TerraformValue<bool> Disabled
-    {
-        get => new TerraformReference<bool>(this, "disabled");
-    }
+        => AsReference("disabled");
 
     /// <summary>
     /// A display name for the provider. Cannot exceed 32 characters.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The resource name of the provider as
     /// &#39;projects/{project_number}/locations/global/workloadIdentityPools/{workload_identity_pool_id}/providers/{workload_identity_pool_provider_id}&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// An OpenId Connect 1.0 identity provider. Not compatible with the property aws or saml.
     /// </summary>
     public TerraformList<TerraformMap<object>> Oidc
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "oidc").ResolveNodes(ctx));
-    }
+        => AsReference("oidc");
 
     /// <summary>
     /// An SAML 2.0 identity provider. Not compatible with the property oidc or aws.
     /// </summary>
     public TerraformList<TerraformMap<object>> Saml
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "saml").ResolveNodes(ctx));
-    }
+        => AsReference("saml");
 
     /// <summary>
     /// The state of the provider.
@@ -211,17 +193,13 @@ public partial class GoogleIamWorkloadIdentityPoolProviderDataSource(string name
     ///   until it is permanently deleted.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// An X.509-type identity provider represents a CA. It is trusted to assert a
     /// client identity if the client has a certificate that chains up to this CA.
     /// </summary>
     public TerraformList<TerraformMap<object>> X509
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "x509").ResolveNodes(ctx));
-    }
+        => AsReference("x509");
 
 }

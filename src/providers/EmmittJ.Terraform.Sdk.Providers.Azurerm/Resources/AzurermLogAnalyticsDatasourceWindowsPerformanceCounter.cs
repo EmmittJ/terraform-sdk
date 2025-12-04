@@ -18,7 +18,7 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CounterName is required")]
     public required TerraformValue<string> CounterName
     {
-        get => new TerraformReference<string>(this, "counter_name");
+        get => GetArgument<TerraformValue<string>>("counter_name");
         set => SetArgument("counter_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformValue<string> InstanceName
     {
-        get => new TerraformReference<string>(this, "instance_name");
+        get => GetArgument<TerraformValue<string>>("instance_name");
         set => SetArgument("instance_name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntervalSeconds is required")]
     public required TerraformValue<double> IntervalSeconds
     {
-        get => new TerraformReference<double>(this, "interval_seconds");
+        get => GetArgument<TerraformValue<double>>("interval_seconds");
         set => SetArgument("interval_seconds", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectName is required")]
     public required TerraformValue<string> ObjectName
     {
-        get => new TerraformReference<string>(this, "object_name");
+        get => GetArgument<TerraformValue<string>>("object_name");
         set => SetArgument("object_name", value);
     }
 
@@ -123,7 +123,7 @@ public partial class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceName is required")]
     public required TerraformValue<string> WorkspaceName
     {
-        get => new TerraformReference<string>(this, "workspace_name");
+        get => GetArgument<TerraformValue<string>>("workspace_name");
         set => SetArgument("workspace_name", value);
     }
 

@@ -18,7 +18,7 @@ public class AzurermMssqlJobCredentialTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermMssqlJobCredentialTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermMssqlJobCredentialTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermMssqlJobCredentialTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermMssqlJobCredential(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermMssqlJobCredential(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobAgentId is required")]
     public required TerraformValue<string> JobAgentId
     {
-        get => new TerraformReference<string>(this, "job_agent_id");
+        get => GetArgument<TerraformValue<string>>("job_agent_id");
         set => SetArgument("job_agent_id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermMssqlJobCredential(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermMssqlJobCredential(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermMssqlJobCredential(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? PasswordWo
     {
-        get => new TerraformReference<string>(this, "password_wo");
+        get => GetArgument<TerraformValue<string>>("password_wo");
         set => SetArgument("password_wo", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermMssqlJobCredential(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<double>? PasswordWoVersion
     {
-        get => new TerraformReference<double>(this, "password_wo_version");
+        get => GetArgument<TerraformValue<double>>("password_wo_version");
         set => SetArgument("password_wo_version", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermMssqlJobCredential(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 

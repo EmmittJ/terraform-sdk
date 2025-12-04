@@ -14,16 +14,16 @@ public partial class AwsDirectoryServiceLogSubscription(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
     public required TerraformValue<string> DirectoryId
     {
-        get => new TerraformReference<string>(this, "directory_id");
+        get => GetArgument<TerraformValue<string>>("directory_id");
         set => SetArgument("directory_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsDirectoryServiceLogSubscription(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformValue<string> LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

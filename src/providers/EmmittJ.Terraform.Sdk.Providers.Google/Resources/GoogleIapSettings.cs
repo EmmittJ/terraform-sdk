@@ -22,7 +22,7 @@ public class GoogleIapSettingsAccessSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? IdentitySources
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "identity_sources").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("identity_sources");
         set => SetArgument("identity_sources", value);
     }
 
@@ -104,7 +104,7 @@ public class GoogleIapSettingsAccessSettingsBlockAllowedDomainsSettingsBlock : T
     /// </summary>
     public TerraformList<string>? Domains
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "domains").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("domains");
         set => SetArgument("domains", value);
     }
 
@@ -113,7 +113,7 @@ public class GoogleIapSettingsAccessSettingsBlockAllowedDomainsSettingsBlock : T
     /// </summary>
     public TerraformValue<bool>? Enable
     {
-        get => new TerraformReference<bool>(this, "enable");
+        get => GetArgument<TerraformValue<bool>>("enable");
         set => SetArgument("enable", value);
     }
 
@@ -136,7 +136,7 @@ public class GoogleIapSettingsAccessSettingsBlockCorsSettingsBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? AllowHttpOptions
     {
-        get => new TerraformReference<bool>(this, "allow_http_options");
+        get => GetArgument<TerraformValue<bool>>("allow_http_options");
         set => SetArgument("allow_http_options", value);
     }
 
@@ -160,7 +160,7 @@ public class GoogleIapSettingsAccessSettingsBlockGcipSettingsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? LoginPageUri
     {
-        get => new TerraformReference<string>(this, "login_page_uri");
+        get => GetArgument<TerraformValue<string>>("login_page_uri");
         set => SetArgument("login_page_uri", value);
     }
 
@@ -173,7 +173,7 @@ public class GoogleIapSettingsAccessSettingsBlockGcipSettingsBlock : TerraformBl
     /// </summary>
     public TerraformList<string>? TenantIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tenant_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("tenant_ids");
         set => SetArgument("tenant_ids", value);
     }
 
@@ -200,7 +200,7 @@ public class GoogleIapSettingsAccessSettingsBlockOauthSettingsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? LoginHint
     {
-        get => new TerraformReference<string>(this, "login_hint");
+        get => GetArgument<TerraformValue<string>>("login_hint");
         set => SetArgument("login_hint", value);
     }
 
@@ -209,7 +209,7 @@ public class GoogleIapSettingsAccessSettingsBlockOauthSettingsBlock : TerraformB
     /// </summary>
     public TerraformList<string>? ProgrammaticClients
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "programmatic_clients").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("programmatic_clients");
         set => SetArgument("programmatic_clients", value);
     }
 
@@ -234,7 +234,7 @@ public class GoogleIapSettingsAccessSettingsBlockReauthSettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAge is required")]
     public required TerraformValue<string> MaxAge
     {
-        get => new TerraformReference<string>(this, "max_age");
+        get => GetArgument<TerraformValue<string>>("max_age");
         set => SetArgument("max_age", value);
     }
 
@@ -248,7 +248,7 @@ public class GoogleIapSettingsAccessSettingsBlockReauthSettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Method is required")]
     public required TerraformValue<string> Method
     {
-        get => new TerraformReference<string>(this, "method");
+        get => GetArgument<TerraformValue<string>>("method");
         set => SetArgument("method", value);
     }
 
@@ -264,7 +264,7 @@ public class GoogleIapSettingsAccessSettingsBlockReauthSettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyType is required")]
     public required TerraformValue<string> PolicyType
     {
-        get => new TerraformReference<string>(this, "policy_type");
+        get => GetArgument<TerraformValue<string>>("policy_type");
         set => SetArgument("policy_type", value);
     }
 
@@ -286,7 +286,7 @@ public class GoogleIapSettingsAccessSettingsBlockWorkforceIdentitySettingsBlock 
     /// </summary>
     public TerraformList<string>? WorkforcePools
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "workforce_pools").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("workforce_pools");
         set => SetArgument("workforce_pools", value);
     }
 
@@ -319,7 +319,7 @@ public class GoogleIapSettingsAccessSettingsBlockWorkforceIdentitySettingsBlockO
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -329,7 +329,7 @@ public class GoogleIapSettingsAccessSettingsBlockWorkforceIdentitySettingsBlockO
     /// </summary>
     public TerraformValue<string>? ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -338,9 +338,7 @@ public class GoogleIapSettingsAccessSettingsBlockWorkforceIdentitySettingsBlockO
     /// is returned by IAP when the settings are retrieved.
     /// </summary>
     public TerraformValue<string> ClientSecretSha256
-    {
-        get => new TerraformReference<string>(this, "client_secret_sha256");
-    }
+        => AsReference("client_secret_sha256");
 
 }
 
@@ -362,7 +360,7 @@ public class GoogleIapSettingsApplicationSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CookieDomain
     {
-        get => new TerraformReference<string>(this, "cookie_domain");
+        get => GetArgument<TerraformValue<string>>("cookie_domain");
         set => SetArgument("cookie_domain", value);
     }
 
@@ -414,7 +412,7 @@ public class GoogleIapSettingsApplicationSettingsBlockAccessDeniedPageSettingsBl
     /// </summary>
     public TerraformValue<string>? AccessDeniedPageUri
     {
-        get => new TerraformReference<string>(this, "access_denied_page_uri");
+        get => GetArgument<TerraformValue<string>>("access_denied_page_uri");
         set => SetArgument("access_denied_page_uri", value);
     }
 
@@ -423,7 +421,7 @@ public class GoogleIapSettingsApplicationSettingsBlockAccessDeniedPageSettingsBl
     /// </summary>
     public TerraformValue<bool>? GenerateTroubleshootingUri
     {
-        get => new TerraformReference<bool>(this, "generate_troubleshooting_uri");
+        get => GetArgument<TerraformValue<bool>>("generate_troubleshooting_uri");
         set => SetArgument("generate_troubleshooting_uri", value);
     }
 
@@ -432,7 +430,7 @@ public class GoogleIapSettingsApplicationSettingsBlockAccessDeniedPageSettingsBl
     /// </summary>
     public TerraformValue<bool>? RemediationTokenGenerationEnabled
     {
-        get => new TerraformReference<bool>(this, "remediation_token_generation_enabled");
+        get => GetArgument<TerraformValue<bool>>("remediation_token_generation_enabled");
         set => SetArgument("remediation_token_generation_enabled", value);
     }
 
@@ -455,7 +453,7 @@ public class GoogleIapSettingsApplicationSettingsBlockAttributePropagationSettin
     /// </summary>
     public TerraformValue<bool>? Enable
     {
-        get => new TerraformReference<bool>(this, "enable");
+        get => GetArgument<TerraformValue<bool>>("enable");
         set => SetArgument("enable", value);
     }
 
@@ -466,7 +464,7 @@ public class GoogleIapSettingsApplicationSettingsBlockAttributePropagationSettin
     /// </summary>
     public TerraformValue<string>? Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -483,7 +481,7 @@ public class GoogleIapSettingsApplicationSettingsBlockAttributePropagationSettin
     /// </summary>
     public TerraformList<string>? OutputCredentials
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "output_credentials").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("output_credentials");
         set => SetArgument("output_credentials", value);
     }
 
@@ -505,7 +503,7 @@ public class GoogleIapSettingsApplicationSettingsBlockCsmSettingsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? RctokenAud
     {
-        get => new TerraformReference<string>(this, "rctoken_aud");
+        get => GetArgument<TerraformValue<string>>("rctoken_aud");
         set => SetArgument("rctoken_aud", value);
     }
 
@@ -528,7 +526,7 @@ public class GoogleIapSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -537,7 +535,7 @@ public class GoogleIapSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -546,7 +544,7 @@ public class GoogleIapSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -562,9 +560,9 @@ public partial class GoogleIapSettings(string name) : TerraformResource("google_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -585,7 +583,7 @@ public partial class GoogleIapSettings(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

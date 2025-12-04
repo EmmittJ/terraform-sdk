@@ -52,37 +52,6 @@ public abstract class TerraformBlock : TerraformMap<object>, ITerraformReference
     }
 
     /// <summary>
-    /// Indexer for block property access.
-    /// Getter returns a reference to the property for resource/block attribute references.
-    /// For ITerraformNamedReferenceable blocks (like locals), returns the named reference directly.
-    /// For ITerraformReferenceable blocks, creates a reference to the block's attribute.
-    /// Setter delegates to base TerraformMap.SetArgument which handles ITerraformValue unwrapping.
-    /// </summary>
-    /// <param name="key">The property name.</param>
-    /// <returns>A reference to the property that resolves to the correct HCL identifier.</returns>
-    public new TerraformValue<object> this[string key]
-    {
-        get
-        {
-            // For named referenceable blocks (locals, modules), use their AsReference(name) method
-            if (this is ITerraformNamedReferenceable namedReferenceable)
-            {
-                return namedReferenceable.AsReference(key);
-            }
-
-            // For other referenceable blocks (resources, data sources), create a reference to the attribute
-            if (this is ITerraformReferenceable)
-            {
-                return new TerraformReference<object>(this, key);
-            }
-
-            // Fall back to dictionary lookup for non-referenceable blocks
-            return base[key];
-        }
-        set => base[key] = value;
-    }
-
-    /// <summary>
     /// Creates a reference expression to this block.
     /// For nested blocks, chains through the parent's reference.
     /// For top-level blocks (resources, data sources), override this to return the appropriate reference.
@@ -104,6 +73,24 @@ public abstract class TerraformBlock : TerraformMap<object>, ITerraformReference
 
         return ParentBlock.AsReference().Member(BlockType);
     }
+
+    /// <summary>
+    /// Creates a reference to a specific attribute of this block.
+    /// </summary>
+    /// <param name="name">The attribute name.</param>
+    /// <returns>A reference expression to the attribute.</returns>
+    /// <example>
+    /// <code>
+    /// // For a resource:
+    /// var vpc = new TerraformResource("aws_vpc", "main");
+    /// var vpcId = vpc.AsReference("id");  // aws_vpc.main.id
+    ///
+    /// // For nested blocks:
+    /// var fqdn = containerApp.Ingress.Index(0).AsReference("fqdn");
+    /// </code>
+    /// </example>
+    public virtual TerraformExpression AsReference(string name)
+        => AsReference().Member(name);
 
     /// <summary>
     /// Resolves this block to multiple syntax nodes (arguments + nested blocks).

@@ -18,7 +18,7 @@ public class AzureadAccessPackageCatalogDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,27 +34,27 @@ public partial class AzureadAccessPackageCatalogDataSource(string name) : Terraf
     /// <summary>
     /// The display name of the access package catalog
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The ID of this access package catalog
     /// </summary>
-    public TerraformValue<string> ObjectId
+    public TerraformValue<string>? ObjectId
     {
-        get => new TerraformReference<string>(this, "object_id");
+        get => GetArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -62,25 +62,19 @@ public partial class AzureadAccessPackageCatalogDataSource(string name) : Terraf
     /// The description of the access package catalog
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// Whether the access packages in this catalog can be requested by users outside the tenant
     /// </summary>
     public TerraformValue<bool> ExternallyVisible
-    {
-        get => new TerraformReference<bool>(this, "externally_visible");
-    }
+        => AsReference("externally_visible");
 
     /// <summary>
     /// Whether the access packages in this catalog are available for management
     /// </summary>
     public TerraformValue<bool> Published
-    {
-        get => new TerraformReference<bool>(this, "published");
-    }
+        => AsReference("published");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

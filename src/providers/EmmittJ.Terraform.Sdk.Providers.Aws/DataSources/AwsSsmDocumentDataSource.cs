@@ -13,7 +13,7 @@ public partial class AwsSsmDocumentDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string>? DocumentFormat
     {
-        get => new TerraformReference<string>(this, "document_format");
+        get => GetArgument<TerraformValue<string>>("document_format");
         set => SetArgument("document_format", value);
     }
 
@@ -22,16 +22,16 @@ public partial class AwsSsmDocumentDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string>? DocumentVersion
     {
-        get => new TerraformReference<string>(this, "document_version");
+        get => GetArgument<TerraformValue<string>>("document_version");
         set => SetArgument("document_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -41,16 +41,16 @@ public partial class AwsSsmDocumentDataSource(string name) : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -58,24 +58,18 @@ public partial class AwsSsmDocumentDataSource(string name) : TerraformDataSource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The content attribute.
     /// </summary>
     public TerraformValue<string> Content
-    {
-        get => new TerraformReference<string>(this, "content");
-    }
+        => AsReference("content");
 
     /// <summary>
     /// The document_type attribute.
     /// </summary>
     public TerraformValue<string> DocumentType
-    {
-        get => new TerraformReference<string>(this, "document_type");
-    }
+        => AsReference("document_type");
 
 }

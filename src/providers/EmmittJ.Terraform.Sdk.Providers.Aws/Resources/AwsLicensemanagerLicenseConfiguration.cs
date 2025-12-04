@@ -13,16 +13,16 @@ public partial class AwsLicensemanagerLicenseConfiguration(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsLicensemanagerLicenseConfiguration(string name) : Terraf
     /// </summary>
     public TerraformValue<double>? LicenseCount
     {
-        get => new TerraformReference<double>(this, "license_count");
+        get => GetArgument<TerraformValue<double>>("license_count");
         set => SetArgument("license_count", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsLicensemanagerLicenseConfiguration(string name) : Terraf
     /// </summary>
     public TerraformValue<bool>? LicenseCountHardLimit
     {
-        get => new TerraformReference<bool>(this, "license_count_hard_limit");
+        get => GetArgument<TerraformValue<bool>>("license_count_hard_limit");
         set => SetArgument("license_count_hard_limit", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsLicensemanagerLicenseConfiguration(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseCountingType is required")]
     public required TerraformValue<string> LicenseCountingType
     {
-        get => new TerraformReference<string>(this, "license_counting_type");
+        get => GetArgument<TerraformValue<string>>("license_counting_type");
         set => SetArgument("license_counting_type", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsLicensemanagerLicenseConfiguration(string name) : Terraf
     /// </summary>
     public TerraformList<string>? LicenseRules
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "license_rules").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("license_rules");
         set => SetArgument("license_rules", value);
     }
 
@@ -69,16 +69,16 @@ public partial class AwsLicensemanagerLicenseConfiguration(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -87,16 +87,16 @@ public partial class AwsLicensemanagerLicenseConfiguration(string name) : Terraf
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -104,16 +104,12 @@ public partial class AwsLicensemanagerLicenseConfiguration(string name) : Terraf
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-    {
-        get => new TerraformReference<string>(this, "owner_account_id");
-    }
+        => AsReference("owner_account_id");
 
 }

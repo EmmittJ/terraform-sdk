@@ -11,9 +11,9 @@ public partial class AwsVpcIpamPoolCidrAllocation(string name) : TerraformResour
     /// <summary>
     /// The cidr attribute.
     /// </summary>
-    public TerraformValue<string> Cidr
+    public TerraformValue<string>? Cidr
     {
-        get => new TerraformReference<string>(this, "cidr");
+        get => GetArgument<TerraformValue<string>>("cidr");
         set => SetArgument("cidr", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsVpcIpamPoolCidrAllocation(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -31,16 +31,16 @@ public partial class AwsVpcIpamPoolCidrAllocation(string name) : TerraformResour
     /// </summary>
     public TerraformSet<string>? DisallowedCidrs
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "disallowed_cidrs").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("disallowed_cidrs");
         set => SetArgument("disallowed_cidrs", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -50,25 +50,25 @@ public partial class AwsVpcIpamPoolCidrAllocation(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamPoolId is required")]
     public required TerraformValue<string> IpamPoolId
     {
-        get => new TerraformReference<string>(this, "ipam_pool_id");
+        get => GetArgument<TerraformValue<string>>("ipam_pool_id");
         set => SetArgument("ipam_pool_id", value);
     }
 
     /// <summary>
     /// The netmask_length attribute.
     /// </summary>
-    public TerraformValue<double> NetmaskLength
+    public TerraformValue<double>? NetmaskLength
     {
-        get => new TerraformReference<double>(this, "netmask_length");
+        get => GetArgument<TerraformValue<double>>("netmask_length");
         set => SetArgument("netmask_length", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -76,32 +76,24 @@ public partial class AwsVpcIpamPoolCidrAllocation(string name) : TerraformResour
     /// The ipam_pool_allocation_id attribute.
     /// </summary>
     public TerraformValue<string> IpamPoolAllocationId
-    {
-        get => new TerraformReference<string>(this, "ipam_pool_allocation_id");
-    }
+        => AsReference("ipam_pool_allocation_id");
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceId
-    {
-        get => new TerraformReference<string>(this, "resource_id");
-    }
+        => AsReference("resource_id");
 
     /// <summary>
     /// The resource_owner attribute.
     /// </summary>
     public TerraformValue<string> ResourceOwner
-    {
-        get => new TerraformReference<string>(this, "resource_owner");
-    }
+        => AsReference("resource_owner");
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
     public TerraformValue<string> ResourceTypeAttribute
-    {
-        get => new TerraformReference<string>(this, "resource_type");
-    }
+        => AsReference("resource_type");
 
 }

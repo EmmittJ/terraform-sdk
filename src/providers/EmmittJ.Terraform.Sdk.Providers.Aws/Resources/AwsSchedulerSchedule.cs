@@ -18,7 +18,7 @@ public class AwsSchedulerScheduleFlexibleTimeWindowBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaximumWindowInMinutes
     {
-        get => new TerraformReference<double>(this, "maximum_window_in_minutes");
+        get => GetArgument<TerraformValue<double>>("maximum_window_in_minutes");
         set => SetArgument("maximum_window_in_minutes", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsSchedulerScheduleFlexibleTimeWindowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsSchedulerScheduleTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsSchedulerScheduleTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Input
     {
-        get => new TerraformReference<string>(this, "input");
+        get => GetArgument<TerraformValue<string>>("input");
         set => SetArgument("input", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsSchedulerScheduleTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -164,7 +164,7 @@ public class AwsSchedulerScheduleTargetBlockDeadLetterConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -186,7 +186,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableEcsManagedTags
     {
-        get => new TerraformReference<bool>(this, "enable_ecs_managed_tags");
+        get => GetArgument<TerraformValue<bool>>("enable_ecs_managed_tags");
         set => SetArgument("enable_ecs_managed_tags", value);
     }
 
@@ -195,7 +195,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableExecuteCommand
     {
-        get => new TerraformReference<bool>(this, "enable_execute_command");
+        get => GetArgument<TerraformValue<bool>>("enable_execute_command");
         set => SetArgument("enable_execute_command", value);
     }
 
@@ -204,7 +204,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Group
     {
-        get => new TerraformReference<string>(this, "group");
+        get => GetArgument<TerraformValue<string>>("group");
         set => SetArgument("group", value);
     }
 
@@ -213,7 +213,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LaunchType
     {
-        get => new TerraformReference<string>(this, "launch_type");
+        get => GetArgument<TerraformValue<string>>("launch_type");
         set => SetArgument("launch_type", value);
     }
 
@@ -222,7 +222,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PlatformVersion
     {
-        get => new TerraformReference<string>(this, "platform_version");
+        get => GetArgument<TerraformValue<string>>("platform_version");
         set => SetArgument("platform_version", value);
     }
 
@@ -231,7 +231,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PropagateTags
     {
-        get => new TerraformReference<string>(this, "propagate_tags");
+        get => GetArgument<TerraformValue<string>>("propagate_tags");
         set => SetArgument("propagate_tags", value);
     }
 
@@ -240,7 +240,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ReferenceId
     {
-        get => new TerraformReference<string>(this, "reference_id");
+        get => GetArgument<TerraformValue<string>>("reference_id");
         set => SetArgument("reference_id", value);
     }
 
@@ -249,7 +249,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -258,7 +258,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? TaskCount
     {
-        get => new TerraformReference<double>(this, "task_count");
+        get => GetArgument<TerraformValue<double>>("task_count");
         set => SetArgument("task_count", value);
     }
 
@@ -268,7 +268,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinitionArn is required")]
     public required TerraformValue<string> TaskDefinitionArn
     {
-        get => new TerraformReference<string>(this, "task_definition_arn");
+        get => GetArgument<TerraformValue<string>>("task_definition_arn");
         set => SetArgument("task_definition_arn", value);
     }
 
@@ -330,7 +330,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlockCapacityProviderSt
     /// </summary>
     public TerraformValue<double>? BaseAttribute
     {
-        get => new TerraformReference<double>(this, "base");
+        get => GetArgument<TerraformValue<double>>("base");
         set => SetArgument("base", value);
     }
 
@@ -340,7 +340,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlockCapacityProviderSt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityProvider is required")]
     public required TerraformValue<string> CapacityProvider
     {
-        get => new TerraformReference<string>(this, "capacity_provider");
+        get => GetArgument<TerraformValue<string>>("capacity_provider");
         set => SetArgument("capacity_provider", value);
     }
 
@@ -349,7 +349,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlockCapacityProviderSt
     /// </summary>
     public TerraformValue<double>? Weight
     {
-        get => new TerraformReference<double>(this, "weight");
+        get => GetArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -371,7 +371,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlockNetworkConfigurati
     /// </summary>
     public TerraformValue<bool>? AssignPublicIp
     {
-        get => new TerraformReference<bool>(this, "assign_public_ip");
+        get => GetArgument<TerraformValue<bool>>("assign_public_ip");
         set => SetArgument("assign_public_ip", value);
     }
 
@@ -380,7 +380,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlockNetworkConfigurati
     /// </summary>
     public TerraformSet<string>? SecurityGroups
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_groups");
         set => SetArgument("security_groups", value);
     }
 
@@ -390,7 +390,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlockNetworkConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public required TerraformSet<string> Subnets
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnets").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -412,7 +412,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlockPlacementConstrain
     /// </summary>
     public TerraformValue<string>? Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -422,7 +422,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlockPlacementConstrain
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -444,7 +444,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlockPlacementStrategyB
     /// </summary>
     public TerraformValue<string>? Field
     {
-        get => new TerraformReference<string>(this, "field");
+        get => GetArgument<TerraformValue<string>>("field");
         set => SetArgument("field", value);
     }
 
@@ -454,7 +454,7 @@ public class AwsSchedulerScheduleTargetBlockEcsParametersBlockPlacementStrategyB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -477,7 +477,7 @@ public class AwsSchedulerScheduleTargetBlockEventbridgeParametersBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetailType is required")]
     public required TerraformValue<string> DetailType
     {
-        get => new TerraformReference<string>(this, "detail_type");
+        get => GetArgument<TerraformValue<string>>("detail_type");
         set => SetArgument("detail_type", value);
     }
 
@@ -487,7 +487,7 @@ public class AwsSchedulerScheduleTargetBlockEventbridgeParametersBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -510,7 +510,7 @@ public class AwsSchedulerScheduleTargetBlockKinesisParametersBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKey is required")]
     public required TerraformValue<string> PartitionKey
     {
-        get => new TerraformReference<string>(this, "partition_key");
+        get => GetArgument<TerraformValue<string>>("partition_key");
         set => SetArgument("partition_key", value);
     }
 
@@ -532,7 +532,7 @@ public class AwsSchedulerScheduleTargetBlockRetryPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaximumEventAgeInSeconds
     {
-        get => new TerraformReference<double>(this, "maximum_event_age_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_event_age_in_seconds");
         set => SetArgument("maximum_event_age_in_seconds", value);
     }
 
@@ -541,7 +541,7 @@ public class AwsSchedulerScheduleTargetBlockRetryPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaximumRetryAttempts
     {
-        get => new TerraformReference<double>(this, "maximum_retry_attempts");
+        get => GetArgument<TerraformValue<double>>("maximum_retry_attempts");
         set => SetArgument("maximum_retry_attempts", value);
     }
 
@@ -587,7 +587,7 @@ public class AwsSchedulerScheduleTargetBlockSagemakerPipelineParametersBlockPipe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -597,7 +597,7 @@ public class AwsSchedulerScheduleTargetBlockSagemakerPipelineParametersBlockPipe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -619,7 +619,7 @@ public class AwsSchedulerScheduleTargetBlockSqsParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MessageGroupId
     {
-        get => new TerraformReference<string>(this, "message_group_id");
+        get => GetArgument<TerraformValue<string>>("message_group_id");
         set => SetArgument("message_group_id", value);
     }
 
@@ -635,9 +635,9 @@ public partial class AwsSchedulerSchedule(string name) : TerraformResource("aws_
     /// <summary>
     /// The action_after_completion attribute.
     /// </summary>
-    public TerraformValue<string> ActionAfterCompletion
+    public TerraformValue<string>? ActionAfterCompletion
     {
-        get => new TerraformReference<string>(this, "action_after_completion");
+        get => GetArgument<TerraformValue<string>>("action_after_completion");
         set => SetArgument("action_after_completion", value);
     }
 
@@ -646,7 +646,7 @@ public partial class AwsSchedulerSchedule(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -655,25 +655,25 @@ public partial class AwsSchedulerSchedule(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? EndDate
     {
-        get => new TerraformReference<string>(this, "end_date");
+        get => GetArgument<TerraformValue<string>>("end_date");
         set => SetArgument("end_date", value);
     }
 
     /// <summary>
     /// The group_name attribute.
     /// </summary>
-    public TerraformValue<string> GroupName
+    public TerraformValue<string>? GroupName
     {
-        get => new TerraformReference<string>(this, "group_name");
+        get => GetArgument<TerraformValue<string>>("group_name");
         set => SetArgument("group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -682,34 +682,34 @@ public partial class AwsSchedulerSchedule(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -719,7 +719,7 @@ public partial class AwsSchedulerSchedule(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     public required TerraformValue<string> ScheduleExpression
     {
-        get => new TerraformReference<string>(this, "schedule_expression");
+        get => GetArgument<TerraformValue<string>>("schedule_expression");
         set => SetArgument("schedule_expression", value);
     }
 
@@ -728,7 +728,7 @@ public partial class AwsSchedulerSchedule(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? ScheduleExpressionTimezone
     {
-        get => new TerraformReference<string>(this, "schedule_expression_timezone");
+        get => GetArgument<TerraformValue<string>>("schedule_expression_timezone");
         set => SetArgument("schedule_expression_timezone", value);
     }
 
@@ -737,7 +737,7 @@ public partial class AwsSchedulerSchedule(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? StartDate
     {
-        get => new TerraformReference<string>(this, "start_date");
+        get => GetArgument<TerraformValue<string>>("start_date");
         set => SetArgument("start_date", value);
     }
 
@@ -746,7 +746,7 @@ public partial class AwsSchedulerSchedule(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -754,9 +754,7 @@ public partial class AwsSchedulerSchedule(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// FlexibleTimeWindow block (nesting mode: list).

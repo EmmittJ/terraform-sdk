@@ -13,7 +13,7 @@ public partial class AwsApiGatewayMethod(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformValue<bool>? ApiKeyRequired
     {
-        get => new TerraformReference<bool>(this, "api_key_required");
+        get => GetArgument<TerraformValue<bool>>("api_key_required");
         set => SetArgument("api_key_required", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsApiGatewayMethod(string name) : TerraformResource("aws_a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authorization is required")]
     public required TerraformValue<string> Authorization
     {
-        get => new TerraformReference<string>(this, "authorization");
+        get => GetArgument<TerraformValue<string>>("authorization");
         set => SetArgument("authorization", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsApiGatewayMethod(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformSet<string>? AuthorizationScopes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "authorization_scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("authorization_scopes");
         set => SetArgument("authorization_scopes", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsApiGatewayMethod(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformValue<string>? AuthorizerId
     {
-        get => new TerraformReference<string>(this, "authorizer_id");
+        get => GetArgument<TerraformValue<string>>("authorizer_id");
         set => SetArgument("authorizer_id", value);
     }
 
@@ -51,16 +51,16 @@ public partial class AwsApiGatewayMethod(string name) : TerraformResource("aws_a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpMethod is required")]
     public required TerraformValue<string> HttpMethod
     {
-        get => new TerraformReference<string>(this, "http_method");
+        get => GetArgument<TerraformValue<string>>("http_method");
         set => SetArgument("http_method", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -69,16 +69,16 @@ public partial class AwsApiGatewayMethod(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformValue<string>? OperationName
     {
-        get => new TerraformReference<string>(this, "operation_name");
+        get => GetArgument<TerraformValue<string>>("operation_name");
         set => SetArgument("operation_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -87,7 +87,7 @@ public partial class AwsApiGatewayMethod(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformMap<string>? RequestModels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "request_models").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("request_models");
         set => SetArgument("request_models", value);
     }
 
@@ -96,7 +96,7 @@ public partial class AwsApiGatewayMethod(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformMap<bool>? RequestParameters
     {
-        get => TerraformMap<bool>.Lazy(ctx => new TerraformReference<TerraformMap<bool>>(this, "request_parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<bool>>("request_parameters");
         set => SetArgument("request_parameters", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AwsApiGatewayMethod(string name) : TerraformResource("aws_a
     /// </summary>
     public TerraformValue<string>? RequestValidatorId
     {
-        get => new TerraformReference<string>(this, "request_validator_id");
+        get => GetArgument<TerraformValue<string>>("request_validator_id");
         set => SetArgument("request_validator_id", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AwsApiGatewayMethod(string name) : TerraformResource("aws_a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformValue<string> ResourceId
     {
-        get => new TerraformReference<string>(this, "resource_id");
+        get => GetArgument<TerraformValue<string>>("resource_id");
         set => SetArgument("resource_id", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AwsApiGatewayMethod(string name) : TerraformResource("aws_a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformValue<string> RestApiId
     {
-        get => new TerraformReference<string>(this, "rest_api_id");
+        get => GetArgument<TerraformValue<string>>("rest_api_id");
         set => SetArgument("rest_api_id", value);
     }
 

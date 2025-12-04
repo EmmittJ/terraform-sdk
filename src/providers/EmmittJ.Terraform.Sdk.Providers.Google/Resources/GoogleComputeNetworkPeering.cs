@@ -18,7 +18,7 @@ public class GoogleComputeNetworkPeeringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeNetworkPeeringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleComputeNetworkPeeringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,7 +54,7 @@ public partial class GoogleComputeNetworkPeering(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool>? ExportCustomRoutes
     {
-        get => new TerraformReference<bool>(this, "export_custom_routes");
+        get => GetArgument<TerraformValue<bool>>("export_custom_routes");
         set => SetArgument("export_custom_routes", value);
     }
 
@@ -63,16 +63,16 @@ public partial class GoogleComputeNetworkPeering(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool>? ExportSubnetRoutesWithPublicIp
     {
-        get => new TerraformReference<bool>(this, "export_subnet_routes_with_public_ip");
+        get => GetArgument<TerraformValue<bool>>("export_subnet_routes_with_public_ip");
         set => SetArgument("export_subnet_routes_with_public_ip", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -81,7 +81,7 @@ public partial class GoogleComputeNetworkPeering(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool>? ImportCustomRoutes
     {
-        get => new TerraformReference<bool>(this, "import_custom_routes");
+        get => GetArgument<TerraformValue<bool>>("import_custom_routes");
         set => SetArgument("import_custom_routes", value);
     }
 
@@ -90,7 +90,7 @@ public partial class GoogleComputeNetworkPeering(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool>? ImportSubnetRoutesWithPublicIp
     {
-        get => new TerraformReference<bool>(this, "import_subnet_routes_with_public_ip");
+        get => GetArgument<TerraformValue<bool>>("import_subnet_routes_with_public_ip");
         set => SetArgument("import_subnet_routes_with_public_ip", value);
     }
 
@@ -100,7 +100,7 @@ public partial class GoogleComputeNetworkPeering(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -110,7 +110,7 @@ public partial class GoogleComputeNetworkPeering(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -120,7 +120,7 @@ public partial class GoogleComputeNetworkPeering(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerNetwork is required")]
     public required TerraformValue<string> PeerNetwork
     {
-        get => new TerraformReference<string>(this, "peer_network");
+        get => GetArgument<TerraformValue<string>>("peer_network");
         set => SetArgument("peer_network", value);
     }
 
@@ -129,7 +129,7 @@ public partial class GoogleComputeNetworkPeering(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? StackType
     {
-        get => new TerraformReference<string>(this, "stack_type");
+        get => GetArgument<TerraformValue<string>>("stack_type");
         set => SetArgument("stack_type", value);
     }
 
@@ -138,7 +138,7 @@ public partial class GoogleComputeNetworkPeering(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? UpdateStrategy
     {
-        get => new TerraformReference<string>(this, "update_strategy");
+        get => GetArgument<TerraformValue<string>>("update_strategy");
         set => SetArgument("update_strategy", value);
     }
 
@@ -146,17 +146,13 @@ public partial class GoogleComputeNetworkPeering(string name) : TerraformResourc
     /// State for the peering, either ACTIVE or INACTIVE. The peering is ACTIVE when there&#39;s a matching configuration in the peer network.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Details about the current state of the peering.
     /// </summary>
     public TerraformValue<string> StateDetails
-    {
-        get => new TerraformReference<string>(this, "state_details");
-    }
+        => AsReference("state_details");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

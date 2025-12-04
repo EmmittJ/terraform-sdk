@@ -11,9 +11,9 @@ public partial class GoogleGkeHubScopeIamPolicy(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class GoogleGkeHubScopeIamPolicy(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformValue<string> PolicyData
     {
-        get => new TerraformReference<string>(this, "policy_data");
+        get => GetArgument<TerraformValue<string>>("policy_data");
         set => SetArgument("policy_data", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleGkeHubScopeIamPolicy(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
     public required TerraformValue<string> ScopeId
     {
-        get => new TerraformReference<string>(this, "scope_id");
+        get => GetArgument<TerraformValue<string>>("scope_id");
         set => SetArgument("scope_id", value);
     }
 
@@ -50,8 +50,6 @@ public partial class GoogleGkeHubScopeIamPolicy(string name) : TerraformResource
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
 }

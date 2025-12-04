@@ -19,7 +19,7 @@ public class GooglePrivatecaCaPoolEncryptionSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CloudKmsKey
     {
-        get => new TerraformReference<string>(this, "cloud_kms_key");
+        get => GetArgument<TerraformValue<string>>("cloud_kms_key");
         set => SetArgument("cloud_kms_key", value);
     }
 
@@ -46,7 +46,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BackdateDuration
     {
-        get => new TerraformReference<string>(this, "backdate_duration");
+        get => GetArgument<TerraformValue<string>>("backdate_duration");
         set => SetArgument("backdate_duration", value);
     }
 
@@ -56,7 +56,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaximumLifetime
     {
-        get => new TerraformReference<string>(this, "maximum_lifetime");
+        get => GetArgument<TerraformValue<string>>("maximum_lifetime");
         set => SetArgument("maximum_lifetime", value);
     }
 
@@ -118,7 +118,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockAllowedIssuanceModesBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowConfigBasedIssuance is required")]
     public required TerraformValue<bool> AllowConfigBasedIssuance
     {
-        get => new TerraformReference<bool>(this, "allow_config_based_issuance");
+        get => GetArgument<TerraformValue<bool>>("allow_config_based_issuance");
         set => SetArgument("allow_config_based_issuance", value);
     }
 
@@ -128,7 +128,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockAllowedIssuanceModesBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowCsrBasedIssuance is required")]
     public required TerraformValue<bool> AllowCsrBasedIssuance
     {
-        get => new TerraformReference<bool>(this, "allow_csr_based_issuance");
+        get => GetArgument<TerraformValue<bool>>("allow_csr_based_issuance");
         set => SetArgument("allow_csr_based_issuance", value);
     }
 
@@ -184,7 +184,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockAllowedKeyTypesBlockEllipti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignatureAlgorithm is required")]
     public required TerraformValue<string> SignatureAlgorithm
     {
-        get => new TerraformReference<string>(this, "signature_algorithm");
+        get => GetArgument<TerraformValue<string>>("signature_algorithm");
         set => SetArgument("signature_algorithm", value);
     }
 
@@ -207,7 +207,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockAllowedKeyTypesBlockRsaBloc
     /// </summary>
     public TerraformValue<string>? MaxModulusSize
     {
-        get => new TerraformReference<string>(this, "max_modulus_size");
+        get => GetArgument<TerraformValue<string>>("max_modulus_size");
         set => SetArgument("max_modulus_size", value);
     }
 
@@ -217,7 +217,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockAllowedKeyTypesBlockRsaBloc
     /// </summary>
     public TerraformValue<string>? MinModulusSize
     {
-        get => new TerraformReference<string>(this, "min_modulus_size");
+        get => GetArgument<TerraformValue<string>>("min_modulus_size");
         set => SetArgument("min_modulus_size", value);
     }
 
@@ -240,7 +240,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlock : Terra
     /// </summary>
     public TerraformList<string>? AiaOcspServers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "aia_ocsp_servers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("aia_ocsp_servers");
         set => SetArgument("aia_ocsp_servers", value);
     }
 
@@ -318,7 +318,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockAddition
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Critical is required")]
     public required TerraformValue<bool> Critical
     {
-        get => new TerraformReference<bool>(this, "critical");
+        get => GetArgument<TerraformValue<bool>>("critical");
         set => SetArgument("critical", value);
     }
 
@@ -328,7 +328,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockAddition
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -364,7 +364,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockAddition
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectIdPath is required")]
     public TerraformList<double>? ObjectIdPath
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "object_id_path").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("object_id_path");
         set => SetArgument("object_id_path", value);
     }
 
@@ -386,7 +386,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockCaOption
     /// </summary>
     public TerraformValue<bool>? IsCa
     {
-        get => new TerraformReference<bool>(this, "is_ca");
+        get => GetArgument<TerraformValue<bool>>("is_ca");
         set => SetArgument("is_ca", value);
     }
 
@@ -396,7 +396,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockCaOption
     /// </summary>
     public TerraformValue<double>? MaxIssuerPathLength
     {
-        get => new TerraformReference<double>(this, "max_issuer_path_length");
+        get => GetArgument<TerraformValue<double>>("max_issuer_path_length");
         set => SetArgument("max_issuer_path_length", value);
     }
 
@@ -406,7 +406,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockCaOption
     /// </summary>
     public TerraformValue<bool>? NonCa
     {
-        get => new TerraformReference<bool>(this, "non_ca");
+        get => GetArgument<TerraformValue<bool>>("non_ca");
         set => SetArgument("non_ca", value);
     }
 
@@ -417,7 +417,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockCaOption
     /// </summary>
     public TerraformValue<bool>? ZeroMaxIssuerPathLength
     {
-        get => new TerraformReference<bool>(this, "zero_max_issuer_path_length");
+        get => GetArgument<TerraformValue<bool>>("zero_max_issuer_path_length");
         set => SetArgument("zero_max_issuer_path_length", value);
     }
 
@@ -487,7 +487,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockKeyUsage
     /// </summary>
     public TerraformValue<bool>? CertSign
     {
-        get => new TerraformReference<bool>(this, "cert_sign");
+        get => GetArgument<TerraformValue<bool>>("cert_sign");
         set => SetArgument("cert_sign", value);
     }
 
@@ -496,7 +496,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockKeyUsage
     /// </summary>
     public TerraformValue<bool>? ContentCommitment
     {
-        get => new TerraformReference<bool>(this, "content_commitment");
+        get => GetArgument<TerraformValue<bool>>("content_commitment");
         set => SetArgument("content_commitment", value);
     }
 
@@ -505,7 +505,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockKeyUsage
     /// </summary>
     public TerraformValue<bool>? CrlSign
     {
-        get => new TerraformReference<bool>(this, "crl_sign");
+        get => GetArgument<TerraformValue<bool>>("crl_sign");
         set => SetArgument("crl_sign", value);
     }
 
@@ -514,7 +514,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockKeyUsage
     /// </summary>
     public TerraformValue<bool>? DataEncipherment
     {
-        get => new TerraformReference<bool>(this, "data_encipherment");
+        get => GetArgument<TerraformValue<bool>>("data_encipherment");
         set => SetArgument("data_encipherment", value);
     }
 
@@ -523,7 +523,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockKeyUsage
     /// </summary>
     public TerraformValue<bool>? DecipherOnly
     {
-        get => new TerraformReference<bool>(this, "decipher_only");
+        get => GetArgument<TerraformValue<bool>>("decipher_only");
         set => SetArgument("decipher_only", value);
     }
 
@@ -532,7 +532,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockKeyUsage
     /// </summary>
     public TerraformValue<bool>? DigitalSignature
     {
-        get => new TerraformReference<bool>(this, "digital_signature");
+        get => GetArgument<TerraformValue<bool>>("digital_signature");
         set => SetArgument("digital_signature", value);
     }
 
@@ -541,7 +541,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockKeyUsage
     /// </summary>
     public TerraformValue<bool>? EncipherOnly
     {
-        get => new TerraformReference<bool>(this, "encipher_only");
+        get => GetArgument<TerraformValue<bool>>("encipher_only");
         set => SetArgument("encipher_only", value);
     }
 
@@ -550,7 +550,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockKeyUsage
     /// </summary>
     public TerraformValue<bool>? KeyAgreement
     {
-        get => new TerraformReference<bool>(this, "key_agreement");
+        get => GetArgument<TerraformValue<bool>>("key_agreement");
         set => SetArgument("key_agreement", value);
     }
 
@@ -559,7 +559,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockKeyUsage
     /// </summary>
     public TerraformValue<bool>? KeyEncipherment
     {
-        get => new TerraformReference<bool>(this, "key_encipherment");
+        get => GetArgument<TerraformValue<bool>>("key_encipherment");
         set => SetArgument("key_encipherment", value);
     }
 
@@ -581,7 +581,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockKeyUsage
     /// </summary>
     public TerraformValue<bool>? ClientAuth
     {
-        get => new TerraformReference<bool>(this, "client_auth");
+        get => GetArgument<TerraformValue<bool>>("client_auth");
         set => SetArgument("client_auth", value);
     }
 
@@ -590,7 +590,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockKeyUsage
     /// </summary>
     public TerraformValue<bool>? CodeSigning
     {
-        get => new TerraformReference<bool>(this, "code_signing");
+        get => GetArgument<TerraformValue<bool>>("code_signing");
         set => SetArgument("code_signing", value);
     }
 
@@ -599,7 +599,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockKeyUsage
     /// </summary>
     public TerraformValue<bool>? EmailProtection
     {
-        get => new TerraformReference<bool>(this, "email_protection");
+        get => GetArgument<TerraformValue<bool>>("email_protection");
         set => SetArgument("email_protection", value);
     }
 
@@ -608,7 +608,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockKeyUsage
     /// </summary>
     public TerraformValue<bool>? OcspSigning
     {
-        get => new TerraformReference<bool>(this, "ocsp_signing");
+        get => GetArgument<TerraformValue<bool>>("ocsp_signing");
         set => SetArgument("ocsp_signing", value);
     }
 
@@ -617,7 +617,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockKeyUsage
     /// </summary>
     public TerraformValue<bool>? ServerAuth
     {
-        get => new TerraformReference<bool>(this, "server_auth");
+        get => GetArgument<TerraformValue<bool>>("server_auth");
         set => SetArgument("server_auth", value);
     }
 
@@ -626,7 +626,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockKeyUsage
     /// </summary>
     public TerraformValue<bool>? TimeStamping
     {
-        get => new TerraformReference<bool>(this, "time_stamping");
+        get => GetArgument<TerraformValue<bool>>("time_stamping");
         set => SetArgument("time_stamping", value);
     }
 
@@ -649,7 +649,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockKeyUsage
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectIdPath is required")]
     public TerraformList<double>? ObjectIdPath
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "object_id_path").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("object_id_path");
         set => SetArgument("object_id_path", value);
     }
 
@@ -672,7 +672,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockNameCons
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Critical is required")]
     public required TerraformValue<bool> Critical
     {
-        get => new TerraformReference<bool>(this, "critical");
+        get => GetArgument<TerraformValue<bool>>("critical");
         set => SetArgument("critical", value);
     }
 
@@ -685,7 +685,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockNameCons
     /// </summary>
     public TerraformList<string>? ExcludedDnsNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_dns_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excluded_dns_names");
         set => SetArgument("excluded_dns_names", value);
     }
 
@@ -697,7 +697,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockNameCons
     /// </summary>
     public TerraformList<string>? ExcludedEmailAddresses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_email_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excluded_email_addresses");
         set => SetArgument("excluded_email_addresses", value);
     }
 
@@ -709,7 +709,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockNameCons
     /// </summary>
     public TerraformList<string>? ExcludedIpRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_ip_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excluded_ip_ranges");
         set => SetArgument("excluded_ip_ranges", value);
     }
 
@@ -720,7 +720,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockNameCons
     /// </summary>
     public TerraformList<string>? ExcludedUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excluded_uris");
         set => SetArgument("excluded_uris", value);
     }
 
@@ -733,7 +733,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockNameCons
     /// </summary>
     public TerraformList<string>? PermittedDnsNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "permitted_dns_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("permitted_dns_names");
         set => SetArgument("permitted_dns_names", value);
     }
 
@@ -745,7 +745,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockNameCons
     /// </summary>
     public TerraformList<string>? PermittedEmailAddresses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "permitted_email_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("permitted_email_addresses");
         set => SetArgument("permitted_email_addresses", value);
     }
 
@@ -757,7 +757,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockNameCons
     /// </summary>
     public TerraformList<string>? PermittedIpRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "permitted_ip_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("permitted_ip_ranges");
         set => SetArgument("permitted_ip_ranges", value);
     }
 
@@ -768,7 +768,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockNameCons
     /// </summary>
     public TerraformList<string>? PermittedUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "permitted_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("permitted_uris");
         set => SetArgument("permitted_uris", value);
     }
 
@@ -791,7 +791,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockBaselineValuesBlockPolicyId
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectIdPath is required")]
     public TerraformList<double>? ObjectIdPath
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "object_id_path").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("object_id_path");
         set => SetArgument("object_id_path", value);
     }
 
@@ -815,7 +815,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockIdentityConstraintsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowSubjectAltNamesPassthrough is required")]
     public required TerraformValue<bool> AllowSubjectAltNamesPassthrough
     {
-        get => new TerraformReference<bool>(this, "allow_subject_alt_names_passthrough");
+        get => GetArgument<TerraformValue<bool>>("allow_subject_alt_names_passthrough");
         set => SetArgument("allow_subject_alt_names_passthrough", value);
     }
 
@@ -826,7 +826,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockIdentityConstraintsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowSubjectPassthrough is required")]
     public required TerraformValue<bool> AllowSubjectPassthrough
     {
-        get => new TerraformReference<bool>(this, "allow_subject_passthrough");
+        get => GetArgument<TerraformValue<bool>>("allow_subject_passthrough");
         set => SetArgument("allow_subject_passthrough", value);
     }
 
@@ -858,7 +858,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockIdentityConstraintsBlockCel
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -868,7 +868,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockIdentityConstraintsBlockCel
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -877,7 +877,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockIdentityConstraintsBlockCel
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -886,7 +886,7 @@ public class GooglePrivatecaCaPoolIssuancePolicyBlockIdentityConstraintsBlockCel
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -911,7 +911,7 @@ public class GooglePrivatecaCaPoolPublishingOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EncodingFormat
     {
-        get => new TerraformReference<string>(this, "encoding_format");
+        get => GetArgument<TerraformValue<string>>("encoding_format");
         set => SetArgument("encoding_format", value);
     }
 
@@ -923,7 +923,7 @@ public class GooglePrivatecaCaPoolPublishingOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublishCaCert is required")]
     public required TerraformValue<bool> PublishCaCert
     {
-        get => new TerraformReference<bool>(this, "publish_ca_cert");
+        get => GetArgument<TerraformValue<bool>>("publish_ca_cert");
         set => SetArgument("publish_ca_cert", value);
     }
 
@@ -936,7 +936,7 @@ public class GooglePrivatecaCaPoolPublishingOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublishCrl is required")]
     public required TerraformValue<bool> PublishCrl
     {
-        get => new TerraformReference<bool>(this, "publish_crl");
+        get => GetArgument<TerraformValue<bool>>("publish_crl");
         set => SetArgument("publish_crl", value);
     }
 
@@ -959,7 +959,7 @@ public class GooglePrivatecaCaPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -968,7 +968,7 @@ public class GooglePrivatecaCaPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -977,7 +977,7 @@ public class GooglePrivatecaCaPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -993,9 +993,9 @@ public partial class GooglePrivatecaCaPool(string name) : TerraformResource("goo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1011,7 +1011,7 @@ public partial class GooglePrivatecaCaPool(string name) : TerraformResource("goo
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -1022,7 +1022,7 @@ public partial class GooglePrivatecaCaPool(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1032,16 +1032,16 @@ public partial class GooglePrivatecaCaPool(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -1051,7 +1051,7 @@ public partial class GooglePrivatecaCaPool(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformValue<string> Tier
     {
-        get => new TerraformReference<string>(this, "tier");
+        get => GetArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 
@@ -1059,18 +1059,14 @@ public partial class GooglePrivatecaCaPool(string name) : TerraformResource("goo
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// EncryptionSpec block (nesting mode: list).

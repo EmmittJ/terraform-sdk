@@ -18,7 +18,7 @@ public class AzurermMssqlJobStepOutputTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? JobCredentialId
     {
-        get => new TerraformReference<string>(this, "job_credential_id");
+        get => GetArgument<TerraformValue<string>>("job_credential_id");
         set => SetArgument("job_credential_id", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermMssqlJobStepOutputTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MssqlDatabaseId is required")]
     public required TerraformValue<string> MssqlDatabaseId
     {
-        get => new TerraformReference<string>(this, "mssql_database_id");
+        get => GetArgument<TerraformValue<string>>("mssql_database_id");
         set => SetArgument("mssql_database_id", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermMssqlJobStepOutputTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SchemaName
     {
-        get => new TerraformReference<string>(this, "schema_name");
+        get => GetArgument<TerraformValue<string>>("schema_name");
         set => SetArgument("schema_name", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermMssqlJobStepOutputTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermMssqlJobStepTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermMssqlJobStepTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermMssqlJobStepTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermMssqlJobStepTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -113,9 +113,9 @@ public partial class AzurermMssqlJobStep(string name) : TerraformResource("azure
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AzurermMssqlJobStep(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<double>? InitialRetryIntervalSeconds
     {
-        get => new TerraformReference<double>(this, "initial_retry_interval_seconds");
+        get => GetArgument<TerraformValue<double>>("initial_retry_interval_seconds");
         set => SetArgument("initial_retry_interval_seconds", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AzurermMssqlJobStep(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string>? JobCredentialId
     {
-        get => new TerraformReference<string>(this, "job_credential_id");
+        get => GetArgument<TerraformValue<string>>("job_credential_id");
         set => SetArgument("job_credential_id", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AzurermMssqlJobStep(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobId is required")]
     public required TerraformValue<string> JobId
     {
-        get => new TerraformReference<string>(this, "job_id");
+        get => GetArgument<TerraformValue<string>>("job_id");
         set => SetArgument("job_id", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AzurermMssqlJobStep(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobStepIndex is required")]
     public required TerraformValue<double> JobStepIndex
     {
-        get => new TerraformReference<double>(this, "job_step_index");
+        get => GetArgument<TerraformValue<double>>("job_step_index");
         set => SetArgument("job_step_index", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AzurermMssqlJobStep(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobTargetGroupId is required")]
     public required TerraformValue<string> JobTargetGroupId
     {
-        get => new TerraformReference<string>(this, "job_target_group_id");
+        get => GetArgument<TerraformValue<string>>("job_target_group_id");
         set => SetArgument("job_target_group_id", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AzurermMssqlJobStep(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<double>? MaximumRetryIntervalSeconds
     {
-        get => new TerraformReference<double>(this, "maximum_retry_interval_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_retry_interval_seconds");
         set => SetArgument("maximum_retry_interval_seconds", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AzurermMssqlJobStep(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AzurermMssqlJobStep(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<double>? RetryAttempts
     {
-        get => new TerraformReference<double>(this, "retry_attempts");
+        get => GetArgument<TerraformValue<double>>("retry_attempts");
         set => SetArgument("retry_attempts", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AzurermMssqlJobStep(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<double>? RetryIntervalBackoffMultiplier
     {
-        get => new TerraformReference<double>(this, "retry_interval_backoff_multiplier");
+        get => GetArgument<TerraformValue<double>>("retry_interval_backoff_multiplier");
         set => SetArgument("retry_interval_backoff_multiplier", value);
     }
 
@@ -210,7 +210,7 @@ public partial class AzurermMssqlJobStep(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlScript is required")]
     public required TerraformValue<string> SqlScript
     {
-        get => new TerraformReference<string>(this, "sql_script");
+        get => GetArgument<TerraformValue<string>>("sql_script");
         set => SetArgument("sql_script", value);
     }
 
@@ -219,7 +219,7 @@ public partial class AzurermMssqlJobStep(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<double>? TimeoutSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_seconds");
         set => SetArgument("timeout_seconds", value);
     }
 

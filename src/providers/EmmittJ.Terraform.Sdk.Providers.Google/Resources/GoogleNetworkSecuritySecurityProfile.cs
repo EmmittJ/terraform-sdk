@@ -20,7 +20,7 @@ public class GoogleNetworkSecuritySecurityProfileCustomInterceptProfileBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterceptEndpointGroup is required")]
     public required TerraformValue<string> InterceptEndpointGroup
     {
-        get => new TerraformReference<string>(this, "intercept_endpoint_group");
+        get => GetArgument<TerraformValue<string>>("intercept_endpoint_group");
         set => SetArgument("intercept_endpoint_group", value);
     }
 
@@ -45,7 +45,7 @@ public class GoogleNetworkSecuritySecurityProfileCustomMirroringProfileBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MirroringEndpointGroup is required")]
     public required TerraformValue<string> MirroringEndpointGroup
     {
-        get => new TerraformReference<string>(this, "mirroring_endpoint_group");
+        get => GetArgument<TerraformValue<string>>("mirroring_endpoint_group");
         set => SetArgument("mirroring_endpoint_group", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlockAnt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -119,7 +119,7 @@ public class GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlockAnt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -142,7 +142,7 @@ public class GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlockSev
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -152,7 +152,7 @@ public class GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlockSev
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
     public required TerraformValue<string> Severity
     {
-        get => new TerraformReference<string>(this, "severity");
+        get => GetArgument<TerraformValue<string>>("severity");
         set => SetArgument("severity", value);
     }
 
@@ -175,7 +175,7 @@ public class GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlockThr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -185,7 +185,7 @@ public class GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlockThr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThreatId is required")]
     public required TerraformValue<string> ThreatId
     {
-        get => new TerraformReference<string>(this, "threat_id");
+        get => GetArgument<TerraformValue<string>>("threat_id");
         set => SetArgument("threat_id", value);
     }
 
@@ -193,9 +193,7 @@ public class GoogleNetworkSecuritySecurityProfileThreatPreventionProfileBlockThr
     /// Type of threat.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
 }
 
@@ -216,7 +214,7 @@ public class GoogleNetworkSecuritySecurityProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -225,7 +223,7 @@ public class GoogleNetworkSecuritySecurityProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -234,7 +232,7 @@ public class GoogleNetworkSecuritySecurityProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -252,16 +250,16 @@ public partial class GoogleNetworkSecuritySecurityProfile(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -274,7 +272,7 @@ public partial class GoogleNetworkSecuritySecurityProfile(string name) : Terrafo
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -284,7 +282,7 @@ public partial class GoogleNetworkSecuritySecurityProfile(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -294,7 +292,7 @@ public partial class GoogleNetworkSecuritySecurityProfile(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -304,7 +302,7 @@ public partial class GoogleNetworkSecuritySecurityProfile(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -314,7 +312,7 @@ public partial class GoogleNetworkSecuritySecurityProfile(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -322,17 +320,13 @@ public partial class GoogleNetworkSecuritySecurityProfile(string name) : Terrafo
     /// Time the security profile was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other fields,
@@ -340,34 +334,26 @@ public partial class GoogleNetworkSecuritySecurityProfile(string name) : Terrafo
     /// value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Server-defined URL of this resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Time the security profile was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// CustomInterceptProfile block (nesting mode: list).

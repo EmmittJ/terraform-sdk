@@ -18,7 +18,7 @@ public class GoogleEdgecontainerVpnConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleEdgecontainerVpnConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleEdgecontainerVpnConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleEdgecontainerVpnConnectionVpcProjectBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -78,25 +78,25 @@ public partial class GoogleEdgecontainerVpnConnection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => new TerraformReference<string>(this, "cluster");
+        get => GetArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
     /// <summary>
     /// Whether this VPN connection has HA enabled on cluster side. If enabled, when creating VPN connection we will attempt to use 2 ANG floating IPs.
     /// </summary>
-    public TerraformValue<bool> EnableHighAvailability
+    public TerraformValue<bool>? EnableHighAvailability
     {
-        get => new TerraformReference<bool>(this, "enable_high_availability");
+        get => GetArgument<TerraformValue<bool>>("enable_high_availability");
         set => SetArgument("enable_high_availability", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -108,7 +108,7 @@ public partial class GoogleEdgecontainerVpnConnection(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -118,7 +118,7 @@ public partial class GoogleEdgecontainerVpnConnection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -128,7 +128,7 @@ public partial class GoogleEdgecontainerVpnConnection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -138,16 +138,16 @@ public partial class GoogleEdgecontainerVpnConnection(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? NatGatewayIp
     {
-        get => new TerraformReference<string>(this, "nat_gateway_ip");
+        get => GetArgument<TerraformValue<string>>("nat_gateway_ip");
         set => SetArgument("nat_gateway_ip", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -156,7 +156,7 @@ public partial class GoogleEdgecontainerVpnConnection(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Router
     {
-        get => new TerraformReference<string>(this, "router");
+        get => GetArgument<TerraformValue<string>>("router");
         set => SetArgument("router", value);
     }
 
@@ -165,7 +165,7 @@ public partial class GoogleEdgecontainerVpnConnection(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Vpc
     {
-        get => new TerraformReference<string>(this, "vpc");
+        get => GetArgument<TerraformValue<string>>("vpc");
         set => SetArgument("vpc", value);
     }
 
@@ -173,42 +173,32 @@ public partial class GoogleEdgecontainerVpnConnection(string name) : TerraformRe
     /// The time when the VPN connection was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> Details
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "details").ResolveNodes(ctx));
-    }
+        => AsReference("details");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The time when the VPN connection was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

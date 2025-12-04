@@ -19,7 +19,7 @@ public class AzurermMonitorAadDiagnosticSettingEnabledLogBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformValue<string> Category
     {
-        get => new TerraformReference<string>(this, "category");
+        get => GetArgument<TerraformValue<string>>("category");
         set => SetArgument("category", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermMonitorAadDiagnosticSettingEnabledLogBlockRetentionPolicyBlo
     /// </summary>
     public TerraformValue<double>? Days
     {
-        get => new TerraformReference<double>(this, "days");
+        get => GetArgument<TerraformValue<double>>("days");
         set => SetArgument("days", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermMonitorAadDiagnosticSettingEnabledLogBlockRetentionPolicyBlo
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermMonitorAadDiagnosticSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermMonitorAadDiagnosticSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermMonitorAadDiagnosticSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermMonitorAadDiagnosticSettingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermMonitorAadDiagnosticSetting(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? EventhubAuthorizationRuleId
     {
-        get => new TerraformReference<string>(this, "eventhub_authorization_rule_id");
+        get => GetArgument<TerraformValue<string>>("eventhub_authorization_rule_id");
         set => SetArgument("eventhub_authorization_rule_id", value);
     }
 
@@ -139,16 +139,16 @@ public partial class AzurermMonitorAadDiagnosticSetting(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? EventhubName
     {
-        get => new TerraformReference<string>(this, "eventhub_name");
+        get => GetArgument<TerraformValue<string>>("eventhub_name");
         set => SetArgument("eventhub_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AzurermMonitorAadDiagnosticSetting(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? LogAnalyticsWorkspaceId
     {
-        get => new TerraformReference<string>(this, "log_analytics_workspace_id");
+        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AzurermMonitorAadDiagnosticSetting(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AzurermMonitorAadDiagnosticSetting(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? StorageAccountId
     {
-        get => new TerraformReference<string>(this, "storage_account_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 

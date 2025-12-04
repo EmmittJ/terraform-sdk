@@ -15,16 +15,16 @@ public partial class GoogleKmsSecretCiphertextDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
     public required TerraformValue<string> CryptoKey
     {
-        get => new TerraformReference<string>(this, "crypto_key");
+        get => GetArgument<TerraformValue<string>>("crypto_key");
         set => SetArgument("crypto_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -34,7 +34,7 @@ public partial class GoogleKmsSecretCiphertextDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plaintext is required")]
     public required TerraformValue<string> Plaintext
     {
-        get => new TerraformReference<string>(this, "plaintext");
+        get => GetArgument<TerraformValue<string>>("plaintext");
         set => SetArgument("plaintext", value);
     }
 
@@ -42,8 +42,6 @@ public partial class GoogleKmsSecretCiphertextDataSource(string name) : Terrafor
     /// The ciphertext attribute.
     /// </summary>
     public TerraformValue<string> Ciphertext
-    {
-        get => new TerraformReference<string>(this, "ciphertext");
-    }
+        => AsReference("ciphertext");
 
 }

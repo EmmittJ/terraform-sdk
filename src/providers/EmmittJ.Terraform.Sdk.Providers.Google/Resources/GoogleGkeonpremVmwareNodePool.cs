@@ -18,7 +18,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? BootDiskSizeGb
     {
-        get => new TerraformReference<double>(this, "boot_disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("boot_disk_size_gb");
         set => SetArgument("boot_disk_size_gb", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Cpus
     {
-        get => new TerraformReference<double>(this, "cpus");
+        get => GetArgument<TerraformValue<double>>("cpus");
         set => SetArgument("cpus", value);
     }
 
@@ -37,16 +37,16 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableLoadBalancer
     {
-        get => new TerraformReference<bool>(this, "enable_load_balancer");
+        get => GetArgument<TerraformValue<bool>>("enable_load_balancer");
         set => SetArgument("enable_load_balancer", value);
     }
 
     /// <summary>
     /// The OS image name in vCenter, only valid when using Windows.
     /// </summary>
-    public TerraformValue<string> Image
+    public TerraformValue<string>? Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -57,7 +57,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageType is required")]
     public required TerraformValue<string> ImageType
     {
-        get => new TerraformReference<string>(this, "image_type");
+        get => GetArgument<TerraformValue<string>>("image_type");
         set => SetArgument("image_type", value);
     }
 
@@ -69,9 +69,9 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlock
     /// the Kubernetes version -- it&#39;s best to assume the behavior is undefined
     /// and conflicts should be avoided.
     /// </summary>
-    public TerraformMap<string> Labels
+    public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MemoryMb
     {
-        get => new TerraformReference<double>(this, "memory_mb");
+        get => GetArgument<TerraformValue<double>>("memory_mb");
         set => SetArgument("memory_mb", value);
     }
 
@@ -89,7 +89,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Replicas
     {
-        get => new TerraformReference<double>(this, "replicas");
+        get => GetArgument<TerraformValue<double>>("replicas");
         set => SetArgument("replicas", value);
     }
 
@@ -130,7 +130,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlockTaintsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Effect
     {
-        get => new TerraformReference<string>(this, "effect");
+        get => GetArgument<TerraformValue<string>>("effect");
         set => SetArgument("effect", value);
     }
 
@@ -140,7 +140,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlockTaintsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -150,7 +150,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlockTaintsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -172,7 +172,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlockVsphereConfigBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Datastore
     {
-        get => new TerraformReference<string>(this, "datastore");
+        get => GetArgument<TerraformValue<string>>("datastore");
         set => SetArgument("datastore", value);
     }
 
@@ -181,7 +181,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlockVsphereConfigBlock : Terraf
     /// </summary>
     public TerraformList<string>? HostGroups
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "host_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("host_groups");
         set => SetArgument("host_groups", value);
     }
 
@@ -212,7 +212,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlockVsphereConfigBlockTagsBlock
     /// </summary>
     public TerraformValue<string>? Category
     {
-        get => new TerraformReference<string>(this, "category");
+        get => GetArgument<TerraformValue<string>>("category");
         set => SetArgument("category", value);
     }
 
@@ -221,7 +221,7 @@ public class GoogleGkeonpremVmwareNodePoolConfigBlockVsphereConfigBlockTagsBlock
     /// </summary>
     public TerraformValue<string>? Tag
     {
-        get => new TerraformReference<string>(this, "tag");
+        get => GetArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -245,7 +245,7 @@ public class GoogleGkeonpremVmwareNodePoolNodePoolAutoscalingBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxReplicas is required")]
     public required TerraformValue<double> MaxReplicas
     {
-        get => new TerraformReference<double>(this, "max_replicas");
+        get => GetArgument<TerraformValue<double>>("max_replicas");
         set => SetArgument("max_replicas", value);
     }
 
@@ -255,7 +255,7 @@ public class GoogleGkeonpremVmwareNodePoolNodePoolAutoscalingBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReplicas is required")]
     public required TerraformValue<double> MinReplicas
     {
-        get => new TerraformReference<double>(this, "min_replicas");
+        get => GetArgument<TerraformValue<double>>("min_replicas");
         set => SetArgument("min_replicas", value);
     }
 
@@ -278,7 +278,7 @@ public class GoogleGkeonpremVmwareNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -287,7 +287,7 @@ public class GoogleGkeonpremVmwareNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -296,7 +296,7 @@ public class GoogleGkeonpremVmwareNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -325,7 +325,7 @@ public partial class GoogleGkeonpremVmwareNodePool(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -334,16 +334,16 @@ public partial class GoogleGkeonpremVmwareNodePool(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -353,7 +353,7 @@ public partial class GoogleGkeonpremVmwareNodePool(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -363,7 +363,7 @@ public partial class GoogleGkeonpremVmwareNodePool(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -372,16 +372,16 @@ public partial class GoogleGkeonpremVmwareNodePool(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? OnPremVersion
     {
-        get => new TerraformReference<string>(this, "on_prem_version");
+        get => GetArgument<TerraformValue<string>>("on_prem_version");
         set => SetArgument("on_prem_version", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -391,7 +391,7 @@ public partial class GoogleGkeonpremVmwareNodePool(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareCluster is required")]
     public required TerraformValue<string> VmwareCluster
     {
-        get => new TerraformReference<string>(this, "vmware_cluster");
+        get => GetArgument<TerraformValue<string>>("vmware_cluster");
         set => SetArgument("vmware_cluster", value);
     }
 
@@ -399,25 +399,19 @@ public partial class GoogleGkeonpremVmwareNodePool(string name) : TerraformResou
     /// The time the cluster was created, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The time the cluster was deleted, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> DeleteTime
-    {
-        get => new TerraformReference<string>(this, "delete_time");
-    }
+        => AsReference("delete_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other
@@ -427,49 +421,37 @@ public partial class GoogleGkeonpremVmwareNodePool(string name) : TerraformResou
     /// through optimistic concurrency control.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// If set, there are currently changes in flight to the node pool.
     /// </summary>
     public TerraformValue<bool> Reconciling
-    {
-        get => new TerraformReference<bool>(this, "reconciling");
-    }
+        => AsReference("reconciling");
 
     /// <summary>
     /// The current state of this cluster.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// ResourceStatus representing detailed cluster state.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "status").ResolveNodes(ctx));
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The unique identifier of the node pool.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// The time the cluster was last updated, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Config block (nesting mode: list).

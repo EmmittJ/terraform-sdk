@@ -14,7 +14,7 @@ public partial class AwsCloudfrontkeyvaluestoreKey(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsCloudfrontkeyvaluestoreKey(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyValueStoreArn is required")]
     public required TerraformValue<string> KeyValueStoreArn
     {
-        get => new TerraformReference<string>(this, "key_value_store_arn");
+        get => GetArgument<TerraformValue<string>>("key_value_store_arn");
         set => SetArgument("key_value_store_arn", value);
     }
 
@@ -34,7 +34,7 @@ public partial class AwsCloudfrontkeyvaluestoreKey(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -43,16 +43,12 @@ public partial class AwsCloudfrontkeyvaluestoreKey(string name) : TerraformResou
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// Total size of the Key Value Store in bytes.
     /// </summary>
     public TerraformValue<double> TotalSizeInBytes
-    {
-        get => new TerraformReference<double>(this, "total_size_in_bytes");
-    }
+        => AsReference("total_size_in_bytes");
 
 }

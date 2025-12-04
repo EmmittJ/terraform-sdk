@@ -18,7 +18,7 @@ public class AwsNetworkmanagerConnectAttachmentOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsNetworkmanagerConnectAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsNetworkmanagerConnectAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -69,7 +69,7 @@ public partial class AwsNetworkmanagerConnectAttachment(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     public required TerraformValue<string> CoreNetworkId
     {
-        get => new TerraformReference<string>(this, "core_network_id");
+        get => GetArgument<TerraformValue<string>>("core_network_id");
         set => SetArgument("core_network_id", value);
     }
 
@@ -79,16 +79,16 @@ public partial class AwsNetworkmanagerConnectAttachment(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EdgeLocation is required")]
     public required TerraformValue<string> EdgeLocation
     {
-        get => new TerraformReference<string>(this, "edge_location");
+        get => GetArgument<TerraformValue<string>>("edge_location");
         set => SetArgument("edge_location", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -97,16 +97,16 @@ public partial class AwsNetworkmanagerConnectAttachment(string name) : Terraform
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AwsNetworkmanagerConnectAttachment(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransportAttachmentId is required")]
     public required TerraformValue<string> TransportAttachmentId
     {
-        get => new TerraformReference<string>(this, "transport_attachment_id");
+        get => GetArgument<TerraformValue<string>>("transport_attachment_id");
         set => SetArgument("transport_attachment_id", value);
     }
 
@@ -124,73 +124,55 @@ public partial class AwsNetworkmanagerConnectAttachment(string name) : Terraform
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The attachment_id attribute.
     /// </summary>
     public TerraformValue<string> AttachmentId
-    {
-        get => new TerraformReference<string>(this, "attachment_id");
-    }
+        => AsReference("attachment_id");
 
     /// <summary>
     /// The attachment_policy_rule_number attribute.
     /// </summary>
     public TerraformValue<double> AttachmentPolicyRuleNumber
-    {
-        get => new TerraformReference<double>(this, "attachment_policy_rule_number");
-    }
+        => AsReference("attachment_policy_rule_number");
 
     /// <summary>
     /// The attachment_type attribute.
     /// </summary>
     public TerraformValue<string> AttachmentType
-    {
-        get => new TerraformReference<string>(this, "attachment_type");
-    }
+        => AsReference("attachment_type");
 
     /// <summary>
     /// The core_network_arn attribute.
     /// </summary>
     public TerraformValue<string> CoreNetworkArn
-    {
-        get => new TerraformReference<string>(this, "core_network_arn");
-    }
+        => AsReference("core_network_arn");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-    {
-        get => new TerraformReference<string>(this, "owner_account_id");
-    }
+        => AsReference("owner_account_id");
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
     public TerraformValue<string> ResourceArn
-    {
-        get => new TerraformReference<string>(this, "resource_arn");
-    }
+        => AsReference("resource_arn");
 
     /// <summary>
     /// The segment_name attribute.
     /// </summary>
     public TerraformValue<string> SegmentName
-    {
-        get => new TerraformReference<string>(this, "segment_name");
-    }
+        => AsReference("segment_name");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Options block (nesting mode: list).

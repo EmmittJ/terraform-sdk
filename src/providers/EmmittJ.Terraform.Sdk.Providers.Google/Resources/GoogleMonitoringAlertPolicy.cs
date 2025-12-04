@@ -18,7 +18,7 @@ public class GoogleMonitoringAlertPolicyAlertStrategyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AutoClose
     {
-        get => new TerraformReference<string>(this, "auto_close");
+        get => GetArgument<TerraformValue<string>>("auto_close");
         set => SetArgument("auto_close", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleMonitoringAlertPolicyAlertStrategyBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? NotificationPrompts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "notification_prompts").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("notification_prompts");
         set => SetArgument("notification_prompts", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleMonitoringAlertPolicyAlertStrategyBlockNotificationChannelStr
     /// </summary>
     public TerraformList<string>? NotificationChannelNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "notification_channel_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("notification_channel_names");
         set => SetArgument("notification_channel_names", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleMonitoringAlertPolicyAlertStrategyBlockNotificationChannelStr
     /// </summary>
     public TerraformValue<string>? RenotifyInterval
     {
-        get => new TerraformReference<string>(this, "renotify_interval");
+        get => GetArgument<TerraformValue<string>>("renotify_interval");
         set => SetArgument("renotify_interval", value);
     }
 
@@ -103,7 +103,7 @@ public class GoogleMonitoringAlertPolicyAlertStrategyBlockNotificationRateLimitB
     /// </summary>
     public TerraformValue<string>? Period
     {
-        get => new TerraformReference<string>(this, "period");
+        get => GetArgument<TerraformValue<string>>("period");
         set => SetArgument("period", value);
     }
 
@@ -131,7 +131,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -144,9 +144,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlock : TerraformBlock
     /// policy.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// ConditionAbsent block (nesting mode: list).
@@ -231,7 +229,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionAbsentBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<string> Duration
     {
-        get => new TerraformReference<string>(this, "duration");
+        get => GetArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -251,7 +249,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionAbsentBlock : Te
     /// </summary>
     public TerraformValue<string>? Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -305,7 +303,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionAbsentBlockAggre
     /// </summary>
     public TerraformValue<string>? AlignmentPeriod
     {
-        get => new TerraformReference<string>(this, "alignment_period");
+        get => GetArgument<TerraformValue<string>>("alignment_period");
         set => SetArgument("alignment_period", value);
     }
 
@@ -330,7 +328,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionAbsentBlockAggre
     /// </summary>
     public TerraformValue<string>? CrossSeriesReducer
     {
-        get => new TerraformReference<string>(this, "cross_series_reducer");
+        get => GetArgument<TerraformValue<string>>("cross_series_reducer");
         set => SetArgument("cross_series_reducer", value);
     }
 
@@ -363,7 +361,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionAbsentBlockAggre
     /// </summary>
     public TerraformList<string>? GroupByFields
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "group_by_fields").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("group_by_fields");
         set => SetArgument("group_by_fields", value);
     }
 
@@ -388,7 +386,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionAbsentBlockAggre
     /// </summary>
     public TerraformValue<string>? PerSeriesAligner
     {
-        get => new TerraformReference<string>(this, "per_series_aligner");
+        get => GetArgument<TerraformValue<string>>("per_series_aligner");
         set => SetArgument("per_series_aligner", value);
     }
 
@@ -412,7 +410,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionAbsentBlockTrigg
     /// </summary>
     public TerraformValue<double>? CountAttribute
     {
-        get => new TerraformReference<double>(this, "count");
+        get => GetArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -423,7 +421,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionAbsentBlockTrigg
     /// </summary>
     public TerraformValue<double>? Percent
     {
-        get => new TerraformReference<double>(this, "percent");
+        get => GetArgument<TerraformValue<double>>("percent");
         set => SetArgument("percent", value);
     }
 
@@ -446,7 +444,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionMatchedLogBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -461,7 +459,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionMatchedLogBlock 
     /// </summary>
     public TerraformMap<string>? LabelExtractors
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "label_extractors").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("label_extractors");
         set => SetArgument("label_extractors", value);
     }
 
@@ -498,7 +496,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionMonitoringQueryL
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<string> Duration
     {
-        get => new TerraformReference<string>(this, "duration");
+        get => GetArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -509,7 +507,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionMonitoringQueryL
     /// </summary>
     public TerraformValue<string>? EvaluationMissingData
     {
-        get => new TerraformReference<string>(this, "evaluation_missing_data");
+        get => GetArgument<TerraformValue<string>>("evaluation_missing_data");
         set => SetArgument("evaluation_missing_data", value);
     }
 
@@ -519,7 +517,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionMonitoringQueryL
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformValue<string> Query
     {
-        get => new TerraformReference<string>(this, "query");
+        get => GetArgument<TerraformValue<string>>("query");
         set => SetArgument("query", value);
     }
 
@@ -553,7 +551,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionMonitoringQueryL
     /// </summary>
     public TerraformValue<double>? CountAttribute
     {
-        get => new TerraformReference<double>(this, "count");
+        get => GetArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -564,7 +562,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionMonitoringQueryL
     /// </summary>
     public TerraformValue<double>? Percent
     {
-        get => new TerraformReference<double>(this, "percent");
+        get => GetArgument<TerraformValue<double>>("percent");
         set => SetArgument("percent", value);
     }
 
@@ -596,7 +594,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionPrometheusQueryL
     /// </summary>
     public TerraformValue<string>? AlertRule
     {
-        get => new TerraformReference<string>(this, "alert_rule");
+        get => GetArgument<TerraformValue<string>>("alert_rule");
         set => SetArgument("alert_rule", value);
     }
 
@@ -612,7 +610,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionPrometheusQueryL
     /// </summary>
     public TerraformValue<bool>? DisableMetricValidation
     {
-        get => new TerraformReference<bool>(this, "disable_metric_validation");
+        get => GetArgument<TerraformValue<bool>>("disable_metric_validation");
         set => SetArgument("disable_metric_validation", value);
     }
 
@@ -624,7 +622,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionPrometheusQueryL
     /// </summary>
     public TerraformValue<string>? Duration
     {
-        get => new TerraformReference<string>(this, "duration");
+        get => GetArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -637,7 +635,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionPrometheusQueryL
     /// </summary>
     public TerraformValue<string>? EvaluationInterval
     {
-        get => new TerraformReference<string>(this, "evaluation_interval");
+        get => GetArgument<TerraformValue<string>>("evaluation_interval");
         set => SetArgument("evaluation_interval", value);
     }
 
@@ -653,7 +651,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionPrometheusQueryL
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -665,7 +663,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionPrometheusQueryL
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformValue<string> Query
     {
-        get => new TerraformReference<string>(this, "query");
+        get => GetArgument<TerraformValue<string>>("query");
         set => SetArgument("query", value);
     }
 
@@ -681,7 +679,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionPrometheusQueryL
     /// </summary>
     public TerraformValue<string>? RuleGroup
     {
-        get => new TerraformReference<string>(this, "rule_group");
+        get => GetArgument<TerraformValue<string>>("rule_group");
         set => SetArgument("rule_group", value);
     }
 
@@ -708,7 +706,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionSqlBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformValue<string> Query
     {
-        get => new TerraformReference<string>(this, "query");
+        get => GetArgument<TerraformValue<string>>("query");
         set => SetArgument("query", value);
     }
 
@@ -782,7 +780,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionSqlBlockBooleanT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Column is required")]
     public required TerraformValue<string> Column
     {
-        get => new TerraformReference<string>(this, "column");
+        get => GetArgument<TerraformValue<string>>("column");
         set => SetArgument("column", value);
     }
 
@@ -806,7 +804,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionSqlBlockDailyBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Periodicity is required")]
     public required TerraformValue<double> Periodicity
     {
-        get => new TerraformReference<double>(this, "periodicity");
+        get => GetArgument<TerraformValue<double>>("periodicity");
         set => SetArgument("periodicity", value);
     }
 
@@ -841,7 +839,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionSqlBlockDailyBlo
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -851,7 +849,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionSqlBlockDailyBlo
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -861,7 +859,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionSqlBlockDailyBlo
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -872,7 +870,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionSqlBlockDailyBlo
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -896,7 +894,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionSqlBlockHourlyBl
     /// </summary>
     public TerraformValue<double>? MinuteOffset
     {
-        get => new TerraformReference<double>(this, "minute_offset");
+        get => GetArgument<TerraformValue<double>>("minute_offset");
         set => SetArgument("minute_offset", value);
     }
 
@@ -907,7 +905,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionSqlBlockHourlyBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Periodicity is required")]
     public required TerraformValue<double> Periodicity
     {
-        get => new TerraformReference<double>(this, "periodicity");
+        get => GetArgument<TerraformValue<double>>("periodicity");
         set => SetArgument("periodicity", value);
     }
 
@@ -931,7 +929,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionSqlBlockMinutesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Periodicity is required")]
     public required TerraformValue<double> Periodicity
     {
-        get => new TerraformReference<double>(this, "periodicity");
+        get => GetArgument<TerraformValue<double>>("periodicity");
         set => SetArgument("periodicity", value);
     }
 
@@ -961,7 +959,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionSqlBlockRowCount
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -971,7 +969,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionSqlBlockRowCount
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformValue<double> Threshold
     {
-        get => new TerraformReference<double>(this, "threshold");
+        get => GetArgument<TerraformValue<double>>("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -1001,7 +999,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionThresholdBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1024,7 +1022,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionThresholdBlock :
     /// </summary>
     public TerraformValue<string>? DenominatorFilter
     {
-        get => new TerraformReference<string>(this, "denominator_filter");
+        get => GetArgument<TerraformValue<string>>("denominator_filter");
         set => SetArgument("denominator_filter", value);
     }
 
@@ -1048,7 +1046,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionThresholdBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<string> Duration
     {
-        get => new TerraformReference<string>(this, "duration");
+        get => GetArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -1059,7 +1057,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionThresholdBlock :
     /// </summary>
     public TerraformValue<string>? EvaluationMissingData
     {
-        get => new TerraformReference<string>(this, "evaluation_missing_data");
+        get => GetArgument<TerraformValue<string>>("evaluation_missing_data");
         set => SetArgument("evaluation_missing_data", value);
     }
 
@@ -1079,7 +1077,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionThresholdBlock :
     /// </summary>
     public TerraformValue<string>? Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -1089,7 +1087,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionThresholdBlock :
     /// </summary>
     public TerraformValue<double>? ThresholdValue
     {
-        get => new TerraformReference<double>(this, "threshold_value");
+        get => GetArgument<TerraformValue<double>>("threshold_value");
         set => SetArgument("threshold_value", value);
     }
 
@@ -1162,7 +1160,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionThresholdBlockAg
     /// </summary>
     public TerraformValue<string>? AlignmentPeriod
     {
-        get => new TerraformReference<string>(this, "alignment_period");
+        get => GetArgument<TerraformValue<string>>("alignment_period");
         set => SetArgument("alignment_period", value);
     }
 
@@ -1187,7 +1185,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionThresholdBlockAg
     /// </summary>
     public TerraformValue<string>? CrossSeriesReducer
     {
-        get => new TerraformReference<string>(this, "cross_series_reducer");
+        get => GetArgument<TerraformValue<string>>("cross_series_reducer");
         set => SetArgument("cross_series_reducer", value);
     }
 
@@ -1220,7 +1218,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionThresholdBlockAg
     /// </summary>
     public TerraformList<string>? GroupByFields
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "group_by_fields").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("group_by_fields");
         set => SetArgument("group_by_fields", value);
     }
 
@@ -1245,7 +1243,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionThresholdBlockAg
     /// </summary>
     public TerraformValue<string>? PerSeriesAligner
     {
-        get => new TerraformReference<string>(this, "per_series_aligner");
+        get => GetArgument<TerraformValue<string>>("per_series_aligner");
         set => SetArgument("per_series_aligner", value);
     }
 
@@ -1280,7 +1278,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionThresholdBlockDe
     /// </summary>
     public TerraformValue<string>? AlignmentPeriod
     {
-        get => new TerraformReference<string>(this, "alignment_period");
+        get => GetArgument<TerraformValue<string>>("alignment_period");
         set => SetArgument("alignment_period", value);
     }
 
@@ -1305,7 +1303,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionThresholdBlockDe
     /// </summary>
     public TerraformValue<string>? CrossSeriesReducer
     {
-        get => new TerraformReference<string>(this, "cross_series_reducer");
+        get => GetArgument<TerraformValue<string>>("cross_series_reducer");
         set => SetArgument("cross_series_reducer", value);
     }
 
@@ -1338,7 +1336,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionThresholdBlockDe
     /// </summary>
     public TerraformList<string>? GroupByFields
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "group_by_fields").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("group_by_fields");
         set => SetArgument("group_by_fields", value);
     }
 
@@ -1363,7 +1361,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionThresholdBlockDe
     /// </summary>
     public TerraformValue<string>? PerSeriesAligner
     {
-        get => new TerraformReference<string>(this, "per_series_aligner");
+        get => GetArgument<TerraformValue<string>>("per_series_aligner");
         set => SetArgument("per_series_aligner", value);
     }
 
@@ -1391,7 +1389,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionThresholdBlockFo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForecastHorizon is required")]
     public required TerraformValue<string> ForecastHorizon
     {
-        get => new TerraformReference<string>(this, "forecast_horizon");
+        get => GetArgument<TerraformValue<string>>("forecast_horizon");
         set => SetArgument("forecast_horizon", value);
     }
 
@@ -1415,7 +1413,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionThresholdBlockTr
     /// </summary>
     public TerraformValue<double>? CountAttribute
     {
-        get => new TerraformReference<double>(this, "count");
+        get => GetArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -1426,7 +1424,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlockConditionThresholdBlockTr
     /// </summary>
     public TerraformValue<double>? Percent
     {
-        get => new TerraformReference<double>(this, "percent");
+        get => GetArgument<TerraformValue<double>>("percent");
         set => SetArgument("percent", value);
     }
 
@@ -1452,7 +1450,7 @@ public class GoogleMonitoringAlertPolicyDocumentationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Content
     {
-        get => new TerraformReference<string>(this, "content");
+        get => GetArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -1462,7 +1460,7 @@ public class GoogleMonitoringAlertPolicyDocumentationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MimeType
     {
-        get => new TerraformReference<string>(this, "mime_type");
+        get => GetArgument<TerraformValue<string>>("mime_type");
         set => SetArgument("mime_type", value);
     }
 
@@ -1474,7 +1472,7 @@ public class GoogleMonitoringAlertPolicyDocumentationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Subject
     {
-        get => new TerraformReference<string>(this, "subject");
+        get => GetArgument<TerraformValue<string>>("subject");
         set => SetArgument("subject", value);
     }
 
@@ -1505,7 +1503,7 @@ public class GoogleMonitoringAlertPolicyDocumentationBlockLinksBlock : Terraform
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -1514,7 +1512,7 @@ public class GoogleMonitoringAlertPolicyDocumentationBlockLinksBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -1537,7 +1535,7 @@ public class GoogleMonitoringAlertPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1546,7 +1544,7 @@ public class GoogleMonitoringAlertPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1555,7 +1553,7 @@ public class GoogleMonitoringAlertPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1575,7 +1573,7 @@ public partial class GoogleMonitoringAlertPolicy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Combiner is required")]
     public required TerraformValue<string> Combiner
     {
-        get => new TerraformReference<string>(this, "combiner");
+        get => GetArgument<TerraformValue<string>>("combiner");
         set => SetArgument("combiner", value);
     }
 
@@ -1588,7 +1586,7 @@ public partial class GoogleMonitoringAlertPolicy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -1597,16 +1595,16 @@ public partial class GoogleMonitoringAlertPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1621,16 +1619,16 @@ public partial class GoogleMonitoringAlertPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformList<string>? NotificationChannels
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "notification_channels").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("notification_channels");
         set => SetArgument("notification_channels", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -1641,7 +1639,7 @@ public partial class GoogleMonitoringAlertPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? Severity
     {
-        get => new TerraformReference<string>(this, "severity");
+        get => GetArgument<TerraformValue<string>>("severity");
         set => SetArgument("severity", value);
     }
 
@@ -1654,7 +1652,7 @@ public partial class GoogleMonitoringAlertPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string>? UserLabels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "user_labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("user_labels");
         set => SetArgument("user_labels", value);
     }
 
@@ -1664,18 +1662,14 @@ public partial class GoogleMonitoringAlertPolicy(string name) : TerraformResourc
     /// be ignored.
     /// </summary>
     public TerraformList<TerraformMap<object>> CreationRecord
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "creation_record").ResolveNodes(ctx));
-    }
+        => AsReference("creation_record");
 
     /// <summary>
     /// The unique resource name for this policy.
     /// Its syntax is: projects/[PROJECT_ID]/alertPolicies/[ALERT_POLICY_ID]
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// AlertStrategy block (nesting mode: list).

@@ -19,7 +19,7 @@ public class AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlockCrite
     /// </summary>
     public TerraformValue<string>? AbsoluteCriteria
     {
-        get => new TerraformReference<string>(this, "absolute_criteria");
+        get => GetArgument<TerraformValue<string>>("absolute_criteria");
         set => SetArgument("absolute_criteria", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlockCrite
     /// </summary>
     public TerraformSet<double>? DaysOfMonth
     {
-        get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "days_of_month").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<double>>("days_of_month");
         set => SetArgument("days_of_month", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlockCrite
     /// </summary>
     public TerraformSet<string>? DaysOfWeek
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "days_of_week").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("days_of_week");
         set => SetArgument("days_of_week", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlockCrite
     /// </summary>
     public TerraformSet<string>? MonthsOfYear
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "months_of_year").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("months_of_year");
         set => SetArgument("months_of_year", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlockCrite
     /// </summary>
     public TerraformSet<string>? ScheduledBackupTimes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "scheduled_backup_times").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("scheduled_backup_times");
         set => SetArgument("scheduled_backup_times", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlockCrite
     /// </summary>
     public TerraformSet<string>? WeeksOfMonth
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "weeks_of_month").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("weeks_of_month");
         set => SetArgument("weeks_of_month", value);
     }
 
@@ -145,7 +145,7 @@ public class AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlockLifeC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreType is required")]
     public required TerraformValue<string> DataStoreType
     {
-        get => new TerraformReference<string>(this, "data_store_type");
+        get => GetArgument<TerraformValue<string>>("data_store_type");
         set => SetArgument("data_store_type", value);
     }
 
@@ -155,7 +155,7 @@ public class AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlockLifeC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<string> Duration
     {
-        get => new TerraformReference<string>(this, "duration");
+        get => GetArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -178,7 +178,7 @@ public class AzurermDataProtectionBackupPolicyBlobStorageTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -187,7 +187,7 @@ public class AzurermDataProtectionBackupPolicyBlobStorageTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -196,7 +196,7 @@ public class AzurermDataProtectionBackupPolicyBlobStorageTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -214,16 +214,16 @@ public partial class AzurermDataProtectionBackupPolicyBlobStorage(string name) :
     /// </summary>
     public TerraformList<string>? BackupRepeatingTimeIntervals
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "backup_repeating_time_intervals").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("backup_repeating_time_intervals");
         set => SetArgument("backup_repeating_time_intervals", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -233,7 +233,7 @@ public partial class AzurermDataProtectionBackupPolicyBlobStorage(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -242,7 +242,7 @@ public partial class AzurermDataProtectionBackupPolicyBlobStorage(string name) :
     /// </summary>
     public TerraformValue<string>? OperationalDefaultRetentionDuration
     {
-        get => new TerraformReference<string>(this, "operational_default_retention_duration");
+        get => GetArgument<TerraformValue<string>>("operational_default_retention_duration");
         set => SetArgument("operational_default_retention_duration", value);
     }
 
@@ -251,7 +251,7 @@ public partial class AzurermDataProtectionBackupPolicyBlobStorage(string name) :
     /// </summary>
     public TerraformValue<string>? TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -260,7 +260,7 @@ public partial class AzurermDataProtectionBackupPolicyBlobStorage(string name) :
     /// </summary>
     public TerraformValue<string>? VaultDefaultRetentionDuration
     {
-        get => new TerraformReference<string>(this, "vault_default_retention_duration");
+        get => GetArgument<TerraformValue<string>>("vault_default_retention_duration");
         set => SetArgument("vault_default_retention_duration", value);
     }
 
@@ -270,7 +270,7 @@ public partial class AzurermDataProtectionBackupPolicyBlobStorage(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
     public required TerraformValue<string> VaultId
     {
-        get => new TerraformReference<string>(this, "vault_id");
+        get => GetArgument<TerraformValue<string>>("vault_id");
         set => SetArgument("vault_id", value);
     }
 

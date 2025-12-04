@@ -18,7 +18,7 @@ public class AwsVpclatticeServiceNetworkServiceAssociationTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsVpclatticeServiceNetworkServiceAssociationTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsVpclatticeServiceNetworkServiceAssociationTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -52,18 +52,18 @@ public partial class AwsVpclatticeServiceNetworkServiceAssociation(string name) 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsVpclatticeServiceNetworkServiceAssociation(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceIdentifier is required")]
     public required TerraformValue<string> ServiceIdentifier
     {
-        get => new TerraformReference<string>(this, "service_identifier");
+        get => GetArgument<TerraformValue<string>>("service_identifier");
         set => SetArgument("service_identifier", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsVpclatticeServiceNetworkServiceAssociation(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNetworkIdentifier is required")]
     public required TerraformValue<string> ServiceNetworkIdentifier
     {
-        get => new TerraformReference<string>(this, "service_network_identifier");
+        get => GetArgument<TerraformValue<string>>("service_network_identifier");
         set => SetArgument("service_network_identifier", value);
     }
 
@@ -92,16 +92,16 @@ public partial class AwsVpclatticeServiceNetworkServiceAssociation(string name) 
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -109,41 +109,31 @@ public partial class AwsVpclatticeServiceNetworkServiceAssociation(string name) 
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
     public TerraformValue<string> CreatedBy
-    {
-        get => new TerraformReference<string>(this, "created_by");
-    }
+        => AsReference("created_by");
 
     /// <summary>
     /// The custom_domain_name attribute.
     /// </summary>
     public TerraformValue<string> CustomDomainName
-    {
-        get => new TerraformReference<string>(this, "custom_domain_name");
-    }
+        => AsReference("custom_domain_name");
 
     /// <summary>
     /// The dns_entry attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DnsEntry
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "dns_entry").ResolveNodes(ctx));
-    }
+        => AsReference("dns_entry");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

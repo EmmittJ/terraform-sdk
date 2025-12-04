@@ -18,7 +18,7 @@ public class AzurermWebAppActiveSlotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermWebAppActiveSlotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermWebAppActiveSlotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermWebAppActiveSlotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermWebAppActiveSlot(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermWebAppActiveSlot(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? OverwriteNetworkConfig
     {
-        get => new TerraformReference<bool>(this, "overwrite_network_config");
+        get => GetArgument<TerraformValue<bool>>("overwrite_network_config");
         set => SetArgument("overwrite_network_config", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermWebAppActiveSlot(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotId is required")]
     public required TerraformValue<string> SlotId
     {
-        get => new TerraformReference<string>(this, "slot_id");
+        get => GetArgument<TerraformValue<string>>("slot_id");
         set => SetArgument("slot_id", value);
     }
 
@@ -90,9 +90,7 @@ public partial class AzurermWebAppActiveSlot(string name) : TerraformResource("a
     /// The timestamp of the last successful swap with `Production`
     /// </summary>
     public TerraformValue<string> LastSuccessfulSwap
-    {
-        get => new TerraformReference<string>(this, "last_successful_swap");
-    }
+        => AsReference("last_successful_swap");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

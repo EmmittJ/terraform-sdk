@@ -19,7 +19,7 @@ public class GoogleSpannerInstanceConfigReplicasBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DefaultLeaderLocation
     {
-        get => new TerraformReference<bool>(this, "default_leader_location");
+        get => GetArgument<TerraformValue<bool>>("default_leader_location");
         set => SetArgument("default_leader_location", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleSpannerInstanceConfigReplicasBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -39,7 +39,7 @@ public class GoogleSpannerInstanceConfigReplicasBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleSpannerInstanceConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleSpannerInstanceConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleSpannerInstanceConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -98,9 +98,9 @@ public partial class GoogleSpannerInstanceConfig(string name) : TerraformResourc
     /// Only set for user managed configurations.
     /// baseConfig must refer to a configuration of type GOOGLE_MANAGED in the same project as this configuration.
     /// </summary>
-    public TerraformValue<string> BaseConfig
+    public TerraformValue<string>? BaseConfig
     {
-        get => new TerraformReference<string>(this, "base_config");
+        get => GetArgument<TerraformValue<string>>("base_config");
         set => SetArgument("base_config", value);
     }
 
@@ -110,16 +110,16 @@ public partial class GoogleSpannerInstanceConfig(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -133,7 +133,7 @@ public partial class GoogleSpannerInstanceConfig(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -141,18 +141,18 @@ public partial class GoogleSpannerInstanceConfig(string name) : TerraformResourc
     /// A unique identifier for the instance configuration. Values are of the
     /// form projects/&amp;lt;project&amp;gt;/instanceConfigs/[a-z][-a-z0-9]*
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -160,26 +160,20 @@ public partial class GoogleSpannerInstanceConfig(string name) : TerraformResourc
     /// Output only. Whether this instance config is a Google or User Managed Configuration.
     /// </summary>
     public TerraformValue<string> ConfigType
-    {
-        get => new TerraformReference<string>(this, "config_type");
-    }
+        => AsReference("config_type");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Replicas block (nesting mode: set).

@@ -18,7 +18,7 @@ public class AzurermNetworkServiceTagsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermNetworkServiceTagsDataSource(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermNetworkServiceTagsDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermNetworkServiceTagsDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? LocationFilter
     {
-        get => new TerraformReference<string>(this, "location_filter");
+        get => GetArgument<TerraformValue<string>>("location_filter");
         set => SetArgument("location_filter", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzurermNetworkServiceTagsDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -73,33 +73,25 @@ public partial class AzurermNetworkServiceTagsDataSource(string name) : Terrafor
     /// The address_prefixes attribute.
     /// </summary>
     public TerraformList<string> AddressPrefixes
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "address_prefixes").ResolveNodes(ctx));
-    }
+        => AsReference("address_prefixes");
 
     /// <summary>
     /// The ipv4_cidrs attribute.
     /// </summary>
     public TerraformList<string> Ipv4Cidrs
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ipv4_cidrs").ResolveNodes(ctx));
-    }
+        => AsReference("ipv4_cidrs");
 
     /// <summary>
     /// The ipv6_cidrs attribute.
     /// </summary>
     public TerraformList<string> Ipv6Cidrs
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ipv6_cidrs").ResolveNodes(ctx));
-    }
+        => AsReference("ipv6_cidrs");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -19,7 +19,7 @@ public class AzurermKeyVaultCertificateIssuerAdminBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     public required TerraformValue<string> EmailAddress
     {
-        get => new TerraformReference<string>(this, "email_address");
+        get => GetArgument<TerraformValue<string>>("email_address");
         set => SetArgument("email_address", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermKeyVaultCertificateIssuerAdminBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FirstName
     {
-        get => new TerraformReference<string>(this, "first_name");
+        get => GetArgument<TerraformValue<string>>("first_name");
         set => SetArgument("first_name", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermKeyVaultCertificateIssuerAdminBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LastName
     {
-        get => new TerraformReference<string>(this, "last_name");
+        get => GetArgument<TerraformValue<string>>("last_name");
         set => SetArgument("last_name", value);
     }
 
@@ -46,7 +46,7 @@ public class AzurermKeyVaultCertificateIssuerAdminBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Phone
     {
-        get => new TerraformReference<string>(this, "phone");
+        get => GetArgument<TerraformValue<string>>("phone");
         set => SetArgument("phone", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermKeyVaultCertificateIssuerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermKeyVaultCertificateIssuerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermKeyVaultCertificateIssuerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermKeyVaultCertificateIssuerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -114,16 +114,16 @@ public partial class AzurermKeyVaultCertificateIssuer(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AzurermKeyVaultCertificateIssuer(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformValue<string> KeyVaultId
     {
-        get => new TerraformReference<string>(this, "key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AzurermKeyVaultCertificateIssuer(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AzurermKeyVaultCertificateIssuer(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? OrgId
     {
-        get => new TerraformReference<string>(this, "org_id");
+        get => GetArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -161,7 +161,7 @@ public partial class AzurermKeyVaultCertificateIssuer(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AzurermKeyVaultCertificateIssuer(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderName is required")]
     public required TerraformValue<string> ProviderName
     {
-        get => new TerraformReference<string>(this, "provider_name");
+        get => GetArgument<TerraformValue<string>>("provider_name");
         set => SetArgument("provider_name", value);
     }
 

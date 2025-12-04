@@ -18,7 +18,7 @@ public class AzurermAppServiceCustomHostnameBindingTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermAppServiceCustomHostnameBindingTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermAppServiceCustomHostnameBindingTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermAppServiceCustomHostnameBinding(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceName is required")]
     public required TerraformValue<string> AppServiceName
     {
-        get => new TerraformReference<string>(this, "app_service_name");
+        get => GetArgument<TerraformValue<string>>("app_service_name");
         set => SetArgument("app_service_name", value);
     }
 
@@ -65,16 +65,16 @@ public partial class AzurermAppServiceCustomHostnameBinding(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => new TerraformReference<string>(this, "hostname");
+        get => GetArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -84,25 +84,25 @@ public partial class AzurermAppServiceCustomHostnameBinding(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The ssl_state attribute.
     /// </summary>
-    public TerraformValue<string> SslState
+    public TerraformValue<string>? SslState
     {
-        get => new TerraformReference<string>(this, "ssl_state");
+        get => GetArgument<TerraformValue<string>>("ssl_state");
         set => SetArgument("ssl_state", value);
     }
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
-    public TerraformValue<string> Thumbprint
+    public TerraformValue<string>? Thumbprint
     {
-        get => new TerraformReference<string>(this, "thumbprint");
+        get => GetArgument<TerraformValue<string>>("thumbprint");
         set => SetArgument("thumbprint", value);
     }
 
@@ -110,9 +110,7 @@ public partial class AzurermAppServiceCustomHostnameBinding(string name) : Terra
     /// The virtual_ip attribute.
     /// </summary>
     public TerraformValue<string> VirtualIp
-    {
-        get => new TerraformReference<string>(this, "virtual_ip");
-    }
+        => AsReference("virtual_ip");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

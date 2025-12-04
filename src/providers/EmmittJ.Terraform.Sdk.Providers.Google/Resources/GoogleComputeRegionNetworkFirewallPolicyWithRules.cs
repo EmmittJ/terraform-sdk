@@ -20,7 +20,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -38,7 +38,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Direction
     {
-        get => new TerraformReference<string>(this, "direction");
+        get => GetArgument<TerraformValue<string>>("direction");
         set => SetArgument("direction", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlock : Terraf
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlock : Terraf
     /// </summary>
     public TerraformValue<bool>? EnableLogging
     {
-        get => new TerraformReference<bool>(this, "enable_logging");
+        get => GetArgument<TerraformValue<bool>>("enable_logging");
         set => SetArgument("enable_logging", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -83,7 +83,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlock : Terraf
     /// </summary>
     public TerraformValue<string>? RuleName
     {
-        get => new TerraformReference<string>(this, "rule_name");
+        get => GetArgument<TerraformValue<string>>("rule_name");
         set => SetArgument("rule_name", value);
     }
 
@@ -95,7 +95,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlock : Terraf
     /// </summary>
     public TerraformValue<string>? SecurityProfileGroup
     {
-        get => new TerraformReference<string>(this, "security_profile_group");
+        get => GetArgument<TerraformValue<string>>("security_profile_group");
         set => SetArgument("security_profile_group", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlock : Terraf
     /// </summary>
     public TerraformList<string>? TargetServiceAccounts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "target_service_accounts").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("target_service_accounts");
         set => SetArgument("target_service_accounts", value);
     }
 
@@ -115,7 +115,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlock : Terraf
     /// </summary>
     public TerraformValue<bool>? TlsInspect
     {
-        get => new TerraformReference<bool>(this, "tls_inspect");
+        get => GetArgument<TerraformValue<bool>>("tls_inspect");
         set => SetArgument("tls_inspect", value);
     }
 
@@ -160,7 +160,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlockMatchBloc
     /// </summary>
     public TerraformList<string>? DestAddressGroups
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dest_address_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("dest_address_groups");
         set => SetArgument("dest_address_groups", value);
     }
 
@@ -170,7 +170,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlockMatchBloc
     /// </summary>
     public TerraformList<string>? DestFqdns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dest_fqdns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("dest_fqdns");
         set => SetArgument("dest_fqdns", value);
     }
 
@@ -180,7 +180,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlockMatchBloc
     /// </summary>
     public TerraformList<string>? DestIpRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dest_ip_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("dest_ip_ranges");
         set => SetArgument("dest_ip_ranges", value);
     }
 
@@ -192,7 +192,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlockMatchBloc
     /// </summary>
     public TerraformList<string>? DestRegionCodes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dest_region_codes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("dest_region_codes");
         set => SetArgument("dest_region_codes", value);
     }
 
@@ -202,7 +202,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlockMatchBloc
     /// </summary>
     public TerraformList<string>? DestThreatIntelligences
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dest_threat_intelligences").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("dest_threat_intelligences");
         set => SetArgument("dest_threat_intelligences", value);
     }
 
@@ -212,7 +212,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlockMatchBloc
     /// </summary>
     public TerraformList<string>? SrcAddressGroups
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "src_address_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("src_address_groups");
         set => SetArgument("src_address_groups", value);
     }
 
@@ -222,7 +222,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlockMatchBloc
     /// </summary>
     public TerraformList<string>? SrcFqdns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "src_fqdns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("src_fqdns");
         set => SetArgument("src_fqdns", value);
     }
 
@@ -232,7 +232,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlockMatchBloc
     /// </summary>
     public TerraformList<string>? SrcIpRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "src_ip_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("src_ip_ranges");
         set => SetArgument("src_ip_ranges", value);
     }
 
@@ -244,7 +244,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlockMatchBloc
     /// </summary>
     public TerraformList<string>? SrcRegionCodes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "src_region_codes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("src_region_codes");
         set => SetArgument("src_region_codes", value);
     }
 
@@ -254,7 +254,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlockMatchBloc
     /// </summary>
     public TerraformList<string>? SrcThreatIntelligences
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "src_threat_intelligences").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("src_threat_intelligences");
         set => SetArgument("src_threat_intelligences", value);
     }
 
@@ -302,7 +302,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlockMatchBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpProtocol is required")]
     public required TerraformValue<string> IpProtocol
     {
-        get => new TerraformReference<string>(this, "ip_protocol");
+        get => GetArgument<TerraformValue<string>>("ip_protocol");
         set => SetArgument("ip_protocol", value);
     }
 
@@ -316,7 +316,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlockMatchBloc
     /// </summary>
     public TerraformList<string>? Ports
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ports").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ports");
         set => SetArgument("ports", value);
     }
 
@@ -339,7 +339,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlockMatchBloc
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -349,9 +349,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlockMatchBloc
     /// or its network is deleted.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
 }
 
@@ -372,7 +370,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlockTargetSec
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -382,9 +380,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesRuleBlockTargetSec
     /// or its network is deleted.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
 }
 
@@ -405,7 +401,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesTimeoutsBlock : Te
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -414,7 +410,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesTimeoutsBlock : Te
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -423,7 +419,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyWithRulesTimeoutsBlock : Te
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -441,16 +437,16 @@ public partial class GoogleComputeRegionNetworkFirewallPolicyWithRules(string na
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -465,7 +461,7 @@ public partial class GoogleComputeRegionNetworkFirewallPolicyWithRules(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -474,27 +470,27 @@ public partial class GoogleComputeRegionNetworkFirewallPolicyWithRules(string na
     /// A policy can be associated with a network only if the network has the matching policyType in its network profile.
     /// Different policy types may support some of the Firewall Rules features. Possible values: [&amp;quot;VPC_POLICY&amp;quot;, &amp;quot;RDMA_ROCE_POLICY&amp;quot;]
     /// </summary>
-    public TerraformValue<string> PolicyType
+    public TerraformValue<string>? PolicyType
     {
-        get => new TerraformReference<string>(this, "policy_type");
+        get => GetArgument<TerraformValue<string>>("policy_type");
         set => SetArgument("policy_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The region of this resource.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -502,57 +498,43 @@ public partial class GoogleComputeRegionNetworkFirewallPolicyWithRules(string na
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// Fingerprint of the resource. This field is used internally during updates of this resource.
     /// </summary>
     public TerraformValue<string> Fingerprint
-    {
-        get => new TerraformReference<string>(this, "fingerprint");
-    }
+        => AsReference("fingerprint");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<string> NetworkFirewallPolicyId
-    {
-        get => new TerraformReference<string>(this, "network_firewall_policy_id");
-    }
+        => AsReference("network_firewall_policy_id");
 
     /// <summary>
     /// A list of firewall policy pre-defined rules.
     /// </summary>
     public TerraformList<TerraformMap<object>> PredefinedRules
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "predefined_rules").ResolveNodes(ctx));
-    }
+        => AsReference("predefined_rules");
 
     /// <summary>
     /// Total count of all firewall policy rule tuples. A firewall policy can not exceed a set number of tuples.
     /// </summary>
     public TerraformValue<double> RuleTupleCount
-    {
-        get => new TerraformReference<double>(this, "rule_tuple_count");
-    }
+        => AsReference("rule_tuple_count");
 
     /// <summary>
     /// Server-defined URL for the resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Server-defined URL for this resource with the resource id.
     /// </summary>
     public TerraformValue<string> SelfLinkWithId
-    {
-        get => new TerraformReference<string>(this, "self_link_with_id");
-    }
+        => AsReference("self_link_with_id");
 
     /// <summary>
     /// Rule block (nesting mode: list).

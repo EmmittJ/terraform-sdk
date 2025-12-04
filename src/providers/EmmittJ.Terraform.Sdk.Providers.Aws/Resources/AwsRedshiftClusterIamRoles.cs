@@ -18,7 +18,7 @@ public class AwsRedshiftClusterIamRolesTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsRedshiftClusterIamRolesTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsRedshiftClusterIamRolesTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,43 +55,43 @@ public partial class AwsRedshiftClusterIamRoles(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformValue<string> ClusterIdentifier
     {
-        get => new TerraformReference<string>(this, "cluster_identifier");
+        get => GetArgument<TerraformValue<string>>("cluster_identifier");
         set => SetArgument("cluster_identifier", value);
     }
 
     /// <summary>
     /// The default_iam_role_arn attribute.
     /// </summary>
-    public TerraformValue<string> DefaultIamRoleArn
+    public TerraformValue<string>? DefaultIamRoleArn
     {
-        get => new TerraformReference<string>(this, "default_iam_role_arn");
+        get => GetArgument<TerraformValue<string>>("default_iam_role_arn");
         set => SetArgument("default_iam_role_arn", value);
     }
 
     /// <summary>
     /// The iam_role_arns attribute.
     /// </summary>
-    public TerraformSet<string> IamRoleArns
+    public TerraformSet<string>? IamRoleArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "iam_role_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("iam_role_arns");
         set => SetArgument("iam_role_arns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

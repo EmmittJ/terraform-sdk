@@ -14,16 +14,16 @@ public partial class AwsCloud9EnvironmentMembership(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
     public required TerraformValue<string> EnvironmentId
     {
-        get => new TerraformReference<string>(this, "environment_id");
+        get => GetArgument<TerraformValue<string>>("environment_id");
         set => SetArgument("environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsCloud9EnvironmentMembership(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     public required TerraformValue<string> Permissions
     {
-        get => new TerraformReference<string>(this, "permissions");
+        get => GetArgument<TerraformValue<string>>("permissions");
         set => SetArgument("permissions", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsCloud9EnvironmentMembership(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserArn is required")]
     public required TerraformValue<string> UserArn
     {
-        get => new TerraformReference<string>(this, "user_arn");
+        get => GetArgument<TerraformValue<string>>("user_arn");
         set => SetArgument("user_arn", value);
     }
 
@@ -60,8 +60,6 @@ public partial class AwsCloud9EnvironmentMembership(string name) : TerraformReso
     /// The user_id attribute.
     /// </summary>
     public TerraformValue<string> UserId
-    {
-        get => new TerraformReference<string>(this, "user_id");
-    }
+        => AsReference("user_id");
 
 }

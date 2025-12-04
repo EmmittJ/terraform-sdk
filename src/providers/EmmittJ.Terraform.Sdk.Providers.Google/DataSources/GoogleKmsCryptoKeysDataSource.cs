@@ -21,16 +21,16 @@ public partial class GoogleKmsCryptoKeysDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class GoogleKmsCryptoKeysDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
     public required TerraformValue<string> KeyRing
     {
-        get => new TerraformReference<string>(this, "key_ring");
+        get => GetArgument<TerraformValue<string>>("key_ring");
         set => SetArgument("key_ring", value);
     }
 
@@ -48,8 +48,6 @@ public partial class GoogleKmsCryptoKeysDataSource(string name) : TerraformDataS
     /// A list of all the retrieved keys from the provided key ring
     /// </summary>
     public TerraformList<TerraformMap<object>> KeysAttribute
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "keys").ResolveNodes(ctx));
-    }
+        => AsReference("keys");
 
 }

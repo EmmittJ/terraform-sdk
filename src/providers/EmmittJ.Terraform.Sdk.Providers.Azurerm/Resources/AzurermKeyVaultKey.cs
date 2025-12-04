@@ -18,7 +18,7 @@ public class AzurermKeyVaultKeyRotationPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ExpireAfter
     {
-        get => new TerraformReference<string>(this, "expire_after");
+        get => GetArgument<TerraformValue<string>>("expire_after");
         set => SetArgument("expire_after", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermKeyVaultKeyRotationPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? NotifyBeforeExpiry
     {
-        get => new TerraformReference<string>(this, "notify_before_expiry");
+        get => GetArgument<TerraformValue<string>>("notify_before_expiry");
         set => SetArgument("notify_before_expiry", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermKeyVaultKeyRotationPolicyBlockAutomaticBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? TimeAfterCreation
     {
-        get => new TerraformReference<string>(this, "time_after_creation");
+        get => GetArgument<TerraformValue<string>>("time_after_creation");
         set => SetArgument("time_after_creation", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermKeyVaultKeyRotationPolicyBlockAutomaticBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? TimeBeforeExpiry
     {
-        get => new TerraformReference<string>(this, "time_before_expiry");
+        get => GetArgument<TerraformValue<string>>("time_before_expiry");
         set => SetArgument("time_before_expiry", value);
     }
 
@@ -91,7 +91,7 @@ public class AzurermKeyVaultKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -100,7 +100,7 @@ public class AzurermKeyVaultKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -109,7 +109,7 @@ public class AzurermKeyVaultKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -118,7 +118,7 @@ public class AzurermKeyVaultKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -134,9 +134,9 @@ public partial class AzurermKeyVaultKey(string name) : TerraformResource("azurer
     /// <summary>
     /// The curve attribute.
     /// </summary>
-    public TerraformValue<string> Curve
+    public TerraformValue<string>? Curve
     {
-        get => new TerraformReference<string>(this, "curve");
+        get => GetArgument<TerraformValue<string>>("curve");
         set => SetArgument("curve", value);
     }
 
@@ -145,16 +145,16 @@ public partial class AzurermKeyVaultKey(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string>? ExpirationDate
     {
-        get => new TerraformReference<string>(this, "expiration_date");
+        get => GetArgument<TerraformValue<string>>("expiration_date");
         set => SetArgument("expiration_date", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AzurermKeyVaultKey(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyOpts is required")]
     public TerraformList<string>? KeyOpts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "key_opts").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("key_opts");
         set => SetArgument("key_opts", value);
     }
 
@@ -173,7 +173,7 @@ public partial class AzurermKeyVaultKey(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<double>? KeySize
     {
-        get => new TerraformReference<double>(this, "key_size");
+        get => GetArgument<TerraformValue<double>>("key_size");
         set => SetArgument("key_size", value);
     }
 
@@ -183,7 +183,7 @@ public partial class AzurermKeyVaultKey(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyType is required")]
     public required TerraformValue<string> KeyType
     {
-        get => new TerraformReference<string>(this, "key_type");
+        get => GetArgument<TerraformValue<string>>("key_type");
         set => SetArgument("key_type", value);
     }
 
@@ -193,7 +193,7 @@ public partial class AzurermKeyVaultKey(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformValue<string> KeyVaultId
     {
-        get => new TerraformReference<string>(this, "key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -203,7 +203,7 @@ public partial class AzurermKeyVaultKey(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -212,7 +212,7 @@ public partial class AzurermKeyVaultKey(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string>? NotBeforeDate
     {
-        get => new TerraformReference<string>(this, "not_before_date");
+        get => GetArgument<TerraformValue<string>>("not_before_date");
         set => SetArgument("not_before_date", value);
     }
 
@@ -221,7 +221,7 @@ public partial class AzurermKeyVaultKey(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -229,81 +229,61 @@ public partial class AzurermKeyVaultKey(string name) : TerraformResource("azurer
     /// The e attribute.
     /// </summary>
     public TerraformValue<string> E
-    {
-        get => new TerraformReference<string>(this, "e");
-    }
+        => AsReference("e");
 
     /// <summary>
     /// The n attribute.
     /// </summary>
     public TerraformValue<string> N
-    {
-        get => new TerraformReference<string>(this, "n");
-    }
+        => AsReference("n");
 
     /// <summary>
     /// The public_key_openssh attribute.
     /// </summary>
     public TerraformValue<string> PublicKeyOpenssh
-    {
-        get => new TerraformReference<string>(this, "public_key_openssh");
-    }
+        => AsReference("public_key_openssh");
 
     /// <summary>
     /// The public_key_pem attribute.
     /// </summary>
     public TerraformValue<string> PublicKeyPem
-    {
-        get => new TerraformReference<string>(this, "public_key_pem");
-    }
+        => AsReference("public_key_pem");
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceId
-    {
-        get => new TerraformReference<string>(this, "resource_id");
-    }
+        => AsReference("resource_id");
 
     /// <summary>
     /// The resource_versionless_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceVersionlessId
-    {
-        get => new TerraformReference<string>(this, "resource_versionless_id");
-    }
+        => AsReference("resource_versionless_id");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
     /// <summary>
     /// The versionless_id attribute.
     /// </summary>
     public TerraformValue<string> VersionlessId
-    {
-        get => new TerraformReference<string>(this, "versionless_id");
-    }
+        => AsReference("versionless_id");
 
     /// <summary>
     /// The x attribute.
     /// </summary>
     public TerraformValue<string> X
-    {
-        get => new TerraformReference<string>(this, "x");
-    }
+        => AsReference("x");
 
     /// <summary>
     /// The y attribute.
     /// </summary>
     public TerraformValue<string> Y
-    {
-        get => new TerraformReference<string>(this, "y");
-    }
+        => AsReference("y");
 
     /// <summary>
     /// RotationPolicy block (nesting mode: list).

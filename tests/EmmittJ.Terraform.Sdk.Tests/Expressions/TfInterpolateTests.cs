@@ -45,7 +45,7 @@ public class TfInterpolateTests
             ["name_prefix"] = "myapp"
         };
 
-        var expr = Tf.Interpolate($"{locals["name_prefix"]}-web");
+        var expr = Tf.Interpolate($"{locals.AsReference("name_prefix")}-web");
         var hcl = expr.ToHcl(CreateContext());
 
         return Verify(hcl);
@@ -59,7 +59,7 @@ public class TfInterpolateTests
             ["cidr_block"] = "10.0.0.0/16"
         };
 
-        var expr = Tf.Interpolate($"vpc-{vpc["id"]}");
+        var expr = Tf.Interpolate($"vpc-{vpc.AsReference("id")}");
         var hcl = expr.ToHcl(CreateContext());
 
         return Verify(hcl);
@@ -96,7 +96,7 @@ public class TfInterpolateTests
             ["cidr_block"] = "10.0.0.0/16"
         };
 
-        var expr = Tf.Interpolate($"{locals["environment"]}-{locals["region"]}-vpc-{vpc["id"]}");
+        var expr = Tf.Interpolate($"{locals.AsReference("environment")}-{locals.AsReference("region")}-vpc-{vpc.AsReference("id")}");
         var hcl = expr.ToHcl(CreateContext());
 
         return Verify(hcl);
@@ -216,7 +216,7 @@ public class TfInterpolateTests
             ["config"] = new Dictionary<string, string> { ["key"] = "value" }
         };
 
-        var expr = Tf.Interpolate($"config-{locals["config"]:jsonencode}");
+        var expr = Tf.Interpolate($"config-{locals.AsReference("config"):jsonencode}");
         var hcl = expr.ToHcl(CreateContext());
 
         return Verify(hcl);
@@ -244,7 +244,7 @@ public class TfInterpolateTests
             ["config"] = new Dictionary<string, string> { ["key"] = "value" }
         };
 
-        var expr = Tf.Interpolate($"data-{locals["data"]:base64encode}-config-{locals["config"]:jsonencode}");
+        var expr = Tf.Interpolate($"data-{locals.AsReference("data"):base64encode}-config-{locals.AsReference("config"):jsonencode}");
         var hcl = expr.ToHcl(CreateContext());
 
         return Verify(hcl);
@@ -260,7 +260,7 @@ public class TfInterpolateTests
             ["config"] = new Dictionary<string, string> { ["key"] = "value" }
         };
 
-        var expr = Tf.Interpolate($"{locals["name"]}-{locals["config"]:jsonencode}");
+        var expr = Tf.Interpolate($"{locals.AsReference("name")}-{locals.AsReference("config"):jsonencode}");
         var hcl = expr.ToHcl(CreateContext());
 
         return Verify(hcl);

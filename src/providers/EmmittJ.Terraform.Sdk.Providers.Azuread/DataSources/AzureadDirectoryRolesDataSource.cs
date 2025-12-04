@@ -18,7 +18,7 @@ public class AzureadDirectoryRolesDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzureadDirectoryRolesDataSource(string name) : TerraformDat
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -44,25 +44,19 @@ public partial class AzureadDirectoryRolesDataSource(string name) : TerraformDat
     /// The object IDs of the roles
     /// </summary>
     public TerraformList<string> ObjectIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "object_ids").ResolveNodes(ctx));
-    }
+        => AsReference("object_ids");
 
     /// <summary>
     /// A list of roles
     /// </summary>
     public TerraformList<TerraformMap<object>> Roles
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "roles").ResolveNodes(ctx));
-    }
+        => AsReference("roles");
 
     /// <summary>
     /// The template IDs of the roles
     /// </summary>
     public TerraformList<string> TemplateIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "template_ids").ResolveNodes(ctx));
-    }
+        => AsReference("template_ids");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

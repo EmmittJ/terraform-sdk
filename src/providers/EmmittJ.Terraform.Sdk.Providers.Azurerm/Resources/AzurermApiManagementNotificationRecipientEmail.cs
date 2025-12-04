@@ -18,7 +18,7 @@ public class AzurermApiManagementNotificationRecipientEmailTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermApiManagementNotificationRecipientEmailTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermApiManagementNotificationRecipientEmailTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermApiManagementNotificationRecipientEmail(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     public required TerraformValue<string> ApiManagementId
     {
-        get => new TerraformReference<string>(this, "api_management_id");
+        get => GetArgument<TerraformValue<string>>("api_management_id");
         set => SetArgument("api_management_id", value);
     }
 
@@ -65,16 +65,16 @@ public partial class AzurermApiManagementNotificationRecipientEmail(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermApiManagementNotificationRecipientEmail(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationType is required")]
     public required TerraformValue<string> NotificationType
     {
-        get => new TerraformReference<string>(this, "notification_type");
+        get => GetArgument<TerraformValue<string>>("notification_type");
         set => SetArgument("notification_type", value);
     }
 

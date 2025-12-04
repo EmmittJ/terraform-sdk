@@ -106,7 +106,7 @@ public class GoogleApikeysKeyRestrictionsBlockAndroidKeyRestrictionsBlockAllowed
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PackageName is required")]
     public required TerraformValue<string> PackageName
     {
-        get => new TerraformReference<string>(this, "package_name");
+        get => GetArgument<TerraformValue<string>>("package_name");
         set => SetArgument("package_name", value);
     }
 
@@ -116,7 +116,7 @@ public class GoogleApikeysKeyRestrictionsBlockAndroidKeyRestrictionsBlockAllowed
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sha1Fingerprint is required")]
     public required TerraformValue<string> Sha1Fingerprint
     {
-        get => new TerraformReference<string>(this, "sha1_fingerprint");
+        get => GetArgument<TerraformValue<string>>("sha1_fingerprint");
         set => SetArgument("sha1_fingerprint", value);
     }
 
@@ -138,7 +138,7 @@ public class GoogleApikeysKeyRestrictionsBlockApiTargetsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Methods
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("methods");
         set => SetArgument("methods", value);
     }
 
@@ -148,7 +148,7 @@ public class GoogleApikeysKeyRestrictionsBlockApiTargetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -171,7 +171,7 @@ public class GoogleApikeysKeyRestrictionsBlockBrowserKeyRestrictionsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedReferrers is required")]
     public TerraformList<string>? AllowedReferrers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_referrers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_referrers");
         set => SetArgument("allowed_referrers", value);
     }
 
@@ -194,7 +194,7 @@ public class GoogleApikeysKeyRestrictionsBlockIosKeyRestrictionsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedBundleIds is required")]
     public TerraformList<string>? AllowedBundleIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_bundle_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_bundle_ids");
         set => SetArgument("allowed_bundle_ids", value);
     }
 
@@ -217,7 +217,7 @@ public class GoogleApikeysKeyRestrictionsBlockServerKeyRestrictionsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedIps is required")]
     public TerraformList<string>? AllowedIps
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_ips").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_ips");
         set => SetArgument("allowed_ips", value);
     }
 
@@ -240,7 +240,7 @@ public class GoogleApikeysKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -249,7 +249,7 @@ public class GoogleApikeysKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -258,7 +258,7 @@ public class GoogleApikeysKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -276,16 +276,16 @@ public partial class GoogleApikeysKey(string name) : TerraformResource("google_a
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -295,16 +295,16 @@ public partial class GoogleApikeysKey(string name) : TerraformResource("google_a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -313,7 +313,7 @@ public partial class GoogleApikeysKey(string name) : TerraformResource("google_a
     /// </summary>
     public TerraformValue<string>? ServiceAccountEmail
     {
-        get => new TerraformReference<string>(this, "service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -321,17 +321,13 @@ public partial class GoogleApikeysKey(string name) : TerraformResource("google_a
     /// Output only. An encrypted and signed value held by this key. This field can be accessed only through the `GetKeyString` method.
     /// </summary>
     public TerraformValue<string> KeyString
-    {
-        get => new TerraformReference<string>(this, "key_string");
-    }
+        => AsReference("key_string");
 
     /// <summary>
     /// Output only. Unique id in UUID4 format.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Restrictions block (nesting mode: list).

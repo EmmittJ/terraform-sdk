@@ -14,16 +14,16 @@ public partial class AwsEc2AvailabilityZoneGroup(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     public required TerraformValue<string> GroupName
     {
-        get => new TerraformReference<string>(this, "group_name");
+        get => GetArgument<TerraformValue<string>>("group_name");
         set => SetArgument("group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsEc2AvailabilityZoneGroup(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OptInStatus is required")]
     public required TerraformValue<string> OptInStatus
     {
-        get => new TerraformReference<string>(this, "opt_in_status");
+        get => GetArgument<TerraformValue<string>>("opt_in_status");
         set => SetArgument("opt_in_status", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

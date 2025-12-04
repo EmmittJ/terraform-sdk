@@ -18,7 +18,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeout
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeout
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeout
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagTimeout
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTa
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortRanges is required")]
     public required TerraformValue<string> PortRanges
     {
-        get => new TerraformReference<string>(this, "port_ranges");
+        get => GetArgument<TerraformValue<string>>("port_ranges");
         set => SetArgument("port_ranges", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceTag is required")]
     public required TerraformValue<string> ServiceTag
     {
-        get => new TerraformReference<string>(this, "service_tag");
+        get => GetArgument<TerraformValue<string>>("service_tag");
         set => SetArgument("service_tag", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => new TerraformReference<string>(this, "workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 

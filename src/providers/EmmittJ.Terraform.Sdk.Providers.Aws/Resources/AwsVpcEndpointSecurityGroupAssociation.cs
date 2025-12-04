@@ -11,18 +11,18 @@ public partial class AwsVpcEndpointSecurityGroupAssociation(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsVpcEndpointSecurityGroupAssociation(string name) : Terra
     /// </summary>
     public TerraformValue<bool>? ReplaceDefaultAssociation
     {
-        get => new TerraformReference<bool>(this, "replace_default_association");
+        get => GetArgument<TerraformValue<bool>>("replace_default_association");
         set => SetArgument("replace_default_association", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsVpcEndpointSecurityGroupAssociation(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupId is required")]
     public required TerraformValue<string> SecurityGroupId
     {
-        get => new TerraformReference<string>(this, "security_group_id");
+        get => GetArgument<TerraformValue<string>>("security_group_id");
         set => SetArgument("security_group_id", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsVpcEndpointSecurityGroupAssociation(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcEndpointId is required")]
     public required TerraformValue<string> VpcEndpointId
     {
-        get => new TerraformReference<string>(this, "vpc_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("vpc_endpoint_id");
         set => SetArgument("vpc_endpoint_id", value);
     }
 

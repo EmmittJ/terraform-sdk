@@ -19,7 +19,7 @@ public class AwsEc2TransitGatewayConnectPeerDataSourceFilterBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsEc2TransitGatewayConnectPeerDataSourceFilterBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsEc2TransitGatewayConnectPeerDataSourceTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -68,36 +68,36 @@ public partial class AwsEc2TransitGatewayConnectPeerDataSource(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The transit_gateway_connect_peer_id attribute.
     /// </summary>
-    public TerraformValue<string> TransitGatewayConnectPeerId
+    public TerraformValue<string>? TransitGatewayConnectPeerId
     {
-        get => new TerraformReference<string>(this, "transit_gateway_connect_peer_id");
+        get => GetArgument<TerraformValue<string>>("transit_gateway_connect_peer_id");
         set => SetArgument("transit_gateway_connect_peer_id", value);
     }
 
@@ -105,65 +105,49 @@ public partial class AwsEc2TransitGatewayConnectPeerDataSource(string name) : Te
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The bgp_asn attribute.
     /// </summary>
     public TerraformValue<string> BgpAsn
-    {
-        get => new TerraformReference<string>(this, "bgp_asn");
-    }
+        => AsReference("bgp_asn");
 
     /// <summary>
     /// The bgp_peer_address attribute.
     /// </summary>
     public TerraformValue<string> BgpPeerAddress
-    {
-        get => new TerraformReference<string>(this, "bgp_peer_address");
-    }
+        => AsReference("bgp_peer_address");
 
     /// <summary>
     /// The bgp_transit_gateway_addresses attribute.
     /// </summary>
     public TerraformSet<string> BgpTransitGatewayAddresses
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "bgp_transit_gateway_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("bgp_transit_gateway_addresses");
 
     /// <summary>
     /// The inside_cidr_blocks attribute.
     /// </summary>
     public TerraformList<string> InsideCidrBlocks
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "inside_cidr_blocks").ResolveNodes(ctx));
-    }
+        => AsReference("inside_cidr_blocks");
 
     /// <summary>
     /// The peer_address attribute.
     /// </summary>
     public TerraformValue<string> PeerAddress
-    {
-        get => new TerraformReference<string>(this, "peer_address");
-    }
+        => AsReference("peer_address");
 
     /// <summary>
     /// The transit_gateway_address attribute.
     /// </summary>
     public TerraformValue<string> TransitGatewayAddress
-    {
-        get => new TerraformReference<string>(this, "transit_gateway_address");
-    }
+        => AsReference("transit_gateway_address");
 
     /// <summary>
     /// The transit_gateway_attachment_id attribute.
     /// </summary>
     public TerraformValue<string> TransitGatewayAttachmentId
-    {
-        get => new TerraformReference<string>(this, "transit_gateway_attachment_id");
-    }
+        => AsReference("transit_gateway_attachment_id");
 
     /// <summary>
     /// Filter block (nesting mode: set).

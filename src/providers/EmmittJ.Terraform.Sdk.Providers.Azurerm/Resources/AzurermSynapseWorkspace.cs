@@ -19,7 +19,7 @@ public class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => new TerraformReference<string>(this, "account_name");
+        get => GetArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
     public required TerraformValue<string> BranchName
     {
-        get => new TerraformReference<string>(this, "branch_name");
+        get => GetArgument<TerraformValue<string>>("branch_name");
         set => SetArgument("branch_name", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LastCommitId
     {
-        get => new TerraformReference<string>(this, "last_commit_id");
+        get => GetArgument<TerraformValue<string>>("last_commit_id");
         set => SetArgument("last_commit_id", value);
     }
 
@@ -48,7 +48,7 @@ public class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
     public required TerraformValue<string> ProjectName
     {
-        get => new TerraformReference<string>(this, "project_name");
+        get => GetArgument<TerraformValue<string>>("project_name");
         set => SetArgument("project_name", value);
     }
 
@@ -58,7 +58,7 @@ public class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformValue<string> RepositoryName
     {
-        get => new TerraformReference<string>(this, "repository_name");
+        get => GetArgument<TerraformValue<string>>("repository_name");
         set => SetArgument("repository_name", value);
     }
 
@@ -68,16 +68,16 @@ public class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFolder is required")]
     public required TerraformValue<string> RootFolder
     {
-        get => new TerraformReference<string>(this, "root_folder");
+        get => GetArgument<TerraformValue<string>>("root_folder");
         set => SetArgument("root_folder", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformValue<string> TenantId
+    public TerraformValue<string>? TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -100,7 +100,7 @@ public class AzurermSynapseWorkspaceCustomerManagedKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KeyName
     {
-        get => new TerraformReference<string>(this, "key_name");
+        get => GetArgument<TerraformValue<string>>("key_name");
         set => SetArgument("key_name", value);
     }
 
@@ -110,7 +110,7 @@ public class AzurermSynapseWorkspaceCustomerManagedKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVersionlessId is required")]
     public required TerraformValue<string> KeyVersionlessId
     {
-        get => new TerraformReference<string>(this, "key_versionless_id");
+        get => GetArgument<TerraformValue<string>>("key_versionless_id");
         set => SetArgument("key_versionless_id", value);
     }
 
@@ -119,7 +119,7 @@ public class AzurermSynapseWorkspaceCustomerManagedKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? UserAssignedIdentityId
     {
-        get => new TerraformReference<string>(this, "user_assigned_identity_id");
+        get => GetArgument<TerraformValue<string>>("user_assigned_identity_id");
         set => SetArgument("user_assigned_identity_id", value);
     }
 
@@ -143,7 +143,7 @@ public class AzurermSynapseWorkspaceGithubRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => new TerraformReference<string>(this, "account_name");
+        get => GetArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -153,7 +153,7 @@ public class AzurermSynapseWorkspaceGithubRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
     public required TerraformValue<string> BranchName
     {
-        get => new TerraformReference<string>(this, "branch_name");
+        get => GetArgument<TerraformValue<string>>("branch_name");
         set => SetArgument("branch_name", value);
     }
 
@@ -162,7 +162,7 @@ public class AzurermSynapseWorkspaceGithubRepoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? GitUrl
     {
-        get => new TerraformReference<string>(this, "git_url");
+        get => GetArgument<TerraformValue<string>>("git_url");
         set => SetArgument("git_url", value);
     }
 
@@ -171,7 +171,7 @@ public class AzurermSynapseWorkspaceGithubRepoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LastCommitId
     {
-        get => new TerraformReference<string>(this, "last_commit_id");
+        get => GetArgument<TerraformValue<string>>("last_commit_id");
         set => SetArgument("last_commit_id", value);
     }
 
@@ -181,7 +181,7 @@ public class AzurermSynapseWorkspaceGithubRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformValue<string> RepositoryName
     {
-        get => new TerraformReference<string>(this, "repository_name");
+        get => GetArgument<TerraformValue<string>>("repository_name");
         set => SetArgument("repository_name", value);
     }
 
@@ -191,7 +191,7 @@ public class AzurermSynapseWorkspaceGithubRepoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFolder is required")]
     public required TerraformValue<string> RootFolder
     {
-        get => new TerraformReference<string>(this, "root_folder");
+        get => GetArgument<TerraformValue<string>>("root_folder");
         set => SetArgument("root_folder", value);
     }
 
@@ -214,7 +214,7 @@ public class AzurermSynapseWorkspaceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -222,17 +222,13 @@ public class AzurermSynapseWorkspaceIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -240,7 +236,7 @@ public class AzurermSynapseWorkspaceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -263,7 +259,7 @@ public class AzurermSynapseWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -272,7 +268,7 @@ public class AzurermSynapseWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -281,7 +277,7 @@ public class AzurermSynapseWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -290,7 +286,7 @@ public class AzurermSynapseWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -308,7 +304,7 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? AzureadAuthenticationOnly
     {
-        get => new TerraformReference<bool>(this, "azuread_authentication_only");
+        get => GetArgument<TerraformValue<bool>>("azuread_authentication_only");
         set => SetArgument("azuread_authentication_only", value);
     }
 
@@ -317,7 +313,7 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? ComputeSubnetId
     {
-        get => new TerraformReference<string>(this, "compute_subnet_id");
+        get => GetArgument<TerraformValue<string>>("compute_subnet_id");
         set => SetArgument("compute_subnet_id", value);
     }
 
@@ -326,16 +322,16 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? DataExfiltrationProtectionEnabled
     {
-        get => new TerraformReference<bool>(this, "data_exfiltration_protection_enabled");
+        get => GetArgument<TerraformValue<bool>>("data_exfiltration_protection_enabled");
         set => SetArgument("data_exfiltration_protection_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -344,7 +340,7 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     /// </summary>
     public TerraformList<string>? LinkingAllowedForAadTenantIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "linking_allowed_for_aad_tenant_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("linking_allowed_for_aad_tenant_ids");
         set => SetArgument("linking_allowed_for_aad_tenant_ids", value);
     }
 
@@ -354,16 +350,16 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The managed_resource_group_name attribute.
     /// </summary>
-    public TerraformValue<string> ManagedResourceGroupName
+    public TerraformValue<string>? ManagedResourceGroupName
     {
-        get => new TerraformReference<string>(this, "managed_resource_group_name");
+        get => GetArgument<TerraformValue<string>>("managed_resource_group_name");
         set => SetArgument("managed_resource_group_name", value);
     }
 
@@ -372,7 +368,7 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? ManagedVirtualNetworkEnabled
     {
-        get => new TerraformReference<bool>(this, "managed_virtual_network_enabled");
+        get => GetArgument<TerraformValue<bool>>("managed_virtual_network_enabled");
         set => SetArgument("managed_virtual_network_enabled", value);
     }
 
@@ -382,7 +378,7 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -391,7 +387,7 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -400,7 +396,7 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? PurviewId
     {
-        get => new TerraformReference<string>(this, "purview_id");
+        get => GetArgument<TerraformValue<string>>("purview_id");
         set => SetArgument("purview_id", value);
     }
 
@@ -410,7 +406,7 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -419,7 +415,7 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? SqlAdministratorLogin
     {
-        get => new TerraformReference<string>(this, "sql_administrator_login");
+        get => GetArgument<TerraformValue<string>>("sql_administrator_login");
         set => SetArgument("sql_administrator_login", value);
     }
 
@@ -428,7 +424,7 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? SqlAdministratorLoginPassword
     {
-        get => new TerraformReference<string>(this, "sql_administrator_login_password");
+        get => GetArgument<TerraformValue<string>>("sql_administrator_login_password");
         set => SetArgument("sql_administrator_login_password", value);
     }
 
@@ -437,7 +433,7 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? SqlIdentityControlEnabled
     {
-        get => new TerraformReference<bool>(this, "sql_identity_control_enabled");
+        get => GetArgument<TerraformValue<bool>>("sql_identity_control_enabled");
         set => SetArgument("sql_identity_control_enabled", value);
     }
 
@@ -447,7 +443,7 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageDataLakeGen2FilesystemId is required")]
     public required TerraformValue<string> StorageDataLakeGen2FilesystemId
     {
-        get => new TerraformReference<string>(this, "storage_data_lake_gen2_filesystem_id");
+        get => GetArgument<TerraformValue<string>>("storage_data_lake_gen2_filesystem_id");
         set => SetArgument("storage_data_lake_gen2_filesystem_id", value);
     }
 
@@ -456,7 +452,7 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -464,9 +460,7 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     /// The connectivity_endpoints attribute.
     /// </summary>
     public TerraformMap<string> ConnectivityEndpoints
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "connectivity_endpoints").ResolveNodes(ctx));
-    }
+        => AsReference("connectivity_endpoints");
 
     /// <summary>
     /// AzureDevopsRepo block (nesting mode: list).

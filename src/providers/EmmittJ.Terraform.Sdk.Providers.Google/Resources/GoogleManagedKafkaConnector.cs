@@ -19,7 +19,7 @@ public class GoogleManagedKafkaConnectorTaskRestartPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaximumBackoff
     {
-        get => new TerraformReference<string>(this, "maximum_backoff");
+        get => GetArgument<TerraformValue<string>>("maximum_backoff");
         set => SetArgument("maximum_backoff", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleManagedKafkaConnectorTaskRestartPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MinimumBackoff
     {
-        get => new TerraformReference<string>(this, "minimum_backoff");
+        get => GetArgument<TerraformValue<string>>("minimum_backoff");
         set => SetArgument("minimum_backoff", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleManagedKafkaConnectorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleManagedKafkaConnectorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleManagedKafkaConnectorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -88,7 +88,7 @@ public partial class GoogleManagedKafkaConnector(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string>? Configs
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "configs").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("configs");
         set => SetArgument("configs", value);
     }
 
@@ -98,7 +98,7 @@ public partial class GoogleManagedKafkaConnector(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectCluster is required")]
     public required TerraformValue<string> ConnectCluster
     {
-        get => new TerraformReference<string>(this, "connect_cluster");
+        get => GetArgument<TerraformValue<string>>("connect_cluster");
         set => SetArgument("connect_cluster", value);
     }
 
@@ -108,16 +108,16 @@ public partial class GoogleManagedKafkaConnector(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorId is required")]
     public required TerraformValue<string> ConnectorId
     {
-        get => new TerraformReference<string>(this, "connector_id");
+        get => GetArgument<TerraformValue<string>>("connector_id");
         set => SetArgument("connector_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -127,16 +127,16 @@ public partial class GoogleManagedKafkaConnector(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -144,17 +144,13 @@ public partial class GoogleManagedKafkaConnector(string name) : TerraformResourc
     /// The name of the connector. The &#39;connector&#39; segment is used when connecting directly to the connect cluster. Structured like: &#39;projects/PROJECT_ID/locations/LOCATION/connectClusters/CONNECT_CLUSTER/connectors/CONNECTOR_ID&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The current state of the connect. Possible values: &#39;STATE_UNSPECIFIED&#39;, &#39;UNASSIGNED&#39;, &#39;RUNNING&#39;, &#39;PAUSED&#39;, &#39;FAILED&#39;, &#39;RESTARTING&#39;, and &#39;STOPPED&#39;.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// TaskRestartPolicy block (nesting mode: list).

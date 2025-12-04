@@ -51,7 +51,7 @@ public class AwsEcsClusterConfigurationBlockExecuteCommandConfigurationBlock : T
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsEcsClusterConfigurationBlockExecuteCommandConfigurationBlock : T
     /// </summary>
     public TerraformValue<string>? Logging
     {
-        get => new TerraformReference<string>(this, "logging");
+        get => GetArgument<TerraformValue<string>>("logging");
         set => SetArgument("logging", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsEcsClusterConfigurationBlockExecuteCommandConfigurationBlockLogC
     /// </summary>
     public TerraformValue<bool>? CloudWatchEncryptionEnabled
     {
-        get => new TerraformReference<bool>(this, "cloud_watch_encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("cloud_watch_encryption_enabled");
         set => SetArgument("cloud_watch_encryption_enabled", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsEcsClusterConfigurationBlockExecuteCommandConfigurationBlockLogC
     /// </summary>
     public TerraformValue<string>? CloudWatchLogGroupName
     {
-        get => new TerraformReference<string>(this, "cloud_watch_log_group_name");
+        get => GetArgument<TerraformValue<string>>("cloud_watch_log_group_name");
         set => SetArgument("cloud_watch_log_group_name", value);
     }
 
@@ -110,7 +110,7 @@ public class AwsEcsClusterConfigurationBlockExecuteCommandConfigurationBlockLogC
     /// </summary>
     public TerraformValue<bool>? S3BucketEncryptionEnabled
     {
-        get => new TerraformReference<bool>(this, "s3_bucket_encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("s3_bucket_encryption_enabled");
         set => SetArgument("s3_bucket_encryption_enabled", value);
     }
 
@@ -119,7 +119,7 @@ public class AwsEcsClusterConfigurationBlockExecuteCommandConfigurationBlockLogC
     /// </summary>
     public TerraformValue<string>? S3BucketName
     {
-        get => new TerraformReference<string>(this, "s3_bucket_name");
+        get => GetArgument<TerraformValue<string>>("s3_bucket_name");
         set => SetArgument("s3_bucket_name", value);
     }
 
@@ -128,7 +128,7 @@ public class AwsEcsClusterConfigurationBlockExecuteCommandConfigurationBlockLogC
     /// </summary>
     public TerraformValue<string>? S3KeyPrefix
     {
-        get => new TerraformReference<string>(this, "s3_key_prefix");
+        get => GetArgument<TerraformValue<string>>("s3_key_prefix");
         set => SetArgument("s3_key_prefix", value);
     }
 
@@ -150,7 +150,7 @@ public class AwsEcsClusterConfigurationBlockManagedStorageConfigurationBlock : T
     /// </summary>
     public TerraformValue<string>? FargateEphemeralStorageKmsKeyId
     {
-        get => new TerraformReference<string>(this, "fargate_ephemeral_storage_kms_key_id");
+        get => GetArgument<TerraformValue<string>>("fargate_ephemeral_storage_kms_key_id");
         set => SetArgument("fargate_ephemeral_storage_kms_key_id", value);
     }
 
@@ -159,7 +159,7 @@ public class AwsEcsClusterConfigurationBlockManagedStorageConfigurationBlock : T
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -183,7 +183,7 @@ public class AwsEcsClusterServiceConnectDefaultsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceAttribute is required")]
     public required TerraformValue<string> NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -207,7 +207,7 @@ public class AwsEcsClusterSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -217,7 +217,7 @@ public class AwsEcsClusterSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -233,9 +233,9 @@ public partial class AwsEcsCluster(string name) : TerraformResource("aws_ecs_clu
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -245,16 +245,16 @@ public partial class AwsEcsCluster(string name) : TerraformResource("aws_ecs_clu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -263,16 +263,16 @@ public partial class AwsEcsCluster(string name) : TerraformResource("aws_ecs_clu
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -280,9 +280,7 @@ public partial class AwsEcsCluster(string name) : TerraformResource("aws_ecs_clu
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Configuration block (nesting mode: list).

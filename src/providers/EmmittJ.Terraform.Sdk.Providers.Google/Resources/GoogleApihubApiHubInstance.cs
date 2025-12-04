@@ -22,7 +22,7 @@ public class GoogleApihubApiHubInstanceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CmekKeyName
     {
-        get => new TerraformReference<string>(this, "cmek_key_name");
+        get => GetArgument<TerraformValue<string>>("cmek_key_name");
         set => SetArgument("cmek_key_name", value);
     }
 
@@ -32,7 +32,7 @@ public class GoogleApihubApiHubInstanceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DisableSearch
     {
-        get => new TerraformReference<bool>(this, "disable_search");
+        get => GetArgument<TerraformValue<bool>>("disable_search");
         set => SetArgument("disable_search", value);
     }
 
@@ -45,9 +45,9 @@ public class GoogleApihubApiHubInstanceConfigBlock : TerraformBlock
     /// GMEK
     /// CMEK
     /// </summary>
-    public TerraformValue<string> EncryptionType
+    public TerraformValue<string>? EncryptionType
     {
-        get => new TerraformReference<string>(this, "encryption_type");
+        get => GetArgument<TerraformValue<string>>("encryption_type");
         set => SetArgument("encryption_type", value);
     }
 
@@ -56,7 +56,7 @@ public class GoogleApihubApiHubInstanceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? VertexLocation
     {
-        get => new TerraformReference<string>(this, "vertex_location");
+        get => GetArgument<TerraformValue<string>>("vertex_location");
         set => SetArgument("vertex_location", value);
     }
 
@@ -79,7 +79,7 @@ public class GoogleApihubApiHubInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -88,7 +88,7 @@ public class GoogleApihubApiHubInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -97,7 +97,7 @@ public class GoogleApihubApiHubInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -120,7 +120,7 @@ public partial class GoogleApihubApiHubInstance(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? ApiHubInstanceId
     {
-        get => new TerraformReference<string>(this, "api_hub_instance_id");
+        get => GetArgument<TerraformValue<string>>("api_hub_instance_id");
         set => SetArgument("api_hub_instance_id", value);
     }
 
@@ -129,16 +129,16 @@ public partial class GoogleApihubApiHubInstance(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -152,7 +152,7 @@ public partial class GoogleApihubApiHubInstance(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -162,16 +162,16 @@ public partial class GoogleApihubApiHubInstance(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -179,26 +179,20 @@ public partial class GoogleApihubApiHubInstance(string name) : TerraformResource
     /// Output only. Creation timestamp.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Identifier. Format:
     /// &#39;projects/{project}/locations/{location}/apiHubInstances/{apiHubInstance}&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. The current state of the ApiHub instance.
@@ -212,35 +206,27 @@ public partial class GoogleApihubApiHubInstance(string name) : TerraformResource
     /// FAILED
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Output only. Extra information about ApiHub instance state. Currently the message
     /// would be populated when state is &#39;FAILED&#39;.
     /// </summary>
     public TerraformValue<string> StateMessage
-    {
-        get => new TerraformReference<string>(this, "state_message");
-    }
+        => AsReference("state_message");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Output only. Last update timestamp.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Config block (nesting mode: list).

@@ -18,7 +18,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBloc
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBloc
     /// </summary>
     public TerraformValue<string>? FriendlyName
     {
-        get => new TerraformReference<string>(this, "friendly_name");
+        get => GetArgument<TerraformValue<string>>("friendly_name");
         set => SetArgument("friendly_name", value);
     }
 
@@ -37,7 +37,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBloc
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -48,7 +48,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => new TerraformReference<string>(this, "dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -117,7 +117,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -126,7 +126,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -145,16 +145,16 @@ public partial class GoogleBigqueryAnalyticsHubListingSubscription(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataExchangeId is required")]
     public required TerraformValue<string> DataExchangeId
     {
-        get => new TerraformReference<string>(this, "data_exchange_id");
+        get => GetArgument<TerraformValue<string>>("data_exchange_id");
         set => SetArgument("data_exchange_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -164,7 +164,7 @@ public partial class GoogleBigqueryAnalyticsHubListingSubscription(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListingId is required")]
     public required TerraformValue<string> ListingId
     {
-        get => new TerraformReference<string>(this, "listing_id");
+        get => GetArgument<TerraformValue<string>>("listing_id");
         set => SetArgument("listing_id", value);
     }
 
@@ -174,16 +174,16 @@ public partial class GoogleBigqueryAnalyticsHubListingSubscription(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -191,106 +191,80 @@ public partial class GoogleBigqueryAnalyticsHubListingSubscription(string name) 
     /// Commercial info metadata for this subscription. This is set if this is a commercial subscription i.e. if this subscription was created from subscribing to a commercial listing.
     /// </summary>
     public TerraformList<TerraformMap<object>> CommercialInfo
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "commercial_info").ResolveNodes(ctx));
-    }
+        => AsReference("commercial_info");
 
     /// <summary>
     /// Timestamp when the subscription was created.
     /// </summary>
     public TerraformValue<string> CreationTime
-    {
-        get => new TerraformReference<string>(this, "creation_time");
-    }
+        => AsReference("creation_time");
 
     /// <summary>
     /// Timestamp when the subscription was last modified.
     /// </summary>
     public TerraformValue<string> LastModifyTime
-    {
-        get => new TerraformReference<string>(this, "last_modify_time");
-    }
+        => AsReference("last_modify_time");
 
     /// <summary>
     /// Output only. Map of listing resource names to associated linked resource,
     /// e.g. projects/123/locations/US/dataExchanges/456/listings/789 -&amp;gt; projects/123/datasets/my_dataset
     /// </summary>
     public TerraformSet<TerraformMap<object>> LinkedDatasetMap
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "linked_dataset_map").ResolveNodes(ctx));
-    }
+        => AsReference("linked_dataset_map");
 
     /// <summary>
     /// Output only. Linked resources created in the subscription. Only contains values if state = STATE_ACTIVE.
     /// </summary>
     public TerraformList<TerraformMap<object>> LinkedResources
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "linked_resources").ResolveNodes(ctx));
-    }
+        => AsReference("linked_resources");
 
     /// <summary>
     /// Output only. By default, false. If true, the Subscriber agreed to the email sharing mandate that is enabled for Listing.
     /// </summary>
     public TerraformValue<bool> LogLinkedDatasetQueryUserEmail
-    {
-        get => new TerraformReference<bool>(this, "log_linked_dataset_query_user_email");
-    }
+        => AsReference("log_linked_dataset_query_user_email");
 
     /// <summary>
     /// The resource name of the subscription. e.g. &amp;quot;projects/myproject/locations/US/subscriptions/123&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Display name of the project of this subscription.
     /// </summary>
     public TerraformValue<string> OrganizationDisplayName
-    {
-        get => new TerraformReference<string>(this, "organization_display_name");
-    }
+        => AsReference("organization_display_name");
 
     /// <summary>
     /// Organization of the project this subscription belongs to.
     /// </summary>
     public TerraformValue<string> OrganizationId
-    {
-        get => new TerraformReference<string>(this, "organization_id");
-    }
+        => AsReference("organization_id");
 
     /// <summary>
     /// Listing shared asset type.
     /// </summary>
     public TerraformValue<string> ResourceTypeAttribute
-    {
-        get => new TerraformReference<string>(this, "resource_type");
-    }
+        => AsReference("resource_type");
 
     /// <summary>
     /// Current state of the subscription.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Email of the subscriber.
     /// </summary>
     public TerraformValue<string> SubscriberContact
-    {
-        get => new TerraformReference<string>(this, "subscriber_contact");
-    }
+        => AsReference("subscriber_contact");
 
     /// <summary>
     /// The subscription id used to reference the subscription.
     /// </summary>
     public TerraformValue<string> SubscriptionId
-    {
-        get => new TerraformReference<string>(this, "subscription_id");
-    }
+        => AsReference("subscription_id");
 
     /// <summary>
     /// DestinationDataset block (nesting mode: list).

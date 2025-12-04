@@ -17,41 +17,31 @@ public class AwsDataexchangeRevisionAssetsAssetBlock : TerraformBlock
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-    {
-        get => new TerraformReference<string>(this, "updated_at");
-    }
+        => AsReference("updated_at");
 
     /// <summary>
     /// CreateS3DataAccessFromS3Bucket block (nesting mode: list).
@@ -97,17 +87,13 @@ public class AwsDataexchangeRevisionAssetsAssetBlockCreateS3DataAccessFromS3Buck
     /// The access_point_alias attribute.
     /// </summary>
     public TerraformValue<string> AccessPointAlias
-    {
-        get => new TerraformReference<string>(this, "access_point_alias");
-    }
+        => AsReference("access_point_alias");
 
     /// <summary>
     /// The access_point_arn attribute.
     /// </summary>
     public TerraformValue<string> AccessPointArn
-    {
-        get => new TerraformReference<string>(this, "access_point_arn");
-    }
+        => AsReference("access_point_arn");
 
     /// <summary>
     /// AssetSource block (nesting mode: list).
@@ -137,7 +123,7 @@ public class AwsDataexchangeRevisionAssetsAssetBlockCreateS3DataAccessFromS3Buck
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -146,7 +132,7 @@ public class AwsDataexchangeRevisionAssetsAssetBlockCreateS3DataAccessFromS3Buck
     /// </summary>
     public TerraformSet<string>? KeyPrefixes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "key_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("key_prefixes");
         set => SetArgument("key_prefixes", value);
     }
 
@@ -155,7 +141,7 @@ public class AwsDataexchangeRevisionAssetsAssetBlockCreateS3DataAccessFromS3Buck
     /// </summary>
     public TerraformSet<string>? KeysAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("keys");
         set => SetArgument("keys", value);
     }
 
@@ -187,7 +173,7 @@ public class AwsDataexchangeRevisionAssetsAssetBlockCreateS3DataAccessFromS3Buck
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
     public required TerraformValue<string> KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -232,7 +218,7 @@ public class AwsDataexchangeRevisionAssetsAssetBlockImportAssetsFromS3BlockAsset
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -242,7 +228,7 @@ public class AwsDataexchangeRevisionAssetsAssetBlockImportAssetsFromS3BlockAsset
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -265,7 +251,7 @@ public class AwsDataexchangeRevisionAssetsAssetBlockImportAssetsFromSignedUrlBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filename is required")]
     public required TerraformValue<string> Filename
     {
-        get => new TerraformReference<string>(this, "filename");
+        get => GetArgument<TerraformValue<string>>("filename");
         set => SetArgument("filename", value);
     }
 
@@ -288,7 +274,7 @@ public class AwsDataexchangeRevisionAssetsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -306,7 +292,7 @@ public partial class AwsDataexchangeRevisionAssets(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Comment
     {
-        get => new TerraformReference<string>(this, "comment");
+        get => GetArgument<TerraformValue<string>>("comment");
         set => SetArgument("comment", value);
     }
 
@@ -316,16 +302,16 @@ public partial class AwsDataexchangeRevisionAssets(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSetId is required")]
     public required TerraformValue<string> DataSetId
     {
-        get => new TerraformReference<string>(this, "data_set_id");
+        get => GetArgument<TerraformValue<string>>("data_set_id");
         set => SetArgument("data_set_id", value);
     }
 
     /// <summary>
     /// The finalized attribute.
     /// </summary>
-    public TerraformValue<bool> Finalized
+    public TerraformValue<bool>? Finalized
     {
-        get => new TerraformReference<bool>(this, "finalized");
+        get => GetArgument<TerraformValue<bool>>("finalized");
         set => SetArgument("finalized", value);
     }
 
@@ -334,16 +320,16 @@ public partial class AwsDataexchangeRevisionAssets(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? ForceDestroy
     {
-        get => new TerraformReference<bool>(this, "force_destroy");
+        get => GetArgument<TerraformValue<bool>>("force_destroy");
         set => SetArgument("force_destroy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -352,7 +338,7 @@ public partial class AwsDataexchangeRevisionAssets(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -360,41 +346,31 @@ public partial class AwsDataexchangeRevisionAssets(string name) : TerraformResou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-    {
-        get => new TerraformReference<string>(this, "updated_at");
-    }
+        => AsReference("updated_at");
 
     /// <summary>
     /// Asset block (nesting mode: set).

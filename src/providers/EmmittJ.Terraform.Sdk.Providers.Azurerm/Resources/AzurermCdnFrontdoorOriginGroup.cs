@@ -19,7 +19,7 @@ public class AzurermCdnFrontdoorOriginGroupHealthProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntervalInSeconds is required")]
     public required TerraformValue<double> IntervalInSeconds
     {
-        get => new TerraformReference<double>(this, "interval_in_seconds");
+        get => GetArgument<TerraformValue<double>>("interval_in_seconds");
         set => SetArgument("interval_in_seconds", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermCdnFrontdoorOriginGroupHealthProbeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermCdnFrontdoorOriginGroupHealthProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermCdnFrontdoorOriginGroupHealthProbeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RequestType
     {
-        get => new TerraformReference<string>(this, "request_type");
+        get => GetArgument<TerraformValue<string>>("request_type");
         set => SetArgument("request_type", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermCdnFrontdoorOriginGroupLoadBalancingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? AdditionalLatencyInMilliseconds
     {
-        get => new TerraformReference<double>(this, "additional_latency_in_milliseconds");
+        get => GetArgument<TerraformValue<double>>("additional_latency_in_milliseconds");
         set => SetArgument("additional_latency_in_milliseconds", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermCdnFrontdoorOriginGroupLoadBalancingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SampleSize
     {
-        get => new TerraformReference<double>(this, "sample_size");
+        get => GetArgument<TerraformValue<double>>("sample_size");
         set => SetArgument("sample_size", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermCdnFrontdoorOriginGroupLoadBalancingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SuccessfulSamplesRequired
     {
-        get => new TerraformReference<double>(this, "successful_samples_required");
+        get => GetArgument<TerraformValue<double>>("successful_samples_required");
         set => SetArgument("successful_samples_required", value);
     }
 
@@ -111,7 +111,7 @@ public class AzurermCdnFrontdoorOriginGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermCdnFrontdoorOriginGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -129,7 +129,7 @@ public class AzurermCdnFrontdoorOriginGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -138,7 +138,7 @@ public class AzurermCdnFrontdoorOriginGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -157,16 +157,16 @@ public partial class AzurermCdnFrontdoorOriginGroup(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorProfileId is required")]
     public required TerraformValue<string> CdnFrontdoorProfileId
     {
-        get => new TerraformReference<string>(this, "cdn_frontdoor_profile_id");
+        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_profile_id");
         set => SetArgument("cdn_frontdoor_profile_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AzurermCdnFrontdoorOriginGroup(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -185,7 +185,7 @@ public partial class AzurermCdnFrontdoorOriginGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double>? RestoreTrafficTimeToHealedOrNewEndpointInMinutes
     {
-        get => new TerraformReference<double>(this, "restore_traffic_time_to_healed_or_new_endpoint_in_minutes");
+        get => GetArgument<TerraformValue<double>>("restore_traffic_time_to_healed_or_new_endpoint_in_minutes");
         set => SetArgument("restore_traffic_time_to_healed_or_new_endpoint_in_minutes", value);
     }
 
@@ -194,7 +194,7 @@ public partial class AzurermCdnFrontdoorOriginGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? SessionAffinityEnabled
     {
-        get => new TerraformReference<bool>(this, "session_affinity_enabled");
+        get => GetArgument<TerraformValue<bool>>("session_affinity_enabled");
         set => SetArgument("session_affinity_enabled", value);
     }
 

@@ -19,7 +19,7 @@ public class AwsEc2TransitGatewayRouteTableDataSourceFilterBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsEc2TransitGatewayRouteTableDataSourceFilterBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsEc2TransitGatewayRouteTableDataSourceTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -68,27 +68,27 @@ public partial class AwsEc2TransitGatewayRouteTableDataSource(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -96,33 +96,25 @@ public partial class AwsEc2TransitGatewayRouteTableDataSource(string name) : Ter
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The default_association_route_table attribute.
     /// </summary>
     public TerraformValue<bool> DefaultAssociationRouteTable
-    {
-        get => new TerraformReference<bool>(this, "default_association_route_table");
-    }
+        => AsReference("default_association_route_table");
 
     /// <summary>
     /// The default_propagation_route_table attribute.
     /// </summary>
     public TerraformValue<bool> DefaultPropagationRouteTable
-    {
-        get => new TerraformReference<bool>(this, "default_propagation_route_table");
-    }
+        => AsReference("default_propagation_route_table");
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
     public TerraformValue<string> TransitGatewayId
-    {
-        get => new TerraformReference<string>(this, "transit_gateway_id");
-    }
+        => AsReference("transit_gateway_id");
 
     /// <summary>
     /// Filter block (nesting mode: set).

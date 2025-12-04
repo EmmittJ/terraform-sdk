@@ -18,7 +18,7 @@ public class GoogleSecretManagerSecretVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleSecretManagerSecretVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleSecretManagerSecretVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -59,7 +59,7 @@ public partial class GoogleSecretManagerSecretVersion(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? DeletionPolicy
     {
-        get => new TerraformReference<string>(this, "deletion_policy");
+        get => GetArgument<TerraformValue<string>>("deletion_policy");
         set => SetArgument("deletion_policy", value);
     }
 
@@ -68,16 +68,16 @@ public partial class GoogleSecretManagerSecretVersion(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -86,7 +86,7 @@ public partial class GoogleSecretManagerSecretVersion(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? IsSecretDataBase64
     {
-        get => new TerraformReference<bool>(this, "is_secret_data_base64");
+        get => GetArgument<TerraformValue<bool>>("is_secret_data_base64");
         set => SetArgument("is_secret_data_base64", value);
     }
 
@@ -96,7 +96,7 @@ public partial class GoogleSecretManagerSecretVersion(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformValue<string> Secret
     {
-        get => new TerraformReference<string>(this, "secret");
+        get => GetArgument<TerraformValue<string>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -105,7 +105,7 @@ public partial class GoogleSecretManagerSecretVersion(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? SecretData
     {
-        get => new TerraformReference<string>(this, "secret_data");
+        get => GetArgument<TerraformValue<string>>("secret_data");
         set => SetArgument("secret_data", value);
     }
 
@@ -114,7 +114,7 @@ public partial class GoogleSecretManagerSecretVersion(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? SecretDataWo
     {
-        get => new TerraformReference<string>(this, "secret_data_wo");
+        get => GetArgument<TerraformValue<string>>("secret_data_wo");
         set => SetArgument("secret_data_wo", value);
     }
 
@@ -123,7 +123,7 @@ public partial class GoogleSecretManagerSecretVersion(string name) : TerraformRe
     /// </summary>
     public TerraformValue<double>? SecretDataWoVersion
     {
-        get => new TerraformReference<double>(this, "secret_data_wo_version");
+        get => GetArgument<TerraformValue<double>>("secret_data_wo_version");
         set => SetArgument("secret_data_wo_version", value);
     }
 
@@ -131,34 +131,26 @@ public partial class GoogleSecretManagerSecretVersion(string name) : TerraformRe
     /// The time at which the Secret was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The time at which the Secret was destroyed. Only present if state is DESTROYED.
     /// </summary>
     public TerraformValue<string> DestroyTime
-    {
-        get => new TerraformReference<string>(this, "destroy_time");
-    }
+        => AsReference("destroy_time");
 
     /// <summary>
     /// The resource name of the SecretVersion. Format:
     /// &#39;projects/{{project}}/secrets/{{secret_id}}/versions/{{version}}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The version of the Secret.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

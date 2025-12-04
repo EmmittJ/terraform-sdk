@@ -18,7 +18,7 @@ public class AzureadApplicationRegistrationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadApplicationRegistrationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadApplicationRegistrationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzureadApplicationRegistrationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzureadApplicationRegistration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzureadApplicationRegistration(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzureadApplicationRegistration(string name) : TerraformReso
     /// </summary>
     public TerraformSet<string>? GroupMembershipClaims
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "group_membership_claims").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("group_membership_claims");
         set => SetArgument("group_membership_claims", value);
     }
 
@@ -91,16 +91,16 @@ public partial class AzureadApplicationRegistration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? HomepageUrl
     {
-        get => new TerraformReference<string>(this, "homepage_url");
+        get => GetArgument<TerraformValue<string>>("homepage_url");
         set => SetArgument("homepage_url", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzureadApplicationRegistration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? ImplicitAccessTokenIssuanceEnabled
     {
-        get => new TerraformReference<bool>(this, "implicit_access_token_issuance_enabled");
+        get => GetArgument<TerraformValue<bool>>("implicit_access_token_issuance_enabled");
         set => SetArgument("implicit_access_token_issuance_enabled", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzureadApplicationRegistration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? ImplicitIdTokenIssuanceEnabled
     {
-        get => new TerraformReference<bool>(this, "implicit_id_token_issuance_enabled");
+        get => GetArgument<TerraformValue<bool>>("implicit_id_token_issuance_enabled");
         set => SetArgument("implicit_id_token_issuance_enabled", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzureadApplicationRegistration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? LogoutUrl
     {
-        get => new TerraformReference<string>(this, "logout_url");
+        get => GetArgument<TerraformValue<string>>("logout_url");
         set => SetArgument("logout_url", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AzureadApplicationRegistration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? MarketingUrl
     {
-        get => new TerraformReference<string>(this, "marketing_url");
+        get => GetArgument<TerraformValue<string>>("marketing_url");
         set => SetArgument("marketing_url", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzureadApplicationRegistration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Notes
     {
-        get => new TerraformReference<string>(this, "notes");
+        get => GetArgument<TerraformValue<string>>("notes");
         set => SetArgument("notes", value);
     }
 
@@ -154,7 +154,7 @@ public partial class AzureadApplicationRegistration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? PrivacyStatementUrl
     {
-        get => new TerraformReference<string>(this, "privacy_statement_url");
+        get => GetArgument<TerraformValue<string>>("privacy_statement_url");
         set => SetArgument("privacy_statement_url", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AzureadApplicationRegistration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double>? RequestedAccessTokenVersion
     {
-        get => new TerraformReference<double>(this, "requested_access_token_version");
+        get => GetArgument<TerraformValue<double>>("requested_access_token_version");
         set => SetArgument("requested_access_token_version", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AzureadApplicationRegistration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? ServiceManagementReference
     {
-        get => new TerraformReference<string>(this, "service_management_reference");
+        get => GetArgument<TerraformValue<string>>("service_management_reference");
         set => SetArgument("service_management_reference", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AzureadApplicationRegistration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? SignInAudience
     {
-        get => new TerraformReference<string>(this, "sign_in_audience");
+        get => GetArgument<TerraformValue<string>>("sign_in_audience");
         set => SetArgument("sign_in_audience", value);
     }
 
@@ -190,7 +190,7 @@ public partial class AzureadApplicationRegistration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? SupportUrl
     {
-        get => new TerraformReference<string>(this, "support_url");
+        get => GetArgument<TerraformValue<string>>("support_url");
         set => SetArgument("support_url", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AzureadApplicationRegistration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? TermsOfServiceUrl
     {
-        get => new TerraformReference<string>(this, "terms_of_service_url");
+        get => GetArgument<TerraformValue<string>>("terms_of_service_url");
         set => SetArgument("terms_of_service_url", value);
     }
 
@@ -207,33 +207,25 @@ public partial class AzureadApplicationRegistration(string name) : TerraformReso
     /// The Client ID (also called Application ID)
     /// </summary>
     public TerraformValue<string> ClientId
-    {
-        get => new TerraformReference<string>(this, "client_id");
-    }
+        => AsReference("client_id");
 
     /// <summary>
     /// If the application has been disabled by Microsoft, this shows the status or reason
     /// </summary>
     public TerraformValue<string> DisabledByMicrosoft
-    {
-        get => new TerraformReference<string>(this, "disabled_by_microsoft");
-    }
+        => AsReference("disabled_by_microsoft");
 
     /// <summary>
     /// The object ID of the application within the tenant
     /// </summary>
     public TerraformValue<string> ObjectId
-    {
-        get => new TerraformReference<string>(this, "object_id");
-    }
+        => AsReference("object_id");
 
     /// <summary>
     /// The verified publisher domain for the application
     /// </summary>
     public TerraformValue<string> PublisherDomain
-    {
-        get => new TerraformReference<string>(this, "publisher_domain");
-    }
+        => AsReference("publisher_domain");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

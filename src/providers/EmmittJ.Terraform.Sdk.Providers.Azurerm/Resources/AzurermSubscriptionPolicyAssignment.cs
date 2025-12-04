@@ -18,7 +18,7 @@ public class AzurermSubscriptionPolicyAssignmentIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -26,17 +26,13 @@ public class AzurermSubscriptionPolicyAssignmentIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -44,7 +40,7 @@ public class AzurermSubscriptionPolicyAssignmentIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -68,7 +64,7 @@ public class AzurermSubscriptionPolicyAssignmentNonComplianceMessageBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => new TerraformReference<string>(this, "content");
+        get => GetArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -77,7 +73,7 @@ public class AzurermSubscriptionPolicyAssignmentNonComplianceMessageBlock : Terr
     /// </summary>
     public TerraformValue<string>? PolicyDefinitionReferenceId
     {
-        get => new TerraformReference<string>(this, "policy_definition_reference_id");
+        get => GetArgument<TerraformValue<string>>("policy_definition_reference_id");
         set => SetArgument("policy_definition_reference_id", value);
     }
 
@@ -101,7 +97,7 @@ public class AzurermSubscriptionPolicyAssignmentOverridesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -132,7 +128,7 @@ public class AzurermSubscriptionPolicyAssignmentOverridesBlockSelectorsBlock : T
     /// </summary>
     public TerraformList<string>? InAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "in").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("in");
         set => SetArgument("in", value);
     }
 
@@ -141,7 +137,7 @@ public class AzurermSubscriptionPolicyAssignmentOverridesBlockSelectorsBlock : T
     /// </summary>
     public TerraformValue<string>? Kind
     {
-        get => new TerraformReference<string>(this, "kind");
+        get => GetArgument<TerraformValue<string>>("kind");
         set => SetArgument("kind", value);
     }
 
@@ -150,7 +146,7 @@ public class AzurermSubscriptionPolicyAssignmentOverridesBlockSelectorsBlock : T
     /// </summary>
     public TerraformList<string>? NotIn
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "not_in").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("not_in");
         set => SetArgument("not_in", value);
     }
 
@@ -173,7 +169,7 @@ public class AzurermSubscriptionPolicyAssignmentResourceSelectorsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -207,7 +203,7 @@ public class AzurermSubscriptionPolicyAssignmentResourceSelectorsBlockSelectorsB
     /// </summary>
     public TerraformList<string>? InAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "in").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("in");
         set => SetArgument("in", value);
     }
 
@@ -217,7 +213,7 @@ public class AzurermSubscriptionPolicyAssignmentResourceSelectorsBlockSelectorsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     public required TerraformValue<string> Kind
     {
-        get => new TerraformReference<string>(this, "kind");
+        get => GetArgument<TerraformValue<string>>("kind");
         set => SetArgument("kind", value);
     }
 
@@ -226,7 +222,7 @@ public class AzurermSubscriptionPolicyAssignmentResourceSelectorsBlockSelectorsB
     /// </summary>
     public TerraformList<string>? NotIn
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "not_in").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("not_in");
         set => SetArgument("not_in", value);
     }
 
@@ -249,7 +245,7 @@ public class AzurermSubscriptionPolicyAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -258,7 +254,7 @@ public class AzurermSubscriptionPolicyAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -267,7 +263,7 @@ public class AzurermSubscriptionPolicyAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -276,7 +272,7 @@ public class AzurermSubscriptionPolicyAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -294,7 +290,7 @@ public partial class AzurermSubscriptionPolicyAssignment(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -303,7 +299,7 @@ public partial class AzurermSubscriptionPolicyAssignment(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -312,16 +308,16 @@ public partial class AzurermSubscriptionPolicyAssignment(string name) : Terrafor
     /// </summary>
     public TerraformValue<bool>? Enforce
     {
-        get => new TerraformReference<bool>(this, "enforce");
+        get => GetArgument<TerraformValue<bool>>("enforce");
         set => SetArgument("enforce", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -330,16 +326,16 @@ public partial class AzurermSubscriptionPolicyAssignment(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformValue<string> Metadata
+    public TerraformValue<string>? Metadata
     {
-        get => new TerraformReference<string>(this, "metadata");
+        get => GetArgument<TerraformValue<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -349,7 +345,7 @@ public partial class AzurermSubscriptionPolicyAssignment(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -358,7 +354,7 @@ public partial class AzurermSubscriptionPolicyAssignment(string name) : Terrafor
     /// </summary>
     public TerraformList<string>? NotScopes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "not_scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("not_scopes");
         set => SetArgument("not_scopes", value);
     }
 
@@ -367,7 +363,7 @@ public partial class AzurermSubscriptionPolicyAssignment(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Parameters
     {
-        get => new TerraformReference<string>(this, "parameters");
+        get => GetArgument<TerraformValue<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -377,7 +373,7 @@ public partial class AzurermSubscriptionPolicyAssignment(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDefinitionId is required")]
     public required TerraformValue<string> PolicyDefinitionId
     {
-        get => new TerraformReference<string>(this, "policy_definition_id");
+        get => GetArgument<TerraformValue<string>>("policy_definition_id");
         set => SetArgument("policy_definition_id", value);
     }
 
@@ -387,7 +383,7 @@ public partial class AzurermSubscriptionPolicyAssignment(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformValue<string> SubscriptionId
     {
-        get => new TerraformReference<string>(this, "subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 

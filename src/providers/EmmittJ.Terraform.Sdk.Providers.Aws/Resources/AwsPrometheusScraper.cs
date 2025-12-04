@@ -41,7 +41,7 @@ public class AwsPrometheusScraperDestinationBlockAmpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceArn is required")]
     public required TerraformValue<string> WorkspaceArn
     {
-        get => new TerraformReference<string>(this, "workspace_arn");
+        get => GetArgument<TerraformValue<string>>("workspace_arn");
         set => SetArgument("workspace_arn", value);
     }
 
@@ -64,7 +64,7 @@ public class AwsPrometheusScraperRoleConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SourceRoleArn
     {
-        get => new TerraformReference<string>(this, "source_role_arn");
+        get => GetArgument<TerraformValue<string>>("source_role_arn");
         set => SetArgument("source_role_arn", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsPrometheusScraperRoleConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TargetRoleArn
     {
-        get => new TerraformReference<string>(this, "target_role_arn");
+        get => GetArgument<TerraformValue<string>>("target_role_arn");
         set => SetArgument("target_role_arn", value);
     }
 
@@ -119,16 +119,16 @@ public class AwsPrometheusScraperSourceBlockEksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterArn is required")]
     public required TerraformValue<string> ClusterArn
     {
-        get => new TerraformReference<string>(this, "cluster_arn");
+        get => GetArgument<TerraformValue<string>>("cluster_arn");
         set => SetArgument("cluster_arn", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string> SecurityGroupIds
+    public TerraformSet<string>? SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -138,7 +138,7 @@ public class AwsPrometheusScraperSourceBlockEksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -161,7 +161,7 @@ public class AwsPrometheusScraperTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -170,7 +170,7 @@ public class AwsPrometheusScraperTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -179,7 +179,7 @@ public class AwsPrometheusScraperTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -197,16 +197,16 @@ public partial class AwsPrometheusScraper(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Alias
     {
-        get => new TerraformReference<string>(this, "alias");
+        get => GetArgument<TerraformValue<string>>("alias");
         set => SetArgument("alias", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -216,7 +216,7 @@ public partial class AwsPrometheusScraper(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScrapeConfiguration is required")]
     public required TerraformValue<string> ScrapeConfiguration
     {
-        get => new TerraformReference<string>(this, "scrape_configuration");
+        get => GetArgument<TerraformValue<string>>("scrape_configuration");
         set => SetArgument("scrape_configuration", value);
     }
 
@@ -225,7 +225,7 @@ public partial class AwsPrometheusScraper(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -233,33 +233,25 @@ public partial class AwsPrometheusScraper(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     public TerraformValue<string> RoleArn
-    {
-        get => new TerraformReference<string>(this, "role_arn");
-    }
+        => AsReference("role_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Destination block (nesting mode: list).

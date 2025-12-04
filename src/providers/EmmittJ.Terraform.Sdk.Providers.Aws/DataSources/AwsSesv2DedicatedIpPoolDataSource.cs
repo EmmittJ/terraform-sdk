@@ -11,9 +11,9 @@ public partial class AwsSesv2DedicatedIpPoolDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,25 +23,25 @@ public partial class AwsSesv2DedicatedIpPoolDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolName is required")]
     public required TerraformValue<string> PoolName
     {
-        get => new TerraformReference<string>(this, "pool_name");
+        get => GetArgument<TerraformValue<string>>("pool_name");
         set => SetArgument("pool_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,24 +49,18 @@ public partial class AwsSesv2DedicatedIpPoolDataSource(string name) : TerraformD
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The dedicated_ips attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DedicatedIps
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "dedicated_ips").ResolveNodes(ctx));
-    }
+        => AsReference("dedicated_ips");
 
     /// <summary>
     /// The scaling_mode attribute.
     /// </summary>
     public TerraformValue<string> ScalingMode
-    {
-        get => new TerraformReference<string>(this, "scaling_mode");
-    }
+        => AsReference("scaling_mode");
 
 }

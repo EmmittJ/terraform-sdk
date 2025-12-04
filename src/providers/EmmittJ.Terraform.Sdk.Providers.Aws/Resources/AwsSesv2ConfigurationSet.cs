@@ -18,7 +18,7 @@ public class AwsSesv2ConfigurationSetDeliveryOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxDeliverySeconds
     {
-        get => new TerraformReference<double>(this, "max_delivery_seconds");
+        get => GetArgument<TerraformValue<double>>("max_delivery_seconds");
         set => SetArgument("max_delivery_seconds", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsSesv2ConfigurationSetDeliveryOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SendingPoolName
     {
-        get => new TerraformReference<string>(this, "sending_pool_name");
+        get => GetArgument<TerraformValue<string>>("sending_pool_name");
         set => SetArgument("sending_pool_name", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsSesv2ConfigurationSetDeliveryOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TlsPolicy
     {
-        get => new TerraformReference<string>(this, "tls_policy");
+        get => GetArgument<TerraformValue<string>>("tls_policy");
         set => SetArgument("tls_policy", value);
     }
 
@@ -58,16 +58,14 @@ public class AwsSesv2ConfigurationSetReputationOptionsBlock : TerraformBlock
     /// The last_fresh_start attribute.
     /// </summary>
     public TerraformValue<string> LastFreshStart
-    {
-        get => new TerraformReference<string>(this, "last_fresh_start");
-    }
+        => AsReference("last_fresh_start");
 
     /// <summary>
     /// The reputation_metrics_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> ReputationMetricsEnabled
+    public TerraformValue<bool>? ReputationMetricsEnabled
     {
-        get => new TerraformReference<bool>(this, "reputation_metrics_enabled");
+        get => GetArgument<TerraformValue<bool>>("reputation_metrics_enabled");
         set => SetArgument("reputation_metrics_enabled", value);
     }
 
@@ -88,9 +86,9 @@ public class AwsSesv2ConfigurationSetSendingOptionsBlock : TerraformBlock
     /// <summary>
     /// The sending_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> SendingEnabled
+    public TerraformValue<bool>? SendingEnabled
     {
-        get => new TerraformReference<bool>(this, "sending_enabled");
+        get => GetArgument<TerraformValue<bool>>("sending_enabled");
         set => SetArgument("sending_enabled", value);
     }
 
@@ -113,7 +111,7 @@ public class AwsSesv2ConfigurationSetSuppressionOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? SuppressedReasons
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "suppressed_reasons").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("suppressed_reasons");
         set => SetArgument("suppressed_reasons", value);
     }
 
@@ -137,7 +135,7 @@ public class AwsSesv2ConfigurationSetTrackingOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomRedirectDomain is required")]
     public required TerraformValue<string> CustomRedirectDomain
     {
-        get => new TerraformReference<string>(this, "custom_redirect_domain");
+        get => GetArgument<TerraformValue<string>>("custom_redirect_domain");
         set => SetArgument("custom_redirect_domain", value);
     }
 
@@ -146,7 +144,7 @@ public class AwsSesv2ConfigurationSetTrackingOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? HttpsPolicy
     {
-        get => new TerraformReference<string>(this, "https_policy");
+        get => GetArgument<TerraformValue<string>>("https_policy");
         set => SetArgument("https_policy", value);
     }
 
@@ -202,7 +200,7 @@ public class AwsSesv2ConfigurationSetVdmOptionsBlockDashboardOptionsBlock : Terr
     /// </summary>
     public TerraformValue<string>? EngagementMetrics
     {
-        get => new TerraformReference<string>(this, "engagement_metrics");
+        get => GetArgument<TerraformValue<string>>("engagement_metrics");
         set => SetArgument("engagement_metrics", value);
     }
 
@@ -224,7 +222,7 @@ public class AwsSesv2ConfigurationSetVdmOptionsBlockGuardianOptionsBlock : Terra
     /// </summary>
     public TerraformValue<string>? OptimizedSharedDelivery
     {
-        get => new TerraformReference<string>(this, "optimized_shared_delivery");
+        get => GetArgument<TerraformValue<string>>("optimized_shared_delivery");
         set => SetArgument("optimized_shared_delivery", value);
     }
 
@@ -243,25 +241,25 @@ public partial class AwsSesv2ConfigurationSet(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationSetName is required")]
     public required TerraformValue<string> ConfigurationSetName
     {
-        get => new TerraformReference<string>(this, "configuration_set_name");
+        get => GetArgument<TerraformValue<string>>("configuration_set_name");
         set => SetArgument("configuration_set_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -270,16 +268,16 @@ public partial class AwsSesv2ConfigurationSet(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -287,9 +285,7 @@ public partial class AwsSesv2ConfigurationSet(string name) : TerraformResource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// DeliveryOptions block (nesting mode: list).

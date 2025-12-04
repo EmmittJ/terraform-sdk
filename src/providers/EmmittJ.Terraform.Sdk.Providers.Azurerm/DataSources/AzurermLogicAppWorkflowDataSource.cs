@@ -18,7 +18,7 @@ public class AzurermLogicAppWorkflowDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermLogicAppWorkflowDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermLogicAppWorkflowDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermLogicAppWorkflowDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,97 +64,73 @@ public partial class AzurermLogicAppWorkflowDataSource(string name) : TerraformD
     /// The access_endpoint attribute.
     /// </summary>
     public TerraformValue<string> AccessEndpoint
-    {
-        get => new TerraformReference<string>(this, "access_endpoint");
-    }
+        => AsReference("access_endpoint");
 
     /// <summary>
     /// The connector_endpoint_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> ConnectorEndpointIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "connector_endpoint_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("connector_endpoint_ip_addresses");
 
     /// <summary>
     /// The connector_outbound_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> ConnectorOutboundIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "connector_outbound_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("connector_outbound_ip_addresses");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
-    }
+        => AsReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The logic_app_integration_account_id attribute.
     /// </summary>
     public TerraformValue<string> LogicAppIntegrationAccountId
-    {
-        get => new TerraformReference<string>(this, "logic_app_integration_account_id");
-    }
+        => AsReference("logic_app_integration_account_id");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     public TerraformMap<string> Parameters
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
-    }
+        => AsReference("parameters");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The workflow_endpoint_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> WorkflowEndpointIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "workflow_endpoint_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("workflow_endpoint_ip_addresses");
 
     /// <summary>
     /// The workflow_outbound_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> WorkflowOutboundIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "workflow_outbound_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("workflow_outbound_ip_addresses");
 
     /// <summary>
     /// The workflow_schema attribute.
     /// </summary>
     public TerraformValue<string> WorkflowSchema
-    {
-        get => new TerraformReference<string>(this, "workflow_schema");
-    }
+        => AsReference("workflow_schema");
 
     /// <summary>
     /// The workflow_version attribute.
     /// </summary>
     public TerraformValue<string> WorkflowVersion
-    {
-        get => new TerraformReference<string>(this, "workflow_version");
-    }
+        => AsReference("workflow_version");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

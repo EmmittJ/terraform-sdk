@@ -18,7 +18,7 @@ public class AzurermSentinelAlertRuleScheduledAlertDetailsOverrideBlock : Terraf
     /// </summary>
     public TerraformValue<string>? DescriptionFormat
     {
-        get => new TerraformReference<string>(this, "description_format");
+        get => GetArgument<TerraformValue<string>>("description_format");
         set => SetArgument("description_format", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSentinelAlertRuleScheduledAlertDetailsOverrideBlock : Terraf
     /// </summary>
     public TerraformValue<string>? DisplayNameFormat
     {
-        get => new TerraformReference<string>(this, "display_name_format");
+        get => GetArgument<TerraformValue<string>>("display_name_format");
         set => SetArgument("display_name_format", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSentinelAlertRuleScheduledAlertDetailsOverrideBlock : Terraf
     /// </summary>
     public TerraformValue<string>? SeverityColumnName
     {
-        get => new TerraformReference<string>(this, "severity_column_name");
+        get => GetArgument<TerraformValue<string>>("severity_column_name");
         set => SetArgument("severity_column_name", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSentinelAlertRuleScheduledAlertDetailsOverrideBlock : Terraf
     /// </summary>
     public TerraformValue<string>? TacticsColumnName
     {
-        get => new TerraformReference<string>(this, "tactics_column_name");
+        get => GetArgument<TerraformValue<string>>("tactics_column_name");
         set => SetArgument("tactics_column_name", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermSentinelAlertRuleScheduledAlertDetailsOverrideBlockDynamicPr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermSentinelAlertRuleScheduledAlertDetailsOverrideBlockDynamicPr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -111,7 +111,7 @@ public class AzurermSentinelAlertRuleScheduledEntityMappingBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityType is required")]
     public required TerraformValue<string> EntityType
     {
-        get => new TerraformReference<string>(this, "entity_type");
+        get => GetArgument<TerraformValue<string>>("entity_type");
         set => SetArgument("entity_type", value);
     }
 
@@ -147,7 +147,7 @@ public class AzurermSentinelAlertRuleScheduledEntityMappingBlockFieldMappingBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnName is required")]
     public required TerraformValue<string> ColumnName
     {
-        get => new TerraformReference<string>(this, "column_name");
+        get => GetArgument<TerraformValue<string>>("column_name");
         set => SetArgument("column_name", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermSentinelAlertRuleScheduledEntityMappingBlockFieldMappingBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformValue<string> Identifier
     {
-        get => new TerraformReference<string>(this, "identifier");
+        get => GetArgument<TerraformValue<string>>("identifier");
         set => SetArgument("identifier", value);
     }
 
@@ -181,7 +181,7 @@ public class AzurermSentinelAlertRuleScheduledEventGroupingBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AggregationMethod is required")]
     public required TerraformValue<string> AggregationMethod
     {
-        get => new TerraformReference<string>(this, "aggregation_method");
+        get => GetArgument<TerraformValue<string>>("aggregation_method");
         set => SetArgument("aggregation_method", value);
     }
 
@@ -205,7 +205,7 @@ public class AzurermSentinelAlertRuleScheduledIncidentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreateIncidentEnabled is required")]
     public required TerraformValue<bool> CreateIncidentEnabled
     {
-        get => new TerraformReference<bool>(this, "create_incident_enabled");
+        get => GetArgument<TerraformValue<bool>>("create_incident_enabled");
         set => SetArgument("create_incident_enabled", value);
     }
 
@@ -240,7 +240,7 @@ public class AzurermSentinelAlertRuleScheduledIncidentBlockGroupingBlock : Terra
     /// </summary>
     public TerraformList<string>? ByAlertDetails
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "by_alert_details").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("by_alert_details");
         set => SetArgument("by_alert_details", value);
     }
 
@@ -249,7 +249,7 @@ public class AzurermSentinelAlertRuleScheduledIncidentBlockGroupingBlock : Terra
     /// </summary>
     public TerraformList<string>? ByCustomDetails
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "by_custom_details").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("by_custom_details");
         set => SetArgument("by_custom_details", value);
     }
 
@@ -258,7 +258,7 @@ public class AzurermSentinelAlertRuleScheduledIncidentBlockGroupingBlock : Terra
     /// </summary>
     public TerraformList<string>? ByEntities
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "by_entities").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("by_entities");
         set => SetArgument("by_entities", value);
     }
 
@@ -267,7 +267,7 @@ public class AzurermSentinelAlertRuleScheduledIncidentBlockGroupingBlock : Terra
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -276,7 +276,7 @@ public class AzurermSentinelAlertRuleScheduledIncidentBlockGroupingBlock : Terra
     /// </summary>
     public TerraformValue<string>? EntityMatchingMethod
     {
-        get => new TerraformReference<string>(this, "entity_matching_method");
+        get => GetArgument<TerraformValue<string>>("entity_matching_method");
         set => SetArgument("entity_matching_method", value);
     }
 
@@ -285,7 +285,7 @@ public class AzurermSentinelAlertRuleScheduledIncidentBlockGroupingBlock : Terra
     /// </summary>
     public TerraformValue<string>? LookbackDuration
     {
-        get => new TerraformReference<string>(this, "lookback_duration");
+        get => GetArgument<TerraformValue<string>>("lookback_duration");
         set => SetArgument("lookback_duration", value);
     }
 
@@ -294,7 +294,7 @@ public class AzurermSentinelAlertRuleScheduledIncidentBlockGroupingBlock : Terra
     /// </summary>
     public TerraformValue<bool>? ReopenClosedIncidents
     {
-        get => new TerraformReference<bool>(this, "reopen_closed_incidents");
+        get => GetArgument<TerraformValue<bool>>("reopen_closed_incidents");
         set => SetArgument("reopen_closed_incidents", value);
     }
 
@@ -318,7 +318,7 @@ public class AzurermSentinelAlertRuleScheduledSentinelEntityMappingBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnName is required")]
     public required TerraformValue<string> ColumnName
     {
-        get => new TerraformReference<string>(this, "column_name");
+        get => GetArgument<TerraformValue<string>>("column_name");
         set => SetArgument("column_name", value);
     }
 
@@ -341,7 +341,7 @@ public class AzurermSentinelAlertRuleScheduledTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -350,7 +350,7 @@ public class AzurermSentinelAlertRuleScheduledTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -359,7 +359,7 @@ public class AzurermSentinelAlertRuleScheduledTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -368,7 +368,7 @@ public class AzurermSentinelAlertRuleScheduledTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -386,7 +386,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? AlertRuleTemplateGuid
     {
-        get => new TerraformReference<string>(this, "alert_rule_template_guid");
+        get => GetArgument<TerraformValue<string>>("alert_rule_template_guid");
         set => SetArgument("alert_rule_template_guid", value);
     }
 
@@ -395,7 +395,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? AlertRuleTemplateVersion
     {
-        get => new TerraformReference<string>(this, "alert_rule_template_version");
+        get => GetArgument<TerraformValue<string>>("alert_rule_template_version");
         set => SetArgument("alert_rule_template_version", value);
     }
 
@@ -404,7 +404,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? CustomDetails
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "custom_details").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("custom_details");
         set => SetArgument("custom_details", value);
     }
 
@@ -413,7 +413,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -423,7 +423,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -432,16 +432,16 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -451,7 +451,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
-        get => new TerraformReference<string>(this, "log_analytics_workspace_id");
+        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
@@ -461,7 +461,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -471,7 +471,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformValue<string> Query
     {
-        get => new TerraformReference<string>(this, "query");
+        get => GetArgument<TerraformValue<string>>("query");
         set => SetArgument("query", value);
     }
 
@@ -480,7 +480,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? QueryFrequency
     {
-        get => new TerraformReference<string>(this, "query_frequency");
+        get => GetArgument<TerraformValue<string>>("query_frequency");
         set => SetArgument("query_frequency", value);
     }
 
@@ -489,7 +489,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? QueryPeriod
     {
-        get => new TerraformReference<string>(this, "query_period");
+        get => GetArgument<TerraformValue<string>>("query_period");
         set => SetArgument("query_period", value);
     }
 
@@ -499,7 +499,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
     public required TerraformValue<string> Severity
     {
-        get => new TerraformReference<string>(this, "severity");
+        get => GetArgument<TerraformValue<string>>("severity");
         set => SetArgument("severity", value);
     }
 
@@ -508,7 +508,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? SuppressionDuration
     {
-        get => new TerraformReference<string>(this, "suppression_duration");
+        get => GetArgument<TerraformValue<string>>("suppression_duration");
         set => SetArgument("suppression_duration", value);
     }
 
@@ -517,7 +517,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? SuppressionEnabled
     {
-        get => new TerraformReference<bool>(this, "suppression_enabled");
+        get => GetArgument<TerraformValue<bool>>("suppression_enabled");
         set => SetArgument("suppression_enabled", value);
     }
 
@@ -526,7 +526,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     /// </summary>
     public TerraformSet<string>? Tactics
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "tactics").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("tactics");
         set => SetArgument("tactics", value);
     }
 
@@ -535,7 +535,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     /// </summary>
     public TerraformSet<string>? Techniques
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "techniques").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("techniques");
         set => SetArgument("techniques", value);
     }
 
@@ -544,7 +544,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? TriggerOperator
     {
-        get => new TerraformReference<string>(this, "trigger_operator");
+        get => GetArgument<TerraformValue<string>>("trigger_operator");
         set => SetArgument("trigger_operator", value);
     }
 
@@ -553,7 +553,7 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     /// </summary>
     public TerraformValue<double>? TriggerThreshold
     {
-        get => new TerraformReference<double>(this, "trigger_threshold");
+        get => GetArgument<TerraformValue<double>>("trigger_threshold");
         set => SetArgument("trigger_threshold", value);
     }
 

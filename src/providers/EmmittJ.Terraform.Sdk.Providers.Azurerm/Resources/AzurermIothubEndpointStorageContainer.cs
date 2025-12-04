@@ -18,7 +18,7 @@ public class AzurermIothubEndpointStorageContainerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermIothubEndpointStorageContainerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermIothubEndpointStorageContainerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermIothubEndpointStorageContainerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermIothubEndpointStorageContainer(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? AuthenticationType
     {
-        get => new TerraformReference<string>(this, "authentication_type");
+        get => GetArgument<TerraformValue<string>>("authentication_type");
         set => SetArgument("authentication_type", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermIothubEndpointStorageContainer(string name) : Terraf
     /// </summary>
     public TerraformValue<double>? BatchFrequencyInSeconds
     {
-        get => new TerraformReference<double>(this, "batch_frequency_in_seconds");
+        get => GetArgument<TerraformValue<double>>("batch_frequency_in_seconds");
         set => SetArgument("batch_frequency_in_seconds", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermIothubEndpointStorageContainer(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? ConnectionString
     {
-        get => new TerraformReference<string>(this, "connection_string");
+        get => GetArgument<TerraformValue<string>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermIothubEndpointStorageContainer(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformValue<string> ContainerName
     {
-        get => new TerraformReference<string>(this, "container_name");
+        get => GetArgument<TerraformValue<string>>("container_name");
         set => SetArgument("container_name", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermIothubEndpointStorageContainer(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Encoding
     {
-        get => new TerraformReference<string>(this, "encoding");
+        get => GetArgument<TerraformValue<string>>("encoding");
         set => SetArgument("encoding", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermIothubEndpointStorageContainer(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? EndpointUri
     {
-        get => new TerraformReference<string>(this, "endpoint_uri");
+        get => GetArgument<TerraformValue<string>>("endpoint_uri");
         set => SetArgument("endpoint_uri", value);
     }
 
@@ -118,16 +118,16 @@ public partial class AzurermIothubEndpointStorageContainer(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? FileNameFormat
     {
-        get => new TerraformReference<string>(this, "file_name_format");
+        get => GetArgument<TerraformValue<string>>("file_name_format");
         set => SetArgument("file_name_format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AzurermIothubEndpointStorageContainer(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? IdentityId
     {
-        get => new TerraformReference<string>(this, "identity_id");
+        get => GetArgument<TerraformValue<string>>("identity_id");
         set => SetArgument("identity_id", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AzurermIothubEndpointStorageContainer(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     public required TerraformValue<string> IothubId
     {
-        get => new TerraformReference<string>(this, "iothub_id");
+        get => GetArgument<TerraformValue<string>>("iothub_id");
         set => SetArgument("iothub_id", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AzurermIothubEndpointStorageContainer(string name) : Terraf
     /// </summary>
     public TerraformValue<double>? MaxChunkSizeInBytes
     {
-        get => new TerraformReference<double>(this, "max_chunk_size_in_bytes");
+        get => GetArgument<TerraformValue<double>>("max_chunk_size_in_bytes");
         set => SetArgument("max_chunk_size_in_bytes", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AzurermIothubEndpointStorageContainer(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -175,16 +175,16 @@ public partial class AzurermIothubEndpointStorageContainer(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformValue<string> SubscriptionId
+    public TerraformValue<string>? SubscriptionId
     {
-        get => new TerraformReference<string>(this, "subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 

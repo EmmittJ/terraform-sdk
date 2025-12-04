@@ -18,7 +18,7 @@ public class AzurermApiManagementApiContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermApiManagementApiContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermApiManagementApiContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermApiManagementApiImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentFormat is required")]
     public required TerraformValue<string> ContentFormat
     {
-        get => new TerraformReference<string>(this, "content_format");
+        get => GetArgument<TerraformValue<string>>("content_format");
         set => SetArgument("content_format", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermApiManagementApiImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentValue is required")]
     public required TerraformValue<string> ContentValue
     {
-        get => new TerraformReference<string>(this, "content_value");
+        get => GetArgument<TerraformValue<string>>("content_value");
         set => SetArgument("content_value", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermApiManagementApiImportBlockWsdlSelectorBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointName is required")]
     public required TerraformValue<string> EndpointName
     {
-        get => new TerraformReference<string>(this, "endpoint_name");
+        get => GetArgument<TerraformValue<string>>("endpoint_name");
         set => SetArgument("endpoint_name", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermApiManagementApiImportBlockWsdlSelectorBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => new TerraformReference<string>(this, "service_name");
+        get => GetArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -136,7 +136,7 @@ public class AzurermApiManagementApiLicenseBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -145,7 +145,7 @@ public class AzurermApiManagementApiLicenseBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermApiManagementApiOauth2AuthorizationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationServerName is required")]
     public required TerraformValue<string> AuthorizationServerName
     {
-        get => new TerraformReference<string>(this, "authorization_server_name");
+        get => GetArgument<TerraformValue<string>>("authorization_server_name");
         set => SetArgument("authorization_server_name", value);
     }
 
@@ -178,7 +178,7 @@ public class AzurermApiManagementApiOauth2AuthorizationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -201,7 +201,7 @@ public class AzurermApiManagementApiOpenidAuthenticationBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? BearerTokenSendingMethods
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "bearer_token_sending_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("bearer_token_sending_methods");
         set => SetArgument("bearer_token_sending_methods", value);
     }
 
@@ -211,7 +211,7 @@ public class AzurermApiManagementApiOpenidAuthenticationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OpenidProviderName is required")]
     public required TerraformValue<string> OpenidProviderName
     {
-        get => new TerraformReference<string>(this, "openid_provider_name");
+        get => GetArgument<TerraformValue<string>>("openid_provider_name");
         set => SetArgument("openid_provider_name", value);
     }
 
@@ -235,7 +235,7 @@ public class AzurermApiManagementApiSubscriptionKeyParameterNamesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Header is required")]
     public required TerraformValue<string> Header
     {
-        get => new TerraformReference<string>(this, "header");
+        get => GetArgument<TerraformValue<string>>("header");
         set => SetArgument("header", value);
     }
 
@@ -245,7 +245,7 @@ public class AzurermApiManagementApiSubscriptionKeyParameterNamesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformValue<string> Query
     {
-        get => new TerraformReference<string>(this, "query");
+        get => GetArgument<TerraformValue<string>>("query");
         set => SetArgument("query", value);
     }
 
@@ -268,7 +268,7 @@ public class AzurermApiManagementApiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -277,7 +277,7 @@ public class AzurermApiManagementApiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -286,7 +286,7 @@ public class AzurermApiManagementApiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -295,7 +295,7 @@ public class AzurermApiManagementApiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -314,16 +314,16 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformValue<string> ApiManagementName
     {
-        get => new TerraformReference<string>(this, "api_management_name");
+        get => GetArgument<TerraformValue<string>>("api_management_name");
         set => SetArgument("api_management_name", value);
     }
 
     /// <summary>
     /// The api_type attribute.
     /// </summary>
-    public TerraformValue<string> ApiType
+    public TerraformValue<string>? ApiType
     {
-        get => new TerraformReference<string>(this, "api_type");
+        get => GetArgument<TerraformValue<string>>("api_type");
         set => SetArgument("api_type", value);
     }
 
@@ -332,25 +332,25 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -360,25 +360,25 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformValue<string> Path
+    public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
     /// <summary>
     /// The protocols attribute.
     /// </summary>
-    public TerraformSet<string> Protocols
+    public TerraformSet<string>? Protocols
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "protocols").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("protocols");
         set => SetArgument("protocols", value);
     }
 
@@ -388,7 +388,7 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -398,7 +398,7 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     public required TerraformValue<string> Revision
     {
-        get => new TerraformReference<string>(this, "revision");
+        get => GetArgument<TerraformValue<string>>("revision");
         set => SetArgument("revision", value);
     }
 
@@ -407,16 +407,16 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? RevisionDescription
     {
-        get => new TerraformReference<string>(this, "revision_description");
+        get => GetArgument<TerraformValue<string>>("revision_description");
         set => SetArgument("revision_description", value);
     }
 
     /// <summary>
     /// The service_url attribute.
     /// </summary>
-    public TerraformValue<string> ServiceUrl
+    public TerraformValue<string>? ServiceUrl
     {
-        get => new TerraformReference<string>(this, "service_url");
+        get => GetArgument<TerraformValue<string>>("service_url");
         set => SetArgument("service_url", value);
     }
 
@@ -425,7 +425,7 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? SourceApiId
     {
-        get => new TerraformReference<string>(this, "source_api_id");
+        get => GetArgument<TerraformValue<string>>("source_api_id");
         set => SetArgument("source_api_id", value);
     }
 
@@ -434,7 +434,7 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? SubscriptionRequired
     {
-        get => new TerraformReference<bool>(this, "subscription_required");
+        get => GetArgument<TerraformValue<bool>>("subscription_required");
         set => SetArgument("subscription_required", value);
     }
 
@@ -443,16 +443,16 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? TermsOfServiceUrl
     {
-        get => new TerraformReference<string>(this, "terms_of_service_url");
+        get => GetArgument<TerraformValue<string>>("terms_of_service_url");
         set => SetArgument("terms_of_service_url", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformValue<string> Version
+    public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -461,16 +461,16 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? VersionDescription
     {
-        get => new TerraformReference<string>(this, "version_description");
+        get => GetArgument<TerraformValue<string>>("version_description");
         set => SetArgument("version_description", value);
     }
 
     /// <summary>
     /// The version_set_id attribute.
     /// </summary>
-    public TerraformValue<string> VersionSetId
+    public TerraformValue<string>? VersionSetId
     {
-        get => new TerraformReference<string>(this, "version_set_id");
+        get => GetArgument<TerraformValue<string>>("version_set_id");
         set => SetArgument("version_set_id", value);
     }
 
@@ -478,17 +478,13 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// The is_current attribute.
     /// </summary>
     public TerraformValue<bool> IsCurrent
-    {
-        get => new TerraformReference<bool>(this, "is_current");
-    }
+        => AsReference("is_current");
 
     /// <summary>
     /// The is_online attribute.
     /// </summary>
     public TerraformValue<bool> IsOnline
-    {
-        get => new TerraformReference<bool>(this, "is_online");
-    }
+        => AsReference("is_online");
 
     /// <summary>
     /// Contact block (nesting mode: list).

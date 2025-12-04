@@ -18,7 +18,7 @@ public class AwsLexv2modelsIntentClosingSettingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockClosingResponseBlock : Terra
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -179,7 +179,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockClosingResponseBlockMessageG
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -201,7 +201,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockClosingResponseBlockMessageG
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -210,7 +210,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockClosingResponseBlockMessageG
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -220,7 +220,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockClosingResponseBlockMessageG
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -252,7 +252,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockClosingResponseBlockMessageG
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -262,7 +262,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockClosingResponseBlockMessageG
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -285,7 +285,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockClosingResponseBlockMessageG
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -308,7 +308,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockClosingResponseBlockMessageG
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -380,7 +380,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockClosingResponseBlockMessageG
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -402,7 +402,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockClosingResponseBlockMessageG
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -411,7 +411,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockClosingResponseBlockMessageG
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -421,7 +421,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockClosingResponseBlockMessageG
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -453,7 +453,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockClosingResponseBlockMessageG
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -463,7 +463,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockClosingResponseBlockMessageG
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -486,7 +486,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockClosingResponseBlockMessageG
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -509,7 +509,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockClosingResponseBlockMessageG
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -532,7 +532,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -573,7 +573,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -623,7 +623,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressionString is required")]
     public required TerraformValue<string> ExpressionString
     {
-        get => new TerraformReference<string>(this, "expression_string");
+        get => GetArgument<TerraformValue<string>>("expression_string");
         set => SetArgument("expression_string", value);
     }
 
@@ -645,7 +645,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -685,7 +685,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -694,7 +694,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -704,7 +704,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -726,7 +726,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -758,7 +758,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -767,7 +767,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -798,7 +798,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -820,7 +820,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -932,7 +932,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -954,7 +954,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -963,7 +963,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -973,7 +973,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -1005,7 +1005,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -1015,7 +1015,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1038,7 +1038,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1061,7 +1061,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1133,7 +1133,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1155,7 +1155,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -1164,7 +1164,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -1174,7 +1174,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -1206,7 +1206,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -1216,7 +1216,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1239,7 +1239,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1262,7 +1262,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1315,7 +1315,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -1355,7 +1355,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -1364,7 +1364,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -1374,7 +1374,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1396,7 +1396,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1428,7 +1428,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -1437,7 +1437,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -1468,7 +1468,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -1490,7 +1490,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -1602,7 +1602,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1624,7 +1624,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -1633,7 +1633,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -1643,7 +1643,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -1675,7 +1675,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -1685,7 +1685,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1708,7 +1708,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1731,7 +1731,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1803,7 +1803,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1825,7 +1825,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -1834,7 +1834,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -1844,7 +1844,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -1876,7 +1876,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -1886,7 +1886,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1909,7 +1909,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1932,7 +1932,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockConditionalBlockDefaultBranc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1954,7 +1954,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockNextStepBlock : TerraformBlo
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -1994,7 +1994,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockNextStepBlockDialogActionBlo
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -2003,7 +2003,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockNextStepBlockDialogActionBlo
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -2013,7 +2013,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockNextStepBlockDialogActionBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -2035,7 +2035,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockNextStepBlockIntentBlock : T
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2067,7 +2067,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockNextStepBlockIntentBlockSlot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -2076,7 +2076,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockNextStepBlockIntentBlockSlot
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -2107,7 +2107,7 @@ public class AwsLexv2modelsIntentClosingSettingBlockNextStepBlockIntentBlockSlot
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -2130,7 +2130,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -2261,7 +2261,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -2271,7 +2271,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableCodeHookInvocation is required")]
     public required TerraformValue<bool> EnableCodeHookInvocation
     {
-        get => new TerraformReference<bool>(this, "enable_code_hook_invocation");
+        get => GetArgument<TerraformValue<bool>>("enable_code_hook_invocation");
         set => SetArgument("enable_code_hook_invocation", value);
     }
 
@@ -2280,7 +2280,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? InvocationLabel
     {
-        get => new TerraformReference<string>(this, "invocation_label");
+        get => GetArgument<TerraformValue<string>>("invocation_label");
         set => SetArgument("invocation_label", value);
     }
 
@@ -2406,7 +2406,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -2447,7 +2447,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2497,7 +2497,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressionString is required")]
     public required TerraformValue<string> ExpressionString
     {
-        get => new TerraformReference<string>(this, "expression_string");
+        get => GetArgument<TerraformValue<string>>("expression_string");
         set => SetArgument("expression_string", value);
     }
 
@@ -2519,7 +2519,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -2559,7 +2559,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -2568,7 +2568,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -2578,7 +2578,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -2600,7 +2600,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2632,7 +2632,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -2641,7 +2641,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -2672,7 +2672,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -2694,7 +2694,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -2806,7 +2806,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2828,7 +2828,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -2837,7 +2837,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -2847,7 +2847,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -2879,7 +2879,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -2889,7 +2889,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2912,7 +2912,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2935,7 +2935,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3007,7 +3007,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3029,7 +3029,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -3038,7 +3038,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -3048,7 +3048,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -3080,7 +3080,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -3090,7 +3090,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3113,7 +3113,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3136,7 +3136,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3189,7 +3189,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -3229,7 +3229,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -3238,7 +3238,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -3248,7 +3248,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -3270,7 +3270,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -3302,7 +3302,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -3311,7 +3311,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -3342,7 +3342,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -3364,7 +3364,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -3476,7 +3476,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3498,7 +3498,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -3507,7 +3507,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -3517,7 +3517,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -3549,7 +3549,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -3559,7 +3559,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3582,7 +3582,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3605,7 +3605,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3677,7 +3677,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3699,7 +3699,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -3708,7 +3708,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -3718,7 +3718,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -3750,7 +3750,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -3760,7 +3760,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3783,7 +3783,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3806,7 +3806,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3828,7 +3828,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -3868,7 +3868,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -3877,7 +3877,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -3887,7 +3887,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -3909,7 +3909,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -3941,7 +3941,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -3950,7 +3950,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -3981,7 +3981,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -4003,7 +4003,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -4115,7 +4115,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4137,7 +4137,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -4146,7 +4146,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -4156,7 +4156,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -4188,7 +4188,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -4198,7 +4198,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4221,7 +4221,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4244,7 +4244,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4316,7 +4316,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4338,7 +4338,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -4347,7 +4347,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -4357,7 +4357,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -4389,7 +4389,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -4399,7 +4399,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4422,7 +4422,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4445,7 +4445,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4468,7 +4468,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -4509,7 +4509,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -4559,7 +4559,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressionString is required")]
     public required TerraformValue<string> ExpressionString
     {
-        get => new TerraformReference<string>(this, "expression_string");
+        get => GetArgument<TerraformValue<string>>("expression_string");
         set => SetArgument("expression_string", value);
     }
 
@@ -4581,7 +4581,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -4621,7 +4621,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -4630,7 +4630,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -4640,7 +4640,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -4662,7 +4662,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -4694,7 +4694,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -4703,7 +4703,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -4734,7 +4734,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -4756,7 +4756,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -4868,7 +4868,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4890,7 +4890,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -4899,7 +4899,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -4909,7 +4909,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -4941,7 +4941,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -4951,7 +4951,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4974,7 +4974,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -4997,7 +4997,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -5069,7 +5069,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -5091,7 +5091,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -5100,7 +5100,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -5110,7 +5110,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -5142,7 +5142,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -5152,7 +5152,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -5175,7 +5175,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -5198,7 +5198,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -5251,7 +5251,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -5291,7 +5291,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -5300,7 +5300,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -5310,7 +5310,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -5332,7 +5332,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -5364,7 +5364,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -5373,7 +5373,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -5404,7 +5404,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -5426,7 +5426,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -5538,7 +5538,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -5560,7 +5560,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -5569,7 +5569,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -5579,7 +5579,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -5611,7 +5611,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -5621,7 +5621,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -5644,7 +5644,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -5667,7 +5667,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -5739,7 +5739,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -5761,7 +5761,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -5770,7 +5770,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -5780,7 +5780,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -5812,7 +5812,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -5822,7 +5822,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -5845,7 +5845,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -5868,7 +5868,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -5890,7 +5890,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -5930,7 +5930,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -5939,7 +5939,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -5949,7 +5949,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -5971,7 +5971,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -6003,7 +6003,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -6012,7 +6012,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -6043,7 +6043,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -6065,7 +6065,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -6177,7 +6177,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -6199,7 +6199,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -6208,7 +6208,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -6218,7 +6218,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -6250,7 +6250,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -6260,7 +6260,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -6283,7 +6283,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -6306,7 +6306,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -6378,7 +6378,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -6400,7 +6400,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -6409,7 +6409,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -6419,7 +6419,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -6451,7 +6451,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -6461,7 +6461,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -6484,7 +6484,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -6507,7 +6507,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -6530,7 +6530,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -6571,7 +6571,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -6621,7 +6621,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressionString is required")]
     public required TerraformValue<string> ExpressionString
     {
-        get => new TerraformReference<string>(this, "expression_string");
+        get => GetArgument<TerraformValue<string>>("expression_string");
         set => SetArgument("expression_string", value);
     }
 
@@ -6643,7 +6643,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -6683,7 +6683,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -6692,7 +6692,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -6702,7 +6702,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -6724,7 +6724,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -6756,7 +6756,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -6765,7 +6765,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -6796,7 +6796,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -6818,7 +6818,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -6930,7 +6930,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -6952,7 +6952,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -6961,7 +6961,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -6971,7 +6971,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -7003,7 +7003,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -7013,7 +7013,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -7036,7 +7036,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -7059,7 +7059,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -7131,7 +7131,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -7153,7 +7153,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -7162,7 +7162,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -7172,7 +7172,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -7204,7 +7204,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -7214,7 +7214,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -7237,7 +7237,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -7260,7 +7260,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -7313,7 +7313,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -7353,7 +7353,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -7362,7 +7362,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -7372,7 +7372,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -7394,7 +7394,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -7426,7 +7426,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -7435,7 +7435,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -7466,7 +7466,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -7488,7 +7488,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -7600,7 +7600,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -7622,7 +7622,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -7631,7 +7631,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -7641,7 +7641,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -7673,7 +7673,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -7683,7 +7683,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -7706,7 +7706,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -7729,7 +7729,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -7801,7 +7801,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -7823,7 +7823,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -7832,7 +7832,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -7842,7 +7842,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -7874,7 +7874,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -7884,7 +7884,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -7907,7 +7907,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -7930,7 +7930,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -7952,7 +7952,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -7992,7 +7992,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -8001,7 +8001,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -8011,7 +8011,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -8033,7 +8033,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -8065,7 +8065,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -8074,7 +8074,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -8105,7 +8105,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -8127,7 +8127,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -8239,7 +8239,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -8261,7 +8261,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -8270,7 +8270,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -8280,7 +8280,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -8312,7 +8312,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -8322,7 +8322,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -8345,7 +8345,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -8368,7 +8368,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -8440,7 +8440,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -8462,7 +8462,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -8471,7 +8471,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -8481,7 +8481,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -8513,7 +8513,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -8523,7 +8523,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -8546,7 +8546,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -8569,7 +8569,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockCodeHookBlockPostCodeHo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -8592,7 +8592,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -8633,7 +8633,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -8683,7 +8683,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressionString is required")]
     public required TerraformValue<string> ExpressionString
     {
-        get => new TerraformReference<string>(this, "expression_string");
+        get => GetArgument<TerraformValue<string>>("expression_string");
         set => SetArgument("expression_string", value);
     }
 
@@ -8705,7 +8705,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -8745,7 +8745,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -8754,7 +8754,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -8764,7 +8764,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -8786,7 +8786,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -8818,7 +8818,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -8827,7 +8827,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -8858,7 +8858,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -8880,7 +8880,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -8992,7 +8992,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -9014,7 +9014,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -9023,7 +9023,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -9033,7 +9033,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -9065,7 +9065,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -9075,7 +9075,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -9098,7 +9098,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -9121,7 +9121,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -9193,7 +9193,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -9215,7 +9215,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -9224,7 +9224,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -9234,7 +9234,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -9266,7 +9266,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -9276,7 +9276,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -9299,7 +9299,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -9322,7 +9322,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -9375,7 +9375,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -9415,7 +9415,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -9424,7 +9424,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -9434,7 +9434,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -9456,7 +9456,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -9488,7 +9488,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -9497,7 +9497,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -9528,7 +9528,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -9550,7 +9550,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -9662,7 +9662,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -9684,7 +9684,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -9693,7 +9693,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -9703,7 +9703,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -9735,7 +9735,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -9745,7 +9745,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -9768,7 +9768,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -9791,7 +9791,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -9863,7 +9863,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -9885,7 +9885,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -9894,7 +9894,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -9904,7 +9904,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -9936,7 +9936,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -9946,7 +9946,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -9969,7 +9969,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -9992,7 +9992,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationConditional
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -10014,7 +10014,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationNextStepBlo
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -10054,7 +10054,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationNextStepBlo
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -10063,7 +10063,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationNextStepBlo
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -10073,7 +10073,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationNextStepBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -10095,7 +10095,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationNextStepBlo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -10127,7 +10127,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationNextStepBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -10136,7 +10136,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationNextStepBlo
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -10167,7 +10167,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationNextStepBlo
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -10189,7 +10189,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationResponseBlo
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -10301,7 +10301,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationResponseBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -10323,7 +10323,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationResponseBlo
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -10332,7 +10332,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationResponseBlo
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -10342,7 +10342,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationResponseBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -10374,7 +10374,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationResponseBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -10384,7 +10384,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationResponseBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -10407,7 +10407,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationResponseBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -10430,7 +10430,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationResponseBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -10502,7 +10502,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationResponseBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -10524,7 +10524,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationResponseBlo
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -10533,7 +10533,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationResponseBlo
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -10543,7 +10543,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationResponseBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -10575,7 +10575,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationResponseBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -10585,7 +10585,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationResponseBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -10608,7 +10608,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationResponseBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -10631,7 +10631,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockConfirmationResponseBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -10654,7 +10654,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -10695,7 +10695,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -10745,7 +10745,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressionString is required")]
     public required TerraformValue<string> ExpressionString
     {
-        get => new TerraformReference<string>(this, "expression_string");
+        get => GetArgument<TerraformValue<string>>("expression_string");
         set => SetArgument("expression_string", value);
     }
 
@@ -10767,7 +10767,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -10807,7 +10807,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -10816,7 +10816,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -10826,7 +10826,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -10848,7 +10848,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -10880,7 +10880,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -10889,7 +10889,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -10920,7 +10920,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -10942,7 +10942,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -11054,7 +11054,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -11076,7 +11076,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -11085,7 +11085,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -11095,7 +11095,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -11127,7 +11127,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -11137,7 +11137,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -11160,7 +11160,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -11183,7 +11183,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -11255,7 +11255,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -11277,7 +11277,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -11286,7 +11286,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -11296,7 +11296,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -11328,7 +11328,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -11338,7 +11338,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -11361,7 +11361,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -11384,7 +11384,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -11437,7 +11437,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -11477,7 +11477,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -11486,7 +11486,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -11496,7 +11496,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -11518,7 +11518,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -11550,7 +11550,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -11559,7 +11559,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -11590,7 +11590,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -11612,7 +11612,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -11724,7 +11724,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -11746,7 +11746,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -11755,7 +11755,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -11765,7 +11765,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -11797,7 +11797,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -11807,7 +11807,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -11830,7 +11830,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -11853,7 +11853,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -11925,7 +11925,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -11947,7 +11947,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -11956,7 +11956,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -11966,7 +11966,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -11998,7 +11998,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -12008,7 +12008,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -12031,7 +12031,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -12054,7 +12054,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationConditionalB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -12076,7 +12076,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationNextStepBloc
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -12116,7 +12116,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationNextStepBloc
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -12125,7 +12125,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationNextStepBloc
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -12135,7 +12135,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationNextStepBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -12157,7 +12157,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationNextStepBloc
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -12189,7 +12189,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationNextStepBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -12198,7 +12198,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationNextStepBloc
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -12229,7 +12229,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationNextStepBloc
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -12251,7 +12251,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationResponseBloc
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -12363,7 +12363,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationResponseBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -12385,7 +12385,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationResponseBloc
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -12394,7 +12394,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationResponseBloc
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -12404,7 +12404,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationResponseBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -12436,7 +12436,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationResponseBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -12446,7 +12446,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationResponseBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -12469,7 +12469,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationResponseBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -12492,7 +12492,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationResponseBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -12564,7 +12564,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationResponseBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -12586,7 +12586,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationResponseBloc
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -12595,7 +12595,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationResponseBloc
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -12605,7 +12605,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationResponseBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -12637,7 +12637,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationResponseBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -12647,7 +12647,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationResponseBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -12670,7 +12670,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationResponseBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -12693,7 +12693,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockDeclinationResponseBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -12715,7 +12715,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockElicitationCodeHookBloc
     /// </summary>
     public TerraformValue<bool>? EnableCodeHookInvocation
     {
-        get => new TerraformReference<bool>(this, "enable_code_hook_invocation");
+        get => GetArgument<TerraformValue<bool>>("enable_code_hook_invocation");
         set => SetArgument("enable_code_hook_invocation", value);
     }
 
@@ -12724,7 +12724,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockElicitationCodeHookBloc
     /// </summary>
     public TerraformValue<string>? InvocationLabel
     {
-        get => new TerraformReference<string>(this, "invocation_label");
+        get => GetArgument<TerraformValue<string>>("invocation_label");
         set => SetArgument("invocation_label", value);
     }
 
@@ -12747,7 +12747,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -12788,7 +12788,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -12838,7 +12838,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressionString is required")]
     public required TerraformValue<string> ExpressionString
     {
-        get => new TerraformReference<string>(this, "expression_string");
+        get => GetArgument<TerraformValue<string>>("expression_string");
         set => SetArgument("expression_string", value);
     }
 
@@ -12860,7 +12860,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -12900,7 +12900,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -12909,7 +12909,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -12919,7 +12919,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -12941,7 +12941,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -12973,7 +12973,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -12982,7 +12982,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -13013,7 +13013,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -13035,7 +13035,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -13147,7 +13147,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -13169,7 +13169,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -13178,7 +13178,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -13188,7 +13188,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -13220,7 +13220,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -13230,7 +13230,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -13253,7 +13253,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -13276,7 +13276,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -13348,7 +13348,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -13370,7 +13370,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -13379,7 +13379,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -13389,7 +13389,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -13421,7 +13421,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -13431,7 +13431,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -13454,7 +13454,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -13477,7 +13477,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -13530,7 +13530,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -13570,7 +13570,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -13579,7 +13579,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -13589,7 +13589,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -13611,7 +13611,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -13643,7 +13643,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -13652,7 +13652,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -13683,7 +13683,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -13705,7 +13705,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -13817,7 +13817,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -13839,7 +13839,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -13848,7 +13848,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -13858,7 +13858,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -13890,7 +13890,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -13900,7 +13900,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -13923,7 +13923,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -13946,7 +13946,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -14018,7 +14018,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -14040,7 +14040,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -14049,7 +14049,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -14059,7 +14059,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -14091,7 +14091,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -14101,7 +14101,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -14124,7 +14124,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -14147,7 +14147,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureConditionalBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -14169,7 +14169,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureNextStepBlock : 
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -14209,7 +14209,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureNextStepBlockDia
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -14218,7 +14218,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureNextStepBlockDia
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -14228,7 +14228,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureNextStepBlockDia
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -14250,7 +14250,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureNextStepBlockInt
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -14282,7 +14282,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureNextStepBlockInt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -14291,7 +14291,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureNextStepBlockInt
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -14322,7 +14322,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureNextStepBlockInt
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -14344,7 +14344,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureResponseBlock : 
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -14456,7 +14456,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureResponseBlockMes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -14478,7 +14478,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureResponseBlockMes
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -14487,7 +14487,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureResponseBlockMes
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -14497,7 +14497,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureResponseBlockMes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -14529,7 +14529,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureResponseBlockMes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -14539,7 +14539,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureResponseBlockMes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -14562,7 +14562,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureResponseBlockMes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -14585,7 +14585,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureResponseBlockMes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -14657,7 +14657,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureResponseBlockMes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -14679,7 +14679,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureResponseBlockMes
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -14688,7 +14688,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureResponseBlockMes
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -14698,7 +14698,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureResponseBlockMes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -14730,7 +14730,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureResponseBlockMes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -14740,7 +14740,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureResponseBlockMes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -14763,7 +14763,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureResponseBlockMes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -14786,7 +14786,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockFailureResponseBlockMes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -14808,7 +14808,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -14818,7 +14818,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRetries is required")]
     public required TerraformValue<double> MaxRetries
     {
-        get => new TerraformReference<double>(this, "max_retries");
+        get => GetArgument<TerraformValue<double>>("max_retries");
         set => SetArgument("max_retries", value);
     }
 
@@ -14827,7 +14827,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     /// </summary>
     public TerraformValue<string>? MessageSelectionStrategy
     {
-        get => new TerraformReference<string>(this, "message_selection_strategy");
+        get => GetArgument<TerraformValue<string>>("message_selection_strategy");
         set => SetArgument("message_selection_strategy", value);
     }
 
@@ -14948,7 +14948,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -14970,7 +14970,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -14979,7 +14979,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -14989,7 +14989,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -15021,7 +15021,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -15031,7 +15031,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -15054,7 +15054,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -15077,7 +15077,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -15149,7 +15149,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -15171,7 +15171,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -15180,7 +15180,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -15190,7 +15190,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -15222,7 +15222,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -15232,7 +15232,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -15255,7 +15255,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -15278,7 +15278,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -15300,7 +15300,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -15310,7 +15310,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -15360,7 +15360,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowAudioInput is required")]
     public required TerraformValue<bool> AllowAudioInput
     {
-        get => new TerraformReference<bool>(this, "allow_audio_input");
+        get => GetArgument<TerraformValue<bool>>("allow_audio_input");
         set => SetArgument("allow_audio_input", value);
     }
 
@@ -15370,7 +15370,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowDtmfInput is required")]
     public required TerraformValue<bool> AllowDtmfInput
     {
-        get => new TerraformReference<bool>(this, "allow_dtmf_input");
+        get => GetArgument<TerraformValue<bool>>("allow_dtmf_input");
         set => SetArgument("allow_dtmf_input", value);
     }
 
@@ -15393,7 +15393,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTimeoutMs is required")]
     public required TerraformValue<double> StartTimeoutMs
     {
-        get => new TerraformReference<double>(this, "start_timeout_ms");
+        get => GetArgument<TerraformValue<double>>("start_timeout_ms");
         set => SetArgument("start_timeout_ms", value);
     }
 
@@ -15434,7 +15434,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndTimeoutMs is required")]
     public required TerraformValue<double> EndTimeoutMs
     {
-        get => new TerraformReference<double>(this, "end_timeout_ms");
+        get => GetArgument<TerraformValue<double>>("end_timeout_ms");
         set => SetArgument("end_timeout_ms", value);
     }
 
@@ -15444,7 +15444,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxLengthMs is required")]
     public required TerraformValue<double> MaxLengthMs
     {
-        get => new TerraformReference<double>(this, "max_length_ms");
+        get => GetArgument<TerraformValue<double>>("max_length_ms");
         set => SetArgument("max_length_ms", value);
     }
 
@@ -15467,7 +15467,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeletionCharacter is required")]
     public required TerraformValue<string> DeletionCharacter
     {
-        get => new TerraformReference<string>(this, "deletion_character");
+        get => GetArgument<TerraformValue<string>>("deletion_character");
         set => SetArgument("deletion_character", value);
     }
 
@@ -15477,7 +15477,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndCharacter is required")]
     public required TerraformValue<string> EndCharacter
     {
-        get => new TerraformReference<string>(this, "end_character");
+        get => GetArgument<TerraformValue<string>>("end_character");
         set => SetArgument("end_character", value);
     }
 
@@ -15487,7 +15487,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndTimeoutMs is required")]
     public required TerraformValue<double> EndTimeoutMs
     {
-        get => new TerraformReference<double>(this, "end_timeout_ms");
+        get => GetArgument<TerraformValue<double>>("end_timeout_ms");
         set => SetArgument("end_timeout_ms", value);
     }
 
@@ -15497,7 +15497,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxLength is required")]
     public required TerraformValue<double> MaxLength
     {
-        get => new TerraformReference<double>(this, "max_length");
+        get => GetArgument<TerraformValue<double>>("max_length");
         set => SetArgument("max_length", value);
     }
 
@@ -15520,7 +15520,7 @@ public class AwsLexv2modelsIntentConfirmationSettingBlockPromptSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTimeoutMs is required")]
     public required TerraformValue<double> StartTimeoutMs
     {
-        get => new TerraformReference<double>(this, "start_timeout_ms");
+        get => GetArgument<TerraformValue<double>>("start_timeout_ms");
         set => SetArgument("start_timeout_ms", value);
     }
 
@@ -15544,7 +15544,7 @@ public class AwsLexv2modelsIntentDialogCodeHookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -15567,7 +15567,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -15577,7 +15577,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -15618,7 +15618,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -15627,7 +15627,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     /// </summary>
     public TerraformValue<double>? TimeoutInSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_in_seconds");
         set => SetArgument("timeout_in_seconds", value);
     }
 
@@ -15667,7 +15667,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -15676,7 +15676,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     /// </summary>
     public TerraformValue<double>? DelayInSeconds
     {
-        get => new TerraformReference<double>(this, "delay_in_seconds");
+        get => GetArgument<TerraformValue<double>>("delay_in_seconds");
         set => SetArgument("delay_in_seconds", value);
     }
 
@@ -15788,7 +15788,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -15810,7 +15810,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -15819,7 +15819,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -15829,7 +15829,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -15861,7 +15861,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -15871,7 +15871,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -15894,7 +15894,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -15917,7 +15917,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -15989,7 +15989,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -16011,7 +16011,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -16020,7 +16020,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -16030,7 +16030,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -16062,7 +16062,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -16072,7 +16072,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -16095,7 +16095,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -16118,7 +16118,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -16140,7 +16140,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -16150,7 +16150,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrequencyInSeconds is required")]
     public required TerraformValue<double> FrequencyInSeconds
     {
-        get => new TerraformReference<double>(this, "frequency_in_seconds");
+        get => GetArgument<TerraformValue<double>>("frequency_in_seconds");
         set => SetArgument("frequency_in_seconds", value);
     }
 
@@ -16262,7 +16262,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -16284,7 +16284,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -16293,7 +16293,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -16303,7 +16303,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -16335,7 +16335,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -16345,7 +16345,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -16368,7 +16368,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -16391,7 +16391,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -16463,7 +16463,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -16485,7 +16485,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -16494,7 +16494,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -16504,7 +16504,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -16536,7 +16536,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -16546,7 +16546,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -16569,7 +16569,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -16592,7 +16592,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockFulfillmentUpdatesSpeci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -16709,7 +16709,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -16750,7 +16750,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -16800,7 +16800,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressionString is required")]
     public required TerraformValue<string> ExpressionString
     {
-        get => new TerraformReference<string>(this, "expression_string");
+        get => GetArgument<TerraformValue<string>>("expression_string");
         set => SetArgument("expression_string", value);
     }
 
@@ -16822,7 +16822,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -16862,7 +16862,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -16871,7 +16871,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -16881,7 +16881,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -16903,7 +16903,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -16935,7 +16935,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -16944,7 +16944,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -16975,7 +16975,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -16997,7 +16997,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -17109,7 +17109,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -17131,7 +17131,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -17140,7 +17140,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -17150,7 +17150,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -17182,7 +17182,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -17192,7 +17192,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -17215,7 +17215,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -17238,7 +17238,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -17310,7 +17310,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -17332,7 +17332,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -17341,7 +17341,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -17351,7 +17351,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -17383,7 +17383,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -17393,7 +17393,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -17416,7 +17416,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -17439,7 +17439,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -17492,7 +17492,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -17532,7 +17532,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -17541,7 +17541,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -17551,7 +17551,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -17573,7 +17573,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -17605,7 +17605,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -17614,7 +17614,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -17645,7 +17645,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -17667,7 +17667,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -17779,7 +17779,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -17801,7 +17801,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -17810,7 +17810,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -17820,7 +17820,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -17852,7 +17852,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -17862,7 +17862,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -17885,7 +17885,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -17908,7 +17908,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -17980,7 +17980,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -18002,7 +18002,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -18011,7 +18011,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -18021,7 +18021,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -18053,7 +18053,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -18063,7 +18063,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -18086,7 +18086,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -18109,7 +18109,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -18131,7 +18131,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -18171,7 +18171,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -18180,7 +18180,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -18190,7 +18190,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -18212,7 +18212,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -18244,7 +18244,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -18253,7 +18253,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -18284,7 +18284,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -18306,7 +18306,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -18418,7 +18418,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -18440,7 +18440,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -18449,7 +18449,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -18459,7 +18459,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -18491,7 +18491,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -18501,7 +18501,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -18524,7 +18524,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -18547,7 +18547,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -18619,7 +18619,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -18641,7 +18641,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -18650,7 +18650,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -18660,7 +18660,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -18692,7 +18692,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -18702,7 +18702,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -18725,7 +18725,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -18748,7 +18748,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -18771,7 +18771,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -18812,7 +18812,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -18862,7 +18862,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressionString is required")]
     public required TerraformValue<string> ExpressionString
     {
-        get => new TerraformReference<string>(this, "expression_string");
+        get => GetArgument<TerraformValue<string>>("expression_string");
         set => SetArgument("expression_string", value);
     }
 
@@ -18884,7 +18884,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -18924,7 +18924,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -18933,7 +18933,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -18943,7 +18943,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -18965,7 +18965,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -18997,7 +18997,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -19006,7 +19006,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -19037,7 +19037,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -19059,7 +19059,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -19171,7 +19171,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -19193,7 +19193,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -19202,7 +19202,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -19212,7 +19212,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -19244,7 +19244,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -19254,7 +19254,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -19277,7 +19277,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -19300,7 +19300,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -19372,7 +19372,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -19394,7 +19394,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -19403,7 +19403,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -19413,7 +19413,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -19445,7 +19445,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -19455,7 +19455,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -19478,7 +19478,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -19501,7 +19501,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -19554,7 +19554,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -19594,7 +19594,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -19603,7 +19603,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -19613,7 +19613,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -19635,7 +19635,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -19667,7 +19667,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -19676,7 +19676,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -19707,7 +19707,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -19729,7 +19729,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -19841,7 +19841,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -19863,7 +19863,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -19872,7 +19872,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -19882,7 +19882,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -19914,7 +19914,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -19924,7 +19924,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -19947,7 +19947,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -19970,7 +19970,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -20042,7 +20042,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -20064,7 +20064,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -20073,7 +20073,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -20083,7 +20083,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -20115,7 +20115,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -20125,7 +20125,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -20148,7 +20148,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -20171,7 +20171,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -20193,7 +20193,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -20233,7 +20233,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -20242,7 +20242,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -20252,7 +20252,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -20274,7 +20274,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -20306,7 +20306,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -20315,7 +20315,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -20346,7 +20346,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -20368,7 +20368,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -20480,7 +20480,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -20502,7 +20502,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -20511,7 +20511,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -20521,7 +20521,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -20553,7 +20553,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -20563,7 +20563,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -20586,7 +20586,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -20609,7 +20609,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -20681,7 +20681,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -20703,7 +20703,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -20712,7 +20712,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -20722,7 +20722,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -20754,7 +20754,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -20764,7 +20764,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -20787,7 +20787,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -20810,7 +20810,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -20833,7 +20833,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -20874,7 +20874,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -20924,7 +20924,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressionString is required")]
     public required TerraformValue<string> ExpressionString
     {
-        get => new TerraformReference<string>(this, "expression_string");
+        get => GetArgument<TerraformValue<string>>("expression_string");
         set => SetArgument("expression_string", value);
     }
 
@@ -20946,7 +20946,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -20986,7 +20986,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -20995,7 +20995,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -21005,7 +21005,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -21027,7 +21027,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -21059,7 +21059,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -21068,7 +21068,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -21099,7 +21099,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -21121,7 +21121,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -21233,7 +21233,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -21255,7 +21255,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -21264,7 +21264,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -21274,7 +21274,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -21306,7 +21306,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -21316,7 +21316,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -21339,7 +21339,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -21362,7 +21362,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -21434,7 +21434,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -21456,7 +21456,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -21465,7 +21465,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -21475,7 +21475,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -21507,7 +21507,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -21517,7 +21517,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -21540,7 +21540,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -21563,7 +21563,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -21616,7 +21616,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -21656,7 +21656,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -21665,7 +21665,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -21675,7 +21675,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -21697,7 +21697,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -21729,7 +21729,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -21738,7 +21738,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -21769,7 +21769,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -21791,7 +21791,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -21903,7 +21903,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -21925,7 +21925,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -21934,7 +21934,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -21944,7 +21944,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -21976,7 +21976,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -21986,7 +21986,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -22009,7 +22009,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -22032,7 +22032,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -22104,7 +22104,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -22126,7 +22126,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -22135,7 +22135,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -22145,7 +22145,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -22177,7 +22177,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -22187,7 +22187,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -22210,7 +22210,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -22233,7 +22233,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -22255,7 +22255,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -22295,7 +22295,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -22304,7 +22304,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -22314,7 +22314,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -22336,7 +22336,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -22368,7 +22368,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -22377,7 +22377,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -22408,7 +22408,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -22430,7 +22430,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -22542,7 +22542,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -22564,7 +22564,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -22573,7 +22573,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -22583,7 +22583,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -22615,7 +22615,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -22625,7 +22625,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -22648,7 +22648,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -22671,7 +22671,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -22743,7 +22743,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -22765,7 +22765,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -22774,7 +22774,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -22784,7 +22784,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -22816,7 +22816,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -22826,7 +22826,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -22849,7 +22849,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -22872,7 +22872,7 @@ public class AwsLexv2modelsIntentFulfillmentCodeHookBlockPostFulfillmentStatusSp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -22945,7 +22945,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -22955,7 +22955,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableCodeHookInvocation is required")]
     public required TerraformValue<bool> EnableCodeHookInvocation
     {
-        get => new TerraformReference<bool>(this, "enable_code_hook_invocation");
+        get => GetArgument<TerraformValue<bool>>("enable_code_hook_invocation");
         set => SetArgument("enable_code_hook_invocation", value);
     }
 
@@ -22964,7 +22964,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlock : Terr
     /// </summary>
     public TerraformValue<string>? InvocationLabel
     {
-        get => new TerraformReference<string>(this, "invocation_label");
+        get => GetArgument<TerraformValue<string>>("invocation_label");
         set => SetArgument("invocation_label", value);
     }
 
@@ -23090,7 +23090,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -23131,7 +23131,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -23181,7 +23181,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressionString is required")]
     public required TerraformValue<string> ExpressionString
     {
-        get => new TerraformReference<string>(this, "expression_string");
+        get => GetArgument<TerraformValue<string>>("expression_string");
         set => SetArgument("expression_string", value);
     }
 
@@ -23203,7 +23203,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -23243,7 +23243,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -23252,7 +23252,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -23262,7 +23262,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -23284,7 +23284,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -23316,7 +23316,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -23325,7 +23325,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -23356,7 +23356,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -23378,7 +23378,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -23490,7 +23490,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -23512,7 +23512,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -23521,7 +23521,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -23531,7 +23531,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -23563,7 +23563,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -23573,7 +23573,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -23596,7 +23596,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -23619,7 +23619,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -23691,7 +23691,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -23713,7 +23713,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -23722,7 +23722,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -23732,7 +23732,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -23764,7 +23764,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -23774,7 +23774,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -23797,7 +23797,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -23820,7 +23820,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -23873,7 +23873,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -23913,7 +23913,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -23922,7 +23922,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -23932,7 +23932,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -23954,7 +23954,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -23986,7 +23986,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -23995,7 +23995,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -24026,7 +24026,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -24048,7 +24048,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -24160,7 +24160,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -24182,7 +24182,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -24191,7 +24191,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -24201,7 +24201,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -24233,7 +24233,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -24243,7 +24243,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -24266,7 +24266,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -24289,7 +24289,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -24361,7 +24361,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -24383,7 +24383,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -24392,7 +24392,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -24402,7 +24402,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -24434,7 +24434,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -24444,7 +24444,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -24467,7 +24467,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -24490,7 +24490,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -24512,7 +24512,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -24552,7 +24552,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -24561,7 +24561,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -24571,7 +24571,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -24593,7 +24593,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -24625,7 +24625,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -24634,7 +24634,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -24665,7 +24665,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -24687,7 +24687,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -24799,7 +24799,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -24821,7 +24821,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -24830,7 +24830,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -24840,7 +24840,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -24872,7 +24872,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -24882,7 +24882,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -24905,7 +24905,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -24928,7 +24928,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -25000,7 +25000,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -25022,7 +25022,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -25031,7 +25031,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -25041,7 +25041,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -25073,7 +25073,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -25083,7 +25083,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -25106,7 +25106,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -25129,7 +25129,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -25152,7 +25152,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -25193,7 +25193,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -25243,7 +25243,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressionString is required")]
     public required TerraformValue<string> ExpressionString
     {
-        get => new TerraformReference<string>(this, "expression_string");
+        get => GetArgument<TerraformValue<string>>("expression_string");
         set => SetArgument("expression_string", value);
     }
 
@@ -25265,7 +25265,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -25305,7 +25305,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -25314,7 +25314,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -25324,7 +25324,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -25346,7 +25346,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -25378,7 +25378,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -25387,7 +25387,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -25418,7 +25418,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -25440,7 +25440,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -25552,7 +25552,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -25574,7 +25574,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -25583,7 +25583,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -25593,7 +25593,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -25625,7 +25625,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -25635,7 +25635,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -25658,7 +25658,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -25681,7 +25681,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -25753,7 +25753,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -25775,7 +25775,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -25784,7 +25784,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -25794,7 +25794,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -25826,7 +25826,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -25836,7 +25836,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -25859,7 +25859,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -25882,7 +25882,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -25935,7 +25935,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -25975,7 +25975,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -25984,7 +25984,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -25994,7 +25994,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -26016,7 +26016,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -26048,7 +26048,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -26057,7 +26057,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -26088,7 +26088,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -26110,7 +26110,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -26222,7 +26222,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -26244,7 +26244,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -26253,7 +26253,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -26263,7 +26263,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -26295,7 +26295,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -26305,7 +26305,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -26328,7 +26328,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -26351,7 +26351,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -26423,7 +26423,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -26445,7 +26445,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -26454,7 +26454,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -26464,7 +26464,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -26496,7 +26496,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -26506,7 +26506,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -26529,7 +26529,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -26552,7 +26552,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -26574,7 +26574,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -26614,7 +26614,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -26623,7 +26623,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -26633,7 +26633,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -26655,7 +26655,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -26687,7 +26687,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -26696,7 +26696,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -26727,7 +26727,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -26749,7 +26749,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -26861,7 +26861,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -26883,7 +26883,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -26892,7 +26892,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -26902,7 +26902,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -26934,7 +26934,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -26944,7 +26944,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -26967,7 +26967,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -26990,7 +26990,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -27062,7 +27062,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -27084,7 +27084,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -27093,7 +27093,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -27103,7 +27103,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -27135,7 +27135,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -27145,7 +27145,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -27168,7 +27168,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -27191,7 +27191,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -27214,7 +27214,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -27255,7 +27255,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -27305,7 +27305,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressionString is required")]
     public required TerraformValue<string> ExpressionString
     {
-        get => new TerraformReference<string>(this, "expression_string");
+        get => GetArgument<TerraformValue<string>>("expression_string");
         set => SetArgument("expression_string", value);
     }
 
@@ -27327,7 +27327,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -27367,7 +27367,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -27376,7 +27376,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -27386,7 +27386,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -27408,7 +27408,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -27440,7 +27440,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -27449,7 +27449,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -27480,7 +27480,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -27502,7 +27502,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -27614,7 +27614,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -27636,7 +27636,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -27645,7 +27645,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -27655,7 +27655,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -27687,7 +27687,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -27697,7 +27697,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -27720,7 +27720,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -27743,7 +27743,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -27815,7 +27815,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -27837,7 +27837,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -27846,7 +27846,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -27856,7 +27856,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -27888,7 +27888,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -27898,7 +27898,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -27921,7 +27921,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -27944,7 +27944,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -27997,7 +27997,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -28037,7 +28037,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -28046,7 +28046,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -28056,7 +28056,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -28078,7 +28078,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -28110,7 +28110,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -28119,7 +28119,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -28150,7 +28150,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -28172,7 +28172,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -28284,7 +28284,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -28306,7 +28306,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -28315,7 +28315,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -28325,7 +28325,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -28357,7 +28357,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -28367,7 +28367,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -28390,7 +28390,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -28413,7 +28413,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -28485,7 +28485,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -28507,7 +28507,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -28516,7 +28516,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -28526,7 +28526,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -28558,7 +28558,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -28568,7 +28568,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -28591,7 +28591,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -28614,7 +28614,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -28636,7 +28636,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -28676,7 +28676,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -28685,7 +28685,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -28695,7 +28695,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -28717,7 +28717,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -28749,7 +28749,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -28758,7 +28758,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -28789,7 +28789,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -28811,7 +28811,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -28923,7 +28923,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -28945,7 +28945,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -28954,7 +28954,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -28964,7 +28964,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -28996,7 +28996,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -29006,7 +29006,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -29029,7 +29029,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -29052,7 +29052,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -29124,7 +29124,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -29146,7 +29146,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -29155,7 +29155,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -29165,7 +29165,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -29197,7 +29197,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -29207,7 +29207,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -29230,7 +29230,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -29253,7 +29253,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockCodeHookBlockPostCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -29276,7 +29276,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -29317,7 +29317,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29367,7 +29367,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpressionString is required")]
     public required TerraformValue<string> ExpressionString
     {
-        get => new TerraformReference<string>(this, "expression_string");
+        get => GetArgument<TerraformValue<string>>("expression_string");
         set => SetArgument("expression_string", value);
     }
 
@@ -29389,7 +29389,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -29429,7 +29429,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -29438,7 +29438,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -29448,7 +29448,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -29470,7 +29470,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29502,7 +29502,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -29511,7 +29511,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -29542,7 +29542,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -29564,7 +29564,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -29676,7 +29676,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -29698,7 +29698,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -29707,7 +29707,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -29717,7 +29717,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -29749,7 +29749,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -29759,7 +29759,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -29782,7 +29782,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -29805,7 +29805,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -29877,7 +29877,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -29899,7 +29899,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -29908,7 +29908,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -29918,7 +29918,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -29950,7 +29950,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -29960,7 +29960,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -29983,7 +29983,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -30006,7 +30006,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockCond
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -30059,7 +30059,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -30099,7 +30099,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -30108,7 +30108,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -30118,7 +30118,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -30140,7 +30140,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -30172,7 +30172,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -30181,7 +30181,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -30212,7 +30212,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -30234,7 +30234,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -30346,7 +30346,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -30368,7 +30368,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -30377,7 +30377,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -30387,7 +30387,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -30419,7 +30419,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -30429,7 +30429,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -30452,7 +30452,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -30475,7 +30475,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -30547,7 +30547,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -30569,7 +30569,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -30578,7 +30578,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -30588,7 +30588,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -30620,7 +30620,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -30630,7 +30630,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -30653,7 +30653,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -30676,7 +30676,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockConditionalBlockDefa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -30698,7 +30698,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockInitialResponseBlock
     /// </summary>
     public TerraformValue<bool>? AllowInterrupt
     {
-        get => new TerraformReference<bool>(this, "allow_interrupt");
+        get => GetArgument<TerraformValue<bool>>("allow_interrupt");
         set => SetArgument("allow_interrupt", value);
     }
 
@@ -30810,7 +30810,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockInitialResponseBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -30832,7 +30832,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockInitialResponseBlock
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -30841,7 +30841,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockInitialResponseBlock
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -30851,7 +30851,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockInitialResponseBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -30883,7 +30883,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockInitialResponseBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -30893,7 +30893,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockInitialResponseBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -30916,7 +30916,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockInitialResponseBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -30939,7 +30939,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockInitialResponseBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -31011,7 +31011,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockInitialResponseBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -31033,7 +31033,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockInitialResponseBlock
     /// </summary>
     public TerraformValue<string>? ImageUrl
     {
-        get => new TerraformReference<string>(this, "image_url");
+        get => GetArgument<TerraformValue<string>>("image_url");
         set => SetArgument("image_url", value);
     }
 
@@ -31042,7 +31042,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockInitialResponseBlock
     /// </summary>
     public TerraformValue<string>? Subtitle
     {
-        get => new TerraformReference<string>(this, "subtitle");
+        get => GetArgument<TerraformValue<string>>("subtitle");
         set => SetArgument("subtitle", value);
     }
 
@@ -31052,7 +31052,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockInitialResponseBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -31084,7 +31084,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockInitialResponseBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -31094,7 +31094,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockInitialResponseBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -31117,7 +31117,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockInitialResponseBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -31140,7 +31140,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockInitialResponseBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -31162,7 +31162,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockNextStepBlock : Terr
     /// </summary>
     public TerraformMap<string>? SessionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "session_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("session_attributes");
         set => SetArgument("session_attributes", value);
     }
 
@@ -31202,7 +31202,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockNextStepBlockDialogA
     /// </summary>
     public TerraformValue<string>? SlotToElicit
     {
-        get => new TerraformReference<string>(this, "slot_to_elicit");
+        get => GetArgument<TerraformValue<string>>("slot_to_elicit");
         set => SetArgument("slot_to_elicit", value);
     }
 
@@ -31211,7 +31211,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockNextStepBlockDialogA
     /// </summary>
     public TerraformValue<bool>? SuppressNextMessage
     {
-        get => new TerraformReference<bool>(this, "suppress_next_message");
+        get => GetArgument<TerraformValue<bool>>("suppress_next_message");
         set => SetArgument("suppress_next_message", value);
     }
 
@@ -31221,7 +31221,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockNextStepBlockDialogA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -31243,7 +31243,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockNextStepBlockIntentB
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -31275,7 +31275,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockNextStepBlockIntentB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -31284,7 +31284,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockNextStepBlockIntentB
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -31315,7 +31315,7 @@ public class AwsLexv2modelsIntentInitialResponseSettingBlockNextStepBlockIntentB
     /// </summary>
     public TerraformValue<string>? InterpretedValue
     {
-        get => new TerraformReference<string>(this, "interpreted_value");
+        get => GetArgument<TerraformValue<string>>("interpreted_value");
         set => SetArgument("interpreted_value", value);
     }
 
@@ -31339,7 +31339,7 @@ public class AwsLexv2modelsIntentInputContextBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -31363,7 +31363,7 @@ public class AwsLexv2modelsIntentKendraConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KendraIndex is required")]
     public required TerraformValue<string> KendraIndex
     {
-        get => new TerraformReference<string>(this, "kendra_index");
+        get => GetArgument<TerraformValue<string>>("kendra_index");
         set => SetArgument("kendra_index", value);
     }
 
@@ -31372,7 +31372,7 @@ public class AwsLexv2modelsIntentKendraConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? QueryFilterString
     {
-        get => new TerraformReference<string>(this, "query_filter_string");
+        get => GetArgument<TerraformValue<string>>("query_filter_string");
         set => SetArgument("query_filter_string", value);
     }
 
@@ -31381,7 +31381,7 @@ public class AwsLexv2modelsIntentKendraConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? QueryFilterStringEnabled
     {
-        get => new TerraformReference<bool>(this, "query_filter_string_enabled");
+        get => GetArgument<TerraformValue<bool>>("query_filter_string_enabled");
         set => SetArgument("query_filter_string_enabled", value);
     }
 
@@ -31405,7 +31405,7 @@ public class AwsLexv2modelsIntentOutputContextBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -31415,7 +31415,7 @@ public class AwsLexv2modelsIntentOutputContextBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeToLiveInSeconds is required")]
     public required TerraformValue<double> TimeToLiveInSeconds
     {
-        get => new TerraformReference<double>(this, "time_to_live_in_seconds");
+        get => GetArgument<TerraformValue<double>>("time_to_live_in_seconds");
         set => SetArgument("time_to_live_in_seconds", value);
     }
 
@@ -31425,7 +31425,7 @@ public class AwsLexv2modelsIntentOutputContextBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TurnsToLive is required")]
     public required TerraformValue<double> TurnsToLive
     {
-        get => new TerraformReference<double>(this, "turns_to_live");
+        get => GetArgument<TerraformValue<double>>("turns_to_live");
         set => SetArgument("turns_to_live", value);
     }
 
@@ -31449,7 +31449,7 @@ public class AwsLexv2modelsIntentSampleUtteranceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Utterance is required")]
     public required TerraformValue<string> Utterance
     {
-        get => new TerraformReference<string>(this, "utterance");
+        get => GetArgument<TerraformValue<string>>("utterance");
         set => SetArgument("utterance", value);
     }
 
@@ -31473,7 +31473,7 @@ public class AwsLexv2modelsIntentSlotPriorityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -31483,7 +31483,7 @@ public class AwsLexv2modelsIntentSlotPriorityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotId is required")]
     public required TerraformValue<string> SlotId
     {
-        get => new TerraformReference<string>(this, "slot_id");
+        get => GetArgument<TerraformValue<string>>("slot_id");
         set => SetArgument("slot_id", value);
     }
 
@@ -31506,7 +31506,7 @@ public class AwsLexv2modelsIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -31515,7 +31515,7 @@ public class AwsLexv2modelsIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -31524,7 +31524,7 @@ public class AwsLexv2modelsIntentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -31543,7 +31543,7 @@ public partial class AwsLexv2modelsIntent(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotId is required")]
     public required TerraformValue<string> BotId
     {
-        get => new TerraformReference<string>(this, "bot_id");
+        get => GetArgument<TerraformValue<string>>("bot_id");
         set => SetArgument("bot_id", value);
     }
 
@@ -31553,7 +31553,7 @@ public partial class AwsLexv2modelsIntent(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotVersion is required")]
     public required TerraformValue<string> BotVersion
     {
-        get => new TerraformReference<string>(this, "bot_version");
+        get => GetArgument<TerraformValue<string>>("bot_version");
         set => SetArgument("bot_version", value);
     }
 
@@ -31562,7 +31562,7 @@ public partial class AwsLexv2modelsIntent(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -31572,7 +31572,7 @@ public partial class AwsLexv2modelsIntent(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocaleId is required")]
     public required TerraformValue<string> LocaleId
     {
-        get => new TerraformReference<string>(this, "locale_id");
+        get => GetArgument<TerraformValue<string>>("locale_id");
         set => SetArgument("locale_id", value);
     }
 
@@ -31582,7 +31582,7 @@ public partial class AwsLexv2modelsIntent(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -31591,16 +31591,16 @@ public partial class AwsLexv2modelsIntent(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? ParentIntentSignature
     {
-        get => new TerraformReference<string>(this, "parent_intent_signature");
+        get => GetArgument<TerraformValue<string>>("parent_intent_signature");
         set => SetArgument("parent_intent_signature", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -31608,33 +31608,25 @@ public partial class AwsLexv2modelsIntent(string name) : TerraformResource("aws_
     /// The creation_date_time attribute.
     /// </summary>
     public TerraformValue<string> CreationDateTime
-    {
-        get => new TerraformReference<string>(this, "creation_date_time");
-    }
+        => AsReference("creation_date_time");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The intent_id attribute.
     /// </summary>
     public TerraformValue<string> IntentId
-    {
-        get => new TerraformReference<string>(this, "intent_id");
-    }
+        => AsReference("intent_id");
 
     /// <summary>
     /// The last_updated_date_time attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedDateTime
-    {
-        get => new TerraformReference<string>(this, "last_updated_date_time");
-    }
+        => AsReference("last_updated_date_time");
 
     /// <summary>
     /// ClosingSetting block (nesting mode: list).

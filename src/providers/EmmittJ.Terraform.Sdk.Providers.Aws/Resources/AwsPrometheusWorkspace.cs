@@ -19,7 +19,7 @@ public class AwsPrometheusWorkspaceLoggingConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupArn is required")]
     public required TerraformValue<string> LogGroupArn
     {
-        get => new TerraformReference<string>(this, "log_group_arn");
+        get => GetArgument<TerraformValue<string>>("log_group_arn");
         set => SetArgument("log_group_arn", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AwsPrometheusWorkspace(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? Alias
     {
-        get => new TerraformReference<string>(this, "alias");
+        get => GetArgument<TerraformValue<string>>("alias");
         set => SetArgument("alias", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AwsPrometheusWorkspace(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -73,16 +73,16 @@ public partial class AwsPrometheusWorkspace(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -90,17 +90,13 @@ public partial class AwsPrometheusWorkspace(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The prometheus_endpoint attribute.
     /// </summary>
     public TerraformValue<string> PrometheusEndpoint
-    {
-        get => new TerraformReference<string>(this, "prometheus_endpoint");
-    }
+        => AsReference("prometheus_endpoint");
 
     /// <summary>
     /// LoggingConfiguration block (nesting mode: list).

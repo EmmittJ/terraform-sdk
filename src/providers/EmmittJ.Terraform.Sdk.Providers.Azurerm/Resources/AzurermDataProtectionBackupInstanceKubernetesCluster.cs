@@ -18,7 +18,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourc
     /// </summary>
     public TerraformValue<bool>? ClusterScopedResourcesEnabled
     {
-        get => new TerraformReference<bool>(this, "cluster_scoped_resources_enabled");
+        get => GetArgument<TerraformValue<bool>>("cluster_scoped_resources_enabled");
         set => SetArgument("cluster_scoped_resources_enabled", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourc
     /// </summary>
     public TerraformList<string>? ExcludedNamespaces
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_namespaces").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excluded_namespaces");
         set => SetArgument("excluded_namespaces", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourc
     /// </summary>
     public TerraformList<string>? ExcludedResourceTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_resource_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excluded_resource_types");
         set => SetArgument("excluded_resource_types", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourc
     /// </summary>
     public TerraformList<string>? IncludedNamespaces
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_namespaces").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("included_namespaces");
         set => SetArgument("included_namespaces", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourc
     /// </summary>
     public TerraformList<string>? IncludedResourceTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_resource_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("included_resource_types");
         set => SetArgument("included_resource_types", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourc
     /// </summary>
     public TerraformList<string>? LabelSelectors
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "label_selectors").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("label_selectors");
         set => SetArgument("label_selectors", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourc
     /// </summary>
     public TerraformValue<bool>? VolumeSnapshotEnabled
     {
-        get => new TerraformReference<bool>(this, "volume_snapshot_enabled");
+        get => GetArgument<TerraformValue<bool>>("volume_snapshot_enabled");
         set => SetArgument("volume_snapshot_enabled", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterTimeoutsBlock :
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterTimeoutsBlock :
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterTimeoutsBlock :
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -132,16 +132,16 @@ public partial class AzurermDataProtectionBackupInstanceKubernetesCluster(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPolicyId is required")]
     public required TerraformValue<string> BackupPolicyId
     {
-        get => new TerraformReference<string>(this, "backup_policy_id");
+        get => GetArgument<TerraformValue<string>>("backup_policy_id");
         set => SetArgument("backup_policy_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AzurermDataProtectionBackupInstanceKubernetesCluster(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesClusterId is required")]
     public required TerraformValue<string> KubernetesClusterId
     {
-        get => new TerraformReference<string>(this, "kubernetes_cluster_id");
+        get => GetArgument<TerraformValue<string>>("kubernetes_cluster_id");
         set => SetArgument("kubernetes_cluster_id", value);
     }
 
@@ -161,7 +161,7 @@ public partial class AzurermDataProtectionBackupInstanceKubernetesCluster(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AzurermDataProtectionBackupInstanceKubernetesCluster(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AzurermDataProtectionBackupInstanceKubernetesCluster(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotResourceGroupName is required")]
     public required TerraformValue<string> SnapshotResourceGroupName
     {
-        get => new TerraformReference<string>(this, "snapshot_resource_group_name");
+        get => GetArgument<TerraformValue<string>>("snapshot_resource_group_name");
         set => SetArgument("snapshot_resource_group_name", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AzurermDataProtectionBackupInstanceKubernetesCluster(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
     public required TerraformValue<string> VaultId
     {
-        get => new TerraformReference<string>(this, "vault_id");
+        get => GetArgument<TerraformValue<string>>("vault_id");
         set => SetArgument("vault_id", value);
     }
 

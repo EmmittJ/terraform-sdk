@@ -19,7 +19,7 @@ public class AzurermServicebusNamespaceCustomerManagedKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityId is required")]
     public required TerraformValue<string> IdentityId
     {
-        get => new TerraformReference<string>(this, "identity_id");
+        get => GetArgument<TerraformValue<string>>("identity_id");
         set => SetArgument("identity_id", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermServicebusNamespaceCustomerManagedKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? InfrastructureEncryptionEnabled
     {
-        get => new TerraformReference<bool>(this, "infrastructure_encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("infrastructure_encryption_enabled");
         set => SetArgument("infrastructure_encryption_enabled", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermServicebusNamespaceCustomerManagedKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
     public required TerraformValue<string> KeyVaultKeyId
     {
-        get => new TerraformReference<string>(this, "key_vault_key_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_key_id");
         set => SetArgument("key_vault_key_id", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermServicebusNamespaceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -69,17 +69,13 @@ public class AzurermServicebusNamespaceIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -87,7 +83,7 @@ public class AzurermServicebusNamespaceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -110,7 +106,7 @@ public class AzurermServicebusNamespaceNetworkRuleSetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DefaultAction
     {
-        get => new TerraformReference<string>(this, "default_action");
+        get => GetArgument<TerraformValue<string>>("default_action");
         set => SetArgument("default_action", value);
     }
 
@@ -119,7 +115,7 @@ public class AzurermServicebusNamespaceNetworkRuleSetBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IpRules
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ip_rules").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("ip_rules");
         set => SetArgument("ip_rules", value);
     }
 
@@ -128,7 +124,7 @@ public class AzurermServicebusNamespaceNetworkRuleSetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -137,7 +133,7 @@ public class AzurermServicebusNamespaceNetworkRuleSetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? TrustedServicesAllowed
     {
-        get => new TerraformReference<bool>(this, "trusted_services_allowed");
+        get => GetArgument<TerraformValue<bool>>("trusted_services_allowed");
         set => SetArgument("trusted_services_allowed", value);
     }
 
@@ -168,7 +164,7 @@ public class AzurermServicebusNamespaceNetworkRuleSetBlockNetworkRulesBlock : Te
     /// </summary>
     public TerraformValue<bool>? IgnoreMissingVnetServiceEndpoint
     {
-        get => new TerraformReference<bool>(this, "ignore_missing_vnet_service_endpoint");
+        get => GetArgument<TerraformValue<bool>>("ignore_missing_vnet_service_endpoint");
         set => SetArgument("ignore_missing_vnet_service_endpoint", value);
     }
 
@@ -178,7 +174,7 @@ public class AzurermServicebusNamespaceNetworkRuleSetBlockNetworkRulesBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -201,7 +197,7 @@ public class AzurermServicebusNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -210,7 +206,7 @@ public class AzurermServicebusNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -219,7 +215,7 @@ public class AzurermServicebusNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -228,7 +224,7 @@ public class AzurermServicebusNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -246,16 +242,16 @@ public partial class AzurermServicebusNamespace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<double>? Capacity
     {
-        get => new TerraformReference<double>(this, "capacity");
+        get => GetArgument<TerraformValue<double>>("capacity");
         set => SetArgument("capacity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -264,7 +260,7 @@ public partial class AzurermServicebusNamespace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? LocalAuthEnabled
     {
-        get => new TerraformReference<bool>(this, "local_auth_enabled");
+        get => GetArgument<TerraformValue<bool>>("local_auth_enabled");
         set => SetArgument("local_auth_enabled", value);
     }
 
@@ -274,7 +270,7 @@ public partial class AzurermServicebusNamespace(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -283,7 +279,7 @@ public partial class AzurermServicebusNamespace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? MinimumTlsVersion
     {
-        get => new TerraformReference<string>(this, "minimum_tls_version");
+        get => GetArgument<TerraformValue<string>>("minimum_tls_version");
         set => SetArgument("minimum_tls_version", value);
     }
 
@@ -293,7 +289,7 @@ public partial class AzurermServicebusNamespace(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -302,7 +298,7 @@ public partial class AzurermServicebusNamespace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<double>? PremiumMessagingPartitions
     {
-        get => new TerraformReference<double>(this, "premium_messaging_partitions");
+        get => GetArgument<TerraformValue<double>>("premium_messaging_partitions");
         set => SetArgument("premium_messaging_partitions", value);
     }
 
@@ -311,7 +307,7 @@ public partial class AzurermServicebusNamespace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -321,7 +317,7 @@ public partial class AzurermServicebusNamespace(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -331,7 +327,7 @@ public partial class AzurermServicebusNamespace(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformValue<string> Sku
     {
-        get => new TerraformReference<string>(this, "sku");
+        get => GetArgument<TerraformValue<string>>("sku");
         set => SetArgument("sku", value);
     }
 
@@ -340,7 +336,7 @@ public partial class AzurermServicebusNamespace(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -348,41 +344,31 @@ public partial class AzurermServicebusNamespace(string name) : TerraformResource
     /// The default_primary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> DefaultPrimaryConnectionString
-    {
-        get => new TerraformReference<string>(this, "default_primary_connection_string");
-    }
+        => AsReference("default_primary_connection_string");
 
     /// <summary>
     /// The default_primary_key attribute.
     /// </summary>
     public TerraformValue<string> DefaultPrimaryKey
-    {
-        get => new TerraformReference<string>(this, "default_primary_key");
-    }
+        => AsReference("default_primary_key");
 
     /// <summary>
     /// The default_secondary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> DefaultSecondaryConnectionString
-    {
-        get => new TerraformReference<string>(this, "default_secondary_connection_string");
-    }
+        => AsReference("default_secondary_connection_string");
 
     /// <summary>
     /// The default_secondary_key attribute.
     /// </summary>
     public TerraformValue<string> DefaultSecondaryKey
-    {
-        get => new TerraformReference<string>(this, "default_secondary_key");
-    }
+        => AsReference("default_secondary_key");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// CustomerManagedKey block (nesting mode: list).

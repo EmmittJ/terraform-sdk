@@ -18,7 +18,7 @@ public class AzurermVirtualHubDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermVirtualHubDataSource(string name) : TerraformDataSou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermVirtualHubDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermVirtualHubDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,57 +64,43 @@ public partial class AzurermVirtualHubDataSource(string name) : TerraformDataSou
     /// The address_prefix attribute.
     /// </summary>
     public TerraformValue<string> AddressPrefix
-    {
-        get => new TerraformReference<string>(this, "address_prefix");
-    }
+        => AsReference("address_prefix");
 
     /// <summary>
     /// The default_route_table_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultRouteTableId
-    {
-        get => new TerraformReference<string>(this, "default_route_table_id");
-    }
+        => AsReference("default_route_table_id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The virtual_router_asn attribute.
     /// </summary>
     public TerraformValue<double> VirtualRouterAsn
-    {
-        get => new TerraformReference<double>(this, "virtual_router_asn");
-    }
+        => AsReference("virtual_router_asn");
 
     /// <summary>
     /// The virtual_router_ips attribute.
     /// </summary>
     public TerraformList<string> VirtualRouterIps
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "virtual_router_ips").ResolveNodes(ctx));
-    }
+        => AsReference("virtual_router_ips");
 
     /// <summary>
     /// The virtual_wan_id attribute.
     /// </summary>
     public TerraformValue<string> VirtualWanId
-    {
-        get => new TerraformReference<string>(this, "virtual_wan_id");
-    }
+        => AsReference("virtual_wan_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

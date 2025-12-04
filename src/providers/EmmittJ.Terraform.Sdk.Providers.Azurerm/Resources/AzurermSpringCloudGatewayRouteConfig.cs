@@ -18,7 +18,7 @@ public class AzurermSpringCloudGatewayRouteConfigOpenApiBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -41,7 +41,7 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ClassificationTags
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "classification_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("classification_tags");
         set => SetArgument("classification_tags", value);
     }
 
@@ -50,7 +50,7 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Filters
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "filters").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("filters");
         set => SetArgument("filters", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformValue<double> Order
     {
-        get => new TerraformReference<double>(this, "order");
+        get => GetArgument<TerraformValue<double>>("order");
         set => SetArgument("order", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Predicates
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "predicates").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("predicates");
         set => SetArgument("predicates", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SsoValidationEnabled
     {
-        get => new TerraformReference<bool>(this, "sso_validation_enabled");
+        get => GetArgument<TerraformValue<bool>>("sso_validation_enabled");
         set => SetArgument("sso_validation_enabled", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? TokenRelay
     {
-        get => new TerraformReference<bool>(this, "token_relay");
+        get => GetArgument<TerraformValue<bool>>("token_relay");
         set => SetArgument("token_relay", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -137,7 +137,7 @@ public class AzurermSpringCloudGatewayRouteConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -146,7 +146,7 @@ public class AzurermSpringCloudGatewayRouteConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -155,7 +155,7 @@ public class AzurermSpringCloudGatewayRouteConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -164,7 +164,7 @@ public class AzurermSpringCloudGatewayRouteConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -182,16 +182,16 @@ public partial class AzurermSpringCloudGatewayRouteConfig(string name) : Terrafo
     /// </summary>
     public TerraformSet<string>? Filters
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "filters").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("filters");
         set => SetArgument("filters", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -201,7 +201,7 @@ public partial class AzurermSpringCloudGatewayRouteConfig(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -210,7 +210,7 @@ public partial class AzurermSpringCloudGatewayRouteConfig(string name) : Terrafo
     /// </summary>
     public TerraformSet<string>? Predicates
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "predicates").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("predicates");
         set => SetArgument("predicates", value);
     }
 
@@ -220,7 +220,7 @@ public partial class AzurermSpringCloudGatewayRouteConfig(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -229,7 +229,7 @@ public partial class AzurermSpringCloudGatewayRouteConfig(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? SpringCloudAppId
     {
-        get => new TerraformReference<string>(this, "spring_cloud_app_id");
+        get => GetArgument<TerraformValue<string>>("spring_cloud_app_id");
         set => SetArgument("spring_cloud_app_id", value);
     }
 
@@ -239,7 +239,7 @@ public partial class AzurermSpringCloudGatewayRouteConfig(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudGatewayId is required")]
     public required TerraformValue<string> SpringCloudGatewayId
     {
-        get => new TerraformReference<string>(this, "spring_cloud_gateway_id");
+        get => GetArgument<TerraformValue<string>>("spring_cloud_gateway_id");
         set => SetArgument("spring_cloud_gateway_id", value);
     }
 
@@ -248,7 +248,7 @@ public partial class AzurermSpringCloudGatewayRouteConfig(string name) : Terrafo
     /// </summary>
     public TerraformValue<bool>? SsoValidationEnabled
     {
-        get => new TerraformReference<bool>(this, "sso_validation_enabled");
+        get => GetArgument<TerraformValue<bool>>("sso_validation_enabled");
         set => SetArgument("sso_validation_enabled", value);
     }
 

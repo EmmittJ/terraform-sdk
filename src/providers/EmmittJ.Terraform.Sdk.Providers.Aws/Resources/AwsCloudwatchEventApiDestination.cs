@@ -14,7 +14,7 @@ public partial class AwsCloudwatchEventApiDestination(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionArn is required")]
     public required TerraformValue<string> ConnectionArn
     {
-        get => new TerraformReference<string>(this, "connection_arn");
+        get => GetArgument<TerraformValue<string>>("connection_arn");
         set => SetArgument("connection_arn", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsCloudwatchEventApiDestination(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsCloudwatchEventApiDestination(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpMethod is required")]
     public required TerraformValue<string> HttpMethod
     {
-        get => new TerraformReference<string>(this, "http_method");
+        get => GetArgument<TerraformValue<string>>("http_method");
         set => SetArgument("http_method", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsCloudwatchEventApiDestination(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InvocationEndpoint is required")]
     public required TerraformValue<string> InvocationEndpoint
     {
-        get => new TerraformReference<string>(this, "invocation_endpoint");
+        get => GetArgument<TerraformValue<string>>("invocation_endpoint");
         set => SetArgument("invocation_endpoint", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsCloudwatchEventApiDestination(string name) : TerraformRe
     /// </summary>
     public TerraformValue<double>? InvocationRateLimitPerSecond
     {
-        get => new TerraformReference<double>(this, "invocation_rate_limit_per_second");
+        get => GetArgument<TerraformValue<double>>("invocation_rate_limit_per_second");
         set => SetArgument("invocation_rate_limit_per_second", value);
     }
 
@@ -71,16 +71,16 @@ public partial class AwsCloudwatchEventApiDestination(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -88,8 +88,6 @@ public partial class AwsCloudwatchEventApiDestination(string name) : TerraformRe
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

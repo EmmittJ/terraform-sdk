@@ -14,7 +14,7 @@ public partial class GoogleKmsCryptoKeyVersionsDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
     public required TerraformValue<string> CryptoKey
     {
-        get => new TerraformReference<string>(this, "crypto_key");
+        get => GetArgument<TerraformValue<string>>("crypto_key");
         set => SetArgument("crypto_key", value);
     }
 
@@ -31,16 +31,16 @@ public partial class GoogleKmsCryptoKeyVersionsDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -48,16 +48,12 @@ public partial class GoogleKmsCryptoKeyVersionsDataSource(string name) : Terrafo
     /// The public_key attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PublicKey
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "public_key").ResolveNodes(ctx));
-    }
+        => AsReference("public_key");
 
     /// <summary>
     /// A list of all the retrieved cryptoKeyVersions from the provided crypto key
     /// </summary>
     public TerraformList<TerraformMap<object>> Versions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "versions").ResolveNodes(ctx));
-    }
+        => AsReference("versions");
 
 }

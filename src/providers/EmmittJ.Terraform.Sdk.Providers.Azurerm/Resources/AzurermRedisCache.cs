@@ -18,7 +18,7 @@ public class AzurermRedisCacheIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -26,17 +26,13 @@ public class AzurermRedisCacheIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -44,7 +40,7 @@ public class AzurermRedisCacheIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -68,7 +64,7 @@ public class AzurermRedisCachePatchScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformValue<string> DayOfWeek
     {
-        get => new TerraformReference<string>(this, "day_of_week");
+        get => GetArgument<TerraformValue<string>>("day_of_week");
         set => SetArgument("day_of_week", value);
     }
 
@@ -77,7 +73,7 @@ public class AzurermRedisCachePatchScheduleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaintenanceWindow
     {
-        get => new TerraformReference<string>(this, "maintenance_window");
+        get => GetArgument<TerraformValue<string>>("maintenance_window");
         set => SetArgument("maintenance_window", value);
     }
 
@@ -86,7 +82,7 @@ public class AzurermRedisCachePatchScheduleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? StartHourUtc
     {
-        get => new TerraformReference<double>(this, "start_hour_utc");
+        get => GetArgument<TerraformValue<double>>("start_hour_utc");
         set => SetArgument("start_hour_utc", value);
     }
 
@@ -109,7 +105,7 @@ public class AzurermRedisCacheRedisConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ActiveDirectoryAuthenticationEnabled
     {
-        get => new TerraformReference<bool>(this, "active_directory_authentication_enabled");
+        get => GetArgument<TerraformValue<bool>>("active_directory_authentication_enabled");
         set => SetArgument("active_directory_authentication_enabled", value);
     }
 
@@ -118,7 +114,7 @@ public class AzurermRedisCacheRedisConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AofBackupEnabled
     {
-        get => new TerraformReference<bool>(this, "aof_backup_enabled");
+        get => GetArgument<TerraformValue<bool>>("aof_backup_enabled");
         set => SetArgument("aof_backup_enabled", value);
     }
 
@@ -127,7 +123,7 @@ public class AzurermRedisCacheRedisConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AofStorageConnectionString0
     {
-        get => new TerraformReference<string>(this, "aof_storage_connection_string_0");
+        get => GetArgument<TerraformValue<string>>("aof_storage_connection_string_0");
         set => SetArgument("aof_storage_connection_string_0", value);
     }
 
@@ -136,7 +132,7 @@ public class AzurermRedisCacheRedisConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AofStorageConnectionString1
     {
-        get => new TerraformReference<string>(this, "aof_storage_connection_string_1");
+        get => GetArgument<TerraformValue<string>>("aof_storage_connection_string_1");
         set => SetArgument("aof_storage_connection_string_1", value);
     }
 
@@ -145,7 +141,7 @@ public class AzurermRedisCacheRedisConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AuthenticationEnabled
     {
-        get => new TerraformReference<bool>(this, "authentication_enabled");
+        get => GetArgument<TerraformValue<bool>>("authentication_enabled");
         set => SetArgument("authentication_enabled", value);
     }
 
@@ -154,7 +150,7 @@ public class AzurermRedisCacheRedisConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DataPersistenceAuthenticationMethod
     {
-        get => new TerraformReference<string>(this, "data_persistence_authentication_method");
+        get => GetArgument<TerraformValue<string>>("data_persistence_authentication_method");
         set => SetArgument("data_persistence_authentication_method", value);
     }
 
@@ -162,25 +158,23 @@ public class AzurermRedisCacheRedisConfigurationBlock : TerraformBlock
     /// The maxclients attribute.
     /// </summary>
     public TerraformValue<double> Maxclients
-    {
-        get => new TerraformReference<double>(this, "maxclients");
-    }
+        => AsReference("maxclients");
 
     /// <summary>
     /// The maxfragmentationmemory_reserved attribute.
     /// </summary>
-    public TerraformValue<double> MaxfragmentationmemoryReserved
+    public TerraformValue<double>? MaxfragmentationmemoryReserved
     {
-        get => new TerraformReference<double>(this, "maxfragmentationmemory_reserved");
+        get => GetArgument<TerraformValue<double>>("maxfragmentationmemory_reserved");
         set => SetArgument("maxfragmentationmemory_reserved", value);
     }
 
     /// <summary>
     /// The maxmemory_delta attribute.
     /// </summary>
-    public TerraformValue<double> MaxmemoryDelta
+    public TerraformValue<double>? MaxmemoryDelta
     {
-        get => new TerraformReference<double>(this, "maxmemory_delta");
+        get => GetArgument<TerraformValue<double>>("maxmemory_delta");
         set => SetArgument("maxmemory_delta", value);
     }
 
@@ -189,16 +183,16 @@ public class AzurermRedisCacheRedisConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaxmemoryPolicy
     {
-        get => new TerraformReference<string>(this, "maxmemory_policy");
+        get => GetArgument<TerraformValue<string>>("maxmemory_policy");
         set => SetArgument("maxmemory_policy", value);
     }
 
     /// <summary>
     /// The maxmemory_reserved attribute.
     /// </summary>
-    public TerraformValue<double> MaxmemoryReserved
+    public TerraformValue<double>? MaxmemoryReserved
     {
-        get => new TerraformReference<double>(this, "maxmemory_reserved");
+        get => GetArgument<TerraformValue<double>>("maxmemory_reserved");
         set => SetArgument("maxmemory_reserved", value);
     }
 
@@ -207,7 +201,7 @@ public class AzurermRedisCacheRedisConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? NotifyKeyspaceEvents
     {
-        get => new TerraformReference<string>(this, "notify_keyspace_events");
+        get => GetArgument<TerraformValue<string>>("notify_keyspace_events");
         set => SetArgument("notify_keyspace_events", value);
     }
 
@@ -216,7 +210,7 @@ public class AzurermRedisCacheRedisConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? RdbBackupEnabled
     {
-        get => new TerraformReference<bool>(this, "rdb_backup_enabled");
+        get => GetArgument<TerraformValue<bool>>("rdb_backup_enabled");
         set => SetArgument("rdb_backup_enabled", value);
     }
 
@@ -225,7 +219,7 @@ public class AzurermRedisCacheRedisConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? RdbBackupFrequency
     {
-        get => new TerraformReference<double>(this, "rdb_backup_frequency");
+        get => GetArgument<TerraformValue<double>>("rdb_backup_frequency");
         set => SetArgument("rdb_backup_frequency", value);
     }
 
@@ -234,7 +228,7 @@ public class AzurermRedisCacheRedisConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? RdbBackupMaxSnapshotCount
     {
-        get => new TerraformReference<double>(this, "rdb_backup_max_snapshot_count");
+        get => GetArgument<TerraformValue<double>>("rdb_backup_max_snapshot_count");
         set => SetArgument("rdb_backup_max_snapshot_count", value);
     }
 
@@ -243,7 +237,7 @@ public class AzurermRedisCacheRedisConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RdbStorageConnectionString
     {
-        get => new TerraformReference<string>(this, "rdb_storage_connection_string");
+        get => GetArgument<TerraformValue<string>>("rdb_storage_connection_string");
         set => SetArgument("rdb_storage_connection_string", value);
     }
 
@@ -252,7 +246,7 @@ public class AzurermRedisCacheRedisConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StorageAccountSubscriptionId
     {
-        get => new TerraformReference<string>(this, "storage_account_subscription_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_subscription_id");
         set => SetArgument("storage_account_subscription_id", value);
     }
 
@@ -275,7 +269,7 @@ public class AzurermRedisCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -284,7 +278,7 @@ public class AzurermRedisCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -293,7 +287,7 @@ public class AzurermRedisCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -302,7 +296,7 @@ public class AzurermRedisCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -320,7 +314,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<bool>? AccessKeysAuthenticationEnabled
     {
-        get => new TerraformReference<bool>(this, "access_keys_authentication_enabled");
+        get => GetArgument<TerraformValue<bool>>("access_keys_authentication_enabled");
         set => SetArgument("access_keys_authentication_enabled", value);
     }
 
@@ -330,7 +324,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
     public required TerraformValue<double> Capacity
     {
-        get => new TerraformReference<double>(this, "capacity");
+        get => GetArgument<TerraformValue<double>>("capacity");
         set => SetArgument("capacity", value);
     }
 
@@ -340,16 +334,16 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
     public required TerraformValue<string> Family
     {
-        get => new TerraformReference<string>(this, "family");
+        get => GetArgument<TerraformValue<string>>("family");
         set => SetArgument("family", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -359,7 +353,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -368,7 +362,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<string>? MinimumTlsVersion
     {
-        get => new TerraformReference<string>(this, "minimum_tls_version");
+        get => GetArgument<TerraformValue<string>>("minimum_tls_version");
         set => SetArgument("minimum_tls_version", value);
     }
 
@@ -378,7 +372,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -387,16 +381,16 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<bool>? NonSslPortEnabled
     {
-        get => new TerraformReference<bool>(this, "non_ssl_port_enabled");
+        get => GetArgument<TerraformValue<bool>>("non_ssl_port_enabled");
         set => SetArgument("non_ssl_port_enabled", value);
     }
 
     /// <summary>
     /// The private_static_ip_address attribute.
     /// </summary>
-    public TerraformValue<string> PrivateStaticIpAddress
+    public TerraformValue<string>? PrivateStaticIpAddress
     {
-        get => new TerraformReference<string>(this, "private_static_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_static_ip_address");
         set => SetArgument("private_static_ip_address", value);
     }
 
@@ -405,7 +399,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -414,25 +408,25 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<string>? RedisVersion
     {
-        get => new TerraformReference<string>(this, "redis_version");
+        get => GetArgument<TerraformValue<string>>("redis_version");
         set => SetArgument("redis_version", value);
     }
 
     /// <summary>
     /// The replicas_per_master attribute.
     /// </summary>
-    public TerraformValue<double> ReplicasPerMaster
+    public TerraformValue<double>? ReplicasPerMaster
     {
-        get => new TerraformReference<double>(this, "replicas_per_master");
+        get => GetArgument<TerraformValue<double>>("replicas_per_master");
         set => SetArgument("replicas_per_master", value);
     }
 
     /// <summary>
     /// The replicas_per_primary attribute.
     /// </summary>
-    public TerraformValue<double> ReplicasPerPrimary
+    public TerraformValue<double>? ReplicasPerPrimary
     {
-        get => new TerraformReference<double>(this, "replicas_per_primary");
+        get => GetArgument<TerraformValue<double>>("replicas_per_primary");
         set => SetArgument("replicas_per_primary", value);
     }
 
@@ -442,7 +436,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -451,7 +445,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<double>? ShardCount
     {
-        get => new TerraformReference<double>(this, "shard_count");
+        get => GetArgument<TerraformValue<double>>("shard_count");
         set => SetArgument("shard_count", value);
     }
 
@@ -461,7 +455,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => new TerraformReference<string>(this, "sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -470,7 +464,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<string>? SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -479,7 +473,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -488,7 +482,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformMap<string>? TenantSettings
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tenant_settings").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tenant_settings");
         set => SetArgument("tenant_settings", value);
     }
 
@@ -497,7 +491,7 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformSet<string>? Zones
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "zones").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("zones");
         set => SetArgument("zones", value);
     }
 
@@ -505,57 +499,43 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     /// The hostname attribute.
     /// </summary>
     public TerraformValue<string> Hostname
-    {
-        get => new TerraformReference<string>(this, "hostname");
-    }
+        => AsReference("hostname");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     public TerraformValue<double> Port
-    {
-        get => new TerraformReference<double>(this, "port");
-    }
+        => AsReference("port");
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "primary_access_key");
-    }
+        => AsReference("primary_access_key");
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimaryConnectionString
-    {
-        get => new TerraformReference<string>(this, "primary_connection_string");
-    }
+        => AsReference("primary_connection_string");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "secondary_access_key");
-    }
+        => AsReference("secondary_access_key");
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondaryConnectionString
-    {
-        get => new TerraformReference<string>(this, "secondary_connection_string");
-    }
+        => AsReference("secondary_connection_string");
 
     /// <summary>
     /// The ssl_port attribute.
     /// </summary>
     public TerraformValue<double> SslPort
-    {
-        get => new TerraformReference<double>(this, "ssl_port");
-    }
+        => AsReference("ssl_port");
 
     /// <summary>
     /// Identity block (nesting mode: list).

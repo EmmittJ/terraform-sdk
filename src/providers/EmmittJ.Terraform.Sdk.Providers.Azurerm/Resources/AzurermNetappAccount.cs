@@ -18,7 +18,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AesEncryptionEnabled
     {
-        get => new TerraformReference<bool>(this, "aes_encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("aes_encryption_enabled");
         set => SetArgument("aes_encryption_enabled", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsServers is required")]
     public TerraformList<string>? DnsServers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dns_servers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("dns_servers");
         set => SetArgument("dns_servers", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => new TerraformReference<string>(this, "domain");
+        get => GetArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KerberosAdName
     {
-        get => new TerraformReference<string>(this, "kerberos_ad_name");
+        get => GetArgument<TerraformValue<string>>("kerberos_ad_name");
         set => SetArgument("kerberos_ad_name", value);
     }
 
@@ -56,7 +56,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KerberosKdcIp
     {
-        get => new TerraformReference<string>(this, "kerberos_kdc_ip");
+        get => GetArgument<TerraformValue<string>>("kerberos_kdc_ip");
         set => SetArgument("kerberos_kdc_ip", value);
     }
 
@@ -65,7 +65,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? LdapOverTlsEnabled
     {
-        get => new TerraformReference<bool>(this, "ldap_over_tls_enabled");
+        get => GetArgument<TerraformValue<bool>>("ldap_over_tls_enabled");
         set => SetArgument("ldap_over_tls_enabled", value);
     }
 
@@ -74,7 +74,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? LdapSigningEnabled
     {
-        get => new TerraformReference<bool>(this, "ldap_signing_enabled");
+        get => GetArgument<TerraformValue<bool>>("ldap_signing_enabled");
         set => SetArgument("ldap_signing_enabled", value);
     }
 
@@ -83,7 +83,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? LocalNfsUsersWithLdapAllowed
     {
-        get => new TerraformReference<bool>(this, "local_nfs_users_with_ldap_allowed");
+        get => GetArgument<TerraformValue<bool>>("local_nfs_users_with_ldap_allowed");
         set => SetArgument("local_nfs_users_with_ldap_allowed", value);
     }
 
@@ -92,7 +92,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OrganizationalUnit
     {
-        get => new TerraformReference<string>(this, "organizational_unit");
+        get => GetArgument<TerraformValue<string>>("organizational_unit");
         set => SetArgument("organizational_unit", value);
     }
 
@@ -102,7 +102,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -111,7 +111,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ServerRootCaCertificate
     {
-        get => new TerraformReference<string>(this, "server_root_ca_certificate");
+        get => GetArgument<TerraformValue<string>>("server_root_ca_certificate");
         set => SetArgument("server_root_ca_certificate", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SiteName
     {
-        get => new TerraformReference<string>(this, "site_name");
+        get => GetArgument<TerraformValue<string>>("site_name");
         set => SetArgument("site_name", value);
     }
 
@@ -130,7 +130,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SmbServerName is required")]
     public required TerraformValue<string> SmbServerName
     {
-        get => new TerraformReference<string>(this, "smb_server_name");
+        get => GetArgument<TerraformValue<string>>("smb_server_name");
         set => SetArgument("smb_server_name", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -163,7 +163,7 @@ public class AzurermNetappAccountIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -171,17 +171,13 @@ public class AzurermNetappAccountIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -189,7 +185,7 @@ public class AzurermNetappAccountIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -212,7 +208,7 @@ public class AzurermNetappAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -221,7 +217,7 @@ public class AzurermNetappAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -230,7 +226,7 @@ public class AzurermNetappAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -239,7 +235,7 @@ public class AzurermNetappAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -255,9 +251,9 @@ public partial class AzurermNetappAccount(string name) : TerraformResource("azur
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -267,7 +263,7 @@ public partial class AzurermNetappAccount(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -277,7 +273,7 @@ public partial class AzurermNetappAccount(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -287,7 +283,7 @@ public partial class AzurermNetappAccount(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -296,7 +292,7 @@ public partial class AzurermNetappAccount(string name) : TerraformResource("azur
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

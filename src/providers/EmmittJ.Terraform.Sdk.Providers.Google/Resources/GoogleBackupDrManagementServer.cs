@@ -19,7 +19,7 @@ public class GoogleBackupDrManagementServerNetworksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleBackupDrManagementServerNetworksBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PeeringMode
     {
-        get => new TerraformReference<string>(this, "peering_mode");
+        get => GetArgument<TerraformValue<string>>("peering_mode");
         set => SetArgument("peering_mode", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleBackupDrManagementServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleBackupDrManagementServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -76,9 +76,9 @@ public partial class GoogleBackupDrManagementServer(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -88,7 +88,7 @@ public partial class GoogleBackupDrManagementServer(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -98,16 +98,16 @@ public partial class GoogleBackupDrManagementServer(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -116,7 +116,7 @@ public partial class GoogleBackupDrManagementServer(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -124,17 +124,13 @@ public partial class GoogleBackupDrManagementServer(string name) : TerraformReso
     /// The management console URI
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagementUri
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "management_uri").ResolveNodes(ctx));
-    }
+        => AsReference("management_uri");
 
     /// <summary>
     /// The oauth2ClientId of management console.
     /// </summary>
     public TerraformValue<string> Oauth2ClientId
-    {
-        get => new TerraformReference<string>(this, "oauth2_client_id");
-    }
+        => AsReference("oauth2_client_id");
 
     /// <summary>
     /// Networks block (nesting mode: list).

@@ -18,7 +18,7 @@ public class GoogleApphubServiceProjectAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleApphubServiceProjectAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -43,18 +43,18 @@ public partial class GoogleApphubServiceProjectAttachment(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleApphubServiceProjectAttachment(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? ServiceProject
     {
-        get => new TerraformReference<string>(this, "service_project");
+        get => GetArgument<TerraformValue<string>>("service_project");
         set => SetArgument("service_project", value);
     }
 
@@ -75,7 +75,7 @@ public partial class GoogleApphubServiceProjectAttachment(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceProjectAttachmentId is required")]
     public required TerraformValue<string> ServiceProjectAttachmentId
     {
-        get => new TerraformReference<string>(this, "service_project_attachment_id");
+        get => GetArgument<TerraformValue<string>>("service_project_attachment_id");
         set => SetArgument("service_project_attachment_id", value);
     }
 
@@ -83,33 +83,25 @@ public partial class GoogleApphubServiceProjectAttachment(string name) : Terrafo
     /// Output only. Create time.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// &amp;quot;Identifier. The resource name of a ServiceProjectAttachment. Format:\&amp;quot;projects/{host-project-id}/locations/global/serviceProjectAttachments/{service-project-id}.\&amp;quot;&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// ServiceProjectAttachment state.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Output only. A globally unique identifier (in UUID4 format) for the &#39;ServiceProjectAttachment&#39;.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

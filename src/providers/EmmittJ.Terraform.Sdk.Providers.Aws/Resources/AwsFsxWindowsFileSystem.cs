@@ -16,9 +16,9 @@ public class AwsFsxWindowsFileSystemAuditLogConfigurationBlock : TerraformBlock
     /// <summary>
     /// The audit_log_destination attribute.
     /// </summary>
-    public TerraformValue<string> AuditLogDestination
+    public TerraformValue<string>? AuditLogDestination
     {
-        get => new TerraformReference<string>(this, "audit_log_destination");
+        get => GetArgument<TerraformValue<string>>("audit_log_destination");
         set => SetArgument("audit_log_destination", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsFsxWindowsFileSystemAuditLogConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FileAccessAuditLogLevel
     {
-        get => new TerraformReference<string>(this, "file_access_audit_log_level");
+        get => GetArgument<TerraformValue<string>>("file_access_audit_log_level");
         set => SetArgument("file_access_audit_log_level", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsFsxWindowsFileSystemAuditLogConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FileShareAccessAuditLogLevel
     {
-        get => new TerraformReference<string>(this, "file_share_access_audit_log_level");
+        get => GetArgument<TerraformValue<string>>("file_share_access_audit_log_level");
         set => SetArgument("file_share_access_audit_log_level", value);
     }
 
@@ -57,9 +57,9 @@ public class AwsFsxWindowsFileSystemDiskIopsConfigurationBlock : TerraformBlock
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    public TerraformValue<double> Iops
+    public TerraformValue<double>? Iops
     {
-        get => new TerraformReference<double>(this, "iops");
+        get => GetArgument<TerraformValue<double>>("iops");
         set => SetArgument("iops", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsFsxWindowsFileSystemDiskIopsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsIps is required")]
     public required TerraformSet<string> DnsIps
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "dns_ips").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("dns_ips");
         set => SetArgument("dns_ips", value);
     }
 
@@ -102,7 +102,7 @@ public class AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -111,7 +111,7 @@ public class AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? FileSystemAdministratorsGroup
     {
-        get => new TerraformReference<string>(this, "file_system_administrators_group");
+        get => GetArgument<TerraformValue<string>>("file_system_administrators_group");
         set => SetArgument("file_system_administrators_group", value);
     }
 
@@ -120,7 +120,7 @@ public class AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? OrganizationalUnitDistinguishedName
     {
-        get => new TerraformReference<string>(this, "organizational_unit_distinguished_name");
+        get => GetArgument<TerraformValue<string>>("organizational_unit_distinguished_name");
         set => SetArgument("organizational_unit_distinguished_name", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsFsxWindowsFileSystemSelfManagedActiveDirectoryBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -163,7 +163,7 @@ public class AwsFsxWindowsFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -172,7 +172,7 @@ public class AwsFsxWindowsFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -181,7 +181,7 @@ public class AwsFsxWindowsFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? ActiveDirectoryId
     {
-        get => new TerraformReference<string>(this, "active_directory_id");
+        get => GetArgument<TerraformValue<string>>("active_directory_id");
         set => SetArgument("active_directory_id", value);
     }
 
@@ -208,7 +208,7 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformSet<string>? Aliases
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "aliases").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("aliases");
         set => SetArgument("aliases", value);
     }
 
@@ -217,7 +217,7 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<double>? AutomaticBackupRetentionDays
     {
-        get => new TerraformReference<double>(this, "automatic_backup_retention_days");
+        get => GetArgument<TerraformValue<double>>("automatic_backup_retention_days");
         set => SetArgument("automatic_backup_retention_days", value);
     }
 
@@ -226,7 +226,7 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? BackupId
     {
-        get => new TerraformReference<string>(this, "backup_id");
+        get => GetArgument<TerraformValue<string>>("backup_id");
         set => SetArgument("backup_id", value);
     }
 
@@ -235,16 +235,16 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? CopyTagsToBackups
     {
-        get => new TerraformReference<bool>(this, "copy_tags_to_backups");
+        get => GetArgument<TerraformValue<bool>>("copy_tags_to_backups");
         set => SetArgument("copy_tags_to_backups", value);
     }
 
     /// <summary>
     /// The daily_automatic_backup_start_time attribute.
     /// </summary>
-    public TerraformValue<string> DailyAutomaticBackupStartTime
+    public TerraformValue<string>? DailyAutomaticBackupStartTime
     {
-        get => new TerraformReference<string>(this, "daily_automatic_backup_start_time");
+        get => GetArgument<TerraformValue<string>>("daily_automatic_backup_start_time");
         set => SetArgument("daily_automatic_backup_start_time", value);
     }
 
@@ -253,7 +253,7 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? DeploymentType
     {
-        get => new TerraformReference<string>(this, "deployment_type");
+        get => GetArgument<TerraformValue<string>>("deployment_type");
         set => SetArgument("deployment_type", value);
     }
 
@@ -262,43 +262,43 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? FinalBackupTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "final_backup_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("final_backup_tags");
         set => SetArgument("final_backup_tags", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string> KmsKeyId
+    public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
     /// <summary>
     /// The preferred_subnet_id attribute.
     /// </summary>
-    public TerraformValue<string> PreferredSubnetId
+    public TerraformValue<string>? PreferredSubnetId
     {
-        get => new TerraformReference<string>(this, "preferred_subnet_id");
+        get => GetArgument<TerraformValue<string>>("preferred_subnet_id");
         set => SetArgument("preferred_subnet_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -307,7 +307,7 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformSet<string>? SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -316,16 +316,16 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? SkipFinalBackup
     {
-        get => new TerraformReference<bool>(this, "skip_final_backup");
+        get => GetArgument<TerraformValue<bool>>("skip_final_backup");
         set => SetArgument("skip_final_backup", value);
     }
 
     /// <summary>
     /// The storage_capacity attribute.
     /// </summary>
-    public TerraformValue<double> StorageCapacity
+    public TerraformValue<double>? StorageCapacity
     {
-        get => new TerraformReference<double>(this, "storage_capacity");
+        get => GetArgument<TerraformValue<double>>("storage_capacity");
         set => SetArgument("storage_capacity", value);
     }
 
@@ -334,7 +334,7 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? StorageType
     {
-        get => new TerraformReference<string>(this, "storage_type");
+        get => GetArgument<TerraformValue<string>>("storage_type");
         set => SetArgument("storage_type", value);
     }
 
@@ -344,7 +344,7 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public TerraformList<string>? SubnetIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -353,16 +353,16 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -372,16 +372,16 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThroughputCapacity is required")]
     public required TerraformValue<double> ThroughputCapacity
     {
-        get => new TerraformReference<double>(this, "throughput_capacity");
+        get => GetArgument<TerraformValue<double>>("throughput_capacity");
         set => SetArgument("throughput_capacity", value);
     }
 
     /// <summary>
     /// The weekly_maintenance_start_time attribute.
     /// </summary>
-    public TerraformValue<string> WeeklyMaintenanceStartTime
+    public TerraformValue<string>? WeeklyMaintenanceStartTime
     {
-        get => new TerraformReference<string>(this, "weekly_maintenance_start_time");
+        get => GetArgument<TerraformValue<string>>("weekly_maintenance_start_time");
         set => SetArgument("weekly_maintenance_start_time", value);
     }
 
@@ -389,57 +389,43 @@ public partial class AwsFsxWindowsFileSystem(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-    {
-        get => new TerraformReference<string>(this, "dns_name");
-    }
+        => AsReference("dns_name");
 
     /// <summary>
     /// The network_interface_ids attribute.
     /// </summary>
     public TerraformSet<string> NetworkInterfaceIds
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "network_interface_ids").ResolveNodes(ctx));
-    }
+        => AsReference("network_interface_ids");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// The preferred_file_server_ip attribute.
     /// </summary>
     public TerraformValue<string> PreferredFileServerIp
-    {
-        get => new TerraformReference<string>(this, "preferred_file_server_ip");
-    }
+        => AsReference("preferred_file_server_ip");
 
     /// <summary>
     /// The remote_administration_endpoint attribute.
     /// </summary>
     public TerraformValue<string> RemoteAdministrationEndpoint
-    {
-        get => new TerraformReference<string>(this, "remote_administration_endpoint");
-    }
+        => AsReference("remote_administration_endpoint");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-    {
-        get => new TerraformReference<string>(this, "vpc_id");
-    }
+        => AsReference("vpc_id");
 
     /// <summary>
     /// AuditLogConfiguration block (nesting mode: list).

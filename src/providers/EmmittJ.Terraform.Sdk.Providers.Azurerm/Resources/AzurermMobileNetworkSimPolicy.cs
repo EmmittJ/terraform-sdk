@@ -19,7 +19,7 @@ public class AzurermMobileNetworkSimPolicySliceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultDataNetworkId is required")]
     public required TerraformValue<string> DefaultDataNetworkId
     {
-        get => new TerraformReference<string>(this, "default_data_network_id");
+        get => GetArgument<TerraformValue<string>>("default_data_network_id");
         set => SetArgument("default_data_network_id", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermMobileNetworkSimPolicySliceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SliceId is required")]
     public required TerraformValue<string> SliceId
     {
-        get => new TerraformReference<string>(this, "slice_id");
+        get => GetArgument<TerraformValue<string>>("slice_id");
         set => SetArgument("slice_id", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermMobileNetworkSimPolicySliceBlockDataNetworkBlock : Terraform
     /// </summary>
     public TerraformList<string>? AdditionalAllowedSessionTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "additional_allowed_session_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("additional_allowed_session_types");
         set => SetArgument("additional_allowed_session_types", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermMobileNetworkSimPolicySliceBlockDataNetworkBlock : Terraform
     /// </summary>
     public TerraformValue<double>? AllocationAndRetentionPriorityLevel
     {
-        get => new TerraformReference<double>(this, "allocation_and_retention_priority_level");
+        get => GetArgument<TerraformValue<double>>("allocation_and_retention_priority_level");
         set => SetArgument("allocation_and_retention_priority_level", value);
     }
 
@@ -82,7 +82,7 @@ public class AzurermMobileNetworkSimPolicySliceBlockDataNetworkBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedServicesIds is required")]
     public TerraformList<string>? AllowedServicesIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_services_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_services_ids");
         set => SetArgument("allowed_services_ids", value);
     }
 
@@ -92,7 +92,7 @@ public class AzurermMobileNetworkSimPolicySliceBlockDataNetworkBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataNetworkId is required")]
     public required TerraformValue<string> DataNetworkId
     {
-        get => new TerraformReference<string>(this, "data_network_id");
+        get => GetArgument<TerraformValue<string>>("data_network_id");
         set => SetArgument("data_network_id", value);
     }
 
@@ -101,7 +101,7 @@ public class AzurermMobileNetworkSimPolicySliceBlockDataNetworkBlock : Terraform
     /// </summary>
     public TerraformValue<string>? DefaultSessionType
     {
-        get => new TerraformReference<string>(this, "default_session_type");
+        get => GetArgument<TerraformValue<string>>("default_session_type");
         set => SetArgument("default_session_type", value);
     }
 
@@ -110,7 +110,7 @@ public class AzurermMobileNetworkSimPolicySliceBlockDataNetworkBlock : Terraform
     /// </summary>
     public TerraformValue<double>? MaxBufferedPackets
     {
-        get => new TerraformReference<double>(this, "max_buffered_packets");
+        get => GetArgument<TerraformValue<double>>("max_buffered_packets");
         set => SetArgument("max_buffered_packets", value);
     }
 
@@ -119,7 +119,7 @@ public class AzurermMobileNetworkSimPolicySliceBlockDataNetworkBlock : Terraform
     /// </summary>
     public TerraformValue<string>? PreemptionCapability
     {
-        get => new TerraformReference<string>(this, "preemption_capability");
+        get => GetArgument<TerraformValue<string>>("preemption_capability");
         set => SetArgument("preemption_capability", value);
     }
 
@@ -128,7 +128,7 @@ public class AzurermMobileNetworkSimPolicySliceBlockDataNetworkBlock : Terraform
     /// </summary>
     public TerraformValue<string>? PreemptionVulnerability
     {
-        get => new TerraformReference<string>(this, "preemption_vulnerability");
+        get => GetArgument<TerraformValue<string>>("preemption_vulnerability");
         set => SetArgument("preemption_vulnerability", value);
     }
 
@@ -138,7 +138,7 @@ public class AzurermMobileNetworkSimPolicySliceBlockDataNetworkBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QosIndicator is required")]
     public required TerraformValue<double> QosIndicator
     {
-        get => new TerraformReference<double>(this, "qos_indicator");
+        get => GetArgument<TerraformValue<double>>("qos_indicator");
         set => SetArgument("qos_indicator", value);
     }
 
@@ -174,7 +174,7 @@ public class AzurermMobileNetworkSimPolicySliceBlockDataNetworkBlockSessionAggre
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Downlink is required")]
     public required TerraformValue<string> Downlink
     {
-        get => new TerraformReference<string>(this, "downlink");
+        get => GetArgument<TerraformValue<string>>("downlink");
         set => SetArgument("downlink", value);
     }
 
@@ -184,7 +184,7 @@ public class AzurermMobileNetworkSimPolicySliceBlockDataNetworkBlockSessionAggre
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uplink is required")]
     public required TerraformValue<string> Uplink
     {
-        get => new TerraformReference<string>(this, "uplink");
+        get => GetArgument<TerraformValue<string>>("uplink");
         set => SetArgument("uplink", value);
     }
 
@@ -207,7 +207,7 @@ public class AzurermMobileNetworkSimPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -216,7 +216,7 @@ public class AzurermMobileNetworkSimPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -225,7 +225,7 @@ public class AzurermMobileNetworkSimPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -234,7 +234,7 @@ public class AzurermMobileNetworkSimPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -258,7 +258,7 @@ public class AzurermMobileNetworkSimPolicyUserEquipmentAggregateMaximumBitRateBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Downlink is required")]
     public required TerraformValue<string> Downlink
     {
-        get => new TerraformReference<string>(this, "downlink");
+        get => GetArgument<TerraformValue<string>>("downlink");
         set => SetArgument("downlink", value);
     }
 
@@ -268,7 +268,7 @@ public class AzurermMobileNetworkSimPolicyUserEquipmentAggregateMaximumBitRateBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uplink is required")]
     public required TerraformValue<string> Uplink
     {
-        get => new TerraformReference<string>(this, "uplink");
+        get => GetArgument<TerraformValue<string>>("uplink");
         set => SetArgument("uplink", value);
     }
 
@@ -287,16 +287,16 @@ public partial class AzurermMobileNetworkSimPolicy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultSliceId is required")]
     public required TerraformValue<string> DefaultSliceId
     {
-        get => new TerraformReference<string>(this, "default_slice_id");
+        get => GetArgument<TerraformValue<string>>("default_slice_id");
         set => SetArgument("default_slice_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -306,7 +306,7 @@ public partial class AzurermMobileNetworkSimPolicy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -316,7 +316,7 @@ public partial class AzurermMobileNetworkSimPolicy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
     public required TerraformValue<string> MobileNetworkId
     {
-        get => new TerraformReference<string>(this, "mobile_network_id");
+        get => GetArgument<TerraformValue<string>>("mobile_network_id");
         set => SetArgument("mobile_network_id", value);
     }
 
@@ -326,7 +326,7 @@ public partial class AzurermMobileNetworkSimPolicy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -335,7 +335,7 @@ public partial class AzurermMobileNetworkSimPolicy(string name) : TerraformResou
     /// </summary>
     public TerraformValue<double>? RatFrequencySelectionPriorityIndex
     {
-        get => new TerraformReference<double>(this, "rat_frequency_selection_priority_index");
+        get => GetArgument<TerraformValue<double>>("rat_frequency_selection_priority_index");
         set => SetArgument("rat_frequency_selection_priority_index", value);
     }
 
@@ -344,7 +344,7 @@ public partial class AzurermMobileNetworkSimPolicy(string name) : TerraformResou
     /// </summary>
     public TerraformValue<double>? RegistrationTimerInSeconds
     {
-        get => new TerraformReference<double>(this, "registration_timer_in_seconds");
+        get => GetArgument<TerraformValue<double>>("registration_timer_in_seconds");
         set => SetArgument("registration_timer_in_seconds", value);
     }
 
@@ -353,7 +353,7 @@ public partial class AzurermMobileNetworkSimPolicy(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

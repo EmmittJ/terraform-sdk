@@ -19,7 +19,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyType is required")]
     public required TerraformValue<string> PolicyType
     {
-        get => new TerraformReference<string>(this, "policy_type");
+        get => GetArgument<TerraformValue<string>>("policy_type");
         set => SetArgument("policy_type", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlockBackupBlock : Ter
     /// </summary>
     public TerraformValue<string>? Frequency
     {
-        get => new TerraformReference<string>(this, "frequency");
+        get => GetArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlockBackupBlock : Ter
     /// </summary>
     public TerraformValue<double>? FrequencyInMinutes
     {
-        get => new TerraformReference<double>(this, "frequency_in_minutes");
+        get => GetArgument<TerraformValue<double>>("frequency_in_minutes");
         set => SetArgument("frequency_in_minutes", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlockBackupBlock : Ter
     /// </summary>
     public TerraformValue<string>? Time
     {
-        get => new TerraformReference<string>(this, "time");
+        get => GetArgument<TerraformValue<string>>("time");
         set => SetArgument("time", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlockBackupBlock : Ter
     /// </summary>
     public TerraformSet<string>? Weekdays
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "weekdays").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("weekdays");
         set => SetArgument("weekdays", value);
     }
 
@@ -154,7 +154,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlockRetentionDailyBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
     public required TerraformValue<double> CountAttribute
     {
-        get => new TerraformReference<double>(this, "count");
+        get => GetArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -177,7 +177,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlockRetentionMonthlyB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
     public required TerraformValue<double> CountAttribute
     {
-        get => new TerraformReference<double>(this, "count");
+        get => GetArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -187,7 +187,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlockRetentionMonthlyB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FormatType is required")]
     public required TerraformValue<string> FormatType
     {
-        get => new TerraformReference<string>(this, "format_type");
+        get => GetArgument<TerraformValue<string>>("format_type");
         set => SetArgument("format_type", value);
     }
 
@@ -196,7 +196,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlockRetentionMonthlyB
     /// </summary>
     public TerraformSet<double>? Monthdays
     {
-        get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "monthdays").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<double>>("monthdays");
         set => SetArgument("monthdays", value);
     }
 
@@ -205,7 +205,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlockRetentionMonthlyB
     /// </summary>
     public TerraformSet<string>? Weekdays
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "weekdays").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("weekdays");
         set => SetArgument("weekdays", value);
     }
 
@@ -214,7 +214,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlockRetentionMonthlyB
     /// </summary>
     public TerraformSet<string>? Weeks
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "weeks").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("weeks");
         set => SetArgument("weeks", value);
     }
 
@@ -237,7 +237,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlockRetentionWeeklyBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
     public required TerraformValue<double> CountAttribute
     {
-        get => new TerraformReference<double>(this, "count");
+        get => GetArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -247,7 +247,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlockRetentionWeeklyBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weekdays is required")]
     public required TerraformSet<string> Weekdays
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "weekdays").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("weekdays");
         set => SetArgument("weekdays", value);
     }
 
@@ -270,7 +270,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlockRetentionYearlyBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
     public required TerraformValue<double> CountAttribute
     {
-        get => new TerraformReference<double>(this, "count");
+        get => GetArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -280,7 +280,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlockRetentionYearlyBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FormatType is required")]
     public required TerraformValue<string> FormatType
     {
-        get => new TerraformReference<string>(this, "format_type");
+        get => GetArgument<TerraformValue<string>>("format_type");
         set => SetArgument("format_type", value);
     }
 
@@ -289,7 +289,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlockRetentionYearlyBl
     /// </summary>
     public TerraformSet<double>? Monthdays
     {
-        get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "monthdays").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<double>>("monthdays");
         set => SetArgument("monthdays", value);
     }
 
@@ -299,7 +299,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlockRetentionYearlyBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Months is required")]
     public required TerraformSet<string> Months
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "months").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("months");
         set => SetArgument("months", value);
     }
 
@@ -308,7 +308,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlockRetentionYearlyBl
     /// </summary>
     public TerraformSet<string>? Weekdays
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "weekdays").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("weekdays");
         set => SetArgument("weekdays", value);
     }
 
@@ -317,7 +317,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlockRetentionYearlyBl
     /// </summary>
     public TerraformSet<string>? Weeks
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "weeks").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("weeks");
         set => SetArgument("weeks", value);
     }
 
@@ -340,7 +340,7 @@ public class AzurermBackupPolicyVmWorkloadProtectionPolicyBlockSimpleRetentionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
     public required TerraformValue<double> CountAttribute
     {
-        get => new TerraformReference<double>(this, "count");
+        get => GetArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -363,7 +363,7 @@ public class AzurermBackupPolicyVmWorkloadSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? CompressionEnabled
     {
-        get => new TerraformReference<bool>(this, "compression_enabled");
+        get => GetArgument<TerraformValue<bool>>("compression_enabled");
         set => SetArgument("compression_enabled", value);
     }
 
@@ -373,7 +373,7 @@ public class AzurermBackupPolicyVmWorkloadSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformValue<string> TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -396,7 +396,7 @@ public class AzurermBackupPolicyVmWorkloadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -405,7 +405,7 @@ public class AzurermBackupPolicyVmWorkloadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -414,7 +414,7 @@ public class AzurermBackupPolicyVmWorkloadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -423,7 +423,7 @@ public class AzurermBackupPolicyVmWorkloadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -439,9 +439,9 @@ public partial class AzurermBackupPolicyVmWorkload(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -451,7 +451,7 @@ public partial class AzurermBackupPolicyVmWorkload(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -461,7 +461,7 @@ public partial class AzurermBackupPolicyVmWorkload(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     public required TerraformValue<string> RecoveryVaultName
     {
-        get => new TerraformReference<string>(this, "recovery_vault_name");
+        get => GetArgument<TerraformValue<string>>("recovery_vault_name");
         set => SetArgument("recovery_vault_name", value);
     }
 
@@ -471,7 +471,7 @@ public partial class AzurermBackupPolicyVmWorkload(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -481,7 +481,7 @@ public partial class AzurermBackupPolicyVmWorkload(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadType is required")]
     public required TerraformValue<string> WorkloadType
     {
-        get => new TerraformReference<string>(this, "workload_type");
+        get => GetArgument<TerraformValue<string>>("workload_type");
         set => SetArgument("workload_type", value);
     }
 

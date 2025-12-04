@@ -18,7 +18,7 @@ public class AzurermStreamAnalyticsOutputPowerbiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermStreamAnalyticsOutputPowerbiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermStreamAnalyticsOutputPowerbiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermStreamAnalyticsOutputPowerbiTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermStreamAnalyticsOutputPowerbi(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformValue<string> Dataset
     {
-        get => new TerraformReference<string>(this, "dataset");
+        get => GetArgument<TerraformValue<string>>("dataset");
         set => SetArgument("dataset", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermStreamAnalyticsOutputPowerbi(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     public required TerraformValue<string> GroupId
     {
-        get => new TerraformReference<string>(this, "group_id");
+        get => GetArgument<TerraformValue<string>>("group_id");
         set => SetArgument("group_id", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AzurermStreamAnalyticsOutputPowerbi(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     public required TerraformValue<string> GroupName
     {
-        get => new TerraformReference<string>(this, "group_name");
+        get => GetArgument<TerraformValue<string>>("group_name");
         set => SetArgument("group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermStreamAnalyticsOutputPowerbi(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermStreamAnalyticsOutputPowerbi(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
     public required TerraformValue<string> StreamAnalyticsJobId
     {
-        get => new TerraformReference<string>(this, "stream_analytics_job_id");
+        get => GetArgument<TerraformValue<string>>("stream_analytics_job_id");
         set => SetArgument("stream_analytics_job_id", value);
     }
 
@@ -123,7 +123,7 @@ public partial class AzurermStreamAnalyticsOutputPowerbi(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AzurermStreamAnalyticsOutputPowerbi(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? TokenUserDisplayName
     {
-        get => new TerraformReference<string>(this, "token_user_display_name");
+        get => GetArgument<TerraformValue<string>>("token_user_display_name");
         set => SetArgument("token_user_display_name", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AzurermStreamAnalyticsOutputPowerbi(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? TokenUserPrincipalName
     {
-        get => new TerraformReference<string>(this, "token_user_principal_name");
+        get => GetArgument<TerraformValue<string>>("token_user_principal_name");
         set => SetArgument("token_user_principal_name", value);
     }
 

@@ -18,7 +18,7 @@ public class AwsNetworkmanagerLinkBandwidthBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? DownloadSpeed
     {
-        get => new TerraformReference<double>(this, "download_speed");
+        get => GetArgument<TerraformValue<double>>("download_speed");
         set => SetArgument("download_speed", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsNetworkmanagerLinkBandwidthBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? UploadSpeed
     {
-        get => new TerraformReference<double>(this, "upload_speed");
+        get => GetArgument<TerraformValue<double>>("upload_speed");
         set => SetArgument("upload_speed", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsNetworkmanagerLinkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsNetworkmanagerLinkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsNetworkmanagerLinkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -86,7 +86,7 @@ public partial class AwsNetworkmanagerLink(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -96,16 +96,16 @@ public partial class AwsNetworkmanagerLink(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     public required TerraformValue<string> GlobalNetworkId
     {
-        get => new TerraformReference<string>(this, "global_network_id");
+        get => GetArgument<TerraformValue<string>>("global_network_id");
         set => SetArgument("global_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AwsNetworkmanagerLink(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? ProviderName
     {
-        get => new TerraformReference<string>(this, "provider_name");
+        get => GetArgument<TerraformValue<string>>("provider_name");
         set => SetArgument("provider_name", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AwsNetworkmanagerLink(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteId is required")]
     public required TerraformValue<string> SiteId
     {
-        get => new TerraformReference<string>(this, "site_id");
+        get => GetArgument<TerraformValue<string>>("site_id");
         set => SetArgument("site_id", value);
     }
 
@@ -133,16 +133,16 @@ public partial class AwsNetworkmanagerLink(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AwsNetworkmanagerLink(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -159,9 +159,7 @@ public partial class AwsNetworkmanagerLink(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Bandwidth block (nesting mode: list).

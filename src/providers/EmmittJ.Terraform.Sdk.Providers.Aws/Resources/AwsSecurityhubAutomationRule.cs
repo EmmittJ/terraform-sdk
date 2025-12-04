@@ -18,7 +18,7 @@ public class AwsSecurityhubAutomationRuleActionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -49,7 +49,7 @@ public class AwsSecurityhubAutomationRuleActionsBlockFindingFieldsUpdateBlock : 
     /// </summary>
     public TerraformValue<double>? Confidence
     {
-        get => new TerraformReference<double>(this, "confidence");
+        get => GetArgument<TerraformValue<double>>("confidence");
         set => SetArgument("confidence", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsSecurityhubAutomationRuleActionsBlockFindingFieldsUpdateBlock : 
     /// </summary>
     public TerraformValue<double>? Criticality
     {
-        get => new TerraformReference<double>(this, "criticality");
+        get => GetArgument<TerraformValue<double>>("criticality");
         set => SetArgument("criticality", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsSecurityhubAutomationRuleActionsBlockFindingFieldsUpdateBlock : 
     /// </summary>
     public TerraformList<string>? Types
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("types");
         set => SetArgument("types", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsSecurityhubAutomationRuleActionsBlockFindingFieldsUpdateBlock : 
     /// </summary>
     public TerraformMap<string>? UserDefinedFields
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "user_defined_fields").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("user_defined_fields");
         set => SetArgument("user_defined_fields", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsSecurityhubAutomationRuleActionsBlockFindingFieldsUpdateBlock : 
     /// </summary>
     public TerraformValue<string>? VerificationState
     {
-        get => new TerraformReference<string>(this, "verification_state");
+        get => GetArgument<TerraformValue<string>>("verification_state");
         set => SetArgument("verification_state", value);
     }
 
@@ -144,7 +144,7 @@ public class AwsSecurityhubAutomationRuleActionsBlockFindingFieldsUpdateBlockNot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -154,7 +154,7 @@ public class AwsSecurityhubAutomationRuleActionsBlockFindingFieldsUpdateBlockNot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UpdatedBy is required")]
     public required TerraformValue<string> UpdatedBy
     {
-        get => new TerraformReference<string>(this, "updated_by");
+        get => GetArgument<TerraformValue<string>>("updated_by");
         set => SetArgument("updated_by", value);
     }
 
@@ -177,7 +177,7 @@ public class AwsSecurityhubAutomationRuleActionsBlockFindingFieldsUpdateBlockRel
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -187,7 +187,7 @@ public class AwsSecurityhubAutomationRuleActionsBlockFindingFieldsUpdateBlockRel
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductArn is required")]
     public required TerraformValue<string> ProductArn
     {
-        get => new TerraformReference<string>(this, "product_arn");
+        get => GetArgument<TerraformValue<string>>("product_arn");
         set => SetArgument("product_arn", value);
     }
 
@@ -207,9 +207,9 @@ public class AwsSecurityhubAutomationRuleActionsBlockFindingFieldsUpdateBlockSev
     /// <summary>
     /// The label attribute.
     /// </summary>
-    public TerraformValue<string> Label
+    public TerraformValue<string>? Label
     {
-        get => new TerraformReference<string>(this, "label");
+        get => GetArgument<TerraformValue<string>>("label");
         set => SetArgument("label", value);
     }
 
@@ -218,7 +218,7 @@ public class AwsSecurityhubAutomationRuleActionsBlockFindingFieldsUpdateBlockSev
     /// </summary>
     public TerraformValue<double>? Product
     {
-        get => new TerraformReference<double>(this, "product");
+        get => GetArgument<TerraformValue<double>>("product");
         set => SetArgument("product", value);
     }
 
@@ -240,7 +240,7 @@ public class AwsSecurityhubAutomationRuleActionsBlockFindingFieldsUpdateBlockWor
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -619,7 +619,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockAwsAccountIdBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -629,7 +629,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockAwsAccountIdBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -652,7 +652,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockAwsAccountNameBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -662,7 +662,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockAwsAccountNameBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -685,7 +685,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockCompanyNameBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -695,7 +695,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockCompanyNameBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -718,7 +718,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockComplianceAssociatedStanda
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -728,7 +728,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockComplianceAssociatedStanda
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -751,7 +751,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockComplianceSecurityControlI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -761,7 +761,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockComplianceSecurityControlI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -784,7 +784,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockComplianceStatusBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -794,7 +794,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockComplianceStatusBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -816,7 +816,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockConfidenceBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? Eq
     {
-        get => new TerraformReference<double>(this, "eq");
+        get => GetArgument<TerraformValue<double>>("eq");
         set => SetArgument("eq", value);
     }
 
@@ -825,7 +825,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockConfidenceBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? Gt
     {
-        get => new TerraformReference<double>(this, "gt");
+        get => GetArgument<TerraformValue<double>>("gt");
         set => SetArgument("gt", value);
     }
 
@@ -834,7 +834,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockConfidenceBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? Gte
     {
-        get => new TerraformReference<double>(this, "gte");
+        get => GetArgument<TerraformValue<double>>("gte");
         set => SetArgument("gte", value);
     }
 
@@ -843,7 +843,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockConfidenceBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? Lt
     {
-        get => new TerraformReference<double>(this, "lt");
+        get => GetArgument<TerraformValue<double>>("lt");
         set => SetArgument("lt", value);
     }
 
@@ -852,7 +852,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockConfidenceBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? Lte
     {
-        get => new TerraformReference<double>(this, "lte");
+        get => GetArgument<TerraformValue<double>>("lte");
         set => SetArgument("lte", value);
     }
 
@@ -874,7 +874,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockCreatedAtBlock : Terraform
     /// </summary>
     public TerraformValue<string>? End
     {
-        get => new TerraformReference<string>(this, "end");
+        get => GetArgument<TerraformValue<string>>("end");
         set => SetArgument("end", value);
     }
 
@@ -883,7 +883,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockCreatedAtBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Start
     {
-        get => new TerraformReference<string>(this, "start");
+        get => GetArgument<TerraformValue<string>>("start");
         set => SetArgument("start", value);
     }
 
@@ -915,7 +915,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockCreatedAtBlockDateRangeBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -925,7 +925,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockCreatedAtBlockDateRangeBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => new TerraformReference<double>(this, "value");
+        get => GetArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -947,7 +947,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockCriticalityBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? Eq
     {
-        get => new TerraformReference<double>(this, "eq");
+        get => GetArgument<TerraformValue<double>>("eq");
         set => SetArgument("eq", value);
     }
 
@@ -956,7 +956,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockCriticalityBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? Gt
     {
-        get => new TerraformReference<double>(this, "gt");
+        get => GetArgument<TerraformValue<double>>("gt");
         set => SetArgument("gt", value);
     }
 
@@ -965,7 +965,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockCriticalityBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? Gte
     {
-        get => new TerraformReference<double>(this, "gte");
+        get => GetArgument<TerraformValue<double>>("gte");
         set => SetArgument("gte", value);
     }
 
@@ -974,7 +974,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockCriticalityBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? Lt
     {
-        get => new TerraformReference<double>(this, "lt");
+        get => GetArgument<TerraformValue<double>>("lt");
         set => SetArgument("lt", value);
     }
 
@@ -983,7 +983,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockCriticalityBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? Lte
     {
-        get => new TerraformReference<double>(this, "lte");
+        get => GetArgument<TerraformValue<double>>("lte");
         set => SetArgument("lte", value);
     }
 
@@ -1006,7 +1006,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockDescriptionBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1016,7 +1016,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockDescriptionBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1038,7 +1038,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockFirstObservedAtBlock : Ter
     /// </summary>
     public TerraformValue<string>? End
     {
-        get => new TerraformReference<string>(this, "end");
+        get => GetArgument<TerraformValue<string>>("end");
         set => SetArgument("end", value);
     }
 
@@ -1047,7 +1047,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockFirstObservedAtBlock : Ter
     /// </summary>
     public TerraformValue<string>? Start
     {
-        get => new TerraformReference<string>(this, "start");
+        get => GetArgument<TerraformValue<string>>("start");
         set => SetArgument("start", value);
     }
 
@@ -1079,7 +1079,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockFirstObservedAtBlockDateRa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1089,7 +1089,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockFirstObservedAtBlockDateRa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => new TerraformReference<double>(this, "value");
+        get => GetArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1112,7 +1112,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockGeneratorIdBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1122,7 +1122,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockGeneratorIdBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1145,7 +1145,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockIdBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1155,7 +1155,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockIdBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1177,7 +1177,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockLastObservedAtBlock : Terr
     /// </summary>
     public TerraformValue<string>? End
     {
-        get => new TerraformReference<string>(this, "end");
+        get => GetArgument<TerraformValue<string>>("end");
         set => SetArgument("end", value);
     }
 
@@ -1186,7 +1186,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockLastObservedAtBlock : Terr
     /// </summary>
     public TerraformValue<string>? Start
     {
-        get => new TerraformReference<string>(this, "start");
+        get => GetArgument<TerraformValue<string>>("start");
         set => SetArgument("start", value);
     }
 
@@ -1218,7 +1218,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockLastObservedAtBlockDateRan
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1228,7 +1228,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockLastObservedAtBlockDateRan
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => new TerraformReference<double>(this, "value");
+        get => GetArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1251,7 +1251,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockNoteTextBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1261,7 +1261,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockNoteTextBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1283,7 +1283,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockNoteUpdatedAtBlock : Terra
     /// </summary>
     public TerraformValue<string>? End
     {
-        get => new TerraformReference<string>(this, "end");
+        get => GetArgument<TerraformValue<string>>("end");
         set => SetArgument("end", value);
     }
 
@@ -1292,7 +1292,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockNoteUpdatedAtBlock : Terra
     /// </summary>
     public TerraformValue<string>? Start
     {
-        get => new TerraformReference<string>(this, "start");
+        get => GetArgument<TerraformValue<string>>("start");
         set => SetArgument("start", value);
     }
 
@@ -1324,7 +1324,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockNoteUpdatedAtBlockDateRang
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1334,7 +1334,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockNoteUpdatedAtBlockDateRang
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => new TerraformReference<double>(this, "value");
+        get => GetArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1357,7 +1357,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockNoteUpdatedByBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1367,7 +1367,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockNoteUpdatedByBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1390,7 +1390,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockProductArnBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1400,7 +1400,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockProductArnBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1423,7 +1423,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockProductNameBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1433,7 +1433,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockProductNameBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1456,7 +1456,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockRecordStateBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1466,7 +1466,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockRecordStateBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1489,7 +1489,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockRelatedFindingsIdBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1499,7 +1499,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockRelatedFindingsIdBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1522,7 +1522,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockRelatedFindingsProductArnB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1532,7 +1532,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockRelatedFindingsProductArnB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1555,7 +1555,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockResourceApplicationArnBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1565,7 +1565,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockResourceApplicationArnBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1588,7 +1588,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockResourceApplicationNameBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1598,7 +1598,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockResourceApplicationNameBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1621,7 +1621,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockResourceDetailsOtherBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1631,7 +1631,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockResourceDetailsOtherBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1641,7 +1641,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockResourceDetailsOtherBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1664,7 +1664,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockResourceIdBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1674,7 +1674,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockResourceIdBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1697,7 +1697,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockResourcePartitionBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1707,7 +1707,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockResourcePartitionBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1730,7 +1730,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockResourceRegionBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1740,7 +1740,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockResourceRegionBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1763,7 +1763,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockResourceTagsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1773,7 +1773,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockResourceTagsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1783,7 +1783,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockResourceTagsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1806,7 +1806,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockResourceTypeAttributeBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1816,7 +1816,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockResourceTypeAttributeBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1839,7 +1839,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockSeverityLabelBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1849,7 +1849,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockSeverityLabelBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1872,7 +1872,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockSourceUrlBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1882,7 +1882,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockSourceUrlBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1905,7 +1905,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockTitleBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1915,7 +1915,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockTitleBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1938,7 +1938,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockTypeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -1948,7 +1948,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockTypeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1970,7 +1970,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockUpdatedAtBlock : Terraform
     /// </summary>
     public TerraformValue<string>? End
     {
-        get => new TerraformReference<string>(this, "end");
+        get => GetArgument<TerraformValue<string>>("end");
         set => SetArgument("end", value);
     }
 
@@ -1979,7 +1979,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockUpdatedAtBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Start
     {
-        get => new TerraformReference<string>(this, "start");
+        get => GetArgument<TerraformValue<string>>("start");
         set => SetArgument("start", value);
     }
 
@@ -2011,7 +2011,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockUpdatedAtBlockDateRangeBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -2021,7 +2021,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockUpdatedAtBlockDateRangeBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => new TerraformReference<double>(this, "value");
+        get => GetArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2044,7 +2044,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockUserDefinedFieldsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -2054,7 +2054,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockUserDefinedFieldsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -2064,7 +2064,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockUserDefinedFieldsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2087,7 +2087,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockVerificationStateBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -2097,7 +2097,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockVerificationStateBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2120,7 +2120,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockWorkflowStatusBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Comparison is required")]
     public required TerraformValue<string> Comparison
     {
-        get => new TerraformReference<string>(this, "comparison");
+        get => GetArgument<TerraformValue<string>>("comparison");
         set => SetArgument("comparison", value);
     }
 
@@ -2130,7 +2130,7 @@ public class AwsSecurityhubAutomationRuleCriteriaBlockWorkflowStatusBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2149,25 +2149,25 @@ public partial class AwsSecurityhubAutomationRule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The is_terminal attribute.
     /// </summary>
-    public TerraformValue<bool> IsTerminal
+    public TerraformValue<bool>? IsTerminal
     {
-        get => new TerraformReference<bool>(this, "is_terminal");
+        get => GetArgument<TerraformValue<bool>>("is_terminal");
         set => SetArgument("is_terminal", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -2177,7 +2177,7 @@ public partial class AwsSecurityhubAutomationRule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
     public required TerraformValue<string> RuleName
     {
-        get => new TerraformReference<string>(this, "rule_name");
+        get => GetArgument<TerraformValue<string>>("rule_name");
         set => SetArgument("rule_name", value);
     }
 
@@ -2187,16 +2187,16 @@ public partial class AwsSecurityhubAutomationRule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleOrder is required")]
     public required TerraformValue<double> RuleOrder
     {
-        get => new TerraformReference<double>(this, "rule_order");
+        get => GetArgument<TerraformValue<double>>("rule_order");
         set => SetArgument("rule_order", value);
     }
 
     /// <summary>
     /// The rule_status attribute.
     /// </summary>
-    public TerraformValue<string> RuleStatus
+    public TerraformValue<string>? RuleStatus
     {
-        get => new TerraformReference<string>(this, "rule_status");
+        get => GetArgument<TerraformValue<string>>("rule_status");
         set => SetArgument("rule_status", value);
     }
 
@@ -2205,7 +2205,7 @@ public partial class AwsSecurityhubAutomationRule(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -2213,25 +2213,19 @@ public partial class AwsSecurityhubAutomationRule(string name) : TerraformResour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Actions block (nesting mode: set).

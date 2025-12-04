@@ -13,16 +13,16 @@ public partial class AwsSesTemplate(string name) : TerraformResource("aws_ses_te
     /// </summary>
     public TerraformValue<string>? Html
     {
-        get => new TerraformReference<string>(this, "html");
+        get => GetArgument<TerraformValue<string>>("html");
         set => SetArgument("html", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,16 +32,16 @@ public partial class AwsSesTemplate(string name) : TerraformResource("aws_ses_te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsSesTemplate(string name) : TerraformResource("aws_ses_te
     /// </summary>
     public TerraformValue<string>? Subject
     {
-        get => new TerraformReference<string>(this, "subject");
+        get => GetArgument<TerraformValue<string>>("subject");
         set => SetArgument("subject", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsSesTemplate(string name) : TerraformResource("aws_ses_te
     /// </summary>
     public TerraformValue<string>? Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -67,8 +67,6 @@ public partial class AwsSesTemplate(string name) : TerraformResource("aws_ses_te
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

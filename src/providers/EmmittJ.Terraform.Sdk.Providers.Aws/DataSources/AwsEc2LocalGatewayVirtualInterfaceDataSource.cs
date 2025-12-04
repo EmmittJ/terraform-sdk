@@ -19,7 +19,7 @@ public class AwsEc2LocalGatewayVirtualInterfaceDataSourceFilterBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsEc2LocalGatewayVirtualInterfaceDataSourceFilterBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsEc2LocalGatewayVirtualInterfaceDataSourceTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -68,27 +68,27 @@ public partial class AwsEc2LocalGatewayVirtualInterfaceDataSource(string name) :
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -96,57 +96,43 @@ public partial class AwsEc2LocalGatewayVirtualInterfaceDataSource(string name) :
     /// The local_address attribute.
     /// </summary>
     public TerraformValue<string> LocalAddress
-    {
-        get => new TerraformReference<string>(this, "local_address");
-    }
+        => AsReference("local_address");
 
     /// <summary>
     /// The local_bgp_asn attribute.
     /// </summary>
     public TerraformValue<double> LocalBgpAsn
-    {
-        get => new TerraformReference<double>(this, "local_bgp_asn");
-    }
+        => AsReference("local_bgp_asn");
 
     /// <summary>
     /// The local_gateway_id attribute.
     /// </summary>
     public TerraformValue<string> LocalGatewayId
-    {
-        get => new TerraformReference<string>(this, "local_gateway_id");
-    }
+        => AsReference("local_gateway_id");
 
     /// <summary>
     /// The local_gateway_virtual_interface_ids attribute.
     /// </summary>
     public TerraformSet<string> LocalGatewayVirtualInterfaceIds
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "local_gateway_virtual_interface_ids").ResolveNodes(ctx));
-    }
+        => AsReference("local_gateway_virtual_interface_ids");
 
     /// <summary>
     /// The peer_address attribute.
     /// </summary>
     public TerraformValue<string> PeerAddress
-    {
-        get => new TerraformReference<string>(this, "peer_address");
-    }
+        => AsReference("peer_address");
 
     /// <summary>
     /// The peer_bgp_asn attribute.
     /// </summary>
     public TerraformValue<double> PeerBgpAsn
-    {
-        get => new TerraformReference<double>(this, "peer_bgp_asn");
-    }
+        => AsReference("peer_bgp_asn");
 
     /// <summary>
     /// The vlan attribute.
     /// </summary>
     public TerraformValue<double> Vlan
-    {
-        get => new TerraformReference<double>(this, "vlan");
-    }
+        => AsReference("vlan");
 
     /// <summary>
     /// Filter block (nesting mode: set).

@@ -14,7 +14,7 @@ public partial class AwsSagemakerMlflowTrackingServer(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactStoreUri is required")]
     public required TerraformValue<string> ArtifactStoreUri
     {
-        get => new TerraformReference<string>(this, "artifact_store_uri");
+        get => GetArgument<TerraformValue<string>>("artifact_store_uri");
         set => SetArgument("artifact_store_uri", value);
     }
 
@@ -23,34 +23,34 @@ public partial class AwsSagemakerMlflowTrackingServer(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? AutomaticModelRegistration
     {
-        get => new TerraformReference<bool>(this, "automatic_model_registration");
+        get => GetArgument<TerraformValue<bool>>("automatic_model_registration");
         set => SetArgument("automatic_model_registration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The mlflow_version attribute.
     /// </summary>
-    public TerraformValue<string> MlflowVersion
+    public TerraformValue<string>? MlflowVersion
     {
-        get => new TerraformReference<string>(this, "mlflow_version");
+        get => GetArgument<TerraformValue<string>>("mlflow_version");
         set => SetArgument("mlflow_version", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsSagemakerMlflowTrackingServer(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -69,16 +69,16 @@ public partial class AwsSagemakerMlflowTrackingServer(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsSagemakerMlflowTrackingServer(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrackingServerName is required")]
     public required TerraformValue<string> TrackingServerName
     {
-        get => new TerraformReference<string>(this, "tracking_server_name");
+        get => GetArgument<TerraformValue<string>>("tracking_server_name");
         set => SetArgument("tracking_server_name", value);
     }
 
@@ -97,16 +97,16 @@ public partial class AwsSagemakerMlflowTrackingServer(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? TrackingServerSize
     {
-        get => new TerraformReference<string>(this, "tracking_server_size");
+        get => GetArgument<TerraformValue<string>>("tracking_server_size");
         set => SetArgument("tracking_server_size", value);
     }
 
     /// <summary>
     /// The weekly_maintenance_window_start attribute.
     /// </summary>
-    public TerraformValue<string> WeeklyMaintenanceWindowStart
+    public TerraformValue<string>? WeeklyMaintenanceWindowStart
     {
-        get => new TerraformReference<string>(this, "weekly_maintenance_window_start");
+        get => GetArgument<TerraformValue<string>>("weekly_maintenance_window_start");
         set => SetArgument("weekly_maintenance_window_start", value);
     }
 
@@ -114,16 +114,12 @@ public partial class AwsSagemakerMlflowTrackingServer(string name) : TerraformRe
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The tracking_server_url attribute.
     /// </summary>
     public TerraformValue<string> TrackingServerUrl
-    {
-        get => new TerraformReference<string>(this, "tracking_server_url");
-    }
+        => AsReference("tracking_server_url");
 
 }

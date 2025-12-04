@@ -19,7 +19,7 @@ public class AwsGlacierVaultNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
     public required TerraformSet<string> Events
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "events").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("events");
         set => SetArgument("events", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsGlacierVaultNotificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnsTopic is required")]
     public required TerraformValue<string> SnsTopic
     {
-        get => new TerraformReference<string>(this, "sns_topic");
+        get => GetArgument<TerraformValue<string>>("sns_topic");
         set => SetArgument("sns_topic", value);
     }
 
@@ -47,16 +47,16 @@ public partial class AwsGlacierVault(string name) : TerraformResource("aws_glaci
     /// </summary>
     public TerraformValue<string>? AccessPolicy
     {
-        get => new TerraformReference<string>(this, "access_policy");
+        get => GetArgument<TerraformValue<string>>("access_policy");
         set => SetArgument("access_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -66,16 +66,16 @@ public partial class AwsGlacierVault(string name) : TerraformResource("aws_glaci
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AwsGlacierVault(string name) : TerraformResource("aws_glaci
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -101,17 +101,13 @@ public partial class AwsGlacierVault(string name) : TerraformResource("aws_glaci
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// Notification block (nesting mode: list).

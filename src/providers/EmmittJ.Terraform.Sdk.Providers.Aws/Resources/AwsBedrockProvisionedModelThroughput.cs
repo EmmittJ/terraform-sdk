@@ -18,7 +18,7 @@ public class AwsBedrockProvisionedModelThroughputTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -36,7 +36,7 @@ public partial class AwsBedrockProvisionedModelThroughput(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? CommitmentDuration
     {
-        get => new TerraformReference<string>(this, "commitment_duration");
+        get => GetArgument<TerraformValue<string>>("commitment_duration");
         set => SetArgument("commitment_duration", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AwsBedrockProvisionedModelThroughput(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelArn is required")]
     public required TerraformValue<string> ModelArn
     {
-        get => new TerraformReference<string>(this, "model_arn");
+        get => GetArgument<TerraformValue<string>>("model_arn");
         set => SetArgument("model_arn", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsBedrockProvisionedModelThroughput(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelUnits is required")]
     public required TerraformValue<double> ModelUnits
     {
-        get => new TerraformReference<double>(this, "model_units");
+        get => GetArgument<TerraformValue<double>>("model_units");
         set => SetArgument("model_units", value);
     }
 
@@ -66,16 +66,16 @@ public partial class AwsBedrockProvisionedModelThroughput(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvisionedModelName is required")]
     public required TerraformValue<string> ProvisionedModelName
     {
-        get => new TerraformReference<string>(this, "provisioned_model_name");
+        get => GetArgument<TerraformValue<string>>("provisioned_model_name");
         set => SetArgument("provisioned_model_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AwsBedrockProvisionedModelThroughput(string name) : Terrafo
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -93,25 +93,19 @@ public partial class AwsBedrockProvisionedModelThroughput(string name) : Terrafo
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The provisioned_model_arn attribute.
     /// </summary>
     public TerraformValue<string> ProvisionedModelArn
-    {
-        get => new TerraformReference<string>(this, "provisioned_model_arn");
-    }
+        => AsReference("provisioned_model_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

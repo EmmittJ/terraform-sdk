@@ -72,7 +72,7 @@ public class AzurermLogicAppWorkflowAccessControlBlockActionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedCallerIpAddressRange is required")]
     public required TerraformSet<string> AllowedCallerIpAddressRange
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_caller_ip_address_range").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_caller_ip_address_range");
         set => SetArgument("allowed_caller_ip_address_range", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermLogicAppWorkflowAccessControlBlockContentBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedCallerIpAddressRange is required")]
     public required TerraformSet<string> AllowedCallerIpAddressRange
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_caller_ip_address_range").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_caller_ip_address_range");
         set => SetArgument("allowed_caller_ip_address_range", value);
     }
 
@@ -117,7 +117,7 @@ public class AzurermLogicAppWorkflowAccessControlBlockTriggerBlock : TerraformBl
     /// </summary>
     public TerraformSet<string>? AllowedCallerIpAddressRange
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_caller_ip_address_range").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_caller_ip_address_range");
         set => SetArgument("allowed_caller_ip_address_range", value);
     }
 
@@ -149,7 +149,7 @@ public class AzurermLogicAppWorkflowAccessControlBlockTriggerBlockOpenAuthentica
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -184,7 +184,7 @@ public class AzurermLogicAppWorkflowAccessControlBlockTriggerBlockOpenAuthentica
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -194,7 +194,7 @@ public class AzurermLogicAppWorkflowAccessControlBlockTriggerBlockOpenAuthentica
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -217,7 +217,7 @@ public class AzurermLogicAppWorkflowAccessControlBlockWorkflowManagementBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedCallerIpAddressRange is required")]
     public required TerraformSet<string> AllowedCallerIpAddressRange
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_caller_ip_address_range").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_caller_ip_address_range");
         set => SetArgument("allowed_caller_ip_address_range", value);
     }
 
@@ -240,7 +240,7 @@ public class AzurermLogicAppWorkflowIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -248,17 +248,13 @@ public class AzurermLogicAppWorkflowIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -266,7 +262,7 @@ public class AzurermLogicAppWorkflowIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -289,7 +285,7 @@ public class AzurermLogicAppWorkflowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -298,7 +294,7 @@ public class AzurermLogicAppWorkflowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -307,7 +303,7 @@ public class AzurermLogicAppWorkflowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -316,7 +312,7 @@ public class AzurermLogicAppWorkflowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -334,16 +330,16 @@ public partial class AzurermLogicAppWorkflow(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -352,7 +348,7 @@ public partial class AzurermLogicAppWorkflow(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? IntegrationServiceEnvironmentId
     {
-        get => new TerraformReference<string>(this, "integration_service_environment_id");
+        get => GetArgument<TerraformValue<string>>("integration_service_environment_id");
         set => SetArgument("integration_service_environment_id", value);
     }
 
@@ -362,7 +358,7 @@ public partial class AzurermLogicAppWorkflow(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -371,7 +367,7 @@ public partial class AzurermLogicAppWorkflow(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? LogicAppIntegrationAccountId
     {
-        get => new TerraformReference<string>(this, "logic_app_integration_account_id");
+        get => GetArgument<TerraformValue<string>>("logic_app_integration_account_id");
         set => SetArgument("logic_app_integration_account_id", value);
     }
 
@@ -381,7 +377,7 @@ public partial class AzurermLogicAppWorkflow(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -390,7 +386,7 @@ public partial class AzurermLogicAppWorkflow(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -400,7 +396,7 @@ public partial class AzurermLogicAppWorkflow(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -409,7 +405,7 @@ public partial class AzurermLogicAppWorkflow(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -418,7 +414,7 @@ public partial class AzurermLogicAppWorkflow(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? WorkflowParameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "workflow_parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("workflow_parameters");
         set => SetArgument("workflow_parameters", value);
     }
 
@@ -427,7 +423,7 @@ public partial class AzurermLogicAppWorkflow(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? WorkflowSchema
     {
-        get => new TerraformReference<string>(this, "workflow_schema");
+        get => GetArgument<TerraformValue<string>>("workflow_schema");
         set => SetArgument("workflow_schema", value);
     }
 
@@ -436,7 +432,7 @@ public partial class AzurermLogicAppWorkflow(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? WorkflowVersion
     {
-        get => new TerraformReference<string>(this, "workflow_version");
+        get => GetArgument<TerraformValue<string>>("workflow_version");
         set => SetArgument("workflow_version", value);
     }
 
@@ -444,41 +440,31 @@ public partial class AzurermLogicAppWorkflow(string name) : TerraformResource("a
     /// The access_endpoint attribute.
     /// </summary>
     public TerraformValue<string> AccessEndpoint
-    {
-        get => new TerraformReference<string>(this, "access_endpoint");
-    }
+        => AsReference("access_endpoint");
 
     /// <summary>
     /// The connector_endpoint_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> ConnectorEndpointIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "connector_endpoint_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("connector_endpoint_ip_addresses");
 
     /// <summary>
     /// The connector_outbound_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> ConnectorOutboundIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "connector_outbound_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("connector_outbound_ip_addresses");
 
     /// <summary>
     /// The workflow_endpoint_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> WorkflowEndpointIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "workflow_endpoint_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("workflow_endpoint_ip_addresses");
 
     /// <summary>
     /// The workflow_outbound_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> WorkflowOutboundIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "workflow_outbound_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("workflow_outbound_ip_addresses");
 
     /// <summary>
     /// AccessControl block (nesting mode: list).

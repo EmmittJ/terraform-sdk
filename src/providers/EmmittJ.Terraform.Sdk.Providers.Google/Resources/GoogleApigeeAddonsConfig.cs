@@ -81,7 +81,7 @@ public class GoogleApigeeAddonsConfigAddonsConfigBlockAdvancedApiOpsConfigBlock 
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -103,7 +103,7 @@ public class GoogleApigeeAddonsConfigAddonsConfigBlockApiSecurityConfigBlock : T
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -111,9 +111,7 @@ public class GoogleApigeeAddonsConfigAddonsConfigBlockApiSecurityConfigBlock : T
     /// Time at which the API Security add-on expires in in milliseconds since epoch. If unspecified, the add-on will never expire.
     /// </summary>
     public TerraformValue<string> ExpiresAt
-    {
-        get => new TerraformReference<string>(this, "expires_at");
-    }
+        => AsReference("expires_at");
 
 }
 
@@ -133,7 +131,7 @@ public class GoogleApigeeAddonsConfigAddonsConfigBlockConnectorsPlatformConfigBl
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -141,9 +139,7 @@ public class GoogleApigeeAddonsConfigAddonsConfigBlockConnectorsPlatformConfigBl
     /// Time at which the Connectors Platform add-on expires in milliseconds since epoch. If unspecified, the add-on will never expire.
     /// </summary>
     public TerraformValue<string> ExpiresAt
-    {
-        get => new TerraformReference<string>(this, "expires_at");
-    }
+        => AsReference("expires_at");
 
 }
 
@@ -163,7 +159,7 @@ public class GoogleApigeeAddonsConfigAddonsConfigBlockIntegrationConfigBlock : T
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -185,7 +181,7 @@ public class GoogleApigeeAddonsConfigAddonsConfigBlockMonetizationConfigBlock : 
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -208,7 +204,7 @@ public class GoogleApigeeAddonsConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -217,7 +213,7 @@ public class GoogleApigeeAddonsConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -226,7 +222,7 @@ public class GoogleApigeeAddonsConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -242,9 +238,9 @@ public partial class GoogleApigeeAddonsConfig(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -254,7 +250,7 @@ public partial class GoogleApigeeAddonsConfig(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Org is required")]
     public required TerraformValue<string> Org
     {
-        get => new TerraformReference<string>(this, "org");
+        get => GetArgument<TerraformValue<string>>("org");
         set => SetArgument("org", value);
     }
 

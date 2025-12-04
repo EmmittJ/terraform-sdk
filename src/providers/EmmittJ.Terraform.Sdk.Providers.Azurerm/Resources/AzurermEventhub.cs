@@ -19,7 +19,7 @@ public class AzurermEventhubCaptureDescriptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermEventhubCaptureDescriptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Encoding is required")]
     public required TerraformValue<string> Encoding
     {
-        get => new TerraformReference<string>(this, "encoding");
+        get => GetArgument<TerraformValue<string>>("encoding");
         set => SetArgument("encoding", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermEventhubCaptureDescriptionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? IntervalInSeconds
     {
-        get => new TerraformReference<double>(this, "interval_in_seconds");
+        get => GetArgument<TerraformValue<double>>("interval_in_seconds");
         set => SetArgument("interval_in_seconds", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermEventhubCaptureDescriptionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SizeLimitInBytes
     {
-        get => new TerraformReference<double>(this, "size_limit_in_bytes");
+        get => GetArgument<TerraformValue<double>>("size_limit_in_bytes");
         set => SetArgument("size_limit_in_bytes", value);
     }
 
@@ -56,7 +56,7 @@ public class AzurermEventhubCaptureDescriptionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SkipEmptyArchives
     {
-        get => new TerraformReference<bool>(this, "skip_empty_archives");
+        get => GetArgument<TerraformValue<bool>>("skip_empty_archives");
         set => SetArgument("skip_empty_archives", value);
     }
 
@@ -92,7 +92,7 @@ public class AzurermEventhubCaptureDescriptionBlockDestinationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArchiveNameFormat is required")]
     public required TerraformValue<string> ArchiveNameFormat
     {
-        get => new TerraformReference<string>(this, "archive_name_format");
+        get => GetArgument<TerraformValue<string>>("archive_name_format");
         set => SetArgument("archive_name_format", value);
     }
 
@@ -102,7 +102,7 @@ public class AzurermEventhubCaptureDescriptionBlockDestinationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlobContainerName is required")]
     public required TerraformValue<string> BlobContainerName
     {
-        get => new TerraformReference<string>(this, "blob_container_name");
+        get => GetArgument<TerraformValue<string>>("blob_container_name");
         set => SetArgument("blob_container_name", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermEventhubCaptureDescriptionBlockDestinationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermEventhubCaptureDescriptionBlockDestinationBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => new TerraformReference<string>(this, "storage_account_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
@@ -146,7 +146,7 @@ public class AzurermEventhubRetentionDescriptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CleanupPolicy is required")]
     public required TerraformValue<string> CleanupPolicy
     {
-        get => new TerraformReference<string>(this, "cleanup_policy");
+        get => GetArgument<TerraformValue<string>>("cleanup_policy");
         set => SetArgument("cleanup_policy", value);
     }
 
@@ -155,7 +155,7 @@ public class AzurermEventhubRetentionDescriptionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? RetentionTimeInHours
     {
-        get => new TerraformReference<double>(this, "retention_time_in_hours");
+        get => GetArgument<TerraformValue<double>>("retention_time_in_hours");
         set => SetArgument("retention_time_in_hours", value);
     }
 
@@ -164,7 +164,7 @@ public class AzurermEventhubRetentionDescriptionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? TombstoneRetentionTimeInHours
     {
-        get => new TerraformReference<double>(this, "tombstone_retention_time_in_hours");
+        get => GetArgument<TerraformValue<double>>("tombstone_retention_time_in_hours");
         set => SetArgument("tombstone_retention_time_in_hours", value);
     }
 
@@ -187,7 +187,7 @@ public class AzurermEventhubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -196,7 +196,7 @@ public class AzurermEventhubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -205,7 +205,7 @@ public class AzurermEventhubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -214,7 +214,7 @@ public class AzurermEventhubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -230,18 +230,18 @@ public partial class AzurermEventhub(string name) : TerraformResource("azurerm_e
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The message_retention attribute.
     /// </summary>
-    public TerraformValue<double> MessageRetention
+    public TerraformValue<double>? MessageRetention
     {
-        get => new TerraformReference<double>(this, "message_retention");
+        get => GetArgument<TerraformValue<double>>("message_retention");
         set => SetArgument("message_retention", value);
     }
 
@@ -251,16 +251,16 @@ public partial class AzurermEventhub(string name) : TerraformResource("azurerm_e
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The namespace_id attribute.
     /// </summary>
-    public TerraformValue<string> NamespaceId
+    public TerraformValue<string>? NamespaceId
     {
-        get => new TerraformReference<string>(this, "namespace_id");
+        get => GetArgument<TerraformValue<string>>("namespace_id");
         set => SetArgument("namespace_id", value);
     }
 
@@ -268,9 +268,9 @@ public partial class AzurermEventhub(string name) : TerraformResource("azurerm_e
     /// The namespace_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> NamespaceName
+    public TerraformValue<string>? NamespaceName
     {
-        get => new TerraformReference<string>(this, "namespace_name");
+        get => GetArgument<TerraformValue<string>>("namespace_name");
         set => SetArgument("namespace_name", value);
     }
 
@@ -280,7 +280,7 @@ public partial class AzurermEventhub(string name) : TerraformResource("azurerm_e
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionCount is required")]
     public required TerraformValue<double> PartitionCount
     {
-        get => new TerraformReference<double>(this, "partition_count");
+        get => GetArgument<TerraformValue<double>>("partition_count");
         set => SetArgument("partition_count", value);
     }
 
@@ -288,9 +288,9 @@ public partial class AzurermEventhub(string name) : TerraformResource("azurerm_e
     /// The resource_group_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> ResourceGroupName
+    public TerraformValue<string>? ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -299,7 +299,7 @@ public partial class AzurermEventhub(string name) : TerraformResource("azurerm_e
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -307,9 +307,7 @@ public partial class AzurermEventhub(string name) : TerraformResource("azurerm_e
     /// The partition_ids attribute.
     /// </summary>
     public TerraformSet<string> PartitionIds
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "partition_ids").ResolveNodes(ctx));
-    }
+        => AsReference("partition_ids");
 
     /// <summary>
     /// CaptureDescription block (nesting mode: list).

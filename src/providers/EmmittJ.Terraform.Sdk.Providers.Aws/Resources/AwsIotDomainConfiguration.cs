@@ -18,7 +18,7 @@ public class AwsIotDomainConfigurationAuthorizerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowAuthorizerOverride
     {
-        get => new TerraformReference<bool>(this, "allow_authorizer_override");
+        get => GetArgument<TerraformValue<bool>>("allow_authorizer_override");
         set => SetArgument("allow_authorizer_override", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsIotDomainConfigurationAuthorizerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DefaultAuthorizerName
     {
-        get => new TerraformReference<string>(this, "default_authorizer_name");
+        get => GetArgument<TerraformValue<string>>("default_authorizer_name");
         set => SetArgument("default_authorizer_name", value);
     }
 
@@ -48,9 +48,9 @@ public class AwsIotDomainConfigurationTlsConfigBlock : TerraformBlock
     /// <summary>
     /// The security_policy attribute.
     /// </summary>
-    public TerraformValue<string> SecurityPolicy
+    public TerraformValue<string>? SecurityPolicy
     {
-        get => new TerraformReference<string>(this, "security_policy");
+        get => GetArgument<TerraformValue<string>>("security_policy");
         set => SetArgument("security_policy", value);
     }
 
@@ -66,36 +66,36 @@ public partial class AwsIotDomainConfiguration(string name) : TerraformResource(
     /// <summary>
     /// The application_protocol attribute.
     /// </summary>
-    public TerraformValue<string> ApplicationProtocol
+    public TerraformValue<string>? ApplicationProtocol
     {
-        get => new TerraformReference<string>(this, "application_protocol");
+        get => GetArgument<TerraformValue<string>>("application_protocol");
         set => SetArgument("application_protocol", value);
     }
 
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public TerraformValue<string> AuthenticationType
+    public TerraformValue<string>? AuthenticationType
     {
-        get => new TerraformReference<string>(this, "authentication_type");
+        get => GetArgument<TerraformValue<string>>("authentication_type");
         set => SetArgument("authentication_type", value);
     }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformValue<string> DomainName
+    public TerraformValue<string>? DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -105,16 +105,16 @@ public partial class AwsIotDomainConfiguration(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -123,7 +123,7 @@ public partial class AwsIotDomainConfiguration(string name) : TerraformResource(
     /// </summary>
     public TerraformSet<string>? ServerCertificateArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "server_certificate_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("server_certificate_arns");
         set => SetArgument("server_certificate_arns", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AwsIotDomainConfiguration(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? ServiceType
     {
-        get => new TerraformReference<string>(this, "service_type");
+        get => GetArgument<TerraformValue<string>>("service_type");
         set => SetArgument("service_type", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AwsIotDomainConfiguration(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -150,16 +150,16 @@ public partial class AwsIotDomainConfiguration(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -168,7 +168,7 @@ public partial class AwsIotDomainConfiguration(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? ValidationCertificateArn
     {
-        get => new TerraformReference<string>(this, "validation_certificate_arn");
+        get => GetArgument<TerraformValue<string>>("validation_certificate_arn");
         set => SetArgument("validation_certificate_arn", value);
     }
 
@@ -176,17 +176,13 @@ public partial class AwsIotDomainConfiguration(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The domain_type attribute.
     /// </summary>
     public TerraformValue<string> DomainType
-    {
-        get => new TerraformReference<string>(this, "domain_type");
-    }
+        => AsReference("domain_type");
 
     /// <summary>
     /// AuthorizerConfig block (nesting mode: list).

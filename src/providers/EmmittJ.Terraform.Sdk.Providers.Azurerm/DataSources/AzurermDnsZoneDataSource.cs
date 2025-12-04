@@ -18,7 +18,7 @@ public class AzurermDnsZoneDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermDnsZoneDataSource(string name) : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,16 +46,16 @@ public partial class AzurermDnsZoneDataSource(string name) : TerraformDataSource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformValue<string> ResourceGroupName
+    public TerraformValue<string>? ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -63,33 +63,25 @@ public partial class AzurermDnsZoneDataSource(string name) : TerraformDataSource
     /// The max_number_of_record_sets attribute.
     /// </summary>
     public TerraformValue<double> MaxNumberOfRecordSets
-    {
-        get => new TerraformReference<double>(this, "max_number_of_record_sets");
-    }
+        => AsReference("max_number_of_record_sets");
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
     public TerraformSet<string> NameServers
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "name_servers").ResolveNodes(ctx));
-    }
+        => AsReference("name_servers");
 
     /// <summary>
     /// The number_of_record_sets attribute.
     /// </summary>
     public TerraformValue<double> NumberOfRecordSets
-    {
-        get => new TerraformReference<double>(this, "number_of_record_sets");
-    }
+        => AsReference("number_of_record_sets");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -19,7 +19,7 @@ public class AwsAppsyncFunctionRuntimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsAppsyncFunctionRuntimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeVersion is required")]
     public required TerraformValue<string> RuntimeVersion
     {
-        get => new TerraformReference<string>(this, "runtime_version");
+        get => GetArgument<TerraformValue<string>>("runtime_version");
         set => SetArgument("runtime_version", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsAppsyncFunctionSyncConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConflictDetection
     {
-        get => new TerraformReference<string>(this, "conflict_detection");
+        get => GetArgument<TerraformValue<string>>("conflict_detection");
         set => SetArgument("conflict_detection", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsAppsyncFunctionSyncConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConflictHandler
     {
-        get => new TerraformReference<string>(this, "conflict_handler");
+        get => GetArgument<TerraformValue<string>>("conflict_handler");
         set => SetArgument("conflict_handler", value);
     }
 
@@ -93,7 +93,7 @@ public class AwsAppsyncFunctionSyncConfigBlockLambdaConflictHandlerConfigBlock :
     /// </summary>
     public TerraformValue<string>? LambdaConflictHandlerArn
     {
-        get => new TerraformReference<string>(this, "lambda_conflict_handler_arn");
+        get => GetArgument<TerraformValue<string>>("lambda_conflict_handler_arn");
         set => SetArgument("lambda_conflict_handler_arn", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AwsAppsyncFunction(string name) : TerraformResource("aws_ap
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformValue<string> ApiId
     {
-        get => new TerraformReference<string>(this, "api_id");
+        get => GetArgument<TerraformValue<string>>("api_id");
         set => SetArgument("api_id", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AwsAppsyncFunction(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string>? Code
     {
-        get => new TerraformReference<string>(this, "code");
+        get => GetArgument<TerraformValue<string>>("code");
         set => SetArgument("code", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AwsAppsyncFunction(string name) : TerraformResource("aws_ap
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSource is required")]
     public required TerraformValue<string> DataSource
     {
-        get => new TerraformReference<string>(this, "data_source");
+        get => GetArgument<TerraformValue<string>>("data_source");
         set => SetArgument("data_source", value);
     }
 
@@ -140,25 +140,25 @@ public partial class AwsAppsyncFunction(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The function_version attribute.
     /// </summary>
-    public TerraformValue<string> FunctionVersion
+    public TerraformValue<string>? FunctionVersion
     {
-        get => new TerraformReference<string>(this, "function_version");
+        get => GetArgument<TerraformValue<string>>("function_version");
         set => SetArgument("function_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AwsAppsyncFunction(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<double>? MaxBatchSize
     {
-        get => new TerraformReference<double>(this, "max_batch_size");
+        get => GetArgument<TerraformValue<double>>("max_batch_size");
         set => SetArgument("max_batch_size", value);
     }
 
@@ -177,16 +177,16 @@ public partial class AwsAppsyncFunction(string name) : TerraformResource("aws_ap
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -195,7 +195,7 @@ public partial class AwsAppsyncFunction(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string>? RequestMappingTemplate
     {
-        get => new TerraformReference<string>(this, "request_mapping_template");
+        get => GetArgument<TerraformValue<string>>("request_mapping_template");
         set => SetArgument("request_mapping_template", value);
     }
 
@@ -204,7 +204,7 @@ public partial class AwsAppsyncFunction(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string>? ResponseMappingTemplate
     {
-        get => new TerraformReference<string>(this, "response_mapping_template");
+        get => GetArgument<TerraformValue<string>>("response_mapping_template");
         set => SetArgument("response_mapping_template", value);
     }
 
@@ -212,17 +212,13 @@ public partial class AwsAppsyncFunction(string name) : TerraformResource("aws_ap
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The function_id attribute.
     /// </summary>
     public TerraformValue<string> FunctionId
-    {
-        get => new TerraformReference<string>(this, "function_id");
-    }
+        => AsReference("function_id");
 
     /// <summary>
     /// Runtime block (nesting mode: list).

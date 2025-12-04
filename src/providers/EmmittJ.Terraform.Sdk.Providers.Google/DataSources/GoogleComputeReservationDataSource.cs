@@ -11,9 +11,9 @@ public partial class GoogleComputeReservationDataSource(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -29,7 +29,7 @@ public partial class GoogleComputeReservationDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -38,7 +38,7 @@ public partial class GoogleComputeReservationDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -48,7 +48,7 @@ public partial class GoogleComputeReservationDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
     public required TerraformValue<string> Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -57,74 +57,56 @@ public partial class GoogleComputeReservationDataSource(string name) : Terraform
     /// reservations that are tied to a commitment.
     /// </summary>
     public TerraformValue<string> Commitment
-    {
-        get => new TerraformReference<string>(this, "commitment");
-    }
+        => AsReference("commitment");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// Duration after which the reservation will be auto-deleted by Compute Engine. Cannot be used with delete_at_time.
     /// </summary>
     public TerraformList<TerraformMap<object>> DeleteAfterDuration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "delete_after_duration").ResolveNodes(ctx));
-    }
+        => AsReference("delete_after_duration");
 
     /// <summary>
     /// Absolute time in future when the reservation will be auto-deleted by Compute Engine. Timestamp is represented in RFC3339 text format.
     /// Cannot be used with delete_after_duration.
     /// </summary>
     public TerraformValue<string> DeleteAtTime
-    {
-        get => new TerraformReference<string>(this, "delete_at_time");
-    }
+        => AsReference("delete_at_time");
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// Sharing policy for reservations with Google Cloud managed services.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReservationSharingPolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "reservation_sharing_policy").ResolveNodes(ctx));
-    }
+        => AsReference("reservation_sharing_policy");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// The share setting for reservations.
     /// </summary>
     public TerraformList<TerraformMap<object>> ShareSettings
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "share_settings").ResolveNodes(ctx));
-    }
+        => AsReference("share_settings");
 
     /// <summary>
     /// Reservation for instances with specific machine shapes.
     /// </summary>
     public TerraformList<TerraformMap<object>> SpecificReservation
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "specific_reservation").ResolveNodes(ctx));
-    }
+        => AsReference("specific_reservation");
 
     /// <summary>
     /// When set to true, only VMs that target this reservation by name can
@@ -132,16 +114,12 @@ public partial class GoogleComputeReservationDataSource(string name) : Terraform
     /// affinity for any reservation. Defaults to false.
     /// </summary>
     public TerraformValue<bool> SpecificReservationRequired
-    {
-        get => new TerraformReference<bool>(this, "specific_reservation_required");
-    }
+        => AsReference("specific_reservation_required");
 
     /// <summary>
     /// The status of the reservation.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }

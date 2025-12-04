@@ -20,7 +20,7 @@ public class GoogleComputeManagedSslCertificateManagedBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domains is required")]
     public TerraformList<string>? Domains
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "domains").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("domains");
         set => SetArgument("domains", value);
     }
 
@@ -43,7 +43,7 @@ public class GoogleComputeManagedSslCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleComputeManagedSslCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -70,16 +70,16 @@ public partial class GoogleComputeManagedSslCertificate(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -96,16 +96,16 @@ public partial class GoogleComputeManagedSslCertificate(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -115,7 +115,7 @@ public partial class GoogleComputeManagedSslCertificate(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -123,41 +123,31 @@ public partial class GoogleComputeManagedSslCertificate(string name) : Terraform
     /// The unique identifier for the resource.
     /// </summary>
     public TerraformValue<double> CertificateId
-    {
-        get => new TerraformReference<double>(this, "certificate_id");
-    }
+        => AsReference("certificate_id");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// Expire time of the certificate in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> ExpireTime
-    {
-        get => new TerraformReference<string>(this, "expire_time");
-    }
+        => AsReference("expire_time");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Domains associated with the certificate via Subject Alternative Name.
     /// </summary>
     public TerraformList<string> SubjectAlternativeNames
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "subject_alternative_names").ResolveNodes(ctx));
-    }
+        => AsReference("subject_alternative_names");
 
     /// <summary>
     /// Managed block (nesting mode: list).

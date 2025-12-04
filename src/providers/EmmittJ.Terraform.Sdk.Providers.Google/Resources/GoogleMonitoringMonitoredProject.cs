@@ -18,7 +18,7 @@ public class GoogleMonitoringMonitoredProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleMonitoringMonitoredProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -43,9 +43,9 @@ public partial class GoogleMonitoringMonitoredProject(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleMonitoringMonitoredProject(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricsScope is required")]
     public required TerraformValue<string> MetricsScope
     {
-        get => new TerraformReference<string>(this, "metrics_scope");
+        get => GetArgument<TerraformValue<string>>("metrics_scope");
         set => SetArgument("metrics_scope", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleMonitoringMonitoredProject(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -73,9 +73,7 @@ public partial class GoogleMonitoringMonitoredProject(string name) : TerraformRe
     /// Output only. The time when this &#39;MonitoredProject&#39; was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

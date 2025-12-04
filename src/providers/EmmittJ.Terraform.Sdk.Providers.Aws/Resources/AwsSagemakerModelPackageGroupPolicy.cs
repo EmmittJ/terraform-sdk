@@ -11,9 +11,9 @@ public partial class AwsSagemakerModelPackageGroupPolicy(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsSagemakerModelPackageGroupPolicy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelPackageGroupName is required")]
     public required TerraformValue<string> ModelPackageGroupName
     {
-        get => new TerraformReference<string>(this, "model_package_group_name");
+        get => GetArgument<TerraformValue<string>>("model_package_group_name");
         set => SetArgument("model_package_group_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsSagemakerModelPackageGroupPolicy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourcePolicy is required")]
     public required TerraformValue<string> ResourcePolicy
     {
-        get => new TerraformReference<string>(this, "resource_policy");
+        get => GetArgument<TerraformValue<string>>("resource_policy");
         set => SetArgument("resource_policy", value);
     }
 

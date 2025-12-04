@@ -18,7 +18,7 @@ public class AwsDatazoneProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsDatazoneProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AwsDatazoneProject(string name) : TerraformResource("aws_da
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsDatazoneProject(string name) : TerraformResource("aws_da
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     public required TerraformValue<string> DomainIdentifier
     {
-        get => new TerraformReference<string>(this, "domain_identifier");
+        get => GetArgument<TerraformValue<string>>("domain_identifier");
         set => SetArgument("domain_identifier", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsDatazoneProject(string name) : TerraformResource("aws_da
     /// </summary>
     public TerraformList<string>? GlossaryTerms
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "glossary_terms").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("glossary_terms");
         set => SetArgument("glossary_terms", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AwsDatazoneProject(string name) : TerraformResource("aws_da
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AwsDatazoneProject(string name) : TerraformResource("aws_da
     /// </summary>
     public TerraformValue<bool>? SkipDeletionCheck
     {
-        get => new TerraformReference<bool>(this, "skip_deletion_check");
+        get => GetArgument<TerraformValue<bool>>("skip_deletion_check");
         set => SetArgument("skip_deletion_check", value);
     }
 
@@ -100,49 +100,37 @@ public partial class AwsDatazoneProject(string name) : TerraformResource("aws_da
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
     public TerraformValue<string> CreatedBy
-    {
-        get => new TerraformReference<string>(this, "created_by");
-    }
+        => AsReference("created_by");
 
     /// <summary>
     /// The failure_reasons attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FailureReasons
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "failure_reasons").ResolveNodes(ctx));
-    }
+        => AsReference("failure_reasons");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The last_updated_at attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedAt
-    {
-        get => new TerraformReference<string>(this, "last_updated_at");
-    }
+        => AsReference("last_updated_at");
 
     /// <summary>
     /// The project_status attribute.
     /// </summary>
     public TerraformValue<string> ProjectStatus
-    {
-        get => new TerraformReference<string>(this, "project_status");
-    }
+        => AsReference("project_status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

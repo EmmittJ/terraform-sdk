@@ -18,7 +18,7 @@ public class AzurermOrbitalContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermOrbitalContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermOrbitalContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermOrbitalContact(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactProfileId is required")]
     public required TerraformValue<string> ContactProfileId
     {
-        get => new TerraformReference<string>(this, "contact_profile_id");
+        get => GetArgument<TerraformValue<string>>("contact_profile_id");
         set => SetArgument("contact_profile_id", value);
     }
 
@@ -66,16 +66,16 @@ public partial class AzurermOrbitalContact(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroundStationName is required")]
     public required TerraformValue<string> GroundStationName
     {
-        get => new TerraformReference<string>(this, "ground_station_name");
+        get => GetArgument<TerraformValue<string>>("ground_station_name");
         set => SetArgument("ground_station_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -85,7 +85,7 @@ public partial class AzurermOrbitalContact(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AzurermOrbitalContact(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservationEndTime is required")]
     public required TerraformValue<string> ReservationEndTime
     {
-        get => new TerraformReference<string>(this, "reservation_end_time");
+        get => GetArgument<TerraformValue<string>>("reservation_end_time");
         set => SetArgument("reservation_end_time", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AzurermOrbitalContact(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservationStartTime is required")]
     public required TerraformValue<string> ReservationStartTime
     {
-        get => new TerraformReference<string>(this, "reservation_start_time");
+        get => GetArgument<TerraformValue<string>>("reservation_start_time");
         set => SetArgument("reservation_start_time", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AzurermOrbitalContact(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpacecraftId is required")]
     public required TerraformValue<string> SpacecraftId
     {
-        get => new TerraformReference<string>(this, "spacecraft_id");
+        get => GetArgument<TerraformValue<string>>("spacecraft_id");
         set => SetArgument("spacecraft_id", value);
     }
 

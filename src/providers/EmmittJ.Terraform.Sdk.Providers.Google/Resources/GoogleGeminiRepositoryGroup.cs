@@ -20,7 +20,7 @@ public class GoogleGeminiRepositoryGroupRepositoriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchPattern is required")]
     public required TerraformValue<string> BranchPattern
     {
-        get => new TerraformReference<string>(this, "branch_pattern");
+        get => GetArgument<TerraformValue<string>>("branch_pattern");
         set => SetArgument("branch_pattern", value);
     }
 
@@ -31,7 +31,7 @@ public class GoogleGeminiRepositoryGroupRepositoriesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformValue<string> Resource
     {
-        get => new TerraformReference<string>(this, "resource");
+        get => GetArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -54,7 +54,7 @@ public class GoogleGeminiRepositoryGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -63,7 +63,7 @@ public class GoogleGeminiRepositoryGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -72,7 +72,7 @@ public class GoogleGeminiRepositoryGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -91,16 +91,16 @@ public partial class GoogleGeminiRepositoryGroup(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CodeRepositoryIndex is required")]
     public required TerraformValue<string> CodeRepositoryIndex
     {
-        get => new TerraformReference<string>(this, "code_repository_index");
+        get => GetArgument<TerraformValue<string>>("code_repository_index");
         set => SetArgument("code_repository_index", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class GoogleGeminiRepositoryGroup(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -122,16 +122,16 @@ public partial class GoogleGeminiRepositoryGroup(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -141,7 +141,7 @@ public partial class GoogleGeminiRepositoryGroup(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryGroupId is required")]
     public required TerraformValue<string> RepositoryGroupId
     {
-        get => new TerraformReference<string>(this, "repository_group_id");
+        get => GetArgument<TerraformValue<string>>("repository_group_id");
         set => SetArgument("repository_group_id", value);
     }
 
@@ -149,42 +149,32 @@ public partial class GoogleGeminiRepositoryGroup(string name) : TerraformResourc
     /// Output only. Create time stamp.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Immutable. Identifier. Name of Repository Group.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Output only. Update time stamp.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Repositories block (nesting mode: list).

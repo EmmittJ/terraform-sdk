@@ -14,16 +14,16 @@ public partial class AwsOrganizationsDelegatedAdministrator(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformValue<string> AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsOrganizationsDelegatedAdministrator(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipal is required")]
     public required TerraformValue<string> ServicePrincipal
     {
-        get => new TerraformReference<string>(this, "service_principal");
+        get => GetArgument<TerraformValue<string>>("service_principal");
         set => SetArgument("service_principal", value);
     }
 
@@ -41,56 +41,42 @@ public partial class AwsOrganizationsDelegatedAdministrator(string name) : Terra
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The delegation_enabled_date attribute.
     /// </summary>
     public TerraformValue<string> DelegationEnabledDate
-    {
-        get => new TerraformReference<string>(this, "delegation_enabled_date");
-    }
+        => AsReference("delegation_enabled_date");
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     public TerraformValue<string> Email
-    {
-        get => new TerraformReference<string>(this, "email");
-    }
+        => AsReference("email");
 
     /// <summary>
     /// The joined_method attribute.
     /// </summary>
     public TerraformValue<string> JoinedMethod
-    {
-        get => new TerraformReference<string>(this, "joined_method");
-    }
+        => AsReference("joined_method");
 
     /// <summary>
     /// The joined_timestamp attribute.
     /// </summary>
     public TerraformValue<string> JoinedTimestamp
-    {
-        get => new TerraformReference<string>(this, "joined_timestamp");
-    }
+        => AsReference("joined_timestamp");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }

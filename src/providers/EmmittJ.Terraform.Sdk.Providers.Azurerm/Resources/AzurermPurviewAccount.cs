@@ -18,7 +18,7 @@ public class AzurermPurviewAccountIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -26,17 +26,13 @@ public class AzurermPurviewAccountIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -44,7 +40,7 @@ public class AzurermPurviewAccountIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -67,7 +63,7 @@ public class AzurermPurviewAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -76,7 +72,7 @@ public class AzurermPurviewAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -85,7 +81,7 @@ public class AzurermPurviewAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -94,7 +90,7 @@ public class AzurermPurviewAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -110,9 +106,9 @@ public partial class AzurermPurviewAccount(string name) : TerraformResource("azu
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -122,7 +118,7 @@ public partial class AzurermPurviewAccount(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -131,16 +127,16 @@ public partial class AzurermPurviewAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? ManagedEventHubEnabled
     {
-        get => new TerraformReference<bool>(this, "managed_event_hub_enabled");
+        get => GetArgument<TerraformValue<bool>>("managed_event_hub_enabled");
         set => SetArgument("managed_event_hub_enabled", value);
     }
 
     /// <summary>
     /// The managed_resource_group_name attribute.
     /// </summary>
-    public TerraformValue<string> ManagedResourceGroupName
+    public TerraformValue<string>? ManagedResourceGroupName
     {
-        get => new TerraformReference<string>(this, "managed_resource_group_name");
+        get => GetArgument<TerraformValue<string>>("managed_resource_group_name");
         set => SetArgument("managed_resource_group_name", value);
     }
 
@@ -150,7 +146,7 @@ public partial class AzurermPurviewAccount(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -159,7 +155,7 @@ public partial class AzurermPurviewAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? PublicNetworkEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_enabled");
         set => SetArgument("public_network_enabled", value);
     }
 
@@ -169,7 +165,7 @@ public partial class AzurermPurviewAccount(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -178,7 +174,7 @@ public partial class AzurermPurviewAccount(string name) : TerraformResource("azu
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -186,57 +182,43 @@ public partial class AzurermPurviewAccount(string name) : TerraformResource("azu
     /// The atlas_kafka_endpoint_primary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> AtlasKafkaEndpointPrimaryConnectionString
-    {
-        get => new TerraformReference<string>(this, "atlas_kafka_endpoint_primary_connection_string");
-    }
+        => AsReference("atlas_kafka_endpoint_primary_connection_string");
 
     /// <summary>
     /// The atlas_kafka_endpoint_secondary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> AtlasKafkaEndpointSecondaryConnectionString
-    {
-        get => new TerraformReference<string>(this, "atlas_kafka_endpoint_secondary_connection_string");
-    }
+        => AsReference("atlas_kafka_endpoint_secondary_connection_string");
 
     /// <summary>
     /// The aws_external_id attribute.
     /// </summary>
     public TerraformValue<string> AwsExternalId
-    {
-        get => new TerraformReference<string>(this, "aws_external_id");
-    }
+        => AsReference("aws_external_id");
 
     /// <summary>
     /// The catalog_endpoint attribute.
     /// </summary>
     public TerraformValue<string> CatalogEndpoint
-    {
-        get => new TerraformReference<string>(this, "catalog_endpoint");
-    }
+        => AsReference("catalog_endpoint");
 
     /// <summary>
     /// The guardian_endpoint attribute.
     /// </summary>
     public TerraformValue<string> GuardianEndpoint
-    {
-        get => new TerraformReference<string>(this, "guardian_endpoint");
-    }
+        => AsReference("guardian_endpoint");
 
     /// <summary>
     /// The managed_resources attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedResources
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "managed_resources").ResolveNodes(ctx));
-    }
+        => AsReference("managed_resources");
 
     /// <summary>
     /// The scan_endpoint attribute.
     /// </summary>
     public TerraformValue<string> ScanEndpoint
-    {
-        get => new TerraformReference<string>(this, "scan_endpoint");
-    }
+        => AsReference("scan_endpoint");
 
     /// <summary>
     /// Identity block (nesting mode: list).

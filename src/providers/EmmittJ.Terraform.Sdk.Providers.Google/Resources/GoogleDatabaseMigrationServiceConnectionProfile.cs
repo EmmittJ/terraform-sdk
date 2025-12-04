@@ -19,7 +19,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => new TerraformReference<string>(this, "cluster_id");
+        get => GetArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlockSettings
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlockSettings
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcNetwork is required")]
     public required TerraformValue<string> VpcNetwork
     {
-        get => new TerraformReference<string>(this, "vpc_network");
+        get => GetArgument<TerraformValue<string>>("vpc_network");
         set => SetArgument("vpc_network", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlockSettings
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -116,9 +116,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlockSettings
     /// Output only. Indicates if the initialUser.password field has been set.
     /// </summary>
     public TerraformValue<bool> PasswordSet
-    {
-        get => new TerraformReference<bool>(this, "password_set");
-    }
+        => AsReference("password_set");
 
     /// <summary>
     /// The database username.
@@ -126,7 +124,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlockSettings
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformValue<string> User
     {
-        get => new TerraformReference<string>(this, "user");
+        get => GetArgument<TerraformValue<string>>("user");
         set => SetArgument("user", value);
     }
 
@@ -148,7 +146,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlockSettings
     /// </summary>
     public TerraformMap<string>? DatabaseFlags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "database_flags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("database_flags");
         set => SetArgument("database_flags", value);
     }
 
@@ -158,7 +156,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlockSettings
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -167,7 +165,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlockSettings
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -175,9 +173,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlockSettings
     /// Output only. The private IP address for the Instance. This is the connection endpoint for an end-user application.
     /// </summary>
     public TerraformValue<string> PrivateIp
-    {
-        get => new TerraformReference<string>(this, "private_ip");
-    }
+        => AsReference("private_ip");
 
     /// <summary>
     /// MachineConfig block (nesting mode: list).
@@ -211,7 +207,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlockSettings
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCount is required")]
     public required TerraformValue<double> CpuCount
     {
-        get => new TerraformReference<double>(this, "cpu_count");
+        get => GetArgument<TerraformValue<double>>("cpu_count");
         set => SetArgument("cpu_count", value);
     }
 
@@ -233,25 +229,19 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlock : Terr
     /// Output only. The Cloud SQL instance ID that this connection profile is associated with.
     /// </summary>
     public TerraformValue<string> CloudSqlId
-    {
-        get => new TerraformReference<string>(this, "cloud_sql_id");
-    }
+        => AsReference("cloud_sql_id");
 
     /// <summary>
     /// Output only. The Cloud SQL database instance&#39;s private IP.
     /// </summary>
     public TerraformValue<string> PrivateIp
-    {
-        get => new TerraformReference<string>(this, "private_ip");
-    }
+        => AsReference("private_ip");
 
     /// <summary>
     /// Output only. The Cloud SQL database instance&#39;s public IP.
     /// </summary>
     public TerraformValue<string> PublicIp
-    {
-        get => new TerraformReference<string>(this, "public_ip");
-    }
+        => AsReference("public_ip");
 
     /// <summary>
     /// Settings block (nesting mode: list).
@@ -281,7 +271,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// </summary>
     public TerraformValue<string>? ActivationPolicy
     {
-        get => new TerraformReference<string>(this, "activation_policy");
+        get => GetArgument<TerraformValue<string>>("activation_policy");
         set => SetArgument("activation_policy", value);
     }
 
@@ -291,7 +281,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// </summary>
     public TerraformValue<bool>? AutoStorageIncrease
     {
-        get => new TerraformReference<bool>(this, "auto_storage_increase");
+        get => GetArgument<TerraformValue<bool>>("auto_storage_increase");
         set => SetArgument("auto_storage_increase", value);
     }
 
@@ -300,7 +290,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// </summary>
     public TerraformValue<string>? CmekKeyName
     {
-        get => new TerraformReference<string>(this, "cmek_key_name");
+        get => GetArgument<TerraformValue<string>>("cmek_key_name");
         set => SetArgument("cmek_key_name", value);
     }
 
@@ -309,7 +299,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// </summary>
     public TerraformValue<string>? Collation
     {
-        get => new TerraformReference<string>(this, "collation");
+        get => GetArgument<TerraformValue<string>>("collation");
         set => SetArgument("collation", value);
     }
 
@@ -318,7 +308,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// </summary>
     public TerraformValue<string>? DataDiskSizeGb
     {
-        get => new TerraformReference<string>(this, "data_disk_size_gb");
+        get => GetArgument<TerraformValue<string>>("data_disk_size_gb");
         set => SetArgument("data_disk_size_gb", value);
     }
 
@@ -327,7 +317,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// </summary>
     public TerraformValue<string>? DataDiskType
     {
-        get => new TerraformReference<string>(this, "data_disk_type");
+        get => GetArgument<TerraformValue<string>>("data_disk_type");
         set => SetArgument("data_disk_type", value);
     }
 
@@ -336,7 +326,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// </summary>
     public TerraformMap<string>? DatabaseFlags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "database_flags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("database_flags");
         set => SetArgument("database_flags", value);
     }
 
@@ -346,7 +336,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// </summary>
     public TerraformValue<string>? DatabaseVersion
     {
-        get => new TerraformReference<string>(this, "database_version");
+        get => GetArgument<TerraformValue<string>>("database_version");
         set => SetArgument("database_version", value);
     }
 
@@ -355,7 +345,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// </summary>
     public TerraformValue<string>? Edition
     {
-        get => new TerraformReference<string>(this, "edition");
+        get => GetArgument<TerraformValue<string>>("edition");
         set => SetArgument("edition", value);
     }
 
@@ -364,7 +354,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// </summary>
     public TerraformValue<string>? RootPassword
     {
-        get => new TerraformReference<string>(this, "root_password");
+        get => GetArgument<TerraformValue<string>>("root_password");
         set => SetArgument("root_password", value);
     }
 
@@ -372,9 +362,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// Output only. Indicates If this connection profile root password is stored.
     /// </summary>
     public TerraformValue<bool> RootPasswordSet
-    {
-        get => new TerraformReference<bool>(this, "root_password_set");
-    }
+        => AsReference("root_password_set");
 
     /// <summary>
     /// The Database Migration Service source connection profile ID, in the format: projects/my_project_name/locations/us-central1/connectionProfiles/connection_profile_ID
@@ -382,7 +370,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceId is required")]
     public required TerraformValue<string> SourceId
     {
-        get => new TerraformReference<string>(this, "source_id");
+        get => GetArgument<TerraformValue<string>>("source_id");
         set => SetArgument("source_id", value);
     }
 
@@ -391,7 +379,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// </summary>
     public TerraformValue<string>? StorageAutoResizeLimit
     {
-        get => new TerraformReference<string>(this, "storage_auto_resize_limit");
+        get => GetArgument<TerraformValue<string>>("storage_auto_resize_limit");
         set => SetArgument("storage_auto_resize_limit", value);
     }
 
@@ -401,7 +389,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// </summary>
     public TerraformValue<string>? Tier
     {
-        get => new TerraformReference<string>(this, "tier");
+        get => GetArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 
@@ -410,7 +398,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// </summary>
     public TerraformMap<string>? UserLabels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "user_labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("user_labels");
         set => SetArgument("user_labels", value);
     }
 
@@ -419,7 +407,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// </summary>
     public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -451,7 +439,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// </summary>
     public TerraformValue<bool>? EnableIpv4
     {
-        get => new TerraformReference<bool>(this, "enable_ipv4");
+        get => GetArgument<TerraformValue<bool>>("enable_ipv4");
         set => SetArgument("enable_ipv4", value);
     }
 
@@ -461,7 +449,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// </summary>
     public TerraformValue<string>? PrivateNetwork
     {
-        get => new TerraformReference<string>(this, "private_network");
+        get => GetArgument<TerraformValue<string>>("private_network");
         set => SetArgument("private_network", value);
     }
 
@@ -470,7 +458,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// </summary>
     public TerraformValue<bool>? RequireSsl
     {
-        get => new TerraformReference<bool>(this, "require_ssl");
+        get => GetArgument<TerraformValue<bool>>("require_ssl");
         set => SetArgument("require_ssl", value);
     }
 
@@ -501,7 +489,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// </summary>
     public TerraformValue<string>? ExpireTime
     {
-        get => new TerraformReference<string>(this, "expire_time");
+        get => GetArgument<TerraformValue<string>>("expire_time");
         set => SetArgument("expire_time", value);
     }
 
@@ -510,7 +498,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// </summary>
     public TerraformValue<string>? Label
     {
-        get => new TerraformReference<string>(this, "label");
+        get => GetArgument<TerraformValue<string>>("label");
         set => SetArgument("label", value);
     }
 
@@ -519,7 +507,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     /// </summary>
     public TerraformValue<string>? Ttl
     {
-        get => new TerraformReference<string>(this, "ttl");
+        get => GetArgument<TerraformValue<string>>("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -529,7 +517,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlockSetting
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -552,7 +540,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? CloudSqlId
     {
-        get => new TerraformReference<string>(this, "cloud_sql_id");
+        get => GetArgument<TerraformValue<string>>("cloud_sql_id");
         set => SetArgument("cloud_sql_id", value);
     }
 
@@ -561,7 +549,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -571,7 +559,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -579,16 +567,14 @@ public class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock : Terrafo
     /// Output only. Indicates If this connection profile password is stored.
     /// </summary>
     public TerraformValue<bool> PasswordSet
-    {
-        get => new TerraformReference<bool>(this, "password_set");
-    }
+        => AsReference("password_set");
 
     /// <summary>
     /// The network port of the source MySQL database.
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -597,7 +583,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -630,7 +616,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlockSslBlock :
     /// </summary>
     public TerraformValue<string>? CaCertificate
     {
-        get => new TerraformReference<string>(this, "ca_certificate");
+        get => GetArgument<TerraformValue<string>>("ca_certificate");
         set => SetArgument("ca_certificate", value);
     }
 
@@ -640,7 +626,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlockSslBlock :
     /// </summary>
     public TerraformValue<string>? ClientCertificate
     {
-        get => new TerraformReference<string>(this, "client_certificate");
+        get => GetArgument<TerraformValue<string>>("client_certificate");
         set => SetArgument("client_certificate", value);
     }
 
@@ -650,7 +636,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlockSslBlock :
     /// </summary>
     public TerraformValue<string>? ClientKey
     {
-        get => new TerraformReference<string>(this, "client_key");
+        get => GetArgument<TerraformValue<string>>("client_key");
         set => SetArgument("client_key", value);
     }
 
@@ -659,7 +645,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlockSslBlock :
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -683,7 +669,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseService is required")]
     public required TerraformValue<string> DatabaseService
     {
-        get => new TerraformReference<string>(this, "database_service");
+        get => GetArgument<TerraformValue<string>>("database_service");
         set => SetArgument("database_service", value);
     }
 
@@ -693,7 +679,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -704,7 +690,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -712,9 +698,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     /// Output only. Indicates If this connection profile password is stored.
     /// </summary>
     public TerraformValue<bool> PasswordSet
-    {
-        get => new TerraformReference<bool>(this, "password_set");
-    }
+        => AsReference("password_set");
 
     /// <summary>
     /// Required. The network port of the source Oracle database.
@@ -722,7 +706,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -732,7 +716,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -795,7 +779,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlockForwardSs
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => new TerraformReference<string>(this, "hostname");
+        get => GetArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -804,7 +788,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlockForwardSs
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -814,7 +798,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlockForwardSs
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -823,7 +807,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlockForwardSs
     /// </summary>
     public TerraformValue<string>? PrivateKey
     {
-        get => new TerraformReference<string>(this, "private_key");
+        get => GetArgument<TerraformValue<string>>("private_key");
         set => SetArgument("private_key", value);
     }
 
@@ -833,7 +817,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlockForwardSs
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -856,7 +840,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlockPrivateCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateConnection is required")]
     public required TerraformValue<string> PrivateConnection
     {
-        get => new TerraformReference<string>(this, "private_connection");
+        get => GetArgument<TerraformValue<string>>("private_connection");
         set => SetArgument("private_connection", value);
     }
 
@@ -879,7 +863,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlockSslBlock 
     /// </summary>
     public TerraformValue<string>? CaCertificate
     {
-        get => new TerraformReference<string>(this, "ca_certificate");
+        get => GetArgument<TerraformValue<string>>("ca_certificate");
         set => SetArgument("ca_certificate", value);
     }
 
@@ -889,7 +873,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlockSslBlock 
     /// </summary>
     public TerraformValue<string>? ClientCertificate
     {
-        get => new TerraformReference<string>(this, "client_certificate");
+        get => GetArgument<TerraformValue<string>>("client_certificate");
         set => SetArgument("client_certificate", value);
     }
 
@@ -899,7 +883,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlockSslBlock 
     /// </summary>
     public TerraformValue<string>? ClientKey
     {
-        get => new TerraformReference<string>(this, "client_key");
+        get => GetArgument<TerraformValue<string>>("client_key");
         set => SetArgument("client_key", value);
     }
 
@@ -907,9 +891,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlockSslBlock 
     /// The current connection profile state.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
 }
 
@@ -943,7 +925,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : Te
     /// </summary>
     public TerraformValue<string>? AlloydbClusterId
     {
-        get => new TerraformReference<string>(this, "alloydb_cluster_id");
+        get => GetArgument<TerraformValue<string>>("alloydb_cluster_id");
         set => SetArgument("alloydb_cluster_id", value);
     }
 
@@ -952,7 +934,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : Te
     /// </summary>
     public TerraformValue<string>? CloudSqlId
     {
-        get => new TerraformReference<string>(this, "cloud_sql_id");
+        get => GetArgument<TerraformValue<string>>("cloud_sql_id");
         set => SetArgument("cloud_sql_id", value);
     }
 
@@ -961,7 +943,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : Te
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -969,9 +951,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : Te
     /// Output only. If the source is a Cloud SQL database, this field indicates the network architecture it&#39;s associated with.
     /// </summary>
     public TerraformValue<string> NetworkArchitecture
-    {
-        get => new TerraformReference<string>(this, "network_architecture");
-    }
+        => AsReference("network_architecture");
 
     /// <summary>
     /// Input only. The password for the user that Database Migration Service will be using to connect to the database.
@@ -979,7 +959,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : Te
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -987,16 +967,14 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : Te
     /// Output only. Indicates If this connection profile password is stored.
     /// </summary>
     public TerraformValue<bool> PasswordSet
-    {
-        get => new TerraformReference<bool>(this, "password_set");
-    }
+        => AsReference("password_set");
 
     /// <summary>
     /// The network port of the source MySQL database.
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -1005,7 +983,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : Te
     /// </summary>
     public TerraformValue<string>? Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -1038,7 +1016,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlockSslBl
     /// </summary>
     public TerraformValue<string>? CaCertificate
     {
-        get => new TerraformReference<string>(this, "ca_certificate");
+        get => GetArgument<TerraformValue<string>>("ca_certificate");
         set => SetArgument("ca_certificate", value);
     }
 
@@ -1048,7 +1026,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlockSslBl
     /// </summary>
     public TerraformValue<string>? ClientCertificate
     {
-        get => new TerraformReference<string>(this, "client_certificate");
+        get => GetArgument<TerraformValue<string>>("client_certificate");
         set => SetArgument("client_certificate", value);
     }
 
@@ -1058,7 +1036,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlockSslBl
     /// </summary>
     public TerraformValue<string>? ClientKey
     {
-        get => new TerraformReference<string>(this, "client_key");
+        get => GetArgument<TerraformValue<string>>("client_key");
         set => SetArgument("client_key", value);
     }
 
@@ -1067,7 +1045,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlockSslBl
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1090,7 +1068,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1099,7 +1077,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1108,7 +1086,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1127,7 +1105,7 @@ public partial class GoogleDatabaseMigrationServiceConnectionProfile(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionProfileId is required")]
     public required TerraformValue<string> ConnectionProfileId
     {
-        get => new TerraformReference<string>(this, "connection_profile_id");
+        get => GetArgument<TerraformValue<string>>("connection_profile_id");
         set => SetArgument("connection_profile_id", value);
     }
 
@@ -1136,16 +1114,16 @@ public partial class GoogleDatabaseMigrationServiceConnectionProfile(string name
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1158,7 +1136,7 @@ public partial class GoogleDatabaseMigrationServiceConnectionProfile(string name
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -1167,16 +1145,16 @@ public partial class GoogleDatabaseMigrationServiceConnectionProfile(string name
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -1184,58 +1162,44 @@ public partial class GoogleDatabaseMigrationServiceConnectionProfile(string name
     /// Output only. The timestamp when the resource was created. A timestamp in RFC3339 UTC &#39;Zulu&#39; format, accurate to nanoseconds. Example: &#39;2014-10-02T15:01:23.045123456Z&#39;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The database provider.
     /// </summary>
     public TerraformValue<string> Dbprovider
-    {
-        get => new TerraformReference<string>(this, "dbprovider");
-    }
+        => AsReference("dbprovider");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Output only. The error details in case of state FAILED.
     /// </summary>
     public TerraformList<TerraformMap<object>> Error
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "error").ResolveNodes(ctx));
-    }
+        => AsReference("error");
 
     /// <summary>
     /// The name of this connection profile resource in the form of projects/{project}/locations/{location}/connectionProfiles/{connectionProfile}.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The current connection profile state.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Alloydb block (nesting mode: list).

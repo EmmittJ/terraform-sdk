@@ -16,9 +16,9 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     /// <summary>
     /// The column_names attribute.
     /// </summary>
-    public TerraformSet<string> ColumnNames
+    public TerraformSet<string>? ColumnNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "column_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("column_names");
         set => SetArgument("column_names", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -48,7 +48,7 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableCatalogId is required")]
     public required TerraformValue<string> TableCatalogId
     {
-        get => new TerraformReference<string>(this, "table_catalog_id");
+        get => GetArgument<TerraformValue<string>>("table_catalog_id");
         set => SetArgument("table_catalog_id", value);
     }
 
@@ -58,16 +58,16 @@ public class AwsLakeformationDataCellsFilterTableDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
-    public TerraformValue<string> VersionId
+    public TerraformValue<string>? VersionId
     {
-        get => new TerraformReference<string>(this, "version_id");
+        get => GetArgument<TerraformValue<string>>("version_id");
         set => SetArgument("version_id", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsLakeformationDataCellsFilterTableDataBlockColumnWildcardBlock : 
     /// </summary>
     public TerraformList<string>? ExcludedColumnNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_column_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excluded_column_names");
         set => SetArgument("excluded_column_names", value);
     }
 
@@ -127,9 +127,9 @@ public class AwsLakeformationDataCellsFilterTableDataBlockRowFilterBlock : Terra
     /// <summary>
     /// The filter_expression attribute.
     /// </summary>
-    public TerraformValue<string> FilterExpression
+    public TerraformValue<string>? FilterExpression
     {
-        get => new TerraformReference<string>(this, "filter_expression");
+        get => GetArgument<TerraformValue<string>>("filter_expression");
         set => SetArgument("filter_expression", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsLakeformationDataCellsFilterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -190,9 +190,9 @@ public partial class AwsLakeformationDataCellsFilter(string name) : TerraformRes
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -200,9 +200,7 @@ public partial class AwsLakeformationDataCellsFilter(string name) : TerraformRes
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// TableData block (nesting mode: list).

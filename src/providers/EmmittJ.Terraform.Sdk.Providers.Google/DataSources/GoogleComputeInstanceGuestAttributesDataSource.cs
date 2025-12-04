@@ -11,9 +11,9 @@ public partial class GoogleComputeInstanceGuestAttributesDataSource(string name)
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class GoogleComputeInstanceGuestAttributesDataSource(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -41,16 +41,16 @@ public partial class GoogleComputeInstanceGuestAttributesDataSource(string name)
     /// </summary>
     public TerraformValue<string>? QueryPath
     {
-        get => new TerraformReference<string>(this, "query_path");
+        get => GetArgument<TerraformValue<string>>("query_path");
         set => SetArgument("query_path", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -59,16 +59,16 @@ public partial class GoogleComputeInstanceGuestAttributesDataSource(string name)
     /// </summary>
     public TerraformValue<string>? VariableKey
     {
-        get => new TerraformReference<string>(this, "variable_key");
+        get => GetArgument<TerraformValue<string>>("variable_key");
         set => SetArgument("variable_key", value);
     }
 
     /// <summary>
     /// The zone attribute.
     /// </summary>
-    public TerraformValue<string> Zone
+    public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -76,16 +76,12 @@ public partial class GoogleComputeInstanceGuestAttributesDataSource(string name)
     /// The query_value attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> QueryValue
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "query_value").ResolveNodes(ctx));
-    }
+        => AsReference("query_value");
 
     /// <summary>
     /// The variable_value attribute.
     /// </summary>
     public TerraformValue<string> VariableValue
-    {
-        get => new TerraformReference<string>(this, "variable_value");
-    }
+        => AsReference("variable_value");
 
 }

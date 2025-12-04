@@ -14,16 +14,16 @@ public partial class AwsIamSigningCertificate(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateBody is required")]
     public required TerraformValue<string> CertificateBody
     {
-        get => new TerraformReference<string>(this, "certificate_body");
+        get => GetArgument<TerraformValue<string>>("certificate_body");
         set => SetArgument("certificate_body", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsIamSigningCertificate(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsIamSigningCertificate(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformValue<string> UserName
     {
-        get => new TerraformReference<string>(this, "user_name");
+        get => GetArgument<TerraformValue<string>>("user_name");
         set => SetArgument("user_name", value);
     }
 
@@ -50,8 +50,6 @@ public partial class AwsIamSigningCertificate(string name) : TerraformResource("
     /// The certificate_id attribute.
     /// </summary>
     public TerraformValue<string> CertificateId
-    {
-        get => new TerraformReference<string>(this, "certificate_id");
-    }
+        => AsReference("certificate_id");
 
 }

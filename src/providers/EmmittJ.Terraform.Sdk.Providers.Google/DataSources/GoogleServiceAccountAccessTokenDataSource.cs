@@ -13,16 +13,16 @@ public partial class GoogleServiceAccountAccessTokenDataSource(string name) : Te
     /// </summary>
     public TerraformSet<string>? Delegates
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "delegates").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("delegates");
         set => SetArgument("delegates", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleServiceAccountAccessTokenDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string>? Lifetime
     {
-        get => new TerraformReference<string>(this, "lifetime");
+        get => GetArgument<TerraformValue<string>>("lifetime");
         set => SetArgument("lifetime", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleServiceAccountAccessTokenDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
     public required TerraformSet<string> Scopes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("scopes");
         set => SetArgument("scopes", value);
     }
 
@@ -51,7 +51,7 @@ public partial class GoogleServiceAccountAccessTokenDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetServiceAccount is required")]
     public required TerraformValue<string> TargetServiceAccount
     {
-        get => new TerraformReference<string>(this, "target_service_account");
+        get => GetArgument<TerraformValue<string>>("target_service_account");
         set => SetArgument("target_service_account", value);
     }
 
@@ -59,8 +59,6 @@ public partial class GoogleServiceAccountAccessTokenDataSource(string name) : Te
     /// The access_token attribute.
     /// </summary>
     public TerraformValue<string> AccessToken
-    {
-        get => new TerraformReference<string>(this, "access_token");
-    }
+        => AsReference("access_token");
 
 }

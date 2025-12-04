@@ -18,7 +18,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanDataSourceTimeoutsBlock :
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlanDataSource(string
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlanDataSource(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlanDataSource(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
     public required TerraformValue<string> RecoveryVaultId
     {
-        get => new TerraformReference<string>(this, "recovery_vault_id");
+        get => GetArgument<TerraformValue<string>>("recovery_vault_id");
         set => SetArgument("recovery_vault_id", value);
     }
 
@@ -64,41 +64,31 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlanDataSource(string
     /// The azure_to_azure_settings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AzureToAzureSettings
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "azure_to_azure_settings").ResolveNodes(ctx));
-    }
+        => AsReference("azure_to_azure_settings");
 
     /// <summary>
     /// The failover_deployment_model attribute.
     /// </summary>
     public TerraformValue<string> FailoverDeploymentModel
-    {
-        get => new TerraformReference<string>(this, "failover_deployment_model");
-    }
+        => AsReference("failover_deployment_model");
 
     /// <summary>
     /// The recovery_group attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> RecoveryGroup
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "recovery_group").ResolveNodes(ctx));
-    }
+        => AsReference("recovery_group");
 
     /// <summary>
     /// The source_recovery_fabric_id attribute.
     /// </summary>
     public TerraformValue<string> SourceRecoveryFabricId
-    {
-        get => new TerraformReference<string>(this, "source_recovery_fabric_id");
-    }
+        => AsReference("source_recovery_fabric_id");
 
     /// <summary>
     /// The target_recovery_fabric_id attribute.
     /// </summary>
     public TerraformValue<string> TargetRecoveryFabricId
-    {
-        get => new TerraformReference<string>(this, "target_recovery_fabric_id");
-    }
+        => AsReference("target_recovery_fabric_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

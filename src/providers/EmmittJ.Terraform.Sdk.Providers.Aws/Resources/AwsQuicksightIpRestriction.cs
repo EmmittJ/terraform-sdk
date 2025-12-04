@@ -11,9 +11,9 @@ public partial class AwsQuicksightIpRestriction(string name) : TerraformResource
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string> AwsAccountId
+    public TerraformValue<string>? AwsAccountId
     {
-        get => new TerraformReference<string>(this, "aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsQuicksightIpRestriction(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -32,16 +32,16 @@ public partial class AwsQuicksightIpRestriction(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? IpRestrictionRuleMap
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "ip_restriction_rule_map").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("ip_restriction_rule_map");
         set => SetArgument("ip_restriction_rule_map", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsQuicksightIpRestriction(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? VpcEndpointIdRestrictionRuleMap
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "vpc_endpoint_id_restriction_rule_map").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("vpc_endpoint_id_restriction_rule_map");
         set => SetArgument("vpc_endpoint_id_restriction_rule_map", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsQuicksightIpRestriction(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? VpcIdRestrictionRuleMap
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "vpc_id_restriction_rule_map").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("vpc_id_restriction_rule_map");
         set => SetArgument("vpc_id_restriction_rule_map", value);
     }
 

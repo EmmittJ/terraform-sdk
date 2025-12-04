@@ -19,7 +19,7 @@ public class GoogleComputeDiskAsyncPrimaryDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
     public required TerraformValue<string> Disk
     {
-        get => new TerraformReference<string>(this, "disk");
+        get => GetArgument<TerraformValue<string>>("disk");
         set => SetArgument("disk", value);
     }
 
@@ -46,7 +46,7 @@ public class GoogleComputeDiskDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeySelfLink
     {
-        get => new TerraformReference<string>(this, "kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
@@ -56,7 +56,7 @@ public class GoogleComputeDiskDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyServiceAccount
     {
-        get => new TerraformReference<string>(this, "kms_key_service_account");
+        get => GetArgument<TerraformValue<string>>("kms_key_service_account");
         set => SetArgument("kms_key_service_account", value);
     }
 
@@ -66,7 +66,7 @@ public class GoogleComputeDiskDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RawKey
     {
-        get => new TerraformReference<string>(this, "raw_key");
+        get => GetArgument<TerraformValue<string>>("raw_key");
         set => SetArgument("raw_key", value);
     }
 
@@ -77,7 +77,7 @@ public class GoogleComputeDiskDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RsaEncryptedKey
     {
-        get => new TerraformReference<string>(this, "rsa_encrypted_key");
+        get => GetArgument<TerraformValue<string>>("rsa_encrypted_key");
         set => SetArgument("rsa_encrypted_key", value);
     }
 
@@ -86,9 +86,7 @@ public class GoogleComputeDiskDiskEncryptionKeyBlock : TerraformBlock
     /// encryption key that protects this resource.
     /// </summary>
     public TerraformValue<string> Sha256
-    {
-        get => new TerraformReference<string>(this, "sha256");
-    }
+        => AsReference("sha256");
 
 }
 
@@ -110,7 +108,7 @@ public class GoogleComputeDiskGuestOsFeaturesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -135,7 +133,7 @@ public class GoogleComputeDiskParamsAttributeBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? ResourceManagerTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "resource_manager_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("resource_manager_tags");
         set => SetArgument("resource_manager_tags", value);
     }
 
@@ -162,7 +160,7 @@ public class GoogleComputeDiskSourceImageEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeySelfLink
     {
-        get => new TerraformReference<string>(this, "kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
@@ -172,7 +170,7 @@ public class GoogleComputeDiskSourceImageEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyServiceAccount
     {
-        get => new TerraformReference<string>(this, "kms_key_service_account");
+        get => GetArgument<TerraformValue<string>>("kms_key_service_account");
         set => SetArgument("kms_key_service_account", value);
     }
 
@@ -182,7 +180,7 @@ public class GoogleComputeDiskSourceImageEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RawKey
     {
-        get => new TerraformReference<string>(this, "raw_key");
+        get => GetArgument<TerraformValue<string>>("raw_key");
         set => SetArgument("raw_key", value);
     }
 
@@ -191,9 +189,7 @@ public class GoogleComputeDiskSourceImageEncryptionKeyBlock : TerraformBlock
     /// encryption key that protects this resource.
     /// </summary>
     public TerraformValue<string> Sha256
-    {
-        get => new TerraformReference<string>(this, "sha256");
-    }
+        => AsReference("sha256");
 
 }
 
@@ -218,7 +214,7 @@ public class GoogleComputeDiskSourceSnapshotEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeySelfLink
     {
-        get => new TerraformReference<string>(this, "kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
@@ -228,7 +224,7 @@ public class GoogleComputeDiskSourceSnapshotEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyServiceAccount
     {
-        get => new TerraformReference<string>(this, "kms_key_service_account");
+        get => GetArgument<TerraformValue<string>>("kms_key_service_account");
         set => SetArgument("kms_key_service_account", value);
     }
 
@@ -238,7 +234,7 @@ public class GoogleComputeDiskSourceSnapshotEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RawKey
     {
-        get => new TerraformReference<string>(this, "raw_key");
+        get => GetArgument<TerraformValue<string>>("raw_key");
         set => SetArgument("raw_key", value);
     }
 
@@ -247,9 +243,7 @@ public class GoogleComputeDiskSourceSnapshotEncryptionKeyBlock : TerraformBlock
     /// encryption key that protects this resource.
     /// </summary>
     public TerraformValue<string> Sha256
-    {
-        get => new TerraformReference<string>(this, "sha256");
-    }
+        => AsReference("sha256");
 
 }
 
@@ -270,7 +264,7 @@ public class GoogleComputeDiskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -279,7 +273,7 @@ public class GoogleComputeDiskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -288,7 +282,7 @@ public class GoogleComputeDiskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -309,9 +303,9 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     ///   * READ_ONLY_SINGLE: The AccessMode means the disk can be attached to multiple instances in RO mode.
     /// The AccessMode is only valid for Hyperdisk disk types.
     /// </summary>
-    public TerraformValue<string> AccessMode
+    public TerraformValue<string>? AccessMode
     {
-        get => new TerraformReference<string>(this, "access_mode");
+        get => GetArgument<TerraformValue<string>>("access_mode");
         set => SetArgument("access_mode", value);
     }
 
@@ -320,7 +314,7 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? Architecture
     {
-        get => new TerraformReference<string>(this, "architecture");
+        get => GetArgument<TerraformValue<string>>("architecture");
         set => SetArgument("architecture", value);
     }
 
@@ -331,7 +325,7 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<bool>? CreateSnapshotBeforeDestroy
     {
-        get => new TerraformReference<bool>(this, "create_snapshot_before_destroy");
+        get => GetArgument<TerraformValue<bool>>("create_snapshot_before_destroy");
         set => SetArgument("create_snapshot_before_destroy", value);
     }
 
@@ -340,7 +334,7 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? CreateSnapshotBeforeDestroyPrefix
     {
-        get => new TerraformReference<string>(this, "create_snapshot_before_destroy_prefix");
+        get => GetArgument<TerraformValue<string>>("create_snapshot_before_destroy_prefix");
         set => SetArgument("create_snapshot_before_destroy_prefix", value);
     }
 
@@ -350,7 +344,7 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -358,18 +352,18 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// Whether this disk is using confidential compute mode.
     /// Note: Only supported on hyperdisk skus, disk_encryption_key is required when setting to true
     /// </summary>
-    public TerraformValue<bool> EnableConfidentialCompute
+    public TerraformValue<bool>? EnableConfidentialCompute
     {
-        get => new TerraformReference<bool>(this, "enable_confidential_compute");
+        get => GetArgument<TerraformValue<bool>>("enable_confidential_compute");
         set => SetArgument("enable_confidential_compute", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -386,7 +380,7 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -399,16 +393,16 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// Any applicable license URI.
     /// </summary>
-    public TerraformList<string> Licenses
+    public TerraformList<string>? Licenses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "licenses").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("licenses");
         set => SetArgument("licenses", value);
     }
 
@@ -424,7 +418,7 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -435,18 +429,18 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// If an unsupported value is requested, the error message will list
     /// the supported values for the caller&#39;s project.
     /// </summary>
-    public TerraformValue<double> PhysicalBlockSizeBytes
+    public TerraformValue<double>? PhysicalBlockSizeBytes
     {
-        get => new TerraformReference<double>(this, "physical_block_size_bytes");
+        get => GetArgument<TerraformValue<double>>("physical_block_size_bytes");
         set => SetArgument("physical_block_size_bytes", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -455,9 +449,9 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// Note: Updating currently is only supported by hyperdisk skus without the need to delete and recreate the disk, hyperdisk
     /// allows for an update of IOPS every 4 hours. To update your hyperdisk more frequently, you&#39;ll need to manually delete and recreate it
     /// </summary>
-    public TerraformValue<double> ProvisionedIops
+    public TerraformValue<double>? ProvisionedIops
     {
-        get => new TerraformReference<double>(this, "provisioned_iops");
+        get => GetArgument<TerraformValue<double>>("provisioned_iops");
         set => SetArgument("provisioned_iops", value);
     }
 
@@ -466,9 +460,9 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// Note: Updating currently is only supported by hyperdisk skus without the need to delete and recreate the disk, hyperdisk
     /// allows for an update of Throughput every 4 hours. To update your hyperdisk more frequently, you&#39;ll need to manually delete and recreate it
     /// </summary>
-    public TerraformValue<double> ProvisionedThroughput
+    public TerraformValue<double>? ProvisionedThroughput
     {
-        get => new TerraformReference<double>(this, "provisioned_throughput");
+        get => GetArgument<TerraformValue<double>>("provisioned_throughput");
         set => SetArgument("provisioned_throughput", value);
     }
 
@@ -487,9 +481,9 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// You can add &#39;lifecycle.prevent_destroy&#39; in the config to prevent destroying
     /// and recreating.
     /// </summary>
-    public TerraformValue<double> Size
+    public TerraformValue<double>? Size
     {
-        get => new TerraformReference<double>(this, "size");
+        get => GetArgument<TerraformValue<double>>("size");
         set => SetArgument("size", value);
     }
 
@@ -506,7 +500,7 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? Snapshot
     {
-        get => new TerraformReference<string>(this, "snapshot");
+        get => GetArgument<TerraformValue<string>>("snapshot");
         set => SetArgument("snapshot", value);
     }
 
@@ -523,7 +517,7 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? SourceDisk
     {
-        get => new TerraformReference<string>(this, "source_disk");
+        get => GetArgument<TerraformValue<string>>("source_disk");
         set => SetArgument("source_disk", value);
     }
 
@@ -537,7 +531,7 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? SourceInstantSnapshot
     {
-        get => new TerraformReference<string>(this, "source_instant_snapshot");
+        get => GetArgument<TerraformValue<string>>("source_instant_snapshot");
         set => SetArgument("source_instant_snapshot", value);
     }
 
@@ -550,7 +544,7 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? SourceStorageObject
     {
-        get => new TerraformReference<string>(this, "source_storage_object");
+        get => GetArgument<TerraformValue<string>>("source_storage_object");
         set => SetArgument("source_storage_object", value);
     }
 
@@ -564,7 +558,7 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? StoragePool
     {
-        get => new TerraformReference<string>(this, "storage_pool");
+        get => GetArgument<TerraformValue<string>>("storage_pool");
         set => SetArgument("storage_pool", value);
     }
 
@@ -574,16 +568,16 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
     /// <summary>
     /// A reference to the zone where the disk resides.
     /// </summary>
-    public TerraformValue<string> Zone
+    public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -591,58 +585,44 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<string> DiskId
-    {
-        get => new TerraformReference<string>(this, "disk_id");
-    }
+        => AsReference("disk_id");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
     /// internally during updates.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-    {
-        get => new TerraformReference<string>(this, "label_fingerprint");
-    }
+        => AsReference("label_fingerprint");
 
     /// <summary>
     /// Last attach timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> LastAttachTimestamp
-    {
-        get => new TerraformReference<string>(this, "last_attach_timestamp");
-    }
+        => AsReference("last_attach_timestamp");
 
     /// <summary>
     /// Last detach timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> LastDetachTimestamp
-    {
-        get => new TerraformReference<string>(this, "last_detach_timestamp");
-    }
+        => AsReference("last_detach_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// The ID value of the disk used to create this image. This value may
@@ -650,9 +630,7 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// or a previous instance of a given disk name.
     /// </summary>
     public TerraformValue<string> SourceDiskId
-    {
-        get => new TerraformReference<string>(this, "source_disk_id");
-    }
+        => AsReference("source_disk_id");
 
     /// <summary>
     /// The ID value of the image used to create this disk. This value
@@ -662,9 +640,7 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// image ID would identify the exact version of the image that was used.
     /// </summary>
     public TerraformValue<string> SourceImageId
-    {
-        get => new TerraformReference<string>(this, "source_image_id");
-    }
+        => AsReference("source_image_id");
 
     /// <summary>
     /// The unique ID of the instant snapshot used to create this disk. This value identifies
@@ -674,9 +650,7 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// the exact version of the instant snapshot that was used.
     /// </summary>
     public TerraformValue<string> SourceInstantSnapshotId
-    {
-        get => new TerraformReference<string>(this, "source_instant_snapshot_id");
-    }
+        => AsReference("source_instant_snapshot_id");
 
     /// <summary>
     /// The unique ID of the snapshot used to create this disk. This value
@@ -687,27 +661,21 @@ public partial class GoogleComputeDisk(string name) : TerraformResource("google_
     /// used.
     /// </summary>
     public TerraformValue<string> SourceSnapshotId
-    {
-        get => new TerraformReference<string>(this, "source_snapshot_id");
-    }
+        => AsReference("source_snapshot_id");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Links to the users of the disk (attached instances) in form:
     /// project/zones/zone/instances/instance
     /// </summary>
     public TerraformList<string> Users
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "users").ResolveNodes(ctx));
-    }
+        => AsReference("users");
 
     /// <summary>
     /// AsyncPrimaryDisk block (nesting mode: list).

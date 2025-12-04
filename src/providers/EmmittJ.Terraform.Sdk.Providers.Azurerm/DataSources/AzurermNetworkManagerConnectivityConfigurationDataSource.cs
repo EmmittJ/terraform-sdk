@@ -18,7 +18,7 @@ public class AzurermNetworkManagerConnectivityConfigurationDataSourceTimeoutsBlo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermNetworkManagerConnectivityConfigurationDataSource(st
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermNetworkManagerConnectivityConfigurationDataSource(st
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermNetworkManagerConnectivityConfigurationDataSource(st
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
     public required TerraformValue<string> NetworkManagerId
     {
-        get => new TerraformReference<string>(this, "network_manager_id");
+        get => GetArgument<TerraformValue<string>>("network_manager_id");
         set => SetArgument("network_manager_id", value);
     }
 
@@ -64,49 +64,37 @@ public partial class AzurermNetworkManagerConnectivityConfigurationDataSource(st
     /// The applies_to_group attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AppliesToGroup
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "applies_to_group").ResolveNodes(ctx));
-    }
+        => AsReference("applies_to_group");
 
     /// <summary>
     /// The connectivity_topology attribute.
     /// </summary>
     public TerraformValue<string> ConnectivityTopology
-    {
-        get => new TerraformReference<string>(this, "connectivity_topology");
-    }
+        => AsReference("connectivity_topology");
 
     /// <summary>
     /// The delete_existing_peering_enabled attribute.
     /// </summary>
     public TerraformValue<bool> DeleteExistingPeeringEnabled
-    {
-        get => new TerraformReference<bool>(this, "delete_existing_peering_enabled");
-    }
+        => AsReference("delete_existing_peering_enabled");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The global_mesh_enabled attribute.
     /// </summary>
     public TerraformValue<bool> GlobalMeshEnabled
-    {
-        get => new TerraformReference<bool>(this, "global_mesh_enabled");
-    }
+        => AsReference("global_mesh_enabled");
 
     /// <summary>
     /// The hub attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Hub
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "hub").ResolveNodes(ctx));
-    }
+        => AsReference("hub");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

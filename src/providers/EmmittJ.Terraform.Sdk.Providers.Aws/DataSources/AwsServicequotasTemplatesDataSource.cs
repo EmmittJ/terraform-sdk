@@ -13,7 +13,7 @@ public partial class AwsServicequotasTemplatesDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? AwsRegion
     {
-        get => new TerraformReference<string>(this, "aws_region");
+        get => GetArgument<TerraformValue<string>>("aws_region");
         set => SetArgument("aws_region", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsServicequotasTemplatesDataSource(string name) : Terrafor
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -31,16 +31,12 @@ public partial class AwsServicequotasTemplatesDataSource(string name) : Terrafor
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The templates attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Templates
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "templates").ResolveNodes(ctx));
-    }
+        => AsReference("templates");
 
 }

@@ -18,7 +18,7 @@ public class AzurermSharedImageVersionsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermSharedImageVersionsDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryName is required")]
     public required TerraformValue<string> GalleryName
     {
-        get => new TerraformReference<string>(this, "gallery_name");
+        get => GetArgument<TerraformValue<string>>("gallery_name");
         set => SetArgument("gallery_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermSharedImageVersionsDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformValue<string> ImageName
     {
-        get => new TerraformReference<string>(this, "image_name");
+        get => GetArgument<TerraformValue<string>>("image_name");
         set => SetArgument("image_name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermSharedImageVersionsDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -75,7 +75,7 @@ public partial class AzurermSharedImageVersionsDataSource(string name) : Terrafo
     /// </summary>
     public TerraformMap<string>? TagsFilter
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_filter").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_filter");
         set => SetArgument("tags_filter", value);
     }
 
@@ -83,9 +83,7 @@ public partial class AzurermSharedImageVersionsDataSource(string name) : Terrafo
     /// The images attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Images
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "images").ResolveNodes(ctx));
-    }
+        => AsReference("images");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

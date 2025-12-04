@@ -18,7 +18,7 @@ public class AzurermContainerRegistryScopeMapDataSourceTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermContainerRegistryScopeMapDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryName is required")]
     public required TerraformValue<string> ContainerRegistryName
     {
-        get => new TerraformReference<string>(this, "container_registry_name");
+        get => GetArgument<TerraformValue<string>>("container_registry_name");
         set => SetArgument("container_registry_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermContainerRegistryScopeMapDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermContainerRegistryScopeMapDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -74,17 +74,13 @@ public partial class AzurermContainerRegistryScopeMapDataSource(string name) : T
     /// The actions attribute.
     /// </summary>
     public TerraformList<string> Actions
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "actions").ResolveNodes(ctx));
-    }
+        => AsReference("actions");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

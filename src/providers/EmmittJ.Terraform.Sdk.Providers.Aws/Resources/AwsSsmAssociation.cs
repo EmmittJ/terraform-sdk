@@ -19,7 +19,7 @@ public class AwsSsmAssociationOutputLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformValue<string> S3BucketName
     {
-        get => new TerraformReference<string>(this, "s3_bucket_name");
+        get => GetArgument<TerraformValue<string>>("s3_bucket_name");
         set => SetArgument("s3_bucket_name", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsSsmAssociationOutputLocationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? S3KeyPrefix
     {
-        get => new TerraformReference<string>(this, "s3_key_prefix");
+        get => GetArgument<TerraformValue<string>>("s3_key_prefix");
         set => SetArgument("s3_key_prefix", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsSsmAssociationOutputLocationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? S3Region
     {
-        get => new TerraformReference<string>(this, "s3_region");
+        get => GetArgument<TerraformValue<string>>("s3_region");
         set => SetArgument("s3_region", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsSsmAssociationTargetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsSsmAssociationTargetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -89,7 +89,7 @@ public partial class AwsSsmAssociation(string name) : TerraformResource("aws_ssm
     /// </summary>
     public TerraformValue<bool>? ApplyOnlyAtCronInterval
     {
-        get => new TerraformReference<bool>(this, "apply_only_at_cron_interval");
+        get => GetArgument<TerraformValue<bool>>("apply_only_at_cron_interval");
         set => SetArgument("apply_only_at_cron_interval", value);
     }
 
@@ -98,7 +98,7 @@ public partial class AwsSsmAssociation(string name) : TerraformResource("aws_ssm
     /// </summary>
     public TerraformValue<string>? AssociationName
     {
-        get => new TerraformReference<string>(this, "association_name");
+        get => GetArgument<TerraformValue<string>>("association_name");
         set => SetArgument("association_name", value);
     }
 
@@ -107,7 +107,7 @@ public partial class AwsSsmAssociation(string name) : TerraformResource("aws_ssm
     /// </summary>
     public TerraformValue<string>? AutomationTargetParameterName
     {
-        get => new TerraformReference<string>(this, "automation_target_parameter_name");
+        get => GetArgument<TerraformValue<string>>("automation_target_parameter_name");
         set => SetArgument("automation_target_parameter_name", value);
     }
 
@@ -116,25 +116,25 @@ public partial class AwsSsmAssociation(string name) : TerraformResource("aws_ssm
     /// </summary>
     public TerraformValue<string>? ComplianceSeverity
     {
-        get => new TerraformReference<string>(this, "compliance_severity");
+        get => GetArgument<TerraformValue<string>>("compliance_severity");
         set => SetArgument("compliance_severity", value);
     }
 
     /// <summary>
     /// The document_version attribute.
     /// </summary>
-    public TerraformValue<string> DocumentVersion
+    public TerraformValue<string>? DocumentVersion
     {
-        get => new TerraformReference<string>(this, "document_version");
+        get => GetArgument<TerraformValue<string>>("document_version");
         set => SetArgument("document_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AwsSsmAssociation(string name) : TerraformResource("aws_ssm
     /// </summary>
     public TerraformValue<string>? MaxConcurrency
     {
-        get => new TerraformReference<string>(this, "max_concurrency");
+        get => GetArgument<TerraformValue<string>>("max_concurrency");
         set => SetArgument("max_concurrency", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AwsSsmAssociation(string name) : TerraformResource("aws_ssm
     /// </summary>
     public TerraformValue<string>? MaxErrors
     {
-        get => new TerraformReference<string>(this, "max_errors");
+        get => GetArgument<TerraformValue<string>>("max_errors");
         set => SetArgument("max_errors", value);
     }
 
@@ -162,25 +162,25 @@ public partial class AwsSsmAssociation(string name) : TerraformResource("aws_ssm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformMap<string> Parameters
+    public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -189,7 +189,7 @@ public partial class AwsSsmAssociation(string name) : TerraformResource("aws_ssm
     /// </summary>
     public TerraformValue<string>? ScheduleExpression
     {
-        get => new TerraformReference<string>(this, "schedule_expression");
+        get => GetArgument<TerraformValue<string>>("schedule_expression");
         set => SetArgument("schedule_expression", value);
     }
 
@@ -198,7 +198,7 @@ public partial class AwsSsmAssociation(string name) : TerraformResource("aws_ssm
     /// </summary>
     public TerraformValue<string>? SyncCompliance
     {
-        get => new TerraformReference<string>(this, "sync_compliance");
+        get => GetArgument<TerraformValue<string>>("sync_compliance");
         set => SetArgument("sync_compliance", value);
     }
 
@@ -207,16 +207,16 @@ public partial class AwsSsmAssociation(string name) : TerraformResource("aws_ssm
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -225,7 +225,7 @@ public partial class AwsSsmAssociation(string name) : TerraformResource("aws_ssm
     /// </summary>
     public TerraformValue<double>? WaitForSuccessTimeoutSeconds
     {
-        get => new TerraformReference<double>(this, "wait_for_success_timeout_seconds");
+        get => GetArgument<TerraformValue<double>>("wait_for_success_timeout_seconds");
         set => SetArgument("wait_for_success_timeout_seconds", value);
     }
 
@@ -233,17 +233,13 @@ public partial class AwsSsmAssociation(string name) : TerraformResource("aws_ssm
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The association_id attribute.
     /// </summary>
     public TerraformValue<string> AssociationId
-    {
-        get => new TerraformReference<string>(this, "association_id");
-    }
+        => AsReference("association_id");
 
     /// <summary>
     /// OutputLocation block (nesting mode: list).

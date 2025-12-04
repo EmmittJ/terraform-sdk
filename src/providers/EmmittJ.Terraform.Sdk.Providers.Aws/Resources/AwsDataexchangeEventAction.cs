@@ -71,7 +71,7 @@ public class AwsDataexchangeEventActionActionBlockExportRevisionToS3BlockEncrypt
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsDataexchangeEventActionActionBlockExportRevisionToS3BlockEncrypt
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -103,16 +103,16 @@ public class AwsDataexchangeEventActionActionBlockExportRevisionToS3BlockRevisio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The key_pattern attribute.
     /// </summary>
-    public TerraformValue<string> KeyPattern
+    public TerraformValue<string>? KeyPattern
     {
-        get => new TerraformReference<string>(this, "key_pattern");
+        get => GetArgument<TerraformValue<string>>("key_pattern");
         set => SetArgument("key_pattern", value);
     }
 
@@ -158,7 +158,7 @@ public class AwsDataexchangeEventActionEventAttributeBlockRevisionPublishedBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSetId is required")]
     public required TerraformValue<string> DataSetId
     {
-        get => new TerraformReference<string>(this, "data_set_id");
+        get => GetArgument<TerraformValue<string>>("data_set_id");
         set => SetArgument("data_set_id", value);
     }
 
@@ -174,9 +174,9 @@ public partial class AwsDataexchangeEventAction(string name) : TerraformResource
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -184,33 +184,25 @@ public partial class AwsDataexchangeEventAction(string name) : TerraformResource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-    {
-        get => new TerraformReference<string>(this, "updated_at");
-    }
+        => AsReference("updated_at");
 
     /// <summary>
     /// Action block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AzurermMarketplaceAgreementDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermMarketplaceAgreementDataSource(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermMarketplaceAgreementDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     public required TerraformValue<string> Offer
     {
-        get => new TerraformReference<string>(this, "offer");
+        get => GetArgument<TerraformValue<string>>("offer");
         set => SetArgument("offer", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermMarketplaceAgreementDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     public required TerraformValue<string> Plan
     {
-        get => new TerraformReference<string>(this, "plan");
+        get => GetArgument<TerraformValue<string>>("plan");
         set => SetArgument("plan", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermMarketplaceAgreementDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformValue<string> Publisher
     {
-        get => new TerraformReference<string>(this, "publisher");
+        get => GetArgument<TerraformValue<string>>("publisher");
         set => SetArgument("publisher", value);
     }
 
@@ -74,25 +74,19 @@ public partial class AzurermMarketplaceAgreementDataSource(string name) : Terraf
     /// The accepted attribute.
     /// </summary>
     public TerraformValue<bool> Accepted
-    {
-        get => new TerraformReference<bool>(this, "accepted");
-    }
+        => AsReference("accepted");
 
     /// <summary>
     /// The license_text_link attribute.
     /// </summary>
     public TerraformValue<string> LicenseTextLink
-    {
-        get => new TerraformReference<string>(this, "license_text_link");
-    }
+        => AsReference("license_text_link");
 
     /// <summary>
     /// The privacy_policy_link attribute.
     /// </summary>
     public TerraformValue<string> PrivacyPolicyLink
-    {
-        get => new TerraformReference<string>(this, "privacy_policy_link");
-    }
+        => AsReference("privacy_policy_link");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

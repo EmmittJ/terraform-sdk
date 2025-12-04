@@ -14,7 +14,7 @@ public partial class AwsIotAuthorizer(string name) : TerraformResource("aws_iot_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerFunctionArn is required")]
     public required TerraformValue<string> AuthorizerFunctionArn
     {
-        get => new TerraformReference<string>(this, "authorizer_function_arn");
+        get => GetArgument<TerraformValue<string>>("authorizer_function_arn");
         set => SetArgument("authorizer_function_arn", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsIotAuthorizer(string name) : TerraformResource("aws_iot_
     /// </summary>
     public TerraformValue<bool>? EnableCachingForHttp
     {
-        get => new TerraformReference<bool>(this, "enable_caching_for_http");
+        get => GetArgument<TerraformValue<bool>>("enable_caching_for_http");
         set => SetArgument("enable_caching_for_http", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -42,16 +42,16 @@ public partial class AwsIotAuthorizer(string name) : TerraformResource("aws_iot_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsIotAuthorizer(string name) : TerraformResource("aws_iot_
     /// </summary>
     public TerraformValue<bool>? SigningDisabled
     {
-        get => new TerraformReference<bool>(this, "signing_disabled");
+        get => GetArgument<TerraformValue<bool>>("signing_disabled");
         set => SetArgument("signing_disabled", value);
     }
 
@@ -69,7 +69,7 @@ public partial class AwsIotAuthorizer(string name) : TerraformResource("aws_iot_
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -78,16 +78,16 @@ public partial class AwsIotAuthorizer(string name) : TerraformResource("aws_iot_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -96,7 +96,7 @@ public partial class AwsIotAuthorizer(string name) : TerraformResource("aws_iot_
     /// </summary>
     public TerraformValue<string>? TokenKeyName
     {
-        get => new TerraformReference<string>(this, "token_key_name");
+        get => GetArgument<TerraformValue<string>>("token_key_name");
         set => SetArgument("token_key_name", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AwsIotAuthorizer(string name) : TerraformResource("aws_iot_
     /// </summary>
     public TerraformMap<string>? TokenSigningPublicKeys
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "token_signing_public_keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("token_signing_public_keys");
         set => SetArgument("token_signing_public_keys", value);
     }
 
@@ -113,8 +113,6 @@ public partial class AwsIotAuthorizer(string name) : TerraformResource("aws_iot_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

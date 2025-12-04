@@ -18,7 +18,7 @@ public class AzurermSiteRecoveryVmwareReplicationPolicyTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSiteRecoveryVmwareReplicationPolicyTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSiteRecoveryVmwareReplicationPolicyTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSiteRecoveryVmwareReplicationPolicyTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AzurermSiteRecoveryVmwareReplicationPolicy(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationConsistentSnapshotFrequencyInMinutes is required")]
     public required TerraformValue<double> ApplicationConsistentSnapshotFrequencyInMinutes
     {
-        get => new TerraformReference<double>(this, "application_consistent_snapshot_frequency_in_minutes");
+        get => GetArgument<TerraformValue<double>>("application_consistent_snapshot_frequency_in_minutes");
         set => SetArgument("application_consistent_snapshot_frequency_in_minutes", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermSiteRecoveryVmwareReplicationPolicy(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermSiteRecoveryVmwareReplicationPolicy(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryPointRetentionInMinutes is required")]
     public required TerraformValue<double> RecoveryPointRetentionInMinutes
     {
-        get => new TerraformReference<double>(this, "recovery_point_retention_in_minutes");
+        get => GetArgument<TerraformValue<double>>("recovery_point_retention_in_minutes");
         set => SetArgument("recovery_point_retention_in_minutes", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermSiteRecoveryVmwareReplicationPolicy(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultId is required")]
     public required TerraformValue<string> RecoveryVaultId
     {
-        get => new TerraformReference<string>(this, "recovery_vault_id");
+        get => GetArgument<TerraformValue<string>>("recovery_vault_id");
         set => SetArgument("recovery_vault_id", value);
     }
 

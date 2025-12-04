@@ -13,16 +13,16 @@ public partial class AwsLightsailLb(string name) : TerraformResource("aws_lights
     /// </summary>
     public TerraformValue<string>? HealthCheckPath
     {
-        get => new TerraformReference<string>(this, "health_check_path");
+        get => GetArgument<TerraformValue<string>>("health_check_path");
         set => SetArgument("health_check_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsLightsailLb(string name) : TerraformResource("aws_lights
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePort is required")]
     public required TerraformValue<double> InstancePort
     {
-        get => new TerraformReference<double>(this, "instance_port");
+        get => GetArgument<TerraformValue<double>>("instance_port");
         set => SetArgument("instance_port", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsLightsailLb(string name) : TerraformResource("aws_lights
     /// </summary>
     public TerraformValue<string>? IpAddressType
     {
-        get => new TerraformReference<string>(this, "ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
@@ -51,16 +51,16 @@ public partial class AwsLightsailLb(string name) : TerraformResource("aws_lights
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -69,16 +69,16 @@ public partial class AwsLightsailLb(string name) : TerraformResource("aws_lights
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -86,48 +86,36 @@ public partial class AwsLightsailLb(string name) : TerraformResource("aws_lights
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-    {
-        get => new TerraformReference<string>(this, "dns_name");
-    }
+        => AsReference("dns_name");
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     public TerraformValue<string> Protocol
-    {
-        get => new TerraformReference<string>(this, "protocol");
-    }
+        => AsReference("protocol");
 
     /// <summary>
     /// The public_ports attribute.
     /// </summary>
     public TerraformList<double> PublicPorts
-    {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "public_ports").ResolveNodes(ctx));
-    }
+        => AsReference("public_ports");
 
     /// <summary>
     /// The support_code attribute.
     /// </summary>
     public TerraformValue<string> SupportCode
-    {
-        get => new TerraformReference<string>(this, "support_code");
-    }
+        => AsReference("support_code");
 
 }

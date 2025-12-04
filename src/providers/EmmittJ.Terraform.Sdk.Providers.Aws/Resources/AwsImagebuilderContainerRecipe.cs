@@ -19,7 +19,7 @@ public class AwsImagebuilderContainerRecipeComponentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentArn is required")]
     public required TerraformValue<string> ComponentArn
     {
-        get => new TerraformReference<string>(this, "component_arn");
+        get => GetArgument<TerraformValue<string>>("component_arn");
         set => SetArgument("component_arn", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsImagebuilderContainerRecipeComponentBlockParameterBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsImagebuilderContainerRecipeComponentBlockParameterBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -84,7 +84,7 @@ public class AwsImagebuilderContainerRecipeInstanceConfigurationBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -115,16 +115,16 @@ public class AwsImagebuilderContainerRecipeInstanceConfigurationBlockBlockDevice
     /// </summary>
     public TerraformValue<string>? DeviceName
     {
-        get => new TerraformReference<string>(this, "device_name");
+        get => GetArgument<TerraformValue<string>>("device_name");
         set => SetArgument("device_name", value);
     }
 
     /// <summary>
     /// The no_device attribute.
     /// </summary>
-    public TerraformValue<bool> NoDevice
+    public TerraformValue<bool>? NoDevice
     {
-        get => new TerraformReference<bool>(this, "no_device");
+        get => GetArgument<TerraformValue<bool>>("no_device");
         set => SetArgument("no_device", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsImagebuilderContainerRecipeInstanceConfigurationBlockBlockDevice
     /// </summary>
     public TerraformValue<string>? VirtualName
     {
-        get => new TerraformReference<string>(this, "virtual_name");
+        get => GetArgument<TerraformValue<string>>("virtual_name");
         set => SetArgument("virtual_name", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsImagebuilderContainerRecipeInstanceConfigurationBlockBlockDevice
     /// </summary>
     public TerraformValue<string>? DeleteOnTermination
     {
-        get => new TerraformReference<string>(this, "delete_on_termination");
+        get => GetArgument<TerraformValue<string>>("delete_on_termination");
         set => SetArgument("delete_on_termination", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsImagebuilderContainerRecipeInstanceConfigurationBlockBlockDevice
     /// </summary>
     public TerraformValue<string>? Encrypted
     {
-        get => new TerraformReference<string>(this, "encrypted");
+        get => GetArgument<TerraformValue<string>>("encrypted");
         set => SetArgument("encrypted", value);
     }
 
@@ -183,7 +183,7 @@ public class AwsImagebuilderContainerRecipeInstanceConfigurationBlockBlockDevice
     /// </summary>
     public TerraformValue<double>? Iops
     {
-        get => new TerraformReference<double>(this, "iops");
+        get => GetArgument<TerraformValue<double>>("iops");
         set => SetArgument("iops", value);
     }
 
@@ -192,7 +192,7 @@ public class AwsImagebuilderContainerRecipeInstanceConfigurationBlockBlockDevice
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -201,7 +201,7 @@ public class AwsImagebuilderContainerRecipeInstanceConfigurationBlockBlockDevice
     /// </summary>
     public TerraformValue<string>? SnapshotId
     {
-        get => new TerraformReference<string>(this, "snapshot_id");
+        get => GetArgument<TerraformValue<string>>("snapshot_id");
         set => SetArgument("snapshot_id", value);
     }
 
@@ -210,7 +210,7 @@ public class AwsImagebuilderContainerRecipeInstanceConfigurationBlockBlockDevice
     /// </summary>
     public TerraformValue<double>? Throughput
     {
-        get => new TerraformReference<double>(this, "throughput");
+        get => GetArgument<TerraformValue<double>>("throughput");
         set => SetArgument("throughput", value);
     }
 
@@ -219,7 +219,7 @@ public class AwsImagebuilderContainerRecipeInstanceConfigurationBlockBlockDevice
     /// </summary>
     public TerraformValue<double>? VolumeSize
     {
-        get => new TerraformReference<double>(this, "volume_size");
+        get => GetArgument<TerraformValue<double>>("volume_size");
         set => SetArgument("volume_size", value);
     }
 
@@ -228,7 +228,7 @@ public class AwsImagebuilderContainerRecipeInstanceConfigurationBlockBlockDevice
     /// </summary>
     public TerraformValue<string>? VolumeType
     {
-        get => new TerraformReference<string>(this, "volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -252,7 +252,7 @@ public class AwsImagebuilderContainerRecipeTargetRepositoryBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformValue<string> RepositoryName
     {
-        get => new TerraformReference<string>(this, "repository_name");
+        get => GetArgument<TerraformValue<string>>("repository_name");
         set => SetArgument("repository_name", value);
     }
 
@@ -262,7 +262,7 @@ public class AwsImagebuilderContainerRecipeTargetRepositoryBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -281,7 +281,7 @@ public partial class AwsImagebuilderContainerRecipe(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerType is required")]
     public required TerraformValue<string> ContainerType
     {
-        get => new TerraformReference<string>(this, "container_type");
+        get => GetArgument<TerraformValue<string>>("container_type");
         set => SetArgument("container_type", value);
     }
 
@@ -290,16 +290,16 @@ public partial class AwsImagebuilderContainerRecipe(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The dockerfile_template_data attribute.
     /// </summary>
-    public TerraformValue<string> DockerfileTemplateData
+    public TerraformValue<string>? DockerfileTemplateData
     {
-        get => new TerraformReference<string>(this, "dockerfile_template_data");
+        get => GetArgument<TerraformValue<string>>("dockerfile_template_data");
         set => SetArgument("dockerfile_template_data", value);
     }
 
@@ -308,16 +308,16 @@ public partial class AwsImagebuilderContainerRecipe(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? DockerfileTemplateUri
     {
-        get => new TerraformReference<string>(this, "dockerfile_template_uri");
+        get => GetArgument<TerraformValue<string>>("dockerfile_template_uri");
         set => SetArgument("dockerfile_template_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -326,7 +326,7 @@ public partial class AwsImagebuilderContainerRecipe(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -336,7 +336,7 @@ public partial class AwsImagebuilderContainerRecipe(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -346,7 +346,7 @@ public partial class AwsImagebuilderContainerRecipe(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentImage is required")]
     public required TerraformValue<string> ParentImage
     {
-        get => new TerraformReference<string>(this, "parent_image");
+        get => GetArgument<TerraformValue<string>>("parent_image");
         set => SetArgument("parent_image", value);
     }
 
@@ -355,16 +355,16 @@ public partial class AwsImagebuilderContainerRecipe(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? PlatformOverride
     {
-        get => new TerraformReference<string>(this, "platform_override");
+        get => GetArgument<TerraformValue<string>>("platform_override");
         set => SetArgument("platform_override", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -373,16 +373,16 @@ public partial class AwsImagebuilderContainerRecipe(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -392,7 +392,7 @@ public partial class AwsImagebuilderContainerRecipe(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -401,7 +401,7 @@ public partial class AwsImagebuilderContainerRecipe(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? WorkingDirectory
     {
-        get => new TerraformReference<string>(this, "working_directory");
+        get => GetArgument<TerraformValue<string>>("working_directory");
         set => SetArgument("working_directory", value);
     }
 
@@ -409,41 +409,31 @@ public partial class AwsImagebuilderContainerRecipe(string name) : TerraformReso
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The date_created attribute.
     /// </summary>
     public TerraformValue<string> DateCreated
-    {
-        get => new TerraformReference<string>(this, "date_created");
-    }
+        => AsReference("date_created");
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     public TerraformValue<bool> Encrypted
-    {
-        get => new TerraformReference<bool>(this, "encrypted");
-    }
+        => AsReference("encrypted");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     public TerraformValue<string> Owner
-    {
-        get => new TerraformReference<string>(this, "owner");
-    }
+        => AsReference("owner");
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
     public TerraformValue<string> Platform
-    {
-        get => new TerraformReference<string>(this, "platform");
-    }
+        => AsReference("platform");
 
     /// <summary>
     /// Component block (nesting mode: list).

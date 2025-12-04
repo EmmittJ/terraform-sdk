@@ -11,9 +11,9 @@ public partial class AwsWorkspacesImageDataSource(string name) : TerraformDataSo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsWorkspacesImageDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageId is required")]
     public required TerraformValue<string> ImageId
     {
-        get => new TerraformReference<string>(this, "image_id");
+        get => GetArgument<TerraformValue<string>>("image_id");
         set => SetArgument("image_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -40,40 +40,30 @@ public partial class AwsWorkspacesImageDataSource(string name) : TerraformDataSo
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The operating_system_type attribute.
     /// </summary>
     public TerraformValue<string> OperatingSystemType
-    {
-        get => new TerraformReference<string>(this, "operating_system_type");
-    }
+        => AsReference("operating_system_type");
 
     /// <summary>
     /// The required_tenancy attribute.
     /// </summary>
     public TerraformValue<string> RequiredTenancy
-    {
-        get => new TerraformReference<string>(this, "required_tenancy");
-    }
+        => AsReference("required_tenancy");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
 }

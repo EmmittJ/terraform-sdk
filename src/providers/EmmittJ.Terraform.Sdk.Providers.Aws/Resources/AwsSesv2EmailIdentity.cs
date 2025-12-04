@@ -17,16 +17,14 @@ public class AwsSesv2EmailIdentityDkimSigningAttributesBlock : TerraformBlock
     /// The current_signing_key_length attribute.
     /// </summary>
     public TerraformValue<string> CurrentSigningKeyLength
-    {
-        get => new TerraformReference<string>(this, "current_signing_key_length");
-    }
+        => AsReference("current_signing_key_length");
 
     /// <summary>
     /// The domain_signing_private_key attribute.
     /// </summary>
     public TerraformValue<string>? DomainSigningPrivateKey
     {
-        get => new TerraformReference<string>(this, "domain_signing_private_key");
+        get => GetArgument<TerraformValue<string>>("domain_signing_private_key");
         set => SetArgument("domain_signing_private_key", value);
     }
 
@@ -35,7 +33,7 @@ public class AwsSesv2EmailIdentityDkimSigningAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DomainSigningSelector
     {
-        get => new TerraformReference<string>(this, "domain_signing_selector");
+        get => GetArgument<TerraformValue<string>>("domain_signing_selector");
         set => SetArgument("domain_signing_selector", value);
     }
 
@@ -43,16 +41,14 @@ public class AwsSesv2EmailIdentityDkimSigningAttributesBlock : TerraformBlock
     /// The last_key_generation_timestamp attribute.
     /// </summary>
     public TerraformValue<string> LastKeyGenerationTimestamp
-    {
-        get => new TerraformReference<string>(this, "last_key_generation_timestamp");
-    }
+        => AsReference("last_key_generation_timestamp");
 
     /// <summary>
     /// The next_signing_key_length attribute.
     /// </summary>
-    public TerraformValue<string> NextSigningKeyLength
+    public TerraformValue<string>? NextSigningKeyLength
     {
-        get => new TerraformReference<string>(this, "next_signing_key_length");
+        get => GetArgument<TerraformValue<string>>("next_signing_key_length");
         set => SetArgument("next_signing_key_length", value);
     }
 
@@ -60,25 +56,19 @@ public class AwsSesv2EmailIdentityDkimSigningAttributesBlock : TerraformBlock
     /// The signing_attributes_origin attribute.
     /// </summary>
     public TerraformValue<string> SigningAttributesOrigin
-    {
-        get => new TerraformReference<string>(this, "signing_attributes_origin");
-    }
+        => AsReference("signing_attributes_origin");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The tokens attribute.
     /// </summary>
     public TerraformList<string> Tokens
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tokens").ResolveNodes(ctx));
-    }
+        => AsReference("tokens");
 
 }
 
@@ -94,7 +84,7 @@ public partial class AwsSesv2EmailIdentity(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? ConfigurationSetName
     {
-        get => new TerraformReference<string>(this, "configuration_set_name");
+        get => GetArgument<TerraformValue<string>>("configuration_set_name");
         set => SetArgument("configuration_set_name", value);
     }
 
@@ -104,25 +94,25 @@ public partial class AwsSesv2EmailIdentity(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailIdentity is required")]
     public required TerraformValue<string> EmailIdentity
     {
-        get => new TerraformReference<string>(this, "email_identity");
+        get => GetArgument<TerraformValue<string>>("email_identity");
         set => SetArgument("email_identity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -131,16 +121,16 @@ public partial class AwsSesv2EmailIdentity(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -148,33 +138,25 @@ public partial class AwsSesv2EmailIdentity(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The identity_type attribute.
     /// </summary>
     public TerraformValue<string> IdentityType
-    {
-        get => new TerraformReference<string>(this, "identity_type");
-    }
+        => AsReference("identity_type");
 
     /// <summary>
     /// The verification_status attribute.
     /// </summary>
     public TerraformValue<string> VerificationStatus
-    {
-        get => new TerraformReference<string>(this, "verification_status");
-    }
+        => AsReference("verification_status");
 
     /// <summary>
     /// The verified_for_sending_status attribute.
     /// </summary>
     public TerraformValue<bool> VerifiedForSendingStatus
-    {
-        get => new TerraformReference<bool>(this, "verified_for_sending_status");
-    }
+        => AsReference("verified_for_sending_status");
 
     /// <summary>
     /// DkimSigningAttributes block (nesting mode: list).

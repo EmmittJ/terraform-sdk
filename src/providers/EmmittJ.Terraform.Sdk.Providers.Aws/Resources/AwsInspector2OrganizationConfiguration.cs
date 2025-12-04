@@ -18,7 +18,7 @@ public class AwsInspector2OrganizationConfigurationAutoEnableBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? CodeRepository
     {
-        get => new TerraformReference<bool>(this, "code_repository");
+        get => GetArgument<TerraformValue<bool>>("code_repository");
         set => SetArgument("code_repository", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsInspector2OrganizationConfigurationAutoEnableBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ec2 is required")]
     public required TerraformValue<bool> Ec2
     {
-        get => new TerraformReference<bool>(this, "ec2");
+        get => GetArgument<TerraformValue<bool>>("ec2");
         set => SetArgument("ec2", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsInspector2OrganizationConfigurationAutoEnableBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ecr is required")]
     public required TerraformValue<bool> Ecr
     {
-        get => new TerraformReference<bool>(this, "ecr");
+        get => GetArgument<TerraformValue<bool>>("ecr");
         set => SetArgument("ecr", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsInspector2OrganizationConfigurationAutoEnableBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? Lambda
     {
-        get => new TerraformReference<bool>(this, "lambda");
+        get => GetArgument<TerraformValue<bool>>("lambda");
         set => SetArgument("lambda", value);
     }
 
@@ -56,7 +56,7 @@ public class AwsInspector2OrganizationConfigurationAutoEnableBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? LambdaCode
     {
-        get => new TerraformReference<bool>(this, "lambda_code");
+        get => GetArgument<TerraformValue<bool>>("lambda_code");
         set => SetArgument("lambda_code", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsInspector2OrganizationConfigurationTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsInspector2OrganizationConfigurationTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsInspector2OrganizationConfigurationTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -113,18 +113,18 @@ public partial class AwsInspector2OrganizationConfiguration(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -132,9 +132,7 @@ public partial class AwsInspector2OrganizationConfiguration(string name) : Terra
     /// The max_account_limit_reached attribute.
     /// </summary>
     public TerraformValue<bool> MaxAccountLimitReached
-    {
-        get => new TerraformReference<bool>(this, "max_account_limit_reached");
-    }
+        => AsReference("max_account_limit_reached");
 
     /// <summary>
     /// AutoEnable block (nesting mode: list).

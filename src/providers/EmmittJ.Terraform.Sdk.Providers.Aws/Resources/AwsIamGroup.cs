@@ -11,9 +11,9 @@ public partial class AwsIamGroup(string name) : TerraformResource("aws_iam_group
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsIamGroup(string name) : TerraformResource("aws_iam_group
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsIamGroup(string name) : TerraformResource("aws_iam_group
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -40,16 +40,12 @@ public partial class AwsIamGroup(string name) : TerraformResource("aws_iam_group
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The unique_id attribute.
     /// </summary>
     public TerraformValue<string> UniqueId
-    {
-        get => new TerraformReference<string>(this, "unique_id");
-    }
+        => AsReference("unique_id");
 
 }

@@ -33,7 +33,7 @@ public class GoogleDatastreamConnectionProfileForwardSshConnectivityBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => new TerraformReference<string>(this, "hostname");
+        get => GetArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleDatastreamConnectionProfileForwardSshConnectivityBlock : Terr
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleDatastreamConnectionProfileForwardSshConnectivityBlock : Terr
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleDatastreamConnectionProfileForwardSshConnectivityBlock : Terr
     /// </summary>
     public TerraformValue<string>? PrivateKey
     {
-        get => new TerraformReference<string>(this, "private_key");
+        get => GetArgument<TerraformValue<string>>("private_key");
         set => SetArgument("private_key", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleDatastreamConnectionProfileForwardSshConnectivityBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleDatastreamConnectionProfileGcsProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -103,7 +103,7 @@ public class GoogleDatastreamConnectionProfileGcsProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RootPath
     {
-        get => new TerraformReference<string>(this, "root_path");
+        get => GetArgument<TerraformValue<string>>("root_path");
         set => SetArgument("root_path", value);
     }
 
@@ -127,7 +127,7 @@ public class GoogleDatastreamConnectionProfileMongodbProfileBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -136,7 +136,7 @@ public class GoogleDatastreamConnectionProfileMongodbProfileBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? ReplicaSet
     {
-        get => new TerraformReference<string>(this, "replica_set");
+        get => GetArgument<TerraformValue<string>>("replica_set");
         set => SetArgument("replica_set", value);
     }
 
@@ -146,7 +146,7 @@ public class GoogleDatastreamConnectionProfileMongodbProfileBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? SecretManagerStoredPassword
     {
-        get => new TerraformReference<string>(this, "secret_manager_stored_password");
+        get => GetArgument<TerraformValue<string>>("secret_manager_stored_password");
         set => SetArgument("secret_manager_stored_password", value);
     }
 
@@ -156,7 +156,7 @@ public class GoogleDatastreamConnectionProfileMongodbProfileBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -221,7 +221,7 @@ public class GoogleDatastreamConnectionProfileMongodbProfileBlockHostAddressesBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => new TerraformReference<string>(this, "hostname");
+        get => GetArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -230,7 +230,7 @@ public class GoogleDatastreamConnectionProfileMongodbProfileBlockHostAddressesBl
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -266,7 +266,7 @@ public class GoogleDatastreamConnectionProfileMongodbProfileBlockSslConfigBlock 
     /// </summary>
     public TerraformValue<string>? CaCertificate
     {
-        get => new TerraformReference<string>(this, "ca_certificate");
+        get => GetArgument<TerraformValue<string>>("ca_certificate");
         set => SetArgument("ca_certificate", value);
     }
 
@@ -274,9 +274,7 @@ public class GoogleDatastreamConnectionProfileMongodbProfileBlockSslConfigBlock 
     /// Indicates whether the clientKey field is set.
     /// </summary>
     public TerraformValue<bool> CaCertificateSet
-    {
-        get => new TerraformReference<bool>(this, "ca_certificate_set");
-    }
+        => AsReference("ca_certificate_set");
 
     /// <summary>
     /// PEM-encoded certificate that will be used by the replica to
@@ -286,7 +284,7 @@ public class GoogleDatastreamConnectionProfileMongodbProfileBlockSslConfigBlock 
     /// </summary>
     public TerraformValue<string>? ClientCertificate
     {
-        get => new TerraformReference<string>(this, "client_certificate");
+        get => GetArgument<TerraformValue<string>>("client_certificate");
         set => SetArgument("client_certificate", value);
     }
 
@@ -294,9 +292,7 @@ public class GoogleDatastreamConnectionProfileMongodbProfileBlockSslConfigBlock 
     /// Indicates whether the clientCertificate field is set.
     /// </summary>
     public TerraformValue<bool> ClientCertificateSet
-    {
-        get => new TerraformReference<bool>(this, "client_certificate_set");
-    }
+        => AsReference("client_certificate_set");
 
     /// <summary>
     /// PEM-encoded private key associated with the Client Certificate.
@@ -305,7 +301,7 @@ public class GoogleDatastreamConnectionProfileMongodbProfileBlockSslConfigBlock 
     /// </summary>
     public TerraformValue<string>? ClientKey
     {
-        get => new TerraformReference<string>(this, "client_key");
+        get => GetArgument<TerraformValue<string>>("client_key");
         set => SetArgument("client_key", value);
     }
 
@@ -313,9 +309,7 @@ public class GoogleDatastreamConnectionProfileMongodbProfileBlockSslConfigBlock 
     /// Indicates whether the clientKey field is set.
     /// </summary>
     public TerraformValue<bool> ClientKeySet
-    {
-        get => new TerraformReference<bool>(this, "client_key_set");
-    }
+        => AsReference("client_key_set");
 
     /// <summary>
     /// A reference to a Secret Manager resource name storing the
@@ -323,7 +317,7 @@ public class GoogleDatastreamConnectionProfileMongodbProfileBlockSslConfigBlock 
     /// </summary>
     public TerraformValue<string>? SecretManagerStoredClientKey
     {
-        get => new TerraformReference<string>(this, "secret_manager_stored_client_key");
+        get => GetArgument<TerraformValue<string>>("secret_manager_stored_client_key");
         set => SetArgument("secret_manager_stored_client_key", value);
     }
 
@@ -346,7 +340,7 @@ public class GoogleDatastreamConnectionProfileMongodbProfileBlockStandardConnect
     /// </summary>
     public TerraformValue<bool>? DirectConnection
     {
-        get => new TerraformReference<bool>(this, "direct_connection");
+        get => GetArgument<TerraformValue<bool>>("direct_connection");
         set => SetArgument("direct_connection", value);
     }
 
@@ -370,7 +364,7 @@ public class GoogleDatastreamConnectionProfileMysqlProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => new TerraformReference<string>(this, "hostname");
+        get => GetArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -379,7 +373,7 @@ public class GoogleDatastreamConnectionProfileMysqlProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -388,7 +382,7 @@ public class GoogleDatastreamConnectionProfileMysqlProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -397,7 +391,7 @@ public class GoogleDatastreamConnectionProfileMysqlProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SecretManagerStoredPassword
     {
-        get => new TerraformReference<string>(this, "secret_manager_stored_password");
+        get => GetArgument<TerraformValue<string>>("secret_manager_stored_password");
         set => SetArgument("secret_manager_stored_password", value);
     }
 
@@ -407,7 +401,7 @@ public class GoogleDatastreamConnectionProfileMysqlProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -440,7 +434,7 @@ public class GoogleDatastreamConnectionProfileMysqlProfileBlockSslConfigBlock : 
     /// </summary>
     public TerraformValue<string>? CaCertificate
     {
-        get => new TerraformReference<string>(this, "ca_certificate");
+        get => GetArgument<TerraformValue<string>>("ca_certificate");
         set => SetArgument("ca_certificate", value);
     }
 
@@ -448,9 +442,7 @@ public class GoogleDatastreamConnectionProfileMysqlProfileBlockSslConfigBlock : 
     /// Indicates whether the clientKey field is set.
     /// </summary>
     public TerraformValue<bool> CaCertificateSet
-    {
-        get => new TerraformReference<bool>(this, "ca_certificate_set");
-    }
+        => AsReference("ca_certificate_set");
 
     /// <summary>
     /// PEM-encoded certificate that will be used by the replica to
@@ -460,7 +452,7 @@ public class GoogleDatastreamConnectionProfileMysqlProfileBlockSslConfigBlock : 
     /// </summary>
     public TerraformValue<string>? ClientCertificate
     {
-        get => new TerraformReference<string>(this, "client_certificate");
+        get => GetArgument<TerraformValue<string>>("client_certificate");
         set => SetArgument("client_certificate", value);
     }
 
@@ -468,9 +460,7 @@ public class GoogleDatastreamConnectionProfileMysqlProfileBlockSslConfigBlock : 
     /// Indicates whether the clientCertificate field is set.
     /// </summary>
     public TerraformValue<bool> ClientCertificateSet
-    {
-        get => new TerraformReference<bool>(this, "client_certificate_set");
-    }
+        => AsReference("client_certificate_set");
 
     /// <summary>
     /// PEM-encoded private key associated with the Client Certificate.
@@ -479,7 +469,7 @@ public class GoogleDatastreamConnectionProfileMysqlProfileBlockSslConfigBlock : 
     /// </summary>
     public TerraformValue<string>? ClientKey
     {
-        get => new TerraformReference<string>(this, "client_key");
+        get => GetArgument<TerraformValue<string>>("client_key");
         set => SetArgument("client_key", value);
     }
 
@@ -487,9 +477,7 @@ public class GoogleDatastreamConnectionProfileMysqlProfileBlockSslConfigBlock : 
     /// Indicates whether the clientKey field is set.
     /// </summary>
     public TerraformValue<bool> ClientKeySet
-    {
-        get => new TerraformReference<bool>(this, "client_key_set");
-    }
+        => AsReference("client_key_set");
 
 }
 
@@ -510,7 +498,7 @@ public class GoogleDatastreamConnectionProfileOracleProfileBlock : TerraformBloc
     /// </summary>
     public TerraformMap<string>? ConnectionAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "connection_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("connection_attributes");
         set => SetArgument("connection_attributes", value);
     }
 
@@ -520,7 +508,7 @@ public class GoogleDatastreamConnectionProfileOracleProfileBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseService is required")]
     public required TerraformValue<string> DatabaseService
     {
-        get => new TerraformReference<string>(this, "database_service");
+        get => GetArgument<TerraformValue<string>>("database_service");
         set => SetArgument("database_service", value);
     }
 
@@ -530,7 +518,7 @@ public class GoogleDatastreamConnectionProfileOracleProfileBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => new TerraformReference<string>(this, "hostname");
+        get => GetArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -539,7 +527,7 @@ public class GoogleDatastreamConnectionProfileOracleProfileBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -548,7 +536,7 @@ public class GoogleDatastreamConnectionProfileOracleProfileBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -557,7 +545,7 @@ public class GoogleDatastreamConnectionProfileOracleProfileBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? SecretManagerStoredPassword
     {
-        get => new TerraformReference<string>(this, "secret_manager_stored_password");
+        get => GetArgument<TerraformValue<string>>("secret_manager_stored_password");
         set => SetArgument("secret_manager_stored_password", value);
     }
 
@@ -567,7 +555,7 @@ public class GoogleDatastreamConnectionProfileOracleProfileBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -591,7 +579,7 @@ public class GoogleDatastreamConnectionProfilePostgresqlProfileBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -601,7 +589,7 @@ public class GoogleDatastreamConnectionProfilePostgresqlProfileBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => new TerraformReference<string>(this, "hostname");
+        get => GetArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -610,7 +598,7 @@ public class GoogleDatastreamConnectionProfilePostgresqlProfileBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -619,7 +607,7 @@ public class GoogleDatastreamConnectionProfilePostgresqlProfileBlock : Terraform
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -628,7 +616,7 @@ public class GoogleDatastreamConnectionProfilePostgresqlProfileBlock : Terraform
     /// </summary>
     public TerraformValue<string>? SecretManagerStoredPassword
     {
-        get => new TerraformReference<string>(this, "secret_manager_stored_password");
+        get => GetArgument<TerraformValue<string>>("secret_manager_stored_password");
         set => SetArgument("secret_manager_stored_password", value);
     }
 
@@ -638,7 +626,7 @@ public class GoogleDatastreamConnectionProfilePostgresqlProfileBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -662,7 +650,7 @@ public class GoogleDatastreamConnectionProfilePrivateConnectivityBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateConnection is required")]
     public required TerraformValue<string> PrivateConnection
     {
-        get => new TerraformReference<string>(this, "private_connection");
+        get => GetArgument<TerraformValue<string>>("private_connection");
         set => SetArgument("private_connection", value);
     }
 
@@ -686,7 +674,7 @@ public class GoogleDatastreamConnectionProfileSqlServerProfileBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -696,7 +684,7 @@ public class GoogleDatastreamConnectionProfileSqlServerProfileBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => new TerraformReference<string>(this, "hostname");
+        get => GetArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -705,7 +693,7 @@ public class GoogleDatastreamConnectionProfileSqlServerProfileBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -714,7 +702,7 @@ public class GoogleDatastreamConnectionProfileSqlServerProfileBlock : TerraformB
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -723,7 +711,7 @@ public class GoogleDatastreamConnectionProfileSqlServerProfileBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? SecretManagerStoredPassword
     {
-        get => new TerraformReference<string>(this, "secret_manager_stored_password");
+        get => GetArgument<TerraformValue<string>>("secret_manager_stored_password");
         set => SetArgument("secret_manager_stored_password", value);
     }
 
@@ -733,7 +721,7 @@ public class GoogleDatastreamConnectionProfileSqlServerProfileBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -756,7 +744,7 @@ public class GoogleDatastreamConnectionProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -765,7 +753,7 @@ public class GoogleDatastreamConnectionProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -774,7 +762,7 @@ public class GoogleDatastreamConnectionProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -793,7 +781,7 @@ public partial class GoogleDatastreamConnectionProfile(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionProfileId is required")]
     public required TerraformValue<string> ConnectionProfileId
     {
-        get => new TerraformReference<string>(this, "connection_profile_id");
+        get => GetArgument<TerraformValue<string>>("connection_profile_id");
         set => SetArgument("connection_profile_id", value);
     }
 
@@ -802,7 +790,7 @@ public partial class GoogleDatastreamConnectionProfile(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? CreateWithoutValidation
     {
-        get => new TerraformReference<bool>(this, "create_without_validation");
+        get => GetArgument<TerraformValue<bool>>("create_without_validation");
         set => SetArgument("create_without_validation", value);
     }
 
@@ -812,16 +800,16 @@ public partial class GoogleDatastreamConnectionProfile(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -833,7 +821,7 @@ public partial class GoogleDatastreamConnectionProfile(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -843,16 +831,16 @@ public partial class GoogleDatastreamConnectionProfile(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -860,26 +848,20 @@ public partial class GoogleDatastreamConnectionProfile(string name) : TerraformR
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The resource&#39;s name.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// BigqueryProfile block (nesting mode: list).

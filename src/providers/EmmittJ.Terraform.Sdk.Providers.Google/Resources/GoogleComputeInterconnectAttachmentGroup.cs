@@ -18,7 +18,7 @@ public class GoogleComputeInterconnectAttachmentGroupAttachmentsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Attachment
     {
-        get => new TerraformReference<string>(this, "attachment");
+        get => GetArgument<TerraformValue<string>>("attachment");
         set => SetArgument("attachment", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleComputeInterconnectAttachmentGroupAttachmentsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleComputeInterconnectAttachmentGroupIntentBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? AvailabilitySla
     {
-        get => new TerraformReference<string>(this, "availability_sla");
+        get => GetArgument<TerraformValue<string>>("availability_sla");
         set => SetArgument("availability_sla", value);
     }
 
@@ -74,7 +74,7 @@ public class GoogleComputeInterconnectAttachmentGroupTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -83,7 +83,7 @@ public class GoogleComputeInterconnectAttachmentGroupTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -92,7 +92,7 @@ public class GoogleComputeInterconnectAttachmentGroupTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -110,16 +110,16 @@ public partial class GoogleComputeInterconnectAttachmentGroup(string name) : Ter
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class GoogleComputeInterconnectAttachmentGroup(string name) : Ter
     /// </summary>
     public TerraformValue<string>? InterconnectGroup
     {
-        get => new TerraformReference<string>(this, "interconnect_group");
+        get => GetArgument<TerraformValue<string>>("interconnect_group");
         set => SetArgument("interconnect_group", value);
     }
 
@@ -144,16 +144,16 @@ public partial class GoogleComputeInterconnectAttachmentGroup(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -163,26 +163,20 @@ public partial class GoogleComputeInterconnectAttachmentGroup(string name) : Ter
     /// the Attachment&#39;s AttachmentGroup.
     /// </summary>
     public TerraformList<TerraformMap<object>> Configured
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "configured").ResolveNodes(ctx));
-    }
+        => AsReference("configured");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// An analysis of the logical layout of Attachments in this
     /// group. Every Attachment in the group is shown once in this structure.
     /// </summary>
     public TerraformList<TerraformMap<object>> LogicalStructure
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "logical_structure").ResolveNodes(ctx));
-    }
+        => AsReference("logical_structure");
 
     /// <summary>
     /// Attachments block (nesting mode: set).

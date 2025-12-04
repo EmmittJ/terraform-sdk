@@ -11,9 +11,9 @@ public partial class AwsSesIdentityNotificationTopic(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsSesIdentityNotificationTopic(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     public required TerraformValue<string> Identity
     {
-        get => new TerraformReference<string>(this, "identity");
+        get => GetArgument<TerraformValue<string>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsSesIdentityNotificationTopic(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? IncludeOriginalHeaders
     {
-        get => new TerraformReference<bool>(this, "include_original_headers");
+        get => GetArgument<TerraformValue<bool>>("include_original_headers");
         set => SetArgument("include_original_headers", value);
     }
 
@@ -42,16 +42,16 @@ public partial class AwsSesIdentityNotificationTopic(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationType is required")]
     public required TerraformValue<string> NotificationType
     {
-        get => new TerraformReference<string>(this, "notification_type");
+        get => GetArgument<TerraformValue<string>>("notification_type");
         set => SetArgument("notification_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsSesIdentityNotificationTopic(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? TopicArn
     {
-        get => new TerraformReference<string>(this, "topic_arn");
+        get => GetArgument<TerraformValue<string>>("topic_arn");
         set => SetArgument("topic_arn", value);
     }
 

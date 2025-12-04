@@ -18,7 +18,7 @@ public class AzurermDataShareDatasetBlobStorageDataSourceTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermDataShareDatasetBlobStorageDataSource(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataShareId is required")]
     public required TerraformValue<string> DataShareId
     {
-        get => new TerraformReference<string>(this, "data_share_id");
+        get => GetArgument<TerraformValue<string>>("data_share_id");
         set => SetArgument("data_share_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermDataShareDatasetBlobStorageDataSource(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -64,41 +64,31 @@ public partial class AzurermDataShareDatasetBlobStorageDataSource(string name) :
     /// The container_name attribute.
     /// </summary>
     public TerraformValue<string> ContainerName
-    {
-        get => new TerraformReference<string>(this, "container_name");
-    }
+        => AsReference("container_name");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The file_path attribute.
     /// </summary>
     public TerraformValue<string> FilePath
-    {
-        get => new TerraformReference<string>(this, "file_path");
-    }
+        => AsReference("file_path");
 
     /// <summary>
     /// The folder_path attribute.
     /// </summary>
     public TerraformValue<string> FolderPath
-    {
-        get => new TerraformReference<string>(this, "folder_path");
-    }
+        => AsReference("folder_path");
 
     /// <summary>
     /// The storage_account attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StorageAccount
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "storage_account").ResolveNodes(ctx));
-    }
+        => AsReference("storage_account");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

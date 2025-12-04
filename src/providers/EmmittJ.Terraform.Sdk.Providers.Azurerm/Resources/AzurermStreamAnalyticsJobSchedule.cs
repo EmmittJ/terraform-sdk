@@ -18,7 +18,7 @@ public class AzurermStreamAnalyticsJobScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermStreamAnalyticsJobScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermStreamAnalyticsJobScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermStreamAnalyticsJobScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermStreamAnalyticsJobSchedule(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,16 +73,16 @@ public partial class AzurermStreamAnalyticsJobSchedule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartMode is required")]
     public required TerraformValue<string> StartMode
     {
-        get => new TerraformReference<string>(this, "start_mode");
+        get => GetArgument<TerraformValue<string>>("start_mode");
         set => SetArgument("start_mode", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformValue<string> StartTime
+    public TerraformValue<string>? StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermStreamAnalyticsJobSchedule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
     public required TerraformValue<string> StreamAnalyticsJobId
     {
-        get => new TerraformReference<string>(this, "stream_analytics_job_id");
+        get => GetArgument<TerraformValue<string>>("stream_analytics_job_id");
         set => SetArgument("stream_analytics_job_id", value);
     }
 
@@ -100,9 +100,7 @@ public partial class AzurermStreamAnalyticsJobSchedule(string name) : TerraformR
     /// The last_output_time attribute.
     /// </summary>
     public TerraformValue<string> LastOutputTime
-    {
-        get => new TerraformReference<string>(this, "last_output_time");
-    }
+        => AsReference("last_output_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

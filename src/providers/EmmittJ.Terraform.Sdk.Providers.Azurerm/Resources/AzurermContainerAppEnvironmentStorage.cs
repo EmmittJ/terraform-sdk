@@ -18,7 +18,7 @@ public class AzurermContainerAppEnvironmentStorageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermContainerAppEnvironmentStorageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermContainerAppEnvironmentStorageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermContainerAppEnvironmentStorageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermContainerAppEnvironmentStorage(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? AccessKey
     {
-        get => new TerraformReference<string>(this, "access_key");
+        get => GetArgument<TerraformValue<string>>("access_key");
         set => SetArgument("access_key", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermContainerAppEnvironmentStorage(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessMode is required")]
     public required TerraformValue<string> AccessMode
     {
-        get => new TerraformReference<string>(this, "access_mode");
+        get => GetArgument<TerraformValue<string>>("access_mode");
         set => SetArgument("access_mode", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermContainerAppEnvironmentStorage(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? AccountName
     {
-        get => new TerraformReference<string>(this, "account_name");
+        get => GetArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -92,16 +92,16 @@ public partial class AzurermContainerAppEnvironmentStorage(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
     public required TerraformValue<string> ContainerAppEnvironmentId
     {
-        get => new TerraformReference<string>(this, "container_app_environment_id");
+        get => GetArgument<TerraformValue<string>>("container_app_environment_id");
         set => SetArgument("container_app_environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermContainerAppEnvironmentStorage(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermContainerAppEnvironmentStorage(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? NfsServerUrl
     {
-        get => new TerraformReference<string>(this, "nfs_server_url");
+        get => GetArgument<TerraformValue<string>>("nfs_server_url");
         set => SetArgument("nfs_server_url", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermContainerAppEnvironmentStorage(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareName is required")]
     public required TerraformValue<string> ShareName
     {
-        get => new TerraformReference<string>(this, "share_name");
+        get => GetArgument<TerraformValue<string>>("share_name");
         set => SetArgument("share_name", value);
     }
 

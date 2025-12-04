@@ -56,7 +56,7 @@ public class GoogleDialogflowCxToolDataStoreSpecBlockDataStoreConnectionsBlock :
     /// </summary>
     public TerraformValue<string>? DataStore
     {
-        get => new TerraformReference<string>(this, "data_store");
+        get => GetArgument<TerraformValue<string>>("data_store");
         set => SetArgument("data_store", value);
     }
 
@@ -66,7 +66,7 @@ public class GoogleDialogflowCxToolDataStoreSpecBlockDataStoreConnectionsBlock :
     /// </summary>
     public TerraformValue<string>? DataStoreType
     {
-        get => new TerraformReference<string>(this, "data_store_type");
+        get => GetArgument<TerraformValue<string>>("data_store_type");
         set => SetArgument("data_store_type", value);
     }
 
@@ -76,7 +76,7 @@ public class GoogleDialogflowCxToolDataStoreSpecBlockDataStoreConnectionsBlock :
     /// </summary>
     public TerraformValue<string>? DocumentProcessingMode
     {
-        get => new TerraformReference<string>(this, "document_processing_mode");
+        get => GetArgument<TerraformValue<string>>("document_processing_mode");
         set => SetArgument("document_processing_mode", value);
     }
 
@@ -113,7 +113,7 @@ public class GoogleDialogflowCxToolFunctionSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? InputSchema
     {
-        get => new TerraformReference<string>(this, "input_schema");
+        get => GetArgument<TerraformValue<string>>("input_schema");
         set => SetArgument("input_schema", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleDialogflowCxToolFunctionSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OutputSchema
     {
-        get => new TerraformReference<string>(this, "output_schema");
+        get => GetArgument<TerraformValue<string>>("output_schema");
         set => SetArgument("output_schema", value);
     }
 
@@ -148,7 +148,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextSchema is required")]
     public required TerraformValue<string> TextSchema
     {
-        get => new TerraformReference<string>(this, "text_schema");
+        get => GetArgument<TerraformValue<string>>("text_schema");
         set => SetArgument("text_schema", value);
     }
 
@@ -253,7 +253,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockAuthenticationBlockApiKeyConf
     /// </summary>
     public TerraformValue<string>? ApiKey
     {
-        get => new TerraformReference<string>(this, "api_key");
+        get => GetArgument<TerraformValue<string>>("api_key");
         set => SetArgument("api_key", value);
     }
 
@@ -264,7 +264,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockAuthenticationBlockApiKeyConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyName is required")]
     public required TerraformValue<string> KeyName
     {
-        get => new TerraformReference<string>(this, "key_name");
+        get => GetArgument<TerraformValue<string>>("key_name");
         set => SetArgument("key_name", value);
     }
 
@@ -275,7 +275,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockAuthenticationBlockApiKeyConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequestLocation is required")]
     public required TerraformValue<string> RequestLocation
     {
-        get => new TerraformReference<string>(this, "request_location");
+        get => GetArgument<TerraformValue<string>>("request_location");
         set => SetArgument("request_location", value);
     }
 
@@ -286,7 +286,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockAuthenticationBlockApiKeyConf
     /// </summary>
     public TerraformValue<string>? SecretVersionForApiKey
     {
-        get => new TerraformReference<string>(this, "secret_version_for_api_key");
+        get => GetArgument<TerraformValue<string>>("secret_version_for_api_key");
         set => SetArgument("secret_version_for_api_key", value);
     }
 
@@ -309,7 +309,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockAuthenticationBlockBearerToke
     /// </summary>
     public TerraformValue<string>? SecretVersionForToken
     {
-        get => new TerraformReference<string>(this, "secret_version_for_token");
+        get => GetArgument<TerraformValue<string>>("secret_version_for_token");
         set => SetArgument("secret_version_for_token", value);
     }
 
@@ -319,7 +319,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockAuthenticationBlockBearerToke
     /// </summary>
     public TerraformValue<string>? Token
     {
-        get => new TerraformReference<string>(this, "token");
+        get => GetArgument<TerraformValue<string>>("token");
         set => SetArgument("token", value);
     }
 
@@ -342,7 +342,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockAuthenticationBlockOauthConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -351,7 +351,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockAuthenticationBlockOauthConfi
     /// </summary>
     public TerraformValue<string>? ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -362,7 +362,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockAuthenticationBlockOauthConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OauthGrantType is required")]
     public required TerraformValue<string> OauthGrantType
     {
-        get => new TerraformReference<string>(this, "oauth_grant_type");
+        get => GetArgument<TerraformValue<string>>("oauth_grant_type");
         set => SetArgument("oauth_grant_type", value);
     }
 
@@ -371,7 +371,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockAuthenticationBlockOauthConfi
     /// </summary>
     public TerraformList<string>? Scopes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("scopes");
         set => SetArgument("scopes", value);
     }
 
@@ -382,7 +382,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockAuthenticationBlockOauthConfi
     /// </summary>
     public TerraformValue<string>? SecretVersionForClientSecret
     {
-        get => new TerraformReference<string>(this, "secret_version_for_client_secret");
+        get => GetArgument<TerraformValue<string>>("secret_version_for_client_secret");
         set => SetArgument("secret_version_for_client_secret", value);
     }
 
@@ -392,7 +392,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockAuthenticationBlockOauthConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenEndpoint is required")]
     public required TerraformValue<string> TokenEndpoint
     {
-        get => new TerraformReference<string>(this, "token_endpoint");
+        get => GetArgument<TerraformValue<string>>("token_endpoint");
         set => SetArgument("token_endpoint", value);
     }
 
@@ -416,7 +416,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockAuthenticationBlockServiceAge
     /// </summary>
     public TerraformValue<string>? ServiceAgentAuth
     {
-        get => new TerraformReference<string>(this, "service_agent_auth");
+        get => GetArgument<TerraformValue<string>>("service_agent_auth");
         set => SetArgument("service_agent_auth", value);
     }
 
@@ -440,7 +440,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockServiceDirectoryConfigBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -498,7 +498,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockTlsConfigBlockCaCertsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cert is required")]
     public required TerraformValue<string> Cert
     {
-        get => new TerraformReference<string>(this, "cert");
+        get => GetArgument<TerraformValue<string>>("cert");
         set => SetArgument("cert", value);
     }
 
@@ -508,7 +508,7 @@ public class GoogleDialogflowCxToolOpenApiSpecBlockTlsConfigBlockCaCertsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -531,7 +531,7 @@ public class GoogleDialogflowCxToolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -540,7 +540,7 @@ public class GoogleDialogflowCxToolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -549,7 +549,7 @@ public class GoogleDialogflowCxToolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -568,7 +568,7 @@ public partial class GoogleDialogflowCxTool(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -578,16 +578,16 @@ public partial class GoogleDialogflowCxTool(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -597,7 +597,7 @@ public partial class GoogleDialogflowCxTool(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -606,17 +606,13 @@ public partial class GoogleDialogflowCxTool(string name) : TerraformResource("go
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/tools/&amp;lt;Tool ID&amp;gt;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The tool type.
     /// </summary>
     public TerraformValue<string> ToolType
-    {
-        get => new TerraformReference<string>(this, "tool_type");
-    }
+        => AsReference("tool_type");
 
     /// <summary>
     /// DataStoreSpec block (nesting mode: list).

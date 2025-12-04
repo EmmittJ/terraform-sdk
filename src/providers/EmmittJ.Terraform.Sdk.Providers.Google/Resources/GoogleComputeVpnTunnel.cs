@@ -51,7 +51,7 @@ public class GoogleComputeVpnTunnelCipherSuiteBlockPhase1Block : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Dh
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "dh").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("dh");
         set => SetArgument("dh", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleComputeVpnTunnelCipherSuiteBlockPhase1Block : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Encryption
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "encryption").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("encryption");
         set => SetArgument("encryption", value);
     }
 
@@ -69,7 +69,7 @@ public class GoogleComputeVpnTunnelCipherSuiteBlockPhase1Block : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Integrity
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "integrity").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("integrity");
         set => SetArgument("integrity", value);
     }
 
@@ -78,7 +78,7 @@ public class GoogleComputeVpnTunnelCipherSuiteBlockPhase1Block : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Prf
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "prf").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("prf");
         set => SetArgument("prf", value);
     }
 
@@ -100,7 +100,7 @@ public class GoogleComputeVpnTunnelCipherSuiteBlockPhase2Block : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Encryption
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "encryption").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("encryption");
         set => SetArgument("encryption", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleComputeVpnTunnelCipherSuiteBlockPhase2Block : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Integrity
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "integrity").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("integrity");
         set => SetArgument("integrity", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleComputeVpnTunnelCipherSuiteBlockPhase2Block : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Pfs
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "pfs").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("pfs");
         set => SetArgument("pfs", value);
     }
 
@@ -141,7 +141,7 @@ public class GoogleComputeVpnTunnelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -150,7 +150,7 @@ public class GoogleComputeVpnTunnelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -159,7 +159,7 @@ public class GoogleComputeVpnTunnelTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -177,16 +177,16 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -197,7 +197,7 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<double>? IkeVersion
     {
-        get => new TerraformReference<double>(this, "ike_version");
+        get => GetArgument<TerraformValue<double>>("ike_version");
         set => SetArgument("ike_version", value);
     }
 
@@ -209,7 +209,7 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -219,9 +219,9 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     /// for example &#39;192.168.0.0/16&#39;. The ranges should be disjoint.
     /// Only IPv4 is supported.
     /// </summary>
-    public TerraformSet<string> LocalTrafficSelector
+    public TerraformSet<string>? LocalTrafficSelector
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "local_traffic_selector").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("local_traffic_selector");
         set => SetArgument("local_traffic_selector", value);
     }
 
@@ -237,7 +237,7 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -246,7 +246,7 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? PeerExternalGateway
     {
-        get => new TerraformReference<string>(this, "peer_external_gateway");
+        get => GetArgument<TerraformValue<string>>("peer_external_gateway");
         set => SetArgument("peer_external_gateway", value);
     }
 
@@ -255,7 +255,7 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<double>? PeerExternalGatewayInterface
     {
-        get => new TerraformReference<double>(this, "peer_external_gateway_interface");
+        get => GetArgument<TerraformValue<double>>("peer_external_gateway_interface");
         set => SetArgument("peer_external_gateway_interface", value);
     }
 
@@ -267,34 +267,34 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? PeerGcpGateway
     {
-        get => new TerraformReference<string>(this, "peer_gcp_gateway");
+        get => GetArgument<TerraformValue<string>>("peer_gcp_gateway");
         set => SetArgument("peer_gcp_gateway", value);
     }
 
     /// <summary>
     /// IP address of the peer VPN gateway. Only IPv4 is supported.
     /// </summary>
-    public TerraformValue<string> PeerIp
+    public TerraformValue<string>? PeerIp
     {
-        get => new TerraformReference<string>(this, "peer_ip");
+        get => GetArgument<TerraformValue<string>>("peer_ip");
         set => SetArgument("peer_ip", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The region where the tunnel is located. If unset, is set to the region of &#39;target_vpn_gateway&#39;.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -304,9 +304,9 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     /// for example &#39;192.168.0.0/16&#39;. The ranges should be disjoint.
     /// Only IPv4 is supported.
     /// </summary>
-    public TerraformSet<string> RemoteTrafficSelector
+    public TerraformSet<string>? RemoteTrafficSelector
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "remote_traffic_selector").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("remote_traffic_selector");
         set => SetArgument("remote_traffic_selector", value);
     }
 
@@ -315,7 +315,7 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? Router
     {
-        get => new TerraformReference<string>(this, "router");
+        get => GetArgument<TerraformValue<string>>("router");
         set => SetArgument("router", value);
     }
 
@@ -325,7 +325,7 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? SharedSecret
     {
-        get => new TerraformReference<string>(this, "shared_secret");
+        get => GetArgument<TerraformValue<string>>("shared_secret");
         set => SetArgument("shared_secret", value);
     }
 
@@ -336,7 +336,7 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? SharedSecretWo
     {
-        get => new TerraformReference<string>(this, "shared_secret_wo");
+        get => GetArgument<TerraformValue<string>>("shared_secret_wo");
         set => SetArgument("shared_secret_wo", value);
     }
 
@@ -345,7 +345,7 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? SharedSecretWoVersion
     {
-        get => new TerraformReference<string>(this, "shared_secret_wo_version");
+        get => GetArgument<TerraformValue<string>>("shared_secret_wo_version");
         set => SetArgument("shared_secret_wo_version", value);
     }
 
@@ -355,7 +355,7 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? TargetVpnGateway
     {
-        get => new TerraformReference<string>(this, "target_vpn_gateway");
+        get => GetArgument<TerraformValue<string>>("target_vpn_gateway");
         set => SetArgument("target_vpn_gateway", value);
     }
 
@@ -366,7 +366,7 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? VpnGateway
     {
-        get => new TerraformReference<string>(this, "vpn_gateway");
+        get => GetArgument<TerraformValue<string>>("vpn_gateway");
         set => SetArgument("vpn_gateway", value);
     }
 
@@ -375,7 +375,7 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<double>? VpnGatewayInterface
     {
-        get => new TerraformReference<double>(this, "vpn_gateway_interface");
+        get => GetArgument<TerraformValue<double>>("vpn_gateway_interface");
         set => SetArgument("vpn_gateway_interface", value);
     }
 
@@ -383,67 +383,51 @@ public partial class GoogleComputeVpnTunnel(string name) : TerraformResource("go
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// Detailed status message for the VPN tunnel.
     /// </summary>
     public TerraformValue<string> DetailedStatus
-    {
-        get => new TerraformReference<string>(this, "detailed_status");
-    }
+        => AsReference("detailed_status");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
     /// internally during updates.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-    {
-        get => new TerraformReference<string>(this, "label_fingerprint");
-    }
+        => AsReference("label_fingerprint");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Hash of the shared secret.
     /// </summary>
     public TerraformValue<string> SharedSecretHash
-    {
-        get => new TerraformReference<string>(this, "shared_secret_hash");
-    }
+        => AsReference("shared_secret_hash");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<string> TunnelId
-    {
-        get => new TerraformReference<string>(this, "tunnel_id");
-    }
+        => AsReference("tunnel_id");
 
     /// <summary>
     /// CipherSuite block (nesting mode: list).

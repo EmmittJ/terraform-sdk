@@ -21,7 +21,7 @@ public class GoogleDiscoveryEngineCmekConfigSingleRegionKeysBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     public required TerraformValue<string> KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -44,7 +44,7 @@ public class GoogleDiscoveryEngineCmekConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleDiscoveryEngineCmekConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleDiscoveryEngineCmekConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -80,16 +80,16 @@ public partial class GoogleDiscoveryEngineCmekConfig(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? CmekConfigId
     {
-        get => new TerraformReference<string>(this, "cmek_config_id");
+        get => GetArgument<TerraformValue<string>>("cmek_config_id");
         set => SetArgument("cmek_config_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class GoogleDiscoveryEngineCmekConfig(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     public required TerraformValue<string> KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -111,16 +111,16 @@ public partial class GoogleDiscoveryEngineCmekConfig(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -130,7 +130,7 @@ public partial class GoogleDiscoveryEngineCmekConfig(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? SetDefault
     {
-        get => new TerraformReference<bool>(this, "set_default");
+        get => GetArgument<TerraformValue<bool>>("set_default");
         set => SetArgument("set_default", value);
     }
 
@@ -138,26 +138,20 @@ public partial class GoogleDiscoveryEngineCmekConfig(string name) : TerraformRes
     /// The default CmekConfig for the Customer.
     /// </summary>
     public TerraformValue<bool> IsDefault
-    {
-        get => new TerraformReference<bool>(this, "is_default");
-    }
+        => AsReference("is_default");
 
     /// <summary>
     /// KMS key version resource name which will be used to encrypt resources
     /// &#39;&amp;lt;kms_key&amp;gt;/cryptoKeyVersions/{keyVersion}&#39;.
     /// </summary>
     public TerraformValue<string> KmsKeyVersion
-    {
-        get => new TerraformReference<string>(this, "kms_key_version");
-    }
+        => AsReference("kms_key_version");
 
     /// <summary>
     /// The timestamp of the last key rotation.
     /// </summary>
     public TerraformValue<double> LastRotationTimestampMicros
-    {
-        get => new TerraformReference<double>(this, "last_rotation_timestamp_micros");
-    }
+        => AsReference("last_rotation_timestamp_micros");
 
     /// <summary>
     /// The unique full resource name of the cmek config. Values are of the format
@@ -166,25 +160,19 @@ public partial class GoogleDiscoveryEngineCmekConfig(string name) : TerraformRes
     /// characters.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Whether the NotebookLM Corpus is ready to be used.
     /// </summary>
     public TerraformValue<string> NotebooklmState
-    {
-        get => new TerraformReference<string>(this, "notebooklm_state");
-    }
+        => AsReference("notebooklm_state");
 
     /// <summary>
     /// The state of the CmekConfig.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// SingleRegionKeys block (nesting mode: list).

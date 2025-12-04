@@ -18,7 +18,7 @@ public class AzurermSpringCloudDynatraceApplicationPerformanceMonitoringTimeouts
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSpringCloudDynatraceApplicationPerformanceMonitoringTimeouts
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSpringCloudDynatraceApplicationPerformanceMonitoringTimeouts
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSpringCloudDynatraceApplicationPerformanceMonitoringTimeouts
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     /// </summary>
     public TerraformValue<string>? ApiToken
     {
-        get => new TerraformReference<string>(this, "api_token");
+        get => GetArgument<TerraformValue<string>>("api_token");
         set => SetArgument("api_token", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     /// </summary>
     public TerraformValue<string>? ApiUrl
     {
-        get => new TerraformReference<string>(this, "api_url");
+        get => GetArgument<TerraformValue<string>>("api_url");
         set => SetArgument("api_url", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionPoint is required")]
     public required TerraformValue<string> ConnectionPoint
     {
-        get => new TerraformReference<string>(this, "connection_point");
+        get => GetArgument<TerraformValue<string>>("connection_point");
         set => SetArgument("connection_point", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     /// </summary>
     public TerraformValue<string>? EnvironmentId
     {
-        get => new TerraformReference<string>(this, "environment_id");
+        get => GetArgument<TerraformValue<string>>("environment_id");
         set => SetArgument("environment_id", value);
     }
 
@@ -100,16 +100,16 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     /// </summary>
     public TerraformValue<bool>? GloballyEnabled
     {
-        get => new TerraformReference<bool>(this, "globally_enabled");
+        get => GetArgument<TerraformValue<bool>>("globally_enabled");
         set => SetArgument("globally_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformValue<string> SpringCloudServiceId
     {
-        get => new TerraformReference<string>(this, "spring_cloud_service_id");
+        get => GetArgument<TerraformValue<string>>("spring_cloud_service_id");
         set => SetArgument("spring_cloud_service_id", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tenant is required")]
     public required TerraformValue<string> Tenant
     {
-        get => new TerraformReference<string>(this, "tenant");
+        get => GetArgument<TerraformValue<string>>("tenant");
         set => SetArgument("tenant", value);
     }
 
@@ -149,7 +149,7 @@ public partial class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantToken is required")]
     public required TerraformValue<string> TenantToken
     {
-        get => new TerraformReference<string>(this, "tenant_token");
+        get => GetArgument<TerraformValue<string>>("tenant_token");
         set => SetArgument("tenant_token", value);
     }
 

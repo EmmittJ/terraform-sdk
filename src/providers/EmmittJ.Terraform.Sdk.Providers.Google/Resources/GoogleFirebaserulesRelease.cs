@@ -18,7 +18,7 @@ public class GoogleFirebaserulesReleaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleFirebaserulesReleaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -43,9 +43,9 @@ public partial class GoogleFirebaserulesRelease(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -55,16 +55,16 @@ public partial class GoogleFirebaserulesRelease(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleFirebaserulesRelease(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulesetName is required")]
     public required TerraformValue<string> RulesetName
     {
-        get => new TerraformReference<string>(this, "ruleset_name");
+        get => GetArgument<TerraformValue<string>>("ruleset_name");
         set => SetArgument("ruleset_name", value);
     }
 
@@ -82,25 +82,19 @@ public partial class GoogleFirebaserulesRelease(string name) : TerraformResource
     /// Output only. Time the release was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Disable the release to keep it from being served. The response code of NOT_FOUND will be given for executables generated from this Release.
     /// </summary>
     public TerraformValue<bool> Disabled
-    {
-        get => new TerraformReference<bool>(this, "disabled");
-    }
+        => AsReference("disabled");
 
     /// <summary>
     /// Output only. Time the release was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

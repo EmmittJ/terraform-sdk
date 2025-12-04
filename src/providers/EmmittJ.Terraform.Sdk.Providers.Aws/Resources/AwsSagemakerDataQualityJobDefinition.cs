@@ -18,7 +18,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBloc
     /// </summary>
     public TerraformMap<string>? Environment
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "environment").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("environment");
         set => SetArgument("environment", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageUri is required")]
     public required TerraformValue<string> ImageUri
     {
-        get => new TerraformReference<string>(this, "image_uri");
+        get => GetArgument<TerraformValue<string>>("image_uri");
         set => SetArgument("image_uri", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBloc
     /// </summary>
     public TerraformValue<string>? PostAnalyticsProcessorSourceUri
     {
-        get => new TerraformReference<string>(this, "post_analytics_processor_source_uri");
+        get => GetArgument<TerraformValue<string>>("post_analytics_processor_source_uri");
         set => SetArgument("post_analytics_processor_source_uri", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityAppSpecificationBloc
     /// </summary>
     public TerraformValue<string>? RecordPreprocessorSourceUri
     {
-        get => new TerraformReference<string>(this, "record_preprocessor_source_uri");
+        get => GetArgument<TerraformValue<string>>("record_preprocessor_source_uri");
         set => SetArgument("record_preprocessor_source_uri", value);
     }
 
@@ -102,7 +102,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityBaselineConfigBlockC
     /// </summary>
     public TerraformValue<string>? S3Uri
     {
-        get => new TerraformReference<string>(this, "s3_uri");
+        get => GetArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityBaselineConfigBlockS
     /// </summary>
     public TerraformValue<string>? S3Uri
     {
-        get => new TerraformReference<string>(this, "s3_uri");
+        get => GetArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -181,7 +181,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlockBatchTr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataCapturedDestinationS3Uri is required")]
     public required TerraformValue<string> DataCapturedDestinationS3Uri
     {
-        get => new TerraformReference<string>(this, "data_captured_destination_s3_uri");
+        get => GetArgument<TerraformValue<string>>("data_captured_destination_s3_uri");
         set => SetArgument("data_captured_destination_s3_uri", value);
     }
 
@@ -190,25 +190,25 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlockBatchTr
     /// </summary>
     public TerraformValue<string>? LocalPath
     {
-        get => new TerraformReference<string>(this, "local_path");
+        get => GetArgument<TerraformValue<string>>("local_path");
         set => SetArgument("local_path", value);
     }
 
     /// <summary>
     /// The s3_data_distribution_type attribute.
     /// </summary>
-    public TerraformValue<string> S3DataDistributionType
+    public TerraformValue<string>? S3DataDistributionType
     {
-        get => new TerraformReference<string>(this, "s3_data_distribution_type");
+        get => GetArgument<TerraformValue<string>>("s3_data_distribution_type");
         set => SetArgument("s3_data_distribution_type", value);
     }
 
     /// <summary>
     /// The s3_input_mode attribute.
     /// </summary>
-    public TerraformValue<string> S3InputMode
+    public TerraformValue<string>? S3InputMode
     {
-        get => new TerraformReference<string>(this, "s3_input_mode");
+        get => GetArgument<TerraformValue<string>>("s3_input_mode");
         set => SetArgument("s3_input_mode", value);
     }
 
@@ -276,7 +276,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlockBatchTr
     /// </summary>
     public TerraformValue<bool>? Header
     {
-        get => new TerraformReference<bool>(this, "header");
+        get => GetArgument<TerraformValue<bool>>("header");
         set => SetArgument("header", value);
     }
 
@@ -298,7 +298,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlockBatchTr
     /// </summary>
     public TerraformValue<bool>? Line
     {
-        get => new TerraformReference<bool>(this, "line");
+        get => GetArgument<TerraformValue<bool>>("line");
         set => SetArgument("line", value);
     }
 
@@ -321,7 +321,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlockEndpoin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointName is required")]
     public required TerraformValue<string> EndpointName
     {
-        get => new TerraformReference<string>(this, "endpoint_name");
+        get => GetArgument<TerraformValue<string>>("endpoint_name");
         set => SetArgument("endpoint_name", value);
     }
 
@@ -330,25 +330,25 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityJobInputBlockEndpoin
     /// </summary>
     public TerraformValue<string>? LocalPath
     {
-        get => new TerraformReference<string>(this, "local_path");
+        get => GetArgument<TerraformValue<string>>("local_path");
         set => SetArgument("local_path", value);
     }
 
     /// <summary>
     /// The s3_data_distribution_type attribute.
     /// </summary>
-    public TerraformValue<string> S3DataDistributionType
+    public TerraformValue<string>? S3DataDistributionType
     {
-        get => new TerraformReference<string>(this, "s3_data_distribution_type");
+        get => GetArgument<TerraformValue<string>>("s3_data_distribution_type");
         set => SetArgument("s3_data_distribution_type", value);
     }
 
     /// <summary>
     /// The s3_input_mode attribute.
     /// </summary>
-    public TerraformValue<string> S3InputMode
+    public TerraformValue<string>? S3InputMode
     {
-        get => new TerraformReference<string>(this, "s3_input_mode");
+        get => GetArgument<TerraformValue<string>>("s3_input_mode");
         set => SetArgument("s3_input_mode", value);
     }
 
@@ -371,7 +371,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityJobOutputConfigBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -432,16 +432,16 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityJobOutputConfigBlock
     /// </summary>
     public TerraformValue<string>? LocalPath
     {
-        get => new TerraformReference<string>(this, "local_path");
+        get => GetArgument<TerraformValue<string>>("local_path");
         set => SetArgument("local_path", value);
     }
 
     /// <summary>
     /// The s3_upload_mode attribute.
     /// </summary>
-    public TerraformValue<string> S3UploadMode
+    public TerraformValue<string>? S3UploadMode
     {
-        get => new TerraformReference<string>(this, "s3_upload_mode");
+        get => GetArgument<TerraformValue<string>>("s3_upload_mode");
         set => SetArgument("s3_upload_mode", value);
     }
 
@@ -451,7 +451,7 @@ public class AwsSagemakerDataQualityJobDefinitionDataQualityJobOutputConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformValue<string> S3Uri
     {
-        get => new TerraformReference<string>(this, "s3_uri");
+        get => GetArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -501,7 +501,7 @@ public class AwsSagemakerDataQualityJobDefinitionJobResourcesBlockClusterConfigB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceCount is required")]
     public required TerraformValue<double> InstanceCount
     {
-        get => new TerraformReference<double>(this, "instance_count");
+        get => GetArgument<TerraformValue<double>>("instance_count");
         set => SetArgument("instance_count", value);
     }
 
@@ -511,7 +511,7 @@ public class AwsSagemakerDataQualityJobDefinitionJobResourcesBlockClusterConfigB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -520,7 +520,7 @@ public class AwsSagemakerDataQualityJobDefinitionJobResourcesBlockClusterConfigB
     /// </summary>
     public TerraformValue<string>? VolumeKmsKeyId
     {
-        get => new TerraformReference<string>(this, "volume_kms_key_id");
+        get => GetArgument<TerraformValue<string>>("volume_kms_key_id");
         set => SetArgument("volume_kms_key_id", value);
     }
 
@@ -530,7 +530,7 @@ public class AwsSagemakerDataQualityJobDefinitionJobResourcesBlockClusterConfigB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeSizeInGb is required")]
     public required TerraformValue<double> VolumeSizeInGb
     {
-        get => new TerraformReference<double>(this, "volume_size_in_gb");
+        get => GetArgument<TerraformValue<double>>("volume_size_in_gb");
         set => SetArgument("volume_size_in_gb", value);
     }
 
@@ -553,7 +553,7 @@ public class AwsSagemakerDataQualityJobDefinitionNetworkConfigBlock : TerraformB
     /// </summary>
     public TerraformValue<bool>? EnableInterContainerTrafficEncryption
     {
-        get => new TerraformReference<bool>(this, "enable_inter_container_traffic_encryption");
+        get => GetArgument<TerraformValue<bool>>("enable_inter_container_traffic_encryption");
         set => SetArgument("enable_inter_container_traffic_encryption", value);
     }
 
@@ -562,7 +562,7 @@ public class AwsSagemakerDataQualityJobDefinitionNetworkConfigBlock : TerraformB
     /// </summary>
     public TerraformValue<bool>? EnableNetworkIsolation
     {
-        get => new TerraformReference<bool>(this, "enable_network_isolation");
+        get => GetArgument<TerraformValue<bool>>("enable_network_isolation");
         set => SetArgument("enable_network_isolation", value);
     }
 
@@ -595,7 +595,7 @@ public class AwsSagemakerDataQualityJobDefinitionNetworkConfigBlockVpcConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -605,7 +605,7 @@ public class AwsSagemakerDataQualityJobDefinitionNetworkConfigBlockVpcConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public required TerraformSet<string> Subnets
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnets").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -626,9 +626,9 @@ public class AwsSagemakerDataQualityJobDefinitionStoppingConditionBlock : Terraf
     /// <summary>
     /// The max_runtime_in_seconds attribute.
     /// </summary>
-    public TerraformValue<double> MaxRuntimeInSeconds
+    public TerraformValue<double>? MaxRuntimeInSeconds
     {
-        get => new TerraformReference<double>(this, "max_runtime_in_seconds");
+        get => GetArgument<TerraformValue<double>>("max_runtime_in_seconds");
         set => SetArgument("max_runtime_in_seconds", value);
     }
 
@@ -644,27 +644,27 @@ public partial class AwsSagemakerDataQualityJobDefinition(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -674,7 +674,7 @@ public partial class AwsSagemakerDataQualityJobDefinition(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -683,16 +683,16 @@ public partial class AwsSagemakerDataQualityJobDefinition(string name) : Terrafo
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -700,9 +700,7 @@ public partial class AwsSagemakerDataQualityJobDefinition(string name) : Terrafo
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// DataQualityAppSpecification block (nesting mode: list).

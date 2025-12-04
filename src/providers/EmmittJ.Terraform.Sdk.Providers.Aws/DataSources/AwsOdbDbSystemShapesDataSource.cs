@@ -13,16 +13,16 @@ public partial class AwsOdbDbSystemShapesDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string>? AvailabilityZoneId
     {
-        get => new TerraformReference<string>(this, "availability_zone_id");
+        get => GetArgument<TerraformValue<string>>("availability_zone_id");
         set => SetArgument("availability_zone_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -30,8 +30,6 @@ public partial class AwsOdbDbSystemShapesDataSource(string name) : TerraformData
     /// The list of shapes and their properties. Information about a hardware system model (shape) that&#39;s available for an Exadata infrastructure.The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
     /// </summary>
     public TerraformList<TerraformMap<object>> DbSystemShapes
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "db_system_shapes").ResolveNodes(ctx));
-    }
+        => AsReference("db_system_shapes");
 
 }

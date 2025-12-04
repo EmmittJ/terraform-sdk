@@ -40,7 +40,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlock : T
     /// </summary>
     public TerraformList<string>? Profiles
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "profiles").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("profiles");
         set => SetArgument("profiles", value);
     }
 
@@ -49,7 +49,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlock : T
     /// </summary>
     public TerraformValue<string>? TargetId
     {
-        get => new TerraformReference<string>(this, "target_id");
+        get => GetArgument<TerraformValue<string>>("target_id");
         set => SetArgument("target_id", value);
     }
 
@@ -90,7 +90,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockDepl
     /// </summary>
     public TerraformMap<string>? MatchTargetLabels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "match_target_labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("match_target_labels");
         set => SetArgument("match_target_labels", value);
     }
 
@@ -100,7 +100,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockDepl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformMap<string> ValuesAttribute
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -199,7 +199,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Percentages is required")]
     public TerraformList<double>? Percentages
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "percentages").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("percentages");
         set => SetArgument("percentages", value);
     }
 
@@ -208,7 +208,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     /// </summary>
     public TerraformValue<bool>? Verify
     {
-        get => new TerraformReference<bool>(this, "verify");
+        get => GetArgument<TerraformValue<bool>>("verify");
         set => SetArgument("verify", value);
     }
 
@@ -250,7 +250,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     /// </summary>
     public TerraformList<string>? Actions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("actions");
         set => SetArgument("actions", value);
     }
 
@@ -272,7 +272,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     /// </summary>
     public TerraformList<string>? Actions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("actions");
         set => SetArgument("actions", value);
     }
 
@@ -320,7 +320,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Percentage is required")]
     public required TerraformValue<double> Percentage
     {
-        get => new TerraformReference<double>(this, "percentage");
+        get => GetArgument<TerraformValue<double>>("percentage");
         set => SetArgument("percentage", value);
     }
 
@@ -330,7 +330,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhaseId is required")]
     public required TerraformValue<string> PhaseId
     {
-        get => new TerraformReference<string>(this, "phase_id");
+        get => GetArgument<TerraformValue<string>>("phase_id");
         set => SetArgument("phase_id", value);
     }
 
@@ -339,7 +339,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     /// </summary>
     public TerraformList<string>? Profiles
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "profiles").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("profiles");
         set => SetArgument("profiles", value);
     }
 
@@ -348,7 +348,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     /// </summary>
     public TerraformValue<bool>? Verify
     {
-        get => new TerraformReference<bool>(this, "verify");
+        get => GetArgument<TerraformValue<bool>>("verify");
         set => SetArgument("verify", value);
     }
 
@@ -390,7 +390,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     /// </summary>
     public TerraformList<string>? Actions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("actions");
         set => SetArgument("actions", value);
     }
 
@@ -412,7 +412,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     /// </summary>
     public TerraformList<string>? Actions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("actions");
         set => SetArgument("actions", value);
     }
 
@@ -467,7 +467,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     /// </summary>
     public TerraformValue<bool>? AutomaticTrafficControl
     {
-        get => new TerraformReference<bool>(this, "automatic_traffic_control");
+        get => GetArgument<TerraformValue<bool>>("automatic_traffic_control");
         set => SetArgument("automatic_traffic_control", value);
     }
 
@@ -476,7 +476,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     /// </summary>
     public TerraformList<string>? CanaryRevisionTags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "canary_revision_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("canary_revision_tags");
         set => SetArgument("canary_revision_tags", value);
     }
 
@@ -485,7 +485,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     /// </summary>
     public TerraformList<string>? PriorRevisionTags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "prior_revision_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("prior_revision_tags");
         set => SetArgument("prior_revision_tags", value);
     }
 
@@ -494,7 +494,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     /// </summary>
     public TerraformList<string>? StableRevisionTags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "stable_revision_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("stable_revision_tags");
         set => SetArgument("stable_revision_tags", value);
     }
 
@@ -550,7 +550,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Deployment is required")]
     public required TerraformValue<string> Deployment
     {
-        get => new TerraformReference<string>(this, "deployment");
+        get => GetArgument<TerraformValue<string>>("deployment");
         set => SetArgument("deployment", value);
     }
 
@@ -560,7 +560,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpRoute is required")]
     public required TerraformValue<string> HttpRoute
     {
-        get => new TerraformReference<string>(this, "http_route");
+        get => GetArgument<TerraformValue<string>>("http_route");
         set => SetArgument("http_route", value);
     }
 
@@ -569,7 +569,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     /// </summary>
     public TerraformValue<string>? PodSelectorLabel
     {
-        get => new TerraformReference<string>(this, "pod_selector_label");
+        get => GetArgument<TerraformValue<string>>("pod_selector_label");
         set => SetArgument("pod_selector_label", value);
     }
 
@@ -578,7 +578,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     /// </summary>
     public TerraformValue<string>? RouteUpdateWaitTime
     {
-        get => new TerraformReference<string>(this, "route_update_wait_time");
+        get => GetArgument<TerraformValue<string>>("route_update_wait_time");
         set => SetArgument("route_update_wait_time", value);
     }
 
@@ -588,7 +588,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -597,7 +597,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     /// </summary>
     public TerraformValue<string>? StableCutbackDuration
     {
-        get => new TerraformReference<string>(this, "stable_cutback_duration");
+        get => GetArgument<TerraformValue<string>>("stable_cutback_duration");
         set => SetArgument("stable_cutback_duration", value);
     }
 
@@ -630,7 +630,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationIds is required")]
     public TerraformList<string>? DestinationIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "destination_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("destination_ids");
         set => SetArgument("destination_ids", value);
     }
 
@@ -639,7 +639,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     /// </summary>
     public TerraformValue<bool>? PropagateService
     {
-        get => new TerraformReference<bool>(this, "propagate_service");
+        get => GetArgument<TerraformValue<bool>>("propagate_service");
         set => SetArgument("propagate_service", value);
     }
 
@@ -662,7 +662,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Deployment is required")]
     public required TerraformValue<string> Deployment
     {
-        get => new TerraformReference<string>(this, "deployment");
+        get => GetArgument<TerraformValue<string>>("deployment");
         set => SetArgument("deployment", value);
     }
 
@@ -671,7 +671,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     /// </summary>
     public TerraformValue<bool>? DisablePodOverprovisioning
     {
-        get => new TerraformReference<bool>(this, "disable_pod_overprovisioning");
+        get => GetArgument<TerraformValue<bool>>("disable_pod_overprovisioning");
         set => SetArgument("disable_pod_overprovisioning", value);
     }
 
@@ -680,7 +680,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     /// </summary>
     public TerraformValue<string>? PodSelectorLabel
     {
-        get => new TerraformReference<string>(this, "pod_selector_label");
+        get => GetArgument<TerraformValue<string>>("pod_selector_label");
         set => SetArgument("pod_selector_label", value);
     }
 
@@ -690,7 +690,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -712,7 +712,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     /// </summary>
     public TerraformValue<bool>? Verify
     {
-        get => new TerraformReference<bool>(this, "verify");
+        get => GetArgument<TerraformValue<bool>>("verify");
         set => SetArgument("verify", value);
     }
 
@@ -754,7 +754,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     /// </summary>
     public TerraformList<string>? Actions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("actions");
         set => SetArgument("actions", value);
     }
 
@@ -776,7 +776,7 @@ public class GoogleClouddeployDeliveryPipelineSerialPipelineBlockStagesBlockStra
     /// </summary>
     public TerraformList<string>? Actions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("actions");
         set => SetArgument("actions", value);
     }
 
@@ -799,7 +799,7 @@ public class GoogleClouddeployDeliveryPipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -808,7 +808,7 @@ public class GoogleClouddeployDeliveryPipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -817,7 +817,7 @@ public class GoogleClouddeployDeliveryPipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -838,7 +838,7 @@ public partial class GoogleClouddeployDeliveryPipeline(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -847,16 +847,16 @@ public partial class GoogleClouddeployDeliveryPipeline(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -868,7 +868,7 @@ public partial class GoogleClouddeployDeliveryPipeline(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -878,7 +878,7 @@ public partial class GoogleClouddeployDeliveryPipeline(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -888,16 +888,16 @@ public partial class GoogleClouddeployDeliveryPipeline(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -906,7 +906,7 @@ public partial class GoogleClouddeployDeliveryPipeline(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? Suspended
     {
-        get => new TerraformReference<bool>(this, "suspended");
+        get => GetArgument<TerraformValue<bool>>("suspended");
         set => SetArgument("suspended", value);
     }
 
@@ -914,65 +914,49 @@ public partial class GoogleClouddeployDeliveryPipeline(string name) : TerraformR
     /// Output only. Information around the state of the Delivery Pipeline.
     /// </summary>
     public TerraformList<TerraformMap<object>> Condition
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "condition").ResolveNodes(ctx));
-    }
+        => AsReference("condition");
 
     /// <summary>
     /// Output only. Time at which the pipeline was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Output only. Unique identifier of the `DeliveryPipeline`.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Output only. Most recent time at which the pipeline was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// SerialPipeline block (nesting mode: list).

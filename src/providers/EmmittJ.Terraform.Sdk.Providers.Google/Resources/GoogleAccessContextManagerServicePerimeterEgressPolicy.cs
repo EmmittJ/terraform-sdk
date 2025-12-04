@@ -22,7 +22,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicyEgressFromBlo
     /// </summary>
     public TerraformList<string>? Identities
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "identities").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("identities");
         set => SetArgument("identities", value);
     }
 
@@ -33,7 +33,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicyEgressFromBlo
     /// </summary>
     public TerraformValue<string>? IdentityType
     {
-        get => new TerraformReference<string>(this, "identity_type");
+        get => GetArgument<TerraformValue<string>>("identity_type");
         set => SetArgument("identity_type", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicyEgressFromBlo
     /// </summary>
     public TerraformValue<string>? SourceRestriction
     {
-        get => new TerraformReference<string>(this, "source_restriction");
+        get => GetArgument<TerraformValue<string>>("source_restriction");
         set => SetArgument("source_restriction", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicyEgressFromBlo
     /// </summary>
     public TerraformValue<string>? AccessLevel
     {
-        get => new TerraformReference<string>(this, "access_level");
+        get => GetArgument<TerraformValue<string>>("access_level");
         set => SetArgument("access_level", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicyEgressFromBlo
     /// </summary>
     public TerraformValue<string>? Resource
     {
-        get => new TerraformReference<string>(this, "resource");
+        get => GetArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -112,7 +112,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicyEgressToBlock
     /// </summary>
     public TerraformList<string>? ExternalResources
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "external_resources").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("external_resources");
         set => SetArgument("external_resources", value);
     }
 
@@ -125,7 +125,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicyEgressToBlock
     /// </summary>
     public TerraformList<string>? Resources
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resources").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("resources");
         set => SetArgument("resources", value);
     }
 
@@ -136,7 +136,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicyEgressToBlock
     /// </summary>
     public TerraformList<string>? Roles
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "roles").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("roles");
         set => SetArgument("roles", value);
     }
 
@@ -169,7 +169,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicyEgressToBlock
     /// </summary>
     public TerraformValue<string>? ServiceName
     {
-        get => new TerraformReference<string>(this, "service_name");
+        get => GetArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -202,7 +202,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicyEgressToBlock
     /// </summary>
     public TerraformValue<string>? Method
     {
-        get => new TerraformReference<string>(this, "method");
+        get => GetArgument<TerraformValue<string>>("method");
         set => SetArgument("method", value);
     }
 
@@ -212,7 +212,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicyEgressToBlock
     /// </summary>
     public TerraformValue<string>? Permission
     {
-        get => new TerraformReference<string>(this, "permission");
+        get => GetArgument<TerraformValue<string>>("permission");
         set => SetArgument("permission", value);
     }
 
@@ -235,7 +235,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicyTimeoutsBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -244,7 +244,7 @@ public class GoogleAccessContextManagerServicePerimeterEgressPolicyTimeoutsBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -260,9 +260,9 @@ public partial class GoogleAccessContextManagerServicePerimeterEgressPolicy(stri
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -272,7 +272,7 @@ public partial class GoogleAccessContextManagerServicePerimeterEgressPolicy(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Perimeter is required")]
     public required TerraformValue<string> Perimeter
     {
-        get => new TerraformReference<string>(this, "perimeter");
+        get => GetArgument<TerraformValue<string>>("perimeter");
         set => SetArgument("perimeter", value);
     }
 
@@ -281,7 +281,7 @@ public partial class GoogleAccessContextManagerServicePerimeterEgressPolicy(stri
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -289,17 +289,13 @@ public partial class GoogleAccessContextManagerServicePerimeterEgressPolicy(stri
     /// The name of the Access Policy this resource belongs to.
     /// </summary>
     public TerraformValue<string> AccessPolicyId
-    {
-        get => new TerraformReference<string>(this, "access_policy_id");
-    }
+        => AsReference("access_policy_id");
 
     /// <summary>
     /// The perimeter etag is internally used to prevent overwriting the list of policies on PATCH calls. It is retrieved from the same GET perimeter API call that&#39;s used to get the current list of policies. The policy defined in this resource is added or removed from that list, and then this etag is sent with the PATCH call along with the updated policies.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// EgressFrom block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AwsGlueConnectionPhysicalConnectionRequirementsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? AvailabilityZone
     {
-        get => new TerraformReference<string>(this, "availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsGlueConnectionPhysicalConnectionRequirementsBlock : TerraformBlo
     /// </summary>
     public TerraformSet<string>? SecurityGroupIdList
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_id_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_id_list");
         set => SetArgument("security_group_id_list", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsGlueConnectionPhysicalConnectionRequirementsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -54,16 +54,16 @@ public partial class AwsGlueConnection(string name) : TerraformResource("aws_glu
     /// </summary>
     public TerraformMap<string>? AthenaProperties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "athena_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("athena_properties");
         set => SetArgument("athena_properties", value);
     }
 
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformValue<string> CatalogId
+    public TerraformValue<string>? CatalogId
     {
-        get => new TerraformReference<string>(this, "catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsGlueConnection(string name) : TerraformResource("aws_glu
     /// </summary>
     public TerraformMap<string>? ConnectionProperties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "connection_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("connection_properties");
         set => SetArgument("connection_properties", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsGlueConnection(string name) : TerraformResource("aws_glu
     /// </summary>
     public TerraformValue<string>? ConnectionType
     {
-        get => new TerraformReference<string>(this, "connection_type");
+        get => GetArgument<TerraformValue<string>>("connection_type");
         set => SetArgument("connection_type", value);
     }
 
@@ -90,16 +90,16 @@ public partial class AwsGlueConnection(string name) : TerraformResource("aws_glu
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AwsGlueConnection(string name) : TerraformResource("aws_glu
     /// </summary>
     public TerraformList<string>? MatchCriteria
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "match_criteria").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("match_criteria");
         set => SetArgument("match_criteria", value);
     }
 
@@ -118,16 +118,16 @@ public partial class AwsGlueConnection(string name) : TerraformResource("aws_glu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -136,16 +136,16 @@ public partial class AwsGlueConnection(string name) : TerraformResource("aws_glu
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -153,9 +153,7 @@ public partial class AwsGlueConnection(string name) : TerraformResource("aws_glu
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// PhysicalConnectionRequirements block (nesting mode: list).

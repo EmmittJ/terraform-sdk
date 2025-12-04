@@ -18,7 +18,7 @@ public class GoogleBigqueryCapacityCommitmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleBigqueryCapacityCommitmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleBigqueryCapacityCommitmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -57,7 +57,7 @@ public partial class GoogleBigqueryCapacityCommitment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? CapacityCommitmentId
     {
-        get => new TerraformReference<string>(this, "capacity_commitment_id");
+        get => GetArgument<TerraformValue<string>>("capacity_commitment_id");
         set => SetArgument("capacity_commitment_id", value);
     }
 
@@ -66,7 +66,7 @@ public partial class GoogleBigqueryCapacityCommitment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Edition
     {
-        get => new TerraformReference<string>(this, "edition");
+        get => GetArgument<TerraformValue<string>>("edition");
         set => SetArgument("edition", value);
     }
 
@@ -75,16 +75,16 @@ public partial class GoogleBigqueryCapacityCommitment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? EnforceSingleAdminProjectPerOrg
     {
-        get => new TerraformReference<string>(this, "enforce_single_admin_project_per_org");
+        get => GetArgument<TerraformValue<string>>("enforce_single_admin_project_per_org");
         set => SetArgument("enforce_single_admin_project_per_org", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -94,7 +94,7 @@ public partial class GoogleBigqueryCapacityCommitment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -104,16 +104,16 @@ public partial class GoogleBigqueryCapacityCommitment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     public required TerraformValue<string> Plan
     {
-        get => new TerraformReference<string>(this, "plan");
+        get => GetArgument<TerraformValue<string>>("plan");
         set => SetArgument("plan", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -122,7 +122,7 @@ public partial class GoogleBigqueryCapacityCommitment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? RenewalPlan
     {
-        get => new TerraformReference<string>(this, "renewal_plan");
+        get => GetArgument<TerraformValue<string>>("renewal_plan");
         set => SetArgument("renewal_plan", value);
     }
 
@@ -132,7 +132,7 @@ public partial class GoogleBigqueryCapacityCommitment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotCount is required")]
     public required TerraformValue<double> SlotCount
     {
-        get => new TerraformReference<double>(this, "slot_count");
+        get => GetArgument<TerraformValue<double>>("slot_count");
         set => SetArgument("slot_count", value);
     }
 
@@ -140,33 +140,25 @@ public partial class GoogleBigqueryCapacityCommitment(string name) : TerraformRe
     /// The start of the current commitment period. It is applicable only for ACTIVE capacity commitments.
     /// </summary>
     public TerraformValue<string> CommitmentEndTime
-    {
-        get => new TerraformReference<string>(this, "commitment_end_time");
-    }
+        => AsReference("commitment_end_time");
 
     /// <summary>
     /// The start of the current commitment period. It is applicable only for ACTIVE capacity commitments.
     /// </summary>
     public TerraformValue<string> CommitmentStartTime
-    {
-        get => new TerraformReference<string>(this, "commitment_start_time");
-    }
+        => AsReference("commitment_start_time");
 
     /// <summary>
     /// The resource name of the capacity commitment, e.g., projects/myproject/locations/US/capacityCommitments/123
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// State of the commitment
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

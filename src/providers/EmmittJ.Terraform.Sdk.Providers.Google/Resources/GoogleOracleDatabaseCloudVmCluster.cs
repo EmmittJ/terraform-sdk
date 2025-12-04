@@ -16,9 +16,9 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// <summary>
     /// OCI Cluster name.
     /// </summary>
-    public TerraformValue<string> ClusterName
+    public TerraformValue<string>? ClusterName
     {
-        get => new TerraformReference<string>(this, "cluster_name");
+        get => GetArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -26,9 +26,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// Compartment ID of cluster.
     /// </summary>
     public TerraformValue<string> CompartmentId
-    {
-        get => new TerraformReference<string>(this, "compartment_id");
-    }
+        => AsReference("compartment_id");
 
     /// <summary>
     /// Number of enabled CPU cores.
@@ -36,34 +34,34 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCoreCount is required")]
     public required TerraformValue<double> CpuCoreCount
     {
-        get => new TerraformReference<double>(this, "cpu_core_count");
+        get => GetArgument<TerraformValue<double>>("cpu_core_count");
         set => SetArgument("cpu_core_count", value);
     }
 
     /// <summary>
     /// The data disk group size to be allocated in TBs.
     /// </summary>
-    public TerraformValue<double> DataStorageSizeTb
+    public TerraformValue<double>? DataStorageSizeTb
     {
-        get => new TerraformReference<double>(this, "data_storage_size_tb");
+        get => GetArgument<TerraformValue<double>>("data_storage_size_tb");
         set => SetArgument("data_storage_size_tb", value);
     }
 
     /// <summary>
     /// Local storage per VM
     /// </summary>
-    public TerraformValue<double> DbNodeStorageSizeGb
+    public TerraformValue<double>? DbNodeStorageSizeGb
     {
-        get => new TerraformReference<double>(this, "db_node_storage_size_gb");
+        get => GetArgument<TerraformValue<double>>("db_node_storage_size_gb");
         set => SetArgument("db_node_storage_size_gb", value);
     }
 
     /// <summary>
     /// OCID of database servers.
     /// </summary>
-    public TerraformList<string> DbServerOcids
+    public TerraformList<string>? DbServerOcids
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "db_server_ocids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("db_server_ocids");
         set => SetArgument("db_server_ocids", value);
     }
 
@@ -74,9 +72,9 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// HIGH
     /// NORMAL
     /// </summary>
-    public TerraformValue<string> DiskRedundancy
+    public TerraformValue<string>? DiskRedundancy
     {
-        get => new TerraformReference<string>(this, "disk_redundancy");
+        get => GetArgument<TerraformValue<string>>("disk_redundancy");
         set => SetArgument("disk_redundancy", value);
     }
 
@@ -84,25 +82,21 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// DNS listener IP.
     /// </summary>
     public TerraformValue<string> DnsListenerIp
-    {
-        get => new TerraformReference<string>(this, "dns_listener_ip");
-    }
+        => AsReference("dns_listener_ip");
 
     /// <summary>
     /// Parent DNS domain where SCAN DNS and hosts names are qualified.
     /// ex: ocispdelegated.ocisp10jvnet.oraclevcn.com
     /// </summary>
     public TerraformValue<string> Domain
-    {
-        get => new TerraformReference<string>(this, "domain");
-    }
+        => AsReference("domain");
 
     /// <summary>
     /// Grid Infrastructure Version.
     /// </summary>
     public TerraformValue<string>? GiVersion
     {
-        get => new TerraformReference<string>(this, "gi_version");
+        get => GetArgument<TerraformValue<string>>("gi_version");
         set => SetArgument("gi_version", value);
     }
 
@@ -112,16 +106,14 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// ex: sp2-yi0xq where &amp;quot;sp2&amp;quot; is the hostname_prefix.
     /// </summary>
     public TerraformValue<string> Hostname
-    {
-        get => new TerraformReference<string>(this, "hostname");
-    }
+        => AsReference("hostname");
 
     /// <summary>
     /// Prefix for VM cluster host names.
     /// </summary>
     public TerraformValue<string>? HostnamePrefix
     {
-        get => new TerraformReference<string>(this, "hostname_prefix");
+        get => GetArgument<TerraformValue<string>>("hostname_prefix");
         set => SetArgument("hostname_prefix", value);
     }
 
@@ -135,7 +127,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseType is required")]
     public required TerraformValue<string> LicenseType
     {
-        get => new TerraformReference<string>(this, "license_type");
+        get => GetArgument<TerraformValue<string>>("license_type");
         set => SetArgument("license_type", value);
     }
 
@@ -144,25 +136,25 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? LocalBackupEnabled
     {
-        get => new TerraformReference<bool>(this, "local_backup_enabled");
+        get => GetArgument<TerraformValue<bool>>("local_backup_enabled");
         set => SetArgument("local_backup_enabled", value);
     }
 
     /// <summary>
     /// Memory allocated in GBs.
     /// </summary>
-    public TerraformValue<double> MemorySizeGb
+    public TerraformValue<double>? MemorySizeGb
     {
-        get => new TerraformReference<double>(this, "memory_size_gb");
+        get => GetArgument<TerraformValue<double>>("memory_size_gb");
         set => SetArgument("memory_size_gb", value);
     }
 
     /// <summary>
     /// Number of database servers.
     /// </summary>
-    public TerraformValue<double> NodeCount
+    public TerraformValue<double>? NodeCount
     {
-        get => new TerraformReference<double>(this, "node_count");
+        get => GetArgument<TerraformValue<double>>("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -170,24 +162,20 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// Deep link to the OCI console to view this resource.
     /// </summary>
     public TerraformValue<string> OciUrl
-    {
-        get => new TerraformReference<string>(this, "oci_url");
-    }
+        => AsReference("oci_url");
 
     /// <summary>
     /// Oracle Cloud Infrastructure ID of VM Cluster.
     /// </summary>
     public TerraformValue<string> Ocid
-    {
-        get => new TerraformReference<string>(this, "ocid");
-    }
+        => AsReference("ocid");
 
     /// <summary>
     /// OCPU count per VM. Minimum is 0.1.
     /// </summary>
-    public TerraformValue<double> OcpuCount
+    public TerraformValue<double>? OcpuCount
     {
-        get => new TerraformReference<double>(this, "ocpu_count");
+        get => GetArgument<TerraformValue<double>>("ocpu_count");
         set => SetArgument("ocpu_count", value);
     }
 
@@ -196,56 +184,44 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// ex: sp2-yi0xq-scan.ocispdelegated.ocisp10jvnet.oraclevcn.com
     /// </summary>
     public TerraformValue<string> ScanDns
-    {
-        get => new TerraformReference<string>(this, "scan_dns");
-    }
+        => AsReference("scan_dns");
 
     /// <summary>
     /// OCID of scan DNS record.
     /// </summary>
     public TerraformValue<string> ScanDnsRecordId
-    {
-        get => new TerraformReference<string>(this, "scan_dns_record_id");
-    }
+        => AsReference("scan_dns_record_id");
 
     /// <summary>
     /// OCIDs of scan IPs.
     /// </summary>
     public TerraformList<string> ScanIpIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scan_ip_ids").ResolveNodes(ctx));
-    }
+        => AsReference("scan_ip_ids");
 
     /// <summary>
     /// SCAN listener port - TCP
     /// </summary>
     public TerraformValue<double> ScanListenerPortTcp
-    {
-        get => new TerraformReference<double>(this, "scan_listener_port_tcp");
-    }
+        => AsReference("scan_listener_port_tcp");
 
     /// <summary>
     /// SCAN listener port - TLS
     /// </summary>
     public TerraformValue<double> ScanListenerPortTcpSsl
-    {
-        get => new TerraformReference<double>(this, "scan_listener_port_tcp_ssl");
-    }
+        => AsReference("scan_listener_port_tcp_ssl");
 
     /// <summary>
     /// Shape of VM Cluster.
     /// </summary>
     public TerraformValue<string> Shape
-    {
-        get => new TerraformReference<string>(this, "shape");
-    }
+        => AsReference("shape");
 
     /// <summary>
     /// Use exadata sparse snapshots.
     /// </summary>
-    public TerraformValue<bool> SparseDiskgroupEnabled
+    public TerraformValue<bool>? SparseDiskgroupEnabled
     {
-        get => new TerraformReference<bool>(this, "sparse_diskgroup_enabled");
+        get => GetArgument<TerraformValue<bool>>("sparse_diskgroup_enabled");
         set => SetArgument("sparse_diskgroup_enabled", value);
     }
 
@@ -254,7 +230,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? SshPublicKeys
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ssh_public_keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ssh_public_keys");
         set => SetArgument("ssh_public_keys", value);
     }
 
@@ -271,25 +247,19 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlock : TerraformBlock
     /// MAINTENANCE_IN_PROGRESS
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The storage allocation for the disk group, in gigabytes (GB).
     /// </summary>
     public TerraformValue<double> StorageSizeGb
-    {
-        get => new TerraformReference<double>(this, "storage_size_gb");
-    }
+        => AsReference("storage_size_gb");
 
     /// <summary>
     /// Operating system version of the image.
     /// </summary>
     public TerraformValue<string> SystemVersion
-    {
-        get => new TerraformReference<string>(this, "system_version");
-    }
+        => AsReference("system_version");
 
     /// <summary>
     /// DiagnosticsDataCollectionOptions block (nesting mode: list).
@@ -329,7 +299,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlockDiagnosticsDataCol
     /// </summary>
     public TerraformValue<bool>? DiagnosticsEventsEnabled
     {
-        get => new TerraformReference<bool>(this, "diagnostics_events_enabled");
+        get => GetArgument<TerraformValue<bool>>("diagnostics_events_enabled");
         set => SetArgument("diagnostics_events_enabled", value);
     }
 
@@ -338,7 +308,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlockDiagnosticsDataCol
     /// </summary>
     public TerraformValue<bool>? HealthMonitoringEnabled
     {
-        get => new TerraformReference<bool>(this, "health_monitoring_enabled");
+        get => GetArgument<TerraformValue<bool>>("health_monitoring_enabled");
         set => SetArgument("health_monitoring_enabled", value);
     }
 
@@ -348,7 +318,7 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlockDiagnosticsDataCol
     /// </summary>
     public TerraformValue<bool>? IncidentLogsEnabled
     {
-        get => new TerraformReference<bool>(this, "incident_logs_enabled");
+        get => GetArgument<TerraformValue<bool>>("incident_logs_enabled");
         set => SetArgument("incident_logs_enabled", value);
     }
 
@@ -368,9 +338,9 @@ public class GoogleOracleDatabaseCloudVmClusterPropertiesBlockTimeZoneBlock : Te
     /// <summary>
     /// IANA Time Zone Database time zone, e.g. &amp;quot;America/New_York&amp;quot;.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -393,7 +363,7 @@ public class GoogleOracleDatabaseCloudVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -402,7 +372,7 @@ public class GoogleOracleDatabaseCloudVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -411,7 +381,7 @@ public class GoogleOracleDatabaseCloudVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -429,9 +399,9 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     /// Format:
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
-    public TerraformValue<string> BackupOdbSubnet
+    public TerraformValue<string>? BackupOdbSubnet
     {
-        get => new TerraformReference<string>(this, "backup_odb_subnet");
+        get => GetArgument<TerraformValue<string>>("backup_odb_subnet");
         set => SetArgument("backup_odb_subnet", value);
     }
 
@@ -440,7 +410,7 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? BackupSubnetCidr
     {
-        get => new TerraformReference<string>(this, "backup_subnet_cidr");
+        get => GetArgument<TerraformValue<string>>("backup_subnet_cidr");
         set => SetArgument("backup_subnet_cidr", value);
     }
 
@@ -449,7 +419,7 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Cidr
     {
-        get => new TerraformReference<string>(this, "cidr");
+        get => GetArgument<TerraformValue<string>>("cidr");
         set => SetArgument("cidr", value);
     }
 
@@ -462,7 +432,7 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudVmClusterId is required")]
     public required TerraformValue<string> CloudVmClusterId
     {
-        get => new TerraformReference<string>(this, "cloud_vm_cluster_id");
+        get => GetArgument<TerraformValue<string>>("cloud_vm_cluster_id");
         set => SetArgument("cloud_vm_cluster_id", value);
     }
 
@@ -471,7 +441,7 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     /// </summary>
     public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
@@ -480,7 +450,7 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -492,16 +462,16 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExadataInfrastructure is required")]
     public required TerraformValue<string> ExadataInfrastructure
     {
-        get => new TerraformReference<string>(this, "exadata_infrastructure");
+        get => GetArgument<TerraformValue<string>>("exadata_infrastructure");
         set => SetArgument("exadata_infrastructure", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -513,7 +483,7 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -523,7 +493,7 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -533,7 +503,7 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -544,9 +514,9 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     /// It is optional but if specified, this should match the parent ODBNetwork of
     /// the odb_subnet and backup_odb_subnet.
     /// </summary>
-    public TerraformValue<string> OdbNetwork
+    public TerraformValue<string>? OdbNetwork
     {
-        get => new TerraformReference<string>(this, "odb_network");
+        get => GetArgument<TerraformValue<string>>("odb_network");
         set => SetArgument("odb_network", value);
     }
 
@@ -555,18 +525,18 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     /// IP allocation. Format:
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
-    public TerraformValue<string> OdbSubnet
+    public TerraformValue<string>? OdbSubnet
     {
-        get => new TerraformReference<string>(this, "odb_subnet");
+        get => GetArgument<TerraformValue<string>>("odb_subnet");
         set => SetArgument("odb_subnet", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -574,44 +544,34 @@ public partial class GoogleOracleDatabaseCloudVmCluster(string name) : Terraform
     /// The date and time that the VM cluster was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// GCP location where Oracle Exadata is hosted. It is same as GCP Oracle zone
     /// of Exadata infrastructure.
     /// </summary>
     public TerraformValue<string> GcpOracleZone
-    {
-        get => new TerraformReference<string>(this, "gcp_oracle_zone");
-    }
+        => AsReference("gcp_oracle_zone");
 
     /// <summary>
     /// Identifier. The name of the VM Cluster resource with the format:
     /// projects/{project}/locations/{region}/cloudVmClusters/{cloud_vm_cluster}
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Properties block (nesting mode: list).

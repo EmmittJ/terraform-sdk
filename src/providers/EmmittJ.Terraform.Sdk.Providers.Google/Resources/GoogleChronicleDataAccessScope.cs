@@ -19,7 +19,7 @@ public class GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? AssetNamespace
     {
-        get => new TerraformReference<string>(this, "asset_namespace");
+        get => GetArgument<TerraformValue<string>>("asset_namespace");
         set => SetArgument("asset_namespace", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? DataAccessLabel
     {
-        get => new TerraformReference<string>(this, "data_access_label");
+        get => GetArgument<TerraformValue<string>>("data_access_label");
         set => SetArgument("data_access_label", value);
     }
 
@@ -40,16 +40,14 @@ public class GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlock : Terraf
     /// The ingestion key value pair will match the key of the tuple.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The name of the log type.
     /// </summary>
     public TerraformValue<string>? LogType
     {
-        get => new TerraformReference<string>(this, "log_type");
+        get => GetArgument<TerraformValue<string>>("log_type");
         set => SetArgument("log_type", value);
     }
 
@@ -82,7 +80,7 @@ public class GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlockIngestion
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionLabelKey is required")]
     public required TerraformValue<string> IngestionLabelKey
     {
-        get => new TerraformReference<string>(this, "ingestion_label_key");
+        get => GetArgument<TerraformValue<string>>("ingestion_label_key");
         set => SetArgument("ingestion_label_key", value);
     }
 
@@ -93,7 +91,7 @@ public class GoogleChronicleDataAccessScopeAllowedDataAccessLabelsBlockIngestion
     /// </summary>
     public TerraformValue<string>? IngestionLabelValue
     {
-        get => new TerraformReference<string>(this, "ingestion_label_value");
+        get => GetArgument<TerraformValue<string>>("ingestion_label_value");
         set => SetArgument("ingestion_label_value", value);
     }
 
@@ -117,7 +115,7 @@ public class GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? AssetNamespace
     {
-        get => new TerraformReference<string>(this, "asset_namespace");
+        get => GetArgument<TerraformValue<string>>("asset_namespace");
         set => SetArgument("asset_namespace", value);
     }
 
@@ -126,7 +124,7 @@ public class GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? DataAccessLabel
     {
-        get => new TerraformReference<string>(this, "data_access_label");
+        get => GetArgument<TerraformValue<string>>("data_access_label");
         set => SetArgument("data_access_label", value);
     }
 
@@ -138,16 +136,14 @@ public class GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlock : Terrafo
     /// The ingestion key value pair will match the key of the tuple.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The name of the log type.
     /// </summary>
     public TerraformValue<string>? LogType
     {
-        get => new TerraformReference<string>(this, "log_type");
+        get => GetArgument<TerraformValue<string>>("log_type");
         set => SetArgument("log_type", value);
     }
 
@@ -180,7 +176,7 @@ public class GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlockIngestionL
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionLabelKey is required")]
     public required TerraformValue<string> IngestionLabelKey
     {
-        get => new TerraformReference<string>(this, "ingestion_label_key");
+        get => GetArgument<TerraformValue<string>>("ingestion_label_key");
         set => SetArgument("ingestion_label_key", value);
     }
 
@@ -191,7 +187,7 @@ public class GoogleChronicleDataAccessScopeDeniedDataAccessLabelsBlockIngestionL
     /// </summary>
     public TerraformValue<string>? IngestionLabelValue
     {
-        get => new TerraformReference<string>(this, "ingestion_label_value");
+        get => GetArgument<TerraformValue<string>>("ingestion_label_value");
         set => SetArgument("ingestion_label_value", value);
     }
 
@@ -214,7 +210,7 @@ public class GoogleChronicleDataAccessScopeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -223,7 +219,7 @@ public class GoogleChronicleDataAccessScopeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -232,7 +228,7 @@ public class GoogleChronicleDataAccessScopeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -257,7 +253,7 @@ public partial class GoogleChronicleDataAccessScope(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? AllowAll
     {
-        get => new TerraformReference<bool>(this, "allow_all");
+        get => GetArgument<TerraformValue<bool>>("allow_all");
         set => SetArgument("allow_all", value);
     }
 
@@ -269,7 +265,7 @@ public partial class GoogleChronicleDataAccessScope(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataAccessScopeId is required")]
     public required TerraformValue<string> DataAccessScopeId
     {
-        get => new TerraformReference<string>(this, "data_access_scope_id");
+        get => GetArgument<TerraformValue<string>>("data_access_scope_id");
         set => SetArgument("data_access_scope_id", value);
     }
 
@@ -278,16 +274,16 @@ public partial class GoogleChronicleDataAccessScope(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -297,7 +293,7 @@ public partial class GoogleChronicleDataAccessScope(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -307,16 +303,16 @@ public partial class GoogleChronicleDataAccessScope(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -324,33 +320,25 @@ public partial class GoogleChronicleDataAccessScope(string name) : TerraformReso
     /// Output only. The user who created the data access scope.
     /// </summary>
     public TerraformValue<string> Author
-    {
-        get => new TerraformReference<string>(this, "author");
-    }
+        => AsReference("author");
 
     /// <summary>
     /// Output only. The time at which the data access scope was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Output only. The name to be used for display to customers of the data access scope.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// Output only. The user who last updated the data access scope.
     /// </summary>
     public TerraformValue<string> LastEditor
-    {
-        get => new TerraformReference<string>(this, "last_editor");
-    }
+        => AsReference("last_editor");
 
     /// <summary>
     /// The unique full name of the data access scope. This unique identifier is generated using values provided for the URL parameters.
@@ -358,17 +346,13 @@ public partial class GoogleChronicleDataAccessScope(string name) : TerraformReso
     /// projects/{project}/locations/{location}/instances/{instance}/dataAccessScopes/{data_access_scope_id}
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. The time at which the data access scope was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// AllowedDataAccessLabels block (nesting mode: list).

@@ -14,7 +14,7 @@ public partial class AwsDatazoneEnvironmentBlueprintDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
     public required TerraformValue<string> DomainId
     {
-        get => new TerraformReference<string>(this, "domain_id");
+        get => GetArgument<TerraformValue<string>>("domain_id");
         set => SetArgument("domain_id", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsDatazoneEnvironmentBlueprintDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Managed is required")]
     public required TerraformValue<bool> Managed
     {
-        get => new TerraformReference<bool>(this, "managed");
+        get => GetArgument<TerraformValue<bool>>("managed");
         set => SetArgument("managed", value);
     }
 
@@ -34,16 +34,16 @@ public partial class AwsDatazoneEnvironmentBlueprintDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -51,24 +51,18 @@ public partial class AwsDatazoneEnvironmentBlueprintDataSource(string name) : Te
     /// The blueprint_provider attribute.
     /// </summary>
     public TerraformValue<string> BlueprintProvider
-    {
-        get => new TerraformReference<string>(this, "blueprint_provider");
-    }
+        => AsReference("blueprint_provider");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
 }

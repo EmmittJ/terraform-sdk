@@ -18,7 +18,7 @@ public class AzurermHealthcareFhirServiceDataSourceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermHealthcareFhirServiceDataSource(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermHealthcareFhirServiceDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermHealthcareFhirServiceDataSource(string name) : Terra
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzurermHealthcareFhirServiceDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => new TerraformReference<string>(this, "workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -73,65 +73,49 @@ public partial class AzurermHealthcareFhirServiceDataSource(string name) : Terra
     /// The access_policy_object_ids attribute.
     /// </summary>
     public TerraformList<string> AccessPolicyObjectIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "access_policy_object_ids").ResolveNodes(ctx));
-    }
+        => AsReference("access_policy_object_ids");
 
     /// <summary>
     /// The authentication attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Authentication
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "authentication").ResolveNodes(ctx));
-    }
+        => AsReference("authentication");
 
     /// <summary>
     /// The configuration_export_storage_account_name attribute.
     /// </summary>
     public TerraformValue<string> ConfigurationExportStorageAccountName
-    {
-        get => new TerraformReference<string>(this, "configuration_export_storage_account_name");
-    }
+        => AsReference("configuration_export_storage_account_name");
 
     /// <summary>
     /// The container_registry_login_server_url attribute.
     /// </summary>
     public TerraformList<string> ContainerRegistryLoginServerUrl
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "container_registry_login_server_url").ResolveNodes(ctx));
-    }
+        => AsReference("container_registry_login_server_url");
 
     /// <summary>
     /// The cors attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Cors
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cors").ResolveNodes(ctx));
-    }
+        => AsReference("cors");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
-    }
+        => AsReference("identity");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     public TerraformValue<string> Kind
-    {
-        get => new TerraformReference<string>(this, "kind");
-    }
+        => AsReference("kind");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

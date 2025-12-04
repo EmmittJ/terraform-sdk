@@ -18,7 +18,7 @@ public class AzurermKeyVaultKeyDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermKeyVaultKeyDataSource(string name) : TerraformDataSo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermKeyVaultKeyDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformValue<string> KeyVaultId
     {
-        get => new TerraformReference<string>(this, "key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermKeyVaultKeyDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -64,121 +64,91 @@ public partial class AzurermKeyVaultKeyDataSource(string name) : TerraformDataSo
     /// The curve attribute.
     /// </summary>
     public TerraformValue<string> Curve
-    {
-        get => new TerraformReference<string>(this, "curve");
-    }
+        => AsReference("curve");
 
     /// <summary>
     /// The e attribute.
     /// </summary>
     public TerraformValue<string> E
-    {
-        get => new TerraformReference<string>(this, "e");
-    }
+        => AsReference("e");
 
     /// <summary>
     /// The key_opts attribute.
     /// </summary>
     public TerraformList<string> KeyOpts
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "key_opts").ResolveNodes(ctx));
-    }
+        => AsReference("key_opts");
 
     /// <summary>
     /// The key_size attribute.
     /// </summary>
     public TerraformValue<double> KeySize
-    {
-        get => new TerraformReference<double>(this, "key_size");
-    }
+        => AsReference("key_size");
 
     /// <summary>
     /// The key_type attribute.
     /// </summary>
     public TerraformValue<string> KeyType
-    {
-        get => new TerraformReference<string>(this, "key_type");
-    }
+        => AsReference("key_type");
 
     /// <summary>
     /// The n attribute.
     /// </summary>
     public TerraformValue<string> N
-    {
-        get => new TerraformReference<string>(this, "n");
-    }
+        => AsReference("n");
 
     /// <summary>
     /// The public_key_openssh attribute.
     /// </summary>
     public TerraformValue<string> PublicKeyOpenssh
-    {
-        get => new TerraformReference<string>(this, "public_key_openssh");
-    }
+        => AsReference("public_key_openssh");
 
     /// <summary>
     /// The public_key_pem attribute.
     /// </summary>
     public TerraformValue<string> PublicKeyPem
-    {
-        get => new TerraformReference<string>(this, "public_key_pem");
-    }
+        => AsReference("public_key_pem");
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceId
-    {
-        get => new TerraformReference<string>(this, "resource_id");
-    }
+        => AsReference("resource_id");
 
     /// <summary>
     /// The resource_versionless_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceVersionlessId
-    {
-        get => new TerraformReference<string>(this, "resource_versionless_id");
-    }
+        => AsReference("resource_versionless_id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
     /// <summary>
     /// The versionless_id attribute.
     /// </summary>
     public TerraformValue<string> VersionlessId
-    {
-        get => new TerraformReference<string>(this, "versionless_id");
-    }
+        => AsReference("versionless_id");
 
     /// <summary>
     /// The x attribute.
     /// </summary>
     public TerraformValue<string> X
-    {
-        get => new TerraformReference<string>(this, "x");
-    }
+        => AsReference("x");
 
     /// <summary>
     /// The y attribute.
     /// </summary>
     public TerraformValue<string> Y
-    {
-        get => new TerraformReference<string>(this, "y");
-    }
+        => AsReference("y");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

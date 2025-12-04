@@ -18,7 +18,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyAttachmentTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyAttachment(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     public required TerraformValue<string> CoreNetworkId
     {
-        get => new TerraformReference<string>(this, "core_network_id");
+        get => GetArgument<TerraformValue<string>>("core_network_id");
         set => SetArgument("core_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyAttachment(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDocument is required")]
     public required TerraformValue<string> PolicyDocument
     {
-        get => new TerraformReference<string>(this, "policy_document");
+        get => GetArgument<TerraformValue<string>>("policy_document");
         set => SetArgument("policy_document", value);
     }
 
@@ -64,9 +64,7 @@ public partial class AwsNetworkmanagerCoreNetworkPolicyAttachment(string name) :
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

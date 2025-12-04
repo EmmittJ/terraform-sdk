@@ -18,7 +18,7 @@ public class AzurermDataFactoryTriggerScheduleDataSourceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermDataFactoryTriggerScheduleDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => new TerraformReference<string>(this, "data_factory_id");
+        get => GetArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermDataFactoryTriggerScheduleDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -64,81 +64,61 @@ public partial class AzurermDataFactoryTriggerScheduleDataSource(string name) : 
     /// The activated attribute.
     /// </summary>
     public TerraformValue<bool> Activated
-    {
-        get => new TerraformReference<bool>(this, "activated");
-    }
+        => AsReference("activated");
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
     public TerraformList<string> Annotations
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "annotations").ResolveNodes(ctx));
-    }
+        => AsReference("annotations");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
     public TerraformValue<string> EndTime
-    {
-        get => new TerraformReference<string>(this, "end_time");
-    }
+        => AsReference("end_time");
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
     public TerraformValue<string> Frequency
-    {
-        get => new TerraformReference<string>(this, "frequency");
-    }
+        => AsReference("frequency");
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
     public TerraformValue<double> Interval
-    {
-        get => new TerraformReference<double>(this, "interval");
-    }
+        => AsReference("interval");
 
     /// <summary>
     /// The pipeline_name attribute.
     /// </summary>
     public TerraformValue<string> PipelineName
-    {
-        get => new TerraformReference<string>(this, "pipeline_name");
-    }
+        => AsReference("pipeline_name");
 
     /// <summary>
     /// The schedule attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Schedule
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "schedule").ResolveNodes(ctx));
-    }
+        => AsReference("schedule");
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     public TerraformValue<string> StartTime
-    {
-        get => new TerraformReference<string>(this, "start_time");
-    }
+        => AsReference("start_time");
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
     public TerraformValue<string> TimeZone
-    {
-        get => new TerraformReference<string>(this, "time_zone");
-    }
+        => AsReference("time_zone");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

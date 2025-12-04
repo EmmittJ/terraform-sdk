@@ -11,9 +11,9 @@ public partial class AwsServicequotasTemplate(string name) : TerraformResource("
     /// <summary>
     /// The aws_region attribute.
     /// </summary>
-    public TerraformValue<string> AwsRegion
+    public TerraformValue<string>? AwsRegion
     {
-        get => new TerraformReference<string>(this, "aws_region");
+        get => GetArgument<TerraformValue<string>>("aws_region");
         set => SetArgument("aws_region", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsServicequotasTemplate(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QuotaCode is required")]
     public required TerraformValue<string> QuotaCode
     {
-        get => new TerraformReference<string>(this, "quota_code");
+        get => GetArgument<TerraformValue<string>>("quota_code");
         set => SetArgument("quota_code", value);
     }
 
@@ -31,9 +31,9 @@ public partial class AwsServicequotasTemplate(string name) : TerraformResource("
     /// The region attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -43,7 +43,7 @@ public partial class AwsServicequotasTemplate(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCode is required")]
     public required TerraformValue<string> ServiceCode
     {
-        get => new TerraformReference<string>(this, "service_code");
+        get => GetArgument<TerraformValue<string>>("service_code");
         set => SetArgument("service_code", value);
     }
 
@@ -53,7 +53,7 @@ public partial class AwsServicequotasTemplate(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => new TerraformReference<double>(this, "value");
+        get => GetArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -61,40 +61,30 @@ public partial class AwsServicequotasTemplate(string name) : TerraformResource("
     /// The global_quota attribute.
     /// </summary>
     public TerraformValue<bool> GlobalQuota
-    {
-        get => new TerraformReference<bool>(this, "global_quota");
-    }
+        => AsReference("global_quota");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The quota_name attribute.
     /// </summary>
     public TerraformValue<string> QuotaName
-    {
-        get => new TerraformReference<string>(this, "quota_name");
-    }
+        => AsReference("quota_name");
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
     public TerraformValue<string> ServiceName
-    {
-        get => new TerraformReference<string>(this, "service_name");
-    }
+        => AsReference("service_name");
 
     /// <summary>
     /// The unit attribute.
     /// </summary>
     public TerraformValue<string> Unit
-    {
-        get => new TerraformReference<string>(this, "unit");
-    }
+        => AsReference("unit");
 
 }

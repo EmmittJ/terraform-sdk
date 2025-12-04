@@ -14,7 +14,7 @@ public partial class AwsIamOrganizationsFeatures(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnabledFeatures is required")]
     public required TerraformSet<string> EnabledFeatures
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "enabled_features").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("enabled_features");
         set => SetArgument("enabled_features", value);
     }
 
@@ -22,8 +22,6 @@ public partial class AwsIamOrganizationsFeatures(string name) : TerraformResourc
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
 }

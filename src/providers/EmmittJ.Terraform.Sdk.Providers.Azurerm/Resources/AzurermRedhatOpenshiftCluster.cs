@@ -17,17 +17,13 @@ public class AzurermRedhatOpenshiftClusterApiServerProfileBlock : TerraformBlock
     /// The ip_address attribute.
     /// </summary>
     public TerraformValue<string> IpAddress
-    {
-        get => new TerraformReference<string>(this, "ip_address");
-    }
+        => AsReference("ip_address");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-    {
-        get => new TerraformReference<string>(this, "url");
-    }
+        => AsReference("url");
 
     /// <summary>
     /// The visibility attribute.
@@ -35,7 +31,7 @@ public class AzurermRedhatOpenshiftClusterApiServerProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Visibility is required")]
     public required TerraformValue<string> Visibility
     {
-        get => new TerraformReference<string>(this, "visibility");
+        get => GetArgument<TerraformValue<string>>("visibility");
         set => SetArgument("visibility", value);
     }
 
@@ -59,7 +55,7 @@ public class AzurermRedhatOpenshiftClusterClusterProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => new TerraformReference<string>(this, "domain");
+        get => GetArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
@@ -68,7 +64,7 @@ public class AzurermRedhatOpenshiftClusterClusterProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? FipsEnabled
     {
-        get => new TerraformReference<bool>(this, "fips_enabled");
+        get => GetArgument<TerraformValue<bool>>("fips_enabled");
         set => SetArgument("fips_enabled", value);
     }
 
@@ -77,7 +73,7 @@ public class AzurermRedhatOpenshiftClusterClusterProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ManagedResourceGroupName
     {
-        get => new TerraformReference<string>(this, "managed_resource_group_name");
+        get => GetArgument<TerraformValue<string>>("managed_resource_group_name");
         set => SetArgument("managed_resource_group_name", value);
     }
 
@@ -86,7 +82,7 @@ public class AzurermRedhatOpenshiftClusterClusterProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PullSecret
     {
-        get => new TerraformReference<string>(this, "pull_secret");
+        get => GetArgument<TerraformValue<string>>("pull_secret");
         set => SetArgument("pull_secret", value);
     }
 
@@ -94,9 +90,7 @@ public class AzurermRedhatOpenshiftClusterClusterProfileBlock : TerraformBlock
     /// The resource_group_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceGroupId
-    {
-        get => new TerraformReference<string>(this, "resource_group_id");
-    }
+        => AsReference("resource_group_id");
 
     /// <summary>
     /// The version attribute.
@@ -104,7 +98,7 @@ public class AzurermRedhatOpenshiftClusterClusterProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -126,17 +120,13 @@ public class AzurermRedhatOpenshiftClusterIngressProfileBlock : TerraformBlock
     /// The ip_address attribute.
     /// </summary>
     public TerraformValue<string> IpAddress
-    {
-        get => new TerraformReference<string>(this, "ip_address");
-    }
+        => AsReference("ip_address");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The visibility attribute.
@@ -144,7 +134,7 @@ public class AzurermRedhatOpenshiftClusterIngressProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Visibility is required")]
     public required TerraformValue<string> Visibility
     {
-        get => new TerraformReference<string>(this, "visibility");
+        get => GetArgument<TerraformValue<string>>("visibility");
         set => SetArgument("visibility", value);
     }
 
@@ -167,7 +157,7 @@ public class AzurermRedhatOpenshiftClusterMainProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DiskEncryptionSetId
     {
-        get => new TerraformReference<string>(this, "disk_encryption_set_id");
+        get => GetArgument<TerraformValue<string>>("disk_encryption_set_id");
         set => SetArgument("disk_encryption_set_id", value);
     }
 
@@ -176,7 +166,7 @@ public class AzurermRedhatOpenshiftClusterMainProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EncryptionAtHostEnabled
     {
-        get => new TerraformReference<bool>(this, "encryption_at_host_enabled");
+        get => GetArgument<TerraformValue<bool>>("encryption_at_host_enabled");
         set => SetArgument("encryption_at_host_enabled", value);
     }
 
@@ -186,7 +176,7 @@ public class AzurermRedhatOpenshiftClusterMainProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -196,7 +186,7 @@ public class AzurermRedhatOpenshiftClusterMainProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
     public required TerraformValue<string> VmSize
     {
-        get => new TerraformReference<string>(this, "vm_size");
+        get => GetArgument<TerraformValue<string>>("vm_size");
         set => SetArgument("vm_size", value);
     }
 
@@ -219,7 +209,7 @@ public class AzurermRedhatOpenshiftClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OutboundType
     {
-        get => new TerraformReference<string>(this, "outbound_type");
+        get => GetArgument<TerraformValue<string>>("outbound_type");
         set => SetArgument("outbound_type", value);
     }
 
@@ -229,7 +219,7 @@ public class AzurermRedhatOpenshiftClusterNetworkProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PodCidr is required")]
     public required TerraformValue<string> PodCidr
     {
-        get => new TerraformReference<string>(this, "pod_cidr");
+        get => GetArgument<TerraformValue<string>>("pod_cidr");
         set => SetArgument("pod_cidr", value);
     }
 
@@ -238,7 +228,7 @@ public class AzurermRedhatOpenshiftClusterNetworkProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PreconfiguredNetworkSecurityGroupEnabled
     {
-        get => new TerraformReference<bool>(this, "preconfigured_network_security_group_enabled");
+        get => GetArgument<TerraformValue<bool>>("preconfigured_network_security_group_enabled");
         set => SetArgument("preconfigured_network_security_group_enabled", value);
     }
 
@@ -248,7 +238,7 @@ public class AzurermRedhatOpenshiftClusterNetworkProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCidr is required")]
     public required TerraformValue<string> ServiceCidr
     {
-        get => new TerraformReference<string>(this, "service_cidr");
+        get => GetArgument<TerraformValue<string>>("service_cidr");
         set => SetArgument("service_cidr", value);
     }
 
@@ -272,7 +262,7 @@ public class AzurermRedhatOpenshiftClusterServicePrincipalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -282,7 +272,7 @@ public class AzurermRedhatOpenshiftClusterServicePrincipalBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformValue<string> ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -305,7 +295,7 @@ public class AzurermRedhatOpenshiftClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -314,7 +304,7 @@ public class AzurermRedhatOpenshiftClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -323,7 +313,7 @@ public class AzurermRedhatOpenshiftClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -332,7 +322,7 @@ public class AzurermRedhatOpenshiftClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -355,7 +345,7 @@ public class AzurermRedhatOpenshiftClusterWorkerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DiskEncryptionSetId
     {
-        get => new TerraformReference<string>(this, "disk_encryption_set_id");
+        get => GetArgument<TerraformValue<string>>("disk_encryption_set_id");
         set => SetArgument("disk_encryption_set_id", value);
     }
 
@@ -365,7 +355,7 @@ public class AzurermRedhatOpenshiftClusterWorkerProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskSizeGb is required")]
     public required TerraformValue<double> DiskSizeGb
     {
-        get => new TerraformReference<double>(this, "disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -374,7 +364,7 @@ public class AzurermRedhatOpenshiftClusterWorkerProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EncryptionAtHostEnabled
     {
-        get => new TerraformReference<bool>(this, "encryption_at_host_enabled");
+        get => GetArgument<TerraformValue<bool>>("encryption_at_host_enabled");
         set => SetArgument("encryption_at_host_enabled", value);
     }
 
@@ -384,7 +374,7 @@ public class AzurermRedhatOpenshiftClusterWorkerProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformValue<double> NodeCount
     {
-        get => new TerraformReference<double>(this, "node_count");
+        get => GetArgument<TerraformValue<double>>("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -394,7 +384,7 @@ public class AzurermRedhatOpenshiftClusterWorkerProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -404,7 +394,7 @@ public class AzurermRedhatOpenshiftClusterWorkerProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
     public required TerraformValue<string> VmSize
     {
-        get => new TerraformReference<string>(this, "vm_size");
+        get => GetArgument<TerraformValue<string>>("vm_size");
         set => SetArgument("vm_size", value);
     }
 
@@ -420,9 +410,9 @@ public partial class AzurermRedhatOpenshiftCluster(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -432,7 +422,7 @@ public partial class AzurermRedhatOpenshiftCluster(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -442,7 +432,7 @@ public partial class AzurermRedhatOpenshiftCluster(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -452,7 +442,7 @@ public partial class AzurermRedhatOpenshiftCluster(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -461,7 +451,7 @@ public partial class AzurermRedhatOpenshiftCluster(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -469,9 +459,7 @@ public partial class AzurermRedhatOpenshiftCluster(string name) : TerraformResou
     /// The console_url attribute.
     /// </summary>
     public TerraformValue<string> ConsoleUrl
-    {
-        get => new TerraformReference<string>(this, "console_url");
-    }
+        => AsReference("console_url");
 
     /// <summary>
     /// ApiServerProfile block (nesting mode: list).

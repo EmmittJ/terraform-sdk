@@ -11,9 +11,9 @@ public partial class GoogleComputeRegionDiskDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -29,7 +29,7 @@ public partial class GoogleComputeRegionDiskDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -38,7 +38,7 @@ public partial class GoogleComputeRegionDiskDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -47,7 +47,7 @@ public partial class GoogleComputeRegionDiskDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -60,17 +60,13 @@ public partial class GoogleComputeRegionDiskDataSource(string name) : TerraformD
     /// The AccessMode is only valid for Hyperdisk disk types.
     /// </summary>
     public TerraformValue<string> AccessMode
-    {
-        get => new TerraformReference<string>(this, "access_mode");
-    }
+        => AsReference("access_mode");
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> AsyncPrimaryDisk
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "async_primary_disk").ResolveNodes(ctx));
-    }
+        => AsReference("async_primary_disk");
 
     /// <summary>
     /// If set to true, a snapshot of the disk will be created before it is destroyed.
@@ -78,34 +74,26 @@ public partial class GoogleComputeRegionDiskDataSource(string name) : TerraformD
     /// The name of the snapshot by default will be &#39;{{disk-name}}-YYYYMMDD-HHmm&#39;
     /// </summary>
     public TerraformValue<bool> CreateSnapshotBeforeDestroy
-    {
-        get => new TerraformReference<bool>(this, "create_snapshot_before_destroy");
-    }
+        => AsReference("create_snapshot_before_destroy");
 
     /// <summary>
     /// This will set a custom name prefix for the snapshot that&#39;s created when the disk is deleted.
     /// </summary>
     public TerraformValue<string> CreateSnapshotBeforeDestroyPrefix
-    {
-        get => new TerraformReference<string>(this, "create_snapshot_before_destroy_prefix");
-    }
+        => AsReference("create_snapshot_before_destroy_prefix");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// Encrypts the disk using a customer-supplied encryption key.
@@ -122,43 +110,33 @@ public partial class GoogleComputeRegionDiskDataSource(string name) : TerraformD
     /// you do not need to provide a key to use the disk later.
     /// </summary>
     public TerraformList<TerraformMap<object>> DiskEncryptionKey
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "disk_encryption_key").ResolveNodes(ctx));
-    }
+        => AsReference("disk_encryption_key");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<string> DiskId
-    {
-        get => new TerraformReference<string>(this, "disk_id");
-    }
+        => AsReference("disk_id");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// A list of features to enable on the guest operating system.
     /// Applicable only for bootable disks.
     /// </summary>
     public TerraformSet<TerraformMap<object>> GuestOsFeatures
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "guest_os_features").ResolveNodes(ctx));
-    }
+        => AsReference("guest_os_features");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
     /// internally during updates.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-    {
-        get => new TerraformReference<string>(this, "label_fingerprint");
-    }
+        => AsReference("label_fingerprint");
 
     /// <summary>
     /// Labels to apply to this disk.  A list of key-&amp;gt;value pairs.
@@ -168,33 +146,25 @@ public partial class GoogleComputeRegionDiskDataSource(string name) : TerraformD
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
-    }
+        => AsReference("labels");
 
     /// <summary>
     /// Last attach timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> LastAttachTimestamp
-    {
-        get => new TerraformReference<string>(this, "last_attach_timestamp");
-    }
+        => AsReference("last_attach_timestamp");
 
     /// <summary>
     /// Last detach timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> LastDetachTimestamp
-    {
-        get => new TerraformReference<string>(this, "last_detach_timestamp");
-    }
+        => AsReference("last_detach_timestamp");
 
     /// <summary>
     /// Any applicable license URI.
     /// </summary>
     public TerraformList<string> Licenses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "licenses").ResolveNodes(ctx));
-    }
+        => AsReference("licenses");
 
     /// <summary>
     /// Physical block size of the persistent disk, in bytes. If not present
@@ -204,9 +174,7 @@ public partial class GoogleComputeRegionDiskDataSource(string name) : TerraformD
     /// the supported values for the caller&#39;s project.
     /// </summary>
     public TerraformValue<double> PhysicalBlockSizeBytes
-    {
-        get => new TerraformReference<double>(this, "physical_block_size_bytes");
-    }
+        => AsReference("physical_block_size_bytes");
 
     /// <summary>
     /// Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second
@@ -214,34 +182,26 @@ public partial class GoogleComputeRegionDiskDataSource(string name) : TerraformD
     /// For more details, see the Extreme persistent disk [documentation](https://cloud.google.com/compute/docs/disks/extreme-persistent-disk).
     /// </summary>
     public TerraformValue<double> ProvisionedIops
-    {
-        get => new TerraformReference<double>(this, "provisioned_iops");
-    }
+        => AsReference("provisioned_iops");
 
     /// <summary>
     /// Indicates how much throughput to provision for the disk. This sets the number of throughput
     /// mb per second that the disk can handle. Values must be greater than or equal to 1.
     /// </summary>
     public TerraformValue<double> ProvisionedThroughput
-    {
-        get => new TerraformReference<double>(this, "provisioned_throughput");
-    }
+        => AsReference("provisioned_throughput");
 
     /// <summary>
     /// URLs of the zones where the disk should be replicated to.
     /// </summary>
     public TerraformList<string> ReplicaZones
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "replica_zones").ResolveNodes(ctx));
-    }
+        => AsReference("replica_zones");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Size of the persistent disk, specified in GB. You can specify this
@@ -254,9 +214,7 @@ public partial class GoogleComputeRegionDiskDataSource(string name) : TerraformD
     /// or the size of the snapshot.
     /// </summary>
     public TerraformValue<double> Size
-    {
-        get => new TerraformReference<double>(this, "size");
-    }
+        => AsReference("size");
 
     /// <summary>
     /// The source snapshot used to create this disk. You can provide this as
@@ -269,9 +227,7 @@ public partial class GoogleComputeRegionDiskDataSource(string name) : TerraformD
     /// * &#39;snapshot&#39;
     /// </summary>
     public TerraformValue<string> Snapshot
-    {
-        get => new TerraformReference<string>(this, "snapshot");
-    }
+        => AsReference("snapshot");
 
     /// <summary>
     /// The source disk used to create this disk. You can provide this as a partial or full URL to the resource.
@@ -285,9 +241,7 @@ public partial class GoogleComputeRegionDiskDataSource(string name) : TerraformD
     /// * regions/{region}/disks/{disk}
     /// </summary>
     public TerraformValue<string> SourceDisk
-    {
-        get => new TerraformReference<string>(this, "source_disk");
-    }
+        => AsReference("source_disk");
 
     /// <summary>
     /// The ID value of the disk used to create this image. This value may
@@ -295,9 +249,7 @@ public partial class GoogleComputeRegionDiskDataSource(string name) : TerraformD
     /// or a previous instance of a given disk name.
     /// </summary>
     public TerraformValue<string> SourceDiskId
-    {
-        get => new TerraformReference<string>(this, "source_disk_id");
-    }
+        => AsReference("source_disk_id");
 
     /// <summary>
     /// The customer-supplied encryption key of the source snapshot. Required
@@ -305,9 +257,7 @@ public partial class GoogleComputeRegionDiskDataSource(string name) : TerraformD
     /// key.
     /// </summary>
     public TerraformList<TerraformMap<object>> SourceSnapshotEncryptionKey
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "source_snapshot_encryption_key").ResolveNodes(ctx));
-    }
+        => AsReference("source_snapshot_encryption_key");
 
     /// <summary>
     /// The unique ID of the snapshot used to create this disk. This value
@@ -318,35 +268,27 @@ public partial class GoogleComputeRegionDiskDataSource(string name) : TerraformD
     /// used.
     /// </summary>
     public TerraformValue<string> SourceSnapshotId
-    {
-        get => new TerraformReference<string>(this, "source_snapshot_id");
-    }
+        => AsReference("source_snapshot_id");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// URL of the disk type resource describing which disk type to use to
     /// create the disk. Provide this when creating the disk.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// Links to the users of the disk (attached instances) in form:
     /// project/zones/zone/instances/instance
     /// </summary>
     public TerraformList<string> Users
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "users").ResolveNodes(ctx));
-    }
+        => AsReference("users");
 
 }

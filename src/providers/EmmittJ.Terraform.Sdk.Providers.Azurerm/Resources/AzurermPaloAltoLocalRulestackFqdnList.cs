@@ -18,7 +18,7 @@ public class AzurermPaloAltoLocalRulestackFqdnListTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermPaloAltoLocalRulestackFqdnListTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermPaloAltoLocalRulestackFqdnListTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermPaloAltoLocalRulestackFqdnListTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermPaloAltoLocalRulestackFqdnList(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? AuditComment
     {
-        get => new TerraformReference<string>(this, "audit_comment");
+        get => GetArgument<TerraformValue<string>>("audit_comment");
         set => SetArgument("audit_comment", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermPaloAltoLocalRulestackFqdnList(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -82,16 +82,16 @@ public partial class AzurermPaloAltoLocalRulestackFqdnList(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullyQualifiedDomainNames is required")]
     public TerraformList<string>? FullyQualifiedDomainNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "fully_qualified_domain_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("fully_qualified_domain_names");
         set => SetArgument("fully_qualified_domain_names", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermPaloAltoLocalRulestackFqdnList(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermPaloAltoLocalRulestackFqdnList(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulestackId is required")]
     public required TerraformValue<string> RulestackId
     {
-        get => new TerraformReference<string>(this, "rulestack_id");
+        get => GetArgument<TerraformValue<string>>("rulestack_id");
         set => SetArgument("rulestack_id", value);
     }
 

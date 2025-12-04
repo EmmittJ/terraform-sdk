@@ -19,7 +19,7 @@ public class GoogleContainerAzureNodePoolAutoscalingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodeCount is required")]
     public required TerraformValue<double> MaxNodeCount
     {
-        get => new TerraformReference<double>(this, "max_node_count");
+        get => GetArgument<TerraformValue<double>>("max_node_count");
         set => SetArgument("max_node_count", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleContainerAzureNodePoolAutoscalingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodeCount is required")]
     public required TerraformValue<double> MinNodeCount
     {
-        get => new TerraformReference<double>(this, "min_node_count");
+        get => GetArgument<TerraformValue<double>>("min_node_count");
         set => SetArgument("min_node_count", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleContainerAzureNodePoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -61,16 +61,16 @@ public class GoogleContainerAzureNodePoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// Optional. The Azure VM size name. Example: `Standard_DS2_v2`. See (/anthos/clusters/docs/azure/reference/supported-vms) for options. When unspecified, it defaults to `Standard_DS2_v2`.
     /// </summary>
-    public TerraformValue<string> VmSize
+    public TerraformValue<string>? VmSize
     {
-        get => new TerraformReference<string>(this, "vm_size");
+        get => GetArgument<TerraformValue<string>>("vm_size");
         set => SetArgument("vm_size", value);
     }
 
@@ -126,7 +126,7 @@ public class GoogleContainerAzureNodePoolConfigBlockProxyConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
     public required TerraformValue<string> ResourceGroupId
     {
-        get => new TerraformReference<string>(this, "resource_group_id");
+        get => GetArgument<TerraformValue<string>>("resource_group_id");
         set => SetArgument("resource_group_id", value);
     }
 
@@ -136,7 +136,7 @@ public class GoogleContainerAzureNodePoolConfigBlockProxyConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformValue<string> SecretId
     {
-        get => new TerraformReference<string>(this, "secret_id");
+        get => GetArgument<TerraformValue<string>>("secret_id");
         set => SetArgument("secret_id", value);
     }
 
@@ -156,9 +156,9 @@ public class GoogleContainerAzureNodePoolConfigBlockRootVolumeBlock : TerraformB
     /// <summary>
     /// Optional. The size of the disk, in GiBs. When unspecified, a default value is provided. See the specific reference in the parent resource.
     /// </summary>
-    public TerraformValue<double> SizeGib
+    public TerraformValue<double>? SizeGib
     {
-        get => new TerraformReference<double>(this, "size_gib");
+        get => GetArgument<TerraformValue<double>>("size_gib");
         set => SetArgument("size_gib", value);
     }
 
@@ -181,7 +181,7 @@ public class GoogleContainerAzureNodePoolConfigBlockSshConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizedKey is required")]
     public required TerraformValue<string> AuthorizedKey
     {
-        get => new TerraformReference<string>(this, "authorized_key");
+        get => GetArgument<TerraformValue<string>>("authorized_key");
         set => SetArgument("authorized_key", value);
     }
 
@@ -202,9 +202,9 @@ public class GoogleContainerAzureNodePoolManagementBlock : TerraformBlock
     /// <summary>
     /// Optional. Whether or not the nodes will be automatically repaired.
     /// </summary>
-    public TerraformValue<bool> AutoRepair
+    public TerraformValue<bool>? AutoRepair
     {
-        get => new TerraformReference<bool>(this, "auto_repair");
+        get => GetArgument<TerraformValue<bool>>("auto_repair");
         set => SetArgument("auto_repair", value);
     }
 
@@ -228,7 +228,7 @@ public class GoogleContainerAzureNodePoolMaxPodsConstraintBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxPodsPerNode is required")]
     public required TerraformValue<double> MaxPodsPerNode
     {
-        get => new TerraformReference<double>(this, "max_pods_per_node");
+        get => GetArgument<TerraformValue<double>>("max_pods_per_node");
         set => SetArgument("max_pods_per_node", value);
     }
 
@@ -251,7 +251,7 @@ public class GoogleContainerAzureNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -260,7 +260,7 @@ public class GoogleContainerAzureNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -269,7 +269,7 @@ public class GoogleContainerAzureNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -290,16 +290,16 @@ public partial class GoogleContainerAzureNodePool(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
     /// <summary>
     /// Optional. The Azure availability zone of the nodes in this nodepool. When unspecified, it defaults to `1`.
     /// </summary>
-    public TerraformValue<string> AzureAvailabilityZone
+    public TerraformValue<string>? AzureAvailabilityZone
     {
-        get => new TerraformReference<string>(this, "azure_availability_zone");
+        get => GetArgument<TerraformValue<string>>("azure_availability_zone");
         set => SetArgument("azure_availability_zone", value);
     }
 
@@ -309,16 +309,16 @@ public partial class GoogleContainerAzureNodePool(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => new TerraformReference<string>(this, "cluster");
+        get => GetArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -328,7 +328,7 @@ public partial class GoogleContainerAzureNodePool(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -338,16 +338,16 @@ public partial class GoogleContainerAzureNodePool(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -357,7 +357,7 @@ public partial class GoogleContainerAzureNodePool(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -367,7 +367,7 @@ public partial class GoogleContainerAzureNodePool(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -375,57 +375,43 @@ public partial class GoogleContainerAzureNodePool(string name) : TerraformResour
     /// Output only. The time at which this node pool was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// Allows clients to perform consistent read-modify-writes through optimistic concurrency control. May be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Output only. If set, there are currently pending changes to the node pool.
     /// </summary>
     public TerraformValue<bool> Reconciling
-    {
-        get => new TerraformReference<bool>(this, "reconciling");
-    }
+        => AsReference("reconciling");
 
     /// <summary>
     /// Output only. The current state of the node pool. Possible values: STATE_UNSPECIFIED, PROVISIONING, RUNNING, RECONCILING, STOPPING, ERROR, DEGRADED
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Output only. A globally unique identifier for the node pool.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Output only. The time at which this node pool was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Autoscaling block (nesting mode: list).

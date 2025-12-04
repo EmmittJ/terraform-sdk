@@ -14,16 +14,16 @@ public partial class AwsCodeartifactRepositoryEndpointDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => new TerraformReference<string>(this, "domain");
+        get => GetArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
     /// <summary>
     /// The domain_owner attribute.
     /// </summary>
-    public TerraformValue<string> DomainOwner
+    public TerraformValue<string>? DomainOwner
     {
-        get => new TerraformReference<string>(this, "domain_owner");
+        get => GetArgument<TerraformValue<string>>("domain_owner");
         set => SetArgument("domain_owner", value);
     }
 
@@ -33,25 +33,25 @@ public partial class AwsCodeartifactRepositoryEndpointDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => new TerraformReference<string>(this, "format");
+        get => GetArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsCodeartifactRepositoryEndpointDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformValue<string> Repository
     {
-        get => new TerraformReference<string>(this, "repository");
+        get => GetArgument<TerraformValue<string>>("repository");
         set => SetArgument("repository", value);
     }
 
@@ -69,8 +69,6 @@ public partial class AwsCodeartifactRepositoryEndpointDataSource(string name) : 
     /// The repository_endpoint attribute.
     /// </summary>
     public TerraformValue<string> RepositoryEndpoint
-    {
-        get => new TerraformReference<string>(this, "repository_endpoint");
-    }
+        => AsReference("repository_endpoint");
 
 }

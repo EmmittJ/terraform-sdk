@@ -18,7 +18,7 @@ public class AwsCloudfrontVpcOriginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsCloudfrontVpcOriginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsCloudfrontVpcOriginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpPort is required")]
     public required TerraformValue<double> HttpPort
     {
-        get => new TerraformReference<double>(this, "http_port");
+        get => GetArgument<TerraformValue<double>>("http_port");
         set => SetArgument("http_port", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpsPort is required")]
     public required TerraformValue<double> HttpsPort
     {
-        get => new TerraformReference<double>(this, "https_port");
+        get => GetArgument<TerraformValue<double>>("https_port");
         set => SetArgument("https_port", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginProtocolPolicy is required")]
     public required TerraformValue<string> OriginProtocolPolicy
     {
-        get => new TerraformReference<string>(this, "origin_protocol_policy");
+        get => GetArgument<TerraformValue<string>>("origin_protocol_policy");
         set => SetArgument("origin_protocol_policy", value);
     }
 
@@ -132,7 +132,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlockOriginSslProtocol
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Items is required")]
     public required TerraformSet<string> Items
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "items").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("items");
         set => SetArgument("items", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsCloudfrontVpcOriginVpcOriginEndpointConfigBlockOriginSslProtocol
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Quantity is required")]
     public required TerraformValue<double> Quantity
     {
-        get => new TerraformReference<double>(this, "quantity");
+        get => GetArgument<TerraformValue<double>>("quantity");
         set => SetArgument("quantity", value);
     }
 
@@ -160,7 +160,7 @@ public partial class AwsCloudfrontVpcOrigin(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -168,33 +168,25 @@ public partial class AwsCloudfrontVpcOrigin(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -14,7 +14,7 @@ public partial class AwsRoute53DelegationSetDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,24 +22,18 @@ public partial class AwsRoute53DelegationSetDataSource(string name) : TerraformD
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
     public TerraformValue<string> CallerReference
-    {
-        get => new TerraformReference<string>(this, "caller_reference");
-    }
+        => AsReference("caller_reference");
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
     public TerraformList<string> NameServers
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "name_servers").ResolveNodes(ctx));
-    }
+        => AsReference("name_servers");
 
 }

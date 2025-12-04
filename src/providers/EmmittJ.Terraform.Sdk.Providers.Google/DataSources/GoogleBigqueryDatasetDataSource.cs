@@ -16,16 +16,16 @@ public partial class GoogleBigqueryDatasetDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => new TerraformReference<string>(this, "dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -34,7 +34,7 @@ public partial class GoogleBigqueryDatasetDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -42,18 +42,14 @@ public partial class GoogleBigqueryDatasetDataSource(string name) : TerraformDat
     /// An array of objects that define dataset access for one or more entities.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Access
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "access").ResolveNodes(ctx));
-    }
+        => AsReference("access");
 
     /// <summary>
     /// The time when this dataset was created, in milliseconds since the
     /// epoch.
     /// </summary>
     public TerraformValue<double> CreationTime
-    {
-        get => new TerraformReference<double>(this, "creation_time");
-    }
+        => AsReference("creation_time");
 
     /// <summary>
     /// Defines the default collation specification of future tables created
@@ -68,9 +64,7 @@ public partial class GoogleBigqueryDatasetDataSource(string name) : TerraformDat
     /// - &#39;&#39;: empty string. Default to case-sensitive behavior.
     /// </summary>
     public TerraformValue<string> DefaultCollation
-    {
-        get => new TerraformReference<string>(this, "default_collation");
-    }
+        => AsReference("default_collation");
 
     /// <summary>
     /// The default encryption key for all tables in the dataset. Once this property is set,
@@ -78,9 +72,7 @@ public partial class GoogleBigqueryDatasetDataSource(string name) : TerraformDat
     /// this value, unless table creation request (or query) overrides the key.
     /// </summary>
     public TerraformList<TerraformMap<object>> DefaultEncryptionConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "default_encryption_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("default_encryption_configuration");
 
     /// <summary>
     /// The default partition expiration for all partitioned tables in
@@ -98,9 +90,7 @@ public partial class GoogleBigqueryDatasetDataSource(string name) : TerraformDat
     /// over the default partition expiration time indicated by this property.
     /// </summary>
     public TerraformValue<double> DefaultPartitionExpirationMs
-    {
-        get => new TerraformReference<double>(this, "default_partition_expiration_ms");
-    }
+        => AsReference("default_partition_expiration_ms");
 
     /// <summary>
     /// The default lifetime of all tables in the dataset, in milliseconds.
@@ -116,9 +106,7 @@ public partial class GoogleBigqueryDatasetDataSource(string name) : TerraformDat
     /// expiration time indicated by this property.
     /// </summary>
     public TerraformValue<double> DefaultTableExpirationMs
-    {
-        get => new TerraformReference<double>(this, "default_table_expiration_ms");
-    }
+        => AsReference("default_table_expiration_ms");
 
     /// <summary>
     /// If set to &#39;true&#39;, delete all the tables in the
@@ -126,58 +114,44 @@ public partial class GoogleBigqueryDatasetDataSource(string name) : TerraformDat
     /// destroying the resource will fail if tables are present.
     /// </summary>
     public TerraformValue<bool> DeleteContentsOnDestroy
-    {
-        get => new TerraformReference<bool>(this, "delete_contents_on_destroy");
-    }
+        => AsReference("delete_contents_on_destroy");
 
     /// <summary>
     /// A user-friendly description of the dataset
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// A hash of the resource.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Options defining open source compatible datasets living in the BigQuery catalog. Contains
     /// metadata of open source database, schema or namespace represented by the current dataset.
     /// </summary>
     public TerraformList<TerraformMap<object>> ExternalCatalogDatasetOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "external_catalog_dataset_options").ResolveNodes(ctx));
-    }
+        => AsReference("external_catalog_dataset_options");
 
     /// <summary>
     /// Information about the external metadata storage where the dataset is defined.
     /// </summary>
     public TerraformList<TerraformMap<object>> ExternalDatasetReference
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "external_dataset_reference").ResolveNodes(ctx));
-    }
+        => AsReference("external_dataset_reference");
 
     /// <summary>
     /// A descriptive name for the dataset
     /// </summary>
     public TerraformValue<string> FriendlyName
-    {
-        get => new TerraformReference<string>(this, "friendly_name");
-    }
+        => AsReference("friendly_name");
 
     /// <summary>
     /// TRUE if the dataset and its table names are case-insensitive, otherwise FALSE.
@@ -185,9 +159,7 @@ public partial class GoogleBigqueryDatasetDataSource(string name) : TerraformDat
     /// case-sensitive. This field does not affect routine references.
     /// </summary>
     public TerraformValue<bool> IsCaseInsensitive
-    {
-        get => new TerraformReference<bool>(this, "is_case_insensitive");
-    }
+        => AsReference("is_case_insensitive");
 
     /// <summary>
     /// The labels associated with this dataset. You can use these to
@@ -198,18 +170,14 @@ public partial class GoogleBigqueryDatasetDataSource(string name) : TerraformDat
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
-    }
+        => AsReference("labels");
 
     /// <summary>
     /// The date when this dataset or any of its tables was last modified, in
     /// milliseconds since the epoch.
     /// </summary>
     public TerraformValue<double> LastModifiedTime
-    {
-        get => new TerraformReference<double>(this, "last_modified_time");
-    }
+        => AsReference("last_modified_time");
 
     /// <summary>
     /// The geographic location where the dataset should reside.
@@ -222,17 +190,13 @@ public partial class GoogleBigqueryDatasetDataSource(string name) : TerraformDat
     /// Changing this forces a new resource to be created.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// Defines the time travel window in hours. The value can be from 48 to 168 hours (2 to 7 days).
     /// </summary>
     public TerraformValue<string> MaxTimeTravelHours
-    {
-        get => new TerraformReference<string>(this, "max_time_travel_hours");
-    }
+        => AsReference("max_time_travel_hours");
 
     /// <summary>
     /// The tags attached to this table. Tag keys are globally unique. Tag key is expected to be
@@ -242,17 +206,13 @@ public partial class GoogleBigqueryDatasetDataSource(string name) : TerraformDat
     /// for more details.
     /// </summary>
     public TerraformMap<string> ResourceTags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "resource_tags").ResolveNodes(ctx));
-    }
+        => AsReference("resource_tags");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Specifies the storage billing model for the dataset.
@@ -262,17 +222,13 @@ public partial class GoogleBigqueryDatasetDataSource(string name) : TerraformDat
     /// LOGICAL is the default if this flag isn&#39;t specified.
     /// </summary>
     public TerraformValue<string> StorageBillingModel
-    {
-        get => new TerraformReference<string>(this, "storage_billing_model");
-    }
+        => AsReference("storage_billing_model");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
 }

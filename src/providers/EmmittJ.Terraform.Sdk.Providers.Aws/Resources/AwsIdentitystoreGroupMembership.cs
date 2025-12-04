@@ -14,16 +14,16 @@ public partial class AwsIdentitystoreGroupMembership(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     public required TerraformValue<string> GroupId
     {
-        get => new TerraformReference<string>(this, "group_id");
+        get => GetArgument<TerraformValue<string>>("group_id");
         set => SetArgument("group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsIdentitystoreGroupMembership(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityStoreId is required")]
     public required TerraformValue<string> IdentityStoreId
     {
-        get => new TerraformReference<string>(this, "identity_store_id");
+        get => GetArgument<TerraformValue<string>>("identity_store_id");
         set => SetArgument("identity_store_id", value);
     }
 
@@ -43,16 +43,16 @@ public partial class AwsIdentitystoreGroupMembership(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberId is required")]
     public required TerraformValue<string> MemberId
     {
-        get => new TerraformReference<string>(this, "member_id");
+        get => GetArgument<TerraformValue<string>>("member_id");
         set => SetArgument("member_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -60,8 +60,6 @@ public partial class AwsIdentitystoreGroupMembership(string name) : TerraformRes
     /// The membership_id attribute.
     /// </summary>
     public TerraformValue<string> MembershipId
-    {
-        get => new TerraformReference<string>(this, "membership_id");
-    }
+        => AsReference("membership_id");
 
 }

@@ -19,7 +19,7 @@ public class GoogleBigtableAppProfileDataBoostIsolationReadOnlyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeBillingOwner is required")]
     public required TerraformValue<string> ComputeBillingOwner
     {
-        get => new TerraformReference<string>(this, "compute_billing_owner");
+        get => GetArgument<TerraformValue<string>>("compute_billing_owner");
         set => SetArgument("compute_billing_owner", value);
     }
 
@@ -43,7 +43,7 @@ public class GoogleBigtableAppProfileSingleClusterRoutingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowTransactionalWrites
     {
-        get => new TerraformReference<bool>(this, "allow_transactional_writes");
+        get => GetArgument<TerraformValue<bool>>("allow_transactional_writes");
         set => SetArgument("allow_transactional_writes", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleBigtableAppProfileSingleClusterRoutingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => new TerraformReference<string>(this, "cluster_id");
+        get => GetArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
@@ -77,7 +77,7 @@ public class GoogleBigtableAppProfileStandardIsolationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<string> Priority
     {
-        get => new TerraformReference<string>(this, "priority");
+        get => GetArgument<TerraformValue<string>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -100,7 +100,7 @@ public class GoogleBigtableAppProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleBigtableAppProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleBigtableAppProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -137,7 +137,7 @@ public partial class GoogleBigtableAppProfile(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppProfileId is required")]
     public required TerraformValue<string> AppProfileId
     {
-        get => new TerraformReference<string>(this, "app_profile_id");
+        get => GetArgument<TerraformValue<string>>("app_profile_id");
         set => SetArgument("app_profile_id", value);
     }
 
@@ -146,16 +146,16 @@ public partial class GoogleBigtableAppProfile(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -164,7 +164,7 @@ public partial class GoogleBigtableAppProfile(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? IgnoreWarnings
     {
-        get => new TerraformReference<bool>(this, "ignore_warnings");
+        get => GetArgument<TerraformValue<bool>>("ignore_warnings");
         set => SetArgument("ignore_warnings", value);
     }
 
@@ -173,7 +173,7 @@ public partial class GoogleBigtableAppProfile(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -182,7 +182,7 @@ public partial class GoogleBigtableAppProfile(string name) : TerraformResource("
     /// </summary>
     public TerraformList<string>? MultiClusterRoutingClusterIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "multi_cluster_routing_cluster_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("multi_cluster_routing_cluster_ids");
         set => SetArgument("multi_cluster_routing_cluster_ids", value);
     }
 
@@ -193,16 +193,16 @@ public partial class GoogleBigtableAppProfile(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? MultiClusterRoutingUseAny
     {
-        get => new TerraformReference<bool>(this, "multi_cluster_routing_use_any");
+        get => GetArgument<TerraformValue<bool>>("multi_cluster_routing_use_any");
         set => SetArgument("multi_cluster_routing_use_any", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -211,7 +211,7 @@ public partial class GoogleBigtableAppProfile(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? RowAffinity
     {
-        get => new TerraformReference<bool>(this, "row_affinity");
+        get => GetArgument<TerraformValue<bool>>("row_affinity");
         set => SetArgument("row_affinity", value);
     }
 
@@ -219,9 +219,7 @@ public partial class GoogleBigtableAppProfile(string name) : TerraformResource("
     /// The unique name of the requested app profile. Values are of the form &#39;projects/&amp;lt;project&amp;gt;/instances/&amp;lt;instance&amp;gt;/appProfiles/&amp;lt;appProfileId&amp;gt;&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// DataBoostIsolationReadOnly block (nesting mode: list).

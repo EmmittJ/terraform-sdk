@@ -19,7 +19,7 @@ public class AwsRamResourceShareDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsRamResourceShareDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -45,27 +45,27 @@ public partial class AwsRamResourceShareDataSource(string name) : TerraformDataS
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -75,7 +75,7 @@ public partial class AwsRamResourceShareDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceOwner is required")]
     public required TerraformValue<string> ResourceOwner
     {
-        get => new TerraformReference<string>(this, "resource_owner");
+        get => GetArgument<TerraformValue<string>>("resource_owner");
         set => SetArgument("resource_owner", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AwsRamResourceShareDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? ResourceShareStatus
     {
-        get => new TerraformReference<string>(this, "resource_share_status");
+        get => GetArgument<TerraformValue<string>>("resource_share_status");
         set => SetArgument("resource_share_status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -101,33 +101,25 @@ public partial class AwsRamResourceShareDataSource(string name) : TerraformDataS
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The owning_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwningAccountId
-    {
-        get => new TerraformReference<string>(this, "owning_account_id");
-    }
+        => AsReference("owning_account_id");
 
     /// <summary>
     /// The resource_arns attribute.
     /// </summary>
     public TerraformList<string> ResourceArns
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_arns").ResolveNodes(ctx));
-    }
+        => AsReference("resource_arns");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// Filter block (nesting mode: set).

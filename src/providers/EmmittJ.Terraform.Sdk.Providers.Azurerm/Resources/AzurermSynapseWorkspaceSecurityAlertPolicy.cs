@@ -18,7 +18,7 @@ public class AzurermSynapseWorkspaceSecurityAlertPolicyTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSynapseWorkspaceSecurityAlertPolicyTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSynapseWorkspaceSecurityAlertPolicyTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSynapseWorkspaceSecurityAlertPolicyTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermSynapseWorkspaceSecurityAlertPolicy(string name) : T
     /// </summary>
     public TerraformSet<string>? DisabledAlerts
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "disabled_alerts").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("disabled_alerts");
         set => SetArgument("disabled_alerts", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermSynapseWorkspaceSecurityAlertPolicy(string name) : T
     /// </summary>
     public TerraformValue<bool>? EmailAccountAdminsEnabled
     {
-        get => new TerraformReference<bool>(this, "email_account_admins_enabled");
+        get => GetArgument<TerraformValue<bool>>("email_account_admins_enabled");
         set => SetArgument("email_account_admins_enabled", value);
     }
 
@@ -81,16 +81,16 @@ public partial class AzurermSynapseWorkspaceSecurityAlertPolicy(string name) : T
     /// </summary>
     public TerraformSet<string>? EmailAddresses
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "email_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("email_addresses");
         set => SetArgument("email_addresses", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermSynapseWorkspaceSecurityAlertPolicy(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyState is required")]
     public required TerraformValue<string> PolicyState
     {
-        get => new TerraformReference<string>(this, "policy_state");
+        get => GetArgument<TerraformValue<string>>("policy_state");
         set => SetArgument("policy_state", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermSynapseWorkspaceSecurityAlertPolicy(string name) : T
     /// </summary>
     public TerraformValue<double>? RetentionDays
     {
-        get => new TerraformReference<double>(this, "retention_days");
+        get => GetArgument<TerraformValue<double>>("retention_days");
         set => SetArgument("retention_days", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermSynapseWorkspaceSecurityAlertPolicy(string name) : T
     /// </summary>
     public TerraformValue<string>? StorageAccountAccessKey
     {
-        get => new TerraformReference<string>(this, "storage_account_access_key");
+        get => GetArgument<TerraformValue<string>>("storage_account_access_key");
         set => SetArgument("storage_account_access_key", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzurermSynapseWorkspaceSecurityAlertPolicy(string name) : T
     /// </summary>
     public TerraformValue<string>? StorageEndpoint
     {
-        get => new TerraformReference<string>(this, "storage_endpoint");
+        get => GetArgument<TerraformValue<string>>("storage_endpoint");
         set => SetArgument("storage_endpoint", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AzurermSynapseWorkspaceSecurityAlertPolicy(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformValue<string> SynapseWorkspaceId
     {
-        get => new TerraformReference<string>(this, "synapse_workspace_id");
+        get => GetArgument<TerraformValue<string>>("synapse_workspace_id");
         set => SetArgument("synapse_workspace_id", value);
     }
 

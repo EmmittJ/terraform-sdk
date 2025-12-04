@@ -18,7 +18,7 @@ public class AzurermDnsCnameRecordDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermDnsCnameRecordDataSource(string name) : TerraformDat
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermDnsCnameRecordDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermDnsCnameRecordDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermDnsCnameRecordDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneName is required")]
     public required TerraformValue<string> ZoneName
     {
-        get => new TerraformReference<string>(this, "zone_name");
+        get => GetArgument<TerraformValue<string>>("zone_name");
         set => SetArgument("zone_name", value);
     }
 
@@ -74,41 +74,31 @@ public partial class AzurermDnsCnameRecordDataSource(string name) : TerraformDat
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-    {
-        get => new TerraformReference<string>(this, "fqdn");
-    }
+        => AsReference("fqdn");
 
     /// <summary>
     /// The record attribute.
     /// </summary>
     public TerraformValue<string> Record
-    {
-        get => new TerraformReference<string>(this, "record");
-    }
+        => AsReference("record");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The target_resource_id attribute.
     /// </summary>
     public TerraformValue<string> TargetResourceId
-    {
-        get => new TerraformReference<string>(this, "target_resource_id");
-    }
+        => AsReference("target_resource_id");
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
     public TerraformValue<double> Ttl
-    {
-        get => new TerraformReference<double>(this, "ttl");
-    }
+        => AsReference("ttl");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

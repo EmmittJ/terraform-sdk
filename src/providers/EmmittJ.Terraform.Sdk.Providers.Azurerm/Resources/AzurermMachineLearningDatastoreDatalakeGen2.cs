@@ -18,7 +18,7 @@ public class AzurermMachineLearningDatastoreDatalakeGen2TimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermMachineLearningDatastoreDatalakeGen2TimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermMachineLearningDatastoreDatalakeGen2TimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermMachineLearningDatastoreDatalakeGen2TimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermMachineLearningDatastoreDatalakeGen2(string name) : 
     /// </summary>
     public TerraformValue<string>? AuthorityUrl
     {
-        get => new TerraformReference<string>(this, "authority_url");
+        get => GetArgument<TerraformValue<string>>("authority_url");
         set => SetArgument("authority_url", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermMachineLearningDatastoreDatalakeGen2(string name) : 
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermMachineLearningDatastoreDatalakeGen2(string name) : 
     /// </summary>
     public TerraformValue<string>? ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -90,16 +90,16 @@ public partial class AzurermMachineLearningDatastoreDatalakeGen2(string name) : 
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermMachineLearningDatastoreDatalakeGen2(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermMachineLearningDatastoreDatalakeGen2(string name) : 
     /// </summary>
     public TerraformValue<string>? ServiceDataIdentity
     {
-        get => new TerraformReference<string>(this, "service_data_identity");
+        get => GetArgument<TerraformValue<string>>("service_data_identity");
         set => SetArgument("service_data_identity", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermMachineLearningDatastoreDatalakeGen2(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerId is required")]
     public required TerraformValue<string> StorageContainerId
     {
-        get => new TerraformReference<string>(this, "storage_container_id");
+        get => GetArgument<TerraformValue<string>>("storage_container_id");
         set => SetArgument("storage_container_id", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AzurermMachineLearningDatastoreDatalakeGen2(string name) : 
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AzurermMachineLearningDatastoreDatalakeGen2(string name) : 
     /// </summary>
     public TerraformValue<string>? TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AzurermMachineLearningDatastoreDatalakeGen2(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => new TerraformReference<string>(this, "workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -164,9 +164,7 @@ public partial class AzurermMachineLearningDatastoreDatalakeGen2(string name) : 
     /// The is_default attribute.
     /// </summary>
     public TerraformValue<bool> IsDefault
-    {
-        get => new TerraformReference<bool>(this, "is_default");
-    }
+        => AsReference("is_default");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class AzurermSpringCloudApiPortalSsoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSpringCloudApiPortalSsoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSpringCloudApiPortalSsoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? IssuerUri
     {
-        get => new TerraformReference<string>(this, "issuer_uri");
+        get => GetArgument<TerraformValue<string>>("issuer_uri");
         set => SetArgument("issuer_uri", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSpringCloudApiPortalSsoBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Scope
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "scope").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermSpringCloudApiPortalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermSpringCloudApiPortalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermSpringCloudApiPortalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermSpringCloudApiPortalTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermSpringCloudApiPortal(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool>? ApiTryOutEnabled
     {
-        get => new TerraformReference<bool>(this, "api_try_out_enabled");
+        get => GetArgument<TerraformValue<bool>>("api_try_out_enabled");
         set => SetArgument("api_try_out_enabled", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermSpringCloudApiPortal(string name) : TerraformResourc
     /// </summary>
     public TerraformSet<string>? GatewayIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "gateway_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("gateway_ids");
         set => SetArgument("gateway_ids", value);
     }
 
@@ -131,16 +131,16 @@ public partial class AzurermSpringCloudApiPortal(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool>? HttpsOnlyEnabled
     {
-        get => new TerraformReference<bool>(this, "https_only_enabled");
+        get => GetArgument<TerraformValue<bool>>("https_only_enabled");
         set => SetArgument("https_only_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -149,7 +149,7 @@ public partial class AzurermSpringCloudApiPortal(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double>? InstanceCount
     {
-        get => new TerraformReference<double>(this, "instance_count");
+        get => GetArgument<TerraformValue<double>>("instance_count");
         set => SetArgument("instance_count", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AzurermSpringCloudApiPortal(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -168,7 +168,7 @@ public partial class AzurermSpringCloudApiPortal(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -178,7 +178,7 @@ public partial class AzurermSpringCloudApiPortal(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformValue<string> SpringCloudServiceId
     {
-        get => new TerraformReference<string>(this, "spring_cloud_service_id");
+        get => GetArgument<TerraformValue<string>>("spring_cloud_service_id");
         set => SetArgument("spring_cloud_service_id", value);
     }
 
@@ -186,9 +186,7 @@ public partial class AzurermSpringCloudApiPortal(string name) : TerraformResourc
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-    {
-        get => new TerraformReference<string>(this, "url");
-    }
+        => AsReference("url");
 
     /// <summary>
     /// Sso block (nesting mode: list).

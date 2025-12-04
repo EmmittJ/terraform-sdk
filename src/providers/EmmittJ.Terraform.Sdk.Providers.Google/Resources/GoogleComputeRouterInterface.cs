@@ -18,7 +18,7 @@ public class GoogleComputeRouterInterfaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeRouterInterfaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -43,9 +43,9 @@ public partial class GoogleComputeRouterInterface(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -54,25 +54,25 @@ public partial class GoogleComputeRouterInterface(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? InterconnectAttachment
     {
-        get => new TerraformReference<string>(this, "interconnect_attachment");
+        get => GetArgument<TerraformValue<string>>("interconnect_attachment");
         set => SetArgument("interconnect_attachment", value);
     }
 
     /// <summary>
     /// The IP address and range of the interface. The IP range must be in the RFC3927 link-local IP space. Changing this forces a new interface to be created.
     /// </summary>
-    public TerraformValue<string> IpRange
+    public TerraformValue<string>? IpRange
     {
-        get => new TerraformReference<string>(this, "ip_range");
+        get => GetArgument<TerraformValue<string>>("ip_range");
         set => SetArgument("ip_range", value);
     }
 
     /// <summary>
     /// IP version of this interface.
     /// </summary>
-    public TerraformValue<string> IpVersion
+    public TerraformValue<string>? IpVersion
     {
-        get => new TerraformReference<string>(this, "ip_version");
+        get => GetArgument<TerraformValue<string>>("ip_version");
         set => SetArgument("ip_version", value);
     }
 
@@ -82,7 +82,7 @@ public partial class GoogleComputeRouterInterface(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -91,34 +91,34 @@ public partial class GoogleComputeRouterInterface(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? PrivateIpAddress
     {
-        get => new TerraformReference<string>(this, "private_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_ip_address");
         set => SetArgument("private_ip_address", value);
     }
 
     /// <summary>
     /// The ID of the project in which this interface&#39;s router belongs. If it is not provided, the provider project is used. Changing this forces a new interface to be created.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The name of the interface that is redundant to this interface. Changing this forces a new interface to be created.
     /// </summary>
-    public TerraformValue<string> RedundantInterface
+    public TerraformValue<string>? RedundantInterface
     {
-        get => new TerraformReference<string>(this, "redundant_interface");
+        get => GetArgument<TerraformValue<string>>("redundant_interface");
         set => SetArgument("redundant_interface", value);
     }
 
     /// <summary>
     /// The region this interface&#39;s router sits in. If not specified, the project region will be used. Changing this forces a new interface to be created.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -128,7 +128,7 @@ public partial class GoogleComputeRouterInterface(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
     public required TerraformValue<string> Router
     {
-        get => new TerraformReference<string>(this, "router");
+        get => GetArgument<TerraformValue<string>>("router");
         set => SetArgument("router", value);
     }
 
@@ -137,7 +137,7 @@ public partial class GoogleComputeRouterInterface(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Subnetwork
     {
-        get => new TerraformReference<string>(this, "subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -146,7 +146,7 @@ public partial class GoogleComputeRouterInterface(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? VpnTunnel
     {
-        get => new TerraformReference<string>(this, "vpn_tunnel");
+        get => GetArgument<TerraformValue<string>>("vpn_tunnel");
         set => SetArgument("vpn_tunnel", value);
     }
 

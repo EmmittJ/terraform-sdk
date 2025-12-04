@@ -18,7 +18,7 @@ public class GoogleComputeRouterBgpBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AdvertiseMode
     {
-        get => new TerraformReference<string>(this, "advertise_mode");
+        get => GetArgument<TerraformValue<string>>("advertise_mode");
         set => SetArgument("advertise_mode", value);
     }
 
@@ -33,7 +33,7 @@ public class GoogleComputeRouterBgpBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AdvertisedGroups
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "advertised_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("advertised_groups");
         set => SetArgument("advertised_groups", value);
     }
 
@@ -46,7 +46,7 @@ public class GoogleComputeRouterBgpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asn is required")]
     public required TerraformValue<double> Asn
     {
-        get => new TerraformReference<double>(this, "asn");
+        get => GetArgument<TerraformValue<double>>("asn");
         set => SetArgument("asn", value);
     }
 
@@ -57,9 +57,9 @@ public class GoogleComputeRouterBgpBlock : TerraformBlock
     /// not overlap with any IPv4 BGP session ranges. Other vendors commonly
     /// call this router ID.
     /// </summary>
-    public TerraformValue<string> IdentifierRange
+    public TerraformValue<string>? IdentifierRange
     {
-        get => new TerraformReference<string>(this, "identifier_range");
+        get => GetArgument<TerraformValue<string>>("identifier_range");
         set => SetArgument("identifier_range", value);
     }
 
@@ -77,7 +77,7 @@ public class GoogleComputeRouterBgpBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? KeepaliveInterval
     {
-        get => new TerraformReference<double>(this, "keepalive_interval");
+        get => GetArgument<TerraformValue<double>>("keepalive_interval");
         set => SetArgument("keepalive_interval", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleComputeRouterBgpBlockAdvertisedIpRangesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -119,7 +119,7 @@ public class GoogleComputeRouterBgpBlockAdvertisedIpRangesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Range is required")]
     public required TerraformValue<string> Range
     {
-        get => new TerraformReference<string>(this, "range");
+        get => GetArgument<TerraformValue<string>>("range");
         set => SetArgument("range", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleComputeRouterMd5AuthenticationKeysBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -154,7 +154,7 @@ public class GoogleComputeRouterMd5AuthenticationKeysBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -179,7 +179,7 @@ public class GoogleComputeRouterParamsAttributeBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? ResourceManagerTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "resource_manager_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("resource_manager_tags");
         set => SetArgument("resource_manager_tags", value);
     }
 
@@ -202,7 +202,7 @@ public class GoogleComputeRouterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -211,7 +211,7 @@ public class GoogleComputeRouterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -220,7 +220,7 @@ public class GoogleComputeRouterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -238,7 +238,7 @@ public partial class GoogleComputeRouter(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -248,16 +248,16 @@ public partial class GoogleComputeRouter(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<bool>? EncryptedInterconnectRouter
     {
-        get => new TerraformReference<bool>(this, "encrypted_interconnect_router");
+        get => GetArgument<TerraformValue<bool>>("encrypted_interconnect_router");
         set => SetArgument("encrypted_interconnect_router", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -272,7 +272,7 @@ public partial class GoogleComputeRouter(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -281,25 +281,25 @@ public partial class GoogleComputeRouter(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Region where the router resides.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -307,17 +307,13 @@ public partial class GoogleComputeRouter(string name) : TerraformResource("googl
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Bgp block (nesting mode: list).

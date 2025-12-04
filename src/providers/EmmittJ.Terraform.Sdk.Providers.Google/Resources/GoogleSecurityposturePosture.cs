@@ -18,7 +18,7 @@ public class GoogleSecurityposturePosturePolicySetsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleSecurityposturePosturePolicySetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicySetId is required")]
     public required TerraformValue<string> PolicySetId
     {
-        get => new TerraformReference<string>(this, "policy_set_id");
+        get => GetArgument<TerraformValue<string>>("policy_set_id");
         set => SetArgument("policy_set_id", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -72,7 +72,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     public required TerraformValue<string> PolicyId
     {
-        get => new TerraformReference<string>(this, "policy_id");
+        get => GetArgument<TerraformValue<string>>("policy_id");
         set => SetArgument("policy_id", value);
     }
 
@@ -116,7 +116,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockComplianceS
     /// </summary>
     public TerraformValue<string>? Control
     {
-        get => new TerraformReference<string>(this, "control");
+        get => GetArgument<TerraformValue<string>>("control");
         set => SetArgument("control", value);
     }
 
@@ -125,7 +125,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockComplianceS
     /// </summary>
     public TerraformValue<string>? Standard
     {
-        get => new TerraformReference<string>(this, "standard");
+        get => GetArgument<TerraformValue<string>>("standard");
         set => SetArgument("standard", value);
     }
 
@@ -201,7 +201,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CannedConstraintId is required")]
     public required TerraformValue<string> CannedConstraintId
     {
-        get => new TerraformReference<string>(this, "canned_constraint_id");
+        get => GetArgument<TerraformValue<string>>("canned_constraint_id");
         set => SetArgument("canned_constraint_id", value);
     }
 
@@ -235,7 +235,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<bool>? AllowAll
     {
-        get => new TerraformReference<bool>(this, "allow_all");
+        get => GetArgument<TerraformValue<bool>>("allow_all");
         set => SetArgument("allow_all", value);
     }
 
@@ -244,7 +244,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<bool>? DenyAll
     {
-        get => new TerraformReference<bool>(this, "deny_all");
+        get => GetArgument<TerraformValue<bool>>("deny_all");
         set => SetArgument("deny_all", value);
     }
 
@@ -254,7 +254,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<bool>? Enforce
     {
-        get => new TerraformReference<bool>(this, "enforce");
+        get => GetArgument<TerraformValue<bool>>("enforce");
         set => SetArgument("enforce", value);
     }
 
@@ -296,7 +296,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -306,7 +306,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -315,7 +315,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -324,7 +324,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -346,7 +346,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformList<string>? AllowedValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_values");
         set => SetArgument("allowed_values", value);
     }
 
@@ -355,7 +355,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformList<string>? DeniedValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "denied_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("denied_values");
         set => SetArgument("denied_values", value);
     }
 
@@ -413,7 +413,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionType is required")]
     public required TerraformValue<string> ActionType
     {
-        get => new TerraformReference<string>(this, "action_type");
+        get => GetArgument<TerraformValue<string>>("action_type");
         set => SetArgument("action_type", value);
     }
 
@@ -423,7 +423,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Condition is required")]
     public required TerraformValue<string> Condition
     {
-        get => new TerraformReference<string>(this, "condition");
+        get => GetArgument<TerraformValue<string>>("condition");
         set => SetArgument("condition", value);
     }
 
@@ -432,7 +432,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -441,7 +441,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -451,7 +451,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MethodTypes is required")]
     public TerraformList<string>? MethodTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "method_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("method_types");
         set => SetArgument("method_types", value);
     }
 
@@ -461,7 +461,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -471,7 +471,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypes is required")]
     public TerraformList<string>? ResourceTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("resource_types");
         set => SetArgument("resource_types", value);
     }
 
@@ -493,7 +493,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<bool>? AllowAll
     {
-        get => new TerraformReference<bool>(this, "allow_all");
+        get => GetArgument<TerraformValue<bool>>("allow_all");
         set => SetArgument("allow_all", value);
     }
 
@@ -502,7 +502,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<bool>? DenyAll
     {
-        get => new TerraformReference<bool>(this, "deny_all");
+        get => GetArgument<TerraformValue<bool>>("deny_all");
         set => SetArgument("deny_all", value);
     }
 
@@ -512,7 +512,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<bool>? Enforce
     {
-        get => new TerraformReference<bool>(this, "enforce");
+        get => GetArgument<TerraformValue<bool>>("enforce");
         set => SetArgument("enforce", value);
     }
 
@@ -554,7 +554,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -564,7 +564,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -573,7 +573,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -582,7 +582,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -604,7 +604,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformList<string>? AllowedValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_values");
         set => SetArgument("allowed_values", value);
     }
 
@@ -613,7 +613,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformList<string>? DeniedValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "denied_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("denied_values");
         set => SetArgument("denied_values", value);
     }
 
@@ -637,7 +637,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -645,16 +645,14 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// A server generated id of custom module.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The state of enablement for the module at its level of the resource hierarchy. Possible values: [&amp;quot;ENABLEMENT_STATE_UNSPECIFIED&amp;quot;, &amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
     public TerraformValue<string>? ModuleEnablementState
     {
-        get => new TerraformReference<string>(this, "module_enablement_state");
+        get => GetArgument<TerraformValue<string>>("module_enablement_state");
         set => SetArgument("module_enablement_state", value);
     }
 
@@ -690,7 +688,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -700,7 +698,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<string>? Recommendation
     {
-        get => new TerraformReference<string>(this, "recommendation");
+        get => GetArgument<TerraformValue<string>>("recommendation");
         set => SetArgument("recommendation", value);
     }
 
@@ -710,7 +708,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Severity is required")]
     public required TerraformValue<string> Severity
     {
-        get => new TerraformReference<string>(this, "severity");
+        get => GetArgument<TerraformValue<string>>("severity");
         set => SetArgument("severity", value);
     }
 
@@ -791,7 +789,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -823,7 +821,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -833,7 +831,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -842,7 +840,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -851,7 +849,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -873,7 +871,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -883,7 +881,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -892,7 +890,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -901,7 +899,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -924,7 +922,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypes is required")]
     public TerraformList<string>? ResourceTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("resource_types");
         set => SetArgument("resource_types", value);
     }
 
@@ -946,7 +944,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     /// </summary>
     public TerraformValue<string>? ModuleEnablementState
     {
-        get => new TerraformReference<string>(this, "module_enablement_state");
+        get => GetArgument<TerraformValue<string>>("module_enablement_state");
         set => SetArgument("module_enablement_state", value);
     }
 
@@ -956,7 +954,7 @@ public class GoogleSecurityposturePosturePolicySetsBlockPoliciesBlockConstraintB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModuleName is required")]
     public required TerraformValue<string> ModuleName
     {
-        get => new TerraformReference<string>(this, "module_name");
+        get => GetArgument<TerraformValue<string>>("module_name");
         set => SetArgument("module_name", value);
     }
 
@@ -979,7 +977,7 @@ public class GoogleSecurityposturePostureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -988,7 +986,7 @@ public class GoogleSecurityposturePostureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -997,7 +995,7 @@ public class GoogleSecurityposturePostureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1015,16 +1013,16 @@ public partial class GoogleSecurityposturePosture(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1034,7 +1032,7 @@ public partial class GoogleSecurityposturePosture(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1044,7 +1042,7 @@ public partial class GoogleSecurityposturePosture(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -1054,7 +1052,7 @@ public partial class GoogleSecurityposturePosture(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureId is required")]
     public required TerraformValue<string> PostureId
     {
-        get => new TerraformReference<string>(this, "posture_id");
+        get => GetArgument<TerraformValue<string>>("posture_id");
         set => SetArgument("posture_id", value);
     }
 
@@ -1065,7 +1063,7 @@ public partial class GoogleSecurityposturePosture(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformValue<string> State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -1073,49 +1071,37 @@ public partial class GoogleSecurityposturePosture(string name) : TerraformResour
     /// Time the Posture was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// For Resource freshness validation (https://google.aip.dev/154)
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Name of the posture.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// If set, there are currently changes in flight to the posture.
     /// </summary>
     public TerraformValue<bool> Reconciling
-    {
-        get => new TerraformReference<bool>(this, "reconciling");
-    }
+        => AsReference("reconciling");
 
     /// <summary>
     /// Revision_id of the posture.
     /// </summary>
     public TerraformValue<string> RevisionId
-    {
-        get => new TerraformReference<string>(this, "revision_id");
-    }
+        => AsReference("revision_id");
 
     /// <summary>
     /// Time the Posture was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// PolicySets block (nesting mode: list).

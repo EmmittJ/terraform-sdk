@@ -18,7 +18,7 @@ public class AwsNotificationsNotificationHubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsNotificationsNotificationHubTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AwsNotificationsNotificationHub(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationHubRegion is required")]
     public required TerraformValue<string> NotificationHubRegion
     {
-        get => new TerraformReference<string>(this, "notification_hub_region");
+        get => GetArgument<TerraformValue<string>>("notification_hub_region");
         set => SetArgument("notification_hub_region", value);
     }
 

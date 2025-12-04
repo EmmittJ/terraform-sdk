@@ -18,7 +18,7 @@ public class GoogleComputeRegionSslPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeRegionSslPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleComputeRegionSslPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,7 +61,7 @@ public partial class GoogleComputeRegionSslPolicy(string name) : TerraformResour
     /// </summary>
     public TerraformSet<string>? CustomFeatures
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "custom_features").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("custom_features");
         set => SetArgument("custom_features", value);
     }
 
@@ -70,16 +70,16 @@ public partial class GoogleComputeRegionSslPolicy(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -89,7 +89,7 @@ public partial class GoogleComputeRegionSslPolicy(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? MinTlsVersion
     {
-        get => new TerraformReference<string>(this, "min_tls_version");
+        get => GetArgument<TerraformValue<string>>("min_tls_version");
         set => SetArgument("min_tls_version", value);
     }
 
@@ -105,7 +105,7 @@ public partial class GoogleComputeRegionSslPolicy(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -121,25 +121,25 @@ public partial class GoogleComputeRegionSslPolicy(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Profile
     {
-        get => new TerraformReference<string>(this, "profile");
+        get => GetArgument<TerraformValue<string>>("profile");
         set => SetArgument("profile", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The region where the regional SSL policy resides.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -147,34 +147,26 @@ public partial class GoogleComputeRegionSslPolicy(string name) : TerraformResour
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// The list of features enabled in the SSL policy.
     /// </summary>
     public TerraformSet<string> EnabledFeatures
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "enabled_features").ResolveNodes(ctx));
-    }
+        => AsReference("enabled_features");
 
     /// <summary>
     /// Fingerprint of this resource. A hash of the contents stored in this
     /// object. This field is used in optimistic locking.
     /// </summary>
     public TerraformValue<string> Fingerprint
-    {
-        get => new TerraformReference<string>(this, "fingerprint");
-    }
+        => AsReference("fingerprint");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

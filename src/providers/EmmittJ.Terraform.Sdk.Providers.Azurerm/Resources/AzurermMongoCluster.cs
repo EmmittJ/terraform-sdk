@@ -18,7 +18,7 @@ public class AzurermMongoClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermMongoClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermMongoClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermMongoClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermMongoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string>? AdministratorPassword
     {
-        get => new TerraformReference<string>(this, "administrator_password");
+        get => GetArgument<TerraformValue<string>>("administrator_password");
         set => SetArgument("administrator_password", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermMongoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string>? AdministratorUsername
     {
-        get => new TerraformReference<string>(this, "administrator_username");
+        get => GetArgument<TerraformValue<string>>("administrator_username");
         set => SetArgument("administrator_username", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermMongoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string>? ComputeTier
     {
-        get => new TerraformReference<string>(this, "compute_tier");
+        get => GetArgument<TerraformValue<string>>("compute_tier");
         set => SetArgument("compute_tier", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AzurermMongoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string>? CreateMode
     {
-        get => new TerraformReference<string>(this, "create_mode");
+        get => GetArgument<TerraformValue<string>>("create_mode");
         set => SetArgument("create_mode", value);
     }
 
@@ -99,16 +99,16 @@ public partial class AzurermMongoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string>? HighAvailabilityMode
     {
-        get => new TerraformReference<string>(this, "high_availability_mode");
+        get => GetArgument<TerraformValue<string>>("high_availability_mode");
         set => SetArgument("high_availability_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermMongoCluster(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermMongoCluster(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AzurermMongoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformList<string>? PreviewFeatures
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "preview_features").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("preview_features");
         set => SetArgument("preview_features", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AzurermMongoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string>? PublicNetworkAccess
     {
-        get => new TerraformReference<string>(this, "public_network_access");
+        get => GetArgument<TerraformValue<string>>("public_network_access");
         set => SetArgument("public_network_access", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AzurermMongoCluster(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AzurermMongoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<double>? ShardCount
     {
-        get => new TerraformReference<double>(this, "shard_count");
+        get => GetArgument<TerraformValue<double>>("shard_count");
         set => SetArgument("shard_count", value);
     }
 
@@ -174,7 +174,7 @@ public partial class AzurermMongoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string>? SourceLocation
     {
-        get => new TerraformReference<string>(this, "source_location");
+        get => GetArgument<TerraformValue<string>>("source_location");
         set => SetArgument("source_location", value);
     }
 
@@ -183,7 +183,7 @@ public partial class AzurermMongoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string>? SourceServerId
     {
-        get => new TerraformReference<string>(this, "source_server_id");
+        get => GetArgument<TerraformValue<string>>("source_server_id");
         set => SetArgument("source_server_id", value);
     }
 
@@ -192,7 +192,7 @@ public partial class AzurermMongoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<double>? StorageSizeInGb
     {
-        get => new TerraformReference<double>(this, "storage_size_in_gb");
+        get => GetArgument<TerraformValue<double>>("storage_size_in_gb");
         set => SetArgument("storage_size_in_gb", value);
     }
 
@@ -201,7 +201,7 @@ public partial class AzurermMongoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -210,7 +210,7 @@ public partial class AzurermMongoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -218,9 +218,7 @@ public partial class AzurermMongoCluster(string name) : TerraformResource("azure
     /// The connection_strings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConnectionStrings
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "connection_strings").ResolveNodes(ctx));
-    }
+        => AsReference("connection_strings");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

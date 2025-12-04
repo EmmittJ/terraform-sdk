@@ -19,7 +19,7 @@ public class AwsEcsTaskDefinitionEphemeralStorageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGib is required")]
     public required TerraformValue<double> SizeInGib
     {
-        get => new TerraformReference<double>(this, "size_in_gib");
+        get => GetArgument<TerraformValue<double>>("size_in_gib");
         set => SetArgument("size_in_gib", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsEcsTaskDefinitionPlacementConstraintsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsEcsTaskDefinitionPlacementConstraintsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsEcsTaskDefinitionProxyConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformValue<string> ContainerName
     {
-        get => new TerraformReference<string>(this, "container_name");
+        get => GetArgument<TerraformValue<string>>("container_name");
         set => SetArgument("container_name", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsEcsTaskDefinitionProxyConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsEcsTaskDefinitionProxyConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsEcsTaskDefinitionRuntimePlatformBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CpuArchitecture
     {
-        get => new TerraformReference<string>(this, "cpu_architecture");
+        get => GetArgument<TerraformValue<string>>("cpu_architecture");
         set => SetArgument("cpu_architecture", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsEcsTaskDefinitionRuntimePlatformBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OperatingSystemFamily
     {
-        get => new TerraformReference<string>(this, "operating_system_family");
+        get => GetArgument<TerraformValue<string>>("operating_system_family");
         set => SetArgument("operating_system_family", value);
     }
 
@@ -147,9 +147,9 @@ public class AwsEcsTaskDefinitionVolumeBlock : TerraformBlock
     /// <summary>
     /// The configure_at_launch attribute.
     /// </summary>
-    public TerraformValue<bool> ConfigureAtLaunch
+    public TerraformValue<bool>? ConfigureAtLaunch
     {
-        get => new TerraformReference<bool>(this, "configure_at_launch");
+        get => GetArgument<TerraformValue<bool>>("configure_at_launch");
         set => SetArgument("configure_at_launch", value);
     }
 
@@ -158,7 +158,7 @@ public class AwsEcsTaskDefinitionVolumeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? HostPath
     {
-        get => new TerraformReference<string>(this, "host_path");
+        get => GetArgument<TerraformValue<string>>("host_path");
         set => SetArgument("host_path", value);
     }
 
@@ -168,7 +168,7 @@ public class AwsEcsTaskDefinitionVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -220,16 +220,16 @@ public class AwsEcsTaskDefinitionVolumeBlockDockerVolumeConfigurationBlock : Ter
     /// </summary>
     public TerraformValue<bool>? Autoprovision
     {
-        get => new TerraformReference<bool>(this, "autoprovision");
+        get => GetArgument<TerraformValue<bool>>("autoprovision");
         set => SetArgument("autoprovision", value);
     }
 
     /// <summary>
     /// The driver attribute.
     /// </summary>
-    public TerraformValue<string> Driver
+    public TerraformValue<string>? Driver
     {
-        get => new TerraformReference<string>(this, "driver");
+        get => GetArgument<TerraformValue<string>>("driver");
         set => SetArgument("driver", value);
     }
 
@@ -238,7 +238,7 @@ public class AwsEcsTaskDefinitionVolumeBlockDockerVolumeConfigurationBlock : Ter
     /// </summary>
     public TerraformMap<string>? DriverOpts
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "driver_opts").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("driver_opts");
         set => SetArgument("driver_opts", value);
     }
 
@@ -247,16 +247,16 @@ public class AwsEcsTaskDefinitionVolumeBlockDockerVolumeConfigurationBlock : Ter
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformValue<string> Scope
+    public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -279,7 +279,7 @@ public class AwsEcsTaskDefinitionVolumeBlockEfsVolumeConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformValue<string> FileSystemId
     {
-        get => new TerraformReference<string>(this, "file_system_id");
+        get => GetArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
@@ -288,7 +288,7 @@ public class AwsEcsTaskDefinitionVolumeBlockEfsVolumeConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? RootDirectory
     {
-        get => new TerraformReference<string>(this, "root_directory");
+        get => GetArgument<TerraformValue<string>>("root_directory");
         set => SetArgument("root_directory", value);
     }
 
@@ -297,7 +297,7 @@ public class AwsEcsTaskDefinitionVolumeBlockEfsVolumeConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? TransitEncryption
     {
-        get => new TerraformReference<string>(this, "transit_encryption");
+        get => GetArgument<TerraformValue<string>>("transit_encryption");
         set => SetArgument("transit_encryption", value);
     }
 
@@ -306,7 +306,7 @@ public class AwsEcsTaskDefinitionVolumeBlockEfsVolumeConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<double>? TransitEncryptionPort
     {
-        get => new TerraformReference<double>(this, "transit_encryption_port");
+        get => GetArgument<TerraformValue<double>>("transit_encryption_port");
         set => SetArgument("transit_encryption_port", value);
     }
 
@@ -338,7 +338,7 @@ public class AwsEcsTaskDefinitionVolumeBlockEfsVolumeConfigurationBlockAuthoriza
     /// </summary>
     public TerraformValue<string>? AccessPointId
     {
-        get => new TerraformReference<string>(this, "access_point_id");
+        get => GetArgument<TerraformValue<string>>("access_point_id");
         set => SetArgument("access_point_id", value);
     }
 
@@ -347,7 +347,7 @@ public class AwsEcsTaskDefinitionVolumeBlockEfsVolumeConfigurationBlockAuthoriza
     /// </summary>
     public TerraformValue<string>? Iam
     {
-        get => new TerraformReference<string>(this, "iam");
+        get => GetArgument<TerraformValue<string>>("iam");
         set => SetArgument("iam", value);
     }
 
@@ -370,7 +370,7 @@ public class AwsEcsTaskDefinitionVolumeBlockFsxWindowsFileServerVolumeConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformValue<string> FileSystemId
     {
-        get => new TerraformReference<string>(this, "file_system_id");
+        get => GetArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
@@ -380,7 +380,7 @@ public class AwsEcsTaskDefinitionVolumeBlockFsxWindowsFileServerVolumeConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootDirectory is required")]
     public required TerraformValue<string> RootDirectory
     {
-        get => new TerraformReference<string>(this, "root_directory");
+        get => GetArgument<TerraformValue<string>>("root_directory");
         set => SetArgument("root_directory", value);
     }
 
@@ -416,7 +416,7 @@ public class AwsEcsTaskDefinitionVolumeBlockFsxWindowsFileServerVolumeConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CredentialsParameter is required")]
     public required TerraformValue<string> CredentialsParameter
     {
-        get => new TerraformReference<string>(this, "credentials_parameter");
+        get => GetArgument<TerraformValue<string>>("credentials_parameter");
         set => SetArgument("credentials_parameter", value);
     }
 
@@ -426,7 +426,7 @@ public class AwsEcsTaskDefinitionVolumeBlockFsxWindowsFileServerVolumeConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => new TerraformReference<string>(this, "domain");
+        get => GetArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
@@ -445,7 +445,7 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerDefinitions is required")]
     public required TerraformValue<string> ContainerDefinitions
     {
-        get => new TerraformReference<string>(this, "container_definitions");
+        get => GetArgument<TerraformValue<string>>("container_definitions");
         set => SetArgument("container_definitions", value);
     }
 
@@ -454,16 +454,16 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Cpu
     {
-        get => new TerraformReference<string>(this, "cpu");
+        get => GetArgument<TerraformValue<string>>("cpu");
         set => SetArgument("cpu", value);
     }
 
     /// <summary>
     /// The enable_fault_injection attribute.
     /// </summary>
-    public TerraformValue<bool> EnableFaultInjection
+    public TerraformValue<bool>? EnableFaultInjection
     {
-        get => new TerraformReference<bool>(this, "enable_fault_injection");
+        get => GetArgument<TerraformValue<bool>>("enable_fault_injection");
         set => SetArgument("enable_fault_injection", value);
     }
 
@@ -472,7 +472,7 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? ExecutionRoleArn
     {
-        get => new TerraformReference<string>(this, "execution_role_arn");
+        get => GetArgument<TerraformValue<string>>("execution_role_arn");
         set => SetArgument("execution_role_arn", value);
     }
 
@@ -482,16 +482,16 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
     public required TerraformValue<string> Family
     {
-        get => new TerraformReference<string>(this, "family");
+        get => GetArgument<TerraformValue<string>>("family");
         set => SetArgument("family", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -500,7 +500,7 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? IpcMode
     {
-        get => new TerraformReference<string>(this, "ipc_mode");
+        get => GetArgument<TerraformValue<string>>("ipc_mode");
         set => SetArgument("ipc_mode", value);
     }
 
@@ -509,16 +509,16 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Memory
     {
-        get => new TerraformReference<string>(this, "memory");
+        get => GetArgument<TerraformValue<string>>("memory");
         set => SetArgument("memory", value);
     }
 
     /// <summary>
     /// The network_mode attribute.
     /// </summary>
-    public TerraformValue<string> NetworkMode
+    public TerraformValue<string>? NetworkMode
     {
-        get => new TerraformReference<string>(this, "network_mode");
+        get => GetArgument<TerraformValue<string>>("network_mode");
         set => SetArgument("network_mode", value);
     }
 
@@ -527,16 +527,16 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? PidMode
     {
-        get => new TerraformReference<string>(this, "pid_mode");
+        get => GetArgument<TerraformValue<string>>("pid_mode");
         set => SetArgument("pid_mode", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -545,7 +545,7 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformSet<string>? RequiresCompatibilities
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "requires_compatibilities").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("requires_compatibilities");
         set => SetArgument("requires_compatibilities", value);
     }
 
@@ -554,7 +554,7 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<bool>? SkipDestroy
     {
-        get => new TerraformReference<bool>(this, "skip_destroy");
+        get => GetArgument<TerraformValue<bool>>("skip_destroy");
         set => SetArgument("skip_destroy", value);
     }
 
@@ -563,16 +563,16 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -581,7 +581,7 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? TaskRoleArn
     {
-        get => new TerraformReference<string>(this, "task_role_arn");
+        get => GetArgument<TerraformValue<string>>("task_role_arn");
         set => SetArgument("task_role_arn", value);
     }
 
@@ -590,7 +590,7 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<bool>? TrackLatest
     {
-        get => new TerraformReference<bool>(this, "track_latest");
+        get => GetArgument<TerraformValue<bool>>("track_latest");
         set => SetArgument("track_latest", value);
     }
 
@@ -598,25 +598,19 @@ public partial class AwsEcsTaskDefinition(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The arn_without_revision attribute.
     /// </summary>
     public TerraformValue<string> ArnWithoutRevision
-    {
-        get => new TerraformReference<string>(this, "arn_without_revision");
-    }
+        => AsReference("arn_without_revision");
 
     /// <summary>
     /// The revision attribute.
     /// </summary>
     public TerraformValue<double> Revision
-    {
-        get => new TerraformReference<double>(this, "revision");
-    }
+        => AsReference("revision");
 
     /// <summary>
     /// EphemeralStorage block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AwsLaunchTemplateBlockDeviceMappingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DeviceName
     {
-        get => new TerraformReference<string>(this, "device_name");
+        get => GetArgument<TerraformValue<string>>("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsLaunchTemplateBlockDeviceMappingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? NoDevice
     {
-        get => new TerraformReference<string>(this, "no_device");
+        get => GetArgument<TerraformValue<string>>("no_device");
         set => SetArgument("no_device", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsLaunchTemplateBlockDeviceMappingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? VirtualName
     {
-        get => new TerraformReference<string>(this, "virtual_name");
+        get => GetArgument<TerraformValue<string>>("virtual_name");
         set => SetArgument("virtual_name", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsLaunchTemplateBlockDeviceMappingsBlockEbsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DeleteOnTermination
     {
-        get => new TerraformReference<string>(this, "delete_on_termination");
+        get => GetArgument<TerraformValue<string>>("delete_on_termination");
         set => SetArgument("delete_on_termination", value);
     }
 
@@ -77,16 +77,16 @@ public class AwsLaunchTemplateBlockDeviceMappingsBlockEbsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Encrypted
     {
-        get => new TerraformReference<string>(this, "encrypted");
+        get => GetArgument<TerraformValue<string>>("encrypted");
         set => SetArgument("encrypted", value);
     }
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    public TerraformValue<double> Iops
+    public TerraformValue<double>? Iops
     {
-        get => new TerraformReference<double>(this, "iops");
+        get => GetArgument<TerraformValue<double>>("iops");
         set => SetArgument("iops", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsLaunchTemplateBlockDeviceMappingsBlockEbsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -104,43 +104,43 @@ public class AwsLaunchTemplateBlockDeviceMappingsBlockEbsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SnapshotId
     {
-        get => new TerraformReference<string>(this, "snapshot_id");
+        get => GetArgument<TerraformValue<string>>("snapshot_id");
         set => SetArgument("snapshot_id", value);
     }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformValue<double> Throughput
+    public TerraformValue<double>? Throughput
     {
-        get => new TerraformReference<double>(this, "throughput");
+        get => GetArgument<TerraformValue<double>>("throughput");
         set => SetArgument("throughput", value);
     }
 
     /// <summary>
     /// The volume_initialization_rate attribute.
     /// </summary>
-    public TerraformValue<double> VolumeInitializationRate
+    public TerraformValue<double>? VolumeInitializationRate
     {
-        get => new TerraformReference<double>(this, "volume_initialization_rate");
+        get => GetArgument<TerraformValue<double>>("volume_initialization_rate");
         set => SetArgument("volume_initialization_rate", value);
     }
 
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
-    public TerraformValue<double> VolumeSize
+    public TerraformValue<double>? VolumeSize
     {
-        get => new TerraformReference<double>(this, "volume_size");
+        get => GetArgument<TerraformValue<double>>("volume_size");
         set => SetArgument("volume_size", value);
     }
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
-    public TerraformValue<string> VolumeType
+    public TerraformValue<string>? VolumeType
     {
-        get => new TerraformReference<string>(this, "volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -163,7 +163,7 @@ public class AwsLaunchTemplateCapacityReservationSpecificationBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? CapacityReservationPreference
     {
-        get => new TerraformReference<string>(this, "capacity_reservation_preference");
+        get => GetArgument<TerraformValue<string>>("capacity_reservation_preference");
         set => SetArgument("capacity_reservation_preference", value);
     }
 
@@ -195,7 +195,7 @@ public class AwsLaunchTemplateCapacityReservationSpecificationBlockCapacityReser
     /// </summary>
     public TerraformValue<string>? CapacityReservationId
     {
-        get => new TerraformReference<string>(this, "capacity_reservation_id");
+        get => GetArgument<TerraformValue<string>>("capacity_reservation_id");
         set => SetArgument("capacity_reservation_id", value);
     }
 
@@ -204,7 +204,7 @@ public class AwsLaunchTemplateCapacityReservationSpecificationBlockCapacityReser
     /// </summary>
     public TerraformValue<string>? CapacityReservationResourceGroupArn
     {
-        get => new TerraformReference<string>(this, "capacity_reservation_resource_group_arn");
+        get => GetArgument<TerraformValue<string>>("capacity_reservation_resource_group_arn");
         set => SetArgument("capacity_reservation_resource_group_arn", value);
     }
 
@@ -227,7 +227,7 @@ public class AwsLaunchTemplateCpuOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AmdSevSnp
     {
-        get => new TerraformReference<string>(this, "amd_sev_snp");
+        get => GetArgument<TerraformValue<string>>("amd_sev_snp");
         set => SetArgument("amd_sev_snp", value);
     }
 
@@ -236,7 +236,7 @@ public class AwsLaunchTemplateCpuOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? CoreCount
     {
-        get => new TerraformReference<double>(this, "core_count");
+        get => GetArgument<TerraformValue<double>>("core_count");
         set => SetArgument("core_count", value);
     }
 
@@ -245,7 +245,7 @@ public class AwsLaunchTemplateCpuOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ThreadsPerCore
     {
-        get => new TerraformReference<double>(this, "threads_per_core");
+        get => GetArgument<TerraformValue<double>>("threads_per_core");
         set => SetArgument("threads_per_core", value);
     }
 
@@ -268,7 +268,7 @@ public class AwsLaunchTemplateCreditSpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CpuCredits
     {
-        get => new TerraformReference<string>(this, "cpu_credits");
+        get => GetArgument<TerraformValue<string>>("cpu_credits");
         set => SetArgument("cpu_credits", value);
     }
 
@@ -291,7 +291,7 @@ public class AwsLaunchTemplateEnclaveOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -315,7 +315,7 @@ public class AwsLaunchTemplateHibernationOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Configured is required")]
     public required TerraformValue<bool> Configured
     {
-        get => new TerraformReference<bool>(this, "configured");
+        get => GetArgument<TerraformValue<bool>>("configured");
         set => SetArgument("configured", value);
     }
 
@@ -338,7 +338,7 @@ public class AwsLaunchTemplateIamInstanceProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -347,7 +347,7 @@ public class AwsLaunchTemplateIamInstanceProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -370,7 +370,7 @@ public class AwsLaunchTemplateInstanceMarketOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MarketType
     {
-        get => new TerraformReference<string>(this, "market_type");
+        get => GetArgument<TerraformValue<string>>("market_type");
         set => SetArgument("market_type", value);
     }
 
@@ -402,7 +402,7 @@ public class AwsLaunchTemplateInstanceMarketOptionsBlockSpotOptionsBlock : Terra
     /// </summary>
     public TerraformValue<double>? BlockDurationMinutes
     {
-        get => new TerraformReference<double>(this, "block_duration_minutes");
+        get => GetArgument<TerraformValue<double>>("block_duration_minutes");
         set => SetArgument("block_duration_minutes", value);
     }
 
@@ -411,7 +411,7 @@ public class AwsLaunchTemplateInstanceMarketOptionsBlockSpotOptionsBlock : Terra
     /// </summary>
     public TerraformValue<string>? InstanceInterruptionBehavior
     {
-        get => new TerraformReference<string>(this, "instance_interruption_behavior");
+        get => GetArgument<TerraformValue<string>>("instance_interruption_behavior");
         set => SetArgument("instance_interruption_behavior", value);
     }
 
@@ -420,7 +420,7 @@ public class AwsLaunchTemplateInstanceMarketOptionsBlockSpotOptionsBlock : Terra
     /// </summary>
     public TerraformValue<string>? MaxPrice
     {
-        get => new TerraformReference<string>(this, "max_price");
+        get => GetArgument<TerraformValue<string>>("max_price");
         set => SetArgument("max_price", value);
     }
 
@@ -429,16 +429,16 @@ public class AwsLaunchTemplateInstanceMarketOptionsBlockSpotOptionsBlock : Terra
     /// </summary>
     public TerraformValue<string>? SpotInstanceType
     {
-        get => new TerraformReference<string>(this, "spot_instance_type");
+        get => GetArgument<TerraformValue<string>>("spot_instance_type");
         set => SetArgument("spot_instance_type", value);
     }
 
     /// <summary>
     /// The valid_until attribute.
     /// </summary>
-    public TerraformValue<string> ValidUntil
+    public TerraformValue<string>? ValidUntil
     {
-        get => new TerraformReference<string>(this, "valid_until");
+        get => GetArgument<TerraformValue<string>>("valid_until");
         set => SetArgument("valid_until", value);
     }
 
@@ -461,7 +461,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? AcceleratorManufacturers
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "accelerator_manufacturers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("accelerator_manufacturers");
         set => SetArgument("accelerator_manufacturers", value);
     }
 
@@ -470,7 +470,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? AcceleratorNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "accelerator_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("accelerator_names");
         set => SetArgument("accelerator_names", value);
     }
 
@@ -479,7 +479,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? AcceleratorTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "accelerator_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("accelerator_types");
         set => SetArgument("accelerator_types", value);
     }
 
@@ -488,7 +488,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? AllowedInstanceTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_instance_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_instance_types");
         set => SetArgument("allowed_instance_types", value);
     }
 
@@ -497,7 +497,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BareMetal
     {
-        get => new TerraformReference<string>(this, "bare_metal");
+        get => GetArgument<TerraformValue<string>>("bare_metal");
         set => SetArgument("bare_metal", value);
     }
 
@@ -506,7 +506,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BurstablePerformance
     {
-        get => new TerraformReference<string>(this, "burstable_performance");
+        get => GetArgument<TerraformValue<string>>("burstable_performance");
         set => SetArgument("burstable_performance", value);
     }
 
@@ -515,7 +515,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? CpuManufacturers
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "cpu_manufacturers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("cpu_manufacturers");
         set => SetArgument("cpu_manufacturers", value);
     }
 
@@ -524,7 +524,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ExcludedInstanceTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "excluded_instance_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("excluded_instance_types");
         set => SetArgument("excluded_instance_types", value);
     }
 
@@ -533,7 +533,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? InstanceGenerations
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "instance_generations").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("instance_generations");
         set => SetArgument("instance_generations", value);
     }
 
@@ -542,7 +542,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LocalStorage
     {
-        get => new TerraformReference<string>(this, "local_storage");
+        get => GetArgument<TerraformValue<string>>("local_storage");
         set => SetArgument("local_storage", value);
     }
 
@@ -551,7 +551,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? LocalStorageTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "local_storage_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("local_storage_types");
         set => SetArgument("local_storage_types", value);
     }
 
@@ -560,7 +560,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
     {
-        get => new TerraformReference<double>(this, "max_spot_price_as_percentage_of_optimal_on_demand_price");
+        get => GetArgument<TerraformValue<double>>("max_spot_price_as_percentage_of_optimal_on_demand_price");
         set => SetArgument("max_spot_price_as_percentage_of_optimal_on_demand_price", value);
     }
 
@@ -569,7 +569,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? OnDemandMaxPricePercentageOverLowestPrice
     {
-        get => new TerraformReference<double>(this, "on_demand_max_price_percentage_over_lowest_price");
+        get => GetArgument<TerraformValue<double>>("on_demand_max_price_percentage_over_lowest_price");
         set => SetArgument("on_demand_max_price_percentage_over_lowest_price", value);
     }
 
@@ -578,7 +578,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? RequireHibernateSupport
     {
-        get => new TerraformReference<bool>(this, "require_hibernate_support");
+        get => GetArgument<TerraformValue<bool>>("require_hibernate_support");
         set => SetArgument("require_hibernate_support", value);
     }
 
@@ -587,7 +587,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SpotMaxPricePercentageOverLowestPrice
     {
-        get => new TerraformReference<double>(this, "spot_max_price_percentage_over_lowest_price");
+        get => GetArgument<TerraformValue<double>>("spot_max_price_percentage_over_lowest_price");
         set => SetArgument("spot_max_price_percentage_over_lowest_price", value);
     }
 
@@ -705,7 +705,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlockAcceleratorCountBlock : T
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -714,7 +714,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlockAcceleratorCountBlock : T
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -736,7 +736,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlockAcceleratorTotalMemoryMib
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -745,7 +745,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlockAcceleratorTotalMemoryMib
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -767,7 +767,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlockBaselineEbsBandwidthMbpsB
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -776,7 +776,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlockBaselineEbsBandwidthMbpsB
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -798,7 +798,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlockMemoryGibPerVcpuBlock : T
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -807,7 +807,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlockMemoryGibPerVcpuBlock : T
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -829,7 +829,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlockMemoryMibBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -839,7 +839,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlockMemoryMibBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Min is required")]
     public required TerraformValue<double> Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -861,7 +861,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlockNetworkBandwidthGbpsBlock
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -870,7 +870,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlockNetworkBandwidthGbpsBlock
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -892,7 +892,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlockNetworkInterfaceCountBloc
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -901,7 +901,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlockNetworkInterfaceCountBloc
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -923,7 +923,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlockTotalLocalStorageGbBlock 
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -932,7 +932,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlockTotalLocalStorageGbBlock 
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -954,7 +954,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlockVcpuCountBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -964,7 +964,7 @@ public class AwsLaunchTemplateInstanceRequirementsBlockVcpuCountBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Min is required")]
     public required TerraformValue<double> Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -988,7 +988,7 @@ public class AwsLaunchTemplateLicenseSpecificationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseConfigurationArn is required")]
     public required TerraformValue<string> LicenseConfigurationArn
     {
-        get => new TerraformReference<string>(this, "license_configuration_arn");
+        get => GetArgument<TerraformValue<string>>("license_configuration_arn");
         set => SetArgument("license_configuration_arn", value);
     }
 
@@ -1011,7 +1011,7 @@ public class AwsLaunchTemplateMaintenanceOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AutoRecovery
     {
-        get => new TerraformReference<string>(this, "auto_recovery");
+        get => GetArgument<TerraformValue<string>>("auto_recovery");
         set => SetArgument("auto_recovery", value);
     }
 
@@ -1032,45 +1032,45 @@ public class AwsLaunchTemplateMetadataOptionsBlock : TerraformBlock
     /// <summary>
     /// The http_endpoint attribute.
     /// </summary>
-    public TerraformValue<string> HttpEndpoint
+    public TerraformValue<string>? HttpEndpoint
     {
-        get => new TerraformReference<string>(this, "http_endpoint");
+        get => GetArgument<TerraformValue<string>>("http_endpoint");
         set => SetArgument("http_endpoint", value);
     }
 
     /// <summary>
     /// The http_protocol_ipv6 attribute.
     /// </summary>
-    public TerraformValue<string> HttpProtocolIpv6
+    public TerraformValue<string>? HttpProtocolIpv6
     {
-        get => new TerraformReference<string>(this, "http_protocol_ipv6");
+        get => GetArgument<TerraformValue<string>>("http_protocol_ipv6");
         set => SetArgument("http_protocol_ipv6", value);
     }
 
     /// <summary>
     /// The http_put_response_hop_limit attribute.
     /// </summary>
-    public TerraformValue<double> HttpPutResponseHopLimit
+    public TerraformValue<double>? HttpPutResponseHopLimit
     {
-        get => new TerraformReference<double>(this, "http_put_response_hop_limit");
+        get => GetArgument<TerraformValue<double>>("http_put_response_hop_limit");
         set => SetArgument("http_put_response_hop_limit", value);
     }
 
     /// <summary>
     /// The http_tokens attribute.
     /// </summary>
-    public TerraformValue<string> HttpTokens
+    public TerraformValue<string>? HttpTokens
     {
-        get => new TerraformReference<string>(this, "http_tokens");
+        get => GetArgument<TerraformValue<string>>("http_tokens");
         set => SetArgument("http_tokens", value);
     }
 
     /// <summary>
     /// The instance_metadata_tags attribute.
     /// </summary>
-    public TerraformValue<string> InstanceMetadataTags
+    public TerraformValue<string>? InstanceMetadataTags
     {
-        get => new TerraformReference<string>(this, "instance_metadata_tags");
+        get => GetArgument<TerraformValue<string>>("instance_metadata_tags");
         set => SetArgument("instance_metadata_tags", value);
     }
 
@@ -1093,7 +1093,7 @@ public class AwsLaunchTemplateMonitoringBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1116,7 +1116,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AssociateCarrierIpAddress
     {
-        get => new TerraformReference<string>(this, "associate_carrier_ip_address");
+        get => GetArgument<TerraformValue<string>>("associate_carrier_ip_address");
         set => SetArgument("associate_carrier_ip_address", value);
     }
 
@@ -1125,7 +1125,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AssociatePublicIpAddress
     {
-        get => new TerraformReference<string>(this, "associate_public_ip_address");
+        get => GetArgument<TerraformValue<string>>("associate_public_ip_address");
         set => SetArgument("associate_public_ip_address", value);
     }
 
@@ -1134,7 +1134,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DeleteOnTermination
     {
-        get => new TerraformReference<string>(this, "delete_on_termination");
+        get => GetArgument<TerraformValue<string>>("delete_on_termination");
         set => SetArgument("delete_on_termination", value);
     }
 
@@ -1143,7 +1143,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -1152,7 +1152,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? DeviceIndex
     {
-        get => new TerraformReference<double>(this, "device_index");
+        get => GetArgument<TerraformValue<double>>("device_index");
         set => SetArgument("device_index", value);
     }
 
@@ -1161,7 +1161,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? InterfaceType
     {
-        get => new TerraformReference<string>(this, "interface_type");
+        get => GetArgument<TerraformValue<string>>("interface_type");
         set => SetArgument("interface_type", value);
     }
 
@@ -1170,7 +1170,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Ipv4AddressCount
     {
-        get => new TerraformReference<double>(this, "ipv4_address_count");
+        get => GetArgument<TerraformValue<double>>("ipv4_address_count");
         set => SetArgument("ipv4_address_count", value);
     }
 
@@ -1179,7 +1179,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Ipv4Addresses
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ipv4_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("ipv4_addresses");
         set => SetArgument("ipv4_addresses", value);
     }
 
@@ -1188,7 +1188,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Ipv4PrefixCount
     {
-        get => new TerraformReference<double>(this, "ipv4_prefix_count");
+        get => GetArgument<TerraformValue<double>>("ipv4_prefix_count");
         set => SetArgument("ipv4_prefix_count", value);
     }
 
@@ -1197,7 +1197,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Ipv4Prefixes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ipv4_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("ipv4_prefixes");
         set => SetArgument("ipv4_prefixes", value);
     }
 
@@ -1206,7 +1206,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Ipv6AddressCount
     {
-        get => new TerraformReference<double>(this, "ipv6_address_count");
+        get => GetArgument<TerraformValue<double>>("ipv6_address_count");
         set => SetArgument("ipv6_address_count", value);
     }
 
@@ -1215,7 +1215,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Ipv6Addresses
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ipv6_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("ipv6_addresses");
         set => SetArgument("ipv6_addresses", value);
     }
 
@@ -1224,7 +1224,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Ipv6PrefixCount
     {
-        get => new TerraformReference<double>(this, "ipv6_prefix_count");
+        get => GetArgument<TerraformValue<double>>("ipv6_prefix_count");
         set => SetArgument("ipv6_prefix_count", value);
     }
 
@@ -1233,7 +1233,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Ipv6Prefixes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ipv6_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("ipv6_prefixes");
         set => SetArgument("ipv6_prefixes", value);
     }
 
@@ -1242,7 +1242,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? NetworkCardIndex
     {
-        get => new TerraformReference<double>(this, "network_card_index");
+        get => GetArgument<TerraformValue<double>>("network_card_index");
         set => SetArgument("network_card_index", value);
     }
 
@@ -1251,7 +1251,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? NetworkInterfaceId
     {
-        get => new TerraformReference<string>(this, "network_interface_id");
+        get => GetArgument<TerraformValue<string>>("network_interface_id");
         set => SetArgument("network_interface_id", value);
     }
 
@@ -1260,7 +1260,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PrimaryIpv6
     {
-        get => new TerraformReference<string>(this, "primary_ipv6");
+        get => GetArgument<TerraformValue<string>>("primary_ipv6");
         set => SetArgument("primary_ipv6", value);
     }
 
@@ -1269,7 +1269,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PrivateIpAddress
     {
-        get => new TerraformReference<string>(this, "private_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_ip_address");
         set => SetArgument("private_ip_address", value);
     }
 
@@ -1278,7 +1278,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? SecurityGroups
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_groups");
         set => SetArgument("security_groups", value);
     }
 
@@ -1287,7 +1287,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -1329,7 +1329,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlockConnectionTrackingSpecificat
     /// </summary>
     public TerraformValue<double>? TcpEstablishedTimeout
     {
-        get => new TerraformReference<double>(this, "tcp_established_timeout");
+        get => GetArgument<TerraformValue<double>>("tcp_established_timeout");
         set => SetArgument("tcp_established_timeout", value);
     }
 
@@ -1338,7 +1338,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlockConnectionTrackingSpecificat
     /// </summary>
     public TerraformValue<double>? UdpStreamTimeout
     {
-        get => new TerraformReference<double>(this, "udp_stream_timeout");
+        get => GetArgument<TerraformValue<double>>("udp_stream_timeout");
         set => SetArgument("udp_stream_timeout", value);
     }
 
@@ -1347,7 +1347,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlockConnectionTrackingSpecificat
     /// </summary>
     public TerraformValue<double>? UdpTimeout
     {
-        get => new TerraformReference<double>(this, "udp_timeout");
+        get => GetArgument<TerraformValue<double>>("udp_timeout");
         set => SetArgument("udp_timeout", value);
     }
 
@@ -1369,7 +1369,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlockEnaSrdSpecificationBlock : T
     /// </summary>
     public TerraformValue<bool>? EnaSrdEnabled
     {
-        get => new TerraformReference<bool>(this, "ena_srd_enabled");
+        get => GetArgument<TerraformValue<bool>>("ena_srd_enabled");
         set => SetArgument("ena_srd_enabled", value);
     }
 
@@ -1401,7 +1401,7 @@ public class AwsLaunchTemplateNetworkInterfacesBlockEnaSrdSpecificationBlockEnaS
     /// </summary>
     public TerraformValue<bool>? EnaSrdUdpEnabled
     {
-        get => new TerraformReference<bool>(this, "ena_srd_udp_enabled");
+        get => GetArgument<TerraformValue<bool>>("ena_srd_udp_enabled");
         set => SetArgument("ena_srd_udp_enabled", value);
     }
 
@@ -1424,7 +1424,7 @@ public class AwsLaunchTemplatePlacementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Affinity
     {
-        get => new TerraformReference<string>(this, "affinity");
+        get => GetArgument<TerraformValue<string>>("affinity");
         set => SetArgument("affinity", value);
     }
 
@@ -1433,7 +1433,7 @@ public class AwsLaunchTemplatePlacementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AvailabilityZone
     {
-        get => new TerraformReference<string>(this, "availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -1442,7 +1442,7 @@ public class AwsLaunchTemplatePlacementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? GroupId
     {
-        get => new TerraformReference<string>(this, "group_id");
+        get => GetArgument<TerraformValue<string>>("group_id");
         set => SetArgument("group_id", value);
     }
 
@@ -1451,7 +1451,7 @@ public class AwsLaunchTemplatePlacementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? GroupName
     {
-        get => new TerraformReference<string>(this, "group_name");
+        get => GetArgument<TerraformValue<string>>("group_name");
         set => SetArgument("group_name", value);
     }
 
@@ -1460,7 +1460,7 @@ public class AwsLaunchTemplatePlacementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? HostId
     {
-        get => new TerraformReference<string>(this, "host_id");
+        get => GetArgument<TerraformValue<string>>("host_id");
         set => SetArgument("host_id", value);
     }
 
@@ -1469,7 +1469,7 @@ public class AwsLaunchTemplatePlacementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? HostResourceGroupArn
     {
-        get => new TerraformReference<string>(this, "host_resource_group_arn");
+        get => GetArgument<TerraformValue<string>>("host_resource_group_arn");
         set => SetArgument("host_resource_group_arn", value);
     }
 
@@ -1478,7 +1478,7 @@ public class AwsLaunchTemplatePlacementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? PartitionNumber
     {
-        get => new TerraformReference<double>(this, "partition_number");
+        get => GetArgument<TerraformValue<double>>("partition_number");
         set => SetArgument("partition_number", value);
     }
 
@@ -1487,7 +1487,7 @@ public class AwsLaunchTemplatePlacementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SpreadDomain
     {
-        get => new TerraformReference<string>(this, "spread_domain");
+        get => GetArgument<TerraformValue<string>>("spread_domain");
         set => SetArgument("spread_domain", value);
     }
 
@@ -1496,7 +1496,7 @@ public class AwsLaunchTemplatePlacementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Tenancy
     {
-        get => new TerraformReference<string>(this, "tenancy");
+        get => GetArgument<TerraformValue<string>>("tenancy");
         set => SetArgument("tenancy", value);
     }
 
@@ -1519,7 +1519,7 @@ public class AwsLaunchTemplatePrivateDnsNameOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableResourceNameDnsARecord
     {
-        get => new TerraformReference<bool>(this, "enable_resource_name_dns_a_record");
+        get => GetArgument<TerraformValue<bool>>("enable_resource_name_dns_a_record");
         set => SetArgument("enable_resource_name_dns_a_record", value);
     }
 
@@ -1528,7 +1528,7 @@ public class AwsLaunchTemplatePrivateDnsNameOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableResourceNameDnsAaaaRecord
     {
-        get => new TerraformReference<bool>(this, "enable_resource_name_dns_aaaa_record");
+        get => GetArgument<TerraformValue<bool>>("enable_resource_name_dns_aaaa_record");
         set => SetArgument("enable_resource_name_dns_aaaa_record", value);
     }
 
@@ -1537,7 +1537,7 @@ public class AwsLaunchTemplatePrivateDnsNameOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? HostnameType
     {
-        get => new TerraformReference<string>(this, "hostname_type");
+        get => GetArgument<TerraformValue<string>>("hostname_type");
         set => SetArgument("hostname_type", value);
     }
 
@@ -1560,7 +1560,7 @@ public class AwsLaunchTemplateTagSpecificationsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ResourceTypeAttribute
     {
-        get => new TerraformReference<string>(this, "resource_type");
+        get => GetArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -1569,7 +1569,7 @@ public class AwsLaunchTemplateTagSpecificationsBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -1585,9 +1585,9 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// <summary>
     /// The default_version attribute.
     /// </summary>
-    public TerraformValue<double> DefaultVersion
+    public TerraformValue<double>? DefaultVersion
     {
-        get => new TerraformReference<double>(this, "default_version");
+        get => GetArgument<TerraformValue<double>>("default_version");
         set => SetArgument("default_version", value);
     }
 
@@ -1596,7 +1596,7 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -1605,7 +1605,7 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// </summary>
     public TerraformValue<bool>? DisableApiStop
     {
-        get => new TerraformReference<bool>(this, "disable_api_stop");
+        get => GetArgument<TerraformValue<bool>>("disable_api_stop");
         set => SetArgument("disable_api_stop", value);
     }
 
@@ -1614,7 +1614,7 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// </summary>
     public TerraformValue<bool>? DisableApiTermination
     {
-        get => new TerraformReference<bool>(this, "disable_api_termination");
+        get => GetArgument<TerraformValue<bool>>("disable_api_termination");
         set => SetArgument("disable_api_termination", value);
     }
 
@@ -1623,16 +1623,16 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// </summary>
     public TerraformValue<string>? EbsOptimized
     {
-        get => new TerraformReference<string>(this, "ebs_optimized");
+        get => GetArgument<TerraformValue<string>>("ebs_optimized");
         set => SetArgument("ebs_optimized", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1641,7 +1641,7 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// </summary>
     public TerraformValue<string>? ImageId
     {
-        get => new TerraformReference<string>(this, "image_id");
+        get => GetArgument<TerraformValue<string>>("image_id");
         set => SetArgument("image_id", value);
     }
 
@@ -1650,7 +1650,7 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// </summary>
     public TerraformValue<string>? InstanceInitiatedShutdownBehavior
     {
-        get => new TerraformReference<string>(this, "instance_initiated_shutdown_behavior");
+        get => GetArgument<TerraformValue<string>>("instance_initiated_shutdown_behavior");
         set => SetArgument("instance_initiated_shutdown_behavior", value);
     }
 
@@ -1659,7 +1659,7 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// </summary>
     public TerraformValue<string>? InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -1668,7 +1668,7 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// </summary>
     public TerraformValue<string>? KernelId
     {
-        get => new TerraformReference<string>(this, "kernel_id");
+        get => GetArgument<TerraformValue<string>>("kernel_id");
         set => SetArgument("kernel_id", value);
     }
 
@@ -1677,25 +1677,25 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// </summary>
     public TerraformValue<string>? KeyName
     {
-        get => new TerraformReference<string>(this, "key_name");
+        get => GetArgument<TerraformValue<string>>("key_name");
         set => SetArgument("key_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -1704,16 +1704,16 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// </summary>
     public TerraformValue<string>? RamDiskId
     {
-        get => new TerraformReference<string>(this, "ram_disk_id");
+        get => GetArgument<TerraformValue<string>>("ram_disk_id");
         set => SetArgument("ram_disk_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -1722,7 +1722,7 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// </summary>
     public TerraformSet<string>? SecurityGroupNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_names");
         set => SetArgument("security_group_names", value);
     }
 
@@ -1731,16 +1731,16 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1749,7 +1749,7 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// </summary>
     public TerraformValue<bool>? UpdateDefaultVersion
     {
-        get => new TerraformReference<bool>(this, "update_default_version");
+        get => GetArgument<TerraformValue<bool>>("update_default_version");
         set => SetArgument("update_default_version", value);
     }
 
@@ -1758,7 +1758,7 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// </summary>
     public TerraformValue<string>? UserData
     {
-        get => new TerraformReference<string>(this, "user_data");
+        get => GetArgument<TerraformValue<string>>("user_data");
         set => SetArgument("user_data", value);
     }
 
@@ -1767,7 +1767,7 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// </summary>
     public TerraformSet<string>? VpcSecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "vpc_security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 
@@ -1775,17 +1775,13 @@ public partial class AwsLaunchTemplate(string name) : TerraformResource("aws_lau
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The latest_version attribute.
     /// </summary>
     public TerraformValue<double> LatestVersion
-    {
-        get => new TerraformReference<double>(this, "latest_version");
-    }
+        => AsReference("latest_version");
 
     /// <summary>
     /// BlockDeviceMappings block (nesting mode: list).

@@ -11,9 +11,9 @@ public partial class AwsIamVirtualMfaDevice(string name) : TerraformResource("aw
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsIamVirtualMfaDevice(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -31,16 +31,16 @@ public partial class AwsIamVirtualMfaDevice(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsIamVirtualMfaDevice(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMfaDeviceName is required")]
     public required TerraformValue<string> VirtualMfaDeviceName
     {
-        get => new TerraformReference<string>(this, "virtual_mfa_device_name");
+        get => GetArgument<TerraformValue<string>>("virtual_mfa_device_name");
         set => SetArgument("virtual_mfa_device_name", value);
     }
 
@@ -58,40 +58,30 @@ public partial class AwsIamVirtualMfaDevice(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The base_32_string_seed attribute.
     /// </summary>
     public TerraformValue<string> Base32StringSeed
-    {
-        get => new TerraformReference<string>(this, "base_32_string_seed");
-    }
+        => AsReference("base_32_string_seed");
 
     /// <summary>
     /// The enable_date attribute.
     /// </summary>
     public TerraformValue<string> EnableDate
-    {
-        get => new TerraformReference<string>(this, "enable_date");
-    }
+        => AsReference("enable_date");
 
     /// <summary>
     /// The qr_code_png attribute.
     /// </summary>
     public TerraformValue<string> QrCodePng
-    {
-        get => new TerraformReference<string>(this, "qr_code_png");
-    }
+        => AsReference("qr_code_png");
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
     public TerraformValue<string> UserName
-    {
-        get => new TerraformReference<string>(this, "user_name");
-    }
+        => AsReference("user_name");
 
 }

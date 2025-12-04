@@ -18,7 +18,7 @@ public class AzurermSecurityCenterContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSecurityCenterContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSecurityCenterContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSecurityCenterContactTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermSecurityCenterContact(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlertNotifications is required")]
     public required TerraformValue<bool> AlertNotifications
     {
-        get => new TerraformReference<bool>(this, "alert_notifications");
+        get => GetArgument<TerraformValue<bool>>("alert_notifications");
         set => SetArgument("alert_notifications", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermSecurityCenterContact(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlertsToAdmins is required")]
     public required TerraformValue<bool> AlertsToAdmins
     {
-        get => new TerraformReference<bool>(this, "alerts_to_admins");
+        get => GetArgument<TerraformValue<bool>>("alerts_to_admins");
         set => SetArgument("alerts_to_admins", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AzurermSecurityCenterContact(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermSecurityCenterContact(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermSecurityCenterContact(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Phone
     {
-        get => new TerraformReference<string>(this, "phone");
+        get => GetArgument<TerraformValue<string>>("phone");
         set => SetArgument("phone", value);
     }
 

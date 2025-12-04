@@ -41,7 +41,7 @@ public class AwsLightsailContainerServicePrivateRegistryAccessBlockEcrImagePulle
     /// </summary>
     public TerraformValue<bool>? IsActive
     {
-        get => new TerraformReference<bool>(this, "is_active");
+        get => GetArgument<TerraformValue<bool>>("is_active");
         set => SetArgument("is_active", value);
     }
 
@@ -49,9 +49,7 @@ public class AwsLightsailContainerServicePrivateRegistryAccessBlockEcrImagePulle
     /// The principal_arn attribute.
     /// </summary>
     public TerraformValue<string> PrincipalArn
-    {
-        get => new TerraformReference<string>(this, "principal_arn");
-    }
+        => AsReference("principal_arn");
 
 }
 
@@ -98,7 +96,7 @@ public class AwsLightsailContainerServicePublicDomainNamesBlockCertificateBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateName is required")]
     public required TerraformValue<string> CertificateName
     {
-        get => new TerraformReference<string>(this, "certificate_name");
+        get => GetArgument<TerraformValue<string>>("certificate_name");
         set => SetArgument("certificate_name", value);
     }
 
@@ -108,7 +106,7 @@ public class AwsLightsailContainerServicePublicDomainNamesBlockCertificateBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainNames is required")]
     public TerraformList<string>? DomainNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "domain_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("domain_names");
         set => SetArgument("domain_names", value);
     }
 
@@ -131,7 +129,7 @@ public class AwsLightsailContainerServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -140,7 +138,7 @@ public class AwsLightsailContainerServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -149,7 +147,7 @@ public class AwsLightsailContainerServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -165,9 +163,9 @@ public partial class AwsLightsailContainerService(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -176,7 +174,7 @@ public partial class AwsLightsailContainerService(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? IsDisabled
     {
-        get => new TerraformReference<bool>(this, "is_disabled");
+        get => GetArgument<TerraformValue<bool>>("is_disabled");
         set => SetArgument("is_disabled", value);
     }
 
@@ -186,7 +184,7 @@ public partial class AwsLightsailContainerService(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -196,16 +194,16 @@ public partial class AwsLightsailContainerService(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Power is required")]
     public required TerraformValue<string> Power
     {
-        get => new TerraformReference<string>(this, "power");
+        get => GetArgument<TerraformValue<string>>("power");
         set => SetArgument("power", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -215,7 +213,7 @@ public partial class AwsLightsailContainerService(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scale is required")]
     public required TerraformValue<double> Scale
     {
-        get => new TerraformReference<double>(this, "scale");
+        get => GetArgument<TerraformValue<double>>("scale");
         set => SetArgument("scale", value);
     }
 
@@ -224,16 +222,16 @@ public partial class AwsLightsailContainerService(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -241,73 +239,55 @@ public partial class AwsLightsailContainerService(string name) : TerraformResour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZone
-    {
-        get => new TerraformReference<string>(this, "availability_zone");
-    }
+        => AsReference("availability_zone");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The power_id attribute.
     /// </summary>
     public TerraformValue<string> PowerId
-    {
-        get => new TerraformReference<string>(this, "power_id");
-    }
+        => AsReference("power_id");
 
     /// <summary>
     /// The principal_arn attribute.
     /// </summary>
     public TerraformValue<string> PrincipalArn
-    {
-        get => new TerraformReference<string>(this, "principal_arn");
-    }
+        => AsReference("principal_arn");
 
     /// <summary>
     /// The private_domain_name attribute.
     /// </summary>
     public TerraformValue<string> PrivateDomainName
-    {
-        get => new TerraformReference<string>(this, "private_domain_name");
-    }
+        => AsReference("private_domain_name");
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
     public TerraformValue<string> ResourceTypeAttribute
-    {
-        get => new TerraformReference<string>(this, "resource_type");
-    }
+        => AsReference("resource_type");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-    {
-        get => new TerraformReference<string>(this, "url");
-    }
+        => AsReference("url");
 
     /// <summary>
     /// PrivateRegistryAccess block (nesting mode: list).

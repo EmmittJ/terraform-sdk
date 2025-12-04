@@ -14,7 +14,7 @@ public partial class AwsTransferAgreement(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessRole is required")]
     public required TerraformValue<string> AccessRole
     {
-        get => new TerraformReference<string>(this, "access_role");
+        get => GetArgument<TerraformValue<string>>("access_role");
         set => SetArgument("access_role", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsTransferAgreement(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseDirectory is required")]
     public required TerraformValue<string> BaseDirectory
     {
-        get => new TerraformReference<string>(this, "base_directory");
+        get => GetArgument<TerraformValue<string>>("base_directory");
         set => SetArgument("base_directory", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsTransferAgreement(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsTransferAgreement(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalProfileId is required")]
     public required TerraformValue<string> LocalProfileId
     {
-        get => new TerraformReference<string>(this, "local_profile_id");
+        get => GetArgument<TerraformValue<string>>("local_profile_id");
         set => SetArgument("local_profile_id", value);
     }
 
@@ -62,16 +62,16 @@ public partial class AwsTransferAgreement(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerProfileId is required")]
     public required TerraformValue<string> PartnerProfileId
     {
-        get => new TerraformReference<string>(this, "partner_profile_id");
+        get => GetArgument<TerraformValue<string>>("partner_profile_id");
         set => SetArgument("partner_profile_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsTransferAgreement(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformValue<string> ServerId
     {
-        get => new TerraformReference<string>(this, "server_id");
+        get => GetArgument<TerraformValue<string>>("server_id");
         set => SetArgument("server_id", value);
     }
 
@@ -90,16 +90,16 @@ public partial class AwsTransferAgreement(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -107,24 +107,18 @@ public partial class AwsTransferAgreement(string name) : TerraformResource("aws_
     /// The agreement_id attribute.
     /// </summary>
     public TerraformValue<string> AgreementId
-    {
-        get => new TerraformReference<string>(this, "agreement_id");
-    }
+        => AsReference("agreement_id");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }

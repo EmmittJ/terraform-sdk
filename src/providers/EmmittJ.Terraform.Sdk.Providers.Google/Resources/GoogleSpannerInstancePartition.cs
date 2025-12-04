@@ -18,7 +18,7 @@ public class GoogleSpannerInstancePartitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleSpannerInstancePartitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleSpannerInstancePartitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -56,7 +56,7 @@ public partial class GoogleSpannerInstancePartition(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
     public required TerraformValue<string> Config
     {
-        get => new TerraformReference<string>(this, "config");
+        get => GetArgument<TerraformValue<string>>("config");
         set => SetArgument("config", value);
     }
 
@@ -67,16 +67,16 @@ public partial class GoogleSpannerInstancePartition(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -86,7 +86,7 @@ public partial class GoogleSpannerInstancePartition(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -98,7 +98,7 @@ public partial class GoogleSpannerInstancePartition(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -109,7 +109,7 @@ public partial class GoogleSpannerInstancePartition(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double>? NodeCount
     {
-        get => new TerraformReference<double>(this, "node_count");
+        get => GetArgument<TerraformValue<double>>("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -119,16 +119,16 @@ public partial class GoogleSpannerInstancePartition(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double>? ProcessingUnits
     {
-        get => new TerraformReference<double>(this, "processing_units");
+        get => GetArgument<TerraformValue<double>>("processing_units");
         set => SetArgument("processing_units", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -139,9 +139,7 @@ public partial class GoogleSpannerInstancePartition(string name) : TerraformReso
     /// READY: The instance partition has been allocated resources and is ready for use.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

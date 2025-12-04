@@ -18,7 +18,7 @@ public class AzurermSentinelAutomationRuleActionIncidentBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Classification
     {
-        get => new TerraformReference<string>(this, "classification");
+        get => GetArgument<TerraformValue<string>>("classification");
         set => SetArgument("classification", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSentinelAutomationRuleActionIncidentBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ClassificationComment
     {
-        get => new TerraformReference<string>(this, "classification_comment");
+        get => GetArgument<TerraformValue<string>>("classification_comment");
         set => SetArgument("classification_comment", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSentinelAutomationRuleActionIncidentBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Labels
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -46,7 +46,7 @@ public class AzurermSentinelAutomationRuleActionIncidentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformValue<double> Order
     {
-        get => new TerraformReference<double>(this, "order");
+        get => GetArgument<TerraformValue<double>>("order");
         set => SetArgument("order", value);
     }
 
@@ -55,7 +55,7 @@ public class AzurermSentinelAutomationRuleActionIncidentBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OwnerId
     {
-        get => new TerraformReference<string>(this, "owner_id");
+        get => GetArgument<TerraformValue<string>>("owner_id");
         set => SetArgument("owner_id", value);
     }
 
@@ -64,7 +64,7 @@ public class AzurermSentinelAutomationRuleActionIncidentBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Severity
     {
-        get => new TerraformReference<string>(this, "severity");
+        get => GetArgument<TerraformValue<string>>("severity");
         set => SetArgument("severity", value);
     }
 
@@ -73,7 +73,7 @@ public class AzurermSentinelAutomationRuleActionIncidentBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermSentinelAutomationRuleActionIncidentTaskBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermSentinelAutomationRuleActionIncidentTaskBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformValue<double> Order
     {
-        get => new TerraformReference<double>(this, "order");
+        get => GetArgument<TerraformValue<double>>("order");
         set => SetArgument("order", value);
     }
 
@@ -116,7 +116,7 @@ public class AzurermSentinelAutomationRuleActionIncidentTaskBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermSentinelAutomationRuleActionPlaybookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
     public required TerraformValue<string> LogicAppId
     {
-        get => new TerraformReference<string>(this, "logic_app_id");
+        get => GetArgument<TerraformValue<string>>("logic_app_id");
         set => SetArgument("logic_app_id", value);
     }
 
@@ -150,16 +150,16 @@ public class AzurermSentinelAutomationRuleActionPlaybookBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformValue<double> Order
     {
-        get => new TerraformReference<double>(this, "order");
+        get => GetArgument<TerraformValue<double>>("order");
         set => SetArgument("order", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformValue<string> TenantId
+    public TerraformValue<string>? TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -182,7 +182,7 @@ public class AzurermSentinelAutomationRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -191,7 +191,7 @@ public class AzurermSentinelAutomationRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -200,7 +200,7 @@ public class AzurermSentinelAutomationRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -209,7 +209,7 @@ public class AzurermSentinelAutomationRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -227,7 +227,7 @@ public partial class AzurermSentinelAutomationRule(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? ConditionJson
     {
-        get => new TerraformReference<string>(this, "condition_json");
+        get => GetArgument<TerraformValue<string>>("condition_json");
         set => SetArgument("condition_json", value);
     }
 
@@ -237,7 +237,7 @@ public partial class AzurermSentinelAutomationRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -246,7 +246,7 @@ public partial class AzurermSentinelAutomationRule(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -255,16 +255,16 @@ public partial class AzurermSentinelAutomationRule(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Expiration
     {
-        get => new TerraformReference<string>(this, "expiration");
+        get => GetArgument<TerraformValue<string>>("expiration");
         set => SetArgument("expiration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -274,7 +274,7 @@ public partial class AzurermSentinelAutomationRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
-        get => new TerraformReference<string>(this, "log_analytics_workspace_id");
+        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
@@ -284,7 +284,7 @@ public partial class AzurermSentinelAutomationRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -294,7 +294,7 @@ public partial class AzurermSentinelAutomationRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformValue<double> Order
     {
-        get => new TerraformReference<double>(this, "order");
+        get => GetArgument<TerraformValue<double>>("order");
         set => SetArgument("order", value);
     }
 
@@ -303,7 +303,7 @@ public partial class AzurermSentinelAutomationRule(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? TriggersOn
     {
-        get => new TerraformReference<string>(this, "triggers_on");
+        get => GetArgument<TerraformValue<string>>("triggers_on");
         set => SetArgument("triggers_on", value);
     }
 
@@ -312,7 +312,7 @@ public partial class AzurermSentinelAutomationRule(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? TriggersWhen
     {
-        get => new TerraformReference<string>(this, "triggers_when");
+        get => GetArgument<TerraformValue<string>>("triggers_when");
         set => SetArgument("triggers_when", value);
     }
 

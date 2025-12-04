@@ -16,63 +16,63 @@ public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : Terrafor
     /// <summary>
     /// The days_of_week attribute.
     /// </summary>
-    public TerraformList<string> DaysOfWeek
+    public TerraformList<string>? DaysOfWeek
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "days_of_week").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("days_of_week");
         set => SetArgument("days_of_week", value);
     }
 
     /// <summary>
     /// The hours_of_day attribute.
     /// </summary>
-    public TerraformList<double> HoursOfDay
+    public TerraformList<double>? HoursOfDay
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "hours_of_day").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("hours_of_day");
         set => SetArgument("hours_of_day", value);
     }
 
     /// <summary>
     /// The lead_time_in_weeks attribute.
     /// </summary>
-    public TerraformValue<double> LeadTimeInWeeks
+    public TerraformValue<double>? LeadTimeInWeeks
     {
-        get => new TerraformReference<double>(this, "lead_time_in_weeks");
+        get => GetArgument<TerraformValue<double>>("lead_time_in_weeks");
         set => SetArgument("lead_time_in_weeks", value);
     }
 
     /// <summary>
     /// The months attribute.
     /// </summary>
-    public TerraformList<string> Months
+    public TerraformList<string>? Months
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "months").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("months");
         set => SetArgument("months", value);
     }
 
     /// <summary>
     /// The patching_mode attribute.
     /// </summary>
-    public TerraformValue<string> PatchingMode
+    public TerraformValue<string>? PatchingMode
     {
-        get => new TerraformReference<string>(this, "patching_mode");
+        get => GetArgument<TerraformValue<string>>("patching_mode");
         set => SetArgument("patching_mode", value);
     }
 
     /// <summary>
     /// The preference attribute.
     /// </summary>
-    public TerraformValue<string> Preference
+    public TerraformValue<string>? Preference
     {
-        get => new TerraformReference<string>(this, "preference");
+        get => GetArgument<TerraformValue<string>>("preference");
         set => SetArgument("preference", value);
     }
 
     /// <summary>
     /// The weeks_of_month attribute.
     /// </summary>
-    public TerraformList<double> WeeksOfMonth
+    public TerraformList<double>? WeeksOfMonth
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "weeks_of_month").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("weeks_of_month");
         set => SetArgument("weeks_of_month", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermOracleExadataInfrastructureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermOracleExadataInfrastructureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermOracleExadataInfrastructureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermOracleExadataInfrastructureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -141,25 +141,25 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeCount is required")]
     public required TerraformValue<double> ComputeCount
     {
-        get => new TerraformReference<double>(this, "compute_count");
+        get => GetArgument<TerraformValue<double>>("compute_count");
         set => SetArgument("compute_count", value);
     }
 
     /// <summary>
     /// The customer_contacts attribute.
     /// </summary>
-    public TerraformList<string> CustomerContacts
+    public TerraformList<string>? CustomerContacts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "customer_contacts").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("customer_contacts");
         set => SetArgument("customer_contacts", value);
     }
 
     /// <summary>
     /// The database_server_type attribute.
     /// </summary>
-    public TerraformValue<string> DatabaseServerType
+    public TerraformValue<string>? DatabaseServerType
     {
-        get => new TerraformReference<string>(this, "database_server_type");
+        get => GetArgument<TerraformValue<string>>("database_server_type");
         set => SetArgument("database_server_type", value);
     }
 
@@ -169,16 +169,16 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -188,7 +188,7 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -198,7 +198,7 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -208,7 +208,7 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -218,7 +218,7 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shape is required")]
     public required TerraformValue<string> Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -228,16 +228,16 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCount is required")]
     public required TerraformValue<double> StorageCount
     {
-        get => new TerraformReference<double>(this, "storage_count");
+        get => GetArgument<TerraformValue<double>>("storage_count");
         set => SetArgument("storage_count", value);
     }
 
     /// <summary>
     /// The storage_server_type attribute.
     /// </summary>
-    public TerraformValue<string> StorageServerType
+    public TerraformValue<string>? StorageServerType
     {
-        get => new TerraformReference<string>(this, "storage_server_type");
+        get => GetArgument<TerraformValue<string>>("storage_server_type");
         set => SetArgument("storage_server_type", value);
     }
 
@@ -246,7 +246,7 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -256,7 +256,7 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zones is required")]
     public required TerraformSet<string> Zones
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "zones").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("zones");
         set => SetArgument("zones", value);
     }
 

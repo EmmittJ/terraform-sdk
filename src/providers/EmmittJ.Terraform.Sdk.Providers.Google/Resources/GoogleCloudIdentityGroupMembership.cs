@@ -27,7 +27,7 @@ public class GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -43,7 +43,7 @@ public class GoogleCloudIdentityGroupMembershipPreferredMemberKeyBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -67,7 +67,7 @@ public class GoogleCloudIdentityGroupMembershipRolesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleCloudIdentityGroupMembershipRolesBlockExpiryDetailBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpireTime is required")]
     public required TerraformValue<string> ExpireTime
     {
-        get => new TerraformReference<string>(this, "expire_time");
+        get => GetArgument<TerraformValue<string>>("expire_time");
         set => SetArgument("expire_time", value);
     }
 
@@ -128,7 +128,7 @@ public class GoogleCloudIdentityGroupMembershipTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -137,7 +137,7 @@ public class GoogleCloudIdentityGroupMembershipTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -146,7 +146,7 @@ public class GoogleCloudIdentityGroupMembershipTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -164,7 +164,7 @@ public partial class GoogleCloudIdentityGroupMembership(string name) : Terraform
     /// </summary>
     public TerraformValue<bool>? CreateIgnoreAlreadyExists
     {
-        get => new TerraformReference<bool>(this, "create_ignore_already_exists");
+        get => GetArgument<TerraformValue<bool>>("create_ignore_already_exists");
         set => SetArgument("create_ignore_already_exists", value);
     }
 
@@ -174,16 +174,16 @@ public partial class GoogleCloudIdentityGroupMembership(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
     public required TerraformValue<string> Group
     {
-        get => new TerraformReference<string>(this, "group");
+        get => GetArgument<TerraformValue<string>>("group");
         set => SetArgument("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -191,33 +191,25 @@ public partial class GoogleCloudIdentityGroupMembership(string name) : Terraform
     /// The time when the Membership was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The resource name of the Membership, of the form groups/{group_id}/memberships/{membership_id}.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The type of the membership.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// The time when the Membership was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// PreferredMemberKey block (nesting mode: list).

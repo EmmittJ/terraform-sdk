@@ -13,7 +13,7 @@ public partial class AwsSagemakerImageVersion(string name) : TerraformResource("
     /// </summary>
     public TerraformSet<string>? Aliases
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "aliases").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("aliases");
         set => SetArgument("aliases", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsSagemakerImageVersion(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseImage is required")]
     public required TerraformValue<string> BaseImage
     {
-        get => new TerraformReference<string>(this, "base_image");
+        get => GetArgument<TerraformValue<string>>("base_image");
         set => SetArgument("base_image", value);
     }
 
@@ -32,16 +32,16 @@ public partial class AwsSagemakerImageVersion(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? Horovod
     {
-        get => new TerraformReference<bool>(this, "horovod");
+        get => GetArgument<TerraformValue<bool>>("horovod");
         set => SetArgument("horovod", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsSagemakerImageVersion(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformValue<string> ImageName
     {
-        get => new TerraformReference<string>(this, "image_name");
+        get => GetArgument<TerraformValue<string>>("image_name");
         set => SetArgument("image_name", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsSagemakerImageVersion(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? JobType
     {
-        get => new TerraformReference<string>(this, "job_type");
+        get => GetArgument<TerraformValue<string>>("job_type");
         set => SetArgument("job_type", value);
     }
 
@@ -69,7 +69,7 @@ public partial class AwsSagemakerImageVersion(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? MlFramework
     {
-        get => new TerraformReference<string>(this, "ml_framework");
+        get => GetArgument<TerraformValue<string>>("ml_framework");
         set => SetArgument("ml_framework", value);
     }
 
@@ -78,7 +78,7 @@ public partial class AwsSagemakerImageVersion(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Processor
     {
-        get => new TerraformReference<string>(this, "processor");
+        get => GetArgument<TerraformValue<string>>("processor");
         set => SetArgument("processor", value);
     }
 
@@ -87,16 +87,16 @@ public partial class AwsSagemakerImageVersion(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? ProgrammingLang
     {
-        get => new TerraformReference<string>(this, "programming_lang");
+        get => GetArgument<TerraformValue<string>>("programming_lang");
         set => SetArgument("programming_lang", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AwsSagemakerImageVersion(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? ReleaseNotes
     {
-        get => new TerraformReference<string>(this, "release_notes");
+        get => GetArgument<TerraformValue<string>>("release_notes");
         set => SetArgument("release_notes", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AwsSagemakerImageVersion(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? VendorGuidance
     {
-        get => new TerraformReference<string>(this, "vendor_guidance");
+        get => GetArgument<TerraformValue<string>>("vendor_guidance");
         set => SetArgument("vendor_guidance", value);
     }
 
@@ -122,32 +122,24 @@ public partial class AwsSagemakerImageVersion(string name) : TerraformResource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The container_image attribute.
     /// </summary>
     public TerraformValue<string> ContainerImage
-    {
-        get => new TerraformReference<string>(this, "container_image");
-    }
+        => AsReference("container_image");
 
     /// <summary>
     /// The image_arn attribute.
     /// </summary>
     public TerraformValue<string> ImageArn
-    {
-        get => new TerraformReference<string>(this, "image_arn");
-    }
+        => AsReference("image_arn");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<double> Version
-    {
-        get => new TerraformReference<double>(this, "version");
-    }
+        => AsReference("version");
 
 }

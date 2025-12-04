@@ -17,16 +17,14 @@ public class GoogleBigqueryReservationAutoscaleBlock : TerraformBlock
     /// The slot capacity added to this reservation when autoscale happens. Will be between [0, max_slots].
     /// </summary>
     public TerraformValue<double> CurrentSlots
-    {
-        get => new TerraformReference<double>(this, "current_slots");
-    }
+        => AsReference("current_slots");
 
     /// <summary>
     /// Number of slots to be scaled when needed.
     /// </summary>
     public TerraformValue<double>? MaxSlots
     {
-        get => new TerraformReference<double>(this, "max_slots");
+        get => GetArgument<TerraformValue<double>>("max_slots");
         set => SetArgument("max_slots", value);
     }
 
@@ -49,7 +47,7 @@ public class GoogleBigqueryReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -58,7 +56,7 @@ public class GoogleBigqueryReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -67,7 +65,7 @@ public class GoogleBigqueryReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -85,25 +83,25 @@ public partial class GoogleBigqueryReservation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<double>? Concurrency
     {
-        get => new TerraformReference<double>(this, "concurrency");
+        get => GetArgument<TerraformValue<double>>("concurrency");
         set => SetArgument("concurrency", value);
     }
 
     /// <summary>
     /// The edition type. Valid values are STANDARD, ENTERPRISE, ENTERPRISE_PLUS
     /// </summary>
-    public TerraformValue<string> Edition
+    public TerraformValue<string>? Edition
     {
-        get => new TerraformReference<string>(this, "edition");
+        get => GetArgument<TerraformValue<string>>("edition");
         set => SetArgument("edition", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -114,7 +112,7 @@ public partial class GoogleBigqueryReservation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? IgnoreIdleSlots
     {
-        get => new TerraformReference<bool>(this, "ignore_idle_slots");
+        get => GetArgument<TerraformValue<bool>>("ignore_idle_slots");
         set => SetArgument("ignore_idle_slots", value);
     }
 
@@ -124,7 +122,7 @@ public partial class GoogleBigqueryReservation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -134,16 +132,16 @@ public partial class GoogleBigqueryReservation(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -155,7 +153,7 @@ public partial class GoogleBigqueryReservation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? SecondaryLocation
     {
-        get => new TerraformReference<string>(this, "secondary_location");
+        get => GetArgument<TerraformValue<string>>("secondary_location");
         set => SetArgument("secondary_location", value);
     }
 
@@ -166,7 +164,7 @@ public partial class GoogleBigqueryReservation(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotCapacity is required")]
     public required TerraformValue<double> SlotCapacity
     {
-        get => new TerraformReference<double>(this, "slot_capacity");
+        get => GetArgument<TerraformValue<double>>("slot_capacity");
         set => SetArgument("slot_capacity", value);
     }
 
@@ -176,18 +174,14 @@ public partial class GoogleBigqueryReservation(string name) : TerraformResource(
     /// applied to this location.
     /// </summary>
     public TerraformValue<string> OriginalPrimaryLocation
-    {
-        get => new TerraformReference<string>(this, "original_primary_location");
-    }
+        => AsReference("original_primary_location");
 
     /// <summary>
     /// The current location of the reservation&#39;s primary replica. This field is only set for
     /// reservations using the managed disaster recovery feature.
     /// </summary>
     public TerraformValue<string> PrimaryLocation
-    {
-        get => new TerraformReference<string>(this, "primary_location");
-    }
+        => AsReference("primary_location");
 
     /// <summary>
     /// The Disaster Recovery(DR) replication status of the reservation. This is only available for
@@ -198,9 +192,7 @@ public partial class GoogleBigqueryReservation(string name) : TerraformResource(
     /// operations on the reservation have succeeded.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReplicationStatus
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "replication_status").ResolveNodes(ctx));
-    }
+        => AsReference("replication_status");
 
     /// <summary>
     /// Autoscale block (nesting mode: list).

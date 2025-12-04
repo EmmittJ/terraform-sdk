@@ -19,7 +19,7 @@ public class AzurermFrontdoorFirewallPolicyCustomRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermFrontdoorFirewallPolicyCustomRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermFrontdoorFirewallPolicyCustomRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermFrontdoorFirewallPolicyCustomRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -56,7 +56,7 @@ public class AzurermFrontdoorFirewallPolicyCustomRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? RateLimitDurationInMinutes
     {
-        get => new TerraformReference<double>(this, "rate_limit_duration_in_minutes");
+        get => GetArgument<TerraformValue<double>>("rate_limit_duration_in_minutes");
         set => SetArgument("rate_limit_duration_in_minutes", value);
     }
 
@@ -65,7 +65,7 @@ public class AzurermFrontdoorFirewallPolicyCustomRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? RateLimitThreshold
     {
-        get => new TerraformReference<double>(this, "rate_limit_threshold");
+        get => GetArgument<TerraformValue<double>>("rate_limit_threshold");
         set => SetArgument("rate_limit_threshold", value);
     }
 
@@ -75,7 +75,7 @@ public class AzurermFrontdoorFirewallPolicyCustomRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -108,7 +108,7 @@ public class AzurermFrontdoorFirewallPolicyCustomRuleBlockMatchConditionBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchValues is required")]
     public TerraformList<string>? MatchValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "match_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("match_values");
         set => SetArgument("match_values", value);
     }
 
@@ -118,7 +118,7 @@ public class AzurermFrontdoorFirewallPolicyCustomRuleBlockMatchConditionBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchVariable is required")]
     public required TerraformValue<string> MatchVariable
     {
-        get => new TerraformReference<string>(this, "match_variable");
+        get => GetArgument<TerraformValue<string>>("match_variable");
         set => SetArgument("match_variable", value);
     }
 
@@ -127,7 +127,7 @@ public class AzurermFrontdoorFirewallPolicyCustomRuleBlockMatchConditionBlock : 
     /// </summary>
     public TerraformValue<bool>? NegationCondition
     {
-        get => new TerraformReference<bool>(this, "negation_condition");
+        get => GetArgument<TerraformValue<bool>>("negation_condition");
         set => SetArgument("negation_condition", value);
     }
 
@@ -137,7 +137,7 @@ public class AzurermFrontdoorFirewallPolicyCustomRuleBlockMatchConditionBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -146,7 +146,7 @@ public class AzurermFrontdoorFirewallPolicyCustomRuleBlockMatchConditionBlock : 
     /// </summary>
     public TerraformValue<string>? Selector
     {
-        get => new TerraformReference<string>(this, "selector");
+        get => GetArgument<TerraformValue<string>>("selector");
         set => SetArgument("selector", value);
     }
 
@@ -155,7 +155,7 @@ public class AzurermFrontdoorFirewallPolicyCustomRuleBlockMatchConditionBlock : 
     /// </summary>
     public TerraformList<string>? Transforms
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "transforms").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("transforms");
         set => SetArgument("transforms", value);
     }
 
@@ -179,7 +179,7 @@ public class AzurermFrontdoorFirewallPolicyManagedRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -189,7 +189,7 @@ public class AzurermFrontdoorFirewallPolicyManagedRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -232,7 +232,7 @@ public class AzurermFrontdoorFirewallPolicyManagedRuleBlockExclusionBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchVariable is required")]
     public required TerraformValue<string> MatchVariable
     {
-        get => new TerraformReference<string>(this, "match_variable");
+        get => GetArgument<TerraformValue<string>>("match_variable");
         set => SetArgument("match_variable", value);
     }
 
@@ -242,7 +242,7 @@ public class AzurermFrontdoorFirewallPolicyManagedRuleBlockExclusionBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -252,7 +252,7 @@ public class AzurermFrontdoorFirewallPolicyManagedRuleBlockExclusionBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Selector is required")]
     public required TerraformValue<string> Selector
     {
-        get => new TerraformReference<string>(this, "selector");
+        get => GetArgument<TerraformValue<string>>("selector");
         set => SetArgument("selector", value);
     }
 
@@ -275,7 +275,7 @@ public class AzurermFrontdoorFirewallPolicyManagedRuleBlockOverrideAttributeBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleGroupName is required")]
     public required TerraformValue<string> RuleGroupName
     {
-        get => new TerraformReference<string>(this, "rule_group_name");
+        get => GetArgument<TerraformValue<string>>("rule_group_name");
         set => SetArgument("rule_group_name", value);
     }
 
@@ -318,7 +318,7 @@ public class AzurermFrontdoorFirewallPolicyManagedRuleBlockOverrideAttributeBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchVariable is required")]
     public required TerraformValue<string> MatchVariable
     {
-        get => new TerraformReference<string>(this, "match_variable");
+        get => GetArgument<TerraformValue<string>>("match_variable");
         set => SetArgument("match_variable", value);
     }
 
@@ -328,7 +328,7 @@ public class AzurermFrontdoorFirewallPolicyManagedRuleBlockOverrideAttributeBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -338,7 +338,7 @@ public class AzurermFrontdoorFirewallPolicyManagedRuleBlockOverrideAttributeBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Selector is required")]
     public required TerraformValue<string> Selector
     {
-        get => new TerraformReference<string>(this, "selector");
+        get => GetArgument<TerraformValue<string>>("selector");
         set => SetArgument("selector", value);
     }
 
@@ -361,7 +361,7 @@ public class AzurermFrontdoorFirewallPolicyManagedRuleBlockOverrideAttributeBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -370,7 +370,7 @@ public class AzurermFrontdoorFirewallPolicyManagedRuleBlockOverrideAttributeBloc
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -380,7 +380,7 @@ public class AzurermFrontdoorFirewallPolicyManagedRuleBlockOverrideAttributeBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleId is required")]
     public required TerraformValue<string> RuleId
     {
-        get => new TerraformReference<string>(this, "rule_id");
+        get => GetArgument<TerraformValue<string>>("rule_id");
         set => SetArgument("rule_id", value);
     }
 
@@ -413,7 +413,7 @@ public class AzurermFrontdoorFirewallPolicyManagedRuleBlockOverrideAttributeBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchVariable is required")]
     public required TerraformValue<string> MatchVariable
     {
-        get => new TerraformReference<string>(this, "match_variable");
+        get => GetArgument<TerraformValue<string>>("match_variable");
         set => SetArgument("match_variable", value);
     }
 
@@ -423,7 +423,7 @@ public class AzurermFrontdoorFirewallPolicyManagedRuleBlockOverrideAttributeBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -433,7 +433,7 @@ public class AzurermFrontdoorFirewallPolicyManagedRuleBlockOverrideAttributeBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Selector is required")]
     public required TerraformValue<string> Selector
     {
-        get => new TerraformReference<string>(this, "selector");
+        get => GetArgument<TerraformValue<string>>("selector");
         set => SetArgument("selector", value);
     }
 
@@ -456,7 +456,7 @@ public class AzurermFrontdoorFirewallPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -465,7 +465,7 @@ public class AzurermFrontdoorFirewallPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -474,7 +474,7 @@ public class AzurermFrontdoorFirewallPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -483,7 +483,7 @@ public class AzurermFrontdoorFirewallPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -501,7 +501,7 @@ public partial class AzurermFrontdoorFirewallPolicy(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? CustomBlockResponseBody
     {
-        get => new TerraformReference<string>(this, "custom_block_response_body");
+        get => GetArgument<TerraformValue<string>>("custom_block_response_body");
         set => SetArgument("custom_block_response_body", value);
     }
 
@@ -510,7 +510,7 @@ public partial class AzurermFrontdoorFirewallPolicy(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double>? CustomBlockResponseStatusCode
     {
-        get => new TerraformReference<double>(this, "custom_block_response_status_code");
+        get => GetArgument<TerraformValue<double>>("custom_block_response_status_code");
         set => SetArgument("custom_block_response_status_code", value);
     }
 
@@ -519,16 +519,16 @@ public partial class AzurermFrontdoorFirewallPolicy(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -537,7 +537,7 @@ public partial class AzurermFrontdoorFirewallPolicy(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -547,7 +547,7 @@ public partial class AzurermFrontdoorFirewallPolicy(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -556,7 +556,7 @@ public partial class AzurermFrontdoorFirewallPolicy(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? RedirectUrl
     {
-        get => new TerraformReference<string>(this, "redirect_url");
+        get => GetArgument<TerraformValue<string>>("redirect_url");
         set => SetArgument("redirect_url", value);
     }
 
@@ -566,7 +566,7 @@ public partial class AzurermFrontdoorFirewallPolicy(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -575,7 +575,7 @@ public partial class AzurermFrontdoorFirewallPolicy(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -583,17 +583,13 @@ public partial class AzurermFrontdoorFirewallPolicy(string name) : TerraformReso
     /// The frontend_endpoint_ids attribute.
     /// </summary>
     public TerraformList<string> FrontendEndpointIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "frontend_endpoint_ids").ResolveNodes(ctx));
-    }
+        => AsReference("frontend_endpoint_ids");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// CustomRule block (nesting mode: list).

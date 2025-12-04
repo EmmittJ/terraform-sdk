@@ -13,7 +13,7 @@ public partial class AwsCloudfrontPublicKey(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? Comment
     {
-        get => new TerraformReference<string>(this, "comment");
+        get => GetArgument<TerraformValue<string>>("comment");
         set => SetArgument("comment", value);
     }
 
@@ -23,34 +23,34 @@ public partial class AwsCloudfrontPublicKey(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncodedKey is required")]
     public required TerraformValue<string> EncodedKey
     {
-        get => new TerraformReference<string>(this, "encoded_key");
+        get => GetArgument<TerraformValue<string>>("encoded_key");
         set => SetArgument("encoded_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -58,16 +58,12 @@ public partial class AwsCloudfrontPublicKey(string name) : TerraformResource("aw
     /// The caller_reference attribute.
     /// </summary>
     public TerraformValue<string> CallerReference
-    {
-        get => new TerraformReference<string>(this, "caller_reference");
-    }
+        => AsReference("caller_reference");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
 }

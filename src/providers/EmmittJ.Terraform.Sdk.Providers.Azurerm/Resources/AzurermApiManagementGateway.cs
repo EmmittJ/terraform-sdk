@@ -18,7 +18,7 @@ public class AzurermApiManagementGatewayLocationDataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? City
     {
-        get => new TerraformReference<string>(this, "city");
+        get => GetArgument<TerraformValue<string>>("city");
         set => SetArgument("city", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermApiManagementGatewayLocationDataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? District
     {
-        get => new TerraformReference<string>(this, "district");
+        get => GetArgument<TerraformValue<string>>("district");
         set => SetArgument("district", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermApiManagementGatewayLocationDataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -46,7 +46,7 @@ public class AzurermApiManagementGatewayLocationDataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermApiManagementGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermApiManagementGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermApiManagementGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermApiManagementGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AzurermApiManagementGateway(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
     public required TerraformValue<string> ApiManagementId
     {
-        get => new TerraformReference<string>(this, "api_management_id");
+        get => GetArgument<TerraformValue<string>>("api_management_id");
         set => SetArgument("api_management_id", value);
     }
 
@@ -124,16 +124,16 @@ public partial class AzurermApiManagementGateway(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AzurermApiManagementGateway(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

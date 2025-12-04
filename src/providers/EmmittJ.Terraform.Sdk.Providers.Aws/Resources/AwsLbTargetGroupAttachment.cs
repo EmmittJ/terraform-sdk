@@ -13,16 +13,16 @@ public partial class AwsLbTargetGroupAttachment(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? AvailabilityZone
     {
-        get => new TerraformReference<string>(this, "availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,16 +31,16 @@ public partial class AwsLbTargetGroupAttachment(string name) : TerraformResource
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsLbTargetGroupAttachment(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetGroupArn is required")]
     public required TerraformValue<string> TargetGroupArn
     {
-        get => new TerraformReference<string>(this, "target_group_arn");
+        get => GetArgument<TerraformValue<string>>("target_group_arn");
         set => SetArgument("target_group_arn", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsLbTargetGroupAttachment(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
     public required TerraformValue<string> TargetId
     {
-        get => new TerraformReference<string>(this, "target_id");
+        get => GetArgument<TerraformValue<string>>("target_id");
         set => SetArgument("target_id", value);
     }
 

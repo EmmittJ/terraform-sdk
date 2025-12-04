@@ -18,7 +18,7 @@ public class AzurermMssqlJobTargetGroupJobTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermMssqlJobTargetGroupJobTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ElasticPoolName
     {
-        get => new TerraformReference<string>(this, "elastic_pool_name");
+        get => GetArgument<TerraformValue<string>>("elastic_pool_name");
         set => SetArgument("elastic_pool_name", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermMssqlJobTargetGroupJobTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? JobCredentialId
     {
-        get => new TerraformReference<string>(this, "job_credential_id");
+        get => GetArgument<TerraformValue<string>>("job_credential_id");
         set => SetArgument("job_credential_id", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermMssqlJobTargetGroupJobTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MembershipType
     {
-        get => new TerraformReference<string>(this, "membership_type");
+        get => GetArgument<TerraformValue<string>>("membership_type");
         set => SetArgument("membership_type", value);
     }
 
@@ -55,7 +55,7 @@ public class AzurermMssqlJobTargetGroupJobTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     public required TerraformValue<string> ServerName
     {
-        get => new TerraformReference<string>(this, "server_name");
+        get => GetArgument<TerraformValue<string>>("server_name");
         set => SetArgument("server_name", value);
     }
 
@@ -63,9 +63,7 @@ public class AzurermMssqlJobTargetGroupJobTargetBlock : TerraformBlock
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
 }
 
@@ -86,7 +84,7 @@ public class AzurermMssqlJobTargetGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -95,7 +93,7 @@ public class AzurermMssqlJobTargetGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -104,7 +102,7 @@ public class AzurermMssqlJobTargetGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -113,7 +111,7 @@ public class AzurermMssqlJobTargetGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -129,9 +127,9 @@ public partial class AzurermMssqlJobTargetGroup(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -141,7 +139,7 @@ public partial class AzurermMssqlJobTargetGroup(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobAgentId is required")]
     public required TerraformValue<string> JobAgentId
     {
-        get => new TerraformReference<string>(this, "job_agent_id");
+        get => GetArgument<TerraformValue<string>>("job_agent_id");
         set => SetArgument("job_agent_id", value);
     }
 
@@ -151,7 +149,7 @@ public partial class AzurermMssqlJobTargetGroup(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

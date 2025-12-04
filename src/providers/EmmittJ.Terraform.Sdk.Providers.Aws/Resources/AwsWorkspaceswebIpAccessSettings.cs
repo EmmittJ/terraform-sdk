@@ -18,7 +18,7 @@ public class AwsWorkspaceswebIpAccessSettingsIpRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsWorkspaceswebIpAccessSettingsIpRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpRange is required")]
     public required TerraformValue<string> IpRange
     {
-        get => new TerraformReference<string>(this, "ip_range");
+        get => GetArgument<TerraformValue<string>>("ip_range");
         set => SetArgument("ip_range", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AwsWorkspaceswebIpAccessSettings(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? AdditionalEncryptionContext
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_encryption_context").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("additional_encryption_context");
         set => SetArgument("additional_encryption_context", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsWorkspaceswebIpAccessSettings(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? CustomerManagedKey
     {
-        get => new TerraformReference<string>(this, "customer_managed_key");
+        get => GetArgument<TerraformValue<string>>("customer_managed_key");
         set => SetArgument("customer_managed_key", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsWorkspaceswebIpAccessSettings(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AwsWorkspaceswebIpAccessSettings(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AwsWorkspaceswebIpAccessSettings(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -100,25 +100,19 @@ public partial class AwsWorkspaceswebIpAccessSettings(string name) : TerraformRe
     /// The associated_portal_arns attribute.
     /// </summary>
     public TerraformList<string> AssociatedPortalArns
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "associated_portal_arns").ResolveNodes(ctx));
-    }
+        => AsReference("associated_portal_arns");
 
     /// <summary>
     /// The ip_access_settings_arn attribute.
     /// </summary>
     public TerraformValue<string> IpAccessSettingsArn
-    {
-        get => new TerraformReference<string>(this, "ip_access_settings_arn");
-    }
+        => AsReference("ip_access_settings_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// IpRule block (nesting mode: list).

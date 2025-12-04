@@ -11,9 +11,9 @@ public partial class AwsIpRangesDataSource(string name) : TerraformDataSource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsIpRangesDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformSet<string>? Regions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("regions");
         set => SetArgument("regions", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsIpRangesDataSource(string name) : TerraformDataSource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Services is required")]
     public required TerraformSet<string> Services
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "services").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("services");
         set => SetArgument("services", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsIpRangesDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string>? Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -49,32 +49,24 @@ public partial class AwsIpRangesDataSource(string name) : TerraformDataSource("a
     /// The cidr_blocks attribute.
     /// </summary>
     public TerraformList<string> CidrBlocks
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "cidr_blocks").ResolveNodes(ctx));
-    }
+        => AsReference("cidr_blocks");
 
     /// <summary>
     /// The create_date attribute.
     /// </summary>
     public TerraformValue<string> CreateDate
-    {
-        get => new TerraformReference<string>(this, "create_date");
-    }
+        => AsReference("create_date");
 
     /// <summary>
     /// The ipv6_cidr_blocks attribute.
     /// </summary>
     public TerraformList<string> Ipv6CidrBlocks
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ipv6_cidr_blocks").ResolveNodes(ctx));
-    }
+        => AsReference("ipv6_cidr_blocks");
 
     /// <summary>
     /// The sync_token attribute.
     /// </summary>
     public TerraformValue<double> SyncToken
-    {
-        get => new TerraformReference<double>(this, "sync_token");
-    }
+        => AsReference("sync_token");
 
 }

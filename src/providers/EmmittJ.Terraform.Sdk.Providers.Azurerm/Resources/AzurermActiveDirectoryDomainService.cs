@@ -17,41 +17,31 @@ public class AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock : Terrafo
     /// The domain_controller_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> DomainControllerIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "domain_controller_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("domain_controller_ip_addresses");
 
     /// <summary>
     /// The external_access_ip_address attribute.
     /// </summary>
     public TerraformValue<string> ExternalAccessIpAddress
-    {
-        get => new TerraformReference<string>(this, "external_access_ip_address");
-    }
+        => AsReference("external_access_ip_address");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The service_status attribute.
     /// </summary>
     public TerraformValue<string> ServiceStatus
-    {
-        get => new TerraformReference<string>(this, "service_status");
-    }
+        => AsReference("service_status");
 
     /// <summary>
     /// The subnet_id attribute.
@@ -59,7 +49,7 @@ public class AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -82,7 +72,7 @@ public class AzurermActiveDirectoryDomainServiceNotificationsBlock : TerraformBl
     /// </summary>
     public TerraformSet<string>? AdditionalRecipients
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "additional_recipients").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("additional_recipients");
         set => SetArgument("additional_recipients", value);
     }
 
@@ -91,7 +81,7 @@ public class AzurermActiveDirectoryDomainServiceNotificationsBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? NotifyDcAdmins
     {
-        get => new TerraformReference<bool>(this, "notify_dc_admins");
+        get => GetArgument<TerraformValue<bool>>("notify_dc_admins");
         set => SetArgument("notify_dc_admins", value);
     }
 
@@ -100,7 +90,7 @@ public class AzurermActiveDirectoryDomainServiceNotificationsBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? NotifyGlobalAdmins
     {
-        get => new TerraformReference<bool>(this, "notify_global_admins");
+        get => GetArgument<TerraformValue<bool>>("notify_global_admins");
         set => SetArgument("notify_global_admins", value);
     }
 
@@ -122,17 +112,13 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
     /// The certificate_expiry attribute.
     /// </summary>
     public TerraformValue<string> CertificateExpiry
-    {
-        get => new TerraformReference<string>(this, "certificate_expiry");
-    }
+        => AsReference("certificate_expiry");
 
     /// <summary>
     /// The certificate_thumbprint attribute.
     /// </summary>
     public TerraformValue<string> CertificateThumbprint
-    {
-        get => new TerraformReference<string>(this, "certificate_thumbprint");
-    }
+        => AsReference("certificate_thumbprint");
 
     /// <summary>
     /// The enabled attribute.
@@ -140,7 +126,7 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -149,7 +135,7 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ExternalAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "external_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("external_access_enabled");
         set => SetArgument("external_access_enabled", value);
     }
 
@@ -159,7 +145,7 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PfxCertificate is required")]
     public required TerraformValue<string> PfxCertificate
     {
-        get => new TerraformReference<string>(this, "pfx_certificate");
+        get => GetArgument<TerraformValue<string>>("pfx_certificate");
         set => SetArgument("pfx_certificate", value);
     }
 
@@ -169,7 +155,7 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PfxCertificatePassword is required")]
     public required TerraformValue<string> PfxCertificatePassword
     {
-        get => new TerraformReference<string>(this, "pfx_certificate_password");
+        get => GetArgument<TerraformValue<string>>("pfx_certificate_password");
         set => SetArgument("pfx_certificate_password", value);
     }
 
@@ -177,9 +163,7 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
     /// The public_certificate attribute.
     /// </summary>
     public TerraformValue<string> PublicCertificate
-    {
-        get => new TerraformReference<string>(this, "public_certificate");
-    }
+        => AsReference("public_certificate");
 
 }
 
@@ -200,7 +184,7 @@ public class AzurermActiveDirectoryDomainServiceSecurityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? KerberosArmoringEnabled
     {
-        get => new TerraformReference<bool>(this, "kerberos_armoring_enabled");
+        get => GetArgument<TerraformValue<bool>>("kerberos_armoring_enabled");
         set => SetArgument("kerberos_armoring_enabled", value);
     }
 
@@ -209,7 +193,7 @@ public class AzurermActiveDirectoryDomainServiceSecurityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? KerberosRc4EncryptionEnabled
     {
-        get => new TerraformReference<bool>(this, "kerberos_rc4_encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("kerberos_rc4_encryption_enabled");
         set => SetArgument("kerberos_rc4_encryption_enabled", value);
     }
 
@@ -218,7 +202,7 @@ public class AzurermActiveDirectoryDomainServiceSecurityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? NtlmV1Enabled
     {
-        get => new TerraformReference<bool>(this, "ntlm_v1_enabled");
+        get => GetArgument<TerraformValue<bool>>("ntlm_v1_enabled");
         set => SetArgument("ntlm_v1_enabled", value);
     }
 
@@ -227,7 +211,7 @@ public class AzurermActiveDirectoryDomainServiceSecurityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SyncKerberosPasswords
     {
-        get => new TerraformReference<bool>(this, "sync_kerberos_passwords");
+        get => GetArgument<TerraformValue<bool>>("sync_kerberos_passwords");
         set => SetArgument("sync_kerberos_passwords", value);
     }
 
@@ -236,7 +220,7 @@ public class AzurermActiveDirectoryDomainServiceSecurityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SyncNtlmPasswords
     {
-        get => new TerraformReference<bool>(this, "sync_ntlm_passwords");
+        get => GetArgument<TerraformValue<bool>>("sync_ntlm_passwords");
         set => SetArgument("sync_ntlm_passwords", value);
     }
 
@@ -245,7 +229,7 @@ public class AzurermActiveDirectoryDomainServiceSecurityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SyncOnPremPasswords
     {
-        get => new TerraformReference<bool>(this, "sync_on_prem_passwords");
+        get => GetArgument<TerraformValue<bool>>("sync_on_prem_passwords");
         set => SetArgument("sync_on_prem_passwords", value);
     }
 
@@ -254,7 +238,7 @@ public class AzurermActiveDirectoryDomainServiceSecurityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? TlsV1Enabled
     {
-        get => new TerraformReference<bool>(this, "tls_v1_enabled");
+        get => GetArgument<TerraformValue<bool>>("tls_v1_enabled");
         set => SetArgument("tls_v1_enabled", value);
     }
 
@@ -277,7 +261,7 @@ public class AzurermActiveDirectoryDomainServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -286,7 +270,7 @@ public class AzurermActiveDirectoryDomainServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -295,7 +279,7 @@ public class AzurermActiveDirectoryDomainServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -304,7 +288,7 @@ public class AzurermActiveDirectoryDomainServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -322,7 +306,7 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? DomainConfigurationType
     {
-        get => new TerraformReference<string>(this, "domain_configuration_type");
+        get => GetArgument<TerraformValue<string>>("domain_configuration_type");
         set => SetArgument("domain_configuration_type", value);
     }
 
@@ -332,7 +316,7 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -341,16 +325,16 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     /// </summary>
     public TerraformValue<bool>? FilteredSyncEnabled
     {
-        get => new TerraformReference<bool>(this, "filtered_sync_enabled");
+        get => GetArgument<TerraformValue<bool>>("filtered_sync_enabled");
         set => SetArgument("filtered_sync_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -360,7 +344,7 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -370,7 +354,7 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -380,7 +364,7 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -390,7 +374,7 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformValue<string> Sku
     {
-        get => new TerraformReference<string>(this, "sku");
+        get => GetArgument<TerraformValue<string>>("sku");
         set => SetArgument("sku", value);
     }
 
@@ -399,7 +383,7 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -407,41 +391,31 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     /// The deployment_id attribute.
     /// </summary>
     public TerraformValue<string> DeploymentId
-    {
-        get => new TerraformReference<string>(this, "deployment_id");
-    }
+        => AsReference("deployment_id");
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceId
-    {
-        get => new TerraformReference<string>(this, "resource_id");
-    }
+        => AsReference("resource_id");
 
     /// <summary>
     /// The sync_owner attribute.
     /// </summary>
     public TerraformValue<string> SyncOwner
-    {
-        get => new TerraformReference<string>(this, "sync_owner");
-    }
+        => AsReference("sync_owner");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<double> Version
-    {
-        get => new TerraformReference<double>(this, "version");
-    }
+        => AsReference("version");
 
     /// <summary>
     /// InitialReplicaSet block (nesting mode: list).

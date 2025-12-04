@@ -18,16 +18,16 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MachineLearningWorkspaceId
     {
-        get => new TerraformReference<string>(this, "machine_learning_workspace_id");
+        get => GetArgument<TerraformValue<string>>("machine_learning_workspace_id");
         set => SetArgument("machine_learning_workspace_id", value);
     }
 
     /// <summary>
     /// The nat_gateway_name attribute.
     /// </summary>
-    public TerraformValue<string> NatGatewayName
+    public TerraformValue<string>? NatGatewayName
     {
-        get => new TerraformReference<string>(this, "nat_gateway_name");
+        get => GetArgument<TerraformValue<string>>("nat_gateway_name");
         set => SetArgument("nat_gateway_name", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? NoPublicIp
     {
-        get => new TerraformReference<bool>(this, "no_public_ip");
+        get => GetArgument<TerraformValue<bool>>("no_public_ip");
         set => SetArgument("no_public_ip", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PrivateSubnetName
     {
-        get => new TerraformReference<string>(this, "private_subnet_name");
+        get => GetArgument<TerraformValue<string>>("private_subnet_name");
         set => SetArgument("private_subnet_name", value);
     }
 
@@ -54,16 +54,16 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PrivateSubnetNetworkSecurityGroupAssociationId
     {
-        get => new TerraformReference<string>(this, "private_subnet_network_security_group_association_id");
+        get => GetArgument<TerraformValue<string>>("private_subnet_network_security_group_association_id");
         set => SetArgument("private_subnet_network_security_group_association_id", value);
     }
 
     /// <summary>
     /// The public_ip_name attribute.
     /// </summary>
-    public TerraformValue<string> PublicIpName
+    public TerraformValue<string>? PublicIpName
     {
-        get => new TerraformReference<string>(this, "public_ip_name");
+        get => GetArgument<TerraformValue<string>>("public_ip_name");
         set => SetArgument("public_ip_name", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PublicSubnetName
     {
-        get => new TerraformReference<string>(this, "public_subnet_name");
+        get => GetArgument<TerraformValue<string>>("public_subnet_name");
         set => SetArgument("public_subnet_name", value);
     }
 
@@ -81,25 +81,25 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PublicSubnetNetworkSecurityGroupAssociationId
     {
-        get => new TerraformReference<string>(this, "public_subnet_network_security_group_association_id");
+        get => GetArgument<TerraformValue<string>>("public_subnet_network_security_group_association_id");
         set => SetArgument("public_subnet_network_security_group_association_id", value);
     }
 
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
-    public TerraformValue<string> StorageAccountName
+    public TerraformValue<string>? StorageAccountName
     {
-        get => new TerraformReference<string>(this, "storage_account_name");
+        get => GetArgument<TerraformValue<string>>("storage_account_name");
         set => SetArgument("storage_account_name", value);
     }
 
     /// <summary>
     /// The storage_account_sku_name attribute.
     /// </summary>
-    public TerraformValue<string> StorageAccountSkuName
+    public TerraformValue<string>? StorageAccountSkuName
     {
-        get => new TerraformReference<string>(this, "storage_account_sku_name");
+        get => GetArgument<TerraformValue<string>>("storage_account_sku_name");
         set => SetArgument("storage_account_sku_name", value);
     }
 
@@ -108,16 +108,16 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? VirtualNetworkId
     {
-        get => new TerraformReference<string>(this, "virtual_network_id");
+        get => GetArgument<TerraformValue<string>>("virtual_network_id");
         set => SetArgument("virtual_network_id", value);
     }
 
     /// <summary>
     /// The vnet_address_prefix attribute.
     /// </summary>
-    public TerraformValue<string> VnetAddressPrefix
+    public TerraformValue<string>? VnetAddressPrefix
     {
-        get => new TerraformReference<string>(this, "vnet_address_prefix");
+        get => GetArgument<TerraformValue<string>>("vnet_address_prefix");
         set => SetArgument("vnet_address_prefix", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock : Terrafo
     /// </summary>
     public TerraformValue<bool>? AutomaticClusterUpdateEnabled
     {
-        get => new TerraformReference<bool>(this, "automatic_cluster_update_enabled");
+        get => GetArgument<TerraformValue<bool>>("automatic_cluster_update_enabled");
         set => SetArgument("automatic_cluster_update_enabled", value);
     }
 
@@ -149,7 +149,7 @@ public class AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock : Terrafo
     /// </summary>
     public TerraformValue<bool>? ComplianceSecurityProfileEnabled
     {
-        get => new TerraformReference<bool>(this, "compliance_security_profile_enabled");
+        get => GetArgument<TerraformValue<bool>>("compliance_security_profile_enabled");
         set => SetArgument("compliance_security_profile_enabled", value);
     }
 
@@ -158,7 +158,7 @@ public class AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock : Terrafo
     /// </summary>
     public TerraformSet<string>? ComplianceSecurityProfileStandards
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "compliance_security_profile_standards").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("compliance_security_profile_standards");
         set => SetArgument("compliance_security_profile_standards", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock : Terrafo
     /// </summary>
     public TerraformValue<bool>? EnhancedSecurityMonitoringEnabled
     {
-        get => new TerraformReference<bool>(this, "enhanced_security_monitoring_enabled");
+        get => GetArgument<TerraformValue<bool>>("enhanced_security_monitoring_enabled");
         set => SetArgument("enhanced_security_monitoring_enabled", value);
     }
 
@@ -190,7 +190,7 @@ public class AzurermDatabricksWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -199,7 +199,7 @@ public class AzurermDatabricksWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -208,7 +208,7 @@ public class AzurermDatabricksWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -217,7 +217,7 @@ public class AzurermDatabricksWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -235,7 +235,7 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? AccessConnectorId
     {
-        get => new TerraformReference<string>(this, "access_connector_id");
+        get => GetArgument<TerraformValue<string>>("access_connector_id");
         set => SetArgument("access_connector_id", value);
     }
 
@@ -244,7 +244,7 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? CustomerManagedKeyEnabled
     {
-        get => new TerraformReference<bool>(this, "customer_managed_key_enabled");
+        get => GetArgument<TerraformValue<bool>>("customer_managed_key_enabled");
         set => SetArgument("customer_managed_key_enabled", value);
     }
 
@@ -253,16 +253,16 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? DefaultStorageFirewallEnabled
     {
-        get => new TerraformReference<bool>(this, "default_storage_firewall_enabled");
+        get => GetArgument<TerraformValue<bool>>("default_storage_firewall_enabled");
         set => SetArgument("default_storage_firewall_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -271,7 +271,7 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? InfrastructureEncryptionEnabled
     {
-        get => new TerraformReference<bool>(this, "infrastructure_encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("infrastructure_encryption_enabled");
         set => SetArgument("infrastructure_encryption_enabled", value);
     }
 
@@ -280,7 +280,7 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? LoadBalancerBackendAddressPoolId
     {
-        get => new TerraformReference<string>(this, "load_balancer_backend_address_pool_id");
+        get => GetArgument<TerraformValue<string>>("load_balancer_backend_address_pool_id");
         set => SetArgument("load_balancer_backend_address_pool_id", value);
     }
 
@@ -290,7 +290,7 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -299,7 +299,7 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? ManagedDiskCmkKeyVaultId
     {
-        get => new TerraformReference<string>(this, "managed_disk_cmk_key_vault_id");
+        get => GetArgument<TerraformValue<string>>("managed_disk_cmk_key_vault_id");
         set => SetArgument("managed_disk_cmk_key_vault_id", value);
     }
 
@@ -308,7 +308,7 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? ManagedDiskCmkKeyVaultKeyId
     {
-        get => new TerraformReference<string>(this, "managed_disk_cmk_key_vault_key_id");
+        get => GetArgument<TerraformValue<string>>("managed_disk_cmk_key_vault_key_id");
         set => SetArgument("managed_disk_cmk_key_vault_key_id", value);
     }
 
@@ -317,16 +317,16 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? ManagedDiskCmkRotationToLatestVersionEnabled
     {
-        get => new TerraformReference<bool>(this, "managed_disk_cmk_rotation_to_latest_version_enabled");
+        get => GetArgument<TerraformValue<bool>>("managed_disk_cmk_rotation_to_latest_version_enabled");
         set => SetArgument("managed_disk_cmk_rotation_to_latest_version_enabled", value);
     }
 
     /// <summary>
     /// The managed_resource_group_name attribute.
     /// </summary>
-    public TerraformValue<string> ManagedResourceGroupName
+    public TerraformValue<string>? ManagedResourceGroupName
     {
-        get => new TerraformReference<string>(this, "managed_resource_group_name");
+        get => GetArgument<TerraformValue<string>>("managed_resource_group_name");
         set => SetArgument("managed_resource_group_name", value);
     }
 
@@ -335,7 +335,7 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? ManagedServicesCmkKeyVaultId
     {
-        get => new TerraformReference<string>(this, "managed_services_cmk_key_vault_id");
+        get => GetArgument<TerraformValue<string>>("managed_services_cmk_key_vault_id");
         set => SetArgument("managed_services_cmk_key_vault_id", value);
     }
 
@@ -344,7 +344,7 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? ManagedServicesCmkKeyVaultKeyId
     {
-        get => new TerraformReference<string>(this, "managed_services_cmk_key_vault_key_id");
+        get => GetArgument<TerraformValue<string>>("managed_services_cmk_key_vault_key_id");
         set => SetArgument("managed_services_cmk_key_vault_key_id", value);
     }
 
@@ -354,7 +354,7 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -363,7 +363,7 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? NetworkSecurityGroupRulesRequired
     {
-        get => new TerraformReference<string>(this, "network_security_group_rules_required");
+        get => GetArgument<TerraformValue<string>>("network_security_group_rules_required");
         set => SetArgument("network_security_group_rules_required", value);
     }
 
@@ -372,7 +372,7 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -382,7 +382,7 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -392,7 +392,7 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformValue<string> Sku
     {
-        get => new TerraformReference<string>(this, "sku");
+        get => GetArgument<TerraformValue<string>>("sku");
         set => SetArgument("sku", value);
     }
 
@@ -401,7 +401,7 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -409,49 +409,37 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     /// The disk_encryption_set_id attribute.
     /// </summary>
     public TerraformValue<string> DiskEncryptionSetId
-    {
-        get => new TerraformReference<string>(this, "disk_encryption_set_id");
-    }
+        => AsReference("disk_encryption_set_id");
 
     /// <summary>
     /// The managed_disk_identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedDiskIdentity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "managed_disk_identity").ResolveNodes(ctx));
-    }
+        => AsReference("managed_disk_identity");
 
     /// <summary>
     /// The managed_resource_group_id attribute.
     /// </summary>
     public TerraformValue<string> ManagedResourceGroupId
-    {
-        get => new TerraformReference<string>(this, "managed_resource_group_id");
-    }
+        => AsReference("managed_resource_group_id");
 
     /// <summary>
     /// The storage_account_identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StorageAccountIdentity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "storage_account_identity").ResolveNodes(ctx));
-    }
+        => AsReference("storage_account_identity");
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceId
-    {
-        get => new TerraformReference<string>(this, "workspace_id");
-    }
+        => AsReference("workspace_id");
 
     /// <summary>
     /// The workspace_url attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceUrl
-    {
-        get => new TerraformReference<string>(this, "workspace_url");
-    }
+        => AsReference("workspace_url");
 
     /// <summary>
     /// CustomParameters block (nesting mode: list).

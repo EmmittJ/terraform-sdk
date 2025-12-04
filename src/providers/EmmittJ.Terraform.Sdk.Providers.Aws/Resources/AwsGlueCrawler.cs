@@ -18,7 +18,7 @@ public class AwsGlueCrawlerCatalogTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConnectionName
     {
-        get => new TerraformReference<string>(this, "connection_name");
+        get => GetArgument<TerraformValue<string>>("connection_name");
         set => SetArgument("connection_name", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsGlueCrawlerCatalogTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsGlueCrawlerCatalogTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DlqEventQueueArn
     {
-        get => new TerraformReference<string>(this, "dlq_event_queue_arn");
+        get => GetArgument<TerraformValue<string>>("dlq_event_queue_arn");
         set => SetArgument("dlq_event_queue_arn", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsGlueCrawlerCatalogTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EventQueueArn
     {
-        get => new TerraformReference<string>(this, "event_queue_arn");
+        get => GetArgument<TerraformValue<string>>("event_queue_arn");
         set => SetArgument("event_queue_arn", value);
     }
 
@@ -56,7 +56,7 @@ public class AwsGlueCrawlerCatalogTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tables is required")]
     public TerraformList<string>? Tables
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tables").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("tables");
         set => SetArgument("tables", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsGlueCrawlerDeltaTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConnectionName
     {
-        get => new TerraformReference<string>(this, "connection_name");
+        get => GetArgument<TerraformValue<string>>("connection_name");
         set => SetArgument("connection_name", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsGlueCrawlerDeltaTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? CreateNativeDeltaTable
     {
-        get => new TerraformReference<bool>(this, "create_native_delta_table");
+        get => GetArgument<TerraformValue<bool>>("create_native_delta_table");
         set => SetArgument("create_native_delta_table", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsGlueCrawlerDeltaTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeltaTables is required")]
     public required TerraformSet<string> DeltaTables
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "delta_tables").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("delta_tables");
         set => SetArgument("delta_tables", value);
     }
 
@@ -108,7 +108,7 @@ public class AwsGlueCrawlerDeltaTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WriteManifest is required")]
     public required TerraformValue<bool> WriteManifest
     {
-        get => new TerraformReference<bool>(this, "write_manifest");
+        get => GetArgument<TerraformValue<bool>>("write_manifest");
         set => SetArgument("write_manifest", value);
     }
 
@@ -132,7 +132,7 @@ public class AwsGlueCrawlerDynamodbTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -141,7 +141,7 @@ public class AwsGlueCrawlerDynamodbTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ScanAll
     {
-        get => new TerraformReference<bool>(this, "scan_all");
+        get => GetArgument<TerraformValue<bool>>("scan_all");
         set => SetArgument("scan_all", value);
     }
 
@@ -150,7 +150,7 @@ public class AwsGlueCrawlerDynamodbTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ScanRate
     {
-        get => new TerraformReference<double>(this, "scan_rate");
+        get => GetArgument<TerraformValue<double>>("scan_rate");
         set => SetArgument("scan_rate", value);
     }
 
@@ -173,7 +173,7 @@ public class AwsGlueCrawlerHudiTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConnectionName
     {
-        get => new TerraformReference<string>(this, "connection_name");
+        get => GetArgument<TerraformValue<string>>("connection_name");
         set => SetArgument("connection_name", value);
     }
 
@@ -182,7 +182,7 @@ public class AwsGlueCrawlerHudiTargetBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Exclusions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclusions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclusions");
         set => SetArgument("exclusions", value);
     }
 
@@ -192,7 +192,7 @@ public class AwsGlueCrawlerHudiTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumTraversalDepth is required")]
     public required TerraformValue<double> MaximumTraversalDepth
     {
-        get => new TerraformReference<double>(this, "maximum_traversal_depth");
+        get => GetArgument<TerraformValue<double>>("maximum_traversal_depth");
         set => SetArgument("maximum_traversal_depth", value);
     }
 
@@ -202,7 +202,7 @@ public class AwsGlueCrawlerHudiTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Paths is required")]
     public required TerraformSet<string> Paths
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "paths").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("paths");
         set => SetArgument("paths", value);
     }
 
@@ -225,7 +225,7 @@ public class AwsGlueCrawlerIcebergTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConnectionName
     {
-        get => new TerraformReference<string>(this, "connection_name");
+        get => GetArgument<TerraformValue<string>>("connection_name");
         set => SetArgument("connection_name", value);
     }
 
@@ -234,7 +234,7 @@ public class AwsGlueCrawlerIcebergTargetBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Exclusions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclusions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclusions");
         set => SetArgument("exclusions", value);
     }
 
@@ -244,7 +244,7 @@ public class AwsGlueCrawlerIcebergTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumTraversalDepth is required")]
     public required TerraformValue<double> MaximumTraversalDepth
     {
-        get => new TerraformReference<double>(this, "maximum_traversal_depth");
+        get => GetArgument<TerraformValue<double>>("maximum_traversal_depth");
         set => SetArgument("maximum_traversal_depth", value);
     }
 
@@ -254,7 +254,7 @@ public class AwsGlueCrawlerIcebergTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Paths is required")]
     public required TerraformSet<string> Paths
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "paths").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("paths");
         set => SetArgument("paths", value);
     }
 
@@ -278,7 +278,7 @@ public class AwsGlueCrawlerJdbcTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionName is required")]
     public required TerraformValue<string> ConnectionName
     {
-        get => new TerraformReference<string>(this, "connection_name");
+        get => GetArgument<TerraformValue<string>>("connection_name");
         set => SetArgument("connection_name", value);
     }
 
@@ -287,7 +287,7 @@ public class AwsGlueCrawlerJdbcTargetBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? EnableAdditionalMetadata
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "enable_additional_metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("enable_additional_metadata");
         set => SetArgument("enable_additional_metadata", value);
     }
 
@@ -296,7 +296,7 @@ public class AwsGlueCrawlerJdbcTargetBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Exclusions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclusions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclusions");
         set => SetArgument("exclusions", value);
     }
 
@@ -306,7 +306,7 @@ public class AwsGlueCrawlerJdbcTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -327,9 +327,9 @@ public class AwsGlueCrawlerLakeFormationConfigurationBlock : TerraformBlock
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformValue<string> AccountId
+    public TerraformValue<string>? AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -338,7 +338,7 @@ public class AwsGlueCrawlerLakeFormationConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? UseLakeFormationCredentials
     {
-        get => new TerraformReference<bool>(this, "use_lake_formation_credentials");
+        get => GetArgument<TerraformValue<bool>>("use_lake_formation_credentials");
         set => SetArgument("use_lake_formation_credentials", value);
     }
 
@@ -361,7 +361,7 @@ public class AwsGlueCrawlerLineageConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CrawlerLineageSettings
     {
-        get => new TerraformReference<string>(this, "crawler_lineage_settings");
+        get => GetArgument<TerraformValue<string>>("crawler_lineage_settings");
         set => SetArgument("crawler_lineage_settings", value);
     }
 
@@ -385,7 +385,7 @@ public class AwsGlueCrawlerMongodbTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionName is required")]
     public required TerraformValue<string> ConnectionName
     {
-        get => new TerraformReference<string>(this, "connection_name");
+        get => GetArgument<TerraformValue<string>>("connection_name");
         set => SetArgument("connection_name", value);
     }
 
@@ -395,7 +395,7 @@ public class AwsGlueCrawlerMongodbTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -404,7 +404,7 @@ public class AwsGlueCrawlerMongodbTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ScanAll
     {
-        get => new TerraformReference<bool>(this, "scan_all");
+        get => GetArgument<TerraformValue<bool>>("scan_all");
         set => SetArgument("scan_all", value);
     }
 
@@ -427,7 +427,7 @@ public class AwsGlueCrawlerRecrawlPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RecrawlBehavior
     {
-        get => new TerraformReference<string>(this, "recrawl_behavior");
+        get => GetArgument<TerraformValue<string>>("recrawl_behavior");
         set => SetArgument("recrawl_behavior", value);
     }
 
@@ -450,7 +450,7 @@ public class AwsGlueCrawlerS3TargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConnectionName
     {
-        get => new TerraformReference<string>(this, "connection_name");
+        get => GetArgument<TerraformValue<string>>("connection_name");
         set => SetArgument("connection_name", value);
     }
 
@@ -459,7 +459,7 @@ public class AwsGlueCrawlerS3TargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DlqEventQueueArn
     {
-        get => new TerraformReference<string>(this, "dlq_event_queue_arn");
+        get => GetArgument<TerraformValue<string>>("dlq_event_queue_arn");
         set => SetArgument("dlq_event_queue_arn", value);
     }
 
@@ -468,7 +468,7 @@ public class AwsGlueCrawlerS3TargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EventQueueArn
     {
-        get => new TerraformReference<string>(this, "event_queue_arn");
+        get => GetArgument<TerraformValue<string>>("event_queue_arn");
         set => SetArgument("event_queue_arn", value);
     }
 
@@ -477,7 +477,7 @@ public class AwsGlueCrawlerS3TargetBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Exclusions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclusions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclusions");
         set => SetArgument("exclusions", value);
     }
 
@@ -487,7 +487,7 @@ public class AwsGlueCrawlerS3TargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -496,7 +496,7 @@ public class AwsGlueCrawlerS3TargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SampleSize
     {
-        get => new TerraformReference<double>(this, "sample_size");
+        get => GetArgument<TerraformValue<double>>("sample_size");
         set => SetArgument("sample_size", value);
     }
 
@@ -519,7 +519,7 @@ public class AwsGlueCrawlerSchemaChangePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DeleteBehavior
     {
-        get => new TerraformReference<string>(this, "delete_behavior");
+        get => GetArgument<TerraformValue<string>>("delete_behavior");
         set => SetArgument("delete_behavior", value);
     }
 
@@ -528,7 +528,7 @@ public class AwsGlueCrawlerSchemaChangePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? UpdateBehavior
     {
-        get => new TerraformReference<string>(this, "update_behavior");
+        get => GetArgument<TerraformValue<string>>("update_behavior");
         set => SetArgument("update_behavior", value);
     }
 
@@ -546,7 +546,7 @@ public partial class AwsGlueCrawler(string name) : TerraformResource("aws_glue_c
     /// </summary>
     public TerraformList<string>? Classifiers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "classifiers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("classifiers");
         set => SetArgument("classifiers", value);
     }
 
@@ -555,7 +555,7 @@ public partial class AwsGlueCrawler(string name) : TerraformResource("aws_glue_c
     /// </summary>
     public TerraformValue<string>? Configuration
     {
-        get => new TerraformReference<string>(this, "configuration");
+        get => GetArgument<TerraformValue<string>>("configuration");
         set => SetArgument("configuration", value);
     }
 
@@ -565,7 +565,7 @@ public partial class AwsGlueCrawler(string name) : TerraformResource("aws_glue_c
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -574,16 +574,16 @@ public partial class AwsGlueCrawler(string name) : TerraformResource("aws_glue_c
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -593,16 +593,16 @@ public partial class AwsGlueCrawler(string name) : TerraformResource("aws_glue_c
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -612,7 +612,7 @@ public partial class AwsGlueCrawler(string name) : TerraformResource("aws_glue_c
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => new TerraformReference<string>(this, "role");
+        get => GetArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 
@@ -621,7 +621,7 @@ public partial class AwsGlueCrawler(string name) : TerraformResource("aws_glue_c
     /// </summary>
     public TerraformValue<string>? Schedule
     {
-        get => new TerraformReference<string>(this, "schedule");
+        get => GetArgument<TerraformValue<string>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -630,7 +630,7 @@ public partial class AwsGlueCrawler(string name) : TerraformResource("aws_glue_c
     /// </summary>
     public TerraformValue<string>? SecurityConfiguration
     {
-        get => new TerraformReference<string>(this, "security_configuration");
+        get => GetArgument<TerraformValue<string>>("security_configuration");
         set => SetArgument("security_configuration", value);
     }
 
@@ -639,7 +639,7 @@ public partial class AwsGlueCrawler(string name) : TerraformResource("aws_glue_c
     /// </summary>
     public TerraformValue<string>? TablePrefix
     {
-        get => new TerraformReference<string>(this, "table_prefix");
+        get => GetArgument<TerraformValue<string>>("table_prefix");
         set => SetArgument("table_prefix", value);
     }
 
@@ -648,16 +648,16 @@ public partial class AwsGlueCrawler(string name) : TerraformResource("aws_glue_c
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -665,9 +665,7 @@ public partial class AwsGlueCrawler(string name) : TerraformResource("aws_glue_c
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// CatalogTarget block (nesting mode: list).

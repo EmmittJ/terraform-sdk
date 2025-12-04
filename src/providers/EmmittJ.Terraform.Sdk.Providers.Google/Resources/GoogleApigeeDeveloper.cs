@@ -18,7 +18,7 @@ public class GoogleApigeeDeveloperAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleApigeeDeveloperAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleApigeeDeveloperTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleApigeeDeveloperTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleApigeeDeveloperTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -87,7 +87,7 @@ public partial class GoogleApigeeDeveloper(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -97,16 +97,16 @@ public partial class GoogleApigeeDeveloper(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirstName is required")]
     public required TerraformValue<string> FirstName
     {
-        get => new TerraformReference<string>(this, "first_name");
+        get => GetArgument<TerraformValue<string>>("first_name");
         set => SetArgument("first_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -116,7 +116,7 @@ public partial class GoogleApigeeDeveloper(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LastName is required")]
     public required TerraformValue<string> LastName
     {
-        get => new TerraformReference<string>(this, "last_name");
+        get => GetArgument<TerraformValue<string>>("last_name");
         set => SetArgument("last_name", value);
     }
 
@@ -127,7 +127,7 @@ public partial class GoogleApigeeDeveloper(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => new TerraformReference<string>(this, "org_id");
+        get => GetArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -137,7 +137,7 @@ public partial class GoogleApigeeDeveloper(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformValue<string> UserName
     {
-        get => new TerraformReference<string>(this, "user_name");
+        get => GetArgument<TerraformValue<string>>("user_name");
         set => SetArgument("user_name", value);
     }
 
@@ -145,33 +145,25 @@ public partial class GoogleApigeeDeveloper(string name) : TerraformResource("goo
     /// Time at which the developer was created in milliseconds since epoch.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// Time at which the developer was last modified in milliseconds since epoch.
     /// </summary>
     public TerraformValue<string> LastModifiedAt
-    {
-        get => new TerraformReference<string>(this, "last_modified_at");
-    }
+        => AsReference("last_modified_at");
 
     /// <summary>
     /// Name of the Apigee organization in which the developer resides.
     /// </summary>
     public TerraformValue<string> OrganizatioName
-    {
-        get => new TerraformReference<string>(this, "organizatio_name");
-    }
+        => AsReference("organizatio_name");
 
     /// <summary>
     /// Status of the developer. Valid values are active and inactive.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// Attributes block (nesting mode: list).

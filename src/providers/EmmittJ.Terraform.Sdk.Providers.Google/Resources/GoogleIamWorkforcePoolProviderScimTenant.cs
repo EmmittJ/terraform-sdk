@@ -18,7 +18,7 @@ public class GoogleIamWorkforcePoolProviderScimTenantTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleIamWorkforcePoolProviderScimTenantTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleIamWorkforcePoolProviderScimTenantTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,7 +54,7 @@ public partial class GoogleIamWorkforcePoolProviderScimTenant(string name) : Ter
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -63,16 +63,16 @@ public partial class GoogleIamWorkforcePoolProviderScimTenant(string name) : Ter
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class GoogleIamWorkforcePoolProviderScimTenant(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -92,7 +92,7 @@ public partial class GoogleIamWorkforcePoolProviderScimTenant(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderId is required")]
     public required TerraformValue<string> ProviderId
     {
-        get => new TerraformReference<string>(this, "provider_id");
+        get => GetArgument<TerraformValue<string>>("provider_id");
         set => SetArgument("provider_id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class GoogleIamWorkforcePoolProviderScimTenant(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScimTenantId is required")]
     public required TerraformValue<string> ScimTenantId
     {
-        get => new TerraformReference<string>(this, "scim_tenant_id");
+        get => GetArgument<TerraformValue<string>>("scim_tenant_id");
         set => SetArgument("scim_tenant_id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class GoogleIamWorkforcePoolProviderScimTenant(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     public required TerraformValue<string> WorkforcePoolId
     {
-        get => new TerraformReference<string>(this, "workforce_pool_id");
+        get => GetArgument<TerraformValue<string>>("workforce_pool_id");
         set => SetArgument("workforce_pool_id", value);
     }
 
@@ -124,18 +124,14 @@ public partial class GoogleIamWorkforcePoolProviderScimTenant(string name) : Ter
     /// https://iamscim.googleapis.com/{version}/{tenant_id}/
     /// </summary>
     public TerraformValue<string> BaseUri
-    {
-        get => new TerraformReference<string>(this, "base_uri");
-    }
+        => AsReference("base_uri");
 
     /// <summary>
     /// Identifier. The resource name of the scim tenant.
     /// Format: &#39;locations/{location}/workforcePools/{workforce_pool}/providers/{workforce_pool_provider}/scimTenants/{scim_tenant_id}
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The current state of the scim tenant.
@@ -145,9 +141,7 @@ public partial class GoogleIamWorkforcePoolProviderScimTenant(string name) : Ter
     ///   deleted after approximately 30 days.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class GoogleApigeeDeveloperAppAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleApigeeDeveloperAppAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleApigeeDeveloperAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleApigeeDeveloperAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleApigeeDeveloperAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -86,16 +86,16 @@ public partial class GoogleApigeeDeveloperApp(string name) : TerraformResource("
     /// </summary>
     public TerraformSet<string>? ApiProducts
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "api_products").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("api_products");
         set => SetArgument("api_products", value);
     }
 
     /// <summary>
     /// Developer app family.
     /// </summary>
-    public TerraformValue<string> AppFamily
+    public TerraformValue<string>? AppFamily
     {
-        get => new TerraformReference<string>(this, "app_family");
+        get => GetArgument<TerraformValue<string>>("app_family");
         set => SetArgument("app_family", value);
     }
 
@@ -106,7 +106,7 @@ public partial class GoogleApigeeDeveloperApp(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CallbackUrl is required")]
     public required TerraformValue<string> CallbackUrl
     {
-        get => new TerraformReference<string>(this, "callback_url");
+        get => GetArgument<TerraformValue<string>>("callback_url");
         set => SetArgument("callback_url", value);
     }
 
@@ -118,16 +118,16 @@ public partial class GoogleApigeeDeveloperApp(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeveloperEmail is required")]
     public required TerraformValue<string> DeveloperEmail
     {
-        get => new TerraformReference<string>(this, "developer_email");
+        get => GetArgument<TerraformValue<string>>("developer_email");
         set => SetArgument("developer_email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -138,7 +138,7 @@ public partial class GoogleApigeeDeveloperApp(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? KeyExpiresIn
     {
-        get => new TerraformReference<string>(this, "key_expires_in");
+        get => GetArgument<TerraformValue<string>>("key_expires_in");
         set => SetArgument("key_expires_in", value);
     }
 
@@ -148,7 +148,7 @@ public partial class GoogleApigeeDeveloperApp(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -159,7 +159,7 @@ public partial class GoogleApigeeDeveloperApp(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => new TerraformReference<string>(this, "org_id");
+        get => GetArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -170,16 +170,16 @@ public partial class GoogleApigeeDeveloperApp(string name) : TerraformResource("
     /// </summary>
     public TerraformSet<string>? Scopes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("scopes");
         set => SetArgument("scopes", value);
     }
 
     /// <summary>
     /// Status of the credential. Valid values include approved or revoked.
     /// </summary>
-    public TerraformValue<string> Status
+    public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -188,42 +188,32 @@ public partial class GoogleApigeeDeveloperApp(string name) : TerraformResource("
     /// automatically generated on app creation. appId is a UUID.
     /// </summary>
     public TerraformValue<string> AppId
-    {
-        get => new TerraformReference<string>(this, "app_id");
-    }
+        => AsReference("app_id");
 
     /// <summary>
     /// Time at which the developer was created in milliseconds since epoch.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// Output only. Set of credentials for the developer app consisting of
     /// the consumer key/secret pairs associated with the API products.
     /// </summary>
     public TerraformList<TerraformMap<object>> Credentials
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "credentials").ResolveNodes(ctx));
-    }
+        => AsReference("credentials");
 
     /// <summary>
     /// ID of the developer.
     /// </summary>
     public TerraformValue<string> DeveloperId
-    {
-        get => new TerraformReference<string>(this, "developer_id");
-    }
+        => AsReference("developer_id");
 
     /// <summary>
     /// Time at which the developer was last modified in milliseconds since epoch.
     /// </summary>
     public TerraformValue<string> LastModifiedAt
-    {
-        get => new TerraformReference<string>(this, "last_modified_at");
-    }
+        => AsReference("last_modified_at");
 
     /// <summary>
     /// Attributes block (nesting mode: list).

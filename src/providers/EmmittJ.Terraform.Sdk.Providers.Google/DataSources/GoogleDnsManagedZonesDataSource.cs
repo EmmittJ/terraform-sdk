@@ -13,7 +13,7 @@ public partial class GoogleDnsManagedZonesDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -21,16 +21,12 @@ public partial class GoogleDnsManagedZonesDataSource(string name) : TerraformDat
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The managed_zones attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedZones
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "managed_zones").ResolveNodes(ctx));
-    }
+        => AsReference("managed_zones");
 
 }

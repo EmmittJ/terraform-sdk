@@ -14,25 +14,25 @@ public partial class AwsLicensemanagerGrantAccepter(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrantArn is required")]
     public required TerraformValue<string> GrantArn
     {
-        get => new TerraformReference<string>(this, "grant_arn");
+        get => GetArgument<TerraformValue<string>>("grant_arn");
         set => SetArgument("grant_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -40,64 +40,48 @@ public partial class AwsLicensemanagerGrantAccepter(string name) : TerraformReso
     /// Allowed operations for the grant.
     /// </summary>
     public TerraformSet<string> AllowedOperations
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_operations").ResolveNodes(ctx));
-    }
+        => AsReference("allowed_operations");
 
     /// <summary>
     /// Home Region of the grant.
     /// </summary>
     public TerraformValue<string> HomeRegion
-    {
-        get => new TerraformReference<string>(this, "home_region");
-    }
+        => AsReference("home_region");
 
     /// <summary>
     /// License ARN.
     /// </summary>
     public TerraformValue<string> LicenseArn
-    {
-        get => new TerraformReference<string>(this, "license_arn");
-    }
+        => AsReference("license_arn");
 
     /// <summary>
     /// Name of the grant.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Parent ARN.
     /// </summary>
     public TerraformValue<string> ParentArn
-    {
-        get => new TerraformReference<string>(this, "parent_arn");
-    }
+        => AsReference("parent_arn");
 
     /// <summary>
     /// The grantee principal ARN.
     /// </summary>
     public TerraformValue<string> Principal
-    {
-        get => new TerraformReference<string>(this, "principal");
-    }
+        => AsReference("principal");
 
     /// <summary>
     /// GrantAccepter status.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// GrantAccepter version.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
 }

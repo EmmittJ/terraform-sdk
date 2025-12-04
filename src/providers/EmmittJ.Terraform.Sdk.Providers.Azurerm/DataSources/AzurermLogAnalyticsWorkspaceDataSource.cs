@@ -18,7 +18,7 @@ public class AzurermLogAnalyticsWorkspaceDataSourceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermLogAnalyticsWorkspaceDataSource(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermLogAnalyticsWorkspaceDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermLogAnalyticsWorkspaceDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,65 +64,49 @@ public partial class AzurermLogAnalyticsWorkspaceDataSource(string name) : Terra
     /// The daily_quota_gb attribute.
     /// </summary>
     public TerraformValue<double> DailyQuotaGb
-    {
-        get => new TerraformReference<double>(this, "daily_quota_gb");
-    }
+        => AsReference("daily_quota_gb");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The primary_shared_key attribute.
     /// </summary>
     public TerraformValue<string> PrimarySharedKey
-    {
-        get => new TerraformReference<string>(this, "primary_shared_key");
-    }
+        => AsReference("primary_shared_key");
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
     public TerraformValue<double> RetentionInDays
-    {
-        get => new TerraformReference<double>(this, "retention_in_days");
-    }
+        => AsReference("retention_in_days");
 
     /// <summary>
     /// The secondary_shared_key attribute.
     /// </summary>
     public TerraformValue<string> SecondarySharedKey
-    {
-        get => new TerraformReference<string>(this, "secondary_shared_key");
-    }
+        => AsReference("secondary_shared_key");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformValue<string> Sku
-    {
-        get => new TerraformReference<string>(this, "sku");
-    }
+        => AsReference("sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceId
-    {
-        get => new TerraformReference<string>(this, "workspace_id");
-    }
+        => AsReference("workspace_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

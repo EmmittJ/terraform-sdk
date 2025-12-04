@@ -16,9 +16,9 @@ public class AwsGameliftGameServerGroupAutoScalingPolicyBlock : TerraformBlock
     /// <summary>
     /// The estimated_instance_warmup attribute.
     /// </summary>
-    public TerraformValue<double> EstimatedInstanceWarmup
+    public TerraformValue<double>? EstimatedInstanceWarmup
     {
-        get => new TerraformReference<double>(this, "estimated_instance_warmup");
+        get => GetArgument<TerraformValue<double>>("estimated_instance_warmup");
         set => SetArgument("estimated_instance_warmup", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsGameliftGameServerGroupAutoScalingPolicyBlockTargetTrackingConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetValue is required")]
     public required TerraformValue<double> TargetValue
     {
-        get => new TerraformReference<double>(this, "target_value");
+        get => GetArgument<TerraformValue<double>>("target_value");
         set => SetArgument("target_value", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsGameliftGameServerGroupInstanceDefinitionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsGameliftGameServerGroupInstanceDefinitionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? WeightedCapacity
     {
-        get => new TerraformReference<string>(this, "weighted_capacity");
+        get => GetArgument<TerraformValue<string>>("weighted_capacity");
         set => SetArgument("weighted_capacity", value);
     }
 
@@ -108,18 +108,18 @@ public class AwsGameliftGameServerGroupLaunchTemplateBlock : TerraformBlock
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -128,7 +128,7 @@ public class AwsGameliftGameServerGroupLaunchTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -151,7 +151,7 @@ public class AwsGameliftGameServerGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -160,7 +160,7 @@ public class AwsGameliftGameServerGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -176,9 +176,9 @@ public partial class AwsGameliftGameServerGroup(string name) : TerraformResource
     /// <summary>
     /// The balancing_strategy attribute.
     /// </summary>
-    public TerraformValue<string> BalancingStrategy
+    public TerraformValue<string>? BalancingStrategy
     {
-        get => new TerraformReference<string>(this, "balancing_strategy");
+        get => GetArgument<TerraformValue<string>>("balancing_strategy");
         set => SetArgument("balancing_strategy", value);
     }
 
@@ -188,25 +188,25 @@ public partial class AwsGameliftGameServerGroup(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GameServerGroupName is required")]
     public required TerraformValue<string> GameServerGroupName
     {
-        get => new TerraformReference<string>(this, "game_server_group_name");
+        get => GetArgument<TerraformValue<string>>("game_server_group_name");
         set => SetArgument("game_server_group_name", value);
     }
 
     /// <summary>
     /// The game_server_protection_policy attribute.
     /// </summary>
-    public TerraformValue<string> GameServerProtectionPolicy
+    public TerraformValue<string>? GameServerProtectionPolicy
     {
-        get => new TerraformReference<string>(this, "game_server_protection_policy");
+        get => GetArgument<TerraformValue<string>>("game_server_protection_policy");
         set => SetArgument("game_server_protection_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -216,7 +216,7 @@ public partial class AwsGameliftGameServerGroup(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSize is required")]
     public required TerraformValue<double> MaxSize
     {
-        get => new TerraformReference<double>(this, "max_size");
+        get => GetArgument<TerraformValue<double>>("max_size");
         set => SetArgument("max_size", value);
     }
 
@@ -226,16 +226,16 @@ public partial class AwsGameliftGameServerGroup(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinSize is required")]
     public required TerraformValue<double> MinSize
     {
-        get => new TerraformReference<double>(this, "min_size");
+        get => GetArgument<TerraformValue<double>>("min_size");
         set => SetArgument("min_size", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -245,7 +245,7 @@ public partial class AwsGameliftGameServerGroup(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -254,16 +254,16 @@ public partial class AwsGameliftGameServerGroup(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -272,7 +272,7 @@ public partial class AwsGameliftGameServerGroup(string name) : TerraformResource
     /// </summary>
     public TerraformSet<string>? VpcSubnets
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "vpc_subnets").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("vpc_subnets");
         set => SetArgument("vpc_subnets", value);
     }
 
@@ -280,17 +280,13 @@ public partial class AwsGameliftGameServerGroup(string name) : TerraformResource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The auto_scaling_group_arn attribute.
     /// </summary>
     public TerraformValue<string> AutoScalingGroupArn
-    {
-        get => new TerraformReference<string>(this, "auto_scaling_group_arn");
-    }
+        => AsReference("auto_scaling_group_arn");
 
     /// <summary>
     /// AutoScalingPolicy block (nesting mode: list).

@@ -46,7 +46,7 @@ public class GoogleContainerAnalysisNoteAttestationAuthorityBlockHintBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HumanReadableName is required")]
     public required TerraformValue<string> HumanReadableName
     {
-        get => new TerraformReference<string>(this, "human_readable_name");
+        get => GetArgument<TerraformValue<string>>("human_readable_name");
         set => SetArgument("human_readable_name", value);
     }
 
@@ -69,7 +69,7 @@ public class GoogleContainerAnalysisNoteRelatedUrlBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Label
     {
-        get => new TerraformReference<string>(this, "label");
+        get => GetArgument<TerraformValue<string>>("label");
         set => SetArgument("label", value);
     }
 
@@ -79,7 +79,7 @@ public class GoogleContainerAnalysisNoteRelatedUrlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleContainerAnalysisNoteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleContainerAnalysisNoteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleContainerAnalysisNoteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -138,16 +138,16 @@ public partial class GoogleContainerAnalysisNote(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? ExpirationTime
     {
-        get => new TerraformReference<string>(this, "expiration_time");
+        get => GetArgument<TerraformValue<string>>("expiration_time");
         set => SetArgument("expiration_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -156,7 +156,7 @@ public partial class GoogleContainerAnalysisNote(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? LongDescription
     {
-        get => new TerraformReference<string>(this, "long_description");
+        get => GetArgument<TerraformValue<string>>("long_description");
         set => SetArgument("long_description", value);
     }
 
@@ -166,16 +166,16 @@ public partial class GoogleContainerAnalysisNote(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -184,7 +184,7 @@ public partial class GoogleContainerAnalysisNote(string name) : TerraformResourc
     /// </summary>
     public TerraformSet<string>? RelatedNoteNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "related_note_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("related_note_names");
         set => SetArgument("related_note_names", value);
     }
 
@@ -193,7 +193,7 @@ public partial class GoogleContainerAnalysisNote(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? ShortDescription
     {
-        get => new TerraformReference<string>(this, "short_description");
+        get => GetArgument<TerraformValue<string>>("short_description");
         set => SetArgument("short_description", value);
     }
 
@@ -201,25 +201,19 @@ public partial class GoogleContainerAnalysisNote(string name) : TerraformResourc
     /// The time this note was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The type of analysis this note describes
     /// </summary>
     public TerraformValue<string> Kind
-    {
-        get => new TerraformReference<string>(this, "kind");
-    }
+        => AsReference("kind");
 
     /// <summary>
     /// The time this note was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// AttestationAuthority block (nesting mode: list).

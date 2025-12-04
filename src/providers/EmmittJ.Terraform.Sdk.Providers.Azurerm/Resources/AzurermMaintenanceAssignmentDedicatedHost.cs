@@ -18,7 +18,7 @@ public class AzurermMaintenanceAssignmentDedicatedHostTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermMaintenanceAssignmentDedicatedHostTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermMaintenanceAssignmentDedicatedHostTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AzurermMaintenanceAssignmentDedicatedHost(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DedicatedHostId is required")]
     public required TerraformValue<string> DedicatedHostId
     {
-        get => new TerraformReference<string>(this, "dedicated_host_id");
+        get => GetArgument<TerraformValue<string>>("dedicated_host_id");
         set => SetArgument("dedicated_host_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermMaintenanceAssignmentDedicatedHost(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermMaintenanceAssignmentDedicatedHost(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceConfigurationId is required")]
     public required TerraformValue<string> MaintenanceConfigurationId
     {
-        get => new TerraformReference<string>(this, "maintenance_configuration_id");
+        get => GetArgument<TerraformValue<string>>("maintenance_configuration_id");
         set => SetArgument("maintenance_configuration_id", value);
     }
 

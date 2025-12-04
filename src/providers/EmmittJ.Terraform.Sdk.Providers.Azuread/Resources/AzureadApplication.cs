@@ -18,7 +18,7 @@ public class AzureadApplicationApiBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? KnownClientApplications
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "known_client_applications").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("known_client_applications");
         set => SetArgument("known_client_applications", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadApplicationApiBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? MappedClaimsEnabled
     {
-        get => new TerraformReference<bool>(this, "mapped_claims_enabled");
+        get => GetArgument<TerraformValue<bool>>("mapped_claims_enabled");
         set => SetArgument("mapped_claims_enabled", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadApplicationApiBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? RequestedAccessTokenVersion
     {
-        get => new TerraformReference<double>(this, "requested_access_token_version");
+        get => GetArgument<TerraformValue<double>>("requested_access_token_version");
         set => SetArgument("requested_access_token_version", value);
     }
 
@@ -67,7 +67,7 @@ public class AzureadApplicationApiBlockOauth2PermissionScopeBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? AdminConsentDescription
     {
-        get => new TerraformReference<string>(this, "admin_consent_description");
+        get => GetArgument<TerraformValue<string>>("admin_consent_description");
         set => SetArgument("admin_consent_description", value);
     }
 
@@ -76,7 +76,7 @@ public class AzureadApplicationApiBlockOauth2PermissionScopeBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? AdminConsentDisplayName
     {
-        get => new TerraformReference<string>(this, "admin_consent_display_name");
+        get => GetArgument<TerraformValue<string>>("admin_consent_display_name");
         set => SetArgument("admin_consent_display_name", value);
     }
 
@@ -85,7 +85,7 @@ public class AzureadApplicationApiBlockOauth2PermissionScopeBlock : TerraformBlo
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -95,7 +95,7 @@ public class AzureadApplicationApiBlockOauth2PermissionScopeBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -104,7 +104,7 @@ public class AzureadApplicationApiBlockOauth2PermissionScopeBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -113,7 +113,7 @@ public class AzureadApplicationApiBlockOauth2PermissionScopeBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? UserConsentDescription
     {
-        get => new TerraformReference<string>(this, "user_consent_description");
+        get => GetArgument<TerraformValue<string>>("user_consent_description");
         set => SetArgument("user_consent_description", value);
     }
 
@@ -122,7 +122,7 @@ public class AzureadApplicationApiBlockOauth2PermissionScopeBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? UserConsentDisplayName
     {
-        get => new TerraformReference<string>(this, "user_consent_display_name");
+        get => GetArgument<TerraformValue<string>>("user_consent_display_name");
         set => SetArgument("user_consent_display_name", value);
     }
 
@@ -131,7 +131,7 @@ public class AzureadApplicationApiBlockOauth2PermissionScopeBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -155,7 +155,7 @@ public class AzureadApplicationAppRoleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMemberTypes is required")]
     public required TerraformSet<string> AllowedMemberTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_member_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_member_types");
         set => SetArgument("allowed_member_types", value);
     }
 
@@ -165,7 +165,7 @@ public class AzureadApplicationAppRoleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -175,7 +175,7 @@ public class AzureadApplicationAppRoleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -184,7 +184,7 @@ public class AzureadApplicationAppRoleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -194,7 +194,7 @@ public class AzureadApplicationAppRoleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -203,7 +203,7 @@ public class AzureadApplicationAppRoleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -226,7 +226,7 @@ public class AzureadApplicationFeatureTagsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? CustomSingleSignOn
     {
-        get => new TerraformReference<bool>(this, "custom_single_sign_on");
+        get => GetArgument<TerraformValue<bool>>("custom_single_sign_on");
         set => SetArgument("custom_single_sign_on", value);
     }
 
@@ -235,7 +235,7 @@ public class AzureadApplicationFeatureTagsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enterprise
     {
-        get => new TerraformReference<bool>(this, "enterprise");
+        get => GetArgument<TerraformValue<bool>>("enterprise");
         set => SetArgument("enterprise", value);
     }
 
@@ -244,7 +244,7 @@ public class AzureadApplicationFeatureTagsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Gallery
     {
-        get => new TerraformReference<bool>(this, "gallery");
+        get => GetArgument<TerraformValue<bool>>("gallery");
         set => SetArgument("gallery", value);
     }
 
@@ -253,7 +253,7 @@ public class AzureadApplicationFeatureTagsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Hide
     {
-        get => new TerraformReference<bool>(this, "hide");
+        get => GetArgument<TerraformValue<bool>>("hide");
         set => SetArgument("hide", value);
     }
 
@@ -316,7 +316,7 @@ public class AzureadApplicationOptionalClaimsBlockAccessTokenBlock : TerraformBl
     /// </summary>
     public TerraformList<string>? AdditionalProperties
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "additional_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("additional_properties");
         set => SetArgument("additional_properties", value);
     }
 
@@ -325,7 +325,7 @@ public class AzureadApplicationOptionalClaimsBlockAccessTokenBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? Essential
     {
-        get => new TerraformReference<bool>(this, "essential");
+        get => GetArgument<TerraformValue<bool>>("essential");
         set => SetArgument("essential", value);
     }
 
@@ -335,7 +335,7 @@ public class AzureadApplicationOptionalClaimsBlockAccessTokenBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -344,7 +344,7 @@ public class AzureadApplicationOptionalClaimsBlockAccessTokenBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -366,7 +366,7 @@ public class AzureadApplicationOptionalClaimsBlockIdTokenBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AdditionalProperties
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "additional_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("additional_properties");
         set => SetArgument("additional_properties", value);
     }
 
@@ -375,7 +375,7 @@ public class AzureadApplicationOptionalClaimsBlockIdTokenBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Essential
     {
-        get => new TerraformReference<bool>(this, "essential");
+        get => GetArgument<TerraformValue<bool>>("essential");
         set => SetArgument("essential", value);
     }
 
@@ -385,7 +385,7 @@ public class AzureadApplicationOptionalClaimsBlockIdTokenBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -394,7 +394,7 @@ public class AzureadApplicationOptionalClaimsBlockIdTokenBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -416,7 +416,7 @@ public class AzureadApplicationOptionalClaimsBlockSaml2TokenBlock : TerraformBlo
     /// </summary>
     public TerraformList<string>? AdditionalProperties
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "additional_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("additional_properties");
         set => SetArgument("additional_properties", value);
     }
 
@@ -425,7 +425,7 @@ public class AzureadApplicationOptionalClaimsBlockSaml2TokenBlock : TerraformBlo
     /// </summary>
     public TerraformValue<bool>? Essential
     {
-        get => new TerraformReference<bool>(this, "essential");
+        get => GetArgument<TerraformValue<bool>>("essential");
         set => SetArgument("essential", value);
     }
 
@@ -435,7 +435,7 @@ public class AzureadApplicationOptionalClaimsBlockSaml2TokenBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -444,7 +444,7 @@ public class AzureadApplicationOptionalClaimsBlockSaml2TokenBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -468,16 +468,16 @@ public class AzureadApplicationPasswordBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The end date until which the password is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`)
     /// </summary>
-    public TerraformValue<string> EndDate
+    public TerraformValue<string>? EndDate
     {
-        get => new TerraformReference<string>(this, "end_date");
+        get => GetArgument<TerraformValue<string>>("end_date");
         set => SetArgument("end_date", value);
     }
 
@@ -485,16 +485,14 @@ public class AzureadApplicationPasswordBlock : TerraformBlock
     /// A UUID used to uniquely identify this password credential
     /// </summary>
     public TerraformValue<string> KeyId
-    {
-        get => new TerraformReference<string>(this, "key_id");
-    }
+        => AsReference("key_id");
 
     /// <summary>
     /// The start date from which the password is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn&#39;t specified, the current date is used
     /// </summary>
-    public TerraformValue<string> StartDate
+    public TerraformValue<string>? StartDate
     {
-        get => new TerraformReference<string>(this, "start_date");
+        get => GetArgument<TerraformValue<string>>("start_date");
         set => SetArgument("start_date", value);
     }
 
@@ -502,9 +500,7 @@ public class AzureadApplicationPasswordBlock : TerraformBlock
     /// The password for this application, which is generated by Azure Active Directory
     /// </summary>
     public TerraformValue<string> Value
-    {
-        get => new TerraformReference<string>(this, "value");
-    }
+        => AsReference("value");
 
 }
 
@@ -525,7 +521,7 @@ public class AzureadApplicationPublicClientBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? RedirectUris
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "redirect_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("redirect_uris");
         set => SetArgument("redirect_uris", value);
     }
 
@@ -549,7 +545,7 @@ public class AzureadApplicationRequiredResourceAccessBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceAppId is required")]
     public required TerraformValue<string> ResourceAppId
     {
-        get => new TerraformReference<string>(this, "resource_app_id");
+        get => GetArgument<TerraformValue<string>>("resource_app_id");
         set => SetArgument("resource_app_id", value);
     }
 
@@ -584,7 +580,7 @@ public class AzureadApplicationRequiredResourceAccessBlockResourceAccessBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -594,7 +590,7 @@ public class AzureadApplicationRequiredResourceAccessBlockResourceAccessBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -617,7 +613,7 @@ public class AzureadApplicationSinglePageApplicationBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? RedirectUris
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "redirect_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("redirect_uris");
         set => SetArgument("redirect_uris", value);
     }
 
@@ -640,7 +636,7 @@ public class AzureadApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -649,7 +645,7 @@ public class AzureadApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -658,7 +654,7 @@ public class AzureadApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -667,7 +663,7 @@ public class AzureadApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -690,7 +686,7 @@ public class AzureadApplicationWebBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? HomepageUrl
     {
-        get => new TerraformReference<string>(this, "homepage_url");
+        get => GetArgument<TerraformValue<string>>("homepage_url");
         set => SetArgument("homepage_url", value);
     }
 
@@ -699,7 +695,7 @@ public class AzureadApplicationWebBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LogoutUrl
     {
-        get => new TerraformReference<string>(this, "logout_url");
+        get => GetArgument<TerraformValue<string>>("logout_url");
         set => SetArgument("logout_url", value);
     }
 
@@ -708,7 +704,7 @@ public class AzureadApplicationWebBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? RedirectUris
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "redirect_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("redirect_uris");
         set => SetArgument("redirect_uris", value);
     }
 
@@ -740,7 +736,7 @@ public class AzureadApplicationWebBlockImplicitGrantBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AccessTokenIssuanceEnabled
     {
-        get => new TerraformReference<bool>(this, "access_token_issuance_enabled");
+        get => GetArgument<TerraformValue<bool>>("access_token_issuance_enabled");
         set => SetArgument("access_token_issuance_enabled", value);
     }
 
@@ -749,7 +745,7 @@ public class AzureadApplicationWebBlockImplicitGrantBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IdTokenIssuanceEnabled
     {
-        get => new TerraformReference<bool>(this, "id_token_issuance_enabled");
+        get => GetArgument<TerraformValue<bool>>("id_token_issuance_enabled");
         set => SetArgument("id_token_issuance_enabled", value);
     }
 
@@ -767,7 +763,7 @@ public partial class AzureadApplication(string name) : TerraformResource("azurea
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -776,7 +772,7 @@ public partial class AzureadApplication(string name) : TerraformResource("azurea
     /// </summary>
     public TerraformValue<bool>? DeviceOnlyAuthEnabled
     {
-        get => new TerraformReference<bool>(this, "device_only_auth_enabled");
+        get => GetArgument<TerraformValue<bool>>("device_only_auth_enabled");
         set => SetArgument("device_only_auth_enabled", value);
     }
 
@@ -786,7 +782,7 @@ public partial class AzureadApplication(string name) : TerraformResource("azurea
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -795,7 +791,7 @@ public partial class AzureadApplication(string name) : TerraformResource("azurea
     /// </summary>
     public TerraformValue<bool>? FallbackPublicClientEnabled
     {
-        get => new TerraformReference<bool>(this, "fallback_public_client_enabled");
+        get => GetArgument<TerraformValue<bool>>("fallback_public_client_enabled");
         set => SetArgument("fallback_public_client_enabled", value);
     }
 
@@ -804,16 +800,16 @@ public partial class AzureadApplication(string name) : TerraformResource("azurea
     /// </summary>
     public TerraformSet<string>? GroupMembershipClaims
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "group_membership_claims").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("group_membership_claims");
         set => SetArgument("group_membership_claims", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -822,7 +818,7 @@ public partial class AzureadApplication(string name) : TerraformResource("azurea
     /// </summary>
     public TerraformSet<string>? IdentifierUris
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identifier_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identifier_uris");
         set => SetArgument("identifier_uris", value);
     }
 
@@ -831,7 +827,7 @@ public partial class AzureadApplication(string name) : TerraformResource("azurea
     /// </summary>
     public TerraformValue<string>? LogoImage
     {
-        get => new TerraformReference<string>(this, "logo_image");
+        get => GetArgument<TerraformValue<string>>("logo_image");
         set => SetArgument("logo_image", value);
     }
 
@@ -840,7 +836,7 @@ public partial class AzureadApplication(string name) : TerraformResource("azurea
     /// </summary>
     public TerraformValue<string>? MarketingUrl
     {
-        get => new TerraformReference<string>(this, "marketing_url");
+        get => GetArgument<TerraformValue<string>>("marketing_url");
         set => SetArgument("marketing_url", value);
     }
 
@@ -849,7 +845,7 @@ public partial class AzureadApplication(string name) : TerraformResource("azurea
     /// </summary>
     public TerraformValue<string>? Notes
     {
-        get => new TerraformReference<string>(this, "notes");
+        get => GetArgument<TerraformValue<string>>("notes");
         set => SetArgument("notes", value);
     }
 
@@ -858,7 +854,7 @@ public partial class AzureadApplication(string name) : TerraformResource("azurea
     /// </summary>
     public TerraformValue<bool>? Oauth2PostResponseRequired
     {
-        get => new TerraformReference<bool>(this, "oauth2_post_response_required");
+        get => GetArgument<TerraformValue<bool>>("oauth2_post_response_required");
         set => SetArgument("oauth2_post_response_required", value);
     }
 
@@ -867,7 +863,7 @@ public partial class AzureadApplication(string name) : TerraformResource("azurea
     /// </summary>
     public TerraformSet<string>? Owners
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "owners").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("owners");
         set => SetArgument("owners", value);
     }
 
@@ -876,7 +872,7 @@ public partial class AzureadApplication(string name) : TerraformResource("azurea
     /// </summary>
     public TerraformValue<bool>? PreventDuplicateNames
     {
-        get => new TerraformReference<bool>(this, "prevent_duplicate_names");
+        get => GetArgument<TerraformValue<bool>>("prevent_duplicate_names");
         set => SetArgument("prevent_duplicate_names", value);
     }
 
@@ -885,7 +881,7 @@ public partial class AzureadApplication(string name) : TerraformResource("azurea
     /// </summary>
     public TerraformValue<string>? PrivacyStatementUrl
     {
-        get => new TerraformReference<string>(this, "privacy_statement_url");
+        get => GetArgument<TerraformValue<string>>("privacy_statement_url");
         set => SetArgument("privacy_statement_url", value);
     }
 
@@ -894,7 +890,7 @@ public partial class AzureadApplication(string name) : TerraformResource("azurea
     /// </summary>
     public TerraformValue<string>? ServiceManagementReference
     {
-        get => new TerraformReference<string>(this, "service_management_reference");
+        get => GetArgument<TerraformValue<string>>("service_management_reference");
         set => SetArgument("service_management_reference", value);
     }
 
@@ -903,7 +899,7 @@ public partial class AzureadApplication(string name) : TerraformResource("azurea
     /// </summary>
     public TerraformValue<string>? SignInAudience
     {
-        get => new TerraformReference<string>(this, "sign_in_audience");
+        get => GetArgument<TerraformValue<string>>("sign_in_audience");
         set => SetArgument("sign_in_audience", value);
     }
 
@@ -912,25 +908,25 @@ public partial class AzureadApplication(string name) : TerraformResource("azurea
     /// </summary>
     public TerraformValue<string>? SupportUrl
     {
-        get => new TerraformReference<string>(this, "support_url");
+        get => GetArgument<TerraformValue<string>>("support_url");
         set => SetArgument("support_url", value);
     }
 
     /// <summary>
     /// A set of tags to apply to the application
     /// </summary>
-    public TerraformSet<string> Tags
+    public TerraformSet<string>? Tags
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// Unique ID of the application template from which this application is created
     /// </summary>
-    public TerraformValue<string> TemplateId
+    public TerraformValue<string>? TemplateId
     {
-        get => new TerraformReference<string>(this, "template_id");
+        get => GetArgument<TerraformValue<string>>("template_id");
         set => SetArgument("template_id", value);
     }
 
@@ -939,7 +935,7 @@ public partial class AzureadApplication(string name) : TerraformResource("azurea
     /// </summary>
     public TerraformValue<string>? TermsOfServiceUrl
     {
-        get => new TerraformReference<string>(this, "terms_of_service_url");
+        get => GetArgument<TerraformValue<string>>("terms_of_service_url");
         set => SetArgument("terms_of_service_url", value);
     }
 
@@ -947,57 +943,43 @@ public partial class AzureadApplication(string name) : TerraformResource("azurea
     /// Mapping of app role names to UUIDs
     /// </summary>
     public TerraformMap<string> AppRoleIds
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "app_role_ids").ResolveNodes(ctx));
-    }
+        => AsReference("app_role_ids");
 
     /// <summary>
     /// The Client ID (also called Application ID)
     /// </summary>
     public TerraformValue<string> ClientId
-    {
-        get => new TerraformReference<string>(this, "client_id");
-    }
+        => AsReference("client_id");
 
     /// <summary>
     /// Whether Microsoft has disabled the registered application
     /// </summary>
     public TerraformValue<string> DisabledByMicrosoft
-    {
-        get => new TerraformReference<string>(this, "disabled_by_microsoft");
-    }
+        => AsReference("disabled_by_microsoft");
 
     /// <summary>
     /// CDN URL to the application&#39;s logo
     /// </summary>
     public TerraformValue<string> LogoUrl
-    {
-        get => new TerraformReference<string>(this, "logo_url");
-    }
+        => AsReference("logo_url");
 
     /// <summary>
     /// Mapping of OAuth2.0 permission scope names to UUIDs
     /// </summary>
     public TerraformMap<string> Oauth2PermissionScopeIds
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "oauth2_permission_scope_ids").ResolveNodes(ctx));
-    }
+        => AsReference("oauth2_permission_scope_ids");
 
     /// <summary>
     /// The application&#39;s object ID
     /// </summary>
     public TerraformValue<string> ObjectId
-    {
-        get => new TerraformReference<string>(this, "object_id");
-    }
+        => AsReference("object_id");
 
     /// <summary>
     /// The verified publisher domain for the application
     /// </summary>
     public TerraformValue<string> PublisherDomain
-    {
-        get => new TerraformReference<string>(this, "publisher_domain");
-    }
+        => AsReference("publisher_domain");
 
     /// <summary>
     /// Api block (nesting mode: list).

@@ -19,16 +19,16 @@ public class GoogleStorageBucketAutoclassBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The storage class that objects in the bucket eventually transition to if they are not read for a certain length of time. Supported values include: NEARLINE, ARCHIVE.
     /// </summary>
-    public TerraformValue<string> TerminalStorageClass
+    public TerraformValue<string>? TerminalStorageClass
     {
-        get => new TerraformReference<string>(this, "terminal_storage_class");
+        get => GetArgument<TerraformValue<string>>("terminal_storage_class");
         set => SetArgument("terminal_storage_class", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleStorageBucketCorsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxAgeSeconds
     {
-        get => new TerraformReference<double>(this, "max_age_seconds");
+        get => GetArgument<TerraformValue<double>>("max_age_seconds");
         set => SetArgument("max_age_seconds", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleStorageBucketCorsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Method
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "method").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("method");
         set => SetArgument("method", value);
     }
 
@@ -69,7 +69,7 @@ public class GoogleStorageBucketCorsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Origin
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "origin").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("origin");
         set => SetArgument("origin", value);
     }
 
@@ -78,7 +78,7 @@ public class GoogleStorageBucketCorsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ResponseHeader
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "response_header").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("response_header");
         set => SetArgument("response_header", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleStorageBucketCustomPlacementConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataLocations is required")]
     public required TerraformSet<string> DataLocations
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "data_locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("data_locations");
         set => SetArgument("data_locations", value);
     }
 
@@ -126,7 +126,7 @@ public class GoogleStorageBucketEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultKmsKeyName is required")]
     public required TerraformValue<string> DefaultKmsKeyName
     {
-        get => new TerraformReference<string>(this, "default_kms_key_name");
+        get => GetArgument<TerraformValue<string>>("default_kms_key_name");
         set => SetArgument("default_kms_key_name", value);
     }
 
@@ -150,7 +150,7 @@ public class GoogleStorageBucketHierarchicalNamespaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -173,7 +173,7 @@ public class GoogleStorageBucketIpFilterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowAllServiceAgentAccess
     {
-        get => new TerraformReference<bool>(this, "allow_all_service_agent_access");
+        get => GetArgument<TerraformValue<bool>>("allow_all_service_agent_access");
         set => SetArgument("allow_all_service_agent_access", value);
     }
 
@@ -182,7 +182,7 @@ public class GoogleStorageBucketIpFilterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowCrossOrgVpcs
     {
-        get => new TerraformReference<bool>(this, "allow_cross_org_vpcs");
+        get => GetArgument<TerraformValue<bool>>("allow_cross_org_vpcs");
         set => SetArgument("allow_cross_org_vpcs", value);
     }
 
@@ -192,7 +192,7 @@ public class GoogleStorageBucketIpFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -234,7 +234,7 @@ public class GoogleStorageBucketIpFilterBlockPublicNetworkSourceBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedIpCidrRanges is required")]
     public TerraformList<string>? AllowedIpCidrRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_ip_cidr_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_ip_cidr_ranges");
         set => SetArgument("allowed_ip_cidr_ranges", value);
     }
 
@@ -257,7 +257,7 @@ public class GoogleStorageBucketIpFilterBlockVpcNetworkSourcesBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedIpCidrRanges is required")]
     public TerraformList<string>? AllowedIpCidrRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_ip_cidr_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_ip_cidr_ranges");
         set => SetArgument("allowed_ip_cidr_ranges", value);
     }
 
@@ -267,7 +267,7 @@ public class GoogleStorageBucketIpFilterBlockVpcNetworkSourcesBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -329,7 +329,7 @@ public class GoogleStorageBucketLifecycleRuleBlockActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StorageClass
     {
-        get => new TerraformReference<string>(this, "storage_class");
+        get => GetArgument<TerraformValue<string>>("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -339,7 +339,7 @@ public class GoogleStorageBucketLifecycleRuleBlockActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -361,7 +361,7 @@ public class GoogleStorageBucketLifecycleRuleBlockConditionBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double>? Age
     {
-        get => new TerraformReference<double>(this, "age");
+        get => GetArgument<TerraformValue<double>>("age");
         set => SetArgument("age", value);
     }
 
@@ -370,7 +370,7 @@ public class GoogleStorageBucketLifecycleRuleBlockConditionBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? CreatedBefore
     {
-        get => new TerraformReference<string>(this, "created_before");
+        get => GetArgument<TerraformValue<string>>("created_before");
         set => SetArgument("created_before", value);
     }
 
@@ -379,7 +379,7 @@ public class GoogleStorageBucketLifecycleRuleBlockConditionBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? CustomTimeBefore
     {
-        get => new TerraformReference<string>(this, "custom_time_before");
+        get => GetArgument<TerraformValue<string>>("custom_time_before");
         set => SetArgument("custom_time_before", value);
     }
 
@@ -388,7 +388,7 @@ public class GoogleStorageBucketLifecycleRuleBlockConditionBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double>? DaysSinceCustomTime
     {
-        get => new TerraformReference<double>(this, "days_since_custom_time");
+        get => GetArgument<TerraformValue<double>>("days_since_custom_time");
         set => SetArgument("days_since_custom_time", value);
     }
 
@@ -398,7 +398,7 @@ public class GoogleStorageBucketLifecycleRuleBlockConditionBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double>? DaysSinceNoncurrentTime
     {
-        get => new TerraformReference<double>(this, "days_since_noncurrent_time");
+        get => GetArgument<TerraformValue<double>>("days_since_noncurrent_time");
         set => SetArgument("days_since_noncurrent_time", value);
     }
 
@@ -407,7 +407,7 @@ public class GoogleStorageBucketLifecycleRuleBlockConditionBlock : TerraformBloc
     /// </summary>
     public TerraformList<string>? MatchesPrefix
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "matches_prefix").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("matches_prefix");
         set => SetArgument("matches_prefix", value);
     }
 
@@ -416,7 +416,7 @@ public class GoogleStorageBucketLifecycleRuleBlockConditionBlock : TerraformBloc
     /// </summary>
     public TerraformList<string>? MatchesStorageClass
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "matches_storage_class").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("matches_storage_class");
         set => SetArgument("matches_storage_class", value);
     }
 
@@ -425,7 +425,7 @@ public class GoogleStorageBucketLifecycleRuleBlockConditionBlock : TerraformBloc
     /// </summary>
     public TerraformList<string>? MatchesSuffix
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "matches_suffix").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("matches_suffix");
         set => SetArgument("matches_suffix", value);
     }
 
@@ -434,7 +434,7 @@ public class GoogleStorageBucketLifecycleRuleBlockConditionBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? NoncurrentTimeBefore
     {
-        get => new TerraformReference<string>(this, "noncurrent_time_before");
+        get => GetArgument<TerraformValue<string>>("noncurrent_time_before");
         set => SetArgument("noncurrent_time_before", value);
     }
 
@@ -443,7 +443,7 @@ public class GoogleStorageBucketLifecycleRuleBlockConditionBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double>? NumNewerVersions
     {
-        get => new TerraformReference<double>(this, "num_newer_versions");
+        get => GetArgument<TerraformValue<double>>("num_newer_versions");
         set => SetArgument("num_newer_versions", value);
     }
 
@@ -452,7 +452,7 @@ public class GoogleStorageBucketLifecycleRuleBlockConditionBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool>? SendAgeIfZero
     {
-        get => new TerraformReference<bool>(this, "send_age_if_zero");
+        get => GetArgument<TerraformValue<bool>>("send_age_if_zero");
         set => SetArgument("send_age_if_zero", value);
     }
 
@@ -461,7 +461,7 @@ public class GoogleStorageBucketLifecycleRuleBlockConditionBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool>? SendDaysSinceCustomTimeIfZero
     {
-        get => new TerraformReference<bool>(this, "send_days_since_custom_time_if_zero");
+        get => GetArgument<TerraformValue<bool>>("send_days_since_custom_time_if_zero");
         set => SetArgument("send_days_since_custom_time_if_zero", value);
     }
 
@@ -470,7 +470,7 @@ public class GoogleStorageBucketLifecycleRuleBlockConditionBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool>? SendDaysSinceNoncurrentTimeIfZero
     {
-        get => new TerraformReference<bool>(this, "send_days_since_noncurrent_time_if_zero");
+        get => GetArgument<TerraformValue<bool>>("send_days_since_noncurrent_time_if_zero");
         set => SetArgument("send_days_since_noncurrent_time_if_zero", value);
     }
 
@@ -479,16 +479,16 @@ public class GoogleStorageBucketLifecycleRuleBlockConditionBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool>? SendNumNewerVersionsIfZero
     {
-        get => new TerraformReference<bool>(this, "send_num_newer_versions_if_zero");
+        get => GetArgument<TerraformValue<bool>>("send_num_newer_versions_if_zero");
         set => SetArgument("send_num_newer_versions_if_zero", value);
     }
 
     /// <summary>
     /// Match to live and/or archived objects. Unversioned buckets have only live objects. Supported values include: &amp;quot;LIVE&amp;quot;, &amp;quot;ARCHIVED&amp;quot;, &amp;quot;ANY&amp;quot;.
     /// </summary>
-    public TerraformValue<string> WithState
+    public TerraformValue<string>? WithState
     {
-        get => new TerraformReference<string>(this, "with_state");
+        get => GetArgument<TerraformValue<string>>("with_state");
         set => SetArgument("with_state", value);
     }
 
@@ -512,16 +512,16 @@ public class GoogleStorageBucketLoggingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogBucket is required")]
     public required TerraformValue<string> LogBucket
     {
-        get => new TerraformReference<string>(this, "log_bucket");
+        get => GetArgument<TerraformValue<string>>("log_bucket");
         set => SetArgument("log_bucket", value);
     }
 
     /// <summary>
     /// The object prefix for log objects. If it&#39;s not provided, by default Google Cloud Storage sets this to this bucket&#39;s name.
     /// </summary>
-    public TerraformValue<string> LogObjectPrefix
+    public TerraformValue<string>? LogObjectPrefix
     {
-        get => new TerraformReference<string>(this, "log_object_prefix");
+        get => GetArgument<TerraformValue<string>>("log_object_prefix");
         set => SetArgument("log_object_prefix", value);
     }
 
@@ -544,7 +544,7 @@ public class GoogleStorageBucketRetentionPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IsLocked
     {
-        get => new TerraformReference<bool>(this, "is_locked");
+        get => GetArgument<TerraformValue<bool>>("is_locked");
         set => SetArgument("is_locked", value);
     }
 
@@ -554,7 +554,7 @@ public class GoogleStorageBucketRetentionPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriod is required")]
     public required TerraformValue<string> RetentionPeriod
     {
-        get => new TerraformReference<string>(this, "retention_period");
+        get => GetArgument<TerraformValue<string>>("retention_period");
         set => SetArgument("retention_period", value);
     }
 
@@ -576,16 +576,14 @@ public class GoogleStorageBucketSoftDeletePolicyBlock : TerraformBlock
     /// Server-determined value that indicates the time from which the policy, or one with a greater retention, was effective. This value is in RFC 3339 format.
     /// </summary>
     public TerraformValue<string> EffectiveTime
-    {
-        get => new TerraformReference<string>(this, "effective_time");
-    }
+        => AsReference("effective_time");
 
     /// <summary>
     /// The duration in seconds that soft-deleted objects in the bucket will be retained and cannot be permanently deleted. Default value is 604800.
     /// </summary>
     public TerraformValue<double>? RetentionDurationSeconds
     {
-        get => new TerraformReference<double>(this, "retention_duration_seconds");
+        get => GetArgument<TerraformValue<double>>("retention_duration_seconds");
         set => SetArgument("retention_duration_seconds", value);
     }
 
@@ -608,7 +606,7 @@ public class GoogleStorageBucketTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -617,7 +615,7 @@ public class GoogleStorageBucketTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -626,7 +624,7 @@ public class GoogleStorageBucketTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -650,7 +648,7 @@ public class GoogleStorageBucketVersioningBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -673,7 +671,7 @@ public class GoogleStorageBucketWebsiteBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MainPageSuffix
     {
-        get => new TerraformReference<string>(this, "main_page_suffix");
+        get => GetArgument<TerraformValue<string>>("main_page_suffix");
         set => SetArgument("main_page_suffix", value);
     }
 
@@ -682,7 +680,7 @@ public class GoogleStorageBucketWebsiteBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? NotFoundPage
     {
-        get => new TerraformReference<string>(this, "not_found_page");
+        get => GetArgument<TerraformValue<string>>("not_found_page");
         set => SetArgument("not_found_page", value);
     }
 
@@ -700,7 +698,7 @@ public partial class GoogleStorageBucket(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<bool>? DefaultEventBasedHold
     {
-        get => new TerraformReference<bool>(this, "default_event_based_hold");
+        get => GetArgument<TerraformValue<bool>>("default_event_based_hold");
         set => SetArgument("default_event_based_hold", value);
     }
 
@@ -709,7 +707,7 @@ public partial class GoogleStorageBucket(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<bool>? EnableObjectRetention
     {
-        get => new TerraformReference<bool>(this, "enable_object_retention");
+        get => GetArgument<TerraformValue<bool>>("enable_object_retention");
         set => SetArgument("enable_object_retention", value);
     }
 
@@ -718,16 +716,16 @@ public partial class GoogleStorageBucket(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<bool>? ForceDestroy
     {
-        get => new TerraformReference<bool>(this, "force_destroy");
+        get => GetArgument<TerraformValue<bool>>("force_destroy");
         set => SetArgument("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -736,7 +734,7 @@ public partial class GoogleStorageBucket(string name) : TerraformResource("googl
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -746,7 +744,7 @@ public partial class GoogleStorageBucket(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -756,25 +754,25 @@ public partial class GoogleStorageBucket(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Prevents public access to a bucket.
     /// </summary>
-    public TerraformValue<string> PublicAccessPrevention
+    public TerraformValue<string>? PublicAccessPrevention
     {
-        get => new TerraformReference<string>(this, "public_access_prevention");
+        get => GetArgument<TerraformValue<string>>("public_access_prevention");
         set => SetArgument("public_access_prevention", value);
     }
 
@@ -783,16 +781,16 @@ public partial class GoogleStorageBucket(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<bool>? RequesterPays
     {
-        get => new TerraformReference<bool>(this, "requester_pays");
+        get => GetArgument<TerraformValue<bool>>("requester_pays");
         set => SetArgument("requester_pays", value);
     }
 
     /// <summary>
     /// Specifies the RPO setting of bucket. If set &#39;ASYNC_TURBO&#39;, The Turbo Replication will be enabled for the dual-region bucket. Value &#39;DEFAULT&#39; will set RPO setting to default. Turbo Replication is only for buckets in dual-regions.See the docs for more details.
     /// </summary>
-    public TerraformValue<string> Rpo
+    public TerraformValue<string>? Rpo
     {
-        get => new TerraformReference<string>(this, "rpo");
+        get => GetArgument<TerraformValue<string>>("rpo");
         set => SetArgument("rpo", value);
     }
 
@@ -801,16 +799,16 @@ public partial class GoogleStorageBucket(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? StorageClass
     {
-        get => new TerraformReference<string>(this, "storage_class");
+        get => GetArgument<TerraformValue<string>>("storage_class");
         set => SetArgument("storage_class", value);
     }
 
     /// <summary>
     /// Enables uniform bucket-level access on a bucket.
     /// </summary>
-    public TerraformValue<bool> UniformBucketLevelAccess
+    public TerraformValue<bool>? UniformBucketLevelAccess
     {
-        get => new TerraformReference<bool>(this, "uniform_bucket_level_access");
+        get => GetArgument<TerraformValue<bool>>("uniform_bucket_level_access");
         set => SetArgument("uniform_bucket_level_access", value);
     }
 
@@ -818,57 +816,43 @@ public partial class GoogleStorageBucket(string name) : TerraformResource("googl
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The project number of the project in which the resource belongs.
     /// </summary>
     public TerraformValue<double> ProjectNumber
-    {
-        get => new TerraformReference<double>(this, "project_number");
-    }
+        => AsReference("project_number");
 
     /// <summary>
     /// The URI of the created resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The creation time of the bucket in RFC 3339 format.
     /// </summary>
     public TerraformValue<string> TimeCreated
-    {
-        get => new TerraformReference<string>(this, "time_created");
-    }
+        => AsReference("time_created");
 
     /// <summary>
     /// The time at which the bucket&#39;s metadata or IAM policy was last updated, in RFC 3339 format.
     /// </summary>
     public TerraformValue<string> Updated
-    {
-        get => new TerraformReference<string>(this, "updated");
-    }
+        => AsReference("updated");
 
     /// <summary>
     /// The base URL of the bucket, in the format gs://&amp;lt;bucket-name&amp;gt;.
     /// </summary>
     public TerraformValue<string> Url
-    {
-        get => new TerraformReference<string>(this, "url");
-    }
+        => AsReference("url");
 
     /// <summary>
     /// Autoclass block (nesting mode: list).

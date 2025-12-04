@@ -18,7 +18,7 @@ public class AzurermRedisLinkedServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermRedisLinkedServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermRedisLinkedServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -52,9 +52,9 @@ public partial class AzurermRedisLinkedServer(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermRedisLinkedServer(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedRedisCacheId is required")]
     public required TerraformValue<string> LinkedRedisCacheId
     {
-        get => new TerraformReference<string>(this, "linked_redis_cache_id");
+        get => GetArgument<TerraformValue<string>>("linked_redis_cache_id");
         set => SetArgument("linked_redis_cache_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermRedisLinkedServer(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedRedisCacheLocation is required")]
     public required TerraformValue<string> LinkedRedisCacheLocation
     {
-        get => new TerraformReference<string>(this, "linked_redis_cache_location");
+        get => GetArgument<TerraformValue<string>>("linked_redis_cache_location");
         set => SetArgument("linked_redis_cache_location", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermRedisLinkedServer(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermRedisLinkedServer(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerRole is required")]
     public required TerraformValue<string> ServerRole
     {
-        get => new TerraformReference<string>(this, "server_role");
+        get => GetArgument<TerraformValue<string>>("server_role");
         set => SetArgument("server_role", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AzurermRedisLinkedServer(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRedisCacheName is required")]
     public required TerraformValue<string> TargetRedisCacheName
     {
-        get => new TerraformReference<string>(this, "target_redis_cache_name");
+        get => GetArgument<TerraformValue<string>>("target_redis_cache_name");
         set => SetArgument("target_redis_cache_name", value);
     }
 
@@ -112,17 +112,13 @@ public partial class AzurermRedisLinkedServer(string name) : TerraformResource("
     /// The geo_replicated_primary_host_name attribute.
     /// </summary>
     public TerraformValue<string> GeoReplicatedPrimaryHostName
-    {
-        get => new TerraformReference<string>(this, "geo_replicated_primary_host_name");
-    }
+        => AsReference("geo_replicated_primary_host_name");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

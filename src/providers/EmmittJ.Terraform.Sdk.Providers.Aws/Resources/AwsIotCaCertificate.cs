@@ -18,7 +18,7 @@ public class AwsIotCaCertificateRegistrationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsIotCaCertificateRegistrationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TemplateBody
     {
-        get => new TerraformReference<string>(this, "template_body");
+        get => GetArgument<TerraformValue<string>>("template_body");
         set => SetArgument("template_body", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsIotCaCertificateRegistrationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TemplateName
     {
-        get => new TerraformReference<string>(this, "template_name");
+        get => GetArgument<TerraformValue<string>>("template_name");
         set => SetArgument("template_name", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsIotCaCertificate(string name) : TerraformResource("aws_i
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsIotCaCertificate(string name) : TerraformResource("aws_i
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowAutoRegistration is required")]
     public required TerraformValue<bool> AllowAutoRegistration
     {
-        get => new TerraformReference<bool>(this, "allow_auto_registration");
+        get => GetArgument<TerraformValue<bool>>("allow_auto_registration");
         set => SetArgument("allow_auto_registration", value);
     }
 
@@ -75,7 +75,7 @@ public partial class AwsIotCaCertificate(string name) : TerraformResource("aws_i
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaCertificatePem is required")]
     public required TerraformValue<string> CaCertificatePem
     {
-        get => new TerraformReference<string>(this, "ca_certificate_pem");
+        get => GetArgument<TerraformValue<string>>("ca_certificate_pem");
         set => SetArgument("ca_certificate_pem", value);
     }
 
@@ -84,25 +84,25 @@ public partial class AwsIotCaCertificate(string name) : TerraformResource("aws_i
     /// </summary>
     public TerraformValue<string>? CertificateMode
     {
-        get => new TerraformReference<string>(this, "certificate_mode");
+        get => GetArgument<TerraformValue<string>>("certificate_mode");
         set => SetArgument("certificate_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -111,16 +111,16 @@ public partial class AwsIotCaCertificate(string name) : TerraformResource("aws_i
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AwsIotCaCertificate(string name) : TerraformResource("aws_i
     /// </summary>
     public TerraformValue<string>? VerificationCertificatePem
     {
-        get => new TerraformReference<string>(this, "verification_certificate_pem");
+        get => GetArgument<TerraformValue<string>>("verification_certificate_pem");
         set => SetArgument("verification_certificate_pem", value);
     }
 
@@ -137,33 +137,25 @@ public partial class AwsIotCaCertificate(string name) : TerraformResource("aws_i
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The customer_version attribute.
     /// </summary>
     public TerraformValue<double> CustomerVersion
-    {
-        get => new TerraformReference<double>(this, "customer_version");
-    }
+        => AsReference("customer_version");
 
     /// <summary>
     /// The generation_id attribute.
     /// </summary>
     public TerraformValue<string> GenerationId
-    {
-        get => new TerraformReference<string>(this, "generation_id");
-    }
+        => AsReference("generation_id");
 
     /// <summary>
     /// The validity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Validity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "validity").ResolveNodes(ctx));
-    }
+        => AsReference("validity");
 
     /// <summary>
     /// RegistrationConfig block (nesting mode: list).

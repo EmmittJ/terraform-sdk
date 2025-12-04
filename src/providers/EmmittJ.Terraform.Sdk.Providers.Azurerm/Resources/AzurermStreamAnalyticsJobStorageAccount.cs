@@ -18,7 +18,7 @@ public class AzurermStreamAnalyticsJobStorageAccountTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermStreamAnalyticsJobStorageAccountTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermStreamAnalyticsJobStorageAccountTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermStreamAnalyticsJobStorageAccountTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AzurermStreamAnalyticsJobStorageAccount(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationMode is required")]
     public required TerraformValue<string> AuthenticationMode
     {
-        get => new TerraformReference<string>(this, "authentication_mode");
+        get => GetArgument<TerraformValue<string>>("authentication_mode");
         set => SetArgument("authentication_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermStreamAnalyticsJobStorageAccount(string name) : Terr
     /// </summary>
     public TerraformValue<string>? StorageAccountKey
     {
-        get => new TerraformReference<string>(this, "storage_account_key");
+        get => GetArgument<TerraformValue<string>>("storage_account_key");
         set => SetArgument("storage_account_key", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermStreamAnalyticsJobStorageAccount(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformValue<string> StorageAccountName
     {
-        get => new TerraformReference<string>(this, "storage_account_name");
+        get => GetArgument<TerraformValue<string>>("storage_account_name");
         set => SetArgument("storage_account_name", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermStreamAnalyticsJobStorageAccount(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
     public required TerraformValue<string> StreamAnalyticsJobId
     {
-        get => new TerraformReference<string>(this, "stream_analytics_job_id");
+        get => GetArgument<TerraformValue<string>>("stream_analytics_job_id");
         set => SetArgument("stream_analytics_job_id", value);
     }
 

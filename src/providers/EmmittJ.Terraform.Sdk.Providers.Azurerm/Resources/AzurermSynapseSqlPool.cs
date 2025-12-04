@@ -19,7 +19,7 @@ public class AzurermSynapseSqlPoolRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PointInTime is required")]
     public required TerraformValue<string> PointInTime
     {
-        get => new TerraformReference<string>(this, "point_in_time");
+        get => GetArgument<TerraformValue<string>>("point_in_time");
         set => SetArgument("point_in_time", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermSynapseSqlPoolRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDatabaseId is required")]
     public required TerraformValue<string> SourceDatabaseId
     {
-        get => new TerraformReference<string>(this, "source_database_id");
+        get => GetArgument<TerraformValue<string>>("source_database_id");
         set => SetArgument("source_database_id", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermSynapseSqlPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermSynapseSqlPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermSynapseSqlPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermSynapseSqlPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -95,9 +95,9 @@ public partial class AzurermSynapseSqlPool(string name) : TerraformResource("azu
     /// <summary>
     /// The collation attribute.
     /// </summary>
-    public TerraformValue<string> Collation
+    public TerraformValue<string>? Collation
     {
-        get => new TerraformReference<string>(this, "collation");
+        get => GetArgument<TerraformValue<string>>("collation");
         set => SetArgument("collation", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AzurermSynapseSqlPool(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? CreateMode
     {
-        get => new TerraformReference<string>(this, "create_mode");
+        get => GetArgument<TerraformValue<string>>("create_mode");
         set => SetArgument("create_mode", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AzurermSynapseSqlPool(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? DataEncrypted
     {
-        get => new TerraformReference<bool>(this, "data_encrypted");
+        get => GetArgument<TerraformValue<bool>>("data_encrypted");
         set => SetArgument("data_encrypted", value);
     }
 
@@ -124,16 +124,16 @@ public partial class AzurermSynapseSqlPool(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? GeoBackupPolicyEnabled
     {
-        get => new TerraformReference<bool>(this, "geo_backup_policy_enabled");
+        get => GetArgument<TerraformValue<bool>>("geo_backup_policy_enabled");
         set => SetArgument("geo_backup_policy_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AzurermSynapseSqlPool(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AzurermSynapseSqlPool(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? RecoveryDatabaseId
     {
-        get => new TerraformReference<string>(this, "recovery_database_id");
+        get => GetArgument<TerraformValue<string>>("recovery_database_id");
         set => SetArgument("recovery_database_id", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AzurermSynapseSqlPool(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => new TerraformReference<string>(this, "sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AzurermSynapseSqlPool(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountType is required")]
     public required TerraformValue<string> StorageAccountType
     {
-        get => new TerraformReference<string>(this, "storage_account_type");
+        get => GetArgument<TerraformValue<string>>("storage_account_type");
         set => SetArgument("storage_account_type", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AzurermSynapseSqlPool(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformValue<string> SynapseWorkspaceId
     {
-        get => new TerraformReference<string>(this, "synapse_workspace_id");
+        get => GetArgument<TerraformValue<string>>("synapse_workspace_id");
         set => SetArgument("synapse_workspace_id", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AzurermSynapseSqlPool(string name) : TerraformResource("azu
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

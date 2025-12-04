@@ -18,7 +18,7 @@ public class AwsDbInstanceAutomatedBackupsReplicationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsDbInstanceAutomatedBackupsReplicationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -43,18 +43,18 @@ public partial class AwsDbInstanceAutomatedBackupsReplication(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string> KmsKeyId
+    public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AwsDbInstanceAutomatedBackupsReplication(string name) : Ter
     /// </summary>
     public TerraformValue<string>? PreSignedUrl
     {
-        get => new TerraformReference<string>(this, "pre_signed_url");
+        get => GetArgument<TerraformValue<string>>("pre_signed_url");
         set => SetArgument("pre_signed_url", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsDbInstanceAutomatedBackupsReplication(string name) : Ter
     /// </summary>
     public TerraformValue<double>? RetentionPeriod
     {
-        get => new TerraformReference<double>(this, "retention_period");
+        get => GetArgument<TerraformValue<double>>("retention_period");
         set => SetArgument("retention_period", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsDbInstanceAutomatedBackupsReplication(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDbInstanceArn is required")]
     public required TerraformValue<string> SourceDbInstanceArn
     {
-        get => new TerraformReference<string>(this, "source_db_instance_arn");
+        get => GetArgument<TerraformValue<string>>("source_db_instance_arn");
         set => SetArgument("source_db_instance_arn", value);
     }
 

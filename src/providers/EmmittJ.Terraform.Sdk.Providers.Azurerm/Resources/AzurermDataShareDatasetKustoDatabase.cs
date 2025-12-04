@@ -18,7 +18,7 @@ public class AzurermDataShareDatasetKustoDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermDataShareDatasetKustoDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermDataShareDatasetKustoDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -52,9 +52,9 @@ public partial class AzurermDataShareDatasetKustoDatabase(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermDataShareDatasetKustoDatabase(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoDatabaseId is required")]
     public required TerraformValue<string> KustoDatabaseId
     {
-        get => new TerraformReference<string>(this, "kusto_database_id");
+        get => GetArgument<TerraformValue<string>>("kusto_database_id");
         set => SetArgument("kusto_database_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermDataShareDatasetKustoDatabase(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermDataShareDatasetKustoDatabase(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareId is required")]
     public required TerraformValue<string> ShareId
     {
-        get => new TerraformReference<string>(this, "share_id");
+        get => GetArgument<TerraformValue<string>>("share_id");
         set => SetArgument("share_id", value);
     }
 
@@ -92,17 +92,13 @@ public partial class AzurermDataShareDatasetKustoDatabase(string name) : Terrafo
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The kusto_cluster_location attribute.
     /// </summary>
     public TerraformValue<string> KustoClusterLocation
-    {
-        get => new TerraformReference<string>(this, "kusto_cluster_location");
-    }
+        => AsReference("kusto_cluster_location");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

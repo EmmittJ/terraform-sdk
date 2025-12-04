@@ -18,7 +18,7 @@ public class AzurermLogAnalyticsDataExportRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermLogAnalyticsDataExportRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermLogAnalyticsDataExportRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermLogAnalyticsDataExportRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermLogAnalyticsDataExportRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationResourceId is required")]
     public required TerraformValue<string> DestinationResourceId
     {
-        get => new TerraformReference<string>(this, "destination_resource_id");
+        get => GetArgument<TerraformValue<string>>("destination_resource_id");
         set => SetArgument("destination_resource_id", value);
     }
 
@@ -73,16 +73,16 @@ public partial class AzurermLogAnalyticsDataExportRule(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermLogAnalyticsDataExportRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermLogAnalyticsDataExportRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermLogAnalyticsDataExportRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableNames is required")]
     public required TerraformSet<string> TableNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "table_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("table_names");
         set => SetArgument("table_names", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermLogAnalyticsDataExportRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceResourceId is required")]
     public required TerraformValue<string> WorkspaceResourceId
     {
-        get => new TerraformReference<string>(this, "workspace_resource_id");
+        get => GetArgument<TerraformValue<string>>("workspace_resource_id");
         set => SetArgument("workspace_resource_id", value);
     }
 
@@ -130,9 +130,7 @@ public partial class AzurermLogAnalyticsDataExportRule(string name) : TerraformR
     /// The export_rule_id attribute.
     /// </summary>
     public TerraformValue<string> ExportRuleId
-    {
-        get => new TerraformReference<string>(this, "export_rule_id");
-    }
+        => AsReference("export_rule_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

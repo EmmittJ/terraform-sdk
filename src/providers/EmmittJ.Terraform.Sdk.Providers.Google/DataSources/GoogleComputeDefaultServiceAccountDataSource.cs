@@ -11,18 +11,18 @@ public partial class GoogleComputeDefaultServiceAccountDataSource(string name) :
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -30,40 +30,30 @@ public partial class GoogleComputeDefaultServiceAccountDataSource(string name) :
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     public TerraformValue<string> Email
-    {
-        get => new TerraformReference<string>(this, "email");
-    }
+        => AsReference("email");
 
     /// <summary>
     /// The member attribute.
     /// </summary>
     public TerraformValue<string> Member
-    {
-        get => new TerraformReference<string>(this, "member");
-    }
+        => AsReference("member");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The unique_id attribute.
     /// </summary>
     public TerraformValue<string> UniqueId
-    {
-        get => new TerraformReference<string>(this, "unique_id");
-    }
+        => AsReference("unique_id");
 
 }

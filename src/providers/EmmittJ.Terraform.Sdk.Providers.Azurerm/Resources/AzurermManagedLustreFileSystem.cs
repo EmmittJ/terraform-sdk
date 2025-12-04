@@ -19,7 +19,7 @@ public class AzurermManagedLustreFileSystemEncryptionKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyUrl is required")]
     public required TerraformValue<string> KeyUrl
     {
-        get => new TerraformReference<string>(this, "key_url");
+        get => GetArgument<TerraformValue<string>>("key_url");
         set => SetArgument("key_url", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermManagedLustreFileSystemEncryptionKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVaultId is required")]
     public required TerraformValue<string> SourceVaultId
     {
-        get => new TerraformReference<string>(this, "source_vault_id");
+        get => GetArgument<TerraformValue<string>>("source_vault_id");
         set => SetArgument("source_vault_id", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermManagedLustreFileSystemHsmSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerId is required")]
     public required TerraformValue<string> ContainerId
     {
-        get => new TerraformReference<string>(this, "container_id");
+        get => GetArgument<TerraformValue<string>>("container_id");
         set => SetArgument("container_id", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermManagedLustreFileSystemHsmSettingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ImportPrefix
     {
-        get => new TerraformReference<string>(this, "import_prefix");
+        get => GetArgument<TerraformValue<string>>("import_prefix");
         set => SetArgument("import_prefix", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermManagedLustreFileSystemHsmSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoggingContainerId is required")]
     public required TerraformValue<string> LoggingContainerId
     {
-        get => new TerraformReference<string>(this, "logging_container_id");
+        get => GetArgument<TerraformValue<string>>("logging_container_id");
         set => SetArgument("logging_container_id", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermManagedLustreFileSystemIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
     public required TerraformSet<string> IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermManagedLustreFileSystemIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -130,7 +130,7 @@ public class AzurermManagedLustreFileSystemMaintenanceWindowBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformValue<string> DayOfWeek
     {
-        get => new TerraformReference<string>(this, "day_of_week");
+        get => GetArgument<TerraformValue<string>>("day_of_week");
         set => SetArgument("day_of_week", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermManagedLustreFileSystemMaintenanceWindowBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeOfDayInUtc is required")]
     public required TerraformValue<string> TimeOfDayInUtc
     {
-        get => new TerraformReference<string>(this, "time_of_day_in_utc");
+        get => GetArgument<TerraformValue<string>>("time_of_day_in_utc");
         set => SetArgument("time_of_day_in_utc", value);
     }
 
@@ -164,7 +164,7 @@ public class AzurermManagedLustreFileSystemRootSquashBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -174,7 +174,7 @@ public class AzurermManagedLustreFileSystemRootSquashBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoSquashNids is required")]
     public required TerraformValue<string> NoSquashNids
     {
-        get => new TerraformReference<string>(this, "no_squash_nids");
+        get => GetArgument<TerraformValue<string>>("no_squash_nids");
         set => SetArgument("no_squash_nids", value);
     }
 
@@ -183,7 +183,7 @@ public class AzurermManagedLustreFileSystemRootSquashBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SquashGid
     {
-        get => new TerraformReference<double>(this, "squash_gid");
+        get => GetArgument<TerraformValue<double>>("squash_gid");
         set => SetArgument("squash_gid", value);
     }
 
@@ -192,7 +192,7 @@ public class AzurermManagedLustreFileSystemRootSquashBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SquashUid
     {
-        get => new TerraformReference<double>(this, "squash_uid");
+        get => GetArgument<TerraformValue<double>>("squash_uid");
         set => SetArgument("squash_uid", value);
     }
 
@@ -215,7 +215,7 @@ public class AzurermManagedLustreFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -224,7 +224,7 @@ public class AzurermManagedLustreFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -233,7 +233,7 @@ public class AzurermManagedLustreFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -242,7 +242,7 @@ public class AzurermManagedLustreFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -258,9 +258,9 @@ public partial class AzurermManagedLustreFileSystem(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -270,7 +270,7 @@ public partial class AzurermManagedLustreFileSystem(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -280,7 +280,7 @@ public partial class AzurermManagedLustreFileSystem(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -290,7 +290,7 @@ public partial class AzurermManagedLustreFileSystem(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -300,7 +300,7 @@ public partial class AzurermManagedLustreFileSystem(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => new TerraformReference<string>(this, "sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -310,7 +310,7 @@ public partial class AzurermManagedLustreFileSystem(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacityInTb is required")]
     public required TerraformValue<double> StorageCapacityInTb
     {
-        get => new TerraformReference<double>(this, "storage_capacity_in_tb");
+        get => GetArgument<TerraformValue<double>>("storage_capacity_in_tb");
         set => SetArgument("storage_capacity_in_tb", value);
     }
 
@@ -320,7 +320,7 @@ public partial class AzurermManagedLustreFileSystem(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -329,7 +329,7 @@ public partial class AzurermManagedLustreFileSystem(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -339,7 +339,7 @@ public partial class AzurermManagedLustreFileSystem(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zones is required")]
     public required TerraformSet<string> Zones
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "zones").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("zones");
         set => SetArgument("zones", value);
     }
 
@@ -347,9 +347,7 @@ public partial class AzurermManagedLustreFileSystem(string name) : TerraformReso
     /// The mgs_address attribute.
     /// </summary>
     public TerraformValue<string> MgsAddress
-    {
-        get => new TerraformReference<string>(this, "mgs_address");
-    }
+        => AsReference("mgs_address");
 
     /// <summary>
     /// EncryptionKey block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AwsCodedeployDeploymentGroupAlarmConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformSet<string>? Alarms
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "alarms").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("alarms");
         set => SetArgument("alarms", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsCodedeployDeploymentGroupAlarmConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsCodedeployDeploymentGroupAlarmConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool>? IgnorePollAlarmFailure
     {
-        get => new TerraformReference<bool>(this, "ignore_poll_alarm_failure");
+        get => GetArgument<TerraformValue<bool>>("ignore_poll_alarm_failure");
         set => SetArgument("ignore_poll_alarm_failure", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsCodedeployDeploymentGroupAutoRollbackConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsCodedeployDeploymentGroupAutoRollbackConfigurationBlock : Terraf
     /// </summary>
     public TerraformSet<string>? Events
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "events").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("events");
         set => SetArgument("events", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsCodedeployDeploymentGroupBlueGreenDeploymentConfigBlockDeploymen
     /// </summary>
     public TerraformValue<string>? ActionOnTimeout
     {
-        get => new TerraformReference<string>(this, "action_on_timeout");
+        get => GetArgument<TerraformValue<string>>("action_on_timeout");
         set => SetArgument("action_on_timeout", value);
     }
 
@@ -143,7 +143,7 @@ public class AwsCodedeployDeploymentGroupBlueGreenDeploymentConfigBlockDeploymen
     /// </summary>
     public TerraformValue<double>? WaitTimeInMinutes
     {
-        get => new TerraformReference<double>(this, "wait_time_in_minutes");
+        get => GetArgument<TerraformValue<double>>("wait_time_in_minutes");
         set => SetArgument("wait_time_in_minutes", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsCodedeployDeploymentGroupBlueGreenDeploymentConfigBlockGreenFlee
     /// </summary>
     public TerraformValue<string>? Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -187,7 +187,7 @@ public class AwsCodedeployDeploymentGroupBlueGreenDeploymentConfigBlockTerminate
     /// </summary>
     public TerraformValue<string>? Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -196,7 +196,7 @@ public class AwsCodedeployDeploymentGroupBlueGreenDeploymentConfigBlockTerminate
     /// </summary>
     public TerraformValue<double>? TerminationWaitTimeInMinutes
     {
-        get => new TerraformReference<double>(this, "termination_wait_time_in_minutes");
+        get => GetArgument<TerraformValue<double>>("termination_wait_time_in_minutes");
         set => SetArgument("termination_wait_time_in_minutes", value);
     }
 
@@ -219,7 +219,7 @@ public class AwsCodedeployDeploymentGroupDeploymentStyleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DeploymentOption
     {
-        get => new TerraformReference<string>(this, "deployment_option");
+        get => GetArgument<TerraformValue<string>>("deployment_option");
         set => SetArgument("deployment_option", value);
     }
 
@@ -228,7 +228,7 @@ public class AwsCodedeployDeploymentGroupDeploymentStyleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DeploymentType
     {
-        get => new TerraformReference<string>(this, "deployment_type");
+        get => GetArgument<TerraformValue<string>>("deployment_type");
         set => SetArgument("deployment_type", value);
     }
 
@@ -251,7 +251,7 @@ public class AwsCodedeployDeploymentGroupEc2TagFilterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -260,7 +260,7 @@ public class AwsCodedeployDeploymentGroupEc2TagFilterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -269,7 +269,7 @@ public class AwsCodedeployDeploymentGroupEc2TagFilterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -314,7 +314,7 @@ public class AwsCodedeployDeploymentGroupEc2TagSetBlockEc2TagFilterBlock : Terra
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -323,7 +323,7 @@ public class AwsCodedeployDeploymentGroupEc2TagSetBlockEc2TagFilterBlock : Terra
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -332,7 +332,7 @@ public class AwsCodedeployDeploymentGroupEc2TagSetBlockEc2TagFilterBlock : Terra
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -356,7 +356,7 @@ public class AwsCodedeployDeploymentGroupEcsServiceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => new TerraformReference<string>(this, "cluster_name");
+        get => GetArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -366,7 +366,7 @@ public class AwsCodedeployDeploymentGroupEcsServiceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => new TerraformReference<string>(this, "service_name");
+        get => GetArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -430,7 +430,7 @@ public class AwsCodedeployDeploymentGroupLoadBalancerInfoBlockElbInfoBlock : Ter
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -452,7 +452,7 @@ public class AwsCodedeployDeploymentGroupLoadBalancerInfoBlockTargetGroupInfoBlo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -524,7 +524,7 @@ public class AwsCodedeployDeploymentGroupLoadBalancerInfoBlockTargetGroupPairInf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerArns is required")]
     public required TerraformSet<string> ListenerArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "listener_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("listener_arns");
         set => SetArgument("listener_arns", value);
     }
 
@@ -547,7 +547,7 @@ public class AwsCodedeployDeploymentGroupLoadBalancerInfoBlockTargetGroupPairInf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -570,7 +570,7 @@ public class AwsCodedeployDeploymentGroupLoadBalancerInfoBlockTargetGroupPairInf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerArns is required")]
     public required TerraformSet<string> ListenerArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "listener_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("listener_arns");
         set => SetArgument("listener_arns", value);
     }
 
@@ -593,7 +593,7 @@ public class AwsCodedeployDeploymentGroupOnPremisesInstanceTagFilterBlock : Terr
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -602,7 +602,7 @@ public class AwsCodedeployDeploymentGroupOnPremisesInstanceTagFilterBlock : Terr
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -611,7 +611,7 @@ public class AwsCodedeployDeploymentGroupOnPremisesInstanceTagFilterBlock : Terr
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -635,7 +635,7 @@ public class AwsCodedeployDeploymentGroupTriggerConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerEvents is required")]
     public required TerraformSet<string> TriggerEvents
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "trigger_events").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("trigger_events");
         set => SetArgument("trigger_events", value);
     }
 
@@ -645,7 +645,7 @@ public class AwsCodedeployDeploymentGroupTriggerConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerName is required")]
     public required TerraformValue<string> TriggerName
     {
-        get => new TerraformReference<string>(this, "trigger_name");
+        get => GetArgument<TerraformValue<string>>("trigger_name");
         set => SetArgument("trigger_name", value);
     }
 
@@ -655,7 +655,7 @@ public class AwsCodedeployDeploymentGroupTriggerConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerTargetArn is required")]
     public required TerraformValue<string> TriggerTargetArn
     {
-        get => new TerraformReference<string>(this, "trigger_target_arn");
+        get => GetArgument<TerraformValue<string>>("trigger_target_arn");
         set => SetArgument("trigger_target_arn", value);
     }
 
@@ -674,7 +674,7 @@ public partial class AwsCodedeployDeploymentGroup(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppName is required")]
     public required TerraformValue<string> AppName
     {
-        get => new TerraformReference<string>(this, "app_name");
+        get => GetArgument<TerraformValue<string>>("app_name");
         set => SetArgument("app_name", value);
     }
 
@@ -683,7 +683,7 @@ public partial class AwsCodedeployDeploymentGroup(string name) : TerraformResour
     /// </summary>
     public TerraformSet<string>? AutoscalingGroups
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "autoscaling_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("autoscaling_groups");
         set => SetArgument("autoscaling_groups", value);
     }
 
@@ -692,7 +692,7 @@ public partial class AwsCodedeployDeploymentGroup(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? DeploymentConfigName
     {
-        get => new TerraformReference<string>(this, "deployment_config_name");
+        get => GetArgument<TerraformValue<string>>("deployment_config_name");
         set => SetArgument("deployment_config_name", value);
     }
 
@@ -702,16 +702,16 @@ public partial class AwsCodedeployDeploymentGroup(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentGroupName is required")]
     public required TerraformValue<string> DeploymentGroupName
     {
-        get => new TerraformReference<string>(this, "deployment_group_name");
+        get => GetArgument<TerraformValue<string>>("deployment_group_name");
         set => SetArgument("deployment_group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -720,16 +720,16 @@ public partial class AwsCodedeployDeploymentGroup(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? OutdatedInstancesStrategy
     {
-        get => new TerraformReference<string>(this, "outdated_instances_strategy");
+        get => GetArgument<TerraformValue<string>>("outdated_instances_strategy");
         set => SetArgument("outdated_instances_strategy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -739,7 +739,7 @@ public partial class AwsCodedeployDeploymentGroup(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRoleArn is required")]
     public required TerraformValue<string> ServiceRoleArn
     {
-        get => new TerraformReference<string>(this, "service_role_arn");
+        get => GetArgument<TerraformValue<string>>("service_role_arn");
         set => SetArgument("service_role_arn", value);
     }
 
@@ -748,16 +748,16 @@ public partial class AwsCodedeployDeploymentGroup(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -766,7 +766,7 @@ public partial class AwsCodedeployDeploymentGroup(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? TerminationHookEnabled
     {
-        get => new TerraformReference<bool>(this, "termination_hook_enabled");
+        get => GetArgument<TerraformValue<bool>>("termination_hook_enabled");
         set => SetArgument("termination_hook_enabled", value);
     }
 
@@ -774,25 +774,19 @@ public partial class AwsCodedeployDeploymentGroup(string name) : TerraformResour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The compute_platform attribute.
     /// </summary>
     public TerraformValue<string> ComputePlatform
-    {
-        get => new TerraformReference<string>(this, "compute_platform");
-    }
+        => AsReference("compute_platform");
 
     /// <summary>
     /// The deployment_group_id attribute.
     /// </summary>
     public TerraformValue<string> DeploymentGroupId
-    {
-        get => new TerraformReference<string>(this, "deployment_group_id");
-    }
+        => AsReference("deployment_group_id");
 
     /// <summary>
     /// AlarmConfiguration block (nesting mode: list).

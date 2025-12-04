@@ -18,7 +18,7 @@ public class AzurermBotChannelEmailTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermBotChannelEmailTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermBotChannelEmailTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermBotChannelEmailTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermBotChannelEmail(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
     public required TerraformValue<string> BotName
     {
-        get => new TerraformReference<string>(this, "bot_name");
+        get => GetArgument<TerraformValue<string>>("bot_name");
         set => SetArgument("bot_name", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermBotChannelEmail(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     public required TerraformValue<string> EmailAddress
     {
-        get => new TerraformReference<string>(this, "email_address");
+        get => GetArgument<TerraformValue<string>>("email_address");
         set => SetArgument("email_address", value);
     }
 
@@ -83,16 +83,16 @@ public partial class AzurermBotChannelEmail(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? EmailPassword
     {
-        get => new TerraformReference<string>(this, "email_password");
+        get => GetArgument<TerraformValue<string>>("email_password");
         set => SetArgument("email_password", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermBotChannelEmail(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermBotChannelEmail(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? MagicCode
     {
-        get => new TerraformReference<string>(this, "magic_code");
+        get => GetArgument<TerraformValue<string>>("magic_code");
         set => SetArgument("magic_code", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermBotChannelEmail(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

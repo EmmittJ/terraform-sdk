@@ -18,7 +18,7 @@ public class GoogleNetworkSecurityFirewallEndpointAssociationTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleNetworkSecurityFirewallEndpointAssociationTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleNetworkSecurityFirewallEndpointAssociationTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -57,7 +57,7 @@ public partial class GoogleNetworkSecurityFirewallEndpointAssociation(string nam
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -67,16 +67,16 @@ public partial class GoogleNetworkSecurityFirewallEndpointAssociation(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallEndpoint is required")]
     public required TerraformValue<string> FirewallEndpoint
     {
-        get => new TerraformReference<string>(this, "firewall_endpoint");
+        get => GetArgument<TerraformValue<string>>("firewall_endpoint");
         set => SetArgument("firewall_endpoint", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -89,7 +89,7 @@ public partial class GoogleNetworkSecurityFirewallEndpointAssociation(string nam
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -99,7 +99,7 @@ public partial class GoogleNetworkSecurityFirewallEndpointAssociation(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -109,7 +109,7 @@ public partial class GoogleNetworkSecurityFirewallEndpointAssociation(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -119,7 +119,7 @@ public partial class GoogleNetworkSecurityFirewallEndpointAssociation(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -129,7 +129,7 @@ public partial class GoogleNetworkSecurityFirewallEndpointAssociation(string nam
     /// </summary>
     public TerraformValue<string>? Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -138,7 +138,7 @@ public partial class GoogleNetworkSecurityFirewallEndpointAssociation(string nam
     /// </summary>
     public TerraformValue<string>? TlsInspectionPolicy
     {
-        get => new TerraformReference<string>(this, "tls_inspection_policy");
+        get => GetArgument<TerraformValue<string>>("tls_inspection_policy");
         set => SetArgument("tls_inspection_policy", value);
     }
 
@@ -146,58 +146,44 @@ public partial class GoogleNetworkSecurityFirewallEndpointAssociation(string nam
     /// Time the firewall endpoint was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Whether reconciling is in progress, recommended per https://google.aip.dev/128.
     /// </summary>
     public TerraformValue<bool> Reconciling
-    {
-        get => new TerraformReference<bool>(this, "reconciling");
-    }
+        => AsReference("reconciling");
 
     /// <summary>
     /// Server-defined URL of this resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// The current state of the endpoint.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Time the firewall endpoint was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

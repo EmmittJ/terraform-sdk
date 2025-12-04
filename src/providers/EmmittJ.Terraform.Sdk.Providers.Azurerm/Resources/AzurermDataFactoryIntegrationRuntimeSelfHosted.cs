@@ -19,7 +19,7 @@ public class AzurermDataFactoryIntegrationRuntimeSelfHostedRbacAuthorizationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformValue<string> ResourceId
     {
-        get => new TerraformReference<string>(this, "resource_id");
+        get => GetArgument<TerraformValue<string>>("resource_id");
         set => SetArgument("resource_id", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermDataFactoryIntegrationRuntimeSelfHostedTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermDataFactoryIntegrationRuntimeSelfHostedTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermDataFactoryIntegrationRuntimeSelfHostedTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermDataFactoryIntegrationRuntimeSelfHostedTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeSelfHosted(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => new TerraformReference<string>(this, "data_factory_id");
+        get => GetArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
@@ -97,16 +97,16 @@ public partial class AzurermDataFactoryIntegrationRuntimeSelfHosted(string name)
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeSelfHosted(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeSelfHosted(string name)
     /// </summary>
     public TerraformValue<bool>? SelfContainedInteractiveAuthoringEnabled
     {
-        get => new TerraformReference<bool>(this, "self_contained_interactive_authoring_enabled");
+        get => GetArgument<TerraformValue<bool>>("self_contained_interactive_authoring_enabled");
         set => SetArgument("self_contained_interactive_authoring_enabled", value);
     }
 
@@ -133,17 +133,13 @@ public partial class AzurermDataFactoryIntegrationRuntimeSelfHosted(string name)
     /// The primary_authorization_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAuthorizationKey
-    {
-        get => new TerraformReference<string>(this, "primary_authorization_key");
-    }
+        => AsReference("primary_authorization_key");
 
     /// <summary>
     /// The secondary_authorization_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAuthorizationKey
-    {
-        get => new TerraformReference<string>(this, "secondary_authorization_key");
-    }
+        => AsReference("secondary_authorization_key");
 
     /// <summary>
     /// RbacAuthorization block (nesting mode: set).

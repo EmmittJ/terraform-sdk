@@ -18,7 +18,7 @@ public class AzurermAadb2cDirectoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermAadb2cDirectoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermAadb2cDirectoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermAadb2cDirectoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermAadb2cDirectory(string name) : TerraformResource("az
     /// <summary>
     /// Country code of the B2C tenant. See https://aka.ms/B2CDataResidency for valid country codes.
     /// </summary>
-    public TerraformValue<string> CountryCode
+    public TerraformValue<string>? CountryCode
     {
-        get => new TerraformReference<string>(this, "country_code");
+        get => GetArgument<TerraformValue<string>>("country_code");
         set => SetArgument("country_code", value);
     }
 
@@ -73,16 +73,16 @@ public partial class AzurermAadb2cDirectory(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataResidencyLocation is required")]
     public required TerraformValue<string> DataResidencyLocation
     {
-        get => new TerraformReference<string>(this, "data_residency_location");
+        get => GetArgument<TerraformValue<string>>("data_residency_location");
         set => SetArgument("data_residency_location", value);
     }
 
     /// <summary>
     /// The initial display name of the B2C tenant.
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -92,16 +92,16 @@ public partial class AzurermAadb2cDirectory(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermAadb2cDirectory(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermAadb2cDirectory(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => new TerraformReference<string>(this, "sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermAadb2cDirectory(string name) : TerraformResource("az
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -138,25 +138,19 @@ public partial class AzurermAadb2cDirectory(string name) : TerraformResource("az
     /// The type of billing for the B2C tenant. Possible values include: `MAU` or `Auths`.
     /// </summary>
     public TerraformValue<string> BillingType
-    {
-        get => new TerraformReference<string>(this, "billing_type");
-    }
+        => AsReference("billing_type");
 
     /// <summary>
     /// The date from which the billing type took effect. May not be populated until after the first billing cycle.
     /// </summary>
     public TerraformValue<string> EffectiveStartDate
-    {
-        get => new TerraformReference<string>(this, "effective_start_date");
-    }
+        => AsReference("effective_start_date");
 
     /// <summary>
     /// The Tenant ID for the B2C tenant.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

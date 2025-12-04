@@ -14,7 +14,7 @@ public partial class AwsPinpointApnsChannel(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => new TerraformReference<string>(this, "application_id");
+        get => GetArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsPinpointApnsChannel(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? BundleId
     {
-        get => new TerraformReference<string>(this, "bundle_id");
+        get => GetArgument<TerraformValue<string>>("bundle_id");
         set => SetArgument("bundle_id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsPinpointApnsChannel(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? Certificate
     {
-        get => new TerraformReference<string>(this, "certificate");
+        get => GetArgument<TerraformValue<string>>("certificate");
         set => SetArgument("certificate", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsPinpointApnsChannel(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? DefaultAuthenticationMethod
     {
-        get => new TerraformReference<string>(this, "default_authentication_method");
+        get => GetArgument<TerraformValue<string>>("default_authentication_method");
         set => SetArgument("default_authentication_method", value);
     }
 
@@ -50,16 +50,16 @@ public partial class AwsPinpointApnsChannel(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -68,16 +68,16 @@ public partial class AwsPinpointApnsChannel(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? PrivateKey
     {
-        get => new TerraformReference<string>(this, "private_key");
+        get => GetArgument<TerraformValue<string>>("private_key");
         set => SetArgument("private_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -86,7 +86,7 @@ public partial class AwsPinpointApnsChannel(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? TeamId
     {
-        get => new TerraformReference<string>(this, "team_id");
+        get => GetArgument<TerraformValue<string>>("team_id");
         set => SetArgument("team_id", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsPinpointApnsChannel(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? TokenKey
     {
-        get => new TerraformReference<string>(this, "token_key");
+        get => GetArgument<TerraformValue<string>>("token_key");
         set => SetArgument("token_key", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AwsPinpointApnsChannel(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? TokenKeyId
     {
-        get => new TerraformReference<string>(this, "token_key_id");
+        get => GetArgument<TerraformValue<string>>("token_key_id");
         set => SetArgument("token_key_id", value);
     }
 

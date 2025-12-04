@@ -11,9 +11,9 @@ public partial class GoogleIamWorkloadIdentityPoolDataSource(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleIamWorkloadIdentityPoolDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -34,7 +34,7 @@ public partial class GoogleIamWorkloadIdentityPoolDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadIdentityPoolId is required")]
     public required TerraformValue<string> WorkloadIdentityPoolId
     {
-        get => new TerraformReference<string>(this, "workload_identity_pool_id");
+        get => GetArgument<TerraformValue<string>>("workload_identity_pool_id");
         set => SetArgument("workload_identity_pool_id", value);
     }
 
@@ -42,9 +42,7 @@ public partial class GoogleIamWorkloadIdentityPoolDataSource(string name) : Terr
     /// A description of the pool. Cannot exceed 256 characters.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// Whether the pool is disabled. You cannot use a disabled pool to exchange tokens, or use
@@ -52,26 +50,20 @@ public partial class GoogleIamWorkloadIdentityPoolDataSource(string name) : Terr
     /// access again.
     /// </summary>
     public TerraformValue<bool> Disabled
-    {
-        get => new TerraformReference<bool>(this, "disabled");
-    }
+        => AsReference("disabled");
 
     /// <summary>
     /// A display name for the pool. Cannot exceed 32 characters.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The resource name of the pool as
     /// &#39;projects/{project_number}/locations/global/workloadIdentityPools/{workload_identity_pool_id}&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The state of the pool.
@@ -85,8 +77,6 @@ public partial class GoogleIamWorkloadIdentityPoolDataSource(string name) : Terr
     ///   access again.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
 }

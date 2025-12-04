@@ -18,7 +18,7 @@ public class AzurermLogAnalyticsDatasourceWindowsEventTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermLogAnalyticsDatasourceWindowsEventTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermLogAnalyticsDatasourceWindowsEventTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermLogAnalyticsDatasourceWindowsEventTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermLogAnalyticsDatasourceWindowsEvent(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventLogName is required")]
     public required TerraformValue<string> EventLogName
     {
-        get => new TerraformReference<string>(this, "event_log_name");
+        get => GetArgument<TerraformValue<string>>("event_log_name");
         set => SetArgument("event_log_name", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzurermLogAnalyticsDatasourceWindowsEvent(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventTypes is required")]
     public required TerraformSet<string> EventTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "event_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("event_types");
         set => SetArgument("event_types", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermLogAnalyticsDatasourceWindowsEvent(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermLogAnalyticsDatasourceWindowsEvent(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermLogAnalyticsDatasourceWindowsEvent(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceName is required")]
     public required TerraformValue<string> WorkspaceName
     {
-        get => new TerraformReference<string>(this, "workspace_name");
+        get => GetArgument<TerraformValue<string>>("workspace_name");
         set => SetArgument("workspace_name", value);
     }
 

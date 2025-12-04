@@ -18,7 +18,7 @@ public class AzurermStaticWebAppFunctionAppRegistrationTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermStaticWebAppFunctionAppRegistrationTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermStaticWebAppFunctionAppRegistrationTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AzurermStaticWebAppFunctionAppRegistration(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppId is required")]
     public required TerraformValue<string> FunctionAppId
     {
-        get => new TerraformReference<string>(this, "function_app_id");
+        get => GetArgument<TerraformValue<string>>("function_app_id");
         set => SetArgument("function_app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermStaticWebAppFunctionAppRegistration(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StaticWebAppId is required")]
     public required TerraformValue<string> StaticWebAppId
     {
-        get => new TerraformReference<string>(this, "static_web_app_id");
+        get => GetArgument<TerraformValue<string>>("static_web_app_id");
         set => SetArgument("static_web_app_id", value);
     }
 

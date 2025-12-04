@@ -18,7 +18,7 @@ public class AwsNetworkmanagerTransitGatewayConnectPeerAssociationTimeoutsBlock 
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsNetworkmanagerTransitGatewayConnectPeerAssociationTimeoutsBlock 
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AwsNetworkmanagerTransitGatewayConnectPeerAssociation(strin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceId is required")]
     public required TerraformValue<string> DeviceId
     {
-        get => new TerraformReference<string>(this, "device_id");
+        get => GetArgument<TerraformValue<string>>("device_id");
         set => SetArgument("device_id", value);
     }
 
@@ -56,16 +56,16 @@ public partial class AwsNetworkmanagerTransitGatewayConnectPeerAssociation(strin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     public required TerraformValue<string> GlobalNetworkId
     {
-        get => new TerraformReference<string>(this, "global_network_id");
+        get => GetArgument<TerraformValue<string>>("global_network_id");
         set => SetArgument("global_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsNetworkmanagerTransitGatewayConnectPeerAssociation(strin
     /// </summary>
     public TerraformValue<string>? LinkId
     {
-        get => new TerraformReference<string>(this, "link_id");
+        get => GetArgument<TerraformValue<string>>("link_id");
         set => SetArgument("link_id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AwsNetworkmanagerTransitGatewayConnectPeerAssociation(strin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayConnectPeerArn is required")]
     public required TerraformValue<string> TransitGatewayConnectPeerArn
     {
-        get => new TerraformReference<string>(this, "transit_gateway_connect_peer_arn");
+        get => GetArgument<TerraformValue<string>>("transit_gateway_connect_peer_arn");
         set => SetArgument("transit_gateway_connect_peer_arn", value);
     }
 

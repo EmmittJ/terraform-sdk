@@ -18,7 +18,7 @@ public class GoogleApigeeEnvironmentAddonsConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleApigeeEnvironmentAddonsConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleApigeeEnvironmentAddonsConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,7 +54,7 @@ public partial class GoogleApigeeEnvironmentAddonsConfig(string name) : Terrafor
     /// </summary>
     public TerraformValue<bool>? AnalyticsEnabled
     {
-        get => new TerraformReference<bool>(this, "analytics_enabled");
+        get => GetArgument<TerraformValue<bool>>("analytics_enabled");
         set => SetArgument("analytics_enabled", value);
     }
 
@@ -65,16 +65,16 @@ public partial class GoogleApigeeEnvironmentAddonsConfig(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
     public required TerraformValue<string> EnvId
     {
-        get => new TerraformReference<string>(this, "env_id");
+        get => GetArgument<TerraformValue<string>>("env_id");
         set => SetArgument("env_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 

@@ -18,7 +18,7 @@ public class AzurermSentinelDataConnectorThreatIntelligenceTaxiiTimeoutsBlock : 
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSentinelDataConnectorThreatIntelligenceTaxiiTimeoutsBlock : 
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSentinelDataConnectorThreatIntelligenceTaxiiTimeoutsBlock : 
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSentinelDataConnectorThreatIntelligenceTaxiiTimeoutsBlock : 
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermSentinelDataConnectorThreatIntelligenceTaxii(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiRootUrl is required")]
     public required TerraformValue<string> ApiRootUrl
     {
-        get => new TerraformReference<string>(this, "api_root_url");
+        get => GetArgument<TerraformValue<string>>("api_root_url");
         set => SetArgument("api_root_url", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermSentinelDataConnectorThreatIntelligenceTaxii(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformValue<string> CollectionId
     {
-        get => new TerraformReference<string>(this, "collection_id");
+        get => GetArgument<TerraformValue<string>>("collection_id");
         set => SetArgument("collection_id", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AzurermSentinelDataConnectorThreatIntelligenceTaxii(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermSentinelDataConnectorThreatIntelligenceTaxii(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
-        get => new TerraformReference<string>(this, "log_analytics_workspace_id");
+        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermSentinelDataConnectorThreatIntelligenceTaxii(string 
     /// </summary>
     public TerraformValue<string>? LookbackDate
     {
-        get => new TerraformReference<string>(this, "lookback_date");
+        get => GetArgument<TerraformValue<string>>("lookback_date");
         set => SetArgument("lookback_date", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermSentinelDataConnectorThreatIntelligenceTaxii(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermSentinelDataConnectorThreatIntelligenceTaxii(string 
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -140,16 +140,16 @@ public partial class AzurermSentinelDataConnectorThreatIntelligenceTaxii(string 
     /// </summary>
     public TerraformValue<string>? PollingFrequency
     {
-        get => new TerraformReference<string>(this, "polling_frequency");
+        get => GetArgument<TerraformValue<string>>("polling_frequency");
         set => SetArgument("polling_frequency", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformValue<string> TenantId
+    public TerraformValue<string>? TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -158,7 +158,7 @@ public partial class AzurermSentinelDataConnectorThreatIntelligenceTaxii(string 
     /// </summary>
     public TerraformValue<string>? UserName
     {
-        get => new TerraformReference<string>(this, "user_name");
+        get => GetArgument<TerraformValue<string>>("user_name");
         set => SetArgument("user_name", value);
     }
 

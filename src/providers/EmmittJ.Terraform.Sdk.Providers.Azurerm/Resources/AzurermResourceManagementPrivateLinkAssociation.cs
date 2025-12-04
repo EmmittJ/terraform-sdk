@@ -18,7 +18,7 @@ public class AzurermResourceManagementPrivateLinkAssociationTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermResourceManagementPrivateLinkAssociationTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermResourceManagementPrivateLinkAssociationTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -52,9 +52,9 @@ public partial class AzurermResourceManagementPrivateLinkAssociation(string name
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermResourceManagementPrivateLinkAssociation(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
     public required TerraformValue<string> ManagementGroupId
     {
-        get => new TerraformReference<string>(this, "management_group_id");
+        get => GetArgument<TerraformValue<string>>("management_group_id");
         set => SetArgument("management_group_id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermResourceManagementPrivateLinkAssociation(string name
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermResourceManagementPrivateLinkAssociation(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicNetworkAccessEnabled is required")]
     public required TerraformValue<bool> PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermResourceManagementPrivateLinkAssociation(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceManagementPrivateLinkId is required")]
     public required TerraformValue<string> ResourceManagementPrivateLinkId
     {
-        get => new TerraformReference<string>(this, "resource_management_private_link_id");
+        get => GetArgument<TerraformValue<string>>("resource_management_private_link_id");
         set => SetArgument("resource_management_private_link_id", value);
     }
 
@@ -101,9 +101,7 @@ public partial class AzurermResourceManagementPrivateLinkAssociation(string name
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

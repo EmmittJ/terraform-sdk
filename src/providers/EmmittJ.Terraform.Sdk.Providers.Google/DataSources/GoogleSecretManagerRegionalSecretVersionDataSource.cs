@@ -11,9 +11,9 @@ public partial class GoogleSecretManagerRegionalSecretVersionDataSource(string n
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,25 +22,25 @@ public partial class GoogleSecretManagerRegionalSecretVersionDataSource(string n
     /// </summary>
     public TerraformValue<bool>? IsSecretDataBase64
     {
-        get => new TerraformReference<bool>(this, "is_secret_data_base64");
+        get => GetArgument<TerraformValue<bool>>("is_secret_data_base64");
         set => SetArgument("is_secret_data_base64", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformValue<string> Location
+    public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -50,16 +50,16 @@ public partial class GoogleSecretManagerRegionalSecretVersionDataSource(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformValue<string> Secret
     {
-        get => new TerraformReference<string>(this, "secret");
+        get => GetArgument<TerraformValue<string>>("secret");
         set => SetArgument("secret", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformValue<string> Version
+    public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -67,48 +67,36 @@ public partial class GoogleSecretManagerRegionalSecretVersionDataSource(string n
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The customer_managed_encryption attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CustomerManagedEncryption
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "customer_managed_encryption").ResolveNodes(ctx));
-    }
+        => AsReference("customer_managed_encryption");
 
     /// <summary>
     /// The destroy_time attribute.
     /// </summary>
     public TerraformValue<string> DestroyTime
-    {
-        get => new TerraformReference<string>(this, "destroy_time");
-    }
+        => AsReference("destroy_time");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-    {
-        get => new TerraformReference<bool>(this, "enabled");
-    }
+        => AsReference("enabled");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The secret_data attribute.
     /// </summary>
     public TerraformValue<string> SecretData
-    {
-        get => new TerraformReference<string>(this, "secret_data");
-    }
+        => AsReference("secret_data");
 
 }

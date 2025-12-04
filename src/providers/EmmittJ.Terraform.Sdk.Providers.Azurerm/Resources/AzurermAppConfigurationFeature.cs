@@ -19,7 +19,7 @@ public class AzurermAppConfigurationFeatureTargetingFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRolloutPercentage is required")]
     public required TerraformValue<double> DefaultRolloutPercentage
     {
-        get => new TerraformReference<double>(this, "default_rollout_percentage");
+        get => GetArgument<TerraformValue<double>>("default_rollout_percentage");
         set => SetArgument("default_rollout_percentage", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermAppConfigurationFeatureTargetingFilterBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Users
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "users").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("users");
         set => SetArgument("users", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermAppConfigurationFeatureTargetingFilterBlockGroupsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermAppConfigurationFeatureTargetingFilterBlockGroupsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RolloutPercentage is required")]
     public required TerraformValue<double> RolloutPercentage
     {
-        get => new TerraformReference<double>(this, "rollout_percentage");
+        get => GetArgument<TerraformValue<double>>("rollout_percentage");
         set => SetArgument("rollout_percentage", value);
     }
 
@@ -93,7 +93,7 @@ public class AzurermAppConfigurationFeatureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -102,7 +102,7 @@ public class AzurermAppConfigurationFeatureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -111,7 +111,7 @@ public class AzurermAppConfigurationFeatureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermAppConfigurationFeatureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -143,7 +143,7 @@ public class AzurermAppConfigurationFeatureTimewindowFilterBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? End
     {
-        get => new TerraformReference<string>(this, "end");
+        get => GetArgument<TerraformValue<string>>("end");
         set => SetArgument("end", value);
     }
 
@@ -152,7 +152,7 @@ public class AzurermAppConfigurationFeatureTimewindowFilterBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Start
     {
-        get => new TerraformReference<string>(this, "start");
+        get => GetArgument<TerraformValue<string>>("start");
         set => SetArgument("start", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AzurermAppConfigurationFeature(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
     public required TerraformValue<string> ConfigurationStoreId
     {
-        get => new TerraformReference<string>(this, "configuration_store_id");
+        get => GetArgument<TerraformValue<string>>("configuration_store_id");
         set => SetArgument("configuration_store_id", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AzurermAppConfigurationFeature(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -189,34 +189,34 @@ public partial class AzurermAppConfigurationFeature(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformValue<string> Etag
+    public TerraformValue<string>? Etag
     {
-        get => new TerraformReference<string>(this, "etag");
+        get => GetArgument<TerraformValue<string>>("etag");
         set => SetArgument("etag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformValue<string> Key
+    public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -225,7 +225,7 @@ public partial class AzurermAppConfigurationFeature(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Label
     {
-        get => new TerraformReference<string>(this, "label");
+        get => GetArgument<TerraformValue<string>>("label");
         set => SetArgument("label", value);
     }
 
@@ -234,7 +234,7 @@ public partial class AzurermAppConfigurationFeature(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? Locked
     {
-        get => new TerraformReference<bool>(this, "locked");
+        get => GetArgument<TerraformValue<bool>>("locked");
         set => SetArgument("locked", value);
     }
 
@@ -244,7 +244,7 @@ public partial class AzurermAppConfigurationFeature(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -253,7 +253,7 @@ public partial class AzurermAppConfigurationFeature(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double>? PercentageFilterValue
     {
-        get => new TerraformReference<double>(this, "percentage_filter_value");
+        get => GetArgument<TerraformValue<double>>("percentage_filter_value");
         set => SetArgument("percentage_filter_value", value);
     }
 
@@ -262,7 +262,7 @@ public partial class AzurermAppConfigurationFeature(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

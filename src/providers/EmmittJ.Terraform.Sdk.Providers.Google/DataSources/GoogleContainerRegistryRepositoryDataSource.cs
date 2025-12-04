@@ -12,18 +12,18 @@ public partial class GoogleContainerRegistryRepositoryDataSource(string name) : 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleContainerRegistryRepositoryDataSource(string name) : 
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -40,8 +40,6 @@ public partial class GoogleContainerRegistryRepositoryDataSource(string name) : 
     /// The repository_url attribute.
     /// </summary>
     public TerraformValue<string> RepositoryUrl
-    {
-        get => new TerraformReference<string>(this, "repository_url");
-    }
+        => AsReference("repository_url");
 
 }

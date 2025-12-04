@@ -18,7 +18,7 @@ public class AwsLoadBalancerPolicyPolicyAttributeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsLoadBalancerPolicyPolicyAttributeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -43,9 +43,9 @@ public partial class AwsLoadBalancerPolicy(string name) : TerraformResource("aws
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsLoadBalancerPolicy(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerName is required")]
     public required TerraformValue<string> LoadBalancerName
     {
-        get => new TerraformReference<string>(this, "load_balancer_name");
+        get => GetArgument<TerraformValue<string>>("load_balancer_name");
         set => SetArgument("load_balancer_name", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsLoadBalancerPolicy(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyName is required")]
     public required TerraformValue<string> PolicyName
     {
-        get => new TerraformReference<string>(this, "policy_name");
+        get => GetArgument<TerraformValue<string>>("policy_name");
         set => SetArgument("policy_name", value);
     }
 
@@ -75,16 +75,16 @@ public partial class AwsLoadBalancerPolicy(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyTypeName is required")]
     public required TerraformValue<string> PolicyTypeName
     {
-        get => new TerraformReference<string>(this, "policy_type_name");
+        get => GetArgument<TerraformValue<string>>("policy_type_name");
         set => SetArgument("policy_type_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

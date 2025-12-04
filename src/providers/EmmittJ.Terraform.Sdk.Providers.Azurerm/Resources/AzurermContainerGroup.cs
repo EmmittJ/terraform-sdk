@@ -16,9 +16,9 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     /// <summary>
     /// The commands attribute.
     /// </summary>
-    public TerraformList<string> Commands
+    public TerraformList<string>? Commands
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "commands").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("commands");
         set => SetArgument("commands", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cpu is required")]
     public required TerraformValue<double> Cpu
     {
-        get => new TerraformReference<double>(this, "cpu");
+        get => GetArgument<TerraformValue<double>>("cpu");
         set => SetArgument("cpu", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? CpuLimit
     {
-        get => new TerraformReference<double>(this, "cpu_limit");
+        get => GetArgument<TerraformValue<double>>("cpu_limit");
         set => SetArgument("cpu_limit", value);
     }
 
@@ -46,7 +46,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? EnvironmentVariables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "environment_variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("environment_variables");
         set => SetArgument("environment_variables", value);
     }
 
@@ -56,7 +56,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -66,7 +66,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Memory is required")]
     public required TerraformValue<double> Memory
     {
-        get => new TerraformReference<double>(this, "memory");
+        get => GetArgument<TerraformValue<double>>("memory");
         set => SetArgument("memory", value);
     }
 
@@ -75,7 +75,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MemoryLimit
     {
-        get => new TerraformReference<double>(this, "memory_limit");
+        get => GetArgument<TerraformValue<double>>("memory_limit");
         set => SetArgument("memory_limit", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? SecureEnvironmentVariables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "secure_environment_variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("secure_environment_variables");
         set => SetArgument("secure_environment_variables", value);
     }
 
@@ -163,7 +163,7 @@ public class AzurermContainerGroupContainerBlockLivenessProbeBlock : TerraformBl
     /// </summary>
     public TerraformList<string>? Exec
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exec").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exec");
         set => SetArgument("exec", value);
     }
 
@@ -172,7 +172,7 @@ public class AzurermContainerGroupContainerBlockLivenessProbeBlock : TerraformBl
     /// </summary>
     public TerraformValue<double>? FailureThreshold
     {
-        get => new TerraformReference<double>(this, "failure_threshold");
+        get => GetArgument<TerraformValue<double>>("failure_threshold");
         set => SetArgument("failure_threshold", value);
     }
 
@@ -181,7 +181,7 @@ public class AzurermContainerGroupContainerBlockLivenessProbeBlock : TerraformBl
     /// </summary>
     public TerraformValue<double>? InitialDelaySeconds
     {
-        get => new TerraformReference<double>(this, "initial_delay_seconds");
+        get => GetArgument<TerraformValue<double>>("initial_delay_seconds");
         set => SetArgument("initial_delay_seconds", value);
     }
 
@@ -190,7 +190,7 @@ public class AzurermContainerGroupContainerBlockLivenessProbeBlock : TerraformBl
     /// </summary>
     public TerraformValue<double>? PeriodSeconds
     {
-        get => new TerraformReference<double>(this, "period_seconds");
+        get => GetArgument<TerraformValue<double>>("period_seconds");
         set => SetArgument("period_seconds", value);
     }
 
@@ -199,7 +199,7 @@ public class AzurermContainerGroupContainerBlockLivenessProbeBlock : TerraformBl
     /// </summary>
     public TerraformValue<double>? SuccessThreshold
     {
-        get => new TerraformReference<double>(this, "success_threshold");
+        get => GetArgument<TerraformValue<double>>("success_threshold");
         set => SetArgument("success_threshold", value);
     }
 
@@ -208,7 +208,7 @@ public class AzurermContainerGroupContainerBlockLivenessProbeBlock : TerraformBl
     /// </summary>
     public TerraformValue<double>? TimeoutSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_seconds");
         set => SetArgument("timeout_seconds", value);
     }
 
@@ -239,7 +239,7 @@ public class AzurermContainerGroupContainerBlockLivenessProbeBlockHttpGetBlock :
     /// </summary>
     public TerraformMap<string>? HttpHeaders
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "http_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("http_headers");
         set => SetArgument("http_headers", value);
     }
 
@@ -248,7 +248,7 @@ public class AzurermContainerGroupContainerBlockLivenessProbeBlockHttpGetBlock :
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -257,7 +257,7 @@ public class AzurermContainerGroupContainerBlockLivenessProbeBlockHttpGetBlock :
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -266,7 +266,7 @@ public class AzurermContainerGroupContainerBlockLivenessProbeBlockHttpGetBlock :
     /// </summary>
     public TerraformValue<string>? Scheme
     {
-        get => new TerraformReference<string>(this, "scheme");
+        get => GetArgument<TerraformValue<string>>("scheme");
         set => SetArgument("scheme", value);
     }
 
@@ -288,7 +288,7 @@ public class AzurermContainerGroupContainerBlockPortsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -297,7 +297,7 @@ public class AzurermContainerGroupContainerBlockPortsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -319,7 +319,7 @@ public class AzurermContainerGroupContainerBlockReadinessProbeBlock : TerraformB
     /// </summary>
     public TerraformList<string>? Exec
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exec").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exec");
         set => SetArgument("exec", value);
     }
 
@@ -328,7 +328,7 @@ public class AzurermContainerGroupContainerBlockReadinessProbeBlock : TerraformB
     /// </summary>
     public TerraformValue<double>? FailureThreshold
     {
-        get => new TerraformReference<double>(this, "failure_threshold");
+        get => GetArgument<TerraformValue<double>>("failure_threshold");
         set => SetArgument("failure_threshold", value);
     }
 
@@ -337,7 +337,7 @@ public class AzurermContainerGroupContainerBlockReadinessProbeBlock : TerraformB
     /// </summary>
     public TerraformValue<double>? InitialDelaySeconds
     {
-        get => new TerraformReference<double>(this, "initial_delay_seconds");
+        get => GetArgument<TerraformValue<double>>("initial_delay_seconds");
         set => SetArgument("initial_delay_seconds", value);
     }
 
@@ -346,7 +346,7 @@ public class AzurermContainerGroupContainerBlockReadinessProbeBlock : TerraformB
     /// </summary>
     public TerraformValue<double>? PeriodSeconds
     {
-        get => new TerraformReference<double>(this, "period_seconds");
+        get => GetArgument<TerraformValue<double>>("period_seconds");
         set => SetArgument("period_seconds", value);
     }
 
@@ -355,7 +355,7 @@ public class AzurermContainerGroupContainerBlockReadinessProbeBlock : TerraformB
     /// </summary>
     public TerraformValue<double>? SuccessThreshold
     {
-        get => new TerraformReference<double>(this, "success_threshold");
+        get => GetArgument<TerraformValue<double>>("success_threshold");
         set => SetArgument("success_threshold", value);
     }
 
@@ -364,7 +364,7 @@ public class AzurermContainerGroupContainerBlockReadinessProbeBlock : TerraformB
     /// </summary>
     public TerraformValue<double>? TimeoutSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_seconds");
         set => SetArgument("timeout_seconds", value);
     }
 
@@ -395,7 +395,7 @@ public class AzurermContainerGroupContainerBlockReadinessProbeBlockHttpGetBlock 
     /// </summary>
     public TerraformMap<string>? HttpHeaders
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "http_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("http_headers");
         set => SetArgument("http_headers", value);
     }
 
@@ -404,7 +404,7 @@ public class AzurermContainerGroupContainerBlockReadinessProbeBlockHttpGetBlock 
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -413,7 +413,7 @@ public class AzurermContainerGroupContainerBlockReadinessProbeBlockHttpGetBlock 
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -422,7 +422,7 @@ public class AzurermContainerGroupContainerBlockReadinessProbeBlockHttpGetBlock 
     /// </summary>
     public TerraformValue<string>? Scheme
     {
-        get => new TerraformReference<string>(this, "scheme");
+        get => GetArgument<TerraformValue<string>>("scheme");
         set => SetArgument("scheme", value);
     }
 
@@ -445,7 +445,7 @@ public class AzurermContainerGroupContainerBlockSecurityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivilegeEnabled is required")]
     public required TerraformValue<bool> PrivilegeEnabled
     {
-        get => new TerraformReference<bool>(this, "privilege_enabled");
+        get => GetArgument<TerraformValue<bool>>("privilege_enabled");
         set => SetArgument("privilege_enabled", value);
     }
 
@@ -467,7 +467,7 @@ public class AzurermContainerGroupContainerBlockVolumeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EmptyDir
     {
-        get => new TerraformReference<bool>(this, "empty_dir");
+        get => GetArgument<TerraformValue<bool>>("empty_dir");
         set => SetArgument("empty_dir", value);
     }
 
@@ -477,7 +477,7 @@ public class AzurermContainerGroupContainerBlockVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPath is required")]
     public required TerraformValue<string> MountPath
     {
-        get => new TerraformReference<string>(this, "mount_path");
+        get => GetArgument<TerraformValue<string>>("mount_path");
         set => SetArgument("mount_path", value);
     }
 
@@ -487,7 +487,7 @@ public class AzurermContainerGroupContainerBlockVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -496,7 +496,7 @@ public class AzurermContainerGroupContainerBlockVolumeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ReadOnlyAttribute
     {
-        get => new TerraformReference<bool>(this, "read_only");
+        get => GetArgument<TerraformValue<bool>>("read_only");
         set => SetArgument("read_only", value);
     }
 
@@ -505,7 +505,7 @@ public class AzurermContainerGroupContainerBlockVolumeBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Secret
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "secret").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -514,7 +514,7 @@ public class AzurermContainerGroupContainerBlockVolumeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ShareName
     {
-        get => new TerraformReference<string>(this, "share_name");
+        get => GetArgument<TerraformValue<string>>("share_name");
         set => SetArgument("share_name", value);
     }
 
@@ -523,7 +523,7 @@ public class AzurermContainerGroupContainerBlockVolumeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StorageAccountKey
     {
-        get => new TerraformReference<string>(this, "storage_account_key");
+        get => GetArgument<TerraformValue<string>>("storage_account_key");
         set => SetArgument("storage_account_key", value);
     }
 
@@ -532,7 +532,7 @@ public class AzurermContainerGroupContainerBlockVolumeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StorageAccountName
     {
-        get => new TerraformReference<string>(this, "storage_account_name");
+        get => GetArgument<TerraformValue<string>>("storage_account_name");
         set => SetArgument("storage_account_name", value);
     }
 
@@ -564,7 +564,7 @@ public class AzurermContainerGroupContainerBlockVolumeBlockGitRepoBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Directory
     {
-        get => new TerraformReference<string>(this, "directory");
+        get => GetArgument<TerraformValue<string>>("directory");
         set => SetArgument("directory", value);
     }
 
@@ -573,7 +573,7 @@ public class AzurermContainerGroupContainerBlockVolumeBlockGitRepoBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Revision
     {
-        get => new TerraformReference<string>(this, "revision");
+        get => GetArgument<TerraformValue<string>>("revision");
         set => SetArgument("revision", value);
     }
 
@@ -583,7 +583,7 @@ public class AzurermContainerGroupContainerBlockVolumeBlockGitRepoBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -632,7 +632,7 @@ public class AzurermContainerGroupDiagnosticsBlockLogAnalyticsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? LogType
     {
-        get => new TerraformReference<string>(this, "log_type");
+        get => GetArgument<TerraformValue<string>>("log_type");
         set => SetArgument("log_type", value);
     }
 
@@ -641,7 +641,7 @@ public class AzurermContainerGroupDiagnosticsBlockLogAnalyticsBlock : TerraformB
     /// </summary>
     public TerraformMap<string>? Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -651,7 +651,7 @@ public class AzurermContainerGroupDiagnosticsBlockLogAnalyticsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => new TerraformReference<string>(this, "workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -661,7 +661,7 @@ public class AzurermContainerGroupDiagnosticsBlockLogAnalyticsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceKey is required")]
     public required TerraformValue<string> WorkspaceKey
     {
-        get => new TerraformReference<string>(this, "workspace_key");
+        get => GetArgument<TerraformValue<string>>("workspace_key");
         set => SetArgument("workspace_key", value);
     }
 
@@ -685,7 +685,7 @@ public class AzurermContainerGroupDnsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Nameservers is required")]
     public TerraformList<string>? Nameservers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "nameservers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("nameservers");
         set => SetArgument("nameservers", value);
     }
 
@@ -694,7 +694,7 @@ public class AzurermContainerGroupDnsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Options
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("options");
         set => SetArgument("options", value);
     }
 
@@ -703,7 +703,7 @@ public class AzurermContainerGroupDnsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? SearchDomains
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "search_domains").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("search_domains");
         set => SetArgument("search_domains", value);
     }
 
@@ -726,7 +726,7 @@ public class AzurermContainerGroupIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -734,17 +734,13 @@ public class AzurermContainerGroupIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -752,7 +748,7 @@ public class AzurermContainerGroupIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -775,7 +771,7 @@ public class AzurermContainerGroupImageRegistryCredentialBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -785,7 +781,7 @@ public class AzurermContainerGroupImageRegistryCredentialBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformValue<string> Server
     {
-        get => new TerraformReference<string>(this, "server");
+        get => GetArgument<TerraformValue<string>>("server");
         set => SetArgument("server", value);
     }
 
@@ -794,7 +790,7 @@ public class AzurermContainerGroupImageRegistryCredentialBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? UserAssignedIdentityId
     {
-        get => new TerraformReference<string>(this, "user_assigned_identity_id");
+        get => GetArgument<TerraformValue<string>>("user_assigned_identity_id");
         set => SetArgument("user_assigned_identity_id", value);
     }
 
@@ -803,7 +799,7 @@ public class AzurermContainerGroupImageRegistryCredentialBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -824,9 +820,9 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
     /// <summary>
     /// The commands attribute.
     /// </summary>
-    public TerraformList<string> Commands
+    public TerraformList<string>? Commands
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "commands").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("commands");
         set => SetArgument("commands", value);
     }
 
@@ -835,7 +831,7 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? EnvironmentVariables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "environment_variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("environment_variables");
         set => SetArgument("environment_variables", value);
     }
 
@@ -845,7 +841,7 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -855,7 +851,7 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -864,7 +860,7 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? SecureEnvironmentVariables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "secure_environment_variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("secure_environment_variables");
         set => SetArgument("secure_environment_variables", value);
     }
 
@@ -905,7 +901,7 @@ public class AzurermContainerGroupInitContainerBlockSecurityBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivilegeEnabled is required")]
     public required TerraformValue<bool> PrivilegeEnabled
     {
-        get => new TerraformReference<bool>(this, "privilege_enabled");
+        get => GetArgument<TerraformValue<bool>>("privilege_enabled");
         set => SetArgument("privilege_enabled", value);
     }
 
@@ -927,7 +923,7 @@ public class AzurermContainerGroupInitContainerBlockVolumeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EmptyDir
     {
-        get => new TerraformReference<bool>(this, "empty_dir");
+        get => GetArgument<TerraformValue<bool>>("empty_dir");
         set => SetArgument("empty_dir", value);
     }
 
@@ -937,7 +933,7 @@ public class AzurermContainerGroupInitContainerBlockVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPath is required")]
     public required TerraformValue<string> MountPath
     {
-        get => new TerraformReference<string>(this, "mount_path");
+        get => GetArgument<TerraformValue<string>>("mount_path");
         set => SetArgument("mount_path", value);
     }
 
@@ -947,7 +943,7 @@ public class AzurermContainerGroupInitContainerBlockVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -956,7 +952,7 @@ public class AzurermContainerGroupInitContainerBlockVolumeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ReadOnlyAttribute
     {
-        get => new TerraformReference<bool>(this, "read_only");
+        get => GetArgument<TerraformValue<bool>>("read_only");
         set => SetArgument("read_only", value);
     }
 
@@ -965,7 +961,7 @@ public class AzurermContainerGroupInitContainerBlockVolumeBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Secret
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "secret").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -974,7 +970,7 @@ public class AzurermContainerGroupInitContainerBlockVolumeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ShareName
     {
-        get => new TerraformReference<string>(this, "share_name");
+        get => GetArgument<TerraformValue<string>>("share_name");
         set => SetArgument("share_name", value);
     }
 
@@ -983,7 +979,7 @@ public class AzurermContainerGroupInitContainerBlockVolumeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StorageAccountKey
     {
-        get => new TerraformReference<string>(this, "storage_account_key");
+        get => GetArgument<TerraformValue<string>>("storage_account_key");
         set => SetArgument("storage_account_key", value);
     }
 
@@ -992,7 +988,7 @@ public class AzurermContainerGroupInitContainerBlockVolumeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StorageAccountName
     {
-        get => new TerraformReference<string>(this, "storage_account_name");
+        get => GetArgument<TerraformValue<string>>("storage_account_name");
         set => SetArgument("storage_account_name", value);
     }
 
@@ -1024,7 +1020,7 @@ public class AzurermContainerGroupInitContainerBlockVolumeBlockGitRepoBlock : Te
     /// </summary>
     public TerraformValue<string>? Directory
     {
-        get => new TerraformReference<string>(this, "directory");
+        get => GetArgument<TerraformValue<string>>("directory");
         set => SetArgument("directory", value);
     }
 
@@ -1033,7 +1029,7 @@ public class AzurermContainerGroupInitContainerBlockVolumeBlockGitRepoBlock : Te
     /// </summary>
     public TerraformValue<string>? Revision
     {
-        get => new TerraformReference<string>(this, "revision");
+        get => GetArgument<TerraformValue<string>>("revision");
         set => SetArgument("revision", value);
     }
 
@@ -1043,7 +1039,7 @@ public class AzurermContainerGroupInitContainerBlockVolumeBlockGitRepoBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -1066,7 +1062,7 @@ public class AzurermContainerGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1075,7 +1071,7 @@ public class AzurermContainerGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1084,7 +1080,7 @@ public class AzurermContainerGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -1093,7 +1089,7 @@ public class AzurermContainerGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1111,7 +1107,7 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? DnsNameLabel
     {
-        get => new TerraformReference<string>(this, "dns_name_label");
+        get => GetArgument<TerraformValue<string>>("dns_name_label");
         set => SetArgument("dns_name_label", value);
     }
 
@@ -1120,25 +1116,25 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? DnsNameLabelReusePolicy
     {
-        get => new TerraformReference<string>(this, "dns_name_label_reuse_policy");
+        get => GetArgument<TerraformValue<string>>("dns_name_label_reuse_policy");
         set => SetArgument("dns_name_label_reuse_policy", value);
     }
 
     /// <summary>
     /// The exposed_port attribute.
     /// </summary>
-    public TerraformSet<TerraformMap<object>> ExposedPort
+    public TerraformSet<TerraformMap<object>>? ExposedPort
     {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "exposed_port").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("exposed_port");
         set => SetArgument("exposed_port", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1147,7 +1143,7 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? IpAddressType
     {
-        get => new TerraformReference<string>(this, "ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
@@ -1156,7 +1152,7 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? KeyVaultKeyId
     {
-        get => new TerraformReference<string>(this, "key_vault_key_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_key_id");
         set => SetArgument("key_vault_key_id", value);
     }
 
@@ -1165,7 +1161,7 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? KeyVaultUserAssignedIdentityId
     {
-        get => new TerraformReference<string>(this, "key_vault_user_assigned_identity_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_user_assigned_identity_id");
         set => SetArgument("key_vault_user_assigned_identity_id", value);
     }
 
@@ -1175,7 +1171,7 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1185,7 +1181,7 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1193,9 +1189,9 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// The network_profile_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> NetworkProfileId
+    public TerraformValue<string>? NetworkProfileId
     {
-        get => new TerraformReference<string>(this, "network_profile_id");
+        get => GetArgument<TerraformValue<string>>("network_profile_id");
         set => SetArgument("network_profile_id", value);
     }
 
@@ -1205,7 +1201,7 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
     public required TerraformValue<string> OsType
     {
-        get => new TerraformReference<string>(this, "os_type");
+        get => GetArgument<TerraformValue<string>>("os_type");
         set => SetArgument("os_type", value);
     }
 
@@ -1214,7 +1210,7 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? Priority
     {
-        get => new TerraformReference<string>(this, "priority");
+        get => GetArgument<TerraformValue<string>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -1224,7 +1220,7 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -1233,7 +1229,7 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? RestartPolicy
     {
-        get => new TerraformReference<string>(this, "restart_policy");
+        get => GetArgument<TerraformValue<string>>("restart_policy");
         set => SetArgument("restart_policy", value);
     }
 
@@ -1242,7 +1238,7 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? Sku
     {
-        get => new TerraformReference<string>(this, "sku");
+        get => GetArgument<TerraformValue<string>>("sku");
         set => SetArgument("sku", value);
     }
 
@@ -1251,7 +1247,7 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// </summary>
     public TerraformSet<string>? SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -1260,7 +1256,7 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -1269,7 +1265,7 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// </summary>
     public TerraformSet<string>? Zones
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "zones").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("zones");
         set => SetArgument("zones", value);
     }
 
@@ -1277,17 +1273,13 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-    {
-        get => new TerraformReference<string>(this, "fqdn");
-    }
+        => AsReference("fqdn");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     public TerraformValue<string> IpAddress
-    {
-        get => new TerraformReference<string>(this, "ip_address");
-    }
+        => AsReference("ip_address");
 
     /// <summary>
     /// Container block (nesting mode: list).

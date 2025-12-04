@@ -18,7 +18,7 @@ public class GoogleApigeeSharedflowDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleApigeeSharedflowDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleApigeeSharedflowDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,16 +55,16 @@ public partial class GoogleApigeeSharedflowDeployment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformValue<string> Environment
     {
-        get => new TerraformReference<string>(this, "environment");
+        get => GetArgument<TerraformValue<string>>("environment");
         set => SetArgument("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleApigeeSharedflowDeployment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => new TerraformReference<string>(this, "org_id");
+        get => GetArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class GoogleApigeeSharedflowDeployment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     public required TerraformValue<string> Revision
     {
-        get => new TerraformReference<string>(this, "revision");
+        get => GetArgument<TerraformValue<string>>("revision");
         set => SetArgument("revision", value);
     }
 
@@ -93,7 +93,7 @@ public partial class GoogleApigeeSharedflowDeployment(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -103,7 +103,7 @@ public partial class GoogleApigeeSharedflowDeployment(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedflowId is required")]
     public required TerraformValue<string> SharedflowId
     {
-        get => new TerraformReference<string>(this, "sharedflow_id");
+        get => GetArgument<TerraformValue<string>>("sharedflow_id");
         set => SetArgument("sharedflow_id", value);
     }
 

@@ -18,7 +18,7 @@ public class AzurermServicebusSubscriptionClientScopedSubscriptionBlock : Terraf
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -26,16 +26,14 @@ public class AzurermServicebusSubscriptionClientScopedSubscriptionBlock : Terraf
     /// The is_client_scoped_subscription_durable attribute.
     /// </summary>
     public TerraformValue<bool> IsClientScopedSubscriptionDurable
-    {
-        get => new TerraformReference<bool>(this, "is_client_scoped_subscription_durable");
-    }
+        => AsReference("is_client_scoped_subscription_durable");
 
     /// <summary>
     /// The is_client_scoped_subscription_shareable attribute.
     /// </summary>
     public TerraformValue<bool>? IsClientScopedSubscriptionShareable
     {
-        get => new TerraformReference<bool>(this, "is_client_scoped_subscription_shareable");
+        get => GetArgument<TerraformValue<bool>>("is_client_scoped_subscription_shareable");
         set => SetArgument("is_client_scoped_subscription_shareable", value);
     }
 
@@ -58,7 +56,7 @@ public class AzurermServicebusSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -67,7 +65,7 @@ public class AzurermServicebusSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -76,7 +74,7 @@ public class AzurermServicebusSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -85,7 +83,7 @@ public class AzurermServicebusSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -103,7 +101,7 @@ public partial class AzurermServicebusSubscription(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? AutoDeleteOnIdle
     {
-        get => new TerraformReference<string>(this, "auto_delete_on_idle");
+        get => GetArgument<TerraformValue<string>>("auto_delete_on_idle");
         set => SetArgument("auto_delete_on_idle", value);
     }
 
@@ -112,7 +110,7 @@ public partial class AzurermServicebusSubscription(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? BatchedOperationsEnabled
     {
-        get => new TerraformReference<bool>(this, "batched_operations_enabled");
+        get => GetArgument<TerraformValue<bool>>("batched_operations_enabled");
         set => SetArgument("batched_operations_enabled", value);
     }
 
@@ -121,7 +119,7 @@ public partial class AzurermServicebusSubscription(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? ClientScopedSubscriptionEnabled
     {
-        get => new TerraformReference<bool>(this, "client_scoped_subscription_enabled");
+        get => GetArgument<TerraformValue<bool>>("client_scoped_subscription_enabled");
         set => SetArgument("client_scoped_subscription_enabled", value);
     }
 
@@ -130,7 +128,7 @@ public partial class AzurermServicebusSubscription(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? DeadLetteringOnFilterEvaluationError
     {
-        get => new TerraformReference<bool>(this, "dead_lettering_on_filter_evaluation_error");
+        get => GetArgument<TerraformValue<bool>>("dead_lettering_on_filter_evaluation_error");
         set => SetArgument("dead_lettering_on_filter_evaluation_error", value);
     }
 
@@ -139,7 +137,7 @@ public partial class AzurermServicebusSubscription(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? DeadLetteringOnMessageExpiration
     {
-        get => new TerraformReference<bool>(this, "dead_lettering_on_message_expiration");
+        get => GetArgument<TerraformValue<bool>>("dead_lettering_on_message_expiration");
         set => SetArgument("dead_lettering_on_message_expiration", value);
     }
 
@@ -148,7 +146,7 @@ public partial class AzurermServicebusSubscription(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? DefaultMessageTtl
     {
-        get => new TerraformReference<string>(this, "default_message_ttl");
+        get => GetArgument<TerraformValue<string>>("default_message_ttl");
         set => SetArgument("default_message_ttl", value);
     }
 
@@ -157,7 +155,7 @@ public partial class AzurermServicebusSubscription(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? ForwardDeadLetteredMessagesTo
     {
-        get => new TerraformReference<string>(this, "forward_dead_lettered_messages_to");
+        get => GetArgument<TerraformValue<string>>("forward_dead_lettered_messages_to");
         set => SetArgument("forward_dead_lettered_messages_to", value);
     }
 
@@ -166,16 +164,16 @@ public partial class AzurermServicebusSubscription(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? ForwardTo
     {
-        get => new TerraformReference<string>(this, "forward_to");
+        get => GetArgument<TerraformValue<string>>("forward_to");
         set => SetArgument("forward_to", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -184,7 +182,7 @@ public partial class AzurermServicebusSubscription(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? LockDuration
     {
-        get => new TerraformReference<string>(this, "lock_duration");
+        get => GetArgument<TerraformValue<string>>("lock_duration");
         set => SetArgument("lock_duration", value);
     }
 
@@ -194,7 +192,7 @@ public partial class AzurermServicebusSubscription(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxDeliveryCount is required")]
     public required TerraformValue<double> MaxDeliveryCount
     {
-        get => new TerraformReference<double>(this, "max_delivery_count");
+        get => GetArgument<TerraformValue<double>>("max_delivery_count");
         set => SetArgument("max_delivery_count", value);
     }
 
@@ -204,7 +202,7 @@ public partial class AzurermServicebusSubscription(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -213,7 +211,7 @@ public partial class AzurermServicebusSubscription(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? RequiresSession
     {
-        get => new TerraformReference<bool>(this, "requires_session");
+        get => GetArgument<TerraformValue<bool>>("requires_session");
         set => SetArgument("requires_session", value);
     }
 
@@ -222,7 +220,7 @@ public partial class AzurermServicebusSubscription(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -232,7 +230,7 @@ public partial class AzurermServicebusSubscription(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicId is required")]
     public required TerraformValue<string> TopicId
     {
-        get => new TerraformReference<string>(this, "topic_id");
+        get => GetArgument<TerraformValue<string>>("topic_id");
         set => SetArgument("topic_id", value);
     }
 

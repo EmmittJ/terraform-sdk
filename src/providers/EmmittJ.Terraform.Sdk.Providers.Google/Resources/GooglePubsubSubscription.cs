@@ -20,7 +20,7 @@ public class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DropUnknownFields
     {
-        get => new TerraformReference<bool>(this, "drop_unknown_fields");
+        get => GetArgument<TerraformValue<bool>>("drop_unknown_fields");
         set => SetArgument("drop_unknown_fields", value);
     }
 
@@ -31,7 +31,7 @@ public class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ServiceAccountEmail
     {
-        get => new TerraformReference<string>(this, "service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -41,7 +41,7 @@ public class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -51,7 +51,7 @@ public class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? UseTableSchema
     {
-        get => new TerraformReference<bool>(this, "use_table_schema");
+        get => GetArgument<TerraformValue<bool>>("use_table_schema");
         set => SetArgument("use_table_schema", value);
     }
 
@@ -61,7 +61,7 @@ public class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? UseTopicSchema
     {
-        get => new TerraformReference<bool>(this, "use_topic_schema");
+        get => GetArgument<TerraformValue<bool>>("use_topic_schema");
         set => SetArgument("use_topic_schema", value);
     }
 
@@ -71,7 +71,7 @@ public class GooglePubsubSubscriptionBigqueryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? WriteMetadata
     {
-        get => new TerraformReference<bool>(this, "write_metadata");
+        get => GetArgument<TerraformValue<bool>>("write_metadata");
         set => SetArgument("write_metadata", value);
     }
 
@@ -95,7 +95,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -104,7 +104,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FilenameDatetimeFormat
     {
-        get => new TerraformReference<string>(this, "filename_datetime_format");
+        get => GetArgument<TerraformValue<string>>("filename_datetime_format");
         set => SetArgument("filename_datetime_format", value);
     }
 
@@ -113,7 +113,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FilenamePrefix
     {
-        get => new TerraformReference<string>(this, "filename_prefix");
+        get => GetArgument<TerraformValue<string>>("filename_prefix");
         set => SetArgument("filename_prefix", value);
     }
 
@@ -122,7 +122,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FilenameSuffix
     {
-        get => new TerraformReference<string>(this, "filename_suffix");
+        get => GetArgument<TerraformValue<string>>("filename_suffix");
         set => SetArgument("filename_suffix", value);
     }
 
@@ -132,7 +132,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxBytes
     {
-        get => new TerraformReference<double>(this, "max_bytes");
+        get => GetArgument<TerraformValue<double>>("max_bytes");
         set => SetArgument("max_bytes", value);
     }
 
@@ -143,7 +143,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaxDuration
     {
-        get => new TerraformReference<string>(this, "max_duration");
+        get => GetArgument<TerraformValue<string>>("max_duration");
         set => SetArgument("max_duration", value);
     }
 
@@ -152,7 +152,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxMessages
     {
-        get => new TerraformReference<double>(this, "max_messages");
+        get => GetArgument<TerraformValue<double>>("max_messages");
         set => SetArgument("max_messages", value);
     }
 
@@ -163,7 +163,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ServiceAccountEmail
     {
-        get => new TerraformReference<string>(this, "service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -171,9 +171,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlock : TerraformBlock
     /// An output-only field that indicates whether or not the subscription can receive messages.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// AvroConfig block (nesting mode: list).
@@ -203,7 +201,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlockAvroConfigBlock : Te
     /// </summary>
     public TerraformValue<bool>? UseTopicSchema
     {
-        get => new TerraformReference<bool>(this, "use_topic_schema");
+        get => GetArgument<TerraformValue<bool>>("use_topic_schema");
         set => SetArgument("use_topic_schema", value);
     }
 
@@ -212,7 +210,7 @@ public class GooglePubsubSubscriptionCloudStorageConfigBlockAvroConfigBlock : Te
     /// </summary>
     public TerraformValue<bool>? WriteMetadata
     {
-        get => new TerraformReference<bool>(this, "write_metadata");
+        get => GetArgument<TerraformValue<bool>>("write_metadata");
         set => SetArgument("write_metadata", value);
     }
 
@@ -245,7 +243,7 @@ public class GooglePubsubSubscriptionDeadLetterPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DeadLetterTopic
     {
-        get => new TerraformReference<string>(this, "dead_letter_topic");
+        get => GetArgument<TerraformValue<string>>("dead_letter_topic");
         set => SetArgument("dead_letter_topic", value);
     }
 
@@ -265,7 +263,7 @@ public class GooglePubsubSubscriptionDeadLetterPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxDeliveryAttempts
     {
-        get => new TerraformReference<double>(this, "max_delivery_attempts");
+        get => GetArgument<TerraformValue<double>>("max_delivery_attempts");
         set => SetArgument("max_delivery_attempts", value);
     }
 
@@ -293,7 +291,7 @@ public class GooglePubsubSubscriptionExpirationPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     public required TerraformValue<string> Ttl
     {
-        get => new TerraformReference<string>(this, "ttl");
+        get => GetArgument<TerraformValue<string>>("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -317,7 +315,7 @@ public class GooglePubsubSubscriptionMessageTransformsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -377,7 +375,7 @@ public class GooglePubsubSubscriptionMessageTransformsBlockJavascriptUdfBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Code is required")]
     public required TerraformValue<string> Code
     {
-        get => new TerraformReference<string>(this, "code");
+        get => GetArgument<TerraformValue<string>>("code");
         set => SetArgument("code", value);
     }
 
@@ -387,7 +385,7 @@ public class GooglePubsubSubscriptionMessageTransformsBlockJavascriptUdfBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformValue<string> FunctionName
     {
-        get => new TerraformReference<string>(this, "function_name");
+        get => GetArgument<TerraformValue<string>>("function_name");
         set => SetArgument("function_name", value);
     }
 
@@ -432,7 +430,7 @@ public class GooglePubsubSubscriptionPushConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Attributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("attributes");
         set => SetArgument("attributes", value);
     }
 
@@ -444,7 +442,7 @@ public class GooglePubsubSubscriptionPushConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PushEndpoint is required")]
     public required TerraformValue<string> PushEndpoint
     {
-        get => new TerraformReference<string>(this, "push_endpoint");
+        get => GetArgument<TerraformValue<string>>("push_endpoint");
         set => SetArgument("push_endpoint", value);
     }
 
@@ -489,7 +487,7 @@ public class GooglePubsubSubscriptionPushConfigBlockNoWrapperBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WriteMetadata is required")]
     public required TerraformValue<bool> WriteMetadata
     {
-        get => new TerraformReference<bool>(this, "write_metadata");
+        get => GetArgument<TerraformValue<bool>>("write_metadata");
         set => SetArgument("write_metadata", value);
     }
 
@@ -516,7 +514,7 @@ public class GooglePubsubSubscriptionPushConfigBlockOidcTokenBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Audience
     {
-        get => new TerraformReference<string>(this, "audience");
+        get => GetArgument<TerraformValue<string>>("audience");
         set => SetArgument("audience", value);
     }
 
@@ -529,7 +527,7 @@ public class GooglePubsubSubscriptionPushConfigBlockOidcTokenBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountEmail is required")]
     public required TerraformValue<string> ServiceAccountEmail
     {
-        get => new TerraformReference<string>(this, "service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -551,9 +549,9 @@ public class GooglePubsubSubscriptionRetryPolicyBlock : TerraformBlock
     /// The maximum delay between consecutive deliveries of a given message. Value should be between 0 and 600 seconds. Defaults to 600 seconds.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformValue<string> MaximumBackoff
+    public TerraformValue<string>? MaximumBackoff
     {
-        get => new TerraformReference<string>(this, "maximum_backoff");
+        get => GetArgument<TerraformValue<string>>("maximum_backoff");
         set => SetArgument("maximum_backoff", value);
     }
 
@@ -561,9 +559,9 @@ public class GooglePubsubSubscriptionRetryPolicyBlock : TerraformBlock
     /// The minimum delay between consecutive deliveries of a given message. Value should be between 0 and 600 seconds. Defaults to 10 seconds.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformValue<string> MinimumBackoff
+    public TerraformValue<string>? MinimumBackoff
     {
-        get => new TerraformReference<string>(this, "minimum_backoff");
+        get => GetArgument<TerraformValue<string>>("minimum_backoff");
         set => SetArgument("minimum_backoff", value);
     }
 
@@ -586,7 +584,7 @@ public class GooglePubsubSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -595,7 +593,7 @@ public class GooglePubsubSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -604,7 +602,7 @@ public class GooglePubsubSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -637,9 +635,9 @@ public partial class GooglePubsubSubscription(string name) : TerraformResource("
     /// If the subscriber never acknowledges the message, the Pub/Sub system
     /// will eventually redeliver the message.
     /// </summary>
-    public TerraformValue<double> AckDeadlineSeconds
+    public TerraformValue<double>? AckDeadlineSeconds
     {
-        get => new TerraformReference<double>(this, "ack_deadline_seconds");
+        get => GetArgument<TerraformValue<double>>("ack_deadline_seconds");
         set => SetArgument("ack_deadline_seconds", value);
     }
 
@@ -656,7 +654,7 @@ public partial class GooglePubsubSubscription(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? EnableExactlyOnceDelivery
     {
-        get => new TerraformReference<bool>(this, "enable_exactly_once_delivery");
+        get => GetArgument<TerraformValue<bool>>("enable_exactly_once_delivery");
         set => SetArgument("enable_exactly_once_delivery", value);
     }
 
@@ -667,7 +665,7 @@ public partial class GooglePubsubSubscription(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? EnableMessageOrdering
     {
-        get => new TerraformReference<bool>(this, "enable_message_ordering");
+        get => GetArgument<TerraformValue<bool>>("enable_message_ordering");
         set => SetArgument("enable_message_ordering", value);
     }
 
@@ -679,16 +677,16 @@ public partial class GooglePubsubSubscription(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -701,7 +699,7 @@ public partial class GooglePubsubSubscription(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -718,7 +716,7 @@ public partial class GooglePubsubSubscription(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? MessageRetentionDuration
     {
-        get => new TerraformReference<string>(this, "message_retention_duration");
+        get => GetArgument<TerraformValue<string>>("message_retention_duration");
         set => SetArgument("message_retention_duration", value);
     }
 
@@ -728,16 +726,16 @@ public partial class GooglePubsubSubscription(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -749,7 +747,7 @@ public partial class GooglePubsubSubscription(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? RetainAckedMessages
     {
-        get => new TerraformReference<bool>(this, "retain_acked_messages");
+        get => GetArgument<TerraformValue<bool>>("retain_acked_messages");
         set => SetArgument("retain_acked_messages", value);
     }
 
@@ -765,7 +763,7 @@ public partial class GooglePubsubSubscription(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -777,7 +775,7 @@ public partial class GooglePubsubSubscription(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformValue<string> Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -785,18 +783,14 @@ public partial class GooglePubsubSubscription(string name) : TerraformResource("
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// BigqueryConfig block (nesting mode: list).

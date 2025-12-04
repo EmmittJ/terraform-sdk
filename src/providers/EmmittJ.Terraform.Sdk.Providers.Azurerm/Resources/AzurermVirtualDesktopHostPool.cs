@@ -18,7 +18,7 @@ public class AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock : Terraform
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Timezone
     {
-        get => new TerraformReference<string>(this, "timezone");
+        get => GetArgument<TerraformValue<string>>("timezone");
         set => SetArgument("timezone", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock : Terraform
     /// </summary>
     public TerraformValue<bool>? UseSessionHostTimezone
     {
-        get => new TerraformReference<bool>(this, "use_session_host_timezone");
+        get => GetArgument<TerraformValue<bool>>("use_session_host_timezone");
         set => SetArgument("use_session_host_timezone", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlockScheduleBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformValue<string> DayOfWeek
     {
-        get => new TerraformReference<string>(this, "day_of_week");
+        get => GetArgument<TerraformValue<string>>("day_of_week");
         set => SetArgument("day_of_week", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlockScheduleBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HourOfDay is required")]
     public required TerraformValue<double> HourOfDay
     {
-        get => new TerraformReference<double>(this, "hour_of_day");
+        get => GetArgument<TerraformValue<double>>("hour_of_day");
         set => SetArgument("hour_of_day", value);
     }
 
@@ -102,7 +102,7 @@ public class AzurermVirtualDesktopHostPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -111,7 +111,7 @@ public class AzurermVirtualDesktopHostPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermVirtualDesktopHostPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -129,7 +129,7 @@ public class AzurermVirtualDesktopHostPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? CustomRdpProperties
     {
-        get => new TerraformReference<string>(this, "custom_rdp_properties");
+        get => GetArgument<TerraformValue<string>>("custom_rdp_properties");
         set => SetArgument("custom_rdp_properties", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -165,16 +165,16 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? FriendlyName
     {
-        get => new TerraformReference<string>(this, "friendly_name");
+        get => GetArgument<TerraformValue<string>>("friendly_name");
         set => SetArgument("friendly_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerType is required")]
     public required TerraformValue<string> LoadBalancerType
     {
-        get => new TerraformReference<string>(this, "load_balancer_type");
+        get => GetArgument<TerraformValue<string>>("load_balancer_type");
         set => SetArgument("load_balancer_type", value);
     }
 
@@ -194,7 +194,7 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -203,7 +203,7 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     /// </summary>
     public TerraformValue<double>? MaximumSessionsAllowed
     {
-        get => new TerraformReference<double>(this, "maximum_sessions_allowed");
+        get => GetArgument<TerraformValue<double>>("maximum_sessions_allowed");
         set => SetArgument("maximum_sessions_allowed", value);
     }
 
@@ -213,7 +213,7 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -222,7 +222,7 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? PersonalDesktopAssignmentType
     {
-        get => new TerraformReference<string>(this, "personal_desktop_assignment_type");
+        get => GetArgument<TerraformValue<string>>("personal_desktop_assignment_type");
         set => SetArgument("personal_desktop_assignment_type", value);
     }
 
@@ -231,7 +231,7 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? PreferredAppGroupType
     {
-        get => new TerraformReference<string>(this, "preferred_app_group_type");
+        get => GetArgument<TerraformValue<string>>("preferred_app_group_type");
         set => SetArgument("preferred_app_group_type", value);
     }
 
@@ -240,7 +240,7 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? PublicNetworkAccess
     {
-        get => new TerraformReference<string>(this, "public_network_access");
+        get => GetArgument<TerraformValue<string>>("public_network_access");
         set => SetArgument("public_network_access", value);
     }
 
@@ -250,7 +250,7 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -259,7 +259,7 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? StartVmOnConnect
     {
-        get => new TerraformReference<bool>(this, "start_vm_on_connect");
+        get => GetArgument<TerraformValue<bool>>("start_vm_on_connect");
         set => SetArgument("start_vm_on_connect", value);
     }
 
@@ -268,7 +268,7 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -278,7 +278,7 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -287,7 +287,7 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? ValidateEnvironment
     {
-        get => new TerraformReference<bool>(this, "validate_environment");
+        get => GetArgument<TerraformValue<bool>>("validate_environment");
         set => SetArgument("validate_environment", value);
     }
 
@@ -296,7 +296,7 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? VmTemplate
     {
-        get => new TerraformReference<string>(this, "vm_template");
+        get => GetArgument<TerraformValue<string>>("vm_template");
         set => SetArgument("vm_template", value);
     }
 

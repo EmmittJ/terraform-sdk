@@ -16,36 +16,36 @@ public class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock : T
     /// <summary>
     /// The embedding_data_delivery_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> EmbeddingDataDeliveryEnabled
+    public TerraformValue<bool>? EmbeddingDataDeliveryEnabled
     {
-        get => new TerraformReference<bool>(this, "embedding_data_delivery_enabled");
+        get => GetArgument<TerraformValue<bool>>("embedding_data_delivery_enabled");
         set => SetArgument("embedding_data_delivery_enabled", value);
     }
 
     /// <summary>
     /// The image_data_delivery_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> ImageDataDeliveryEnabled
+    public TerraformValue<bool>? ImageDataDeliveryEnabled
     {
-        get => new TerraformReference<bool>(this, "image_data_delivery_enabled");
+        get => GetArgument<TerraformValue<bool>>("image_data_delivery_enabled");
         set => SetArgument("image_data_delivery_enabled", value);
     }
 
     /// <summary>
     /// The text_data_delivery_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> TextDataDeliveryEnabled
+    public TerraformValue<bool>? TextDataDeliveryEnabled
     {
-        get => new TerraformReference<bool>(this, "text_data_delivery_enabled");
+        get => GetArgument<TerraformValue<bool>>("text_data_delivery_enabled");
         set => SetArgument("text_data_delivery_enabled", value);
     }
 
     /// <summary>
     /// The video_data_delivery_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> VideoDataDeliveryEnabled
+    public TerraformValue<bool>? VideoDataDeliveryEnabled
     {
-        get => new TerraformReference<bool>(this, "video_data_delivery_enabled");
+        get => GetArgument<TerraformValue<bool>>("video_data_delivery_enabled");
         set => SetArgument("video_data_delivery_enabled", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlockClou
     /// </summary>
     public TerraformValue<string>? LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlockClou
     /// </summary>
     public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlockClou
     /// </summary>
     public TerraformValue<string>? BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlockClou
     /// </summary>
     public TerraformValue<string>? KeyPrefix
     {
-        get => new TerraformReference<string>(this, "key_prefix");
+        get => GetArgument<TerraformValue<string>>("key_prefix");
         set => SetArgument("key_prefix", value);
     }
 
@@ -156,7 +156,7 @@ public class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlockS3Co
     /// </summary>
     public TerraformValue<string>? BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlockS3Co
     /// </summary>
     public TerraformValue<string>? KeyPrefix
     {
-        get => new TerraformReference<string>(this, "key_prefix");
+        get => GetArgument<TerraformValue<string>>("key_prefix");
         set => SetArgument("key_prefix", value);
     }
 
@@ -181,9 +181,9 @@ public partial class AwsBedrockModelInvocationLoggingConfiguration(string name) 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -192,9 +192,7 @@ public partial class AwsBedrockModelInvocationLoggingConfiguration(string name) 
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// LoggingConfig block (nesting mode: list).

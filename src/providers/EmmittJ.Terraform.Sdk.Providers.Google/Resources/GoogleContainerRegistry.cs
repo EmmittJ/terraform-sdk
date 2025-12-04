@@ -12,9 +12,9 @@ public partial class GoogleContainerRegistry(string name) : TerraformResource("g
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class GoogleContainerRegistry(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -40,8 +40,6 @@ public partial class GoogleContainerRegistry(string name) : TerraformResource("g
     /// The URI of the created resource.
     /// </summary>
     public TerraformValue<string> BucketSelfLink
-    {
-        get => new TerraformReference<string>(this, "bucket_self_link");
-    }
+        => AsReference("bucket_self_link");
 
 }

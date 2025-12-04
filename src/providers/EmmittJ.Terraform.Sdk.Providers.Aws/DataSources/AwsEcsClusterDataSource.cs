@@ -14,34 +14,34 @@ public partial class AwsEcsClusterDataSource(string name) : TerraformDataSource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => new TerraformReference<string>(this, "cluster_name");
+        get => GetArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,56 +49,42 @@ public partial class AwsEcsClusterDataSource(string name) : TerraformDataSource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The pending_tasks_count attribute.
     /// </summary>
     public TerraformValue<double> PendingTasksCount
-    {
-        get => new TerraformReference<double>(this, "pending_tasks_count");
-    }
+        => AsReference("pending_tasks_count");
 
     /// <summary>
     /// The registered_container_instances_count attribute.
     /// </summary>
     public TerraformValue<double> RegisteredContainerInstancesCount
-    {
-        get => new TerraformReference<double>(this, "registered_container_instances_count");
-    }
+        => AsReference("registered_container_instances_count");
 
     /// <summary>
     /// The running_tasks_count attribute.
     /// </summary>
     public TerraformValue<double> RunningTasksCount
-    {
-        get => new TerraformReference<double>(this, "running_tasks_count");
-    }
+        => AsReference("running_tasks_count");
 
     /// <summary>
     /// The service_connect_defaults attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServiceConnectDefaults
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "service_connect_defaults").ResolveNodes(ctx));
-    }
+        => AsReference("service_connect_defaults");
 
     /// <summary>
     /// The setting attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Setting
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "setting").ResolveNodes(ctx));
-    }
+        => AsReference("setting");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }

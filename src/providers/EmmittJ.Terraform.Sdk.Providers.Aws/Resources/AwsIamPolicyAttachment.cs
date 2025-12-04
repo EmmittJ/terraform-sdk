@@ -13,16 +13,16 @@ public partial class AwsIamPolicyAttachment(string name) : TerraformResource("aw
     /// </summary>
     public TerraformSet<string>? Groups
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("groups");
         set => SetArgument("groups", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsIamPolicyAttachment(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsIamPolicyAttachment(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArn is required")]
     public required TerraformValue<string> PolicyArn
     {
-        get => new TerraformReference<string>(this, "policy_arn");
+        get => GetArgument<TerraformValue<string>>("policy_arn");
         set => SetArgument("policy_arn", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsIamPolicyAttachment(string name) : TerraformResource("aw
     /// </summary>
     public TerraformSet<string>? Roles
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "roles").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("roles");
         set => SetArgument("roles", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsIamPolicyAttachment(string name) : TerraformResource("aw
     /// </summary>
     public TerraformSet<string>? Users
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "users").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("users");
         set => SetArgument("users", value);
     }
 

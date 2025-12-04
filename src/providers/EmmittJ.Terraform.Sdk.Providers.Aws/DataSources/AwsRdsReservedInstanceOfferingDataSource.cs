@@ -14,7 +14,7 @@ public partial class AwsRdsReservedInstanceOfferingDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbInstanceClass is required")]
     public required TerraformValue<string> DbInstanceClass
     {
-        get => new TerraformReference<string>(this, "db_instance_class");
+        get => GetArgument<TerraformValue<string>>("db_instance_class");
         set => SetArgument("db_instance_class", value);
     }
 
@@ -24,16 +24,16 @@ public partial class AwsRdsReservedInstanceOfferingDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<double> Duration
     {
-        get => new TerraformReference<double>(this, "duration");
+        get => GetArgument<TerraformValue<double>>("duration");
         set => SetArgument("duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -43,7 +43,7 @@ public partial class AwsRdsReservedInstanceOfferingDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MultiAz is required")]
     public required TerraformValue<bool> MultiAz
     {
-        get => new TerraformReference<bool>(this, "multi_az");
+        get => GetArgument<TerraformValue<bool>>("multi_az");
         set => SetArgument("multi_az", value);
     }
 
@@ -53,7 +53,7 @@ public partial class AwsRdsReservedInstanceOfferingDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OfferingType is required")]
     public required TerraformValue<string> OfferingType
     {
-        get => new TerraformReference<string>(this, "offering_type");
+        get => GetArgument<TerraformValue<string>>("offering_type");
         set => SetArgument("offering_type", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AwsRdsReservedInstanceOfferingDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductDescription is required")]
     public required TerraformValue<string> ProductDescription
     {
-        get => new TerraformReference<string>(this, "product_description");
+        get => GetArgument<TerraformValue<string>>("product_description");
         set => SetArgument("product_description", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -80,24 +80,18 @@ public partial class AwsRdsReservedInstanceOfferingDataSource(string name) : Ter
     /// The currency_code attribute.
     /// </summary>
     public TerraformValue<string> CurrencyCode
-    {
-        get => new TerraformReference<string>(this, "currency_code");
-    }
+        => AsReference("currency_code");
 
     /// <summary>
     /// The fixed_price attribute.
     /// </summary>
     public TerraformValue<double> FixedPrice
-    {
-        get => new TerraformReference<double>(this, "fixed_price");
-    }
+        => AsReference("fixed_price");
 
     /// <summary>
     /// The offering_id attribute.
     /// </summary>
     public TerraformValue<string> OfferingId
-    {
-        get => new TerraformReference<string>(this, "offering_id");
-    }
+        => AsReference("offering_id");
 
 }

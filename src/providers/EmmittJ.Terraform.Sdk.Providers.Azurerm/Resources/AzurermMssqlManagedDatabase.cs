@@ -18,43 +18,43 @@ public class AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock : Terraform
     /// </summary>
     public TerraformValue<bool>? ImmutableBackupsEnabled
     {
-        get => new TerraformReference<bool>(this, "immutable_backups_enabled");
+        get => GetArgument<TerraformValue<bool>>("immutable_backups_enabled");
         set => SetArgument("immutable_backups_enabled", value);
     }
 
     /// <summary>
     /// The monthly_retention attribute.
     /// </summary>
-    public TerraformValue<string> MonthlyRetention
+    public TerraformValue<string>? MonthlyRetention
     {
-        get => new TerraformReference<string>(this, "monthly_retention");
+        get => GetArgument<TerraformValue<string>>("monthly_retention");
         set => SetArgument("monthly_retention", value);
     }
 
     /// <summary>
     /// The week_of_year attribute.
     /// </summary>
-    public TerraformValue<double> WeekOfYear
+    public TerraformValue<double>? WeekOfYear
     {
-        get => new TerraformReference<double>(this, "week_of_year");
+        get => GetArgument<TerraformValue<double>>("week_of_year");
         set => SetArgument("week_of_year", value);
     }
 
     /// <summary>
     /// The weekly_retention attribute.
     /// </summary>
-    public TerraformValue<string> WeeklyRetention
+    public TerraformValue<string>? WeeklyRetention
     {
-        get => new TerraformReference<string>(this, "weekly_retention");
+        get => GetArgument<TerraformValue<string>>("weekly_retention");
         set => SetArgument("weekly_retention", value);
     }
 
     /// <summary>
     /// The yearly_retention attribute.
     /// </summary>
-    public TerraformValue<string> YearlyRetention
+    public TerraformValue<string>? YearlyRetention
     {
-        get => new TerraformReference<string>(this, "yearly_retention");
+        get => GetArgument<TerraformValue<string>>("yearly_retention");
         set => SetArgument("yearly_retention", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermMssqlManagedDatabasePointInTimeRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestorePointInTime is required")]
     public required TerraformValue<string> RestorePointInTime
     {
-        get => new TerraformReference<string>(this, "restore_point_in_time");
+        get => GetArgument<TerraformValue<string>>("restore_point_in_time");
         set => SetArgument("restore_point_in_time", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermMssqlManagedDatabasePointInTimeRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDatabaseId is required")]
     public required TerraformValue<string> SourceDatabaseId
     {
-        get => new TerraformReference<string>(this, "source_database_id");
+        get => GetArgument<TerraformValue<string>>("source_database_id");
         set => SetArgument("source_database_id", value);
     }
 
@@ -111,7 +111,7 @@ public class AzurermMssqlManagedDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermMssqlManagedDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -129,7 +129,7 @@ public class AzurermMssqlManagedDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -138,7 +138,7 @@ public class AzurermMssqlManagedDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -154,9 +154,9 @@ public partial class AzurermMssqlManagedDatabase(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -166,7 +166,7 @@ public partial class AzurermMssqlManagedDatabase(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     public required TerraformValue<string> ManagedInstanceId
     {
-        get => new TerraformReference<string>(this, "managed_instance_id");
+        get => GetArgument<TerraformValue<string>>("managed_instance_id");
         set => SetArgument("managed_instance_id", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AzurermMssqlManagedDatabase(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -185,7 +185,7 @@ public partial class AzurermMssqlManagedDatabase(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double>? ShortTermRetentionDays
     {
-        get => new TerraformReference<double>(this, "short_term_retention_days");
+        get => GetArgument<TerraformValue<double>>("short_term_retention_days");
         set => SetArgument("short_term_retention_days", value);
     }
 
@@ -194,7 +194,7 @@ public partial class AzurermMssqlManagedDatabase(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

@@ -14,16 +14,16 @@ public partial class GoogleOracleDatabaseDbNodesDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudVmCluster is required")]
     public required TerraformValue<string> CloudVmCluster
     {
-        get => new TerraformReference<string>(this, "cloud_vm_cluster");
+        get => GetArgument<TerraformValue<string>>("cloud_vm_cluster");
         set => SetArgument("cloud_vm_cluster", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleOracleDatabaseDbNodesDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleOracleDatabaseDbNodesDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -50,8 +50,6 @@ public partial class GoogleOracleDatabaseDbNodesDataSource(string name) : Terraf
     /// The db_nodes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DbNodes
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "db_nodes").ResolveNodes(ctx));
-    }
+        => AsReference("db_nodes");
 
 }

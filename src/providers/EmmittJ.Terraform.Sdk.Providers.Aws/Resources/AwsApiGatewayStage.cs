@@ -19,7 +19,7 @@ public class AwsApiGatewayStageAccessLogSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformValue<string> DestinationArn
     {
-        get => new TerraformReference<string>(this, "destination_arn");
+        get => GetArgument<TerraformValue<string>>("destination_arn");
         set => SetArgument("destination_arn", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsApiGatewayStageAccessLogSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => new TerraformReference<string>(this, "format");
+        get => GetArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsApiGatewayStageCanarySettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentId is required")]
     public required TerraformValue<string> DeploymentId
     {
-        get => new TerraformReference<string>(this, "deployment_id");
+        get => GetArgument<TerraformValue<string>>("deployment_id");
         set => SetArgument("deployment_id", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsApiGatewayStageCanarySettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? PercentTraffic
     {
-        get => new TerraformReference<double>(this, "percent_traffic");
+        get => GetArgument<TerraformValue<double>>("percent_traffic");
         set => SetArgument("percent_traffic", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsApiGatewayStageCanarySettingsBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? StageVariableOverrides
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "stage_variable_overrides").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("stage_variable_overrides");
         set => SetArgument("stage_variable_overrides", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsApiGatewayStageCanarySettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? UseStageCache
     {
-        get => new TerraformReference<bool>(this, "use_stage_cache");
+        get => GetArgument<TerraformValue<bool>>("use_stage_cache");
         set => SetArgument("use_stage_cache", value);
     }
 
@@ -98,7 +98,7 @@ public partial class AwsApiGatewayStage(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<bool>? CacheClusterEnabled
     {
-        get => new TerraformReference<bool>(this, "cache_cluster_enabled");
+        get => GetArgument<TerraformValue<bool>>("cache_cluster_enabled");
         set => SetArgument("cache_cluster_enabled", value);
     }
 
@@ -107,7 +107,7 @@ public partial class AwsApiGatewayStage(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string>? CacheClusterSize
     {
-        get => new TerraformReference<string>(this, "cache_cluster_size");
+        get => GetArgument<TerraformValue<string>>("cache_cluster_size");
         set => SetArgument("cache_cluster_size", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AwsApiGatewayStage(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string>? ClientCertificateId
     {
-        get => new TerraformReference<string>(this, "client_certificate_id");
+        get => GetArgument<TerraformValue<string>>("client_certificate_id");
         set => SetArgument("client_certificate_id", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AwsApiGatewayStage(string name) : TerraformResource("aws_ap
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentId is required")]
     public required TerraformValue<string> DeploymentId
     {
-        get => new TerraformReference<string>(this, "deployment_id");
+        get => GetArgument<TerraformValue<string>>("deployment_id");
         set => SetArgument("deployment_id", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AwsApiGatewayStage(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -144,25 +144,25 @@ public partial class AwsApiGatewayStage(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string>? DocumentationVersion
     {
-        get => new TerraformReference<string>(this, "documentation_version");
+        get => GetArgument<TerraformValue<string>>("documentation_version");
         set => SetArgument("documentation_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AwsApiGatewayStage(string name) : TerraformResource("aws_ap
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformValue<string> RestApiId
     {
-        get => new TerraformReference<string>(this, "rest_api_id");
+        get => GetArgument<TerraformValue<string>>("rest_api_id");
         set => SetArgument("rest_api_id", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AwsApiGatewayStage(string name) : TerraformResource("aws_ap
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StageName is required")]
     public required TerraformValue<string> StageName
     {
-        get => new TerraformReference<string>(this, "stage_name");
+        get => GetArgument<TerraformValue<string>>("stage_name");
         set => SetArgument("stage_name", value);
     }
 
@@ -191,16 +191,16 @@ public partial class AwsApiGatewayStage(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -209,7 +209,7 @@ public partial class AwsApiGatewayStage(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformMap<string>? Variables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("variables");
         set => SetArgument("variables", value);
     }
 
@@ -218,7 +218,7 @@ public partial class AwsApiGatewayStage(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<bool>? XrayTracingEnabled
     {
-        get => new TerraformReference<bool>(this, "xray_tracing_enabled");
+        get => GetArgument<TerraformValue<bool>>("xray_tracing_enabled");
         set => SetArgument("xray_tracing_enabled", value);
     }
 
@@ -226,33 +226,25 @@ public partial class AwsApiGatewayStage(string name) : TerraformResource("aws_ap
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The execution_arn attribute.
     /// </summary>
     public TerraformValue<string> ExecutionArn
-    {
-        get => new TerraformReference<string>(this, "execution_arn");
-    }
+        => AsReference("execution_arn");
 
     /// <summary>
     /// The invoke_url attribute.
     /// </summary>
     public TerraformValue<string> InvokeUrl
-    {
-        get => new TerraformReference<string>(this, "invoke_url");
-    }
+        => AsReference("invoke_url");
 
     /// <summary>
     /// The web_acl_arn attribute.
     /// </summary>
     public TerraformValue<string> WebAclArn
-    {
-        get => new TerraformReference<string>(this, "web_acl_arn");
-    }
+        => AsReference("web_acl_arn");
 
     /// <summary>
     /// AccessLogSettings block (nesting mode: list).

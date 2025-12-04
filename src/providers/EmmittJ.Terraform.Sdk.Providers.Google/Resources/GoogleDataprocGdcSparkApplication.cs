@@ -18,7 +18,7 @@ public class GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock : Te
     /// </summary>
     public TerraformList<string>? ArchiveUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "archive_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("archive_uris");
         set => SetArgument("archive_uris", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock : Te
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock : Te
     /// </summary>
     public TerraformList<string>? FileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("file_uris");
         set => SetArgument("file_uris", value);
     }
 
@@ -45,7 +45,7 @@ public class GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock : Te
     /// </summary>
     public TerraformList<string>? JarFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "jar_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("jar_file_uris");
         set => SetArgument("jar_file_uris", value);
     }
 
@@ -55,7 +55,7 @@ public class GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainPythonFileUri is required")]
     public required TerraformValue<string> MainPythonFileUri
     {
-        get => new TerraformReference<string>(this, "main_python_file_uri");
+        get => GetArgument<TerraformValue<string>>("main_python_file_uri");
         set => SetArgument("main_python_file_uri", value);
     }
 
@@ -64,7 +64,7 @@ public class GoogleDataprocGdcSparkApplicationPysparkApplicationConfigBlock : Te
     /// </summary>
     public TerraformList<string>? PythonFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "python_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("python_file_uris");
         set => SetArgument("python_file_uris", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleDataprocGdcSparkApplicationSparkApplicationConfigBlock : Terr
     /// </summary>
     public TerraformList<string>? ArchiveUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "archive_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("archive_uris");
         set => SetArgument("archive_uris", value);
     }
 
@@ -96,7 +96,7 @@ public class GoogleDataprocGdcSparkApplicationSparkApplicationConfigBlock : Terr
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleDataprocGdcSparkApplicationSparkApplicationConfigBlock : Terr
     /// </summary>
     public TerraformList<string>? FileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("file_uris");
         set => SetArgument("file_uris", value);
     }
 
@@ -114,7 +114,7 @@ public class GoogleDataprocGdcSparkApplicationSparkApplicationConfigBlock : Terr
     /// </summary>
     public TerraformList<string>? JarFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "jar_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("jar_file_uris");
         set => SetArgument("jar_file_uris", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleDataprocGdcSparkApplicationSparkApplicationConfigBlock : Terr
     /// </summary>
     public TerraformValue<string>? MainClass
     {
-        get => new TerraformReference<string>(this, "main_class");
+        get => GetArgument<TerraformValue<string>>("main_class");
         set => SetArgument("main_class", value);
     }
 
@@ -132,7 +132,7 @@ public class GoogleDataprocGdcSparkApplicationSparkApplicationConfigBlock : Terr
     /// </summary>
     public TerraformValue<string>? MainJarFileUri
     {
-        get => new TerraformReference<string>(this, "main_jar_file_uri");
+        get => GetArgument<TerraformValue<string>>("main_jar_file_uri");
         set => SetArgument("main_jar_file_uri", value);
     }
 
@@ -155,7 +155,7 @@ public class GoogleDataprocGdcSparkApplicationSparkRApplicationConfigBlock : Ter
     /// </summary>
     public TerraformList<string>? ArchiveUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "archive_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("archive_uris");
         set => SetArgument("archive_uris", value);
     }
 
@@ -164,7 +164,7 @@ public class GoogleDataprocGdcSparkApplicationSparkRApplicationConfigBlock : Ter
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -173,7 +173,7 @@ public class GoogleDataprocGdcSparkApplicationSparkRApplicationConfigBlock : Ter
     /// </summary>
     public TerraformList<string>? FileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("file_uris");
         set => SetArgument("file_uris", value);
     }
 
@@ -183,7 +183,7 @@ public class GoogleDataprocGdcSparkApplicationSparkRApplicationConfigBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainRFileUri is required")]
     public required TerraformValue<string> MainRFileUri
     {
-        get => new TerraformReference<string>(this, "main_r_file_uri");
+        get => GetArgument<TerraformValue<string>>("main_r_file_uri");
         set => SetArgument("main_r_file_uri", value);
     }
 
@@ -206,7 +206,7 @@ public class GoogleDataprocGdcSparkApplicationSparkSqlApplicationConfigBlock : T
     /// </summary>
     public TerraformList<string>? JarFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "jar_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("jar_file_uris");
         set => SetArgument("jar_file_uris", value);
     }
 
@@ -215,7 +215,7 @@ public class GoogleDataprocGdcSparkApplicationSparkSqlApplicationConfigBlock : T
     /// </summary>
     public TerraformValue<string>? QueryFileUri
     {
-        get => new TerraformReference<string>(this, "query_file_uri");
+        get => GetArgument<TerraformValue<string>>("query_file_uri");
         set => SetArgument("query_file_uri", value);
     }
 
@@ -224,7 +224,7 @@ public class GoogleDataprocGdcSparkApplicationSparkSqlApplicationConfigBlock : T
     /// </summary>
     public TerraformMap<string>? ScriptVariables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "script_variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("script_variables");
         set => SetArgument("script_variables", value);
     }
 
@@ -257,7 +257,7 @@ public class GoogleDataprocGdcSparkApplicationSparkSqlApplicationConfigBlockQuer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Queries is required")]
     public TerraformList<string>? Queries
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "queries").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("queries");
         set => SetArgument("queries", value);
     }
 
@@ -280,7 +280,7 @@ public class GoogleDataprocGdcSparkApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -289,7 +289,7 @@ public class GoogleDataprocGdcSparkApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -298,7 +298,7 @@ public class GoogleDataprocGdcSparkApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -319,7 +319,7 @@ public partial class GoogleDataprocGdcSparkApplication(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -328,7 +328,7 @@ public partial class GoogleDataprocGdcSparkApplication(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? ApplicationEnvironment
     {
-        get => new TerraformReference<string>(this, "application_environment");
+        get => GetArgument<TerraformValue<string>>("application_environment");
         set => SetArgument("application_environment", value);
     }
 
@@ -337,7 +337,7 @@ public partial class GoogleDataprocGdcSparkApplication(string name) : TerraformR
     /// </summary>
     public TerraformList<string>? DependencyImages
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dependency_images").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("dependency_images");
         set => SetArgument("dependency_images", value);
     }
 
@@ -346,16 +346,16 @@ public partial class GoogleDataprocGdcSparkApplication(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -367,7 +367,7 @@ public partial class GoogleDataprocGdcSparkApplication(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -377,7 +377,7 @@ public partial class GoogleDataprocGdcSparkApplication(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -386,16 +386,16 @@ public partial class GoogleDataprocGdcSparkApplication(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -404,7 +404,7 @@ public partial class GoogleDataprocGdcSparkApplication(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -414,7 +414,7 @@ public partial class GoogleDataprocGdcSparkApplication(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Serviceinstance is required")]
     public required TerraformValue<string> Serviceinstance
     {
-        get => new TerraformReference<string>(this, "serviceinstance");
+        get => GetArgument<TerraformValue<string>>("serviceinstance");
         set => SetArgument("serviceinstance", value);
     }
 
@@ -424,7 +424,7 @@ public partial class GoogleDataprocGdcSparkApplication(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SparkApplicationId is required")]
     public required TerraformValue<string> SparkApplicationId
     {
-        get => new TerraformReference<string>(this, "spark_application_id");
+        get => GetArgument<TerraformValue<string>>("spark_application_id");
         set => SetArgument("spark_application_id", value);
     }
 
@@ -433,7 +433,7 @@ public partial class GoogleDataprocGdcSparkApplication(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -441,57 +441,43 @@ public partial class GoogleDataprocGdcSparkApplication(string name) : TerraformR
     /// The timestamp when the resource was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// URL for a monitoring UI for this application (for eventual Spark PHS/UI support) Out of scope for private GA
     /// </summary>
     public TerraformValue<string> MonitoringEndpoint
-    {
-        get => new TerraformReference<string>(this, "monitoring_endpoint");
-    }
+        => AsReference("monitoring_endpoint");
 
     /// <summary>
     /// Identifier. The name of the application. Format: projects/{project}/locations/{location}/serviceInstances/{service_instance}/sparkApplications/{application}
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// An HCFS URI pointing to the location of stdout and stdout of the application Mainly useful for Pantheon and gcloud Not in scope for private GA
     /// </summary>
     public TerraformValue<string> OutputUri
-    {
-        get => new TerraformReference<string>(this, "output_uri");
-    }
+        => AsReference("output_uri");
 
     /// <summary>
     /// Whether the application is currently reconciling. True if the current state of the resource does not match the intended state, and the system is working to reconcile them, whether or not the change was user initiated.
     /// </summary>
     public TerraformValue<bool> Reconciling
-    {
-        get => new TerraformReference<bool>(this, "reconciling");
-    }
+        => AsReference("reconciling");
 
     /// <summary>
     /// The current state.
@@ -505,42 +491,32 @@ public partial class GoogleDataprocGdcSparkApplication(string name) : TerraformR
     /// * &#39;FAILED&#39;
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// A message explaining the current state.
     /// </summary>
     public TerraformValue<string> StateMessage
-    {
-        get => new TerraformReference<string>(this, "state_message");
-    }
+        => AsReference("state_message");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// System generated unique identifier for this application, formatted as UUID4.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// The timestamp when the resource was most recently updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// PysparkApplicationConfig block (nesting mode: list).

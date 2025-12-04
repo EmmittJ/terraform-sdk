@@ -18,7 +18,7 @@ public class AzurermDevTestVirtualNetworkDataSourceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermDevTestVirtualNetworkDataSource(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermDevTestVirtualNetworkDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabName is required")]
     public required TerraformValue<string> LabName
     {
-        get => new TerraformReference<string>(this, "lab_name");
+        get => GetArgument<TerraformValue<string>>("lab_name");
         set => SetArgument("lab_name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermDevTestVirtualNetworkDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermDevTestVirtualNetworkDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -74,25 +74,19 @@ public partial class AzurermDevTestVirtualNetworkDataSource(string name) : Terra
     /// The allowed_subnets attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AllowedSubnets
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "allowed_subnets").ResolveNodes(ctx));
-    }
+        => AsReference("allowed_subnets");
 
     /// <summary>
     /// The subnet_overrides attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SubnetOverrides
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "subnet_overrides").ResolveNodes(ctx));
-    }
+        => AsReference("subnet_overrides");
 
     /// <summary>
     /// The unique_identifier attribute.
     /// </summary>
     public TerraformValue<string> UniqueIdentifier
-    {
-        get => new TerraformReference<string>(this, "unique_identifier");
-    }
+        => AsReference("unique_identifier");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

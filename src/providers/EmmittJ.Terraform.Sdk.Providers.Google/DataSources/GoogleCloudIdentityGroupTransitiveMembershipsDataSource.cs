@@ -14,16 +14,16 @@ public partial class GoogleCloudIdentityGroupTransitiveMembershipsDataSource(str
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
     public required TerraformValue<string> Group
     {
-        get => new TerraformReference<string>(this, "group");
+        get => GetArgument<TerraformValue<string>>("group");
         set => SetArgument("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,8 +31,6 @@ public partial class GoogleCloudIdentityGroupTransitiveMembershipsDataSource(str
     /// List of Cloud Identity group memberships.
     /// </summary>
     public TerraformList<TerraformMap<object>> Memberships
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "memberships").ResolveNodes(ctx));
-    }
+        => AsReference("memberships");
 
 }

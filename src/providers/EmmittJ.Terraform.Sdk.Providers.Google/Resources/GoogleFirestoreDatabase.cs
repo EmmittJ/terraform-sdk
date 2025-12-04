@@ -22,9 +22,7 @@ public class GoogleFirestoreDatabaseCmekConfigBlock : TerraformBlock
     /// &#39;projects/{project_id}/locations/{kms_location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}/cryptoKeyVersions/{key_version}&#39;.
     /// </summary>
     public TerraformList<string> ActiveKeyVersion
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "active_key_version").ResolveNodes(ctx));
-    }
+        => AsReference("active_key_version");
 
     /// <summary>
     /// The resource ID of a Cloud KMS key. If set, the database created will
@@ -44,7 +42,7 @@ public class GoogleFirestoreDatabaseCmekConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -67,7 +65,7 @@ public class GoogleFirestoreDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -76,7 +74,7 @@ public class GoogleFirestoreDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -85,7 +83,7 @@ public class GoogleFirestoreDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -101,27 +99,27 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// <summary>
     /// The App Engine integration mode to use for this database. Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
-    public TerraformValue<string> AppEngineIntegrationMode
+    public TerraformValue<string>? AppEngineIntegrationMode
     {
-        get => new TerraformReference<string>(this, "app_engine_integration_mode");
+        get => GetArgument<TerraformValue<string>>("app_engine_integration_mode");
         set => SetArgument("app_engine_integration_mode", value);
     }
 
     /// <summary>
     /// The concurrency control mode to use for this database. Possible values: [&amp;quot;OPTIMISTIC&amp;quot;, &amp;quot;PESSIMISTIC&amp;quot;, &amp;quot;OPTIMISTIC_WITH_ENTITY_GROUPS&amp;quot;]
     /// </summary>
-    public TerraformValue<string> ConcurrencyMode
+    public TerraformValue<string>? ConcurrencyMode
     {
-        get => new TerraformReference<string>(this, "concurrency_mode");
+        get => GetArgument<TerraformValue<string>>("concurrency_mode");
         set => SetArgument("concurrency_mode", value);
     }
 
     /// <summary>
     /// The database edition. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;ENTERPRISE&amp;quot;]
     /// </summary>
-    public TerraformValue<string> DatabaseEdition
+    public TerraformValue<string>? DatabaseEdition
     {
-        get => new TerraformReference<string>(this, "database_edition");
+        get => GetArgument<TerraformValue<string>>("database_edition");
         set => SetArgument("database_edition", value);
     }
 
@@ -131,9 +129,9 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// The default value is &#39;DELETE_PROTECTION_STATE_UNSPECIFIED&#39;, which is currently equivalent to &#39;DELETE_PROTECTION_DISABLED&#39;.
     /// **Note:** Additionally, to delete this database using &#39;terraform destroy&#39;, &#39;deletion_policy&#39; must be set to &#39;DELETE&#39;. Possible values: [&amp;quot;DELETE_PROTECTION_STATE_UNSPECIFIED&amp;quot;, &amp;quot;DELETE_PROTECTION_ENABLED&amp;quot;, &amp;quot;DELETE_PROTECTION_DISABLED&amp;quot;]
     /// </summary>
-    public TerraformValue<string> DeleteProtectionState
+    public TerraformValue<string>? DeleteProtectionState
     {
-        get => new TerraformReference<string>(this, "delete_protection_state");
+        get => GetArgument<TerraformValue<string>>("delete_protection_state");
         set => SetArgument("delete_protection_state", value);
     }
 
@@ -146,16 +144,16 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? DeletionPolicy
     {
-        get => new TerraformReference<string>(this, "deletion_policy");
+        get => GetArgument<TerraformValue<string>>("deletion_policy");
         set => SetArgument("deletion_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -166,7 +164,7 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationId is required")]
     public required TerraformValue<string> LocationId
     {
-        get => new TerraformReference<string>(this, "location_id");
+        get => GetArgument<TerraformValue<string>>("location_id");
         set => SetArgument("location_id", value);
     }
 
@@ -181,7 +179,7 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -194,16 +192,16 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? PointInTimeRecoveryEnablement
     {
-        get => new TerraformReference<string>(this, "point_in_time_recovery_enablement");
+        get => GetArgument<TerraformValue<string>>("point_in_time_recovery_enablement");
         set => SetArgument("point_in_time_recovery_enablement", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -217,7 +215,7 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -229,7 +227,7 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -237,9 +235,7 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// Output only. The timestamp at which this database was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Output only. The earliest timestamp at which older versions of the data can be read from the database. See versionRetentionPeriod above; this field is populated with now - versionRetentionPeriod.
@@ -247,9 +243,7 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> EarliestVersionTime
-    {
-        get => new TerraformReference<string>(this, "earliest_version_time");
-    }
+        => AsReference("earliest_version_time");
 
     /// <summary>
     /// Output only. This checksum is computed by the server based on the value of other fields,
@@ -257,9 +251,7 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// up-to-date value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Output only. The keyPrefix for this database.
@@ -268,25 +260,19 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// This value may be empty in which case the appid to use for URL-encoded keys is the project_id (eg: foo instead of v~foo).
     /// </summary>
     public TerraformValue<string> KeyPrefix
-    {
-        get => new TerraformReference<string>(this, "key_prefix");
-    }
+        => AsReference("key_prefix");
 
     /// <summary>
     /// Output only. The system-generated UUID4 for this Database.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Output only. The timestamp at which this database was most recently updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Output only. The period during which past versions of data are retained in the database.
@@ -295,9 +281,7 @@ public partial class GoogleFirestoreDatabase(string name) : TerraformResource("g
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
     public TerraformValue<string> VersionRetentionPeriod
-    {
-        get => new TerraformReference<string>(this, "version_retention_period");
-    }
+        => AsReference("version_retention_period");
 
     /// <summary>
     /// CmekConfig block (nesting mode: list).

@@ -18,7 +18,7 @@ public class GoogleAccessContextManagerIngressPolicyTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleAccessContextManagerIngressPolicyTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -43,9 +43,9 @@ public partial class GoogleAccessContextManagerIngressPolicy(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleAccessContextManagerIngressPolicy(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngressPolicyName is required")]
     public required TerraformValue<string> IngressPolicyName
     {
-        get => new TerraformReference<string>(this, "ingress_policy_name");
+        get => GetArgument<TerraformValue<string>>("ingress_policy_name");
         set => SetArgument("ingress_policy_name", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleAccessContextManagerIngressPolicy(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformValue<string> Resource
     {
-        get => new TerraformReference<string>(this, "resource");
+        get => GetArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -73,9 +73,7 @@ public partial class GoogleAccessContextManagerIngressPolicy(string name) : Terr
     /// The name of the Access Policy this resource belongs to.
     /// </summary>
     public TerraformValue<string> AccessPolicyId
-    {
-        get => new TerraformReference<string>(this, "access_policy_id");
-    }
+        => AsReference("access_policy_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

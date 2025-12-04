@@ -18,7 +18,7 @@ public class AzureadDomainsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -36,16 +36,16 @@ public partial class AzureadDomainsDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<bool>? AdminManaged
     {
-        get => new TerraformReference<bool>(this, "admin_managed");
+        get => GetArgument<TerraformValue<bool>>("admin_managed");
         set => SetArgument("admin_managed", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AzureadDomainsDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<bool>? IncludeUnverified
     {
-        get => new TerraformReference<bool>(this, "include_unverified");
+        get => GetArgument<TerraformValue<bool>>("include_unverified");
         set => SetArgument("include_unverified", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzureadDomainsDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<bool>? OnlyDefault
     {
-        get => new TerraformReference<bool>(this, "only_default");
+        get => GetArgument<TerraformValue<bool>>("only_default");
         set => SetArgument("only_default", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzureadDomainsDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<bool>? OnlyInitial
     {
-        get => new TerraformReference<bool>(this, "only_initial");
+        get => GetArgument<TerraformValue<bool>>("only_initial");
         set => SetArgument("only_initial", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzureadDomainsDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<bool>? OnlyRoot
     {
-        get => new TerraformReference<bool>(this, "only_root");
+        get => GetArgument<TerraformValue<bool>>("only_root");
         set => SetArgument("only_root", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AzureadDomainsDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformList<string>? SupportsServices
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supports_services").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("supports_services");
         set => SetArgument("supports_services", value);
     }
 
@@ -98,9 +98,7 @@ public partial class AzureadDomainsDataSource(string name) : TerraformDataSource
     /// A list of tenant domains
     /// </summary>
     public TerraformList<TerraformMap<object>> Domains
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "domains").ResolveNodes(ctx));
-    }
+        => AsReference("domains");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

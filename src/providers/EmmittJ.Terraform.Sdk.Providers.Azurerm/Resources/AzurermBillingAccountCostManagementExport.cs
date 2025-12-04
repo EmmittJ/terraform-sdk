@@ -19,7 +19,7 @@ public class AzurermBillingAccountCostManagementExportExportDataOptionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeFrame is required")]
     public required TerraformValue<string> TimeFrame
     {
-        get => new TerraformReference<string>(this, "time_frame");
+        get => GetArgument<TerraformValue<string>>("time_frame");
         set => SetArgument("time_frame", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermBillingAccountCostManagementExportExportDataOptionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermBillingAccountCostManagementExportExportDataStorageLocationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerId is required")]
     public required TerraformValue<string> ContainerId
     {
-        get => new TerraformReference<string>(this, "container_id");
+        get => GetArgument<TerraformValue<string>>("container_id");
         set => SetArgument("container_id", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermBillingAccountCostManagementExportExportDataStorageLocationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFolderPath is required")]
     public required TerraformValue<string> RootFolderPath
     {
-        get => new TerraformReference<string>(this, "root_folder_path");
+        get => GetArgument<TerraformValue<string>>("root_folder_path");
         set => SetArgument("root_folder_path", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermBillingAccountCostManagementExportTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermBillingAccountCostManagementExportTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermBillingAccountCostManagementExportTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermBillingAccountCostManagementExportTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermBillingAccountCostManagementExport(string name) : Te
     /// </summary>
     public TerraformValue<bool>? Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AzurermBillingAccountCostManagementExport(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccountId is required")]
     public required TerraformValue<string> BillingAccountId
     {
-        get => new TerraformReference<string>(this, "billing_account_id");
+        get => GetArgument<TerraformValue<string>>("billing_account_id");
         set => SetArgument("billing_account_id", value);
     }
 
@@ -150,16 +150,16 @@ public partial class AzurermBillingAccountCostManagementExport(string name) : Te
     /// </summary>
     public TerraformValue<string>? FileFormat
     {
-        get => new TerraformReference<string>(this, "file_format");
+        get => GetArgument<TerraformValue<string>>("file_format");
         set => SetArgument("file_format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -169,7 +169,7 @@ public partial class AzurermBillingAccountCostManagementExport(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -179,7 +179,7 @@ public partial class AzurermBillingAccountCostManagementExport(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrencePeriodEndDate is required")]
     public required TerraformValue<string> RecurrencePeriodEndDate
     {
-        get => new TerraformReference<string>(this, "recurrence_period_end_date");
+        get => GetArgument<TerraformValue<string>>("recurrence_period_end_date");
         set => SetArgument("recurrence_period_end_date", value);
     }
 
@@ -189,7 +189,7 @@ public partial class AzurermBillingAccountCostManagementExport(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrencePeriodStartDate is required")]
     public required TerraformValue<string> RecurrencePeriodStartDate
     {
-        get => new TerraformReference<string>(this, "recurrence_period_start_date");
+        get => GetArgument<TerraformValue<string>>("recurrence_period_start_date");
         set => SetArgument("recurrence_period_start_date", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AzurermBillingAccountCostManagementExport(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrenceType is required")]
     public required TerraformValue<string> RecurrenceType
     {
-        get => new TerraformReference<string>(this, "recurrence_type");
+        get => GetArgument<TerraformValue<string>>("recurrence_type");
         set => SetArgument("recurrence_type", value);
     }
 

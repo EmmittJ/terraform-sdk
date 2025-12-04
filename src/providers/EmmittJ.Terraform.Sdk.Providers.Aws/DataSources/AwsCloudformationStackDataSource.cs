@@ -11,9 +11,9 @@ public partial class AwsCloudformationStackDataSource(string name) : TerraformDa
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,25 +23,25 @@ public partial class AwsCloudformationStackDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,72 +49,54 @@ public partial class AwsCloudformationStackDataSource(string name) : TerraformDa
     /// The capabilities attribute.
     /// </summary>
     public TerraformSet<string> Capabilities
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "capabilities").ResolveNodes(ctx));
-    }
+        => AsReference("capabilities");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The disable_rollback attribute.
     /// </summary>
     public TerraformValue<bool> DisableRollback
-    {
-        get => new TerraformReference<bool>(this, "disable_rollback");
-    }
+        => AsReference("disable_rollback");
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
     public TerraformValue<string> IamRoleArn
-    {
-        get => new TerraformReference<string>(this, "iam_role_arn");
-    }
+        => AsReference("iam_role_arn");
 
     /// <summary>
     /// The notification_arns attribute.
     /// </summary>
     public TerraformSet<string> NotificationArns
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "notification_arns").ResolveNodes(ctx));
-    }
+        => AsReference("notification_arns");
 
     /// <summary>
     /// The outputs attribute.
     /// </summary>
     public TerraformMap<string> Outputs
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "outputs").ResolveNodes(ctx));
-    }
+        => AsReference("outputs");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     public TerraformMap<string> Parameters
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
-    }
+        => AsReference("parameters");
 
     /// <summary>
     /// The template_body attribute.
     /// </summary>
     public TerraformValue<string> TemplateBody
-    {
-        get => new TerraformReference<string>(this, "template_body");
-    }
+        => AsReference("template_body");
 
     /// <summary>
     /// The timeout_in_minutes attribute.
     /// </summary>
     public TerraformValue<double> TimeoutInMinutes
-    {
-        get => new TerraformReference<double>(this, "timeout_in_minutes");
-    }
+        => AsReference("timeout_in_minutes");
 
 }

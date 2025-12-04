@@ -11,18 +11,18 @@ public partial class AwsLightsailLbCertificate(string name) : TerraformResource(
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformValue<string> DomainName
+    public TerraformValue<string>? DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsLightsailLbCertificate(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbName is required")]
     public required TerraformValue<string> LbName
     {
-        get => new TerraformReference<string>(this, "lb_name");
+        get => GetArgument<TerraformValue<string>>("lb_name");
         set => SetArgument("lb_name", value);
     }
 
@@ -42,25 +42,25 @@ public partial class AwsLightsailLbCertificate(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The subject_alternative_names attribute.
     /// </summary>
-    public TerraformSet<string> SubjectAlternativeNames
+    public TerraformSet<string>? SubjectAlternativeNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subject_alternative_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subject_alternative_names");
         set => SetArgument("subject_alternative_names", value);
     }
 
@@ -68,32 +68,24 @@ public partial class AwsLightsailLbCertificate(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The domain_validation_records attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> DomainValidationRecords
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "domain_validation_records").ResolveNodes(ctx));
-    }
+        => AsReference("domain_validation_records");
 
     /// <summary>
     /// The support_code attribute.
     /// </summary>
     public TerraformValue<string> SupportCode
-    {
-        get => new TerraformReference<string>(this, "support_code");
-    }
+        => AsReference("support_code");
 
 }

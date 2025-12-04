@@ -19,7 +19,7 @@ public class GoogleBigtableSchemaBundleProtoSchemaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtoDescriptors is required")]
     public required TerraformValue<string> ProtoDescriptors
     {
-        get => new TerraformReference<string>(this, "proto_descriptors");
+        get => GetArgument<TerraformValue<string>>("proto_descriptors");
         set => SetArgument("proto_descriptors", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleBigtableSchemaBundleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleBigtableSchemaBundleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleBigtableSchemaBundleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -76,9 +76,9 @@ public partial class GoogleBigtableSchemaBundle(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -87,7 +87,7 @@ public partial class GoogleBigtableSchemaBundle(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? IgnoreWarnings
     {
-        get => new TerraformReference<bool>(this, "ignore_warnings");
+        get => GetArgument<TerraformValue<bool>>("ignore_warnings");
         set => SetArgument("ignore_warnings", value);
     }
 
@@ -96,16 +96,16 @@ public partial class GoogleBigtableSchemaBundle(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -115,7 +115,7 @@ public partial class GoogleBigtableSchemaBundle(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaBundleId is required")]
     public required TerraformValue<string> SchemaBundleId
     {
-        get => new TerraformReference<string>(this, "schema_bundle_id");
+        get => GetArgument<TerraformValue<string>>("schema_bundle_id");
         set => SetArgument("schema_bundle_id", value);
     }
 
@@ -124,7 +124,7 @@ public partial class GoogleBigtableSchemaBundle(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -132,9 +132,7 @@ public partial class GoogleBigtableSchemaBundle(string name) : TerraformResource
     /// The unique name of the requested schema bundle. Values are of the form &#39;projects/&amp;lt;project&amp;gt;/instances/&amp;lt;instance&amp;gt;/tables/&amp;lt;table&amp;gt;/schemaBundles/&amp;lt;schemaBundleId&amp;gt;&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// ProtoSchema block (nesting mode: list).

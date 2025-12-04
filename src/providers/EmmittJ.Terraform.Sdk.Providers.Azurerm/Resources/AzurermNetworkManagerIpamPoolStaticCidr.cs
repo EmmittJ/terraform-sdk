@@ -18,7 +18,7 @@ public class AzurermNetworkManagerIpamPoolStaticCidrTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermNetworkManagerIpamPoolStaticCidrTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermNetworkManagerIpamPoolStaticCidrTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermNetworkManagerIpamPoolStaticCidrTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AzurermNetworkManagerIpamPoolStaticCidr(string name) : Terr
     /// </summary>
     public TerraformList<string>? AddressPrefixes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "address_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("address_prefixes");
         set => SetArgument("address_prefixes", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermNetworkManagerIpamPoolStaticCidr(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamPoolId is required")]
     public required TerraformValue<string> IpamPoolId
     {
-        get => new TerraformReference<string>(this, "ipam_pool_id");
+        get => GetArgument<TerraformValue<string>>("ipam_pool_id");
         set => SetArgument("ipam_pool_id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermNetworkManagerIpamPoolStaticCidr(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermNetworkManagerIpamPoolStaticCidr(string name) : Terr
     /// </summary>
     public TerraformValue<string>? NumberOfIpAddressesToAllocate
     {
-        get => new TerraformReference<string>(this, "number_of_ip_addresses_to_allocate");
+        get => GetArgument<TerraformValue<string>>("number_of_ip_addresses_to_allocate");
         set => SetArgument("number_of_ip_addresses_to_allocate", value);
     }
 

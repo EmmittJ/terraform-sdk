@@ -18,7 +18,7 @@ public class AzurermAppConfigurationKeysDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermAppConfigurationKeysDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
     public required TerraformValue<string> ConfigurationStoreId
     {
-        get => new TerraformReference<string>(this, "configuration_store_id");
+        get => GetArgument<TerraformValue<string>>("configuration_store_id");
         set => SetArgument("configuration_store_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermAppConfigurationKeysDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermAppConfigurationKeysDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Label
     {
-        get => new TerraformReference<string>(this, "label");
+        get => GetArgument<TerraformValue<string>>("label");
         set => SetArgument("label", value);
     }
 
@@ -72,9 +72,7 @@ public partial class AzurermAppConfigurationKeysDataSource(string name) : Terraf
     /// The items attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Items
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "items").ResolveNodes(ctx));
-    }
+        => AsReference("items");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

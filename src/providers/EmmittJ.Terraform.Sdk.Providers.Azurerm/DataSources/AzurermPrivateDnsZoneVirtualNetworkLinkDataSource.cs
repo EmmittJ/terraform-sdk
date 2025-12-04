@@ -18,7 +18,7 @@ public class AzurermPrivateDnsZoneVirtualNetworkLinkDataSourceTimeoutsBlock : Te
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermPrivateDnsZoneVirtualNetworkLinkDataSource(string na
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermPrivateDnsZoneVirtualNetworkLinkDataSource(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermPrivateDnsZoneVirtualNetworkLinkDataSource(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateDnsZoneName is required")]
     public required TerraformValue<string> PrivateDnsZoneName
     {
-        get => new TerraformReference<string>(this, "private_dns_zone_name");
+        get => GetArgument<TerraformValue<string>>("private_dns_zone_name");
         set => SetArgument("private_dns_zone_name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermPrivateDnsZoneVirtualNetworkLinkDataSource(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -74,33 +74,25 @@ public partial class AzurermPrivateDnsZoneVirtualNetworkLinkDataSource(string na
     /// The registration_enabled attribute.
     /// </summary>
     public TerraformValue<bool> RegistrationEnabled
-    {
-        get => new TerraformReference<bool>(this, "registration_enabled");
-    }
+        => AsReference("registration_enabled");
 
     /// <summary>
     /// The resolution_policy attribute.
     /// </summary>
     public TerraformValue<string> ResolutionPolicy
-    {
-        get => new TerraformReference<string>(this, "resolution_policy");
-    }
+        => AsReference("resolution_policy");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
     public TerraformValue<string> VirtualNetworkId
-    {
-        get => new TerraformReference<string>(this, "virtual_network_id");
-    }
+        => AsReference("virtual_network_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class AwsGlueClassifierCsvClassifierBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowSingleColumn
     {
-        get => new TerraformReference<bool>(this, "allow_single_column");
+        get => GetArgument<TerraformValue<bool>>("allow_single_column");
         set => SetArgument("allow_single_column", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsGlueClassifierCsvClassifierBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ContainsHeader
     {
-        get => new TerraformReference<string>(this, "contains_header");
+        get => GetArgument<TerraformValue<string>>("contains_header");
         set => SetArgument("contains_header", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsGlueClassifierCsvClassifierBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? CustomDatatypeConfigured
     {
-        get => new TerraformReference<bool>(this, "custom_datatype_configured");
+        get => GetArgument<TerraformValue<bool>>("custom_datatype_configured");
         set => SetArgument("custom_datatype_configured", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsGlueClassifierCsvClassifierBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? CustomDatatypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "custom_datatypes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("custom_datatypes");
         set => SetArgument("custom_datatypes", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsGlueClassifierCsvClassifierBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delimiter
     {
-        get => new TerraformReference<string>(this, "delimiter");
+        get => GetArgument<TerraformValue<string>>("delimiter");
         set => SetArgument("delimiter", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsGlueClassifierCsvClassifierBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DisableValueTrimming
     {
-        get => new TerraformReference<bool>(this, "disable_value_trimming");
+        get => GetArgument<TerraformValue<bool>>("disable_value_trimming");
         set => SetArgument("disable_value_trimming", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsGlueClassifierCsvClassifierBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Header
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "header").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("header");
         set => SetArgument("header", value);
     }
 
@@ -81,16 +81,16 @@ public class AwsGlueClassifierCsvClassifierBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? QuoteSymbol
     {
-        get => new TerraformReference<string>(this, "quote_symbol");
+        get => GetArgument<TerraformValue<string>>("quote_symbol");
         set => SetArgument("quote_symbol", value);
     }
 
     /// <summary>
     /// The serde attribute.
     /// </summary>
-    public TerraformValue<string> Serde
+    public TerraformValue<string>? Serde
     {
-        get => new TerraformReference<string>(this, "serde");
+        get => GetArgument<TerraformValue<string>>("serde");
         set => SetArgument("serde", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsGlueClassifierGrokClassifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Classification is required")]
     public required TerraformValue<string> Classification
     {
-        get => new TerraformReference<string>(this, "classification");
+        get => GetArgument<TerraformValue<string>>("classification");
         set => SetArgument("classification", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsGlueClassifierGrokClassifierBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CustomPatterns
     {
-        get => new TerraformReference<string>(this, "custom_patterns");
+        get => GetArgument<TerraformValue<string>>("custom_patterns");
         set => SetArgument("custom_patterns", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsGlueClassifierGrokClassifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrokPattern is required")]
     public required TerraformValue<string> GrokPattern
     {
-        get => new TerraformReference<string>(this, "grok_pattern");
+        get => GetArgument<TerraformValue<string>>("grok_pattern");
         set => SetArgument("grok_pattern", value);
     }
 
@@ -157,7 +157,7 @@ public class AwsGlueClassifierJsonClassifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JsonPath is required")]
     public required TerraformValue<string> JsonPath
     {
-        get => new TerraformReference<string>(this, "json_path");
+        get => GetArgument<TerraformValue<string>>("json_path");
         set => SetArgument("json_path", value);
     }
 
@@ -181,7 +181,7 @@ public class AwsGlueClassifierXmlClassifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Classification is required")]
     public required TerraformValue<string> Classification
     {
-        get => new TerraformReference<string>(this, "classification");
+        get => GetArgument<TerraformValue<string>>("classification");
         set => SetArgument("classification", value);
     }
 
@@ -191,7 +191,7 @@ public class AwsGlueClassifierXmlClassifierBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RowTag is required")]
     public required TerraformValue<string> RowTag
     {
-        get => new TerraformReference<string>(this, "row_tag");
+        get => GetArgument<TerraformValue<string>>("row_tag");
         set => SetArgument("row_tag", value);
     }
 
@@ -207,9 +207,9 @@ public partial class AwsGlueClassifier(string name) : TerraformResource("aws_glu
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -219,16 +219,16 @@ public partial class AwsGlueClassifier(string name) : TerraformResource("aws_glu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

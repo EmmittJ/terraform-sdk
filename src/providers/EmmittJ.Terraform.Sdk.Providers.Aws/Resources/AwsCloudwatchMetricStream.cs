@@ -18,7 +18,7 @@ public class AwsCloudwatchMetricStreamExcludeFilterBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? MetricNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "metric_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("metric_names");
         set => SetArgument("metric_names", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsCloudwatchMetricStreamExcludeFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceAttribute is required")]
     public required TerraformValue<string> NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsCloudwatchMetricStreamIncludeFilterBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? MetricNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "metric_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("metric_names");
         set => SetArgument("metric_names", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsCloudwatchMetricStreamIncludeFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceAttribute is required")]
     public required TerraformValue<string> NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsCloudwatchMetricStreamStatisticsConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdditionalStatistics is required")]
     public required TerraformSet<string> AdditionalStatistics
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "additional_statistics").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("additional_statistics");
         set => SetArgument("additional_statistics", value);
     }
 
@@ -120,7 +120,7 @@ public class AwsCloudwatchMetricStreamStatisticsConfigurationBlockIncludeMetricB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformValue<string> MetricName
     {
-        get => new TerraformReference<string>(this, "metric_name");
+        get => GetArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsCloudwatchMetricStreamStatisticsConfigurationBlockIncludeMetricB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceAttribute is required")]
     public required TerraformValue<string> NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -153,7 +153,7 @@ public class AwsCloudwatchMetricStreamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -162,7 +162,7 @@ public class AwsCloudwatchMetricStreamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -171,7 +171,7 @@ public class AwsCloudwatchMetricStreamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -190,16 +190,16 @@ public partial class AwsCloudwatchMetricStream(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirehoseArn is required")]
     public required TerraformValue<string> FirehoseArn
     {
-        get => new TerraformReference<string>(this, "firehose_arn");
+        get => GetArgument<TerraformValue<string>>("firehose_arn");
         set => SetArgument("firehose_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -208,25 +208,25 @@ public partial class AwsCloudwatchMetricStream(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? IncludeLinkedAccountsMetrics
     {
-        get => new TerraformReference<bool>(this, "include_linked_accounts_metrics");
+        get => GetArgument<TerraformValue<bool>>("include_linked_accounts_metrics");
         set => SetArgument("include_linked_accounts_metrics", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -236,16 +236,16 @@ public partial class AwsCloudwatchMetricStream(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutputFormat is required")]
     public required TerraformValue<string> OutputFormat
     {
-        get => new TerraformReference<string>(this, "output_format");
+        get => GetArgument<TerraformValue<string>>("output_format");
         set => SetArgument("output_format", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -255,7 +255,7 @@ public partial class AwsCloudwatchMetricStream(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -264,16 +264,16 @@ public partial class AwsCloudwatchMetricStream(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -281,33 +281,25 @@ public partial class AwsCloudwatchMetricStream(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
     public TerraformValue<string> CreationDate
-    {
-        get => new TerraformReference<string>(this, "creation_date");
-    }
+        => AsReference("creation_date");
 
     /// <summary>
     /// The last_update_date attribute.
     /// </summary>
     public TerraformValue<string> LastUpdateDate
-    {
-        get => new TerraformReference<string>(this, "last_update_date");
-    }
+        => AsReference("last_update_date");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// ExcludeFilter block (nesting mode: set).

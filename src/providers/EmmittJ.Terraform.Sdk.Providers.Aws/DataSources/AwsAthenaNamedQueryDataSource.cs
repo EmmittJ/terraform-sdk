@@ -11,9 +11,9 @@ public partial class AwsAthenaNamedQueryDataSource(string name) : TerraformDataS
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsAthenaNamedQueryDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsAthenaNamedQueryDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? Workgroup
     {
-        get => new TerraformReference<string>(this, "workgroup");
+        get => GetArgument<TerraformValue<string>>("workgroup");
         set => SetArgument("workgroup", value);
     }
 
@@ -49,24 +49,18 @@ public partial class AwsAthenaNamedQueryDataSource(string name) : TerraformDataS
     /// The database attribute.
     /// </summary>
     public TerraformValue<string> Database
-    {
-        get => new TerraformReference<string>(this, "database");
-    }
+        => AsReference("database");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The querystring attribute.
     /// </summary>
     public TerraformValue<string> Querystring
-    {
-        get => new TerraformReference<string>(this, "querystring");
-    }
+        => AsReference("querystring");
 
 }

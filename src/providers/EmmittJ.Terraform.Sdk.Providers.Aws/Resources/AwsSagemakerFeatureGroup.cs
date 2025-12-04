@@ -18,7 +18,7 @@ public class AwsSagemakerFeatureGroupFeatureDefinitionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CollectionType
     {
-        get => new TerraformReference<string>(this, "collection_type");
+        get => GetArgument<TerraformValue<string>>("collection_type");
         set => SetArgument("collection_type", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsSagemakerFeatureGroupFeatureDefinitionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FeatureName
     {
-        get => new TerraformReference<string>(this, "feature_name");
+        get => GetArgument<TerraformValue<string>>("feature_name");
         set => SetArgument("feature_name", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsSagemakerFeatureGroupFeatureDefinitionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FeatureType
     {
-        get => new TerraformReference<string>(this, "feature_type");
+        get => GetArgument<TerraformValue<string>>("feature_type");
         set => SetArgument("feature_type", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsSagemakerFeatureGroupFeatureDefinitionBlockCollectionConfigBlock
     /// </summary>
     public TerraformValue<double>? Dimension
     {
-        get => new TerraformReference<double>(this, "dimension");
+        get => GetArgument<TerraformValue<double>>("dimension");
         set => SetArgument("dimension", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsSagemakerFeatureGroupOfflineStoreConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DisableGlueTableCreation
     {
-        get => new TerraformReference<bool>(this, "disable_glue_table_creation");
+        get => GetArgument<TerraformValue<bool>>("disable_glue_table_creation");
         set => SetArgument("disable_glue_table_creation", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsSagemakerFeatureGroupOfflineStoreConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TableFormat
     {
-        get => new TerraformReference<string>(this, "table_format");
+        get => GetArgument<TerraformValue<string>>("table_format");
         set => SetArgument("table_format", value);
     }
 
@@ -166,27 +166,27 @@ public class AwsSagemakerFeatureGroupOfflineStoreConfigBlockDataCatalogConfigBlo
     /// <summary>
     /// The catalog attribute.
     /// </summary>
-    public TerraformValue<string> Catalog
+    public TerraformValue<string>? Catalog
     {
-        get => new TerraformReference<string>(this, "catalog");
+        get => GetArgument<TerraformValue<string>>("catalog");
         set => SetArgument("catalog", value);
     }
 
     /// <summary>
     /// The database attribute.
     /// </summary>
-    public TerraformValue<string> Database
+    public TerraformValue<string>? Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    public TerraformValue<string> TableName
+    public TerraformValue<string>? TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -208,16 +208,16 @@ public class AwsSagemakerFeatureGroupOfflineStoreConfigBlockS3StorageConfigBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
     /// <summary>
     /// The resolved_output_s3_uri attribute.
     /// </summary>
-    public TerraformValue<string> ResolvedOutputS3Uri
+    public TerraformValue<string>? ResolvedOutputS3Uri
     {
-        get => new TerraformReference<string>(this, "resolved_output_s3_uri");
+        get => GetArgument<TerraformValue<string>>("resolved_output_s3_uri");
         set => SetArgument("resolved_output_s3_uri", value);
     }
 
@@ -227,7 +227,7 @@ public class AwsSagemakerFeatureGroupOfflineStoreConfigBlockS3StorageConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformValue<string> S3Uri
     {
-        get => new TerraformReference<string>(this, "s3_uri");
+        get => GetArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -250,7 +250,7 @@ public class AwsSagemakerFeatureGroupOnlineStoreConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableOnlineStore
     {
-        get => new TerraformReference<bool>(this, "enable_online_store");
+        get => GetArgument<TerraformValue<bool>>("enable_online_store");
         set => SetArgument("enable_online_store", value);
     }
 
@@ -259,7 +259,7 @@ public class AwsSagemakerFeatureGroupOnlineStoreConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StorageType
     {
-        get => new TerraformReference<string>(this, "storage_type");
+        get => GetArgument<TerraformValue<string>>("storage_type");
         set => SetArgument("storage_type", value);
     }
 
@@ -301,7 +301,7 @@ public class AwsSagemakerFeatureGroupOnlineStoreConfigBlockSecurityConfigBlock :
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -323,7 +323,7 @@ public class AwsSagemakerFeatureGroupOnlineStoreConfigBlockTtlDurationBlock : Te
     /// </summary>
     public TerraformValue<string>? Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -332,7 +332,7 @@ public class AwsSagemakerFeatureGroupOnlineStoreConfigBlockTtlDurationBlock : Te
     /// </summary>
     public TerraformValue<double>? Value
     {
-        get => new TerraformReference<double>(this, "value");
+        get => GetArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -355,7 +355,7 @@ public class AwsSagemakerFeatureGroupThroughputConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ProvisionedReadCapacityUnits
     {
-        get => new TerraformReference<double>(this, "provisioned_read_capacity_units");
+        get => GetArgument<TerraformValue<double>>("provisioned_read_capacity_units");
         set => SetArgument("provisioned_read_capacity_units", value);
     }
 
@@ -364,16 +364,16 @@ public class AwsSagemakerFeatureGroupThroughputConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ProvisionedWriteCapacityUnits
     {
-        get => new TerraformReference<double>(this, "provisioned_write_capacity_units");
+        get => GetArgument<TerraformValue<double>>("provisioned_write_capacity_units");
         set => SetArgument("provisioned_write_capacity_units", value);
     }
 
     /// <summary>
     /// The throughput_mode attribute.
     /// </summary>
-    public TerraformValue<string> ThroughputMode
+    public TerraformValue<string>? ThroughputMode
     {
-        get => new TerraformReference<string>(this, "throughput_mode");
+        get => GetArgument<TerraformValue<string>>("throughput_mode");
         set => SetArgument("throughput_mode", value);
     }
 
@@ -391,7 +391,7 @@ public partial class AwsSagemakerFeatureGroup(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -401,7 +401,7 @@ public partial class AwsSagemakerFeatureGroup(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventTimeFeatureName is required")]
     public required TerraformValue<string> EventTimeFeatureName
     {
-        get => new TerraformReference<string>(this, "event_time_feature_name");
+        get => GetArgument<TerraformValue<string>>("event_time_feature_name");
         set => SetArgument("event_time_feature_name", value);
     }
 
@@ -411,16 +411,16 @@ public partial class AwsSagemakerFeatureGroup(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureGroupName is required")]
     public required TerraformValue<string> FeatureGroupName
     {
-        get => new TerraformReference<string>(this, "feature_group_name");
+        get => GetArgument<TerraformValue<string>>("feature_group_name");
         set => SetArgument("feature_group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -430,16 +430,16 @@ public partial class AwsSagemakerFeatureGroup(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecordIdentifierFeatureName is required")]
     public required TerraformValue<string> RecordIdentifierFeatureName
     {
-        get => new TerraformReference<string>(this, "record_identifier_feature_name");
+        get => GetArgument<TerraformValue<string>>("record_identifier_feature_name");
         set => SetArgument("record_identifier_feature_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -449,7 +449,7 @@ public partial class AwsSagemakerFeatureGroup(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -458,16 +458,16 @@ public partial class AwsSagemakerFeatureGroup(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -475,9 +475,7 @@ public partial class AwsSagemakerFeatureGroup(string name) : TerraformResource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// FeatureDefinition block (nesting mode: list).

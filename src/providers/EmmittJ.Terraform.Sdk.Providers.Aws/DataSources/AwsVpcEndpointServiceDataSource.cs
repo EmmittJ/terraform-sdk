@@ -19,7 +19,7 @@ public class AwsVpcEndpointServiceDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsVpcEndpointServiceDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsVpcEndpointServiceDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -68,9 +68,9 @@ public partial class AwsVpcEndpointServiceDataSource(string name) : TerraformDat
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -79,16 +79,16 @@ public partial class AwsVpcEndpointServiceDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformValue<string>? Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
-    public TerraformValue<string> ServiceName
+    public TerraformValue<string>? ServiceName
     {
-        get => new TerraformReference<string>(this, "service_name");
+        get => GetArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -97,25 +97,25 @@ public partial class AwsVpcEndpointServiceDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformSet<string>? ServiceRegions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "service_regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("service_regions");
         set => SetArgument("service_regions", value);
     }
 
     /// <summary>
     /// The service_type attribute.
     /// </summary>
-    public TerraformValue<string> ServiceType
+    public TerraformValue<string>? ServiceType
     {
-        get => new TerraformReference<string>(this, "service_type");
+        get => GetArgument<TerraformValue<string>>("service_type");
         set => SetArgument("service_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -123,106 +123,80 @@ public partial class AwsVpcEndpointServiceDataSource(string name) : TerraformDat
     /// The acceptance_required attribute.
     /// </summary>
     public TerraformValue<bool> AcceptanceRequired
-    {
-        get => new TerraformReference<bool>(this, "acceptance_required");
-    }
+        => AsReference("acceptance_required");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
     public TerraformSet<string> AvailabilityZones
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "availability_zones").ResolveNodes(ctx));
-    }
+        => AsReference("availability_zones");
 
     /// <summary>
     /// The base_endpoint_dns_names attribute.
     /// </summary>
     public TerraformSet<string> BaseEndpointDnsNames
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "base_endpoint_dns_names").ResolveNodes(ctx));
-    }
+        => AsReference("base_endpoint_dns_names");
 
     /// <summary>
     /// The manages_vpc_endpoints attribute.
     /// </summary>
     public TerraformValue<bool> ManagesVpcEndpoints
-    {
-        get => new TerraformReference<bool>(this, "manages_vpc_endpoints");
-    }
+        => AsReference("manages_vpc_endpoints");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     public TerraformValue<string> Owner
-    {
-        get => new TerraformReference<string>(this, "owner");
-    }
+        => AsReference("owner");
 
     /// <summary>
     /// The private_dns_name attribute.
     /// </summary>
     public TerraformValue<string> PrivateDnsName
-    {
-        get => new TerraformReference<string>(this, "private_dns_name");
-    }
+        => AsReference("private_dns_name");
 
     /// <summary>
     /// The private_dns_names attribute.
     /// </summary>
     public TerraformSet<string> PrivateDnsNames
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "private_dns_names").ResolveNodes(ctx));
-    }
+        => AsReference("private_dns_names");
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Region
-    {
-        get => new TerraformReference<string>(this, "region");
-    }
+        => AsReference("region");
 
     /// <summary>
     /// The service_id attribute.
     /// </summary>
     public TerraformValue<string> ServiceId
-    {
-        get => new TerraformReference<string>(this, "service_id");
-    }
+        => AsReference("service_id");
 
     /// <summary>
     /// The service_region attribute.
     /// </summary>
     public TerraformValue<string> ServiceRegion
-    {
-        get => new TerraformReference<string>(this, "service_region");
-    }
+        => AsReference("service_region");
 
     /// <summary>
     /// The supported_ip_address_types attribute.
     /// </summary>
     public TerraformSet<string> SupportedIpAddressTypes
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "supported_ip_address_types").ResolveNodes(ctx));
-    }
+        => AsReference("supported_ip_address_types");
 
     /// <summary>
     /// The vpc_endpoint_policy_supported attribute.
     /// </summary>
     public TerraformValue<bool> VpcEndpointPolicySupported
-    {
-        get => new TerraformReference<bool>(this, "vpc_endpoint_policy_supported");
-    }
+        => AsReference("vpc_endpoint_policy_supported");
 
     /// <summary>
     /// Filter block (nesting mode: set).

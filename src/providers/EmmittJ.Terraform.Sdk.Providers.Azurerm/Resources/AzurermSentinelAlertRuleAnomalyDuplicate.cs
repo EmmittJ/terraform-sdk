@@ -17,9 +17,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The name attribute.
@@ -27,7 +25,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -35,9 +33,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock
     /// The supported_values attribute.
     /// </summary>
     public TerraformList<string> SupportedValues
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supported_values").ResolveNodes(ctx));
-    }
+        => AsReference("supported_values");
 
     /// <summary>
     /// The values attribute.
@@ -45,7 +41,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -67,16 +63,14 @@ public class AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservati
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The exclude attribute.
     /// </summary>
     public TerraformValue<string>? Exclude
     {
-        get => new TerraformReference<string>(this, "exclude");
+        get => GetArgument<TerraformValue<string>>("exclude");
         set => SetArgument("exclude", value);
     }
 
@@ -86,7 +80,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -95,7 +89,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservati
     /// </summary>
     public TerraformValue<string>? Prioritize
     {
-        get => new TerraformReference<string>(this, "prioritize");
+        get => GetArgument<TerraformValue<string>>("prioritize");
         set => SetArgument("prioritize", value);
     }
 
@@ -117,9 +111,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBloc
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The name attribute.
@@ -127,7 +119,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -135,9 +127,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBloc
     /// The supported_values attribute.
     /// </summary>
     public TerraformList<string> SupportedValues
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supported_values").ResolveNodes(ctx));
-    }
+        => AsReference("supported_values");
 
     /// <summary>
     /// The value attribute.
@@ -145,7 +135,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -167,25 +157,19 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock :
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The max attribute.
     /// </summary>
     public TerraformValue<string> Max
-    {
-        get => new TerraformReference<string>(this, "max");
-    }
+        => AsReference("max");
 
     /// <summary>
     /// The min attribute.
     /// </summary>
     public TerraformValue<string> Min
-    {
-        get => new TerraformReference<string>(this, "min");
-    }
+        => AsReference("min");
 
     /// <summary>
     /// The name attribute.
@@ -193,7 +177,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -203,7 +187,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -226,7 +210,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -235,7 +219,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -244,7 +228,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -253,7 +237,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -272,7 +256,7 @@ public partial class AzurermSentinelAlertRuleAnomalyDuplicate(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BuiltInRuleId is required")]
     public required TerraformValue<string> BuiltInRuleId
     {
-        get => new TerraformReference<string>(this, "built_in_rule_id");
+        get => GetArgument<TerraformValue<string>>("built_in_rule_id");
         set => SetArgument("built_in_rule_id", value);
     }
 
@@ -282,7 +266,7 @@ public partial class AzurermSentinelAlertRuleAnomalyDuplicate(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -292,16 +276,16 @@ public partial class AzurermSentinelAlertRuleAnomalyDuplicate(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -311,7 +295,7 @@ public partial class AzurermSentinelAlertRuleAnomalyDuplicate(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
-        get => new TerraformReference<string>(this, "log_analytics_workspace_id");
+        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
@@ -321,7 +305,7 @@ public partial class AzurermSentinelAlertRuleAnomalyDuplicate(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -329,81 +313,61 @@ public partial class AzurermSentinelAlertRuleAnomalyDuplicate(string name) : Ter
     /// The anomaly_settings_version attribute.
     /// </summary>
     public TerraformValue<double> AnomalySettingsVersion
-    {
-        get => new TerraformReference<double>(this, "anomaly_settings_version");
-    }
+        => AsReference("anomaly_settings_version");
 
     /// <summary>
     /// The anomaly_version attribute.
     /// </summary>
     public TerraformValue<string> AnomalyVersion
-    {
-        get => new TerraformReference<string>(this, "anomaly_version");
-    }
+        => AsReference("anomaly_version");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
     public TerraformValue<string> Frequency
-    {
-        get => new TerraformReference<string>(this, "frequency");
-    }
+        => AsReference("frequency");
 
     /// <summary>
     /// The is_default_settings attribute.
     /// </summary>
     public TerraformValue<bool> IsDefaultSettings
-    {
-        get => new TerraformReference<bool>(this, "is_default_settings");
-    }
+        => AsReference("is_default_settings");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The required_data_connector attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RequiredDataConnector
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "required_data_connector").ResolveNodes(ctx));
-    }
+        => AsReference("required_data_connector");
 
     /// <summary>
     /// The settings_definition_id attribute.
     /// </summary>
     public TerraformValue<string> SettingsDefinitionId
-    {
-        get => new TerraformReference<string>(this, "settings_definition_id");
-    }
+        => AsReference("settings_definition_id");
 
     /// <summary>
     /// The tactics attribute.
     /// </summary>
     public TerraformList<string> Tactics
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tactics").ResolveNodes(ctx));
-    }
+        => AsReference("tactics");
 
     /// <summary>
     /// The techniques attribute.
     /// </summary>
     public TerraformList<string> Techniques
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "techniques").ResolveNodes(ctx));
-    }
+        => AsReference("techniques");
 
     /// <summary>
     /// MultiSelectObservation block (nesting mode: list).

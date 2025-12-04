@@ -11,9 +11,9 @@ public partial class AwsIotThingGroupMembership(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,16 +22,16 @@ public partial class AwsIotThingGroupMembership(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? OverrideDynamicGroup
     {
-        get => new TerraformReference<bool>(this, "override_dynamic_group");
+        get => GetArgument<TerraformValue<bool>>("override_dynamic_group");
         set => SetArgument("override_dynamic_group", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsIotThingGroupMembership(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingGroupName is required")]
     public required TerraformValue<string> ThingGroupName
     {
-        get => new TerraformReference<string>(this, "thing_group_name");
+        get => GetArgument<TerraformValue<string>>("thing_group_name");
         set => SetArgument("thing_group_name", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsIotThingGroupMembership(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingName is required")]
     public required TerraformValue<string> ThingName
     {
-        get => new TerraformReference<string>(this, "thing_name");
+        get => GetArgument<TerraformValue<string>>("thing_name");
         set => SetArgument("thing_name", value);
     }
 

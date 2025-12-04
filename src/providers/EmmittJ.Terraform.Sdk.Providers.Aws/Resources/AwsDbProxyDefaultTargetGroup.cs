@@ -18,7 +18,7 @@ public class AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock : TerraformBl
     /// </summary>
     public TerraformValue<double>? ConnectionBorrowTimeout
     {
-        get => new TerraformReference<double>(this, "connection_borrow_timeout");
+        get => GetArgument<TerraformValue<double>>("connection_borrow_timeout");
         set => SetArgument("connection_borrow_timeout", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? InitQuery
     {
-        get => new TerraformReference<string>(this, "init_query");
+        get => GetArgument<TerraformValue<string>>("init_query");
         set => SetArgument("init_query", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock : TerraformBl
     /// </summary>
     public TerraformValue<double>? MaxConnectionsPercent
     {
-        get => new TerraformReference<double>(this, "max_connections_percent");
+        get => GetArgument<TerraformValue<double>>("max_connections_percent");
         set => SetArgument("max_connections_percent", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock : TerraformBl
     /// </summary>
     public TerraformValue<double>? MaxIdleConnectionsPercent
     {
-        get => new TerraformReference<double>(this, "max_idle_connections_percent");
+        get => GetArgument<TerraformValue<double>>("max_idle_connections_percent");
         set => SetArgument("max_idle_connections_percent", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsDbProxyDefaultTargetGroupConnectionPoolConfigBlock : TerraformBl
     /// </summary>
     public TerraformSet<string>? SessionPinningFilters
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "session_pinning_filters").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("session_pinning_filters");
         set => SetArgument("session_pinning_filters", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsDbProxyDefaultTargetGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsDbProxyDefaultTargetGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -105,25 +105,25 @@ public partial class AwsDbProxyDefaultTargetGroup(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbProxyName is required")]
     public required TerraformValue<string> DbProxyName
     {
-        get => new TerraformReference<string>(this, "db_proxy_name");
+        get => GetArgument<TerraformValue<string>>("db_proxy_name");
         set => SetArgument("db_proxy_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -131,17 +131,13 @@ public partial class AwsDbProxyDefaultTargetGroup(string name) : TerraformResour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// ConnectionPoolConfig block (nesting mode: list).

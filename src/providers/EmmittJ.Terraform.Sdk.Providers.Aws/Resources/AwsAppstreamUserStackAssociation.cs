@@ -14,25 +14,25 @@ public partial class AwsAppstreamUserStackAssociation(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     public required TerraformValue<string> AuthenticationType
     {
-        get => new TerraformReference<string>(this, "authentication_type");
+        get => GetArgument<TerraformValue<string>>("authentication_type");
         set => SetArgument("authentication_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsAppstreamUserStackAssociation(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? SendEmailNotification
     {
-        get => new TerraformReference<bool>(this, "send_email_notification");
+        get => GetArgument<TerraformValue<bool>>("send_email_notification");
         set => SetArgument("send_email_notification", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsAppstreamUserStackAssociation(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StackName is required")]
     public required TerraformValue<string> StackName
     {
-        get => new TerraformReference<string>(this, "stack_name");
+        get => GetArgument<TerraformValue<string>>("stack_name");
         set => SetArgument("stack_name", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsAppstreamUserStackAssociation(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformValue<string> UserName
     {
-        get => new TerraformReference<string>(this, "user_name");
+        get => GetArgument<TerraformValue<string>>("user_name");
         set => SetArgument("user_name", value);
     }
 

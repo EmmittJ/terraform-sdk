@@ -19,7 +19,7 @@ public class AwsBedrockagentAgentCollaboratorAgentDescriptorBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AliasArn is required")]
     public required TerraformValue<string> AliasArn
     {
-        get => new TerraformReference<string>(this, "alias_arn");
+        get => GetArgument<TerraformValue<string>>("alias_arn");
         set => SetArgument("alias_arn", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsBedrockagentAgentCollaboratorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsBedrockagentAgentCollaboratorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsBedrockagentAgentCollaboratorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -79,16 +79,16 @@ public partial class AwsBedrockagentAgentCollaborator(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
     public required TerraformValue<string> AgentId
     {
-        get => new TerraformReference<string>(this, "agent_id");
+        get => GetArgument<TerraformValue<string>>("agent_id");
         set => SetArgument("agent_id", value);
     }
 
     /// <summary>
     /// The agent_version attribute.
     /// </summary>
-    public TerraformValue<string> AgentVersion
+    public TerraformValue<string>? AgentVersion
     {
-        get => new TerraformReference<string>(this, "agent_version");
+        get => GetArgument<TerraformValue<string>>("agent_version");
         set => SetArgument("agent_version", value);
     }
 
@@ -98,7 +98,7 @@ public partial class AwsBedrockagentAgentCollaborator(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollaborationInstruction is required")]
     public required TerraformValue<string> CollaborationInstruction
     {
-        get => new TerraformReference<string>(this, "collaboration_instruction");
+        get => GetArgument<TerraformValue<string>>("collaboration_instruction");
         set => SetArgument("collaboration_instruction", value);
     }
 
@@ -108,34 +108,34 @@ public partial class AwsBedrockagentAgentCollaborator(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollaboratorName is required")]
     public required TerraformValue<string> CollaboratorName
     {
-        get => new TerraformReference<string>(this, "collaborator_name");
+        get => GetArgument<TerraformValue<string>>("collaborator_name");
         set => SetArgument("collaborator_name", value);
     }
 
     /// <summary>
     /// The prepare_agent attribute.
     /// </summary>
-    public TerraformValue<bool> PrepareAgent
+    public TerraformValue<bool>? PrepareAgent
     {
-        get => new TerraformReference<bool>(this, "prepare_agent");
+        get => GetArgument<TerraformValue<bool>>("prepare_agent");
         set => SetArgument("prepare_agent", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The relay_conversation_history attribute.
     /// </summary>
-    public TerraformValue<string> RelayConversationHistory
+    public TerraformValue<string>? RelayConversationHistory
     {
-        get => new TerraformReference<string>(this, "relay_conversation_history");
+        get => GetArgument<TerraformValue<string>>("relay_conversation_history");
         set => SetArgument("relay_conversation_history", value);
     }
 
@@ -143,17 +143,13 @@ public partial class AwsBedrockagentAgentCollaborator(string name) : TerraformRe
     /// The collaborator_id attribute.
     /// </summary>
     public TerraformValue<string> CollaboratorId
-    {
-        get => new TerraformReference<string>(this, "collaborator_id");
-    }
+        => AsReference("collaborator_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// AgentDescriptor block (nesting mode: list).

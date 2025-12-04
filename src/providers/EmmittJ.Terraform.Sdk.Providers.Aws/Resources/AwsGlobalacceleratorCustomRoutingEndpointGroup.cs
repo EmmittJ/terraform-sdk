@@ -19,7 +19,7 @@ public class AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformValue<double> FromPort
     {
-        get => new TerraformReference<double>(this, "from_port");
+        get => GetArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocols is required")]
     public required TerraformSet<string> Protocols
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "protocols").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("protocols");
         set => SetArgument("protocols", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsGlobalacceleratorCustomRoutingEndpointGroupDestinationConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformValue<double> ToPort
     {
-        get => new TerraformReference<double>(this, "to_port");
+        get => GetArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsGlobalacceleratorCustomRoutingEndpointGroupEndpointConfiguration
     /// </summary>
     public TerraformValue<string>? EndpointId
     {
-        get => new TerraformReference<string>(this, "endpoint_id");
+        get => GetArgument<TerraformValue<string>>("endpoint_id");
         set => SetArgument("endpoint_id", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsGlobalacceleratorCustomRoutingEndpointGroupTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsGlobalacceleratorCustomRoutingEndpointGroupTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -110,18 +110,18 @@ public partial class AwsGlobalacceleratorCustomRoutingEndpointGroup(string name)
     /// <summary>
     /// The endpoint_group_region attribute.
     /// </summary>
-    public TerraformValue<string> EndpointGroupRegion
+    public TerraformValue<string>? EndpointGroupRegion
     {
-        get => new TerraformReference<string>(this, "endpoint_group_region");
+        get => GetArgument<TerraformValue<string>>("endpoint_group_region");
         set => SetArgument("endpoint_group_region", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AwsGlobalacceleratorCustomRoutingEndpointGroup(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerArn is required")]
     public required TerraformValue<string> ListenerArn
     {
-        get => new TerraformReference<string>(this, "listener_arn");
+        get => GetArgument<TerraformValue<string>>("listener_arn");
         set => SetArgument("listener_arn", value);
     }
 
@@ -139,9 +139,7 @@ public partial class AwsGlobalacceleratorCustomRoutingEndpointGroup(string name)
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// DestinationConfiguration block (nesting mode: set).

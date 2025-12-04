@@ -18,7 +18,7 @@ public class GoogleSqlSourceRepresentationInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleSqlSourceRepresentationInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -45,7 +45,7 @@ public partial class GoogleSqlSourceRepresentationInstance(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? CaCertificate
     {
-        get => new TerraformReference<string>(this, "ca_certificate");
+        get => GetArgument<TerraformValue<string>>("ca_certificate");
         set => SetArgument("ca_certificate", value);
     }
 
@@ -54,7 +54,7 @@ public partial class GoogleSqlSourceRepresentationInstance(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? ClientCertificate
     {
-        get => new TerraformReference<string>(this, "client_certificate");
+        get => GetArgument<TerraformValue<string>>("client_certificate");
         set => SetArgument("client_certificate", value);
     }
 
@@ -63,7 +63,7 @@ public partial class GoogleSqlSourceRepresentationInstance(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? ClientKey
     {
-        get => new TerraformReference<string>(this, "client_key");
+        get => GetArgument<TerraformValue<string>>("client_key");
         set => SetArgument("client_key", value);
     }
 
@@ -73,7 +73,7 @@ public partial class GoogleSqlSourceRepresentationInstance(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseVersion is required")]
     public required TerraformValue<string> DatabaseVersion
     {
-        get => new TerraformReference<string>(this, "database_version");
+        get => GetArgument<TerraformValue<string>>("database_version");
         set => SetArgument("database_version", value);
     }
 
@@ -82,7 +82,7 @@ public partial class GoogleSqlSourceRepresentationInstance(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? DumpFilePath
     {
-        get => new TerraformReference<string>(this, "dump_file_path");
+        get => GetArgument<TerraformValue<string>>("dump_file_path");
         set => SetArgument("dump_file_path", value);
     }
 
@@ -92,16 +92,16 @@ public partial class GoogleSqlSourceRepresentationInstance(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -111,7 +111,7 @@ public partial class GoogleSqlSourceRepresentationInstance(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -120,7 +120,7 @@ public partial class GoogleSqlSourceRepresentationInstance(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -130,16 +130,16 @@ public partial class GoogleSqlSourceRepresentationInstance(string name) : Terraf
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -147,9 +147,9 @@ public partial class GoogleSqlSourceRepresentationInstance(string name) : Terraf
     /// The Region in which the created instance should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -158,7 +158,7 @@ public partial class GoogleSqlSourceRepresentationInstance(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 

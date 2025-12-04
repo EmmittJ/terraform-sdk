@@ -11,9 +11,9 @@ public partial class GoogleLoggingProjectSettingsDataSource(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleLoggingProjectSettingsDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformValue<string> Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -31,9 +31,7 @@ public partial class GoogleLoggingProjectSettingsDataSource(string name) : Terra
     /// If set to true, the _Default sink in newly created projects and folders will created in a disabled state. This can be used to automatically disable log storage if there is already an aggregated sink configured in the hierarchy. The _Default sink can be re-enabled manually if needed.
     /// </summary>
     public TerraformValue<bool> DisableDefaultSink
-    {
-        get => new TerraformReference<bool>(this, "disable_default_sink");
-    }
+        => AsReference("disable_default_sink");
 
     /// <summary>
     /// The resource name for the configured Cloud KMS key.
@@ -44,9 +42,7 @@ public partial class GoogleLoggingProjectSettingsDataSource(string name) : Terra
     /// 				See [Enabling CMEK for Logging Buckets](https://cloud.google.com/logging/docs/routing/managed-encryption-storage) for more information.
     /// </summary>
     public TerraformValue<string> KmsKeyName
-    {
-        get => new TerraformReference<string>(this, "kms_key_name");
-    }
+        => AsReference("kms_key_name");
 
     /// <summary>
     /// The service account associated with a project for which CMEK will apply.
@@ -54,32 +50,24 @@ public partial class GoogleLoggingProjectSettingsDataSource(string name) : Terra
     /// 				See [Enabling CMEK for Logging Buckets](https://cloud.google.com/logging/docs/routing/managed-encryption-storage) for more information.
     /// </summary>
     public TerraformValue<string> KmsServiceAccountId
-    {
-        get => new TerraformReference<string>(this, "kms_service_account_id");
-    }
+        => AsReference("kms_service_account_id");
 
     /// <summary>
     /// The service account for the given container. Sinks use this service account as their writerIdentity if no custom service account is provided.
     /// </summary>
     public TerraformValue<string> LoggingServiceAccountId
-    {
-        get => new TerraformReference<string>(this, "logging_service_account_id");
-    }
+        => AsReference("logging_service_account_id");
 
     /// <summary>
     /// The resource name of the CMEK settings.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The storage location that Cloud Logging will use to create new resources when a location is needed but not explicitly provided.
     /// </summary>
     public TerraformValue<string> StorageLocation
-    {
-        get => new TerraformReference<string>(this, "storage_location");
-    }
+        => AsReference("storage_location");
 
 }

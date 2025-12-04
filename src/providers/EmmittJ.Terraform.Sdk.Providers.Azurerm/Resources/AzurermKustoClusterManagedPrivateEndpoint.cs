@@ -18,7 +18,7 @@ public class AzurermKustoClusterManagedPrivateEndpointTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermKustoClusterManagedPrivateEndpointTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermKustoClusterManagedPrivateEndpointTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermKustoClusterManagedPrivateEndpointTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermKustoClusterManagedPrivateEndpoint(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => new TerraformReference<string>(this, "cluster_name");
+        get => GetArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzurermKustoClusterManagedPrivateEndpoint(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
     public required TerraformValue<string> GroupId
     {
-        get => new TerraformReference<string>(this, "group_id");
+        get => GetArgument<TerraformValue<string>>("group_id");
         set => SetArgument("group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermKustoClusterManagedPrivateEndpoint(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermKustoClusterManagedPrivateEndpoint(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateLinkResourceId is required")]
     public required TerraformValue<string> PrivateLinkResourceId
     {
-        get => new TerraformReference<string>(this, "private_link_resource_id");
+        get => GetArgument<TerraformValue<string>>("private_link_resource_id");
         set => SetArgument("private_link_resource_id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermKustoClusterManagedPrivateEndpoint(string name) : Te
     /// </summary>
     public TerraformValue<string>? PrivateLinkResourceRegion
     {
-        get => new TerraformReference<string>(this, "private_link_resource_region");
+        get => GetArgument<TerraformValue<string>>("private_link_resource_region");
         set => SetArgument("private_link_resource_region", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermKustoClusterManagedPrivateEndpoint(string name) : Te
     /// </summary>
     public TerraformValue<string>? RequestMessage
     {
-        get => new TerraformReference<string>(this, "request_message");
+        get => GetArgument<TerraformValue<string>>("request_message");
         set => SetArgument("request_message", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermKustoClusterManagedPrivateEndpoint(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

@@ -19,7 +19,7 @@ public class GoogleComputeRouterNatLogConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enable is required")]
     public required TerraformValue<bool> Enable
     {
-        get => new TerraformReference<bool>(this, "enable");
+        get => GetArgument<TerraformValue<bool>>("enable");
         set => SetArgument("enable", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleComputeRouterNatLogConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleComputeRouterNatNat64SubnetworkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -76,7 +76,7 @@ public class GoogleComputeRouterNatRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -97,7 +97,7 @@ public class GoogleComputeRouterNatRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Match is required")]
     public required TerraformValue<string> Match
     {
-        get => new TerraformReference<string>(this, "match");
+        get => GetArgument<TerraformValue<string>>("match");
         set => SetArgument("match", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleComputeRouterNatRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleNumber is required")]
     public required TerraformValue<double> RuleNumber
     {
-        get => new TerraformReference<double>(this, "rule_number");
+        get => GetArgument<TerraformValue<double>>("rule_number");
         set => SetArgument("rule_number", value);
     }
 
@@ -142,7 +142,7 @@ public class GoogleComputeRouterNatRulesBlockActionBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? SourceNatActiveIps
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "source_nat_active_ips").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("source_nat_active_ips");
         set => SetArgument("source_nat_active_ips", value);
     }
 
@@ -153,7 +153,7 @@ public class GoogleComputeRouterNatRulesBlockActionBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? SourceNatActiveRanges
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "source_nat_active_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("source_nat_active_ranges");
         set => SetArgument("source_nat_active_ranges", value);
     }
 
@@ -165,7 +165,7 @@ public class GoogleComputeRouterNatRulesBlockActionBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? SourceNatDrainIps
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "source_nat_drain_ips").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("source_nat_drain_ips");
         set => SetArgument("source_nat_drain_ips", value);
     }
 
@@ -176,7 +176,7 @@ public class GoogleComputeRouterNatRulesBlockActionBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? SourceNatDrainRanges
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "source_nat_drain_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("source_nat_drain_ranges");
         set => SetArgument("source_nat_drain_ranges", value);
     }
 
@@ -200,7 +200,7 @@ public class GoogleComputeRouterNatSubnetworkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -212,7 +212,7 @@ public class GoogleComputeRouterNatSubnetworkBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? SecondaryIpRangeNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "secondary_ip_range_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("secondary_ip_range_names");
         set => SetArgument("secondary_ip_range_names", value);
     }
 
@@ -225,7 +225,7 @@ public class GoogleComputeRouterNatSubnetworkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIpRangesToNat is required")]
     public required TerraformSet<string> SourceIpRangesToNat
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "source_ip_ranges_to_nat").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("source_ip_ranges_to_nat");
         set => SetArgument("source_ip_ranges_to_nat", value);
     }
 
@@ -248,7 +248,7 @@ public class GoogleComputeRouterNatTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -257,7 +257,7 @@ public class GoogleComputeRouterNatTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -266,7 +266,7 @@ public class GoogleComputeRouterNatTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -284,9 +284,9 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// Must be one of: PREMIUM, STANDARD. If not specified, then the current
     /// project-level default tier is used. Possible values: [&amp;quot;PREMIUM&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
-    public TerraformValue<string> AutoNetworkTier
+    public TerraformValue<string>? AutoNetworkTier
     {
-        get => new TerraformReference<string>(this, "auto_network_tier");
+        get => GetArgument<TerraformValue<string>>("auto_network_tier");
         set => SetArgument("auto_network_tier", value);
     }
 
@@ -294,9 +294,9 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// A list of URLs of the IP resources to be drained. These IPs must be
     /// valid static external IPs that have been assigned to the NAT.
     /// </summary>
-    public TerraformSet<string> DrainNatIps
+    public TerraformSet<string>? DrainNatIps
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "drain_nat_ips").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("drain_nat_ips");
         set => SetArgument("drain_nat_ips", value);
     }
 
@@ -309,9 +309,9 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// 
     /// Mutually exclusive with enableEndpointIndependentMapping.
     /// </summary>
-    public TerraformValue<bool> EnableDynamicPortAllocation
+    public TerraformValue<bool>? EnableDynamicPortAllocation
     {
-        get => new TerraformReference<bool>(this, "enable_dynamic_port_allocation");
+        get => GetArgument<TerraformValue<bool>>("enable_dynamic_port_allocation");
         set => SetArgument("enable_dynamic_port_allocation", value);
     }
 
@@ -319,9 +319,9 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// Enable endpoint independent mapping.
     /// For more information see the [official documentation](https://cloud.google.com/nat/docs/overview#specs-rfcs).
     /// </summary>
-    public TerraformValue<bool> EnableEndpointIndependentMapping
+    public TerraformValue<bool>? EnableEndpointIndependentMapping
     {
-        get => new TerraformReference<bool>(this, "enable_endpoint_independent_mapping");
+        get => GetArgument<TerraformValue<bool>>("enable_endpoint_independent_mapping");
         set => SetArgument("enable_endpoint_independent_mapping", value);
     }
 
@@ -331,9 +331,9 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     ///       &#39;ENDPOINT_TYPE_VM&#39;, &#39;ENDPOINT_TYPE_SWG&#39;,
     ///       &#39;ENDPOINT_TYPE_MANAGED_PROXY_LB&#39;.
     /// </summary>
-    public TerraformList<string> EndpointTypes
+    public TerraformList<string>? EndpointTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "endpoint_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("endpoint_types");
         set => SetArgument("endpoint_types", value);
     }
 
@@ -342,16 +342,16 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<double>? IcmpIdleTimeoutSec
     {
-        get => new TerraformReference<double>(this, "icmp_idle_timeout_sec");
+        get => GetArgument<TerraformValue<double>>("icmp_idle_timeout_sec");
         set => SetArgument("icmp_idle_timeout_sec", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -361,7 +361,7 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// </summary>
     public TerraformSet<string>? InitialNatIps
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "initial_nat_ips").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("initial_nat_ips");
         set => SetArgument("initial_nat_ips", value);
     }
 
@@ -371,16 +371,16 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<double>? MaxPortsPerVm
     {
-        get => new TerraformReference<double>(this, "max_ports_per_vm");
+        get => GetArgument<TerraformValue<double>>("max_ports_per_vm");
         set => SetArgument("max_ports_per_vm", value);
     }
 
     /// <summary>
     /// Minimum number of ports allocated to a VM from this NAT. Defaults to 64 for static port allocation and 32 dynamic port allocation if not set.
     /// </summary>
-    public TerraformValue<double> MinPortsPerVm
+    public TerraformValue<double>? MinPortsPerVm
     {
-        get => new TerraformReference<double>(this, "min_ports_per_vm");
+        get => GetArgument<TerraformValue<double>>("min_ports_per_vm");
         set => SetArgument("min_ports_per_vm", value);
     }
 
@@ -391,7 +391,7 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -402,7 +402,7 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? NatIpAllocateOption
     {
-        get => new TerraformReference<string>(this, "nat_ip_allocate_option");
+        get => GetArgument<TerraformValue<string>>("nat_ip_allocate_option");
         set => SetArgument("nat_ip_allocate_option", value);
     }
 
@@ -413,27 +413,27 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// the access level resource for the address resource must have a &#39;lifecycle&#39; block with &#39;create_before_destroy = true&#39; so
     /// the number of resources can be increased/decreased without triggering the &#39;resourceInUseByAnotherResource&#39; error.
     /// </summary>
-    public TerraformSet<string> NatIps
+    public TerraformSet<string>? NatIps
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "nat_ips").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("nat_ips");
         set => SetArgument("nat_ips", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Region where the router and NAT reside.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -443,7 +443,7 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
     public required TerraformValue<string> Router
     {
-        get => new TerraformReference<string>(this, "router");
+        get => GetArgument<TerraformValue<string>>("router");
         set => SetArgument("router", value);
     }
 
@@ -462,7 +462,7 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceSubnetworkIpRangesToNat is required")]
     public required TerraformValue<string> SourceSubnetworkIpRangesToNat
     {
-        get => new TerraformReference<string>(this, "source_subnetwork_ip_ranges_to_nat");
+        get => GetArgument<TerraformValue<string>>("source_subnetwork_ip_ranges_to_nat");
         set => SetArgument("source_subnetwork_ip_ranges_to_nat", value);
     }
 
@@ -475,7 +475,7 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? SourceSubnetworkIpRangesToNat64
     {
-        get => new TerraformReference<string>(this, "source_subnetwork_ip_ranges_to_nat64");
+        get => GetArgument<TerraformValue<string>>("source_subnetwork_ip_ranges_to_nat64");
         set => SetArgument("source_subnetwork_ip_ranges_to_nat64", value);
     }
 
@@ -485,7 +485,7 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<double>? TcpEstablishedIdleTimeoutSec
     {
-        get => new TerraformReference<double>(this, "tcp_established_idle_timeout_sec");
+        get => GetArgument<TerraformValue<double>>("tcp_established_idle_timeout_sec");
         set => SetArgument("tcp_established_idle_timeout_sec", value);
     }
 
@@ -495,7 +495,7 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<double>? TcpTimeWaitTimeoutSec
     {
-        get => new TerraformReference<double>(this, "tcp_time_wait_timeout_sec");
+        get => GetArgument<TerraformValue<double>>("tcp_time_wait_timeout_sec");
         set => SetArgument("tcp_time_wait_timeout_sec", value);
     }
 
@@ -505,7 +505,7 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<double>? TcpTransitoryIdleTimeoutSec
     {
-        get => new TerraformReference<double>(this, "tcp_transitory_idle_timeout_sec");
+        get => GetArgument<TerraformValue<double>>("tcp_transitory_idle_timeout_sec");
         set => SetArgument("tcp_transitory_idle_timeout_sec", value);
     }
 
@@ -517,7 +517,7 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -526,7 +526,7 @@ public partial class GoogleComputeRouterNat(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<double>? UdpIdleTimeoutSec
     {
-        get => new TerraformReference<double>(this, "udp_idle_timeout_sec");
+        get => GetArgument<TerraformValue<double>>("udp_idle_timeout_sec");
         set => SetArgument("udp_idle_timeout_sec", value);
     }
 

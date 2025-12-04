@@ -11,9 +11,9 @@ public partial class AwsCloudwatchContributorManagedInsightRule(string name) : T
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsCloudwatchContributorManagedInsightRule(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => new TerraformReference<string>(this, "resource_arn");
+        get => GetArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformValue<string> State
+    public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsCloudwatchContributorManagedInsightRule(string name) : T
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsCloudwatchContributorManagedInsightRule(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateName is required")]
     public required TerraformValue<string> TemplateName
     {
-        get => new TerraformReference<string>(this, "template_name");
+        get => GetArgument<TerraformValue<string>>("template_name");
         set => SetArgument("template_name", value);
     }
 
@@ -59,24 +59,18 @@ public partial class AwsCloudwatchContributorManagedInsightRule(string name) : T
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The rule_name attribute.
     /// </summary>
     public TerraformValue<string> RuleName
-    {
-        get => new TerraformReference<string>(this, "rule_name");
-    }
+        => AsReference("rule_name");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
 }

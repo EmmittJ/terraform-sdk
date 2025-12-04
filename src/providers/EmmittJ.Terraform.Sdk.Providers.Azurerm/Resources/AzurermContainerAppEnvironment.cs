@@ -18,7 +18,7 @@ public class AzurermContainerAppEnvironmentIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -26,17 +26,13 @@ public class AzurermContainerAppEnvironmentIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -44,7 +40,7 @@ public class AzurermContainerAppEnvironmentIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -67,7 +63,7 @@ public class AzurermContainerAppEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -76,7 +72,7 @@ public class AzurermContainerAppEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -85,7 +81,7 @@ public class AzurermContainerAppEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -94,7 +90,7 @@ public class AzurermContainerAppEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -117,7 +113,7 @@ public class AzurermContainerAppEnvironmentWorkloadProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaximumCount
     {
-        get => new TerraformReference<double>(this, "maximum_count");
+        get => GetArgument<TerraformValue<double>>("maximum_count");
         set => SetArgument("maximum_count", value);
     }
 
@@ -126,7 +122,7 @@ public class AzurermContainerAppEnvironmentWorkloadProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MinimumCount
     {
-        get => new TerraformReference<double>(this, "minimum_count");
+        get => GetArgument<TerraformValue<double>>("minimum_count");
         set => SetArgument("minimum_count", value);
     }
 
@@ -136,7 +132,7 @@ public class AzurermContainerAppEnvironmentWorkloadProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -146,7 +142,7 @@ public class AzurermContainerAppEnvironmentWorkloadProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkloadProfileType is required")]
     public required TerraformValue<string> WorkloadProfileType
     {
-        get => new TerraformReference<string>(this, "workload_profile_type");
+        get => GetArgument<TerraformValue<string>>("workload_profile_type");
         set => SetArgument("workload_profile_type", value);
     }
 
@@ -164,16 +160,16 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? DaprApplicationInsightsConnectionString
     {
-        get => new TerraformReference<string>(this, "dapr_application_insights_connection_string");
+        get => GetArgument<TerraformValue<string>>("dapr_application_insights_connection_string");
         set => SetArgument("dapr_application_insights_connection_string", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -182,7 +178,7 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? InfrastructureResourceGroupName
     {
-        get => new TerraformReference<string>(this, "infrastructure_resource_group_name");
+        get => GetArgument<TerraformValue<string>>("infrastructure_resource_group_name");
         set => SetArgument("infrastructure_resource_group_name", value);
     }
 
@@ -191,7 +187,7 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? InfrastructureSubnetId
     {
-        get => new TerraformReference<string>(this, "infrastructure_subnet_id");
+        get => GetArgument<TerraformValue<string>>("infrastructure_subnet_id");
         set => SetArgument("infrastructure_subnet_id", value);
     }
 
@@ -200,7 +196,7 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? InternalLoadBalancerEnabled
     {
-        get => new TerraformReference<bool>(this, "internal_load_balancer_enabled");
+        get => GetArgument<TerraformValue<bool>>("internal_load_balancer_enabled");
         set => SetArgument("internal_load_balancer_enabled", value);
     }
 
@@ -210,7 +206,7 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -219,16 +215,16 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? LogAnalyticsWorkspaceId
     {
-        get => new TerraformReference<string>(this, "log_analytics_workspace_id");
+        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
     /// <summary>
     /// The logs_destination attribute.
     /// </summary>
-    public TerraformValue<string> LogsDestination
+    public TerraformValue<string>? LogsDestination
     {
-        get => new TerraformReference<string>(this, "logs_destination");
+        get => GetArgument<TerraformValue<string>>("logs_destination");
         set => SetArgument("logs_destination", value);
     }
 
@@ -237,7 +233,7 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? MutualTlsEnabled
     {
-        get => new TerraformReference<bool>(this, "mutual_tls_enabled");
+        get => GetArgument<TerraformValue<bool>>("mutual_tls_enabled");
         set => SetArgument("mutual_tls_enabled", value);
     }
 
@@ -247,16 +243,16 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The public network access setting for the Container App Environment.
     /// </summary>
-    public TerraformValue<string> PublicNetworkAccess
+    public TerraformValue<string>? PublicNetworkAccess
     {
-        get => new TerraformReference<string>(this, "public_network_access");
+        get => GetArgument<TerraformValue<string>>("public_network_access");
         set => SetArgument("public_network_access", value);
     }
 
@@ -266,7 +262,7 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -275,7 +271,7 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -284,7 +280,7 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? ZoneRedundancyEnabled
     {
-        get => new TerraformReference<bool>(this, "zone_redundancy_enabled");
+        get => GetArgument<TerraformValue<bool>>("zone_redundancy_enabled");
         set => SetArgument("zone_redundancy_enabled", value);
     }
 
@@ -292,49 +288,37 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     /// The ID of the Custom Domain Verification for this Container App Environment.
     /// </summary>
     public TerraformValue<string> CustomDomainVerificationId
-    {
-        get => new TerraformReference<string>(this, "custom_domain_verification_id");
-    }
+        => AsReference("custom_domain_verification_id");
 
     /// <summary>
     /// The default publicly resolvable name of this Container App Environment
     /// </summary>
     public TerraformValue<string> DefaultDomain
-    {
-        get => new TerraformReference<string>(this, "default_domain");
-    }
+        => AsReference("default_domain");
 
     /// <summary>
     /// The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
     /// </summary>
     public TerraformValue<string> DockerBridgeCidr
-    {
-        get => new TerraformReference<string>(this, "docker_bridge_cidr");
-    }
+        => AsReference("docker_bridge_cidr");
 
     /// <summary>
     /// The IP range, in CIDR notation, that is reserved for environment infrastructure IP addresses.
     /// </summary>
     public TerraformValue<string> PlatformReservedCidr
-    {
-        get => new TerraformReference<string>(this, "platform_reserved_cidr");
-    }
+        => AsReference("platform_reserved_cidr");
 
     /// <summary>
     /// The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
     /// </summary>
     public TerraformValue<string> PlatformReservedDnsIpAddress
-    {
-        get => new TerraformReference<string>(this, "platform_reserved_dns_ip_address");
-    }
+        => AsReference("platform_reserved_dns_ip_address");
 
     /// <summary>
     /// The Static IP Address of the Environment.
     /// </summary>
     public TerraformValue<string> StaticIpAddress
-    {
-        get => new TerraformReference<string>(this, "static_ip_address");
-    }
+        => AsReference("static_ip_address");
 
     /// <summary>
     /// Identity block (nesting mode: list).

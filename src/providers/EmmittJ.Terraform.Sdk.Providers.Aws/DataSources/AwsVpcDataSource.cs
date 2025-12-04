@@ -19,7 +19,7 @@ public class AwsVpcDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsVpcDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsVpcDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -68,63 +68,63 @@ public partial class AwsVpcDataSource(string name) : TerraformDataSource("aws_vp
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
-    public TerraformValue<string> CidrBlock
+    public TerraformValue<string>? CidrBlock
     {
-        get => new TerraformReference<string>(this, "cidr_block");
+        get => GetArgument<TerraformValue<string>>("cidr_block");
         set => SetArgument("cidr_block", value);
     }
 
     /// <summary>
     /// The default attribute.
     /// </summary>
-    public TerraformValue<bool> DefaultAttribute
+    public TerraformValue<bool>? DefaultAttribute
     {
-        get => new TerraformReference<bool>(this, "default");
+        get => GetArgument<TerraformValue<bool>>("default");
         set => SetArgument("default", value);
     }
 
     /// <summary>
     /// The dhcp_options_id attribute.
     /// </summary>
-    public TerraformValue<string> DhcpOptionsId
+    public TerraformValue<string>? DhcpOptionsId
     {
-        get => new TerraformReference<string>(this, "dhcp_options_id");
+        get => GetArgument<TerraformValue<string>>("dhcp_options_id");
         set => SetArgument("dhcp_options_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformValue<string> State
+    public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -132,81 +132,61 @@ public partial class AwsVpcDataSource(string name) : TerraformDataSource("aws_vp
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The cidr_block_associations attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CidrBlockAssociations
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cidr_block_associations").ResolveNodes(ctx));
-    }
+        => AsReference("cidr_block_associations");
 
     /// <summary>
     /// The enable_dns_hostnames attribute.
     /// </summary>
     public TerraformValue<bool> EnableDnsHostnames
-    {
-        get => new TerraformReference<bool>(this, "enable_dns_hostnames");
-    }
+        => AsReference("enable_dns_hostnames");
 
     /// <summary>
     /// The enable_dns_support attribute.
     /// </summary>
     public TerraformValue<bool> EnableDnsSupport
-    {
-        get => new TerraformReference<bool>(this, "enable_dns_support");
-    }
+        => AsReference("enable_dns_support");
 
     /// <summary>
     /// The enable_network_address_usage_metrics attribute.
     /// </summary>
     public TerraformValue<bool> EnableNetworkAddressUsageMetrics
-    {
-        get => new TerraformReference<bool>(this, "enable_network_address_usage_metrics");
-    }
+        => AsReference("enable_network_address_usage_metrics");
 
     /// <summary>
     /// The instance_tenancy attribute.
     /// </summary>
     public TerraformValue<string> InstanceTenancy
-    {
-        get => new TerraformReference<string>(this, "instance_tenancy");
-    }
+        => AsReference("instance_tenancy");
 
     /// <summary>
     /// The ipv6_association_id attribute.
     /// </summary>
     public TerraformValue<string> Ipv6AssociationId
-    {
-        get => new TerraformReference<string>(this, "ipv6_association_id");
-    }
+        => AsReference("ipv6_association_id");
 
     /// <summary>
     /// The ipv6_cidr_block attribute.
     /// </summary>
     public TerraformValue<string> Ipv6CidrBlock
-    {
-        get => new TerraformReference<string>(this, "ipv6_cidr_block");
-    }
+        => AsReference("ipv6_cidr_block");
 
     /// <summary>
     /// The main_route_table_id attribute.
     /// </summary>
     public TerraformValue<string> MainRouteTableId
-    {
-        get => new TerraformReference<string>(this, "main_route_table_id");
-    }
+        => AsReference("main_route_table_id");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// Filter block (nesting mode: set).

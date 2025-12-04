@@ -19,7 +19,7 @@ public class GoogleLoggingBillingAccountSinkBigqueryOptionsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsePartitionedTables is required")]
     public required TerraformValue<bool> UsePartitionedTables
     {
-        get => new TerraformReference<bool>(this, "use_partitioned_tables");
+        get => GetArgument<TerraformValue<bool>>("use_partitioned_tables");
         set => SetArgument("use_partitioned_tables", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleLoggingBillingAccountSinkExclusionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleLoggingBillingAccountSinkExclusionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleLoggingBillingAccountSinkExclusionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleLoggingBillingAccountSinkExclusionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -90,7 +90,7 @@ public partial class GoogleLoggingBillingAccountSink(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccount is required")]
     public required TerraformValue<string> BillingAccount
     {
-        get => new TerraformReference<string>(this, "billing_account");
+        get => GetArgument<TerraformValue<string>>("billing_account");
         set => SetArgument("billing_account", value);
     }
 
@@ -99,7 +99,7 @@ public partial class GoogleLoggingBillingAccountSink(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -109,7 +109,7 @@ public partial class GoogleLoggingBillingAccountSink(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformValue<string> Destination
     {
-        get => new TerraformReference<string>(this, "destination");
+        get => GetArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
@@ -118,7 +118,7 @@ public partial class GoogleLoggingBillingAccountSink(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -127,16 +127,16 @@ public partial class GoogleLoggingBillingAccountSink(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -146,7 +146,7 @@ public partial class GoogleLoggingBillingAccountSink(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -154,9 +154,7 @@ public partial class GoogleLoggingBillingAccountSink(string name) : TerraformRes
     /// The identity associated with this sink. This identity must be granted write access to the configured destination.
     /// </summary>
     public TerraformValue<string> WriterIdentity
-    {
-        get => new TerraformReference<string>(this, "writer_identity");
-    }
+        => AsReference("writer_identity");
 
     /// <summary>
     /// BigqueryOptions block (nesting mode: list).

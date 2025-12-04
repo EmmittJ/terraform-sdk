@@ -16,18 +16,18 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlock : TerraformBlock
     /// <summary>
     /// Set this field to MANAGEMENT_AUTOMATIC to enable Config Sync auto-upgrades, and set this field to MANAGEMENT_MANUAL or MANAGEMENT_UNSPECIFIED to disable Config Sync auto-upgrades.
     /// </summary>
-    public TerraformValue<string> Management
+    public TerraformValue<string>? Management
     {
-        get => new TerraformReference<string>(this, "management");
+        get => GetArgument<TerraformValue<string>>("management");
         set => SetArgument("management", value);
     }
 
     /// <summary>
     /// Optional. Version of ACM to install. Defaults to the latest version.
     /// </summary>
-    public TerraformValue<string> Version
+    public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -79,7 +79,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlock :
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -88,16 +88,16 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlock :
     /// </summary>
     public TerraformValue<string>? MetricsGcpServiceAccountEmail
     {
-        get => new TerraformReference<string>(this, "metrics_gcp_service_account_email");
+        get => GetArgument<TerraformValue<string>>("metrics_gcp_service_account_email");
         set => SetArgument("metrics_gcp_service_account_email", value);
     }
 
     /// <summary>
     /// Set to true to enable the Config Sync admission webhook to prevent drifts. If set to `false`, disables the Config Sync admission webhook and does not prevent drifts.
     /// </summary>
-    public TerraformValue<bool> PreventDrift
+    public TerraformValue<bool>? PreventDrift
     {
-        get => new TerraformReference<bool>(this, "prevent_drift");
+        get => GetArgument<TerraformValue<bool>>("prevent_drift");
         set => SetArgument("prevent_drift", value);
     }
 
@@ -106,7 +106,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlock :
     /// </summary>
     public TerraformValue<string>? SourceFormat
     {
-        get => new TerraformReference<string>(this, "source_format");
+        get => GetArgument<TerraformValue<string>>("source_format");
         set => SetArgument("source_format", value);
     }
 
@@ -115,7 +115,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlock :
     /// </summary>
     public TerraformValue<bool>? StopSyncing
     {
-        get => new TerraformReference<bool>(this, "stop_syncing");
+        get => GetArgument<TerraformValue<bool>>("stop_syncing");
         set => SetArgument("stop_syncing", value);
     }
 
@@ -166,7 +166,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlockDe
     /// </summary>
     public TerraformValue<string>? DeploymentName
     {
-        get => new TerraformReference<string>(this, "deployment_name");
+        get => GetArgument<TerraformValue<string>>("deployment_name");
         set => SetArgument("deployment_name", value);
     }
 
@@ -175,7 +175,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlockDe
     /// </summary>
     public TerraformValue<string>? DeploymentNamespace
     {
-        get => new TerraformReference<string>(this, "deployment_namespace");
+        get => GetArgument<TerraformValue<string>>("deployment_namespace");
         set => SetArgument("deployment_namespace", value);
     }
 
@@ -206,7 +206,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlockDe
     /// </summary>
     public TerraformValue<string>? ContainerName
     {
-        get => new TerraformReference<string>(this, "container_name");
+        get => GetArgument<TerraformValue<string>>("container_name");
         set => SetArgument("container_name", value);
     }
 
@@ -215,7 +215,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlockDe
     /// </summary>
     public TerraformValue<string>? CpuLimit
     {
-        get => new TerraformReference<string>(this, "cpu_limit");
+        get => GetArgument<TerraformValue<string>>("cpu_limit");
         set => SetArgument("cpu_limit", value);
     }
 
@@ -224,7 +224,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlockDe
     /// </summary>
     public TerraformValue<string>? CpuRequest
     {
-        get => new TerraformReference<string>(this, "cpu_request");
+        get => GetArgument<TerraformValue<string>>("cpu_request");
         set => SetArgument("cpu_request", value);
     }
 
@@ -233,7 +233,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlockDe
     /// </summary>
     public TerraformValue<string>? MemoryLimit
     {
-        get => new TerraformReference<string>(this, "memory_limit");
+        get => GetArgument<TerraformValue<string>>("memory_limit");
         set => SetArgument("memory_limit", value);
     }
 
@@ -242,7 +242,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlockDe
     /// </summary>
     public TerraformValue<string>? MemoryRequest
     {
-        get => new TerraformReference<string>(this, "memory_request");
+        get => GetArgument<TerraformValue<string>>("memory_request");
         set => SetArgument("memory_request", value);
     }
 
@@ -264,7 +264,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlockGi
     /// </summary>
     public TerraformValue<string>? GcpServiceAccountEmail
     {
-        get => new TerraformReference<string>(this, "gcp_service_account_email");
+        get => GetArgument<TerraformValue<string>>("gcp_service_account_email");
         set => SetArgument("gcp_service_account_email", value);
     }
 
@@ -273,7 +273,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlockGi
     /// </summary>
     public TerraformValue<string>? HttpsProxy
     {
-        get => new TerraformReference<string>(this, "https_proxy");
+        get => GetArgument<TerraformValue<string>>("https_proxy");
         set => SetArgument("https_proxy", value);
     }
 
@@ -282,7 +282,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlockGi
     /// </summary>
     public TerraformValue<string>? PolicyDir
     {
-        get => new TerraformReference<string>(this, "policy_dir");
+        get => GetArgument<TerraformValue<string>>("policy_dir");
         set => SetArgument("policy_dir", value);
     }
 
@@ -291,7 +291,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlockGi
     /// </summary>
     public TerraformValue<string>? SecretType
     {
-        get => new TerraformReference<string>(this, "secret_type");
+        get => GetArgument<TerraformValue<string>>("secret_type");
         set => SetArgument("secret_type", value);
     }
 
@@ -300,7 +300,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlockGi
     /// </summary>
     public TerraformValue<string>? SyncBranch
     {
-        get => new TerraformReference<string>(this, "sync_branch");
+        get => GetArgument<TerraformValue<string>>("sync_branch");
         set => SetArgument("sync_branch", value);
     }
 
@@ -309,7 +309,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlockGi
     /// </summary>
     public TerraformValue<string>? SyncRepo
     {
-        get => new TerraformReference<string>(this, "sync_repo");
+        get => GetArgument<TerraformValue<string>>("sync_repo");
         set => SetArgument("sync_repo", value);
     }
 
@@ -318,7 +318,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlockGi
     /// </summary>
     public TerraformValue<string>? SyncRev
     {
-        get => new TerraformReference<string>(this, "sync_rev");
+        get => GetArgument<TerraformValue<string>>("sync_rev");
         set => SetArgument("sync_rev", value);
     }
 
@@ -327,7 +327,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlockGi
     /// </summary>
     public TerraformValue<string>? SyncWaitSecs
     {
-        get => new TerraformReference<string>(this, "sync_wait_secs");
+        get => GetArgument<TerraformValue<string>>("sync_wait_secs");
         set => SetArgument("sync_wait_secs", value);
     }
 
@@ -349,7 +349,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlockOc
     /// </summary>
     public TerraformValue<string>? GcpServiceAccountEmail
     {
-        get => new TerraformReference<string>(this, "gcp_service_account_email");
+        get => GetArgument<TerraformValue<string>>("gcp_service_account_email");
         set => SetArgument("gcp_service_account_email", value);
     }
 
@@ -358,7 +358,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlockOc
     /// </summary>
     public TerraformValue<string>? PolicyDir
     {
-        get => new TerraformReference<string>(this, "policy_dir");
+        get => GetArgument<TerraformValue<string>>("policy_dir");
         set => SetArgument("policy_dir", value);
     }
 
@@ -367,7 +367,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlockOc
     /// </summary>
     public TerraformValue<string>? SecretType
     {
-        get => new TerraformReference<string>(this, "secret_type");
+        get => GetArgument<TerraformValue<string>>("secret_type");
         set => SetArgument("secret_type", value);
     }
 
@@ -376,7 +376,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlockOc
     /// </summary>
     public TerraformValue<string>? SyncRepo
     {
-        get => new TerraformReference<string>(this, "sync_repo");
+        get => GetArgument<TerraformValue<string>>("sync_repo");
         set => SetArgument("sync_repo", value);
     }
 
@@ -385,7 +385,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockConfigSyncBlockOc
     /// </summary>
     public TerraformValue<string>? SyncWaitSecs
     {
-        get => new TerraformReference<string>(this, "sync_wait_secs");
+        get => GetArgument<TerraformValue<string>>("sync_wait_secs");
         set => SetArgument("sync_wait_secs", value);
     }
 
@@ -407,7 +407,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockHierarchyControll
     /// </summary>
     public TerraformValue<bool>? EnableHierarchicalResourceQuota
     {
-        get => new TerraformReference<bool>(this, "enable_hierarchical_resource_quota");
+        get => GetArgument<TerraformValue<bool>>("enable_hierarchical_resource_quota");
         set => SetArgument("enable_hierarchical_resource_quota", value);
     }
 
@@ -416,7 +416,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockHierarchyControll
     /// </summary>
     public TerraformValue<bool>? EnablePodTreeLabels
     {
-        get => new TerraformReference<bool>(this, "enable_pod_tree_labels");
+        get => GetArgument<TerraformValue<bool>>("enable_pod_tree_labels");
         set => SetArgument("enable_pod_tree_labels", value);
     }
 
@@ -425,7 +425,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockHierarchyControll
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -447,7 +447,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockPolicyControllerB
     /// </summary>
     public TerraformValue<string>? AuditIntervalSeconds
     {
-        get => new TerraformReference<string>(this, "audit_interval_seconds");
+        get => GetArgument<TerraformValue<string>>("audit_interval_seconds");
         set => SetArgument("audit_interval_seconds", value);
     }
 
@@ -456,7 +456,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockPolicyControllerB
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -465,7 +465,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockPolicyControllerB
     /// </summary>
     public TerraformList<string>? ExemptableNamespaces
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exemptable_namespaces").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exemptable_namespaces");
         set => SetArgument("exemptable_namespaces", value);
     }
 
@@ -474,7 +474,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockPolicyControllerB
     /// </summary>
     public TerraformValue<bool>? LogDeniesEnabled
     {
-        get => new TerraformReference<bool>(this, "log_denies_enabled");
+        get => GetArgument<TerraformValue<bool>>("log_denies_enabled");
         set => SetArgument("log_denies_enabled", value);
     }
 
@@ -483,7 +483,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockPolicyControllerB
     /// </summary>
     public TerraformValue<bool>? MutationEnabled
     {
-        get => new TerraformReference<bool>(this, "mutation_enabled");
+        get => GetArgument<TerraformValue<bool>>("mutation_enabled");
         set => SetArgument("mutation_enabled", value);
     }
 
@@ -492,7 +492,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockPolicyControllerB
     /// </summary>
     public TerraformValue<bool>? ReferentialRulesEnabled
     {
-        get => new TerraformReference<bool>(this, "referential_rules_enabled");
+        get => GetArgument<TerraformValue<bool>>("referential_rules_enabled");
         set => SetArgument("referential_rules_enabled", value);
     }
 
@@ -501,7 +501,7 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockPolicyControllerB
     /// </summary>
     public TerraformValue<bool>? TemplateLibraryInstalled
     {
-        get => new TerraformReference<bool>(this, "template_library_installed");
+        get => GetArgument<TerraformValue<bool>>("template_library_installed");
         set => SetArgument("template_library_installed", value);
     }
 
@@ -531,9 +531,9 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlockPolicyControllerB
     /// <summary>
     ///  Specifies the list of backends Policy Controller will export to. Specifying an empty value `[]` disables metrics export.
     /// </summary>
-    public TerraformList<string> Backends
+    public TerraformList<string>? Backends
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "backends").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("backends");
         set => SetArgument("backends", value);
     }
 
@@ -557,7 +557,7 @@ public class GoogleGkeHubFeatureMembershipMeshBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? ControlPlane
     {
-        get => new TerraformReference<string>(this, "control_plane");
+        get => GetArgument<TerraformValue<string>>("control_plane");
         set => SetArgument("control_plane", value);
     }
 
@@ -566,7 +566,7 @@ public class GoogleGkeHubFeatureMembershipMeshBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Management
     {
-        get => new TerraformReference<string>(this, "management");
+        get => GetArgument<TerraformValue<string>>("management");
         set => SetArgument("management", value);
     }
 
@@ -587,9 +587,9 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlock : TerraformBlock
     /// <summary>
     /// Optional. Version of Policy Controller to install. Defaults to the latest version.
     /// </summary>
-    public TerraformValue<string> Version
+    public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -624,7 +624,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// </summary>
     public TerraformValue<double>? AuditIntervalSeconds
     {
-        get => new TerraformReference<double>(this, "audit_interval_seconds");
+        get => GetArgument<TerraformValue<double>>("audit_interval_seconds");
         set => SetArgument("audit_interval_seconds", value);
     }
 
@@ -633,7 +633,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// </summary>
     public TerraformValue<double>? ConstraintViolationLimit
     {
-        get => new TerraformReference<double>(this, "constraint_violation_limit");
+        get => GetArgument<TerraformValue<double>>("constraint_violation_limit");
         set => SetArgument("constraint_violation_limit", value);
     }
 
@@ -642,7 +642,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// </summary>
     public TerraformList<string>? ExemptableNamespaces
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exemptable_namespaces").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exemptable_namespaces");
         set => SetArgument("exemptable_namespaces", value);
     }
 
@@ -651,7 +651,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// </summary>
     public TerraformValue<string>? InstallSpec
     {
-        get => new TerraformReference<string>(this, "install_spec");
+        get => GetArgument<TerraformValue<string>>("install_spec");
         set => SetArgument("install_spec", value);
     }
 
@@ -660,7 +660,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// </summary>
     public TerraformValue<bool>? LogDeniesEnabled
     {
-        get => new TerraformReference<bool>(this, "log_denies_enabled");
+        get => GetArgument<TerraformValue<bool>>("log_denies_enabled");
         set => SetArgument("log_denies_enabled", value);
     }
 
@@ -669,7 +669,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// </summary>
     public TerraformValue<bool>? MutationEnabled
     {
-        get => new TerraformReference<bool>(this, "mutation_enabled");
+        get => GetArgument<TerraformValue<bool>>("mutation_enabled");
         set => SetArgument("mutation_enabled", value);
     }
 
@@ -678,7 +678,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// </summary>
     public TerraformValue<bool>? ReferentialRulesEnabled
     {
-        get => new TerraformReference<bool>(this, "referential_rules_enabled");
+        get => GetArgument<TerraformValue<bool>>("referential_rules_enabled");
         set => SetArgument("referential_rules_enabled", value);
     }
 
@@ -730,7 +730,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentName is required")]
     public required TerraformValue<string> ComponentName
     {
-        get => new TerraformReference<string>(this, "component_name");
+        get => GetArgument<TerraformValue<string>>("component_name");
         set => SetArgument("component_name", value);
     }
 
@@ -739,7 +739,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// </summary>
     public TerraformValue<string>? PodAffinity
     {
-        get => new TerraformReference<string>(this, "pod_affinity");
+        get => GetArgument<TerraformValue<string>>("pod_affinity");
         set => SetArgument("pod_affinity", value);
     }
 
@@ -748,7 +748,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// </summary>
     public TerraformValue<double>? ReplicaCount
     {
-        get => new TerraformReference<double>(this, "replica_count");
+        get => GetArgument<TerraformValue<double>>("replica_count");
         set => SetArgument("replica_count", value);
     }
 
@@ -822,7 +822,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// </summary>
     public TerraformValue<string>? Cpu
     {
-        get => new TerraformReference<string>(this, "cpu");
+        get => GetArgument<TerraformValue<string>>("cpu");
         set => SetArgument("cpu", value);
     }
 
@@ -831,7 +831,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// </summary>
     public TerraformValue<string>? Memory
     {
-        get => new TerraformReference<string>(this, "memory");
+        get => GetArgument<TerraformValue<string>>("memory");
         set => SetArgument("memory", value);
     }
 
@@ -853,7 +853,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// </summary>
     public TerraformValue<string>? Cpu
     {
-        get => new TerraformReference<string>(this, "cpu");
+        get => GetArgument<TerraformValue<string>>("cpu");
         set => SetArgument("cpu", value);
     }
 
@@ -862,7 +862,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// </summary>
     public TerraformValue<string>? Memory
     {
-        get => new TerraformReference<string>(this, "memory");
+        get => GetArgument<TerraformValue<string>>("memory");
         set => SetArgument("memory", value);
     }
 
@@ -884,7 +884,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// </summary>
     public TerraformValue<string>? Effect
     {
-        get => new TerraformReference<string>(this, "effect");
+        get => GetArgument<TerraformValue<string>>("effect");
         set => SetArgument("effect", value);
     }
 
@@ -893,7 +893,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -902,7 +902,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// </summary>
     public TerraformValue<string>? OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -911,7 +911,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -931,9 +931,9 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// <summary>
     ///  Specifies the list of backends Policy Controller will export to. Specifying an empty value `[]` disables metrics export.
     /// </summary>
-    public TerraformList<string> Backends
+    public TerraformList<string>? Backends
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "backends").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("backends");
         set => SetArgument("backends", value);
     }
 
@@ -988,7 +988,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BundleName is required")]
     public required TerraformValue<string> BundleName
     {
-        get => new TerraformReference<string>(this, "bundle_name");
+        get => GetArgument<TerraformValue<string>>("bundle_name");
         set => SetArgument("bundle_name", value);
     }
 
@@ -997,7 +997,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// </summary>
     public TerraformList<string>? ExemptedNamespaces
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exempted_namespaces").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exempted_namespaces");
         set => SetArgument("exempted_namespaces", value);
     }
 
@@ -1019,7 +1019,7 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlockPolicyControllerH
     /// </summary>
     public TerraformValue<string>? Installation
     {
-        get => new TerraformReference<string>(this, "installation");
+        get => GetArgument<TerraformValue<string>>("installation");
         set => SetArgument("installation", value);
     }
 
@@ -1042,7 +1042,7 @@ public class GoogleGkeHubFeatureMembershipTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1051,7 +1051,7 @@ public class GoogleGkeHubFeatureMembershipTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1060,7 +1060,7 @@ public class GoogleGkeHubFeatureMembershipTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1079,16 +1079,16 @@ public partial class GoogleGkeHubFeatureMembership(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Feature is required")]
     public required TerraformValue<string> Feature
     {
-        get => new TerraformReference<string>(this, "feature");
+        get => GetArgument<TerraformValue<string>>("feature");
         set => SetArgument("feature", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1098,7 +1098,7 @@ public partial class GoogleGkeHubFeatureMembership(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1108,7 +1108,7 @@ public partial class GoogleGkeHubFeatureMembership(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Membership is required")]
     public required TerraformValue<string> Membership
     {
-        get => new TerraformReference<string>(this, "membership");
+        get => GetArgument<TerraformValue<string>>("membership");
         set => SetArgument("membership", value);
     }
 
@@ -1117,16 +1117,16 @@ public partial class GoogleGkeHubFeatureMembership(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? MembershipLocation
     {
-        get => new TerraformReference<string>(this, "membership_location");
+        get => GetArgument<TerraformValue<string>>("membership_location");
         set => SetArgument("membership_location", value);
     }
 
     /// <summary>
     /// The project of the feature
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 

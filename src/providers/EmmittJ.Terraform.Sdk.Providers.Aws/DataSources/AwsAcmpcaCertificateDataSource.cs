@@ -14,7 +14,7 @@ public partial class AwsAcmpcaCertificateDataSource(string name) : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -24,25 +24,25 @@ public partial class AwsAcmpcaCertificateDataSource(string name) : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityArn is required")]
     public required TerraformValue<string> CertificateAuthorityArn
     {
-        get => new TerraformReference<string>(this, "certificate_authority_arn");
+        get => GetArgument<TerraformValue<string>>("certificate_authority_arn");
         set => SetArgument("certificate_authority_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -50,16 +50,12 @@ public partial class AwsAcmpcaCertificateDataSource(string name) : TerraformData
     /// The certificate attribute.
     /// </summary>
     public TerraformValue<string> Certificate
-    {
-        get => new TerraformReference<string>(this, "certificate");
-    }
+        => AsReference("certificate");
 
     /// <summary>
     /// The certificate_chain attribute.
     /// </summary>
     public TerraformValue<string> CertificateChain
-    {
-        get => new TerraformReference<string>(this, "certificate_chain");
-    }
+        => AsReference("certificate_chain");
 
 }

@@ -18,27 +18,21 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// terabytes.
     /// </summary>
     public TerraformValue<double> ActualUsedDataStorageSizeTb
-    {
-        get => new TerraformReference<double>(this, "actual_used_data_storage_size_tb");
-    }
+        => AsReference("actual_used_data_storage_size_tb");
 
     /// <summary>
     /// The amount of storage currently allocated for the database tables and
     /// billed for, rounded up in terabytes.
     /// </summary>
     public TerraformValue<double> AllocatedStorageSizeTb
-    {
-        get => new TerraformReference<double>(this, "allocated_storage_size_tb");
-    }
+        => AsReference("allocated_storage_size_tb");
 
     /// <summary>
     /// Oracle APEX Application Development.
     /// https://docs.oracle.com/en-us/iaas/api/#/en/database/20160918/datatypes/AutonomousDatabaseApex
     /// </summary>
     public TerraformList<TerraformMap<object>> ApexDetails
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "apex_details").ResolveNodes(ctx));
-    }
+        => AsReference("apex_details");
 
     /// <summary>
     /// This field indicates the status of Data Guard and Access control for the
@@ -51,35 +45,29 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// compared to primary.
     /// </summary>
     public TerraformValue<bool> ArePrimaryAllowlistedIpsUsed
-    {
-        get => new TerraformReference<bool>(this, "are_primary_allowlisted_ips_used");
-    }
+        => AsReference("are_primary_allowlisted_ips_used");
 
     /// <summary>
     /// The Autonomous Container Database OCID.
     /// </summary>
     public TerraformValue<string> AutonomousContainerDatabaseId
-    {
-        get => new TerraformReference<string>(this, "autonomous_container_database_id");
-    }
+        => AsReference("autonomous_container_database_id");
 
     /// <summary>
     /// The list of available Oracle Database upgrade versions for an Autonomous
     /// Database.
     /// </summary>
     public TerraformList<string> AvailableUpgradeVersions
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "available_upgrade_versions").ResolveNodes(ctx));
-    }
+        => AsReference("available_upgrade_versions");
 
     /// <summary>
     /// The retention period for the Autonomous Database. This field is specified
     /// in days, can range from 1 day to 60 days, and has a default value of
     /// 60 days.
     /// </summary>
-    public TerraformValue<double> BackupRetentionPeriodDays
+    public TerraformValue<double>? BackupRetentionPeriodDays
     {
-        get => new TerraformReference<double>(this, "backup_retention_period_days");
+        get => GetArgument<TerraformValue<double>>("backup_retention_period_days");
         set => SetArgument("backup_retention_period_days", value);
     }
 
@@ -88,16 +76,16 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? CharacterSet
     {
-        get => new TerraformReference<string>(this, "character_set");
+        get => GetArgument<TerraformValue<string>>("character_set");
         set => SetArgument("character_set", value);
     }
 
     /// <summary>
     /// The number of compute servers for the Autonomous Database.
     /// </summary>
-    public TerraformValue<double> ComputeCount
+    public TerraformValue<double>? ComputeCount
     {
-        get => new TerraformReference<double>(this, "compute_count");
+        get => GetArgument<TerraformValue<double>>("compute_count");
         set => SetArgument("compute_count", value);
     }
 
@@ -106,9 +94,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// https://docs.oracle.com/en-us/iaas/api/#/en/database/20160918/datatypes/AutonomousDatabaseConnectionStrings
     /// </summary>
     public TerraformList<TerraformMap<object>> ConnectionStrings
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "connection_strings").ResolveNodes(ctx));
-    }
+        => AsReference("connection_strings");
 
     /// <summary>
     /// The URLs for accessing Oracle Application Express (APEX) and SQL Developer
@@ -116,9 +102,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// https://docs.oracle.com/en-us/iaas/api/#/en/database/20160918/datatypes/AutonomousDatabaseConnectionUrls
     /// </summary>
     public TerraformList<TerraformMap<object>> ConnectionUrls
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "connection_urls").ResolveNodes(ctx));
-    }
+        => AsReference("connection_urls");
 
     /// <summary>
     /// The current state of the Data Safe registration for the
@@ -132,25 +116,23 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// FAILED
     /// </summary>
     public TerraformValue<string> DataSafeState
-    {
-        get => new TerraformReference<string>(this, "data_safe_state");
-    }
+        => AsReference("data_safe_state");
 
     /// <summary>
     /// The size of the data stored in the database, in gigabytes.
     /// </summary>
-    public TerraformValue<double> DataStorageSizeGb
+    public TerraformValue<double>? DataStorageSizeGb
     {
-        get => new TerraformReference<double>(this, "data_storage_size_gb");
+        get => GetArgument<TerraformValue<double>>("data_storage_size_gb");
         set => SetArgument("data_storage_size_gb", value);
     }
 
     /// <summary>
     /// The size of the data stored in the database, in terabytes.
     /// </summary>
-    public TerraformValue<double> DataStorageSizeTb
+    public TerraformValue<double>? DataStorageSizeTb
     {
-        get => new TerraformReference<double>(this, "data_storage_size_tb");
+        get => GetArgument<TerraformValue<double>>("data_storage_size_tb");
         set => SetArgument("data_storage_size_tb", value);
     }
 
@@ -166,9 +148,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// FAILED_DISABLING
     /// </summary>
     public TerraformValue<string> DatabaseManagementState
-    {
-        get => new TerraformReference<string>(this, "database_management_state");
-    }
+        => AsReference("database_management_state");
 
     /// <summary>
     /// The edition of the Autonomous Databases. 
@@ -179,7 +159,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? DbEdition
     {
-        get => new TerraformReference<string>(this, "db_edition");
+        get => GetArgument<TerraformValue<string>>("db_edition");
         set => SetArgument("db_edition", value);
     }
 
@@ -188,7 +168,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? DbVersion
     {
-        get => new TerraformReference<string>(this, "db_version");
+        get => GetArgument<TerraformValue<string>>("db_version");
         set => SetArgument("db_version", value);
     }
 
@@ -203,7 +183,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbWorkload is required")]
     public required TerraformValue<string> DbWorkload
     {
-        get => new TerraformReference<string>(this, "db_workload");
+        get => GetArgument<TerraformValue<string>>("db_workload");
         set => SetArgument("db_workload", value);
     }
 
@@ -212,9 +192,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// Guard failover.
     /// </summary>
     public TerraformValue<string> FailedDataRecoveryDuration
-    {
-        get => new TerraformReference<string>(this, "failed_data_recovery_duration");
-    }
+        => AsReference("failed_data_recovery_duration");
 
     /// <summary>
     /// This field indicates if auto scaling is enabled for the Autonomous Database
@@ -222,7 +200,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? IsAutoScalingEnabled
     {
-        get => new TerraformReference<bool>(this, "is_auto_scaling_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_auto_scaling_enabled");
         set => SetArgument("is_auto_scaling_enabled", value);
     }
 
@@ -231,17 +209,15 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// Data Guard enabled.
     /// </summary>
     public TerraformValue<bool> IsLocalDataGuardEnabled
-    {
-        get => new TerraformReference<bool>(this, "is_local_data_guard_enabled");
-    }
+        => AsReference("is_local_data_guard_enabled");
 
     /// <summary>
     /// This field indicates if auto scaling is enabled for the Autonomous Database
     /// storage.
     /// </summary>
-    public TerraformValue<bool> IsStorageAutoScalingEnabled
+    public TerraformValue<bool>? IsStorageAutoScalingEnabled
     {
-        get => new TerraformReference<bool>(this, "is_storage_auto_scaling_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_storage_auto_scaling_enabled");
         set => SetArgument("is_storage_auto_scaling_enabled", value);
     }
 
@@ -255,7 +231,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseType is required")]
     public required TerraformValue<string> LicenseType
     {
-        get => new TerraformReference<string>(this, "license_type");
+        get => GetArgument<TerraformValue<string>>("license_type");
         set => SetArgument("license_type", value);
     }
 
@@ -263,18 +239,14 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// The details of the current lifestyle state of the Autonomous Database.
     /// </summary>
     public TerraformValue<string> LifecycleDetails
-    {
-        get => new TerraformReference<string>(this, "lifecycle_details");
-    }
+        => AsReference("lifecycle_details");
 
     /// <summary>
     /// This field indicates the maximum data loss limit for an Autonomous
     /// Database, in seconds.
     /// </summary>
     public TerraformValue<double> LocalAdgAutoFailoverMaxDataLossLimit
-    {
-        get => new TerraformReference<double>(this, "local_adg_auto_failover_max_data_loss_limit");
-    }
+        => AsReference("local_adg_auto_failover_max_data_loss_limit");
 
     /// <summary>
     /// This field indicates the local disaster recovery (DR) type of an
@@ -285,34 +257,26 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// BACKUP_BASED
     /// </summary>
     public TerraformValue<string> LocalDisasterRecoveryType
-    {
-        get => new TerraformReference<string>(this, "local_disaster_recovery_type");
-    }
+        => AsReference("local_disaster_recovery_type");
 
     /// <summary>
     /// Autonomous Data Guard standby database details.
     /// https://docs.oracle.com/en-us/iaas/api/#/en/database/20160918/datatypes/AutonomousDatabaseStandbySummary
     /// </summary>
     public TerraformList<TerraformMap<object>> LocalStandbyDb
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "local_standby_db").ResolveNodes(ctx));
-    }
+        => AsReference("local_standby_db");
 
     /// <summary>
     /// The date and time when maintenance will begin.
     /// </summary>
     public TerraformValue<string> MaintenanceBeginTime
-    {
-        get => new TerraformReference<string>(this, "maintenance_begin_time");
-    }
+        => AsReference("maintenance_begin_time");
 
     /// <summary>
     /// The date and time when maintenance will end.
     /// </summary>
     public TerraformValue<string> MaintenanceEndTime
-    {
-        get => new TerraformReference<string>(this, "maintenance_end_time");
-    }
+        => AsReference("maintenance_end_time");
 
     /// <summary>
     /// The maintenance schedule of the Autonomous Database. 
@@ -321,9 +285,9 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// EARLY
     /// REGULAR
     /// </summary>
-    public TerraformValue<string> MaintenanceScheduleType
+    public TerraformValue<string>? MaintenanceScheduleType
     {
-        get => new TerraformReference<string>(this, "maintenance_schedule_type");
+        get => GetArgument<TerraformValue<string>>("maintenance_schedule_type");
         set => SetArgument("maintenance_schedule_type", value);
     }
 
@@ -331,24 +295,20 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// The amount of memory enabled per ECPU, in gigabytes.
     /// </summary>
     public TerraformValue<double> MemoryPerOracleComputeUnitGbs
-    {
-        get => new TerraformReference<double>(this, "memory_per_oracle_compute_unit_gbs");
-    }
+        => AsReference("memory_per_oracle_compute_unit_gbs");
 
     /// <summary>
     /// The memory assigned to in-memory tables in an Autonomous Database.
     /// </summary>
     public TerraformValue<double> MemoryTableGbs
-    {
-        get => new TerraformReference<double>(this, "memory_table_gbs");
-    }
+        => AsReference("memory_table_gbs");
 
     /// <summary>
     /// This field specifies if the Autonomous Database requires mTLS connections.
     /// </summary>
     public TerraformValue<bool>? MtlsConnectionRequired
     {
-        get => new TerraformReference<bool>(this, "mtls_connection_required");
+        get => GetArgument<TerraformValue<bool>>("mtls_connection_required");
         set => SetArgument("mtls_connection_required", value);
     }
 
@@ -358,7 +318,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? NCharacterSet
     {
-        get => new TerraformReference<string>(this, "n_character_set");
+        get => GetArgument<TerraformValue<string>>("n_character_set");
         set => SetArgument("n_character_set", value);
     }
 
@@ -366,26 +326,20 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// The long term backup schedule of the Autonomous Database.
     /// </summary>
     public TerraformValue<string> NextLongTermBackupTime
-    {
-        get => new TerraformReference<string>(this, "next_long_term_backup_time");
-    }
+        => AsReference("next_long_term_backup_time");
 
     /// <summary>
     /// The Oracle Cloud Infrastructure link for the Autonomous Database.
     /// </summary>
     public TerraformValue<string> OciUrl
-    {
-        get => new TerraformReference<string>(this, "oci_url");
-    }
+        => AsReference("oci_url");
 
     /// <summary>
     /// OCID of the Autonomous Database.
     /// https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm#Oracle
     /// </summary>
     public TerraformValue<string> Ocid
-    {
-        get => new TerraformReference<string>(this, "ocid");
-    }
+        => AsReference("ocid");
 
     /// <summary>
     /// This field indicates the current mode of the Autonomous Database. 
@@ -395,9 +349,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// READ_WRITE
     /// </summary>
     public TerraformValue<string> OpenMode
-    {
-        get => new TerraformReference<string>(this, "open_mode");
-    }
+        => AsReference("open_mode");
 
     /// <summary>
     /// Possible values:
@@ -409,9 +361,9 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// FAILED_ENABLING
     /// FAILED_DISABLING
     /// </summary>
-    public TerraformValue<string> OperationsInsightsState
+    public TerraformValue<string>? OperationsInsightsState
     {
-        get => new TerraformReference<string>(this, "operations_insights_state");
+        get => GetArgument<TerraformValue<string>>("operations_insights_state");
         set => SetArgument("operations_insights_state", value);
     }
 
@@ -420,9 +372,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// remote regions that are associated with the source database.
     /// </summary>
     public TerraformList<string> PeerDbIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "peer_db_ids").ResolveNodes(ctx));
-    }
+        => AsReference("peer_db_ids");
 
     /// <summary>
     /// The permission level of the Autonomous Database. 
@@ -432,33 +382,29 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// UNRESTRICTED
     /// </summary>
     public TerraformValue<string> PermissionLevel
-    {
-        get => new TerraformReference<string>(this, "permission_level");
-    }
+        => AsReference("permission_level");
 
     /// <summary>
     /// The private endpoint for the Autonomous Database.
     /// </summary>
     public TerraformValue<string> PrivateEndpoint
-    {
-        get => new TerraformReference<string>(this, "private_endpoint");
-    }
+        => AsReference("private_endpoint");
 
     /// <summary>
     /// The private endpoint IP address for the Autonomous Database.
     /// </summary>
-    public TerraformValue<string> PrivateEndpointIp
+    public TerraformValue<string>? PrivateEndpointIp
     {
-        get => new TerraformReference<string>(this, "private_endpoint_ip");
+        get => GetArgument<TerraformValue<string>>("private_endpoint_ip");
         set => SetArgument("private_endpoint_ip", value);
     }
 
     /// <summary>
     /// The private endpoint label for the Autonomous Database.
     /// </summary>
-    public TerraformValue<string> PrivateEndpointLabel
+    public TerraformValue<string>? PrivateEndpointLabel
     {
-        get => new TerraformReference<string>(this, "private_endpoint_label");
+        get => GetArgument<TerraformValue<string>>("private_endpoint_label");
         set => SetArgument("private_endpoint_label", value);
     }
 
@@ -470,9 +416,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// MANUAL
     /// </summary>
     public TerraformValue<string> RefreshableMode
-    {
-        get => new TerraformReference<string>(this, "refreshable_mode");
-    }
+        => AsReference("refreshable_mode");
 
     /// <summary>
     /// The refresh State of the clone. 
@@ -482,9 +426,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// NOT_REFRESHING
     /// </summary>
     public TerraformValue<string> RefreshableState
-    {
-        get => new TerraformReference<string>(this, "refreshable_state");
-    }
+        => AsReference("refreshable_state");
 
     /// <summary>
     /// The Data Guard role of the Autonomous Database. 
@@ -497,26 +439,20 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// SNAPSHOT_STANDBY
     /// </summary>
     public TerraformValue<string> Role
-    {
-        get => new TerraformReference<string>(this, "role");
-    }
+        => AsReference("role");
 
     /// <summary>
     /// The list and details of the scheduled operations of the Autonomous
     /// Database.
     /// </summary>
     public TerraformList<TerraformMap<object>> ScheduledOperationDetails
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "scheduled_operation_details").ResolveNodes(ctx));
-    }
+        => AsReference("scheduled_operation_details");
 
     /// <summary>
     /// The SQL Web Developer URL for the Autonomous Database.
     /// </summary>
     public TerraformValue<string> SqlWebDeveloperUrl
-    {
-        get => new TerraformReference<string>(this, "sql_web_developer_url");
-    }
+        => AsReference("sql_web_developer_url");
 
     /// <summary>
     /// Possible values:
@@ -544,35 +480,27 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBl
     /// STANDBY
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The list of available regions that can be used to create a clone for the
     /// Autonomous Database.
     /// </summary>
     public TerraformList<string> SupportedCloneRegions
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supported_clone_regions").ResolveNodes(ctx));
-    }
+        => AsReference("supported_clone_regions");
 
     /// <summary>
     /// The storage space used by automatic backups of Autonomous Database, in
     /// gigabytes.
     /// </summary>
     public TerraformValue<double> TotalAutoBackupStorageSizeGbs
-    {
-        get => new TerraformReference<double>(this, "total_auto_backup_storage_size_gbs");
-    }
+        => AsReference("total_auto_backup_storage_size_gbs");
 
     /// <summary>
     /// The storage space used by Autonomous Database, in gigabytes.
     /// </summary>
     public TerraformValue<double> UsedDataStorageSizeTbs
-    {
-        get => new TerraformReference<double>(this, "used_data_storage_size_tbs");
-    }
+        => AsReference("used_data_storage_size_tbs");
 
     /// <summary>
     /// CustomerContacts block (nesting mode: list).
@@ -603,7 +531,7 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlockCustomerContac
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -626,7 +554,7 @@ public class GoogleOracleDatabaseAutonomousDatabaseTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -635,7 +563,7 @@ public class GoogleOracleDatabaseAutonomousDatabaseTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -644,7 +572,7 @@ public class GoogleOracleDatabaseAutonomousDatabaseTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -662,7 +590,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     /// </summary>
     public TerraformValue<string>? AdminPassword
     {
-        get => new TerraformReference<string>(this, "admin_password");
+        get => GetArgument<TerraformValue<string>>("admin_password");
         set => SetArgument("admin_password", value);
     }
 
@@ -675,7 +603,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDatabaseId is required")]
     public required TerraformValue<string> AutonomousDatabaseId
     {
-        get => new TerraformReference<string>(this, "autonomous_database_id");
+        get => GetArgument<TerraformValue<string>>("autonomous_database_id");
         set => SetArgument("autonomous_database_id", value);
     }
 
@@ -684,7 +612,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     /// </summary>
     public TerraformValue<string>? Cidr
     {
-        get => new TerraformReference<string>(this, "cidr");
+        get => GetArgument<TerraformValue<string>>("cidr");
         set => SetArgument("cidr", value);
     }
 
@@ -696,7 +624,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -705,7 +633,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     /// </summary>
     public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
@@ -713,18 +641,18 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     /// The display name for the Autonomous Database. The name does not have to
     /// be unique within your project.
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -736,7 +664,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -746,7 +674,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -756,7 +684,7 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     /// </summary>
     public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -767,9 +695,9 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     /// It is optional but if specified, this should match the parent ODBNetwork of
     /// the odb_subnet and backup_odb_subnet.
     /// </summary>
-    public TerraformValue<string> OdbNetwork
+    public TerraformValue<string>? OdbNetwork
     {
-        get => new TerraformReference<string>(this, "odb_network");
+        get => GetArgument<TerraformValue<string>>("odb_network");
         set => SetArgument("odb_network", value);
     }
 
@@ -778,18 +706,18 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     /// IP allocation. Format:
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
-    public TerraformValue<string> OdbSubnet
+    public TerraformValue<string>? OdbSubnet
     {
-        get => new TerraformReference<string>(this, "odb_subnet");
+        get => GetArgument<TerraformValue<string>>("odb_subnet");
         set => SetArgument("odb_subnet", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -797,44 +725,34 @@ public partial class GoogleOracleDatabaseAutonomousDatabase(string name) : Terra
     /// The date and time that the Autonomous Database was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The ID of the subscription entitlement associated with the Autonomous
     /// Database.
     /// </summary>
     public TerraformValue<string> EntitlementId
-    {
-        get => new TerraformReference<string>(this, "entitlement_id");
-    }
+        => AsReference("entitlement_id");
 
     /// <summary>
     /// Identifier. The name of the Autonomous Database resource in the following format:
     /// projects/{project}/locations/{region}/autonomousDatabases/{autonomous_database}
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Properties block (nesting mode: list).

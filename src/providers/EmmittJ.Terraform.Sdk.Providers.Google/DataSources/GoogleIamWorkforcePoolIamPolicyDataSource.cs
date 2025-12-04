@@ -11,18 +11,18 @@ public partial class GoogleIamWorkforcePoolIamPolicyDataSource(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformValue<string> Location
+    public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleIamWorkforcePoolIamPolicyDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     public required TerraformValue<string> WorkforcePoolId
     {
-        get => new TerraformReference<string>(this, "workforce_pool_id");
+        get => GetArgument<TerraformValue<string>>("workforce_pool_id");
         set => SetArgument("workforce_pool_id", value);
     }
 
@@ -40,16 +40,12 @@ public partial class GoogleIamWorkforcePoolIamPolicyDataSource(string name) : Te
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     public TerraformValue<string> PolicyData
-    {
-        get => new TerraformReference<string>(this, "policy_data");
-    }
+        => AsReference("policy_data");
 
 }

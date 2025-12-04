@@ -13,16 +13,16 @@ public partial class AwsKmsKeyPolicy(string name) : TerraformResource("aws_kms_k
     /// </summary>
     public TerraformValue<bool>? BypassPolicyLockoutSafetyCheck
     {
-        get => new TerraformReference<bool>(this, "bypass_policy_lockout_safety_check");
+        get => GetArgument<TerraformValue<bool>>("bypass_policy_lockout_safety_check");
         set => SetArgument("bypass_policy_lockout_safety_check", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsKmsKeyPolicy(string name) : TerraformResource("aws_kms_k
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformValue<string> KeyId
     {
-        get => new TerraformReference<string>(this, "key_id");
+        get => GetArgument<TerraformValue<string>>("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -42,16 +42,16 @@ public partial class AwsKmsKeyPolicy(string name) : TerraformResource("aws_kms_k
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformValue<string> Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

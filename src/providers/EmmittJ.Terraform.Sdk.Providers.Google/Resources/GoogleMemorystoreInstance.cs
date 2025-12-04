@@ -21,7 +21,7 @@ public class GoogleMemorystoreInstanceAutomatedBackupConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Retention is required")]
     public required TerraformValue<string> Retention
     {
-        get => new TerraformReference<string>(this, "retention");
+        get => GetArgument<TerraformValue<string>>("retention");
         set => SetArgument("retention", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleMemorystoreInstanceAutomatedBackupConfigBlockFixedFrequencySc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hours is required")]
     public required TerraformValue<double> Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleMemorystoreInstanceCrossInstanceReplicationConfigBlock : Terr
     /// </summary>
     public TerraformValue<string>? InstanceRole
     {
-        get => new TerraformReference<string>(this, "instance_role");
+        get => GetArgument<TerraformValue<string>>("instance_role");
         set => SetArgument("instance_role", value);
     }
 
@@ -119,17 +119,13 @@ public class GoogleMemorystoreInstanceCrossInstanceReplicationConfigBlock : Terr
     /// An output only view of all the member instance participating in cross instance replication. This field is populated for all the member clusters irrespective of their cluster role.
     /// </summary>
     public TerraformList<TerraformMap<object>> Membership
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "membership").ResolveNodes(ctx));
-    }
+        => AsReference("membership");
 
     /// <summary>
     /// The last time cross instance replication config was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// PrimaryInstance block (nesting mode: list).
@@ -168,7 +164,7 @@ public class GoogleMemorystoreInstanceCrossInstanceReplicationConfigBlockPrimary
     /// </summary>
     public TerraformValue<string>? Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -176,9 +172,7 @@ public class GoogleMemorystoreInstanceCrossInstanceReplicationConfigBlockPrimary
     /// The unique id of the primary instance.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
 }
 
@@ -198,7 +192,7 @@ public class GoogleMemorystoreInstanceCrossInstanceReplicationConfigBlockSeconda
     /// </summary>
     public TerraformValue<string>? Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -206,9 +200,7 @@ public class GoogleMemorystoreInstanceCrossInstanceReplicationConfigBlockSeconda
     /// The unique id of the Nth instance.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
 }
 
@@ -231,7 +223,7 @@ public class GoogleMemorystoreInstanceDesiredAutoCreatedEndpointsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -241,7 +233,7 @@ public class GoogleMemorystoreInstanceDesiredAutoCreatedEndpointsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -267,7 +259,7 @@ public class GoogleMemorystoreInstanceDesiredPscAutoConnectionsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -277,7 +269,7 @@ public class GoogleMemorystoreInstanceDesiredPscAutoConnectionsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -302,7 +294,7 @@ public class GoogleMemorystoreInstanceGcsSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uris is required")]
     public required TerraformSet<string> Uris
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("uris");
         set => SetArgument("uris", value);
     }
 
@@ -326,9 +318,7 @@ public class GoogleMemorystoreInstanceMaintenancePolicyBlock : TerraformBlock
     /// resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The time when the policy was last updated.
@@ -336,9 +326,7 @@ public class GoogleMemorystoreInstanceMaintenancePolicyBlock : TerraformBlock
     /// resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// WeeklyMaintenanceWindow block (nesting mode: list).
@@ -377,7 +365,7 @@ public class GoogleMemorystoreInstanceMaintenancePolicyBlockWeeklyMaintenanceWin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<string> Day
     {
-        get => new TerraformReference<string>(this, "day");
+        get => GetArgument<TerraformValue<string>>("day");
         set => SetArgument("day", value);
     }
 
@@ -388,9 +376,7 @@ public class GoogleMemorystoreInstanceMaintenancePolicyBlockWeeklyMaintenanceWin
     /// terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
     public TerraformValue<string> Duration
-    {
-        get => new TerraformReference<string>(this, "duration");
-    }
+        => AsReference("duration");
 
     /// <summary>
     /// StartTime block (nesting mode: list).
@@ -424,7 +410,7 @@ public class GoogleMemorystoreInstanceMaintenancePolicyBlockWeeklyMaintenanceWin
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -433,7 +419,7 @@ public class GoogleMemorystoreInstanceMaintenancePolicyBlockWeeklyMaintenanceWin
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -442,7 +428,7 @@ public class GoogleMemorystoreInstanceMaintenancePolicyBlockWeeklyMaintenanceWin
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -452,7 +438,7 @@ public class GoogleMemorystoreInstanceMaintenancePolicyBlockWeeklyMaintenanceWin
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -476,7 +462,7 @@ public class GoogleMemorystoreInstanceManagedBackupSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backup is required")]
     public required TerraformValue<string> Backup
     {
-        get => new TerraformReference<string>(this, "backup");
+        get => GetArgument<TerraformValue<string>>("backup");
         set => SetArgument("backup", value);
     }
 
@@ -501,9 +487,9 @@ public class GoogleMemorystoreInstancePersistenceConfigBlock : TerraformBlock
     /// RDB
     /// AOF Possible values: [&amp;quot;DISABLED&amp;quot;, &amp;quot;RDB&amp;quot;, &amp;quot;AOF&amp;quot;]
     /// </summary>
-    public TerraformValue<string> Mode
+    public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -547,9 +533,9 @@ public class GoogleMemorystoreInstancePersistenceConfigBlockAofConfigBlock : Ter
     /// EVERY_SEC
     /// ALWAYS
     /// </summary>
-    public TerraformValue<string> AppendFsync
+    public TerraformValue<string>? AppendFsync
     {
-        get => new TerraformReference<string>(this, "append_fsync");
+        get => GetArgument<TerraformValue<string>>("append_fsync");
         set => SetArgument("append_fsync", value);
     }
 
@@ -574,9 +560,9 @@ public class GoogleMemorystoreInstancePersistenceConfigBlockRdbConfigBlock : Ter
     /// TWELVE_HOURS
     /// TWENTY_FOUR_HOURS
     /// </summary>
-    public TerraformValue<string> RdbSnapshotPeriod
+    public TerraformValue<string>? RdbSnapshotPeriod
     {
-        get => new TerraformReference<string>(this, "rdb_snapshot_period");
+        get => GetArgument<TerraformValue<string>>("rdb_snapshot_period");
         set => SetArgument("rdb_snapshot_period", value);
     }
 
@@ -585,9 +571,9 @@ public class GoogleMemorystoreInstancePersistenceConfigBlockRdbConfigBlock : Ter
     /// snapshots will be aligned. If not provided, the current time will be
     /// used.
     /// </summary>
-    public TerraformValue<string> RdbSnapshotStartTime
+    public TerraformValue<string>? RdbSnapshotStartTime
     {
-        get => new TerraformReference<string>(this, "rdb_snapshot_start_time");
+        get => GetArgument<TerraformValue<string>>("rdb_snapshot_start_time");
         set => SetArgument("rdb_snapshot_start_time", value);
     }
 
@@ -610,7 +596,7 @@ public class GoogleMemorystoreInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -619,7 +605,7 @@ public class GoogleMemorystoreInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -628,7 +614,7 @@ public class GoogleMemorystoreInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -652,9 +638,9 @@ public class GoogleMemorystoreInstanceZoneDistributionConfigBlock : TerraformBlo
     ///  MULTI_ZONE
     /// SINGLE_ZONE Possible values: [&amp;quot;MULTI_ZONE&amp;quot;, &amp;quot;SINGLE_ZONE&amp;quot;]
     /// </summary>
-    public TerraformValue<string> Mode
+    public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -664,7 +650,7 @@ public class GoogleMemorystoreInstanceZoneDistributionConfigBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -682,9 +668,9 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     ///  AUTH_DISABLED
     /// IAM_AUTH
     /// </summary>
-    public TerraformValue<string> AuthorizationMode
+    public TerraformValue<string>? AuthorizationMode
     {
-        get => new TerraformReference<string>(this, "authorization_mode");
+        get => GetArgument<TerraformValue<string>>("authorization_mode");
         set => SetArgument("authorization_mode", value);
     }
 
@@ -693,7 +679,7 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? DeletionProtectionEnabled
     {
-        get => new TerraformReference<bool>(this, "deletion_protection_enabled");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection_enabled");
         set => SetArgument("deletion_protection_enabled", value);
     }
 
@@ -702,25 +688,25 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? EngineConfigs
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "engine_configs").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("engine_configs");
         set => SetArgument("engine_configs", value);
     }
 
     /// <summary>
     /// Optional. Engine version of the instance.
     /// </summary>
-    public TerraformValue<string> EngineVersion
+    public TerraformValue<string>? EngineVersion
     {
-        get => new TerraformReference<string>(this, "engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version");
         set => SetArgument("engine_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -739,7 +725,7 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => new TerraformReference<string>(this, "instance_id");
+        get => GetArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
@@ -748,7 +734,7 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -760,7 +746,7 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -770,7 +756,7 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -780,7 +766,7 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? MaintenanceVersion
     {
-        get => new TerraformReference<string>(this, "maintenance_version");
+        get => GetArgument<TerraformValue<string>>("maintenance_version");
         set => SetArgument("maintenance_version", value);
     }
 
@@ -790,9 +776,9 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     ///  CLUSTER
     ///  CLUSTER_DISABLED Possible values: [&amp;quot;CLUSTER&amp;quot;, &amp;quot;CLUSTER_DISABLED&amp;quot;]
     /// </summary>
-    public TerraformValue<string> Mode
+    public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -804,27 +790,27 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     /// HIGHMEM_XLARGE
     /// STANDARD_SMALL
     /// </summary>
-    public TerraformValue<string> NodeType
+    public TerraformValue<string>? NodeType
     {
-        get => new TerraformReference<string>(this, "node_type");
+        get => GetArgument<TerraformValue<string>>("node_type");
         set => SetArgument("node_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Optional. Number of replica nodes per shard. If omitted the default is 0 replicas.
     /// </summary>
-    public TerraformValue<double> ReplicaCount
+    public TerraformValue<double>? ReplicaCount
     {
-        get => new TerraformReference<double>(this, "replica_count");
+        get => GetArgument<TerraformValue<double>>("replica_count");
         set => SetArgument("replica_count", value);
     }
 
@@ -834,7 +820,7 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShardCount is required")]
     public required TerraformValue<double> ShardCount
     {
-        get => new TerraformReference<double>(this, "shard_count");
+        get => GetArgument<TerraformValue<double>>("shard_count");
         set => SetArgument("shard_count", value);
     }
 
@@ -844,9 +830,9 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     ///  TRANSIT_ENCRYPTION_DISABLED
     /// SERVER_AUTHENTICATION
     /// </summary>
-    public TerraformValue<string> TransitEncryptionMode
+    public TerraformValue<string>? TransitEncryptionMode
     {
-        get => new TerraformReference<string>(this, "transit_encryption_mode");
+        get => GetArgument<TerraformValue<string>>("transit_encryption_mode");
         set => SetArgument("transit_encryption_mode", value);
     }
 
@@ -854,109 +840,83 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     /// This field is used to determine the available maintenance versions for the self service update.
     /// </summary>
     public TerraformList<string> AvailableMaintenanceVersions
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "available_maintenance_versions").ResolveNodes(ctx));
-    }
+        => AsReference("available_maintenance_versions");
 
     /// <summary>
     /// The backup collection full resource name.
     /// Example: projects/{project}/locations/{location}/backupCollections/{collection}
     /// </summary>
     public TerraformValue<string> BackupCollection
-    {
-        get => new TerraformReference<string>(this, "backup_collection");
-    }
+        => AsReference("backup_collection");
 
     /// <summary>
     /// Output only. Creation timestamp of the instance.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Deprecated. Output only. Endpoints clients can connect to the instance through.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformList<TerraformMap<object>> DiscoveryEndpoints
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "discovery_endpoints").ResolveNodes(ctx));
-    }
+        => AsReference("discovery_endpoints");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// This field represents the actual maintenance version of the cluster.
     /// </summary>
     public TerraformValue<string> EffectiveMaintenanceVersion
-    {
-        get => new TerraformReference<string>(this, "effective_maintenance_version");
-    }
+        => AsReference("effective_maintenance_version");
 
     /// <summary>
     /// Endpoints for the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> Endpoints
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "endpoints").ResolveNodes(ctx));
-    }
+        => AsReference("endpoints");
 
     /// <summary>
     /// Upcoming maintenance schedule.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenanceSchedule
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "maintenance_schedule").ResolveNodes(ctx));
-    }
+        => AsReference("maintenance_schedule");
 
     /// <summary>
     /// Instance&#39;s Certificate Authority. This field will only be populated if instance&#39;s transit_encryption_mode is SERVER_AUTHENTICATION
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedServerCa
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "managed_server_ca").ResolveNodes(ctx));
-    }
+        => AsReference("managed_server_ca");
 
     /// <summary>
     /// Identifier. Unique name of the instance.
     /// Format: projects/{project}/locations/{location}/instances/{instance}
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Represents configuration for nodes of the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> NodeConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "node_config").ResolveNodes(ctx));
-    }
+        => AsReference("node_config");
 
     /// <summary>
     /// Configuration of a service attachment of the cluster, for creating PSC connections.
     /// </summary>
     public TerraformList<TerraformMap<object>> PscAttachmentDetails
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "psc_attachment_details").ResolveNodes(ctx));
-    }
+        => AsReference("psc_attachment_details");
 
     /// <summary>
     /// Output only. User inputs and resource details of the auto-created PSC connections.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformList<TerraformMap<object>> PscAutoConnections
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "psc_auto_connections").ResolveNodes(ctx));
-    }
+        => AsReference("psc_auto_connections");
 
     /// <summary>
     /// Output only. Current state of the instance. 
@@ -967,42 +927,32 @@ public partial class GoogleMemorystoreInstance(string name) : TerraformResource(
     /// DELETING
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Additional information about the state of the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> StateInfo
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "state_info").ResolveNodes(ctx));
-    }
+        => AsReference("state_info");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Output only. System assigned, unique identifier for the instance.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Output only. Latest update timestamp of the instance.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// AutomatedBackupConfig block (nesting mode: list).

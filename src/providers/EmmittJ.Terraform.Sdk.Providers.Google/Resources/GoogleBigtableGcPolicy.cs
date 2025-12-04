@@ -17,18 +17,18 @@ public class GoogleBigtableGcPolicyMaxAgeBlock : TerraformBlock
     /// Number of days before applying GC policy.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<double> Days
+    public TerraformValue<double>? Days
     {
-        get => new TerraformReference<double>(this, "days");
+        get => GetArgument<TerraformValue<double>>("days");
         set => SetArgument("days", value);
     }
 
     /// <summary>
     /// Duration before applying GC policy
     /// </summary>
-    public TerraformValue<string> Duration
+    public TerraformValue<string>? Duration
     {
-        get => new TerraformReference<string>(this, "duration");
+        get => GetArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleBigtableGcPolicyMaxVersionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Number is required")]
     public required TerraformValue<double> Number
     {
-        get => new TerraformReference<double>(this, "number");
+        get => GetArgument<TerraformValue<double>>("number");
         set => SetArgument("number", value);
     }
 
@@ -75,7 +75,7 @@ public class GoogleBigtableGcPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleBigtableGcPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -103,7 +103,7 @@ public partial class GoogleBigtableGcPolicy(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnFamily is required")]
     public required TerraformValue<string> ColumnFamily
     {
-        get => new TerraformReference<string>(this, "column_family");
+        get => GetArgument<TerraformValue<string>>("column_family");
         set => SetArgument("column_family", value);
     }
 
@@ -114,7 +114,7 @@ public partial class GoogleBigtableGcPolicy(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? DeletionPolicy
     {
-        get => new TerraformReference<string>(this, "deletion_policy");
+        get => GetArgument<TerraformValue<string>>("deletion_policy");
         set => SetArgument("deletion_policy", value);
     }
 
@@ -123,16 +123,16 @@ public partial class GoogleBigtableGcPolicy(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? GcRules
     {
-        get => new TerraformReference<string>(this, "gc_rules");
+        get => GetArgument<TerraformValue<string>>("gc_rules");
         set => SetArgument("gc_rules", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -144,7 +144,7 @@ public partial class GoogleBigtableGcPolicy(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool>? IgnoreWarnings
     {
-        get => new TerraformReference<bool>(this, "ignore_warnings");
+        get => GetArgument<TerraformValue<bool>>("ignore_warnings");
         set => SetArgument("ignore_warnings", value);
     }
 
@@ -154,7 +154,7 @@ public partial class GoogleBigtableGcPolicy(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformValue<string> InstanceName
     {
-        get => new TerraformReference<string>(this, "instance_name");
+        get => GetArgument<TerraformValue<string>>("instance_name");
         set => SetArgument("instance_name", value);
     }
 
@@ -163,16 +163,16 @@ public partial class GoogleBigtableGcPolicy(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -182,7 +182,7 @@ public partial class GoogleBigtableGcPolicy(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 

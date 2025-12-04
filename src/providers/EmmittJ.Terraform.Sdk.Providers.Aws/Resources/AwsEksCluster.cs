@@ -16,9 +16,9 @@ public class AwsEksClusterAccessConfigBlock : TerraformBlock
     /// <summary>
     /// The authentication_mode attribute.
     /// </summary>
-    public TerraformValue<string> AuthenticationMode
+    public TerraformValue<string>? AuthenticationMode
     {
-        get => new TerraformReference<string>(this, "authentication_mode");
+        get => GetArgument<TerraformValue<string>>("authentication_mode");
         set => SetArgument("authentication_mode", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsEksClusterAccessConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? BootstrapClusterCreatorAdminPermissions
     {
-        get => new TerraformReference<bool>(this, "bootstrap_cluster_creator_admin_permissions");
+        get => GetArgument<TerraformValue<bool>>("bootstrap_cluster_creator_admin_permissions");
         set => SetArgument("bootstrap_cluster_creator_admin_permissions", value);
     }
 
@@ -48,9 +48,9 @@ public class AwsEksClusterComputeConfigBlock : TerraformBlock
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool> Enabled
+    public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsEksClusterComputeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? NodePools
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "node_pools").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("node_pools");
         set => SetArgument("node_pools", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsEksClusterComputeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? NodeRoleArn
     {
-        get => new TerraformReference<string>(this, "node_role_arn");
+        get => GetArgument<TerraformValue<string>>("node_role_arn");
         set => SetArgument("node_role_arn", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsEksClusterEncryptionConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resources is required")]
     public required TerraformSet<string> Resources
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "resources").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("resources");
         set => SetArgument("resources", value);
     }
 
@@ -128,7 +128,7 @@ public class AwsEksClusterEncryptionConfigBlockProviderAttributeBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyArn is required")]
     public required TerraformValue<string> KeyArn
     {
-        get => new TerraformReference<string>(this, "key_arn");
+        get => GetArgument<TerraformValue<string>>("key_arn");
         set => SetArgument("key_arn", value);
     }
 
@@ -149,18 +149,18 @@ public class AwsEksClusterKubernetesNetworkConfigBlock : TerraformBlock
     /// <summary>
     /// The ip_family attribute.
     /// </summary>
-    public TerraformValue<string> IpFamily
+    public TerraformValue<string>? IpFamily
     {
-        get => new TerraformReference<string>(this, "ip_family");
+        get => GetArgument<TerraformValue<string>>("ip_family");
         set => SetArgument("ip_family", value);
     }
 
     /// <summary>
     /// The service_ipv4_cidr attribute.
     /// </summary>
-    public TerraformValue<string> ServiceIpv4Cidr
+    public TerraformValue<string>? ServiceIpv4Cidr
     {
-        get => new TerraformReference<string>(this, "service_ipv4_cidr");
+        get => GetArgument<TerraformValue<string>>("service_ipv4_cidr");
         set => SetArgument("service_ipv4_cidr", value);
     }
 
@@ -168,9 +168,7 @@ public class AwsEksClusterKubernetesNetworkConfigBlock : TerraformBlock
     /// The service_ipv6_cidr attribute.
     /// </summary>
     public TerraformValue<string> ServiceIpv6Cidr
-    {
-        get => new TerraformReference<string>(this, "service_ipv6_cidr");
-    }
+        => AsReference("service_ipv6_cidr");
 
     /// <summary>
     /// ElasticLoadBalancing block (nesting mode: list).
@@ -198,9 +196,9 @@ public class AwsEksClusterKubernetesNetworkConfigBlockElasticLoadBalancingBlock 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool> Enabled
+    public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -224,7 +222,7 @@ public class AwsEksClusterOutpostConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlPlaneInstanceType is required")]
     public required TerraformValue<string> ControlPlaneInstanceType
     {
-        get => new TerraformReference<string>(this, "control_plane_instance_type");
+        get => GetArgument<TerraformValue<string>>("control_plane_instance_type");
         set => SetArgument("control_plane_instance_type", value);
     }
 
@@ -234,7 +232,7 @@ public class AwsEksClusterOutpostConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutpostArns is required")]
     public required TerraformSet<string> OutpostArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "outpost_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("outpost_arns");
         set => SetArgument("outpost_arns", value);
     }
 
@@ -267,7 +265,7 @@ public class AwsEksClusterOutpostConfigBlockControlPlanePlacementBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     public required TerraformValue<string> GroupName
     {
-        get => new TerraformReference<string>(this, "group_name");
+        get => GetArgument<TerraformValue<string>>("group_name");
         set => SetArgument("group_name", value);
     }
 
@@ -326,7 +324,7 @@ public class AwsEksClusterRemoteNetworkConfigBlockRemoteNodeNetworksBlock : Terr
     /// </summary>
     public TerraformSet<string>? Cidrs
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "cidrs").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("cidrs");
         set => SetArgument("cidrs", value);
     }
 
@@ -348,7 +346,7 @@ public class AwsEksClusterRemoteNetworkConfigBlockRemotePodNetworksBlock : Terra
     /// </summary>
     public TerraformSet<string>? Cidrs
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "cidrs").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("cidrs");
         set => SetArgument("cidrs", value);
     }
 
@@ -392,9 +390,9 @@ public class AwsEksClusterStorageConfigBlockBlockStorageBlock : TerraformBlock
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool> Enabled
+    public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -417,7 +415,7 @@ public class AwsEksClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -426,7 +424,7 @@ public class AwsEksClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -435,7 +433,7 @@ public class AwsEksClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -456,9 +454,9 @@ public class AwsEksClusterUpgradePolicyBlock : TerraformBlock
     /// <summary>
     /// The support_type attribute.
     /// </summary>
-    public TerraformValue<string> SupportType
+    public TerraformValue<string>? SupportType
     {
-        get => new TerraformReference<string>(this, "support_type");
+        get => GetArgument<TerraformValue<string>>("support_type");
         set => SetArgument("support_type", value);
     }
 
@@ -480,16 +478,14 @@ public class AwsEksClusterVpcConfigBlock : TerraformBlock
     /// The cluster_security_group_id attribute.
     /// </summary>
     public TerraformValue<string> ClusterSecurityGroupId
-    {
-        get => new TerraformReference<string>(this, "cluster_security_group_id");
-    }
+        => AsReference("cluster_security_group_id");
 
     /// <summary>
     /// The endpoint_private_access attribute.
     /// </summary>
     public TerraformValue<bool>? EndpointPrivateAccess
     {
-        get => new TerraformReference<bool>(this, "endpoint_private_access");
+        get => GetArgument<TerraformValue<bool>>("endpoint_private_access");
         set => SetArgument("endpoint_private_access", value);
     }
 
@@ -498,16 +494,16 @@ public class AwsEksClusterVpcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EndpointPublicAccess
     {
-        get => new TerraformReference<bool>(this, "endpoint_public_access");
+        get => GetArgument<TerraformValue<bool>>("endpoint_public_access");
         set => SetArgument("endpoint_public_access", value);
     }
 
     /// <summary>
     /// The public_access_cidrs attribute.
     /// </summary>
-    public TerraformSet<string> PublicAccessCidrs
+    public TerraformSet<string>? PublicAccessCidrs
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "public_access_cidrs").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("public_access_cidrs");
         set => SetArgument("public_access_cidrs", value);
     }
 
@@ -516,7 +512,7 @@ public class AwsEksClusterVpcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -526,7 +522,7 @@ public class AwsEksClusterVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -534,9 +530,7 @@ public class AwsEksClusterVpcConfigBlock : TerraformBlock
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-    {
-        get => new TerraformReference<string>(this, "vpc_id");
-    }
+        => AsReference("vpc_id");
 
 }
 
@@ -557,7 +551,7 @@ public class AwsEksClusterZonalShiftConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -575,16 +569,16 @@ public partial class AwsEksCluster(string name) : TerraformResource("aws_eks_clu
     /// </summary>
     public TerraformValue<bool>? BootstrapSelfManagedAddons
     {
-        get => new TerraformReference<bool>(this, "bootstrap_self_managed_addons");
+        get => GetArgument<TerraformValue<bool>>("bootstrap_self_managed_addons");
         set => SetArgument("bootstrap_self_managed_addons", value);
     }
 
     /// <summary>
     /// The deletion_protection attribute.
     /// </summary>
-    public TerraformValue<bool> DeletionProtection
+    public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
@@ -593,7 +587,7 @@ public partial class AwsEksCluster(string name) : TerraformResource("aws_eks_clu
     /// </summary>
     public TerraformSet<string>? EnabledClusterLogTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "enabled_cluster_log_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("enabled_cluster_log_types");
         set => SetArgument("enabled_cluster_log_types", value);
     }
 
@@ -602,16 +596,16 @@ public partial class AwsEksCluster(string name) : TerraformResource("aws_eks_clu
     /// </summary>
     public TerraformValue<bool>? ForceUpdateVersion
     {
-        get => new TerraformReference<bool>(this, "force_update_version");
+        get => GetArgument<TerraformValue<bool>>("force_update_version");
         set => SetArgument("force_update_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -621,16 +615,16 @@ public partial class AwsEksCluster(string name) : TerraformResource("aws_eks_clu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -640,7 +634,7 @@ public partial class AwsEksCluster(string name) : TerraformResource("aws_eks_clu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -649,25 +643,25 @@ public partial class AwsEksCluster(string name) : TerraformResource("aws_eks_clu
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformValue<string> Version
+    public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -675,65 +669,49 @@ public partial class AwsEksCluster(string name) : TerraformResource("aws_eks_clu
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The certificate_authority attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CertificateAuthority
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "certificate_authority").ResolveNodes(ctx));
-    }
+        => AsReference("certificate_authority");
 
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
     public TerraformValue<string> ClusterId
-    {
-        get => new TerraformReference<string>(this, "cluster_id");
-    }
+        => AsReference("cluster_id");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
-    }
+        => AsReference("identity");
 
     /// <summary>
     /// The platform_version attribute.
     /// </summary>
     public TerraformValue<string> PlatformVersion
-    {
-        get => new TerraformReference<string>(this, "platform_version");
-    }
+        => AsReference("platform_version");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// AccessConfig block (nesting mode: list).

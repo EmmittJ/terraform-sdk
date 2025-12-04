@@ -16,54 +16,54 @@ public class GoogleComputeInstanceFromTemplateAdvancedMachineFeaturesBlock : Ter
     /// <summary>
     /// Whether to enable nested virtualization or not.
     /// </summary>
-    public TerraformValue<bool> EnableNestedVirtualization
+    public TerraformValue<bool>? EnableNestedVirtualization
     {
-        get => new TerraformReference<bool>(this, "enable_nested_virtualization");
+        get => GetArgument<TerraformValue<bool>>("enable_nested_virtualization");
         set => SetArgument("enable_nested_virtualization", value);
     }
 
     /// <summary>
     /// Whether to enable UEFI networking for the instance.
     /// </summary>
-    public TerraformValue<bool> EnableUefiNetworking
+    public TerraformValue<bool>? EnableUefiNetworking
     {
-        get => new TerraformReference<bool>(this, "enable_uefi_networking");
+        get => GetArgument<TerraformValue<bool>>("enable_uefi_networking");
         set => SetArgument("enable_uefi_networking", value);
     }
 
     /// <summary>
     /// The PMU is a hardware component within the CPU core that monitors how the processor runs code. Valid values for the level of PMU are &amp;quot;STANDARD&amp;quot;, &amp;quot;ENHANCED&amp;quot;, and &amp;quot;ARCHITECTURAL&amp;quot;.
     /// </summary>
-    public TerraformValue<string> PerformanceMonitoringUnit
+    public TerraformValue<string>? PerformanceMonitoringUnit
     {
-        get => new TerraformReference<string>(this, "performance_monitoring_unit");
+        get => GetArgument<TerraformValue<string>>("performance_monitoring_unit");
         set => SetArgument("performance_monitoring_unit", value);
     }
 
     /// <summary>
     /// The number of threads per physical core. To disable simultaneous multithreading (SMT) set this to 1. If unset, the maximum number of threads supported per core by the underlying processor is assumed.
     /// </summary>
-    public TerraformValue<double> ThreadsPerCore
+    public TerraformValue<double>? ThreadsPerCore
     {
-        get => new TerraformReference<double>(this, "threads_per_core");
+        get => GetArgument<TerraformValue<double>>("threads_per_core");
         set => SetArgument("threads_per_core", value);
     }
 
     /// <summary>
     /// Turbo frequency mode to use for the instance. Currently supported modes is &amp;quot;ALL_CORE_MAX&amp;quot;.
     /// </summary>
-    public TerraformValue<string> TurboMode
+    public TerraformValue<string>? TurboMode
     {
-        get => new TerraformReference<string>(this, "turbo_mode");
+        get => GetArgument<TerraformValue<string>>("turbo_mode");
         set => SetArgument("turbo_mode", value);
     }
 
     /// <summary>
     /// The number of physical cores to expose to an instance. Multiply by the number of threads per core to compute the total number of virtual CPUs to expose to the instance. If unset, the number of cores is inferred from the instance\&#39;s nominal CPU count and the underlying platform\&#39;s SMT width.
     /// </summary>
-    public TerraformValue<double> VisibleCoreCount
+    public TerraformValue<double>? VisibleCoreCount
     {
-        get => new TerraformReference<double>(this, "visible_core_count");
+        get => GetArgument<TerraformValue<double>>("visible_core_count");
         set => SetArgument("visible_core_count", value);
     }
 
@@ -84,27 +84,27 @@ public class GoogleComputeInstanceFromTemplateAttachedDiskBlock : TerraformBlock
     /// <summary>
     /// Name with which the attached disk is accessible under /dev/disk/by-id/
     /// </summary>
-    public TerraformValue<string> DeviceName
+    public TerraformValue<string>? DeviceName
     {
-        get => new TerraformReference<string>(this, "device_name");
+        get => GetArgument<TerraformValue<string>>("device_name");
         set => SetArgument("device_name", value);
     }
 
     /// <summary>
     /// A 256-bit customer-supplied encryption key, encoded in RFC 4648 base64 to encrypt this disk. Only one of kms_key_self_link, disk_encryption_key_rsa and disk_encryption_key_raw may be set.
     /// </summary>
-    public TerraformValue<string> DiskEncryptionKeyRaw
+    public TerraformValue<string>? DiskEncryptionKeyRaw
     {
-        get => new TerraformReference<string>(this, "disk_encryption_key_raw");
+        get => GetArgument<TerraformValue<string>>("disk_encryption_key_raw");
         set => SetArgument("disk_encryption_key_raw", value);
     }
 
     /// <summary>
     /// Specifies an RFC 4648 base64 encoded, RSA-wrapped 2048-bit customer-supplied encryption key to either encrypt or decrypt this resource. Only one of kms_key_self_link, disk_encryption_key_rsa and disk_encryption_key_raw may be set.
     /// </summary>
-    public TerraformValue<string> DiskEncryptionKeyRsa
+    public TerraformValue<string>? DiskEncryptionKeyRsa
     {
-        get => new TerraformReference<string>(this, "disk_encryption_key_rsa");
+        get => GetArgument<TerraformValue<string>>("disk_encryption_key_rsa");
         set => SetArgument("disk_encryption_key_rsa", value);
     }
 
@@ -112,43 +112,41 @@ public class GoogleComputeInstanceFromTemplateAttachedDiskBlock : TerraformBlock
     /// The RFC 4648 base64 encoded SHA-256 hash of the customer-supplied encryption key that protects this resource.
     /// </summary>
     public TerraformValue<string> DiskEncryptionKeySha256
-    {
-        get => new TerraformReference<string>(this, "disk_encryption_key_sha256");
-    }
+        => AsReference("disk_encryption_key_sha256");
 
     /// <summary>
     /// The service account being used for the encryption request for the given KMS key. If absent, the Compute Engine default service account is used
     /// </summary>
-    public TerraformValue<string> DiskEncryptionServiceAccount
+    public TerraformValue<string>? DiskEncryptionServiceAccount
     {
-        get => new TerraformReference<string>(this, "disk_encryption_service_account");
+        get => GetArgument<TerraformValue<string>>("disk_encryption_service_account");
         set => SetArgument("disk_encryption_service_account", value);
     }
 
     /// <summary>
     /// Whether to force attach the regional disk even if it&#39;s currently attached to another instance. If you try to force attach a zonal disk to an instance, you will receive an error. Setting this parameter cause VM recreation.
     /// </summary>
-    public TerraformValue<bool> ForceAttach
+    public TerraformValue<bool>? ForceAttach
     {
-        get => new TerraformReference<bool>(this, "force_attach");
+        get => GetArgument<TerraformValue<bool>>("force_attach");
         set => SetArgument("force_attach", value);
     }
 
     /// <summary>
     /// The self_link of the encryption key that is stored in Google Cloud KMS to encrypt this disk. Only one of kms_key_self_link, disk_encryption_key_rsa and disk_encryption_key_raw may be set.
     /// </summary>
-    public TerraformValue<string> KmsKeySelfLink
+    public TerraformValue<string>? KmsKeySelfLink
     {
-        get => new TerraformReference<string>(this, "kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
     /// <summary>
     /// Read/write mode for the disk. One of &amp;quot;READ_ONLY&amp;quot; or &amp;quot;READ_WRITE&amp;quot;.
     /// </summary>
-    public TerraformValue<string> Mode
+    public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -158,7 +156,7 @@ public class GoogleComputeInstanceFromTemplateAttachedDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -179,36 +177,36 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// <summary>
     /// Whether the disk will be auto-deleted when the instance is deleted.
     /// </summary>
-    public TerraformValue<bool> AutoDelete
+    public TerraformValue<bool>? AutoDelete
     {
-        get => new TerraformReference<bool>(this, "auto_delete");
+        get => GetArgument<TerraformValue<bool>>("auto_delete");
         set => SetArgument("auto_delete", value);
     }
 
     /// <summary>
     /// Name with which attached disk will be accessible under /dev/disk/by-id/
     /// </summary>
-    public TerraformValue<string> DeviceName
+    public TerraformValue<string>? DeviceName
     {
-        get => new TerraformReference<string>(this, "device_name");
+        get => GetArgument<TerraformValue<string>>("device_name");
         set => SetArgument("device_name", value);
     }
 
     /// <summary>
     /// A 256-bit customer-supplied encryption key, encoded in RFC 4648 base64 to encrypt this disk. Only one of kms_key_self_link, disk_encryption_key_raw and disk_encryption_key_rsa may be set.
     /// </summary>
-    public TerraformValue<string> DiskEncryptionKeyRaw
+    public TerraformValue<string>? DiskEncryptionKeyRaw
     {
-        get => new TerraformReference<string>(this, "disk_encryption_key_raw");
+        get => GetArgument<TerraformValue<string>>("disk_encryption_key_raw");
         set => SetArgument("disk_encryption_key_raw", value);
     }
 
     /// <summary>
     /// Specifies an RFC 4648 base64 encoded, RSA-wrapped 2048-bit customer-supplied encryption key to either encrypt or decrypt this resource. Only one of kms_key_self_link, disk_encryption_key_raw and disk_encryption_key_rsa may be set.
     /// </summary>
-    public TerraformValue<string> DiskEncryptionKeyRsa
+    public TerraformValue<string>? DiskEncryptionKeyRsa
     {
-        get => new TerraformReference<string>(this, "disk_encryption_key_rsa");
+        get => GetArgument<TerraformValue<string>>("disk_encryption_key_rsa");
         set => SetArgument("disk_encryption_key_rsa", value);
     }
 
@@ -216,70 +214,68 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlock : TerraformBlock
     /// The RFC 4648 base64 encoded SHA-256 hash of the customer-supplied encryption key that protects this resource.
     /// </summary>
     public TerraformValue<string> DiskEncryptionKeySha256
-    {
-        get => new TerraformReference<string>(this, "disk_encryption_key_sha256");
-    }
+        => AsReference("disk_encryption_key_sha256");
 
     /// <summary>
     /// The service account being used for the encryption request for the given KMS key. If absent, the Compute Engine default service account is used
     /// </summary>
-    public TerraformValue<string> DiskEncryptionServiceAccount
+    public TerraformValue<string>? DiskEncryptionServiceAccount
     {
-        get => new TerraformReference<string>(this, "disk_encryption_service_account");
+        get => GetArgument<TerraformValue<string>>("disk_encryption_service_account");
         set => SetArgument("disk_encryption_service_account", value);
     }
 
     /// <summary>
     /// Whether to force attach the regional disk even if it&#39;s currently attached to another instance. If you try to force attach a zonal disk to an instance, you will receive an error. Setting this parameter cause VM recreation.
     /// </summary>
-    public TerraformValue<bool> ForceAttach
+    public TerraformValue<bool>? ForceAttach
     {
-        get => new TerraformReference<bool>(this, "force_attach");
+        get => GetArgument<TerraformValue<bool>>("force_attach");
         set => SetArgument("force_attach", value);
     }
 
     /// <summary>
     /// A list of features to enable on the guest operating system. Applicable only for bootable images.
     /// </summary>
-    public TerraformList<string> GuestOsFeatures
+    public TerraformList<string>? GuestOsFeatures
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "guest_os_features").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("guest_os_features");
         set => SetArgument("guest_os_features", value);
     }
 
     /// <summary>
     /// The disk interface used for attaching this disk. One of SCSI or NVME. (This field is shared with attached_disk and only used for specific cases, please don&#39;t specify this field without advice from Google.)
     /// </summary>
-    public TerraformValue<string> InterfaceAttribute
+    public TerraformValue<string>? InterfaceAttribute
     {
-        get => new TerraformReference<string>(this, "interface");
+        get => GetArgument<TerraformValue<string>>("interface");
         set => SetArgument("interface", value);
     }
 
     /// <summary>
     /// The self_link of the encryption key that is stored in Google Cloud KMS to encrypt this disk. Only one of kms_key_self_link, disk_encryption_key_raw and disk_encryption_key_rsa may be set.
     /// </summary>
-    public TerraformValue<string> KmsKeySelfLink
+    public TerraformValue<string>? KmsKeySelfLink
     {
-        get => new TerraformReference<string>(this, "kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
     /// <summary>
     /// Read/write mode for the disk. One of &amp;quot;READ_ONLY&amp;quot; or &amp;quot;READ_WRITE&amp;quot;.
     /// </summary>
-    public TerraformValue<string> Mode
+    public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
     /// <summary>
     /// The name or self_link of the disk attached to this instance.
     /// </summary>
-    public TerraformValue<string> Source
+    public TerraformValue<string>? Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -309,108 +305,108 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// <summary>
     /// The architecture of the disk. One of &amp;quot;X86_64&amp;quot; or &amp;quot;ARM64&amp;quot;.
     /// </summary>
-    public TerraformValue<string> Architecture
+    public TerraformValue<string>? Architecture
     {
-        get => new TerraformReference<string>(this, "architecture");
+        get => GetArgument<TerraformValue<string>>("architecture");
         set => SetArgument("architecture", value);
     }
 
     /// <summary>
     /// A flag to enable confidential compute mode on boot disk
     /// </summary>
-    public TerraformValue<bool> EnableConfidentialCompute
+    public TerraformValue<bool>? EnableConfidentialCompute
     {
-        get => new TerraformReference<bool>(this, "enable_confidential_compute");
+        get => GetArgument<TerraformValue<bool>>("enable_confidential_compute");
         set => SetArgument("enable_confidential_compute", value);
     }
 
     /// <summary>
     /// The image from which this disk was initialised.
     /// </summary>
-    public TerraformValue<string> Image
+    public TerraformValue<string>? Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
     /// <summary>
     /// A set of key/value label pairs assigned to the disk.
     /// </summary>
-    public TerraformMap<string> Labels
+    public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second that the disk can handle.
     /// </summary>
-    public TerraformValue<double> ProvisionedIops
+    public TerraformValue<double>? ProvisionedIops
     {
-        get => new TerraformReference<double>(this, "provisioned_iops");
+        get => GetArgument<TerraformValue<double>>("provisioned_iops");
         set => SetArgument("provisioned_iops", value);
     }
 
     /// <summary>
     /// Indicates how much throughput to provision for the disk. This sets the number of throughput mb per second that the disk can handle.
     /// </summary>
-    public TerraformValue<double> ProvisionedThroughput
+    public TerraformValue<double>? ProvisionedThroughput
     {
-        get => new TerraformReference<double>(this, "provisioned_throughput");
+        get => GetArgument<TerraformValue<double>>("provisioned_throughput");
         set => SetArgument("provisioned_throughput", value);
     }
 
     /// <summary>
     /// A map of resource manager tags. Resource manager tag keys and values have the same definition as resource manager tags. Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/456. The field is ignored (both PUT &amp;amp; PATCH) when empty.
     /// </summary>
-    public TerraformMap<string> ResourceManagerTags
+    public TerraformMap<string>? ResourceManagerTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "resource_manager_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("resource_manager_tags");
         set => SetArgument("resource_manager_tags", value);
     }
 
     /// <summary>
     /// A list of self_links of resource policies to attach to the instance&#39;s boot disk. Modifying this list will cause the instance to recreate. Currently a max of 1 resource policy is supported.
     /// </summary>
-    public TerraformList<string> ResourcePolicies
+    public TerraformList<string>? ResourcePolicies
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_policies").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("resource_policies");
         set => SetArgument("resource_policies", value);
     }
 
     /// <summary>
     /// The size of the image in gigabytes.
     /// </summary>
-    public TerraformValue<double> Size
+    public TerraformValue<double>? Size
     {
-        get => new TerraformReference<double>(this, "size");
+        get => GetArgument<TerraformValue<double>>("size");
         set => SetArgument("size", value);
     }
 
     /// <summary>
     /// The snapshot from which this disk was initialised.
     /// </summary>
-    public TerraformValue<string> Snapshot
+    public TerraformValue<string>? Snapshot
     {
-        get => new TerraformReference<string>(this, "snapshot");
+        get => GetArgument<TerraformValue<string>>("snapshot");
         set => SetArgument("snapshot", value);
     }
 
     /// <summary>
     /// The URL of the storage pool in which the new disk is created
     /// </summary>
-    public TerraformValue<string> StoragePool
+    public TerraformValue<string>? StoragePool
     {
-        get => new TerraformReference<string>(this, "storage_pool");
+        get => GetArgument<TerraformValue<string>>("storage_pool");
         set => SetArgument("storage_pool", value);
     }
 
     /// <summary>
     /// The Google Compute Engine disk type. Such as pd-standard, pd-ssd or pd-balanced.
     /// </summary>
-    public TerraformValue<string> Type
+    public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -450,36 +446,36 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// <summary>
     /// The self link of the encryption key that is stored in Google Cloud KMS. Only one of kms_key_self_link, rsa_encrypted_key and raw_key may be set.
     /// </summary>
-    public TerraformValue<string> KmsKeySelfLink
+    public TerraformValue<string>? KmsKeySelfLink
     {
-        get => new TerraformReference<string>(this, "kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
     /// <summary>
     /// The service account being used for the encryption request for the given KMS key. If absent, the Compute Engine default service account is used.
     /// </summary>
-    public TerraformValue<string> KmsKeyServiceAccount
+    public TerraformValue<string>? KmsKeyServiceAccount
     {
-        get => new TerraformReference<string>(this, "kms_key_service_account");
+        get => GetArgument<TerraformValue<string>>("kms_key_service_account");
         set => SetArgument("kms_key_service_account", value);
     }
 
     /// <summary>
     /// Specifies a 256-bit customer-supplied encryption key, encoded in RFC 4648 base64 to either encrypt or decrypt this resource. Only one of kms_key_self_link, rsa_encrypted_key and raw_key may be set.
     /// </summary>
-    public TerraformValue<string> RawKey
+    public TerraformValue<string>? RawKey
     {
-        get => new TerraformReference<string>(this, "raw_key");
+        get => GetArgument<TerraformValue<string>>("raw_key");
         set => SetArgument("raw_key", value);
     }
 
     /// <summary>
     /// Specifies an RFC 4648 base64 encoded, RSA-wrapped 2048-bit customer-supplied encryption key to either encrypt or decrypt this resource. Only one of kms_key_self_link, rsa_encrypted_key and raw_key may be set.
     /// </summary>
-    public TerraformValue<string> RsaEncryptedKey
+    public TerraformValue<string>? RsaEncryptedKey
     {
-        get => new TerraformReference<string>(this, "rsa_encrypted_key");
+        get => GetArgument<TerraformValue<string>>("rsa_encrypted_key");
         set => SetArgument("rsa_encrypted_key", value);
     }
 
@@ -487,9 +483,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// The SHA256 hash of the encryption key used to encrypt this disk.
     /// </summary>
     public TerraformValue<string> Sha256
-    {
-        get => new TerraformReference<string>(this, "sha256");
-    }
+        => AsReference("sha256");
 
 }
 
@@ -507,36 +501,36 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// <summary>
     /// The self link of the encryption key that is stored in Google Cloud KMS. Only one of kms_key_self_link, rsa_encrypted_key and raw_key may be set.
     /// </summary>
-    public TerraformValue<string> KmsKeySelfLink
+    public TerraformValue<string>? KmsKeySelfLink
     {
-        get => new TerraformReference<string>(this, "kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
     /// <summary>
     /// The service account being used for the encryption request for the given KMS key. If absent, the Compute Engine default service account is used.
     /// </summary>
-    public TerraformValue<string> KmsKeyServiceAccount
+    public TerraformValue<string>? KmsKeyServiceAccount
     {
-        get => new TerraformReference<string>(this, "kms_key_service_account");
+        get => GetArgument<TerraformValue<string>>("kms_key_service_account");
         set => SetArgument("kms_key_service_account", value);
     }
 
     /// <summary>
     /// Specifies a 256-bit customer-supplied encryption key, encoded in RFC 4648 base64 to either encrypt or decrypt this resource. Only one of kms_key_self_link, rsa_encrypted_key and raw_key may be set.
     /// </summary>
-    public TerraformValue<string> RawKey
+    public TerraformValue<string>? RawKey
     {
-        get => new TerraformReference<string>(this, "raw_key");
+        get => GetArgument<TerraformValue<string>>("raw_key");
         set => SetArgument("raw_key", value);
     }
 
     /// <summary>
     /// Specifies an RFC 4648 base64 encoded, RSA-wrapped 2048-bit customer-supplied encryption key to either encrypt or decrypt this resource. Only one of kms_key_self_link, rsa_encrypted_key and raw_key may be set.
     /// </summary>
-    public TerraformValue<string> RsaEncryptedKey
+    public TerraformValue<string>? RsaEncryptedKey
     {
-        get => new TerraformReference<string>(this, "rsa_encrypted_key");
+        get => GetArgument<TerraformValue<string>>("rsa_encrypted_key");
         set => SetArgument("rsa_encrypted_key", value);
     }
 
@@ -544,9 +538,7 @@ public class GoogleComputeInstanceFromTemplateBootDiskBlockInitializeParamsBlock
     /// The SHA256 hash of the encryption key used to encrypt this disk.
     /// </summary>
     public TerraformValue<string> Sha256
-    {
-        get => new TerraformReference<string>(this, "sha256");
-    }
+        => AsReference("sha256");
 
 }
 
@@ -569,18 +561,18 @@ public class GoogleComputeInstanceFromTemplateConfidentialInstanceConfigBlock : 
     /// 								values is required: SEV, SEV_SNP, TDX. If SEV_SNP, min_cpu_platform =
     /// 								&amp;quot;AMD Milan&amp;quot; is currently required.
     /// </summary>
-    public TerraformValue<string> ConfidentialInstanceType
+    public TerraformValue<string>? ConfidentialInstanceType
     {
-        get => new TerraformReference<string>(this, "confidential_instance_type");
+        get => GetArgument<TerraformValue<string>>("confidential_instance_type");
         set => SetArgument("confidential_instance_type", value);
     }
 
     /// <summary>
     /// Defines whether the instance should have confidential compute enabled. Field will be deprecated in a future release
     /// </summary>
-    public TerraformValue<bool> EnableConfidentialCompute
+    public TerraformValue<bool>? EnableConfidentialCompute
     {
-        get => new TerraformReference<bool>(this, "enable_confidential_compute");
+        get => GetArgument<TerraformValue<bool>>("enable_confidential_compute");
         set => SetArgument("enable_confidential_compute", value);
     }
 
@@ -604,7 +596,7 @@ public class GoogleComputeInstanceFromTemplateGuestAcceleratorBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
     public required TerraformValue<double> CountAttribute
     {
-        get => new TerraformReference<double>(this, "count");
+        get => GetArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -614,7 +606,7 @@ public class GoogleComputeInstanceFromTemplateGuestAcceleratorBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -635,18 +627,18 @@ public class GoogleComputeInstanceFromTemplateInstanceEncryptionKeyBlock : Terra
     /// <summary>
     /// The self link of the encryption key that is stored in Google Cloud KMS.
     /// </summary>
-    public TerraformValue<string> KmsKeySelfLink
+    public TerraformValue<string>? KmsKeySelfLink
     {
-        get => new TerraformReference<string>(this, "kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
     /// <summary>
     /// The service account being used for the encryption request for the given KMS key. If absent, the Compute Engine default service account is used.
     /// </summary>
-    public TerraformValue<string> KmsKeyServiceAccount
+    public TerraformValue<string>? KmsKeyServiceAccount
     {
-        get => new TerraformReference<string>(this, "kms_key_service_account");
+        get => GetArgument<TerraformValue<string>>("kms_key_service_account");
         set => SetArgument("kms_key_service_account", value);
     }
 
@@ -654,9 +646,7 @@ public class GoogleComputeInstanceFromTemplateInstanceEncryptionKeyBlock : Terra
     /// The SHA256 hash of the customer&#39;s encryption key.
     /// </summary>
     public TerraformValue<string> Sha256
-    {
-        get => new TerraformReference<string>(this, "sha256");
-    }
+        => AsReference("sha256");
 
 }
 
@@ -675,9 +665,9 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// <summary>
     /// The prefix length of the primary internal IPv6 range.
     /// </summary>
-    public TerraformValue<double> InternalIpv6PrefixLength
+    public TerraformValue<double>? InternalIpv6PrefixLength
     {
-        get => new TerraformReference<double>(this, "internal_ipv6_prefix_length");
+        get => GetArgument<TerraformValue<double>>("internal_ipv6_prefix_length");
         set => SetArgument("internal_ipv6_prefix_length", value);
     }
 
@@ -685,16 +675,14 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// One of EXTERNAL, INTERNAL to indicate whether the IP can be accessed from the Internet. This field is always inherited from its subnetwork.
     /// </summary>
     public TerraformValue<string> Ipv6AccessType
-    {
-        get => new TerraformReference<string>(this, "ipv6_access_type");
-    }
+        => AsReference("ipv6_access_type");
 
     /// <summary>
     /// An IPv6 internal network address for this network interface. If not specified, Google Cloud will automatically assign an internal IPv6 address from the instance&#39;s subnetwork.
     /// </summary>
-    public TerraformValue<string> Ipv6Address
+    public TerraformValue<string>? Ipv6Address
     {
-        get => new TerraformReference<string>(this, "ipv6_address");
+        get => GetArgument<TerraformValue<string>>("ipv6_address");
         set => SetArgument("ipv6_address", value);
     }
 
@@ -702,79 +690,77 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlock : TerraformB
     /// The name of the interface
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The name or self_link of the network attached to this interface.
     /// </summary>
-    public TerraformValue<string> Network
+    public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
     /// <summary>
     /// The URL of the network attachment that this interface should connect to in the following format: projects/{projectNumber}/regions/{region_name}/networkAttachments/{network_attachment_name}.
     /// </summary>
-    public TerraformValue<string> NetworkAttachment
+    public TerraformValue<string>? NetworkAttachment
     {
-        get => new TerraformReference<string>(this, "network_attachment");
+        get => GetArgument<TerraformValue<string>>("network_attachment");
         set => SetArgument("network_attachment", value);
     }
 
     /// <summary>
     /// The private IP address assigned to the instance.
     /// </summary>
-    public TerraformValue<string> NetworkIp
+    public TerraformValue<string>? NetworkIp
     {
-        get => new TerraformReference<string>(this, "network_ip");
+        get => GetArgument<TerraformValue<string>>("network_ip");
         set => SetArgument("network_ip", value);
     }
 
     /// <summary>
     /// The type of vNIC to be used on this interface. Possible values:GVNIC, VIRTIO_NET, IDPF, MRDMA, and IRDMA
     /// </summary>
-    public TerraformValue<string> NicType
+    public TerraformValue<string>? NicType
     {
-        get => new TerraformReference<string>(this, "nic_type");
+        get => GetArgument<TerraformValue<string>>("nic_type");
         set => SetArgument("nic_type", value);
     }
 
     /// <summary>
     /// The networking queue count that&#39;s specified by users for the network interface. Both Rx and Tx queues will be set to this number. It will be empty if not specified.
     /// </summary>
-    public TerraformValue<double> QueueCount
+    public TerraformValue<double>? QueueCount
     {
-        get => new TerraformReference<double>(this, "queue_count");
+        get => GetArgument<TerraformValue<double>>("queue_count");
         set => SetArgument("queue_count", value);
     }
 
     /// <summary>
     /// The stack type for this network interface to identify whether the IPv6 feature is enabled or not. If not specified, IPV4_ONLY will be used.
     /// </summary>
-    public TerraformValue<string> StackType
+    public TerraformValue<string>? StackType
     {
-        get => new TerraformReference<string>(this, "stack_type");
+        get => GetArgument<TerraformValue<string>>("stack_type");
         set => SetArgument("stack_type", value);
     }
 
     /// <summary>
     /// The name or self_link of the subnetwork attached to this interface.
     /// </summary>
-    public TerraformValue<string> Subnetwork
+    public TerraformValue<string>? Subnetwork
     {
-        get => new TerraformReference<string>(this, "subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
     /// <summary>
     /// The project in which the subnetwork belongs.
     /// </summary>
-    public TerraformValue<string> SubnetworkProject
+    public TerraformValue<string>? SubnetworkProject
     {
-        get => new TerraformReference<string>(this, "subnetwork_project");
+        get => GetArgument<TerraformValue<string>>("subnetwork_project");
         set => SetArgument("subnetwork_project", value);
     }
 
@@ -821,27 +807,27 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlockAccessConfigB
     /// <summary>
     /// The IP address that is be 1:1 mapped to the instance&#39;s network ip.
     /// </summary>
-    public TerraformValue<string> NatIp
+    public TerraformValue<string>? NatIp
     {
-        get => new TerraformReference<string>(this, "nat_ip");
+        get => GetArgument<TerraformValue<string>>("nat_ip");
         set => SetArgument("nat_ip", value);
     }
 
     /// <summary>
     /// The networking tier used for configuring this instance. One of PREMIUM or STANDARD.
     /// </summary>
-    public TerraformValue<string> NetworkTier
+    public TerraformValue<string>? NetworkTier
     {
-        get => new TerraformReference<string>(this, "network_tier");
+        get => GetArgument<TerraformValue<string>>("network_tier");
         set => SetArgument("network_tier", value);
     }
 
     /// <summary>
     /// The DNS domain name for the public PTR record.
     /// </summary>
-    public TerraformValue<string> PublicPtrDomainName
+    public TerraformValue<string>? PublicPtrDomainName
     {
-        get => new TerraformReference<string>(this, "public_ptr_domain_name");
+        get => GetArgument<TerraformValue<string>>("public_ptr_domain_name");
         set => SetArgument("public_ptr_domain_name", value);
     }
 
@@ -864,16 +850,16 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlockAliasIpRangeB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpCidrRange is required")]
     public required TerraformValue<string> IpCidrRange
     {
-        get => new TerraformReference<string>(this, "ip_cidr_range");
+        get => GetArgument<TerraformValue<string>>("ip_cidr_range");
         set => SetArgument("ip_cidr_range", value);
     }
 
     /// <summary>
     /// The subnetwork secondary range name specifying the secondary range from which to allocate the IP CIDR range for this alias IP range.
     /// </summary>
-    public TerraformValue<string> SubnetworkRangeName
+    public TerraformValue<string>? SubnetworkRangeName
     {
-        get => new TerraformReference<string>(this, "subnetwork_range_name");
+        get => GetArgument<TerraformValue<string>>("subnetwork_range_name");
         set => SetArgument("subnetwork_range_name", value);
     }
 
@@ -893,27 +879,27 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlockIpv6AccessCon
     /// <summary>
     /// The first IPv6 address of the external IPv6 range associated with this instance, prefix length is stored in externalIpv6PrefixLength in ipv6AccessConfig. To use a static external IP address, it must be unused and in the same region as the instance&#39;s zone. If not specified, Google Cloud will automatically assign an external IPv6 address from the instance&#39;s subnetwork.
     /// </summary>
-    public TerraformValue<string> ExternalIpv6
+    public TerraformValue<string>? ExternalIpv6
     {
-        get => new TerraformReference<string>(this, "external_ipv6");
+        get => GetArgument<TerraformValue<string>>("external_ipv6");
         set => SetArgument("external_ipv6", value);
     }
 
     /// <summary>
     /// The prefix length of the external IPv6 range.
     /// </summary>
-    public TerraformValue<string> ExternalIpv6PrefixLength
+    public TerraformValue<string>? ExternalIpv6PrefixLength
     {
-        get => new TerraformReference<string>(this, "external_ipv6_prefix_length");
+        get => GetArgument<TerraformValue<string>>("external_ipv6_prefix_length");
         set => SetArgument("external_ipv6_prefix_length", value);
     }
 
     /// <summary>
     /// The name of this access configuration. In ipv6AccessConfigs, the recommended name is External IPv6.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -923,16 +909,16 @@ public class GoogleComputeInstanceFromTemplateNetworkInterfaceBlockIpv6AccessCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkTier is required")]
     public required TerraformValue<string> NetworkTier
     {
-        get => new TerraformReference<string>(this, "network_tier");
+        get => GetArgument<TerraformValue<string>>("network_tier");
         set => SetArgument("network_tier", value);
     }
 
     /// <summary>
     /// The domain name to be used when creating DNSv6 records for the external IPv6 ranges.
     /// </summary>
-    public TerraformValue<string> PublicPtrDomainName
+    public TerraformValue<string>? PublicPtrDomainName
     {
-        get => new TerraformReference<string>(this, "public_ptr_domain_name");
+        get => GetArgument<TerraformValue<string>>("public_ptr_domain_name");
         set => SetArgument("public_ptr_domain_name", value);
     }
 
@@ -956,7 +942,7 @@ public class GoogleComputeInstanceFromTemplateNetworkPerformanceConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalEgressBandwidthTier is required")]
     public required TerraformValue<string> TotalEgressBandwidthTier
     {
-        get => new TerraformReference<string>(this, "total_egress_bandwidth_tier");
+        get => GetArgument<TerraformValue<string>>("total_egress_bandwidth_tier");
         set => SetArgument("total_egress_bandwidth_tier", value);
     }
 
@@ -977,9 +963,9 @@ public class GoogleComputeInstanceFromTemplateParamsAttributeBlock : TerraformBl
     /// <summary>
     /// A map of resource manager tags. Resource manager tag keys and values have the same definition as resource manager tags. Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/456. The field is ignored (both PUT &amp;amp; PATCH) when empty.
     /// </summary>
-    public TerraformMap<string> ResourceManagerTags
+    public TerraformMap<string>? ResourceManagerTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "resource_manager_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("resource_manager_tags");
         set => SetArgument("resource_manager_tags", value);
     }
 
@@ -1003,7 +989,7 @@ public class GoogleComputeInstanceFromTemplateReservationAffinityBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1036,7 +1022,7 @@ public class GoogleComputeInstanceFromTemplateReservationAffinityBlockSpecificRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1046,7 +1032,7 @@ public class GoogleComputeInstanceFromTemplateReservationAffinityBlockSpecificRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -1067,63 +1053,63 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlock : TerraformBlock
     /// <summary>
     /// Specifies if the instance should be restarted if it was terminated by Compute Engine (not a user).
     /// </summary>
-    public TerraformValue<bool> AutomaticRestart
+    public TerraformValue<bool>? AutomaticRestart
     {
-        get => new TerraformReference<bool>(this, "automatic_restart");
+        get => GetArgument<TerraformValue<bool>>("automatic_restart");
         set => SetArgument("automatic_restart", value);
     }
 
     /// <summary>
     /// Specifies the availability domain, which this instance should be scheduled on.
     /// </summary>
-    public TerraformValue<double> AvailabilityDomain
+    public TerraformValue<double>? AvailabilityDomain
     {
-        get => new TerraformReference<double>(this, "availability_domain");
+        get => GetArgument<TerraformValue<double>>("availability_domain");
         set => SetArgument("availability_domain", value);
     }
 
     /// <summary>
     /// Specifies the action GCE should take when SPOT VM is preempted.
     /// </summary>
-    public TerraformValue<string> InstanceTerminationAction
+    public TerraformValue<string>? InstanceTerminationAction
     {
-        get => new TerraformReference<string>(this, "instance_termination_action");
+        get => GetArgument<TerraformValue<string>>("instance_termination_action");
         set => SetArgument("instance_termination_action", value);
     }
 
     /// <summary>
     /// The min_node_cpus attribute.
     /// </summary>
-    public TerraformValue<double> MinNodeCpus
+    public TerraformValue<double>? MinNodeCpus
     {
-        get => new TerraformReference<double>(this, "min_node_cpus");
+        get => GetArgument<TerraformValue<double>>("min_node_cpus");
         set => SetArgument("min_node_cpus", value);
     }
 
     /// <summary>
     /// Describes maintenance behavior for the instance. One of MIGRATE or TERMINATE,
     /// </summary>
-    public TerraformValue<string> OnHostMaintenance
+    public TerraformValue<string>? OnHostMaintenance
     {
-        get => new TerraformReference<string>(this, "on_host_maintenance");
+        get => GetArgument<TerraformValue<string>>("on_host_maintenance");
         set => SetArgument("on_host_maintenance", value);
     }
 
     /// <summary>
     /// Whether the instance is preemptible.
     /// </summary>
-    public TerraformValue<bool> Preemptible
+    public TerraformValue<bool>? Preemptible
     {
-        get => new TerraformReference<bool>(this, "preemptible");
+        get => GetArgument<TerraformValue<bool>>("preemptible");
         set => SetArgument("preemptible", value);
     }
 
     /// <summary>
     /// Whether the instance is spot. If this is set as SPOT.
     /// </summary>
-    public TerraformValue<string> ProvisioningModel
+    public TerraformValue<string>? ProvisioningModel
     {
-        get => new TerraformReference<string>(this, "provisioning_model");
+        get => GetArgument<TerraformValue<string>>("provisioning_model");
         set => SetArgument("provisioning_model", value);
     }
 
@@ -1132,9 +1118,9 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlock : TerraformBlock
     /// in RFC3339 text format. If specified, the instance termination action
     /// will be performed at the termination time.
     /// </summary>
-    public TerraformValue<string> TerminationTime
+    public TerraformValue<string>? TerminationTime
     {
-        get => new TerraformReference<string>(this, "termination_time");
+        get => GetArgument<TerraformValue<string>>("termination_time");
         set => SetArgument("termination_time", value);
     }
 
@@ -1196,9 +1182,9 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlockLocalSsdRecoveryTim
     /// with a 0 seconds field and a positive nanos field. Must
     /// be from 0 to 999,999,999 inclusive.
     /// </summary>
-    public TerraformValue<double> Nanos
+    public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -1209,7 +1195,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlockLocalSsdRecoveryTim
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<double> Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -1232,9 +1218,9 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlockMaxRunDurationBlock
     /// with a 0 seconds field and a positive nanos field. Must
     /// be from 0 to 999,999,999 inclusive.
     /// </summary>
-    public TerraformValue<double> Nanos
+    public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -1245,7 +1231,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlockMaxRunDurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<double> Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -1268,7 +1254,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlockNodeAffinitiesBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1278,7 +1264,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlockNodeAffinitiesBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -1288,7 +1274,7 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlockNodeAffinitiesBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -1308,9 +1294,9 @@ public class GoogleComputeInstanceFromTemplateSchedulingBlockOnInstanceStopActio
     /// <summary>
     /// If true, the contents of any attached Local SSD disks will be discarded.
     /// </summary>
-    public TerraformValue<bool> DiscardLocalSsd
+    public TerraformValue<bool>? DiscardLocalSsd
     {
-        get => new TerraformReference<bool>(this, "discard_local_ssd");
+        get => GetArgument<TerraformValue<bool>>("discard_local_ssd");
         set => SetArgument("discard_local_ssd", value);
     }
 
@@ -1331,9 +1317,9 @@ public class GoogleComputeInstanceFromTemplateScratchDiskBlock : TerraformBlock
     /// <summary>
     /// Name with which the attached disk is accessible under /dev/disk/by-id/
     /// </summary>
-    public TerraformValue<string> DeviceName
+    public TerraformValue<string>? DeviceName
     {
-        get => new TerraformReference<string>(this, "device_name");
+        get => GetArgument<TerraformValue<string>>("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -1343,16 +1329,16 @@ public class GoogleComputeInstanceFromTemplateScratchDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InterfaceAttribute is required")]
     public required TerraformValue<string> InterfaceAttribute
     {
-        get => new TerraformReference<string>(this, "interface");
+        get => GetArgument<TerraformValue<string>>("interface");
         set => SetArgument("interface", value);
     }
 
     /// <summary>
     /// The size of the disk in gigabytes. One of 375 or 3000.
     /// </summary>
-    public TerraformValue<double> Size
+    public TerraformValue<double>? Size
     {
-        get => new TerraformReference<double>(this, "size");
+        get => GetArgument<TerraformValue<double>>("size");
         set => SetArgument("size", value);
     }
 
@@ -1373,9 +1359,9 @@ public class GoogleComputeInstanceFromTemplateServiceAccountBlock : TerraformBlo
     /// <summary>
     /// The service account e-mail address.
     /// </summary>
-    public TerraformValue<string> Email
+    public TerraformValue<string>? Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -1385,7 +1371,7 @@ public class GoogleComputeInstanceFromTemplateServiceAccountBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
     public required TerraformSet<string> Scopes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("scopes");
         set => SetArgument("scopes", value);
     }
 
@@ -1406,27 +1392,27 @@ public class GoogleComputeInstanceFromTemplateShieldedInstanceConfigBlock : Terr
     /// <summary>
     /// Whether integrity monitoring is enabled for the instance.
     /// </summary>
-    public TerraformValue<bool> EnableIntegrityMonitoring
+    public TerraformValue<bool>? EnableIntegrityMonitoring
     {
-        get => new TerraformReference<bool>(this, "enable_integrity_monitoring");
+        get => GetArgument<TerraformValue<bool>>("enable_integrity_monitoring");
         set => SetArgument("enable_integrity_monitoring", value);
     }
 
     /// <summary>
     /// Whether secure boot is enabled for the instance.
     /// </summary>
-    public TerraformValue<bool> EnableSecureBoot
+    public TerraformValue<bool>? EnableSecureBoot
     {
-        get => new TerraformReference<bool>(this, "enable_secure_boot");
+        get => GetArgument<TerraformValue<bool>>("enable_secure_boot");
         set => SetArgument("enable_secure_boot", value);
     }
 
     /// <summary>
     /// Whether the instance uses vTPM.
     /// </summary>
-    public TerraformValue<bool> EnableVtpm
+    public TerraformValue<bool>? EnableVtpm
     {
-        get => new TerraformReference<bool>(this, "enable_vtpm");
+        get => GetArgument<TerraformValue<bool>>("enable_vtpm");
         set => SetArgument("enable_vtpm", value);
     }
 
@@ -1449,7 +1435,7 @@ public class GoogleComputeInstanceFromTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1458,7 +1444,7 @@ public class GoogleComputeInstanceFromTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1467,7 +1453,7 @@ public class GoogleComputeInstanceFromTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1483,81 +1469,81 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// <summary>
     /// If true, allows Terraform to stop the instance to update its properties. If you try to update a property that requires stopping the instance without setting this field, the update will fail.
     /// </summary>
-    public TerraformValue<bool> AllowStoppingForUpdate
+    public TerraformValue<bool>? AllowStoppingForUpdate
     {
-        get => new TerraformReference<bool>(this, "allow_stopping_for_update");
+        get => GetArgument<TerraformValue<bool>>("allow_stopping_for_update");
         set => SetArgument("allow_stopping_for_update", value);
     }
 
     /// <summary>
     /// Whether sending and receiving of packets with non-matching source or destination IPs is allowed.
     /// </summary>
-    public TerraformValue<bool> CanIpForward
+    public TerraformValue<bool>? CanIpForward
     {
-        get => new TerraformReference<bool>(this, "can_ip_forward");
+        get => GetArgument<TerraformValue<bool>>("can_ip_forward");
         set => SetArgument("can_ip_forward", value);
     }
 
     /// <summary>
     /// Whether deletion protection is enabled on this instance.
     /// </summary>
-    public TerraformValue<bool> DeletionProtection
+    public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
     /// <summary>
     /// A brief description of the resource.
     /// </summary>
-    public TerraformValue<string> Description
+    public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// Desired status of the instance. Either &amp;quot;RUNNING&amp;quot;, &amp;quot;SUSPENDED&amp;quot; or &amp;quot;TERMINATED&amp;quot;.
     /// </summary>
-    public TerraformValue<string> DesiredStatus
+    public TerraformValue<string>? DesiredStatus
     {
-        get => new TerraformReference<string>(this, "desired_status");
+        get => GetArgument<TerraformValue<string>>("desired_status");
         set => SetArgument("desired_status", value);
     }
 
     /// <summary>
     /// Whether the instance has virtual displays enabled.
     /// </summary>
-    public TerraformValue<bool> EnableDisplay
+    public TerraformValue<bool>? EnableDisplay
     {
-        get => new TerraformReference<bool>(this, "enable_display");
+        get => GetArgument<TerraformValue<bool>>("enable_display");
         set => SetArgument("enable_display", value);
     }
 
     /// <summary>
     /// A custom hostname for the instance. Must be a fully qualified DNS name and RFC-1035-valid. Valid format is a series of labels 1-63 characters long matching the regular expression [a-z]([-a-z0-9]*[a-z0-9]), concatenated with periods. The entire hostname must not exceed 253 characters. Changing this forces a new resource to be created.
     /// </summary>
-    public TerraformValue<string> Hostname
+    public TerraformValue<string>? Hostname
     {
-        get => new TerraformReference<string>(this, "hostname");
+        get => GetArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Action to be taken when a customer&#39;s encryption key is revoked. Supports &amp;quot;STOP&amp;quot; and &amp;quot;NONE&amp;quot;, with &amp;quot;NONE&amp;quot; being the default.
     /// </summary>
-    public TerraformValue<string> KeyRevocationActionType
+    public TerraformValue<string>? KeyRevocationActionType
     {
-        get => new TerraformReference<string>(this, "key_revocation_action_type");
+        get => GetArgument<TerraformValue<string>>("key_revocation_action_type");
         set => SetArgument("key_revocation_action_type", value);
     }
 
@@ -1567,45 +1553,45 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// 				**Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMap<string> Labels
+    public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// The machine type to create.
     /// </summary>
-    public TerraformValue<string> MachineType
+    public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
     /// <summary>
     /// Metadata key/value pairs made available within the instance.
     /// </summary>
-    public TerraformMap<string> Metadata
+    public TerraformMap<string>? Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
     /// <summary>
     /// Metadata startup scripts made available within the instance.
     /// </summary>
-    public TerraformValue<string> MetadataStartupScript
+    public TerraformValue<string>? MetadataStartupScript
     {
-        get => new TerraformReference<string>(this, "metadata_startup_script");
+        get => GetArgument<TerraformValue<string>>("metadata_startup_script");
         set => SetArgument("metadata_startup_script", value);
     }
 
     /// <summary>
     /// The minimum CPU platform specified for the VM instance.
     /// </summary>
-    public TerraformValue<string> MinCpuPlatform
+    public TerraformValue<string>? MinCpuPlatform
     {
-        get => new TerraformReference<string>(this, "min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -1615,25 +1601,25 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If self_link is provided, this value is ignored. If neither self_link nor project are provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// A list of self_links of resource policies to attach to the instance. Currently a max of 1 resource policy is supported.
     /// </summary>
-    public TerraformList<string> ResourcePolicies
+    public TerraformList<string>? ResourcePolicies
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_policies").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("resource_policies");
         set => SetArgument("resource_policies", value);
     }
 
@@ -1643,25 +1629,25 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceInstanceTemplate is required")]
     public required TerraformValue<string> SourceInstanceTemplate
     {
-        get => new TerraformReference<string>(this, "source_instance_template");
+        get => GetArgument<TerraformValue<string>>("source_instance_template");
         set => SetArgument("source_instance_template", value);
     }
 
     /// <summary>
     /// The list of tags attached to the instance.
     /// </summary>
-    public TerraformSet<string> Tags
+    public TerraformSet<string>? Tags
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The zone of the instance. If self_link is provided, this value is ignored. If neither self_link nor zone are provided, the provider zone is used.
     /// </summary>
-    public TerraformValue<string> Zone
+    public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -1669,17 +1655,13 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// The CPU platform used by this instance.
     /// </summary>
     public TerraformValue<string> CpuPlatform
-    {
-        get => new TerraformReference<string>(this, "cpu_platform");
-    }
+        => AsReference("cpu_platform");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// 
@@ -1688,65 +1670,49 @@ public partial class GoogleComputeInstanceFromTemplate(string name) : TerraformR
     /// 					For more information about the status of the instance, see [Instance life cycle](https://cloud.google.com/compute/docs/instances/instance-life-cycle).
     /// </summary>
     public TerraformValue<string> CurrentStatus
-    {
-        get => new TerraformReference<string>(this, "current_status");
-    }
+        => AsReference("current_status");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The server-assigned unique identifier of this instance.
     /// </summary>
     public TerraformValue<string> InstanceId
-    {
-        get => new TerraformReference<string>(this, "instance_id");
-    }
+        => AsReference("instance_id");
 
     /// <summary>
     /// The unique fingerprint of the labels.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-    {
-        get => new TerraformReference<string>(this, "label_fingerprint");
-    }
+        => AsReference("label_fingerprint");
 
     /// <summary>
     /// The unique fingerprint of the metadata.
     /// </summary>
     public TerraformValue<string> MetadataFingerprint
-    {
-        get => new TerraformReference<string>(this, "metadata_fingerprint");
-    }
+        => AsReference("metadata_fingerprint");
 
     /// <summary>
     /// The URI of the created resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// The unique fingerprint of the tags.
     /// </summary>
     public TerraformValue<string> TagsFingerprint
-    {
-        get => new TerraformReference<string>(this, "tags_fingerprint");
-    }
+        => AsReference("tags_fingerprint");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// AdvancedMachineFeatures block (nesting mode: list).

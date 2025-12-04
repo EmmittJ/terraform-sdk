@@ -13,16 +13,16 @@ public partial class AwsSagemakerPrebuiltEcrImageDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string>? DnsSuffix
     {
-        get => new TerraformReference<string>(this, "dns_suffix");
+        get => GetArgument<TerraformValue<string>>("dns_suffix");
         set => SetArgument("dns_suffix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,16 +31,16 @@ public partial class AwsSagemakerPrebuiltEcrImageDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string>? ImageTag
     {
-        get => new TerraformReference<string>(this, "image_tag");
+        get => GetArgument<TerraformValue<string>>("image_tag");
         set => SetArgument("image_tag", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsSagemakerPrebuiltEcrImageDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformValue<string> RepositoryName
     {
-        get => new TerraformReference<string>(this, "repository_name");
+        get => GetArgument<TerraformValue<string>>("repository_name");
         set => SetArgument("repository_name", value);
     }
 
@@ -58,16 +58,12 @@ public partial class AwsSagemakerPrebuiltEcrImageDataSource(string name) : Terra
     /// The registry_id attribute.
     /// </summary>
     public TerraformValue<string> RegistryId
-    {
-        get => new TerraformReference<string>(this, "registry_id");
-    }
+        => AsReference("registry_id");
 
     /// <summary>
     /// The registry_path attribute.
     /// </summary>
     public TerraformValue<string> RegistryPath
-    {
-        get => new TerraformReference<string>(this, "registry_path");
-    }
+        => AsReference("registry_path");
 
 }

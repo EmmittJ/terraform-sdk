@@ -11,9 +11,9 @@ public partial class GoogleComputeRegionInstanceGroupManagerDataSource(string na
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleComputeRegionInstanceGroupManagerDataSource(string na
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleComputeRegionInstanceGroupManagerDataSource(string na
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -40,7 +40,7 @@ public partial class GoogleComputeRegionInstanceGroupManagerDataSource(string na
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -49,7 +49,7 @@ public partial class GoogleComputeRegionInstanceGroupManagerDataSource(string na
     /// </summary>
     public TerraformValue<string>? SelfLink
     {
-        get => new TerraformReference<string>(this, "self_link");
+        get => GetArgument<TerraformValue<string>>("self_link");
         set => SetArgument("self_link", value);
     }
 
@@ -57,216 +57,162 @@ public partial class GoogleComputeRegionInstanceGroupManagerDataSource(string na
     /// Specifies configuration that overrides the instance template configuration for the group.
     /// </summary>
     public TerraformList<TerraformMap<object>> AllInstancesConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "all_instances_config").ResolveNodes(ctx));
-    }
+        => AsReference("all_instances_config");
 
     /// <summary>
     /// The autohealing policies for this managed instance group. You can specify only one value.
     /// </summary>
     public TerraformList<TerraformMap<object>> AutoHealingPolicies
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "auto_healing_policies").ResolveNodes(ctx));
-    }
+        => AsReference("auto_healing_policies");
 
     /// <summary>
     /// The base instance name to use for instances in this group. The value must be a valid RFC1035 name. Supported characters are lowercase letters, numbers, and hyphens (-). Instances are named by appending a hyphen and a random four-character string to the base instance name.
     /// </summary>
     public TerraformValue<string> BaseInstanceName
-    {
-        get => new TerraformReference<string>(this, "base_instance_name");
-    }
+        => AsReference("base_instance_name");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// An optional textual description of the instance group manager.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The shape to which the group converges either proactively or on resize events (depending on the value set in updatePolicy.instanceRedistributionType).
     /// </summary>
     public TerraformValue<string> DistributionPolicyTargetShape
-    {
-        get => new TerraformReference<string>(this, "distribution_policy_target_shape");
-    }
+        => AsReference("distribution_policy_target_shape");
 
     /// <summary>
     /// The distribution policy for this managed instance group. You can specify one or more values.
     /// </summary>
     public TerraformSet<string> DistributionPolicyZones
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "distribution_policy_zones").ResolveNodes(ctx));
-    }
+        => AsReference("distribution_policy_zones");
 
     /// <summary>
     /// The fingerprint of the instance group manager.
     /// </summary>
     public TerraformValue<string> Fingerprint
-    {
-        get => new TerraformReference<string>(this, "fingerprint");
-    }
+        => AsReference("fingerprint");
 
     /// <summary>
     /// The flexibility policy for this managed instance group. Instance flexibility allowing MIG to create VMs from multiple types of machines. Instance flexibility configuration on MIG overrides instance template configuration.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstanceFlexibilityPolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "instance_flexibility_policy").ResolveNodes(ctx));
-    }
+        => AsReference("instance_flexibility_policy");
 
     /// <summary>
     /// The full URL of the instance group created by the manager.
     /// </summary>
     public TerraformValue<string> InstanceGroup
-    {
-        get => new TerraformReference<string>(this, "instance_group");
-    }
+        => AsReference("instance_group");
 
     /// <summary>
     /// The unique identifier number for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<double> InstanceGroupManagerId
-    {
-        get => new TerraformReference<double>(this, "instance_group_manager_id");
-    }
+        => AsReference("instance_group_manager_id");
 
     /// <summary>
     /// The instance lifecycle policy for this managed instance group.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstanceLifecyclePolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "instance_lifecycle_policy").ResolveNodes(ctx));
-    }
+        => AsReference("instance_lifecycle_policy");
 
     /// <summary>
     /// Pagination behavior of the listManagedInstances API method for this managed instance group. Valid values are: &amp;quot;PAGELESS&amp;quot;, &amp;quot;PAGINATED&amp;quot;. If PAGELESS (default), Pagination is disabled for the group&#39;s listManagedInstances API method. maxResults and pageToken query parameters are ignored and all instances are returned in a single response. If PAGINATED, pagination is enabled, maxResults and pageToken query parameters are respected.
     /// </summary>
     public TerraformValue<string> ListManagedInstancesResults
-    {
-        get => new TerraformReference<string>(this, "list_managed_instances_results");
-    }
+        => AsReference("list_managed_instances_results");
 
     /// <summary>
     /// The named port configuration.
     /// </summary>
     public TerraformSet<TerraformMap<object>> NamedPort
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "named_port").ResolveNodes(ctx));
-    }
+        => AsReference("named_port");
 
     /// <summary>
     /// Standby policy for stopped and suspended instances.
     /// </summary>
     public TerraformList<TerraformMap<object>> StandbyPolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "standby_policy").ResolveNodes(ctx));
-    }
+        => AsReference("standby_policy");
 
     /// <summary>
     /// Disks created on the instances that will be preserved on instance delete, update, etc. Structure is documented below. For more information see the official documentation. Proactive cross zone instance redistribution must be disabled before you can update stateful disks on existing instance group managers. This can be controlled via the update_policy.
     /// </summary>
     public TerraformSet<TerraformMap<object>> StatefulDisk
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "stateful_disk").ResolveNodes(ctx));
-    }
+        => AsReference("stateful_disk");
 
     /// <summary>
     /// External IPs considered stateful by the instance group. 
     /// </summary>
     public TerraformList<TerraformMap<object>> StatefulExternalIp
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "stateful_external_ip").ResolveNodes(ctx));
-    }
+        => AsReference("stateful_external_ip");
 
     /// <summary>
     /// External IPs considered stateful by the instance group. 
     /// </summary>
     public TerraformList<TerraformMap<object>> StatefulInternalIp
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "stateful_internal_ip").ResolveNodes(ctx));
-    }
+        => AsReference("stateful_internal_ip");
 
     /// <summary>
     /// The status of this managed instance group.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "status").ResolveNodes(ctx));
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The full URL of all target pools to which new instances in the group are added. Updating the target pools attribute does not affect existing instances.
     /// </summary>
     public TerraformSet<string> TargetPools
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "target_pools").ResolveNodes(ctx));
-    }
+        => AsReference("target_pools");
 
     /// <summary>
     /// The target number of running instances for this managed instance group. This value should always be explicitly set unless this resource is attached to an autoscaler, in which case it should never be set. Defaults to 0.
     /// </summary>
     public TerraformValue<double> TargetSize
-    {
-        get => new TerraformReference<double>(this, "target_size");
-    }
+        => AsReference("target_size");
 
     /// <summary>
     /// The target number of stopped instances for this managed instance group.
     /// </summary>
     public TerraformValue<double> TargetStoppedSize
-    {
-        get => new TerraformReference<double>(this, "target_stopped_size");
-    }
+        => AsReference("target_stopped_size");
 
     /// <summary>
     /// The target number of suspended instances for this managed instance group.
     /// </summary>
     public TerraformValue<double> TargetSuspendedSize
-    {
-        get => new TerraformReference<double>(this, "target_suspended_size");
-    }
+        => AsReference("target_suspended_size");
 
     /// <summary>
     /// The update policy for this managed instance group.
     /// </summary>
     public TerraformList<TerraformMap<object>> UpdatePolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "update_policy").ResolveNodes(ctx));
-    }
+        => AsReference("update_policy");
 
     /// <summary>
     /// Application versions managed by this instance group. Each version deals with a specific instance template, allowing canary release scenarios.
     /// </summary>
     public TerraformList<TerraformMap<object>> Version
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "version").ResolveNodes(ctx));
-    }
+        => AsReference("version");
 
     /// <summary>
     /// Whether to wait for all instances to be created/updated before returning. Note that if this is set to true and the operation does not succeed, Terraform will continue trying until it times out.
     /// </summary>
     public TerraformValue<bool> WaitForInstances
-    {
-        get => new TerraformReference<bool>(this, "wait_for_instances");
-    }
+        => AsReference("wait_for_instances");
 
     /// <summary>
     /// When used with wait_for_instances specifies the status to wait for. When STABLE is specified this resource will wait until the instances are stable before returning. When UPDATED is set, it will wait for the version target to be reached and any per instance configs to be effective and all instances configs to be effective as well as all instances to be stable before returning.
     /// </summary>
     public TerraformValue<string> WaitForInstancesStatus
-    {
-        get => new TerraformReference<string>(this, "wait_for_instances_status");
-    }
+        => AsReference("wait_for_instances_status");
 
 }

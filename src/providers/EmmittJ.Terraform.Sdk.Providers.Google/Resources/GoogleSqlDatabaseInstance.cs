@@ -18,7 +18,7 @@ public class GoogleSqlDatabaseInstanceCloneBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AllocatedIpRange
     {
-        get => new TerraformReference<string>(this, "allocated_ip_range");
+        get => GetArgument<TerraformValue<string>>("allocated_ip_range");
         set => SetArgument("allocated_ip_range", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleSqlDatabaseInstanceCloneBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? DatabaseNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "database_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("database_names");
         set => SetArgument("database_names", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleSqlDatabaseInstanceCloneBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PointInTime
     {
-        get => new TerraformReference<string>(this, "point_in_time");
+        get => GetArgument<TerraformValue<string>>("point_in_time");
         set => SetArgument("point_in_time", value);
     }
 
@@ -45,7 +45,7 @@ public class GoogleSqlDatabaseInstanceCloneBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PreferredZone
     {
-        get => new TerraformReference<string>(this, "preferred_zone");
+        get => GetArgument<TerraformValue<string>>("preferred_zone");
         set => SetArgument("preferred_zone", value);
     }
 
@@ -54,7 +54,7 @@ public class GoogleSqlDatabaseInstanceCloneBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SourceInstanceDeletionTime
     {
-        get => new TerraformReference<string>(this, "source_instance_deletion_time");
+        get => GetArgument<TerraformValue<string>>("source_instance_deletion_time");
         set => SetArgument("source_instance_deletion_time", value);
     }
 
@@ -64,7 +64,7 @@ public class GoogleSqlDatabaseInstanceCloneBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceInstanceName is required")]
     public required TerraformValue<string> SourceInstanceName
     {
-        get => new TerraformReference<string>(this, "source_instance_name");
+        get => GetArgument<TerraformValue<string>>("source_instance_name");
         set => SetArgument("source_instance_name", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleSqlDatabaseInstancePointInTimeRestoreContextBlock : Terraform
     /// </summary>
     public TerraformValue<string>? AllocatedIpRange
     {
-        get => new TerraformReference<string>(this, "allocated_ip_range");
+        get => GetArgument<TerraformValue<string>>("allocated_ip_range");
         set => SetArgument("allocated_ip_range", value);
     }
 
@@ -97,7 +97,7 @@ public class GoogleSqlDatabaseInstancePointInTimeRestoreContextBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Datasource is required")]
     public required TerraformValue<string> Datasource
     {
-        get => new TerraformReference<string>(this, "datasource");
+        get => GetArgument<TerraformValue<string>>("datasource");
         set => SetArgument("datasource", value);
     }
 
@@ -106,7 +106,7 @@ public class GoogleSqlDatabaseInstancePointInTimeRestoreContextBlock : Terraform
     /// </summary>
     public TerraformValue<string>? PointInTime
     {
-        get => new TerraformReference<string>(this, "point_in_time");
+        get => GetArgument<TerraformValue<string>>("point_in_time");
         set => SetArgument("point_in_time", value);
     }
 
@@ -115,7 +115,7 @@ public class GoogleSqlDatabaseInstancePointInTimeRestoreContextBlock : Terraform
     /// </summary>
     public TerraformValue<string>? PreferredZone
     {
-        get => new TerraformReference<string>(this, "preferred_zone");
+        get => GetArgument<TerraformValue<string>>("preferred_zone");
         set => SetArgument("preferred_zone", value);
     }
 
@@ -124,7 +124,7 @@ public class GoogleSqlDatabaseInstancePointInTimeRestoreContextBlock : Terraform
     /// </summary>
     public TerraformValue<string>? TargetInstance
     {
-        get => new TerraformReference<string>(this, "target_instance");
+        get => GetArgument<TerraformValue<string>>("target_instance");
         set => SetArgument("target_instance", value);
     }
 
@@ -147,7 +147,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CaCertificate
     {
-        get => new TerraformReference<string>(this, "ca_certificate");
+        get => GetArgument<TerraformValue<string>>("ca_certificate");
         set => SetArgument("ca_certificate", value);
     }
 
@@ -156,7 +156,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? CascadableReplica
     {
-        get => new TerraformReference<bool>(this, "cascadable_replica");
+        get => GetArgument<TerraformValue<bool>>("cascadable_replica");
         set => SetArgument("cascadable_replica", value);
     }
 
@@ -165,7 +165,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ClientCertificate
     {
-        get => new TerraformReference<string>(this, "client_certificate");
+        get => GetArgument<TerraformValue<string>>("client_certificate");
         set => SetArgument("client_certificate", value);
     }
 
@@ -174,7 +174,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ClientKey
     {
-        get => new TerraformReference<string>(this, "client_key");
+        get => GetArgument<TerraformValue<string>>("client_key");
         set => SetArgument("client_key", value);
     }
 
@@ -183,7 +183,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ConnectRetryInterval
     {
-        get => new TerraformReference<double>(this, "connect_retry_interval");
+        get => GetArgument<TerraformValue<double>>("connect_retry_interval");
         set => SetArgument("connect_retry_interval", value);
     }
 
@@ -192,7 +192,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DumpFilePath
     {
-        get => new TerraformReference<string>(this, "dump_file_path");
+        get => GetArgument<TerraformValue<string>>("dump_file_path");
         set => SetArgument("dump_file_path", value);
     }
 
@@ -201,7 +201,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? FailoverTarget
     {
-        get => new TerraformReference<bool>(this, "failover_target");
+        get => GetArgument<TerraformValue<bool>>("failover_target");
         set => SetArgument("failover_target", value);
     }
 
@@ -210,7 +210,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MasterHeartbeatPeriod
     {
-        get => new TerraformReference<double>(this, "master_heartbeat_period");
+        get => GetArgument<TerraformValue<double>>("master_heartbeat_period");
         set => SetArgument("master_heartbeat_period", value);
     }
 
@@ -219,7 +219,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -228,7 +228,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SslCipher
     {
-        get => new TerraformReference<string>(this, "ssl_cipher");
+        get => GetArgument<TerraformValue<string>>("ssl_cipher");
         set => SetArgument("ssl_cipher", value);
     }
 
@@ -237,7 +237,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -246,7 +246,7 @@ public class GoogleSqlDatabaseInstanceReplicaConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? VerifyServerCertificate
     {
-        get => new TerraformReference<bool>(this, "verify_server_certificate");
+        get => GetArgument<TerraformValue<bool>>("verify_server_certificate");
         set => SetArgument("verify_server_certificate", value);
     }
 
@@ -268,16 +268,14 @@ public class GoogleSqlDatabaseInstanceReplicationClusterBlock : TerraformBlock
     /// Read-only field that indicates whether the replica is a DR replica.
     /// </summary>
     public TerraformValue<bool> DrReplica
-    {
-        get => new TerraformReference<bool>(this, "dr_replica");
-    }
+        => AsReference("dr_replica");
 
     /// <summary>
     /// If the instance is a primary instance, then this field identifies the disaster recovery (DR) replica. The standard format of this field is &amp;quot;your-project:your-instance&amp;quot;. You can also set this field to &amp;quot;your-instance&amp;quot;, but cloud SQL backend will convert it to the aforementioned standard format.
     /// </summary>
     public TerraformValue<string>? FailoverDrReplicaName
     {
-        get => new TerraformReference<string>(this, "failover_dr_replica_name");
+        get => GetArgument<TerraformValue<string>>("failover_dr_replica_name");
         set => SetArgument("failover_dr_replica_name", value);
     }
 
@@ -286,7 +284,7 @@ public class GoogleSqlDatabaseInstanceReplicationClusterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PsaWriteEndpoint
     {
-        get => new TerraformReference<string>(this, "psa_write_endpoint");
+        get => GetArgument<TerraformValue<string>>("psa_write_endpoint");
         set => SetArgument("psa_write_endpoint", value);
     }
 
@@ -310,7 +308,7 @@ public class GoogleSqlDatabaseInstanceRestoreBackupContextBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRunId is required")]
     public required TerraformValue<double> BackupRunId
     {
-        get => new TerraformReference<double>(this, "backup_run_id");
+        get => GetArgument<TerraformValue<double>>("backup_run_id");
         set => SetArgument("backup_run_id", value);
     }
 
@@ -319,7 +317,7 @@ public class GoogleSqlDatabaseInstanceRestoreBackupContextBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? InstanceId
     {
-        get => new TerraformReference<string>(this, "instance_id");
+        get => GetArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
@@ -328,7 +326,7 @@ public class GoogleSqlDatabaseInstanceRestoreBackupContextBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -351,7 +349,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ActivationPolicy
     {
-        get => new TerraformReference<string>(this, "activation_policy");
+        get => GetArgument<TerraformValue<string>>("activation_policy");
         set => SetArgument("activation_policy", value);
     }
 
@@ -367,7 +365,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AvailabilityType
     {
-        get => new TerraformReference<string>(this, "availability_type");
+        get => GetArgument<TerraformValue<string>>("availability_type");
         set => SetArgument("availability_type", value);
     }
 
@@ -376,16 +374,16 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Collation
     {
-        get => new TerraformReference<string>(this, "collation");
+        get => GetArgument<TerraformValue<string>>("collation");
         set => SetArgument("collation", value);
     }
 
     /// <summary>
     /// Enables the enforcement of Cloud SQL Auth Proxy or Cloud SQL connectors for all the connections. If enabled, all the direct connections are rejected.
     /// </summary>
-    public TerraformValue<string> ConnectorEnforcement
+    public TerraformValue<string>? ConnectorEnforcement
     {
-        get => new TerraformReference<string>(this, "connector_enforcement");
+        get => GetArgument<TerraformValue<string>>("connector_enforcement");
         set => SetArgument("connector_enforcement", value);
     }
 
@@ -394,7 +392,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DeletionProtectionEnabled
     {
-        get => new TerraformReference<bool>(this, "deletion_protection_enabled");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection_enabled");
         set => SetArgument("deletion_protection_enabled", value);
     }
 
@@ -403,7 +401,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DiskAutoresize
     {
-        get => new TerraformReference<bool>(this, "disk_autoresize");
+        get => GetArgument<TerraformValue<bool>>("disk_autoresize");
         set => SetArgument("disk_autoresize", value);
     }
 
@@ -412,34 +410,34 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? DiskAutoresizeLimit
     {
-        get => new TerraformReference<double>(this, "disk_autoresize_limit");
+        get => GetArgument<TerraformValue<double>>("disk_autoresize_limit");
         set => SetArgument("disk_autoresize_limit", value);
     }
 
     /// <summary>
     /// The size of data disk, in GB. Size of a running instance cannot be reduced but can be increased. The minimum value is 10GB for PD_SSD, PD_HDD and 20GB for HYPERDISK_BALANCED.
     /// </summary>
-    public TerraformValue<double> DiskSize
+    public TerraformValue<double>? DiskSize
     {
-        get => new TerraformReference<double>(this, "disk_size");
+        get => GetArgument<TerraformValue<double>>("disk_size");
         set => SetArgument("disk_size", value);
     }
 
     /// <summary>
     /// The type of supported data disk is tier dependent and can be PD_SSD or PD_HDD or HYPERDISK_BALANCED.
     /// </summary>
-    public TerraformValue<string> DiskType
+    public TerraformValue<string>? DiskType
     {
-        get => new TerraformReference<string>(this, "disk_type");
+        get => GetArgument<TerraformValue<string>>("disk_type");
         set => SetArgument("disk_type", value);
     }
 
     /// <summary>
     /// The edition of the instance, can be ENTERPRISE or ENTERPRISE_PLUS.
     /// </summary>
-    public TerraformValue<string> Edition
+    public TerraformValue<string>? Edition
     {
-        get => new TerraformReference<string>(this, "edition");
+        get => GetArgument<TerraformValue<string>>("edition");
         set => SetArgument("edition", value);
     }
 
@@ -449,16 +447,14 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// API (for read pools, effective_availability_type may differ from availability_type).
     /// </summary>
     public TerraformValue<string> EffectiveAvailabilityType
-    {
-        get => new TerraformReference<string>(this, "effective_availability_type");
-    }
+        => AsReference("effective_availability_type");
 
     /// <summary>
     /// Enables Dataplex Integration.
     /// </summary>
     public TerraformValue<bool>? EnableDataplexIntegration
     {
-        get => new TerraformReference<bool>(this, "enable_dataplex_integration");
+        get => GetArgument<TerraformValue<bool>>("enable_dataplex_integration");
         set => SetArgument("enable_dataplex_integration", value);
     }
 
@@ -467,7 +463,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableGoogleMlIntegration
     {
-        get => new TerraformReference<bool>(this, "enable_google_ml_integration");
+        get => GetArgument<TerraformValue<bool>>("enable_google_ml_integration");
         set => SetArgument("enable_google_ml_integration", value);
     }
 
@@ -476,7 +472,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PricingPlan
     {
-        get => new TerraformReference<string>(this, "pricing_plan");
+        get => GetArgument<TerraformValue<string>>("pricing_plan");
         set => SetArgument("pricing_plan", value);
     }
 
@@ -485,7 +481,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? RetainBackupsOnDelete
     {
-        get => new TerraformReference<bool>(this, "retain_backups_on_delete");
+        get => GetArgument<TerraformValue<bool>>("retain_backups_on_delete");
         set => SetArgument("retain_backups_on_delete", value);
     }
 
@@ -495,7 +491,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformValue<string> Tier
     {
-        get => new TerraformReference<string>(this, "tier");
+        get => GetArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 
@@ -504,16 +500,16 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
     /// <summary>
     /// A set of key/value user label pairs to assign to the instance.
     /// </summary>
-    public TerraformMap<string> UserLabels
+    public TerraformMap<string>? UserLabels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "user_labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("user_labels");
         set => SetArgument("user_labels", value);
     }
 
@@ -521,9 +517,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlock : TerraformBlock
     /// Used to make sure changes to the settings block are atomic.
     /// </summary>
     public TerraformValue<double> Version
-    {
-        get => new TerraformReference<double>(this, "version");
-    }
+        => AsReference("version");
 
     /// <summary>
     /// ActiveDirectoryConfig block (nesting mode: list).
@@ -692,7 +686,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockActiveDirectoryConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => new TerraformReference<string>(this, "domain");
+        get => GetArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
@@ -714,7 +708,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockAdvancedMachineFeaturesBlock 
     /// </summary>
     public TerraformValue<double>? ThreadsPerCore
     {
-        get => new TerraformReference<double>(this, "threads_per_core");
+        get => GetArgument<TerraformValue<double>>("threads_per_core");
         set => SetArgument("threads_per_core", value);
     }
 
@@ -736,7 +730,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockBackupConfigurationBlock : Te
     /// </summary>
     public TerraformValue<bool>? BinaryLogEnabled
     {
-        get => new TerraformReference<bool>(this, "binary_log_enabled");
+        get => GetArgument<TerraformValue<bool>>("binary_log_enabled");
         set => SetArgument("binary_log_enabled", value);
     }
 
@@ -745,7 +739,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockBackupConfigurationBlock : Te
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -754,7 +748,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockBackupConfigurationBlock : Te
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -763,25 +757,25 @@ public class GoogleSqlDatabaseInstanceSettingsBlockBackupConfigurationBlock : Te
     /// </summary>
     public TerraformValue<bool>? PointInTimeRecoveryEnabled
     {
-        get => new TerraformReference<bool>(this, "point_in_time_recovery_enabled");
+        get => GetArgument<TerraformValue<bool>>("point_in_time_recovery_enabled");
         set => SetArgument("point_in_time_recovery_enabled", value);
     }
 
     /// <summary>
     /// HH:MM format time indicating when backup configuration starts.
     /// </summary>
-    public TerraformValue<string> StartTime
+    public TerraformValue<string>? StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
     /// <summary>
     /// The number of days of transaction logs we retain for point in time restore, from 1-7. (For PostgreSQL Enterprise Plus instances, from 1 to 35.)
     /// </summary>
-    public TerraformValue<double> TransactionLogRetentionDays
+    public TerraformValue<double>? TransactionLogRetentionDays
     {
-        get => new TerraformReference<double>(this, "transaction_log_retention_days");
+        get => GetArgument<TerraformValue<double>>("transaction_log_retention_days");
         set => SetArgument("transaction_log_retention_days", value);
     }
 
@@ -814,7 +808,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockBackupConfigurationBlockBacku
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetainedBackups is required")]
     public required TerraformValue<double> RetainedBackups
     {
-        get => new TerraformReference<double>(this, "retained_backups");
+        get => GetArgument<TerraformValue<double>>("retained_backups");
         set => SetArgument("retained_backups", value);
     }
 
@@ -823,7 +817,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockBackupConfigurationBlockBacku
     /// </summary>
     public TerraformValue<string>? RetentionUnit
     {
-        get => new TerraformReference<string>(this, "retention_unit");
+        get => GetArgument<TerraformValue<string>>("retention_unit");
         set => SetArgument("retention_unit", value);
     }
 
@@ -845,7 +839,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockConnectionPoolConfigBlock : T
     /// </summary>
     public TerraformValue<bool>? ConnectionPoolingEnabled
     {
-        get => new TerraformReference<bool>(this, "connection_pooling_enabled");
+        get => GetArgument<TerraformValue<bool>>("connection_pooling_enabled");
         set => SetArgument("connection_pooling_enabled", value);
     }
 
@@ -877,7 +871,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockConnectionPoolConfigBlockFlag
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -887,7 +881,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockConnectionPoolConfigBlockFlag
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -909,7 +903,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockDataCacheConfigBlock : Terraf
     /// </summary>
     public TerraformValue<bool>? DataCacheEnabled
     {
-        get => new TerraformReference<bool>(this, "data_cache_enabled");
+        get => GetArgument<TerraformValue<bool>>("data_cache_enabled");
         set => SetArgument("data_cache_enabled", value);
     }
 
@@ -932,7 +926,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockDatabaseFlagsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -942,7 +936,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockDatabaseFlagsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -965,7 +959,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockDenyMaintenancePeriodBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndDate is required")]
     public required TerraformValue<string> EndDate
     {
-        get => new TerraformReference<string>(this, "end_date");
+        get => GetArgument<TerraformValue<string>>("end_date");
         set => SetArgument("end_date", value);
     }
 
@@ -975,7 +969,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockDenyMaintenancePeriodBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartDate is required")]
     public required TerraformValue<string> StartDate
     {
-        get => new TerraformReference<string>(this, "start_date");
+        get => GetArgument<TerraformValue<string>>("start_date");
         set => SetArgument("start_date", value);
     }
 
@@ -985,7 +979,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockDenyMaintenancePeriodBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Time is required")]
     public required TerraformValue<string> Time
     {
-        get => new TerraformReference<string>(this, "time");
+        get => GetArgument<TerraformValue<string>>("time");
         set => SetArgument("time", value);
     }
 
@@ -1007,7 +1001,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockFinalBackupConfigBlock : Terr
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1016,7 +1010,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockFinalBackupConfigBlock : Terr
     /// </summary>
     public TerraformValue<double>? RetentionDays
     {
-        get => new TerraformReference<double>(this, "retention_days");
+        get => GetArgument<TerraformValue<double>>("retention_days");
         set => SetArgument("retention_days", value);
     }
 
@@ -1038,16 +1032,16 @@ public class GoogleSqlDatabaseInstanceSettingsBlockInsightsConfigBlock : Terrafo
     /// </summary>
     public TerraformValue<bool>? QueryInsightsEnabled
     {
-        get => new TerraformReference<bool>(this, "query_insights_enabled");
+        get => GetArgument<TerraformValue<bool>>("query_insights_enabled");
         set => SetArgument("query_insights_enabled", value);
     }
 
     /// <summary>
     /// Number of query execution plans captured by Insights per minute for all queries combined. Between 0 and 20. Default to 5. For Enterprise Plus instances, from 0 to 200.
     /// </summary>
-    public TerraformValue<double> QueryPlansPerMinute
+    public TerraformValue<double>? QueryPlansPerMinute
     {
-        get => new TerraformReference<double>(this, "query_plans_per_minute");
+        get => GetArgument<TerraformValue<double>>("query_plans_per_minute");
         set => SetArgument("query_plans_per_minute", value);
     }
 
@@ -1056,7 +1050,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockInsightsConfigBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? QueryStringLength
     {
-        get => new TerraformReference<double>(this, "query_string_length");
+        get => GetArgument<TerraformValue<double>>("query_string_length");
         set => SetArgument("query_string_length", value);
     }
 
@@ -1065,7 +1059,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockInsightsConfigBlock : Terrafo
     /// </summary>
     public TerraformValue<bool>? RecordApplicationTags
     {
-        get => new TerraformReference<bool>(this, "record_application_tags");
+        get => GetArgument<TerraformValue<bool>>("record_application_tags");
         set => SetArgument("record_application_tags", value);
     }
 
@@ -1074,7 +1068,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockInsightsConfigBlock : Terrafo
     /// </summary>
     public TerraformValue<bool>? RecordClientAddress
     {
-        get => new TerraformReference<bool>(this, "record_client_address");
+        get => GetArgument<TerraformValue<bool>>("record_client_address");
         set => SetArgument("record_client_address", value);
     }
 
@@ -1096,7 +1090,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? AllocatedIpRange
     {
-        get => new TerraformReference<string>(this, "allocated_ip_range");
+        get => GetArgument<TerraformValue<string>>("allocated_ip_range");
         set => SetArgument("allocated_ip_range", value);
     }
 
@@ -1105,7 +1099,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlock : Terraf
     /// </summary>
     public TerraformSet<string>? CustomSubjectAlternativeNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "custom_subject_alternative_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("custom_subject_alternative_names");
         set => SetArgument("custom_subject_alternative_names", value);
     }
 
@@ -1114,7 +1108,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<bool>? EnablePrivatePathForGoogleCloudServices
     {
-        get => new TerraformReference<bool>(this, "enable_private_path_for_google_cloud_services");
+        get => GetArgument<TerraformValue<bool>>("enable_private_path_for_google_cloud_services");
         set => SetArgument("enable_private_path_for_google_cloud_services", value);
     }
 
@@ -1123,7 +1117,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<bool>? Ipv4Enabled
     {
-        get => new TerraformReference<bool>(this, "ipv4_enabled");
+        get => GetArgument<TerraformValue<bool>>("ipv4_enabled");
         set => SetArgument("ipv4_enabled", value);
     }
 
@@ -1132,16 +1126,16 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? PrivateNetwork
     {
-        get => new TerraformReference<string>(this, "private_network");
+        get => GetArgument<TerraformValue<string>>("private_network");
         set => SetArgument("private_network", value);
     }
 
     /// <summary>
     /// Specify how the server certificate&#39;s Certificate Authority is hosted.
     /// </summary>
-    public TerraformValue<string> ServerCaMode
+    public TerraformValue<string>? ServerCaMode
     {
-        get => new TerraformReference<string>(this, "server_ca_mode");
+        get => GetArgument<TerraformValue<string>>("server_ca_mode");
         set => SetArgument("server_ca_mode", value);
     }
 
@@ -1150,16 +1144,16 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? ServerCaPool
     {
-        get => new TerraformReference<string>(this, "server_ca_pool");
+        get => GetArgument<TerraformValue<string>>("server_ca_pool");
         set => SetArgument("server_ca_pool", value);
     }
 
     /// <summary>
     /// Specify how SSL connection should be enforced in DB connections.
     /// </summary>
-    public TerraformValue<string> SslMode
+    public TerraformValue<string>? SslMode
     {
-        get => new TerraformReference<string>(this, "ssl_mode");
+        get => GetArgument<TerraformValue<string>>("ssl_mode");
         set => SetArgument("ssl_mode", value);
     }
 
@@ -1199,7 +1193,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlockAuthorize
     /// </summary>
     public TerraformValue<string>? ExpirationTime
     {
-        get => new TerraformReference<string>(this, "expiration_time");
+        get => GetArgument<TerraformValue<string>>("expiration_time");
         set => SetArgument("expiration_time", value);
     }
 
@@ -1208,7 +1202,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlockAuthorize
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1218,7 +1212,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlockAuthorize
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1240,7 +1234,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlockPscConfig
     /// </summary>
     public TerraformSet<string>? AllowedConsumerProjects
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_consumer_projects").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_consumer_projects");
         set => SetArgument("allowed_consumer_projects", value);
     }
 
@@ -1249,7 +1243,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlockPscConfig
     /// </summary>
     public TerraformValue<string>? NetworkAttachmentUri
     {
-        get => new TerraformReference<string>(this, "network_attachment_uri");
+        get => GetArgument<TerraformValue<string>>("network_attachment_uri");
         set => SetArgument("network_attachment_uri", value);
     }
 
@@ -1258,7 +1252,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlockPscConfig
     /// </summary>
     public TerraformValue<bool>? PscEnabled
     {
-        get => new TerraformReference<bool>(this, "psc_enabled");
+        get => GetArgument<TerraformValue<bool>>("psc_enabled");
         set => SetArgument("psc_enabled", value);
     }
 
@@ -1290,7 +1284,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlockPscConfig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerNetwork is required")]
     public required TerraformValue<string> ConsumerNetwork
     {
-        get => new TerraformReference<string>(this, "consumer_network");
+        get => GetArgument<TerraformValue<string>>("consumer_network");
         set => SetArgument("consumer_network", value);
     }
 
@@ -1298,16 +1292,14 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlockPscConfig
     /// The connection policy status of the consumer network.
     /// </summary>
     public TerraformValue<string> ConsumerNetworkStatus
-    {
-        get => new TerraformReference<string>(this, "consumer_network_status");
-    }
+        => AsReference("consumer_network_status");
 
     /// <summary>
     /// The project ID of consumer service project of this consumer endpoint.
     /// </summary>
     public TerraformValue<string>? ConsumerServiceProjectId
     {
-        get => new TerraformReference<string>(this, "consumer_service_project_id");
+        get => GetArgument<TerraformValue<string>>("consumer_service_project_id");
         set => SetArgument("consumer_service_project_id", value);
     }
 
@@ -1315,17 +1307,13 @@ public class GoogleSqlDatabaseInstanceSettingsBlockIpConfigurationBlockPscConfig
     /// The IP address of the consumer endpoint.
     /// </summary>
     public TerraformValue<string> IpAddress
-    {
-        get => new TerraformReference<string>(this, "ip_address");
-    }
+        => AsReference("ip_address");
 
     /// <summary>
     /// The connection status of the consumer endpoint.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }
 
@@ -1345,7 +1333,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockLocationPreferenceBlock : Ter
     /// </summary>
     public TerraformValue<string>? FollowGaeApplication
     {
-        get => new TerraformReference<string>(this, "follow_gae_application");
+        get => GetArgument<TerraformValue<string>>("follow_gae_application");
         set => SetArgument("follow_gae_application", value);
     }
 
@@ -1354,7 +1342,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockLocationPreferenceBlock : Ter
     /// </summary>
     public TerraformValue<string>? SecondaryZone
     {
-        get => new TerraformReference<string>(this, "secondary_zone");
+        get => GetArgument<TerraformValue<string>>("secondary_zone");
         set => SetArgument("secondary_zone", value);
     }
 
@@ -1363,7 +1351,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockLocationPreferenceBlock : Ter
     /// </summary>
     public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -1385,7 +1373,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockMaintenanceWindowBlock : Terr
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -1394,7 +1382,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockMaintenanceWindowBlock : Terr
     /// </summary>
     public TerraformValue<double>? Hour
     {
-        get => new TerraformReference<double>(this, "hour");
+        get => GetArgument<TerraformValue<double>>("hour");
         set => SetArgument("hour", value);
     }
 
@@ -1403,7 +1391,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockMaintenanceWindowBlock : Terr
     /// </summary>
     public TerraformValue<string>? UpdateTrack
     {
-        get => new TerraformReference<string>(this, "update_track");
+        get => GetArgument<TerraformValue<string>>("update_track");
         set => SetArgument("update_track", value);
     }
 
@@ -1425,7 +1413,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockPasswordValidationPolicyBlock
     /// </summary>
     public TerraformValue<string>? Complexity
     {
-        get => new TerraformReference<string>(this, "complexity");
+        get => GetArgument<TerraformValue<string>>("complexity");
         set => SetArgument("complexity", value);
     }
 
@@ -1434,7 +1422,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockPasswordValidationPolicyBlock
     /// </summary>
     public TerraformValue<bool>? DisallowUsernameSubstring
     {
-        get => new TerraformReference<bool>(this, "disallow_username_substring");
+        get => GetArgument<TerraformValue<bool>>("disallow_username_substring");
         set => SetArgument("disallow_username_substring", value);
     }
 
@@ -1444,7 +1432,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockPasswordValidationPolicyBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnablePasswordPolicy is required")]
     public required TerraformValue<bool> EnablePasswordPolicy
     {
-        get => new TerraformReference<bool>(this, "enable_password_policy");
+        get => GetArgument<TerraformValue<bool>>("enable_password_policy");
         set => SetArgument("enable_password_policy", value);
     }
 
@@ -1453,7 +1441,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockPasswordValidationPolicyBlock
     /// </summary>
     public TerraformValue<double>? MinLength
     {
-        get => new TerraformReference<double>(this, "min_length");
+        get => GetArgument<TerraformValue<double>>("min_length");
         set => SetArgument("min_length", value);
     }
 
@@ -1462,7 +1450,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockPasswordValidationPolicyBlock
     /// </summary>
     public TerraformValue<string>? PasswordChangeInterval
     {
-        get => new TerraformReference<string>(this, "password_change_interval");
+        get => GetArgument<TerraformValue<string>>("password_change_interval");
         set => SetArgument("password_change_interval", value);
     }
 
@@ -1471,7 +1459,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockPasswordValidationPolicyBlock
     /// </summary>
     public TerraformValue<double>? ReuseInterval
     {
-        get => new TerraformReference<double>(this, "reuse_interval");
+        get => GetArgument<TerraformValue<double>>("reuse_interval");
         set => SetArgument("reuse_interval", value);
     }
 
@@ -1493,7 +1481,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockReadPoolAutoScaleConfigBlock 
     /// </summary>
     public TerraformValue<bool>? DisableScaleIn
     {
-        get => new TerraformReference<bool>(this, "disable_scale_in");
+        get => GetArgument<TerraformValue<bool>>("disable_scale_in");
         set => SetArgument("disable_scale_in", value);
     }
 
@@ -1502,7 +1490,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockReadPoolAutoScaleConfigBlock 
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1511,7 +1499,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockReadPoolAutoScaleConfigBlock 
     /// </summary>
     public TerraformValue<double>? MaxNodeCount
     {
-        get => new TerraformReference<double>(this, "max_node_count");
+        get => GetArgument<TerraformValue<double>>("max_node_count");
         set => SetArgument("max_node_count", value);
     }
 
@@ -1520,7 +1508,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockReadPoolAutoScaleConfigBlock 
     /// </summary>
     public TerraformValue<double>? MinNodeCount
     {
-        get => new TerraformReference<double>(this, "min_node_count");
+        get => GetArgument<TerraformValue<double>>("min_node_count");
         set => SetArgument("min_node_count", value);
     }
 
@@ -1529,7 +1517,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockReadPoolAutoScaleConfigBlock 
     /// </summary>
     public TerraformValue<double>? ScaleInCooldownSeconds
     {
-        get => new TerraformReference<double>(this, "scale_in_cooldown_seconds");
+        get => GetArgument<TerraformValue<double>>("scale_in_cooldown_seconds");
         set => SetArgument("scale_in_cooldown_seconds", value);
     }
 
@@ -1538,7 +1526,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockReadPoolAutoScaleConfigBlock 
     /// </summary>
     public TerraformValue<double>? ScaleOutCooldownSeconds
     {
-        get => new TerraformReference<double>(this, "scale_out_cooldown_seconds");
+        get => GetArgument<TerraformValue<double>>("scale_out_cooldown_seconds");
         set => SetArgument("scale_out_cooldown_seconds", value);
     }
 
@@ -1569,7 +1557,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockReadPoolAutoScaleConfigBlockT
     /// </summary>
     public TerraformValue<string>? Metric
     {
-        get => new TerraformReference<string>(this, "metric");
+        get => GetArgument<TerraformValue<string>>("metric");
         set => SetArgument("metric", value);
     }
 
@@ -1578,7 +1566,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockReadPoolAutoScaleConfigBlockT
     /// </summary>
     public TerraformValue<double>? TargetValue
     {
-        get => new TerraformReference<double>(this, "target_value");
+        get => GetArgument<TerraformValue<double>>("target_value");
         set => SetArgument("target_value", value);
     }
 
@@ -1600,7 +1588,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockSqlServerAuditConfigBlock : T
     /// </summary>
     public TerraformValue<string>? Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -1609,7 +1597,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockSqlServerAuditConfigBlock : T
     /// </summary>
     public TerraformValue<string>? RetentionInterval
     {
-        get => new TerraformReference<string>(this, "retention_interval");
+        get => GetArgument<TerraformValue<string>>("retention_interval");
         set => SetArgument("retention_interval", value);
     }
 
@@ -1618,7 +1606,7 @@ public class GoogleSqlDatabaseInstanceSettingsBlockSqlServerAuditConfigBlock : T
     /// </summary>
     public TerraformValue<string>? UploadInterval
     {
-        get => new TerraformReference<string>(this, "upload_interval");
+        get => GetArgument<TerraformValue<string>>("upload_interval");
         set => SetArgument("upload_interval", value);
     }
 
@@ -1641,7 +1629,7 @@ public class GoogleSqlDatabaseInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1650,7 +1638,7 @@ public class GoogleSqlDatabaseInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1659,7 +1647,7 @@ public class GoogleSqlDatabaseInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1677,7 +1665,7 @@ public partial class GoogleSqlDatabaseInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? BackupdrBackup
     {
-        get => new TerraformReference<string>(this, "backupdr_backup");
+        get => GetArgument<TerraformValue<string>>("backupdr_backup");
         set => SetArgument("backupdr_backup", value);
     }
 
@@ -1687,7 +1675,7 @@ public partial class GoogleSqlDatabaseInstance(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseVersion is required")]
     public required TerraformValue<string> DatabaseVersion
     {
-        get => new TerraformReference<string>(this, "database_version");
+        get => GetArgument<TerraformValue<string>>("database_version");
         set => SetArgument("database_version", value);
     }
 
@@ -1696,16 +1684,16 @@ public partial class GoogleSqlDatabaseInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
     /// <summary>
     /// The encryption_key_name attribute.
     /// </summary>
-    public TerraformValue<string> EncryptionKeyName
+    public TerraformValue<string>? EncryptionKeyName
     {
-        get => new TerraformReference<string>(this, "encryption_key_name");
+        get => GetArgument<TerraformValue<string>>("encryption_key_name");
         set => SetArgument("encryption_key_name", value);
     }
 
@@ -1714,88 +1702,88 @@ public partial class GoogleSqlDatabaseInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? FinalBackupDescription
     {
-        get => new TerraformReference<string>(this, "final_backup_description");
+        get => GetArgument<TerraformValue<string>>("final_backup_description");
         set => SetArgument("final_backup_description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The type of the instance. See https://cloud.google.com/sql/docs/mysql/admin-api/rest/v1/instances#SqlInstanceType for supported values.
     /// </summary>
-    public TerraformValue<string> InstanceType
+    public TerraformValue<string>? InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
     /// <summary>
     /// Maintenance version.
     /// </summary>
-    public TerraformValue<string> MaintenanceVersion
+    public TerraformValue<string>? MaintenanceVersion
     {
-        get => new TerraformReference<string>(this, "maintenance_version");
+        get => GetArgument<TerraformValue<string>>("maintenance_version");
         set => SetArgument("maintenance_version", value);
     }
 
     /// <summary>
     /// The name of the instance that will act as the master in the replication setup. Note, this requires the master to have binary_log_enabled set, as well as existing backups.
     /// </summary>
-    public TerraformValue<string> MasterInstanceName
+    public TerraformValue<string>? MasterInstanceName
     {
-        get => new TerraformReference<string>(this, "master_instance_name");
+        get => GetArgument<TerraformValue<string>>("master_instance_name");
         set => SetArgument("master_instance_name", value);
     }
 
     /// <summary>
     /// The name of the instance. If the name is left blank, Terraform will randomly generate one when the instance is first created. This is done because after a name is used, it cannot be reused for up to one week.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// For a read pool instance, the number of nodes in the read pool. For read pools with auto scaling enabled, this field is read only.
     /// </summary>
-    public TerraformValue<double> NodeCount
+    public TerraformValue<double>? NodeCount
     {
-        get => new TerraformReference<double>(this, "node_count");
+        get => GetArgument<TerraformValue<double>>("node_count");
         set => SetArgument("node_count", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The region the instance will sit in. Note, Cloud SQL is not available in all regions. A valid region must be provided to use this resource. If a region is not provided in the resource definition, the provider region will be used instead, but this will be an apply-time error for instances if the provider region is not supported with Cloud SQL. If you choose not to provide the region argument for this resource, make sure you understand this.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The replicas of the instance.
     /// </summary>
-    public TerraformList<string> ReplicaNames
+    public TerraformList<string>? ReplicaNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "replica_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("replica_names");
         set => SetArgument("replica_names", value);
     }
 
@@ -1804,7 +1792,7 @@ public partial class GoogleSqlDatabaseInstance(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? RootPassword
     {
-        get => new TerraformReference<string>(this, "root_password");
+        get => GetArgument<TerraformValue<string>>("root_password");
         set => SetArgument("root_password", value);
     }
 
@@ -1812,97 +1800,73 @@ public partial class GoogleSqlDatabaseInstance(string name) : TerraformResource(
     /// Available Maintenance versions.
     /// </summary>
     public TerraformList<string> AvailableMaintenanceVersions
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "available_maintenance_versions").ResolveNodes(ctx));
-    }
+        => AsReference("available_maintenance_versions");
 
     /// <summary>
     /// The connection name of the instance to be used in connection strings. For example, when connecting with Cloud SQL Proxy.
     /// </summary>
     public TerraformValue<string> ConnectionName
-    {
-        get => new TerraformReference<string>(this, "connection_name");
-    }
+        => AsReference("connection_name");
 
     /// <summary>
     /// The instance-level dns name of the instance for PSC instances or public IP CAS instances.
     /// </summary>
     public TerraformValue<string> DnsName
-    {
-        get => new TerraformReference<string>(this, "dns_name");
-    }
+        => AsReference("dns_name");
 
     /// <summary>
     /// The list of DNS names used by this instance. Different connection types for an instance may have different DNS names. DNS names can apply to an individual instance or a cluster of instances.
     /// </summary>
     public TerraformList<TerraformMap<object>> DnsNames
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "dns_names").ResolveNodes(ctx));
-    }
+        => AsReference("dns_names");
 
     /// <summary>
     /// The first IPv4 address of any type assigned. This is to support accessing the first address in the list in a terraform output when the resource is configured with a count.
     /// </summary>
     public TerraformValue<string> FirstIpAddress
-    {
-        get => new TerraformReference<string>(this, "first_ip_address");
-    }
+        => AsReference("first_ip_address");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IpAddress
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "ip_address").ResolveNodes(ctx));
-    }
+        => AsReference("ip_address");
 
     /// <summary>
     /// IPv4 address assigned. This is a workaround for an issue fixed in Terraform 0.12 but also provides a convenient way to access an IP of a specific type without performing filtering in a Terraform config.
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
-    {
-        get => new TerraformReference<string>(this, "private_ip_address");
-    }
+        => AsReference("private_ip_address");
 
     /// <summary>
     /// The link to service attachment of PSC instance.
     /// </summary>
     public TerraformValue<string> PscServiceAttachmentLink
-    {
-        get => new TerraformReference<string>(this, "psc_service_attachment_link");
-    }
+        => AsReference("psc_service_attachment_link");
 
     /// <summary>
     /// IPv4 address assigned. This is a workaround for an issue fixed in Terraform 0.12 but also provides a convenient way to access an IP of a specific type without performing filtering in a Terraform config.
     /// </summary>
     public TerraformValue<string> PublicIpAddress
-    {
-        get => new TerraformReference<string>(this, "public_ip_address");
-    }
+        => AsReference("public_ip_address");
 
     /// <summary>
     /// The URI of the created resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// The server_ca_cert attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServerCaCert
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "server_ca_cert").ResolveNodes(ctx));
-    }
+        => AsReference("server_ca_cert");
 
     /// <summary>
     /// The service account email address assigned to the instance.
     /// </summary>
     public TerraformValue<string> ServiceAccountEmailAddress
-    {
-        get => new TerraformReference<string>(this, "service_account_email_address");
-    }
+        => AsReference("service_account_email_address");
 
     /// <summary>
     /// Clone block (nesting mode: list).

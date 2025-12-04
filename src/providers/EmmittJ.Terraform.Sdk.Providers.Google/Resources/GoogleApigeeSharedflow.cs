@@ -18,7 +18,7 @@ public class GoogleApigeeSharedflowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleApigeeSharedflowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleApigeeSharedflowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleApigeeSharedflow(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigBundle is required")]
     public required TerraformValue<string> ConfigBundle
     {
-        get => new TerraformReference<string>(this, "config_bundle");
+        get => GetArgument<TerraformValue<string>>("config_bundle");
         set => SetArgument("config_bundle", value);
     }
 
@@ -64,16 +64,16 @@ public partial class GoogleApigeeSharedflow(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? DetectMd5hash
     {
-        get => new TerraformReference<string>(this, "detect_md5hash");
+        get => GetArgument<TerraformValue<string>>("detect_md5hash");
         set => SetArgument("detect_md5hash", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class GoogleApigeeSharedflow(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class GoogleApigeeSharedflow(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => new TerraformReference<string>(this, "org_id");
+        get => GetArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -101,33 +101,25 @@ public partial class GoogleApigeeSharedflow(string name) : TerraformResource("go
     /// The id of the most recently created revision for this shared flow.
     /// </summary>
     public TerraformValue<string> LatestRevisionId
-    {
-        get => new TerraformReference<string>(this, "latest_revision_id");
-    }
+        => AsReference("latest_revision_id");
 
     /// <summary>
     /// Base 64 MD5 hash of the uploaded config bundle.
     /// </summary>
     public TerraformValue<string> Md5hash
-    {
-        get => new TerraformReference<string>(this, "md5hash");
-    }
+        => AsReference("md5hash");
 
     /// <summary>
     /// Metadata describing the shared flow.
     /// </summary>
     public TerraformList<TerraformMap<object>> MetaData
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "meta_data").ResolveNodes(ctx));
-    }
+        => AsReference("meta_data");
 
     /// <summary>
     /// A list of revisions of this shared flow.
     /// </summary>
     public TerraformList<string> Revision
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "revision").ResolveNodes(ctx));
-    }
+        => AsReference("revision");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

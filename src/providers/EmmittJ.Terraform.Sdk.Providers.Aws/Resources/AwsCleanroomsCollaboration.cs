@@ -19,7 +19,7 @@ public class AwsCleanroomsCollaborationDataEncryptionMetadataBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowClearText is required")]
     public required TerraformValue<bool> AllowClearText
     {
-        get => new TerraformReference<bool>(this, "allow_clear_text");
+        get => GetArgument<TerraformValue<bool>>("allow_clear_text");
         set => SetArgument("allow_clear_text", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsCleanroomsCollaborationDataEncryptionMetadataBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowDuplicates is required")]
     public required TerraformValue<bool> AllowDuplicates
     {
-        get => new TerraformReference<bool>(this, "allow_duplicates");
+        get => GetArgument<TerraformValue<bool>>("allow_duplicates");
         set => SetArgument("allow_duplicates", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsCleanroomsCollaborationDataEncryptionMetadataBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowJoinsOnColumnsWithDifferentNames is required")]
     public required TerraformValue<bool> AllowJoinsOnColumnsWithDifferentNames
     {
-        get => new TerraformReference<bool>(this, "allow_joins_on_columns_with_different_names");
+        get => GetArgument<TerraformValue<bool>>("allow_joins_on_columns_with_different_names");
         set => SetArgument("allow_joins_on_columns_with_different_names", value);
     }
 
@@ -49,7 +49,7 @@ public class AwsCleanroomsCollaborationDataEncryptionMetadataBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreserveNulls is required")]
     public required TerraformValue<bool> PreserveNulls
     {
-        get => new TerraformReference<bool>(this, "preserve_nulls");
+        get => GetArgument<TerraformValue<bool>>("preserve_nulls");
         set => SetArgument("preserve_nulls", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsCleanroomsCollaborationMemberBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformValue<string> AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsCleanroomsCollaborationMemberBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -93,7 +93,7 @@ public class AwsCleanroomsCollaborationMemberBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemberAbilities is required")]
     public TerraformList<string>? MemberAbilities
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "member_abilities").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("member_abilities");
         set => SetArgument("member_abilities", value);
     }
 
@@ -101,9 +101,7 @@ public class AwsCleanroomsCollaborationMemberBlock : TerraformBlock
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }
 
@@ -124,7 +122,7 @@ public class AwsCleanroomsCollaborationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -133,7 +131,7 @@ public class AwsCleanroomsCollaborationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -142,7 +140,7 @@ public class AwsCleanroomsCollaborationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -160,7 +158,7 @@ public partial class AwsCleanroomsCollaboration(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? AnalyticsEngine
     {
-        get => new TerraformReference<string>(this, "analytics_engine");
+        get => GetArgument<TerraformValue<string>>("analytics_engine");
         set => SetArgument("analytics_engine", value);
     }
 
@@ -170,7 +168,7 @@ public partial class AwsCleanroomsCollaboration(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreatorDisplayName is required")]
     public required TerraformValue<string> CreatorDisplayName
     {
-        get => new TerraformReference<string>(this, "creator_display_name");
+        get => GetArgument<TerraformValue<string>>("creator_display_name");
         set => SetArgument("creator_display_name", value);
     }
 
@@ -180,7 +178,7 @@ public partial class AwsCleanroomsCollaboration(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CreatorMemberAbilities is required")]
     public TerraformList<string>? CreatorMemberAbilities
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "creator_member_abilities").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("creator_member_abilities");
         set => SetArgument("creator_member_abilities", value);
     }
 
@@ -190,7 +188,7 @@ public partial class AwsCleanroomsCollaboration(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -200,7 +198,7 @@ public partial class AwsCleanroomsCollaboration(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -210,16 +208,16 @@ public partial class AwsCleanroomsCollaboration(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryLogStatus is required")]
     public required TerraformValue<string> QueryLogStatus
     {
-        get => new TerraformReference<string>(this, "query_log_status");
+        get => GetArgument<TerraformValue<string>>("query_log_status");
         set => SetArgument("query_log_status", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -228,16 +226,16 @@ public partial class AwsCleanroomsCollaboration(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -245,33 +243,25 @@ public partial class AwsCleanroomsCollaboration(string name) : TerraformResource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// DataEncryptionMetadata block (nesting mode: list).

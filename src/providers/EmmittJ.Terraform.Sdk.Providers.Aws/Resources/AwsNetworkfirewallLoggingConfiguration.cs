@@ -45,7 +45,7 @@ public class AwsNetworkfirewallLoggingConfigurationLoggingConfigurationBlockLogD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogDestination is required")]
     public required TerraformMap<string> LogDestination
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "log_destination").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("log_destination");
         set => SetArgument("log_destination", value);
     }
 
@@ -55,7 +55,7 @@ public class AwsNetworkfirewallLoggingConfigurationLoggingConfigurationBlockLogD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogDestinationType is required")]
     public required TerraformValue<string> LogDestinationType
     {
-        get => new TerraformReference<string>(this, "log_destination_type");
+        get => GetArgument<TerraformValue<string>>("log_destination_type");
         set => SetArgument("log_destination_type", value);
     }
 
@@ -65,7 +65,7 @@ public class AwsNetworkfirewallLoggingConfigurationLoggingConfigurationBlockLogD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
     public required TerraformValue<string> LogType
     {
-        get => new TerraformReference<string>(this, "log_type");
+        get => GetArgument<TerraformValue<string>>("log_type");
         set => SetArgument("log_type", value);
     }
 
@@ -81,9 +81,9 @@ public partial class AwsNetworkfirewallLoggingConfiguration(string name) : Terra
     /// <summary>
     /// The enable_monitoring_dashboard attribute.
     /// </summary>
-    public TerraformValue<bool> EnableMonitoringDashboard
+    public TerraformValue<bool>? EnableMonitoringDashboard
     {
-        get => new TerraformReference<bool>(this, "enable_monitoring_dashboard");
+        get => GetArgument<TerraformValue<bool>>("enable_monitoring_dashboard");
         set => SetArgument("enable_monitoring_dashboard", value);
     }
 
@@ -93,25 +93,25 @@ public partial class AwsNetworkfirewallLoggingConfiguration(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallArn is required")]
     public required TerraformValue<string> FirewallArn
     {
-        get => new TerraformReference<string>(this, "firewall_arn");
+        get => GetArgument<TerraformValue<string>>("firewall_arn");
         set => SetArgument("firewall_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

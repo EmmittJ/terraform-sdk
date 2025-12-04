@@ -18,7 +18,7 @@ public class AwsConfigOrganizationCustomRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsConfigOrganizationCustomRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsConfigOrganizationCustomRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsConfigOrganizationCustomRule(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AwsConfigOrganizationCustomRule(string name) : TerraformRes
     /// </summary>
     public TerraformSet<string>? ExcludedAccounts
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "excluded_accounts").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("excluded_accounts");
         set => SetArgument("excluded_accounts", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsConfigOrganizationCustomRule(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? InputParameters
     {
-        get => new TerraformReference<string>(this, "input_parameters");
+        get => GetArgument<TerraformValue<string>>("input_parameters");
         set => SetArgument("input_parameters", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsConfigOrganizationCustomRule(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LambdaFunctionArn is required")]
     public required TerraformValue<string> LambdaFunctionArn
     {
-        get => new TerraformReference<string>(this, "lambda_function_arn");
+        get => GetArgument<TerraformValue<string>>("lambda_function_arn");
         set => SetArgument("lambda_function_arn", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AwsConfigOrganizationCustomRule(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? MaximumExecutionFrequency
     {
-        get => new TerraformReference<string>(this, "maximum_execution_frequency");
+        get => GetArgument<TerraformValue<string>>("maximum_execution_frequency");
         set => SetArgument("maximum_execution_frequency", value);
     }
 
@@ -110,16 +110,16 @@ public partial class AwsConfigOrganizationCustomRule(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AwsConfigOrganizationCustomRule(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? ResourceIdScope
     {
-        get => new TerraformReference<string>(this, "resource_id_scope");
+        get => GetArgument<TerraformValue<string>>("resource_id_scope");
         set => SetArgument("resource_id_scope", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AwsConfigOrganizationCustomRule(string name) : TerraformRes
     /// </summary>
     public TerraformSet<string>? ResourceTypesScope
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "resource_types_scope").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("resource_types_scope");
         set => SetArgument("resource_types_scope", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AwsConfigOrganizationCustomRule(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? TagKeyScope
     {
-        get => new TerraformReference<string>(this, "tag_key_scope");
+        get => GetArgument<TerraformValue<string>>("tag_key_scope");
         set => SetArgument("tag_key_scope", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AwsConfigOrganizationCustomRule(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? TagValueScope
     {
-        get => new TerraformReference<string>(this, "tag_value_scope");
+        get => GetArgument<TerraformValue<string>>("tag_value_scope");
         set => SetArgument("tag_value_scope", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AwsConfigOrganizationCustomRule(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerTypes is required")]
     public required TerraformSet<string> TriggerTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "trigger_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("trigger_types");
         set => SetArgument("trigger_types", value);
     }
 
@@ -173,9 +173,7 @@ public partial class AwsConfigOrganizationCustomRule(string name) : TerraformRes
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

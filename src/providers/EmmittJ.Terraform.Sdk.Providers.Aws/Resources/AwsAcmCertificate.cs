@@ -18,16 +18,16 @@ public class AwsAcmCertificateOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CertificateTransparencyLoggingPreference
     {
-        get => new TerraformReference<string>(this, "certificate_transparency_logging_preference");
+        get => GetArgument<TerraformValue<string>>("certificate_transparency_logging_preference");
         set => SetArgument("certificate_transparency_logging_preference", value);
     }
 
     /// <summary>
     /// The export attribute.
     /// </summary>
-    public TerraformValue<string> Export
+    public TerraformValue<string>? Export
     {
-        get => new TerraformReference<string>(this, "export");
+        get => GetArgument<TerraformValue<string>>("export");
         set => SetArgument("export", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsAcmCertificateValidationOptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsAcmCertificateValidationOptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValidationDomain is required")]
     public required TerraformValue<string> ValidationDomain
     {
-        get => new TerraformReference<string>(this, "validation_domain");
+        get => GetArgument<TerraformValue<string>>("validation_domain");
         set => SetArgument("validation_domain", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsAcmCertificate(string name) : TerraformResource("aws_acm
     /// </summary>
     public TerraformValue<string>? CertificateAuthorityArn
     {
-        get => new TerraformReference<string>(this, "certificate_authority_arn");
+        get => GetArgument<TerraformValue<string>>("certificate_authority_arn");
         set => SetArgument("certificate_authority_arn", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsAcmCertificate(string name) : TerraformResource("aws_acm
     /// </summary>
     public TerraformValue<string>? CertificateBody
     {
-        get => new TerraformReference<string>(this, "certificate_body");
+        get => GetArgument<TerraformValue<string>>("certificate_body");
         set => SetArgument("certificate_body", value);
     }
 
@@ -97,16 +97,16 @@ public partial class AwsAcmCertificate(string name) : TerraformResource("aws_acm
     /// </summary>
     public TerraformValue<string>? CertificateChain
     {
-        get => new TerraformReference<string>(this, "certificate_chain");
+        get => GetArgument<TerraformValue<string>>("certificate_chain");
         set => SetArgument("certificate_chain", value);
     }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformValue<string> DomainName
+    public TerraformValue<string>? DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -115,25 +115,25 @@ public partial class AwsAcmCertificate(string name) : TerraformResource("aws_acm
     /// </summary>
     public TerraformValue<string>? EarlyRenewalDuration
     {
-        get => new TerraformReference<string>(this, "early_renewal_duration");
+        get => GetArgument<TerraformValue<string>>("early_renewal_duration");
         set => SetArgument("early_renewal_duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The key_algorithm attribute.
     /// </summary>
-    public TerraformValue<string> KeyAlgorithm
+    public TerraformValue<string>? KeyAlgorithm
     {
-        get => new TerraformReference<string>(this, "key_algorithm");
+        get => GetArgument<TerraformValue<string>>("key_algorithm");
         set => SetArgument("key_algorithm", value);
     }
 
@@ -142,25 +142,25 @@ public partial class AwsAcmCertificate(string name) : TerraformResource("aws_acm
     /// </summary>
     public TerraformValue<string>? PrivateKey
     {
-        get => new TerraformReference<string>(this, "private_key");
+        get => GetArgument<TerraformValue<string>>("private_key");
         set => SetArgument("private_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The subject_alternative_names attribute.
     /// </summary>
-    public TerraformSet<string> SubjectAlternativeNames
+    public TerraformSet<string>? SubjectAlternativeNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subject_alternative_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subject_alternative_names");
         set => SetArgument("subject_alternative_names", value);
     }
 
@@ -169,25 +169,25 @@ public partial class AwsAcmCertificate(string name) : TerraformResource("aws_acm
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The validation_method attribute.
     /// </summary>
-    public TerraformValue<string> ValidationMethod
+    public TerraformValue<string>? ValidationMethod
     {
-        get => new TerraformReference<string>(this, "validation_method");
+        get => GetArgument<TerraformValue<string>>("validation_method");
         set => SetArgument("validation_method", value);
     }
 
@@ -195,81 +195,61 @@ public partial class AwsAcmCertificate(string name) : TerraformResource("aws_acm
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The domain_validation_options attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> DomainValidationOptions
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "domain_validation_options").ResolveNodes(ctx));
-    }
+        => AsReference("domain_validation_options");
 
     /// <summary>
     /// The not_after attribute.
     /// </summary>
     public TerraformValue<string> NotAfter
-    {
-        get => new TerraformReference<string>(this, "not_after");
-    }
+        => AsReference("not_after");
 
     /// <summary>
     /// The not_before attribute.
     /// </summary>
     public TerraformValue<string> NotBefore
-    {
-        get => new TerraformReference<string>(this, "not_before");
-    }
+        => AsReference("not_before");
 
     /// <summary>
     /// The pending_renewal attribute.
     /// </summary>
     public TerraformValue<bool> PendingRenewal
-    {
-        get => new TerraformReference<bool>(this, "pending_renewal");
-    }
+        => AsReference("pending_renewal");
 
     /// <summary>
     /// The renewal_eligibility attribute.
     /// </summary>
     public TerraformValue<string> RenewalEligibility
-    {
-        get => new TerraformReference<string>(this, "renewal_eligibility");
-    }
+        => AsReference("renewal_eligibility");
 
     /// <summary>
     /// The renewal_summary attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RenewalSummary
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "renewal_summary").ResolveNodes(ctx));
-    }
+        => AsReference("renewal_summary");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// The validation_emails attribute.
     /// </summary>
     public TerraformList<string> ValidationEmails
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "validation_emails").ResolveNodes(ctx));
-    }
+        => AsReference("validation_emails");
 
     /// <summary>
     /// Options block (nesting mode: list).

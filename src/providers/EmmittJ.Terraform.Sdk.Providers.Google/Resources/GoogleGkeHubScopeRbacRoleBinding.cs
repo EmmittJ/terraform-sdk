@@ -18,7 +18,7 @@ public class GoogleGkeHubScopeRbacRoleBindingRoleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CustomRole
     {
-        get => new TerraformReference<string>(this, "custom_role");
+        get => GetArgument<TerraformValue<string>>("custom_role");
         set => SetArgument("custom_role", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleGkeHubScopeRbacRoleBindingRoleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PredefinedRole
     {
-        get => new TerraformReference<string>(this, "predefined_role");
+        get => GetArgument<TerraformValue<string>>("predefined_role");
         set => SetArgument("predefined_role", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleGkeHubScopeRbacRoleBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleGkeHubScopeRbacRoleBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleGkeHubScopeRbacRoleBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -88,16 +88,16 @@ public partial class GoogleGkeHubScopeRbacRoleBinding(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Group
     {
-        get => new TerraformReference<string>(this, "group");
+        get => GetArgument<TerraformValue<string>>("group");
         set => SetArgument("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -110,16 +110,16 @@ public partial class GoogleGkeHubScopeRbacRoleBinding(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -129,7 +129,7 @@ public partial class GoogleGkeHubScopeRbacRoleBinding(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
     public required TerraformValue<string> ScopeId
     {
-        get => new TerraformReference<string>(this, "scope_id");
+        get => GetArgument<TerraformValue<string>>("scope_id");
         set => SetArgument("scope_id", value);
     }
 
@@ -139,7 +139,7 @@ public partial class GoogleGkeHubScopeRbacRoleBinding(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeRbacRoleBindingId is required")]
     public required TerraformValue<string> ScopeRbacRoleBindingId
     {
-        get => new TerraformReference<string>(this, "scope_rbac_role_binding_id");
+        get => GetArgument<TerraformValue<string>>("scope_rbac_role_binding_id");
         set => SetArgument("scope_rbac_role_binding_id", value);
     }
 
@@ -151,7 +151,7 @@ public partial class GoogleGkeHubScopeRbacRoleBinding(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? User
     {
-        get => new TerraformReference<string>(this, "user");
+        get => GetArgument<TerraformValue<string>>("user");
         set => SetArgument("user", value);
     }
 
@@ -159,66 +159,50 @@ public partial class GoogleGkeHubScopeRbacRoleBinding(string name) : TerraformRe
     /// Time the RBAC Role Binding was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Time the RBAC Role Binding was deleted in UTC.
     /// </summary>
     public TerraformValue<string> DeleteTime
-    {
-        get => new TerraformReference<string>(this, "delete_time");
-    }
+        => AsReference("delete_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The resource name for the RBAC Role Binding
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// State of the RBAC Role Binding resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> State
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "state").ResolveNodes(ctx));
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Google-generated UUID for this resource.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Time the RBAC Role Binding was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Role block (nesting mode: list).

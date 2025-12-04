@@ -11,18 +11,18 @@ public partial class GoogleStorageProjectServiceAccountDataSource(string name) :
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleStorageProjectServiceAccountDataSource(string name) :
     /// </summary>
     public TerraformValue<string>? UserProject
     {
-        get => new TerraformReference<string>(this, "user_project");
+        get => GetArgument<TerraformValue<string>>("user_project");
         set => SetArgument("user_project", value);
     }
 
@@ -39,16 +39,12 @@ public partial class GoogleStorageProjectServiceAccountDataSource(string name) :
     /// The email_address attribute.
     /// </summary>
     public TerraformValue<string> EmailAddress
-    {
-        get => new TerraformReference<string>(this, "email_address");
-    }
+        => AsReference("email_address");
 
     /// <summary>
     /// The member attribute.
     /// </summary>
     public TerraformValue<string> Member
-    {
-        get => new TerraformReference<string>(this, "member");
-    }
+        => AsReference("member");
 
 }

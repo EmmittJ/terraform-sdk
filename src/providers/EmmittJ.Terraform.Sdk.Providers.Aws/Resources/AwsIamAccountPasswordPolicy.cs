@@ -13,34 +13,34 @@ public partial class AwsIamAccountPasswordPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool>? AllowUsersToChangePassword
     {
-        get => new TerraformReference<bool>(this, "allow_users_to_change_password");
+        get => GetArgument<TerraformValue<bool>>("allow_users_to_change_password");
         set => SetArgument("allow_users_to_change_password", value);
     }
 
     /// <summary>
     /// The hard_expiry attribute.
     /// </summary>
-    public TerraformValue<bool> HardExpiry
+    public TerraformValue<bool>? HardExpiry
     {
-        get => new TerraformReference<bool>(this, "hard_expiry");
+        get => GetArgument<TerraformValue<bool>>("hard_expiry");
         set => SetArgument("hard_expiry", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The max_password_age attribute.
     /// </summary>
-    public TerraformValue<double> MaxPasswordAge
+    public TerraformValue<double>? MaxPasswordAge
     {
-        get => new TerraformReference<double>(this, "max_password_age");
+        get => GetArgument<TerraformValue<double>>("max_password_age");
         set => SetArgument("max_password_age", value);
     }
 
@@ -49,52 +49,52 @@ public partial class AwsIamAccountPasswordPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double>? MinimumPasswordLength
     {
-        get => new TerraformReference<double>(this, "minimum_password_length");
+        get => GetArgument<TerraformValue<double>>("minimum_password_length");
         set => SetArgument("minimum_password_length", value);
     }
 
     /// <summary>
     /// The password_reuse_prevention attribute.
     /// </summary>
-    public TerraformValue<double> PasswordReusePrevention
+    public TerraformValue<double>? PasswordReusePrevention
     {
-        get => new TerraformReference<double>(this, "password_reuse_prevention");
+        get => GetArgument<TerraformValue<double>>("password_reuse_prevention");
         set => SetArgument("password_reuse_prevention", value);
     }
 
     /// <summary>
     /// The require_lowercase_characters attribute.
     /// </summary>
-    public TerraformValue<bool> RequireLowercaseCharacters
+    public TerraformValue<bool>? RequireLowercaseCharacters
     {
-        get => new TerraformReference<bool>(this, "require_lowercase_characters");
+        get => GetArgument<TerraformValue<bool>>("require_lowercase_characters");
         set => SetArgument("require_lowercase_characters", value);
     }
 
     /// <summary>
     /// The require_numbers attribute.
     /// </summary>
-    public TerraformValue<bool> RequireNumbers
+    public TerraformValue<bool>? RequireNumbers
     {
-        get => new TerraformReference<bool>(this, "require_numbers");
+        get => GetArgument<TerraformValue<bool>>("require_numbers");
         set => SetArgument("require_numbers", value);
     }
 
     /// <summary>
     /// The require_symbols attribute.
     /// </summary>
-    public TerraformValue<bool> RequireSymbols
+    public TerraformValue<bool>? RequireSymbols
     {
-        get => new TerraformReference<bool>(this, "require_symbols");
+        get => GetArgument<TerraformValue<bool>>("require_symbols");
         set => SetArgument("require_symbols", value);
     }
 
     /// <summary>
     /// The require_uppercase_characters attribute.
     /// </summary>
-    public TerraformValue<bool> RequireUppercaseCharacters
+    public TerraformValue<bool>? RequireUppercaseCharacters
     {
-        get => new TerraformReference<bool>(this, "require_uppercase_characters");
+        get => GetArgument<TerraformValue<bool>>("require_uppercase_characters");
         set => SetArgument("require_uppercase_characters", value);
     }
 
@@ -102,8 +102,6 @@ public partial class AwsIamAccountPasswordPolicy(string name) : TerraformResourc
     /// The expire_passwords attribute.
     /// </summary>
     public TerraformValue<bool> ExpirePasswords
-    {
-        get => new TerraformReference<bool>(this, "expire_passwords");
-    }
+        => AsReference("expire_passwords");
 
 }

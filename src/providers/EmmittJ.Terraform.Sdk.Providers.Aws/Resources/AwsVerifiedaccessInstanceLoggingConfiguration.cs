@@ -16,18 +16,18 @@ public class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlock : Terr
     /// <summary>
     /// The include_trust_context attribute.
     /// </summary>
-    public TerraformValue<bool> IncludeTrustContext
+    public TerraformValue<bool>? IncludeTrustContext
     {
-        get => new TerraformReference<bool>(this, "include_trust_context");
+        get => GetArgument<TerraformValue<bool>>("include_trust_context");
         set => SetArgument("include_trust_context", value);
     }
 
     /// <summary>
     /// The log_version attribute.
     /// </summary>
-    public TerraformValue<string> LogVersion
+    public TerraformValue<string>? LogVersion
     {
-        get => new TerraformReference<string>(this, "log_version");
+        get => GetArgument<TerraformValue<string>>("log_version");
         set => SetArgument("log_version", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlockCloudwa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlockCloudwa
     /// </summary>
     public TerraformValue<string>? LogGroup
     {
-        get => new TerraformReference<string>(this, "log_group");
+        get => GetArgument<TerraformValue<string>>("log_group");
         set => SetArgument("log_group", value);
     }
 
@@ -111,7 +111,7 @@ public class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlockKinesis
     /// </summary>
     public TerraformValue<string>? DeliveryStream
     {
-        get => new TerraformReference<string>(this, "delivery_stream");
+        get => GetArgument<TerraformValue<string>>("delivery_stream");
         set => SetArgument("delivery_stream", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlockKinesis
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -143,16 +143,16 @@ public class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlockS3Block
     /// </summary>
     public TerraformValue<string>? BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
     /// <summary>
     /// The bucket_owner attribute.
     /// </summary>
-    public TerraformValue<string> BucketOwner
+    public TerraformValue<string>? BucketOwner
     {
-        get => new TerraformReference<string>(this, "bucket_owner");
+        get => GetArgument<TerraformValue<string>>("bucket_owner");
         set => SetArgument("bucket_owner", value);
     }
 
@@ -162,7 +162,7 @@ public class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlockS3Block
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -171,7 +171,7 @@ public class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlockS3Block
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -187,18 +187,18 @@ public partial class AwsVerifiedaccessInstanceLoggingConfiguration(string name) 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -208,7 +208,7 @@ public partial class AwsVerifiedaccessInstanceLoggingConfiguration(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifiedaccessInstanceId is required")]
     public required TerraformValue<string> VerifiedaccessInstanceId
     {
-        get => new TerraformReference<string>(this, "verifiedaccess_instance_id");
+        get => GetArgument<TerraformValue<string>>("verifiedaccess_instance_id");
         set => SetArgument("verifiedaccess_instance_id", value);
     }
 

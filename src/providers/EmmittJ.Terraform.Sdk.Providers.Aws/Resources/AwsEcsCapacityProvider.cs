@@ -19,25 +19,25 @@ public class AwsEcsCapacityProviderAutoScalingGroupProviderBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingGroupArn is required")]
     public required TerraformValue<string> AutoScalingGroupArn
     {
-        get => new TerraformReference<string>(this, "auto_scaling_group_arn");
+        get => GetArgument<TerraformValue<string>>("auto_scaling_group_arn");
         set => SetArgument("auto_scaling_group_arn", value);
     }
 
     /// <summary>
     /// The managed_draining attribute.
     /// </summary>
-    public TerraformValue<string> ManagedDraining
+    public TerraformValue<string>? ManagedDraining
     {
-        get => new TerraformReference<string>(this, "managed_draining");
+        get => GetArgument<TerraformValue<string>>("managed_draining");
         set => SetArgument("managed_draining", value);
     }
 
     /// <summary>
     /// The managed_termination_protection attribute.
     /// </summary>
-    public TerraformValue<string> ManagedTerminationProtection
+    public TerraformValue<string>? ManagedTerminationProtection
     {
-        get => new TerraformReference<string>(this, "managed_termination_protection");
+        get => GetArgument<TerraformValue<string>>("managed_termination_protection");
         set => SetArgument("managed_termination_protection", value);
     }
 
@@ -67,45 +67,45 @@ public class AwsEcsCapacityProviderAutoScalingGroupProviderBlockManagedScalingBl
     /// <summary>
     /// The instance_warmup_period attribute.
     /// </summary>
-    public TerraformValue<double> InstanceWarmupPeriod
+    public TerraformValue<double>? InstanceWarmupPeriod
     {
-        get => new TerraformReference<double>(this, "instance_warmup_period");
+        get => GetArgument<TerraformValue<double>>("instance_warmup_period");
         set => SetArgument("instance_warmup_period", value);
     }
 
     /// <summary>
     /// The maximum_scaling_step_size attribute.
     /// </summary>
-    public TerraformValue<double> MaximumScalingStepSize
+    public TerraformValue<double>? MaximumScalingStepSize
     {
-        get => new TerraformReference<double>(this, "maximum_scaling_step_size");
+        get => GetArgument<TerraformValue<double>>("maximum_scaling_step_size");
         set => SetArgument("maximum_scaling_step_size", value);
     }
 
     /// <summary>
     /// The minimum_scaling_step_size attribute.
     /// </summary>
-    public TerraformValue<double> MinimumScalingStepSize
+    public TerraformValue<double>? MinimumScalingStepSize
     {
-        get => new TerraformReference<double>(this, "minimum_scaling_step_size");
+        get => GetArgument<TerraformValue<double>>("minimum_scaling_step_size");
         set => SetArgument("minimum_scaling_step_size", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformValue<string> Status
+    public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
     /// <summary>
     /// The target_capacity attribute.
     /// </summary>
-    public TerraformValue<double> TargetCapacity
+    public TerraformValue<double>? TargetCapacity
     {
-        get => new TerraformReference<double>(this, "target_capacity");
+        get => GetArgument<TerraformValue<double>>("target_capacity");
         set => SetArgument("target_capacity", value);
     }
 
@@ -129,7 +129,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InfrastructureRoleArn is required")]
     public required TerraformValue<string> InfrastructureRoleArn
     {
-        get => new TerraformReference<string>(this, "infrastructure_role_arn");
+        get => GetArgument<TerraformValue<string>>("infrastructure_role_arn");
         set => SetArgument("infrastructure_role_arn", value);
     }
 
@@ -138,7 +138,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? PropagateTags
     {
-        get => new TerraformReference<string>(this, "propagate_tags");
+        get => GetArgument<TerraformValue<string>>("propagate_tags");
         set => SetArgument("propagate_tags", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ec2InstanceProfileArn is required")]
     public required TerraformValue<string> Ec2InstanceProfileArn
     {
-        get => new TerraformReference<string>(this, "ec2_instance_profile_arn");
+        get => GetArgument<TerraformValue<string>>("ec2_instance_profile_arn");
         set => SetArgument("ec2_instance_profile_arn", value);
     }
 
@@ -183,7 +183,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<string>? Monitoring
     {
-        get => new TerraformReference<string>(this, "monitoring");
+        get => GetArgument<TerraformValue<string>>("monitoring");
         set => SetArgument("monitoring", value);
     }
 
@@ -238,7 +238,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformSet<string>? AcceleratorManufacturers
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "accelerator_manufacturers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("accelerator_manufacturers");
         set => SetArgument("accelerator_manufacturers", value);
     }
 
@@ -247,7 +247,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformSet<string>? AcceleratorNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "accelerator_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("accelerator_names");
         set => SetArgument("accelerator_names", value);
     }
 
@@ -256,7 +256,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformSet<string>? AcceleratorTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "accelerator_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("accelerator_types");
         set => SetArgument("accelerator_types", value);
     }
 
@@ -265,7 +265,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformSet<string>? AllowedInstanceTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_instance_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_instance_types");
         set => SetArgument("allowed_instance_types", value);
     }
 
@@ -274,7 +274,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<string>? BareMetal
     {
-        get => new TerraformReference<string>(this, "bare_metal");
+        get => GetArgument<TerraformValue<string>>("bare_metal");
         set => SetArgument("bare_metal", value);
     }
 
@@ -283,7 +283,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<string>? BurstablePerformance
     {
-        get => new TerraformReference<string>(this, "burstable_performance");
+        get => GetArgument<TerraformValue<string>>("burstable_performance");
         set => SetArgument("burstable_performance", value);
     }
 
@@ -292,7 +292,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformSet<string>? CpuManufacturers
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "cpu_manufacturers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("cpu_manufacturers");
         set => SetArgument("cpu_manufacturers", value);
     }
 
@@ -301,7 +301,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformSet<string>? ExcludedInstanceTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "excluded_instance_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("excluded_instance_types");
         set => SetArgument("excluded_instance_types", value);
     }
 
@@ -310,7 +310,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformSet<string>? InstanceGenerations
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "instance_generations").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("instance_generations");
         set => SetArgument("instance_generations", value);
     }
 
@@ -319,7 +319,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<string>? LocalStorage
     {
-        get => new TerraformReference<string>(this, "local_storage");
+        get => GetArgument<TerraformValue<string>>("local_storage");
         set => SetArgument("local_storage", value);
     }
 
@@ -328,7 +328,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformSet<string>? LocalStorageTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "local_storage_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("local_storage_types");
         set => SetArgument("local_storage_types", value);
     }
 
@@ -337,7 +337,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<double>? MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
     {
-        get => new TerraformReference<double>(this, "max_spot_price_as_percentage_of_optimal_on_demand_price");
+        get => GetArgument<TerraformValue<double>>("max_spot_price_as_percentage_of_optimal_on_demand_price");
         set => SetArgument("max_spot_price_as_percentage_of_optimal_on_demand_price", value);
     }
 
@@ -346,7 +346,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<double>? OnDemandMaxPricePercentageOverLowestPrice
     {
-        get => new TerraformReference<double>(this, "on_demand_max_price_percentage_over_lowest_price");
+        get => GetArgument<TerraformValue<double>>("on_demand_max_price_percentage_over_lowest_price");
         set => SetArgument("on_demand_max_price_percentage_over_lowest_price", value);
     }
 
@@ -355,7 +355,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<bool>? RequireHibernateSupport
     {
-        get => new TerraformReference<bool>(this, "require_hibernate_support");
+        get => GetArgument<TerraformValue<bool>>("require_hibernate_support");
         set => SetArgument("require_hibernate_support", value);
     }
 
@@ -364,7 +364,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<double>? SpotMaxPricePercentageOverLowestPrice
     {
-        get => new TerraformReference<double>(this, "spot_max_price_percentage_over_lowest_price");
+        get => GetArgument<TerraformValue<double>>("spot_max_price_percentage_over_lowest_price");
         set => SetArgument("spot_max_price_percentage_over_lowest_price", value);
     }
 
@@ -482,7 +482,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -491,7 +491,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -513,7 +513,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -522,7 +522,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -544,7 +544,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -553,7 +553,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -575,7 +575,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -584,7 +584,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -606,7 +606,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -616,7 +616,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Min is required")]
     public required TerraformValue<double> Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -638,7 +638,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -647,7 +647,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -669,7 +669,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -678,7 +678,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -700,7 +700,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -709,7 +709,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -731,7 +731,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -741,7 +741,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Min is required")]
     public required TerraformValue<double> Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -763,7 +763,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     /// </summary>
     public TerraformSet<string>? SecurityGroups
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_groups");
         set => SetArgument("security_groups", value);
     }
 
@@ -773,7 +773,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public required TerraformSet<string> Subnets
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnets").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -796,7 +796,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlockInstanceLaunchTe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageSizeGib is required")]
     public required TerraformValue<double> StorageSizeGib
     {
-        get => new TerraformReference<double>(this, "storage_size_gib");
+        get => GetArgument<TerraformValue<double>>("storage_size_gib");
         set => SetArgument("storage_size_gib", value);
     }
 
@@ -814,16 +814,16 @@ public partial class AwsEcsCapacityProvider(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? Cluster
     {
-        get => new TerraformReference<string>(this, "cluster");
+        get => GetArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -833,16 +833,16 @@ public partial class AwsEcsCapacityProvider(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -851,16 +851,16 @@ public partial class AwsEcsCapacityProvider(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -868,9 +868,7 @@ public partial class AwsEcsCapacityProvider(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// AutoScalingGroupProvider block (nesting mode: list).

@@ -13,16 +13,16 @@ public partial class GoogleServiceAccountIdTokenDataSource(string name) : Terraf
     /// </summary>
     public TerraformSet<string>? Delegates
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "delegates").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("delegates");
         set => SetArgument("delegates", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleServiceAccountIdTokenDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<bool>? IncludeEmail
     {
-        get => new TerraformReference<bool>(this, "include_email");
+        get => GetArgument<TerraformValue<bool>>("include_email");
         set => SetArgument("include_email", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleServiceAccountIdTokenDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetAudience is required")]
     public required TerraformValue<string> TargetAudience
     {
-        get => new TerraformReference<string>(this, "target_audience");
+        get => GetArgument<TerraformValue<string>>("target_audience");
         set => SetArgument("target_audience", value);
     }
 
@@ -50,7 +50,7 @@ public partial class GoogleServiceAccountIdTokenDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? TargetServiceAccount
     {
-        get => new TerraformReference<string>(this, "target_service_account");
+        get => GetArgument<TerraformValue<string>>("target_service_account");
         set => SetArgument("target_service_account", value);
     }
 
@@ -58,8 +58,6 @@ public partial class GoogleServiceAccountIdTokenDataSource(string name) : Terraf
     /// The id_token attribute.
     /// </summary>
     public TerraformValue<string> IdToken
-    {
-        get => new TerraformReference<string>(this, "id_token");
-    }
+        => AsReference("id_token");
 
 }

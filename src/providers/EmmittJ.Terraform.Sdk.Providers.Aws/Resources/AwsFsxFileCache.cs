@@ -17,9 +17,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     /// The association_id attribute.
     /// </summary>
     public TerraformValue<string> AssociationId
-    {
-        get => new TerraformReference<string>(this, "association_id");
-    }
+        => AsReference("association_id");
 
     /// <summary>
     /// The data_repository_path attribute.
@@ -27,7 +25,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataRepositoryPath is required")]
     public required TerraformValue<string> DataRepositoryPath
     {
-        get => new TerraformReference<string>(this, "data_repository_path");
+        get => GetArgument<TerraformValue<string>>("data_repository_path");
         set => SetArgument("data_repository_path", value);
     }
 
@@ -36,7 +34,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? DataRepositorySubdirectories
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "data_repository_subdirectories").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("data_repository_subdirectories");
         set => SetArgument("data_repository_subdirectories", value);
     }
 
@@ -44,9 +42,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     /// The file_cache_id attribute.
     /// </summary>
     public TerraformValue<string> FileCacheId
-    {
-        get => new TerraformReference<string>(this, "file_cache_id");
-    }
+        => AsReference("file_cache_id");
 
     /// <summary>
     /// The file_cache_path attribute.
@@ -54,7 +50,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileCachePath is required")]
     public required TerraformValue<string> FileCachePath
     {
-        get => new TerraformReference<string>(this, "file_cache_path");
+        get => GetArgument<TerraformValue<string>>("file_cache_path");
         set => SetArgument("file_cache_path", value);
     }
 
@@ -62,40 +58,32 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlock : TerraformBlock
     /// The file_system_id attribute.
     /// </summary>
     public TerraformValue<string> FileSystemId
-    {
-        get => new TerraformReference<string>(this, "file_system_id");
-    }
+        => AsReference("file_system_id");
 
     /// <summary>
     /// The file_system_path attribute.
     /// </summary>
     public TerraformValue<string> FileSystemPath
-    {
-        get => new TerraformReference<string>(this, "file_system_path");
-    }
+        => AsReference("file_system_path");
 
     /// <summary>
     /// The imported_file_chunk_size attribute.
     /// </summary>
     public TerraformValue<double> ImportedFileChunkSize
-    {
-        get => new TerraformReference<double>(this, "imported_file_chunk_size");
-    }
+        => AsReference("imported_file_chunk_size");
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
     public TerraformValue<string> ResourceArn
-    {
-        get => new TerraformReference<string>(this, "resource_arn");
-    }
+        => AsReference("resource_arn");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -126,7 +114,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlockNfsBlock : TerraformBl
     /// </summary>
     public TerraformSet<string>? DnsIps
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "dns_ips").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("dns_ips");
         set => SetArgument("dns_ips", value);
     }
 
@@ -136,7 +124,7 @@ public class AwsFsxFileCacheDataRepositoryAssociationBlockNfsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -160,7 +148,7 @@ public class AwsFsxFileCacheLustreConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentType is required")]
     public required TerraformValue<string> DeploymentType
     {
-        get => new TerraformReference<string>(this, "deployment_type");
+        get => GetArgument<TerraformValue<string>>("deployment_type");
         set => SetArgument("deployment_type", value);
     }
 
@@ -168,17 +156,13 @@ public class AwsFsxFileCacheLustreConfigurationBlock : TerraformBlock
     /// The log_configuration attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> LogConfiguration
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "log_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("log_configuration");
 
     /// <summary>
     /// The mount_name attribute.
     /// </summary>
     public TerraformValue<string> MountName
-    {
-        get => new TerraformReference<string>(this, "mount_name");
-    }
+        => AsReference("mount_name");
 
     /// <summary>
     /// The per_unit_storage_throughput attribute.
@@ -186,7 +170,7 @@ public class AwsFsxFileCacheLustreConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerUnitStorageThroughput is required")]
     public required TerraformValue<double> PerUnitStorageThroughput
     {
-        get => new TerraformReference<double>(this, "per_unit_storage_throughput");
+        get => GetArgument<TerraformValue<double>>("per_unit_storage_throughput");
         set => SetArgument("per_unit_storage_throughput", value);
     }
 
@@ -195,7 +179,7 @@ public class AwsFsxFileCacheLustreConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? WeeklyMaintenanceStartTime
     {
-        get => new TerraformReference<string>(this, "weekly_maintenance_start_time");
+        get => GetArgument<TerraformValue<string>>("weekly_maintenance_start_time");
         set => SetArgument("weekly_maintenance_start_time", value);
     }
 
@@ -231,7 +215,7 @@ public class AwsFsxFileCacheLustreConfigurationBlockMetadataConfigurationBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacity is required")]
     public required TerraformValue<double> StorageCapacity
     {
-        get => new TerraformReference<double>(this, "storage_capacity");
+        get => GetArgument<TerraformValue<double>>("storage_capacity");
         set => SetArgument("storage_capacity", value);
     }
 
@@ -254,7 +238,7 @@ public class AwsFsxFileCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -263,7 +247,7 @@ public class AwsFsxFileCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -272,7 +256,7 @@ public class AwsFsxFileCacheTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -290,7 +274,7 @@ public partial class AwsFsxFileCache(string name) : TerraformResource("aws_fsx_f
     /// </summary>
     public TerraformValue<bool>? CopyTagsToDataRepositoryAssociations
     {
-        get => new TerraformReference<bool>(this, "copy_tags_to_data_repository_associations");
+        get => GetArgument<TerraformValue<bool>>("copy_tags_to_data_repository_associations");
         set => SetArgument("copy_tags_to_data_repository_associations", value);
     }
 
@@ -300,7 +284,7 @@ public partial class AwsFsxFileCache(string name) : TerraformResource("aws_fsx_f
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileCacheType is required")]
     public required TerraformValue<string> FileCacheType
     {
-        get => new TerraformReference<string>(this, "file_cache_type");
+        get => GetArgument<TerraformValue<string>>("file_cache_type");
         set => SetArgument("file_cache_type", value);
     }
 
@@ -310,34 +294,34 @@ public partial class AwsFsxFileCache(string name) : TerraformResource("aws_fsx_f
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileCacheTypeVersion is required")]
     public required TerraformValue<string> FileCacheTypeVersion
     {
-        get => new TerraformReference<string>(this, "file_cache_type_version");
+        get => GetArgument<TerraformValue<string>>("file_cache_type_version");
         set => SetArgument("file_cache_type_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string> KmsKeyId
+    public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -346,7 +330,7 @@ public partial class AwsFsxFileCache(string name) : TerraformResource("aws_fsx_f
     /// </summary>
     public TerraformSet<string>? SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -356,7 +340,7 @@ public partial class AwsFsxFileCache(string name) : TerraformResource("aws_fsx_f
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacity is required")]
     public required TerraformValue<double> StorageCapacity
     {
-        get => new TerraformReference<double>(this, "storage_capacity");
+        get => GetArgument<TerraformValue<double>>("storage_capacity");
         set => SetArgument("storage_capacity", value);
     }
 
@@ -366,7 +350,7 @@ public partial class AwsFsxFileCache(string name) : TerraformResource("aws_fsx_f
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public TerraformList<string>? SubnetIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -375,16 +359,16 @@ public partial class AwsFsxFileCache(string name) : TerraformResource("aws_fsx_f
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -392,57 +376,43 @@ public partial class AwsFsxFileCache(string name) : TerraformResource("aws_fsx_f
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The data_repository_association_ids attribute.
     /// </summary>
     public TerraformSet<string> DataRepositoryAssociationIds
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "data_repository_association_ids").ResolveNodes(ctx));
-    }
+        => AsReference("data_repository_association_ids");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-    {
-        get => new TerraformReference<string>(this, "dns_name");
-    }
+        => AsReference("dns_name");
 
     /// <summary>
     /// The file_cache_id attribute.
     /// </summary>
     public TerraformValue<string> FileCacheId
-    {
-        get => new TerraformReference<string>(this, "file_cache_id");
-    }
+        => AsReference("file_cache_id");
 
     /// <summary>
     /// The network_interface_ids attribute.
     /// </summary>
     public TerraformSet<string> NetworkInterfaceIds
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "network_interface_ids").ResolveNodes(ctx));
-    }
+        => AsReference("network_interface_ids");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-    {
-        get => new TerraformReference<string>(this, "vpc_id");
-    }
+        => AsReference("vpc_id");
 
     /// <summary>
     /// DataRepositoryAssociation block (nesting mode: set).

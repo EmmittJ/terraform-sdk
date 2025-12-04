@@ -11,9 +11,9 @@ public partial class GoogleBeyondcorpAppConnectionDataSource(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleBeyondcorpAppConnectionDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleBeyondcorpAppConnectionDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleBeyondcorpAppConnectionDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -49,41 +49,31 @@ public partial class GoogleBeyondcorpAppConnectionDataSource(string name) : Terr
     /// Address of the remote application endpoint for the BeyondCorp AppConnection.
     /// </summary>
     public TerraformList<TerraformMap<object>> ApplicationEndpoint
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "application_endpoint").ResolveNodes(ctx));
-    }
+        => AsReference("application_endpoint");
 
     /// <summary>
     /// List of AppConnectors that are authorised to be associated with this AppConnection
     /// </summary>
     public TerraformList<string> Connectors
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "connectors").ResolveNodes(ctx));
-    }
+        => AsReference("connectors");
 
     /// <summary>
     /// An arbitrary user-provided name for the AppConnection.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Gateway used by the AppConnection.
     /// </summary>
     public TerraformList<TerraformMap<object>> Gateway
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "gateway").ResolveNodes(ctx));
-    }
+        => AsReference("gateway");
 
     /// <summary>
     /// Resource labels to represent user provided metadata.
@@ -93,18 +83,14 @@ public partial class GoogleBeyondcorpAppConnectionDataSource(string name) : Terr
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
-    }
+        => AsReference("labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The type of network connectivity used by the AppConnection. Refer
@@ -112,8 +98,6 @@ public partial class GoogleBeyondcorpAppConnectionDataSource(string name) : Terr
     /// for a list of possible values.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
 }

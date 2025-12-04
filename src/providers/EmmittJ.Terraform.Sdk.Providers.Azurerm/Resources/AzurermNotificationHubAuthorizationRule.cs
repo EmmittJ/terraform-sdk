@@ -18,7 +18,7 @@ public class AzurermNotificationHubAuthorizationRuleTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermNotificationHubAuthorizationRuleTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermNotificationHubAuthorizationRuleTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermNotificationHubAuthorizationRuleTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermNotificationHubAuthorizationRule(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermNotificationHubAuthorizationRule(string name) : Terr
     /// </summary>
     public TerraformValue<bool>? Listen
     {
-        get => new TerraformReference<bool>(this, "listen");
+        get => GetArgument<TerraformValue<bool>>("listen");
         set => SetArgument("listen", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermNotificationHubAuthorizationRule(string name) : Terr
     /// </summary>
     public TerraformValue<bool>? Manage
     {
-        get => new TerraformReference<bool>(this, "manage");
+        get => GetArgument<TerraformValue<bool>>("manage");
         set => SetArgument("manage", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermNotificationHubAuthorizationRule(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermNotificationHubAuthorizationRule(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
     public required TerraformValue<string> NamespaceName
     {
-        get => new TerraformReference<string>(this, "namespace_name");
+        get => GetArgument<TerraformValue<string>>("namespace_name");
         set => SetArgument("namespace_name", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermNotificationHubAuthorizationRule(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationHubName is required")]
     public required TerraformValue<string> NotificationHubName
     {
-        get => new TerraformReference<string>(this, "notification_hub_name");
+        get => GetArgument<TerraformValue<string>>("notification_hub_name");
         set => SetArgument("notification_hub_name", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermNotificationHubAuthorizationRule(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermNotificationHubAuthorizationRule(string name) : Terr
     /// </summary>
     public TerraformValue<bool>? Send
     {
-        get => new TerraformReference<bool>(this, "send");
+        get => GetArgument<TerraformValue<bool>>("send");
         set => SetArgument("send", value);
     }
 
@@ -138,33 +138,25 @@ public partial class AzurermNotificationHubAuthorizationRule(string name) : Terr
     /// The primary_access_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "primary_access_key");
-    }
+        => AsReference("primary_access_key");
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimaryConnectionString
-    {
-        get => new TerraformReference<string>(this, "primary_connection_string");
-    }
+        => AsReference("primary_connection_string");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "secondary_access_key");
-    }
+        => AsReference("secondary_access_key");
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondaryConnectionString
-    {
-        get => new TerraformReference<string>(this, "secondary_connection_string");
-    }
+        => AsReference("secondary_connection_string");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

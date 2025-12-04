@@ -16,7 +16,7 @@ public partial class GoogleIapClientDataSource(string name) : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Brand is required")]
     public required TerraformValue<string> Brand
     {
-        get => new TerraformReference<string>(this, "brand");
+        get => GetArgument<TerraformValue<string>>("brand");
         set => SetArgument("brand", value);
     }
 
@@ -26,16 +26,16 @@ public partial class GoogleIapClientDataSource(string name) : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -43,16 +43,12 @@ public partial class GoogleIapClientDataSource(string name) : TerraformDataSourc
     /// Human-friendly name given to the OAuth client.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// Output only. Client secret of the OAuth client.
     /// </summary>
     public TerraformValue<string> Secret
-    {
-        get => new TerraformReference<string>(this, "secret");
-    }
+        => AsReference("secret");
 
 }

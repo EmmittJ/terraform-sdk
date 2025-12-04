@@ -18,7 +18,7 @@ public class AzurermServicebusTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermServicebusTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermServicebusTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermServicebusTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermServicebusTopic(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? AutoDeleteOnIdle
     {
-        get => new TerraformReference<string>(this, "auto_delete_on_idle");
+        get => GetArgument<TerraformValue<string>>("auto_delete_on_idle");
         set => SetArgument("auto_delete_on_idle", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermServicebusTopic(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? BatchedOperationsEnabled
     {
-        get => new TerraformReference<bool>(this, "batched_operations_enabled");
+        get => GetArgument<TerraformValue<bool>>("batched_operations_enabled");
         set => SetArgument("batched_operations_enabled", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermServicebusTopic(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? DefaultMessageTtl
     {
-        get => new TerraformReference<string>(this, "default_message_ttl");
+        get => GetArgument<TerraformValue<string>>("default_message_ttl");
         set => SetArgument("default_message_ttl", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AzurermServicebusTopic(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? DuplicateDetectionHistoryTimeWindow
     {
-        get => new TerraformReference<string>(this, "duplicate_detection_history_time_window");
+        get => GetArgument<TerraformValue<string>>("duplicate_detection_history_time_window");
         set => SetArgument("duplicate_detection_history_time_window", value);
     }
 
@@ -99,34 +99,34 @@ public partial class AzurermServicebusTopic(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? ExpressEnabled
     {
-        get => new TerraformReference<bool>(this, "express_enabled");
+        get => GetArgument<TerraformValue<bool>>("express_enabled");
         set => SetArgument("express_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The max_message_size_in_kilobytes attribute.
     /// </summary>
-    public TerraformValue<double> MaxMessageSizeInKilobytes
+    public TerraformValue<double>? MaxMessageSizeInKilobytes
     {
-        get => new TerraformReference<double>(this, "max_message_size_in_kilobytes");
+        get => GetArgument<TerraformValue<double>>("max_message_size_in_kilobytes");
         set => SetArgument("max_message_size_in_kilobytes", value);
     }
 
     /// <summary>
     /// The max_size_in_megabytes attribute.
     /// </summary>
-    public TerraformValue<double> MaxSizeInMegabytes
+    public TerraformValue<double>? MaxSizeInMegabytes
     {
-        get => new TerraformReference<double>(this, "max_size_in_megabytes");
+        get => GetArgument<TerraformValue<double>>("max_size_in_megabytes");
         set => SetArgument("max_size_in_megabytes", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AzurermServicebusTopic(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AzurermServicebusTopic(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceId is required")]
     public required TerraformValue<string> NamespaceId
     {
-        get => new TerraformReference<string>(this, "namespace_id");
+        get => GetArgument<TerraformValue<string>>("namespace_id");
         set => SetArgument("namespace_id", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AzurermServicebusTopic(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? PartitioningEnabled
     {
-        get => new TerraformReference<bool>(this, "partitioning_enabled");
+        get => GetArgument<TerraformValue<bool>>("partitioning_enabled");
         set => SetArgument("partitioning_enabled", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AzurermServicebusTopic(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? RequiresDuplicateDetection
     {
-        get => new TerraformReference<bool>(this, "requires_duplicate_detection");
+        get => GetArgument<TerraformValue<bool>>("requires_duplicate_detection");
         set => SetArgument("requires_duplicate_detection", value);
     }
 
@@ -173,7 +173,7 @@ public partial class AzurermServicebusTopic(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AzurermServicebusTopic(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? SupportOrdering
     {
-        get => new TerraformReference<bool>(this, "support_ordering");
+        get => GetArgument<TerraformValue<bool>>("support_ordering");
         set => SetArgument("support_ordering", value);
     }
 

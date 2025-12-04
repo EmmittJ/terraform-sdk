@@ -18,7 +18,7 @@ public class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionGroupBlock
     /// </summary>
     public TerraformValue<string>? AdditionalMetadataResourceId
     {
-        get => new TerraformReference<string>(this, "additional_metadata_resource_id");
+        get => GetArgument<TerraformValue<string>>("additional_metadata_resource_id");
         set => SetArgument("additional_metadata_resource_id", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionGroupBlock
     /// </summary>
     public TerraformValue<string>? Category
     {
-        get => new TerraformReference<string>(this, "category");
+        get => GetArgument<TerraformValue<string>>("category");
         set => SetArgument("category", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionGroupBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionGroupBlock
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -55,7 +55,7 @@ public class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionGroupBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionReferenceB
     /// </summary>
     public TerraformValue<string>? ParameterValues
     {
-        get => new TerraformReference<string>(this, "parameter_values");
+        get => GetArgument<TerraformValue<string>>("parameter_values");
         set => SetArgument("parameter_values", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionReferenceB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDefinitionId is required")]
     public required TerraformValue<string> PolicyDefinitionId
     {
-        get => new TerraformReference<string>(this, "policy_definition_id");
+        get => GetArgument<TerraformValue<string>>("policy_definition_id");
         set => SetArgument("policy_definition_id", value);
     }
 
@@ -97,25 +97,25 @@ public class AzurermManagementGroupPolicySetDefinitionPolicyDefinitionReferenceB
     /// </summary>
     public TerraformSet<string>? PolicyGroupNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "policy_group_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("policy_group_names");
         set => SetArgument("policy_group_names", value);
     }
 
     /// <summary>
     /// The reference_id attribute.
     /// </summary>
-    public TerraformValue<string> ReferenceId
+    public TerraformValue<string>? ReferenceId
     {
-        get => new TerraformReference<string>(this, "reference_id");
+        get => GetArgument<TerraformValue<string>>("reference_id");
         set => SetArgument("reference_id", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformValue<string> Version
+    public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -138,7 +138,7 @@ public class AzurermManagementGroupPolicySetDefinitionTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -147,7 +147,7 @@ public class AzurermManagementGroupPolicySetDefinitionTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -156,7 +156,7 @@ public class AzurermManagementGroupPolicySetDefinitionTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -165,7 +165,7 @@ public class AzurermManagementGroupPolicySetDefinitionTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -183,7 +183,7 @@ public partial class AzurermManagementGroupPolicySetDefinition(string name) : Te
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -193,16 +193,16 @@ public partial class AzurermManagementGroupPolicySetDefinition(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -212,16 +212,16 @@ public partial class AzurermManagementGroupPolicySetDefinition(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
     public required TerraformValue<string> ManagementGroupId
     {
-        get => new TerraformReference<string>(this, "management_group_id");
+        get => GetArgument<TerraformValue<string>>("management_group_id");
         set => SetArgument("management_group_id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformValue<string> Metadata
+    public TerraformValue<string>? Metadata
     {
-        get => new TerraformReference<string>(this, "metadata");
+        get => GetArgument<TerraformValue<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -231,7 +231,7 @@ public partial class AzurermManagementGroupPolicySetDefinition(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -240,7 +240,7 @@ public partial class AzurermManagementGroupPolicySetDefinition(string name) : Te
     /// </summary>
     public TerraformValue<string>? Parameters
     {
-        get => new TerraformReference<string>(this, "parameters");
+        get => GetArgument<TerraformValue<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -250,7 +250,7 @@ public partial class AzurermManagementGroupPolicySetDefinition(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyType is required")]
     public required TerraformValue<string> PolicyType
     {
-        get => new TerraformReference<string>(this, "policy_type");
+        get => GetArgument<TerraformValue<string>>("policy_type");
         set => SetArgument("policy_type", value);
     }
 

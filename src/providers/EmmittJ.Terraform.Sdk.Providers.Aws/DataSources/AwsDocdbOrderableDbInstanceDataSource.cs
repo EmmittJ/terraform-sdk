@@ -13,34 +13,34 @@ public partial class AwsDocdbOrderableDbInstanceDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Engine
     {
-        get => new TerraformReference<string>(this, "engine");
+        get => GetArgument<TerraformValue<string>>("engine");
         set => SetArgument("engine", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformValue<string> EngineVersion
+    public TerraformValue<string>? EngineVersion
     {
-        get => new TerraformReference<string>(this, "engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version");
         set => SetArgument("engine_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The instance_class attribute.
     /// </summary>
-    public TerraformValue<string> InstanceClass
+    public TerraformValue<string>? InstanceClass
     {
-        get => new TerraformReference<string>(this, "instance_class");
+        get => GetArgument<TerraformValue<string>>("instance_class");
         set => SetArgument("instance_class", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsDocdbOrderableDbInstanceDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? LicenseModel
     {
-        get => new TerraformReference<string>(this, "license_model");
+        get => GetArgument<TerraformValue<string>>("license_model");
         set => SetArgument("license_model", value);
     }
 
@@ -58,25 +58,25 @@ public partial class AwsDocdbOrderableDbInstanceDataSource(string name) : Terraf
     /// </summary>
     public TerraformList<string>? PreferredInstanceClasses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "preferred_instance_classes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("preferred_instance_classes");
         set => SetArgument("preferred_instance_classes", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The vpc attribute.
     /// </summary>
-    public TerraformValue<bool> Vpc
+    public TerraformValue<bool>? Vpc
     {
-        get => new TerraformReference<bool>(this, "vpc");
+        get => GetArgument<TerraformValue<bool>>("vpc");
         set => SetArgument("vpc", value);
     }
 
@@ -84,8 +84,6 @@ public partial class AwsDocdbOrderableDbInstanceDataSource(string name) : Terraf
     /// The availability_zones attribute.
     /// </summary>
     public TerraformList<string> AvailabilityZones
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "availability_zones").ResolveNodes(ctx));
-    }
+        => AsReference("availability_zones");
 
 }

@@ -16,9 +16,9 @@ public class AzurermVirtualHubConnectionRoutingBlock : TerraformBlock
     /// <summary>
     /// The associated_route_table_id attribute.
     /// </summary>
-    public TerraformValue<string> AssociatedRouteTableId
+    public TerraformValue<string>? AssociatedRouteTableId
     {
-        get => new TerraformReference<string>(this, "associated_route_table_id");
+        get => GetArgument<TerraformValue<string>>("associated_route_table_id");
         set => SetArgument("associated_route_table_id", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermVirtualHubConnectionRoutingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? InboundRouteMapId
     {
-        get => new TerraformReference<string>(this, "inbound_route_map_id");
+        get => GetArgument<TerraformValue<string>>("inbound_route_map_id");
         set => SetArgument("inbound_route_map_id", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermVirtualHubConnectionRoutingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OutboundRouteMapId
     {
-        get => new TerraformReference<string>(this, "outbound_route_map_id");
+        get => GetArgument<TerraformValue<string>>("outbound_route_map_id");
         set => SetArgument("outbound_route_map_id", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermVirtualHubConnectionRoutingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StaticVnetLocalRouteOverrideCriteria
     {
-        get => new TerraformReference<string>(this, "static_vnet_local_route_override_criteria");
+        get => GetArgument<TerraformValue<string>>("static_vnet_local_route_override_criteria");
         set => SetArgument("static_vnet_local_route_override_criteria", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermVirtualHubConnectionRoutingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? StaticVnetPropagateStaticRoutesEnabled
     {
-        get => new TerraformReference<bool>(this, "static_vnet_propagate_static_routes_enabled");
+        get => GetArgument<TerraformValue<bool>>("static_vnet_propagate_static_routes_enabled");
         set => SetArgument("static_vnet_propagate_static_routes_enabled", value);
     }
 
@@ -93,18 +93,18 @@ public class AzurermVirtualHubConnectionRoutingBlockPropagatedRouteTableBlock : 
     /// <summary>
     /// The labels attribute.
     /// </summary>
-    public TerraformSet<string> Labels
+    public TerraformSet<string>? Labels
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// The route_table_ids attribute.
     /// </summary>
-    public TerraformList<string> RouteTableIds
+    public TerraformList<string>? RouteTableIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "route_table_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("route_table_ids");
         set => SetArgument("route_table_ids", value);
     }
 
@@ -126,7 +126,7 @@ public class AzurermVirtualHubConnectionRoutingBlockStaticVnetRouteBlock : Terra
     /// </summary>
     public TerraformSet<string>? AddressPrefixes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "address_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("address_prefixes");
         set => SetArgument("address_prefixes", value);
     }
 
@@ -135,7 +135,7 @@ public class AzurermVirtualHubConnectionRoutingBlockStaticVnetRouteBlock : Terra
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -144,7 +144,7 @@ public class AzurermVirtualHubConnectionRoutingBlockStaticVnetRouteBlock : Terra
     /// </summary>
     public TerraformValue<string>? NextHopIpAddress
     {
-        get => new TerraformReference<string>(this, "next_hop_ip_address");
+        get => GetArgument<TerraformValue<string>>("next_hop_ip_address");
         set => SetArgument("next_hop_ip_address", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermVirtualHubConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -176,7 +176,7 @@ public class AzurermVirtualHubConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -185,7 +185,7 @@ public class AzurermVirtualHubConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -194,7 +194,7 @@ public class AzurermVirtualHubConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -210,9 +210,9 @@ public partial class AzurermVirtualHubConnection(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -221,7 +221,7 @@ public partial class AzurermVirtualHubConnection(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool>? InternetSecurityEnabled
     {
-        get => new TerraformReference<bool>(this, "internet_security_enabled");
+        get => GetArgument<TerraformValue<bool>>("internet_security_enabled");
         set => SetArgument("internet_security_enabled", value);
     }
 
@@ -231,7 +231,7 @@ public partial class AzurermVirtualHubConnection(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -241,7 +241,7 @@ public partial class AzurermVirtualHubConnection(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVirtualNetworkId is required")]
     public required TerraformValue<string> RemoteVirtualNetworkId
     {
-        get => new TerraformReference<string>(this, "remote_virtual_network_id");
+        get => GetArgument<TerraformValue<string>>("remote_virtual_network_id");
         set => SetArgument("remote_virtual_network_id", value);
     }
 
@@ -251,7 +251,7 @@ public partial class AzurermVirtualHubConnection(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformValue<string> VirtualHubId
     {
-        get => new TerraformReference<string>(this, "virtual_hub_id");
+        get => GetArgument<TerraformValue<string>>("virtual_hub_id");
         set => SetArgument("virtual_hub_id", value);
     }
 

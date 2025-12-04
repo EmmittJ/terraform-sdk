@@ -18,7 +18,7 @@ public class AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermContainerRegistryCacheRuleDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
     public required TerraformValue<string> ContainerRegistryId
     {
-        get => new TerraformReference<string>(this, "container_registry_id");
+        get => GetArgument<TerraformValue<string>>("container_registry_id");
         set => SetArgument("container_registry_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermContainerRegistryCacheRuleDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -64,25 +64,19 @@ public partial class AzurermContainerRegistryCacheRuleDataSource(string name) : 
     /// The credential_set_id attribute.
     /// </summary>
     public TerraformValue<string> CredentialSetId
-    {
-        get => new TerraformReference<string>(this, "credential_set_id");
-    }
+        => AsReference("credential_set_id");
 
     /// <summary>
     /// The source_repo attribute.
     /// </summary>
     public TerraformValue<string> SourceRepo
-    {
-        get => new TerraformReference<string>(this, "source_repo");
-    }
+        => AsReference("source_repo");
 
     /// <summary>
     /// The target_repo attribute.
     /// </summary>
     public TerraformValue<string> TargetRepo
-    {
-        get => new TerraformReference<string>(this, "target_repo");
-    }
+        => AsReference("target_repo");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -16,63 +16,63 @@ public class AwsApiGatewayMethodSettingsSettingsBlock : TerraformBlock
     /// <summary>
     /// The cache_data_encrypted attribute.
     /// </summary>
-    public TerraformValue<bool> CacheDataEncrypted
+    public TerraformValue<bool>? CacheDataEncrypted
     {
-        get => new TerraformReference<bool>(this, "cache_data_encrypted");
+        get => GetArgument<TerraformValue<bool>>("cache_data_encrypted");
         set => SetArgument("cache_data_encrypted", value);
     }
 
     /// <summary>
     /// The cache_ttl_in_seconds attribute.
     /// </summary>
-    public TerraformValue<double> CacheTtlInSeconds
+    public TerraformValue<double>? CacheTtlInSeconds
     {
-        get => new TerraformReference<double>(this, "cache_ttl_in_seconds");
+        get => GetArgument<TerraformValue<double>>("cache_ttl_in_seconds");
         set => SetArgument("cache_ttl_in_seconds", value);
     }
 
     /// <summary>
     /// The caching_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> CachingEnabled
+    public TerraformValue<bool>? CachingEnabled
     {
-        get => new TerraformReference<bool>(this, "caching_enabled");
+        get => GetArgument<TerraformValue<bool>>("caching_enabled");
         set => SetArgument("caching_enabled", value);
     }
 
     /// <summary>
     /// The data_trace_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> DataTraceEnabled
+    public TerraformValue<bool>? DataTraceEnabled
     {
-        get => new TerraformReference<bool>(this, "data_trace_enabled");
+        get => GetArgument<TerraformValue<bool>>("data_trace_enabled");
         set => SetArgument("data_trace_enabled", value);
     }
 
     /// <summary>
     /// The logging_level attribute.
     /// </summary>
-    public TerraformValue<string> LoggingLevel
+    public TerraformValue<string>? LoggingLevel
     {
-        get => new TerraformReference<string>(this, "logging_level");
+        get => GetArgument<TerraformValue<string>>("logging_level");
         set => SetArgument("logging_level", value);
     }
 
     /// <summary>
     /// The metrics_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> MetricsEnabled
+    public TerraformValue<bool>? MetricsEnabled
     {
-        get => new TerraformReference<bool>(this, "metrics_enabled");
+        get => GetArgument<TerraformValue<bool>>("metrics_enabled");
         set => SetArgument("metrics_enabled", value);
     }
 
     /// <summary>
     /// The require_authorization_for_cache_control attribute.
     /// </summary>
-    public TerraformValue<bool> RequireAuthorizationForCacheControl
+    public TerraformValue<bool>? RequireAuthorizationForCacheControl
     {
-        get => new TerraformReference<bool>(this, "require_authorization_for_cache_control");
+        get => GetArgument<TerraformValue<bool>>("require_authorization_for_cache_control");
         set => SetArgument("require_authorization_for_cache_control", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsApiGatewayMethodSettingsSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ThrottlingBurstLimit
     {
-        get => new TerraformReference<double>(this, "throttling_burst_limit");
+        get => GetArgument<TerraformValue<double>>("throttling_burst_limit");
         set => SetArgument("throttling_burst_limit", value);
     }
 
@@ -90,16 +90,16 @@ public class AwsApiGatewayMethodSettingsSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ThrottlingRateLimit
     {
-        get => new TerraformReference<double>(this, "throttling_rate_limit");
+        get => GetArgument<TerraformValue<double>>("throttling_rate_limit");
         set => SetArgument("throttling_rate_limit", value);
     }
 
     /// <summary>
     /// The unauthorized_cache_control_header_strategy attribute.
     /// </summary>
-    public TerraformValue<string> UnauthorizedCacheControlHeaderStrategy
+    public TerraformValue<string>? UnauthorizedCacheControlHeaderStrategy
     {
-        get => new TerraformReference<string>(this, "unauthorized_cache_control_header_strategy");
+        get => GetArgument<TerraformValue<string>>("unauthorized_cache_control_header_strategy");
         set => SetArgument("unauthorized_cache_control_header_strategy", value);
     }
 
@@ -115,9 +115,9 @@ public partial class AwsApiGatewayMethodSettings(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -127,16 +127,16 @@ public partial class AwsApiGatewayMethodSettings(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MethodPath is required")]
     public required TerraformValue<string> MethodPath
     {
-        get => new TerraformReference<string>(this, "method_path");
+        get => GetArgument<TerraformValue<string>>("method_path");
         set => SetArgument("method_path", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AwsApiGatewayMethodSettings(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformValue<string> RestApiId
     {
-        get => new TerraformReference<string>(this, "rest_api_id");
+        get => GetArgument<TerraformValue<string>>("rest_api_id");
         set => SetArgument("rest_api_id", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AwsApiGatewayMethodSettings(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StageName is required")]
     public required TerraformValue<string> StageName
     {
-        get => new TerraformReference<string>(this, "stage_name");
+        get => GetArgument<TerraformValue<string>>("stage_name");
         set => SetArgument("stage_name", value);
     }
 

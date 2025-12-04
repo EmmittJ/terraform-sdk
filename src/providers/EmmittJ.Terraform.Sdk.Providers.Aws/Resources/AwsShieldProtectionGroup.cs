@@ -14,16 +14,16 @@ public partial class AwsShieldProtectionGroup(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Aggregation is required")]
     public required TerraformValue<string> Aggregation
     {
-        get => new TerraformReference<string>(this, "aggregation");
+        get => GetArgument<TerraformValue<string>>("aggregation");
         set => SetArgument("aggregation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsShieldProtectionGroup(string name) : TerraformResource("
     /// </summary>
     public TerraformList<string>? Members
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "members").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("members");
         set => SetArgument("members", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsShieldProtectionGroup(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformValue<string> Pattern
     {
-        get => new TerraformReference<string>(this, "pattern");
+        get => GetArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsShieldProtectionGroup(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectionGroupId is required")]
     public required TerraformValue<string> ProtectionGroupId
     {
-        get => new TerraformReference<string>(this, "protection_group_id");
+        get => GetArgument<TerraformValue<string>>("protection_group_id");
         set => SetArgument("protection_group_id", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsShieldProtectionGroup(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? ResourceTypeAttribute
     {
-        get => new TerraformReference<string>(this, "resource_type");
+        get => GetArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -70,16 +70,16 @@ public partial class AwsShieldProtectionGroup(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -87,8 +87,6 @@ public partial class AwsShieldProtectionGroup(string name) : TerraformResource("
     /// The protection_group_arn attribute.
     /// </summary>
     public TerraformValue<string> ProtectionGroupArn
-    {
-        get => new TerraformReference<string>(this, "protection_group_arn");
-    }
+        => AsReference("protection_group_arn");
 
 }

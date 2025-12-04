@@ -18,7 +18,7 @@ public class AzurermKeyVaultCertificateIssuerDataSourceTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermKeyVaultCertificateIssuerDataSource(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermKeyVaultCertificateIssuerDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformValue<string> KeyVaultId
     {
-        get => new TerraformReference<string>(this, "key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermKeyVaultCertificateIssuerDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -64,33 +64,25 @@ public partial class AzurermKeyVaultCertificateIssuerDataSource(string name) : T
     /// The account_id attribute.
     /// </summary>
     public TerraformValue<string> AccountId
-    {
-        get => new TerraformReference<string>(this, "account_id");
-    }
+        => AsReference("account_id");
 
     /// <summary>
     /// The admin attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Admin
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "admin").ResolveNodes(ctx));
-    }
+        => AsReference("admin");
 
     /// <summary>
     /// The org_id attribute.
     /// </summary>
     public TerraformValue<string> OrgId
-    {
-        get => new TerraformReference<string>(this, "org_id");
-    }
+        => AsReference("org_id");
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
     public TerraformValue<string> ProviderName
-    {
-        get => new TerraformReference<string>(this, "provider_name");
-    }
+        => AsReference("provider_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

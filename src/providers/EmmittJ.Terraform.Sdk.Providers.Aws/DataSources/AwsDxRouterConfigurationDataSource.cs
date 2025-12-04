@@ -11,18 +11,18 @@ public partial class AwsDxRouterConfigurationDataSource(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsDxRouterConfigurationDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouterTypeIdentifier is required")]
     public required TerraformValue<string> RouterTypeIdentifier
     {
-        get => new TerraformReference<string>(this, "router_type_identifier");
+        get => GetArgument<TerraformValue<string>>("router_type_identifier");
         set => SetArgument("router_type_identifier", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsDxRouterConfigurationDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualInterfaceId is required")]
     public required TerraformValue<string> VirtualInterfaceId
     {
-        get => new TerraformReference<string>(this, "virtual_interface_id");
+        get => GetArgument<TerraformValue<string>>("virtual_interface_id");
         set => SetArgument("virtual_interface_id", value);
     }
 
@@ -50,24 +50,18 @@ public partial class AwsDxRouterConfigurationDataSource(string name) : Terraform
     /// The customer_router_config attribute.
     /// </summary>
     public TerraformValue<string> CustomerRouterConfig
-    {
-        get => new TerraformReference<string>(this, "customer_router_config");
-    }
+        => AsReference("customer_router_config");
 
     /// <summary>
     /// The router attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Router
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "router").ResolveNodes(ctx));
-    }
+        => AsReference("router");
 
     /// <summary>
     /// The virtual_interface_name attribute.
     /// </summary>
     public TerraformValue<string> VirtualInterfaceName
-    {
-        get => new TerraformReference<string>(this, "virtual_interface_name");
-    }
+        => AsReference("virtual_interface_name");
 
 }

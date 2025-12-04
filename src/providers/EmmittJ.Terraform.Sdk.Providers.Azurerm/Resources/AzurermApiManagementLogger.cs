@@ -18,7 +18,7 @@ public class AzurermApiManagementLoggerApplicationInsightsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConnectionString
     {
-        get => new TerraformReference<string>(this, "connection_string");
+        get => GetArgument<TerraformValue<string>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermApiManagementLoggerApplicationInsightsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? InstrumentationKey
     {
-        get => new TerraformReference<string>(this, "instrumentation_key");
+        get => GetArgument<TerraformValue<string>>("instrumentation_key");
         set => SetArgument("instrumentation_key", value);
     }
 
@@ -50,7 +50,7 @@ public class AzurermApiManagementLoggerEventhubBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConnectionString
     {
-        get => new TerraformReference<string>(this, "connection_string");
+        get => GetArgument<TerraformValue<string>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermApiManagementLoggerEventhubBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EndpointUri
     {
-        get => new TerraformReference<string>(this, "endpoint_uri");
+        get => GetArgument<TerraformValue<string>>("endpoint_uri");
         set => SetArgument("endpoint_uri", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermApiManagementLoggerEventhubBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermApiManagementLoggerEventhubBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? UserAssignedIdentityClientId
     {
-        get => new TerraformReference<string>(this, "user_assigned_identity_client_id");
+        get => GetArgument<TerraformValue<string>>("user_assigned_identity_client_id");
         set => SetArgument("user_assigned_identity_client_id", value);
     }
 
@@ -101,7 +101,7 @@ public class AzurermApiManagementLoggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -110,7 +110,7 @@ public class AzurermApiManagementLoggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -119,7 +119,7 @@ public class AzurermApiManagementLoggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -128,7 +128,7 @@ public class AzurermApiManagementLoggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AzurermApiManagementLogger(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformValue<string> ApiManagementName
     {
-        get => new TerraformReference<string>(this, "api_management_name");
+        get => GetArgument<TerraformValue<string>>("api_management_name");
         set => SetArgument("api_management_name", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AzurermApiManagementLogger(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? Buffered
     {
-        get => new TerraformReference<bool>(this, "buffered");
+        get => GetArgument<TerraformValue<bool>>("buffered");
         set => SetArgument("buffered", value);
     }
 
@@ -165,16 +165,16 @@ public partial class AzurermApiManagementLogger(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AzurermApiManagementLogger(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -194,7 +194,7 @@ public partial class AzurermApiManagementLogger(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -203,7 +203,7 @@ public partial class AzurermApiManagementLogger(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? ResourceId
     {
-        get => new TerraformReference<string>(this, "resource_id");
+        get => GetArgument<TerraformValue<string>>("resource_id");
         set => SetArgument("resource_id", value);
     }
 

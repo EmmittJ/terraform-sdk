@@ -18,7 +18,7 @@ public class AzurermRedisEnterpriseDatabaseDataSourceTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -38,16 +38,16 @@ public partial class AzurermRedisEnterpriseDatabaseDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => new TerraformReference<string>(this, "cluster_id");
+        get => GetArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -57,7 +57,7 @@ public partial class AzurermRedisEnterpriseDatabaseDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -65,33 +65,25 @@ public partial class AzurermRedisEnterpriseDatabaseDataSource(string name) : Ter
     /// The linked_database_group_nickname attribute.
     /// </summary>
     public TerraformValue<string> LinkedDatabaseGroupNickname
-    {
-        get => new TerraformReference<string>(this, "linked_database_group_nickname");
-    }
+        => AsReference("linked_database_group_nickname");
 
     /// <summary>
     /// The linked_database_id attribute.
     /// </summary>
     public TerraformList<string> LinkedDatabaseId
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "linked_database_id").ResolveNodes(ctx));
-    }
+        => AsReference("linked_database_id");
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "primary_access_key");
-    }
+        => AsReference("primary_access_key");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "secondary_access_key");
-    }
+        => AsReference("secondary_access_key");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

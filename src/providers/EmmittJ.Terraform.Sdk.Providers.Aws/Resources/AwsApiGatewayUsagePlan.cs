@@ -19,7 +19,7 @@ public class AwsApiGatewayUsagePlanApiStagesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformValue<string> ApiId
     {
-        get => new TerraformReference<string>(this, "api_id");
+        get => GetArgument<TerraformValue<string>>("api_id");
         set => SetArgument("api_id", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsApiGatewayUsagePlanApiStagesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stage is required")]
     public required TerraformValue<string> Stage
     {
-        get => new TerraformReference<string>(this, "stage");
+        get => GetArgument<TerraformValue<string>>("stage");
         set => SetArgument("stage", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsApiGatewayUsagePlanApiStagesBlockThrottleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? BurstLimit
     {
-        get => new TerraformReference<double>(this, "burst_limit");
+        get => GetArgument<TerraformValue<double>>("burst_limit");
         set => SetArgument("burst_limit", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsApiGatewayUsagePlanApiStagesBlockThrottleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsApiGatewayUsagePlanApiStagesBlockThrottleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? RateLimit
     {
-        get => new TerraformReference<double>(this, "rate_limit");
+        get => GetArgument<TerraformValue<double>>("rate_limit");
         set => SetArgument("rate_limit", value);
     }
 
@@ -103,7 +103,7 @@ public class AwsApiGatewayUsagePlanQuotaSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Limit is required")]
     public required TerraformValue<double> Limit
     {
-        get => new TerraformReference<double>(this, "limit");
+        get => GetArgument<TerraformValue<double>>("limit");
         set => SetArgument("limit", value);
     }
 
@@ -112,7 +112,7 @@ public class AwsApiGatewayUsagePlanQuotaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Offset
     {
-        get => new TerraformReference<double>(this, "offset");
+        get => GetArgument<TerraformValue<double>>("offset");
         set => SetArgument("offset", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsApiGatewayUsagePlanQuotaSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Period is required")]
     public required TerraformValue<string> Period
     {
-        get => new TerraformReference<string>(this, "period");
+        get => GetArgument<TerraformValue<string>>("period");
         set => SetArgument("period", value);
     }
 
@@ -145,7 +145,7 @@ public class AwsApiGatewayUsagePlanThrottleSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? BurstLimit
     {
-        get => new TerraformReference<double>(this, "burst_limit");
+        get => GetArgument<TerraformValue<double>>("burst_limit");
         set => SetArgument("burst_limit", value);
     }
 
@@ -154,7 +154,7 @@ public class AwsApiGatewayUsagePlanThrottleSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? RateLimit
     {
-        get => new TerraformReference<double>(this, "rate_limit");
+        get => GetArgument<TerraformValue<double>>("rate_limit");
         set => SetArgument("rate_limit", value);
     }
 
@@ -172,16 +172,16 @@ public partial class AwsApiGatewayUsagePlan(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AwsApiGatewayUsagePlan(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -200,16 +200,16 @@ public partial class AwsApiGatewayUsagePlan(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? ProductCode
     {
-        get => new TerraformReference<string>(this, "product_code");
+        get => GetArgument<TerraformValue<string>>("product_code");
         set => SetArgument("product_code", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -218,16 +218,16 @@ public partial class AwsApiGatewayUsagePlan(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -235,9 +235,7 @@ public partial class AwsApiGatewayUsagePlan(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// ApiStages block (nesting mode: set).

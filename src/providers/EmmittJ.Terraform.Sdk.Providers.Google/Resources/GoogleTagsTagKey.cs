@@ -18,7 +18,7 @@ public class GoogleTagsTagKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleTagsTagKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleTagsTagKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,16 +54,16 @@ public partial class GoogleTagsTagKey(string name) : TerraformResource("google_t
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class GoogleTagsTagKey(string name) : TerraformResource("google_t
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -84,7 +84,7 @@ public partial class GoogleTagsTagKey(string name) : TerraformResource("google_t
     /// </summary>
     public TerraformValue<string>? Purpose
     {
-        get => new TerraformReference<string>(this, "purpose");
+        get => GetArgument<TerraformValue<string>>("purpose");
         set => SetArgument("purpose", value);
     }
 
@@ -95,7 +95,7 @@ public partial class GoogleTagsTagKey(string name) : TerraformResource("google_t
     /// </summary>
     public TerraformMap<string>? PurposeData
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "purpose_data").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("purpose_data");
         set => SetArgument("purpose_data", value);
     }
 
@@ -107,7 +107,7 @@ public partial class GoogleTagsTagKey(string name) : TerraformResource("google_t
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShortName is required")]
     public required TerraformValue<string> ShortName
     {
-        get => new TerraformReference<string>(this, "short_name");
+        get => GetArgument<TerraformValue<string>>("short_name");
         set => SetArgument("short_name", value);
     }
 
@@ -117,25 +117,19 @@ public partial class GoogleTagsTagKey(string name) : TerraformResource("google_t
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The generated numeric id for the TagKey.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. Namespaced name of the TagKey.
     /// </summary>
     public TerraformValue<string> NamespacedName
-    {
-        get => new TerraformReference<string>(this, "namespaced_name");
-    }
+        => AsReference("namespaced_name");
 
     /// <summary>
     /// Output only. Update time.
@@ -143,9 +137,7 @@ public partial class GoogleTagsTagKey(string name) : TerraformResource("google_t
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

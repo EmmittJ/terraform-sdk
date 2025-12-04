@@ -14,16 +14,16 @@ public partial class GoogleBackupDrBackupPlanAssociationDataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlanAssociationId is required")]
     public required TerraformValue<string> BackupPlanAssociationId
     {
-        get => new TerraformReference<string>(this, "backup_plan_association_id");
+        get => GetArgument<TerraformValue<string>>("backup_plan_association_id");
         set => SetArgument("backup_plan_association_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleBackupDrBackupPlanAssociationDataSource(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleBackupDrBackupPlanAssociationDataSource(string name) 
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -53,73 +53,55 @@ public partial class GoogleBackupDrBackupPlanAssociationDataSource(string name) 
     /// - A Backup Plan configured for &#39;compute.googleapis.com/Disk&#39; can be used to protect both standard Disks and Regional Disks resources.
     /// </summary>
     public TerraformValue<string> BackupPlan
-    {
-        get => new TerraformReference<string>(this, "backup_plan");
-    }
+        => AsReference("backup_plan");
 
     /// <summary>
     /// The time when the instance was created
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Resource name of data source which will be used as storage location for backups taken
     /// </summary>
     public TerraformValue<string> DataSource
-    {
-        get => new TerraformReference<string>(this, "data_source");
-    }
+        => AsReference("data_source");
 
     /// <summary>
     /// The point in time when the last successful backup was captured from the source
     /// </summary>
     public TerraformValue<string> LastSuccessfulBackupConsistencyTime
-    {
-        get => new TerraformReference<string>(this, "last_successful_backup_consistency_time");
-    }
+        => AsReference("last_successful_backup_consistency_time");
 
     /// <summary>
     /// The name of backup plan association resource created
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The resource for which BPA needs to be created
     /// </summary>
     public TerraformValue<string> Resource
-    {
-        get => new TerraformReference<string>(this, "resource");
-    }
+        => AsReference("resource");
 
     /// <summary>
     /// The resource type of workload on which backupplan is applied.
     /// Examples include, &amp;quot;compute.googleapis.com/Instance&amp;quot;, &amp;quot;compute.googleapis.com/Disk&amp;quot;, and &amp;quot;compute.googleapis.com/RegionDisk&amp;quot;
     /// </summary>
     public TerraformValue<string> ResourceTypeAttribute
-    {
-        get => new TerraformReference<string>(this, "resource_type");
-    }
+        => AsReference("resource_type");
 
     /// <summary>
     /// Message for rules config info
     /// </summary>
     public TerraformList<TerraformMap<object>> RulesConfigInfo
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "rules_config_info").ResolveNodes(ctx));
-    }
+        => AsReference("rules_config_info");
 
     /// <summary>
     /// The time when the instance was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
 }

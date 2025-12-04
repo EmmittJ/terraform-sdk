@@ -13,7 +13,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/resource"/></para>
 /// </remarks>
 public class TerraformResource : TerraformBlock,
-    ITerraformReferenceable,
+    ITerraformNamedReferenceable,
     ITerraformHasCount,
     ITerraformHasForEach,
     ITerraformHasDependsOn,
@@ -57,6 +57,23 @@ public class TerraformResource : TerraformBlock,
     /// <returns>A reference to this resource.</returns>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"{ResourceType}.{ResourceName}");
+
+    /// <summary>
+    /// Creates a reference to a specific attribute of this resource.
+    /// </summary>
+    /// <param name="name">The attribute name (e.g., "id", "arn", "name").</param>
+    /// <returns>A reference expression like <c>aws_vpc.main.id</c>.</returns>
+    /// <example>
+    /// <code>
+    /// var vpc = new TerraformResource("aws_vpc", "main");
+    /// var subnet = new TerraformResource("aws_subnet", "public")
+    /// {
+    ///     ["vpc_id"] = vpc.AsReference("id")  // Resolves to: aws_vpc.main.id
+    /// };
+    /// </code>
+    /// </example>
+    public override TerraformExpression AsReference(string name)
+        => AsReference().Member(name);
 
     /// <summary>
     /// Implicit conversion to TerraformExpression for natural reference usage.

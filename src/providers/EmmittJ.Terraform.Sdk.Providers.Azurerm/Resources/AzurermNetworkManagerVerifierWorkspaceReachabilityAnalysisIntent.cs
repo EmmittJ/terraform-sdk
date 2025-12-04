@@ -19,7 +19,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationIps is required")]
     public TerraformList<string>? DestinationIps
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "destination_ips").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("destination_ips");
         set => SetArgument("destination_ips", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationPorts is required")]
     public TerraformList<string>? DestinationPorts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "destination_ports").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("destination_ports");
         set => SetArgument("destination_ports", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocols is required")]
     public TerraformList<string>? Protocols
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "protocols").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("protocols");
         set => SetArgument("protocols", value);
     }
 
@@ -49,7 +49,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIps is required")]
     public TerraformList<string>? SourceIps
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "source_ips").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("source_ips");
         set => SetArgument("source_ips", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourcePorts is required")]
     public TerraformList<string>? SourcePorts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "source_ports").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("source_ports");
         set => SetArgument("source_ports", value);
     }
 
@@ -82,7 +82,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTim
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -91,7 +91,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTim
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -100,7 +100,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTim
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -128,16 +128,16 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationResourceId is required")]
     public required TerraformValue<string> DestinationResourceId
     {
-        get => new TerraformReference<string>(this, "destination_resource_id");
+        get => GetArgument<TerraformValue<string>>("destination_resource_id");
         set => SetArgument("destination_resource_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceResourceId is required")]
     public required TerraformValue<string> SourceResourceId
     {
-        get => new TerraformReference<string>(this, "source_resource_id");
+        get => GetArgument<TerraformValue<string>>("source_resource_id");
         set => SetArgument("source_resource_id", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifierWorkspaceId is required")]
     public required TerraformValue<string> VerifierWorkspaceId
     {
-        get => new TerraformReference<string>(this, "verifier_workspace_id");
+        get => GetArgument<TerraformValue<string>>("verifier_workspace_id");
         set => SetArgument("verifier_workspace_id", value);
     }
 

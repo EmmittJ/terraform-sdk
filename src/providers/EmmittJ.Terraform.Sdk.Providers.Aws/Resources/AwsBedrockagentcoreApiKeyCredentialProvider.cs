@@ -13,7 +13,7 @@ public partial class AwsBedrockagentcoreApiKeyCredentialProvider(string name) : 
     /// </summary>
     public TerraformValue<string>? ApiKey
     {
-        get => new TerraformReference<string>(this, "api_key");
+        get => GetArgument<TerraformValue<string>>("api_key");
         set => SetArgument("api_key", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsBedrockagentcoreApiKeyCredentialProvider(string name) : 
     /// </summary>
     public TerraformValue<string>? ApiKeyWo
     {
-        get => new TerraformReference<string>(this, "api_key_wo");
+        get => GetArgument<TerraformValue<string>>("api_key_wo");
         set => SetArgument("api_key_wo", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsBedrockagentcoreApiKeyCredentialProvider(string name) : 
     /// </summary>
     public TerraformValue<double>? ApiKeyWoVersion
     {
-        get => new TerraformReference<double>(this, "api_key_wo_version");
+        get => GetArgument<TerraformValue<double>>("api_key_wo_version");
         set => SetArgument("api_key_wo_version", value);
     }
 
@@ -41,16 +41,16 @@ public partial class AwsBedrockagentcoreApiKeyCredentialProvider(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -58,16 +58,12 @@ public partial class AwsBedrockagentcoreApiKeyCredentialProvider(string name) : 
     /// The api_key_secret_arn attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ApiKeySecretArn
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "api_key_secret_arn").ResolveNodes(ctx));
-    }
+        => AsReference("api_key_secret_arn");
 
     /// <summary>
     /// The credential_provider_arn attribute.
     /// </summary>
     public TerraformValue<string> CredentialProviderArn
-    {
-        get => new TerraformReference<string>(this, "credential_provider_arn");
-    }
+        => AsReference("credential_provider_arn");
 
 }

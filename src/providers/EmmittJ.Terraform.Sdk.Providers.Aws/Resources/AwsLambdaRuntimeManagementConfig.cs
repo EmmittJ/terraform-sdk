@@ -14,7 +14,7 @@ public partial class AwsLambdaRuntimeManagementConfig(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformValue<string> FunctionName
     {
-        get => new TerraformReference<string>(this, "function_name");
+        get => GetArgument<TerraformValue<string>>("function_name");
         set => SetArgument("function_name", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsLambdaRuntimeManagementConfig(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Qualifier
     {
-        get => new TerraformReference<string>(this, "qualifier");
+        get => GetArgument<TerraformValue<string>>("qualifier");
         set => SetArgument("qualifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsLambdaRuntimeManagementConfig(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? RuntimeVersionArn
     {
-        get => new TerraformReference<string>(this, "runtime_version_arn");
+        get => GetArgument<TerraformValue<string>>("runtime_version_arn");
         set => SetArgument("runtime_version_arn", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsLambdaRuntimeManagementConfig(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? UpdateRuntimeOn
     {
-        get => new TerraformReference<string>(this, "update_runtime_on");
+        get => GetArgument<TerraformValue<string>>("update_runtime_on");
         set => SetArgument("update_runtime_on", value);
     }
 
@@ -58,8 +58,6 @@ public partial class AwsLambdaRuntimeManagementConfig(string name) : TerraformRe
     /// The function_arn attribute.
     /// </summary>
     public TerraformValue<string> FunctionArn
-    {
-        get => new TerraformReference<string>(this, "function_arn");
-    }
+        => AsReference("function_arn");
 
 }

@@ -18,7 +18,7 @@ public class AwsCloudwatchLogMetricFilterMetricTransformationBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? DefaultValue
     {
-        get => new TerraformReference<string>(this, "default_value");
+        get => GetArgument<TerraformValue<string>>("default_value");
         set => SetArgument("default_value", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsCloudwatchLogMetricFilterMetricTransformationBlock : TerraformBl
     /// </summary>
     public TerraformMap<string>? Dimensions
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "dimensions").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("dimensions");
         set => SetArgument("dimensions", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsCloudwatchLogMetricFilterMetricTransformationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsCloudwatchLogMetricFilterMetricTransformationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceAttribute is required")]
     public required TerraformValue<string> NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -56,7 +56,7 @@ public class AwsCloudwatchLogMetricFilterMetricTransformationBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -66,7 +66,7 @@ public class AwsCloudwatchLogMetricFilterMetricTransformationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -82,18 +82,18 @@ public partial class AwsCloudwatchLogMetricFilter(string name) : TerraformResour
     /// <summary>
     /// The apply_on_transformed_logs attribute.
     /// </summary>
-    public TerraformValue<bool> ApplyOnTransformedLogs
+    public TerraformValue<bool>? ApplyOnTransformedLogs
     {
-        get => new TerraformReference<bool>(this, "apply_on_transformed_logs");
+        get => GetArgument<TerraformValue<bool>>("apply_on_transformed_logs");
         set => SetArgument("apply_on_transformed_logs", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AwsCloudwatchLogMetricFilter(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformValue<string> LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AwsCloudwatchLogMetricFilter(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -123,16 +123,16 @@ public partial class AwsCloudwatchLogMetricFilter(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformValue<string> Pattern
     {
-        get => new TerraformReference<string>(this, "pattern");
+        get => GetArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

@@ -19,7 +19,7 @@ public class AwsRedshiftserverlessWorkgroupConfigParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterKey is required")]
     public required TerraformValue<string> ParameterKey
     {
-        get => new TerraformReference<string>(this, "parameter_key");
+        get => GetArgument<TerraformValue<string>>("parameter_key");
         set => SetArgument("parameter_key", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsRedshiftserverlessWorkgroupConfigParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformValue<string> ParameterValue
     {
-        get => new TerraformReference<string>(this, "parameter_value");
+        get => GetArgument<TerraformValue<string>>("parameter_value");
         set => SetArgument("parameter_value", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsRedshiftserverlessWorkgroupPricePerformanceTargetBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsRedshiftserverlessWorkgroupPricePerformanceTargetBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? Level
     {
-        get => new TerraformReference<double>(this, "level");
+        get => GetArgument<TerraformValue<double>>("level");
         set => SetArgument("level", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsRedshiftserverlessWorkgroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsRedshiftserverlessWorkgroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -103,7 +103,7 @@ public class AwsRedshiftserverlessWorkgroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -119,9 +119,9 @@ public partial class AwsRedshiftserverlessWorkgroup(string name) : TerraformReso
     /// <summary>
     /// The base_capacity attribute.
     /// </summary>
-    public TerraformValue<double> BaseCapacity
+    public TerraformValue<double>? BaseCapacity
     {
-        get => new TerraformReference<double>(this, "base_capacity");
+        get => GetArgument<TerraformValue<double>>("base_capacity");
         set => SetArgument("base_capacity", value);
     }
 
@@ -130,16 +130,16 @@ public partial class AwsRedshiftserverlessWorkgroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? EnhancedVpcRouting
     {
-        get => new TerraformReference<bool>(this, "enhanced_vpc_routing");
+        get => GetArgument<TerraformValue<bool>>("enhanced_vpc_routing");
         set => SetArgument("enhanced_vpc_routing", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AwsRedshiftserverlessWorkgroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double>? MaxCapacity
     {
-        get => new TerraformReference<double>(this, "max_capacity");
+        get => GetArgument<TerraformValue<double>>("max_capacity");
         set => SetArgument("max_capacity", value);
     }
 
@@ -158,16 +158,16 @@ public partial class AwsRedshiftserverlessWorkgroup(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
     public required TerraformValue<string> NamespaceName
     {
-        get => new TerraformReference<string>(this, "namespace_name");
+        get => GetArgument<TerraformValue<string>>("namespace_name");
         set => SetArgument("namespace_name", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformValue<double> Port
+    public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -176,34 +176,34 @@ public partial class AwsRedshiftserverlessWorkgroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? PubliclyAccessible
     {
-        get => new TerraformReference<bool>(this, "publicly_accessible");
+        get => GetArgument<TerraformValue<bool>>("publicly_accessible");
         set => SetArgument("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string> SecurityGroupIds
+    public TerraformSet<string>? SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformSet<string> SubnetIds
+    public TerraformSet<string>? SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -212,25 +212,25 @@ public partial class AwsRedshiftserverlessWorkgroup(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The track_name attribute.
     /// </summary>
-    public TerraformValue<string> TrackName
+    public TerraformValue<string>? TrackName
     {
-        get => new TerraformReference<string>(this, "track_name");
+        get => GetArgument<TerraformValue<string>>("track_name");
         set => SetArgument("track_name", value);
     }
 
@@ -240,7 +240,7 @@ public partial class AwsRedshiftserverlessWorkgroup(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkgroupName is required")]
     public required TerraformValue<string> WorkgroupName
     {
-        get => new TerraformReference<string>(this, "workgroup_name");
+        get => GetArgument<TerraformValue<string>>("workgroup_name");
         set => SetArgument("workgroup_name", value);
     }
 
@@ -248,25 +248,19 @@ public partial class AwsRedshiftserverlessWorkgroup(string name) : TerraformReso
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Endpoint
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "endpoint").ResolveNodes(ctx));
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// The workgroup_id attribute.
     /// </summary>
     public TerraformValue<string> WorkgroupId
-    {
-        get => new TerraformReference<string>(this, "workgroup_id");
-    }
+        => AsReference("workgroup_id");
 
     /// <summary>
     /// ConfigParameter block (nesting mode: set).

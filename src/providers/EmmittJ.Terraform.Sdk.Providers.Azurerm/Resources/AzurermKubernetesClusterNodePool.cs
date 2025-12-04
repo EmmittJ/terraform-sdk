@@ -18,7 +18,7 @@ public class AzurermKubernetesClusterNodePoolKubeletConfigBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? AllowedUnsafeSysctls
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_unsafe_sysctls").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_unsafe_sysctls");
         set => SetArgument("allowed_unsafe_sysctls", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermKubernetesClusterNodePoolKubeletConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ContainerLogMaxLine
     {
-        get => new TerraformReference<double>(this, "container_log_max_line");
+        get => GetArgument<TerraformValue<double>>("container_log_max_line");
         set => SetArgument("container_log_max_line", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermKubernetesClusterNodePoolKubeletConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ContainerLogMaxSizeMb
     {
-        get => new TerraformReference<double>(this, "container_log_max_size_mb");
+        get => GetArgument<TerraformValue<double>>("container_log_max_size_mb");
         set => SetArgument("container_log_max_size_mb", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermKubernetesClusterNodePoolKubeletConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? CpuCfsQuotaEnabled
     {
-        get => new TerraformReference<bool>(this, "cpu_cfs_quota_enabled");
+        get => GetArgument<TerraformValue<bool>>("cpu_cfs_quota_enabled");
         set => SetArgument("cpu_cfs_quota_enabled", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermKubernetesClusterNodePoolKubeletConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CpuCfsQuotaPeriod
     {
-        get => new TerraformReference<string>(this, "cpu_cfs_quota_period");
+        get => GetArgument<TerraformValue<string>>("cpu_cfs_quota_period");
         set => SetArgument("cpu_cfs_quota_period", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermKubernetesClusterNodePoolKubeletConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CpuManagerPolicy
     {
-        get => new TerraformReference<string>(this, "cpu_manager_policy");
+        get => GetArgument<TerraformValue<string>>("cpu_manager_policy");
         set => SetArgument("cpu_manager_policy", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermKubernetesClusterNodePoolKubeletConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ImageGcHighThreshold
     {
-        get => new TerraformReference<double>(this, "image_gc_high_threshold");
+        get => GetArgument<TerraformValue<double>>("image_gc_high_threshold");
         set => SetArgument("image_gc_high_threshold", value);
     }
 
@@ -81,7 +81,7 @@ public class AzurermKubernetesClusterNodePoolKubeletConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ImageGcLowThreshold
     {
-        get => new TerraformReference<double>(this, "image_gc_low_threshold");
+        get => GetArgument<TerraformValue<double>>("image_gc_low_threshold");
         set => SetArgument("image_gc_low_threshold", value);
     }
 
@@ -90,7 +90,7 @@ public class AzurermKubernetesClusterNodePoolKubeletConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? PodMaxPid
     {
-        get => new TerraformReference<double>(this, "pod_max_pid");
+        get => GetArgument<TerraformValue<double>>("pod_max_pid");
         set => SetArgument("pod_max_pid", value);
     }
 
@@ -99,7 +99,7 @@ public class AzurermKubernetesClusterNodePoolKubeletConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TopologyManagerPolicy
     {
-        get => new TerraformReference<string>(this, "topology_manager_policy");
+        get => GetArgument<TerraformValue<string>>("topology_manager_policy");
         set => SetArgument("topology_manager_policy", value);
     }
 
@@ -122,16 +122,16 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SwapFileSizeMb
     {
-        get => new TerraformReference<double>(this, "swap_file_size_mb");
+        get => GetArgument<TerraformValue<double>>("swap_file_size_mb");
         set => SetArgument("swap_file_size_mb", value);
     }
 
     /// <summary>
     /// The transparent_huge_page attribute.
     /// </summary>
-    public TerraformValue<string> TransparentHugePage
+    public TerraformValue<string>? TransparentHugePage
     {
-        get => new TerraformReference<string>(this, "transparent_huge_page");
+        get => GetArgument<TerraformValue<string>>("transparent_huge_page");
         set => SetArgument("transparent_huge_page", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TransparentHugePageDefrag
     {
-        get => new TerraformReference<string>(this, "transparent_huge_page_defrag");
+        get => GetArgument<TerraformValue<string>>("transparent_huge_page_defrag");
         set => SetArgument("transparent_huge_page_defrag", value);
     }
 
@@ -148,9 +148,9 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlock : TerraformBlock
     /// The transparent_huge_page_enabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> TransparentHugePageEnabled
+    public TerraformValue<string>? TransparentHugePageEnabled
     {
-        get => new TerraformReference<string>(this, "transparent_huge_page_enabled");
+        get => GetArgument<TerraformValue<string>>("transparent_huge_page_enabled");
         set => SetArgument("transparent_huge_page_enabled", value);
     }
 
@@ -182,7 +182,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? FsAioMaxNr
     {
-        get => new TerraformReference<double>(this, "fs_aio_max_nr");
+        get => GetArgument<TerraformValue<double>>("fs_aio_max_nr");
         set => SetArgument("fs_aio_max_nr", value);
     }
 
@@ -191,7 +191,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? FsFileMax
     {
-        get => new TerraformReference<double>(this, "fs_file_max");
+        get => GetArgument<TerraformValue<double>>("fs_file_max");
         set => SetArgument("fs_file_max", value);
     }
 
@@ -200,7 +200,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? FsInotifyMaxUserWatches
     {
-        get => new TerraformReference<double>(this, "fs_inotify_max_user_watches");
+        get => GetArgument<TerraformValue<double>>("fs_inotify_max_user_watches");
         set => SetArgument("fs_inotify_max_user_watches", value);
     }
 
@@ -209,7 +209,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? FsNrOpen
     {
-        get => new TerraformReference<double>(this, "fs_nr_open");
+        get => GetArgument<TerraformValue<double>>("fs_nr_open");
         set => SetArgument("fs_nr_open", value);
     }
 
@@ -218,7 +218,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? KernelThreadsMax
     {
-        get => new TerraformReference<double>(this, "kernel_threads_max");
+        get => GetArgument<TerraformValue<double>>("kernel_threads_max");
         set => SetArgument("kernel_threads_max", value);
     }
 
@@ -227,7 +227,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? NetCoreNetdevMaxBacklog
     {
-        get => new TerraformReference<double>(this, "net_core_netdev_max_backlog");
+        get => GetArgument<TerraformValue<double>>("net_core_netdev_max_backlog");
         set => SetArgument("net_core_netdev_max_backlog", value);
     }
 
@@ -236,7 +236,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? NetCoreOptmemMax
     {
-        get => new TerraformReference<double>(this, "net_core_optmem_max");
+        get => GetArgument<TerraformValue<double>>("net_core_optmem_max");
         set => SetArgument("net_core_optmem_max", value);
     }
 
@@ -245,7 +245,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? NetCoreRmemDefault
     {
-        get => new TerraformReference<double>(this, "net_core_rmem_default");
+        get => GetArgument<TerraformValue<double>>("net_core_rmem_default");
         set => SetArgument("net_core_rmem_default", value);
     }
 
@@ -254,7 +254,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? NetCoreRmemMax
     {
-        get => new TerraformReference<double>(this, "net_core_rmem_max");
+        get => GetArgument<TerraformValue<double>>("net_core_rmem_max");
         set => SetArgument("net_core_rmem_max", value);
     }
 
@@ -263,7 +263,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? NetCoreSomaxconn
     {
-        get => new TerraformReference<double>(this, "net_core_somaxconn");
+        get => GetArgument<TerraformValue<double>>("net_core_somaxconn");
         set => SetArgument("net_core_somaxconn", value);
     }
 
@@ -272,7 +272,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? NetCoreWmemDefault
     {
-        get => new TerraformReference<double>(this, "net_core_wmem_default");
+        get => GetArgument<TerraformValue<double>>("net_core_wmem_default");
         set => SetArgument("net_core_wmem_default", value);
     }
 
@@ -281,7 +281,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? NetCoreWmemMax
     {
-        get => new TerraformReference<double>(this, "net_core_wmem_max");
+        get => GetArgument<TerraformValue<double>>("net_core_wmem_max");
         set => SetArgument("net_core_wmem_max", value);
     }
 
@@ -290,7 +290,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? NetIpv4IpLocalPortRangeMax
     {
-        get => new TerraformReference<double>(this, "net_ipv4_ip_local_port_range_max");
+        get => GetArgument<TerraformValue<double>>("net_ipv4_ip_local_port_range_max");
         set => SetArgument("net_ipv4_ip_local_port_range_max", value);
     }
 
@@ -299,7 +299,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? NetIpv4IpLocalPortRangeMin
     {
-        get => new TerraformReference<double>(this, "net_ipv4_ip_local_port_range_min");
+        get => GetArgument<TerraformValue<double>>("net_ipv4_ip_local_port_range_min");
         set => SetArgument("net_ipv4_ip_local_port_range_min", value);
     }
 
@@ -308,7 +308,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? NetIpv4NeighDefaultGcThresh1
     {
-        get => new TerraformReference<double>(this, "net_ipv4_neigh_default_gc_thresh1");
+        get => GetArgument<TerraformValue<double>>("net_ipv4_neigh_default_gc_thresh1");
         set => SetArgument("net_ipv4_neigh_default_gc_thresh1", value);
     }
 
@@ -317,7 +317,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? NetIpv4NeighDefaultGcThresh2
     {
-        get => new TerraformReference<double>(this, "net_ipv4_neigh_default_gc_thresh2");
+        get => GetArgument<TerraformValue<double>>("net_ipv4_neigh_default_gc_thresh2");
         set => SetArgument("net_ipv4_neigh_default_gc_thresh2", value);
     }
 
@@ -326,7 +326,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? NetIpv4NeighDefaultGcThresh3
     {
-        get => new TerraformReference<double>(this, "net_ipv4_neigh_default_gc_thresh3");
+        get => GetArgument<TerraformValue<double>>("net_ipv4_neigh_default_gc_thresh3");
         set => SetArgument("net_ipv4_neigh_default_gc_thresh3", value);
     }
 
@@ -335,7 +335,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? NetIpv4TcpFinTimeout
     {
-        get => new TerraformReference<double>(this, "net_ipv4_tcp_fin_timeout");
+        get => GetArgument<TerraformValue<double>>("net_ipv4_tcp_fin_timeout");
         set => SetArgument("net_ipv4_tcp_fin_timeout", value);
     }
 
@@ -344,7 +344,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? NetIpv4TcpKeepaliveIntvl
     {
-        get => new TerraformReference<double>(this, "net_ipv4_tcp_keepalive_intvl");
+        get => GetArgument<TerraformValue<double>>("net_ipv4_tcp_keepalive_intvl");
         set => SetArgument("net_ipv4_tcp_keepalive_intvl", value);
     }
 
@@ -353,7 +353,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? NetIpv4TcpKeepaliveProbes
     {
-        get => new TerraformReference<double>(this, "net_ipv4_tcp_keepalive_probes");
+        get => GetArgument<TerraformValue<double>>("net_ipv4_tcp_keepalive_probes");
         set => SetArgument("net_ipv4_tcp_keepalive_probes", value);
     }
 
@@ -362,7 +362,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? NetIpv4TcpKeepaliveTime
     {
-        get => new TerraformReference<double>(this, "net_ipv4_tcp_keepalive_time");
+        get => GetArgument<TerraformValue<double>>("net_ipv4_tcp_keepalive_time");
         set => SetArgument("net_ipv4_tcp_keepalive_time", value);
     }
 
@@ -371,7 +371,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? NetIpv4TcpMaxSynBacklog
     {
-        get => new TerraformReference<double>(this, "net_ipv4_tcp_max_syn_backlog");
+        get => GetArgument<TerraformValue<double>>("net_ipv4_tcp_max_syn_backlog");
         set => SetArgument("net_ipv4_tcp_max_syn_backlog", value);
     }
 
@@ -380,7 +380,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? NetIpv4TcpMaxTwBuckets
     {
-        get => new TerraformReference<double>(this, "net_ipv4_tcp_max_tw_buckets");
+        get => GetArgument<TerraformValue<double>>("net_ipv4_tcp_max_tw_buckets");
         set => SetArgument("net_ipv4_tcp_max_tw_buckets", value);
     }
 
@@ -389,7 +389,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<bool>? NetIpv4TcpTwReuse
     {
-        get => new TerraformReference<bool>(this, "net_ipv4_tcp_tw_reuse");
+        get => GetArgument<TerraformValue<bool>>("net_ipv4_tcp_tw_reuse");
         set => SetArgument("net_ipv4_tcp_tw_reuse", value);
     }
 
@@ -398,7 +398,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? NetNetfilterNfConntrackBuckets
     {
-        get => new TerraformReference<double>(this, "net_netfilter_nf_conntrack_buckets");
+        get => GetArgument<TerraformValue<double>>("net_netfilter_nf_conntrack_buckets");
         set => SetArgument("net_netfilter_nf_conntrack_buckets", value);
     }
 
@@ -407,7 +407,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? NetNetfilterNfConntrackMax
     {
-        get => new TerraformReference<double>(this, "net_netfilter_nf_conntrack_max");
+        get => GetArgument<TerraformValue<double>>("net_netfilter_nf_conntrack_max");
         set => SetArgument("net_netfilter_nf_conntrack_max", value);
     }
 
@@ -416,7 +416,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? VmMaxMapCount
     {
-        get => new TerraformReference<double>(this, "vm_max_map_count");
+        get => GetArgument<TerraformValue<double>>("vm_max_map_count");
         set => SetArgument("vm_max_map_count", value);
     }
 
@@ -425,7 +425,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? VmSwappiness
     {
-        get => new TerraformReference<double>(this, "vm_swappiness");
+        get => GetArgument<TerraformValue<double>>("vm_swappiness");
         set => SetArgument("vm_swappiness", value);
     }
 
@@ -434,7 +434,7 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock
     /// </summary>
     public TerraformValue<double>? VmVfsCachePressure
     {
-        get => new TerraformReference<double>(this, "vm_vfs_cache_pressure");
+        get => GetArgument<TerraformValue<double>>("vm_vfs_cache_pressure");
         set => SetArgument("vm_vfs_cache_pressure", value);
     }
 
@@ -457,7 +457,7 @@ public class AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock : Terraform
     /// </summary>
     public TerraformList<string>? ApplicationSecurityGroupIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "application_security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("application_security_group_ids");
         set => SetArgument("application_security_group_ids", value);
     }
 
@@ -466,7 +466,7 @@ public class AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock : Terraform
     /// </summary>
     public TerraformMap<string>? NodePublicIpTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "node_public_ip_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("node_public_ip_tags");
         set => SetArgument("node_public_ip_tags", value);
     }
 
@@ -497,7 +497,7 @@ public class AzurermKubernetesClusterNodePoolNodeNetworkProfileBlockAllowedHostP
     /// </summary>
     public TerraformValue<double>? PortEnd
     {
-        get => new TerraformReference<double>(this, "port_end");
+        get => GetArgument<TerraformValue<double>>("port_end");
         set => SetArgument("port_end", value);
     }
 
@@ -506,7 +506,7 @@ public class AzurermKubernetesClusterNodePoolNodeNetworkProfileBlockAllowedHostP
     /// </summary>
     public TerraformValue<double>? PortStart
     {
-        get => new TerraformReference<double>(this, "port_start");
+        get => GetArgument<TerraformValue<double>>("port_start");
         set => SetArgument("port_start", value);
     }
 
@@ -515,7 +515,7 @@ public class AzurermKubernetesClusterNodePoolNodeNetworkProfileBlockAllowedHostP
     /// </summary>
     public TerraformValue<string>? Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -538,7 +538,7 @@ public class AzurermKubernetesClusterNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -547,7 +547,7 @@ public class AzurermKubernetesClusterNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -556,7 +556,7 @@ public class AzurermKubernetesClusterNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -565,7 +565,7 @@ public class AzurermKubernetesClusterNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -588,7 +588,7 @@ public class AzurermKubernetesClusterNodePoolUpgradeSettingsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<double>? DrainTimeoutInMinutes
     {
-        get => new TerraformReference<double>(this, "drain_timeout_in_minutes");
+        get => GetArgument<TerraformValue<double>>("drain_timeout_in_minutes");
         set => SetArgument("drain_timeout_in_minutes", value);
     }
 
@@ -598,7 +598,7 @@ public class AzurermKubernetesClusterNodePoolUpgradeSettingsBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSurge is required")]
     public required TerraformValue<string> MaxSurge
     {
-        get => new TerraformReference<string>(this, "max_surge");
+        get => GetArgument<TerraformValue<string>>("max_surge");
         set => SetArgument("max_surge", value);
     }
 
@@ -607,7 +607,7 @@ public class AzurermKubernetesClusterNodePoolUpgradeSettingsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<double>? NodeSoakDurationInMinutes
     {
-        get => new TerraformReference<double>(this, "node_soak_duration_in_minutes");
+        get => GetArgument<TerraformValue<double>>("node_soak_duration_in_minutes");
         set => SetArgument("node_soak_duration_in_minutes", value);
     }
 
@@ -630,7 +630,7 @@ public class AzurermKubernetesClusterNodePoolWindowsProfileBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool>? OutboundNatEnabled
     {
-        get => new TerraformReference<bool>(this, "outbound_nat_enabled");
+        get => GetArgument<TerraformValue<bool>>("outbound_nat_enabled");
         set => SetArgument("outbound_nat_enabled", value);
     }
 
@@ -648,7 +648,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? AutoScalingEnabled
     {
-        get => new TerraformReference<bool>(this, "auto_scaling_enabled");
+        get => GetArgument<TerraformValue<bool>>("auto_scaling_enabled");
         set => SetArgument("auto_scaling_enabled", value);
     }
 
@@ -657,7 +657,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? CapacityReservationGroupId
     {
-        get => new TerraformReference<string>(this, "capacity_reservation_group_id");
+        get => GetArgument<TerraformValue<string>>("capacity_reservation_group_id");
         set => SetArgument("capacity_reservation_group_id", value);
     }
 
@@ -666,7 +666,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? EvictionPolicy
     {
-        get => new TerraformReference<string>(this, "eviction_policy");
+        get => GetArgument<TerraformValue<string>>("eviction_policy");
         set => SetArgument("eviction_policy", value);
     }
 
@@ -675,7 +675,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? FipsEnabled
     {
-        get => new TerraformReference<bool>(this, "fips_enabled");
+        get => GetArgument<TerraformValue<bool>>("fips_enabled");
         set => SetArgument("fips_enabled", value);
     }
 
@@ -684,7 +684,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? GpuDriver
     {
-        get => new TerraformReference<string>(this, "gpu_driver");
+        get => GetArgument<TerraformValue<string>>("gpu_driver");
         set => SetArgument("gpu_driver", value);
     }
 
@@ -693,7 +693,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? GpuInstance
     {
-        get => new TerraformReference<string>(this, "gpu_instance");
+        get => GetArgument<TerraformValue<string>>("gpu_instance");
         set => SetArgument("gpu_instance", value);
     }
 
@@ -702,7 +702,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? HostEncryptionEnabled
     {
-        get => new TerraformReference<bool>(this, "host_encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("host_encryption_enabled");
         set => SetArgument("host_encryption_enabled", value);
     }
 
@@ -711,25 +711,25 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? HostGroupId
     {
-        get => new TerraformReference<string>(this, "host_group_id");
+        get => GetArgument<TerraformValue<string>>("host_group_id");
         set => SetArgument("host_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kubelet_disk_type attribute.
     /// </summary>
-    public TerraformValue<string> KubeletDiskType
+    public TerraformValue<string>? KubeletDiskType
     {
-        get => new TerraformReference<string>(this, "kubelet_disk_type");
+        get => GetArgument<TerraformValue<string>>("kubelet_disk_type");
         set => SetArgument("kubelet_disk_type", value);
     }
 
@@ -739,7 +739,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesClusterId is required")]
     public required TerraformValue<string> KubernetesClusterId
     {
-        get => new TerraformReference<string>(this, "kubernetes_cluster_id");
+        get => GetArgument<TerraformValue<string>>("kubernetes_cluster_id");
         set => SetArgument("kubernetes_cluster_id", value);
     }
 
@@ -748,16 +748,16 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<double>? MaxCount
     {
-        get => new TerraformReference<double>(this, "max_count");
+        get => GetArgument<TerraformValue<double>>("max_count");
         set => SetArgument("max_count", value);
     }
 
     /// <summary>
     /// The max_pods attribute.
     /// </summary>
-    public TerraformValue<double> MaxPods
+    public TerraformValue<double>? MaxPods
     {
-        get => new TerraformReference<double>(this, "max_pods");
+        get => GetArgument<TerraformValue<double>>("max_pods");
         set => SetArgument("max_pods", value);
     }
 
@@ -766,7 +766,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<double>? MinCount
     {
-        get => new TerraformReference<double>(this, "min_count");
+        get => GetArgument<TerraformValue<double>>("min_count");
         set => SetArgument("min_count", value);
     }
 
@@ -775,7 +775,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -785,25 +785,25 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The node_count attribute.
     /// </summary>
-    public TerraformValue<double> NodeCount
+    public TerraformValue<double>? NodeCount
     {
-        get => new TerraformReference<double>(this, "node_count");
+        get => GetArgument<TerraformValue<double>>("node_count");
         set => SetArgument("node_count", value);
     }
 
     /// <summary>
     /// The node_labels attribute.
     /// </summary>
-    public TerraformMap<string> NodeLabels
+    public TerraformMap<string>? NodeLabels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "node_labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("node_labels");
         set => SetArgument("node_labels", value);
     }
 
@@ -812,7 +812,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? NodePublicIpEnabled
     {
-        get => new TerraformReference<bool>(this, "node_public_ip_enabled");
+        get => GetArgument<TerraformValue<bool>>("node_public_ip_enabled");
         set => SetArgument("node_public_ip_enabled", value);
     }
 
@@ -821,7 +821,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? NodePublicIpPrefixId
     {
-        get => new TerraformReference<string>(this, "node_public_ip_prefix_id");
+        get => GetArgument<TerraformValue<string>>("node_public_ip_prefix_id");
         set => SetArgument("node_public_ip_prefix_id", value);
     }
 
@@ -830,25 +830,25 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformList<string>? NodeTaints
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "node_taints").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("node_taints");
         set => SetArgument("node_taints", value);
     }
 
     /// <summary>
     /// The orchestrator_version attribute.
     /// </summary>
-    public TerraformValue<string> OrchestratorVersion
+    public TerraformValue<string>? OrchestratorVersion
     {
-        get => new TerraformReference<string>(this, "orchestrator_version");
+        get => GetArgument<TerraformValue<string>>("orchestrator_version");
         set => SetArgument("orchestrator_version", value);
     }
 
     /// <summary>
     /// The os_disk_size_gb attribute.
     /// </summary>
-    public TerraformValue<double> OsDiskSizeGb
+    public TerraformValue<double>? OsDiskSizeGb
     {
-        get => new TerraformReference<double>(this, "os_disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("os_disk_size_gb");
         set => SetArgument("os_disk_size_gb", value);
     }
 
@@ -857,16 +857,16 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? OsDiskType
     {
-        get => new TerraformReference<string>(this, "os_disk_type");
+        get => GetArgument<TerraformValue<string>>("os_disk_type");
         set => SetArgument("os_disk_type", value);
     }
 
     /// <summary>
     /// The os_sku attribute.
     /// </summary>
-    public TerraformValue<string> OsSku
+    public TerraformValue<string>? OsSku
     {
-        get => new TerraformReference<string>(this, "os_sku");
+        get => GetArgument<TerraformValue<string>>("os_sku");
         set => SetArgument("os_sku", value);
     }
 
@@ -875,7 +875,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? OsType
     {
-        get => new TerraformReference<string>(this, "os_type");
+        get => GetArgument<TerraformValue<string>>("os_type");
         set => SetArgument("os_type", value);
     }
 
@@ -884,7 +884,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? PodSubnetId
     {
-        get => new TerraformReference<string>(this, "pod_subnet_id");
+        get => GetArgument<TerraformValue<string>>("pod_subnet_id");
         set => SetArgument("pod_subnet_id", value);
     }
 
@@ -893,7 +893,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Priority
     {
-        get => new TerraformReference<string>(this, "priority");
+        get => GetArgument<TerraformValue<string>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -902,7 +902,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? ProximityPlacementGroupId
     {
-        get => new TerraformReference<string>(this, "proximity_placement_group_id");
+        get => GetArgument<TerraformValue<string>>("proximity_placement_group_id");
         set => SetArgument("proximity_placement_group_id", value);
     }
 
@@ -911,7 +911,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? ScaleDownMode
     {
-        get => new TerraformReference<string>(this, "scale_down_mode");
+        get => GetArgument<TerraformValue<string>>("scale_down_mode");
         set => SetArgument("scale_down_mode", value);
     }
 
@@ -920,7 +920,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? SnapshotId
     {
-        get => new TerraformReference<string>(this, "snapshot_id");
+        get => GetArgument<TerraformValue<string>>("snapshot_id");
         set => SetArgument("snapshot_id", value);
     }
 
@@ -929,7 +929,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<double>? SpotMaxPrice
     {
-        get => new TerraformReference<double>(this, "spot_max_price");
+        get => GetArgument<TerraformValue<double>>("spot_max_price");
         set => SetArgument("spot_max_price", value);
     }
 
@@ -938,7 +938,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -947,7 +947,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? TemporaryNameForRotation
     {
-        get => new TerraformReference<string>(this, "temporary_name_for_rotation");
+        get => GetArgument<TerraformValue<string>>("temporary_name_for_rotation");
         set => SetArgument("temporary_name_for_rotation", value);
     }
 
@@ -956,16 +956,16 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? UltraSsdEnabled
     {
-        get => new TerraformReference<bool>(this, "ultra_ssd_enabled");
+        get => GetArgument<TerraformValue<bool>>("ultra_ssd_enabled");
         set => SetArgument("ultra_ssd_enabled", value);
     }
 
     /// <summary>
     /// The vm_size attribute.
     /// </summary>
-    public TerraformValue<string> VmSize
+    public TerraformValue<string>? VmSize
     {
-        get => new TerraformReference<string>(this, "vm_size");
+        get => GetArgument<TerraformValue<string>>("vm_size");
         set => SetArgument("vm_size", value);
     }
 
@@ -974,7 +974,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? VnetSubnetId
     {
-        get => new TerraformReference<string>(this, "vnet_subnet_id");
+        get => GetArgument<TerraformValue<string>>("vnet_subnet_id");
         set => SetArgument("vnet_subnet_id", value);
     }
 
@@ -983,7 +983,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? WorkloadRuntime
     {
-        get => new TerraformReference<string>(this, "workload_runtime");
+        get => GetArgument<TerraformValue<string>>("workload_runtime");
         set => SetArgument("workload_runtime", value);
     }
 
@@ -992,7 +992,7 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformSet<string>? Zones
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "zones").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("zones");
         set => SetArgument("zones", value);
     }
 

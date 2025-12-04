@@ -18,7 +18,7 @@ public class AwsS3BucketIntelligentTieringConfigurationFilterBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsS3BucketIntelligentTieringConfigurationFilterBlock : TerraformBl
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsS3BucketIntelligentTieringConfigurationTieringBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessTier is required")]
     public required TerraformValue<string> AccessTier
     {
-        get => new TerraformReference<string>(this, "access_tier");
+        get => GetArgument<TerraformValue<string>>("access_tier");
         set => SetArgument("access_tier", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsS3BucketIntelligentTieringConfigurationTieringBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Days is required")]
     public required TerraformValue<double> Days
     {
-        get => new TerraformReference<double>(this, "days");
+        get => GetArgument<TerraformValue<double>>("days");
         set => SetArgument("days", value);
     }
 
@@ -80,16 +80,16 @@ public partial class AwsS3BucketIntelligentTieringConfiguration(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -99,16 +99,16 @@ public partial class AwsS3BucketIntelligentTieringConfiguration(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsS3BucketIntelligentTieringConfiguration(string name) : T
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 

@@ -18,7 +18,7 @@ public class AzurermServicebusTopicDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermServicebusTopicDataSource(string name) : TerraformDa
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermServicebusTopicDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermServicebusTopicDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string>? NamespaceId
     {
-        get => new TerraformReference<string>(this, "namespace_id");
+        get => GetArgument<TerraformValue<string>>("namespace_id");
         set => SetArgument("namespace_id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzurermServicebusTopicDataSource(string name) : TerraformDa
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? NamespaceName
     {
-        get => new TerraformReference<string>(this, "namespace_name");
+        get => GetArgument<TerraformValue<string>>("namespace_name");
         set => SetArgument("namespace_name", value);
     }
 
@@ -75,7 +75,7 @@ public partial class AzurermServicebusTopicDataSource(string name) : TerraformDa
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -83,105 +83,79 @@ public partial class AzurermServicebusTopicDataSource(string name) : TerraformDa
     /// The auto_delete_on_idle attribute.
     /// </summary>
     public TerraformValue<string> AutoDeleteOnIdle
-    {
-        get => new TerraformReference<string>(this, "auto_delete_on_idle");
-    }
+        => AsReference("auto_delete_on_idle");
 
     /// <summary>
     /// The batched_operations_enabled attribute.
     /// </summary>
     public TerraformValue<bool> BatchedOperationsEnabled
-    {
-        get => new TerraformReference<bool>(this, "batched_operations_enabled");
-    }
+        => AsReference("batched_operations_enabled");
 
     /// <summary>
     /// The default_message_ttl attribute.
     /// </summary>
     public TerraformValue<string> DefaultMessageTtl
-    {
-        get => new TerraformReference<string>(this, "default_message_ttl");
-    }
+        => AsReference("default_message_ttl");
 
     /// <summary>
     /// The duplicate_detection_history_time_window attribute.
     /// </summary>
     public TerraformValue<string> DuplicateDetectionHistoryTimeWindow
-    {
-        get => new TerraformReference<string>(this, "duplicate_detection_history_time_window");
-    }
+        => AsReference("duplicate_detection_history_time_window");
 
     /// <summary>
     /// The enable_batched_operations attribute.
     /// </summary>
     public TerraformValue<bool> EnableBatchedOperations
-    {
-        get => new TerraformReference<bool>(this, "enable_batched_operations");
-    }
+        => AsReference("enable_batched_operations");
 
     /// <summary>
     /// The enable_express attribute.
     /// </summary>
     public TerraformValue<bool> EnableExpress
-    {
-        get => new TerraformReference<bool>(this, "enable_express");
-    }
+        => AsReference("enable_express");
 
     /// <summary>
     /// The enable_partitioning attribute.
     /// </summary>
     public TerraformValue<bool> EnablePartitioning
-    {
-        get => new TerraformReference<bool>(this, "enable_partitioning");
-    }
+        => AsReference("enable_partitioning");
 
     /// <summary>
     /// The express_enabled attribute.
     /// </summary>
     public TerraformValue<bool> ExpressEnabled
-    {
-        get => new TerraformReference<bool>(this, "express_enabled");
-    }
+        => AsReference("express_enabled");
 
     /// <summary>
     /// The max_size_in_megabytes attribute.
     /// </summary>
     public TerraformValue<double> MaxSizeInMegabytes
-    {
-        get => new TerraformReference<double>(this, "max_size_in_megabytes");
-    }
+        => AsReference("max_size_in_megabytes");
 
     /// <summary>
     /// The partitioning_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PartitioningEnabled
-    {
-        get => new TerraformReference<bool>(this, "partitioning_enabled");
-    }
+        => AsReference("partitioning_enabled");
 
     /// <summary>
     /// The requires_duplicate_detection attribute.
     /// </summary>
     public TerraformValue<bool> RequiresDuplicateDetection
-    {
-        get => new TerraformReference<bool>(this, "requires_duplicate_detection");
-    }
+        => AsReference("requires_duplicate_detection");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The support_ordering attribute.
     /// </summary>
     public TerraformValue<bool> SupportOrdering
-    {
-        get => new TerraformReference<bool>(this, "support_ordering");
-    }
+        => AsReference("support_ordering");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

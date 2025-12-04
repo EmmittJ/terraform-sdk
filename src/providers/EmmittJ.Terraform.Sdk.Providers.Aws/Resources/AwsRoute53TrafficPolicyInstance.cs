@@ -14,16 +14,16 @@ public partial class AwsRoute53TrafficPolicyInstance(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostedZoneId is required")]
     public required TerraformValue<string> HostedZoneId
     {
-        get => new TerraformReference<string>(this, "hosted_zone_id");
+        get => GetArgument<TerraformValue<string>>("hosted_zone_id");
         set => SetArgument("hosted_zone_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsRoute53TrafficPolicyInstance(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -43,7 +43,7 @@ public partial class AwsRoute53TrafficPolicyInstance(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficPolicyId is required")]
     public required TerraformValue<string> TrafficPolicyId
     {
-        get => new TerraformReference<string>(this, "traffic_policy_id");
+        get => GetArgument<TerraformValue<string>>("traffic_policy_id");
         set => SetArgument("traffic_policy_id", value);
     }
 
@@ -53,7 +53,7 @@ public partial class AwsRoute53TrafficPolicyInstance(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficPolicyVersion is required")]
     public required TerraformValue<double> TrafficPolicyVersion
     {
-        get => new TerraformReference<double>(this, "traffic_policy_version");
+        get => GetArgument<TerraformValue<double>>("traffic_policy_version");
         set => SetArgument("traffic_policy_version", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsRoute53TrafficPolicyInstance(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     public required TerraformValue<double> Ttl
     {
-        get => new TerraformReference<double>(this, "ttl");
+        get => GetArgument<TerraformValue<double>>("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -71,8 +71,6 @@ public partial class AwsRoute53TrafficPolicyInstance(string name) : TerraformRes
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

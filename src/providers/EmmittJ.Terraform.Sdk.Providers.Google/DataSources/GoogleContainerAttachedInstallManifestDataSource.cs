@@ -14,16 +14,16 @@ public partial class GoogleContainerAttachedInstallManifestDataSource(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => new TerraformReference<string>(this, "cluster_id");
+        get => GetArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleContainerAttachedInstallManifestDataSource(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -43,7 +43,7 @@ public partial class GoogleContainerAttachedInstallManifestDataSource(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformVersion is required")]
     public required TerraformValue<string> PlatformVersion
     {
-        get => new TerraformReference<string>(this, "platform_version");
+        get => GetArgument<TerraformValue<string>>("platform_version");
         set => SetArgument("platform_version", value);
     }
 
@@ -53,7 +53,7 @@ public partial class GoogleContainerAttachedInstallManifestDataSource(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformValue<string> Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -61,8 +61,6 @@ public partial class GoogleContainerAttachedInstallManifestDataSource(string nam
     /// The manifest attribute.
     /// </summary>
     public TerraformValue<string> Manifest
-    {
-        get => new TerraformReference<string>(this, "manifest");
-    }
+        => AsReference("manifest");
 
 }

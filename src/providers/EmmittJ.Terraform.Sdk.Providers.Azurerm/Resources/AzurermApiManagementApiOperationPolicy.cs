@@ -18,7 +18,7 @@ public class AzurermApiManagementApiOperationPolicyTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermApiManagementApiOperationPolicyTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermApiManagementApiOperationPolicyTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermApiManagementApiOperationPolicyTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermApiManagementApiOperationPolicy(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformValue<string> ApiManagementName
     {
-        get => new TerraformReference<string>(this, "api_management_name");
+        get => GetArgument<TerraformValue<string>>("api_management_name");
         set => SetArgument("api_management_name", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzurermApiManagementApiOperationPolicy(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiName is required")]
     public required TerraformValue<string> ApiName
     {
-        get => new TerraformReference<string>(this, "api_name");
+        get => GetArgument<TerraformValue<string>>("api_name");
         set => SetArgument("api_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermApiManagementApiOperationPolicy(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperationId is required")]
     public required TerraformValue<string> OperationId
     {
-        get => new TerraformReference<string>(this, "operation_id");
+        get => GetArgument<TerraformValue<string>>("operation_id");
         set => SetArgument("operation_id", value);
     }
 
@@ -103,16 +103,16 @@ public partial class AzurermApiManagementApiOperationPolicy(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The xml_content attribute.
     /// </summary>
-    public TerraformValue<string> XmlContent
+    public TerraformValue<string>? XmlContent
     {
-        get => new TerraformReference<string>(this, "xml_content");
+        get => GetArgument<TerraformValue<string>>("xml_content");
         set => SetArgument("xml_content", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermApiManagementApiOperationPolicy(string name) : Terra
     /// </summary>
     public TerraformValue<string>? XmlLink
     {
-        get => new TerraformReference<string>(this, "xml_link");
+        get => GetArgument<TerraformValue<string>>("xml_link");
         set => SetArgument("xml_link", value);
     }
 

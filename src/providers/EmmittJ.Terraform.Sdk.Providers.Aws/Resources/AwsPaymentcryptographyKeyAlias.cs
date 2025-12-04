@@ -14,7 +14,7 @@ public partial class AwsPaymentcryptographyKeyAlias(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AliasName is required")]
     public required TerraformValue<string> AliasName
     {
-        get => new TerraformReference<string>(this, "alias_name");
+        get => GetArgument<TerraformValue<string>>("alias_name");
         set => SetArgument("alias_name", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsPaymentcryptographyKeyAlias(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? KeyArn
     {
-        get => new TerraformReference<string>(this, "key_arn");
+        get => GetArgument<TerraformValue<string>>("key_arn");
         set => SetArgument("key_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -40,8 +40,6 @@ public partial class AwsPaymentcryptographyKeyAlias(string name) : TerraformReso
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
 }

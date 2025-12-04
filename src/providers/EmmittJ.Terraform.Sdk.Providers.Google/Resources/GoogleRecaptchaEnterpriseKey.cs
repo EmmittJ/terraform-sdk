@@ -18,7 +18,7 @@ public class GoogleRecaptchaEnterpriseKeyAndroidSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowAllPackageNames
     {
-        get => new TerraformReference<bool>(this, "allow_all_package_names");
+        get => GetArgument<TerraformValue<bool>>("allow_all_package_names");
         set => SetArgument("allow_all_package_names", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleRecaptchaEnterpriseKeyAndroidSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AllowedPackageNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_package_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_package_names");
         set => SetArgument("allowed_package_names", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleRecaptchaEnterpriseKeyIosSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowAllBundleIds
     {
-        get => new TerraformReference<bool>(this, "allow_all_bundle_ids");
+        get => GetArgument<TerraformValue<bool>>("allow_all_bundle_ids");
         set => SetArgument("allow_all_bundle_ids", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleRecaptchaEnterpriseKeyIosSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AllowedBundleIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_bundle_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_bundle_ids");
         set => SetArgument("allowed_bundle_ids", value);
     }
 
@@ -80,9 +80,9 @@ public class GoogleRecaptchaEnterpriseKeyTestingOptionsBlock : TerraformBlock
     /// <summary>
     /// For challenge-based keys only (CHECKBOX, INVISIBLE), all challenge requests for this site will return nocaptcha if NOCAPTCHA, or an unsolvable challenge if UNSOLVABLE_CHALLENGE. Possible values: TESTING_CHALLENGE_UNSPECIFIED, NOCAPTCHA, UNSOLVABLE_CHALLENGE
     /// </summary>
-    public TerraformValue<string> TestingChallenge
+    public TerraformValue<string>? TestingChallenge
     {
-        get => new TerraformReference<string>(this, "testing_challenge");
+        get => GetArgument<TerraformValue<string>>("testing_challenge");
         set => SetArgument("testing_challenge", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleRecaptchaEnterpriseKeyTestingOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? TestingScore
     {
-        get => new TerraformReference<double>(this, "testing_score");
+        get => GetArgument<TerraformValue<double>>("testing_score");
         set => SetArgument("testing_score", value);
     }
 
@@ -114,7 +114,7 @@ public class GoogleRecaptchaEnterpriseKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleRecaptchaEnterpriseKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -132,7 +132,7 @@ public class GoogleRecaptchaEnterpriseKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -156,7 +156,7 @@ public class GoogleRecaptchaEnterpriseKeyWafSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WafFeature is required")]
     public required TerraformValue<string> WafFeature
     {
-        get => new TerraformReference<string>(this, "waf_feature");
+        get => GetArgument<TerraformValue<string>>("waf_feature");
         set => SetArgument("waf_feature", value);
     }
 
@@ -166,7 +166,7 @@ public class GoogleRecaptchaEnterpriseKeyWafSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WafService is required")]
     public required TerraformValue<string> WafService
     {
-        get => new TerraformReference<string>(this, "waf_service");
+        get => GetArgument<TerraformValue<string>>("waf_service");
         set => SetArgument("waf_service", value);
     }
 
@@ -189,7 +189,7 @@ public class GoogleRecaptchaEnterpriseKeyWebSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowAllDomains
     {
-        get => new TerraformReference<bool>(this, "allow_all_domains");
+        get => GetArgument<TerraformValue<bool>>("allow_all_domains");
         set => SetArgument("allow_all_domains", value);
     }
 
@@ -198,7 +198,7 @@ public class GoogleRecaptchaEnterpriseKeyWebSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowAmpTraffic
     {
-        get => new TerraformReference<bool>(this, "allow_amp_traffic");
+        get => GetArgument<TerraformValue<bool>>("allow_amp_traffic");
         set => SetArgument("allow_amp_traffic", value);
     }
 
@@ -207,16 +207,16 @@ public class GoogleRecaptchaEnterpriseKeyWebSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AllowedDomains
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_domains").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_domains");
         set => SetArgument("allowed_domains", value);
     }
 
     /// <summary>
     /// Settings for the frequency and difficulty at which this key triggers captcha challenges. This should only be specified for IntegrationTypes CHECKBOX and INVISIBLE. Possible values: CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED, USABILITY, BALANCE, SECURITY
     /// </summary>
-    public TerraformValue<string> ChallengeSecurityPreference
+    public TerraformValue<string>? ChallengeSecurityPreference
     {
-        get => new TerraformReference<string>(this, "challenge_security_preference");
+        get => GetArgument<TerraformValue<string>>("challenge_security_preference");
         set => SetArgument("challenge_security_preference", value);
     }
 
@@ -226,7 +226,7 @@ public class GoogleRecaptchaEnterpriseKeyWebSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationType is required")]
     public required TerraformValue<string> IntegrationType
     {
-        get => new TerraformReference<string>(this, "integration_type");
+        get => GetArgument<TerraformValue<string>>("integration_type");
         set => SetArgument("integration_type", value);
     }
 
@@ -245,16 +245,16 @@ public partial class GoogleRecaptchaEnterpriseKey(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -266,16 +266,16 @@ public partial class GoogleRecaptchaEnterpriseKey(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -283,33 +283,25 @@ public partial class GoogleRecaptchaEnterpriseKey(string name) : TerraformResour
     /// The timestamp corresponding to the creation of this Key.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The resource id for the Key, which is the same as the Site Key itself.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// AndroidSettings block (nesting mode: list).

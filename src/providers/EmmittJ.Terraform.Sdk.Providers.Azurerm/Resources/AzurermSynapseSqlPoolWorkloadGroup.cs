@@ -18,7 +18,7 @@ public class AzurermSynapseSqlPoolWorkloadGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSynapseSqlPoolWorkloadGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSynapseSqlPoolWorkloadGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSynapseSqlPoolWorkloadGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermSynapseSqlPoolWorkloadGroup(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermSynapseSqlPoolWorkloadGroup(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Importance
     {
-        get => new TerraformReference<string>(this, "importance");
+        get => GetArgument<TerraformValue<string>>("importance");
         set => SetArgument("importance", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermSynapseSqlPoolWorkloadGroup(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxResourcePercent is required")]
     public required TerraformValue<double> MaxResourcePercent
     {
-        get => new TerraformReference<double>(this, "max_resource_percent");
+        get => GetArgument<TerraformValue<double>>("max_resource_percent");
         set => SetArgument("max_resource_percent", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermSynapseSqlPoolWorkloadGroup(string name) : Terraform
     /// </summary>
     public TerraformValue<double>? MaxResourcePercentPerRequest
     {
-        get => new TerraformReference<double>(this, "max_resource_percent_per_request");
+        get => GetArgument<TerraformValue<double>>("max_resource_percent_per_request");
         set => SetArgument("max_resource_percent_per_request", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermSynapseSqlPoolWorkloadGroup(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinResourcePercent is required")]
     public required TerraformValue<double> MinResourcePercent
     {
-        get => new TerraformReference<double>(this, "min_resource_percent");
+        get => GetArgument<TerraformValue<double>>("min_resource_percent");
         set => SetArgument("min_resource_percent", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermSynapseSqlPoolWorkloadGroup(string name) : Terraform
     /// </summary>
     public TerraformValue<double>? MinResourcePercentPerRequest
     {
-        get => new TerraformReference<double>(this, "min_resource_percent_per_request");
+        get => GetArgument<TerraformValue<double>>("min_resource_percent_per_request");
         set => SetArgument("min_resource_percent_per_request", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermSynapseSqlPoolWorkloadGroup(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermSynapseSqlPoolWorkloadGroup(string name) : Terraform
     /// </summary>
     public TerraformValue<double>? QueryExecutionTimeoutInSeconds
     {
-        get => new TerraformReference<double>(this, "query_execution_timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("query_execution_timeout_in_seconds");
         set => SetArgument("query_execution_timeout_in_seconds", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AzurermSynapseSqlPoolWorkloadGroup(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlPoolId is required")]
     public required TerraformValue<string> SqlPoolId
     {
-        get => new TerraformReference<string>(this, "sql_pool_id");
+        get => GetArgument<TerraformValue<string>>("sql_pool_id");
         set => SetArgument("sql_pool_id", value);
     }
 

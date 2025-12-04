@@ -18,7 +18,7 @@ public class AzurermSecurityCenterSubscriptionPricingExtensionBlock : TerraformB
     /// </summary>
     public TerraformMap<string>? AdditionalExtensionProperties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_extension_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("additional_extension_properties");
         set => SetArgument("additional_extension_properties", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermSecurityCenterSubscriptionPricingExtensionBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermSecurityCenterSubscriptionPricingTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermSecurityCenterSubscriptionPricingTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermSecurityCenterSubscriptionPricingTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermSecurityCenterSubscriptionPricingTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -94,9 +94,9 @@ public partial class AzurermSecurityCenterSubscriptionPricing(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AzurermSecurityCenterSubscriptionPricing(string name) : Ter
     /// </summary>
     public TerraformValue<string>? ResourceTypeAttribute
     {
-        get => new TerraformReference<string>(this, "resource_type");
+        get => GetArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AzurermSecurityCenterSubscriptionPricing(string name) : Ter
     /// </summary>
     public TerraformValue<string>? Subplan
     {
-        get => new TerraformReference<string>(this, "subplan");
+        get => GetArgument<TerraformValue<string>>("subplan");
         set => SetArgument("subplan", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AzurermSecurityCenterSubscriptionPricing(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformValue<string> Tier
     {
-        get => new TerraformReference<string>(this, "tier");
+        get => GetArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 

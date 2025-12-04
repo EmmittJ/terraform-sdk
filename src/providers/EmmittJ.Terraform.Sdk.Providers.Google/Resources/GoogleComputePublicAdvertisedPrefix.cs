@@ -18,7 +18,7 @@ public class GoogleComputePublicAdvertisedPrefixTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputePublicAdvertisedPrefixTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -45,7 +45,7 @@ public partial class GoogleComputePublicAdvertisedPrefix(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -55,16 +55,16 @@ public partial class GoogleComputePublicAdvertisedPrefix(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsVerificationIp is required")]
     public required TerraformValue<string> DnsVerificationIp
     {
-        get => new TerraformReference<string>(this, "dns_verification_ip");
+        get => GetArgument<TerraformValue<string>>("dns_verification_ip");
         set => SetArgument("dns_verification_ip", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleComputePublicAdvertisedPrefix(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpCidrRange is required")]
     public required TerraformValue<string> IpCidrRange
     {
-        get => new TerraformReference<string>(this, "ip_cidr_range");
+        get => GetArgument<TerraformValue<string>>("ip_cidr_range");
         set => SetArgument("ip_cidr_range", value);
     }
 
@@ -89,7 +89,7 @@ public partial class GoogleComputePublicAdvertisedPrefix(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -103,16 +103,16 @@ public partial class GoogleComputePublicAdvertisedPrefix(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? PdpScope
     {
-        get => new TerraformReference<string>(this, "pdp_scope");
+        get => GetArgument<TerraformValue<string>>("pdp_scope");
         set => SetArgument("pdp_scope", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -120,17 +120,13 @@ public partial class GoogleComputePublicAdvertisedPrefix(string name) : Terrafor
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Output Only. The shared secret to be used for reverse DNS verification.
     /// </summary>
     public TerraformValue<string> SharedSecret
-    {
-        get => new TerraformReference<string>(this, "shared_secret");
-    }
+        => AsReference("shared_secret");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

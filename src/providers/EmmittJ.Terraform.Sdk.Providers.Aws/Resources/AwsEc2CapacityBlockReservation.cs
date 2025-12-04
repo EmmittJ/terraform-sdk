@@ -18,7 +18,7 @@ public class AwsEc2CapacityBlockReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -37,7 +37,7 @@ public partial class AwsEc2CapacityBlockReservation(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityBlockOfferingId is required")]
     public required TerraformValue<string> CapacityBlockOfferingId
     {
-        get => new TerraformReference<string>(this, "capacity_block_offering_id");
+        get => GetArgument<TerraformValue<string>>("capacity_block_offering_id");
         set => SetArgument("capacity_block_offering_id", value);
     }
 
@@ -47,16 +47,16 @@ public partial class AwsEc2CapacityBlockReservation(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePlatform is required")]
     public required TerraformValue<string> InstancePlatform
     {
-        get => new TerraformReference<string>(this, "instance_platform");
+        get => GetArgument<TerraformValue<string>>("instance_platform");
         set => SetArgument("instance_platform", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsEc2CapacityBlockReservation(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -73,121 +73,91 @@ public partial class AwsEc2CapacityBlockReservation(string name) : TerraformReso
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZone
-    {
-        get => new TerraformReference<string>(this, "availability_zone");
-    }
+        => AsReference("availability_zone");
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
     public TerraformValue<string> CreatedDate
-    {
-        get => new TerraformReference<string>(this, "created_date");
-    }
+        => AsReference("created_date");
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
     public TerraformValue<bool> EbsOptimized
-    {
-        get => new TerraformReference<bool>(this, "ebs_optimized");
-    }
+        => AsReference("ebs_optimized");
 
     /// <summary>
     /// The end_date attribute.
     /// </summary>
     public TerraformValue<string> EndDate
-    {
-        get => new TerraformReference<string>(this, "end_date");
-    }
+        => AsReference("end_date");
 
     /// <summary>
     /// The end_date_type attribute.
     /// </summary>
     public TerraformValue<string> EndDateType
-    {
-        get => new TerraformReference<string>(this, "end_date_type");
-    }
+        => AsReference("end_date_type");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
     public TerraformValue<double> InstanceCount
-    {
-        get => new TerraformReference<double>(this, "instance_count");
-    }
+        => AsReference("instance_count");
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     public TerraformValue<string> InstanceType
-    {
-        get => new TerraformReference<string>(this, "instance_type");
-    }
+        => AsReference("instance_type");
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
     public TerraformValue<string> OutpostArn
-    {
-        get => new TerraformReference<string>(this, "outpost_arn");
-    }
+        => AsReference("outpost_arn");
 
     /// <summary>
     /// The placement_group_arn attribute.
     /// </summary>
     public TerraformValue<string> PlacementGroupArn
-    {
-        get => new TerraformReference<string>(this, "placement_group_arn");
-    }
+        => AsReference("placement_group_arn");
 
     /// <summary>
     /// The reservation_type attribute.
     /// </summary>
     public TerraformValue<string> ReservationType
-    {
-        get => new TerraformReference<string>(this, "reservation_type");
-    }
+        => AsReference("reservation_type");
 
     /// <summary>
     /// The start_date attribute.
     /// </summary>
     public TerraformValue<string> StartDate
-    {
-        get => new TerraformReference<string>(this, "start_date");
-    }
+        => AsReference("start_date");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// The tenancy attribute.
     /// </summary>
     public TerraformValue<string> Tenancy
-    {
-        get => new TerraformReference<string>(this, "tenancy");
-    }
+        => AsReference("tenancy");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

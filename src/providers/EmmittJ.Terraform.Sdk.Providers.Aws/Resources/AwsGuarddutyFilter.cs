@@ -43,7 +43,7 @@ public class AwsGuarddutyFilterFindingCriteriaBlockCriterionBlock : TerraformBlo
     /// </summary>
     public TerraformList<string>? EqualsAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "equals").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("equals");
         set => SetArgument("equals", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsGuarddutyFilterFindingCriteriaBlockCriterionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
     public required TerraformValue<string> Field
     {
-        get => new TerraformReference<string>(this, "field");
+        get => GetArgument<TerraformValue<string>>("field");
         set => SetArgument("field", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsGuarddutyFilterFindingCriteriaBlockCriterionBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? GreaterThan
     {
-        get => new TerraformReference<string>(this, "greater_than");
+        get => GetArgument<TerraformValue<string>>("greater_than");
         set => SetArgument("greater_than", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsGuarddutyFilterFindingCriteriaBlockCriterionBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? GreaterThanOrEqual
     {
-        get => new TerraformReference<string>(this, "greater_than_or_equal");
+        get => GetArgument<TerraformValue<string>>("greater_than_or_equal");
         set => SetArgument("greater_than_or_equal", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsGuarddutyFilterFindingCriteriaBlockCriterionBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? LessThan
     {
-        get => new TerraformReference<string>(this, "less_than");
+        get => GetArgument<TerraformValue<string>>("less_than");
         set => SetArgument("less_than", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsGuarddutyFilterFindingCriteriaBlockCriterionBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? LessThanOrEqual
     {
-        get => new TerraformReference<string>(this, "less_than_or_equal");
+        get => GetArgument<TerraformValue<string>>("less_than_or_equal");
         set => SetArgument("less_than_or_equal", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsGuarddutyFilterFindingCriteriaBlockCriterionBlock : TerraformBlo
     /// </summary>
     public TerraformList<string>? NotEquals
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "not_equals").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("not_equals");
         set => SetArgument("not_equals", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsGuarddutyFilter(string name) : TerraformResource("aws_gu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AwsGuarddutyFilter(string name) : TerraformResource("aws_gu
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -136,16 +136,16 @@ public partial class AwsGuarddutyFilter(string name) : TerraformResource("aws_gu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
     public required TerraformValue<string> DetectorId
     {
-        get => new TerraformReference<string>(this, "detector_id");
+        get => GetArgument<TerraformValue<string>>("detector_id");
         set => SetArgument("detector_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AwsGuarddutyFilter(string name) : TerraformResource("aws_gu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -165,16 +165,16 @@ public partial class AwsGuarddutyFilter(string name) : TerraformResource("aws_gu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rank is required")]
     public required TerraformValue<double> Rank
     {
-        get => new TerraformReference<double>(this, "rank");
+        get => GetArgument<TerraformValue<double>>("rank");
         set => SetArgument("rank", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -183,16 +183,16 @@ public partial class AwsGuarddutyFilter(string name) : TerraformResource("aws_gu
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -200,9 +200,7 @@ public partial class AwsGuarddutyFilter(string name) : TerraformResource("aws_gu
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// FindingCriteria block (nesting mode: list).

@@ -11,9 +11,9 @@ public partial class AwsKendraThesaurusDataSource(string name) : TerraformDataSo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,25 +23,25 @@ public partial class AwsKendraThesaurusDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexId is required")]
     public required TerraformValue<string> IndexId
     {
-        get => new TerraformReference<string>(this, "index_id");
+        get => GetArgument<TerraformValue<string>>("index_id");
         set => SetArgument("index_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsKendraThesaurusDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThesaurusId is required")]
     public required TerraformValue<string> ThesaurusId
     {
-        get => new TerraformReference<string>(this, "thesaurus_id");
+        get => GetArgument<TerraformValue<string>>("thesaurus_id");
         set => SetArgument("thesaurus_id", value);
     }
 
@@ -59,96 +59,72 @@ public partial class AwsKendraThesaurusDataSource(string name) : TerraformDataSo
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The error_message attribute.
     /// </summary>
     public TerraformValue<string> ErrorMessage
-    {
-        get => new TerraformReference<string>(this, "error_message");
-    }
+        => AsReference("error_message");
 
     /// <summary>
     /// The file_size_bytes attribute.
     /// </summary>
     public TerraformValue<double> FileSizeBytes
-    {
-        get => new TerraformReference<double>(this, "file_size_bytes");
-    }
+        => AsReference("file_size_bytes");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     public TerraformValue<string> RoleArn
-    {
-        get => new TerraformReference<string>(this, "role_arn");
-    }
+        => AsReference("role_arn");
 
     /// <summary>
     /// The source_s3_path attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SourceS3Path
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "source_s3_path").ResolveNodes(ctx));
-    }
+        => AsReference("source_s3_path");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The synonym_rule_count attribute.
     /// </summary>
     public TerraformValue<double> SynonymRuleCount
-    {
-        get => new TerraformReference<double>(this, "synonym_rule_count");
-    }
+        => AsReference("synonym_rule_count");
 
     /// <summary>
     /// The term_count attribute.
     /// </summary>
     public TerraformValue<double> TermCount
-    {
-        get => new TerraformReference<double>(this, "term_count");
-    }
+        => AsReference("term_count");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-    {
-        get => new TerraformReference<string>(this, "updated_at");
-    }
+        => AsReference("updated_at");
 
 }

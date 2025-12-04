@@ -11,9 +11,9 @@ public partial class GoogleDataprocMetastoreServiceDataSource(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -24,7 +24,7 @@ public partial class GoogleDataprocMetastoreServiceDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleDataprocMetastoreServiceDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -45,7 +45,7 @@ public partial class GoogleDataprocMetastoreServiceDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformValue<string> ServiceId
     {
-        get => new TerraformReference<string>(this, "service_id");
+        get => GetArgument<TerraformValue<string>>("service_id");
         set => SetArgument("service_id", value);
     }
 
@@ -53,66 +53,50 @@ public partial class GoogleDataprocMetastoreServiceDataSource(string name) : Ter
     /// A Cloud Storage URI (starting with gs://) that specifies where artifacts related to the metastore service are stored.
     /// </summary>
     public TerraformValue<string> ArtifactGcsUri
-    {
-        get => new TerraformReference<string>(this, "artifact_gcs_uri");
-    }
+        => AsReference("artifact_gcs_uri");
 
     /// <summary>
     /// Output only. The time when the metastore service was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The database type that the Metastore service stores its data. Default value: &amp;quot;MYSQL&amp;quot; Possible values: [&amp;quot;MYSQL&amp;quot;, &amp;quot;SPANNER&amp;quot;]
     /// </summary>
     public TerraformValue<string> DatabaseType
-    {
-        get => new TerraformReference<string>(this, "database_type");
-    }
+        => AsReference("database_type");
 
     /// <summary>
     /// Indicates if the dataproc metastore should be protected against accidental deletions.
     /// </summary>
     public TerraformValue<bool> DeletionProtection
-    {
-        get => new TerraformReference<bool>(this, "deletion_protection");
-    }
+        => AsReference("deletion_protection");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Information used to configure the Dataproc Metastore service to encrypt
     /// customer data at rest.
     /// </summary>
     public TerraformList<TerraformMap<object>> EncryptionConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "encryption_config").ResolveNodes(ctx));
-    }
+        => AsReference("encryption_config");
 
     /// <summary>
     /// The URI of the endpoint used to access the metastore service.
     /// </summary>
     public TerraformValue<string> EndpointUri
-    {
-        get => new TerraformReference<string>(this, "endpoint_uri");
-    }
+        => AsReference("endpoint_uri");
 
     /// <summary>
     /// Configuration information specific to running Hive metastore software as the metastore service.
     /// </summary>
     public TerraformList<TerraformMap<object>> HiveMetastoreConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "hive_metastore_config").ResolveNodes(ctx));
-    }
+        => AsReference("hive_metastore_config");
 
     /// <summary>
     /// User-defined labels for the metastore service.
@@ -121,9 +105,7 @@ public partial class GoogleDataprocMetastoreServiceDataSource(string name) : Ter
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
-    }
+        => AsReference("labels");
 
     /// <summary>
     /// The one hour maintenance window of the metastore service.
@@ -131,25 +113,19 @@ public partial class GoogleDataprocMetastoreServiceDataSource(string name) : Ter
     /// Maintenance window is not needed for services with the &#39;SPANNER&#39; database type.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenanceWindow
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "maintenance_window").ResolveNodes(ctx));
-    }
+        => AsReference("maintenance_window");
 
     /// <summary>
     /// The setting that defines how metastore metadata should be integrated with external services and systems.
     /// </summary>
     public TerraformList<TerraformMap<object>> MetadataIntegration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "metadata_integration").ResolveNodes(ctx));
-    }
+        => AsReference("metadata_integration");
 
     /// <summary>
     /// The relative resource name of the metastore service.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The relative resource name of the VPC network on which the instance can be accessed. It is specified in the following form:
@@ -157,65 +133,49 @@ public partial class GoogleDataprocMetastoreServiceDataSource(string name) : Ter
     /// &amp;quot;projects/{projectNumber}/global/networks/{network_id}&amp;quot;.
     /// </summary>
     public TerraformValue<string> Network
-    {
-        get => new TerraformReference<string>(this, "network");
-    }
+        => AsReference("network");
 
     /// <summary>
     /// The configuration specifying the network settings for the Dataproc Metastore service.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "network_config").ResolveNodes(ctx));
-    }
+        => AsReference("network_config");
 
     /// <summary>
     /// The TCP port at which the metastore service is reached. Default: 9083.
     /// </summary>
     public TerraformValue<double> Port
-    {
-        get => new TerraformReference<double>(this, "port");
-    }
+        => AsReference("port");
 
     /// <summary>
     /// The release channel of the service. If unspecified, defaults to &#39;STABLE&#39;. Default value: &amp;quot;STABLE&amp;quot; Possible values: [&amp;quot;CANARY&amp;quot;, &amp;quot;STABLE&amp;quot;]
     /// </summary>
     public TerraformValue<string> ReleaseChannel
-    {
-        get => new TerraformReference<string>(this, "release_channel");
-    }
+        => AsReference("release_channel");
 
     /// <summary>
     /// Represents the scaling configuration of a metastore service.
     /// </summary>
     public TerraformList<TerraformMap<object>> ScalingConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "scaling_config").ResolveNodes(ctx));
-    }
+        => AsReference("scaling_config");
 
     /// <summary>
     /// The configuration of scheduled backup for the metastore service.
     /// </summary>
     public TerraformList<TerraformMap<object>> ScheduledBackup
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "scheduled_backup").ResolveNodes(ctx));
-    }
+        => AsReference("scheduled_backup");
 
     /// <summary>
     /// The current state of the metastore service.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Additional information about the current state of the metastore service, if available.
     /// </summary>
     public TerraformValue<string> StateMessage
-    {
-        get => new TerraformReference<string>(this, "state_message");
-    }
+        => AsReference("state_message");
 
     /// <summary>
     /// A map of resource manager tags.
@@ -223,49 +183,37 @@ public partial class GoogleDataprocMetastoreServiceDataSource(string name) : Ter
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The configuration specifying telemetry settings for the Dataproc Metastore service. If unspecified defaults to JSON.
     /// </summary>
     public TerraformList<TerraformMap<object>> TelemetryConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "telemetry_config").ResolveNodes(ctx));
-    }
+        => AsReference("telemetry_config");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The tier of the service. Possible values: [&amp;quot;DEVELOPER&amp;quot;, &amp;quot;ENTERPRISE&amp;quot;]
     /// </summary>
     public TerraformValue<string> Tier
-    {
-        get => new TerraformReference<string>(this, "tier");
-    }
+        => AsReference("tier");
 
     /// <summary>
     /// The globally unique resource identifier of the metastore service.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Output only. The time when the metastore service was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
 }

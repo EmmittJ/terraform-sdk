@@ -18,7 +18,7 @@ public class AzurermKustoClusterIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -26,17 +26,13 @@ public class AzurermKustoClusterIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -44,7 +40,7 @@ public class AzurermKustoClusterIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -68,7 +64,7 @@ public class AzurermKustoClusterLanguageExtensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -78,7 +74,7 @@ public class AzurermKustoClusterLanguageExtensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -103,7 +99,7 @@ public class AzurermKustoClusterLanguageExtensionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -113,7 +109,7 @@ public class AzurermKustoClusterLanguageExtensionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -137,7 +133,7 @@ public class AzurermKustoClusterOptimizedAutoScaleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaximumInstances is required")]
     public required TerraformValue<double> MaximumInstances
     {
-        get => new TerraformReference<double>(this, "maximum_instances");
+        get => GetArgument<TerraformValue<double>>("maximum_instances");
         set => SetArgument("maximum_instances", value);
     }
 
@@ -147,7 +143,7 @@ public class AzurermKustoClusterOptimizedAutoScaleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumInstances is required")]
     public required TerraformValue<double> MinimumInstances
     {
-        get => new TerraformReference<double>(this, "minimum_instances");
+        get => GetArgument<TerraformValue<double>>("minimum_instances");
         set => SetArgument("minimum_instances", value);
     }
 
@@ -168,9 +164,9 @@ public class AzurermKustoClusterSkuBlock : TerraformBlock
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    public TerraformValue<double> Capacity
+    public TerraformValue<double>? Capacity
     {
-        get => new TerraformReference<double>(this, "capacity");
+        get => GetArgument<TerraformValue<double>>("capacity");
         set => SetArgument("capacity", value);
     }
 
@@ -180,7 +176,7 @@ public class AzurermKustoClusterSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -203,7 +199,7 @@ public class AzurermKustoClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -212,7 +208,7 @@ public class AzurermKustoClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -221,7 +217,7 @@ public class AzurermKustoClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -230,7 +226,7 @@ public class AzurermKustoClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -255,7 +251,7 @@ public class AzurermKustoClusterVirtualNetworkConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataManagementPublicIpId is required")]
     public required TerraformValue<string> DataManagementPublicIpId
     {
-        get => new TerraformReference<string>(this, "data_management_public_ip_id");
+        get => GetArgument<TerraformValue<string>>("data_management_public_ip_id");
         set => SetArgument("data_management_public_ip_id", value);
     }
 
@@ -265,7 +261,7 @@ public class AzurermKustoClusterVirtualNetworkConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnginePublicIpId is required")]
     public required TerraformValue<string> EnginePublicIpId
     {
-        get => new TerraformReference<string>(this, "engine_public_ip_id");
+        get => GetArgument<TerraformValue<string>>("engine_public_ip_id");
         set => SetArgument("engine_public_ip_id", value);
     }
 
@@ -275,7 +271,7 @@ public class AzurermKustoClusterVirtualNetworkConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -293,7 +289,7 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformList<string>? AllowedFqdns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_fqdns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_fqdns");
         set => SetArgument("allowed_fqdns", value);
     }
 
@@ -302,7 +298,7 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformList<string>? AllowedIpRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_ip_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_ip_ranges");
         set => SetArgument("allowed_ip_ranges", value);
     }
 
@@ -311,7 +307,7 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<bool>? AutoStopEnabled
     {
-        get => new TerraformReference<bool>(this, "auto_stop_enabled");
+        get => GetArgument<TerraformValue<bool>>("auto_stop_enabled");
         set => SetArgument("auto_stop_enabled", value);
     }
 
@@ -320,7 +316,7 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<bool>? DiskEncryptionEnabled
     {
-        get => new TerraformReference<bool>(this, "disk_encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("disk_encryption_enabled");
         set => SetArgument("disk_encryption_enabled", value);
     }
 
@@ -329,16 +325,16 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<bool>? DoubleEncryptionEnabled
     {
-        get => new TerraformReference<bool>(this, "double_encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("double_encryption_enabled");
         set => SetArgument("double_encryption_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -348,7 +344,7 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -358,7 +354,7 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -367,7 +363,7 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<bool>? OutboundNetworkAccessRestricted
     {
-        get => new TerraformReference<bool>(this, "outbound_network_access_restricted");
+        get => GetArgument<TerraformValue<bool>>("outbound_network_access_restricted");
         set => SetArgument("outbound_network_access_restricted", value);
     }
 
@@ -376,7 +372,7 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string>? PublicIpType
     {
-        get => new TerraformReference<string>(this, "public_ip_type");
+        get => GetArgument<TerraformValue<string>>("public_ip_type");
         set => SetArgument("public_ip_type", value);
     }
 
@@ -385,7 +381,7 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -394,7 +390,7 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<bool>? PurgeEnabled
     {
-        get => new TerraformReference<bool>(this, "purge_enabled");
+        get => GetArgument<TerraformValue<bool>>("purge_enabled");
         set => SetArgument("purge_enabled", value);
     }
 
@@ -404,7 +400,7 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -413,7 +409,7 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<bool>? StreamingIngestionEnabled
     {
-        get => new TerraformReference<bool>(this, "streaming_ingestion_enabled");
+        get => GetArgument<TerraformValue<bool>>("streaming_ingestion_enabled");
         set => SetArgument("streaming_ingestion_enabled", value);
     }
 
@@ -422,16 +418,16 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The trusted_external_tenants attribute.
     /// </summary>
-    public TerraformList<string> TrustedExternalTenants
+    public TerraformList<string>? TrustedExternalTenants
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "trusted_external_tenants").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("trusted_external_tenants");
         set => SetArgument("trusted_external_tenants", value);
     }
 
@@ -440,7 +436,7 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// </summary>
     public TerraformSet<string>? Zones
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "zones").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("zones");
         set => SetArgument("zones", value);
     }
 
@@ -448,17 +444,13 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// The data_ingestion_uri attribute.
     /// </summary>
     public TerraformValue<string> DataIngestionUri
-    {
-        get => new TerraformReference<string>(this, "data_ingestion_uri");
-    }
+        => AsReference("data_ingestion_uri");
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     public TerraformValue<string> Uri
-    {
-        get => new TerraformReference<string>(this, "uri");
-    }
+        => AsReference("uri");
 
     /// <summary>
     /// Identity block (nesting mode: list).

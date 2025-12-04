@@ -14,7 +14,7 @@ public partial class GoogleStorageBucketAcl(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -23,16 +23,16 @@ public partial class GoogleStorageBucketAcl(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? DefaultAcl
     {
-        get => new TerraformReference<string>(this, "default_acl");
+        get => GetArgument<TerraformValue<string>>("default_acl");
         set => SetArgument("default_acl", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -41,16 +41,16 @@ public partial class GoogleStorageBucketAcl(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? PredefinedAcl
     {
-        get => new TerraformReference<string>(this, "predefined_acl");
+        get => GetArgument<TerraformValue<string>>("predefined_acl");
         set => SetArgument("predefined_acl", value);
     }
 
     /// <summary>
     /// List of role/entity pairs in the form ROLE:entity. See GCS Bucket ACL documentation  for more details. Must be set if predefined_acl is not.
     /// </summary>
-    public TerraformList<string> RoleEntity
+    public TerraformList<string>? RoleEntity
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "role_entity").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("role_entity");
         set => SetArgument("role_entity", value);
     }
 

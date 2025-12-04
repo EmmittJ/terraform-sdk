@@ -21,7 +21,7 @@ public class GoogleVertexAiReasoningEngineEncryptionSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -44,7 +44,7 @@ public class GoogleVertexAiReasoningEngineSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AgentFramework
     {
-        get => new TerraformReference<string>(this, "agent_framework");
+        get => GetArgument<TerraformValue<string>>("agent_framework");
         set => SetArgument("agent_framework", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleVertexAiReasoningEngineSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ClassMethods
     {
-        get => new TerraformReference<string>(this, "class_methods");
+        get => GetArgument<TerraformValue<string>>("class_methods");
         set => SetArgument("class_methods", value);
     }
 
@@ -65,7 +65,7 @@ public class GoogleVertexAiReasoningEngineSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -139,7 +139,7 @@ public class GoogleVertexAiReasoningEngineSpecBlockDeploymentSpecBlockEnvBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -149,7 +149,7 @@ public class GoogleVertexAiReasoningEngineSpecBlockDeploymentSpecBlockEnvBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -172,7 +172,7 @@ public class GoogleVertexAiReasoningEngineSpecBlockDeploymentSpecBlockSecretEnvB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -208,7 +208,7 @@ public class GoogleVertexAiReasoningEngineSpecBlockDeploymentSpecBlockSecretEnvB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformValue<string> Secret
     {
-        get => new TerraformReference<string>(this, "secret");
+        get => GetArgument<TerraformValue<string>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -217,7 +217,7 @@ public class GoogleVertexAiReasoningEngineSpecBlockDeploymentSpecBlockSecretEnvB
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -239,7 +239,7 @@ public class GoogleVertexAiReasoningEngineSpecBlockPackageSpecBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? DependencyFilesGcsUri
     {
-        get => new TerraformReference<string>(this, "dependency_files_gcs_uri");
+        get => GetArgument<TerraformValue<string>>("dependency_files_gcs_uri");
         set => SetArgument("dependency_files_gcs_uri", value);
     }
 
@@ -248,7 +248,7 @@ public class GoogleVertexAiReasoningEngineSpecBlockPackageSpecBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? PickleObjectGcsUri
     {
-        get => new TerraformReference<string>(this, "pickle_object_gcs_uri");
+        get => GetArgument<TerraformValue<string>>("pickle_object_gcs_uri");
         set => SetArgument("pickle_object_gcs_uri", value);
     }
 
@@ -257,7 +257,7 @@ public class GoogleVertexAiReasoningEngineSpecBlockPackageSpecBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? PythonVersion
     {
-        get => new TerraformReference<string>(this, "python_version");
+        get => GetArgument<TerraformValue<string>>("python_version");
         set => SetArgument("python_version", value);
     }
 
@@ -266,7 +266,7 @@ public class GoogleVertexAiReasoningEngineSpecBlockPackageSpecBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? RequirementsGcsUri
     {
-        get => new TerraformReference<string>(this, "requirements_gcs_uri");
+        get => GetArgument<TerraformValue<string>>("requirements_gcs_uri");
         set => SetArgument("requirements_gcs_uri", value);
     }
 
@@ -289,7 +289,7 @@ public class GoogleVertexAiReasoningEngineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -298,7 +298,7 @@ public class GoogleVertexAiReasoningEngineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -307,7 +307,7 @@ public class GoogleVertexAiReasoningEngineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -325,7 +325,7 @@ public partial class GoogleVertexAiReasoningEngine(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -335,25 +335,25 @@ public partial class GoogleVertexAiReasoningEngine(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -362,7 +362,7 @@ public partial class GoogleVertexAiReasoningEngine(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -371,27 +371,21 @@ public partial class GoogleVertexAiReasoningEngine(string name) : TerraformResou
     /// with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The generated name of the ReasoningEngine, in the format
     /// &#39;projects/{project}/locations/{location}/reasoningEngines/{reasoningEngine}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The timestamp of when the Index was last updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
     /// with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// EncryptionSpec block (nesting mode: list).

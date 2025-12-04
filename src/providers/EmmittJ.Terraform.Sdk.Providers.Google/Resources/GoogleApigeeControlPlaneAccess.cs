@@ -18,7 +18,7 @@ public class GoogleApigeeControlPlaneAccessTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleApigeeControlPlaneAccessTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleApigeeControlPlaneAccessTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -58,16 +58,16 @@ public partial class GoogleApigeeControlPlaneAccess(string name) : TerraformReso
     /// </summary>
     public TerraformList<string>? AnalyticsPublisherIdentities
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "analytics_publisher_identities").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("analytics_publisher_identities");
         set => SetArgument("analytics_publisher_identities", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -77,7 +77,7 @@ public partial class GoogleApigeeControlPlaneAccess(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -92,7 +92,7 @@ public partial class GoogleApigeeControlPlaneAccess(string name) : TerraformReso
     /// </summary>
     public TerraformList<string>? SynchronizerIdentities
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "synchronizer_identities").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("synchronizer_identities");
         set => SetArgument("synchronizer_identities", value);
     }
 

@@ -51,7 +51,7 @@ public class AwsEvidentlyProjectDataDeliveryBlockCloudwatchLogsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? LogGroup
     {
-        get => new TerraformReference<string>(this, "log_group");
+        get => GetArgument<TerraformValue<string>>("log_group");
         set => SetArgument("log_group", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsEvidentlyProjectDataDeliveryBlockS3DestinationBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsEvidentlyProjectDataDeliveryBlockS3DestinationBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsEvidentlyProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsEvidentlyProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsEvidentlyProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -142,16 +142,16 @@ public partial class AwsEvidentlyProject(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -161,16 +161,16 @@ public partial class AwsEvidentlyProject(string name) : TerraformResource("aws_e
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -179,16 +179,16 @@ public partial class AwsEvidentlyProject(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -196,73 +196,55 @@ public partial class AwsEvidentlyProject(string name) : TerraformResource("aws_e
     /// The active_experiment_count attribute.
     /// </summary>
     public TerraformValue<double> ActiveExperimentCount
-    {
-        get => new TerraformReference<double>(this, "active_experiment_count");
-    }
+        => AsReference("active_experiment_count");
 
     /// <summary>
     /// The active_launch_count attribute.
     /// </summary>
     public TerraformValue<double> ActiveLaunchCount
-    {
-        get => new TerraformReference<double>(this, "active_launch_count");
-    }
+        => AsReference("active_launch_count");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-    {
-        get => new TerraformReference<string>(this, "created_time");
-    }
+        => AsReference("created_time");
 
     /// <summary>
     /// The experiment_count attribute.
     /// </summary>
     public TerraformValue<double> ExperimentCount
-    {
-        get => new TerraformReference<double>(this, "experiment_count");
-    }
+        => AsReference("experiment_count");
 
     /// <summary>
     /// The feature_count attribute.
     /// </summary>
     public TerraformValue<double> FeatureCount
-    {
-        get => new TerraformReference<double>(this, "feature_count");
-    }
+        => AsReference("feature_count");
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedTime
-    {
-        get => new TerraformReference<string>(this, "last_updated_time");
-    }
+        => AsReference("last_updated_time");
 
     /// <summary>
     /// The launch_count attribute.
     /// </summary>
     public TerraformValue<double> LaunchCount
-    {
-        get => new TerraformReference<double>(this, "launch_count");
-    }
+        => AsReference("launch_count");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// DataDelivery block (nesting mode: list).

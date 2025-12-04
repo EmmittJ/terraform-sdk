@@ -13,7 +13,7 @@ public partial class AwsRedshiftserverlessCredentialsDataSource(string name) : T
     /// </summary>
     public TerraformValue<string>? DbName
     {
-        get => new TerraformReference<string>(this, "db_name");
+        get => GetArgument<TerraformValue<string>>("db_name");
         set => SetArgument("db_name", value);
     }
 
@@ -22,25 +22,25 @@ public partial class AwsRedshiftserverlessCredentialsDataSource(string name) : T
     /// </summary>
     public TerraformValue<double>? DurationSeconds
     {
-        get => new TerraformReference<double>(this, "duration_seconds");
+        get => GetArgument<TerraformValue<double>>("duration_seconds");
         set => SetArgument("duration_seconds", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsRedshiftserverlessCredentialsDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkgroupName is required")]
     public required TerraformValue<string> WorkgroupName
     {
-        get => new TerraformReference<string>(this, "workgroup_name");
+        get => GetArgument<TerraformValue<string>>("workgroup_name");
         set => SetArgument("workgroup_name", value);
     }
 
@@ -58,24 +58,18 @@ public partial class AwsRedshiftserverlessCredentialsDataSource(string name) : T
     /// The db_password attribute.
     /// </summary>
     public TerraformValue<string> DbPassword
-    {
-        get => new TerraformReference<string>(this, "db_password");
-    }
+        => AsReference("db_password");
 
     /// <summary>
     /// The db_user attribute.
     /// </summary>
     public TerraformValue<string> DbUser
-    {
-        get => new TerraformReference<string>(this, "db_user");
-    }
+        => AsReference("db_user");
 
     /// <summary>
     /// The expiration attribute.
     /// </summary>
     public TerraformValue<string> Expiration
-    {
-        get => new TerraformReference<string>(this, "expiration");
-    }
+        => AsReference("expiration");
 
 }

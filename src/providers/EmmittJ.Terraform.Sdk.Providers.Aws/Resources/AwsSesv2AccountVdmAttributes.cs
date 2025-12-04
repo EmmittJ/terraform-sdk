@@ -18,7 +18,7 @@ public class AwsSesv2AccountVdmAttributesDashboardAttributesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? EngagementMetrics
     {
-        get => new TerraformReference<string>(this, "engagement_metrics");
+        get => GetArgument<TerraformValue<string>>("engagement_metrics");
         set => SetArgument("engagement_metrics", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsSesv2AccountVdmAttributesGuardianAttributesBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? OptimizedSharedDelivery
     {
-        get => new TerraformReference<string>(this, "optimized_shared_delivery");
+        get => GetArgument<TerraformValue<string>>("optimized_shared_delivery");
         set => SetArgument("optimized_shared_delivery", value);
     }
 
@@ -57,18 +57,18 @@ public partial class AwsSesv2AccountVdmAttributes(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -78,7 +78,7 @@ public partial class AwsSesv2AccountVdmAttributes(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VdmEnabled is required")]
     public required TerraformValue<string> VdmEnabled
     {
-        get => new TerraformReference<string>(this, "vdm_enabled");
+        get => GetArgument<TerraformValue<string>>("vdm_enabled");
         set => SetArgument("vdm_enabled", value);
     }
 

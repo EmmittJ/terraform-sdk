@@ -20,7 +20,7 @@ public class GoogleComputeRegionNetworkEndpointGroupAppEngineBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleComputeRegionNetworkEndpointGroupAppEngineBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? UrlMask
     {
-        get => new TerraformReference<string>(this, "url_mask");
+        get => GetArgument<TerraformValue<string>>("url_mask");
         set => SetArgument("url_mask", value);
     }
 
@@ -47,7 +47,7 @@ public class GoogleComputeRegionNetworkEndpointGroupAppEngineBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -72,7 +72,7 @@ public class GoogleComputeRegionNetworkEndpointGroupCloudFunctionBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Function
     {
-        get => new TerraformReference<string>(this, "function");
+        get => GetArgument<TerraformValue<string>>("function");
         set => SetArgument("function", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleComputeRegionNetworkEndpointGroupCloudFunctionBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? UrlMask
     {
-        get => new TerraformReference<string>(this, "url_mask");
+        get => GetArgument<TerraformValue<string>>("url_mask");
         set => SetArgument("url_mask", value);
     }
 
@@ -112,7 +112,7 @@ public class GoogleComputeRegionNetworkEndpointGroupCloudRunBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -124,7 +124,7 @@ public class GoogleComputeRegionNetworkEndpointGroupCloudRunBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Tag
     {
-        get => new TerraformReference<string>(this, "tag");
+        get => GetArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -140,7 +140,7 @@ public class GoogleComputeRegionNetworkEndpointGroupCloudRunBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? UrlMask
     {
-        get => new TerraformReference<string>(this, "url_mask");
+        get => GetArgument<TerraformValue<string>>("url_mask");
         set => SetArgument("url_mask", value);
     }
 
@@ -166,7 +166,7 @@ public class GoogleComputeRegionNetworkEndpointGroupPscDataBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? ProducerPort
     {
-        get => new TerraformReference<string>(this, "producer_port");
+        get => GetArgument<TerraformValue<string>>("producer_port");
         set => SetArgument("producer_port", value);
     }
 
@@ -189,7 +189,7 @@ public class GoogleComputeRegionNetworkEndpointGroupTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -198,7 +198,7 @@ public class GoogleComputeRegionNetworkEndpointGroupTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -217,16 +217,16 @@ public partial class GoogleComputeRegionNetworkEndpointGroup(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -242,7 +242,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroup(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -252,9 +252,9 @@ public partial class GoogleComputeRegionNetworkEndpointGroup(string name) : Terr
     /// The URL of the network to which all network endpoints in the NEG belong. Uses
     /// &amp;quot;default&amp;quot; project network if unspecified.
     /// </summary>
-    public TerraformValue<string> Network
+    public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -263,16 +263,16 @@ public partial class GoogleComputeRegionNetworkEndpointGroup(string name) : Terr
     /// </summary>
     public TerraformValue<string>? NetworkEndpointType
     {
-        get => new TerraformReference<string>(this, "network_endpoint_type");
+        get => GetArgument<TerraformValue<string>>("network_endpoint_type");
         set => SetArgument("network_endpoint_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -284,7 +284,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroup(string name) : Terr
     /// </summary>
     public TerraformValue<string>? PscTargetService
     {
-        get => new TerraformReference<string>(this, "psc_target_service");
+        get => GetArgument<TerraformValue<string>>("psc_target_service");
         set => SetArgument("psc_target_service", value);
     }
 
@@ -294,7 +294,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroup(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -305,7 +305,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroup(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Subnetwork
     {
-        get => new TerraformReference<string>(this, "subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -313,9 +313,7 @@ public partial class GoogleComputeRegionNetworkEndpointGroup(string name) : Terr
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// AppEngine block (nesting mode: list).

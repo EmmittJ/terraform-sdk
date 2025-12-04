@@ -18,7 +18,7 @@ public class AwsElasticacheUserDataSourceAuthenticationModeBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double>? PasswordCount
     {
-        get => new TerraformReference<double>(this, "password_count");
+        get => GetArgument<TerraformValue<double>>("password_count");
         set => SetArgument("password_count", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsElasticacheUserDataSourceAuthenticationModeBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AwsElasticacheUserDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string>? AccessString
     {
-        get => new TerraformReference<string>(this, "access_string");
+        get => GetArgument<TerraformValue<string>>("access_string");
         set => SetArgument("access_string", value);
     }
 
@@ -54,16 +54,16 @@ public partial class AwsElasticacheUserDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string>? Engine
     {
-        get => new TerraformReference<string>(this, "engine");
+        get => GetArgument<TerraformValue<string>>("engine");
         set => SetArgument("engine", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsElasticacheUserDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<bool>? NoPasswordRequired
     {
-        get => new TerraformReference<bool>(this, "no_password_required");
+        get => GetArgument<TerraformValue<bool>>("no_password_required");
         set => SetArgument("no_password_required", value);
     }
 
@@ -81,16 +81,16 @@ public partial class AwsElasticacheUserDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformSet<string>? Passwords
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "passwords").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("passwords");
         set => SetArgument("passwords", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AwsElasticacheUserDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
     public required TerraformValue<string> UserId
     {
-        get => new TerraformReference<string>(this, "user_id");
+        get => GetArgument<TerraformValue<string>>("user_id");
         set => SetArgument("user_id", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AwsElasticacheUserDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string>? UserName
     {
-        get => new TerraformReference<string>(this, "user_name");
+        get => GetArgument<TerraformValue<string>>("user_name");
         set => SetArgument("user_name", value);
     }
 

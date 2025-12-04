@@ -18,7 +18,7 @@ public class GoogleHealthcareFhirStoreIamBindingConditionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleHealthcareFhirStoreIamBindingConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -38,7 +38,7 @@ public class GoogleHealthcareFhirStoreIamBindingConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -57,16 +57,16 @@ public partial class GoogleHealthcareFhirStoreIamBinding(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FhirStoreId is required")]
     public required TerraformValue<string> FhirStoreId
     {
-        get => new TerraformReference<string>(this, "fhir_store_id");
+        get => GetArgument<TerraformValue<string>>("fhir_store_id");
         set => SetArgument("fhir_store_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -76,7 +76,7 @@ public partial class GoogleHealthcareFhirStoreIamBinding(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Members is required")]
     public required TerraformSet<string> Members
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "members").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("members");
         set => SetArgument("members", value);
     }
 
@@ -86,7 +86,7 @@ public partial class GoogleHealthcareFhirStoreIamBinding(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => new TerraformReference<string>(this, "role");
+        get => GetArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 
@@ -94,9 +94,7 @@ public partial class GoogleHealthcareFhirStoreIamBinding(string name) : Terrafor
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Condition block (nesting mode: list).

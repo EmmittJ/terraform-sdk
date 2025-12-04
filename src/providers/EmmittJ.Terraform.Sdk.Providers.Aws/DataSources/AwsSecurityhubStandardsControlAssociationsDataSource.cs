@@ -11,9 +11,9 @@ public partial class AwsSecurityhubStandardsControlAssociationsDataSource(string
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsSecurityhubStandardsControlAssociationsDataSource(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityControlId is required")]
     public required TerraformValue<string> SecurityControlId
     {
-        get => new TerraformReference<string>(this, "security_control_id");
+        get => GetArgument<TerraformValue<string>>("security_control_id");
         set => SetArgument("security_control_id", value);
     }
 
@@ -31,16 +31,12 @@ public partial class AwsSecurityhubStandardsControlAssociationsDataSource(string
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The standards_control_associations attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StandardsControlAssociations
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "standards_control_associations").ResolveNodes(ctx));
-    }
+        => AsReference("standards_control_associations");
 
 }

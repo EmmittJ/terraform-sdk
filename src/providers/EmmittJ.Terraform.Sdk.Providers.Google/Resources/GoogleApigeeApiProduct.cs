@@ -18,7 +18,7 @@ public class GoogleApigeeApiProductAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleApigeeApiProductAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleApigeeApiProductGraphqlOperationGroupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OperationConfigType
     {
-        get => new TerraformReference<string>(this, "operation_config_type");
+        get => GetArgument<TerraformValue<string>>("operation_config_type");
         set => SetArgument("operation_config_type", value);
     }
 
@@ -81,7 +81,7 @@ public class GoogleApigeeApiProductGraphqlOperationGroupBlockOperationConfigsBlo
     /// </summary>
     public TerraformValue<string>? ApiSource
     {
-        get => new TerraformReference<string>(this, "api_source");
+        get => GetArgument<TerraformValue<string>>("api_source");
         set => SetArgument("api_source", value);
     }
 
@@ -131,7 +131,7 @@ public class GoogleApigeeApiProductGraphqlOperationGroupBlockOperationConfigsBlo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -140,7 +140,7 @@ public class GoogleApigeeApiProductGraphqlOperationGroupBlockOperationConfigsBlo
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -162,7 +162,7 @@ public class GoogleApigeeApiProductGraphqlOperationGroupBlockOperationConfigsBlo
     /// </summary>
     public TerraformValue<string>? Operation
     {
-        get => new TerraformReference<string>(this, "operation");
+        get => GetArgument<TerraformValue<string>>("operation");
         set => SetArgument("operation", value);
     }
 
@@ -172,7 +172,7 @@ public class GoogleApigeeApiProductGraphqlOperationGroupBlockOperationConfigsBlo
     /// </summary>
     public TerraformSet<string>? OperationTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "operation_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("operation_types");
         set => SetArgument("operation_types", value);
     }
 
@@ -194,7 +194,7 @@ public class GoogleApigeeApiProductGraphqlOperationGroupBlockOperationConfigsBlo
     /// </summary>
     public TerraformValue<string>? Interval
     {
-        get => new TerraformReference<string>(this, "interval");
+        get => GetArgument<TerraformValue<string>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -203,7 +203,7 @@ public class GoogleApigeeApiProductGraphqlOperationGroupBlockOperationConfigsBlo
     /// </summary>
     public TerraformValue<string>? Limit
     {
-        get => new TerraformReference<string>(this, "limit");
+        get => GetArgument<TerraformValue<string>>("limit");
         set => SetArgument("limit", value);
     }
 
@@ -212,7 +212,7 @@ public class GoogleApigeeApiProductGraphqlOperationGroupBlockOperationConfigsBlo
     /// </summary>
     public TerraformValue<string>? TimeUnit
     {
-        get => new TerraformReference<string>(this, "time_unit");
+        get => GetArgument<TerraformValue<string>>("time_unit");
         set => SetArgument("time_unit", value);
     }
 
@@ -257,7 +257,7 @@ public class GoogleApigeeApiProductGrpcOperationGroupBlockOperationConfigsBlock 
     /// </summary>
     public TerraformValue<string>? ApiSource
     {
-        get => new TerraformReference<string>(this, "api_source");
+        get => GetArgument<TerraformValue<string>>("api_source");
         set => SetArgument("api_source", value);
     }
 
@@ -270,7 +270,7 @@ public class GoogleApigeeApiProductGrpcOperationGroupBlockOperationConfigsBlock 
     /// </summary>
     public TerraformSet<string>? Methods
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("methods");
         set => SetArgument("methods", value);
     }
 
@@ -279,7 +279,7 @@ public class GoogleApigeeApiProductGrpcOperationGroupBlockOperationConfigsBlock 
     /// </summary>
     public TerraformValue<string>? Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -320,7 +320,7 @@ public class GoogleApigeeApiProductGrpcOperationGroupBlockOperationConfigsBlockA
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -329,7 +329,7 @@ public class GoogleApigeeApiProductGrpcOperationGroupBlockOperationConfigsBlockA
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -351,7 +351,7 @@ public class GoogleApigeeApiProductGrpcOperationGroupBlockOperationConfigsBlockQ
     /// </summary>
     public TerraformValue<string>? Interval
     {
-        get => new TerraformReference<string>(this, "interval");
+        get => GetArgument<TerraformValue<string>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -360,7 +360,7 @@ public class GoogleApigeeApiProductGrpcOperationGroupBlockOperationConfigsBlockQ
     /// </summary>
     public TerraformValue<string>? Limit
     {
-        get => new TerraformReference<string>(this, "limit");
+        get => GetArgument<TerraformValue<string>>("limit");
         set => SetArgument("limit", value);
     }
 
@@ -369,7 +369,7 @@ public class GoogleApigeeApiProductGrpcOperationGroupBlockOperationConfigsBlockQ
     /// </summary>
     public TerraformValue<string>? TimeUnit
     {
-        get => new TerraformReference<string>(this, "time_unit");
+        get => GetArgument<TerraformValue<string>>("time_unit");
         set => SetArgument("time_unit", value);
     }
 
@@ -392,7 +392,7 @@ public class GoogleApigeeApiProductOperationGroupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OperationConfigType
     {
-        get => new TerraformReference<string>(this, "operation_config_type");
+        get => GetArgument<TerraformValue<string>>("operation_config_type");
         set => SetArgument("operation_config_type", value);
     }
 
@@ -423,7 +423,7 @@ public class GoogleApigeeApiProductOperationGroupBlockOperationConfigsBlock : Te
     /// </summary>
     public TerraformValue<string>? ApiSource
     {
-        get => new TerraformReference<string>(this, "api_source");
+        get => GetArgument<TerraformValue<string>>("api_source");
         set => SetArgument("api_source", value);
     }
 
@@ -473,7 +473,7 @@ public class GoogleApigeeApiProductOperationGroupBlockOperationConfigsBlockAttri
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -482,7 +482,7 @@ public class GoogleApigeeApiProductOperationGroupBlockOperationConfigsBlockAttri
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -504,7 +504,7 @@ public class GoogleApigeeApiProductOperationGroupBlockOperationConfigsBlockOpera
     /// </summary>
     public TerraformSet<string>? Methods
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("methods");
         set => SetArgument("methods", value);
     }
 
@@ -513,7 +513,7 @@ public class GoogleApigeeApiProductOperationGroupBlockOperationConfigsBlockOpera
     /// </summary>
     public TerraformValue<string>? Resource
     {
-        get => new TerraformReference<string>(this, "resource");
+        get => GetArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -535,7 +535,7 @@ public class GoogleApigeeApiProductOperationGroupBlockOperationConfigsBlockQuota
     /// </summary>
     public TerraformValue<string>? Interval
     {
-        get => new TerraformReference<string>(this, "interval");
+        get => GetArgument<TerraformValue<string>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -544,7 +544,7 @@ public class GoogleApigeeApiProductOperationGroupBlockOperationConfigsBlockQuota
     /// </summary>
     public TerraformValue<string>? Limit
     {
-        get => new TerraformReference<string>(this, "limit");
+        get => GetArgument<TerraformValue<string>>("limit");
         set => SetArgument("limit", value);
     }
 
@@ -553,7 +553,7 @@ public class GoogleApigeeApiProductOperationGroupBlockOperationConfigsBlockQuota
     /// </summary>
     public TerraformValue<string>? TimeUnit
     {
-        get => new TerraformReference<string>(this, "time_unit");
+        get => GetArgument<TerraformValue<string>>("time_unit");
         set => SetArgument("time_unit", value);
     }
 
@@ -576,7 +576,7 @@ public class GoogleApigeeApiProductTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -585,7 +585,7 @@ public class GoogleApigeeApiProductTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -594,7 +594,7 @@ public class GoogleApigeeApiProductTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -613,7 +613,7 @@ public partial class GoogleApigeeApiProduct(string name) : TerraformResource("go
     /// </summary>
     public TerraformSet<string>? ApiResources
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "api_resources").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("api_resources");
         set => SetArgument("api_resources", value);
     }
 
@@ -623,7 +623,7 @@ public partial class GoogleApigeeApiProduct(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? ApprovalType
     {
-        get => new TerraformReference<string>(this, "approval_type");
+        get => GetArgument<TerraformValue<string>>("approval_type");
         set => SetArgument("approval_type", value);
     }
 
@@ -632,7 +632,7 @@ public partial class GoogleApigeeApiProduct(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -642,7 +642,7 @@ public partial class GoogleApigeeApiProduct(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -652,16 +652,16 @@ public partial class GoogleApigeeApiProduct(string name) : TerraformResource("go
     /// </summary>
     public TerraformSet<string>? Environments
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "environments").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("environments");
         set => SetArgument("environments", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -671,7 +671,7 @@ public partial class GoogleApigeeApiProduct(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -682,7 +682,7 @@ public partial class GoogleApigeeApiProduct(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => new TerraformReference<string>(this, "org_id");
+        get => GetArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -692,7 +692,7 @@ public partial class GoogleApigeeApiProduct(string name) : TerraformResource("go
     /// </summary>
     public TerraformSet<string>? Proxies
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "proxies").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("proxies");
         set => SetArgument("proxies", value);
     }
 
@@ -702,7 +702,7 @@ public partial class GoogleApigeeApiProduct(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? Quota
     {
-        get => new TerraformReference<string>(this, "quota");
+        get => GetArgument<TerraformValue<string>>("quota");
         set => SetArgument("quota", value);
     }
 
@@ -711,7 +711,7 @@ public partial class GoogleApigeeApiProduct(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? QuotaCounterScope
     {
-        get => new TerraformReference<string>(this, "quota_counter_scope");
+        get => GetArgument<TerraformValue<string>>("quota_counter_scope");
         set => SetArgument("quota_counter_scope", value);
     }
 
@@ -720,7 +720,7 @@ public partial class GoogleApigeeApiProduct(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? QuotaInterval
     {
-        get => new TerraformReference<string>(this, "quota_interval");
+        get => GetArgument<TerraformValue<string>>("quota_interval");
         set => SetArgument("quota_interval", value);
     }
 
@@ -729,7 +729,7 @@ public partial class GoogleApigeeApiProduct(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? QuotaTimeUnit
     {
-        get => new TerraformReference<string>(this, "quota_time_unit");
+        get => GetArgument<TerraformValue<string>>("quota_time_unit");
         set => SetArgument("quota_time_unit", value);
     }
 
@@ -738,7 +738,7 @@ public partial class GoogleApigeeApiProduct(string name) : TerraformResource("go
     /// </summary>
     public TerraformList<string>? Scopes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("scopes");
         set => SetArgument("scopes", value);
     }
 
@@ -747,7 +747,7 @@ public partial class GoogleApigeeApiProduct(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? Space
     {
-        get => new TerraformReference<string>(this, "space");
+        get => GetArgument<TerraformValue<string>>("space");
         set => SetArgument("space", value);
     }
 
@@ -755,17 +755,13 @@ public partial class GoogleApigeeApiProduct(string name) : TerraformResource("go
     /// Response only. Creation time of this environment as milliseconds since epoch.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// Response only. Modified time of this environment as milliseconds since epoch.
     /// </summary>
     public TerraformValue<string> LastModifiedAt
-    {
-        get => new TerraformReference<string>(this, "last_modified_at");
-    }
+        => AsReference("last_modified_at");
 
     /// <summary>
     /// Attributes block (nesting mode: set).

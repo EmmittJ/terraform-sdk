@@ -21,7 +21,7 @@ public class GoogleDataprocAutoscalingPolicyBasicAlgorithmBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CooldownPeriod
     {
-        get => new TerraformReference<string>(this, "cooldown_period");
+        get => GetArgument<TerraformValue<string>>("cooldown_period");
         set => SetArgument("cooldown_period", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleDataprocAutoscalingPolicyBasicAlgorithmBlockYarnConfigBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GracefulDecommissionTimeout is required")]
     public required TerraformValue<string> GracefulDecommissionTimeout
     {
-        get => new TerraformReference<string>(this, "graceful_decommission_timeout");
+        get => GetArgument<TerraformValue<string>>("graceful_decommission_timeout");
         set => SetArgument("graceful_decommission_timeout", value);
     }
 
@@ -77,7 +77,7 @@ public class GoogleDataprocAutoscalingPolicyBasicAlgorithmBlockYarnConfigBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleDownFactor is required")]
     public required TerraformValue<double> ScaleDownFactor
     {
-        get => new TerraformReference<double>(this, "scale_down_factor");
+        get => GetArgument<TerraformValue<double>>("scale_down_factor");
         set => SetArgument("scale_down_factor", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleDataprocAutoscalingPolicyBasicAlgorithmBlockYarnConfigBlock :
     /// </summary>
     public TerraformValue<double>? ScaleDownMinWorkerFraction
     {
-        get => new TerraformReference<double>(this, "scale_down_min_worker_fraction");
+        get => GetArgument<TerraformValue<double>>("scale_down_min_worker_fraction");
         set => SetArgument("scale_down_min_worker_fraction", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleDataprocAutoscalingPolicyBasicAlgorithmBlockYarnConfigBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleUpFactor is required")]
     public required TerraformValue<double> ScaleUpFactor
     {
-        get => new TerraformReference<double>(this, "scale_up_factor");
+        get => GetArgument<TerraformValue<double>>("scale_up_factor");
         set => SetArgument("scale_up_factor", value);
     }
 
@@ -121,7 +121,7 @@ public class GoogleDataprocAutoscalingPolicyBasicAlgorithmBlockYarnConfigBlock :
     /// </summary>
     public TerraformValue<double>? ScaleUpMinWorkerFraction
     {
-        get => new TerraformReference<double>(this, "scale_up_min_worker_fraction");
+        get => GetArgument<TerraformValue<double>>("scale_up_min_worker_fraction");
         set => SetArgument("scale_up_min_worker_fraction", value);
     }
 
@@ -146,7 +146,7 @@ public class GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? MaxInstances
     {
-        get => new TerraformReference<double>(this, "max_instances");
+        get => GetArgument<TerraformValue<double>>("max_instances");
         set => SetArgument("max_instances", value);
     }
 
@@ -155,7 +155,7 @@ public class GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? MinInstances
     {
-        get => new TerraformReference<double>(this, "min_instances");
+        get => GetArgument<TerraformValue<double>>("min_instances");
         set => SetArgument("min_instances", value);
     }
 
@@ -177,7 +177,7 @@ public class GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? Weight
     {
-        get => new TerraformReference<double>(this, "weight");
+        get => GetArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -200,7 +200,7 @@ public class GoogleDataprocAutoscalingPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -209,7 +209,7 @@ public class GoogleDataprocAutoscalingPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -218,7 +218,7 @@ public class GoogleDataprocAutoscalingPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -242,7 +242,7 @@ public class GoogleDataprocAutoscalingPolicyWorkerConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxInstances is required")]
     public required TerraformValue<double> MaxInstances
     {
-        get => new TerraformReference<double>(this, "max_instances");
+        get => GetArgument<TerraformValue<double>>("max_instances");
         set => SetArgument("max_instances", value);
     }
 
@@ -251,7 +251,7 @@ public class GoogleDataprocAutoscalingPolicyWorkerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MinInstances
     {
-        get => new TerraformReference<double>(this, "min_instances");
+        get => GetArgument<TerraformValue<double>>("min_instances");
         set => SetArgument("min_instances", value);
     }
 
@@ -273,7 +273,7 @@ public class GoogleDataprocAutoscalingPolicyWorkerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Weight
     {
-        get => new TerraformReference<double>(this, "weight");
+        get => GetArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -289,9 +289,9 @@ public partial class GoogleDataprocAutoscalingPolicy(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -301,7 +301,7 @@ public partial class GoogleDataprocAutoscalingPolicy(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -313,16 +313,16 @@ public partial class GoogleDataprocAutoscalingPolicy(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
     public required TerraformValue<string> PolicyId
     {
-        get => new TerraformReference<string>(this, "policy_id");
+        get => GetArgument<TerraformValue<string>>("policy_id");
         set => SetArgument("policy_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -330,9 +330,7 @@ public partial class GoogleDataprocAutoscalingPolicy(string name) : TerraformRes
     /// The &amp;quot;resource name&amp;quot; of the autoscaling policy.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// BasicAlgorithm block (nesting mode: list).

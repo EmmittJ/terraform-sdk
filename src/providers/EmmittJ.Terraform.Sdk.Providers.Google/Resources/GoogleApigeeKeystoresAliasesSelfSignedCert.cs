@@ -18,7 +18,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? CommonName
     {
-        get => new TerraformReference<string>(this, "common_name");
+        get => GetArgument<TerraformValue<string>>("common_name");
         set => SetArgument("common_name", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? CountryCode
     {
-        get => new TerraformReference<string>(this, "country_code");
+        get => GetArgument<TerraformValue<string>>("country_code");
         set => SetArgument("country_code", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -45,7 +45,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Locality
     {
-        get => new TerraformReference<string>(this, "locality");
+        get => GetArgument<TerraformValue<string>>("locality");
         set => SetArgument("locality", value);
     }
 
@@ -54,7 +54,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Org
     {
-        get => new TerraformReference<string>(this, "org");
+        get => GetArgument<TerraformValue<string>>("org");
         set => SetArgument("org", value);
     }
 
@@ -63,7 +63,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? OrgUnit
     {
-        get => new TerraformReference<string>(this, "org_unit");
+        get => GetArgument<TerraformValue<string>>("org_unit");
         set => SetArgument("org_unit", value);
     }
 
@@ -72,7 +72,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -95,7 +95,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectAlternativeDnsName
     /// </summary>
     public TerraformValue<string>? SubjectAlternativeName
     {
-        get => new TerraformReference<string>(this, "subject_alternative_name");
+        get => GetArgument<TerraformValue<string>>("subject_alternative_name");
         set => SetArgument("subject_alternative_name", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -127,7 +127,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -148,7 +148,7 @@ public partial class GoogleApigeeKeystoresAliasesSelfSignedCert(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Alias is required")]
     public required TerraformValue<string> Alias
     {
-        get => new TerraformReference<string>(this, "alias");
+        get => GetArgument<TerraformValue<string>>("alias");
         set => SetArgument("alias", value);
     }
 
@@ -157,7 +157,7 @@ public partial class GoogleApigeeKeystoresAliasesSelfSignedCert(string name) : T
     /// </summary>
     public TerraformValue<double>? CertValidityInDays
     {
-        get => new TerraformReference<double>(this, "cert_validity_in_days");
+        get => GetArgument<TerraformValue<double>>("cert_validity_in_days");
         set => SetArgument("cert_validity_in_days", value);
     }
 
@@ -167,16 +167,16 @@ public partial class GoogleApigeeKeystoresAliasesSelfSignedCert(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformValue<string> Environment
     {
-        get => new TerraformReference<string>(this, "environment");
+        get => GetArgument<TerraformValue<string>>("environment");
         set => SetArgument("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -185,7 +185,7 @@ public partial class GoogleApigeeKeystoresAliasesSelfSignedCert(string name) : T
     /// </summary>
     public TerraformValue<string>? KeySize
     {
-        get => new TerraformReference<string>(this, "key_size");
+        get => GetArgument<TerraformValue<string>>("key_size");
         set => SetArgument("key_size", value);
     }
 
@@ -195,7 +195,7 @@ public partial class GoogleApigeeKeystoresAliasesSelfSignedCert(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Keystore is required")]
     public required TerraformValue<string> Keystore
     {
-        get => new TerraformReference<string>(this, "keystore");
+        get => GetArgument<TerraformValue<string>>("keystore");
         set => SetArgument("keystore", value);
     }
 
@@ -205,7 +205,7 @@ public partial class GoogleApigeeKeystoresAliasesSelfSignedCert(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => new TerraformReference<string>(this, "org_id");
+        get => GetArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -215,7 +215,7 @@ public partial class GoogleApigeeKeystoresAliasesSelfSignedCert(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigAlg is required")]
     public required TerraformValue<string> SigAlg
     {
-        get => new TerraformReference<string>(this, "sig_alg");
+        get => GetArgument<TerraformValue<string>>("sig_alg");
         set => SetArgument("sig_alg", value);
     }
 
@@ -223,17 +223,13 @@ public partial class GoogleApigeeKeystoresAliasesSelfSignedCert(string name) : T
     /// Chain of certificates under this alias.
     /// </summary>
     public TerraformList<TerraformMap<object>> CertsInfo
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "certs_info").ResolveNodes(ctx));
-    }
+        => AsReference("certs_info");
 
     /// <summary>
     /// Optional.Type of Alias
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// Subject block (nesting mode: list).

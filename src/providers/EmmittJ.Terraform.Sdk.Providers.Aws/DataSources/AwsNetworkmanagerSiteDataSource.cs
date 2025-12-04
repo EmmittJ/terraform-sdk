@@ -14,16 +14,16 @@ public partial class AwsNetworkmanagerSiteDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     public required TerraformValue<string> GlobalNetworkId
     {
-        get => new TerraformReference<string>(this, "global_network_id");
+        get => GetArgument<TerraformValue<string>>("global_network_id");
         set => SetArgument("global_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsNetworkmanagerSiteDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteId is required")]
     public required TerraformValue<string> SiteId
     {
-        get => new TerraformReference<string>(this, "site_id");
+        get => GetArgument<TerraformValue<string>>("site_id");
         set => SetArgument("site_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -50,24 +50,18 @@ public partial class AwsNetworkmanagerSiteDataSource(string name) : TerraformDat
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Location
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "location").ResolveNodes(ctx));
-    }
+        => AsReference("location");
 
 }

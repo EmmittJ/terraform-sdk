@@ -18,7 +18,7 @@ public class AwsMemorydbClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsMemorydbClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsMemorydbClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AclName is required")]
     public required TerraformValue<string> AclName
     {
-        get => new TerraformReference<string>(this, "acl_name");
+        get => GetArgument<TerraformValue<string>>("acl_name");
         set => SetArgument("acl_name", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<bool>? AutoMinorVersionUpgrade
     {
-        get => new TerraformReference<bool>(this, "auto_minor_version_upgrade");
+        get => GetArgument<TerraformValue<bool>>("auto_minor_version_upgrade");
         set => SetArgument("auto_minor_version_upgrade", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<bool>? DataTiering
     {
-        get => new TerraformReference<bool>(this, "data_tiering");
+        get => GetArgument<TerraformValue<bool>>("data_tiering");
         set => SetArgument("data_tiering", value);
     }
 
@@ -82,25 +82,25 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformValue<string> Engine
+    public TerraformValue<string>? Engine
     {
-        get => new TerraformReference<string>(this, "engine");
+        get => GetArgument<TerraformValue<string>>("engine");
         set => SetArgument("engine", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformValue<string> EngineVersion
+    public TerraformValue<string>? EngineVersion
     {
-        get => new TerraformReference<string>(this, "engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -109,16 +109,16 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<string>? FinalSnapshotName
     {
-        get => new TerraformReference<string>(this, "final_snapshot_name");
+        get => GetArgument<TerraformValue<string>>("final_snapshot_name");
         set => SetArgument("final_snapshot_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -127,16 +127,16 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
-    public TerraformValue<string> MaintenanceWindow
+    public TerraformValue<string>? MaintenanceWindow
     {
-        get => new TerraformReference<string>(this, "maintenance_window");
+        get => GetArgument<TerraformValue<string>>("maintenance_window");
         set => SetArgument("maintenance_window", value);
     }
 
@@ -145,25 +145,25 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<string>? MultiRegionClusterName
     {
-        get => new TerraformReference<string>(this, "multi_region_cluster_name");
+        get => GetArgument<TerraformValue<string>>("multi_region_cluster_name");
         set => SetArgument("multi_region_cluster_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -173,7 +173,7 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     public required TerraformValue<string> NodeType
     {
-        get => new TerraformReference<string>(this, "node_type");
+        get => GetArgument<TerraformValue<string>>("node_type");
         set => SetArgument("node_type", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<double>? NumReplicasPerShard
     {
-        get => new TerraformReference<double>(this, "num_replicas_per_shard");
+        get => GetArgument<TerraformValue<double>>("num_replicas_per_shard");
         set => SetArgument("num_replicas_per_shard", value);
     }
 
@@ -191,34 +191,34 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<double>? NumShards
     {
-        get => new TerraformReference<double>(this, "num_shards");
+        get => GetArgument<TerraformValue<double>>("num_shards");
         set => SetArgument("num_shards", value);
     }
 
     /// <summary>
     /// The parameter_group_name attribute.
     /// </summary>
-    public TerraformValue<string> ParameterGroupName
+    public TerraformValue<string>? ParameterGroupName
     {
-        get => new TerraformReference<string>(this, "parameter_group_name");
+        get => GetArgument<TerraformValue<string>>("parameter_group_name");
         set => SetArgument("parameter_group_name", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformValue<double> Port
+    public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -227,7 +227,7 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformSet<string>? SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -236,7 +236,7 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformList<string>? SnapshotArns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "snapshot_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("snapshot_arns");
         set => SetArgument("snapshot_arns", value);
     }
 
@@ -245,25 +245,25 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<string>? SnapshotName
     {
-        get => new TerraformReference<string>(this, "snapshot_name");
+        get => GetArgument<TerraformValue<string>>("snapshot_name");
         set => SetArgument("snapshot_name", value);
     }
 
     /// <summary>
     /// The snapshot_retention_limit attribute.
     /// </summary>
-    public TerraformValue<double> SnapshotRetentionLimit
+    public TerraformValue<double>? SnapshotRetentionLimit
     {
-        get => new TerraformReference<double>(this, "snapshot_retention_limit");
+        get => GetArgument<TerraformValue<double>>("snapshot_retention_limit");
         set => SetArgument("snapshot_retention_limit", value);
     }
 
     /// <summary>
     /// The snapshot_window attribute.
     /// </summary>
-    public TerraformValue<string> SnapshotWindow
+    public TerraformValue<string>? SnapshotWindow
     {
-        get => new TerraformReference<string>(this, "snapshot_window");
+        get => GetArgument<TerraformValue<string>>("snapshot_window");
         set => SetArgument("snapshot_window", value);
     }
 
@@ -272,16 +272,16 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<string>? SnsTopicArn
     {
-        get => new TerraformReference<string>(this, "sns_topic_arn");
+        get => GetArgument<TerraformValue<string>>("sns_topic_arn");
         set => SetArgument("sns_topic_arn", value);
     }
 
     /// <summary>
     /// The subnet_group_name attribute.
     /// </summary>
-    public TerraformValue<string> SubnetGroupName
+    public TerraformValue<string>? SubnetGroupName
     {
-        get => new TerraformReference<string>(this, "subnet_group_name");
+        get => GetArgument<TerraformValue<string>>("subnet_group_name");
         set => SetArgument("subnet_group_name", value);
     }
 
@@ -290,16 +290,16 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -308,7 +308,7 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// </summary>
     public TerraformValue<bool>? TlsEnabled
     {
-        get => new TerraformReference<bool>(this, "tls_enabled");
+        get => GetArgument<TerraformValue<bool>>("tls_enabled");
         set => SetArgument("tls_enabled", value);
     }
 
@@ -316,33 +316,25 @@ public partial class AwsMemorydbCluster(string name) : TerraformResource("aws_me
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The cluster_endpoint attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ClusterEndpoint
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cluster_endpoint").ResolveNodes(ctx));
-    }
+        => AsReference("cluster_endpoint");
 
     /// <summary>
     /// The engine_patch_version attribute.
     /// </summary>
     public TerraformValue<string> EnginePatchVersion
-    {
-        get => new TerraformReference<string>(this, "engine_patch_version");
-    }
+        => AsReference("engine_patch_version");
 
     /// <summary>
     /// The shards attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Shards
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "shards").ResolveNodes(ctx));
-    }
+        => AsReference("shards");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

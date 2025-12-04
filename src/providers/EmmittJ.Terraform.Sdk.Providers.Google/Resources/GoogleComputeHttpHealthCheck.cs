@@ -18,7 +18,7 @@ public class GoogleComputeHttpHealthCheckTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeHttpHealthCheckTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleComputeHttpHealthCheckTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleComputeHttpHealthCheck(string name) : TerraformResour
     /// </summary>
     public TerraformValue<double>? CheckIntervalSec
     {
-        get => new TerraformReference<double>(this, "check_interval_sec");
+        get => GetArgument<TerraformValue<double>>("check_interval_sec");
         set => SetArgument("check_interval_sec", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleComputeHttpHealthCheck(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -75,7 +75,7 @@ public partial class GoogleComputeHttpHealthCheck(string name) : TerraformResour
     /// </summary>
     public TerraformValue<double>? HealthyThreshold
     {
-        get => new TerraformReference<double>(this, "healthy_threshold");
+        get => GetArgument<TerraformValue<double>>("healthy_threshold");
         set => SetArgument("healthy_threshold", value);
     }
 
@@ -86,16 +86,16 @@ public partial class GoogleComputeHttpHealthCheck(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -111,7 +111,7 @@ public partial class GoogleComputeHttpHealthCheck(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -121,16 +121,16 @@ public partial class GoogleComputeHttpHealthCheck(string name) : TerraformResour
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -140,7 +140,7 @@ public partial class GoogleComputeHttpHealthCheck(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? RequestPath
     {
-        get => new TerraformReference<string>(this, "request_path");
+        get => GetArgument<TerraformValue<string>>("request_path");
         set => SetArgument("request_path", value);
     }
 
@@ -151,7 +151,7 @@ public partial class GoogleComputeHttpHealthCheck(string name) : TerraformResour
     /// </summary>
     public TerraformValue<double>? TimeoutSec
     {
-        get => new TerraformReference<double>(this, "timeout_sec");
+        get => GetArgument<TerraformValue<double>>("timeout_sec");
         set => SetArgument("timeout_sec", value);
     }
 
@@ -161,7 +161,7 @@ public partial class GoogleComputeHttpHealthCheck(string name) : TerraformResour
     /// </summary>
     public TerraformValue<double>? UnhealthyThreshold
     {
-        get => new TerraformReference<double>(this, "unhealthy_threshold");
+        get => GetArgument<TerraformValue<double>>("unhealthy_threshold");
         set => SetArgument("unhealthy_threshold", value);
     }
 
@@ -169,17 +169,13 @@ public partial class GoogleComputeHttpHealthCheck(string name) : TerraformResour
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

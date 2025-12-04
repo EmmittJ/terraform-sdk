@@ -19,7 +19,7 @@ public class GoogleDiscoveryEngineControlBoostActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStore is required")]
     public required TerraformValue<string> DataStore
     {
-        get => new TerraformReference<string>(this, "data_store");
+        get => GetArgument<TerraformValue<string>>("data_store");
         set => SetArgument("data_store", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleDiscoveryEngineControlBoostActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -38,7 +38,7 @@ public class GoogleDiscoveryEngineControlBoostActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? FixedBoost
     {
-        get => new TerraformReference<double>(this, "fixed_boost");
+        get => GetArgument<TerraformValue<double>>("fixed_boost");
         set => SetArgument("fixed_boost", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleDiscoveryEngineControlBoostActionBlockInterpolationBoostSpecB
     /// </summary>
     public TerraformValue<string>? AttributeType
     {
-        get => new TerraformReference<string>(this, "attribute_type");
+        get => GetArgument<TerraformValue<string>>("attribute_type");
         set => SetArgument("attribute_type", value);
     }
 
@@ -79,7 +79,7 @@ public class GoogleDiscoveryEngineControlBoostActionBlockInterpolationBoostSpecB
     /// </summary>
     public TerraformValue<string>? FieldName
     {
-        get => new TerraformReference<string>(this, "field_name");
+        get => GetArgument<TerraformValue<string>>("field_name");
         set => SetArgument("field_name", value);
     }
 
@@ -88,7 +88,7 @@ public class GoogleDiscoveryEngineControlBoostActionBlockInterpolationBoostSpecB
     /// </summary>
     public TerraformValue<string>? InterpolationType
     {
-        get => new TerraformReference<string>(this, "interpolation_type");
+        get => GetArgument<TerraformValue<string>>("interpolation_type");
         set => SetArgument("interpolation_type", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleDiscoveryEngineControlBoostActionBlockInterpolationBoostSpecB
     /// </summary>
     public TerraformValue<string>? AttributeValue
     {
-        get => new TerraformReference<string>(this, "attribute_value");
+        get => GetArgument<TerraformValue<string>>("attribute_value");
         set => SetArgument("attribute_value", value);
     }
 
@@ -130,7 +130,7 @@ public class GoogleDiscoveryEngineControlBoostActionBlockInterpolationBoostSpecB
     /// </summary>
     public TerraformValue<double>? BoostAmount
     {
-        get => new TerraformReference<double>(this, "boost_amount");
+        get => GetArgument<TerraformValue<double>>("boost_amount");
         set => SetArgument("boost_amount", value);
     }
 
@@ -153,7 +153,7 @@ public class GoogleDiscoveryEngineControlConditionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? QueryRegex
     {
-        get => new TerraformReference<string>(this, "query_regex");
+        get => GetArgument<TerraformValue<string>>("query_regex");
         set => SetArgument("query_regex", value);
     }
 
@@ -193,7 +193,7 @@ public class GoogleDiscoveryEngineControlConditionsBlockActiveTimeRangeBlock : T
     /// </summary>
     public TerraformValue<string>? EndTime
     {
-        get => new TerraformReference<string>(this, "end_time");
+        get => GetArgument<TerraformValue<string>>("end_time");
         set => SetArgument("end_time", value);
     }
 
@@ -202,7 +202,7 @@ public class GoogleDiscoveryEngineControlConditionsBlockActiveTimeRangeBlock : T
     /// </summary>
     public TerraformValue<string>? StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -224,7 +224,7 @@ public class GoogleDiscoveryEngineControlConditionsBlockQueryTermsBlock : Terraf
     /// </summary>
     public TerraformValue<bool>? FullMatch
     {
-        get => new TerraformReference<bool>(this, "full_match");
+        get => GetArgument<TerraformValue<bool>>("full_match");
         set => SetArgument("full_match", value);
     }
 
@@ -233,7 +233,7 @@ public class GoogleDiscoveryEngineControlConditionsBlockQueryTermsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -257,7 +257,7 @@ public class GoogleDiscoveryEngineControlFilterActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStore is required")]
     public required TerraformValue<string> DataStore
     {
-        get => new TerraformReference<string>(this, "data_store");
+        get => GetArgument<TerraformValue<string>>("data_store");
         set => SetArgument("data_store", value);
     }
 
@@ -267,7 +267,7 @@ public class GoogleDiscoveryEngineControlFilterActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -291,7 +291,7 @@ public class GoogleDiscoveryEngineControlPromoteActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStore is required")]
     public required TerraformValue<string> DataStore
     {
-        get => new TerraformReference<string>(this, "data_store");
+        get => GetArgument<TerraformValue<string>>("data_store");
         set => SetArgument("data_store", value);
     }
 
@@ -326,7 +326,7 @@ public class GoogleDiscoveryEngineControlPromoteActionBlockSearchLinkPromotionBl
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -335,7 +335,7 @@ public class GoogleDiscoveryEngineControlPromoteActionBlockSearchLinkPromotionBl
     /// </summary>
     public TerraformValue<string>? Document
     {
-        get => new TerraformReference<string>(this, "document");
+        get => GetArgument<TerraformValue<string>>("document");
         set => SetArgument("document", value);
     }
 
@@ -344,7 +344,7 @@ public class GoogleDiscoveryEngineControlPromoteActionBlockSearchLinkPromotionBl
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -353,7 +353,7 @@ public class GoogleDiscoveryEngineControlPromoteActionBlockSearchLinkPromotionBl
     /// </summary>
     public TerraformValue<string>? ImageUri
     {
-        get => new TerraformReference<string>(this, "image_uri");
+        get => GetArgument<TerraformValue<string>>("image_uri");
         set => SetArgument("image_uri", value);
     }
 
@@ -363,7 +363,7 @@ public class GoogleDiscoveryEngineControlPromoteActionBlockSearchLinkPromotionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -372,7 +372,7 @@ public class GoogleDiscoveryEngineControlPromoteActionBlockSearchLinkPromotionBl
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -396,7 +396,7 @@ public class GoogleDiscoveryEngineControlRedirectActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectUri is required")]
     public required TerraformValue<string> RedirectUri
     {
-        get => new TerraformReference<string>(this, "redirect_uri");
+        get => GetArgument<TerraformValue<string>>("redirect_uri");
         set => SetArgument("redirect_uri", value);
     }
 
@@ -419,7 +419,7 @@ public class GoogleDiscoveryEngineControlSynonymsActionBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Synonyms
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "synonyms").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("synonyms");
         set => SetArgument("synonyms", value);
     }
 
@@ -442,7 +442,7 @@ public class GoogleDiscoveryEngineControlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -451,7 +451,7 @@ public class GoogleDiscoveryEngineControlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -460,7 +460,7 @@ public class GoogleDiscoveryEngineControlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -478,7 +478,7 @@ public partial class GoogleDiscoveryEngineControl(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? CollectionId
     {
-        get => new TerraformReference<string>(this, "collection_id");
+        get => GetArgument<TerraformValue<string>>("collection_id");
         set => SetArgument("collection_id", value);
     }
 
@@ -488,7 +488,7 @@ public partial class GoogleDiscoveryEngineControl(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlId is required")]
     public required TerraformValue<string> ControlId
     {
-        get => new TerraformReference<string>(this, "control_id");
+        get => GetArgument<TerraformValue<string>>("control_id");
         set => SetArgument("control_id", value);
     }
 
@@ -499,7 +499,7 @@ public partial class GoogleDiscoveryEngineControl(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -509,16 +509,16 @@ public partial class GoogleDiscoveryEngineControl(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
     public required TerraformValue<string> EngineId
     {
-        get => new TerraformReference<string>(this, "engine_id");
+        get => GetArgument<TerraformValue<string>>("engine_id");
         set => SetArgument("engine_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -529,16 +529,16 @@ public partial class GoogleDiscoveryEngineControl(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -548,7 +548,7 @@ public partial class GoogleDiscoveryEngineControl(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SolutionType is required")]
     public required TerraformValue<string> SolutionType
     {
-        get => new TerraformReference<string>(this, "solution_type");
+        get => GetArgument<TerraformValue<string>>("solution_type");
         set => SetArgument("solution_type", value);
     }
 
@@ -557,7 +557,7 @@ public partial class GoogleDiscoveryEngineControl(string name) : TerraformResour
     /// </summary>
     public TerraformList<string>? UseCases
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "use_cases").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("use_cases");
         set => SetArgument("use_cases", value);
     }
 
@@ -568,9 +568,7 @@ public partial class GoogleDiscoveryEngineControl(string name) : TerraformResour
     /// characters.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// BoostAction block (nesting mode: list).

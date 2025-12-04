@@ -19,7 +19,7 @@ public class AwsIotIndexingConfigurationThingGroupIndexingConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingGroupIndexingMode is required")]
     public required TerraformValue<string> ThingGroupIndexingMode
     {
-        get => new TerraformReference<string>(this, "thing_group_indexing_mode");
+        get => GetArgument<TerraformValue<string>>("thing_group_indexing_mode");
         set => SetArgument("thing_group_indexing_mode", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsIotIndexingConfigurationThingGroupIndexingConfigurationBlockCust
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsIotIndexingConfigurationThingGroupIndexingConfigurationBlockCust
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsIotIndexingConfigurationThingGroupIndexingConfigurationBlockMana
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsIotIndexingConfigurationThingGroupIndexingConfigurationBlockMana
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsIotIndexingConfigurationThingIndexingConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? DeviceDefenderIndexingMode
     {
-        get => new TerraformReference<string>(this, "device_defender_indexing_mode");
+        get => GetArgument<TerraformValue<string>>("device_defender_indexing_mode");
         set => SetArgument("device_defender_indexing_mode", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsIotIndexingConfigurationThingIndexingConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? NamedShadowIndexingMode
     {
-        get => new TerraformReference<string>(this, "named_shadow_indexing_mode");
+        get => GetArgument<TerraformValue<string>>("named_shadow_indexing_mode");
         set => SetArgument("named_shadow_indexing_mode", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsIotIndexingConfigurationThingIndexingConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? ThingConnectivityIndexingMode
     {
-        get => new TerraformReference<string>(this, "thing_connectivity_indexing_mode");
+        get => GetArgument<TerraformValue<string>>("thing_connectivity_indexing_mode");
         set => SetArgument("thing_connectivity_indexing_mode", value);
     }
 
@@ -150,7 +150,7 @@ public class AwsIotIndexingConfigurationThingIndexingConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingIndexingMode is required")]
     public required TerraformValue<string> ThingIndexingMode
     {
-        get => new TerraformReference<string>(this, "thing_indexing_mode");
+        get => GetArgument<TerraformValue<string>>("thing_indexing_mode");
         set => SetArgument("thing_indexing_mode", value);
     }
 
@@ -200,7 +200,7 @@ public class AwsIotIndexingConfigurationThingIndexingConfigurationBlockCustomFie
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -209,7 +209,7 @@ public class AwsIotIndexingConfigurationThingIndexingConfigurationBlockCustomFie
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -231,7 +231,7 @@ public class AwsIotIndexingConfigurationThingIndexingConfigurationBlockFilterBlo
     /// </summary>
     public TerraformSet<string>? NamedShadowNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "named_shadow_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("named_shadow_names");
         set => SetArgument("named_shadow_names", value);
     }
 
@@ -253,7 +253,7 @@ public class AwsIotIndexingConfigurationThingIndexingConfigurationBlockManagedFi
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -262,7 +262,7 @@ public class AwsIotIndexingConfigurationThingIndexingConfigurationBlockManagedFi
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -278,18 +278,18 @@ public partial class AwsIotIndexingConfiguration(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

@@ -11,9 +11,9 @@ public partial class GoogleVertexAiIndexDataSource(string name) : TerraformDataS
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleVertexAiIndexDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleVertexAiIndexDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleVertexAiIndexDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -50,65 +50,49 @@ public partial class GoogleVertexAiIndexDataSource(string name) : TerraformDataS
     /// The timestamp of when the Index was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The pointers to DeployedIndexes created from this Index. An Index can be only deleted if all its DeployedIndexes had been undeployed first.
     /// </summary>
     public TerraformList<TerraformMap<object>> DeployedIndexes
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "deployed_indexes").ResolveNodes(ctx));
-    }
+        => AsReference("deployed_indexes");
 
     /// <summary>
     /// The description of the Index.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The display name of the Index. The name can be up to 128 characters long and can consist of any UTF-8 characters.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Customer-managed encryption key spec for an Index. If set, this Index and all sub-resources of this Index will be secured by this key.
     /// </summary>
     public TerraformList<TerraformMap<object>> EncryptionSpec
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "encryption_spec").ResolveNodes(ctx));
-    }
+        => AsReference("encryption_spec");
 
     /// <summary>
     /// Used to perform consistent read-modify-write updates.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Stats of the index resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> IndexStats
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "index_stats").ResolveNodes(ctx));
-    }
+        => AsReference("index_stats");
 
     /// <summary>
     /// The update method to use with this Index. The value must be the followings. If not set, BATCH_UPDATE will be used by default.
@@ -116,9 +100,7 @@ public partial class GoogleVertexAiIndexDataSource(string name) : TerraformDataS
     /// * STREAM_UPDATE: user can call indexes.upsertDatapoints/DeleteDatapoints to update the Index and the updates will be applied in corresponding DeployedIndexes in nearly real-time.
     /// </summary>
     public TerraformValue<string> IndexUpdateMethod
-    {
-        get => new TerraformReference<string>(this, "index_update_method");
-    }
+        => AsReference("index_update_method");
 
     /// <summary>
     /// The labels with user-defined metadata to organize your Indexes.
@@ -127,9 +109,7 @@ public partial class GoogleVertexAiIndexDataSource(string name) : TerraformDataS
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
-    }
+        => AsReference("labels");
 
     /// <summary>
     /// Additional information about the Index.
@@ -137,33 +117,25 @@ public partial class GoogleVertexAiIndexDataSource(string name) : TerraformDataS
     /// Attempts to create an Index without this field will result in an API error.
     /// </summary>
     public TerraformList<TerraformMap<object>> Metadata
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "metadata").ResolveNodes(ctx));
-    }
+        => AsReference("metadata");
 
     /// <summary>
     /// Points to a YAML file stored on Google Cloud Storage describing additional information about the Index, that is specific to it. Unset if the Index does not have any additional information.
     /// </summary>
     public TerraformValue<string> MetadataSchemaUri
-    {
-        get => new TerraformReference<string>(this, "metadata_schema_uri");
-    }
+        => AsReference("metadata_schema_uri");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The timestamp of when the Index was last updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
 }

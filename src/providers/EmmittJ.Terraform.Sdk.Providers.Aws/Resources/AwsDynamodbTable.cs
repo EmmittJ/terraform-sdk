@@ -19,7 +19,7 @@ public class AwsDynamodbTableAttributeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsDynamodbTableAttributeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HashKey is required")]
     public required TerraformValue<string> HashKey
     {
-        get => new TerraformReference<string>(this, "hash_key");
+        get => GetArgument<TerraformValue<string>>("hash_key");
         set => SetArgument("hash_key", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? NonKeyAttributes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "non_key_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("non_key_attributes");
         set => SetArgument("non_key_attributes", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectionType is required")]
     public required TerraformValue<string> ProjectionType
     {
-        get => new TerraformReference<string>(this, "projection_type");
+        get => GetArgument<TerraformValue<string>>("projection_type");
         set => SetArgument("projection_type", value);
     }
 
@@ -91,25 +91,25 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RangeKey
     {
-        get => new TerraformReference<string>(this, "range_key");
+        get => GetArgument<TerraformValue<string>>("range_key");
         set => SetArgument("range_key", value);
     }
 
     /// <summary>
     /// The read_capacity attribute.
     /// </summary>
-    public TerraformValue<double> ReadCapacity
+    public TerraformValue<double>? ReadCapacity
     {
-        get => new TerraformReference<double>(this, "read_capacity");
+        get => GetArgument<TerraformValue<double>>("read_capacity");
         set => SetArgument("read_capacity", value);
     }
 
     /// <summary>
     /// The write_capacity attribute.
     /// </summary>
-    public TerraformValue<double> WriteCapacity
+    public TerraformValue<double>? WriteCapacity
     {
-        get => new TerraformReference<double>(this, "write_capacity");
+        get => GetArgument<TerraformValue<double>>("write_capacity");
         set => SetArgument("write_capacity", value);
     }
 
@@ -149,18 +149,18 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlockOnDemandThroughputBlock : 
     /// <summary>
     /// The max_read_request_units attribute.
     /// </summary>
-    public TerraformValue<double> MaxReadRequestUnits
+    public TerraformValue<double>? MaxReadRequestUnits
     {
-        get => new TerraformReference<double>(this, "max_read_request_units");
+        get => GetArgument<TerraformValue<double>>("max_read_request_units");
         set => SetArgument("max_read_request_units", value);
     }
 
     /// <summary>
     /// The max_write_request_units attribute.
     /// </summary>
-    public TerraformValue<double> MaxWriteRequestUnits
+    public TerraformValue<double>? MaxWriteRequestUnits
     {
-        get => new TerraformReference<double>(this, "max_write_request_units");
+        get => GetArgument<TerraformValue<double>>("max_write_request_units");
         set => SetArgument("max_write_request_units", value);
     }
 
@@ -180,18 +180,18 @@ public class AwsDynamodbTableGlobalSecondaryIndexBlockWarmThroughputBlock : Terr
     /// <summary>
     /// The read_units_per_second attribute.
     /// </summary>
-    public TerraformValue<double> ReadUnitsPerSecond
+    public TerraformValue<double>? ReadUnitsPerSecond
     {
-        get => new TerraformReference<double>(this, "read_units_per_second");
+        get => GetArgument<TerraformValue<double>>("read_units_per_second");
         set => SetArgument("read_units_per_second", value);
     }
 
     /// <summary>
     /// The write_units_per_second attribute.
     /// </summary>
-    public TerraformValue<double> WriteUnitsPerSecond
+    public TerraformValue<double>? WriteUnitsPerSecond
     {
-        get => new TerraformReference<double>(this, "write_units_per_second");
+        get => GetArgument<TerraformValue<double>>("write_units_per_second");
         set => SetArgument("write_units_per_second", value);
     }
 
@@ -214,7 +214,7 @@ public class AwsDynamodbTableImportTableBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? InputCompressionType
     {
-        get => new TerraformReference<string>(this, "input_compression_type");
+        get => GetArgument<TerraformValue<string>>("input_compression_type");
         set => SetArgument("input_compression_type", value);
     }
 
@@ -224,7 +224,7 @@ public class AwsDynamodbTableImportTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputFormat is required")]
     public required TerraformValue<string> InputFormat
     {
-        get => new TerraformReference<string>(this, "input_format");
+        get => GetArgument<TerraformValue<string>>("input_format");
         set => SetArgument("input_format", value);
     }
 
@@ -292,7 +292,7 @@ public class AwsDynamodbTableImportTableBlockInputFormatOptionsBlockCsvBlock : T
     /// </summary>
     public TerraformValue<string>? Delimiter
     {
-        get => new TerraformReference<string>(this, "delimiter");
+        get => GetArgument<TerraformValue<string>>("delimiter");
         set => SetArgument("delimiter", value);
     }
 
@@ -301,7 +301,7 @@ public class AwsDynamodbTableImportTableBlockInputFormatOptionsBlockCsvBlock : T
     /// </summary>
     public TerraformSet<string>? HeaderList
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "header_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("header_list");
         set => SetArgument("header_list", value);
     }
 
@@ -324,7 +324,7 @@ public class AwsDynamodbTableImportTableBlockS3BucketSourceBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -333,7 +333,7 @@ public class AwsDynamodbTableImportTableBlockS3BucketSourceBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? BucketOwner
     {
-        get => new TerraformReference<string>(this, "bucket_owner");
+        get => GetArgument<TerraformValue<string>>("bucket_owner");
         set => SetArgument("bucket_owner", value);
     }
 
@@ -342,7 +342,7 @@ public class AwsDynamodbTableImportTableBlockS3BucketSourceBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? KeyPrefix
     {
-        get => new TerraformReference<string>(this, "key_prefix");
+        get => GetArgument<TerraformValue<string>>("key_prefix");
         set => SetArgument("key_prefix", value);
     }
 
@@ -366,7 +366,7 @@ public class AwsDynamodbTableLocalSecondaryIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -375,7 +375,7 @@ public class AwsDynamodbTableLocalSecondaryIndexBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? NonKeyAttributes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "non_key_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("non_key_attributes");
         set => SetArgument("non_key_attributes", value);
     }
 
@@ -385,7 +385,7 @@ public class AwsDynamodbTableLocalSecondaryIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectionType is required")]
     public required TerraformValue<string> ProjectionType
     {
-        get => new TerraformReference<string>(this, "projection_type");
+        get => GetArgument<TerraformValue<string>>("projection_type");
         set => SetArgument("projection_type", value);
     }
 
@@ -395,7 +395,7 @@ public class AwsDynamodbTableLocalSecondaryIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeKey is required")]
     public required TerraformValue<string> RangeKey
     {
-        get => new TerraformReference<string>(this, "range_key");
+        get => GetArgument<TerraformValue<string>>("range_key");
         set => SetArgument("range_key", value);
     }
 
@@ -416,18 +416,18 @@ public class AwsDynamodbTableOnDemandThroughputBlock : TerraformBlock
     /// <summary>
     /// The max_read_request_units attribute.
     /// </summary>
-    public TerraformValue<double> MaxReadRequestUnits
+    public TerraformValue<double>? MaxReadRequestUnits
     {
-        get => new TerraformReference<double>(this, "max_read_request_units");
+        get => GetArgument<TerraformValue<double>>("max_read_request_units");
         set => SetArgument("max_read_request_units", value);
     }
 
     /// <summary>
     /// The max_write_request_units attribute.
     /// </summary>
-    public TerraformValue<double> MaxWriteRequestUnits
+    public TerraformValue<double>? MaxWriteRequestUnits
     {
-        get => new TerraformReference<double>(this, "max_write_request_units");
+        get => GetArgument<TerraformValue<double>>("max_write_request_units");
         set => SetArgument("max_write_request_units", value);
     }
 
@@ -451,16 +451,16 @@ public class AwsDynamodbTablePointInTimeRecoveryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The recovery_period_in_days attribute.
     /// </summary>
-    public TerraformValue<double> RecoveryPeriodInDays
+    public TerraformValue<double>? RecoveryPeriodInDays
     {
-        get => new TerraformReference<double>(this, "recovery_period_in_days");
+        get => GetArgument<TerraformValue<double>>("recovery_period_in_days");
         set => SetArgument("recovery_period_in_days", value);
     }
 
@@ -482,34 +482,32 @@ public class AwsDynamodbTableReplicaBlock : TerraformBlock
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The consistency_mode attribute.
     /// </summary>
     public TerraformValue<string>? ConsistencyMode
     {
-        get => new TerraformReference<string>(this, "consistency_mode");
+        get => GetArgument<TerraformValue<string>>("consistency_mode");
         set => SetArgument("consistency_mode", value);
     }
 
     /// <summary>
     /// The deletion_protection_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> DeletionProtectionEnabled
+    public TerraformValue<bool>? DeletionProtectionEnabled
     {
-        get => new TerraformReference<bool>(this, "deletion_protection_enabled");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection_enabled");
         set => SetArgument("deletion_protection_enabled", value);
     }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformValue<string> KmsKeyArn
+    public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -518,7 +516,7 @@ public class AwsDynamodbTableReplicaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PointInTimeRecovery
     {
-        get => new TerraformReference<bool>(this, "point_in_time_recovery");
+        get => GetArgument<TerraformValue<bool>>("point_in_time_recovery");
         set => SetArgument("point_in_time_recovery", value);
     }
 
@@ -527,7 +525,7 @@ public class AwsDynamodbTableReplicaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PropagateTags
     {
-        get => new TerraformReference<bool>(this, "propagate_tags");
+        get => GetArgument<TerraformValue<bool>>("propagate_tags");
         set => SetArgument("propagate_tags", value);
     }
 
@@ -537,7 +535,7 @@ public class AwsDynamodbTableReplicaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionName is required")]
     public required TerraformValue<string> RegionName
     {
-        get => new TerraformReference<string>(this, "region_name");
+        get => GetArgument<TerraformValue<string>>("region_name");
         set => SetArgument("region_name", value);
     }
 
@@ -545,17 +543,13 @@ public class AwsDynamodbTableReplicaBlock : TerraformBlock
     /// The stream_arn attribute.
     /// </summary>
     public TerraformValue<string> StreamArn
-    {
-        get => new TerraformReference<string>(this, "stream_arn");
-    }
+        => AsReference("stream_arn");
 
     /// <summary>
     /// The stream_label attribute.
     /// </summary>
     public TerraformValue<string> StreamLabel
-    {
-        get => new TerraformReference<string>(this, "stream_label");
-    }
+        => AsReference("stream_label");
 
 }
 
@@ -577,16 +571,16 @@ public class AwsDynamodbTableServerSideEncryptionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformValue<string> KmsKeyArn
+    public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -609,7 +603,7 @@ public class AwsDynamodbTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -618,7 +612,7 @@ public class AwsDynamodbTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -627,7 +621,7 @@ public class AwsDynamodbTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -650,7 +644,7 @@ public class AwsDynamodbTableTtlBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AttributeName
     {
-        get => new TerraformReference<string>(this, "attribute_name");
+        get => GetArgument<TerraformValue<string>>("attribute_name");
         set => SetArgument("attribute_name", value);
     }
 
@@ -659,7 +653,7 @@ public class AwsDynamodbTableTtlBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -680,18 +674,18 @@ public class AwsDynamodbTableWarmThroughputBlock : TerraformBlock
     /// <summary>
     /// The read_units_per_second attribute.
     /// </summary>
-    public TerraformValue<double> ReadUnitsPerSecond
+    public TerraformValue<double>? ReadUnitsPerSecond
     {
-        get => new TerraformReference<double>(this, "read_units_per_second");
+        get => GetArgument<TerraformValue<double>>("read_units_per_second");
         set => SetArgument("read_units_per_second", value);
     }
 
     /// <summary>
     /// The write_units_per_second attribute.
     /// </summary>
-    public TerraformValue<double> WriteUnitsPerSecond
+    public TerraformValue<double>? WriteUnitsPerSecond
     {
-        get => new TerraformReference<double>(this, "write_units_per_second");
+        get => GetArgument<TerraformValue<double>>("write_units_per_second");
         set => SetArgument("write_units_per_second", value);
     }
 
@@ -709,7 +703,7 @@ public partial class AwsDynamodbTable(string name) : TerraformResource("aws_dyna
     /// </summary>
     public TerraformValue<string>? BillingMode
     {
-        get => new TerraformReference<string>(this, "billing_mode");
+        get => GetArgument<TerraformValue<string>>("billing_mode");
         set => SetArgument("billing_mode", value);
     }
 
@@ -718,25 +712,25 @@ public partial class AwsDynamodbTable(string name) : TerraformResource("aws_dyna
     /// </summary>
     public TerraformValue<bool>? DeletionProtectionEnabled
     {
-        get => new TerraformReference<bool>(this, "deletion_protection_enabled");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection_enabled");
         set => SetArgument("deletion_protection_enabled", value);
     }
 
     /// <summary>
     /// The hash_key attribute.
     /// </summary>
-    public TerraformValue<string> HashKey
+    public TerraformValue<string>? HashKey
     {
-        get => new TerraformReference<string>(this, "hash_key");
+        get => GetArgument<TerraformValue<string>>("hash_key");
         set => SetArgument("hash_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -746,7 +740,7 @@ public partial class AwsDynamodbTable(string name) : TerraformResource("aws_dyna
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -755,25 +749,25 @@ public partial class AwsDynamodbTable(string name) : TerraformResource("aws_dyna
     /// </summary>
     public TerraformValue<string>? RangeKey
     {
-        get => new TerraformReference<string>(this, "range_key");
+        get => GetArgument<TerraformValue<string>>("range_key");
         set => SetArgument("range_key", value);
     }
 
     /// <summary>
     /// The read_capacity attribute.
     /// </summary>
-    public TerraformValue<double> ReadCapacity
+    public TerraformValue<double>? ReadCapacity
     {
-        get => new TerraformReference<double>(this, "read_capacity");
+        get => GetArgument<TerraformValue<double>>("read_capacity");
         set => SetArgument("read_capacity", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -782,7 +776,7 @@ public partial class AwsDynamodbTable(string name) : TerraformResource("aws_dyna
     /// </summary>
     public TerraformValue<string>? RestoreDateTime
     {
-        get => new TerraformReference<string>(this, "restore_date_time");
+        get => GetArgument<TerraformValue<string>>("restore_date_time");
         set => SetArgument("restore_date_time", value);
     }
 
@@ -791,7 +785,7 @@ public partial class AwsDynamodbTable(string name) : TerraformResource("aws_dyna
     /// </summary>
     public TerraformValue<string>? RestoreSourceName
     {
-        get => new TerraformReference<string>(this, "restore_source_name");
+        get => GetArgument<TerraformValue<string>>("restore_source_name");
         set => SetArgument("restore_source_name", value);
     }
 
@@ -800,7 +794,7 @@ public partial class AwsDynamodbTable(string name) : TerraformResource("aws_dyna
     /// </summary>
     public TerraformValue<string>? RestoreSourceTableArn
     {
-        get => new TerraformReference<string>(this, "restore_source_table_arn");
+        get => GetArgument<TerraformValue<string>>("restore_source_table_arn");
         set => SetArgument("restore_source_table_arn", value);
     }
 
@@ -809,7 +803,7 @@ public partial class AwsDynamodbTable(string name) : TerraformResource("aws_dyna
     /// </summary>
     public TerraformValue<bool>? RestoreToLatestTime
     {
-        get => new TerraformReference<bool>(this, "restore_to_latest_time");
+        get => GetArgument<TerraformValue<bool>>("restore_to_latest_time");
         set => SetArgument("restore_to_latest_time", value);
     }
 
@@ -818,16 +812,16 @@ public partial class AwsDynamodbTable(string name) : TerraformResource("aws_dyna
     /// </summary>
     public TerraformValue<bool>? StreamEnabled
     {
-        get => new TerraformReference<bool>(this, "stream_enabled");
+        get => GetArgument<TerraformValue<bool>>("stream_enabled");
         set => SetArgument("stream_enabled", value);
     }
 
     /// <summary>
     /// The stream_view_type attribute.
     /// </summary>
-    public TerraformValue<string> StreamViewType
+    public TerraformValue<string>? StreamViewType
     {
-        get => new TerraformReference<string>(this, "stream_view_type");
+        get => GetArgument<TerraformValue<string>>("stream_view_type");
         set => SetArgument("stream_view_type", value);
     }
 
@@ -836,7 +830,7 @@ public partial class AwsDynamodbTable(string name) : TerraformResource("aws_dyna
     /// </summary>
     public TerraformValue<string>? TableClass
     {
-        get => new TerraformReference<string>(this, "table_class");
+        get => GetArgument<TerraformValue<string>>("table_class");
         set => SetArgument("table_class", value);
     }
 
@@ -845,25 +839,25 @@ public partial class AwsDynamodbTable(string name) : TerraformResource("aws_dyna
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The write_capacity attribute.
     /// </summary>
-    public TerraformValue<double> WriteCapacity
+    public TerraformValue<double>? WriteCapacity
     {
-        get => new TerraformReference<double>(this, "write_capacity");
+        get => GetArgument<TerraformValue<double>>("write_capacity");
         set => SetArgument("write_capacity", value);
     }
 
@@ -871,25 +865,19 @@ public partial class AwsDynamodbTable(string name) : TerraformResource("aws_dyna
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The stream_arn attribute.
     /// </summary>
     public TerraformValue<string> StreamArn
-    {
-        get => new TerraformReference<string>(this, "stream_arn");
-    }
+        => AsReference("stream_arn");
 
     /// <summary>
     /// The stream_label attribute.
     /// </summary>
     public TerraformValue<string> StreamLabel
-    {
-        get => new TerraformReference<string>(this, "stream_label");
-    }
+        => AsReference("stream_label");
 
     /// <summary>
     /// Attribute block (nesting mode: set).

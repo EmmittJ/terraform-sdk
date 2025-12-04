@@ -18,7 +18,7 @@ public class AzureadApplicationPermissionScopeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadApplicationPermissionScopeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadApplicationPermissionScopeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzureadApplicationPermissionScopeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzureadApplicationPermissionScope(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminConsentDescription is required")]
     public required TerraformValue<string> AdminConsentDescription
     {
-        get => new TerraformReference<string>(this, "admin_consent_description");
+        get => GetArgument<TerraformValue<string>>("admin_consent_description");
         set => SetArgument("admin_consent_description", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzureadApplicationPermissionScope(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminConsentDisplayName is required")]
     public required TerraformValue<string> AdminConsentDisplayName
     {
-        get => new TerraformReference<string>(this, "admin_consent_display_name");
+        get => GetArgument<TerraformValue<string>>("admin_consent_display_name");
         set => SetArgument("admin_consent_display_name", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AzureadApplicationPermissionScope(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => new TerraformReference<string>(this, "application_id");
+        get => GetArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzureadApplicationPermissionScope(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
     public required TerraformValue<string> ScopeId
     {
-        get => new TerraformReference<string>(this, "scope_id");
+        get => GetArgument<TerraformValue<string>>("scope_id");
         set => SetArgument("scope_id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzureadApplicationPermissionScope(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzureadApplicationPermissionScope(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? UserConsentDescription
     {
-        get => new TerraformReference<string>(this, "user_consent_description");
+        get => GetArgument<TerraformValue<string>>("user_consent_description");
         set => SetArgument("user_consent_description", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzureadApplicationPermissionScope(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? UserConsentDisplayName
     {
-        get => new TerraformReference<string>(this, "user_consent_display_name");
+        get => GetArgument<TerraformValue<string>>("user_consent_display_name");
         set => SetArgument("user_consent_display_name", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AzureadApplicationPermissionScope(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 

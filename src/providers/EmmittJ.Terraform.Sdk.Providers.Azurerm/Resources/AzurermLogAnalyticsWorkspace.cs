@@ -18,7 +18,7 @@ public class AzurermLogAnalyticsWorkspaceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -26,17 +26,13 @@ public class AzurermLogAnalyticsWorkspaceIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -44,7 +40,7 @@ public class AzurermLogAnalyticsWorkspaceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -67,7 +63,7 @@ public class AzurermLogAnalyticsWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -76,7 +72,7 @@ public class AzurermLogAnalyticsWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -85,7 +81,7 @@ public class AzurermLogAnalyticsWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -94,7 +90,7 @@ public class AzurermLogAnalyticsWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -112,7 +108,7 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? AllowResourceOnlyPermissions
     {
-        get => new TerraformReference<bool>(this, "allow_resource_only_permissions");
+        get => GetArgument<TerraformValue<bool>>("allow_resource_only_permissions");
         set => SetArgument("allow_resource_only_permissions", value);
     }
 
@@ -121,7 +117,7 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? CmkForQueryForced
     {
-        get => new TerraformReference<bool>(this, "cmk_for_query_forced");
+        get => GetArgument<TerraformValue<bool>>("cmk_for_query_forced");
         set => SetArgument("cmk_for_query_forced", value);
     }
 
@@ -130,7 +126,7 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     /// </summary>
     public TerraformValue<double>? DailyQuotaGb
     {
-        get => new TerraformReference<double>(this, "daily_quota_gb");
+        get => GetArgument<TerraformValue<double>>("daily_quota_gb");
         set => SetArgument("daily_quota_gb", value);
     }
 
@@ -139,16 +135,16 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? DataCollectionRuleId
     {
-        get => new TerraformReference<string>(this, "data_collection_rule_id");
+        get => GetArgument<TerraformValue<string>>("data_collection_rule_id");
         set => SetArgument("data_collection_rule_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -157,7 +153,7 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? ImmediateDataPurgeOn30DaysEnabled
     {
-        get => new TerraformReference<bool>(this, "immediate_data_purge_on_30_days_enabled");
+        get => GetArgument<TerraformValue<bool>>("immediate_data_purge_on_30_days_enabled");
         set => SetArgument("immediate_data_purge_on_30_days_enabled", value);
     }
 
@@ -166,7 +162,7 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? InternetIngestionEnabled
     {
-        get => new TerraformReference<bool>(this, "internet_ingestion_enabled");
+        get => GetArgument<TerraformValue<bool>>("internet_ingestion_enabled");
         set => SetArgument("internet_ingestion_enabled", value);
     }
 
@@ -175,7 +171,7 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? InternetQueryEnabled
     {
-        get => new TerraformReference<bool>(this, "internet_query_enabled");
+        get => GetArgument<TerraformValue<bool>>("internet_query_enabled");
         set => SetArgument("internet_query_enabled", value);
     }
 
@@ -183,18 +179,18 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     /// The local_authentication_disabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<bool> LocalAuthenticationDisabled
+    public TerraformValue<bool>? LocalAuthenticationDisabled
     {
-        get => new TerraformReference<bool>(this, "local_authentication_disabled");
+        get => GetArgument<TerraformValue<bool>>("local_authentication_disabled");
         set => SetArgument("local_authentication_disabled", value);
     }
 
     /// <summary>
     /// The local_authentication_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> LocalAuthenticationEnabled
+    public TerraformValue<bool>? LocalAuthenticationEnabled
     {
-        get => new TerraformReference<bool>(this, "local_authentication_enabled");
+        get => GetArgument<TerraformValue<bool>>("local_authentication_enabled");
         set => SetArgument("local_authentication_enabled", value);
     }
 
@@ -204,7 +200,7 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -214,7 +210,7 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -223,7 +219,7 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     /// </summary>
     public TerraformValue<double>? ReservationCapacityInGbPerDay
     {
-        get => new TerraformReference<double>(this, "reservation_capacity_in_gb_per_day");
+        get => GetArgument<TerraformValue<double>>("reservation_capacity_in_gb_per_day");
         set => SetArgument("reservation_capacity_in_gb_per_day", value);
     }
 
@@ -233,25 +229,25 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
-    public TerraformValue<double> RetentionInDays
+    public TerraformValue<double>? RetentionInDays
     {
-        get => new TerraformReference<double>(this, "retention_in_days");
+        get => GetArgument<TerraformValue<double>>("retention_in_days");
         set => SetArgument("retention_in_days", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformValue<string> Sku
+    public TerraformValue<string>? Sku
     {
-        get => new TerraformReference<string>(this, "sku");
+        get => GetArgument<TerraformValue<string>>("sku");
         set => SetArgument("sku", value);
     }
 
@@ -260,7 +256,7 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -268,25 +264,19 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     /// The primary_shared_key attribute.
     /// </summary>
     public TerraformValue<string> PrimarySharedKey
-    {
-        get => new TerraformReference<string>(this, "primary_shared_key");
-    }
+        => AsReference("primary_shared_key");
 
     /// <summary>
     /// The secondary_shared_key attribute.
     /// </summary>
     public TerraformValue<string> SecondarySharedKey
-    {
-        get => new TerraformReference<string>(this, "secondary_shared_key");
-    }
+        => AsReference("secondary_shared_key");
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceId
-    {
-        get => new TerraformReference<string>(this, "workspace_id");
-    }
+        => AsReference("workspace_id");
 
     /// <summary>
     /// Identity block (nesting mode: list).

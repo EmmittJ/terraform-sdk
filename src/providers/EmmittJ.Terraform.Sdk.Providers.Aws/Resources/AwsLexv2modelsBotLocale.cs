@@ -18,7 +18,7 @@ public class AwsLexv2modelsBotLocaleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsLexv2modelsBotLocaleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsLexv2modelsBotLocaleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -57,9 +57,9 @@ public class AwsLexv2modelsBotLocaleVoiceSettingsBlock : TerraformBlock
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformValue<string> Engine
+    public TerraformValue<string>? Engine
     {
-        get => new TerraformReference<string>(this, "engine");
+        get => GetArgument<TerraformValue<string>>("engine");
         set => SetArgument("engine", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsLexv2modelsBotLocaleVoiceSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceId is required")]
     public required TerraformValue<string> VoiceId
     {
-        get => new TerraformReference<string>(this, "voice_id");
+        get => GetArgument<TerraformValue<string>>("voice_id");
         set => SetArgument("voice_id", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsLexv2modelsBotLocale(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotId is required")]
     public required TerraformValue<string> BotId
     {
-        get => new TerraformReference<string>(this, "bot_id");
+        get => GetArgument<TerraformValue<string>>("bot_id");
         set => SetArgument("bot_id", value);
     }
 
@@ -98,7 +98,7 @@ public partial class AwsLexv2modelsBotLocale(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotVersion is required")]
     public required TerraformValue<string> BotVersion
     {
-        get => new TerraformReference<string>(this, "bot_version");
+        get => GetArgument<TerraformValue<string>>("bot_version");
         set => SetArgument("bot_version", value);
     }
 
@@ -107,7 +107,7 @@ public partial class AwsLexv2modelsBotLocale(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsLexv2modelsBotLocale(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocaleId is required")]
     public required TerraformValue<string> LocaleId
     {
-        get => new TerraformReference<string>(this, "locale_id");
+        get => GetArgument<TerraformValue<string>>("locale_id");
         set => SetArgument("locale_id", value);
     }
 
@@ -127,25 +127,25 @@ public partial class AwsLexv2modelsBotLocale(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NLuIntentConfidenceThreshold is required")]
     public required TerraformValue<double> NLuIntentConfidenceThreshold
     {
-        get => new TerraformReference<double>(this, "n_lu_intent_confidence_threshold");
+        get => GetArgument<TerraformValue<double>>("n_lu_intent_confidence_threshold");
         set => SetArgument("n_lu_intent_confidence_threshold", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -153,9 +153,7 @@ public partial class AwsLexv2modelsBotLocale(string name) : TerraformResource("a
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

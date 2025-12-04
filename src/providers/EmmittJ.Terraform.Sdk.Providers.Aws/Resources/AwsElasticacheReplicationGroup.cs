@@ -19,7 +19,7 @@ public class AwsElasticacheReplicationGroupLogDeliveryConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformValue<string> Destination
     {
-        get => new TerraformReference<string>(this, "destination");
+        get => GetArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsElasticacheReplicationGroupLogDeliveryConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationType is required")]
     public required TerraformValue<string> DestinationType
     {
-        get => new TerraformReference<string>(this, "destination_type");
+        get => GetArgument<TerraformValue<string>>("destination_type");
         set => SetArgument("destination_type", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsElasticacheReplicationGroupLogDeliveryConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogFormat is required")]
     public required TerraformValue<string> LogFormat
     {
-        get => new TerraformReference<string>(this, "log_format");
+        get => GetArgument<TerraformValue<string>>("log_format");
         set => SetArgument("log_format", value);
     }
 
@@ -49,7 +49,7 @@ public class AwsElasticacheReplicationGroupLogDeliveryConfigurationBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
     public required TerraformValue<string> LogType
     {
-        get => new TerraformReference<string>(this, "log_type");
+        get => GetArgument<TerraformValue<string>>("log_type");
         set => SetArgument("log_type", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsElasticacheReplicationGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsElasticacheReplicationGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsElasticacheReplicationGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -106,18 +106,18 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// <summary>
     /// The apply_immediately attribute.
     /// </summary>
-    public TerraformValue<bool> ApplyImmediately
+    public TerraformValue<bool>? ApplyImmediately
     {
-        get => new TerraformReference<bool>(this, "apply_immediately");
+        get => GetArgument<TerraformValue<bool>>("apply_immediately");
         set => SetArgument("apply_immediately", value);
     }
 
     /// <summary>
     /// The at_rest_encryption_enabled attribute.
     /// </summary>
-    public TerraformValue<string> AtRestEncryptionEnabled
+    public TerraformValue<string>? AtRestEncryptionEnabled
     {
-        get => new TerraformReference<string>(this, "at_rest_encryption_enabled");
+        get => GetArgument<TerraformValue<string>>("at_rest_encryption_enabled");
         set => SetArgument("at_rest_encryption_enabled", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? AuthToken
     {
-        get => new TerraformReference<string>(this, "auth_token");
+        get => GetArgument<TerraformValue<string>>("auth_token");
         set => SetArgument("auth_token", value);
     }
 
@@ -135,16 +135,16 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? AuthTokenUpdateStrategy
     {
-        get => new TerraformReference<string>(this, "auth_token_update_strategy");
+        get => GetArgument<TerraformValue<string>>("auth_token_update_strategy");
         set => SetArgument("auth_token_update_strategy", value);
     }
 
     /// <summary>
     /// The auto_minor_version_upgrade attribute.
     /// </summary>
-    public TerraformValue<string> AutoMinorVersionUpgrade
+    public TerraformValue<string>? AutoMinorVersionUpgrade
     {
-        get => new TerraformReference<string>(this, "auto_minor_version_upgrade");
+        get => GetArgument<TerraformValue<string>>("auto_minor_version_upgrade");
         set => SetArgument("auto_minor_version_upgrade", value);
     }
 
@@ -153,25 +153,25 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? AutomaticFailoverEnabled
     {
-        get => new TerraformReference<bool>(this, "automatic_failover_enabled");
+        get => GetArgument<TerraformValue<bool>>("automatic_failover_enabled");
         set => SetArgument("automatic_failover_enabled", value);
     }
 
     /// <summary>
     /// The cluster_mode attribute.
     /// </summary>
-    public TerraformValue<string> ClusterMode
+    public TerraformValue<string>? ClusterMode
     {
-        get => new TerraformReference<string>(this, "cluster_mode");
+        get => GetArgument<TerraformValue<string>>("cluster_mode");
         set => SetArgument("cluster_mode", value);
     }
 
     /// <summary>
     /// The data_tiering_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> DataTieringEnabled
+    public TerraformValue<bool>? DataTieringEnabled
     {
-        get => new TerraformReference<bool>(this, "data_tiering_enabled");
+        get => GetArgument<TerraformValue<bool>>("data_tiering_enabled");
         set => SetArgument("data_tiering_enabled", value);
     }
 
@@ -181,25 +181,25 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformValue<string> Engine
+    public TerraformValue<string>? Engine
     {
-        get => new TerraformReference<string>(this, "engine");
+        get => GetArgument<TerraformValue<string>>("engine");
         set => SetArgument("engine", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformValue<string> EngineVersion
+    public TerraformValue<string>? EngineVersion
     {
-        get => new TerraformReference<string>(this, "engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -208,34 +208,34 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? FinalSnapshotIdentifier
     {
-        get => new TerraformReference<string>(this, "final_snapshot_identifier");
+        get => GetArgument<TerraformValue<string>>("final_snapshot_identifier");
         set => SetArgument("final_snapshot_identifier", value);
     }
 
     /// <summary>
     /// The global_replication_group_id attribute.
     /// </summary>
-    public TerraformValue<string> GlobalReplicationGroupId
+    public TerraformValue<string>? GlobalReplicationGroupId
     {
-        get => new TerraformReference<string>(this, "global_replication_group_id");
+        get => GetArgument<TerraformValue<string>>("global_replication_group_id");
         set => SetArgument("global_replication_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The ip_discovery attribute.
     /// </summary>
-    public TerraformValue<string> IpDiscovery
+    public TerraformValue<string>? IpDiscovery
     {
-        get => new TerraformReference<string>(this, "ip_discovery");
+        get => GetArgument<TerraformValue<string>>("ip_discovery");
         set => SetArgument("ip_discovery", value);
     }
 
@@ -244,16 +244,16 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
-    public TerraformValue<string> MaintenanceWindow
+    public TerraformValue<string>? MaintenanceWindow
     {
-        get => new TerraformReference<string>(this, "maintenance_window");
+        get => GetArgument<TerraformValue<string>>("maintenance_window");
         set => SetArgument("maintenance_window", value);
     }
 
@@ -262,25 +262,25 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? MultiAzEnabled
     {
-        get => new TerraformReference<bool>(this, "multi_az_enabled");
+        get => GetArgument<TerraformValue<bool>>("multi_az_enabled");
         set => SetArgument("multi_az_enabled", value);
     }
 
     /// <summary>
     /// The network_type attribute.
     /// </summary>
-    public TerraformValue<string> NetworkType
+    public TerraformValue<string>? NetworkType
     {
-        get => new TerraformReference<string>(this, "network_type");
+        get => GetArgument<TerraformValue<string>>("network_type");
         set => SetArgument("network_type", value);
     }
 
     /// <summary>
     /// The node_type attribute.
     /// </summary>
-    public TerraformValue<string> NodeType
+    public TerraformValue<string>? NodeType
     {
-        get => new TerraformReference<string>(this, "node_type");
+        get => GetArgument<TerraformValue<string>>("node_type");
         set => SetArgument("node_type", value);
     }
 
@@ -289,34 +289,34 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? NotificationTopicArn
     {
-        get => new TerraformReference<string>(this, "notification_topic_arn");
+        get => GetArgument<TerraformValue<string>>("notification_topic_arn");
         set => SetArgument("notification_topic_arn", value);
     }
 
     /// <summary>
     /// The num_cache_clusters attribute.
     /// </summary>
-    public TerraformValue<double> NumCacheClusters
+    public TerraformValue<double>? NumCacheClusters
     {
-        get => new TerraformReference<double>(this, "num_cache_clusters");
+        get => GetArgument<TerraformValue<double>>("num_cache_clusters");
         set => SetArgument("num_cache_clusters", value);
     }
 
     /// <summary>
     /// The num_node_groups attribute.
     /// </summary>
-    public TerraformValue<double> NumNodeGroups
+    public TerraformValue<double>? NumNodeGroups
     {
-        get => new TerraformReference<double>(this, "num_node_groups");
+        get => GetArgument<TerraformValue<double>>("num_node_groups");
         set => SetArgument("num_node_groups", value);
     }
 
     /// <summary>
     /// The parameter_group_name attribute.
     /// </summary>
-    public TerraformValue<string> ParameterGroupName
+    public TerraformValue<string>? ParameterGroupName
     {
-        get => new TerraformReference<string>(this, "parameter_group_name");
+        get => GetArgument<TerraformValue<string>>("parameter_group_name");
         set => SetArgument("parameter_group_name", value);
     }
 
@@ -325,7 +325,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -334,25 +334,25 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformList<string>? PreferredCacheClusterAzs
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "preferred_cache_cluster_azs").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("preferred_cache_cluster_azs");
         set => SetArgument("preferred_cache_cluster_azs", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The replicas_per_node_group attribute.
     /// </summary>
-    public TerraformValue<double> ReplicasPerNodeGroup
+    public TerraformValue<double>? ReplicasPerNodeGroup
     {
-        get => new TerraformReference<double>(this, "replicas_per_node_group");
+        get => GetArgument<TerraformValue<double>>("replicas_per_node_group");
         set => SetArgument("replicas_per_node_group", value);
     }
 
@@ -362,25 +362,25 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationGroupId is required")]
     public required TerraformValue<string> ReplicationGroupId
     {
-        get => new TerraformReference<string>(this, "replication_group_id");
+        get => GetArgument<TerraformValue<string>>("replication_group_id");
         set => SetArgument("replication_group_id", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string> SecurityGroupIds
+    public TerraformSet<string>? SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
     /// <summary>
     /// The security_group_names attribute.
     /// </summary>
-    public TerraformSet<string> SecurityGroupNames
+    public TerraformSet<string>? SecurityGroupNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_names");
         set => SetArgument("security_group_names", value);
     }
 
@@ -389,7 +389,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformSet<string>? SnapshotArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "snapshot_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("snapshot_arns");
         set => SetArgument("snapshot_arns", value);
     }
 
@@ -398,7 +398,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? SnapshotName
     {
-        get => new TerraformReference<string>(this, "snapshot_name");
+        get => GetArgument<TerraformValue<string>>("snapshot_name");
         set => SetArgument("snapshot_name", value);
     }
 
@@ -407,25 +407,25 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double>? SnapshotRetentionLimit
     {
-        get => new TerraformReference<double>(this, "snapshot_retention_limit");
+        get => GetArgument<TerraformValue<double>>("snapshot_retention_limit");
         set => SetArgument("snapshot_retention_limit", value);
     }
 
     /// <summary>
     /// The snapshot_window attribute.
     /// </summary>
-    public TerraformValue<string> SnapshotWindow
+    public TerraformValue<string>? SnapshotWindow
     {
-        get => new TerraformReference<string>(this, "snapshot_window");
+        get => GetArgument<TerraformValue<string>>("snapshot_window");
         set => SetArgument("snapshot_window", value);
     }
 
     /// <summary>
     /// The subnet_group_name attribute.
     /// </summary>
-    public TerraformValue<string> SubnetGroupName
+    public TerraformValue<string>? SubnetGroupName
     {
-        get => new TerraformReference<string>(this, "subnet_group_name");
+        get => GetArgument<TerraformValue<string>>("subnet_group_name");
         set => SetArgument("subnet_group_name", value);
     }
 
@@ -434,34 +434,34 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The transit_encryption_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> TransitEncryptionEnabled
+    public TerraformValue<bool>? TransitEncryptionEnabled
     {
-        get => new TerraformReference<bool>(this, "transit_encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("transit_encryption_enabled");
         set => SetArgument("transit_encryption_enabled", value);
     }
 
     /// <summary>
     /// The transit_encryption_mode attribute.
     /// </summary>
-    public TerraformValue<string> TransitEncryptionMode
+    public TerraformValue<string>? TransitEncryptionMode
     {
-        get => new TerraformReference<string>(this, "transit_encryption_mode");
+        get => GetArgument<TerraformValue<string>>("transit_encryption_mode");
         set => SetArgument("transit_encryption_mode", value);
     }
 
@@ -470,7 +470,7 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// </summary>
     public TerraformSet<string>? UserGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "user_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("user_group_ids");
         set => SetArgument("user_group_ids", value);
     }
 
@@ -478,57 +478,43 @@ public partial class AwsElasticacheReplicationGroup(string name) : TerraformReso
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The cluster_enabled attribute.
     /// </summary>
     public TerraformValue<bool> ClusterEnabled
-    {
-        get => new TerraformReference<bool>(this, "cluster_enabled");
-    }
+        => AsReference("cluster_enabled");
 
     /// <summary>
     /// The configuration_endpoint_address attribute.
     /// </summary>
     public TerraformValue<string> ConfigurationEndpointAddress
-    {
-        get => new TerraformReference<string>(this, "configuration_endpoint_address");
-    }
+        => AsReference("configuration_endpoint_address");
 
     /// <summary>
     /// The engine_version_actual attribute.
     /// </summary>
     public TerraformValue<string> EngineVersionActual
-    {
-        get => new TerraformReference<string>(this, "engine_version_actual");
-    }
+        => AsReference("engine_version_actual");
 
     /// <summary>
     /// The member_clusters attribute.
     /// </summary>
     public TerraformSet<string> MemberClusters
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "member_clusters").ResolveNodes(ctx));
-    }
+        => AsReference("member_clusters");
 
     /// <summary>
     /// The primary_endpoint_address attribute.
     /// </summary>
     public TerraformValue<string> PrimaryEndpointAddress
-    {
-        get => new TerraformReference<string>(this, "primary_endpoint_address");
-    }
+        => AsReference("primary_endpoint_address");
 
     /// <summary>
     /// The reader_endpoint_address attribute.
     /// </summary>
     public TerraformValue<string> ReaderEndpointAddress
-    {
-        get => new TerraformReference<string>(this, "reader_endpoint_address");
-    }
+        => AsReference("reader_endpoint_address");
 
     /// <summary>
     /// LogDeliveryConfiguration block (nesting mode: set).

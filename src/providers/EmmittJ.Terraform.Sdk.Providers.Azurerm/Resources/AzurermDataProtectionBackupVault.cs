@@ -18,7 +18,7 @@ public class AzurermDataProtectionBackupVaultIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -26,17 +26,13 @@ public class AzurermDataProtectionBackupVaultIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -44,7 +40,7 @@ public class AzurermDataProtectionBackupVaultIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -67,7 +63,7 @@ public class AzurermDataProtectionBackupVaultTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -76,7 +72,7 @@ public class AzurermDataProtectionBackupVaultTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -85,7 +81,7 @@ public class AzurermDataProtectionBackupVaultTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -94,7 +90,7 @@ public class AzurermDataProtectionBackupVaultTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -112,7 +108,7 @@ public partial class AzurermDataProtectionBackupVault(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? CrossRegionRestoreEnabled
     {
-        get => new TerraformReference<bool>(this, "cross_region_restore_enabled");
+        get => GetArgument<TerraformValue<bool>>("cross_region_restore_enabled");
         set => SetArgument("cross_region_restore_enabled", value);
     }
 
@@ -122,16 +118,16 @@ public partial class AzurermDataProtectionBackupVault(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatastoreType is required")]
     public required TerraformValue<string> DatastoreType
     {
-        get => new TerraformReference<string>(this, "datastore_type");
+        get => GetArgument<TerraformValue<string>>("datastore_type");
         set => SetArgument("datastore_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -140,7 +136,7 @@ public partial class AzurermDataProtectionBackupVault(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Immutability
     {
-        get => new TerraformReference<string>(this, "immutability");
+        get => GetArgument<TerraformValue<string>>("immutability");
         set => SetArgument("immutability", value);
     }
 
@@ -150,7 +146,7 @@ public partial class AzurermDataProtectionBackupVault(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -160,7 +156,7 @@ public partial class AzurermDataProtectionBackupVault(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -170,7 +166,7 @@ public partial class AzurermDataProtectionBackupVault(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Redundancy is required")]
     public required TerraformValue<string> Redundancy
     {
-        get => new TerraformReference<string>(this, "redundancy");
+        get => GetArgument<TerraformValue<string>>("redundancy");
         set => SetArgument("redundancy", value);
     }
 
@@ -180,7 +176,7 @@ public partial class AzurermDataProtectionBackupVault(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -189,7 +185,7 @@ public partial class AzurermDataProtectionBackupVault(string name) : TerraformRe
     /// </summary>
     public TerraformValue<double>? RetentionDurationInDays
     {
-        get => new TerraformReference<double>(this, "retention_duration_in_days");
+        get => GetArgument<TerraformValue<double>>("retention_duration_in_days");
         set => SetArgument("retention_duration_in_days", value);
     }
 
@@ -198,7 +194,7 @@ public partial class AzurermDataProtectionBackupVault(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? SoftDelete
     {
-        get => new TerraformReference<string>(this, "soft_delete");
+        get => GetArgument<TerraformValue<string>>("soft_delete");
         set => SetArgument("soft_delete", value);
     }
 
@@ -207,7 +203,7 @@ public partial class AzurermDataProtectionBackupVault(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

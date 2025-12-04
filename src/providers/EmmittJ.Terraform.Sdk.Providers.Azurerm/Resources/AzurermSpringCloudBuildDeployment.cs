@@ -16,18 +16,18 @@ public class AzurermSpringCloudBuildDeploymentQuotaBlock : TerraformBlock
     /// <summary>
     /// The cpu attribute.
     /// </summary>
-    public TerraformValue<string> Cpu
+    public TerraformValue<string>? Cpu
     {
-        get => new TerraformReference<string>(this, "cpu");
+        get => GetArgument<TerraformValue<string>>("cpu");
         set => SetArgument("cpu", value);
     }
 
     /// <summary>
     /// The memory attribute.
     /// </summary>
-    public TerraformValue<string> Memory
+    public TerraformValue<string>? Memory
     {
-        get => new TerraformReference<string>(this, "memory");
+        get => GetArgument<TerraformValue<string>>("memory");
         set => SetArgument("memory", value);
     }
 
@@ -50,7 +50,7 @@ public class AzurermSpringCloudBuildDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermSpringCloudBuildDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermSpringCloudBuildDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermSpringCloudBuildDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -93,9 +93,9 @@ public partial class AzurermSpringCloudBuildDeployment(string name) : TerraformR
     /// <summary>
     /// The addon_json attribute.
     /// </summary>
-    public TerraformValue<string> AddonJson
+    public TerraformValue<string>? AddonJson
     {
-        get => new TerraformReference<string>(this, "addon_json");
+        get => GetArgument<TerraformValue<string>>("addon_json");
         set => SetArgument("addon_json", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AzurermSpringCloudBuildDeployment(string name) : TerraformR
     /// </summary>
     public TerraformList<string>? ApplicationPerformanceMonitoringIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "application_performance_monitoring_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("application_performance_monitoring_ids");
         set => SetArgument("application_performance_monitoring_ids", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AzurermSpringCloudBuildDeployment(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BuildResultId is required")]
     public required TerraformValue<string> BuildResultId
     {
-        get => new TerraformReference<string>(this, "build_result_id");
+        get => GetArgument<TerraformValue<string>>("build_result_id");
         set => SetArgument("build_result_id", value);
     }
 
@@ -123,16 +123,16 @@ public partial class AzurermSpringCloudBuildDeployment(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? EnvironmentVariables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "environment_variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("environment_variables");
         set => SetArgument("environment_variables", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AzurermSpringCloudBuildDeployment(string name) : TerraformR
     /// </summary>
     public TerraformValue<double>? InstanceCount
     {
-        get => new TerraformReference<double>(this, "instance_count");
+        get => GetArgument<TerraformValue<double>>("instance_count");
         set => SetArgument("instance_count", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AzurermSpringCloudBuildDeployment(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -161,7 +161,7 @@ public partial class AzurermSpringCloudBuildDeployment(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
     public required TerraformValue<string> SpringCloudAppId
     {
-        get => new TerraformReference<string>(this, "spring_cloud_app_id");
+        get => GetArgument<TerraformValue<string>>("spring_cloud_app_id");
         set => SetArgument("spring_cloud_app_id", value);
     }
 

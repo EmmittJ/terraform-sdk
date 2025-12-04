@@ -18,7 +18,7 @@ public class AzurermAutomanageConfigurationAntimalwareBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? RealTimeProtectionEnabled
     {
-        get => new TerraformReference<bool>(this, "real_time_protection_enabled");
+        get => GetArgument<TerraformValue<bool>>("real_time_protection_enabled");
         set => SetArgument("real_time_protection_enabled", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermAutomanageConfigurationAntimalwareBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ScheduledScanDay
     {
-        get => new TerraformReference<double>(this, "scheduled_scan_day");
+        get => GetArgument<TerraformValue<double>>("scheduled_scan_day");
         set => SetArgument("scheduled_scan_day", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermAutomanageConfigurationAntimalwareBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ScheduledScanEnabled
     {
-        get => new TerraformReference<bool>(this, "scheduled_scan_enabled");
+        get => GetArgument<TerraformValue<bool>>("scheduled_scan_enabled");
         set => SetArgument("scheduled_scan_enabled", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermAutomanageConfigurationAntimalwareBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ScheduledScanTimeInMinutes
     {
-        get => new TerraformReference<double>(this, "scheduled_scan_time_in_minutes");
+        get => GetArgument<TerraformValue<double>>("scheduled_scan_time_in_minutes");
         set => SetArgument("scheduled_scan_time_in_minutes", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermAutomanageConfigurationAntimalwareBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ScheduledScanType
     {
-        get => new TerraformReference<string>(this, "scheduled_scan_type");
+        get => GetArgument<TerraformValue<string>>("scheduled_scan_type");
         set => SetArgument("scheduled_scan_type", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermAutomanageConfigurationAntimalwareBlockExclusionsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Extensions
     {
-        get => new TerraformReference<string>(this, "extensions");
+        get => GetArgument<TerraformValue<string>>("extensions");
         set => SetArgument("extensions", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermAutomanageConfigurationAntimalwareBlockExclusionsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Paths
     {
-        get => new TerraformReference<string>(this, "paths");
+        get => GetArgument<TerraformValue<string>>("paths");
         set => SetArgument("paths", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermAutomanageConfigurationAntimalwareBlockExclusionsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Processes
     {
-        get => new TerraformReference<string>(this, "processes");
+        get => GetArgument<TerraformValue<string>>("processes");
         set => SetArgument("processes", value);
     }
 
@@ -127,7 +127,7 @@ public class AzurermAutomanageConfigurationAzureSecurityBaselineBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? AssignmentType
     {
-        get => new TerraformReference<string>(this, "assignment_type");
+        get => GetArgument<TerraformValue<string>>("assignment_type");
         set => SetArgument("assignment_type", value);
     }
 
@@ -150,7 +150,7 @@ public class AzurermAutomanageConfigurationBackupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? InstantRpRetentionRangeInDays
     {
-        get => new TerraformReference<double>(this, "instant_rp_retention_range_in_days");
+        get => GetArgument<TerraformValue<double>>("instant_rp_retention_range_in_days");
         set => SetArgument("instant_rp_retention_range_in_days", value);
     }
 
@@ -159,7 +159,7 @@ public class AzurermAutomanageConfigurationBackupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PolicyName
     {
-        get => new TerraformReference<string>(this, "policy_name");
+        get => GetArgument<TerraformValue<string>>("policy_name");
         set => SetArgument("policy_name", value);
     }
 
@@ -168,7 +168,7 @@ public class AzurermAutomanageConfigurationBackupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -210,7 +210,7 @@ public class AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlock : Ter
     /// </summary>
     public TerraformValue<string>? RetentionPolicyType
     {
-        get => new TerraformReference<string>(this, "retention_policy_type");
+        get => GetArgument<TerraformValue<string>>("retention_policy_type");
         set => SetArgument("retention_policy_type", value);
     }
 
@@ -252,7 +252,7 @@ public class AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlockDailyS
     /// </summary>
     public TerraformList<string>? RetentionTimes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "retention_times").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("retention_times");
         set => SetArgument("retention_times", value);
     }
 
@@ -284,7 +284,7 @@ public class AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlockDailyS
     /// </summary>
     public TerraformValue<double>? CountAttribute
     {
-        get => new TerraformReference<double>(this, "count");
+        get => GetArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -293,7 +293,7 @@ public class AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlockDailyS
     /// </summary>
     public TerraformValue<string>? DurationType
     {
-        get => new TerraformReference<string>(this, "duration_type");
+        get => GetArgument<TerraformValue<string>>("duration_type");
         set => SetArgument("duration_type", value);
     }
 
@@ -315,7 +315,7 @@ public class AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlockWeekly
     /// </summary>
     public TerraformList<string>? RetentionTimes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "retention_times").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("retention_times");
         set => SetArgument("retention_times", value);
     }
 
@@ -347,7 +347,7 @@ public class AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlockWeekly
     /// </summary>
     public TerraformValue<double>? CountAttribute
     {
-        get => new TerraformReference<double>(this, "count");
+        get => GetArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -356,7 +356,7 @@ public class AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlockWeekly
     /// </summary>
     public TerraformValue<string>? DurationType
     {
-        get => new TerraformReference<string>(this, "duration_type");
+        get => GetArgument<TerraformValue<string>>("duration_type");
         set => SetArgument("duration_type", value);
     }
 
@@ -378,7 +378,7 @@ public class AzurermAutomanageConfigurationBackupBlockSchedulePolicyBlock : Terr
     /// </summary>
     public TerraformValue<string>? SchedulePolicyType
     {
-        get => new TerraformReference<string>(this, "schedule_policy_type");
+        get => GetArgument<TerraformValue<string>>("schedule_policy_type");
         set => SetArgument("schedule_policy_type", value);
     }
 
@@ -387,7 +387,7 @@ public class AzurermAutomanageConfigurationBackupBlockSchedulePolicyBlock : Terr
     /// </summary>
     public TerraformList<string>? ScheduleRunDays
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "schedule_run_days").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("schedule_run_days");
         set => SetArgument("schedule_run_days", value);
     }
 
@@ -396,7 +396,7 @@ public class AzurermAutomanageConfigurationBackupBlockSchedulePolicyBlock : Terr
     /// </summary>
     public TerraformValue<string>? ScheduleRunFrequency
     {
-        get => new TerraformReference<string>(this, "schedule_run_frequency");
+        get => GetArgument<TerraformValue<string>>("schedule_run_frequency");
         set => SetArgument("schedule_run_frequency", value);
     }
 
@@ -405,7 +405,7 @@ public class AzurermAutomanageConfigurationBackupBlockSchedulePolicyBlock : Terr
     /// </summary>
     public TerraformList<string>? ScheduleRunTimes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "schedule_run_times").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("schedule_run_times");
         set => SetArgument("schedule_run_times", value);
     }
 
@@ -428,7 +428,7 @@ public class AzurermAutomanageConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -437,7 +437,7 @@ public class AzurermAutomanageConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -446,7 +446,7 @@ public class AzurermAutomanageConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -455,7 +455,7 @@ public class AzurermAutomanageConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -473,7 +473,7 @@ public partial class AzurermAutomanageConfiguration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? AutomationAccountEnabled
     {
-        get => new TerraformReference<bool>(this, "automation_account_enabled");
+        get => GetArgument<TerraformValue<bool>>("automation_account_enabled");
         set => SetArgument("automation_account_enabled", value);
     }
 
@@ -482,7 +482,7 @@ public partial class AzurermAutomanageConfiguration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? BootDiagnosticsEnabled
     {
-        get => new TerraformReference<bool>(this, "boot_diagnostics_enabled");
+        get => GetArgument<TerraformValue<bool>>("boot_diagnostics_enabled");
         set => SetArgument("boot_diagnostics_enabled", value);
     }
 
@@ -491,7 +491,7 @@ public partial class AzurermAutomanageConfiguration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? DefenderForCloudEnabled
     {
-        get => new TerraformReference<bool>(this, "defender_for_cloud_enabled");
+        get => GetArgument<TerraformValue<bool>>("defender_for_cloud_enabled");
         set => SetArgument("defender_for_cloud_enabled", value);
     }
 
@@ -500,16 +500,16 @@ public partial class AzurermAutomanageConfiguration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? GuestConfigurationEnabled
     {
-        get => new TerraformReference<bool>(this, "guest_configuration_enabled");
+        get => GetArgument<TerraformValue<bool>>("guest_configuration_enabled");
         set => SetArgument("guest_configuration_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -519,7 +519,7 @@ public partial class AzurermAutomanageConfiguration(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -528,7 +528,7 @@ public partial class AzurermAutomanageConfiguration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? LogAnalyticsEnabled
     {
-        get => new TerraformReference<bool>(this, "log_analytics_enabled");
+        get => GetArgument<TerraformValue<bool>>("log_analytics_enabled");
         set => SetArgument("log_analytics_enabled", value);
     }
 
@@ -538,7 +538,7 @@ public partial class AzurermAutomanageConfiguration(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -548,7 +548,7 @@ public partial class AzurermAutomanageConfiguration(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -557,7 +557,7 @@ public partial class AzurermAutomanageConfiguration(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? StatusChangeAlertEnabled
     {
-        get => new TerraformReference<bool>(this, "status_change_alert_enabled");
+        get => GetArgument<TerraformValue<bool>>("status_change_alert_enabled");
         set => SetArgument("status_change_alert_enabled", value);
     }
 
@@ -566,7 +566,7 @@ public partial class AzurermAutomanageConfiguration(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

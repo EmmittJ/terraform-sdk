@@ -18,7 +18,7 @@ public class AzurermNetappVolumeQuotaRuleDataSourceTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermNetappVolumeQuotaRuleDataSource(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermNetappVolumeQuotaRuleDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermNetappVolumeQuotaRuleDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
     public required TerraformValue<string> VolumeId
     {
-        get => new TerraformReference<string>(this, "volume_id");
+        get => GetArgument<TerraformValue<string>>("volume_id");
         set => SetArgument("volume_id", value);
     }
 
@@ -64,33 +64,25 @@ public partial class AzurermNetappVolumeQuotaRuleDataSource(string name) : Terra
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The quota_size_in_kib attribute.
     /// </summary>
     public TerraformValue<double> QuotaSizeInKib
-    {
-        get => new TerraformReference<double>(this, "quota_size_in_kib");
-    }
+        => AsReference("quota_size_in_kib");
 
     /// <summary>
     /// The quota_target attribute.
     /// </summary>
     public TerraformValue<string> QuotaTarget
-    {
-        get => new TerraformReference<string>(this, "quota_target");
-    }
+        => AsReference("quota_target");
 
     /// <summary>
     /// The quota_type attribute.
     /// </summary>
     public TerraformValue<string> QuotaType
-    {
-        get => new TerraformReference<string>(this, "quota_type");
-    }
+        => AsReference("quota_type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class AwsShieldDrtAccessLogBucketAssociationTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsShieldDrtAccessLogBucketAssociationTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AwsShieldDrtAccessLogBucketAssociation(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogBucket is required")]
     public required TerraformValue<string> LogBucket
     {
-        get => new TerraformReference<string>(this, "log_bucket");
+        get => GetArgument<TerraformValue<string>>("log_bucket");
         set => SetArgument("log_bucket", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsShieldDrtAccessLogBucketAssociation(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArnAssociationId is required")]
     public required TerraformValue<string> RoleArnAssociationId
     {
-        get => new TerraformReference<string>(this, "role_arn_association_id");
+        get => GetArgument<TerraformValue<string>>("role_arn_association_id");
         set => SetArgument("role_arn_association_id", value);
     }
 
@@ -64,9 +64,7 @@ public partial class AwsShieldDrtAccessLogBucketAssociation(string name) : Terra
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

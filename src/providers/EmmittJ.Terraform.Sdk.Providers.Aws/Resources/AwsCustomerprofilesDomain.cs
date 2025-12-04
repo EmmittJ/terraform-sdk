@@ -19,7 +19,7 @@ public class AwsCustomerprofilesDomainMatchingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsCustomerprofilesDomainMatchingBlockAutoMergingBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsCustomerprofilesDomainMatchingBlockAutoMergingBlock : TerraformB
     /// </summary>
     public TerraformValue<double>? MinAllowedConfidenceScoreForMerging
     {
-        get => new TerraformReference<double>(this, "min_allowed_confidence_score_for_merging");
+        get => GetArgument<TerraformValue<double>>("min_allowed_confidence_score_for_merging");
         set => SetArgument("min_allowed_confidence_score_for_merging", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsCustomerprofilesDomainMatchingBlockAutoMergingBlockConflictResol
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConflictResolvingModel is required")]
     public required TerraformValue<string> ConflictResolvingModel
     {
-        get => new TerraformReference<string>(this, "conflict_resolving_model");
+        get => GetArgument<TerraformValue<string>>("conflict_resolving_model");
         set => SetArgument("conflict_resolving_model", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsCustomerprofilesDomainMatchingBlockAutoMergingBlockConflictResol
     /// </summary>
     public TerraformValue<string>? SourceName
     {
-        get => new TerraformReference<string>(this, "source_name");
+        get => GetArgument<TerraformValue<string>>("source_name");
         set => SetArgument("source_name", value);
     }
 
@@ -156,7 +156,7 @@ public class AwsCustomerprofilesDomainMatchingBlockAutoMergingBlockConsolidation
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchingAttributesList is required")]
     public TerraformList<TerraformList<string>>? MatchingAttributesList
     {
-        get => TerraformList<TerraformList<string>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformList<string>>>(this, "matching_attributes_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<TerraformList<string>>>("matching_attributes_list");
         set => SetArgument("matching_attributes_list", value);
     }
 
@@ -202,7 +202,7 @@ public class AwsCustomerprofilesDomainMatchingBlockExportingConfigBlockS3Exporti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformValue<string> S3BucketName
     {
-        get => new TerraformReference<string>(this, "s3_bucket_name");
+        get => GetArgument<TerraformValue<string>>("s3_bucket_name");
         set => SetArgument("s3_bucket_name", value);
     }
 
@@ -211,7 +211,7 @@ public class AwsCustomerprofilesDomainMatchingBlockExportingConfigBlockS3Exporti
     /// </summary>
     public TerraformValue<string>? S3KeyName
     {
-        get => new TerraformReference<string>(this, "s3_key_name");
+        get => GetArgument<TerraformValue<string>>("s3_key_name");
         set => SetArgument("s3_key_name", value);
     }
 
@@ -234,7 +234,7 @@ public class AwsCustomerprofilesDomainMatchingBlockJobScheduleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfTheWeek is required")]
     public required TerraformValue<string> DayOfTheWeek
     {
-        get => new TerraformReference<string>(this, "day_of_the_week");
+        get => GetArgument<TerraformValue<string>>("day_of_the_week");
         set => SetArgument("day_of_the_week", value);
     }
 
@@ -244,7 +244,7 @@ public class AwsCustomerprofilesDomainMatchingBlockJobScheduleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Time is required")]
     public required TerraformValue<string> Time
     {
-        get => new TerraformReference<string>(this, "time");
+        get => GetArgument<TerraformValue<string>>("time");
         set => SetArgument("time", value);
     }
 
@@ -268,7 +268,7 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -277,7 +277,7 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxAllowedRuleLevelForMatching
     {
-        get => new TerraformReference<double>(this, "max_allowed_rule_level_for_matching");
+        get => GetArgument<TerraformValue<double>>("max_allowed_rule_level_for_matching");
         set => SetArgument("max_allowed_rule_level_for_matching", value);
     }
 
@@ -286,16 +286,16 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxAllowedRuleLevelForMerging
     {
-        get => new TerraformReference<double>(this, "max_allowed_rule_level_for_merging");
+        get => GetArgument<TerraformValue<double>>("max_allowed_rule_level_for_merging");
         set => SetArgument("max_allowed_rule_level_for_merging", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformValue<string> Status
+    public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -356,7 +356,7 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlockAttributeTypesSelect
     /// </summary>
     public TerraformList<string>? Address
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "address").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("address");
         set => SetArgument("address", value);
     }
 
@@ -366,7 +366,7 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlockAttributeTypesSelect
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributeMatchingModel is required")]
     public required TerraformValue<string> AttributeMatchingModel
     {
-        get => new TerraformReference<string>(this, "attribute_matching_model");
+        get => GetArgument<TerraformValue<string>>("attribute_matching_model");
         set => SetArgument("attribute_matching_model", value);
     }
 
@@ -375,7 +375,7 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlockAttributeTypesSelect
     /// </summary>
     public TerraformList<string>? EmailAddress
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "email_address").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("email_address");
         set => SetArgument("email_address", value);
     }
 
@@ -384,7 +384,7 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlockAttributeTypesSelect
     /// </summary>
     public TerraformList<string>? PhoneNumber
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "phone_number").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -407,7 +407,7 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlockConflictResolutionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConflictResolvingModel is required")]
     public required TerraformValue<string> ConflictResolvingModel
     {
-        get => new TerraformReference<string>(this, "conflict_resolving_model");
+        get => GetArgument<TerraformValue<string>>("conflict_resolving_model");
         set => SetArgument("conflict_resolving_model", value);
     }
 
@@ -416,7 +416,7 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlockConflictResolutionBl
     /// </summary>
     public TerraformValue<string>? SourceName
     {
-        get => new TerraformReference<string>(this, "source_name");
+        get => GetArgument<TerraformValue<string>>("source_name");
         set => SetArgument("source_name", value);
     }
 
@@ -462,7 +462,7 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlockExportingConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformValue<string> S3BucketName
     {
-        get => new TerraformReference<string>(this, "s3_bucket_name");
+        get => GetArgument<TerraformValue<string>>("s3_bucket_name");
         set => SetArgument("s3_bucket_name", value);
     }
 
@@ -471,7 +471,7 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlockExportingConfigBlock
     /// </summary>
     public TerraformValue<string>? S3KeyName
     {
-        get => new TerraformReference<string>(this, "s3_key_name");
+        get => GetArgument<TerraformValue<string>>("s3_key_name");
         set => SetArgument("s3_key_name", value);
     }
 
@@ -494,7 +494,7 @@ public class AwsCustomerprofilesDomainRuleBasedMatchingBlockMatchingRulesBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     public TerraformList<string>? Rule
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "rule").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("rule");
         set => SetArgument("rule", value);
     }
 
@@ -512,7 +512,7 @@ public partial class AwsCustomerprofilesDomain(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? DeadLetterQueueUrl
     {
-        get => new TerraformReference<string>(this, "dead_letter_queue_url");
+        get => GetArgument<TerraformValue<string>>("dead_letter_queue_url");
         set => SetArgument("dead_letter_queue_url", value);
     }
 
@@ -521,7 +521,7 @@ public partial class AwsCustomerprofilesDomain(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? DefaultEncryptionKey
     {
-        get => new TerraformReference<string>(this, "default_encryption_key");
+        get => GetArgument<TerraformValue<string>>("default_encryption_key");
         set => SetArgument("default_encryption_key", value);
     }
 
@@ -531,7 +531,7 @@ public partial class AwsCustomerprofilesDomain(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultExpirationDays is required")]
     public required TerraformValue<double> DefaultExpirationDays
     {
-        get => new TerraformReference<double>(this, "default_expiration_days");
+        get => GetArgument<TerraformValue<double>>("default_expiration_days");
         set => SetArgument("default_expiration_days", value);
     }
 
@@ -541,25 +541,25 @@ public partial class AwsCustomerprofilesDomain(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -568,16 +568,16 @@ public partial class AwsCustomerprofilesDomain(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -585,9 +585,7 @@ public partial class AwsCustomerprofilesDomain(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Matching block (nesting mode: list).

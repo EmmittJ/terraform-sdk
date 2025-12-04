@@ -32,7 +32,7 @@ public class GoogleFirestoreBackupScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -41,7 +41,7 @@ public class GoogleFirestoreBackupScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleFirestoreBackupScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleFirestoreBackupScheduleWeeklyRecurrenceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Day
     {
-        get => new TerraformReference<string>(this, "day");
+        get => GetArgument<TerraformValue<string>>("day");
         set => SetArgument("day", value);
     }
 
@@ -91,25 +91,25 @@ public partial class GoogleFirestoreBackupSchedule(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -122,7 +122,7 @@ public partial class GoogleFirestoreBackupSchedule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Retention is required")]
     public required TerraformValue<string> Retention
     {
-        get => new TerraformReference<string>(this, "retention");
+        get => GetArgument<TerraformValue<string>>("retention");
         set => SetArgument("retention", value);
     }
 
@@ -131,9 +131,7 @@ public partial class GoogleFirestoreBackupSchedule(string name) : TerraformResou
     /// &#39;projects/{{project}}/databases/{{database}}/backupSchedules/{{backupSchedule}}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// DailyRecurrence block (nesting mode: list).

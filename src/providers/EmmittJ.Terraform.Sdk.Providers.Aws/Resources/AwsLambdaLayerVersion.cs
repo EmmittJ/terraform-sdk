@@ -13,7 +13,7 @@ public partial class AwsLambdaLayerVersion(string name) : TerraformResource("aws
     /// </summary>
     public TerraformSet<string>? CompatibleArchitectures
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "compatible_architectures").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("compatible_architectures");
         set => SetArgument("compatible_architectures", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsLambdaLayerVersion(string name) : TerraformResource("aws
     /// </summary>
     public TerraformSet<string>? CompatibleRuntimes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "compatible_runtimes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("compatible_runtimes");
         set => SetArgument("compatible_runtimes", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsLambdaLayerVersion(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -40,16 +40,16 @@ public partial class AwsLambdaLayerVersion(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? Filename
     {
-        get => new TerraformReference<string>(this, "filename");
+        get => GetArgument<TerraformValue<string>>("filename");
         set => SetArgument("filename", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsLambdaLayerVersion(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LayerName is required")]
     public required TerraformValue<string> LayerName
     {
-        get => new TerraformReference<string>(this, "layer_name");
+        get => GetArgument<TerraformValue<string>>("layer_name");
         set => SetArgument("layer_name", value);
     }
 
@@ -68,16 +68,16 @@ public partial class AwsLambdaLayerVersion(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? LicenseInfo
     {
-        get => new TerraformReference<string>(this, "license_info");
+        get => GetArgument<TerraformValue<string>>("license_info");
         set => SetArgument("license_info", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -86,7 +86,7 @@ public partial class AwsLambdaLayerVersion(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? S3Bucket
     {
-        get => new TerraformReference<string>(this, "s3_bucket");
+        get => GetArgument<TerraformValue<string>>("s3_bucket");
         set => SetArgument("s3_bucket", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsLambdaLayerVersion(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? S3Key
     {
-        get => new TerraformReference<string>(this, "s3_key");
+        get => GetArgument<TerraformValue<string>>("s3_key");
         set => SetArgument("s3_key", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AwsLambdaLayerVersion(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? S3ObjectVersion
     {
-        get => new TerraformReference<string>(this, "s3_object_version");
+        get => GetArgument<TerraformValue<string>>("s3_object_version");
         set => SetArgument("s3_object_version", value);
     }
 
@@ -113,16 +113,16 @@ public partial class AwsLambdaLayerVersion(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<bool>? SkipDestroy
     {
-        get => new TerraformReference<bool>(this, "skip_destroy");
+        get => GetArgument<TerraformValue<bool>>("skip_destroy");
         set => SetArgument("skip_destroy", value);
     }
 
     /// <summary>
     /// The source_code_hash attribute.
     /// </summary>
-    public TerraformValue<string> SourceCodeHash
+    public TerraformValue<string>? SourceCodeHash
     {
-        get => new TerraformReference<string>(this, "source_code_hash");
+        get => GetArgument<TerraformValue<string>>("source_code_hash");
         set => SetArgument("source_code_hash", value);
     }
 
@@ -130,64 +130,48 @@ public partial class AwsLambdaLayerVersion(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The code_sha256 attribute.
     /// </summary>
     public TerraformValue<string> CodeSha256
-    {
-        get => new TerraformReference<string>(this, "code_sha256");
-    }
+        => AsReference("code_sha256");
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
     public TerraformValue<string> CreatedDate
-    {
-        get => new TerraformReference<string>(this, "created_date");
-    }
+        => AsReference("created_date");
 
     /// <summary>
     /// The layer_arn attribute.
     /// </summary>
     public TerraformValue<string> LayerArn
-    {
-        get => new TerraformReference<string>(this, "layer_arn");
-    }
+        => AsReference("layer_arn");
 
     /// <summary>
     /// The signing_job_arn attribute.
     /// </summary>
     public TerraformValue<string> SigningJobArn
-    {
-        get => new TerraformReference<string>(this, "signing_job_arn");
-    }
+        => AsReference("signing_job_arn");
 
     /// <summary>
     /// The signing_profile_version_arn attribute.
     /// </summary>
     public TerraformValue<string> SigningProfileVersionArn
-    {
-        get => new TerraformReference<string>(this, "signing_profile_version_arn");
-    }
+        => AsReference("signing_profile_version_arn");
 
     /// <summary>
     /// The source_code_size attribute.
     /// </summary>
     public TerraformValue<double> SourceCodeSize
-    {
-        get => new TerraformReference<double>(this, "source_code_size");
-    }
+        => AsReference("source_code_size");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
 }

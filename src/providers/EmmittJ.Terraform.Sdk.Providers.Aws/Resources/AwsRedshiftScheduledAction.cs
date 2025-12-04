@@ -62,7 +62,7 @@ public class AwsRedshiftScheduledActionTargetActionBlockPauseClusterBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformValue<string> ClusterIdentifier
     {
-        get => new TerraformReference<string>(this, "cluster_identifier");
+        get => GetArgument<TerraformValue<string>>("cluster_identifier");
         set => SetArgument("cluster_identifier", value);
     }
 
@@ -84,7 +84,7 @@ public class AwsRedshiftScheduledActionTargetActionBlockResizeClusterBlock : Ter
     /// </summary>
     public TerraformValue<bool>? Classic
     {
-        get => new TerraformReference<bool>(this, "classic");
+        get => GetArgument<TerraformValue<bool>>("classic");
         set => SetArgument("classic", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsRedshiftScheduledActionTargetActionBlockResizeClusterBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformValue<string> ClusterIdentifier
     {
-        get => new TerraformReference<string>(this, "cluster_identifier");
+        get => GetArgument<TerraformValue<string>>("cluster_identifier");
         set => SetArgument("cluster_identifier", value);
     }
 
@@ -103,7 +103,7 @@ public class AwsRedshiftScheduledActionTargetActionBlockResizeClusterBlock : Ter
     /// </summary>
     public TerraformValue<string>? ClusterType
     {
-        get => new TerraformReference<string>(this, "cluster_type");
+        get => GetArgument<TerraformValue<string>>("cluster_type");
         set => SetArgument("cluster_type", value);
     }
 
@@ -112,7 +112,7 @@ public class AwsRedshiftScheduledActionTargetActionBlockResizeClusterBlock : Ter
     /// </summary>
     public TerraformValue<string>? NodeType
     {
-        get => new TerraformReference<string>(this, "node_type");
+        get => GetArgument<TerraformValue<string>>("node_type");
         set => SetArgument("node_type", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsRedshiftScheduledActionTargetActionBlockResizeClusterBlock : Ter
     /// </summary>
     public TerraformValue<double>? NumberOfNodes
     {
-        get => new TerraformReference<double>(this, "number_of_nodes");
+        get => GetArgument<TerraformValue<double>>("number_of_nodes");
         set => SetArgument("number_of_nodes", value);
     }
 
@@ -144,7 +144,7 @@ public class AwsRedshiftScheduledActionTargetActionBlockResumeClusterBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformValue<string> ClusterIdentifier
     {
-        get => new TerraformReference<string>(this, "cluster_identifier");
+        get => GetArgument<TerraformValue<string>>("cluster_identifier");
         set => SetArgument("cluster_identifier", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AwsRedshiftScheduledAction(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AwsRedshiftScheduledAction(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? Enable
     {
-        get => new TerraformReference<bool>(this, "enable");
+        get => GetArgument<TerraformValue<bool>>("enable");
         set => SetArgument("enable", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AwsRedshiftScheduledAction(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? EndTime
     {
-        get => new TerraformReference<string>(this, "end_time");
+        get => GetArgument<TerraformValue<string>>("end_time");
         set => SetArgument("end_time", value);
     }
 
@@ -190,16 +190,16 @@ public partial class AwsRedshiftScheduledAction(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRole is required")]
     public required TerraformValue<string> IamRole
     {
-        get => new TerraformReference<string>(this, "iam_role");
+        get => GetArgument<TerraformValue<string>>("iam_role");
         set => SetArgument("iam_role", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -209,16 +209,16 @@ public partial class AwsRedshiftScheduledAction(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -228,7 +228,7 @@ public partial class AwsRedshiftScheduledAction(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformValue<string> Schedule
     {
-        get => new TerraformReference<string>(this, "schedule");
+        get => GetArgument<TerraformValue<string>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -237,7 +237,7 @@ public partial class AwsRedshiftScheduledAction(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 

@@ -14,7 +14,7 @@ public partial class GoogleStorageObjectSignedUrlDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleStorageObjectSignedUrlDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string>? ContentMd5
     {
-        get => new TerraformReference<string>(this, "content_md5");
+        get => GetArgument<TerraformValue<string>>("content_md5");
         set => SetArgument("content_md5", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleStorageObjectSignedUrlDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string>? ContentType
     {
-        get => new TerraformReference<string>(this, "content_type");
+        get => GetArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleStorageObjectSignedUrlDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string>? Credentials
     {
-        get => new TerraformReference<string>(this, "credentials");
+        get => GetArgument<TerraformValue<string>>("credentials");
         set => SetArgument("credentials", value);
     }
 
@@ -50,7 +50,7 @@ public partial class GoogleStorageObjectSignedUrlDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string>? Duration
     {
-        get => new TerraformReference<string>(this, "duration");
+        get => GetArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -59,7 +59,7 @@ public partial class GoogleStorageObjectSignedUrlDataSource(string name) : Terra
     /// </summary>
     public TerraformMap<string>? ExtensionHeaders
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "extension_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("extension_headers");
         set => SetArgument("extension_headers", value);
     }
 
@@ -68,16 +68,16 @@ public partial class GoogleStorageObjectSignedUrlDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string>? HttpMethod
     {
-        get => new TerraformReference<string>(this, "http_method");
+        get => GetArgument<TerraformValue<string>>("http_method");
         set => SetArgument("http_method", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -87,7 +87,7 @@ public partial class GoogleStorageObjectSignedUrlDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -95,8 +95,6 @@ public partial class GoogleStorageObjectSignedUrlDataSource(string name) : Terra
     /// The signed_url attribute.
     /// </summary>
     public TerraformValue<string> SignedUrl
-    {
-        get => new TerraformReference<string>(this, "signed_url");
-    }
+        => AsReference("signed_url");
 
 }

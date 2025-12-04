@@ -96,7 +96,7 @@ public class AwsAccessanalyzerAnalyzerConfigurationBlockInternalAccessBlockAnaly
     /// </summary>
     public TerraformList<string>? AccountIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "account_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("account_ids");
         set => SetArgument("account_ids", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsAccessanalyzerAnalyzerConfigurationBlockInternalAccessBlockAnaly
     /// </summary>
     public TerraformList<string>? ResourceArns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("resource_arns");
         set => SetArgument("resource_arns", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsAccessanalyzerAnalyzerConfigurationBlockInternalAccessBlockAnaly
     /// </summary>
     public TerraformList<string>? ResourceTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("resource_types");
         set => SetArgument("resource_types", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsAccessanalyzerAnalyzerConfigurationBlockUnusedAccessBlock : Terr
     /// </summary>
     public TerraformValue<double>? UnusedAccessAge
     {
-        get => new TerraformReference<double>(this, "unused_access_age");
+        get => GetArgument<TerraformValue<double>>("unused_access_age");
         set => SetArgument("unused_access_age", value);
     }
 
@@ -190,7 +190,7 @@ public class AwsAccessanalyzerAnalyzerConfigurationBlockUnusedAccessBlockAnalysi
     /// </summary>
     public TerraformList<string>? AccountIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "account_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("account_ids");
         set => SetArgument("account_ids", value);
     }
 
@@ -199,7 +199,7 @@ public class AwsAccessanalyzerAnalyzerConfigurationBlockUnusedAccessBlockAnalysi
     /// </summary>
     public TerraformList<TerraformMap<string>>? ResourceTags
     {
-        get => TerraformList<TerraformMap<string>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<string>>>(this, "resource_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<TerraformMap<string>>>("resource_tags");
         set => SetArgument("resource_tags", value);
     }
 
@@ -218,25 +218,25 @@ public partial class AwsAccessanalyzerAnalyzer(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AnalyzerName is required")]
     public required TerraformValue<string> AnalyzerName
     {
-        get => new TerraformReference<string>(this, "analyzer_name");
+        get => GetArgument<TerraformValue<string>>("analyzer_name");
         set => SetArgument("analyzer_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -245,16 +245,16 @@ public partial class AwsAccessanalyzerAnalyzer(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -263,7 +263,7 @@ public partial class AwsAccessanalyzerAnalyzer(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -271,9 +271,7 @@ public partial class AwsAccessanalyzerAnalyzer(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Configuration block (nesting mode: list).

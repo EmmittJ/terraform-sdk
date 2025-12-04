@@ -17,9 +17,7 @@ public class AzurermLogAnalyticsSolutionPlanBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The product attribute.
@@ -27,7 +25,7 @@ public class AzurermLogAnalyticsSolutionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
     public required TerraformValue<string> Product
     {
-        get => new TerraformReference<string>(this, "product");
+        get => GetArgument<TerraformValue<string>>("product");
         set => SetArgument("product", value);
     }
 
@@ -36,7 +34,7 @@ public class AzurermLogAnalyticsSolutionPlanBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PromotionCode
     {
-        get => new TerraformReference<string>(this, "promotion_code");
+        get => GetArgument<TerraformValue<string>>("promotion_code");
         set => SetArgument("promotion_code", value);
     }
 
@@ -46,7 +44,7 @@ public class AzurermLogAnalyticsSolutionPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformValue<string> Publisher
     {
-        get => new TerraformReference<string>(this, "publisher");
+        get => GetArgument<TerraformValue<string>>("publisher");
         set => SetArgument("publisher", value);
     }
 
@@ -69,7 +67,7 @@ public class AzurermLogAnalyticsSolutionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -78,7 +76,7 @@ public class AzurermLogAnalyticsSolutionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -87,7 +85,7 @@ public class AzurermLogAnalyticsSolutionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -96,7 +94,7 @@ public class AzurermLogAnalyticsSolutionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -112,9 +110,9 @@ public partial class AzurermLogAnalyticsSolution(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -124,7 +122,7 @@ public partial class AzurermLogAnalyticsSolution(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -134,7 +132,7 @@ public partial class AzurermLogAnalyticsSolution(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -144,7 +142,7 @@ public partial class AzurermLogAnalyticsSolution(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SolutionName is required")]
     public required TerraformValue<string> SolutionName
     {
-        get => new TerraformReference<string>(this, "solution_name");
+        get => GetArgument<TerraformValue<string>>("solution_name");
         set => SetArgument("solution_name", value);
     }
 
@@ -153,7 +151,7 @@ public partial class AzurermLogAnalyticsSolution(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -163,7 +161,7 @@ public partial class AzurermLogAnalyticsSolution(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceName is required")]
     public required TerraformValue<string> WorkspaceName
     {
-        get => new TerraformReference<string>(this, "workspace_name");
+        get => GetArgument<TerraformValue<string>>("workspace_name");
         set => SetArgument("workspace_name", value);
     }
 
@@ -173,7 +171,7 @@ public partial class AzurermLogAnalyticsSolution(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceResourceId is required")]
     public required TerraformValue<string> WorkspaceResourceId
     {
-        get => new TerraformReference<string>(this, "workspace_resource_id");
+        get => GetArgument<TerraformValue<string>>("workspace_resource_id");
         set => SetArgument("workspace_resource_id", value);
     }
 

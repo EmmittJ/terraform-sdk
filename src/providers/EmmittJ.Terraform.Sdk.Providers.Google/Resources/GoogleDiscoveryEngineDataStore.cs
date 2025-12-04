@@ -18,7 +18,7 @@ public class GoogleDiscoveryEngineDataStoreAdvancedSiteSearchConfigBlock : Terra
     /// </summary>
     public TerraformValue<bool>? DisableAutomaticRefresh
     {
-        get => new TerraformReference<bool>(this, "disable_automatic_refresh");
+        get => GetArgument<TerraformValue<bool>>("disable_automatic_refresh");
         set => SetArgument("disable_automatic_refresh", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleDiscoveryEngineDataStoreAdvancedSiteSearchConfigBlock : Terra
     /// </summary>
     public TerraformValue<bool>? DisableInitialIndex
     {
-        get => new TerraformReference<bool>(this, "disable_initial_index");
+        get => GetArgument<TerraformValue<bool>>("disable_initial_index");
         set => SetArgument("disable_initial_index", value);
     }
 
@@ -50,9 +50,7 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlock : Terra
     /// &#39;projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/documentProcessingConfig&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// ChunkingConfig block (nesting mode: list).
@@ -125,7 +123,7 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlockChunking
     /// </summary>
     public TerraformValue<double>? ChunkSize
     {
-        get => new TerraformReference<double>(this, "chunk_size");
+        get => GetArgument<TerraformValue<double>>("chunk_size");
         set => SetArgument("chunk_size", value);
     }
 
@@ -135,7 +133,7 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlockChunking
     /// </summary>
     public TerraformValue<bool>? IncludeAncestorHeadings
     {
-        get => new TerraformReference<bool>(this, "include_ancestor_headings");
+        get => GetArgument<TerraformValue<bool>>("include_ancestor_headings");
         set => SetArgument("include_ancestor_headings", value);
     }
 
@@ -213,7 +211,7 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlockDefaultP
     /// </summary>
     public TerraformValue<bool>? EnableImageAnnotation
     {
-        get => new TerraformReference<bool>(this, "enable_image_annotation");
+        get => GetArgument<TerraformValue<bool>>("enable_image_annotation");
         set => SetArgument("enable_image_annotation", value);
     }
 
@@ -222,7 +220,7 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlockDefaultP
     /// </summary>
     public TerraformValue<bool>? EnableTableAnnotation
     {
-        get => new TerraformReference<bool>(this, "enable_table_annotation");
+        get => GetArgument<TerraformValue<bool>>("enable_table_annotation");
         set => SetArgument("enable_table_annotation", value);
     }
 
@@ -231,7 +229,7 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlockDefaultP
     /// </summary>
     public TerraformList<string>? ExcludeHtmlClasses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclude_html_classes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclude_html_classes");
         set => SetArgument("exclude_html_classes", value);
     }
 
@@ -240,7 +238,7 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlockDefaultP
     /// </summary>
     public TerraformList<string>? ExcludeHtmlElements
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclude_html_elements").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclude_html_elements");
         set => SetArgument("exclude_html_elements", value);
     }
 
@@ -249,7 +247,7 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlockDefaultP
     /// </summary>
     public TerraformList<string>? ExcludeHtmlIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclude_html_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclude_html_ids");
         set => SetArgument("exclude_html_ids", value);
     }
 
@@ -258,7 +256,7 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlockDefaultP
     /// </summary>
     public TerraformList<string>? StructuredContentTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "structured_content_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("structured_content_types");
         set => SetArgument("structured_content_types", value);
     }
 
@@ -280,7 +278,7 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlockDefaultP
     /// </summary>
     public TerraformValue<bool>? UseNativeText
     {
-        get => new TerraformReference<bool>(this, "use_native_text");
+        get => GetArgument<TerraformValue<bool>>("use_native_text");
         set => SetArgument("use_native_text", value);
     }
 
@@ -303,7 +301,7 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlockParsingC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileType is required")]
     public required TerraformValue<string> FileType
     {
-        get => new TerraformReference<string>(this, "file_type");
+        get => GetArgument<TerraformValue<string>>("file_type");
         set => SetArgument("file_type", value);
     }
 
@@ -368,7 +366,7 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlockParsingC
     /// </summary>
     public TerraformValue<bool>? EnableImageAnnotation
     {
-        get => new TerraformReference<bool>(this, "enable_image_annotation");
+        get => GetArgument<TerraformValue<bool>>("enable_image_annotation");
         set => SetArgument("enable_image_annotation", value);
     }
 
@@ -377,7 +375,7 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlockParsingC
     /// </summary>
     public TerraformValue<bool>? EnableTableAnnotation
     {
-        get => new TerraformReference<bool>(this, "enable_table_annotation");
+        get => GetArgument<TerraformValue<bool>>("enable_table_annotation");
         set => SetArgument("enable_table_annotation", value);
     }
 
@@ -386,7 +384,7 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlockParsingC
     /// </summary>
     public TerraformList<string>? ExcludeHtmlClasses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclude_html_classes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclude_html_classes");
         set => SetArgument("exclude_html_classes", value);
     }
 
@@ -395,7 +393,7 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlockParsingC
     /// </summary>
     public TerraformList<string>? ExcludeHtmlElements
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclude_html_elements").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclude_html_elements");
         set => SetArgument("exclude_html_elements", value);
     }
 
@@ -404,7 +402,7 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlockParsingC
     /// </summary>
     public TerraformList<string>? ExcludeHtmlIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclude_html_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclude_html_ids");
         set => SetArgument("exclude_html_ids", value);
     }
 
@@ -413,7 +411,7 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlockParsingC
     /// </summary>
     public TerraformList<string>? StructuredContentTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "structured_content_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("structured_content_types");
         set => SetArgument("structured_content_types", value);
     }
 
@@ -435,7 +433,7 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlockParsingC
     /// </summary>
     public TerraformValue<bool>? UseNativeText
     {
-        get => new TerraformReference<bool>(this, "use_native_text");
+        get => GetArgument<TerraformValue<bool>>("use_native_text");
         set => SetArgument("use_native_text", value);
     }
 
@@ -458,7 +456,7 @@ public class GoogleDiscoveryEngineDataStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -467,7 +465,7 @@ public class GoogleDiscoveryEngineDataStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -476,7 +474,7 @@ public class GoogleDiscoveryEngineDataStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -495,7 +493,7 @@ public partial class GoogleDiscoveryEngineDataStore(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentConfig is required")]
     public required TerraformValue<string> ContentConfig
     {
-        get => new TerraformReference<string>(this, "content_config");
+        get => GetArgument<TerraformValue<string>>("content_config");
         set => SetArgument("content_config", value);
     }
 
@@ -506,7 +504,7 @@ public partial class GoogleDiscoveryEngineDataStore(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? CreateAdvancedSiteSearch
     {
-        get => new TerraformReference<bool>(this, "create_advanced_site_search");
+        get => GetArgument<TerraformValue<bool>>("create_advanced_site_search");
         set => SetArgument("create_advanced_site_search", value);
     }
 
@@ -516,7 +514,7 @@ public partial class GoogleDiscoveryEngineDataStore(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreId is required")]
     public required TerraformValue<string> DataStoreId
     {
-        get => new TerraformReference<string>(this, "data_store_id");
+        get => GetArgument<TerraformValue<string>>("data_store_id");
         set => SetArgument("data_store_id", value);
     }
 
@@ -527,16 +525,16 @@ public partial class GoogleDiscoveryEngineDataStore(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -546,7 +544,7 @@ public partial class GoogleDiscoveryEngineDataStore(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndustryVertical is required")]
     public required TerraformValue<string> IndustryVertical
     {
-        get => new TerraformReference<string>(this, "industry_vertical");
+        get => GetArgument<TerraformValue<string>>("industry_vertical");
         set => SetArgument("industry_vertical", value);
     }
 
@@ -560,7 +558,7 @@ public partial class GoogleDiscoveryEngineDataStore(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -571,16 +569,16 @@ public partial class GoogleDiscoveryEngineDataStore(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -595,7 +593,7 @@ public partial class GoogleDiscoveryEngineDataStore(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? SkipDefaultSchemaCreation
     {
-        get => new TerraformReference<bool>(this, "skip_default_schema_creation");
+        get => GetArgument<TerraformValue<bool>>("skip_default_schema_creation");
         set => SetArgument("skip_default_schema_creation", value);
     }
 
@@ -604,7 +602,7 @@ public partial class GoogleDiscoveryEngineDataStore(string name) : TerraformReso
     /// </summary>
     public TerraformList<string>? SolutionTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "solution_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("solution_types");
         set => SetArgument("solution_types", value);
     }
 
@@ -612,17 +610,13 @@ public partial class GoogleDiscoveryEngineDataStore(string name) : TerraformReso
     /// Timestamp when the DataStore was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The id of the default Schema associated with this data store.
     /// </summary>
     public TerraformValue<string> DefaultSchemaId
-    {
-        get => new TerraformReference<string>(this, "default_schema_id");
-    }
+        => AsReference("default_schema_id");
 
     /// <summary>
     /// The unique full resource name of the data store. Values are of the format
@@ -631,9 +625,7 @@ public partial class GoogleDiscoveryEngineDataStore(string name) : TerraformReso
     /// characters.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// AdvancedSiteSearchConfig block (nesting mode: list).

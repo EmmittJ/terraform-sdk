@@ -19,7 +19,7 @@ public class AwsServiceDiscoveryServiceDnsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceId is required")]
     public required TerraformValue<string> NamespaceId
     {
-        get => new TerraformReference<string>(this, "namespace_id");
+        get => GetArgument<TerraformValue<string>>("namespace_id");
         set => SetArgument("namespace_id", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsServiceDiscoveryServiceDnsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RoutingPolicy
     {
-        get => new TerraformReference<string>(this, "routing_policy");
+        get => GetArgument<TerraformValue<string>>("routing_policy");
         set => SetArgument("routing_policy", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsServiceDiscoveryServiceDnsConfigBlockDnsRecordsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     public required TerraformValue<double> Ttl
     {
-        get => new TerraformReference<double>(this, "ttl");
+        get => GetArgument<TerraformValue<double>>("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsServiceDiscoveryServiceDnsConfigBlockDnsRecordsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsServiceDiscoveryServiceHealthCheckConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? FailureThreshold
     {
-        get => new TerraformReference<double>(this, "failure_threshold");
+        get => GetArgument<TerraformValue<double>>("failure_threshold");
         set => SetArgument("failure_threshold", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsServiceDiscoveryServiceHealthCheckConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ResourcePath
     {
-        get => new TerraformReference<string>(this, "resource_path");
+        get => GetArgument<TerraformValue<string>>("resource_path");
         set => SetArgument("resource_path", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsServiceDiscoveryServiceHealthCheckConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -138,7 +138,7 @@ public class AwsServiceDiscoveryServiceHealthCheckCustomConfigBlock : TerraformB
     [Obsolete("This property is deprecated.")]
     public TerraformValue<double>? FailureThreshold
     {
-        get => new TerraformReference<double>(this, "failure_threshold");
+        get => GetArgument<TerraformValue<double>>("failure_threshold");
         set => SetArgument("failure_threshold", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AwsServiceDiscoveryService(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -165,16 +165,16 @@ public partial class AwsServiceDiscoveryService(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? ForceDestroy
     {
-        get => new TerraformReference<bool>(this, "force_destroy");
+        get => GetArgument<TerraformValue<bool>>("force_destroy");
         set => SetArgument("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -184,25 +184,25 @@ public partial class AwsServiceDiscoveryService(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The namespace_id attribute.
     /// </summary>
-    public TerraformValue<string> NamespaceId
+    public TerraformValue<string>? NamespaceId
     {
-        get => new TerraformReference<string>(this, "namespace_id");
+        get => GetArgument<TerraformValue<string>>("namespace_id");
         set => SetArgument("namespace_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -211,25 +211,25 @@ public partial class AwsServiceDiscoveryService(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string> Type
+    public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -237,9 +237,7 @@ public partial class AwsServiceDiscoveryService(string name) : TerraformResource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// DnsConfig block (nesting mode: list).

@@ -19,7 +19,7 @@ public class AwsCodeartifactRepositoryExternalConnectionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalConnectionName is required")]
     public required TerraformValue<string> ExternalConnectionName
     {
-        get => new TerraformReference<string>(this, "external_connection_name");
+        get => GetArgument<TerraformValue<string>>("external_connection_name");
         set => SetArgument("external_connection_name", value);
     }
 
@@ -27,17 +27,13 @@ public class AwsCodeartifactRepositoryExternalConnectionsBlock : TerraformBlock
     /// The package_format attribute.
     /// </summary>
     public TerraformValue<string> PackageFormat
-    {
-        get => new TerraformReference<string>(this, "package_format");
-    }
+        => AsReference("package_format");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }
 
@@ -59,7 +55,7 @@ public class AwsCodeartifactRepositoryUpstreamBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformValue<string> RepositoryName
     {
-        get => new TerraformReference<string>(this, "repository_name");
+        get => GetArgument<TerraformValue<string>>("repository_name");
         set => SetArgument("repository_name", value);
     }
 
@@ -77,7 +73,7 @@ public partial class AwsCodeartifactRepository(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -87,34 +83,34 @@ public partial class AwsCodeartifactRepository(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => new TerraformReference<string>(this, "domain");
+        get => GetArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
     /// <summary>
     /// The domain_owner attribute.
     /// </summary>
-    public TerraformValue<string> DomainOwner
+    public TerraformValue<string>? DomainOwner
     {
-        get => new TerraformReference<string>(this, "domain_owner");
+        get => GetArgument<TerraformValue<string>>("domain_owner");
         set => SetArgument("domain_owner", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -124,7 +120,7 @@ public partial class AwsCodeartifactRepository(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformValue<string> Repository
     {
-        get => new TerraformReference<string>(this, "repository");
+        get => GetArgument<TerraformValue<string>>("repository");
         set => SetArgument("repository", value);
     }
 
@@ -133,16 +129,16 @@ public partial class AwsCodeartifactRepository(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -150,17 +146,13 @@ public partial class AwsCodeartifactRepository(string name) : TerraformResource(
     /// The administrator_account attribute.
     /// </summary>
     public TerraformValue<string> AdministratorAccount
-    {
-        get => new TerraformReference<string>(this, "administrator_account");
-    }
+        => AsReference("administrator_account");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// ExternalConnections block (nesting mode: list).

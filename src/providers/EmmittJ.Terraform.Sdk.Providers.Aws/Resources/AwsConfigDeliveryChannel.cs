@@ -18,7 +18,7 @@ public class AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock : Terraform
     /// </summary>
     public TerraformValue<string>? DeliveryFrequency
     {
-        get => new TerraformReference<string>(this, "delivery_frequency");
+        get => GetArgument<TerraformValue<string>>("delivery_frequency");
         set => SetArgument("delivery_frequency", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AwsConfigDeliveryChannel(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -45,16 +45,16 @@ public partial class AwsConfigDeliveryChannel(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsConfigDeliveryChannel(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformValue<string> S3BucketName
     {
-        get => new TerraformReference<string>(this, "s3_bucket_name");
+        get => GetArgument<TerraformValue<string>>("s3_bucket_name");
         set => SetArgument("s3_bucket_name", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsConfigDeliveryChannel(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? S3KeyPrefix
     {
-        get => new TerraformReference<string>(this, "s3_key_prefix");
+        get => GetArgument<TerraformValue<string>>("s3_key_prefix");
         set => SetArgument("s3_key_prefix", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsConfigDeliveryChannel(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? S3KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "s3_kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("s3_kms_key_arn");
         set => SetArgument("s3_kms_key_arn", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsConfigDeliveryChannel(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? SnsTopicArn
     {
-        get => new TerraformReference<string>(this, "sns_topic_arn");
+        get => GetArgument<TerraformValue<string>>("sns_topic_arn");
         set => SetArgument("sns_topic_arn", value);
     }
 

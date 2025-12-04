@@ -44,7 +44,7 @@ public class AzurermCdnFrontdoorSecretSecretBlockCustomerCertificateBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultCertificateId is required")]
     public required TerraformValue<string> KeyVaultCertificateId
     {
-        get => new TerraformReference<string>(this, "key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -52,9 +52,7 @@ public class AzurermCdnFrontdoorSecretSecretBlockCustomerCertificateBlock : Terr
     /// The subject_alternative_names attribute.
     /// </summary>
     public TerraformList<string> SubjectAlternativeNames
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "subject_alternative_names").ResolveNodes(ctx));
-    }
+        => AsReference("subject_alternative_names");
 
 }
 
@@ -75,7 +73,7 @@ public class AzurermCdnFrontdoorSecretTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -84,7 +82,7 @@ public class AzurermCdnFrontdoorSecretTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -93,7 +91,7 @@ public class AzurermCdnFrontdoorSecretTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -112,16 +110,16 @@ public partial class AzurermCdnFrontdoorSecret(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorProfileId is required")]
     public required TerraformValue<string> CdnFrontdoorProfileId
     {
-        get => new TerraformReference<string>(this, "cdn_frontdoor_profile_id");
+        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_profile_id");
         set => SetArgument("cdn_frontdoor_profile_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -131,7 +129,7 @@ public partial class AzurermCdnFrontdoorSecret(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -139,9 +137,7 @@ public partial class AzurermCdnFrontdoorSecret(string name) : TerraformResource(
     /// The cdn_frontdoor_profile_name attribute.
     /// </summary>
     public TerraformValue<string> CdnFrontdoorProfileName
-    {
-        get => new TerraformReference<string>(this, "cdn_frontdoor_profile_name");
-    }
+        => AsReference("cdn_frontdoor_profile_name");
 
     /// <summary>
     /// Secret block (nesting mode: list).

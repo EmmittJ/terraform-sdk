@@ -46,7 +46,7 @@ builder.AddTerraformEnvironment("demo")
         infra.Add(new TerraformOutput("config_path")
         {
             Description = "Path to the generated config file",
-            Value = configFile["filename"]
+            Value = configFile.AsReference("filename")
         });
 
         infra.Add(new TerraformOutput("environment")

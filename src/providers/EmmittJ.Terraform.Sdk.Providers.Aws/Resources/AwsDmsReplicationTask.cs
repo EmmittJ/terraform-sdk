@@ -11,9 +11,9 @@ public partial class AwsDmsReplicationTask(string name) : TerraformResource("aws
     /// <summary>
     /// The cdc_start_position attribute.
     /// </summary>
-    public TerraformValue<string> CdcStartPosition
+    public TerraformValue<string>? CdcStartPosition
     {
-        get => new TerraformReference<string>(this, "cdc_start_position");
+        get => GetArgument<TerraformValue<string>>("cdc_start_position");
         set => SetArgument("cdc_start_position", value);
     }
 
@@ -22,16 +22,16 @@ public partial class AwsDmsReplicationTask(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? CdcStartTime
     {
-        get => new TerraformReference<string>(this, "cdc_start_time");
+        get => GetArgument<TerraformValue<string>>("cdc_start_time");
         set => SetArgument("cdc_start_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -41,16 +41,16 @@ public partial class AwsDmsReplicationTask(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MigrationType is required")]
     public required TerraformValue<string> MigrationType
     {
-        get => new TerraformReference<string>(this, "migration_type");
+        get => GetArgument<TerraformValue<string>>("migration_type");
         set => SetArgument("migration_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsDmsReplicationTask(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationInstanceArn is required")]
     public required TerraformValue<string> ReplicationInstanceArn
     {
-        get => new TerraformReference<string>(this, "replication_instance_arn");
+        get => GetArgument<TerraformValue<string>>("replication_instance_arn");
         set => SetArgument("replication_instance_arn", value);
     }
 
@@ -70,16 +70,16 @@ public partial class AwsDmsReplicationTask(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationTaskId is required")]
     public required TerraformValue<string> ReplicationTaskId
     {
-        get => new TerraformReference<string>(this, "replication_task_id");
+        get => GetArgument<TerraformValue<string>>("replication_task_id");
         set => SetArgument("replication_task_id", value);
     }
 
     /// <summary>
     /// The replication_task_settings attribute.
     /// </summary>
-    public TerraformValue<string> ReplicationTaskSettings
+    public TerraformValue<string>? ReplicationTaskSettings
     {
-        get => new TerraformReference<string>(this, "replication_task_settings");
+        get => GetArgument<TerraformValue<string>>("replication_task_settings");
         set => SetArgument("replication_task_settings", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsDmsReplicationTask(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? ResourceIdentifier
     {
-        get => new TerraformReference<string>(this, "resource_identifier");
+        get => GetArgument<TerraformValue<string>>("resource_identifier");
         set => SetArgument("resource_identifier", value);
     }
 
@@ -98,7 +98,7 @@ public partial class AwsDmsReplicationTask(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceEndpointArn is required")]
     public required TerraformValue<string> SourceEndpointArn
     {
-        get => new TerraformReference<string>(this, "source_endpoint_arn");
+        get => GetArgument<TerraformValue<string>>("source_endpoint_arn");
         set => SetArgument("source_endpoint_arn", value);
     }
 
@@ -107,7 +107,7 @@ public partial class AwsDmsReplicationTask(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<bool>? StartReplicationTask
     {
-        get => new TerraformReference<bool>(this, "start_replication_task");
+        get => GetArgument<TerraformValue<bool>>("start_replication_task");
         set => SetArgument("start_replication_task", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AwsDmsReplicationTask(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableMappings is required")]
     public required TerraformValue<string> TableMappings
     {
-        get => new TerraformReference<string>(this, "table_mappings");
+        get => GetArgument<TerraformValue<string>>("table_mappings");
         set => SetArgument("table_mappings", value);
     }
 
@@ -126,16 +126,16 @@ public partial class AwsDmsReplicationTask(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AwsDmsReplicationTask(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetEndpointArn is required")]
     public required TerraformValue<string> TargetEndpointArn
     {
-        get => new TerraformReference<string>(this, "target_endpoint_arn");
+        get => GetArgument<TerraformValue<string>>("target_endpoint_arn");
         set => SetArgument("target_endpoint_arn", value);
     }
 
@@ -153,16 +153,12 @@ public partial class AwsDmsReplicationTask(string name) : TerraformResource("aws
     /// The replication_task_arn attribute.
     /// </summary>
     public TerraformValue<string> ReplicationTaskArn
-    {
-        get => new TerraformReference<string>(this, "replication_task_arn");
-    }
+        => AsReference("replication_task_arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }

@@ -19,7 +19,7 @@ public class GoogleVertexAiEndpointEncryptionSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleVertexAiEndpointPredictRequestResponseLoggingConfigBlock : Te
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleVertexAiEndpointPredictRequestResponseLoggingConfigBlock : Te
     /// </summary>
     public TerraformValue<double>? SamplingRate
     {
-        get => new TerraformReference<double>(this, "sampling_rate");
+        get => GetArgument<TerraformValue<double>>("sampling_rate");
         set => SetArgument("sampling_rate", value);
     }
 
@@ -83,7 +83,7 @@ public class GoogleVertexAiEndpointPredictRequestResponseLoggingConfigBlockBigqu
     /// </summary>
     public TerraformValue<string>? OutputUri
     {
-        get => new TerraformReference<string>(this, "output_uri");
+        get => GetArgument<TerraformValue<string>>("output_uri");
         set => SetArgument("output_uri", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleVertexAiEndpointPrivateServiceConnectConfigBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnablePrivateServiceConnect is required")]
     public required TerraformValue<bool> EnablePrivateServiceConnect
     {
-        get => new TerraformReference<bool>(this, "enable_private_service_connect");
+        get => GetArgument<TerraformValue<bool>>("enable_private_service_connect");
         set => SetArgument("enable_private_service_connect", value);
     }
 
@@ -116,7 +116,7 @@ public class GoogleVertexAiEndpointPrivateServiceConnectConfigBlock : TerraformB
     /// </summary>
     public TerraformList<string>? ProjectAllowlist
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "project_allowlist").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("project_allowlist");
         set => SetArgument("project_allowlist", value);
     }
 
@@ -146,25 +146,19 @@ public class GoogleVertexAiEndpointPrivateServiceConnectConfigBlockPscAutomation
     /// Error message if the PSC service automation failed.
     /// </summary>
     public TerraformValue<string> ErrorMessage
-    {
-        get => new TerraformReference<string>(this, "error_message");
-    }
+        => AsReference("error_message");
 
     /// <summary>
     /// Forwarding rule created by the PSC service automation.
     /// </summary>
     public TerraformValue<string> ForwardingRule
-    {
-        get => new TerraformReference<string>(this, "forwarding_rule");
-    }
+        => AsReference("forwarding_rule");
 
     /// <summary>
     /// IP address rule created by the PSC service automation.
     /// </summary>
     public TerraformValue<string> IpAddress
-    {
-        get => new TerraformReference<string>(this, "ip_address");
-    }
+        => AsReference("ip_address");
 
     /// <summary>
     /// The full name of the Google Compute Engine [network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks). [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/get): projects/{project}/global/networks/{network}.
@@ -172,7 +166,7 @@ public class GoogleVertexAiEndpointPrivateServiceConnectConfigBlockPscAutomation
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -182,7 +176,7 @@ public class GoogleVertexAiEndpointPrivateServiceConnectConfigBlockPscAutomation
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -190,9 +184,7 @@ public class GoogleVertexAiEndpointPrivateServiceConnectConfigBlockPscAutomation
     /// The state of the PSC service automation.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
 }
 
@@ -213,7 +205,7 @@ public class GoogleVertexAiEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -222,7 +214,7 @@ public class GoogleVertexAiEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -231,7 +223,7 @@ public class GoogleVertexAiEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -249,7 +241,7 @@ public partial class GoogleVertexAiEndpoint(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool>? DedicatedEndpointEnabled
     {
-        get => new TerraformReference<bool>(this, "dedicated_endpoint_enabled");
+        get => GetArgument<TerraformValue<bool>>("dedicated_endpoint_enabled");
         set => SetArgument("dedicated_endpoint_enabled", value);
     }
 
@@ -258,7 +250,7 @@ public partial class GoogleVertexAiEndpoint(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -268,16 +260,16 @@ public partial class GoogleVertexAiEndpoint(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -289,7 +281,7 @@ public partial class GoogleVertexAiEndpoint(string name) : TerraformResource("go
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -299,7 +291,7 @@ public partial class GoogleVertexAiEndpoint(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -309,7 +301,7 @@ public partial class GoogleVertexAiEndpoint(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -318,16 +310,16 @@ public partial class GoogleVertexAiEndpoint(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -336,7 +328,7 @@ public partial class GoogleVertexAiEndpoint(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -349,9 +341,9 @@ public partial class GoogleVertexAiEndpoint(string name) : TerraformResource("go
     /// 
     /// ~&amp;gt; **Note:** To set the map to empty, set &#39;&amp;quot;{}&amp;quot;&#39;, apply, and then remove the field from your config.
     /// </summary>
-    public TerraformValue<string> TrafficSplit
+    public TerraformValue<string>? TrafficSplit
     {
-        get => new TerraformReference<string>(this, "traffic_split");
+        get => GetArgument<TerraformValue<string>>("traffic_split");
         set => SetArgument("traffic_split", value);
     }
 
@@ -359,66 +351,50 @@ public partial class GoogleVertexAiEndpoint(string name) : TerraformResource("go
     /// Output only. Timestamp when this Endpoint was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Output only. DNS of the dedicated endpoint. Will only be populated if dedicatedEndpointEnabled is true. Format: &#39;https://{endpointId}.{region}-{projectNumber}.prediction.vertexai.goog&#39;.
     /// </summary>
     public TerraformValue<string> DedicatedEndpointDns
-    {
-        get => new TerraformReference<string>(this, "dedicated_endpoint_dns");
-    }
+        => AsReference("dedicated_endpoint_dns");
 
     /// <summary>
     /// Output only. The models deployed in this Endpoint. To add or remove DeployedModels use EndpointService.DeployModel and EndpointService.UndeployModel respectively. Models can also be deployed and undeployed using the [Cloud Console](https://console.cloud.google.com/vertex-ai/).
     /// </summary>
     public TerraformList<TerraformMap<object>> DeployedModels
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "deployed_models").ResolveNodes(ctx));
-    }
+        => AsReference("deployed_models");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Used to perform consistent read-modify-write updates. If not set, a blind &amp;quot;overwrite&amp;quot; update happens.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Output only. Resource name of the Model Monitoring job associated with this Endpoint if monitoring is enabled by CreateModelDeploymentMonitoringJob. Format: &#39;projects/{project}/locations/{location}/modelDeploymentMonitoringJobs/{model_deployment_monitoring_job}&#39;
     /// </summary>
     public TerraformValue<string> ModelDeploymentMonitoringJob
-    {
-        get => new TerraformReference<string>(this, "model_deployment_monitoring_job");
-    }
+        => AsReference("model_deployment_monitoring_job");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Output only. Timestamp when this Endpoint was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// EncryptionSpec block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AwsDbInstanceBlueGreenUpdateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsDbInstanceRestoreToPointInTimeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RestoreTime
     {
-        get => new TerraformReference<string>(this, "restore_time");
+        get => GetArgument<TerraformValue<string>>("restore_time");
         set => SetArgument("restore_time", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsDbInstanceRestoreToPointInTimeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SourceDbInstanceAutomatedBackupsArn
     {
-        get => new TerraformReference<string>(this, "source_db_instance_automated_backups_arn");
+        get => GetArgument<TerraformValue<string>>("source_db_instance_automated_backups_arn");
         set => SetArgument("source_db_instance_automated_backups_arn", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsDbInstanceRestoreToPointInTimeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SourceDbInstanceIdentifier
     {
-        get => new TerraformReference<string>(this, "source_db_instance_identifier");
+        get => GetArgument<TerraformValue<string>>("source_db_instance_identifier");
         set => SetArgument("source_db_instance_identifier", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsDbInstanceRestoreToPointInTimeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SourceDbiResourceId
     {
-        get => new TerraformReference<string>(this, "source_dbi_resource_id");
+        get => GetArgument<TerraformValue<string>>("source_dbi_resource_id");
         set => SetArgument("source_dbi_resource_id", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsDbInstanceRestoreToPointInTimeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? UseLatestRestorableTime
     {
-        get => new TerraformReference<bool>(this, "use_latest_restorable_time");
+        get => GetArgument<TerraformValue<bool>>("use_latest_restorable_time");
         set => SetArgument("use_latest_restorable_time", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsDbInstanceS3ImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -110,7 +110,7 @@ public class AwsDbInstanceS3ImportBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BucketPrefix
     {
-        get => new TerraformReference<string>(this, "bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -120,7 +120,7 @@ public class AwsDbInstanceS3ImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngestionRole is required")]
     public required TerraformValue<string> IngestionRole
     {
-        get => new TerraformReference<string>(this, "ingestion_role");
+        get => GetArgument<TerraformValue<string>>("ingestion_role");
         set => SetArgument("ingestion_role", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsDbInstanceS3ImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceEngine is required")]
     public required TerraformValue<string> SourceEngine
     {
-        get => new TerraformReference<string>(this, "source_engine");
+        get => GetArgument<TerraformValue<string>>("source_engine");
         set => SetArgument("source_engine", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsDbInstanceS3ImportBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceEngineVersion is required")]
     public required TerraformValue<string> SourceEngineVersion
     {
-        get => new TerraformReference<string>(this, "source_engine_version");
+        get => GetArgument<TerraformValue<string>>("source_engine_version");
         set => SetArgument("source_engine_version", value);
     }
 
@@ -163,7 +163,7 @@ public class AwsDbInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -172,7 +172,7 @@ public class AwsDbInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -181,7 +181,7 @@ public class AwsDbInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -197,9 +197,9 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// <summary>
     /// The allocated_storage attribute.
     /// </summary>
-    public TerraformValue<double> AllocatedStorage
+    public TerraformValue<double>? AllocatedStorage
     {
-        get => new TerraformReference<double>(this, "allocated_storage");
+        get => GetArgument<TerraformValue<double>>("allocated_storage");
         set => SetArgument("allocated_storage", value);
     }
 
@@ -208,7 +208,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<bool>? AllowMajorVersionUpgrade
     {
-        get => new TerraformReference<bool>(this, "allow_major_version_upgrade");
+        get => GetArgument<TerraformValue<bool>>("allow_major_version_upgrade");
         set => SetArgument("allow_major_version_upgrade", value);
     }
 
@@ -217,7 +217,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<bool>? ApplyImmediately
     {
-        get => new TerraformReference<bool>(this, "apply_immediately");
+        get => GetArgument<TerraformValue<bool>>("apply_immediately");
         set => SetArgument("apply_immediately", value);
     }
 
@@ -226,61 +226,61 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<bool>? AutoMinorVersionUpgrade
     {
-        get => new TerraformReference<bool>(this, "auto_minor_version_upgrade");
+        get => GetArgument<TerraformValue<bool>>("auto_minor_version_upgrade");
         set => SetArgument("auto_minor_version_upgrade", value);
     }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformValue<string> AvailabilityZone
+    public TerraformValue<string>? AvailabilityZone
     {
-        get => new TerraformReference<string>(this, "availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
     /// <summary>
     /// The backup_retention_period attribute.
     /// </summary>
-    public TerraformValue<double> BackupRetentionPeriod
+    public TerraformValue<double>? BackupRetentionPeriod
     {
-        get => new TerraformReference<double>(this, "backup_retention_period");
+        get => GetArgument<TerraformValue<double>>("backup_retention_period");
         set => SetArgument("backup_retention_period", value);
     }
 
     /// <summary>
     /// The backup_target attribute.
     /// </summary>
-    public TerraformValue<string> BackupTarget
+    public TerraformValue<string>? BackupTarget
     {
-        get => new TerraformReference<string>(this, "backup_target");
+        get => GetArgument<TerraformValue<string>>("backup_target");
         set => SetArgument("backup_target", value);
     }
 
     /// <summary>
     /// The backup_window attribute.
     /// </summary>
-    public TerraformValue<string> BackupWindow
+    public TerraformValue<string>? BackupWindow
     {
-        get => new TerraformReference<string>(this, "backup_window");
+        get => GetArgument<TerraformValue<string>>("backup_window");
         set => SetArgument("backup_window", value);
     }
 
     /// <summary>
     /// The ca_cert_identifier attribute.
     /// </summary>
-    public TerraformValue<string> CaCertIdentifier
+    public TerraformValue<string>? CaCertIdentifier
     {
-        get => new TerraformReference<string>(this, "ca_cert_identifier");
+        get => GetArgument<TerraformValue<string>>("ca_cert_identifier");
         set => SetArgument("ca_cert_identifier", value);
     }
 
     /// <summary>
     /// The character_set_name attribute.
     /// </summary>
-    public TerraformValue<string> CharacterSetName
+    public TerraformValue<string>? CharacterSetName
     {
-        get => new TerraformReference<string>(this, "character_set_name");
+        get => GetArgument<TerraformValue<string>>("character_set_name");
         set => SetArgument("character_set_name", value);
     }
 
@@ -289,7 +289,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<bool>? CopyTagsToSnapshot
     {
-        get => new TerraformReference<bool>(this, "copy_tags_to_snapshot");
+        get => GetArgument<TerraformValue<bool>>("copy_tags_to_snapshot");
         set => SetArgument("copy_tags_to_snapshot", value);
     }
 
@@ -298,7 +298,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string>? CustomIamInstanceProfile
     {
-        get => new TerraformReference<string>(this, "custom_iam_instance_profile");
+        get => GetArgument<TerraformValue<string>>("custom_iam_instance_profile");
         set => SetArgument("custom_iam_instance_profile", value);
     }
 
@@ -307,34 +307,34 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<bool>? CustomerOwnedIpEnabled
     {
-        get => new TerraformReference<bool>(this, "customer_owned_ip_enabled");
+        get => GetArgument<TerraformValue<bool>>("customer_owned_ip_enabled");
         set => SetArgument("customer_owned_ip_enabled", value);
     }
 
     /// <summary>
     /// The database_insights_mode attribute.
     /// </summary>
-    public TerraformValue<string> DatabaseInsightsMode
+    public TerraformValue<string>? DatabaseInsightsMode
     {
-        get => new TerraformReference<string>(this, "database_insights_mode");
+        get => GetArgument<TerraformValue<string>>("database_insights_mode");
         set => SetArgument("database_insights_mode", value);
     }
 
     /// <summary>
     /// The db_name attribute.
     /// </summary>
-    public TerraformValue<string> DbName
+    public TerraformValue<string>? DbName
     {
-        get => new TerraformReference<string>(this, "db_name");
+        get => GetArgument<TerraformValue<string>>("db_name");
         set => SetArgument("db_name", value);
     }
 
     /// <summary>
     /// The db_subnet_group_name attribute.
     /// </summary>
-    public TerraformValue<string> DbSubnetGroupName
+    public TerraformValue<string>? DbSubnetGroupName
     {
-        get => new TerraformReference<string>(this, "db_subnet_group_name");
+        get => GetArgument<TerraformValue<string>>("db_subnet_group_name");
         set => SetArgument("db_subnet_group_name", value);
     }
 
@@ -343,7 +343,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<bool>? DedicatedLogVolume
     {
-        get => new TerraformReference<bool>(this, "dedicated_log_volume");
+        get => GetArgument<TerraformValue<bool>>("dedicated_log_volume");
         set => SetArgument("dedicated_log_volume", value);
     }
 
@@ -352,7 +352,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<bool>? DeleteAutomatedBackups
     {
-        get => new TerraformReference<bool>(this, "delete_automated_backups");
+        get => GetArgument<TerraformValue<bool>>("delete_automated_backups");
         set => SetArgument("delete_automated_backups", value);
     }
 
@@ -361,7 +361,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
@@ -370,7 +370,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string>? Domain
     {
-        get => new TerraformReference<string>(this, "domain");
+        get => GetArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
@@ -379,7 +379,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string>? DomainAuthSecretArn
     {
-        get => new TerraformReference<string>(this, "domain_auth_secret_arn");
+        get => GetArgument<TerraformValue<string>>("domain_auth_secret_arn");
         set => SetArgument("domain_auth_secret_arn", value);
     }
 
@@ -388,16 +388,16 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformList<string>? DomainDnsIps
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "domain_dns_ips").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("domain_dns_ips");
         set => SetArgument("domain_dns_ips", value);
     }
 
     /// <summary>
     /// The domain_fqdn attribute.
     /// </summary>
-    public TerraformValue<string> DomainFqdn
+    public TerraformValue<string>? DomainFqdn
     {
-        get => new TerraformReference<string>(this, "domain_fqdn");
+        get => GetArgument<TerraformValue<string>>("domain_fqdn");
         set => SetArgument("domain_fqdn", value);
     }
 
@@ -406,7 +406,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string>? DomainIamRoleName
     {
-        get => new TerraformReference<string>(this, "domain_iam_role_name");
+        get => GetArgument<TerraformValue<string>>("domain_iam_role_name");
         set => SetArgument("domain_iam_role_name", value);
     }
 
@@ -415,7 +415,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string>? DomainOu
     {
-        get => new TerraformReference<string>(this, "domain_ou");
+        get => GetArgument<TerraformValue<string>>("domain_ou");
         set => SetArgument("domain_ou", value);
     }
 
@@ -424,34 +424,34 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformSet<string>? EnabledCloudwatchLogsExports
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "enabled_cloudwatch_logs_exports").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("enabled_cloudwatch_logs_exports");
         set => SetArgument("enabled_cloudwatch_logs_exports", value);
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformValue<string> Engine
+    public TerraformValue<string>? Engine
     {
-        get => new TerraformReference<string>(this, "engine");
+        get => GetArgument<TerraformValue<string>>("engine");
         set => SetArgument("engine", value);
     }
 
     /// <summary>
     /// The engine_lifecycle_support attribute.
     /// </summary>
-    public TerraformValue<string> EngineLifecycleSupport
+    public TerraformValue<string>? EngineLifecycleSupport
     {
-        get => new TerraformReference<string>(this, "engine_lifecycle_support");
+        get => GetArgument<TerraformValue<string>>("engine_lifecycle_support");
         set => SetArgument("engine_lifecycle_support", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformValue<string> EngineVersion
+    public TerraformValue<string>? EngineVersion
     {
-        get => new TerraformReference<string>(this, "engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -460,7 +460,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string>? FinalSnapshotIdentifier
     {
-        get => new TerraformReference<string>(this, "final_snapshot_identifier");
+        get => GetArgument<TerraformValue<string>>("final_snapshot_identifier");
         set => SetArgument("final_snapshot_identifier", value);
     }
 
@@ -469,34 +469,34 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<bool>? IamDatabaseAuthenticationEnabled
     {
-        get => new TerraformReference<bool>(this, "iam_database_authentication_enabled");
+        get => GetArgument<TerraformValue<bool>>("iam_database_authentication_enabled");
         set => SetArgument("iam_database_authentication_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The identifier attribute.
     /// </summary>
-    public TerraformValue<string> Identifier
+    public TerraformValue<string>? Identifier
     {
-        get => new TerraformReference<string>(this, "identifier");
+        get => GetArgument<TerraformValue<string>>("identifier");
         set => SetArgument("identifier", value);
     }
 
     /// <summary>
     /// The identifier_prefix attribute.
     /// </summary>
-    public TerraformValue<string> IdentifierPrefix
+    public TerraformValue<string>? IdentifierPrefix
     {
-        get => new TerraformReference<string>(this, "identifier_prefix");
+        get => GetArgument<TerraformValue<string>>("identifier_prefix");
         set => SetArgument("identifier_prefix", value);
     }
 
@@ -506,43 +506,43 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceClass is required")]
     public required TerraformValue<string> InstanceClass
     {
-        get => new TerraformReference<string>(this, "instance_class");
+        get => GetArgument<TerraformValue<string>>("instance_class");
         set => SetArgument("instance_class", value);
     }
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    public TerraformValue<double> Iops
+    public TerraformValue<double>? Iops
     {
-        get => new TerraformReference<double>(this, "iops");
+        get => GetArgument<TerraformValue<double>>("iops");
         set => SetArgument("iops", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string> KmsKeyId
+    public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
     /// <summary>
     /// The license_model attribute.
     /// </summary>
-    public TerraformValue<string> LicenseModel
+    public TerraformValue<string>? LicenseModel
     {
-        get => new TerraformReference<string>(this, "license_model");
+        get => GetArgument<TerraformValue<string>>("license_model");
         set => SetArgument("license_model", value);
     }
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
-    public TerraformValue<string> MaintenanceWindow
+    public TerraformValue<string>? MaintenanceWindow
     {
-        get => new TerraformReference<string>(this, "maintenance_window");
+        get => GetArgument<TerraformValue<string>>("maintenance_window");
         set => SetArgument("maintenance_window", value);
     }
 
@@ -551,16 +551,16 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<bool>? ManageMasterUserPassword
     {
-        get => new TerraformReference<bool>(this, "manage_master_user_password");
+        get => GetArgument<TerraformValue<bool>>("manage_master_user_password");
         set => SetArgument("manage_master_user_password", value);
     }
 
     /// <summary>
     /// The master_user_secret_kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string> MasterUserSecretKmsKeyId
+    public TerraformValue<string>? MasterUserSecretKmsKeyId
     {
-        get => new TerraformReference<string>(this, "master_user_secret_kms_key_id");
+        get => GetArgument<TerraformValue<string>>("master_user_secret_kms_key_id");
         set => SetArgument("master_user_secret_kms_key_id", value);
     }
 
@@ -569,7 +569,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<double>? MaxAllocatedStorage
     {
-        get => new TerraformReference<double>(this, "max_allocated_storage");
+        get => GetArgument<TerraformValue<double>>("max_allocated_storage");
         set => SetArgument("max_allocated_storage", value);
     }
 
@@ -578,61 +578,61 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<double>? MonitoringInterval
     {
-        get => new TerraformReference<double>(this, "monitoring_interval");
+        get => GetArgument<TerraformValue<double>>("monitoring_interval");
         set => SetArgument("monitoring_interval", value);
     }
 
     /// <summary>
     /// The monitoring_role_arn attribute.
     /// </summary>
-    public TerraformValue<string> MonitoringRoleArn
+    public TerraformValue<string>? MonitoringRoleArn
     {
-        get => new TerraformReference<string>(this, "monitoring_role_arn");
+        get => GetArgument<TerraformValue<string>>("monitoring_role_arn");
         set => SetArgument("monitoring_role_arn", value);
     }
 
     /// <summary>
     /// The multi_az attribute.
     /// </summary>
-    public TerraformValue<bool> MultiAz
+    public TerraformValue<bool>? MultiAz
     {
-        get => new TerraformReference<bool>(this, "multi_az");
+        get => GetArgument<TerraformValue<bool>>("multi_az");
         set => SetArgument("multi_az", value);
     }
 
     /// <summary>
     /// The nchar_character_set_name attribute.
     /// </summary>
-    public TerraformValue<string> NcharCharacterSetName
+    public TerraformValue<string>? NcharCharacterSetName
     {
-        get => new TerraformReference<string>(this, "nchar_character_set_name");
+        get => GetArgument<TerraformValue<string>>("nchar_character_set_name");
         set => SetArgument("nchar_character_set_name", value);
     }
 
     /// <summary>
     /// The network_type attribute.
     /// </summary>
-    public TerraformValue<string> NetworkType
+    public TerraformValue<string>? NetworkType
     {
-        get => new TerraformReference<string>(this, "network_type");
+        get => GetArgument<TerraformValue<string>>("network_type");
         set => SetArgument("network_type", value);
     }
 
     /// <summary>
     /// The option_group_name attribute.
     /// </summary>
-    public TerraformValue<string> OptionGroupName
+    public TerraformValue<string>? OptionGroupName
     {
-        get => new TerraformReference<string>(this, "option_group_name");
+        get => GetArgument<TerraformValue<string>>("option_group_name");
         set => SetArgument("option_group_name", value);
     }
 
     /// <summary>
     /// The parameter_group_name attribute.
     /// </summary>
-    public TerraformValue<string> ParameterGroupName
+    public TerraformValue<string>? ParameterGroupName
     {
-        get => new TerraformReference<string>(this, "parameter_group_name");
+        get => GetArgument<TerraformValue<string>>("parameter_group_name");
         set => SetArgument("parameter_group_name", value);
     }
 
@@ -641,7 +641,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -650,7 +650,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string>? PasswordWo
     {
-        get => new TerraformReference<string>(this, "password_wo");
+        get => GetArgument<TerraformValue<string>>("password_wo");
         set => SetArgument("password_wo", value);
     }
 
@@ -659,7 +659,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<double>? PasswordWoVersion
     {
-        get => new TerraformReference<double>(this, "password_wo_version");
+        get => GetArgument<TerraformValue<double>>("password_wo_version");
         set => SetArgument("password_wo_version", value);
     }
 
@@ -668,34 +668,34 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<bool>? PerformanceInsightsEnabled
     {
-        get => new TerraformReference<bool>(this, "performance_insights_enabled");
+        get => GetArgument<TerraformValue<bool>>("performance_insights_enabled");
         set => SetArgument("performance_insights_enabled", value);
     }
 
     /// <summary>
     /// The performance_insights_kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string> PerformanceInsightsKmsKeyId
+    public TerraformValue<string>? PerformanceInsightsKmsKeyId
     {
-        get => new TerraformReference<string>(this, "performance_insights_kms_key_id");
+        get => GetArgument<TerraformValue<string>>("performance_insights_kms_key_id");
         set => SetArgument("performance_insights_kms_key_id", value);
     }
 
     /// <summary>
     /// The performance_insights_retention_period attribute.
     /// </summary>
-    public TerraformValue<double> PerformanceInsightsRetentionPeriod
+    public TerraformValue<double>? PerformanceInsightsRetentionPeriod
     {
-        get => new TerraformReference<double>(this, "performance_insights_retention_period");
+        get => GetArgument<TerraformValue<double>>("performance_insights_retention_period");
         set => SetArgument("performance_insights_retention_period", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformValue<double> Port
+    public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -704,25 +704,25 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<bool>? PubliclyAccessible
     {
-        get => new TerraformReference<bool>(this, "publicly_accessible");
+        get => GetArgument<TerraformValue<bool>>("publicly_accessible");
         set => SetArgument("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The replica_mode attribute.
     /// </summary>
-    public TerraformValue<string> ReplicaMode
+    public TerraformValue<string>? ReplicaMode
     {
-        get => new TerraformReference<string>(this, "replica_mode");
+        get => GetArgument<TerraformValue<string>>("replica_mode");
         set => SetArgument("replica_mode", value);
     }
 
@@ -731,7 +731,7 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<string>? ReplicateSourceDb
     {
-        get => new TerraformReference<string>(this, "replicate_source_db");
+        get => GetArgument<TerraformValue<string>>("replicate_source_db");
         set => SetArgument("replicate_source_db", value);
     }
 
@@ -740,16 +740,16 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<bool>? SkipFinalSnapshot
     {
-        get => new TerraformReference<bool>(this, "skip_final_snapshot");
+        get => GetArgument<TerraformValue<bool>>("skip_final_snapshot");
         set => SetArgument("skip_final_snapshot", value);
     }
 
     /// <summary>
     /// The snapshot_identifier attribute.
     /// </summary>
-    public TerraformValue<string> SnapshotIdentifier
+    public TerraformValue<string>? SnapshotIdentifier
     {
-        get => new TerraformReference<string>(this, "snapshot_identifier");
+        get => GetArgument<TerraformValue<string>>("snapshot_identifier");
         set => SetArgument("snapshot_identifier", value);
     }
 
@@ -758,25 +758,25 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<bool>? StorageEncrypted
     {
-        get => new TerraformReference<bool>(this, "storage_encrypted");
+        get => GetArgument<TerraformValue<bool>>("storage_encrypted");
         set => SetArgument("storage_encrypted", value);
     }
 
     /// <summary>
     /// The storage_throughput attribute.
     /// </summary>
-    public TerraformValue<double> StorageThroughput
+    public TerraformValue<double>? StorageThroughput
     {
-        get => new TerraformReference<double>(this, "storage_throughput");
+        get => GetArgument<TerraformValue<double>>("storage_throughput");
         set => SetArgument("storage_throughput", value);
     }
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    public TerraformValue<string> StorageType
+    public TerraformValue<string>? StorageType
     {
-        get => new TerraformReference<string>(this, "storage_type");
+        get => GetArgument<TerraformValue<string>>("storage_type");
         set => SetArgument("storage_type", value);
     }
 
@@ -785,25 +785,25 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The timezone attribute.
     /// </summary>
-    public TerraformValue<string> Timezone
+    public TerraformValue<string>? Timezone
     {
-        get => new TerraformReference<string>(this, "timezone");
+        get => GetArgument<TerraformValue<string>>("timezone");
         set => SetArgument("timezone", value);
     }
 
@@ -812,25 +812,25 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// </summary>
     public TerraformValue<bool>? UpgradeStorageConfig
     {
-        get => new TerraformReference<bool>(this, "upgrade_storage_config");
+        get => GetArgument<TerraformValue<bool>>("upgrade_storage_config");
         set => SetArgument("upgrade_storage_config", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformValue<string> Username
+    public TerraformValue<string>? Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string> VpcSecurityGroupIds
+    public TerraformSet<string>? VpcSecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "vpc_security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 
@@ -838,89 +838,67 @@ public partial class AwsDbInstance(string name) : TerraformResource("aws_db_inst
     /// The address attribute.
     /// </summary>
     public TerraformValue<string> Address
-    {
-        get => new TerraformReference<string>(this, "address");
-    }
+        => AsReference("address");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// The engine_version_actual attribute.
     /// </summary>
     public TerraformValue<string> EngineVersionActual
-    {
-        get => new TerraformReference<string>(this, "engine_version_actual");
-    }
+        => AsReference("engine_version_actual");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
     public TerraformValue<string> HostedZoneId
-    {
-        get => new TerraformReference<string>(this, "hosted_zone_id");
-    }
+        => AsReference("hosted_zone_id");
 
     /// <summary>
     /// The latest_restorable_time attribute.
     /// </summary>
     public TerraformValue<string> LatestRestorableTime
-    {
-        get => new TerraformReference<string>(this, "latest_restorable_time");
-    }
+        => AsReference("latest_restorable_time");
 
     /// <summary>
     /// The listener_endpoint attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ListenerEndpoint
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "listener_endpoint").ResolveNodes(ctx));
-    }
+        => AsReference("listener_endpoint");
 
     /// <summary>
     /// The master_user_secret attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MasterUserSecret
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "master_user_secret").ResolveNodes(ctx));
-    }
+        => AsReference("master_user_secret");
 
     /// <summary>
     /// The replicas attribute.
     /// </summary>
     public TerraformList<string> Replicas
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "replicas").ResolveNodes(ctx));
-    }
+        => AsReference("replicas");
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceId
-    {
-        get => new TerraformReference<string>(this, "resource_id");
-    }
+        => AsReference("resource_id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// BlueGreenUpdate block (nesting mode: list).

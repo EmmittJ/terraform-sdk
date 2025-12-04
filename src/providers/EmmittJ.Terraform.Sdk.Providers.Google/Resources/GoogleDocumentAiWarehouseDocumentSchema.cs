@@ -18,7 +18,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock : T
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock : T
     /// </summary>
     public TerraformValue<bool>? IsFilterable
     {
-        get => new TerraformReference<bool>(this, "is_filterable");
+        get => GetArgument<TerraformValue<bool>>("is_filterable");
         set => SetArgument("is_filterable", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock : T
     /// </summary>
     public TerraformValue<bool>? IsMetadata
     {
-        get => new TerraformReference<bool>(this, "is_metadata");
+        get => GetArgument<TerraformValue<bool>>("is_metadata");
         set => SetArgument("is_metadata", value);
     }
 
@@ -45,7 +45,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock : T
     /// </summary>
     public TerraformValue<bool>? IsRepeatable
     {
-        get => new TerraformReference<bool>(this, "is_repeatable");
+        get => GetArgument<TerraformValue<bool>>("is_repeatable");
         set => SetArgument("is_repeatable", value);
     }
 
@@ -54,7 +54,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock : T
     /// </summary>
     public TerraformValue<bool>? IsRequired
     {
-        get => new TerraformReference<bool>(this, "is_required");
+        get => GetArgument<TerraformValue<bool>>("is_required");
         set => SetArgument("is_required", value);
     }
 
@@ -63,7 +63,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock : T
     /// </summary>
     public TerraformValue<bool>? IsSearchable
     {
-        get => new TerraformReference<bool>(this, "is_searchable");
+        get => GetArgument<TerraformValue<bool>>("is_searchable");
         set => SetArgument("is_searchable", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -82,7 +82,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlock : T
     /// </summary>
     public TerraformValue<string>? RetrievalImportance
     {
-        get => new TerraformReference<string>(this, "retrieval_importance");
+        get => GetArgument<TerraformValue<string>>("retrieval_importance");
         set => SetArgument("retrieval_importance", value);
     }
 
@@ -207,7 +207,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlockEnum
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PossibleValues is required")]
     public TerraformList<string>? PossibleValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "possible_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("possible_values");
         set => SetArgument("possible_values", value);
     }
 
@@ -216,7 +216,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlockEnum
     /// </summary>
     public TerraformValue<bool>? ValidationCheckDisabled
     {
-        get => new TerraformReference<bool>(this, "validation_check_disabled");
+        get => GetArgument<TerraformValue<bool>>("validation_check_disabled");
         set => SetArgument("validation_check_disabled", value);
     }
 
@@ -302,7 +302,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlockProp
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -311,7 +311,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlockProp
     /// </summary>
     public TerraformValue<bool>? IsFilterable
     {
-        get => new TerraformReference<bool>(this, "is_filterable");
+        get => GetArgument<TerraformValue<bool>>("is_filterable");
         set => SetArgument("is_filterable", value);
     }
 
@@ -320,7 +320,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlockProp
     /// </summary>
     public TerraformValue<bool>? IsMetadata
     {
-        get => new TerraformReference<bool>(this, "is_metadata");
+        get => GetArgument<TerraformValue<bool>>("is_metadata");
         set => SetArgument("is_metadata", value);
     }
 
@@ -329,7 +329,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlockProp
     /// </summary>
     public TerraformValue<bool>? IsRepeatable
     {
-        get => new TerraformReference<bool>(this, "is_repeatable");
+        get => GetArgument<TerraformValue<bool>>("is_repeatable");
         set => SetArgument("is_repeatable", value);
     }
 
@@ -338,7 +338,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlockProp
     /// </summary>
     public TerraformValue<bool>? IsRequired
     {
-        get => new TerraformReference<bool>(this, "is_required");
+        get => GetArgument<TerraformValue<bool>>("is_required");
         set => SetArgument("is_required", value);
     }
 
@@ -347,7 +347,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlockProp
     /// </summary>
     public TerraformValue<bool>? IsSearchable
     {
-        get => new TerraformReference<bool>(this, "is_searchable");
+        get => GetArgument<TerraformValue<bool>>("is_searchable");
         set => SetArgument("is_searchable", value);
     }
 
@@ -357,7 +357,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlockProp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -366,7 +366,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlockProp
     /// </summary>
     public TerraformValue<string>? RetrievalImportance
     {
-        get => new TerraformReference<string>(this, "retrieval_importance");
+        get => GetArgument<TerraformValue<string>>("retrieval_importance");
         set => SetArgument("retrieval_importance", value);
     }
 
@@ -481,7 +481,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlockProp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PossibleValues is required")]
     public TerraformList<string>? PossibleValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "possible_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("possible_values");
         set => SetArgument("possible_values", value);
     }
 
@@ -490,7 +490,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlockProp
     /// </summary>
     public TerraformValue<bool>? ValidationCheckDisabled
     {
-        get => new TerraformReference<bool>(this, "validation_check_disabled");
+        get => GetArgument<TerraformValue<bool>>("validation_check_disabled");
         set => SetArgument("validation_check_disabled", value);
     }
 
@@ -551,7 +551,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlockProp
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -560,7 +560,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlockProp
     /// </summary>
     public TerraformValue<string>? ProcessorType
     {
-        get => new TerraformReference<string>(this, "processor_type");
+        get => GetArgument<TerraformValue<string>>("processor_type");
         set => SetArgument("processor_type", value);
     }
 
@@ -608,7 +608,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlockSche
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -617,7 +617,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaPropertyDefinitionsBlockSche
     /// </summary>
     public TerraformValue<string>? ProcessorType
     {
-        get => new TerraformReference<string>(this, "processor_type");
+        get => GetArgument<TerraformValue<string>>("processor_type");
         set => SetArgument("processor_type", value);
     }
 
@@ -666,7 +666,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -675,7 +675,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -694,7 +694,7 @@ public partial class GoogleDocumentAiWarehouseDocumentSchema(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -703,16 +703,16 @@ public partial class GoogleDocumentAiWarehouseDocumentSchema(string name) : Terr
     /// </summary>
     public TerraformValue<bool>? DocumentIsFolder
     {
-        get => new TerraformReference<bool>(this, "document_is_folder");
+        get => GetArgument<TerraformValue<bool>>("document_is_folder");
         set => SetArgument("document_is_folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -722,7 +722,7 @@ public partial class GoogleDocumentAiWarehouseDocumentSchema(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -732,7 +732,7 @@ public partial class GoogleDocumentAiWarehouseDocumentSchema(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectNumber is required")]
     public required TerraformValue<string> ProjectNumber
     {
-        get => new TerraformReference<string>(this, "project_number");
+        get => GetArgument<TerraformValue<string>>("project_number");
         set => SetArgument("project_number", value);
     }
 
@@ -740,9 +740,7 @@ public partial class GoogleDocumentAiWarehouseDocumentSchema(string name) : Terr
     /// The resource name of the document schema.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// PropertyDefinitions block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AwsDynamodbTableReplicaTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsDynamodbTableReplicaTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsDynamodbTableReplicaTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -52,9 +52,9 @@ public partial class AwsDynamodbTableReplica(string name) : TerraformResource("a
     /// <summary>
     /// The deletion_protection_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> DeletionProtectionEnabled
+    public TerraformValue<bool>? DeletionProtectionEnabled
     {
-        get => new TerraformReference<bool>(this, "deletion_protection_enabled");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection_enabled");
         set => SetArgument("deletion_protection_enabled", value);
     }
 
@@ -64,25 +64,25 @@ public partial class AwsDynamodbTableReplica(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalTableArn is required")]
     public required TerraformValue<string> GlobalTableArn
     {
-        get => new TerraformReference<string>(this, "global_table_arn");
+        get => GetArgument<TerraformValue<string>>("global_table_arn");
         set => SetArgument("global_table_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformValue<string> KmsKeyArn
+    public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -91,16 +91,16 @@ public partial class AwsDynamodbTableReplica(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? PointInTimeRecovery
     {
-        get => new TerraformReference<bool>(this, "point_in_time_recovery");
+        get => GetArgument<TerraformValue<bool>>("point_in_time_recovery");
         set => SetArgument("point_in_time_recovery", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AwsDynamodbTableReplica(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? TableClassOverride
     {
-        get => new TerraformReference<string>(this, "table_class_override");
+        get => GetArgument<TerraformValue<string>>("table_class_override");
         set => SetArgument("table_class_override", value);
     }
 
@@ -118,16 +118,16 @@ public partial class AwsDynamodbTableReplica(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -135,9 +135,7 @@ public partial class AwsDynamodbTableReplica(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

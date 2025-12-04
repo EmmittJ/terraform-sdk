@@ -19,7 +19,7 @@ public class AzurermVpnGatewayBgpSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asn is required")]
     public required TerraformValue<double> Asn
     {
-        get => new TerraformReference<double>(this, "asn");
+        get => GetArgument<TerraformValue<double>>("asn");
         set => SetArgument("asn", value);
     }
 
@@ -27,9 +27,7 @@ public class AzurermVpnGatewayBgpSettingsBlock : TerraformBlock
     /// The bgp_peering_address attribute.
     /// </summary>
     public TerraformValue<string> BgpPeeringAddress
-    {
-        get => new TerraformReference<string>(this, "bgp_peering_address");
-    }
+        => AsReference("bgp_peering_address");
 
     /// <summary>
     /// The peer_weight attribute.
@@ -37,7 +35,7 @@ public class AzurermVpnGatewayBgpSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerWeight is required")]
     public required TerraformValue<double> PeerWeight
     {
-        get => new TerraformReference<double>(this, "peer_weight");
+        get => GetArgument<TerraformValue<double>>("peer_weight");
         set => SetArgument("peer_weight", value);
     }
 
@@ -80,7 +78,7 @@ public class AzurermVpnGatewayBgpSettingsBlockInstance0BgpPeeringAddressBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomIps is required")]
     public required TerraformSet<string> CustomIps
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "custom_ips").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("custom_ips");
         set => SetArgument("custom_ips", value);
     }
 
@@ -88,25 +86,19 @@ public class AzurermVpnGatewayBgpSettingsBlockInstance0BgpPeeringAddressBlock : 
     /// The default_ips attribute.
     /// </summary>
     public TerraformSet<string> DefaultIps
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "default_ips").ResolveNodes(ctx));
-    }
+        => AsReference("default_ips");
 
     /// <summary>
     /// The ip_configuration_id attribute.
     /// </summary>
     public TerraformValue<string> IpConfigurationId
-    {
-        get => new TerraformReference<string>(this, "ip_configuration_id");
-    }
+        => AsReference("ip_configuration_id");
 
     /// <summary>
     /// The tunnel_ips attribute.
     /// </summary>
     public TerraformSet<string> TunnelIps
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "tunnel_ips").ResolveNodes(ctx));
-    }
+        => AsReference("tunnel_ips");
 
 }
 
@@ -127,7 +119,7 @@ public class AzurermVpnGatewayBgpSettingsBlockInstance1BgpPeeringAddressBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomIps is required")]
     public required TerraformSet<string> CustomIps
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "custom_ips").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("custom_ips");
         set => SetArgument("custom_ips", value);
     }
 
@@ -135,25 +127,19 @@ public class AzurermVpnGatewayBgpSettingsBlockInstance1BgpPeeringAddressBlock : 
     /// The default_ips attribute.
     /// </summary>
     public TerraformSet<string> DefaultIps
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "default_ips").ResolveNodes(ctx));
-    }
+        => AsReference("default_ips");
 
     /// <summary>
     /// The ip_configuration_id attribute.
     /// </summary>
     public TerraformValue<string> IpConfigurationId
-    {
-        get => new TerraformReference<string>(this, "ip_configuration_id");
-    }
+        => AsReference("ip_configuration_id");
 
     /// <summary>
     /// The tunnel_ips attribute.
     /// </summary>
     public TerraformSet<string> TunnelIps
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "tunnel_ips").ResolveNodes(ctx));
-    }
+        => AsReference("tunnel_ips");
 
 }
 
@@ -174,7 +160,7 @@ public class AzurermVpnGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -183,7 +169,7 @@ public class AzurermVpnGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -192,7 +178,7 @@ public class AzurermVpnGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -201,7 +187,7 @@ public class AzurermVpnGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -219,16 +205,16 @@ public partial class AzurermVpnGateway(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<bool>? BgpRouteTranslationForNatEnabled
     {
-        get => new TerraformReference<bool>(this, "bgp_route_translation_for_nat_enabled");
+        get => GetArgument<TerraformValue<bool>>("bgp_route_translation_for_nat_enabled");
         set => SetArgument("bgp_route_translation_for_nat_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -238,7 +224,7 @@ public partial class AzurermVpnGateway(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -248,7 +234,7 @@ public partial class AzurermVpnGateway(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -258,7 +244,7 @@ public partial class AzurermVpnGateway(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -267,7 +253,7 @@ public partial class AzurermVpnGateway(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<string>? RoutingPreference
     {
-        get => new TerraformReference<string>(this, "routing_preference");
+        get => GetArgument<TerraformValue<string>>("routing_preference");
         set => SetArgument("routing_preference", value);
     }
 
@@ -276,7 +262,7 @@ public partial class AzurermVpnGateway(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<double>? ScaleUnit
     {
-        get => new TerraformReference<double>(this, "scale_unit");
+        get => GetArgument<TerraformValue<double>>("scale_unit");
         set => SetArgument("scale_unit", value);
     }
 
@@ -285,7 +271,7 @@ public partial class AzurermVpnGateway(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -295,7 +281,7 @@ public partial class AzurermVpnGateway(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformValue<string> VirtualHubId
     {
-        get => new TerraformReference<string>(this, "virtual_hub_id");
+        get => GetArgument<TerraformValue<string>>("virtual_hub_id");
         set => SetArgument("virtual_hub_id", value);
     }
 
@@ -303,9 +289,7 @@ public partial class AzurermVpnGateway(string name) : TerraformResource("azurerm
     /// The ip_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IpConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "ip_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("ip_configuration");
 
     /// <summary>
     /// BgpSettings block (nesting mode: list).

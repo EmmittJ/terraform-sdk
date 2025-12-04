@@ -18,7 +18,7 @@ public class GoogleStorageHmacKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleStorageHmacKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleStorageHmacKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -52,18 +52,18 @@ public partial class GoogleStorageHmacKey(string name) : TerraformResource("goog
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -73,7 +73,7 @@ public partial class GoogleStorageHmacKey(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountEmail is required")]
     public required TerraformValue<string> ServiceAccountEmail
     {
-        get => new TerraformReference<string>(this, "service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -82,7 +82,7 @@ public partial class GoogleStorageHmacKey(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -90,33 +90,25 @@ public partial class GoogleStorageHmacKey(string name) : TerraformResource("goog
     /// The access ID of the HMAC Key.
     /// </summary>
     public TerraformValue<string> AccessId
-    {
-        get => new TerraformReference<string>(this, "access_id");
-    }
+        => AsReference("access_id");
 
     /// <summary>
     /// HMAC secret key material.
     /// </summary>
     public TerraformValue<string> Secret
-    {
-        get => new TerraformReference<string>(this, "secret");
-    }
+        => AsReference("secret");
 
     /// <summary>
     /// &#39;The creation time of the HMAC key in RFC 3339 format. &#39;
     /// </summary>
     public TerraformValue<string> TimeCreated
-    {
-        get => new TerraformReference<string>(this, "time_created");
-    }
+        => AsReference("time_created");
 
     /// <summary>
     /// &#39;The last modification time of the HMAC key metadata in RFC 3339 format.&#39;
     /// </summary>
     public TerraformValue<string> Updated
-    {
-        get => new TerraformReference<string>(this, "updated");
-    }
+        => AsReference("updated");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

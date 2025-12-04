@@ -18,7 +18,7 @@ public class GoogleAppEngineFlexibleAppVersionApiConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AuthFailAction
     {
-        get => new TerraformReference<string>(this, "auth_fail_action");
+        get => GetArgument<TerraformValue<string>>("auth_fail_action");
         set => SetArgument("auth_fail_action", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleAppEngineFlexibleAppVersionApiConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Login
     {
-        get => new TerraformReference<string>(this, "login");
+        get => GetArgument<TerraformValue<string>>("login");
         set => SetArgument("login", value);
     }
 
@@ -37,7 +37,7 @@ public class GoogleAppEngineFlexibleAppVersionApiConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Script is required")]
     public required TerraformValue<string> Script
     {
-        get => new TerraformReference<string>(this, "script");
+        get => GetArgument<TerraformValue<string>>("script");
         set => SetArgument("script", value);
     }
 
@@ -46,7 +46,7 @@ public class GoogleAppEngineFlexibleAppVersionApiConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SecurityLevel
     {
-        get => new TerraformReference<string>(this, "security_level");
+        get => GetArgument<TerraformValue<string>>("security_level");
         set => SetArgument("security_level", value);
     }
 
@@ -55,7 +55,7 @@ public class GoogleAppEngineFlexibleAppVersionApiConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? CoolDownPeriod
     {
-        get => new TerraformReference<string>(this, "cool_down_period");
+        get => GetArgument<TerraformValue<string>>("cool_down_period");
         set => SetArgument("cool_down_period", value);
     }
 
@@ -89,9 +89,9 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock : TerraformB
     /// 
     /// Defaults to a runtime-specific value.
     /// </summary>
-    public TerraformValue<double> MaxConcurrentRequests
+    public TerraformValue<double>? MaxConcurrentRequests
     {
-        get => new TerraformReference<double>(this, "max_concurrent_requests");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_requests");
         set => SetArgument("max_concurrent_requests", value);
     }
 
@@ -100,7 +100,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock : TerraformB
     /// </summary>
     public TerraformValue<double>? MaxIdleInstances
     {
-        get => new TerraformReference<double>(this, "max_idle_instances");
+        get => GetArgument<TerraformValue<double>>("max_idle_instances");
         set => SetArgument("max_idle_instances", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? MaxPendingLatency
     {
-        get => new TerraformReference<string>(this, "max_pending_latency");
+        get => GetArgument<TerraformValue<string>>("max_pending_latency");
         set => SetArgument("max_pending_latency", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock : TerraformB
     /// </summary>
     public TerraformValue<double>? MaxTotalInstances
     {
-        get => new TerraformReference<double>(this, "max_total_instances");
+        get => GetArgument<TerraformValue<double>>("max_total_instances");
         set => SetArgument("max_total_instances", value);
     }
 
@@ -127,7 +127,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock : TerraformB
     /// </summary>
     public TerraformValue<double>? MinIdleInstances
     {
-        get => new TerraformReference<double>(this, "min_idle_instances");
+        get => GetArgument<TerraformValue<double>>("min_idle_instances");
         set => SetArgument("min_idle_instances", value);
     }
 
@@ -136,7 +136,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? MinPendingLatency
     {
-        get => new TerraformReference<string>(this, "min_pending_latency");
+        get => GetArgument<TerraformValue<string>>("min_pending_latency");
         set => SetArgument("min_pending_latency", value);
     }
 
@@ -145,7 +145,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlock : TerraformB
     /// </summary>
     public TerraformValue<double>? MinTotalInstances
     {
-        get => new TerraformReference<double>(this, "min_total_instances");
+        get => GetArgument<TerraformValue<double>>("min_total_instances");
         set => SetArgument("min_total_instances", value);
     }
 
@@ -210,7 +210,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlockCpuUtilizatio
     /// </summary>
     public TerraformValue<string>? AggregationWindowLength
     {
-        get => new TerraformReference<string>(this, "aggregation_window_length");
+        get => GetArgument<TerraformValue<string>>("aggregation_window_length");
         set => SetArgument("aggregation_window_length", value);
     }
 
@@ -220,7 +220,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlockCpuUtilizatio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetUtilization is required")]
     public required TerraformValue<double> TargetUtilization
     {
-        get => new TerraformReference<double>(this, "target_utilization");
+        get => GetArgument<TerraformValue<double>>("target_utilization");
         set => SetArgument("target_utilization", value);
     }
 
@@ -242,7 +242,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlockDiskUtilizati
     /// </summary>
     public TerraformValue<double>? TargetReadBytesPerSecond
     {
-        get => new TerraformReference<double>(this, "target_read_bytes_per_second");
+        get => GetArgument<TerraformValue<double>>("target_read_bytes_per_second");
         set => SetArgument("target_read_bytes_per_second", value);
     }
 
@@ -251,7 +251,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlockDiskUtilizati
     /// </summary>
     public TerraformValue<double>? TargetReadOpsPerSecond
     {
-        get => new TerraformReference<double>(this, "target_read_ops_per_second");
+        get => GetArgument<TerraformValue<double>>("target_read_ops_per_second");
         set => SetArgument("target_read_ops_per_second", value);
     }
 
@@ -260,7 +260,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlockDiskUtilizati
     /// </summary>
     public TerraformValue<double>? TargetWriteBytesPerSecond
     {
-        get => new TerraformReference<double>(this, "target_write_bytes_per_second");
+        get => GetArgument<TerraformValue<double>>("target_write_bytes_per_second");
         set => SetArgument("target_write_bytes_per_second", value);
     }
 
@@ -269,7 +269,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlockDiskUtilizati
     /// </summary>
     public TerraformValue<double>? TargetWriteOpsPerSecond
     {
-        get => new TerraformReference<double>(this, "target_write_ops_per_second");
+        get => GetArgument<TerraformValue<double>>("target_write_ops_per_second");
         set => SetArgument("target_write_ops_per_second", value);
     }
 
@@ -291,7 +291,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlockNetworkUtiliz
     /// </summary>
     public TerraformValue<double>? TargetReceivedBytesPerSecond
     {
-        get => new TerraformReference<double>(this, "target_received_bytes_per_second");
+        get => GetArgument<TerraformValue<double>>("target_received_bytes_per_second");
         set => SetArgument("target_received_bytes_per_second", value);
     }
 
@@ -300,7 +300,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlockNetworkUtiliz
     /// </summary>
     public TerraformValue<double>? TargetReceivedPacketsPerSecond
     {
-        get => new TerraformReference<double>(this, "target_received_packets_per_second");
+        get => GetArgument<TerraformValue<double>>("target_received_packets_per_second");
         set => SetArgument("target_received_packets_per_second", value);
     }
 
@@ -309,7 +309,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlockNetworkUtiliz
     /// </summary>
     public TerraformValue<double>? TargetSentBytesPerSecond
     {
-        get => new TerraformReference<double>(this, "target_sent_bytes_per_second");
+        get => GetArgument<TerraformValue<double>>("target_sent_bytes_per_second");
         set => SetArgument("target_sent_bytes_per_second", value);
     }
 
@@ -318,7 +318,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlockNetworkUtiliz
     /// </summary>
     public TerraformValue<double>? TargetSentPacketsPerSecond
     {
-        get => new TerraformReference<double>(this, "target_sent_packets_per_second");
+        get => GetArgument<TerraformValue<double>>("target_sent_packets_per_second");
         set => SetArgument("target_sent_packets_per_second", value);
     }
 
@@ -340,7 +340,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlockRequestUtiliz
     /// </summary>
     public TerraformValue<double>? TargetConcurrentRequests
     {
-        get => new TerraformReference<double>(this, "target_concurrent_requests");
+        get => GetArgument<TerraformValue<double>>("target_concurrent_requests");
         set => SetArgument("target_concurrent_requests", value);
     }
 
@@ -349,7 +349,7 @@ public class GoogleAppEngineFlexibleAppVersionAutomaticScalingBlockRequestUtiliz
     /// </summary>
     public TerraformValue<string>? TargetRequestCountPerSecond
     {
-        get => new TerraformReference<string>(this, "target_request_count_per_second");
+        get => GetArgument<TerraformValue<string>>("target_request_count_per_second");
         set => SetArgument("target_request_count_per_second", value);
     }
 
@@ -425,7 +425,7 @@ public class GoogleAppEngineFlexibleAppVersionDeploymentBlockCloudBuildOptionsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppYamlPath is required")]
     public required TerraformValue<string> AppYamlPath
     {
-        get => new TerraformReference<string>(this, "app_yaml_path");
+        get => GetArgument<TerraformValue<string>>("app_yaml_path");
         set => SetArgument("app_yaml_path", value);
     }
 
@@ -436,7 +436,7 @@ public class GoogleAppEngineFlexibleAppVersionDeploymentBlockCloudBuildOptionsBl
     /// </summary>
     public TerraformValue<string>? CloudBuildTimeout
     {
-        get => new TerraformReference<string>(this, "cloud_build_timeout");
+        get => GetArgument<TerraformValue<string>>("cloud_build_timeout");
         set => SetArgument("cloud_build_timeout", value);
     }
 
@@ -460,7 +460,7 @@ public class GoogleAppEngineFlexibleAppVersionDeploymentBlockContainerBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -483,7 +483,7 @@ public class GoogleAppEngineFlexibleAppVersionDeploymentBlockFilesBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -492,7 +492,7 @@ public class GoogleAppEngineFlexibleAppVersionDeploymentBlockFilesBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Sha1Sum
     {
-        get => new TerraformReference<string>(this, "sha1_sum");
+        get => GetArgument<TerraformValue<string>>("sha1_sum");
         set => SetArgument("sha1_sum", value);
     }
 
@@ -502,7 +502,7 @@ public class GoogleAppEngineFlexibleAppVersionDeploymentBlockFilesBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceUrl is required")]
     public required TerraformValue<string> SourceUrl
     {
-        get => new TerraformReference<string>(this, "source_url");
+        get => GetArgument<TerraformValue<string>>("source_url");
         set => SetArgument("source_url", value);
     }
 
@@ -524,7 +524,7 @@ public class GoogleAppEngineFlexibleAppVersionDeploymentBlockZipBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? FilesCount
     {
-        get => new TerraformReference<double>(this, "files_count");
+        get => GetArgument<TerraformValue<double>>("files_count");
         set => SetArgument("files_count", value);
     }
 
@@ -534,7 +534,7 @@ public class GoogleAppEngineFlexibleAppVersionDeploymentBlockZipBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceUrl is required")]
     public required TerraformValue<string> SourceUrl
     {
-        get => new TerraformReference<string>(this, "source_url");
+        get => GetArgument<TerraformValue<string>>("source_url");
         set => SetArgument("source_url", value);
     }
 
@@ -564,7 +564,7 @@ public class GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? ConfigId
     {
-        get => new TerraformReference<string>(this, "config_id");
+        get => GetArgument<TerraformValue<string>>("config_id");
         set => SetArgument("config_id", value);
     }
 
@@ -573,7 +573,7 @@ public class GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock : Terrafo
     /// </summary>
     public TerraformValue<bool>? DisableTraceSampling
     {
-        get => new TerraformReference<bool>(this, "disable_trace_sampling");
+        get => GetArgument<TerraformValue<bool>>("disable_trace_sampling");
         set => SetArgument("disable_trace_sampling", value);
     }
 
@@ -584,7 +584,7 @@ public class GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -593,7 +593,7 @@ public class GoogleAppEngineFlexibleAppVersionEndpointsApiServiceBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? RolloutStrategy
     {
-        get => new TerraformReference<string>(this, "rollout_strategy");
+        get => GetArgument<TerraformValue<string>>("rollout_strategy");
         set => SetArgument("rollout_strategy", value);
     }
 
@@ -617,7 +617,7 @@ public class GoogleAppEngineFlexibleAppVersionEntrypointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shell is required")]
     public required TerraformValue<string> Shell
     {
-        get => new TerraformReference<string>(this, "shell");
+        get => GetArgument<TerraformValue<string>>("shell");
         set => SetArgument("shell", value);
     }
 
@@ -640,7 +640,7 @@ public class GoogleAppEngineFlexibleAppVersionFlexibleRuntimeSettingsBlock : Ter
     /// </summary>
     public TerraformValue<string>? OperatingSystem
     {
-        get => new TerraformReference<string>(this, "operating_system");
+        get => GetArgument<TerraformValue<string>>("operating_system");
         set => SetArgument("operating_system", value);
     }
 
@@ -649,7 +649,7 @@ public class GoogleAppEngineFlexibleAppVersionFlexibleRuntimeSettingsBlock : Ter
     /// </summary>
     public TerraformValue<string>? RuntimeVersion
     {
-        get => new TerraformReference<string>(this, "runtime_version");
+        get => GetArgument<TerraformValue<string>>("runtime_version");
         set => SetArgument("runtime_version", value);
     }
 
@@ -672,7 +672,7 @@ public class GoogleAppEngineFlexibleAppVersionHandlersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AuthFailAction
     {
-        get => new TerraformReference<string>(this, "auth_fail_action");
+        get => GetArgument<TerraformValue<string>>("auth_fail_action");
         set => SetArgument("auth_fail_action", value);
     }
 
@@ -681,7 +681,7 @@ public class GoogleAppEngineFlexibleAppVersionHandlersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Login
     {
-        get => new TerraformReference<string>(this, "login");
+        get => GetArgument<TerraformValue<string>>("login");
         set => SetArgument("login", value);
     }
 
@@ -690,7 +690,7 @@ public class GoogleAppEngineFlexibleAppVersionHandlersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RedirectHttpResponseCode
     {
-        get => new TerraformReference<string>(this, "redirect_http_response_code");
+        get => GetArgument<TerraformValue<string>>("redirect_http_response_code");
         set => SetArgument("redirect_http_response_code", value);
     }
 
@@ -699,7 +699,7 @@ public class GoogleAppEngineFlexibleAppVersionHandlersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SecurityLevel
     {
-        get => new TerraformReference<string>(this, "security_level");
+        get => GetArgument<TerraformValue<string>>("security_level");
         set => SetArgument("security_level", value);
     }
 
@@ -709,7 +709,7 @@ public class GoogleAppEngineFlexibleAppVersionHandlersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? UrlRegex
     {
-        get => new TerraformReference<string>(this, "url_regex");
+        get => GetArgument<TerraformValue<string>>("url_regex");
         set => SetArgument("url_regex", value);
     }
 
@@ -752,7 +752,7 @@ public class GoogleAppEngineFlexibleAppVersionHandlersBlockScriptBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScriptPath is required")]
     public required TerraformValue<string> ScriptPath
     {
-        get => new TerraformReference<string>(this, "script_path");
+        get => GetArgument<TerraformValue<string>>("script_path");
         set => SetArgument("script_path", value);
     }
 
@@ -776,7 +776,7 @@ public class GoogleAppEngineFlexibleAppVersionHandlersBlockStaticFilesBlock : Te
     /// </summary>
     public TerraformValue<bool>? ApplicationReadable
     {
-        get => new TerraformReference<bool>(this, "application_readable");
+        get => GetArgument<TerraformValue<bool>>("application_readable");
         set => SetArgument("application_readable", value);
     }
 
@@ -787,7 +787,7 @@ public class GoogleAppEngineFlexibleAppVersionHandlersBlockStaticFilesBlock : Te
     /// </summary>
     public TerraformValue<string>? Expiration
     {
-        get => new TerraformReference<string>(this, "expiration");
+        get => GetArgument<TerraformValue<string>>("expiration");
         set => SetArgument("expiration", value);
     }
 
@@ -797,7 +797,7 @@ public class GoogleAppEngineFlexibleAppVersionHandlersBlockStaticFilesBlock : Te
     /// </summary>
     public TerraformMap<string>? HttpHeaders
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "http_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("http_headers");
         set => SetArgument("http_headers", value);
     }
 
@@ -807,7 +807,7 @@ public class GoogleAppEngineFlexibleAppVersionHandlersBlockStaticFilesBlock : Te
     /// </summary>
     public TerraformValue<string>? MimeType
     {
-        get => new TerraformReference<string>(this, "mime_type");
+        get => GetArgument<TerraformValue<string>>("mime_type");
         set => SetArgument("mime_type", value);
     }
 
@@ -817,7 +817,7 @@ public class GoogleAppEngineFlexibleAppVersionHandlersBlockStaticFilesBlock : Te
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -826,7 +826,7 @@ public class GoogleAppEngineFlexibleAppVersionHandlersBlockStaticFilesBlock : Te
     /// </summary>
     public TerraformValue<bool>? RequireMatchingFile
     {
-        get => new TerraformReference<bool>(this, "require_matching_file");
+        get => GetArgument<TerraformValue<bool>>("require_matching_file");
         set => SetArgument("require_matching_file", value);
     }
 
@@ -835,7 +835,7 @@ public class GoogleAppEngineFlexibleAppVersionHandlersBlockStaticFilesBlock : Te
     /// </summary>
     public TerraformValue<string>? UploadPathRegex
     {
-        get => new TerraformReference<string>(this, "upload_path_regex");
+        get => GetArgument<TerraformValue<string>>("upload_path_regex");
         set => SetArgument("upload_path_regex", value);
     }
 
@@ -858,7 +858,7 @@ public class GoogleAppEngineFlexibleAppVersionLivenessCheckBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? CheckInterval
     {
-        get => new TerraformReference<string>(this, "check_interval");
+        get => GetArgument<TerraformValue<string>>("check_interval");
         set => SetArgument("check_interval", value);
     }
 
@@ -867,7 +867,7 @@ public class GoogleAppEngineFlexibleAppVersionLivenessCheckBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double>? FailureThreshold
     {
-        get => new TerraformReference<double>(this, "failure_threshold");
+        get => GetArgument<TerraformValue<double>>("failure_threshold");
         set => SetArgument("failure_threshold", value);
     }
 
@@ -876,7 +876,7 @@ public class GoogleAppEngineFlexibleAppVersionLivenessCheckBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -885,7 +885,7 @@ public class GoogleAppEngineFlexibleAppVersionLivenessCheckBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? InitialDelay
     {
-        get => new TerraformReference<string>(this, "initial_delay");
+        get => GetArgument<TerraformValue<string>>("initial_delay");
         set => SetArgument("initial_delay", value);
     }
 
@@ -895,7 +895,7 @@ public class GoogleAppEngineFlexibleAppVersionLivenessCheckBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -904,7 +904,7 @@ public class GoogleAppEngineFlexibleAppVersionLivenessCheckBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double>? SuccessThreshold
     {
-        get => new TerraformReference<double>(this, "success_threshold");
+        get => GetArgument<TerraformValue<double>>("success_threshold");
         set => SetArgument("success_threshold", value);
     }
 
@@ -913,7 +913,7 @@ public class GoogleAppEngineFlexibleAppVersionLivenessCheckBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Timeout
     {
-        get => new TerraformReference<string>(this, "timeout");
+        get => GetArgument<TerraformValue<string>>("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -940,7 +940,7 @@ public class GoogleAppEngineFlexibleAppVersionManualScalingBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instances is required")]
     public required TerraformValue<double> Instances
     {
-        get => new TerraformReference<double>(this, "instances");
+        get => GetArgument<TerraformValue<double>>("instances");
         set => SetArgument("instances", value);
     }
 
@@ -963,7 +963,7 @@ public class GoogleAppEngineFlexibleAppVersionNetworkBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ForwardedPorts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "forwarded_ports").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("forwarded_ports");
         set => SetArgument("forwarded_ports", value);
     }
 
@@ -972,7 +972,7 @@ public class GoogleAppEngineFlexibleAppVersionNetworkBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? InstanceTag
     {
-        get => new TerraformReference<string>(this, "instance_tag");
+        get => GetArgument<TerraformValue<string>>("instance_tag");
         set => SetArgument("instance_tag", value);
     }
 
@@ -982,7 +982,7 @@ public class GoogleAppEngineFlexibleAppVersionNetworkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -991,7 +991,7 @@ public class GoogleAppEngineFlexibleAppVersionNetworkBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SessionAffinity
     {
-        get => new TerraformReference<bool>(this, "session_affinity");
+        get => GetArgument<TerraformValue<bool>>("session_affinity");
         set => SetArgument("session_affinity", value);
     }
 
@@ -1005,7 +1005,7 @@ public class GoogleAppEngineFlexibleAppVersionNetworkBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Subnetwork
     {
-        get => new TerraformReference<string>(this, "subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -1029,7 +1029,7 @@ public class GoogleAppEngineFlexibleAppVersionReadinessCheckBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? AppStartTimeout
     {
-        get => new TerraformReference<string>(this, "app_start_timeout");
+        get => GetArgument<TerraformValue<string>>("app_start_timeout");
         set => SetArgument("app_start_timeout", value);
     }
 
@@ -1038,7 +1038,7 @@ public class GoogleAppEngineFlexibleAppVersionReadinessCheckBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? CheckInterval
     {
-        get => new TerraformReference<string>(this, "check_interval");
+        get => GetArgument<TerraformValue<string>>("check_interval");
         set => SetArgument("check_interval", value);
     }
 
@@ -1047,7 +1047,7 @@ public class GoogleAppEngineFlexibleAppVersionReadinessCheckBlock : TerraformBlo
     /// </summary>
     public TerraformValue<double>? FailureThreshold
     {
-        get => new TerraformReference<double>(this, "failure_threshold");
+        get => GetArgument<TerraformValue<double>>("failure_threshold");
         set => SetArgument("failure_threshold", value);
     }
 
@@ -1056,7 +1056,7 @@ public class GoogleAppEngineFlexibleAppVersionReadinessCheckBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -1066,7 +1066,7 @@ public class GoogleAppEngineFlexibleAppVersionReadinessCheckBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1075,7 +1075,7 @@ public class GoogleAppEngineFlexibleAppVersionReadinessCheckBlock : TerraformBlo
     /// </summary>
     public TerraformValue<double>? SuccessThreshold
     {
-        get => new TerraformReference<double>(this, "success_threshold");
+        get => GetArgument<TerraformValue<double>>("success_threshold");
         set => SetArgument("success_threshold", value);
     }
 
@@ -1084,7 +1084,7 @@ public class GoogleAppEngineFlexibleAppVersionReadinessCheckBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Timeout
     {
-        get => new TerraformReference<string>(this, "timeout");
+        get => GetArgument<TerraformValue<string>>("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -1107,7 +1107,7 @@ public class GoogleAppEngineFlexibleAppVersionResourcesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Cpu
     {
-        get => new TerraformReference<double>(this, "cpu");
+        get => GetArgument<TerraformValue<double>>("cpu");
         set => SetArgument("cpu", value);
     }
 
@@ -1116,7 +1116,7 @@ public class GoogleAppEngineFlexibleAppVersionResourcesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? DiskGb
     {
-        get => new TerraformReference<double>(this, "disk_gb");
+        get => GetArgument<TerraformValue<double>>("disk_gb");
         set => SetArgument("disk_gb", value);
     }
 
@@ -1125,7 +1125,7 @@ public class GoogleAppEngineFlexibleAppVersionResourcesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MemoryGb
     {
-        get => new TerraformReference<double>(this, "memory_gb");
+        get => GetArgument<TerraformValue<double>>("memory_gb");
         set => SetArgument("memory_gb", value);
     }
 
@@ -1157,7 +1157,7 @@ public class GoogleAppEngineFlexibleAppVersionResourcesBlockVolumesBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1167,7 +1167,7 @@ public class GoogleAppEngineFlexibleAppVersionResourcesBlockVolumesBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeGb is required")]
     public required TerraformValue<double> SizeGb
     {
-        get => new TerraformReference<double>(this, "size_gb");
+        get => GetArgument<TerraformValue<double>>("size_gb");
         set => SetArgument("size_gb", value);
     }
 
@@ -1177,7 +1177,7 @@ public class GoogleAppEngineFlexibleAppVersionResourcesBlockVolumesBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeType is required")]
     public required TerraformValue<string> VolumeType
     {
-        get => new TerraformReference<string>(this, "volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -1200,7 +1200,7 @@ public class GoogleAppEngineFlexibleAppVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1209,7 +1209,7 @@ public class GoogleAppEngineFlexibleAppVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1218,7 +1218,7 @@ public class GoogleAppEngineFlexibleAppVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1242,7 +1242,7 @@ public class GoogleAppEngineFlexibleAppVersionVpcAccessConnectorBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1260,7 +1260,7 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? BetaSettings
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "beta_settings").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("beta_settings");
         set => SetArgument("beta_settings", value);
     }
 
@@ -1270,7 +1270,7 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? DefaultExpiration
     {
-        get => new TerraformReference<string>(this, "default_expiration");
+        get => GetArgument<TerraformValue<string>>("default_expiration");
         set => SetArgument("default_expiration", value);
     }
 
@@ -1279,7 +1279,7 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? DeleteServiceOnDestroy
     {
-        get => new TerraformReference<bool>(this, "delete_service_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("delete_service_on_destroy");
         set => SetArgument("delete_service_on_destroy", value);
     }
 
@@ -1288,16 +1288,16 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? EnvVariables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "env_variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("env_variables");
         set => SetArgument("env_variables", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1306,7 +1306,7 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// </summary>
     public TerraformSet<string>? InboundServices
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "inbound_services").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("inbound_services");
         set => SetArgument("inbound_services", value);
     }
 
@@ -1318,7 +1318,7 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? InstanceClass
     {
-        get => new TerraformReference<string>(this, "instance_class");
+        get => GetArgument<TerraformValue<string>>("instance_class");
         set => SetArgument("instance_class", value);
     }
 
@@ -1327,7 +1327,7 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? NobuildFilesRegex
     {
-        get => new TerraformReference<string>(this, "nobuild_files_regex");
+        get => GetArgument<TerraformValue<string>>("nobuild_files_regex");
         set => SetArgument("nobuild_files_regex", value);
     }
 
@@ -1336,16 +1336,16 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? NoopOnDestroy
     {
-        get => new TerraformReference<bool>(this, "noop_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("noop_on_destroy");
         set => SetArgument("noop_on_destroy", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -1355,7 +1355,7 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Runtime is required")]
     public required TerraformValue<string> Runtime
     {
-        get => new TerraformReference<string>(this, "runtime");
+        get => GetArgument<TerraformValue<string>>("runtime");
         set => SetArgument("runtime", value);
     }
 
@@ -1364,9 +1364,9 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// Please see the app.yaml reference for valid values at &#39;https://cloud.google.com/appengine/docs/standard/&amp;lt;language&amp;gt;/config/appref&#39;\
     /// Substitute &#39;&amp;lt;language&amp;gt;&#39; with &#39;python&#39;, &#39;java&#39;, &#39;php&#39;, &#39;ruby&#39;, &#39;go&#39; or &#39;nodejs&#39;.
     /// </summary>
-    public TerraformValue<string> RuntimeApiVersion
+    public TerraformValue<string>? RuntimeApiVersion
     {
-        get => new TerraformReference<string>(this, "runtime_api_version");
+        get => GetArgument<TerraformValue<string>>("runtime_api_version");
         set => SetArgument("runtime_api_version", value);
     }
 
@@ -1375,7 +1375,7 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? RuntimeChannel
     {
-        get => new TerraformReference<string>(this, "runtime_channel");
+        get => GetArgument<TerraformValue<string>>("runtime_channel");
         set => SetArgument("runtime_channel", value);
     }
 
@@ -1384,7 +1384,7 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? RuntimeMainExecutablePath
     {
-        get => new TerraformReference<string>(this, "runtime_main_executable_path");
+        get => GetArgument<TerraformValue<string>>("runtime_main_executable_path");
         set => SetArgument("runtime_main_executable_path", value);
     }
 
@@ -1394,7 +1394,7 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -1402,9 +1402,9 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// The identity that the deployed version will run as. Admin API will use the App Engine Appspot service account as
     /// default if this field is neither provided in app.yaml file nor through CLI flag.
     /// </summary>
-    public TerraformValue<string> ServiceAccount
+    public TerraformValue<string>? ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -1413,7 +1413,7 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? ServingStatus
     {
-        get => new TerraformReference<string>(this, "serving_status");
+        get => GetArgument<TerraformValue<string>>("serving_status");
         set => SetArgument("serving_status", value);
     }
 
@@ -1423,7 +1423,7 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? VersionId
     {
-        get => new TerraformReference<string>(this, "version_id");
+        get => GetArgument<TerraformValue<string>>("version_id");
         set => SetArgument("version_id", value);
     }
 
@@ -1431,9 +1431,7 @@ public partial class GoogleAppEngineFlexibleAppVersion(string name) : TerraformR
     /// Full path to the Version resource in the API. Example, &amp;quot;v1&amp;quot;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// ApiConfig block (nesting mode: list).

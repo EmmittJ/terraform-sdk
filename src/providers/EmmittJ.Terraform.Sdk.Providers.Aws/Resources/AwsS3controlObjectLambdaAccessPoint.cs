@@ -18,7 +18,7 @@ public class AwsS3controlObjectLambdaAccessPointConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformSet<string>? AllowedFeatures
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_features").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_features");
         set => SetArgument("allowed_features", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsS3controlObjectLambdaAccessPointConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? CloudWatchMetricsEnabled
     {
-        get => new TerraformReference<bool>(this, "cloud_watch_metrics_enabled");
+        get => GetArgument<TerraformValue<bool>>("cloud_watch_metrics_enabled");
         set => SetArgument("cloud_watch_metrics_enabled", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsS3controlObjectLambdaAccessPointConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SupportingAccessPoint is required")]
     public required TerraformValue<string> SupportingAccessPoint
     {
-        get => new TerraformReference<string>(this, "supporting_access_point");
+        get => GetArgument<TerraformValue<string>>("supporting_access_point");
         set => SetArgument("supporting_access_point", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsS3controlObjectLambdaAccessPointConfigurationBlockTransformation
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     public required TerraformSet<string> Actions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("actions");
         set => SetArgument("actions", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsS3controlObjectLambdaAccessPointConfigurationBlockTransformation
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionArn is required")]
     public required TerraformValue<string> FunctionArn
     {
-        get => new TerraformReference<string>(this, "function_arn");
+        get => GetArgument<TerraformValue<string>>("function_arn");
         set => SetArgument("function_arn", value);
     }
 
@@ -143,7 +143,7 @@ public class AwsS3controlObjectLambdaAccessPointConfigurationBlockTransformation
     /// </summary>
     public TerraformValue<string>? FunctionPayload
     {
-        get => new TerraformReference<string>(this, "function_payload");
+        get => GetArgument<TerraformValue<string>>("function_payload");
         set => SetArgument("function_payload", value);
     }
 
@@ -159,18 +159,18 @@ public partial class AwsS3controlObjectLambdaAccessPoint(string name) : Terrafor
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformValue<string> AccountId
+    public TerraformValue<string>? AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -180,16 +180,16 @@ public partial class AwsS3controlObjectLambdaAccessPoint(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -197,17 +197,13 @@ public partial class AwsS3controlObjectLambdaAccessPoint(string name) : Terrafor
     /// The alias attribute.
     /// </summary>
     public TerraformValue<string> Alias
-    {
-        get => new TerraformReference<string>(this, "alias");
-    }
+        => AsReference("alias");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Configuration block (nesting mode: list).

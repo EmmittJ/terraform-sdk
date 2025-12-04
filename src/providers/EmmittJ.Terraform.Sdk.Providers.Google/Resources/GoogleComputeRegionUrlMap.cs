@@ -101,7 +101,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockCorsPolicyBlock : T
     /// </summary>
     public TerraformValue<bool>? AllowCredentials
     {
-        get => new TerraformReference<bool>(this, "allow_credentials");
+        get => GetArgument<TerraformValue<bool>>("allow_credentials");
         set => SetArgument("allow_credentials", value);
     }
 
@@ -110,7 +110,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockCorsPolicyBlock : T
     /// </summary>
     public TerraformList<string>? AllowHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allow_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allow_headers");
         set => SetArgument("allow_headers", value);
     }
 
@@ -119,7 +119,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockCorsPolicyBlock : T
     /// </summary>
     public TerraformList<string>? AllowMethods
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allow_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allow_methods");
         set => SetArgument("allow_methods", value);
     }
 
@@ -130,7 +130,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockCorsPolicyBlock : T
     /// </summary>
     public TerraformList<string>? AllowOriginRegexes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allow_origin_regexes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allow_origin_regexes");
         set => SetArgument("allow_origin_regexes", value);
     }
 
@@ -140,7 +140,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockCorsPolicyBlock : T
     /// </summary>
     public TerraformList<string>? AllowOrigins
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allow_origins").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allow_origins");
         set => SetArgument("allow_origins", value);
     }
 
@@ -149,7 +149,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockCorsPolicyBlock : T
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -158,7 +158,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockCorsPolicyBlock : T
     /// </summary>
     public TerraformList<string>? ExposeHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "expose_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("expose_headers");
         set => SetArgument("expose_headers", value);
     }
 
@@ -168,7 +168,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockCorsPolicyBlock : T
     /// </summary>
     public TerraformValue<double>? MaxAge
     {
-        get => new TerraformReference<double>(this, "max_age");
+        get => GetArgument<TerraformValue<double>>("max_age");
         set => SetArgument("max_age", value);
     }
 
@@ -224,7 +224,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockFaultInjectionPolic
     /// </summary>
     public TerraformValue<double>? HttpStatus
     {
-        get => new TerraformReference<double>(this, "http_status");
+        get => GetArgument<TerraformValue<double>>("http_status");
         set => SetArgument("http_status", value);
     }
 
@@ -234,7 +234,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockFaultInjectionPolic
     /// </summary>
     public TerraformValue<double>? Percentage
     {
-        get => new TerraformReference<double>(this, "percentage");
+        get => GetArgument<TerraformValue<double>>("percentage");
         set => SetArgument("percentage", value);
     }
 
@@ -257,7 +257,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockFaultInjectionPolic
     /// </summary>
     public TerraformValue<double>? Percentage
     {
-        get => new TerraformReference<double>(this, "percentage");
+        get => GetArgument<TerraformValue<double>>("percentage");
         set => SetArgument("percentage", value);
     }
 
@@ -290,7 +290,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockFaultInjectionPolic
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -300,7 +300,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockFaultInjectionPolic
     /// </summary>
     public TerraformValue<string>? Seconds
     {
-        get => new TerraformReference<string>(this, "seconds");
+        get => GetArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -324,7 +324,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockRequestMirrorPolicy
     /// </summary>
     public TerraformValue<string>? BackendService
     {
-        get => new TerraformReference<string>(this, "backend_service");
+        get => GetArgument<TerraformValue<string>>("backend_service");
         set => SetArgument("backend_service", value);
     }
 
@@ -346,7 +346,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockRetryPolicyBlock : 
     /// </summary>
     public TerraformValue<double>? NumRetries
     {
-        get => new TerraformReference<double>(this, "num_retries");
+        get => GetArgument<TerraformValue<double>>("num_retries");
         set => SetArgument("num_retries", value);
     }
 
@@ -366,7 +366,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockRetryPolicyBlock : 
     /// </summary>
     public TerraformList<string>? RetryConditions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "retry_conditions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("retry_conditions");
         set => SetArgument("retry_conditions", value);
     }
 
@@ -399,7 +399,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockRetryPolicyBlockPer
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -409,7 +409,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockRetryPolicyBlockPer
     /// </summary>
     public TerraformValue<string>? Seconds
     {
-        get => new TerraformReference<string>(this, "seconds");
+        get => GetArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -431,7 +431,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockTimeoutBlock : Terr
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -440,7 +440,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockTimeoutBlock : Terr
     /// </summary>
     public TerraformValue<string>? Seconds
     {
-        get => new TerraformReference<string>(this, "seconds");
+        get => GetArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -463,7 +463,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockUrlRewriteBlock : T
     /// </summary>
     public TerraformValue<string>? HostRewrite
     {
-        get => new TerraformReference<string>(this, "host_rewrite");
+        get => GetArgument<TerraformValue<string>>("host_rewrite");
         set => SetArgument("host_rewrite", value);
     }
 
@@ -473,7 +473,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockUrlRewriteBlock : T
     /// </summary>
     public TerraformValue<string>? PathPrefixRewrite
     {
-        get => new TerraformReference<string>(this, "path_prefix_rewrite");
+        get => GetArgument<TerraformValue<string>>("path_prefix_rewrite");
         set => SetArgument("path_prefix_rewrite", value);
     }
 
@@ -495,7 +495,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockWeightedBackendServ
     /// </summary>
     public TerraformValue<string>? BackendService
     {
-        get => new TerraformReference<string>(this, "backend_service");
+        get => GetArgument<TerraformValue<string>>("backend_service");
         set => SetArgument("backend_service", value);
     }
 
@@ -506,7 +506,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockWeightedBackendServ
     /// </summary>
     public TerraformValue<double>? Weight
     {
-        get => new TerraformReference<double>(this, "weight");
+        get => GetArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -538,7 +538,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockWeightedBackendServ
     /// </summary>
     public TerraformList<string>? RequestHeadersToRemove
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "request_headers_to_remove").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("request_headers_to_remove");
         set => SetArgument("request_headers_to_remove", value);
     }
 
@@ -547,7 +547,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockWeightedBackendServ
     /// </summary>
     public TerraformList<string>? ResponseHeadersToRemove
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "response_headers_to_remove").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("response_headers_to_remove");
         set => SetArgument("response_headers_to_remove", value);
     }
 
@@ -587,7 +587,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockWeightedBackendServ
     /// </summary>
     public TerraformValue<string>? HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -596,7 +596,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockWeightedBackendServ
     /// </summary>
     public TerraformValue<string>? HeaderValue
     {
-        get => new TerraformReference<string>(this, "header_value");
+        get => GetArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -606,7 +606,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockWeightedBackendServ
     /// </summary>
     public TerraformValue<bool>? Replace
     {
-        get => new TerraformReference<bool>(this, "replace");
+        get => GetArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -628,7 +628,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockWeightedBackendServ
     /// </summary>
     public TerraformValue<string>? HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -637,7 +637,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockWeightedBackendServ
     /// </summary>
     public TerraformValue<string>? HeaderValue
     {
-        get => new TerraformReference<string>(this, "header_value");
+        get => GetArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -647,7 +647,7 @@ public class GoogleComputeRegionUrlMapDefaultRouteActionBlockWeightedBackendServ
     /// </summary>
     public TerraformValue<bool>? Replace
     {
-        get => new TerraformReference<bool>(this, "replace");
+        get => GetArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -671,7 +671,7 @@ public class GoogleComputeRegionUrlMapDefaultUrlRedirectBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? HostRedirect
     {
-        get => new TerraformReference<string>(this, "host_redirect");
+        get => GetArgument<TerraformValue<string>>("host_redirect");
         set => SetArgument("host_redirect", value);
     }
 
@@ -683,7 +683,7 @@ public class GoogleComputeRegionUrlMapDefaultUrlRedirectBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? HttpsRedirect
     {
-        get => new TerraformReference<bool>(this, "https_redirect");
+        get => GetArgument<TerraformValue<bool>>("https_redirect");
         set => SetArgument("https_redirect", value);
     }
 
@@ -696,7 +696,7 @@ public class GoogleComputeRegionUrlMapDefaultUrlRedirectBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PathRedirect
     {
-        get => new TerraformReference<string>(this, "path_redirect");
+        get => GetArgument<TerraformValue<string>>("path_redirect");
         set => SetArgument("path_redirect", value);
     }
 
@@ -709,7 +709,7 @@ public class GoogleComputeRegionUrlMapDefaultUrlRedirectBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PrefixRedirect
     {
-        get => new TerraformReference<string>(this, "prefix_redirect");
+        get => GetArgument<TerraformValue<string>>("prefix_redirect");
         set => SetArgument("prefix_redirect", value);
     }
 
@@ -730,7 +730,7 @@ public class GoogleComputeRegionUrlMapDefaultUrlRedirectBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RedirectResponseCode
     {
-        get => new TerraformReference<string>(this, "redirect_response_code");
+        get => GetArgument<TerraformValue<string>>("redirect_response_code");
         set => SetArgument("redirect_response_code", value);
     }
 
@@ -743,7 +743,7 @@ public class GoogleComputeRegionUrlMapDefaultUrlRedirectBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StripQuery is required")]
     public required TerraformValue<bool> StripQuery
     {
-        get => new TerraformReference<bool>(this, "strip_query");
+        get => GetArgument<TerraformValue<bool>>("strip_query");
         set => SetArgument("strip_query", value);
     }
 
@@ -766,7 +766,7 @@ public class GoogleComputeRegionUrlMapHeaderActionBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? RequestHeadersToRemove
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "request_headers_to_remove").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("request_headers_to_remove");
         set => SetArgument("request_headers_to_remove", value);
     }
 
@@ -775,7 +775,7 @@ public class GoogleComputeRegionUrlMapHeaderActionBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ResponseHeadersToRemove
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "response_headers_to_remove").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("response_headers_to_remove");
         set => SetArgument("response_headers_to_remove", value);
     }
 
@@ -815,7 +815,7 @@ public class GoogleComputeRegionUrlMapHeaderActionBlockRequestHeadersToAddBlock 
     /// </summary>
     public TerraformValue<string>? HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -824,7 +824,7 @@ public class GoogleComputeRegionUrlMapHeaderActionBlockRequestHeadersToAddBlock 
     /// </summary>
     public TerraformValue<string>? HeaderValue
     {
-        get => new TerraformReference<string>(this, "header_value");
+        get => GetArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -834,7 +834,7 @@ public class GoogleComputeRegionUrlMapHeaderActionBlockRequestHeadersToAddBlock 
     /// </summary>
     public TerraformValue<bool>? Replace
     {
-        get => new TerraformReference<bool>(this, "replace");
+        get => GetArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -856,7 +856,7 @@ public class GoogleComputeRegionUrlMapHeaderActionBlockResponseHeadersToAddBlock
     /// </summary>
     public TerraformValue<string>? HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -865,7 +865,7 @@ public class GoogleComputeRegionUrlMapHeaderActionBlockResponseHeadersToAddBlock
     /// </summary>
     public TerraformValue<string>? HeaderValue
     {
-        get => new TerraformReference<string>(this, "header_value");
+        get => GetArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -875,7 +875,7 @@ public class GoogleComputeRegionUrlMapHeaderActionBlockResponseHeadersToAddBlock
     /// </summary>
     public TerraformValue<bool>? Replace
     {
-        get => new TerraformReference<bool>(this, "replace");
+        get => GetArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -899,7 +899,7 @@ public class GoogleComputeRegionUrlMapHostRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -912,7 +912,7 @@ public class GoogleComputeRegionUrlMapHostRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hosts is required")]
     public required TerraformSet<string> Hosts
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "hosts").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("hosts");
         set => SetArgument("hosts", value);
     }
 
@@ -923,7 +923,7 @@ public class GoogleComputeRegionUrlMapHostRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PathMatcher is required")]
     public required TerraformValue<string> PathMatcher
     {
-        get => new TerraformReference<string>(this, "path_matcher");
+        get => GetArgument<TerraformValue<string>>("path_matcher");
         set => SetArgument("path_matcher", value);
     }
 
@@ -948,7 +948,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DefaultService
     {
-        get => new TerraformReference<string>(this, "default_service");
+        get => GetArgument<TerraformValue<string>>("default_service");
         set => SetArgument("default_service", value);
     }
 
@@ -957,7 +957,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -967,7 +967,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1130,7 +1130,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockCor
     /// </summary>
     public TerraformValue<bool>? AllowCredentials
     {
-        get => new TerraformReference<bool>(this, "allow_credentials");
+        get => GetArgument<TerraformValue<bool>>("allow_credentials");
         set => SetArgument("allow_credentials", value);
     }
 
@@ -1139,7 +1139,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockCor
     /// </summary>
     public TerraformList<string>? AllowHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allow_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allow_headers");
         set => SetArgument("allow_headers", value);
     }
 
@@ -1148,7 +1148,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockCor
     /// </summary>
     public TerraformList<string>? AllowMethods
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allow_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allow_methods");
         set => SetArgument("allow_methods", value);
     }
 
@@ -1159,7 +1159,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockCor
     /// </summary>
     public TerraformList<string>? AllowOriginRegexes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allow_origin_regexes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allow_origin_regexes");
         set => SetArgument("allow_origin_regexes", value);
     }
 
@@ -1169,7 +1169,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockCor
     /// </summary>
     public TerraformList<string>? AllowOrigins
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allow_origins").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allow_origins");
         set => SetArgument("allow_origins", value);
     }
 
@@ -1178,7 +1178,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockCor
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -1187,7 +1187,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockCor
     /// </summary>
     public TerraformList<string>? ExposeHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "expose_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("expose_headers");
         set => SetArgument("expose_headers", value);
     }
 
@@ -1197,7 +1197,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockCor
     /// </summary>
     public TerraformValue<double>? MaxAge
     {
-        get => new TerraformReference<double>(this, "max_age");
+        get => GetArgument<TerraformValue<double>>("max_age");
         set => SetArgument("max_age", value);
     }
 
@@ -1253,7 +1253,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockFau
     /// </summary>
     public TerraformValue<double>? HttpStatus
     {
-        get => new TerraformReference<double>(this, "http_status");
+        get => GetArgument<TerraformValue<double>>("http_status");
         set => SetArgument("http_status", value);
     }
 
@@ -1263,7 +1263,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockFau
     /// </summary>
     public TerraformValue<double>? Percentage
     {
-        get => new TerraformReference<double>(this, "percentage");
+        get => GetArgument<TerraformValue<double>>("percentage");
         set => SetArgument("percentage", value);
     }
 
@@ -1286,7 +1286,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockFau
     /// </summary>
     public TerraformValue<double>? Percentage
     {
-        get => new TerraformReference<double>(this, "percentage");
+        get => GetArgument<TerraformValue<double>>("percentage");
         set => SetArgument("percentage", value);
     }
 
@@ -1319,7 +1319,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockFau
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -1329,7 +1329,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockFau
     /// </summary>
     public TerraformValue<string>? Seconds
     {
-        get => new TerraformReference<string>(this, "seconds");
+        get => GetArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -1352,7 +1352,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockMax
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -1363,7 +1363,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockMax
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<string> Seconds
     {
-        get => new TerraformReference<string>(this, "seconds");
+        get => GetArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -1386,7 +1386,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockReq
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
     public required TerraformValue<string> BackendService
     {
-        get => new TerraformReference<string>(this, "backend_service");
+        get => GetArgument<TerraformValue<string>>("backend_service");
         set => SetArgument("backend_service", value);
     }
 
@@ -1408,7 +1408,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockRet
     /// </summary>
     public TerraformValue<double>? NumRetries
     {
-        get => new TerraformReference<double>(this, "num_retries");
+        get => GetArgument<TerraformValue<double>>("num_retries");
         set => SetArgument("num_retries", value);
     }
 
@@ -1432,7 +1432,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockRet
     /// </summary>
     public TerraformList<string>? RetryConditions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "retry_conditions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("retry_conditions");
         set => SetArgument("retry_conditions", value);
     }
 
@@ -1465,7 +1465,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockRet
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -1475,7 +1475,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockRet
     /// </summary>
     public TerraformValue<string>? Seconds
     {
-        get => new TerraformReference<string>(this, "seconds");
+        get => GetArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -1498,7 +1498,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockTim
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -1508,7 +1508,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockTim
     /// </summary>
     public TerraformValue<string>? Seconds
     {
-        get => new TerraformReference<string>(this, "seconds");
+        get => GetArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -1533,7 +1533,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockUrl
     /// </summary>
     public TerraformValue<string>? HostRewrite
     {
-        get => new TerraformReference<string>(this, "host_rewrite");
+        get => GetArgument<TerraformValue<string>>("host_rewrite");
         set => SetArgument("host_rewrite", value);
     }
 
@@ -1545,7 +1545,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockUrl
     /// </summary>
     public TerraformValue<string>? PathPrefixRewrite
     {
-        get => new TerraformReference<string>(this, "path_prefix_rewrite");
+        get => GetArgument<TerraformValue<string>>("path_prefix_rewrite");
         set => SetArgument("path_prefix_rewrite", value);
     }
 
@@ -1568,7 +1568,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockUrl
     /// </summary>
     public TerraformValue<string>? PathTemplateRewrite
     {
-        get => new TerraformReference<string>(this, "path_template_rewrite");
+        get => GetArgument<TerraformValue<string>>("path_template_rewrite");
         set => SetArgument("path_template_rewrite", value);
     }
 
@@ -1592,7 +1592,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockWei
     /// </summary>
     public TerraformValue<string>? BackendService
     {
-        get => new TerraformReference<string>(this, "backend_service");
+        get => GetArgument<TerraformValue<string>>("backend_service");
         set => SetArgument("backend_service", value);
     }
 
@@ -1608,7 +1608,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockWei
     /// </summary>
     public TerraformValue<double>? Weight
     {
-        get => new TerraformReference<double>(this, "weight");
+        get => GetArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -1641,7 +1641,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockWei
     /// </summary>
     public TerraformList<string>? RequestHeadersToRemove
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "request_headers_to_remove").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("request_headers_to_remove");
         set => SetArgument("request_headers_to_remove", value);
     }
 
@@ -1651,7 +1651,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockWei
     /// </summary>
     public TerraformList<string>? ResponseHeadersToRemove
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "response_headers_to_remove").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("response_headers_to_remove");
         set => SetArgument("response_headers_to_remove", value);
     }
 
@@ -1691,7 +1691,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockWei
     /// </summary>
     public TerraformValue<string>? HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -1700,7 +1700,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockWei
     /// </summary>
     public TerraformValue<string>? HeaderValue
     {
-        get => new TerraformReference<string>(this, "header_value");
+        get => GetArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -1710,7 +1710,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockWei
     /// </summary>
     public TerraformValue<bool>? Replace
     {
-        get => new TerraformReference<bool>(this, "replace");
+        get => GetArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -1732,7 +1732,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockWei
     /// </summary>
     public TerraformValue<string>? HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -1741,7 +1741,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockWei
     /// </summary>
     public TerraformValue<string>? HeaderValue
     {
-        get => new TerraformReference<string>(this, "header_value");
+        get => GetArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -1751,7 +1751,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultRouteActionBlockWei
     /// </summary>
     public TerraformValue<bool>? Replace
     {
-        get => new TerraformReference<bool>(this, "replace");
+        get => GetArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -1774,7 +1774,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultUrlRedirectBlock : 
     /// </summary>
     public TerraformValue<string>? HostRedirect
     {
-        get => new TerraformReference<string>(this, "host_redirect");
+        get => GetArgument<TerraformValue<string>>("host_redirect");
         set => SetArgument("host_redirect", value);
     }
 
@@ -1786,7 +1786,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultUrlRedirectBlock : 
     /// </summary>
     public TerraformValue<bool>? HttpsRedirect
     {
-        get => new TerraformReference<bool>(this, "https_redirect");
+        get => GetArgument<TerraformValue<bool>>("https_redirect");
         set => SetArgument("https_redirect", value);
     }
 
@@ -1799,7 +1799,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultUrlRedirectBlock : 
     /// </summary>
     public TerraformValue<string>? PathRedirect
     {
-        get => new TerraformReference<string>(this, "path_redirect");
+        get => GetArgument<TerraformValue<string>>("path_redirect");
         set => SetArgument("path_redirect", value);
     }
 
@@ -1812,7 +1812,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultUrlRedirectBlock : 
     /// </summary>
     public TerraformValue<string>? PrefixRedirect
     {
-        get => new TerraformReference<string>(this, "prefix_redirect");
+        get => GetArgument<TerraformValue<string>>("prefix_redirect");
         set => SetArgument("prefix_redirect", value);
     }
 
@@ -1833,7 +1833,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultUrlRedirectBlock : 
     /// </summary>
     public TerraformValue<string>? RedirectResponseCode
     {
-        get => new TerraformReference<string>(this, "redirect_response_code");
+        get => GetArgument<TerraformValue<string>>("redirect_response_code");
         set => SetArgument("redirect_response_code", value);
     }
 
@@ -1846,7 +1846,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockDefaultUrlRedirectBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StripQuery is required")]
     public required TerraformValue<bool> StripQuery
     {
-        get => new TerraformReference<bool>(this, "strip_query");
+        get => GetArgument<TerraformValue<bool>>("strip_query");
         set => SetArgument("strip_query", value);
     }
 
@@ -1868,7 +1868,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockHeaderActionBlock : Terraf
     /// </summary>
     public TerraformList<string>? RequestHeadersToRemove
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "request_headers_to_remove").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("request_headers_to_remove");
         set => SetArgument("request_headers_to_remove", value);
     }
 
@@ -1877,7 +1877,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockHeaderActionBlock : Terraf
     /// </summary>
     public TerraformList<string>? ResponseHeadersToRemove
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "response_headers_to_remove").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("response_headers_to_remove");
         set => SetArgument("response_headers_to_remove", value);
     }
 
@@ -1917,7 +1917,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockHeaderActionBlockRequestHe
     /// </summary>
     public TerraformValue<string>? HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -1926,7 +1926,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockHeaderActionBlockRequestHe
     /// </summary>
     public TerraformValue<string>? HeaderValue
     {
-        get => new TerraformReference<string>(this, "header_value");
+        get => GetArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -1936,7 +1936,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockHeaderActionBlockRequestHe
     /// </summary>
     public TerraformValue<bool>? Replace
     {
-        get => new TerraformReference<bool>(this, "replace");
+        get => GetArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -1958,7 +1958,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockHeaderActionBlockResponseH
     /// </summary>
     public TerraformValue<string>? HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -1967,7 +1967,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockHeaderActionBlockResponseH
     /// </summary>
     public TerraformValue<string>? HeaderValue
     {
-        get => new TerraformReference<string>(this, "header_value");
+        get => GetArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -1977,7 +1977,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockHeaderActionBlockResponseH
     /// </summary>
     public TerraformValue<bool>? Replace
     {
-        get => new TerraformReference<bool>(this, "replace");
+        get => GetArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -2003,7 +2003,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Paths is required")]
     public required TerraformSet<string> Paths
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "paths").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("paths");
         set => SetArgument("paths", value);
     }
 
@@ -2018,7 +2018,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -2144,7 +2144,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     /// </summary>
     public TerraformValue<bool>? AllowCredentials
     {
-        get => new TerraformReference<bool>(this, "allow_credentials");
+        get => GetArgument<TerraformValue<bool>>("allow_credentials");
         set => SetArgument("allow_credentials", value);
     }
 
@@ -2153,7 +2153,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     /// </summary>
     public TerraformList<string>? AllowHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allow_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allow_headers");
         set => SetArgument("allow_headers", value);
     }
 
@@ -2162,7 +2162,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     /// </summary>
     public TerraformList<string>? AllowMethods
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allow_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allow_methods");
         set => SetArgument("allow_methods", value);
     }
 
@@ -2173,7 +2173,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     /// </summary>
     public TerraformList<string>? AllowOriginRegexes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allow_origin_regexes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allow_origin_regexes");
         set => SetArgument("allow_origin_regexes", value);
     }
 
@@ -2183,7 +2183,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     /// </summary>
     public TerraformList<string>? AllowOrigins
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allow_origins").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allow_origins");
         set => SetArgument("allow_origins", value);
     }
 
@@ -2193,7 +2193,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disabled is required")]
     public required TerraformValue<bool> Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -2202,7 +2202,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     /// </summary>
     public TerraformList<string>? ExposeHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "expose_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("expose_headers");
         set => SetArgument("expose_headers", value);
     }
 
@@ -2212,7 +2212,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     /// </summary>
     public TerraformValue<double>? MaxAge
     {
-        get => new TerraformReference<double>(this, "max_age");
+        get => GetArgument<TerraformValue<double>>("max_age");
         set => SetArgument("max_age", value);
     }
 
@@ -2269,7 +2269,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpStatus is required")]
     public required TerraformValue<double> HttpStatus
     {
-        get => new TerraformReference<double>(this, "http_status");
+        get => GetArgument<TerraformValue<double>>("http_status");
         set => SetArgument("http_status", value);
     }
 
@@ -2281,7 +2281,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Percentage is required")]
     public required TerraformValue<double> Percentage
     {
-        get => new TerraformReference<double>(this, "percentage");
+        get => GetArgument<TerraformValue<double>>("percentage");
         set => SetArgument("percentage", value);
     }
 
@@ -2306,7 +2306,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Percentage is required")]
     public required TerraformValue<double> Percentage
     {
-        get => new TerraformReference<double>(this, "percentage");
+        get => GetArgument<TerraformValue<double>>("percentage");
         set => SetArgument("percentage", value);
     }
 
@@ -2343,7 +2343,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -2354,7 +2354,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<string> Seconds
     {
-        get => new TerraformReference<string>(this, "seconds");
+        get => GetArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -2377,7 +2377,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
     public required TerraformValue<string> BackendService
     {
-        get => new TerraformReference<string>(this, "backend_service");
+        get => GetArgument<TerraformValue<string>>("backend_service");
         set => SetArgument("backend_service", value);
     }
 
@@ -2399,7 +2399,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     /// </summary>
     public TerraformValue<double>? NumRetries
     {
-        get => new TerraformReference<double>(this, "num_retries");
+        get => GetArgument<TerraformValue<double>>("num_retries");
         set => SetArgument("num_retries", value);
     }
 
@@ -2429,7 +2429,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     /// </summary>
     public TerraformList<string>? RetryConditions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "retry_conditions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("retry_conditions");
         set => SetArgument("retry_conditions", value);
     }
 
@@ -2463,7 +2463,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -2474,7 +2474,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<string> Seconds
     {
-        get => new TerraformReference<string>(this, "seconds");
+        get => GetArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -2498,7 +2498,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -2509,7 +2509,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<string> Seconds
     {
-        get => new TerraformReference<string>(this, "seconds");
+        get => GetArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -2533,7 +2533,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     /// </summary>
     public TerraformValue<string>? HostRewrite
     {
-        get => new TerraformReference<string>(this, "host_rewrite");
+        get => GetArgument<TerraformValue<string>>("host_rewrite");
         set => SetArgument("host_rewrite", value);
     }
 
@@ -2544,7 +2544,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     /// </summary>
     public TerraformValue<string>? PathPrefixRewrite
     {
-        get => new TerraformReference<string>(this, "path_prefix_rewrite");
+        get => GetArgument<TerraformValue<string>>("path_prefix_rewrite");
         set => SetArgument("path_prefix_rewrite", value);
     }
 
@@ -2569,7 +2569,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
     public required TerraformValue<string> BackendService
     {
-        get => new TerraformReference<string>(this, "backend_service");
+        get => GetArgument<TerraformValue<string>>("backend_service");
         set => SetArgument("backend_service", value);
     }
 
@@ -2584,7 +2584,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformValue<double> Weight
     {
-        get => new TerraformReference<double>(this, "weight");
+        get => GetArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -2617,7 +2617,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     /// </summary>
     public TerraformList<string>? RequestHeadersToRemove
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "request_headers_to_remove").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("request_headers_to_remove");
         set => SetArgument("request_headers_to_remove", value);
     }
 
@@ -2627,7 +2627,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     /// </summary>
     public TerraformList<string>? ResponseHeadersToRemove
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "response_headers_to_remove").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("response_headers_to_remove");
         set => SetArgument("response_headers_to_remove", value);
     }
 
@@ -2668,7 +2668,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -2678,7 +2678,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => new TerraformReference<string>(this, "header_value");
+        get => GetArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -2690,7 +2690,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replace is required")]
     public required TerraformValue<bool> Replace
     {
-        get => new TerraformReference<bool>(this, "replace");
+        get => GetArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -2713,7 +2713,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -2723,7 +2723,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => new TerraformReference<string>(this, "header_value");
+        get => GetArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -2735,7 +2735,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockRouteActionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replace is required")]
     public required TerraformValue<bool> Replace
     {
-        get => new TerraformReference<bool>(this, "replace");
+        get => GetArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -2759,7 +2759,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockUrlRedirectBl
     /// </summary>
     public TerraformValue<string>? HostRedirect
     {
-        get => new TerraformReference<string>(this, "host_redirect");
+        get => GetArgument<TerraformValue<string>>("host_redirect");
         set => SetArgument("host_redirect", value);
     }
 
@@ -2772,7 +2772,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockUrlRedirectBl
     /// </summary>
     public TerraformValue<bool>? HttpsRedirect
     {
-        get => new TerraformReference<bool>(this, "https_redirect");
+        get => GetArgument<TerraformValue<bool>>("https_redirect");
         set => SetArgument("https_redirect", value);
     }
 
@@ -2785,7 +2785,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockUrlRedirectBl
     /// </summary>
     public TerraformValue<string>? PathRedirect
     {
-        get => new TerraformReference<string>(this, "path_redirect");
+        get => GetArgument<TerraformValue<string>>("path_redirect");
         set => SetArgument("path_redirect", value);
     }
 
@@ -2799,7 +2799,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockUrlRedirectBl
     /// </summary>
     public TerraformValue<string>? PrefixRedirect
     {
-        get => new TerraformReference<string>(this, "prefix_redirect");
+        get => GetArgument<TerraformValue<string>>("prefix_redirect");
         set => SetArgument("prefix_redirect", value);
     }
 
@@ -2820,7 +2820,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockUrlRedirectBl
     /// </summary>
     public TerraformValue<string>? RedirectResponseCode
     {
-        get => new TerraformReference<string>(this, "redirect_response_code");
+        get => GetArgument<TerraformValue<string>>("redirect_response_code");
         set => SetArgument("redirect_response_code", value);
     }
 
@@ -2833,7 +2833,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockPathRuleBlockUrlRedirectBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StripQuery is required")]
     public required TerraformValue<bool> StripQuery
     {
-        get => new TerraformReference<bool>(this, "strip_query");
+        get => GetArgument<TerraformValue<bool>>("strip_query");
         set => SetArgument("strip_query", value);
     }
 
@@ -2870,7 +2870,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -2885,7 +2885,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -2947,7 +2947,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockHeaderActio
     /// </summary>
     public TerraformList<string>? RequestHeadersToRemove
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "request_headers_to_remove").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("request_headers_to_remove");
         set => SetArgument("request_headers_to_remove", value);
     }
 
@@ -2957,7 +2957,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockHeaderActio
     /// </summary>
     public TerraformList<string>? ResponseHeadersToRemove
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "response_headers_to_remove").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("response_headers_to_remove");
         set => SetArgument("response_headers_to_remove", value);
     }
 
@@ -2998,7 +2998,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockHeaderActio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -3008,7 +3008,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockHeaderActio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => new TerraformReference<string>(this, "header_value");
+        get => GetArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -3020,7 +3020,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockHeaderActio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replace is required")]
     public required TerraformValue<bool> Replace
     {
-        get => new TerraformReference<bool>(this, "replace");
+        get => GetArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -3043,7 +3043,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockHeaderActio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -3053,7 +3053,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockHeaderActio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => new TerraformReference<string>(this, "header_value");
+        get => GetArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -3065,7 +3065,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockHeaderActio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replace is required")]
     public required TerraformValue<bool> Replace
     {
-        get => new TerraformReference<bool>(this, "replace");
+        get => GetArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -3091,7 +3091,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockMatchRulesB
     /// </summary>
     public TerraformValue<string>? FullPathMatch
     {
-        get => new TerraformReference<string>(this, "full_path_match");
+        get => GetArgument<TerraformValue<string>>("full_path_match");
         set => SetArgument("full_path_match", value);
     }
 
@@ -3101,7 +3101,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockMatchRulesB
     /// </summary>
     public TerraformValue<bool>? IgnoreCase
     {
-        get => new TerraformReference<bool>(this, "ignore_case");
+        get => GetArgument<TerraformValue<bool>>("ignore_case");
         set => SetArgument("ignore_case", value);
     }
 
@@ -3118,7 +3118,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockMatchRulesB
     /// </summary>
     public TerraformValue<string>? PathTemplateMatch
     {
-        get => new TerraformReference<string>(this, "path_template_match");
+        get => GetArgument<TerraformValue<string>>("path_template_match");
         set => SetArgument("path_template_match", value);
     }
 
@@ -3130,7 +3130,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockMatchRulesB
     /// </summary>
     public TerraformValue<string>? PrefixMatch
     {
-        get => new TerraformReference<string>(this, "prefix_match");
+        get => GetArgument<TerraformValue<string>>("prefix_match");
         set => SetArgument("prefix_match", value);
     }
 
@@ -3143,7 +3143,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockMatchRulesB
     /// </summary>
     public TerraformValue<string>? RegexMatch
     {
-        get => new TerraformReference<string>(this, "regex_match");
+        get => GetArgument<TerraformValue<string>>("regex_match");
         set => SetArgument("regex_match", value);
     }
 
@@ -3193,7 +3193,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockMatchRulesB
     /// </summary>
     public TerraformValue<string>? ExactMatch
     {
-        get => new TerraformReference<string>(this, "exact_match");
+        get => GetArgument<TerraformValue<string>>("exact_match");
         set => SetArgument("exact_match", value);
     }
 
@@ -3205,7 +3205,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockMatchRulesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -3216,7 +3216,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockMatchRulesB
     /// </summary>
     public TerraformValue<bool>? InvertMatch
     {
-        get => new TerraformReference<bool>(this, "invert_match");
+        get => GetArgument<TerraformValue<bool>>("invert_match");
         set => SetArgument("invert_match", value);
     }
 
@@ -3227,7 +3227,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockMatchRulesB
     /// </summary>
     public TerraformValue<string>? PrefixMatch
     {
-        get => new TerraformReference<string>(this, "prefix_match");
+        get => GetArgument<TerraformValue<string>>("prefix_match");
         set => SetArgument("prefix_match", value);
     }
 
@@ -3238,7 +3238,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockMatchRulesB
     /// </summary>
     public TerraformValue<bool>? PresentMatch
     {
-        get => new TerraformReference<bool>(this, "present_match");
+        get => GetArgument<TerraformValue<bool>>("present_match");
         set => SetArgument("present_match", value);
     }
 
@@ -3253,7 +3253,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockMatchRulesB
     /// </summary>
     public TerraformValue<string>? RegexMatch
     {
-        get => new TerraformReference<string>(this, "regex_match");
+        get => GetArgument<TerraformValue<string>>("regex_match");
         set => SetArgument("regex_match", value);
     }
 
@@ -3264,7 +3264,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockMatchRulesB
     /// </summary>
     public TerraformValue<string>? SuffixMatch
     {
-        get => new TerraformReference<string>(this, "suffix_match");
+        get => GetArgument<TerraformValue<string>>("suffix_match");
         set => SetArgument("suffix_match", value);
     }
 
@@ -3297,7 +3297,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockMatchRulesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeEnd is required")]
     public required TerraformValue<double> RangeEnd
     {
-        get => new TerraformReference<double>(this, "range_end");
+        get => GetArgument<TerraformValue<double>>("range_end");
         set => SetArgument("range_end", value);
     }
 
@@ -3307,7 +3307,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockMatchRulesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RangeStart is required")]
     public required TerraformValue<double> RangeStart
     {
-        get => new TerraformReference<double>(this, "range_start");
+        get => GetArgument<TerraformValue<double>>("range_start");
         set => SetArgument("range_start", value);
     }
 
@@ -3336,7 +3336,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockMatchRulesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterMatchCriteria is required")]
     public required TerraformValue<string> FilterMatchCriteria
     {
-        get => new TerraformReference<string>(this, "filter_match_criteria");
+        get => GetArgument<TerraformValue<string>>("filter_match_criteria");
         set => SetArgument("filter_match_criteria", value);
     }
 
@@ -3373,7 +3373,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockMatchRulesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -3384,7 +3384,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockMatchRulesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3408,7 +3408,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockMatchRulesB
     /// </summary>
     public TerraformValue<string>? ExactMatch
     {
-        get => new TerraformReference<string>(this, "exact_match");
+        get => GetArgument<TerraformValue<string>>("exact_match");
         set => SetArgument("exact_match", value);
     }
 
@@ -3419,7 +3419,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockMatchRulesB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -3430,7 +3430,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockMatchRulesB
     /// </summary>
     public TerraformValue<bool>? PresentMatch
     {
-        get => new TerraformReference<bool>(this, "present_match");
+        get => GetArgument<TerraformValue<bool>>("present_match");
         set => SetArgument("present_match", value);
     }
 
@@ -3442,7 +3442,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockMatchRulesB
     /// </summary>
     public TerraformValue<string>? RegexMatch
     {
-        get => new TerraformReference<string>(this, "regex_match");
+        get => GetArgument<TerraformValue<string>>("regex_match");
         set => SetArgument("regex_match", value);
     }
 
@@ -3548,7 +3548,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     /// </summary>
     public TerraformValue<bool>? AllowCredentials
     {
-        get => new TerraformReference<bool>(this, "allow_credentials");
+        get => GetArgument<TerraformValue<bool>>("allow_credentials");
         set => SetArgument("allow_credentials", value);
     }
 
@@ -3557,7 +3557,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     /// </summary>
     public TerraformList<string>? AllowHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allow_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allow_headers");
         set => SetArgument("allow_headers", value);
     }
 
@@ -3566,7 +3566,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     /// </summary>
     public TerraformList<string>? AllowMethods
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allow_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allow_methods");
         set => SetArgument("allow_methods", value);
     }
 
@@ -3577,7 +3577,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     /// </summary>
     public TerraformList<string>? AllowOriginRegexes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allow_origin_regexes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allow_origin_regexes");
         set => SetArgument("allow_origin_regexes", value);
     }
 
@@ -3587,7 +3587,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     /// </summary>
     public TerraformList<string>? AllowOrigins
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allow_origins").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allow_origins");
         set => SetArgument("allow_origins", value);
     }
 
@@ -3597,7 +3597,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -3606,7 +3606,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     /// </summary>
     public TerraformList<string>? ExposeHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "expose_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("expose_headers");
         set => SetArgument("expose_headers", value);
     }
 
@@ -3616,7 +3616,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     /// </summary>
     public TerraformValue<double>? MaxAge
     {
-        get => new TerraformReference<double>(this, "max_age");
+        get => GetArgument<TerraformValue<double>>("max_age");
         set => SetArgument("max_age", value);
     }
 
@@ -3672,7 +3672,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     /// </summary>
     public TerraformValue<double>? HttpStatus
     {
-        get => new TerraformReference<double>(this, "http_status");
+        get => GetArgument<TerraformValue<double>>("http_status");
         set => SetArgument("http_status", value);
     }
 
@@ -3683,7 +3683,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     /// </summary>
     public TerraformValue<double>? Percentage
     {
-        get => new TerraformReference<double>(this, "percentage");
+        get => GetArgument<TerraformValue<double>>("percentage");
         set => SetArgument("percentage", value);
     }
 
@@ -3707,7 +3707,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     /// </summary>
     public TerraformValue<double>? Percentage
     {
-        get => new TerraformReference<double>(this, "percentage");
+        get => GetArgument<TerraformValue<double>>("percentage");
         set => SetArgument("percentage", value);
     }
 
@@ -3741,7 +3741,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -3752,7 +3752,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<string> Seconds
     {
-        get => new TerraformReference<string>(this, "seconds");
+        get => GetArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -3775,7 +3775,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
     public required TerraformValue<string> BackendService
     {
-        get => new TerraformReference<string>(this, "backend_service");
+        get => GetArgument<TerraformValue<string>>("backend_service");
         set => SetArgument("backend_service", value);
     }
 
@@ -3798,7 +3798,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumRetries is required")]
     public required TerraformValue<double> NumRetries
     {
-        get => new TerraformReference<double>(this, "num_retries");
+        get => GetArgument<TerraformValue<double>>("num_retries");
         set => SetArgument("num_retries", value);
     }
 
@@ -3828,7 +3828,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     /// </summary>
     public TerraformList<string>? RetryConditions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "retry_conditions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("retry_conditions");
         set => SetArgument("retry_conditions", value);
     }
 
@@ -3862,7 +3862,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -3873,7 +3873,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<string> Seconds
     {
-        get => new TerraformReference<string>(this, "seconds");
+        get => GetArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -3897,7 +3897,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -3908,7 +3908,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Seconds is required")]
     public required TerraformValue<string> Seconds
     {
-        get => new TerraformReference<string>(this, "seconds");
+        get => GetArgument<TerraformValue<string>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -3932,7 +3932,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     /// </summary>
     public TerraformValue<string>? HostRewrite
     {
-        get => new TerraformReference<string>(this, "host_rewrite");
+        get => GetArgument<TerraformValue<string>>("host_rewrite");
         set => SetArgument("host_rewrite", value);
     }
 
@@ -3943,7 +3943,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     /// </summary>
     public TerraformValue<string>? PathPrefixRewrite
     {
-        get => new TerraformReference<string>(this, "path_prefix_rewrite");
+        get => GetArgument<TerraformValue<string>>("path_prefix_rewrite");
         set => SetArgument("path_prefix_rewrite", value);
     }
 
@@ -3965,7 +3965,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     /// </summary>
     public TerraformValue<string>? PathTemplateRewrite
     {
-        get => new TerraformReference<string>(this, "path_template_rewrite");
+        get => GetArgument<TerraformValue<string>>("path_template_rewrite");
         set => SetArgument("path_template_rewrite", value);
     }
 
@@ -3990,7 +3990,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
     public required TerraformValue<string> BackendService
     {
-        get => new TerraformReference<string>(this, "backend_service");
+        get => GetArgument<TerraformValue<string>>("backend_service");
         set => SetArgument("backend_service", value);
     }
 
@@ -4005,7 +4005,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformValue<double> Weight
     {
-        get => new TerraformReference<double>(this, "weight");
+        get => GetArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -4038,7 +4038,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     /// </summary>
     public TerraformList<string>? RequestHeadersToRemove
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "request_headers_to_remove").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("request_headers_to_remove");
         set => SetArgument("request_headers_to_remove", value);
     }
 
@@ -4048,7 +4048,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     /// </summary>
     public TerraformList<string>? ResponseHeadersToRemove
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "response_headers_to_remove").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("response_headers_to_remove");
         set => SetArgument("response_headers_to_remove", value);
     }
 
@@ -4089,7 +4089,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -4099,7 +4099,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => new TerraformReference<string>(this, "header_value");
+        get => GetArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -4111,7 +4111,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replace is required")]
     public required TerraformValue<bool> Replace
     {
-        get => new TerraformReference<bool>(this, "replace");
+        get => GetArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -4134,7 +4134,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -4144,7 +4144,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => new TerraformReference<string>(this, "header_value");
+        get => GetArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -4156,7 +4156,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockRouteAction
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replace is required")]
     public required TerraformValue<bool> Replace
     {
-        get => new TerraformReference<bool>(this, "replace");
+        get => GetArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -4180,7 +4180,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockUrlRedirect
     /// </summary>
     public TerraformValue<string>? HostRedirect
     {
-        get => new TerraformReference<string>(this, "host_redirect");
+        get => GetArgument<TerraformValue<string>>("host_redirect");
         set => SetArgument("host_redirect", value);
     }
 
@@ -4193,7 +4193,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockUrlRedirect
     /// </summary>
     public TerraformValue<bool>? HttpsRedirect
     {
-        get => new TerraformReference<bool>(this, "https_redirect");
+        get => GetArgument<TerraformValue<bool>>("https_redirect");
         set => SetArgument("https_redirect", value);
     }
 
@@ -4206,7 +4206,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockUrlRedirect
     /// </summary>
     public TerraformValue<string>? PathRedirect
     {
-        get => new TerraformReference<string>(this, "path_redirect");
+        get => GetArgument<TerraformValue<string>>("path_redirect");
         set => SetArgument("path_redirect", value);
     }
 
@@ -4220,7 +4220,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockUrlRedirect
     /// </summary>
     public TerraformValue<string>? PrefixRedirect
     {
-        get => new TerraformReference<string>(this, "prefix_redirect");
+        get => GetArgument<TerraformValue<string>>("prefix_redirect");
         set => SetArgument("prefix_redirect", value);
     }
 
@@ -4241,7 +4241,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockUrlRedirect
     /// </summary>
     public TerraformValue<string>? RedirectResponseCode
     {
-        get => new TerraformReference<string>(this, "redirect_response_code");
+        get => GetArgument<TerraformValue<string>>("redirect_response_code");
         set => SetArgument("redirect_response_code", value);
     }
 
@@ -4252,7 +4252,7 @@ public class GoogleComputeRegionUrlMapPathMatcherBlockRouteRulesBlockUrlRedirect
     /// </summary>
     public TerraformValue<bool>? StripQuery
     {
-        get => new TerraformReference<bool>(this, "strip_query");
+        get => GetArgument<TerraformValue<bool>>("strip_query");
         set => SetArgument("strip_query", value);
     }
 
@@ -4275,7 +4275,7 @@ public class GoogleComputeRegionUrlMapTestBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -4285,7 +4285,7 @@ public class GoogleComputeRegionUrlMapTestBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -4295,7 +4295,7 @@ public class GoogleComputeRegionUrlMapTestBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -4305,7 +4305,7 @@ public class GoogleComputeRegionUrlMapTestBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -4328,7 +4328,7 @@ public class GoogleComputeRegionUrlMapTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -4337,7 +4337,7 @@ public class GoogleComputeRegionUrlMapTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -4346,7 +4346,7 @@ public class GoogleComputeRegionUrlMapTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -4370,7 +4370,7 @@ public partial class GoogleComputeRegionUrlMap(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? DefaultService
     {
-        get => new TerraformReference<string>(this, "default_service");
+        get => GetArgument<TerraformValue<string>>("default_service");
         set => SetArgument("default_service", value);
     }
 
@@ -4380,16 +4380,16 @@ public partial class GoogleComputeRegionUrlMap(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -4405,16 +4405,16 @@ public partial class GoogleComputeRegionUrlMap(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -4422,9 +4422,9 @@ public partial class GoogleComputeRegionUrlMap(string name) : TerraformResource(
     /// The Region in which the url map should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -4432,34 +4432,26 @@ public partial class GoogleComputeRegionUrlMap(string name) : TerraformResource(
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// Fingerprint of this resource. This field is used internally during
     /// updates of this resource.
     /// </summary>
     public TerraformValue<string> Fingerprint
-    {
-        get => new TerraformReference<string>(this, "fingerprint");
-    }
+        => AsReference("fingerprint");
 
     /// <summary>
     /// The unique identifier for the resource.
     /// </summary>
     public TerraformValue<double> MapId
-    {
-        get => new TerraformReference<double>(this, "map_id");
-    }
+        => AsReference("map_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// DefaultRouteAction block (nesting mode: list).

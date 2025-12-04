@@ -18,7 +18,7 @@ public class AzurermAutomationSourceControlSecurityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RefreshToken
     {
-        get => new TerraformReference<string>(this, "refresh_token");
+        get => GetArgument<TerraformValue<string>>("refresh_token");
         set => SetArgument("refresh_token", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermAutomationSourceControlSecurityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
     public required TerraformValue<string> Token
     {
-        get => new TerraformReference<string>(this, "token");
+        get => GetArgument<TerraformValue<string>>("token");
         set => SetArgument("token", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermAutomationSourceControlSecurityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenType is required")]
     public required TerraformValue<string> TokenType
     {
-        get => new TerraformReference<string>(this, "token_type");
+        get => GetArgument<TerraformValue<string>>("token_type");
         set => SetArgument("token_type", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermAutomationSourceControlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermAutomationSourceControlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermAutomationSourceControlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermAutomationSourceControlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AzurermAutomationSourceControl(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? AutomaticSync
     {
-        get => new TerraformReference<bool>(this, "automatic_sync");
+        get => GetArgument<TerraformValue<bool>>("automatic_sync");
         set => SetArgument("automatic_sync", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AzurermAutomationSourceControl(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
     public required TerraformValue<string> AutomationAccountId
     {
-        get => new TerraformReference<string>(this, "automation_account_id");
+        get => GetArgument<TerraformValue<string>>("automation_account_id");
         set => SetArgument("automation_account_id", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AzurermAutomationSourceControl(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Branch
     {
-        get => new TerraformReference<string>(this, "branch");
+        get => GetArgument<TerraformValue<string>>("branch");
         set => SetArgument("branch", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AzurermAutomationSourceControl(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -144,16 +144,16 @@ public partial class AzurermAutomationSourceControl(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FolderPath is required")]
     public required TerraformValue<string> FolderPath
     {
-        get => new TerraformReference<string>(this, "folder_path");
+        get => GetArgument<TerraformValue<string>>("folder_path");
         set => SetArgument("folder_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AzurermAutomationSourceControl(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AzurermAutomationSourceControl(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? PublishRunbookEnabled
     {
-        get => new TerraformReference<bool>(this, "publish_runbook_enabled");
+        get => GetArgument<TerraformValue<bool>>("publish_runbook_enabled");
         set => SetArgument("publish_runbook_enabled", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AzurermAutomationSourceControl(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
     public required TerraformValue<string> RepositoryUrl
     {
-        get => new TerraformReference<string>(this, "repository_url");
+        get => GetArgument<TerraformValue<string>>("repository_url");
         set => SetArgument("repository_url", value);
     }
 
@@ -192,7 +192,7 @@ public partial class AzurermAutomationSourceControl(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceControlType is required")]
     public required TerraformValue<string> SourceControlType
     {
-        get => new TerraformReference<string>(this, "source_control_type");
+        get => GetArgument<TerraformValue<string>>("source_control_type");
         set => SetArgument("source_control_type", value);
     }
 

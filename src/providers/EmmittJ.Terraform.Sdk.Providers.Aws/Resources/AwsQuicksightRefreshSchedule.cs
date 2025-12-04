@@ -19,16 +19,16 @@ public class AwsQuicksightRefreshScheduleScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RefreshType is required")]
     public required TerraformValue<string> RefreshType
     {
-        get => new TerraformReference<string>(this, "refresh_type");
+        get => GetArgument<TerraformValue<string>>("refresh_type");
         set => SetArgument("refresh_type", value);
     }
 
     /// <summary>
     /// The start_after_date_time attribute.
     /// </summary>
-    public TerraformValue<string> StartAfterDateTime
+    public TerraformValue<string>? StartAfterDateTime
     {
-        get => new TerraformReference<string>(this, "start_after_date_time");
+        get => GetArgument<TerraformValue<string>>("start_after_date_time");
         set => SetArgument("start_after_date_time", value);
     }
 
@@ -60,25 +60,25 @@ public class AwsQuicksightRefreshScheduleScheduleBlockScheduleFrequencyBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformValue<string> Interval
     {
-        get => new TerraformReference<string>(this, "interval");
+        get => GetArgument<TerraformValue<string>>("interval");
         set => SetArgument("interval", value);
     }
 
     /// <summary>
     /// The time_of_the_day attribute.
     /// </summary>
-    public TerraformValue<string> TimeOfTheDay
+    public TerraformValue<string>? TimeOfTheDay
     {
-        get => new TerraformReference<string>(this, "time_of_the_day");
+        get => GetArgument<TerraformValue<string>>("time_of_the_day");
         set => SetArgument("time_of_the_day", value);
     }
 
     /// <summary>
     /// The timezone attribute.
     /// </summary>
-    public TerraformValue<string> Timezone
+    public TerraformValue<string>? Timezone
     {
-        get => new TerraformReference<string>(this, "timezone");
+        get => GetArgument<TerraformValue<string>>("timezone");
         set => SetArgument("timezone", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsQuicksightRefreshScheduleScheduleBlockScheduleFrequencyBlockRefr
     /// </summary>
     public TerraformValue<string>? DayOfMonth
     {
-        get => new TerraformReference<string>(this, "day_of_month");
+        get => GetArgument<TerraformValue<string>>("day_of_month");
         set => SetArgument("day_of_month", value);
     }
 
@@ -118,7 +118,7 @@ public class AwsQuicksightRefreshScheduleScheduleBlockScheduleFrequencyBlockRefr
     /// </summary>
     public TerraformValue<string>? DayOfWeek
     {
-        get => new TerraformReference<string>(this, "day_of_week");
+        get => GetArgument<TerraformValue<string>>("day_of_week");
         set => SetArgument("day_of_week", value);
     }
 
@@ -134,9 +134,9 @@ public partial class AwsQuicksightRefreshSchedule(string name) : TerraformResour
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string> AwsAccountId
+    public TerraformValue<string>? AwsAccountId
     {
-        get => new TerraformReference<string>(this, "aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -146,16 +146,16 @@ public partial class AwsQuicksightRefreshSchedule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSetId is required")]
     public required TerraformValue<string> DataSetId
     {
-        get => new TerraformReference<string>(this, "data_set_id");
+        get => GetArgument<TerraformValue<string>>("data_set_id");
         set => SetArgument("data_set_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AwsQuicksightRefreshSchedule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleId is required")]
     public required TerraformValue<string> ScheduleId
     {
-        get => new TerraformReference<string>(this, "schedule_id");
+        get => GetArgument<TerraformValue<string>>("schedule_id");
         set => SetArgument("schedule_id", value);
     }
 
@@ -173,17 +173,13 @@ public partial class AwsQuicksightRefreshSchedule(string name) : TerraformResour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// Schedule block (nesting mode: list).

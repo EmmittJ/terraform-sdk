@@ -18,7 +18,7 @@ public class AzurermMobileNetworkAttachedDataNetworkDataSourceTimeoutsBlock : Te
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermMobileNetworkAttachedDataNetworkDataSource(string na
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermMobileNetworkAttachedDataNetworkDataSource(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkDataNetworkName is required")]
     public required TerraformValue<string> MobileNetworkDataNetworkName
     {
-        get => new TerraformReference<string>(this, "mobile_network_data_network_name");
+        get => GetArgument<TerraformValue<string>>("mobile_network_data_network_name");
         set => SetArgument("mobile_network_data_network_name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermMobileNetworkAttachedDataNetworkDataSource(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkPacketCoreDataPlaneId is required")]
     public required TerraformValue<string> MobileNetworkPacketCoreDataPlaneId
     {
-        get => new TerraformReference<string>(this, "mobile_network_packet_core_data_plane_id");
+        get => GetArgument<TerraformValue<string>>("mobile_network_packet_core_data_plane_id");
         set => SetArgument("mobile_network_packet_core_data_plane_id", value);
     }
 
@@ -64,81 +64,61 @@ public partial class AzurermMobileNetworkAttachedDataNetworkDataSource(string na
     /// The dns_addresses attribute.
     /// </summary>
     public TerraformList<string> DnsAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dns_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("dns_addresses");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The network_address_port_translation attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkAddressPortTranslation
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "network_address_port_translation").ResolveNodes(ctx));
-    }
+        => AsReference("network_address_port_translation");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The user_equipment_address_pool_prefixes attribute.
     /// </summary>
     public TerraformList<string> UserEquipmentAddressPoolPrefixes
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "user_equipment_address_pool_prefixes").ResolveNodes(ctx));
-    }
+        => AsReference("user_equipment_address_pool_prefixes");
 
     /// <summary>
     /// The user_equipment_static_address_pool_prefixes attribute.
     /// </summary>
     public TerraformList<string> UserEquipmentStaticAddressPoolPrefixes
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "user_equipment_static_address_pool_prefixes").ResolveNodes(ctx));
-    }
+        => AsReference("user_equipment_static_address_pool_prefixes");
 
     /// <summary>
     /// The user_plane_access_ipv4_address attribute.
     /// </summary>
     public TerraformValue<string> UserPlaneAccessIpv4Address
-    {
-        get => new TerraformReference<string>(this, "user_plane_access_ipv4_address");
-    }
+        => AsReference("user_plane_access_ipv4_address");
 
     /// <summary>
     /// The user_plane_access_ipv4_gateway attribute.
     /// </summary>
     public TerraformValue<string> UserPlaneAccessIpv4Gateway
-    {
-        get => new TerraformReference<string>(this, "user_plane_access_ipv4_gateway");
-    }
+        => AsReference("user_plane_access_ipv4_gateway");
 
     /// <summary>
     /// The user_plane_access_ipv4_subnet attribute.
     /// </summary>
     public TerraformValue<string> UserPlaneAccessIpv4Subnet
-    {
-        get => new TerraformReference<string>(this, "user_plane_access_ipv4_subnet");
-    }
+        => AsReference("user_plane_access_ipv4_subnet");
 
     /// <summary>
     /// The user_plane_access_name attribute.
     /// </summary>
     public TerraformValue<string> UserPlaneAccessName
-    {
-        get => new TerraformReference<string>(this, "user_plane_access_name");
-    }
+        => AsReference("user_plane_access_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

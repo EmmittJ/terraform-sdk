@@ -18,7 +18,7 @@ public class AwsSsmPatchBaselineApprovalRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ApproveAfterDays
     {
-        get => new TerraformReference<double>(this, "approve_after_days");
+        get => GetArgument<TerraformValue<double>>("approve_after_days");
         set => SetArgument("approve_after_days", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsSsmPatchBaselineApprovalRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ApproveUntilDate
     {
-        get => new TerraformReference<string>(this, "approve_until_date");
+        get => GetArgument<TerraformValue<string>>("approve_until_date");
         set => SetArgument("approve_until_date", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsSsmPatchBaselineApprovalRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ComplianceLevel
     {
-        get => new TerraformReference<string>(this, "compliance_level");
+        get => GetArgument<TerraformValue<string>>("compliance_level");
         set => SetArgument("compliance_level", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsSsmPatchBaselineApprovalRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableNonSecurity
     {
-        get => new TerraformReference<bool>(this, "enable_non_security");
+        get => GetArgument<TerraformValue<bool>>("enable_non_security");
         set => SetArgument("enable_non_security", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsSsmPatchBaselineApprovalRuleBlockPatchFilterBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsSsmPatchBaselineApprovalRuleBlockPatchFilterBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsSsmPatchBaselineGlobalFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsSsmPatchBaselineGlobalFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -149,7 +149,7 @@ public class AwsSsmPatchBaselineSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Configuration is required")]
     public required TerraformValue<string> Configuration
     {
-        get => new TerraformReference<string>(this, "configuration");
+        get => GetArgument<TerraformValue<string>>("configuration");
         set => SetArgument("configuration", value);
     }
 
@@ -159,7 +159,7 @@ public class AwsSsmPatchBaselineSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -169,7 +169,7 @@ public class AwsSsmPatchBaselineSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Products is required")]
     public TerraformList<string>? Products
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "products").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("products");
         set => SetArgument("products", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AwsSsmPatchBaseline(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformSet<string>? ApprovedPatches
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "approved_patches").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("approved_patches");
         set => SetArgument("approved_patches", value);
     }
 
@@ -196,7 +196,7 @@ public partial class AwsSsmPatchBaseline(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<string>? ApprovedPatchesComplianceLevel
     {
-        get => new TerraformReference<string>(this, "approved_patches_compliance_level");
+        get => GetArgument<TerraformValue<string>>("approved_patches_compliance_level");
         set => SetArgument("approved_patches_compliance_level", value);
     }
 
@@ -205,16 +205,16 @@ public partial class AwsSsmPatchBaseline(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<bool>? ApprovedPatchesEnableNonSecurity
     {
-        get => new TerraformReference<bool>(this, "approved_patches_enable_non_security");
+        get => GetArgument<TerraformValue<bool>>("approved_patches_enable_non_security");
         set => SetArgument("approved_patches_enable_non_security", value);
     }
 
     /// <summary>
     /// The available_security_updates_compliance_status attribute.
     /// </summary>
-    public TerraformValue<string> AvailableSecurityUpdatesComplianceStatus
+    public TerraformValue<string>? AvailableSecurityUpdatesComplianceStatus
     {
-        get => new TerraformReference<string>(this, "available_security_updates_compliance_status");
+        get => GetArgument<TerraformValue<string>>("available_security_updates_compliance_status");
         set => SetArgument("available_security_updates_compliance_status", value);
     }
 
@@ -223,16 +223,16 @@ public partial class AwsSsmPatchBaseline(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -242,7 +242,7 @@ public partial class AwsSsmPatchBaseline(string name) : TerraformResource("aws_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -251,16 +251,16 @@ public partial class AwsSsmPatchBaseline(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<string>? OperatingSystem
     {
-        get => new TerraformReference<string>(this, "operating_system");
+        get => GetArgument<TerraformValue<string>>("operating_system");
         set => SetArgument("operating_system", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -269,16 +269,16 @@ public partial class AwsSsmPatchBaseline(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformSet<string>? RejectedPatches
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "rejected_patches").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("rejected_patches");
         set => SetArgument("rejected_patches", value);
     }
 
     /// <summary>
     /// The rejected_patches_action attribute.
     /// </summary>
-    public TerraformValue<string> RejectedPatchesAction
+    public TerraformValue<string>? RejectedPatchesAction
     {
-        get => new TerraformReference<string>(this, "rejected_patches_action");
+        get => GetArgument<TerraformValue<string>>("rejected_patches_action");
         set => SetArgument("rejected_patches_action", value);
     }
 
@@ -287,16 +287,16 @@ public partial class AwsSsmPatchBaseline(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -304,17 +304,13 @@ public partial class AwsSsmPatchBaseline(string name) : TerraformResource("aws_s
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The json attribute.
     /// </summary>
     public TerraformValue<string> Json
-    {
-        get => new TerraformReference<string>(this, "json");
-    }
+        => AsReference("json");
 
     /// <summary>
     /// ApprovalRule block (nesting mode: list).

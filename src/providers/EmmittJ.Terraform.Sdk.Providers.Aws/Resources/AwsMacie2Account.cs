@@ -11,36 +11,36 @@ public partial class AwsMacie2Account(string name) : TerraformResource("aws_maci
     /// <summary>
     /// The finding_publishing_frequency attribute.
     /// </summary>
-    public TerraformValue<string> FindingPublishingFrequency
+    public TerraformValue<string>? FindingPublishingFrequency
     {
-        get => new TerraformReference<string>(this, "finding_publishing_frequency");
+        get => GetArgument<TerraformValue<string>>("finding_publishing_frequency");
         set => SetArgument("finding_publishing_frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformValue<string> Status
+    public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -48,24 +48,18 @@ public partial class AwsMacie2Account(string name) : TerraformResource("aws_maci
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The service_role attribute.
     /// </summary>
     public TerraformValue<string> ServiceRole
-    {
-        get => new TerraformReference<string>(this, "service_role");
-    }
+        => AsReference("service_role");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-    {
-        get => new TerraformReference<string>(this, "updated_at");
-    }
+        => AsReference("updated_at");
 
 }

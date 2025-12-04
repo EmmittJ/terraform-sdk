@@ -11,9 +11,9 @@ public partial class AwsNotificationsNotificationConfiguration(string name) : Te
     /// <summary>
     /// The aggregation_duration attribute.
     /// </summary>
-    public TerraformValue<string> AggregationDuration
+    public TerraformValue<string>? AggregationDuration
     {
-        get => new TerraformReference<string>(this, "aggregation_duration");
+        get => GetArgument<TerraformValue<string>>("aggregation_duration");
         set => SetArgument("aggregation_duration", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsNotificationsNotificationConfiguration(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsNotificationsNotificationConfiguration(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsNotificationsNotificationConfiguration(string name) : Te
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -50,16 +50,12 @@ public partial class AwsNotificationsNotificationConfiguration(string name) : Te
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
 }

@@ -19,7 +19,7 @@ public class GoogleApigeeSecurityProfileV2ProfileAssessmentConfigsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Assessment is required")]
     public required TerraformValue<string> Assessment
     {
-        get => new TerraformReference<string>(this, "assessment");
+        get => GetArgument<TerraformValue<string>>("assessment");
         set => SetArgument("assessment", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleApigeeSecurityProfileV2ProfileAssessmentConfigsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
     public required TerraformValue<string> Weight
     {
-        get => new TerraformReference<string>(this, "weight");
+        get => GetArgument<TerraformValue<string>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleApigeeSecurityProfileV2TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleApigeeSecurityProfileV2TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleApigeeSecurityProfileV2TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -88,16 +88,16 @@ public partial class GoogleApigeeSecurityProfileV2(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -108,7 +108,7 @@ public partial class GoogleApigeeSecurityProfileV2(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => new TerraformReference<string>(this, "org_id");
+        get => GetArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class GoogleApigeeSecurityProfileV2(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileId is required")]
     public required TerraformValue<string> ProfileId
     {
-        get => new TerraformReference<string>(this, "profile_id");
+        get => GetArgument<TerraformValue<string>>("profile_id");
         set => SetArgument("profile_id", value);
     }
 
@@ -126,26 +126,20 @@ public partial class GoogleApigeeSecurityProfileV2(string name) : TerraformResou
     /// The timestamp at which this profile was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Name of the security profile v2 resource,
     /// in the format &#39;organizations/{{org_name}}/securityProfilesV2/{{profile_id}}&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The timestamp at which this profile was most recently updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// ProfileAssessmentConfigs block (nesting mode: set).

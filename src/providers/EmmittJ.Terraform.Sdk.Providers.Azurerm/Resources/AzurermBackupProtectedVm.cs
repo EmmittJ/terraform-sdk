@@ -18,7 +18,7 @@ public class AzurermBackupProtectedVmTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermBackupProtectedVmTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermBackupProtectedVmTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermBackupProtectedVmTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermBackupProtectedVm(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? BackupPolicyId
     {
-        get => new TerraformReference<string>(this, "backup_policy_id");
+        get => GetArgument<TerraformValue<string>>("backup_policy_id");
         set => SetArgument("backup_policy_id", value);
     }
 
@@ -72,16 +72,16 @@ public partial class AzurermBackupProtectedVm(string name) : TerraformResource("
     /// </summary>
     public TerraformSet<double>? ExcludeDiskLuns
     {
-        get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "exclude_disk_luns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<double>>("exclude_disk_luns");
         set => SetArgument("exclude_disk_luns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -90,16 +90,16 @@ public partial class AzurermBackupProtectedVm(string name) : TerraformResource("
     /// </summary>
     public TerraformSet<double>? IncludeDiskLuns
     {
-        get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "include_disk_luns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<double>>("include_disk_luns");
         set => SetArgument("include_disk_luns", value);
     }
 
     /// <summary>
     /// The protection_state attribute.
     /// </summary>
-    public TerraformValue<string> ProtectionState
+    public TerraformValue<string>? ProtectionState
     {
-        get => new TerraformReference<string>(this, "protection_state");
+        get => GetArgument<TerraformValue<string>>("protection_state");
         set => SetArgument("protection_state", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermBackupProtectedVm(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     public required TerraformValue<string> RecoveryVaultName
     {
-        get => new TerraformReference<string>(this, "recovery_vault_name");
+        get => GetArgument<TerraformValue<string>>("recovery_vault_name");
         set => SetArgument("recovery_vault_name", value);
     }
 
@@ -119,16 +119,16 @@ public partial class AzurermBackupProtectedVm(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The source_vm_id attribute.
     /// </summary>
-    public TerraformValue<string> SourceVmId
+    public TerraformValue<string>? SourceVmId
     {
-        get => new TerraformReference<string>(this, "source_vm_id");
+        get => GetArgument<TerraformValue<string>>("source_vm_id");
         set => SetArgument("source_vm_id", value);
     }
 

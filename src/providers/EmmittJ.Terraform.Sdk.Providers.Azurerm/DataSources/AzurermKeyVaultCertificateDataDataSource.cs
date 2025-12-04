@@ -18,7 +18,7 @@ public class AzurermKeyVaultCertificateDataDataSourceTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermKeyVaultCertificateDataDataSource(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermKeyVaultCertificateDataDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformValue<string> KeyVaultId
     {
-        get => new TerraformReference<string>(this, "key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -56,16 +56,16 @@ public partial class AzurermKeyVaultCertificateDataDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformValue<string> Version
+    public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -73,57 +73,43 @@ public partial class AzurermKeyVaultCertificateDataDataSource(string name) : Ter
     /// The certificates_count attribute.
     /// </summary>
     public TerraformValue<double> CertificatesCount
-    {
-        get => new TerraformReference<double>(this, "certificates_count");
-    }
+        => AsReference("certificates_count");
 
     /// <summary>
     /// The expires attribute.
     /// </summary>
     public TerraformValue<string> Expires
-    {
-        get => new TerraformReference<string>(this, "expires");
-    }
+        => AsReference("expires");
 
     /// <summary>
     /// The hex attribute.
     /// </summary>
     public TerraformValue<string> Hex
-    {
-        get => new TerraformReference<string>(this, "hex");
-    }
+        => AsReference("hex");
 
     /// <summary>
     /// The key attribute.
     /// </summary>
     public TerraformValue<string> Key
-    {
-        get => new TerraformReference<string>(this, "key");
-    }
+        => AsReference("key");
 
     /// <summary>
     /// The not_before attribute.
     /// </summary>
     public TerraformValue<string> NotBefore
-    {
-        get => new TerraformReference<string>(this, "not_before");
-    }
+        => AsReference("not_before");
 
     /// <summary>
     /// The pem attribute.
     /// </summary>
     public TerraformValue<string> Pem
-    {
-        get => new TerraformReference<string>(this, "pem");
-    }
+        => AsReference("pem");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

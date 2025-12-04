@@ -14,16 +14,16 @@ public partial class AwsEksAddonVersionDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddonName is required")]
     public required TerraformValue<string> AddonName
     {
-        get => new TerraformReference<string>(this, "addon_name");
+        get => GetArgument<TerraformValue<string>>("addon_name");
         set => SetArgument("addon_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsEksAddonVersionDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesVersion is required")]
     public required TerraformValue<string> KubernetesVersion
     {
-        get => new TerraformReference<string>(this, "kubernetes_version");
+        get => GetArgument<TerraformValue<string>>("kubernetes_version");
         set => SetArgument("kubernetes_version", value);
     }
 
@@ -42,16 +42,16 @@ public partial class AwsEksAddonVersionDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<bool>? MostRecent
     {
-        get => new TerraformReference<bool>(this, "most_recent");
+        get => GetArgument<TerraformValue<bool>>("most_recent");
         set => SetArgument("most_recent", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -59,8 +59,6 @@ public partial class AwsEksAddonVersionDataSource(string name) : TerraformDataSo
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
 }

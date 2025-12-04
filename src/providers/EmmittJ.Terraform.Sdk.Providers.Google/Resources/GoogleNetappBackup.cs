@@ -18,7 +18,7 @@ public class GoogleNetappBackupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleNetappBackupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleNetappBackupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,16 +54,16 @@ public partial class GoogleNetappBackup(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -76,7 +76,7 @@ public partial class GoogleNetappBackup(string name) : TerraformResource("google
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -86,7 +86,7 @@ public partial class GoogleNetappBackup(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -96,16 +96,16 @@ public partial class GoogleNetappBackup(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -116,7 +116,7 @@ public partial class GoogleNetappBackup(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? SourceSnapshot
     {
-        get => new TerraformReference<string>(this, "source_snapshot");
+        get => GetArgument<TerraformValue<string>>("source_snapshot");
         set => SetArgument("source_snapshot", value);
     }
 
@@ -125,7 +125,7 @@ public partial class GoogleNetappBackup(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? SourceVolume
     {
-        get => new TerraformReference<string>(this, "source_volume");
+        get => GetArgument<TerraformValue<string>>("source_volume");
         set => SetArgument("source_volume", value);
     }
 
@@ -135,7 +135,7 @@ public partial class GoogleNetappBackup(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultName is required")]
     public required TerraformValue<string> VaultName
     {
-        get => new TerraformReference<string>(this, "vault_name");
+        get => GetArgument<TerraformValue<string>>("vault_name");
         set => SetArgument("vault_name", value);
     }
 
@@ -143,75 +143,57 @@ public partial class GoogleNetappBackup(string name) : TerraformResource("google
     /// Region in which backup is stored.
     /// </summary>
     public TerraformValue<string> BackupRegion
-    {
-        get => new TerraformReference<string>(this, "backup_region");
-    }
+        => AsReference("backup_region");
 
     /// <summary>
     /// Type of backup, manually created or created by a backup policy. Possible Values : [TYPE_UNSPECIFIED, MANUAL, SCHEDULED]
     /// </summary>
     public TerraformValue<string> BackupType
-    {
-        get => new TerraformReference<string>(this, "backup_type");
-    }
+        => AsReference("backup_type");
 
     /// <summary>
     /// Backups of a volume build incrementally on top of each other. They form a &amp;quot;backup chain&amp;quot;.
     /// Total size of all backups in a chain in bytes = baseline backup size + sum(incremental backup size)
     /// </summary>
     public TerraformValue<string> ChainStorageBytes
-    {
-        get => new TerraformReference<string>(this, "chain_storage_bytes");
-    }
+        => AsReference("chain_storage_bytes");
 
     /// <summary>
     /// Create time of the backup. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format. Examples: &amp;quot;2023-06-22T09:13:01.617Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The state of the Backup Vault. Possible Values : [STATE_UNSPECIFIED, CREATING, UPLOADING, READY, DELETING, ERROR, UPDATING]
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Region of the volume from which the backup was created.
     /// </summary>
     public TerraformValue<string> VolumeRegion
-    {
-        get => new TerraformReference<string>(this, "volume_region");
-    }
+        => AsReference("volume_region");
 
     /// <summary>
     /// Size of the file system when the backup was created. When creating a new volume from the backup, the volume capacity will have to be at least as big.
     /// </summary>
     public TerraformValue<string> VolumeUsageBytes
-    {
-        get => new TerraformReference<string>(this, "volume_usage_bytes");
-    }
+        => AsReference("volume_usage_bytes");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class AzurermVirtualMachineAutomanageConfigurationAssignmentTimeoutsBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermVirtualMachineAutomanageConfigurationAssignmentTimeoutsBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermVirtualMachineAutomanageConfigurationAssignmentTimeoutsBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AzurermVirtualMachineAutomanageConfigurationAssignment(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationId is required")]
     public required TerraformValue<string> ConfigurationId
     {
-        get => new TerraformReference<string>(this, "configuration_id");
+        get => GetArgument<TerraformValue<string>>("configuration_id");
         set => SetArgument("configuration_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermVirtualMachineAutomanageConfigurationAssignment(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
     public required TerraformValue<string> VirtualMachineId
     {
-        get => new TerraformReference<string>(this, "virtual_machine_id");
+        get => GetArgument<TerraformValue<string>>("virtual_machine_id");
         set => SetArgument("virtual_machine_id", value);
     }
 

@@ -18,7 +18,7 @@ public class AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermDatabricksVirtualNetworkPeering(string name) : Terra
     /// </summary>
     public TerraformValue<bool>? AllowForwardedTraffic
     {
-        get => new TerraformReference<bool>(this, "allow_forwarded_traffic");
+        get => GetArgument<TerraformValue<bool>>("allow_forwarded_traffic");
         set => SetArgument("allow_forwarded_traffic", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermDatabricksVirtualNetworkPeering(string name) : Terra
     /// </summary>
     public TerraformValue<bool>? AllowGatewayTransit
     {
-        get => new TerraformReference<bool>(this, "allow_gateway_transit");
+        get => GetArgument<TerraformValue<bool>>("allow_gateway_transit");
         set => SetArgument("allow_gateway_transit", value);
     }
 
@@ -81,16 +81,16 @@ public partial class AzurermDatabricksVirtualNetworkPeering(string name) : Terra
     /// </summary>
     public TerraformValue<bool>? AllowVirtualNetworkAccess
     {
-        get => new TerraformReference<bool>(this, "allow_virtual_network_access");
+        get => GetArgument<TerraformValue<bool>>("allow_virtual_network_access");
         set => SetArgument("allow_virtual_network_access", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermDatabricksVirtualNetworkPeering(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermDatabricksVirtualNetworkPeering(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteAddressSpacePrefixes is required")]
     public TerraformList<string>? RemoteAddressSpacePrefixes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "remote_address_space_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("remote_address_space_prefixes");
         set => SetArgument("remote_address_space_prefixes", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermDatabricksVirtualNetworkPeering(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVirtualNetworkId is required")]
     public required TerraformValue<string> RemoteVirtualNetworkId
     {
-        get => new TerraformReference<string>(this, "remote_virtual_network_id");
+        get => GetArgument<TerraformValue<string>>("remote_virtual_network_id");
         set => SetArgument("remote_virtual_network_id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermDatabricksVirtualNetworkPeering(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AzurermDatabricksVirtualNetworkPeering(string name) : Terra
     /// </summary>
     public TerraformValue<bool>? UseRemoteGateways
     {
-        get => new TerraformReference<bool>(this, "use_remote_gateways");
+        get => GetArgument<TerraformValue<bool>>("use_remote_gateways");
         set => SetArgument("use_remote_gateways", value);
     }
 
@@ -149,7 +149,7 @@ public partial class AzurermDatabricksVirtualNetworkPeering(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => new TerraformReference<string>(this, "workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -157,17 +157,13 @@ public partial class AzurermDatabricksVirtualNetworkPeering(string name) : Terra
     /// The address_space_prefixes attribute.
     /// </summary>
     public TerraformList<string> AddressSpacePrefixes
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "address_space_prefixes").ResolveNodes(ctx));
-    }
+        => AsReference("address_space_prefixes");
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
     public TerraformValue<string> VirtualNetworkId
-    {
-        get => new TerraformReference<string>(this, "virtual_network_id");
-    }
+        => AsReference("virtual_network_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

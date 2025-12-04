@@ -18,7 +18,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaB
     /// </summary>
     public TerraformValue<double>? BatchSize
     {
-        get => new TerraformReference<double>(this, "batch_size");
+        get => GetArgument<TerraformValue<double>>("batch_size");
         set => SetArgument("batch_size", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaB
     /// </summary>
     public TerraformValue<double>? MessageCount
     {
-        get => new TerraformReference<double>(this, "message_count");
+        get => GetArgument<TerraformValue<double>>("message_count");
         set => SetArgument("message_count", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaB
     /// </summary>
     public TerraformValue<string>? EndTime
     {
-        get => new TerraformReference<string>(this, "end_time");
+        get => GetArgument<TerraformValue<string>>("end_time");
         set => SetArgument("end_time", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformValue<string> Frequency
     {
-        get => new TerraformReference<string>(this, "frequency");
+        get => GetArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformValue<double> Interval
     {
-        get => new TerraformReference<double>(this, "interval");
+        get => GetArgument<TerraformValue<double>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaB
     /// </summary>
     public TerraformValue<string>? StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaB
     /// </summary>
     public TerraformValue<string>? TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -129,7 +129,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaB
     /// </summary>
     public TerraformSet<double>? Hours
     {
-        get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "hours").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -138,7 +138,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaB
     /// </summary>
     public TerraformSet<double>? Minutes
     {
-        get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "minutes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -147,7 +147,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaB
     /// </summary>
     public TerraformSet<double>? MonthDays
     {
-        get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "month_days").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<double>>("month_days");
         set => SetArgument("month_days", value);
     }
 
@@ -156,7 +156,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaB
     /// </summary>
     public TerraformSet<string>? WeekDays
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "week_days").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("week_days");
         set => SetArgument("week_days", value);
     }
 
@@ -188,7 +188,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Week is required")]
     public required TerraformValue<double> Week
     {
-        get => new TerraformReference<double>(this, "week");
+        get => GetArgument<TerraformValue<double>>("week");
         set => SetArgument("week", value);
     }
 
@@ -198,7 +198,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weekday is required")]
     public required TerraformValue<string> Weekday
     {
-        get => new TerraformReference<string>(this, "weekday");
+        get => GetArgument<TerraformValue<string>>("weekday");
         set => SetArgument("weekday", value);
     }
 
@@ -221,7 +221,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationTimeoutsBlock : 
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -230,7 +230,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationTimeoutsBlock : 
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -239,7 +239,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationTimeoutsBlock : 
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -248,7 +248,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationTimeoutsBlock : 
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -267,16 +267,16 @@ public partial class AzurermLogicAppIntegrationAccountBatchConfiguration(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BatchGroupName is required")]
     public required TerraformValue<string> BatchGroupName
     {
-        get => new TerraformReference<string>(this, "batch_group_name");
+        get => GetArgument<TerraformValue<string>>("batch_group_name");
         set => SetArgument("batch_group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -286,7 +286,7 @@ public partial class AzurermLogicAppIntegrationAccountBatchConfiguration(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationAccountName is required")]
     public required TerraformValue<string> IntegrationAccountName
     {
-        get => new TerraformReference<string>(this, "integration_account_name");
+        get => GetArgument<TerraformValue<string>>("integration_account_name");
         set => SetArgument("integration_account_name", value);
     }
 
@@ -295,7 +295,7 @@ public partial class AzurermLogicAppIntegrationAccountBatchConfiguration(string 
     /// </summary>
     public TerraformMap<string>? Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -305,7 +305,7 @@ public partial class AzurermLogicAppIntegrationAccountBatchConfiguration(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -315,7 +315,7 @@ public partial class AzurermLogicAppIntegrationAccountBatchConfiguration(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

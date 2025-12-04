@@ -18,7 +18,7 @@ public class AwsDxTransitVirtualInterfaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsDxTransitVirtualInterfaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsDxTransitVirtualInterfaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AwsDxTransitVirtualInterface(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressFamily is required")]
     public required TerraformValue<string> AddressFamily
     {
-        get => new TerraformReference<string>(this, "address_family");
+        get => GetArgument<TerraformValue<string>>("address_family");
         set => SetArgument("address_family", value);
     }
 
     /// <summary>
     /// The amazon_address attribute.
     /// </summary>
-    public TerraformValue<string> AmazonAddress
+    public TerraformValue<string>? AmazonAddress
     {
-        get => new TerraformReference<string>(this, "amazon_address");
+        get => GetArgument<TerraformValue<string>>("amazon_address");
         set => SetArgument("amazon_address", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AwsDxTransitVirtualInterface(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BgpAsn is required")]
     public required TerraformValue<double> BgpAsn
     {
-        get => new TerraformReference<double>(this, "bgp_asn");
+        get => GetArgument<TerraformValue<double>>("bgp_asn");
         set => SetArgument("bgp_asn", value);
     }
 
     /// <summary>
     /// The bgp_auth_key attribute.
     /// </summary>
-    public TerraformValue<string> BgpAuthKey
+    public TerraformValue<string>? BgpAuthKey
     {
-        get => new TerraformReference<string>(this, "bgp_auth_key");
+        get => GetArgument<TerraformValue<string>>("bgp_auth_key");
         set => SetArgument("bgp_auth_key", value);
     }
 
@@ -93,16 +93,16 @@ public partial class AwsDxTransitVirtualInterface(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     public required TerraformValue<string> ConnectionId
     {
-        get => new TerraformReference<string>(this, "connection_id");
+        get => GetArgument<TerraformValue<string>>("connection_id");
         set => SetArgument("connection_id", value);
     }
 
     /// <summary>
     /// The customer_address attribute.
     /// </summary>
-    public TerraformValue<string> CustomerAddress
+    public TerraformValue<string>? CustomerAddress
     {
-        get => new TerraformReference<string>(this, "customer_address");
+        get => GetArgument<TerraformValue<string>>("customer_address");
         set => SetArgument("customer_address", value);
     }
 
@@ -112,16 +112,16 @@ public partial class AwsDxTransitVirtualInterface(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DxGatewayId is required")]
     public required TerraformValue<string> DxGatewayId
     {
-        get => new TerraformReference<string>(this, "dx_gateway_id");
+        get => GetArgument<TerraformValue<string>>("dx_gateway_id");
         set => SetArgument("dx_gateway_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AwsDxTransitVirtualInterface(string name) : TerraformResour
     /// </summary>
     public TerraformValue<double>? Mtu
     {
-        get => new TerraformReference<double>(this, "mtu");
+        get => GetArgument<TerraformValue<double>>("mtu");
         set => SetArgument("mtu", value);
     }
 
@@ -140,16 +140,16 @@ public partial class AwsDxTransitVirtualInterface(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -158,7 +158,7 @@ public partial class AwsDxTransitVirtualInterface(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? SitelinkEnabled
     {
-        get => new TerraformReference<bool>(this, "sitelink_enabled");
+        get => GetArgument<TerraformValue<bool>>("sitelink_enabled");
         set => SetArgument("sitelink_enabled", value);
     }
 
@@ -167,16 +167,16 @@ public partial class AwsDxTransitVirtualInterface(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -186,7 +186,7 @@ public partial class AwsDxTransitVirtualInterface(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Vlan is required")]
     public required TerraformValue<double> Vlan
     {
-        get => new TerraformReference<double>(this, "vlan");
+        get => GetArgument<TerraformValue<double>>("vlan");
         set => SetArgument("vlan", value);
     }
 
@@ -194,33 +194,25 @@ public partial class AwsDxTransitVirtualInterface(string name) : TerraformResour
     /// The amazon_side_asn attribute.
     /// </summary>
     public TerraformValue<string> AmazonSideAsn
-    {
-        get => new TerraformReference<string>(this, "amazon_side_asn");
-    }
+        => AsReference("amazon_side_asn");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The aws_device attribute.
     /// </summary>
     public TerraformValue<string> AwsDevice
-    {
-        get => new TerraformReference<string>(this, "aws_device");
-    }
+        => AsReference("aws_device");
 
     /// <summary>
     /// The jumbo_frame_capable attribute.
     /// </summary>
     public TerraformValue<bool> JumboFrameCapable
-    {
-        get => new TerraformReference<bool>(this, "jumbo_frame_capable");
-    }
+        => AsReference("jumbo_frame_capable");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

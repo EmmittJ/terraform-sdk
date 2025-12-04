@@ -72,7 +72,7 @@ public class GoogleVertexAiFeaturestoreEntitytypeMonitoringConfigBlockCategorica
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => new TerraformReference<double>(this, "value");
+        get => GetArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -97,7 +97,7 @@ public class GoogleVertexAiFeaturestoreEntitytypeMonitoringConfigBlockImportFeat
     /// </summary>
     public TerraformValue<string>? AnomalyDetectionBaseline
     {
-        get => new TerraformReference<string>(this, "anomaly_detection_baseline");
+        get => GetArgument<TerraformValue<string>>("anomaly_detection_baseline");
         set => SetArgument("anomaly_detection_baseline", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleVertexAiFeaturestoreEntitytypeMonitoringConfigBlockImportFeat
     /// </summary>
     public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -132,7 +132,7 @@ public class GoogleVertexAiFeaturestoreEntitytypeMonitoringConfigBlockNumericalT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => new TerraformReference<double>(this, "value");
+        get => GetArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -154,7 +154,7 @@ public class GoogleVertexAiFeaturestoreEntitytypeMonitoringConfigBlockSnapshotAn
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -164,7 +164,7 @@ public class GoogleVertexAiFeaturestoreEntitytypeMonitoringConfigBlockSnapshotAn
     /// </summary>
     public TerraformValue<double>? MonitoringIntervalDays
     {
-        get => new TerraformReference<double>(this, "monitoring_interval_days");
+        get => GetArgument<TerraformValue<double>>("monitoring_interval_days");
         set => SetArgument("monitoring_interval_days", value);
     }
 
@@ -173,7 +173,7 @@ public class GoogleVertexAiFeaturestoreEntitytypeMonitoringConfigBlockSnapshotAn
     /// </summary>
     public TerraformValue<double>? StalenessDays
     {
-        get => new TerraformReference<double>(this, "staleness_days");
+        get => GetArgument<TerraformValue<double>>("staleness_days");
         set => SetArgument("staleness_days", value);
     }
 
@@ -196,7 +196,7 @@ public class GoogleVertexAiFeaturestoreEntitytypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -205,7 +205,7 @@ public class GoogleVertexAiFeaturestoreEntitytypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -214,7 +214,7 @@ public class GoogleVertexAiFeaturestoreEntitytypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -232,7 +232,7 @@ public partial class GoogleVertexAiFeaturestoreEntitytype(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -242,16 +242,16 @@ public partial class GoogleVertexAiFeaturestoreEntitytype(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Featurestore is required")]
     public required TerraformValue<string> Featurestore
     {
-        get => new TerraformReference<string>(this, "featurestore");
+        get => GetArgument<TerraformValue<string>>("featurestore");
         set => SetArgument("featurestore", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -264,7 +264,7 @@ public partial class GoogleVertexAiFeaturestoreEntitytype(string name) : Terrafo
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -273,7 +273,7 @@ public partial class GoogleVertexAiFeaturestoreEntitytype(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -281,50 +281,38 @@ public partial class GoogleVertexAiFeaturestoreEntitytype(string name) : Terrafo
     /// The timestamp of when the featurestore was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Used to perform consistent read-modify-write updates.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The region of the EntityType.
     /// </summary>
     public TerraformValue<string> Region
-    {
-        get => new TerraformReference<string>(this, "region");
-    }
+        => AsReference("region");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The timestamp of when the featurestore was last updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// MonitoringConfig block (nesting mode: list).

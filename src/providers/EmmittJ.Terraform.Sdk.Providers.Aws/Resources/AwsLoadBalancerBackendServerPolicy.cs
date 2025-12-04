@@ -11,9 +11,9 @@ public partial class AwsLoadBalancerBackendServerPolicy(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsLoadBalancerBackendServerPolicy(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePort is required")]
     public required TerraformValue<double> InstancePort
     {
-        get => new TerraformReference<double>(this, "instance_port");
+        get => GetArgument<TerraformValue<double>>("instance_port");
         set => SetArgument("instance_port", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsLoadBalancerBackendServerPolicy(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerName is required")]
     public required TerraformValue<string> LoadBalancerName
     {
-        get => new TerraformReference<string>(this, "load_balancer_name");
+        get => GetArgument<TerraformValue<string>>("load_balancer_name");
         set => SetArgument("load_balancer_name", value);
     }
 
@@ -42,16 +42,16 @@ public partial class AwsLoadBalancerBackendServerPolicy(string name) : Terraform
     /// </summary>
     public TerraformSet<string>? PolicyNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "policy_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("policy_names");
         set => SetArgument("policy_names", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

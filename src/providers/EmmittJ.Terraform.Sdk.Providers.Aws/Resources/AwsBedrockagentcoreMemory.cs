@@ -18,7 +18,7 @@ public class AwsBedrockagentcoreMemoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsBedrockagentcoreMemoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AwsBedrockagentcoreMemory(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsBedrockagentcoreMemory(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? EncryptionKeyArn
     {
-        get => new TerraformReference<string>(this, "encryption_key_arn");
+        get => GetArgument<TerraformValue<string>>("encryption_key_arn");
         set => SetArgument("encryption_key_arn", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsBedrockagentcoreMemory(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventExpiryDuration is required")]
     public required TerraformValue<double> EventExpiryDuration
     {
-        get => new TerraformReference<double>(this, "event_expiry_duration");
+        get => GetArgument<TerraformValue<double>>("event_expiry_duration");
         set => SetArgument("event_expiry_duration", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsBedrockagentcoreMemory(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? MemoryExecutionRoleArn
     {
-        get => new TerraformReference<string>(this, "memory_execution_role_arn");
+        get => GetArgument<TerraformValue<string>>("memory_execution_role_arn");
         set => SetArgument("memory_execution_role_arn", value);
     }
 
@@ -83,16 +83,16 @@ public partial class AwsBedrockagentcoreMemory(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AwsBedrockagentcoreMemory(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -109,25 +109,19 @@ public partial class AwsBedrockagentcoreMemory(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

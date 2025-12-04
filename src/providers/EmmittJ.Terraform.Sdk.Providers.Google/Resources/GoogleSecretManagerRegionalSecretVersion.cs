@@ -18,7 +18,7 @@ public class GoogleSecretManagerRegionalSecretVersionTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleSecretManagerRegionalSecretVersionTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleSecretManagerRegionalSecretVersionTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -59,7 +59,7 @@ public partial class GoogleSecretManagerRegionalSecretVersion(string name) : Ter
     /// </summary>
     public TerraformValue<string>? DeletionPolicy
     {
-        get => new TerraformReference<string>(this, "deletion_policy");
+        get => GetArgument<TerraformValue<string>>("deletion_policy");
         set => SetArgument("deletion_policy", value);
     }
 
@@ -68,16 +68,16 @@ public partial class GoogleSecretManagerRegionalSecretVersion(string name) : Ter
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -86,7 +86,7 @@ public partial class GoogleSecretManagerRegionalSecretVersion(string name) : Ter
     /// </summary>
     public TerraformValue<bool>? IsSecretDataBase64
     {
-        get => new TerraformReference<bool>(this, "is_secret_data_base64");
+        get => GetArgument<TerraformValue<bool>>("is_secret_data_base64");
         set => SetArgument("is_secret_data_base64", value);
     }
 
@@ -96,7 +96,7 @@ public partial class GoogleSecretManagerRegionalSecretVersion(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformValue<string> Secret
     {
-        get => new TerraformReference<string>(this, "secret");
+        get => GetArgument<TerraformValue<string>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -106,7 +106,7 @@ public partial class GoogleSecretManagerRegionalSecretVersion(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretData is required")]
     public required TerraformValue<string> SecretData
     {
-        get => new TerraformReference<string>(this, "secret_data");
+        get => GetArgument<TerraformValue<string>>("secret_data");
         set => SetArgument("secret_data", value);
     }
 
@@ -114,50 +114,38 @@ public partial class GoogleSecretManagerRegionalSecretVersion(string name) : Ter
     /// The time at which the regional secret version was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The customer-managed encryption configuration of the regional secret.
     /// </summary>
     public TerraformList<TerraformMap<object>> CustomerManagedEncryption
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "customer_managed_encryption").ResolveNodes(ctx));
-    }
+        => AsReference("customer_managed_encryption");
 
     /// <summary>
     /// The time at which the regional secret version was destroyed. Only present if state is DESTROYED.
     /// </summary>
     public TerraformValue<string> DestroyTime
-    {
-        get => new TerraformReference<string>(this, "destroy_time");
-    }
+        => AsReference("destroy_time");
 
     /// <summary>
     /// Location of Secret Manager regional secret resource.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The resource name of the regional secret version. Format:
     /// &#39;projects/{{project}}/locations/{{location}}/secrets/{{secret_id}}/versions/{{version}}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The version of the Regional Secret.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

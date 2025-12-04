@@ -1,8 +1,10 @@
+using System.Collections.Concurrent;
+
 namespace EmmittJ.Terraform.Sdk.AppHost.Templates;
 
 public class TerraformConfigTemplate(TerraformCodeGenOptions options)
 {
-    private static readonly Dictionary<string, BaseTemplate> _templateCache = new();
+    private static readonly ConcurrentDictionary<string, BaseTemplate> _templateCache = new();
     private readonly string _templatesDirectory = options.TemplatesDirectory;
 
     /// <summary>
@@ -25,11 +27,7 @@ public class TerraformConfigTemplate(TerraformCodeGenOptions options)
                 $"Expected template at: {templatePath}");
         }
 
-        if (!_templateCache.TryGetValue(templateFileName, out var templateInstance))
-        {
-            templateInstance = new SimpleTemplate(templatePath);
-            _templateCache[templateFileName] = templateInstance;
-        }
+        var templateInstance = _templateCache.GetOrAdd(templateFileName, _ => new SimpleTemplate(templatePath));
 
         var data = new
         {

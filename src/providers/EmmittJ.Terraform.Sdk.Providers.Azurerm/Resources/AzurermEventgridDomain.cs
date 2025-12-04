@@ -18,7 +18,7 @@ public class AzurermEventgridDomainIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -26,17 +26,13 @@ public class AzurermEventgridDomainIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -44,7 +40,7 @@ public class AzurermEventgridDomainIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -67,7 +63,7 @@ public class AzurermEventgridDomainInputMappingDefaultValuesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? DataVersion
     {
-        get => new TerraformReference<string>(this, "data_version");
+        get => GetArgument<TerraformValue<string>>("data_version");
         set => SetArgument("data_version", value);
     }
 
@@ -76,7 +72,7 @@ public class AzurermEventgridDomainInputMappingDefaultValuesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? EventType
     {
-        get => new TerraformReference<string>(this, "event_type");
+        get => GetArgument<TerraformValue<string>>("event_type");
         set => SetArgument("event_type", value);
     }
 
@@ -85,7 +81,7 @@ public class AzurermEventgridDomainInputMappingDefaultValuesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Subject
     {
-        get => new TerraformReference<string>(this, "subject");
+        get => GetArgument<TerraformValue<string>>("subject");
         set => SetArgument("subject", value);
     }
 
@@ -108,7 +104,7 @@ public class AzurermEventgridDomainInputMappingFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DataVersion
     {
-        get => new TerraformReference<string>(this, "data_version");
+        get => GetArgument<TerraformValue<string>>("data_version");
         set => SetArgument("data_version", value);
     }
 
@@ -117,7 +113,7 @@ public class AzurermEventgridDomainInputMappingFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EventTime
     {
-        get => new TerraformReference<string>(this, "event_time");
+        get => GetArgument<TerraformValue<string>>("event_time");
         set => SetArgument("event_time", value);
     }
 
@@ -126,7 +122,7 @@ public class AzurermEventgridDomainInputMappingFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EventType
     {
-        get => new TerraformReference<string>(this, "event_type");
+        get => GetArgument<TerraformValue<string>>("event_type");
         set => SetArgument("event_type", value);
     }
 
@@ -135,7 +131,7 @@ public class AzurermEventgridDomainInputMappingFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -144,7 +140,7 @@ public class AzurermEventgridDomainInputMappingFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Subject
     {
-        get => new TerraformReference<string>(this, "subject");
+        get => GetArgument<TerraformValue<string>>("subject");
         set => SetArgument("subject", value);
     }
 
@@ -153,7 +149,7 @@ public class AzurermEventgridDomainInputMappingFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -176,7 +172,7 @@ public class AzurermEventgridDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -185,7 +181,7 @@ public class AzurermEventgridDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -194,7 +190,7 @@ public class AzurermEventgridDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -203,7 +199,7 @@ public class AzurermEventgridDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -221,7 +217,7 @@ public partial class AzurermEventgridDomain(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? AutoCreateTopicWithFirstSubscription
     {
-        get => new TerraformReference<bool>(this, "auto_create_topic_with_first_subscription");
+        get => GetArgument<TerraformValue<bool>>("auto_create_topic_with_first_subscription");
         set => SetArgument("auto_create_topic_with_first_subscription", value);
     }
 
@@ -230,16 +226,16 @@ public partial class AzurermEventgridDomain(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? AutoDeleteTopicWithLastSubscription
     {
-        get => new TerraformReference<bool>(this, "auto_delete_topic_with_last_subscription");
+        get => GetArgument<TerraformValue<bool>>("auto_delete_topic_with_last_subscription");
         set => SetArgument("auto_delete_topic_with_last_subscription", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -248,7 +244,7 @@ public partial class AzurermEventgridDomain(string name) : TerraformResource("az
     /// </summary>
     public TerraformList<TerraformMap<object>>? InboundIpRule
     {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "inbound_ip_rule").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<TerraformMap<object>>>("inbound_ip_rule");
         set => SetArgument("inbound_ip_rule", value);
     }
 
@@ -257,7 +253,7 @@ public partial class AzurermEventgridDomain(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? InputSchema
     {
-        get => new TerraformReference<string>(this, "input_schema");
+        get => GetArgument<TerraformValue<string>>("input_schema");
         set => SetArgument("input_schema", value);
     }
 
@@ -266,7 +262,7 @@ public partial class AzurermEventgridDomain(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? LocalAuthEnabled
     {
-        get => new TerraformReference<bool>(this, "local_auth_enabled");
+        get => GetArgument<TerraformValue<bool>>("local_auth_enabled");
         set => SetArgument("local_auth_enabled", value);
     }
 
@@ -276,7 +272,7 @@ public partial class AzurermEventgridDomain(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -286,7 +282,7 @@ public partial class AzurermEventgridDomain(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -295,7 +291,7 @@ public partial class AzurermEventgridDomain(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -305,7 +301,7 @@ public partial class AzurermEventgridDomain(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -314,7 +310,7 @@ public partial class AzurermEventgridDomain(string name) : TerraformResource("az
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -322,25 +318,19 @@ public partial class AzurermEventgridDomain(string name) : TerraformResource("az
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "primary_access_key");
-    }
+        => AsReference("primary_access_key");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "secondary_access_key");
-    }
+        => AsReference("secondary_access_key");
 
     /// <summary>
     /// Identity block (nesting mode: list).

@@ -55,7 +55,7 @@ public class GoogleNetworkServicesTcpRouteRulesBlockActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? IdleTimeout
     {
-        get => new TerraformReference<string>(this, "idle_timeout");
+        get => GetArgument<TerraformValue<string>>("idle_timeout");
         set => SetArgument("idle_timeout", value);
     }
 
@@ -64,7 +64,7 @@ public class GoogleNetworkServicesTcpRouteRulesBlockActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? OriginalDestination
     {
-        get => new TerraformReference<bool>(this, "original_destination");
+        get => GetArgument<TerraformValue<bool>>("original_destination");
         set => SetArgument("original_destination", value);
     }
 
@@ -95,7 +95,7 @@ public class GoogleNetworkServicesTcpRouteRulesBlockActionBlockDestinationsBlock
     /// </summary>
     public TerraformValue<string>? ServiceName
     {
-        get => new TerraformReference<string>(this, "service_name");
+        get => GetArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleNetworkServicesTcpRouteRulesBlockActionBlockDestinationsBlock
     /// </summary>
     public TerraformValue<double>? Weight
     {
-        get => new TerraformReference<double>(this, "weight");
+        get => GetArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -131,7 +131,7 @@ public class GoogleNetworkServicesTcpRouteRulesBlockMatchesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
     public required TerraformValue<string> Address
     {
-        get => new TerraformReference<string>(this, "address");
+        get => GetArgument<TerraformValue<string>>("address");
         set => SetArgument("address", value);
     }
 
@@ -141,7 +141,7 @@ public class GoogleNetworkServicesTcpRouteRulesBlockMatchesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<string> Port
     {
-        get => new TerraformReference<string>(this, "port");
+        get => GetArgument<TerraformValue<string>>("port");
         set => SetArgument("port", value);
     }
 
@@ -164,7 +164,7 @@ public class GoogleNetworkServicesTcpRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -173,7 +173,7 @@ public class GoogleNetworkServicesTcpRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -182,7 +182,7 @@ public class GoogleNetworkServicesTcpRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -200,7 +200,7 @@ public partial class GoogleNetworkServicesTcpRoute(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -210,16 +210,16 @@ public partial class GoogleNetworkServicesTcpRoute(string name) : TerraformResou
     /// </summary>
     public TerraformList<string>? Gateways
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "gateways").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("gateways");
         set => SetArgument("gateways", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -231,7 +231,7 @@ public partial class GoogleNetworkServicesTcpRoute(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -242,7 +242,7 @@ public partial class GoogleNetworkServicesTcpRoute(string name) : TerraformResou
     /// </summary>
     public TerraformList<string>? Meshes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "meshes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("meshes");
         set => SetArgument("meshes", value);
     }
 
@@ -252,16 +252,16 @@ public partial class GoogleNetworkServicesTcpRoute(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -269,42 +269,32 @@ public partial class GoogleNetworkServicesTcpRoute(string name) : TerraformResou
     /// Time the TcpRoute was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Server-defined URL of this resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Time the TcpRoute was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Rules block (nesting mode: list).

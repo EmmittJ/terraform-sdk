@@ -18,7 +18,7 @@ public class AzurermIotcentralOrganizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermIotcentralOrganizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermIotcentralOrganizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermIotcentralOrganizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AzurermIotcentralOrganization(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermIotcentralOrganization(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IotcentralApplicationId is required")]
     public required TerraformValue<string> IotcentralApplicationId
     {
-        get => new TerraformReference<string>(this, "iotcentral_application_id");
+        get => GetArgument<TerraformValue<string>>("iotcentral_application_id");
         set => SetArgument("iotcentral_application_id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermIotcentralOrganization(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrganizationId is required")]
     public required TerraformValue<string> OrganizationId
     {
-        get => new TerraformReference<string>(this, "organization_id");
+        get => GetArgument<TerraformValue<string>>("organization_id");
         set => SetArgument("organization_id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermIotcentralOrganization(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? ParentOrganizationId
     {
-        get => new TerraformReference<string>(this, "parent_organization_id");
+        get => GetArgument<TerraformValue<string>>("parent_organization_id");
         set => SetArgument("parent_organization_id", value);
     }
 

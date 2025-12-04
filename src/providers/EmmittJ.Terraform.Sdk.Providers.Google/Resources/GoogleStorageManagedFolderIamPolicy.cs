@@ -14,16 +14,16 @@ public partial class GoogleStorageManagedFolderIamPolicy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleStorageManagedFolderIamPolicy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedFolder is required")]
     public required TerraformValue<string> ManagedFolder
     {
-        get => new TerraformReference<string>(this, "managed_folder");
+        get => GetArgument<TerraformValue<string>>("managed_folder");
         set => SetArgument("managed_folder", value);
     }
 
@@ -43,7 +43,7 @@ public partial class GoogleStorageManagedFolderIamPolicy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformValue<string> PolicyData
     {
-        get => new TerraformReference<string>(this, "policy_data");
+        get => GetArgument<TerraformValue<string>>("policy_data");
         set => SetArgument("policy_data", value);
     }
 
@@ -51,8 +51,6 @@ public partial class GoogleStorageManagedFolderIamPolicy(string name) : Terrafor
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
 }

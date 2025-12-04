@@ -18,7 +18,7 @@ public class AzurermHealthcareMedtechServiceFhirDestinationTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermHealthcareMedtechServiceFhirDestinationTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermHealthcareMedtechServiceFhirDestinationTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermHealthcareMedtechServiceFhirDestinationTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermHealthcareMedtechServiceFhirDestination(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationFhirMappingJson is required")]
     public required TerraformValue<string> DestinationFhirMappingJson
     {
-        get => new TerraformReference<string>(this, "destination_fhir_mapping_json");
+        get => GetArgument<TerraformValue<string>>("destination_fhir_mapping_json");
         set => SetArgument("destination_fhir_mapping_json", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermHealthcareMedtechServiceFhirDestination(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationFhirServiceId is required")]
     public required TerraformValue<string> DestinationFhirServiceId
     {
-        get => new TerraformReference<string>(this, "destination_fhir_service_id");
+        get => GetArgument<TerraformValue<string>>("destination_fhir_service_id");
         set => SetArgument("destination_fhir_service_id", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AzurermHealthcareMedtechServiceFhirDestination(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationIdentityResolutionType is required")]
     public required TerraformValue<string> DestinationIdentityResolutionType
     {
-        get => new TerraformReference<string>(this, "destination_identity_resolution_type");
+        get => GetArgument<TerraformValue<string>>("destination_identity_resolution_type");
         set => SetArgument("destination_identity_resolution_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermHealthcareMedtechServiceFhirDestination(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermHealthcareMedtechServiceFhirDestination(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MedtechServiceId is required")]
     public required TerraformValue<string> MedtechServiceId
     {
-        get => new TerraformReference<string>(this, "medtech_service_id");
+        get => GetArgument<TerraformValue<string>>("medtech_service_id");
         set => SetArgument("medtech_service_id", value);
     }
 
@@ -123,7 +123,7 @@ public partial class AzurermHealthcareMedtechServiceFhirDestination(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

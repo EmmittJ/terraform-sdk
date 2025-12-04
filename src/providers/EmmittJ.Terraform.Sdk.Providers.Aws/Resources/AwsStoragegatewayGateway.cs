@@ -18,7 +18,7 @@ public class AwsStoragegatewayGatewayMaintenanceStartTimeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DayOfMonth
     {
-        get => new TerraformReference<string>(this, "day_of_month");
+        get => GetArgument<TerraformValue<string>>("day_of_month");
         set => SetArgument("day_of_month", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsStoragegatewayGatewayMaintenanceStartTimeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DayOfWeek
     {
-        get => new TerraformReference<string>(this, "day_of_week");
+        get => GetArgument<TerraformValue<string>>("day_of_week");
         set => SetArgument("day_of_week", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsStoragegatewayGatewayMaintenanceStartTimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HourOfDay is required")]
     public required TerraformValue<double> HourOfDay
     {
-        get => new TerraformReference<double>(this, "hour_of_day");
+        get => GetArgument<TerraformValue<double>>("hour_of_day");
         set => SetArgument("hour_of_day", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsStoragegatewayGatewayMaintenanceStartTimeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MinuteOfHour
     {
-        get => new TerraformReference<double>(this, "minute_of_hour");
+        get => GetArgument<TerraformValue<double>>("minute_of_hour");
         set => SetArgument("minute_of_hour", value);
     }
 
@@ -68,16 +68,14 @@ public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : Terraform
     /// The active_directory_status attribute.
     /// </summary>
     public TerraformValue<string> ActiveDirectoryStatus
-    {
-        get => new TerraformReference<string>(this, "active_directory_status");
-    }
+        => AsReference("active_directory_status");
 
     /// <summary>
     /// The domain_controllers attribute.
     /// </summary>
     public TerraformSet<string>? DomainControllers
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "domain_controllers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("domain_controllers");
         set => SetArgument("domain_controllers", value);
     }
 
@@ -87,7 +85,7 @@ public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -96,7 +94,7 @@ public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? OrganizationalUnit
     {
-        get => new TerraformReference<string>(this, "organizational_unit");
+        get => GetArgument<TerraformValue<string>>("organizational_unit");
         set => SetArgument("organizational_unit", value);
     }
 
@@ -106,7 +104,7 @@ public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -115,7 +113,7 @@ public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : Terraform
     /// </summary>
     public TerraformValue<double>? TimeoutInSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_in_seconds");
         set => SetArgument("timeout_in_seconds", value);
     }
 
@@ -125,7 +123,7 @@ public class AwsStoragegatewayGatewaySmbActiveDirectorySettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -148,7 +146,7 @@ public class AwsStoragegatewayGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -164,9 +162,9 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// <summary>
     /// The activation_key attribute.
     /// </summary>
-    public TerraformValue<string> ActivationKey
+    public TerraformValue<string>? ActivationKey
     {
-        get => new TerraformReference<string>(this, "activation_key");
+        get => GetArgument<TerraformValue<string>>("activation_key");
         set => SetArgument("activation_key", value);
     }
 
@@ -175,7 +173,7 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double>? AverageDownloadRateLimitInBitsPerSec
     {
-        get => new TerraformReference<double>(this, "average_download_rate_limit_in_bits_per_sec");
+        get => GetArgument<TerraformValue<double>>("average_download_rate_limit_in_bits_per_sec");
         set => SetArgument("average_download_rate_limit_in_bits_per_sec", value);
     }
 
@@ -184,7 +182,7 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double>? AverageUploadRateLimitInBitsPerSec
     {
-        get => new TerraformReference<double>(this, "average_upload_rate_limit_in_bits_per_sec");
+        get => GetArgument<TerraformValue<double>>("average_upload_rate_limit_in_bits_per_sec");
         set => SetArgument("average_upload_rate_limit_in_bits_per_sec", value);
     }
 
@@ -193,16 +191,16 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? CloudwatchLogGroupArn
     {
-        get => new TerraformReference<string>(this, "cloudwatch_log_group_arn");
+        get => GetArgument<TerraformValue<string>>("cloudwatch_log_group_arn");
         set => SetArgument("cloudwatch_log_group_arn", value);
     }
 
     /// <summary>
     /// The gateway_ip_address attribute.
     /// </summary>
-    public TerraformValue<string> GatewayIpAddress
+    public TerraformValue<string>? GatewayIpAddress
     {
-        get => new TerraformReference<string>(this, "gateway_ip_address");
+        get => GetArgument<TerraformValue<string>>("gateway_ip_address");
         set => SetArgument("gateway_ip_address", value);
     }
 
@@ -212,7 +210,7 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayName is required")]
     public required TerraformValue<string> GatewayName
     {
-        get => new TerraformReference<string>(this, "gateway_name");
+        get => GetArgument<TerraformValue<string>>("gateway_name");
         set => SetArgument("gateway_name", value);
     }
 
@@ -222,7 +220,7 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayTimezone is required")]
     public required TerraformValue<string> GatewayTimezone
     {
-        get => new TerraformReference<string>(this, "gateway_timezone");
+        get => GetArgument<TerraformValue<string>>("gateway_timezone");
         set => SetArgument("gateway_timezone", value);
     }
 
@@ -231,7 +229,7 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? GatewayType
     {
-        get => new TerraformReference<string>(this, "gateway_type");
+        get => GetArgument<TerraformValue<string>>("gateway_type");
         set => SetArgument("gateway_type", value);
     }
 
@@ -240,16 +238,16 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? GatewayVpcEndpoint
     {
-        get => new TerraformReference<string>(this, "gateway_vpc_endpoint");
+        get => GetArgument<TerraformValue<string>>("gateway_vpc_endpoint");
         set => SetArgument("gateway_vpc_endpoint", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -258,16 +256,16 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? MediumChangerType
     {
-        get => new TerraformReference<string>(this, "medium_changer_type");
+        get => GetArgument<TerraformValue<string>>("medium_changer_type");
         set => SetArgument("medium_changer_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -276,7 +274,7 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? SmbFileShareVisibility
     {
-        get => new TerraformReference<bool>(this, "smb_file_share_visibility");
+        get => GetArgument<TerraformValue<bool>>("smb_file_share_visibility");
         set => SetArgument("smb_file_share_visibility", value);
     }
 
@@ -285,16 +283,16 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? SmbGuestPassword
     {
-        get => new TerraformReference<string>(this, "smb_guest_password");
+        get => GetArgument<TerraformValue<string>>("smb_guest_password");
         set => SetArgument("smb_guest_password", value);
     }
 
     /// <summary>
     /// The smb_security_strategy attribute.
     /// </summary>
-    public TerraformValue<string> SmbSecurityStrategy
+    public TerraformValue<string>? SmbSecurityStrategy
     {
-        get => new TerraformReference<string>(this, "smb_security_strategy");
+        get => GetArgument<TerraformValue<string>>("smb_security_strategy");
         set => SetArgument("smb_security_strategy", value);
     }
 
@@ -303,16 +301,16 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -321,7 +319,7 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? TapeDriveType
     {
-        get => new TerraformReference<string>(this, "tape_drive_type");
+        get => GetArgument<TerraformValue<string>>("tape_drive_type");
         set => SetArgument("tape_drive_type", value);
     }
 
@@ -329,49 +327,37 @@ public partial class AwsStoragegatewayGateway(string name) : TerraformResource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The ec2_instance_id attribute.
     /// </summary>
     public TerraformValue<string> Ec2InstanceId
-    {
-        get => new TerraformReference<string>(this, "ec2_instance_id");
-    }
+        => AsReference("ec2_instance_id");
 
     /// <summary>
     /// The endpoint_type attribute.
     /// </summary>
     public TerraformValue<string> EndpointType
-    {
-        get => new TerraformReference<string>(this, "endpoint_type");
-    }
+        => AsReference("endpoint_type");
 
     /// <summary>
     /// The gateway_id attribute.
     /// </summary>
     public TerraformValue<string> GatewayId
-    {
-        get => new TerraformReference<string>(this, "gateway_id");
-    }
+        => AsReference("gateway_id");
 
     /// <summary>
     /// The gateway_network_interface attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> GatewayNetworkInterface
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "gateway_network_interface").ResolveNodes(ctx));
-    }
+        => AsReference("gateway_network_interface");
 
     /// <summary>
     /// The host_environment attribute.
     /// </summary>
     public TerraformValue<string> HostEnvironment
-    {
-        get => new TerraformReference<string>(this, "host_environment");
-    }
+        => AsReference("host_environment");
 
     /// <summary>
     /// MaintenanceStartTime block (nesting mode: list).

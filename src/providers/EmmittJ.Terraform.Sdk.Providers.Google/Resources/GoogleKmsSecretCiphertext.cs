@@ -18,7 +18,7 @@ public class GoogleKmsSecretCiphertextTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleKmsSecretCiphertextTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -45,7 +45,7 @@ public partial class GoogleKmsSecretCiphertext(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? AdditionalAuthenticatedData
     {
-        get => new TerraformReference<string>(this, "additional_authenticated_data");
+        get => GetArgument<TerraformValue<string>>("additional_authenticated_data");
         set => SetArgument("additional_authenticated_data", value);
     }
 
@@ -56,16 +56,16 @@ public partial class GoogleKmsSecretCiphertext(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
     public required TerraformValue<string> CryptoKey
     {
-        get => new TerraformReference<string>(this, "crypto_key");
+        get => GetArgument<TerraformValue<string>>("crypto_key");
         set => SetArgument("crypto_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -75,7 +75,7 @@ public partial class GoogleKmsSecretCiphertext(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plaintext is required")]
     public required TerraformValue<string> Plaintext
     {
-        get => new TerraformReference<string>(this, "plaintext");
+        get => GetArgument<TerraformValue<string>>("plaintext");
         set => SetArgument("plaintext", value);
     }
 
@@ -83,9 +83,7 @@ public partial class GoogleKmsSecretCiphertext(string name) : TerraformResource(
     /// Contains the result of encrypting the provided plaintext, encoded in base64.
     /// </summary>
     public TerraformValue<string> Ciphertext
-    {
-        get => new TerraformReference<string>(this, "ciphertext");
-    }
+        => AsReference("ciphertext");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

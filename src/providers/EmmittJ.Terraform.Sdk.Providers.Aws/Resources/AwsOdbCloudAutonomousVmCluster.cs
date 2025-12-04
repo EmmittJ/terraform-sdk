@@ -18,7 +18,7 @@ public class AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock : TerraformBlo
     /// </summary>
     public TerraformSet<TerraformMap<object>>? DaysOfWeek
     {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "days_of_week").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("days_of_week");
         set => SetArgument("days_of_week", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock : TerraformBlo
     /// </summary>
     public TerraformSet<double>? HoursOfDay
     {
-        get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "hours_of_day").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<double>>("hours_of_day");
         set => SetArgument("hours_of_day", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock : TerraformBlo
     /// </summary>
     public TerraformValue<double>? LeadTimeInWeeks
     {
-        get => new TerraformReference<double>(this, "lead_time_in_weeks");
+        get => GetArgument<TerraformValue<double>>("lead_time_in_weeks");
         set => SetArgument("lead_time_in_weeks", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock : TerraformBlo
     /// </summary>
     public TerraformSet<TerraformMap<object>>? Months
     {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "months").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<TerraformMap<object>>>("months");
         set => SetArgument("months", value);
     }
 
@@ -55,7 +55,7 @@ public class AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Preference is required")]
     public required TerraformValue<string> Preference
     {
-        get => new TerraformReference<string>(this, "preference");
+        get => GetArgument<TerraformValue<string>>("preference");
         set => SetArgument("preference", value);
     }
 
@@ -64,7 +64,7 @@ public class AwsOdbCloudAutonomousVmClusterMaintenanceWindowBlock : TerraformBlo
     /// </summary>
     public TerraformSet<double>? WeeksOfMonth
     {
-        get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "weeks_of_month").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<double>>("weeks_of_month");
         set => SetArgument("weeks_of_month", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsOdbCloudAutonomousVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsOdbCloudAutonomousVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsOdbCloudAutonomousVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDataStorageSizeInTbs is required")]
     public required TerraformValue<double> AutonomousDataStorageSizeInTbs
     {
-        get => new TerraformReference<double>(this, "autonomous_data_storage_size_in_tbs");
+        get => GetArgument<TerraformValue<double>>("autonomous_data_storage_size_in_tbs");
         set => SetArgument("autonomous_data_storage_size_in_tbs", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
     public required TerraformValue<string> CloudExadataInfrastructureId
     {
-        get => new TerraformReference<string>(this, "cloud_exadata_infrastructure_id");
+        get => GetArgument<TerraformValue<string>>("cloud_exadata_infrastructure_id");
         set => SetArgument("cloud_exadata_infrastructure_id", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCoreCountPerNode is required")]
     public required TerraformValue<double> CpuCoreCountPerNode
     {
-        get => new TerraformReference<double>(this, "cpu_core_count_per_node");
+        get => GetArgument<TerraformValue<double>>("cpu_core_count_per_node");
         set => SetArgument("cpu_core_count_per_node", value);
     }
 
@@ -154,7 +154,7 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbServers is required")]
     public required TerraformSet<string> DbServers
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "db_servers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("db_servers");
         set => SetArgument("db_servers", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -173,25 +173,25 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource. 
     /// </summary>
-    public TerraformValue<bool> IsMtlsEnabledVmCluster
+    public TerraformValue<bool>? IsMtlsEnabledVmCluster
     {
-        get => new TerraformReference<bool>(this, "is_mtls_enabled_vm_cluster");
+        get => GetArgument<TerraformValue<bool>>("is_mtls_enabled_vm_cluster");
         set => SetArgument("is_mtls_enabled_vm_cluster", value);
     }
 
     /// <summary>
     /// The license model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE . Changing this will force terraform to create new resource.
     /// </summary>
-    public TerraformValue<string> LicenseModel
+    public TerraformValue<string>? LicenseModel
     {
-        get => new TerraformReference<string>(this, "license_model");
+        get => GetArgument<TerraformValue<string>>("license_model");
         set => SetArgument("license_model", value);
     }
 
@@ -201,7 +201,7 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryPerOracleComputeUnitInGbs is required")]
     public required TerraformValue<double> MemoryPerOracleComputeUnitInGbs
     {
-        get => new TerraformReference<double>(this, "memory_per_oracle_compute_unit_in_gbs");
+        get => GetArgument<TerraformValue<double>>("memory_per_oracle_compute_unit_in_gbs");
         set => SetArgument("memory_per_oracle_compute_unit_in_gbs", value);
     }
 
@@ -211,16 +211,16 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbNetworkId is required")]
     public required TerraformValue<string> OdbNetworkId
     {
-        get => new TerraformReference<string>(this, "odb_network_id");
+        get => GetArgument<TerraformValue<string>>("odb_network_id");
         set => SetArgument("odb_network_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -230,7 +230,7 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanListenerPortNonTls is required")]
     public required TerraformValue<double> ScanListenerPortNonTls
     {
-        get => new TerraformReference<double>(this, "scan_listener_port_non_tls");
+        get => GetArgument<TerraformValue<double>>("scan_listener_port_non_tls");
         set => SetArgument("scan_listener_port_non_tls", value);
     }
 
@@ -240,7 +240,7 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanListenerPortTls is required")]
     public required TerraformValue<double> ScanListenerPortTls
     {
-        get => new TerraformReference<double>(this, "scan_listener_port_tls");
+        get => GetArgument<TerraformValue<double>>("scan_listener_port_tls");
         set => SetArgument("scan_listener_port_tls", value);
     }
 
@@ -249,16 +249,16 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
     /// </summary>
-    public TerraformValue<string> TimeZone
+    public TerraformValue<string>? TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -268,7 +268,7 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalContainerDatabases is required")]
     public required TerraformValue<double> TotalContainerDatabases
     {
-        get => new TerraformReference<double>(this, "total_container_databases");
+        get => GetArgument<TerraformValue<double>>("total_container_databases");
         set => SetArgument("total_container_databases", value);
     }
 
@@ -276,281 +276,211 @@ public partial class AwsOdbCloudAutonomousVmCluster(string name) : TerraformReso
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The progress of the current operation on the Autonomous VM cluster, as a percentage.
     /// </summary>
     public TerraformValue<double> AutonomousDataStoragePercentage
-    {
-        get => new TerraformReference<double>(this, "autonomous_data_storage_percentage");
-    }
+        => AsReference("autonomous_data_storage_percentage");
 
     /// <summary>
     /// The available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
     /// </summary>
     public TerraformValue<double> AvailableAutonomousDataStorageSizeInTbs
-    {
-        get => new TerraformReference<double>(this, "available_autonomous_data_storage_size_in_tbs");
-    }
+        => AsReference("available_autonomous_data_storage_size_in_tbs");
 
     /// <summary>
     /// The number of Autonomous CDBs that you can create with the currently available storage.
     /// </summary>
     public TerraformValue<double> AvailableContainerDatabases
-    {
-        get => new TerraformReference<double>(this, "available_container_databases");
-    }
+        => AsReference("available_container_databases");
 
     /// <summary>
     /// The number of CPU cores available for allocation to Autonomous Databases
     /// </summary>
     public TerraformValue<double> AvailableCpus
-    {
-        get => new TerraformReference<double>(this, "available_cpus");
-    }
+        => AsReference("available_cpus");
 
     /// <summary>
     /// The compute model of the Autonomous VM cluster: ECPU or OCPU.
     /// </summary>
     public TerraformValue<string> ComputeModel
-    {
-        get => new TerraformReference<string>(this, "compute_model");
-    }
+        => AsReference("compute_model");
 
     /// <summary>
     /// The total number of CPU cores in the Autonomous VM cluster.
     /// </summary>
     public TerraformValue<double> CpuCoreCount
-    {
-        get => new TerraformReference<double>(this, "cpu_core_count");
-    }
+        => AsReference("cpu_core_count");
 
     /// <summary>
     /// The percentage of total CPU cores currently in use in the Autonomous VM cluster.
     /// </summary>
     public TerraformValue<double> CpuPercentage
-    {
-        get => new TerraformReference<double>(this, "cpu_percentage");
-    }
+        => AsReference("cpu_percentage");
 
     /// <summary>
     /// The date and time when the Autonomous VM cluster was created.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The total data storage allocated to the Autonomous VM cluster, in GB.
     /// </summary>
     public TerraformValue<double> DataStorageSizeInGbs
-    {
-        get => new TerraformReference<double>(this, "data_storage_size_in_gbs");
-    }
+        => AsReference("data_storage_size_in_gbs");
 
     /// <summary>
     /// The total data storage allocated to the Autonomous VM cluster, in TB.
     /// </summary>
     public TerraformValue<double> DataStorageSizeInTbs
-    {
-        get => new TerraformReference<double>(this, "data_storage_size_in_tbs");
-    }
+        => AsReference("data_storage_size_in_tbs");
 
     /// <summary>
     /// The domain name of the Autonomous VM cluster.
     /// </summary>
     public TerraformValue<string> Domain
-    {
-        get => new TerraformReference<string>(this, "domain");
-    }
+        => AsReference("domain");
 
     /// <summary>
     /// The minimum value to which you can scale down the Exadata storage, in TB.
     /// </summary>
     public TerraformValue<double> ExadataStorageInTbsLowestScaledValue
-    {
-        get => new TerraformReference<double>(this, "exadata_storage_in_tbs_lowest_scaled_value");
-    }
+        => AsReference("exadata_storage_in_tbs_lowest_scaled_value");
 
     /// <summary>
     /// The hostname of the Autonomous VM cluster.
     /// </summary>
     public TerraformValue<string> Hostname
-    {
-        get => new TerraformReference<string>(this, "hostname");
-    }
+        => AsReference("hostname");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The minimum value to which you can scale down the maximum number of Autonomous CDBs.
     /// </summary>
     public TerraformValue<double> MaxAcdsLowestScaledValue
-    {
-        get => new TerraformReference<double>(this, "max_acds_lowest_scaled_value");
-    }
+        => AsReference("max_acds_lowest_scaled_value");
 
     /// <summary>
     /// The total amount of memory allocated to the Autonomous VM cluster, in gigabytes(GB).
     /// </summary>
     public TerraformValue<double> MemorySizeInGbs
-    {
-        get => new TerraformReference<double>(this, "memory_size_in_gbs");
-    }
+        => AsReference("memory_size_in_gbs");
 
     /// <summary>
     /// The number of database server nodes in the Autonomous VM cluster.
     /// </summary>
     public TerraformValue<double> NodeCount
-    {
-        get => new TerraformReference<double>(this, "node_count");
-    }
+        => AsReference("node_count");
 
     /// <summary>
     /// The number of Autonomous CDBs that can&#39;t be provisioned because of resource constraints.
     /// </summary>
     public TerraformValue<double> NonProvisionableAutonomousContainerDatabases
-    {
-        get => new TerraformReference<double>(this, "non_provisionable_autonomous_container_databases");
-    }
+        => AsReference("non_provisionable_autonomous_container_databases");
 
     /// <summary>
     /// The name of the OCI resource anchor associated with this Autonomous VM cluster.
     /// </summary>
     public TerraformValue<string> OciResourceAnchorName
-    {
-        get => new TerraformReference<string>(this, "oci_resource_anchor_name");
-    }
+        => AsReference("oci_resource_anchor_name");
 
     /// <summary>
     /// The URL for accessing the OCI console page for this Autonomous VM cluster.
     /// </summary>
     public TerraformValue<string> OciUrl
-    {
-        get => new TerraformReference<string>(this, "oci_url");
-    }
+        => AsReference("oci_url");
 
     /// <summary>
     /// The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
     /// </summary>
     public TerraformValue<string> Ocid
-    {
-        get => new TerraformReference<string>(this, "ocid");
-    }
+        => AsReference("ocid");
 
     /// <summary>
     ///  The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB)
     /// </summary>
     public TerraformValue<double> OdbNodeStorageSizeInGbs
-    {
-        get => new TerraformReference<double>(this, "odb_node_storage_size_in_gbs");
-    }
+        => AsReference("odb_node_storage_size_in_gbs");
 
     /// <summary>
     /// The progress of the current operation on the Autonomous VM cluster, as a percentage.
     /// </summary>
     public TerraformValue<double> PercentProgress
-    {
-        get => new TerraformReference<double>(this, "percent_progress");
-    }
+        => AsReference("percent_progress");
 
     /// <summary>
     /// The number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
     /// </summary>
     public TerraformValue<double> ProvisionableAutonomousContainerDatabases
-    {
-        get => new TerraformReference<double>(this, "provisionable_autonomous_container_databases");
-    }
+        => AsReference("provisionable_autonomous_container_databases");
 
     /// <summary>
     /// The number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
     /// </summary>
     public TerraformValue<double> ProvisionedAutonomousContainerDatabases
-    {
-        get => new TerraformReference<double>(this, "provisioned_autonomous_container_databases");
-    }
+        => AsReference("provisioned_autonomous_container_databases");
 
     /// <summary>
     /// The number of CPUs provisioned in the Autonomous VM cluster.
     /// </summary>
     public TerraformValue<double> ProvisionedCpus
-    {
-        get => new TerraformReference<double>(this, "provisioned_cpus");
-    }
+        => AsReference("provisioned_cpus");
 
     /// <summary>
     /// The number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
     /// </summary>
     public TerraformValue<double> ReclaimableCpus
-    {
-        get => new TerraformReference<double>(this, "reclaimable_cpus");
-    }
+        => AsReference("reclaimable_cpus");
 
     /// <summary>
     /// The number of CPU cores reserved for system operations and redundancy.
     /// </summary>
     public TerraformValue<double> ReservedCpus
-    {
-        get => new TerraformReference<double>(this, "reserved_cpus");
-    }
+        => AsReference("reserved_cpus");
 
     /// <summary>
     /// The shape of the Exadata infrastructure for the Autonomous VM cluster.
     /// </summary>
     public TerraformValue<string> Shape
-    {
-        get => new TerraformReference<string>(this, "shape");
-    }
+        => AsReference("shape");
 
     /// <summary>
     /// The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE , UPDATING , DELETING , DELETED , FAILED 
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// Additional information about the current status of the Autonomous VM cluster.
     /// </summary>
     public TerraformValue<string> StatusReason
-    {
-        get => new TerraformReference<string>(this, "status_reason");
-    }
+        => AsReference("status_reason");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// The expiration date and time of the database SSL certificate.
     /// </summary>
     public TerraformValue<string> TimeDatabaseSslCertificateExpires
-    {
-        get => new TerraformReference<string>(this, "time_database_ssl_certificate_expires");
-    }
+        => AsReference("time_database_ssl_certificate_expires");
 
     /// <summary>
     /// The time_ords_certificate_expires attribute.
     /// </summary>
     public TerraformValue<string> TimeOrdsCertificateExpires
-    {
-        get => new TerraformReference<string>(this, "time_ords_certificate_expires");
-    }
+        => AsReference("time_ords_certificate_expires");
 
     /// <summary>
     /// MaintenanceWindow block (nesting mode: list).

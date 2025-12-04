@@ -18,7 +18,7 @@ public class AzurermStaticSiteCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermStaticSiteCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermStaticSiteCustomDomainTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -56,16 +56,16 @@ public partial class AzurermStaticSiteCustomDomain(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -75,7 +75,7 @@ public partial class AzurermStaticSiteCustomDomain(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StaticSiteId is required")]
     public required TerraformValue<string> StaticSiteId
     {
-        get => new TerraformReference<string>(this, "static_site_id");
+        get => GetArgument<TerraformValue<string>>("static_site_id");
         set => SetArgument("static_site_id", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermStaticSiteCustomDomain(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? ValidationType
     {
-        get => new TerraformReference<string>(this, "validation_type");
+        get => GetArgument<TerraformValue<string>>("validation_type");
         set => SetArgument("validation_type", value);
     }
 
@@ -92,9 +92,7 @@ public partial class AzurermStaticSiteCustomDomain(string name) : TerraformResou
     /// The validation_token attribute.
     /// </summary>
     public TerraformValue<string> ValidationToken
-    {
-        get => new TerraformReference<string>(this, "validation_token");
-    }
+        => AsReference("validation_token");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

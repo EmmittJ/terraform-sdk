@@ -18,7 +18,7 @@ public class AwsGlueCatalogDatabaseCreateTableDefaultPermissionBlock : Terraform
     /// </summary>
     public TerraformSet<string>? Permissions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "permissions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("permissions");
         set => SetArgument("permissions", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsGlueCatalogDatabaseCreateTableDefaultPermissionBlockPrincipalBlo
     /// </summary>
     public TerraformValue<string>? DataLakePrincipalIdentifier
     {
-        get => new TerraformReference<string>(this, "data_lake_principal_identifier");
+        get => GetArgument<TerraformValue<string>>("data_lake_principal_identifier");
         set => SetArgument("data_lake_principal_identifier", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsGlueCatalogDatabaseFederatedDatabaseBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConnectionName
     {
-        get => new TerraformReference<string>(this, "connection_name");
+        get => GetArgument<TerraformValue<string>>("connection_name");
         set => SetArgument("connection_name", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsGlueCatalogDatabaseFederatedDatabaseBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Identifier
     {
-        get => new TerraformReference<string>(this, "identifier");
+        get => GetArgument<TerraformValue<string>>("identifier");
         set => SetArgument("identifier", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsGlueCatalogDatabaseTargetDatabaseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     public required TerraformValue<string> CatalogId
     {
-        get => new TerraformReference<string>(this, "catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsGlueCatalogDatabaseTargetDatabaseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsGlueCatalogDatabaseTargetDatabaseBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -141,9 +141,9 @@ public partial class AwsGlueCatalogDatabase(string name) : TerraformResource("aw
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformValue<string> CatalogId
+    public TerraformValue<string>? CatalogId
     {
-        get => new TerraformReference<string>(this, "catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -152,25 +152,25 @@ public partial class AwsGlueCatalogDatabase(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The location_uri attribute.
     /// </summary>
-    public TerraformValue<string> LocationUri
+    public TerraformValue<string>? LocationUri
     {
-        get => new TerraformReference<string>(this, "location_uri");
+        get => GetArgument<TerraformValue<string>>("location_uri");
         set => SetArgument("location_uri", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AwsGlueCatalogDatabase(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -189,16 +189,16 @@ public partial class AwsGlueCatalogDatabase(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -207,16 +207,16 @@ public partial class AwsGlueCatalogDatabase(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -224,9 +224,7 @@ public partial class AwsGlueCatalogDatabase(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// CreateTableDefaultPermission block (nesting mode: list).

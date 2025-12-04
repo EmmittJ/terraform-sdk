@@ -11,9 +11,9 @@ public partial class AwsOdbCloudVmClustersDataSource(string name) : TerraformDat
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -21,8 +21,6 @@ public partial class AwsOdbCloudVmClustersDataSource(string name) : TerraformDat
     /// List of Cloud VM Clusters. It returns only basic information about the cloud VM clusters.
     /// </summary>
     public TerraformList<TerraformMap<object>> CloudVmClusters
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cloud_vm_clusters").ResolveNodes(ctx));
-    }
+        => AsReference("cloud_vm_clusters");
 
 }

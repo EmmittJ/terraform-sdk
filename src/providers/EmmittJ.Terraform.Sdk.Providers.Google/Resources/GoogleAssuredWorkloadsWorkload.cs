@@ -19,7 +19,7 @@ public class GoogleAssuredWorkloadsWorkloadKmsSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextRotationTime is required")]
     public required TerraformValue<string> NextRotationTime
     {
-        get => new TerraformReference<string>(this, "next_rotation_time");
+        get => GetArgument<TerraformValue<string>>("next_rotation_time");
         set => SetArgument("next_rotation_time", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleAssuredWorkloadsWorkloadKmsSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RotationPeriod is required")]
     public required TerraformValue<string> RotationPeriod
     {
-        get => new TerraformReference<string>(this, "rotation_period");
+        get => GetArgument<TerraformValue<string>>("rotation_period");
         set => SetArgument("rotation_period", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleAssuredWorkloadsWorkloadPartnerPermissionsBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? AssuredWorkloadsMonitoring
     {
-        get => new TerraformReference<bool>(this, "assured_workloads_monitoring");
+        get => GetArgument<TerraformValue<bool>>("assured_workloads_monitoring");
         set => SetArgument("assured_workloads_monitoring", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleAssuredWorkloadsWorkloadPartnerPermissionsBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? DataLogsViewer
     {
-        get => new TerraformReference<bool>(this, "data_logs_viewer");
+        get => GetArgument<TerraformValue<bool>>("data_logs_viewer");
         set => SetArgument("data_logs_viewer", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleAssuredWorkloadsWorkloadPartnerPermissionsBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? ServiceAccessApprover
     {
-        get => new TerraformReference<bool>(this, "service_access_approver");
+        get => GetArgument<TerraformValue<bool>>("service_access_approver");
         set => SetArgument("service_access_approver", value);
     }
 
@@ -93,7 +93,7 @@ public class GoogleAssuredWorkloadsWorkloadResourceSettingsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleAssuredWorkloadsWorkloadResourceSettingsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? ResourceId
     {
-        get => new TerraformReference<string>(this, "resource_id");
+        get => GetArgument<TerraformValue<string>>("resource_id");
         set => SetArgument("resource_id", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleAssuredWorkloadsWorkloadResourceSettingsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? ResourceTypeAttribute
     {
-        get => new TerraformReference<string>(this, "resource_type");
+        get => GetArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -134,7 +134,7 @@ public class GoogleAssuredWorkloadsWorkloadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -143,7 +143,7 @@ public class GoogleAssuredWorkloadsWorkloadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -152,7 +152,7 @@ public class GoogleAssuredWorkloadsWorkloadTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -175,7 +175,7 @@ public class GoogleAssuredWorkloadsWorkloadWorkloadOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KajEnrollmentType
     {
-        get => new TerraformReference<string>(this, "kaj_enrollment_type");
+        get => GetArgument<TerraformValue<string>>("kaj_enrollment_type");
         set => SetArgument("kaj_enrollment_type", value);
     }
 
@@ -193,7 +193,7 @@ public partial class GoogleAssuredWorkloadsWorkload(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? BillingAccount
     {
-        get => new TerraformReference<string>(this, "billing_account");
+        get => GetArgument<TerraformValue<string>>("billing_account");
         set => SetArgument("billing_account", value);
     }
 
@@ -203,7 +203,7 @@ public partial class GoogleAssuredWorkloadsWorkload(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComplianceRegime is required")]
     public required TerraformValue<string> ComplianceRegime
     {
-        get => new TerraformReference<string>(this, "compliance_regime");
+        get => GetArgument<TerraformValue<string>>("compliance_regime");
         set => SetArgument("compliance_regime", value);
     }
 
@@ -213,7 +213,7 @@ public partial class GoogleAssuredWorkloadsWorkload(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -222,16 +222,16 @@ public partial class GoogleAssuredWorkloadsWorkload(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? EnableSovereignControls
     {
-        get => new TerraformReference<bool>(this, "enable_sovereign_controls");
+        get => GetArgument<TerraformValue<bool>>("enable_sovereign_controls");
         set => SetArgument("enable_sovereign_controls", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -243,7 +243,7 @@ public partial class GoogleAssuredWorkloadsWorkload(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -253,7 +253,7 @@ public partial class GoogleAssuredWorkloadsWorkload(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -263,7 +263,7 @@ public partial class GoogleAssuredWorkloadsWorkload(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformValue<string> Organization
     {
-        get => new TerraformReference<string>(this, "organization");
+        get => GetArgument<TerraformValue<string>>("organization");
         set => SetArgument("organization", value);
     }
 
@@ -272,7 +272,7 @@ public partial class GoogleAssuredWorkloadsWorkload(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Partner
     {
-        get => new TerraformReference<string>(this, "partner");
+        get => GetArgument<TerraformValue<string>>("partner");
         set => SetArgument("partner", value);
     }
 
@@ -281,7 +281,7 @@ public partial class GoogleAssuredWorkloadsWorkload(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? PartnerServicesBillingAccount
     {
-        get => new TerraformReference<string>(this, "partner_services_billing_account");
+        get => GetArgument<TerraformValue<string>>("partner_services_billing_account");
         set => SetArgument("partner_services_billing_account", value);
     }
 
@@ -290,16 +290,16 @@ public partial class GoogleAssuredWorkloadsWorkload(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? ProvisionedResourcesParent
     {
-        get => new TerraformReference<string>(this, "provisioned_resources_parent");
+        get => GetArgument<TerraformValue<string>>("provisioned_resources_parent");
         set => SetArgument("provisioned_resources_parent", value);
     }
 
     /// <summary>
     /// Optional. Indicates whether the e-mail notification for a violation is enabled for a workload. This value will be by default True, and if not present will be considered as true. This should only be updated via updateWorkload call. Any Changes to this field during the createWorkload call will not be honored. This will always be true while creating the workload.
     /// </summary>
-    public TerraformValue<bool> ViolationNotificationsEnabled
+    public TerraformValue<bool>? ViolationNotificationsEnabled
     {
-        get => new TerraformReference<bool>(this, "violation_notifications_enabled");
+        get => GetArgument<TerraformValue<bool>>("violation_notifications_enabled");
         set => SetArgument("violation_notifications_enabled", value);
     }
 
@@ -307,81 +307,61 @@ public partial class GoogleAssuredWorkloadsWorkload(string name) : TerraformReso
     /// Output only. Count of active Violations in the Workload.
     /// </summary>
     public TerraformList<TerraformMap<object>> ComplianceStatus
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "compliance_status").ResolveNodes(ctx));
-    }
+        => AsReference("compliance_status");
 
     /// <summary>
     /// Output only. Urls for services which are compliant for this Assured Workload, but which are currently disallowed by the ResourceUsageRestriction org policy. Invoke workloads.restrictAllowedResources endpoint to allow your project developers to use these services in their environment.
     /// </summary>
     public TerraformList<string> CompliantButDisallowedServices
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "compliant_but_disallowed_services").ResolveNodes(ctx));
-    }
+        => AsReference("compliant_but_disallowed_services");
 
     /// <summary>
     /// Output only. Immutable. The Workload creation timestamp.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Optional. Represents the Ekm Provisioning State of the given workload.
     /// </summary>
     public TerraformList<TerraformMap<object>> EkmProvisioningResponse
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "ekm_provisioning_response").ResolveNodes(ctx));
-    }
+        => AsReference("ekm_provisioning_response");
 
     /// <summary>
     /// Output only. Represents the KAJ enrollment state of the given workload. Possible values: KAJ_ENROLLMENT_STATE_UNSPECIFIED, KAJ_ENROLLMENT_STATE_PENDING, KAJ_ENROLLMENT_STATE_COMPLETE
     /// </summary>
     public TerraformValue<string> KajEnrollmentState
-    {
-        get => new TerraformReference<string>(this, "kaj_enrollment_state");
-    }
+        => AsReference("kaj_enrollment_state");
 
     /// <summary>
     /// Output only. The resource name of the workload.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. The resources associated with this workload. These resources will be created when creating the workload. If any of the projects already exist, the workload creation will fail. Always read only.
     /// </summary>
     public TerraformList<TerraformMap<object>> Resources
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "resources").ResolveNodes(ctx));
-    }
+        => AsReference("resources");
 
     /// <summary>
     /// Output only. Represents the SAA enrollment response of the given workload. SAA enrollment response is queried during workloads.get call. In failure cases, user friendly error message is shown in SAA details page.
     /// </summary>
     public TerraformList<TerraformMap<object>> SaaEnrollmentResponse
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "saa_enrollment_response").ResolveNodes(ctx));
-    }
+        => AsReference("saa_enrollment_response");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// KmsSettings block (nesting mode: list).

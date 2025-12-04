@@ -18,7 +18,7 @@ public class AzurermVirtualDesktopWorkspaceApplicationGroupAssociationTimeoutsBl
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermVirtualDesktopWorkspaceApplicationGroupAssociationTimeoutsBl
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermVirtualDesktopWorkspaceApplicationGroupAssociationTimeoutsBl
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AzurermVirtualDesktopWorkspaceApplicationGroupAssociation(s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationGroupId is required")]
     public required TerraformValue<string> ApplicationGroupId
     {
-        get => new TerraformReference<string>(this, "application_group_id");
+        get => GetArgument<TerraformValue<string>>("application_group_id");
         set => SetArgument("application_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermVirtualDesktopWorkspaceApplicationGroupAssociation(s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => new TerraformReference<string>(this, "workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 

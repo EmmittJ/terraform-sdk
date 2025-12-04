@@ -18,7 +18,7 @@ public class AzureadServicePrincipalDelegatedPermissionGrantTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadServicePrincipalDelegatedPermissionGrantTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadServicePrincipalDelegatedPermissionGrantTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzureadServicePrincipalDelegatedPermissionGrantTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AzureadServicePrincipalDelegatedPermissionGrant(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClaimValues is required")]
     public required TerraformSet<string> ClaimValues
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "claim_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("claim_values");
         set => SetArgument("claim_values", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzureadServicePrincipalDelegatedPermissionGrant(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceServicePrincipalObjectId is required")]
     public required TerraformValue<string> ResourceServicePrincipalObjectId
     {
-        get => new TerraformReference<string>(this, "resource_service_principal_object_id");
+        get => GetArgument<TerraformValue<string>>("resource_service_principal_object_id");
         set => SetArgument("resource_service_principal_object_id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzureadServicePrincipalDelegatedPermissionGrant(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalObjectId is required")]
     public required TerraformValue<string> ServicePrincipalObjectId
     {
-        get => new TerraformReference<string>(this, "service_principal_object_id");
+        get => GetArgument<TerraformValue<string>>("service_principal_object_id");
         set => SetArgument("service_principal_object_id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzureadServicePrincipalDelegatedPermissionGrant(string name
     /// </summary>
     public TerraformValue<string>? UserObjectId
     {
-        get => new TerraformReference<string>(this, "user_object_id");
+        get => GetArgument<TerraformValue<string>>("user_object_id");
         set => SetArgument("user_object_id", value);
     }
 

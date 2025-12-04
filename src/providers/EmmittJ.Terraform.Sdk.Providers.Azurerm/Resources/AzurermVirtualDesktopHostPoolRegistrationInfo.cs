@@ -18,7 +18,7 @@ public class AzurermVirtualDesktopHostPoolRegistrationInfoTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermVirtualDesktopHostPoolRegistrationInfoTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermVirtualDesktopHostPoolRegistrationInfoTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermVirtualDesktopHostPoolRegistrationInfoTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermVirtualDesktopHostPoolRegistrationInfo(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpirationDate is required")]
     public required TerraformValue<string> ExpirationDate
     {
-        get => new TerraformReference<string>(this, "expiration_date");
+        get => GetArgument<TerraformValue<string>>("expiration_date");
         set => SetArgument("expiration_date", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzurermVirtualDesktopHostPoolRegistrationInfo(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostpoolId is required")]
     public required TerraformValue<string> HostpoolId
     {
-        get => new TerraformReference<string>(this, "hostpool_id");
+        get => GetArgument<TerraformValue<string>>("hostpool_id");
         set => SetArgument("hostpool_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -91,9 +91,7 @@ public partial class AzurermVirtualDesktopHostPoolRegistrationInfo(string name) 
     /// The token attribute.
     /// </summary>
     public TerraformValue<string> Token
-    {
-        get => new TerraformReference<string>(this, "token");
-    }
+        => AsReference("token");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

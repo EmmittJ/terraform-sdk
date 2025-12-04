@@ -19,7 +19,7 @@ public class GoogleIamPolicyDataSourceAuditConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleIamPolicyDataSourceAuditConfigBlockAuditLogConfigsBlock : Ter
     /// </summary>
     public TerraformSet<string>? ExemptedMembers
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "exempted_members").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("exempted_members");
         set => SetArgument("exempted_members", value);
     }
 
@@ -63,7 +63,7 @@ public class GoogleIamPolicyDataSourceAuditConfigBlockAuditLogConfigsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
     public required TerraformValue<string> LogType
     {
-        get => new TerraformReference<string>(this, "log_type");
+        get => GetArgument<TerraformValue<string>>("log_type");
         set => SetArgument("log_type", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleIamPolicyDataSourceBindingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Members is required")]
     public required TerraformSet<string> Members
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "members").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("members");
         set => SetArgument("members", value);
     }
 
@@ -97,7 +97,7 @@ public class GoogleIamPolicyDataSourceBindingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => new TerraformReference<string>(this, "role");
+        get => GetArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 
@@ -129,7 +129,7 @@ public class GoogleIamPolicyDataSourceBindingBlockConditionBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -139,7 +139,7 @@ public class GoogleIamPolicyDataSourceBindingBlockConditionBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -149,7 +149,7 @@ public class GoogleIamPolicyDataSourceBindingBlockConditionBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -165,9 +165,9 @@ public partial class GoogleIamPolicyDataSource(string name) : TerraformDataSourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -175,9 +175,7 @@ public partial class GoogleIamPolicyDataSource(string name) : TerraformDataSourc
     /// The policy_data attribute.
     /// </summary>
     public TerraformValue<string> PolicyData
-    {
-        get => new TerraformReference<string>(this, "policy_data");
-    }
+        => AsReference("policy_data");
 
     /// <summary>
     /// AuditConfig block (nesting mode: set).

@@ -19,7 +19,7 @@ public class AwsSagemakerWorkforceCognitoConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsSagemakerWorkforceCognitoConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPool is required")]
     public required TerraformValue<string> UserPool
     {
-        get => new TerraformReference<string>(this, "user_pool");
+        get => GetArgument<TerraformValue<string>>("user_pool");
         set => SetArgument("user_pool", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? AuthenticationRequestExtraParams
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "authentication_request_extra_params").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("authentication_request_extra_params");
         set => SetArgument("authentication_request_extra_params", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationEndpoint is required")]
     public required TerraformValue<string> AuthorizationEndpoint
     {
-        get => new TerraformReference<string>(this, "authorization_endpoint");
+        get => GetArgument<TerraformValue<string>>("authorization_endpoint");
         set => SetArgument("authorization_endpoint", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformValue<string> ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformValue<string> Issuer
     {
-        get => new TerraformReference<string>(this, "issuer");
+        get => GetArgument<TerraformValue<string>>("issuer");
         set => SetArgument("issuer", value);
     }
 
@@ -102,7 +102,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JwksUri is required")]
     public required TerraformValue<string> JwksUri
     {
-        get => new TerraformReference<string>(this, "jwks_uri");
+        get => GetArgument<TerraformValue<string>>("jwks_uri");
         set => SetArgument("jwks_uri", value);
     }
 
@@ -112,7 +112,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogoutEndpoint is required")]
     public required TerraformValue<string> LogoutEndpoint
     {
-        get => new TerraformReference<string>(this, "logout_endpoint");
+        get => GetArgument<TerraformValue<string>>("logout_endpoint");
         set => SetArgument("logout_endpoint", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenEndpoint is required")]
     public required TerraformValue<string> TokenEndpoint
     {
-        get => new TerraformReference<string>(this, "token_endpoint");
+        get => GetArgument<TerraformValue<string>>("token_endpoint");
         set => SetArgument("token_endpoint", value);
     }
 
@@ -141,7 +141,7 @@ public class AwsSagemakerWorkforceOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserInfoEndpoint is required")]
     public required TerraformValue<string> UserInfoEndpoint
     {
-        get => new TerraformReference<string>(this, "user_info_endpoint");
+        get => GetArgument<TerraformValue<string>>("user_info_endpoint");
         set => SetArgument("user_info_endpoint", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsSagemakerWorkforceSourceIpConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidrs is required")]
     public required TerraformSet<string> Cidrs
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "cidrs").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("cidrs");
         set => SetArgument("cidrs", value);
     }
 
@@ -188,7 +188,7 @@ public class AwsSagemakerWorkforceWorkforceVpcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -197,7 +197,7 @@ public class AwsSagemakerWorkforceWorkforceVpcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Subnets
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnets").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -205,16 +205,14 @@ public class AwsSagemakerWorkforceWorkforceVpcConfigBlock : TerraformBlock
     /// The vpc_endpoint_id attribute.
     /// </summary>
     public TerraformValue<string> VpcEndpointId
-    {
-        get => new TerraformReference<string>(this, "vpc_endpoint_id");
-    }
+        => AsReference("vpc_endpoint_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string>? VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -230,18 +228,18 @@ public partial class AwsSagemakerWorkforce(string name) : TerraformResource("aws
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -251,7 +249,7 @@ public partial class AwsSagemakerWorkforce(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforceName is required")]
     public required TerraformValue<string> WorkforceName
     {
-        get => new TerraformReference<string>(this, "workforce_name");
+        get => GetArgument<TerraformValue<string>>("workforce_name");
         set => SetArgument("workforce_name", value);
     }
 
@@ -259,17 +257,13 @@ public partial class AwsSagemakerWorkforce(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The subdomain attribute.
     /// </summary>
     public TerraformValue<string> Subdomain
-    {
-        get => new TerraformReference<string>(this, "subdomain");
-    }
+        => AsReference("subdomain");
 
     /// <summary>
     /// CognitoConfig block (nesting mode: list).

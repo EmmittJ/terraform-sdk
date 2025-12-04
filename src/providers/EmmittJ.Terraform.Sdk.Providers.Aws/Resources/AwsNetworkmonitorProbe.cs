@@ -14,7 +14,7 @@ public partial class AwsNetworkmonitorProbe(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformValue<string> Destination
     {
-        get => new TerraformReference<string>(this, "destination");
+        get => GetArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsNetworkmonitorProbe(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<double>? DestinationPort
     {
-        get => new TerraformReference<double>(this, "destination_port");
+        get => GetArgument<TerraformValue<double>>("destination_port");
         set => SetArgument("destination_port", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsNetworkmonitorProbe(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorName is required")]
     public required TerraformValue<string> MonitorName
     {
-        get => new TerraformReference<string>(this, "monitor_name");
+        get => GetArgument<TerraformValue<string>>("monitor_name");
         set => SetArgument("monitor_name", value);
     }
 
     /// <summary>
     /// The packet_size attribute.
     /// </summary>
-    public TerraformValue<double> PacketSize
+    public TerraformValue<double>? PacketSize
     {
-        get => new TerraformReference<double>(this, "packet_size");
+        get => GetArgument<TerraformValue<double>>("packet_size");
         set => SetArgument("packet_size", value);
     }
 
@@ -52,16 +52,16 @@ public partial class AwsNetworkmonitorProbe(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -71,7 +71,7 @@ public partial class AwsNetworkmonitorProbe(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceArn is required")]
     public required TerraformValue<string> SourceArn
     {
-        get => new TerraformReference<string>(this, "source_arn");
+        get => GetArgument<TerraformValue<string>>("source_arn");
         set => SetArgument("source_arn", value);
     }
 
@@ -80,7 +80,7 @@ public partial class AwsNetworkmonitorProbe(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -88,48 +88,36 @@ public partial class AwsNetworkmonitorProbe(string name) : TerraformResource("aw
     /// The address_family attribute.
     /// </summary>
     public TerraformValue<string> AddressFamily
-    {
-        get => new TerraformReference<string>(this, "address_family");
-    }
+        => AsReference("address_family");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The probe_id attribute.
     /// </summary>
     public TerraformValue<string> ProbeId
-    {
-        get => new TerraformReference<string>(this, "probe_id");
-    }
+        => AsReference("probe_id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-    {
-        get => new TerraformReference<string>(this, "vpc_id");
-    }
+        => AsReference("vpc_id");
 
 }

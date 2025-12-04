@@ -18,7 +18,7 @@ public class AzurermMssqlServerMicrosoftSupportAuditingPolicyTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermMssqlServerMicrosoftSupportAuditingPolicyTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermMssqlServerMicrosoftSupportAuditingPolicyTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermMssqlServerMicrosoftSupportAuditingPolicyTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermMssqlServerMicrosoftSupportAuditingPolicy(string nam
     /// </summary>
     public TerraformValue<string>? BlobStorageEndpoint
     {
-        get => new TerraformReference<string>(this, "blob_storage_endpoint");
+        get => GetArgument<TerraformValue<string>>("blob_storage_endpoint");
         set => SetArgument("blob_storage_endpoint", value);
     }
 
@@ -72,16 +72,16 @@ public partial class AzurermMssqlServerMicrosoftSupportAuditingPolicy(string nam
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AzurermMssqlServerMicrosoftSupportAuditingPolicy(string nam
     /// </summary>
     public TerraformValue<bool>? LogMonitoringEnabled
     {
-        get => new TerraformReference<bool>(this, "log_monitoring_enabled");
+        get => GetArgument<TerraformValue<bool>>("log_monitoring_enabled");
         set => SetArgument("log_monitoring_enabled", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermMssqlServerMicrosoftSupportAuditingPolicy(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformValue<string> ServerId
     {
-        get => new TerraformReference<string>(this, "server_id");
+        get => GetArgument<TerraformValue<string>>("server_id");
         set => SetArgument("server_id", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermMssqlServerMicrosoftSupportAuditingPolicy(string nam
     /// </summary>
     public TerraformValue<string>? StorageAccountAccessKey
     {
-        get => new TerraformReference<string>(this, "storage_account_access_key");
+        get => GetArgument<TerraformValue<string>>("storage_account_access_key");
         set => SetArgument("storage_account_access_key", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermMssqlServerMicrosoftSupportAuditingPolicy(string nam
     /// </summary>
     public TerraformValue<string>? StorageAccountSubscriptionId
     {
-        get => new TerraformReference<string>(this, "storage_account_subscription_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_subscription_id");
         set => SetArgument("storage_account_subscription_id", value);
     }
 

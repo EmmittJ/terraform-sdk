@@ -22,7 +22,7 @@ public class GoogleComputeExternalVpnGatewayInterfaceAttributeBlock : TerraformB
     /// </summary>
     public TerraformValue<double>? Id
     {
-        get => new TerraformReference<double>(this, "id");
+        get => GetArgument<TerraformValue<double>>("id");
         set => SetArgument("id", value);
     }
 
@@ -34,7 +34,7 @@ public class GoogleComputeExternalVpnGatewayInterfaceAttributeBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? IpAddress
     {
-        get => new TerraformReference<string>(this, "ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -48,7 +48,7 @@ public class GoogleComputeExternalVpnGatewayInterfaceAttributeBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Ipv6Address
     {
-        get => new TerraformReference<string>(this, "ipv6_address");
+        get => GetArgument<TerraformValue<string>>("ipv6_address");
         set => SetArgument("ipv6_address", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleComputeExternalVpnGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleComputeExternalVpnGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -89,7 +89,7 @@ public class GoogleComputeExternalVpnGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -107,16 +107,16 @@ public partial class GoogleComputeExternalVpnGateway(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -128,7 +128,7 @@ public partial class GoogleComputeExternalVpnGateway(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -144,16 +144,16 @@ public partial class GoogleComputeExternalVpnGateway(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -162,7 +162,7 @@ public partial class GoogleComputeExternalVpnGateway(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? RedundancyType
     {
-        get => new TerraformReference<string>(this, "redundancy_type");
+        get => GetArgument<TerraformValue<string>>("redundancy_type");
         set => SetArgument("redundancy_type", value);
     }
 
@@ -170,35 +170,27 @@ public partial class GoogleComputeExternalVpnGateway(string name) : TerraformRes
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
     /// internally during updates.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-    {
-        get => new TerraformReference<string>(this, "label_fingerprint");
-    }
+        => AsReference("label_fingerprint");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// InterfaceAttribute block (nesting mode: list).

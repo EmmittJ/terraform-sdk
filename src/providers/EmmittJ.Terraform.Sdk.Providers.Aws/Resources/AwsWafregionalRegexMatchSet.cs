@@ -19,7 +19,7 @@ public class AwsWafregionalRegexMatchSetRegexMatchTupleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegexPatternSetId is required")]
     public required TerraformValue<string> RegexPatternSetId
     {
-        get => new TerraformReference<string>(this, "regex_pattern_set_id");
+        get => GetArgument<TerraformValue<string>>("regex_pattern_set_id");
         set => SetArgument("regex_pattern_set_id", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsWafregionalRegexMatchSetRegexMatchTupleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
     public required TerraformValue<string> TextTransformation
     {
-        get => new TerraformReference<string>(this, "text_transformation");
+        get => GetArgument<TerraformValue<string>>("text_transformation");
         set => SetArgument("text_transformation", value);
     }
 
@@ -64,7 +64,7 @@ public class AwsWafregionalRegexMatchSetRegexMatchTupleBlockFieldToMatchBlock : 
     /// </summary>
     public TerraformValue<string>? Data
     {
-        get => new TerraformReference<string>(this, "data");
+        get => GetArgument<TerraformValue<string>>("data");
         set => SetArgument("data", value);
     }
 
@@ -74,7 +74,7 @@ public class AwsWafregionalRegexMatchSetRegexMatchTupleBlockFieldToMatchBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -90,9 +90,9 @@ public partial class AwsWafregionalRegexMatchSet(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -102,16 +102,16 @@ public partial class AwsWafregionalRegexMatchSet(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

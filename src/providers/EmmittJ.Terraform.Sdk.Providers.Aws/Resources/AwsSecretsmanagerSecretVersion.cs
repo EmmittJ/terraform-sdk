@@ -11,18 +11,18 @@ public partial class AwsSecretsmanagerSecretVersion(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsSecretsmanagerSecretVersion(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? SecretBinary
     {
-        get => new TerraformReference<string>(this, "secret_binary");
+        get => GetArgument<TerraformValue<string>>("secret_binary");
         set => SetArgument("secret_binary", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsSecretsmanagerSecretVersion(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformValue<string> SecretId
     {
-        get => new TerraformReference<string>(this, "secret_id");
+        get => GetArgument<TerraformValue<string>>("secret_id");
         set => SetArgument("secret_id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsSecretsmanagerSecretVersion(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? SecretString
     {
-        get => new TerraformReference<string>(this, "secret_string");
+        get => GetArgument<TerraformValue<string>>("secret_string");
         set => SetArgument("secret_string", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsSecretsmanagerSecretVersion(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? SecretStringWo
     {
-        get => new TerraformReference<string>(this, "secret_string_wo");
+        get => GetArgument<TerraformValue<string>>("secret_string_wo");
         set => SetArgument("secret_string_wo", value);
     }
 
@@ -68,16 +68,16 @@ public partial class AwsSecretsmanagerSecretVersion(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double>? SecretStringWoVersion
     {
-        get => new TerraformReference<double>(this, "secret_string_wo_version");
+        get => GetArgument<TerraformValue<double>>("secret_string_wo_version");
         set => SetArgument("secret_string_wo_version", value);
     }
 
     /// <summary>
     /// The version_stages attribute.
     /// </summary>
-    public TerraformSet<string> VersionStages
+    public TerraformSet<string>? VersionStages
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "version_stages").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("version_stages");
         set => SetArgument("version_stages", value);
     }
 
@@ -85,24 +85,18 @@ public partial class AwsSecretsmanagerSecretVersion(string name) : TerraformReso
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The has_secret_string_wo attribute.
     /// </summary>
     public TerraformValue<bool> HasSecretStringWo
-    {
-        get => new TerraformReference<bool>(this, "has_secret_string_wo");
-    }
+        => AsReference("has_secret_string_wo");
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
     public TerraformValue<string> VersionId
-    {
-        get => new TerraformReference<string>(this, "version_id");
-    }
+        => AsReference("version_id");
 
 }

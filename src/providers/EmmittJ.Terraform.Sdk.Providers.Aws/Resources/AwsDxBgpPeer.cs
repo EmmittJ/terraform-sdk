@@ -18,7 +18,7 @@ public class AwsDxBgpPeerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsDxBgpPeerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,16 +46,16 @@ public partial class AwsDxBgpPeer(string name) : TerraformResource("aws_dx_bgp_p
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressFamily is required")]
     public required TerraformValue<string> AddressFamily
     {
-        get => new TerraformReference<string>(this, "address_family");
+        get => GetArgument<TerraformValue<string>>("address_family");
         set => SetArgument("address_family", value);
     }
 
     /// <summary>
     /// The amazon_address attribute.
     /// </summary>
-    public TerraformValue<string> AmazonAddress
+    public TerraformValue<string>? AmazonAddress
     {
-        get => new TerraformReference<string>(this, "amazon_address");
+        get => GetArgument<TerraformValue<string>>("amazon_address");
         set => SetArgument("amazon_address", value);
     }
 
@@ -65,43 +65,43 @@ public partial class AwsDxBgpPeer(string name) : TerraformResource("aws_dx_bgp_p
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BgpAsn is required")]
     public required TerraformValue<double> BgpAsn
     {
-        get => new TerraformReference<double>(this, "bgp_asn");
+        get => GetArgument<TerraformValue<double>>("bgp_asn");
         set => SetArgument("bgp_asn", value);
     }
 
     /// <summary>
     /// The bgp_auth_key attribute.
     /// </summary>
-    public TerraformValue<string> BgpAuthKey
+    public TerraformValue<string>? BgpAuthKey
     {
-        get => new TerraformReference<string>(this, "bgp_auth_key");
+        get => GetArgument<TerraformValue<string>>("bgp_auth_key");
         set => SetArgument("bgp_auth_key", value);
     }
 
     /// <summary>
     /// The customer_address attribute.
     /// </summary>
-    public TerraformValue<string> CustomerAddress
+    public TerraformValue<string>? CustomerAddress
     {
-        get => new TerraformReference<string>(this, "customer_address");
+        get => GetArgument<TerraformValue<string>>("customer_address");
         set => SetArgument("customer_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AwsDxBgpPeer(string name) : TerraformResource("aws_dx_bgp_p
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualInterfaceId is required")]
     public required TerraformValue<string> VirtualInterfaceId
     {
-        get => new TerraformReference<string>(this, "virtual_interface_id");
+        get => GetArgument<TerraformValue<string>>("virtual_interface_id");
         set => SetArgument("virtual_interface_id", value);
     }
 
@@ -119,25 +119,19 @@ public partial class AwsDxBgpPeer(string name) : TerraformResource("aws_dx_bgp_p
     /// The aws_device attribute.
     /// </summary>
     public TerraformValue<string> AwsDevice
-    {
-        get => new TerraformReference<string>(this, "aws_device");
-    }
+        => AsReference("aws_device");
 
     /// <summary>
     /// The bgp_peer_id attribute.
     /// </summary>
     public TerraformValue<string> BgpPeerId
-    {
-        get => new TerraformReference<string>(this, "bgp_peer_id");
-    }
+        => AsReference("bgp_peer_id");
 
     /// <summary>
     /// The bgp_status attribute.
     /// </summary>
     public TerraformValue<string> BgpStatus
-    {
-        get => new TerraformReference<string>(this, "bgp_status");
-    }
+        => AsReference("bgp_status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

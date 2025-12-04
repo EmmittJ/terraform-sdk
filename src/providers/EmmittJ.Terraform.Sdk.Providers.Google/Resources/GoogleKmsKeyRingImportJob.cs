@@ -18,7 +18,7 @@ public class GoogleKmsKeyRingImportJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleKmsKeyRingImportJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -43,9 +43,9 @@ public partial class GoogleKmsKeyRingImportJob(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleKmsKeyRingImportJob(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportJobId is required")]
     public required TerraformValue<string> ImportJobId
     {
-        get => new TerraformReference<string>(this, "import_job_id");
+        get => GetArgument<TerraformValue<string>>("import_job_id");
         set => SetArgument("import_job_id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleKmsKeyRingImportJob(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImportMethod is required")]
     public required TerraformValue<string> ImportMethod
     {
-        get => new TerraformReference<string>(this, "import_method");
+        get => GetArgument<TerraformValue<string>>("import_method");
         set => SetArgument("import_method", value);
     }
 
@@ -76,7 +76,7 @@ public partial class GoogleKmsKeyRingImportJob(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
     public required TerraformValue<string> KeyRing
     {
-        get => new TerraformReference<string>(this, "key_ring");
+        get => GetArgument<TerraformValue<string>>("key_ring");
         set => SetArgument("key_ring", value);
     }
 
@@ -87,7 +87,7 @@ public partial class GoogleKmsKeyRingImportJob(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectionLevel is required")]
     public required TerraformValue<string> ProtectionLevel
     {
-        get => new TerraformReference<string>(this, "protection_level");
+        get => GetArgument<TerraformValue<string>>("protection_level");
         set => SetArgument("protection_level", value);
     }
 
@@ -97,42 +97,32 @@ public partial class GoogleKmsKeyRingImportJob(string name) : TerraformResource(
     /// Only present if the chosen ImportMethod is one with a protection level of HSM.
     /// </summary>
     public TerraformList<TerraformMap<object>> Attestation
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "attestation").ResolveNodes(ctx));
-    }
+        => AsReference("attestation");
 
     /// <summary>
     /// The time at which this resource is scheduled for expiration and can no longer be used.
     /// This is in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> ExpireTime
-    {
-        get => new TerraformReference<string>(this, "expire_time");
-    }
+        => AsReference("expire_time");
 
     /// <summary>
     /// The resource name for this ImportJob in the format projects/*/locations/*/keyRings/*/importJobs/*.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The public key with which to wrap key material prior to import. Only returned if state is &#39;ACTIVE&#39;.
     /// </summary>
     public TerraformList<TerraformMap<object>> PublicKey
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "public_key").ResolveNodes(ctx));
-    }
+        => AsReference("public_key");
 
     /// <summary>
     /// The current state of the ImportJob, indicating if it can be used.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

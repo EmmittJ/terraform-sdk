@@ -17,57 +17,43 @@ public class AwsPollyVoicesDataSourceVoicesBlock : TerraformBlock
     /// The additional_language_codes attribute.
     /// </summary>
     public TerraformList<string> AdditionalLanguageCodes
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "additional_language_codes").ResolveNodes(ctx));
-    }
+        => AsReference("additional_language_codes");
 
     /// <summary>
     /// The gender attribute.
     /// </summary>
     public TerraformValue<string> Gender
-    {
-        get => new TerraformReference<string>(this, "gender");
-    }
+        => AsReference("gender");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The language_code attribute.
     /// </summary>
     public TerraformValue<string> LanguageCode
-    {
-        get => new TerraformReference<string>(this, "language_code");
-    }
+        => AsReference("language_code");
 
     /// <summary>
     /// The language_name attribute.
     /// </summary>
     public TerraformValue<string> LanguageName
-    {
-        get => new TerraformReference<string>(this, "language_name");
-    }
+        => AsReference("language_name");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The supported_engines attribute.
     /// </summary>
     public TerraformList<string> SupportedEngines
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supported_engines").ResolveNodes(ctx));
-    }
+        => AsReference("supported_engines");
 
 }
 
@@ -83,7 +69,7 @@ public partial class AwsPollyVoicesDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string>? Engine
     {
-        get => new TerraformReference<string>(this, "engine");
+        get => GetArgument<TerraformValue<string>>("engine");
         set => SetArgument("engine", value);
     }
 
@@ -92,7 +78,7 @@ public partial class AwsPollyVoicesDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<bool>? IncludeAdditionalLanguageCodes
     {
-        get => new TerraformReference<bool>(this, "include_additional_language_codes");
+        get => GetArgument<TerraformValue<bool>>("include_additional_language_codes");
         set => SetArgument("include_additional_language_codes", value);
     }
 
@@ -101,16 +87,16 @@ public partial class AwsPollyVoicesDataSource(string name) : TerraformDataSource
     /// </summary>
     public TerraformValue<string>? LanguageCode
     {
-        get => new TerraformReference<string>(this, "language_code");
+        get => GetArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -118,9 +104,7 @@ public partial class AwsPollyVoicesDataSource(string name) : TerraformDataSource
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// Voices block (nesting mode: list).

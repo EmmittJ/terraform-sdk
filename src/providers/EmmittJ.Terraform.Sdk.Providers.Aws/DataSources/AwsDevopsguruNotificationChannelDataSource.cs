@@ -17,17 +17,13 @@ public class AwsDevopsguruNotificationChannelDataSourceFiltersBlock : TerraformB
     /// The message_types attribute.
     /// </summary>
     public TerraformList<string> MessageTypes
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "message_types").ResolveNodes(ctx));
-    }
+        => AsReference("message_types");
 
     /// <summary>
     /// The severities attribute.
     /// </summary>
     public TerraformList<string> Severities
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "severities").ResolveNodes(ctx));
-    }
+        => AsReference("severities");
 
 }
 
@@ -47,9 +43,7 @@ public class AwsDevopsguruNotificationChannelDataSourceSnsBlock : TerraformBlock
     /// The topic_arn attribute.
     /// </summary>
     public TerraformValue<string> TopicArn
-    {
-        get => new TerraformReference<string>(this, "topic_arn");
-    }
+        => AsReference("topic_arn");
 
 }
 
@@ -66,16 +60,16 @@ public partial class AwsDevopsguruNotificationChannelDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

@@ -18,7 +18,7 @@ public class AzurermContainerAppDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermContainerAppDataSource(string name) : TerraformDataS
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermContainerAppDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermContainerAppDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,129 +64,97 @@ public partial class AzurermContainerAppDataSource(string name) : TerraformDataS
     /// The container_app_environment_id attribute.
     /// </summary>
     public TerraformValue<string> ContainerAppEnvironmentId
-    {
-        get => new TerraformReference<string>(this, "container_app_environment_id");
-    }
+        => AsReference("container_app_environment_id");
 
     /// <summary>
     /// The ID of the Custom Domain Verification for this Container App.
     /// </summary>
     public TerraformValue<string> CustomDomainVerificationId
-    {
-        get => new TerraformReference<string>(this, "custom_domain_verification_id");
-    }
+        => AsReference("custom_domain_verification_id");
 
     /// <summary>
     /// The dapr attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Dapr
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "dapr").ResolveNodes(ctx));
-    }
+        => AsReference("dapr");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
-    }
+        => AsReference("identity");
 
     /// <summary>
     /// The ingress attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Ingress
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "ingress").ResolveNodes(ctx));
-    }
+        => AsReference("ingress");
 
     /// <summary>
     /// The fully qualified domain name of the latest Container App.
     /// </summary>
     public TerraformValue<string> LatestRevisionFqdn
-    {
-        get => new TerraformReference<string>(this, "latest_revision_fqdn");
-    }
+        => AsReference("latest_revision_fqdn");
 
     /// <summary>
     /// The name of the latest Container Revision.
     /// </summary>
     public TerraformValue<string> LatestRevisionName
-    {
-        get => new TerraformReference<string>(this, "latest_revision_name");
-    }
+        => AsReference("latest_revision_name");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The max_inactive_revisions attribute.
     /// </summary>
     public TerraformValue<double> MaxInactiveRevisions
-    {
-        get => new TerraformReference<double>(this, "max_inactive_revisions");
-    }
+        => AsReference("max_inactive_revisions");
 
     /// <summary>
     /// The outbound_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> OutboundIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "outbound_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("outbound_ip_addresses");
 
     /// <summary>
     /// The registry attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Registry
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "registry").ResolveNodes(ctx));
-    }
+        => AsReference("registry");
 
     /// <summary>
     /// The revision_mode attribute.
     /// </summary>
     public TerraformValue<string> RevisionMode
-    {
-        get => new TerraformReference<string>(this, "revision_mode");
-    }
+        => AsReference("revision_mode");
 
     /// <summary>
     /// The secret attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Secret
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "secret").ResolveNodes(ctx));
-    }
+        => AsReference("secret");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The template attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Template
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "template").ResolveNodes(ctx));
-    }
+        => AsReference("template");
 
     /// <summary>
     /// The workload_profile_name attribute.
     /// </summary>
     public TerraformValue<string> WorkloadProfileName
-    {
-        get => new TerraformReference<string>(this, "workload_profile_name");
-    }
+        => AsReference("workload_profile_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

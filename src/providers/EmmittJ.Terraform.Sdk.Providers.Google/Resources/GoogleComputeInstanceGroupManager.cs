@@ -18,7 +18,7 @@ public class GoogleComputeInstanceGroupManagerAllInstancesConfigBlock : Terrafor
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeInstanceGroupManagerAllInstancesConfigBlock : Terrafor
     /// </summary>
     public TerraformMap<string>? Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleComputeInstanceGroupManagerAutoHealingPoliciesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HealthCheck is required")]
     public required TerraformValue<string> HealthCheck
     {
-        get => new TerraformReference<string>(this, "health_check");
+        get => GetArgument<TerraformValue<string>>("health_check");
         set => SetArgument("health_check", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleComputeInstanceGroupManagerAutoHealingPoliciesBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InitialDelaySec is required")]
     public required TerraformValue<double> InitialDelaySec
     {
-        get => new TerraformReference<double>(this, "initial_delay_sec");
+        get => GetArgument<TerraformValue<double>>("initial_delay_sec");
         set => SetArgument("initial_delay_sec", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleComputeInstanceGroupManagerInstanceLifecyclePolicyBlock : Ter
     /// </summary>
     public TerraformValue<string>? DefaultActionOnFailure
     {
-        get => new TerraformReference<string>(this, "default_action_on_failure");
+        get => GetArgument<TerraformValue<string>>("default_action_on_failure");
         set => SetArgument("default_action_on_failure", value);
     }
 
@@ -93,7 +93,7 @@ public class GoogleComputeInstanceGroupManagerInstanceLifecyclePolicyBlock : Ter
     /// </summary>
     public TerraformValue<string>? ForceUpdateOnRepair
     {
-        get => new TerraformReference<string>(this, "force_update_on_repair");
+        get => GetArgument<TerraformValue<string>>("force_update_on_repair");
         set => SetArgument("force_update_on_repair", value);
     }
 
@@ -117,7 +117,7 @@ public class GoogleComputeInstanceGroupManagerNamedPortBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -127,7 +127,7 @@ public class GoogleComputeInstanceGroupManagerNamedPortBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -150,7 +150,7 @@ public class GoogleComputeInstanceGroupManagerResourcePoliciesBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? WorkloadPolicy
     {
-        get => new TerraformReference<string>(this, "workload_policy");
+        get => GetArgument<TerraformValue<string>>("workload_policy");
         set => SetArgument("workload_policy", value);
     }
 
@@ -171,18 +171,18 @@ public class GoogleComputeInstanceGroupManagerStandbyPolicyBlock : TerraformBloc
     /// <summary>
     /// Specifies the number of seconds that the MIG should wait to suspend or stop a VM after that VM was created. The initial delay gives the initialization script the time to prepare your VM for a quick scale out. The value of initial delay must be between 0 and 3600 seconds. The default value is 0.
     /// </summary>
-    public TerraformValue<double> InitialDelaySec
+    public TerraformValue<double>? InitialDelaySec
     {
-        get => new TerraformReference<double>(this, "initial_delay_sec");
+        get => GetArgument<TerraformValue<double>>("initial_delay_sec");
         set => SetArgument("initial_delay_sec", value);
     }
 
     /// <summary>
     /// Defines how a MIG resumes or starts VMs from a standby pool when the group scales out. The default mode is &amp;quot;MANUAL&amp;quot;.
     /// </summary>
-    public TerraformValue<string> Mode
+    public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -205,7 +205,7 @@ public class GoogleComputeInstanceGroupManagerStatefulDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DeleteRule
     {
-        get => new TerraformReference<string>(this, "delete_rule");
+        get => GetArgument<TerraformValue<string>>("delete_rule");
         set => SetArgument("delete_rule", value);
     }
 
@@ -215,7 +215,7 @@ public class GoogleComputeInstanceGroupManagerStatefulDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformValue<string> DeviceName
     {
-        get => new TerraformReference<string>(this, "device_name");
+        get => GetArgument<TerraformValue<string>>("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -238,7 +238,7 @@ public class GoogleComputeInstanceGroupManagerStatefulExternalIpBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? DeleteRule
     {
-        get => new TerraformReference<string>(this, "delete_rule");
+        get => GetArgument<TerraformValue<string>>("delete_rule");
         set => SetArgument("delete_rule", value);
     }
 
@@ -247,7 +247,7 @@ public class GoogleComputeInstanceGroupManagerStatefulExternalIpBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? InterfaceName
     {
-        get => new TerraformReference<string>(this, "interface_name");
+        get => GetArgument<TerraformValue<string>>("interface_name");
         set => SetArgument("interface_name", value);
     }
 
@@ -270,7 +270,7 @@ public class GoogleComputeInstanceGroupManagerStatefulInternalIpBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? DeleteRule
     {
-        get => new TerraformReference<string>(this, "delete_rule");
+        get => GetArgument<TerraformValue<string>>("delete_rule");
         set => SetArgument("delete_rule", value);
     }
 
@@ -279,7 +279,7 @@ public class GoogleComputeInstanceGroupManagerStatefulInternalIpBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? InterfaceName
     {
-        get => new TerraformReference<string>(this, "interface_name");
+        get => GetArgument<TerraformValue<string>>("interface_name");
         set => SetArgument("interface_name", value);
     }
 
@@ -302,7 +302,7 @@ public class GoogleComputeInstanceGroupManagerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -311,7 +311,7 @@ public class GoogleComputeInstanceGroupManagerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -320,7 +320,7 @@ public class GoogleComputeInstanceGroupManagerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -341,9 +341,9 @@ public class GoogleComputeInstanceGroupManagerUpdatePolicyBlock : TerraformBlock
     /// <summary>
     /// Specifies a fixed number of VM instances. This must be a positive integer. Conflicts with max_surge_percent. Both cannot be 0
     /// </summary>
-    public TerraformValue<double> MaxSurgeFixed
+    public TerraformValue<double>? MaxSurgeFixed
     {
-        get => new TerraformReference<double>(this, "max_surge_fixed");
+        get => GetArgument<TerraformValue<double>>("max_surge_fixed");
         set => SetArgument("max_surge_fixed", value);
     }
 
@@ -352,16 +352,16 @@ public class GoogleComputeInstanceGroupManagerUpdatePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxSurgePercent
     {
-        get => new TerraformReference<double>(this, "max_surge_percent");
+        get => GetArgument<TerraformValue<double>>("max_surge_percent");
         set => SetArgument("max_surge_percent", value);
     }
 
     /// <summary>
     /// Specifies a fixed number of VM instances. This must be a positive integer.
     /// </summary>
-    public TerraformValue<double> MaxUnavailableFixed
+    public TerraformValue<double>? MaxUnavailableFixed
     {
-        get => new TerraformReference<double>(this, "max_unavailable_fixed");
+        get => GetArgument<TerraformValue<double>>("max_unavailable_fixed");
         set => SetArgument("max_unavailable_fixed", value);
     }
 
@@ -370,7 +370,7 @@ public class GoogleComputeInstanceGroupManagerUpdatePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxUnavailablePercent
     {
-        get => new TerraformReference<double>(this, "max_unavailable_percent");
+        get => GetArgument<TerraformValue<double>>("max_unavailable_percent");
         set => SetArgument("max_unavailable_percent", value);
     }
 
@@ -380,7 +380,7 @@ public class GoogleComputeInstanceGroupManagerUpdatePolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimalAction is required")]
     public required TerraformValue<string> MinimalAction
     {
-        get => new TerraformReference<string>(this, "minimal_action");
+        get => GetArgument<TerraformValue<string>>("minimal_action");
         set => SetArgument("minimal_action", value);
     }
 
@@ -389,7 +389,7 @@ public class GoogleComputeInstanceGroupManagerUpdatePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MostDisruptiveAllowedAction
     {
-        get => new TerraformReference<string>(this, "most_disruptive_allowed_action");
+        get => GetArgument<TerraformValue<string>>("most_disruptive_allowed_action");
         set => SetArgument("most_disruptive_allowed_action", value);
     }
 
@@ -398,7 +398,7 @@ public class GoogleComputeInstanceGroupManagerUpdatePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ReplacementMethod
     {
-        get => new TerraformReference<string>(this, "replacement_method");
+        get => GetArgument<TerraformValue<string>>("replacement_method");
         set => SetArgument("replacement_method", value);
     }
 
@@ -408,7 +408,7 @@ public class GoogleComputeInstanceGroupManagerUpdatePolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -432,7 +432,7 @@ public class GoogleComputeInstanceGroupManagerVersionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceTemplate is required")]
     public required TerraformValue<string> InstanceTemplate
     {
-        get => new TerraformReference<string>(this, "instance_template");
+        get => GetArgument<TerraformValue<string>>("instance_template");
         set => SetArgument("instance_template", value);
     }
 
@@ -441,7 +441,7 @@ public class GoogleComputeInstanceGroupManagerVersionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -473,7 +473,7 @@ public class GoogleComputeInstanceGroupManagerVersionBlockTargetSizeBlock : Terr
     /// </summary>
     public TerraformValue<double>? FixedAttribute
     {
-        get => new TerraformReference<double>(this, "fixed");
+        get => GetArgument<TerraformValue<double>>("fixed");
         set => SetArgument("fixed", value);
     }
 
@@ -482,7 +482,7 @@ public class GoogleComputeInstanceGroupManagerVersionBlockTargetSizeBlock : Terr
     /// </summary>
     public TerraformValue<double>? Percent
     {
-        get => new TerraformReference<double>(this, "percent");
+        get => GetArgument<TerraformValue<double>>("percent");
         set => SetArgument("percent", value);
     }
 
@@ -501,7 +501,7 @@ public partial class GoogleComputeInstanceGroupManager(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseInstanceName is required")]
     public required TerraformValue<string> BaseInstanceName
     {
-        get => new TerraformReference<string>(this, "base_instance_name");
+        get => GetArgument<TerraformValue<string>>("base_instance_name");
         set => SetArgument("base_instance_name", value);
     }
 
@@ -510,16 +510,16 @@ public partial class GoogleComputeInstanceGroupManager(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -528,7 +528,7 @@ public partial class GoogleComputeInstanceGroupManager(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? ListManagedInstancesResults
     {
-        get => new TerraformReference<string>(this, "list_managed_instances_results");
+        get => GetArgument<TerraformValue<string>>("list_managed_instances_results");
         set => SetArgument("list_managed_instances_results", value);
     }
 
@@ -538,16 +538,16 @@ public partial class GoogleComputeInstanceGroupManager(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -556,34 +556,34 @@ public partial class GoogleComputeInstanceGroupManager(string name) : TerraformR
     /// </summary>
     public TerraformSet<string>? TargetPools
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "target_pools").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("target_pools");
         set => SetArgument("target_pools", value);
     }
 
     /// <summary>
     /// The target number of running instances for this managed instance group. This value should always be explicitly set unless this resource is attached to an autoscaler, in which case it should never be set. Defaults to 0.
     /// </summary>
-    public TerraformValue<double> TargetSize
+    public TerraformValue<double>? TargetSize
     {
-        get => new TerraformReference<double>(this, "target_size");
+        get => GetArgument<TerraformValue<double>>("target_size");
         set => SetArgument("target_size", value);
     }
 
     /// <summary>
     /// The target number of stopped instances for this managed instance group.
     /// </summary>
-    public TerraformValue<double> TargetStoppedSize
+    public TerraformValue<double>? TargetStoppedSize
     {
-        get => new TerraformReference<double>(this, "target_stopped_size");
+        get => GetArgument<TerraformValue<double>>("target_stopped_size");
         set => SetArgument("target_stopped_size", value);
     }
 
     /// <summary>
     /// The target number of suspended instances for this managed instance group.
     /// </summary>
-    public TerraformValue<double> TargetSuspendedSize
+    public TerraformValue<double>? TargetSuspendedSize
     {
-        get => new TerraformReference<double>(this, "target_suspended_size");
+        get => GetArgument<TerraformValue<double>>("target_suspended_size");
         set => SetArgument("target_suspended_size", value);
     }
 
@@ -592,7 +592,7 @@ public partial class GoogleComputeInstanceGroupManager(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? WaitForInstances
     {
-        get => new TerraformReference<bool>(this, "wait_for_instances");
+        get => GetArgument<TerraformValue<bool>>("wait_for_instances");
         set => SetArgument("wait_for_instances", value);
     }
 
@@ -601,16 +601,16 @@ public partial class GoogleComputeInstanceGroupManager(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? WaitForInstancesStatus
     {
-        get => new TerraformReference<string>(this, "wait_for_instances_status");
+        get => GetArgument<TerraformValue<string>>("wait_for_instances_status");
         set => SetArgument("wait_for_instances_status", value);
     }
 
     /// <summary>
     /// The zone that instances in this group should be created in.
     /// </summary>
-    public TerraformValue<string> Zone
+    public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -618,57 +618,43 @@ public partial class GoogleComputeInstanceGroupManager(string name) : TerraformR
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// The fingerprint of the instance group manager.
     /// </summary>
     public TerraformValue<string> Fingerprint
-    {
-        get => new TerraformReference<string>(this, "fingerprint");
-    }
+        => AsReference("fingerprint");
 
     /// <summary>
     /// The full URL of the instance group created by the manager.
     /// </summary>
     public TerraformValue<string> InstanceGroup
-    {
-        get => new TerraformReference<string>(this, "instance_group");
-    }
+        => AsReference("instance_group");
 
     /// <summary>
     /// The unique identifier number for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<double> InstanceGroupManagerId
-    {
-        get => new TerraformReference<double>(this, "instance_group_manager_id");
-    }
+        => AsReference("instance_group_manager_id");
 
     /// <summary>
     /// The operation attribute.
     /// </summary>
     public TerraformValue<string> Operation
-    {
-        get => new TerraformReference<string>(this, "operation");
-    }
+        => AsReference("operation");
 
     /// <summary>
     /// The URL of the created resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// The status of this managed instance group.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "status").ResolveNodes(ctx));
-    }
+        => AsReference("status");
 
     /// <summary>
     /// AllInstancesConfig block (nesting mode: list).

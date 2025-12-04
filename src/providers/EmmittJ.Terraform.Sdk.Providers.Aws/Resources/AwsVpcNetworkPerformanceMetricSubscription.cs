@@ -14,16 +14,16 @@ public partial class AwsVpcNetworkPerformanceMetricSubscription(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     public required TerraformValue<string> Destination
     {
-        get => new TerraformReference<string>(this, "destination");
+        get => GetArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,16 +32,16 @@ public partial class AwsVpcNetworkPerformanceMetricSubscription(string name) : T
     /// </summary>
     public TerraformValue<string>? Metric
     {
-        get => new TerraformReference<string>(this, "metric");
+        get => GetArgument<TerraformValue<string>>("metric");
         set => SetArgument("metric", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsVpcNetworkPerformanceMetricSubscription(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsVpcNetworkPerformanceMetricSubscription(string name) : T
     /// </summary>
     public TerraformValue<string>? Statistic
     {
-        get => new TerraformReference<string>(this, "statistic");
+        get => GetArgument<TerraformValue<string>>("statistic");
         set => SetArgument("statistic", value);
     }
 
@@ -68,8 +68,6 @@ public partial class AwsVpcNetworkPerformanceMetricSubscription(string name) : T
     /// The period attribute.
     /// </summary>
     public TerraformValue<string> Period
-    {
-        get => new TerraformReference<string>(this, "period");
-    }
+        => AsReference("period");
 
 }

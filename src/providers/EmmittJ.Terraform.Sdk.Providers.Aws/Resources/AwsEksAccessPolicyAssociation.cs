@@ -18,7 +18,7 @@ public class AwsEksAccessPolicyAssociationAccessScopeBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Namespaces
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "namespaces").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("namespaces");
         set => SetArgument("namespaces", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsEksAccessPolicyAssociationAccessScopeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsEksAccessPolicyAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsEksAccessPolicyAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -79,16 +79,16 @@ public partial class AwsEksAccessPolicyAssociation(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => new TerraformReference<string>(this, "cluster_name");
+        get => GetArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -98,7 +98,7 @@ public partial class AwsEksAccessPolicyAssociation(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArn is required")]
     public required TerraformValue<string> PolicyArn
     {
-        get => new TerraformReference<string>(this, "policy_arn");
+        get => GetArgument<TerraformValue<string>>("policy_arn");
         set => SetArgument("policy_arn", value);
     }
 
@@ -108,16 +108,16 @@ public partial class AwsEksAccessPolicyAssociation(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalArn is required")]
     public required TerraformValue<string> PrincipalArn
     {
-        get => new TerraformReference<string>(this, "principal_arn");
+        get => GetArgument<TerraformValue<string>>("principal_arn");
         set => SetArgument("principal_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -125,17 +125,13 @@ public partial class AwsEksAccessPolicyAssociation(string name) : TerraformResou
     /// The associated_at attribute.
     /// </summary>
     public TerraformValue<string> AssociatedAt
-    {
-        get => new TerraformReference<string>(this, "associated_at");
-    }
+        => AsReference("associated_at");
 
     /// <summary>
     /// The modified_at attribute.
     /// </summary>
     public TerraformValue<string> ModifiedAt
-    {
-        get => new TerraformReference<string>(this, "modified_at");
-    }
+        => AsReference("modified_at");
 
     /// <summary>
     /// AccessScope block (nesting mode: list).

@@ -14,7 +14,7 @@ public partial class AwsIamRolePolicyAttachmentsExclusive(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArns is required")]
     public required TerraformSet<string> PolicyArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "policy_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("policy_arns");
         set => SetArgument("policy_arns", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsIamRolePolicyAttachmentsExclusive(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
     public required TerraformValue<string> RoleName
     {
-        get => new TerraformReference<string>(this, "role_name");
+        get => GetArgument<TerraformValue<string>>("role_name");
         set => SetArgument("role_name", value);
     }
 

@@ -14,7 +14,7 @@ public partial class AwsCloudwatchLogSubscriptionFilter(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformValue<string> DestinationArn
     {
-        get => new TerraformReference<string>(this, "destination_arn");
+        get => GetArgument<TerraformValue<string>>("destination_arn");
         set => SetArgument("destination_arn", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsCloudwatchLogSubscriptionFilter(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Distribution
     {
-        get => new TerraformReference<string>(this, "distribution");
+        get => GetArgument<TerraformValue<string>>("distribution");
         set => SetArgument("distribution", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsCloudwatchLogSubscriptionFilter(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterPattern is required")]
     public required TerraformValue<string> FilterPattern
     {
-        get => new TerraformReference<string>(this, "filter_pattern");
+        get => GetArgument<TerraformValue<string>>("filter_pattern");
         set => SetArgument("filter_pattern", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsCloudwatchLogSubscriptionFilter(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformValue<string> LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -62,25 +62,25 @@ public partial class AwsCloudwatchLogSubscriptionFilter(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformValue<string> RoleArn
+    public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 

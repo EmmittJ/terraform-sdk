@@ -16,9 +16,9 @@ public class AwsElastictranscoderPipelineContentConfigBlock : TerraformBlock
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformValue<string> Bucket
+    public TerraformValue<string>? Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsElastictranscoderPipelineContentConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StorageClass
     {
-        get => new TerraformReference<string>(this, "storage_class");
+        get => GetArgument<TerraformValue<string>>("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsElastictranscoderPipelineContentConfigPermissionsBlock : Terrafo
     /// </summary>
     public TerraformList<string>? Access
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "access").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("access");
         set => SetArgument("access", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsElastictranscoderPipelineContentConfigPermissionsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Grantee
     {
-        get => new TerraformReference<string>(this, "grantee");
+        get => GetArgument<TerraformValue<string>>("grantee");
         set => SetArgument("grantee", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsElastictranscoderPipelineContentConfigPermissionsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? GranteeType
     {
-        get => new TerraformReference<string>(this, "grantee_type");
+        get => GetArgument<TerraformValue<string>>("grantee_type");
         set => SetArgument("grantee_type", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsElastictranscoderPipelineNotificationsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Completed
     {
-        get => new TerraformReference<string>(this, "completed");
+        get => GetArgument<TerraformValue<string>>("completed");
         set => SetArgument("completed", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsElastictranscoderPipelineNotificationsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Error
     {
-        get => new TerraformReference<string>(this, "error");
+        get => GetArgument<TerraformValue<string>>("error");
         set => SetArgument("error", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsElastictranscoderPipelineNotificationsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Progressing
     {
-        get => new TerraformReference<string>(this, "progressing");
+        get => GetArgument<TerraformValue<string>>("progressing");
         set => SetArgument("progressing", value);
     }
 
@@ -118,7 +118,7 @@ public class AwsElastictranscoderPipelineNotificationsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Warning
     {
-        get => new TerraformReference<string>(this, "warning");
+        get => GetArgument<TerraformValue<string>>("warning");
         set => SetArgument("warning", value);
     }
 
@@ -139,9 +139,9 @@ public class AwsElastictranscoderPipelineThumbnailConfigBlock : TerraformBlock
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformValue<string> Bucket
+    public TerraformValue<string>? Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -150,7 +150,7 @@ public class AwsElastictranscoderPipelineThumbnailConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StorageClass
     {
-        get => new TerraformReference<string>(this, "storage_class");
+        get => GetArgument<TerraformValue<string>>("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -173,7 +173,7 @@ public class AwsElastictranscoderPipelineThumbnailConfigPermissionsBlock : Terra
     /// </summary>
     public TerraformList<string>? Access
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "access").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("access");
         set => SetArgument("access", value);
     }
 
@@ -182,7 +182,7 @@ public class AwsElastictranscoderPipelineThumbnailConfigPermissionsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Grantee
     {
-        get => new TerraformReference<string>(this, "grantee");
+        get => GetArgument<TerraformValue<string>>("grantee");
         set => SetArgument("grantee", value);
     }
 
@@ -191,7 +191,7 @@ public class AwsElastictranscoderPipelineThumbnailConfigPermissionsBlock : Terra
     /// </summary>
     public TerraformValue<string>? GranteeType
     {
-        get => new TerraformReference<string>(this, "grantee_type");
+        get => GetArgument<TerraformValue<string>>("grantee_type");
         set => SetArgument("grantee_type", value);
     }
 
@@ -210,16 +210,16 @@ public partial class AwsElastictranscoderPipeline(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? AwsKmsKeyArn
     {
-        get => new TerraformReference<string>(this, "aws_kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("aws_kms_key_arn");
         set => SetArgument("aws_kms_key_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -229,34 +229,34 @@ public partial class AwsElastictranscoderPipeline(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputBucket is required")]
     public required TerraformValue<string> InputBucket
     {
-        get => new TerraformReference<string>(this, "input_bucket");
+        get => GetArgument<TerraformValue<string>>("input_bucket");
         set => SetArgument("input_bucket", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The output_bucket attribute.
     /// </summary>
-    public TerraformValue<string> OutputBucket
+    public TerraformValue<string>? OutputBucket
     {
-        get => new TerraformReference<string>(this, "output_bucket");
+        get => GetArgument<TerraformValue<string>>("output_bucket");
         set => SetArgument("output_bucket", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -266,7 +266,7 @@ public partial class AwsElastictranscoderPipeline(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => new TerraformReference<string>(this, "role");
+        get => GetArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 
@@ -274,9 +274,7 @@ public partial class AwsElastictranscoderPipeline(string name) : TerraformResour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// ContentConfig block (nesting mode: list).

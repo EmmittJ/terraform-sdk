@@ -13,7 +13,7 @@ public partial class AwsApiGatewayAuthorizer(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? AuthorizerCredentials
     {
-        get => new TerraformReference<string>(this, "authorizer_credentials");
+        get => GetArgument<TerraformValue<string>>("authorizer_credentials");
         set => SetArgument("authorizer_credentials", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsApiGatewayAuthorizer(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<double>? AuthorizerResultTtlInSeconds
     {
-        get => new TerraformReference<double>(this, "authorizer_result_ttl_in_seconds");
+        get => GetArgument<TerraformValue<double>>("authorizer_result_ttl_in_seconds");
         set => SetArgument("authorizer_result_ttl_in_seconds", value);
     }
 
@@ -31,16 +31,16 @@ public partial class AwsApiGatewayAuthorizer(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? AuthorizerUri
     {
-        get => new TerraformReference<string>(this, "authorizer_uri");
+        get => GetArgument<TerraformValue<string>>("authorizer_uri");
         set => SetArgument("authorizer_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsApiGatewayAuthorizer(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? IdentitySource
     {
-        get => new TerraformReference<string>(this, "identity_source");
+        get => GetArgument<TerraformValue<string>>("identity_source");
         set => SetArgument("identity_source", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsApiGatewayAuthorizer(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? IdentityValidationExpression
     {
-        get => new TerraformReference<string>(this, "identity_validation_expression");
+        get => GetArgument<TerraformValue<string>>("identity_validation_expression");
         set => SetArgument("identity_validation_expression", value);
     }
 
@@ -68,7 +68,7 @@ public partial class AwsApiGatewayAuthorizer(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -77,16 +77,16 @@ public partial class AwsApiGatewayAuthorizer(string name) : TerraformResource("a
     /// </summary>
     public TerraformSet<string>? ProviderArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "provider_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("provider_arns");
         set => SetArgument("provider_arns", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -96,7 +96,7 @@ public partial class AwsApiGatewayAuthorizer(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
     public required TerraformValue<string> RestApiId
     {
-        get => new TerraformReference<string>(this, "rest_api_id");
+        get => GetArgument<TerraformValue<string>>("rest_api_id");
         set => SetArgument("rest_api_id", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AwsApiGatewayAuthorizer(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -113,8 +113,6 @@ public partial class AwsApiGatewayAuthorizer(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

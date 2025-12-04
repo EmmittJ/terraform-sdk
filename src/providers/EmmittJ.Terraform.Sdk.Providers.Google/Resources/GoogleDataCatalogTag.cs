@@ -18,7 +18,7 @@ public class GoogleDataCatalogTagFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? BoolValue
     {
-        get => new TerraformReference<bool>(this, "bool_value");
+        get => GetArgument<TerraformValue<bool>>("bool_value");
         set => SetArgument("bool_value", value);
     }
 
@@ -26,16 +26,14 @@ public class GoogleDataCatalogTagFieldsBlock : TerraformBlock
     /// The display name of this field
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// Holds the value for a tag field with double type.
     /// </summary>
     public TerraformValue<double>? DoubleValue
     {
-        get => new TerraformReference<double>(this, "double_value");
+        get => GetArgument<TerraformValue<double>>("double_value");
         set => SetArgument("double_value", value);
     }
 
@@ -44,7 +42,7 @@ public class GoogleDataCatalogTagFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EnumValue
     {
-        get => new TerraformReference<string>(this, "enum_value");
+        get => GetArgument<TerraformValue<string>>("enum_value");
         set => SetArgument("enum_value", value);
     }
 
@@ -54,7 +52,7 @@ public class GoogleDataCatalogTagFieldsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldName is required")]
     public required TerraformValue<string> FieldName
     {
-        get => new TerraformReference<string>(this, "field_name");
+        get => GetArgument<TerraformValue<string>>("field_name");
         set => SetArgument("field_name", value);
     }
 
@@ -64,16 +62,14 @@ public class GoogleDataCatalogTagFieldsBlock : TerraformBlock
     /// within a tag do not have to be sequential.
     /// </summary>
     public TerraformValue<double> Order
-    {
-        get => new TerraformReference<double>(this, "order");
-    }
+        => AsReference("order");
 
     /// <summary>
     /// Holds the value for a tag field with string type.
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -82,7 +78,7 @@ public class GoogleDataCatalogTagFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TimestampValue
     {
-        get => new TerraformReference<string>(this, "timestamp_value");
+        get => GetArgument<TerraformValue<string>>("timestamp_value");
         set => SetArgument("timestamp_value", value);
     }
 
@@ -105,7 +101,7 @@ public class GoogleDataCatalogTagTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -114,7 +110,7 @@ public class GoogleDataCatalogTagTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -123,7 +119,7 @@ public class GoogleDataCatalogTagTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -146,16 +142,16 @@ public partial class GoogleDataCatalogTag(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? Column
     {
-        get => new TerraformReference<string>(this, "column");
+        get => GetArgument<TerraformValue<string>>("column");
         set => SetArgument("column", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -165,7 +161,7 @@ public partial class GoogleDataCatalogTag(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -177,7 +173,7 @@ public partial class GoogleDataCatalogTag(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Template is required")]
     public required TerraformValue<string> Template
     {
-        get => new TerraformReference<string>(this, "template");
+        get => GetArgument<TerraformValue<string>>("template");
         set => SetArgument("template", value);
     }
 
@@ -188,17 +184,13 @@ public partial class GoogleDataCatalogTag(string name) : TerraformResource("goog
     /// where tag_id is a system-generated identifier. Note that this Tag may not actually be stored in the location in this name.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The display name of the tag template.
     /// </summary>
     public TerraformValue<string> TemplateDisplayname
-    {
-        get => new TerraformReference<string>(this, "template_displayname");
-    }
+        => AsReference("template_displayname");
 
     /// <summary>
     /// Fields block (nesting mode: set).

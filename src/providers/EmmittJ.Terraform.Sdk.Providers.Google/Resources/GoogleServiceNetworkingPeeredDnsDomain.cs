@@ -18,7 +18,7 @@ public class GoogleServiceNetworkingPeeredDnsDomainTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleServiceNetworkingPeeredDnsDomainTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleServiceNetworkingPeeredDnsDomainTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,16 +55,16 @@ public partial class GoogleServiceNetworkingPeeredDnsDomain(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsSuffix is required")]
     public required TerraformValue<string> DnsSuffix
     {
-        get => new TerraformReference<string>(this, "dns_suffix");
+        get => GetArgument<TerraformValue<string>>("dns_suffix");
         set => SetArgument("dns_suffix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleServiceNetworkingPeeredDnsDomain(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -84,16 +84,16 @@ public partial class GoogleServiceNetworkingPeeredDnsDomain(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
     /// <summary>
     /// The ID of the project that the service account will be created in. Defaults to the provider project configuration.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -102,7 +102,7 @@ public partial class GoogleServiceNetworkingPeeredDnsDomain(string name) : Terra
     /// </summary>
     public TerraformValue<string>? Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -110,9 +110,7 @@ public partial class GoogleServiceNetworkingPeeredDnsDomain(string name) : Terra
     /// The parent attribute.
     /// </summary>
     public TerraformValue<string> Parent
-    {
-        get => new TerraformReference<string>(this, "parent");
-    }
+        => AsReference("parent");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

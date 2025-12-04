@@ -18,7 +18,7 @@ public class GoogleDiscoveryEngineSchemaTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleDiscoveryEngineSchemaTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,16 +46,16 @@ public partial class GoogleDiscoveryEngineSchema(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreId is required")]
     public required TerraformValue<string> DataStoreId
     {
-        get => new TerraformReference<string>(this, "data_store_id");
+        get => GetArgument<TerraformValue<string>>("data_store_id");
         set => SetArgument("data_store_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class GoogleDiscoveryEngineSchema(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? JsonSchema
     {
-        get => new TerraformReference<string>(this, "json_schema");
+        get => GetArgument<TerraformValue<string>>("json_schema");
         set => SetArgument("json_schema", value);
     }
 
@@ -75,16 +75,16 @@ public partial class GoogleDiscoveryEngineSchema(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -94,7 +94,7 @@ public partial class GoogleDiscoveryEngineSchema(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaId is required")]
     public required TerraformValue<string> SchemaId
     {
-        get => new TerraformReference<string>(this, "schema_id");
+        get => GetArgument<TerraformValue<string>>("schema_id");
         set => SetArgument("schema_id", value);
     }
 
@@ -105,9 +105,7 @@ public partial class GoogleDiscoveryEngineSchema(string name) : TerraformResourc
     /// characters.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -19,7 +19,7 @@ public class GoogleCloudbuildTriggerApprovalConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ApprovalRequired
     {
-        get => new TerraformReference<bool>(this, "approval_required");
+        get => GetArgument<TerraformValue<bool>>("approval_required");
         set => SetArgument("approval_required", value);
     }
 
@@ -43,7 +43,7 @@ public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BitbucketServerConfigResource is required")]
     public required TerraformValue<string> BitbucketServerConfigResource
     {
-        get => new TerraformReference<string>(this, "bitbucket_server_config_resource");
+        get => GetArgument<TerraformValue<string>>("bitbucket_server_config_resource");
         set => SetArgument("bitbucket_server_config_resource", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectKey is required")]
     public required TerraformValue<string> ProjectKey
     {
-        get => new TerraformReference<string>(this, "project_key");
+        get => GetArgument<TerraformValue<string>>("project_key");
         set => SetArgument("project_key", value);
     }
 
@@ -64,7 +64,7 @@ public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoSlug is required")]
     public required TerraformValue<string> RepoSlug
     {
-        get => new TerraformReference<string>(this, "repo_slug");
+        get => GetArgument<TerraformValue<string>>("repo_slug");
         set => SetArgument("repo_slug", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlockPullRequest
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Branch is required")]
     public required TerraformValue<string> Branch
     {
-        get => new TerraformReference<string>(this, "branch");
+        get => GetArgument<TerraformValue<string>>("branch");
         set => SetArgument("branch", value);
     }
 
@@ -117,7 +117,7 @@ public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlockPullRequest
     /// </summary>
     public TerraformValue<string>? CommentControl
     {
-        get => new TerraformReference<string>(this, "comment_control");
+        get => GetArgument<TerraformValue<string>>("comment_control");
         set => SetArgument("comment_control", value);
     }
 
@@ -126,7 +126,7 @@ public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlockPullRequest
     /// </summary>
     public TerraformValue<bool>? InvertRegex
     {
-        get => new TerraformReference<bool>(this, "invert_regex");
+        get => GetArgument<TerraformValue<bool>>("invert_regex");
         set => SetArgument("invert_regex", value);
     }
 
@@ -148,7 +148,7 @@ public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlockPushBlock :
     /// </summary>
     public TerraformValue<string>? Branch
     {
-        get => new TerraformReference<string>(this, "branch");
+        get => GetArgument<TerraformValue<string>>("branch");
         set => SetArgument("branch", value);
     }
 
@@ -157,7 +157,7 @@ public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlockPushBlock :
     /// </summary>
     public TerraformValue<bool>? InvertRegex
     {
-        get => new TerraformReference<bool>(this, "invert_regex");
+        get => GetArgument<TerraformValue<bool>>("invert_regex");
         set => SetArgument("invert_regex", value);
     }
 
@@ -166,7 +166,7 @@ public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlockPushBlock :
     /// </summary>
     public TerraformValue<string>? Tag
     {
-        get => new TerraformReference<string>(this, "tag");
+        get => GetArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -192,7 +192,7 @@ public class GoogleCloudbuildTriggerBuildBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Images
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "images").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("images");
         set => SetArgument("images", value);
     }
 
@@ -202,7 +202,7 @@ public class GoogleCloudbuildTriggerBuildBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LogsBucket
     {
-        get => new TerraformReference<string>(this, "logs_bucket");
+        get => GetArgument<TerraformValue<string>>("logs_bucket");
         set => SetArgument("logs_bucket", value);
     }
 
@@ -214,7 +214,7 @@ public class GoogleCloudbuildTriggerBuildBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? QueueTtl
     {
-        get => new TerraformReference<string>(this, "queue_ttl");
+        get => GetArgument<TerraformValue<string>>("queue_ttl");
         set => SetArgument("queue_ttl", value);
     }
 
@@ -223,7 +223,7 @@ public class GoogleCloudbuildTriggerBuildBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Substitutions
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "substitutions").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("substitutions");
         set => SetArgument("substitutions", value);
     }
 
@@ -232,7 +232,7 @@ public class GoogleCloudbuildTriggerBuildBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Tags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -245,7 +245,7 @@ public class GoogleCloudbuildTriggerBuildBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Timeout
     {
-        get => new TerraformReference<string>(this, "timeout");
+        get => GetArgument<TerraformValue<string>>("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -334,7 +334,7 @@ public class GoogleCloudbuildTriggerBuildBlockArtifactsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Images
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "images").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("images");
         set => SetArgument("images", value);
     }
 
@@ -393,7 +393,7 @@ public class GoogleCloudbuildTriggerBuildBlockArtifactsBlockMavenArtifactsBlock 
     /// </summary>
     public TerraformValue<string>? ArtifactId
     {
-        get => new TerraformReference<string>(this, "artifact_id");
+        get => GetArgument<TerraformValue<string>>("artifact_id");
         set => SetArgument("artifact_id", value);
     }
 
@@ -402,7 +402,7 @@ public class GoogleCloudbuildTriggerBuildBlockArtifactsBlockMavenArtifactsBlock 
     /// </summary>
     public TerraformValue<string>? GroupId
     {
-        get => new TerraformReference<string>(this, "group_id");
+        get => GetArgument<TerraformValue<string>>("group_id");
         set => SetArgument("group_id", value);
     }
 
@@ -411,7 +411,7 @@ public class GoogleCloudbuildTriggerBuildBlockArtifactsBlockMavenArtifactsBlock 
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -422,7 +422,7 @@ public class GoogleCloudbuildTriggerBuildBlockArtifactsBlockMavenArtifactsBlock 
     /// </summary>
     public TerraformValue<string>? Repository
     {
-        get => new TerraformReference<string>(this, "repository");
+        get => GetArgument<TerraformValue<string>>("repository");
         set => SetArgument("repository", value);
     }
 
@@ -431,7 +431,7 @@ public class GoogleCloudbuildTriggerBuildBlockArtifactsBlockMavenArtifactsBlock 
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -453,7 +453,7 @@ public class GoogleCloudbuildTriggerBuildBlockArtifactsBlockNpmPackagesBlock : T
     /// </summary>
     public TerraformValue<string>? PackagePath
     {
-        get => new TerraformReference<string>(this, "package_path");
+        get => GetArgument<TerraformValue<string>>("package_path");
         set => SetArgument("package_path", value);
     }
 
@@ -464,7 +464,7 @@ public class GoogleCloudbuildTriggerBuildBlockArtifactsBlockNpmPackagesBlock : T
     /// </summary>
     public TerraformValue<string>? Repository
     {
-        get => new TerraformReference<string>(this, "repository");
+        get => GetArgument<TerraformValue<string>>("repository");
         set => SetArgument("repository", value);
     }
 
@@ -489,7 +489,7 @@ public class GoogleCloudbuildTriggerBuildBlockArtifactsBlockObjectsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -498,7 +498,7 @@ public class GoogleCloudbuildTriggerBuildBlockArtifactsBlockObjectsBlock : Terra
     /// </summary>
     public TerraformList<string>? Paths
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "paths").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("paths");
         set => SetArgument("paths", value);
     }
 
@@ -506,9 +506,7 @@ public class GoogleCloudbuildTriggerBuildBlockArtifactsBlockObjectsBlock : Terra
     /// Output only. Stores timing information for pushing all artifact objects.
     /// </summary>
     public TerraformList<TerraformMap<object>> Timing
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "timing").ResolveNodes(ctx));
-    }
+        => AsReference("timing");
 
 }
 
@@ -528,7 +526,7 @@ public class GoogleCloudbuildTriggerBuildBlockArtifactsBlockPythonPackagesBlock 
     /// </summary>
     public TerraformList<string>? Paths
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "paths").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("paths");
         set => SetArgument("paths", value);
     }
 
@@ -539,7 +537,7 @@ public class GoogleCloudbuildTriggerBuildBlockArtifactsBlockPythonPackagesBlock 
     /// </summary>
     public TerraformValue<string>? Repository
     {
-        get => new TerraformReference<string>(this, "repository");
+        get => GetArgument<TerraformValue<string>>("repository");
         set => SetArgument("repository", value);
     }
 
@@ -589,7 +587,7 @@ public class GoogleCloudbuildTriggerBuildBlockAvailableSecretsBlockSecretManager
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Env is required")]
     public required TerraformValue<string> Env
     {
-        get => new TerraformReference<string>(this, "env");
+        get => GetArgument<TerraformValue<string>>("env");
         set => SetArgument("env", value);
     }
 
@@ -599,7 +597,7 @@ public class GoogleCloudbuildTriggerBuildBlockAvailableSecretsBlockSecretManager
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionName is required")]
     public required TerraformValue<string> VersionName
     {
-        get => new TerraformReference<string>(this, "version_name");
+        get => GetArgument<TerraformValue<string>>("version_name");
         set => SetArgument("version_name", value);
     }
 
@@ -625,7 +623,7 @@ public class GoogleCloudbuildTriggerBuildBlockOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? DiskSizeGb
     {
-        get => new TerraformReference<double>(this, "disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -636,7 +634,7 @@ public class GoogleCloudbuildTriggerBuildBlockOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DynamicSubstitutions
     {
-        get => new TerraformReference<bool>(this, "dynamic_substitutions");
+        get => GetArgument<TerraformValue<bool>>("dynamic_substitutions");
         set => SetArgument("dynamic_substitutions", value);
     }
 
@@ -649,7 +647,7 @@ public class GoogleCloudbuildTriggerBuildBlockOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Env
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "env").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("env");
         set => SetArgument("env", value);
     }
 
@@ -658,7 +656,7 @@ public class GoogleCloudbuildTriggerBuildBlockOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LogStreamingOption
     {
-        get => new TerraformReference<string>(this, "log_streaming_option");
+        get => GetArgument<TerraformValue<string>>("log_streaming_option");
         set => SetArgument("log_streaming_option", value);
     }
 
@@ -667,7 +665,7 @@ public class GoogleCloudbuildTriggerBuildBlockOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Logging
     {
-        get => new TerraformReference<string>(this, "logging");
+        get => GetArgument<TerraformValue<string>>("logging");
         set => SetArgument("logging", value);
     }
 
@@ -676,7 +674,7 @@ public class GoogleCloudbuildTriggerBuildBlockOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -685,7 +683,7 @@ public class GoogleCloudbuildTriggerBuildBlockOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RequestedVerifyOption
     {
-        get => new TerraformReference<string>(this, "requested_verify_option");
+        get => GetArgument<TerraformValue<string>>("requested_verify_option");
         set => SetArgument("requested_verify_option", value);
     }
 
@@ -696,7 +694,7 @@ public class GoogleCloudbuildTriggerBuildBlockOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? SecretEnv
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "secret_env").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("secret_env");
         set => SetArgument("secret_env", value);
     }
 
@@ -705,7 +703,7 @@ public class GoogleCloudbuildTriggerBuildBlockOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? SourceProvenanceHash
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "source_provenance_hash").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("source_provenance_hash");
         set => SetArgument("source_provenance_hash", value);
     }
 
@@ -717,7 +715,7 @@ public class GoogleCloudbuildTriggerBuildBlockOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SubstitutionOption
     {
-        get => new TerraformReference<string>(this, "substitution_option");
+        get => GetArgument<TerraformValue<string>>("substitution_option");
         set => SetArgument("substitution_option", value);
     }
 
@@ -728,7 +726,7 @@ public class GoogleCloudbuildTriggerBuildBlockOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? WorkerPool
     {
-        get => new TerraformReference<string>(this, "worker_pool");
+        get => GetArgument<TerraformValue<string>>("worker_pool");
         set => SetArgument("worker_pool", value);
     }
 
@@ -762,7 +760,7 @@ public class GoogleCloudbuildTriggerBuildBlockOptionsBlockVolumesBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -774,7 +772,7 @@ public class GoogleCloudbuildTriggerBuildBlockOptionsBlockVolumesBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -797,7 +795,7 @@ public class GoogleCloudbuildTriggerBuildBlockSecretBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -809,7 +807,7 @@ public class GoogleCloudbuildTriggerBuildBlockSecretBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? SecretEnv
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "secret_env").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("secret_env");
         set => SetArgument("secret_env", value);
     }
 
@@ -866,7 +864,7 @@ public class GoogleCloudbuildTriggerBuildBlockSourceBlockRepoSourceBlock : Terra
     /// </summary>
     public TerraformValue<string>? BranchName
     {
-        get => new TerraformReference<string>(this, "branch_name");
+        get => GetArgument<TerraformValue<string>>("branch_name");
         set => SetArgument("branch_name", value);
     }
 
@@ -875,7 +873,7 @@ public class GoogleCloudbuildTriggerBuildBlockSourceBlockRepoSourceBlock : Terra
     /// </summary>
     public TerraformValue<string>? CommitSha
     {
-        get => new TerraformReference<string>(this, "commit_sha");
+        get => GetArgument<TerraformValue<string>>("commit_sha");
         set => SetArgument("commit_sha", value);
     }
 
@@ -886,7 +884,7 @@ public class GoogleCloudbuildTriggerBuildBlockSourceBlockRepoSourceBlock : Terra
     /// </summary>
     public TerraformValue<string>? Dir
     {
-        get => new TerraformReference<string>(this, "dir");
+        get => GetArgument<TerraformValue<string>>("dir");
         set => SetArgument("dir", value);
     }
 
@@ -895,7 +893,7 @@ public class GoogleCloudbuildTriggerBuildBlockSourceBlockRepoSourceBlock : Terra
     /// </summary>
     public TerraformValue<bool>? InvertRegex
     {
-        get => new TerraformReference<bool>(this, "invert_regex");
+        get => GetArgument<TerraformValue<bool>>("invert_regex");
         set => SetArgument("invert_regex", value);
     }
 
@@ -905,7 +903,7 @@ public class GoogleCloudbuildTriggerBuildBlockSourceBlockRepoSourceBlock : Terra
     /// </summary>
     public TerraformValue<string>? ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -915,7 +913,7 @@ public class GoogleCloudbuildTriggerBuildBlockSourceBlockRepoSourceBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoName is required")]
     public required TerraformValue<string> RepoName
     {
-        get => new TerraformReference<string>(this, "repo_name");
+        get => GetArgument<TerraformValue<string>>("repo_name");
         set => SetArgument("repo_name", value);
     }
 
@@ -924,7 +922,7 @@ public class GoogleCloudbuildTriggerBuildBlockSourceBlockRepoSourceBlock : Terra
     /// </summary>
     public TerraformMap<string>? Substitutions
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "substitutions").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("substitutions");
         set => SetArgument("substitutions", value);
     }
 
@@ -935,7 +933,7 @@ public class GoogleCloudbuildTriggerBuildBlockSourceBlockRepoSourceBlock : Terra
     /// </summary>
     public TerraformValue<string>? TagName
     {
-        get => new TerraformReference<string>(this, "tag_name");
+        get => GetArgument<TerraformValue<string>>("tag_name");
         set => SetArgument("tag_name", value);
     }
 
@@ -958,7 +956,7 @@ public class GoogleCloudbuildTriggerBuildBlockSourceBlockStorageSourceBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -968,7 +966,7 @@ public class GoogleCloudbuildTriggerBuildBlockSourceBlockStorageSourceBlock : Te
     /// </summary>
     public TerraformValue<string>? Generation
     {
-        get => new TerraformReference<string>(this, "generation");
+        get => GetArgument<TerraformValue<string>>("generation");
         set => SetArgument("generation", value);
     }
 
@@ -979,7 +977,7 @@ public class GoogleCloudbuildTriggerBuildBlockSourceBlockStorageSourceBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -1004,7 +1002,7 @@ public class GoogleCloudbuildTriggerBuildBlockStepBlock : TerraformBlock
     /// </summary>
     public TerraformList<double>? AllowExitCodes
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "allow_exit_codes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("allow_exit_codes");
         set => SetArgument("allow_exit_codes", value);
     }
 
@@ -1018,7 +1016,7 @@ public class GoogleCloudbuildTriggerBuildBlockStepBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowFailure
     {
-        get => new TerraformReference<bool>(this, "allow_failure");
+        get => GetArgument<TerraformValue<bool>>("allow_failure");
         set => SetArgument("allow_failure", value);
     }
 
@@ -1032,7 +1030,7 @@ public class GoogleCloudbuildTriggerBuildBlockStepBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -1051,7 +1049,7 @@ public class GoogleCloudbuildTriggerBuildBlockStepBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Dir
     {
-        get => new TerraformReference<string>(this, "dir");
+        get => GetArgument<TerraformValue<string>>("dir");
         set => SetArgument("dir", value);
     }
 
@@ -1062,7 +1060,7 @@ public class GoogleCloudbuildTriggerBuildBlockStepBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Entrypoint
     {
-        get => new TerraformReference<string>(this, "entrypoint");
+        get => GetArgument<TerraformValue<string>>("entrypoint");
         set => SetArgument("entrypoint", value);
     }
 
@@ -1075,7 +1073,7 @@ public class GoogleCloudbuildTriggerBuildBlockStepBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Env
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "env").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("env");
         set => SetArgument("env", value);
     }
 
@@ -1085,7 +1083,7 @@ public class GoogleCloudbuildTriggerBuildBlockStepBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1110,7 +1108,7 @@ public class GoogleCloudbuildTriggerBuildBlockStepBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1120,7 +1118,7 @@ public class GoogleCloudbuildTriggerBuildBlockStepBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Script
     {
-        get => new TerraformReference<string>(this, "script");
+        get => GetArgument<TerraformValue<string>>("script");
         set => SetArgument("script", value);
     }
 
@@ -1132,7 +1130,7 @@ public class GoogleCloudbuildTriggerBuildBlockStepBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? SecretEnv
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "secret_env").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("secret_env");
         set => SetArgument("secret_env", value);
     }
 
@@ -1144,7 +1142,7 @@ public class GoogleCloudbuildTriggerBuildBlockStepBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Timeout
     {
-        get => new TerraformReference<string>(this, "timeout");
+        get => GetArgument<TerraformValue<string>>("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -1154,7 +1152,7 @@ public class GoogleCloudbuildTriggerBuildBlockStepBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Timing
     {
-        get => new TerraformReference<string>(this, "timing");
+        get => GetArgument<TerraformValue<string>>("timing");
         set => SetArgument("timing", value);
     }
 
@@ -1168,7 +1166,7 @@ public class GoogleCloudbuildTriggerBuildBlockStepBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? WaitFor
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "wait_for").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("wait_for");
         set => SetArgument("wait_for", value);
     }
 
@@ -1203,7 +1201,7 @@ public class GoogleCloudbuildTriggerBuildBlockStepBlockVolumesBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1216,7 +1214,7 @@ public class GoogleCloudbuildTriggerBuildBlockStepBlockVolumesBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1240,7 +1238,7 @@ public class GoogleCloudbuildTriggerDeveloperConnectEventConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GitRepositoryLink is required")]
     public required TerraformValue<string> GitRepositoryLink
     {
-        get => new TerraformReference<string>(this, "git_repository_link");
+        get => GetArgument<TerraformValue<string>>("git_repository_link");
         set => SetArgument("git_repository_link", value);
     }
 
@@ -1248,9 +1246,7 @@ public class GoogleCloudbuildTriggerDeveloperConnectEventConfigBlock : Terraform
     /// The type of DeveloperConnect GitRepositoryLink.
     /// </summary>
     public TerraformValue<string> GitRepositoryLinkType
-    {
-        get => new TerraformReference<string>(this, "git_repository_link_type");
-    }
+        => AsReference("git_repository_link_type");
 
     /// <summary>
     /// PullRequest block (nesting mode: list).
@@ -1290,7 +1286,7 @@ public class GoogleCloudbuildTriggerDeveloperConnectEventConfigBlockPullRequestB
     /// </summary>
     public TerraformValue<string>? Branch
     {
-        get => new TerraformReference<string>(this, "branch");
+        get => GetArgument<TerraformValue<string>>("branch");
         set => SetArgument("branch", value);
     }
 
@@ -1299,7 +1295,7 @@ public class GoogleCloudbuildTriggerDeveloperConnectEventConfigBlockPullRequestB
     /// </summary>
     public TerraformValue<string>? CommentControl
     {
-        get => new TerraformReference<string>(this, "comment_control");
+        get => GetArgument<TerraformValue<string>>("comment_control");
         set => SetArgument("comment_control", value);
     }
 
@@ -1308,7 +1304,7 @@ public class GoogleCloudbuildTriggerDeveloperConnectEventConfigBlockPullRequestB
     /// </summary>
     public TerraformValue<bool>? InvertRegex
     {
-        get => new TerraformReference<bool>(this, "invert_regex");
+        get => GetArgument<TerraformValue<bool>>("invert_regex");
         set => SetArgument("invert_regex", value);
     }
 
@@ -1330,7 +1326,7 @@ public class GoogleCloudbuildTriggerDeveloperConnectEventConfigBlockPushBlock : 
     /// </summary>
     public TerraformValue<string>? Branch
     {
-        get => new TerraformReference<string>(this, "branch");
+        get => GetArgument<TerraformValue<string>>("branch");
         set => SetArgument("branch", value);
     }
 
@@ -1339,7 +1335,7 @@ public class GoogleCloudbuildTriggerDeveloperConnectEventConfigBlockPushBlock : 
     /// </summary>
     public TerraformValue<bool>? InvertRegex
     {
-        get => new TerraformReference<bool>(this, "invert_regex");
+        get => GetArgument<TerraformValue<bool>>("invert_regex");
         set => SetArgument("invert_regex", value);
     }
 
@@ -1348,7 +1344,7 @@ public class GoogleCloudbuildTriggerDeveloperConnectEventConfigBlockPushBlock : 
     /// </summary>
     public TerraformValue<string>? Tag
     {
-        get => new TerraformReference<string>(this, "tag");
+        get => GetArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -1372,7 +1368,7 @@ public class GoogleCloudbuildTriggerGitFileSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BitbucketServerConfig
     {
-        get => new TerraformReference<string>(this, "bitbucket_server_config");
+        get => GetArgument<TerraformValue<string>>("bitbucket_server_config");
         set => SetArgument("bitbucket_server_config", value);
     }
 
@@ -1382,7 +1378,7 @@ public class GoogleCloudbuildTriggerGitFileSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? GithubEnterpriseConfig
     {
-        get => new TerraformReference<string>(this, "github_enterprise_config");
+        get => GetArgument<TerraformValue<string>>("github_enterprise_config");
         set => SetArgument("github_enterprise_config", value);
     }
 
@@ -1392,7 +1388,7 @@ public class GoogleCloudbuildTriggerGitFileSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1403,7 +1399,7 @@ public class GoogleCloudbuildTriggerGitFileSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoType is required")]
     public required TerraformValue<string> RepoType
     {
-        get => new TerraformReference<string>(this, "repo_type");
+        get => GetArgument<TerraformValue<string>>("repo_type");
         set => SetArgument("repo_type", value);
     }
 
@@ -1413,7 +1409,7 @@ public class GoogleCloudbuildTriggerGitFileSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Repository
     {
-        get => new TerraformReference<string>(this, "repository");
+        get => GetArgument<TerraformValue<string>>("repository");
         set => SetArgument("repository", value);
     }
 
@@ -1424,7 +1420,7 @@ public class GoogleCloudbuildTriggerGitFileSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Revision
     {
-        get => new TerraformReference<string>(this, "revision");
+        get => GetArgument<TerraformValue<string>>("revision");
         set => SetArgument("revision", value);
     }
 
@@ -1434,7 +1430,7 @@ public class GoogleCloudbuildTriggerGitFileSourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -1458,7 +1454,7 @@ public class GoogleCloudbuildTriggerGithubBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EnterpriseConfigResourceName
     {
-        get => new TerraformReference<string>(this, "enterprise_config_resource_name");
+        get => GetArgument<TerraformValue<string>>("enterprise_config_resource_name");
         set => SetArgument("enterprise_config_resource_name", value);
     }
 
@@ -1468,7 +1464,7 @@ public class GoogleCloudbuildTriggerGithubBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1478,7 +1474,7 @@ public class GoogleCloudbuildTriggerGithubBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Owner
     {
-        get => new TerraformReference<string>(this, "owner");
+        get => GetArgument<TerraformValue<string>>("owner");
         set => SetArgument("owner", value);
     }
 
@@ -1521,7 +1517,7 @@ public class GoogleCloudbuildTriggerGithubBlockPullRequestBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Branch is required")]
     public required TerraformValue<string> Branch
     {
-        get => new TerraformReference<string>(this, "branch");
+        get => GetArgument<TerraformValue<string>>("branch");
         set => SetArgument("branch", value);
     }
 
@@ -1530,7 +1526,7 @@ public class GoogleCloudbuildTriggerGithubBlockPullRequestBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CommentControl
     {
-        get => new TerraformReference<string>(this, "comment_control");
+        get => GetArgument<TerraformValue<string>>("comment_control");
         set => SetArgument("comment_control", value);
     }
 
@@ -1539,7 +1535,7 @@ public class GoogleCloudbuildTriggerGithubBlockPullRequestBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? InvertRegex
     {
-        get => new TerraformReference<bool>(this, "invert_regex");
+        get => GetArgument<TerraformValue<bool>>("invert_regex");
         set => SetArgument("invert_regex", value);
     }
 
@@ -1561,7 +1557,7 @@ public class GoogleCloudbuildTriggerGithubBlockPushBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Branch
     {
-        get => new TerraformReference<string>(this, "branch");
+        get => GetArgument<TerraformValue<string>>("branch");
         set => SetArgument("branch", value);
     }
 
@@ -1570,7 +1566,7 @@ public class GoogleCloudbuildTriggerGithubBlockPushBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? InvertRegex
     {
-        get => new TerraformReference<bool>(this, "invert_regex");
+        get => GetArgument<TerraformValue<bool>>("invert_regex");
         set => SetArgument("invert_regex", value);
     }
 
@@ -1579,7 +1575,7 @@ public class GoogleCloudbuildTriggerGithubBlockPushBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Tag
     {
-        get => new TerraformReference<string>(this, "tag");
+        get => GetArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -1602,7 +1598,7 @@ public class GoogleCloudbuildTriggerPubsubConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ServiceAccountEmail
     {
-        get => new TerraformReference<string>(this, "service_account_email");
+        get => GetArgument<TerraformValue<string>>("service_account_email");
         set => SetArgument("service_account_email", value);
     }
 
@@ -1611,17 +1607,13 @@ public class GoogleCloudbuildTriggerPubsubConfigBlock : TerraformBlock
     /// Only populated on get requests.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Output only. Name of the subscription.
     /// </summary>
     public TerraformValue<string> Subscription
-    {
-        get => new TerraformReference<string>(this, "subscription");
-    }
+        => AsReference("subscription");
 
     /// <summary>
     /// The name of the topic from which this subscription is receiving messages.
@@ -1629,7 +1621,7 @@ public class GoogleCloudbuildTriggerPubsubConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformValue<string> Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -1652,7 +1644,7 @@ public class GoogleCloudbuildTriggerRepositoryEventConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Repository
     {
-        get => new TerraformReference<string>(this, "repository");
+        get => GetArgument<TerraformValue<string>>("repository");
         set => SetArgument("repository", value);
     }
 
@@ -1697,7 +1689,7 @@ public class GoogleCloudbuildTriggerRepositoryEventConfigBlockPullRequestBlock :
     /// </summary>
     public TerraformValue<string>? Branch
     {
-        get => new TerraformReference<string>(this, "branch");
+        get => GetArgument<TerraformValue<string>>("branch");
         set => SetArgument("branch", value);
     }
 
@@ -1706,7 +1698,7 @@ public class GoogleCloudbuildTriggerRepositoryEventConfigBlockPullRequestBlock :
     /// </summary>
     public TerraformValue<string>? CommentControl
     {
-        get => new TerraformReference<string>(this, "comment_control");
+        get => GetArgument<TerraformValue<string>>("comment_control");
         set => SetArgument("comment_control", value);
     }
 
@@ -1715,7 +1707,7 @@ public class GoogleCloudbuildTriggerRepositoryEventConfigBlockPullRequestBlock :
     /// </summary>
     public TerraformValue<bool>? InvertRegex
     {
-        get => new TerraformReference<bool>(this, "invert_regex");
+        get => GetArgument<TerraformValue<bool>>("invert_regex");
         set => SetArgument("invert_regex", value);
     }
 
@@ -1740,7 +1732,7 @@ public class GoogleCloudbuildTriggerRepositoryEventConfigBlockPushBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Branch
     {
-        get => new TerraformReference<string>(this, "branch");
+        get => GetArgument<TerraformValue<string>>("branch");
         set => SetArgument("branch", value);
     }
 
@@ -1749,7 +1741,7 @@ public class GoogleCloudbuildTriggerRepositoryEventConfigBlockPushBlock : Terraf
     /// </summary>
     public TerraformValue<bool>? InvertRegex
     {
-        get => new TerraformReference<bool>(this, "invert_regex");
+        get => GetArgument<TerraformValue<bool>>("invert_regex");
         set => SetArgument("invert_regex", value);
     }
 
@@ -1761,7 +1753,7 @@ public class GoogleCloudbuildTriggerRepositoryEventConfigBlockPushBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Tag
     {
-        get => new TerraformReference<string>(this, "tag");
+        get => GetArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -1785,7 +1777,7 @@ public class GoogleCloudbuildTriggerSourceToBuildBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BitbucketServerConfig
     {
-        get => new TerraformReference<string>(this, "bitbucket_server_config");
+        get => GetArgument<TerraformValue<string>>("bitbucket_server_config");
         set => SetArgument("bitbucket_server_config", value);
     }
 
@@ -1795,7 +1787,7 @@ public class GoogleCloudbuildTriggerSourceToBuildBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? GithubEnterpriseConfig
     {
-        get => new TerraformReference<string>(this, "github_enterprise_config");
+        get => GetArgument<TerraformValue<string>>("github_enterprise_config");
         set => SetArgument("github_enterprise_config", value);
     }
 
@@ -1805,7 +1797,7 @@ public class GoogleCloudbuildTriggerSourceToBuildBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RefAttribute is required")]
     public required TerraformValue<string> RefAttribute
     {
-        get => new TerraformReference<string>(this, "ref");
+        get => GetArgument<TerraformValue<string>>("ref");
         set => SetArgument("ref", value);
     }
 
@@ -1816,7 +1808,7 @@ public class GoogleCloudbuildTriggerSourceToBuildBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoType is required")]
     public required TerraformValue<string> RepoType
     {
-        get => new TerraformReference<string>(this, "repo_type");
+        get => GetArgument<TerraformValue<string>>("repo_type");
         set => SetArgument("repo_type", value);
     }
 
@@ -1826,7 +1818,7 @@ public class GoogleCloudbuildTriggerSourceToBuildBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Repository
     {
-        get => new TerraformReference<string>(this, "repository");
+        get => GetArgument<TerraformValue<string>>("repository");
         set => SetArgument("repository", value);
     }
 
@@ -1835,7 +1827,7 @@ public class GoogleCloudbuildTriggerSourceToBuildBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -1858,7 +1850,7 @@ public class GoogleCloudbuildTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1867,7 +1859,7 @@ public class GoogleCloudbuildTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1876,7 +1868,7 @@ public class GoogleCloudbuildTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1900,7 +1892,7 @@ public class GoogleCloudbuildTriggerTriggerTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BranchName
     {
-        get => new TerraformReference<string>(this, "branch_name");
+        get => GetArgument<TerraformValue<string>>("branch_name");
         set => SetArgument("branch_name", value);
     }
 
@@ -1909,7 +1901,7 @@ public class GoogleCloudbuildTriggerTriggerTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CommitSha
     {
-        get => new TerraformReference<string>(this, "commit_sha");
+        get => GetArgument<TerraformValue<string>>("commit_sha");
         set => SetArgument("commit_sha", value);
     }
 
@@ -1922,7 +1914,7 @@ public class GoogleCloudbuildTriggerTriggerTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Dir
     {
-        get => new TerraformReference<string>(this, "dir");
+        get => GetArgument<TerraformValue<string>>("dir");
         set => SetArgument("dir", value);
     }
 
@@ -1931,7 +1923,7 @@ public class GoogleCloudbuildTriggerTriggerTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? InvertRegex
     {
-        get => new TerraformReference<bool>(this, "invert_regex");
+        get => GetArgument<TerraformValue<bool>>("invert_regex");
         set => SetArgument("invert_regex", value);
     }
 
@@ -1939,9 +1931,9 @@ public class GoogleCloudbuildTriggerTriggerTemplateBlock : TerraformBlock
     /// ID of the project that owns the Cloud Source Repository. If
     /// omitted, the project ID requesting the build is assumed.
     /// </summary>
-    public TerraformValue<string> ProjectId
+    public TerraformValue<string>? ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -1950,7 +1942,7 @@ public class GoogleCloudbuildTriggerTriggerTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RepoName
     {
-        get => new TerraformReference<string>(this, "repo_name");
+        get => GetArgument<TerraformValue<string>>("repo_name");
         set => SetArgument("repo_name", value);
     }
 
@@ -1960,7 +1952,7 @@ public class GoogleCloudbuildTriggerTriggerTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TagName
     {
-        get => new TerraformReference<string>(this, "tag_name");
+        get => GetArgument<TerraformValue<string>>("tag_name");
         set => SetArgument("tag_name", value);
     }
 
@@ -1984,7 +1976,7 @@ public class GoogleCloudbuildTriggerWebhookConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformValue<string> Secret
     {
-        get => new TerraformReference<string>(this, "secret");
+        get => GetArgument<TerraformValue<string>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -1993,9 +1985,7 @@ public class GoogleCloudbuildTriggerWebhookConfigBlock : TerraformBlock
     /// Only populated on get requests.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
 }
 
@@ -2011,7 +2001,7 @@ public partial class GoogleCloudbuildTrigger(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -2020,7 +2010,7 @@ public partial class GoogleCloudbuildTrigger(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -2031,7 +2021,7 @@ public partial class GoogleCloudbuildTrigger(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? Filename
     {
-        get => new TerraformReference<string>(this, "filename");
+        get => GetArgument<TerraformValue<string>>("filename");
         set => SetArgument("filename", value);
     }
 
@@ -2040,16 +2030,16 @@ public partial class GoogleCloudbuildTrigger(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -2066,7 +2056,7 @@ public partial class GoogleCloudbuildTrigger(string name) : TerraformResource("g
     /// </summary>
     public TerraformList<string>? IgnoredFiles
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ignored_files").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ignored_files");
         set => SetArgument("ignored_files", value);
     }
 
@@ -2077,7 +2067,7 @@ public partial class GoogleCloudbuildTrigger(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? IncludeBuildLogs
     {
-        get => new TerraformReference<string>(this, "include_build_logs");
+        get => GetArgument<TerraformValue<string>>("include_build_logs");
         set => SetArgument("include_build_logs", value);
     }
 
@@ -2096,7 +2086,7 @@ public partial class GoogleCloudbuildTrigger(string name) : TerraformResource("g
     /// </summary>
     public TerraformList<string>? IncludedFiles
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_files").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("included_files");
         set => SetArgument("included_files", value);
     }
 
@@ -2106,25 +2096,25 @@ public partial class GoogleCloudbuildTrigger(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// Name of the trigger. Must be unique within the project.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -2139,7 +2129,7 @@ public partial class GoogleCloudbuildTrigger(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -2148,7 +2138,7 @@ public partial class GoogleCloudbuildTrigger(string name) : TerraformResource("g
     /// </summary>
     public TerraformMap<string>? Substitutions
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "substitutions").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("substitutions");
         set => SetArgument("substitutions", value);
     }
 
@@ -2157,7 +2147,7 @@ public partial class GoogleCloudbuildTrigger(string name) : TerraformResource("g
     /// </summary>
     public TerraformList<string>? Tags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -2165,17 +2155,13 @@ public partial class GoogleCloudbuildTrigger(string name) : TerraformResource("g
     /// Time when the trigger was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The unique identifier for the trigger.
     /// </summary>
     public TerraformValue<string> TriggerId
-    {
-        get => new TerraformReference<string>(this, "trigger_id");
-    }
+        => AsReference("trigger_id");
 
     /// <summary>
     /// ApprovalConfig block (nesting mode: list).

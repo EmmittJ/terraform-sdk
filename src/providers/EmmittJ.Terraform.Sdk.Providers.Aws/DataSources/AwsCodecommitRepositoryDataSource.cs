@@ -11,18 +11,18 @@ public partial class AwsCodecommitRepositoryDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsCodecommitRepositoryDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformValue<string> RepositoryName
     {
-        get => new TerraformReference<string>(this, "repository_name");
+        get => GetArgument<TerraformValue<string>>("repository_name");
         set => SetArgument("repository_name", value);
     }
 
@@ -40,40 +40,30 @@ public partial class AwsCodecommitRepositoryDataSource(string name) : TerraformD
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The clone_url_http attribute.
     /// </summary>
     public TerraformValue<string> CloneUrlHttp
-    {
-        get => new TerraformReference<string>(this, "clone_url_http");
-    }
+        => AsReference("clone_url_http");
 
     /// <summary>
     /// The clone_url_ssh attribute.
     /// </summary>
     public TerraformValue<string> CloneUrlSsh
-    {
-        get => new TerraformReference<string>(this, "clone_url_ssh");
-    }
+        => AsReference("clone_url_ssh");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-    {
-        get => new TerraformReference<string>(this, "kms_key_id");
-    }
+        => AsReference("kms_key_id");
 
     /// <summary>
     /// The repository_id attribute.
     /// </summary>
     public TerraformValue<string> RepositoryId
-    {
-        get => new TerraformReference<string>(this, "repository_id");
-    }
+        => AsReference("repository_id");
 
 }

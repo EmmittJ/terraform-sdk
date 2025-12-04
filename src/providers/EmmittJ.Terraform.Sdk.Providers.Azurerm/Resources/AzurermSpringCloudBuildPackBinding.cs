@@ -18,7 +18,7 @@ public class AzurermSpringCloudBuildPackBindingLaunchBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSpringCloudBuildPackBindingLaunchBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Secrets
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "secrets").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("secrets");
         set => SetArgument("secrets", value);
     }
 
@@ -50,7 +50,7 @@ public class AzurermSpringCloudBuildPackBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermSpringCloudBuildPackBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermSpringCloudBuildPackBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermSpringCloudBuildPackBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -95,16 +95,16 @@ public partial class AzurermSpringCloudBuildPackBinding(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? BindingType
     {
-        get => new TerraformReference<string>(this, "binding_type");
+        get => GetArgument<TerraformValue<string>>("binding_type");
         set => SetArgument("binding_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AzurermSpringCloudBuildPackBinding(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AzurermSpringCloudBuildPackBinding(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudBuilderId is required")]
     public required TerraformValue<string> SpringCloudBuilderId
     {
-        get => new TerraformReference<string>(this, "spring_cloud_builder_id");
+        get => GetArgument<TerraformValue<string>>("spring_cloud_builder_id");
         set => SetArgument("spring_cloud_builder_id", value);
     }
 

@@ -19,7 +19,7 @@ public class AwsRoute53ResolverEndpointDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsRoute53ResolverEndpointDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -45,18 +45,18 @@ public partial class AwsRoute53ResolverEndpointDataSource(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsRoute53ResolverEndpointDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? ResolverEndpointId
     {
-        get => new TerraformReference<string>(this, "resolver_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("resolver_endpoint_id");
         set => SetArgument("resolver_endpoint_id", value);
     }
 
@@ -73,65 +73,49 @@ public partial class AwsRoute53ResolverEndpointDataSource(string name) : Terrafo
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The direction attribute.
     /// </summary>
     public TerraformValue<string> Direction
-    {
-        get => new TerraformReference<string>(this, "direction");
-    }
+        => AsReference("direction");
 
     /// <summary>
     /// The ip_addresses attribute.
     /// </summary>
     public TerraformSet<string> IpAddresses
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("ip_addresses");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The protocols attribute.
     /// </summary>
     public TerraformSet<string> Protocols
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "protocols").ResolveNodes(ctx));
-    }
+        => AsReference("protocols");
 
     /// <summary>
     /// The resolver_endpoint_type attribute.
     /// </summary>
     public TerraformValue<string> ResolverEndpointType
-    {
-        get => new TerraformReference<string>(this, "resolver_endpoint_type");
-    }
+        => AsReference("resolver_endpoint_type");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-    {
-        get => new TerraformReference<string>(this, "vpc_id");
-    }
+        => AsReference("vpc_id");
 
     /// <summary>
     /// Filter block (nesting mode: set).

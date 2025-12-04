@@ -45,7 +45,7 @@ public class GoogleNetworkServicesEndpointPolicyEndpointMatcherBlockMetadataLabe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetadataLabelMatchCriteria is required")]
     public required TerraformValue<string> MetadataLabelMatchCriteria
     {
-        get => new TerraformReference<string>(this, "metadata_label_match_criteria");
+        get => GetArgument<TerraformValue<string>>("metadata_label_match_criteria");
         set => SetArgument("metadata_label_match_criteria", value);
     }
 
@@ -77,7 +77,7 @@ public class GoogleNetworkServicesEndpointPolicyEndpointMatcherBlockMetadataLabe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabelName is required")]
     public required TerraformValue<string> LabelName
     {
-        get => new TerraformReference<string>(this, "label_name");
+        get => GetArgument<TerraformValue<string>>("label_name");
         set => SetArgument("label_name", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleNetworkServicesEndpointPolicyEndpointMatcherBlockMetadataLabe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabelValue is required")]
     public required TerraformValue<string> LabelValue
     {
-        get => new TerraformReference<string>(this, "label_value");
+        get => GetArgument<TerraformValue<string>>("label_value");
         set => SetArgument("label_value", value);
     }
 
@@ -110,7 +110,7 @@ public class GoogleNetworkServicesEndpointPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -119,7 +119,7 @@ public class GoogleNetworkServicesEndpointPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -128,7 +128,7 @@ public class GoogleNetworkServicesEndpointPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -152,7 +152,7 @@ public class GoogleNetworkServicesEndpointPolicyTrafficPortSelectorBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ports is required")]
     public TerraformList<string>? Ports
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ports").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ports");
         set => SetArgument("ports", value);
     }
 
@@ -170,7 +170,7 @@ public partial class GoogleNetworkServicesEndpointPolicy(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? AuthorizationPolicy
     {
-        get => new TerraformReference<string>(this, "authorization_policy");
+        get => GetArgument<TerraformValue<string>>("authorization_policy");
         set => SetArgument("authorization_policy", value);
     }
 
@@ -179,7 +179,7 @@ public partial class GoogleNetworkServicesEndpointPolicy(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? ClientTlsPolicy
     {
-        get => new TerraformReference<string>(this, "client_tls_policy");
+        get => GetArgument<TerraformValue<string>>("client_tls_policy");
         set => SetArgument("client_tls_policy", value);
     }
 
@@ -188,16 +188,16 @@ public partial class GoogleNetworkServicesEndpointPolicy(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -209,7 +209,7 @@ public partial class GoogleNetworkServicesEndpointPolicy(string name) : Terrafor
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -219,16 +219,16 @@ public partial class GoogleNetworkServicesEndpointPolicy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -237,7 +237,7 @@ public partial class GoogleNetworkServicesEndpointPolicy(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? ServerTlsPolicy
     {
-        get => new TerraformReference<string>(this, "server_tls_policy");
+        get => GetArgument<TerraformValue<string>>("server_tls_policy");
         set => SetArgument("server_tls_policy", value);
     }
 
@@ -247,7 +247,7 @@ public partial class GoogleNetworkServicesEndpointPolicy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -255,34 +255,26 @@ public partial class GoogleNetworkServicesEndpointPolicy(string name) : Terrafor
     /// Time the TcpRoute was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Time the TcpRoute was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// EndpointMatcher block (nesting mode: list).

@@ -11,9 +11,9 @@ public partial class GoogleIapWebRegionBackendServiceIamPolicy(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,25 +23,25 @@ public partial class GoogleIapWebRegionBackendServiceIamPolicy(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformValue<string> PolicyData
     {
-        get => new TerraformReference<string>(this, "policy_data");
+        get => GetArgument<TerraformValue<string>>("policy_data");
         set => SetArgument("policy_data", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -51,7 +51,7 @@ public partial class GoogleIapWebRegionBackendServiceIamPolicy(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebRegionBackendService is required")]
     public required TerraformValue<string> WebRegionBackendService
     {
-        get => new TerraformReference<string>(this, "web_region_backend_service");
+        get => GetArgument<TerraformValue<string>>("web_region_backend_service");
         set => SetArgument("web_region_backend_service", value);
     }
 
@@ -59,8 +59,6 @@ public partial class GoogleIapWebRegionBackendServiceIamPolicy(string name) : Te
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
 }

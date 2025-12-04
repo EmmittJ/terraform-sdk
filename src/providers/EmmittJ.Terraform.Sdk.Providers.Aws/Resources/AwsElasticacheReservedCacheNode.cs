@@ -18,7 +18,7 @@ public class AwsElasticacheReservedCacheNodeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsElasticacheReservedCacheNodeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsElasticacheReservedCacheNodeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -52,27 +52,27 @@ public partial class AwsElasticacheReservedCacheNode(string name) : TerraformRes
     /// <summary>
     /// The cache_node_count attribute.
     /// </summary>
-    public TerraformValue<double> CacheNodeCount
+    public TerraformValue<double>? CacheNodeCount
     {
-        get => new TerraformReference<double>(this, "cache_node_count");
+        get => GetArgument<TerraformValue<double>>("cache_node_count");
         set => SetArgument("cache_node_count", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsElasticacheReservedCacheNode(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservedCacheNodesOfferingId is required")]
     public required TerraformValue<string> ReservedCacheNodesOfferingId
     {
-        get => new TerraformReference<string>(this, "reserved_cache_nodes_offering_id");
+        get => GetArgument<TerraformValue<string>>("reserved_cache_nodes_offering_id");
         set => SetArgument("reserved_cache_nodes_offering_id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsElasticacheReservedCacheNode(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -99,89 +99,67 @@ public partial class AwsElasticacheReservedCacheNode(string name) : TerraformRes
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The cache_node_type attribute.
     /// </summary>
     public TerraformValue<string> CacheNodeType
-    {
-        get => new TerraformReference<string>(this, "cache_node_type");
-    }
+        => AsReference("cache_node_type");
 
     /// <summary>
     /// The duration attribute.
     /// </summary>
     public TerraformValue<string> Duration
-    {
-        get => new TerraformReference<string>(this, "duration");
-    }
+        => AsReference("duration");
 
     /// <summary>
     /// The fixed_price attribute.
     /// </summary>
     public TerraformValue<double> FixedPrice
-    {
-        get => new TerraformReference<double>(this, "fixed_price");
-    }
+        => AsReference("fixed_price");
 
     /// <summary>
     /// The offering_type attribute.
     /// </summary>
     public TerraformValue<string> OfferingType
-    {
-        get => new TerraformReference<string>(this, "offering_type");
-    }
+        => AsReference("offering_type");
 
     /// <summary>
     /// The product_description attribute.
     /// </summary>
     public TerraformValue<string> ProductDescription
-    {
-        get => new TerraformReference<string>(this, "product_description");
-    }
+        => AsReference("product_description");
 
     /// <summary>
     /// The recurring_charges attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RecurringCharges
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "recurring_charges").ResolveNodes(ctx));
-    }
+        => AsReference("recurring_charges");
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
     public TerraformValue<string> StartTime
-    {
-        get => new TerraformReference<string>(this, "start_time");
-    }
+        => AsReference("start_time");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// The usage_price attribute.
     /// </summary>
     public TerraformValue<double> UsagePrice
-    {
-        get => new TerraformReference<double>(this, "usage_price");
-    }
+        => AsReference("usage_price");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

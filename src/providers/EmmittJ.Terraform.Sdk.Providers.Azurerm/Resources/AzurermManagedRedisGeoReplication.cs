@@ -18,7 +18,7 @@ public class AzurermManagedRedisGeoReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermManagedRedisGeoReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermManagedRedisGeoReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermManagedRedisGeoReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermManagedRedisGeoReplication(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermManagedRedisGeoReplication(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedManagedRedisIds is required")]
     public required TerraformSet<string> LinkedManagedRedisIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "linked_managed_redis_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("linked_managed_redis_ids");
         set => SetArgument("linked_managed_redis_ids", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermManagedRedisGeoReplication(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedRedisId is required")]
     public required TerraformValue<string> ManagedRedisId
     {
-        get => new TerraformReference<string>(this, "managed_redis_id");
+        get => GetArgument<TerraformValue<string>>("managed_redis_id");
         set => SetArgument("managed_redis_id", value);
     }
 

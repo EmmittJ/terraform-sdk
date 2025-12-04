@@ -18,7 +18,7 @@ public class AzurermNetappAccountEncryptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermNetappAccountEncryptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermNetappAccountEncryptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermNetappAccountEncryptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermNetappAccountEncryption(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? CrossTenantKeyVaultResourceId
     {
-        get => new TerraformReference<string>(this, "cross_tenant_key_vault_resource_id");
+        get => GetArgument<TerraformValue<string>>("cross_tenant_key_vault_resource_id");
         set => SetArgument("cross_tenant_key_vault_resource_id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermNetappAccountEncryption(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionKey is required")]
     public required TerraformValue<string> EncryptionKey
     {
-        get => new TerraformReference<string>(this, "encryption_key");
+        get => GetArgument<TerraformValue<string>>("encryption_key");
         set => SetArgument("encryption_key", value);
     }
 
@@ -82,16 +82,16 @@ public partial class AzurermNetappAccountEncryption(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? FederatedClientId
     {
-        get => new TerraformReference<string>(this, "federated_client_id");
+        get => GetArgument<TerraformValue<string>>("federated_client_id");
         set => SetArgument("federated_client_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermNetappAccountEncryption(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetappAccountId is required")]
     public required TerraformValue<string> NetappAccountId
     {
-        get => new TerraformReference<string>(this, "netapp_account_id");
+        get => GetArgument<TerraformValue<string>>("netapp_account_id");
         set => SetArgument("netapp_account_id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermNetappAccountEncryption(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? SystemAssignedIdentityPrincipalId
     {
-        get => new TerraformReference<string>(this, "system_assigned_identity_principal_id");
+        get => GetArgument<TerraformValue<string>>("system_assigned_identity_principal_id");
         set => SetArgument("system_assigned_identity_principal_id", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermNetappAccountEncryption(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? UserAssignedIdentityId
     {
-        get => new TerraformReference<string>(this, "user_assigned_identity_id");
+        get => GetArgument<TerraformValue<string>>("user_assigned_identity_id");
         set => SetArgument("user_assigned_identity_id", value);
     }
 

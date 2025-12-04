@@ -18,7 +18,7 @@ public class AzurermPrivateDnsResolverForwardingRuleDataSourceTimeoutsBlock : Te
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermPrivateDnsResolverForwardingRuleDataSource(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsForwardingRulesetId is required")]
     public required TerraformValue<string> DnsForwardingRulesetId
     {
-        get => new TerraformReference<string>(this, "dns_forwarding_ruleset_id");
+        get => GetArgument<TerraformValue<string>>("dns_forwarding_ruleset_id");
         set => SetArgument("dns_forwarding_ruleset_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermPrivateDnsResolverForwardingRuleDataSource(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -64,33 +64,25 @@ public partial class AzurermPrivateDnsResolverForwardingRuleDataSource(string na
     /// The domain_name attribute.
     /// </summary>
     public TerraformValue<string> DomainName
-    {
-        get => new TerraformReference<string>(this, "domain_name");
-    }
+        => AsReference("domain_name");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-    {
-        get => new TerraformReference<bool>(this, "enabled");
-    }
+        => AsReference("enabled");
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     public TerraformMap<string> Metadata
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
-    }
+        => AsReference("metadata");
 
     /// <summary>
     /// The target_dns_servers attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TargetDnsServers
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "target_dns_servers").ResolveNodes(ctx));
-    }
+        => AsReference("target_dns_servers");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

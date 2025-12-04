@@ -11,9 +11,9 @@ public partial class GoogleMemcacheInstanceDataSource(string name) : TerraformDa
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleMemcacheInstanceDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleMemcacheInstanceDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleMemcacheInstanceDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -50,17 +50,13 @@ public partial class GoogleMemcacheInstanceDataSource(string name) : TerraformDa
     /// &#39;default&#39; will be used.
     /// </summary>
     public TerraformValue<string> AuthorizedNetwork
-    {
-        get => new TerraformReference<string>(this, "authorized_network");
-    }
+        => AsReference("authorized_network");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the instance.
@@ -71,33 +67,25 @@ public partial class GoogleMemcacheInstanceDataSource(string name) : TerraformDa
     /// When the field is set to false, deleting the instance is allowed.
     /// </summary>
     public TerraformValue<bool> DeletionProtection
-    {
-        get => new TerraformReference<bool>(this, "deletion_protection");
-    }
+        => AsReference("deletion_protection");
 
     /// <summary>
     /// Endpoint for Discovery API
     /// </summary>
     public TerraformValue<string> DiscoveryEndpoint
-    {
-        get => new TerraformReference<string>(this, "discovery_endpoint");
-    }
+        => AsReference("discovery_endpoint");
 
     /// <summary>
     /// A user-visible name for the instance.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Resource labels to represent user-provided metadata.
@@ -107,49 +95,37 @@ public partial class GoogleMemcacheInstanceDataSource(string name) : TerraformDa
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
-    }
+        => AsReference("labels");
 
     /// <summary>
     /// Maintenance policy for an instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenancePolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "maintenance_policy").ResolveNodes(ctx));
-    }
+        => AsReference("maintenance_policy");
 
     /// <summary>
     /// Output only. Published maintenance schedule.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenanceSchedule
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "maintenance_schedule").ResolveNodes(ctx));
-    }
+        => AsReference("maintenance_schedule");
 
     /// <summary>
     /// The full version of memcached server running on this instance.
     /// </summary>
     public TerraformValue<string> MemcacheFullVersion
-    {
-        get => new TerraformReference<string>(this, "memcache_full_version");
-    }
+        => AsReference("memcache_full_version");
 
     /// <summary>
     /// Additional information about the instance state, if available.
     /// </summary>
     public TerraformList<TerraformMap<object>> MemcacheNodes
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "memcache_nodes").ResolveNodes(ctx));
-    }
+        => AsReference("memcache_nodes");
 
     /// <summary>
     /// User-specified parameters for this memcache instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> MemcacheParameters
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "memcache_parameters").ResolveNodes(ctx));
-    }
+        => AsReference("memcache_parameters");
 
     /// <summary>
     /// The major version of Memcached software. If not provided, latest supported version will be used.
@@ -157,25 +133,19 @@ public partial class GoogleMemcacheInstanceDataSource(string name) : TerraformDa
     /// determined by our system based on the latest supported minor version. Default value: &amp;quot;MEMCACHE_1_5&amp;quot; Possible values: [&amp;quot;MEMCACHE_1_5&amp;quot;, &amp;quot;MEMCACHE_1_6_15&amp;quot;]
     /// </summary>
     public TerraformValue<string> MemcacheVersion
-    {
-        get => new TerraformReference<string>(this, "memcache_version");
-    }
+        => AsReference("memcache_version");
 
     /// <summary>
     /// Configuration for memcache nodes.
     /// </summary>
     public TerraformList<TerraformMap<object>> NodeConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "node_config").ResolveNodes(ctx));
-    }
+        => AsReference("node_config");
 
     /// <summary>
     /// Number of nodes in the memcache instance.
     /// </summary>
     public TerraformValue<double> NodeCount
-    {
-        get => new TerraformReference<double>(this, "node_count");
-    }
+        => AsReference("node_count");
 
     /// <summary>
     /// Contains the name of allocated IP address ranges associated with
@@ -183,26 +153,20 @@ public partial class GoogleMemcacheInstanceDataSource(string name) : TerraformDa
     /// associated with IP range 10.0.0.0/29.
     /// </summary>
     public TerraformList<string> ReservedIpRangeId
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "reserved_ip_range_id").ResolveNodes(ctx));
-    }
+        => AsReference("reserved_ip_range_id");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Zones where memcache nodes should be provisioned.  If not
     /// provided, all zones will be used.
     /// </summary>
     public TerraformSet<string> Zones
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "zones").ResolveNodes(ctx));
-    }
+        => AsReference("zones");
 
 }

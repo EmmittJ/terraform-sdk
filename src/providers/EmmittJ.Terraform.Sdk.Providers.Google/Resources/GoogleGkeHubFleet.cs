@@ -51,7 +51,7 @@ public class GoogleGkeHubFleetDefaultClusterConfigBlockBinaryAuthorizationConfig
     /// </summary>
     public TerraformValue<string>? EvaluationMode
     {
-        get => new TerraformReference<string>(this, "evaluation_mode");
+        get => GetArgument<TerraformValue<string>>("evaluation_mode");
         set => SetArgument("evaluation_mode", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleGkeHubFleetDefaultClusterConfigBlockBinaryAuthorizationConfig
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -106,7 +106,7 @@ public class GoogleGkeHubFleetDefaultClusterConfigBlockSecurityPostureConfigBloc
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -115,7 +115,7 @@ public class GoogleGkeHubFleetDefaultClusterConfigBlockSecurityPostureConfigBloc
     /// </summary>
     public TerraformValue<string>? VulnerabilityMode
     {
-        get => new TerraformReference<string>(this, "vulnerability_mode");
+        get => GetArgument<TerraformValue<string>>("vulnerability_mode");
         set => SetArgument("vulnerability_mode", value);
     }
 
@@ -138,7 +138,7 @@ public class GoogleGkeHubFleetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -147,7 +147,7 @@ public class GoogleGkeHubFleetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -156,7 +156,7 @@ public class GoogleGkeHubFleetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -175,25 +175,25 @@ public partial class GoogleGkeHubFleet(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -201,25 +201,19 @@ public partial class GoogleGkeHubFleet(string name) : TerraformResource("google_
     /// The time the fleet was created, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The time the fleet was deleted, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> DeleteTime
-    {
-        get => new TerraformReference<string>(this, "delete_time");
-    }
+        => AsReference("delete_time");
 
     /// <summary>
     /// The state of the fleet resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> State
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "state").ResolveNodes(ctx));
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Google-generated UUID for this resource. This is unique across all
@@ -227,17 +221,13 @@ public partial class GoogleGkeHubFleet(string name) : TerraformResource("google_
     /// resource with the same name is created, it gets a different uid.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// The time the fleet was last updated, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// DefaultClusterConfig block (nesting mode: list).

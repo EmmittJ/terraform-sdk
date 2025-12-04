@@ -13,25 +13,25 @@ public partial class GoogleBillingAccountDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string>? BillingAccount
     {
-        get => new TerraformReference<string>(this, "billing_account");
+        get => GetArgument<TerraformValue<string>>("billing_account");
         set => SetArgument("billing_account", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -40,16 +40,16 @@ public partial class GoogleBillingAccountDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<bool>? LookupProjects
     {
-        get => new TerraformReference<bool>(this, "lookup_projects");
+        get => GetArgument<TerraformValue<bool>>("lookup_projects");
         set => SetArgument("lookup_projects", value);
     }
 
     /// <summary>
     /// The open attribute.
     /// </summary>
-    public TerraformValue<bool> Open
+    public TerraformValue<bool>? Open
     {
-        get => new TerraformReference<bool>(this, "open");
+        get => GetArgument<TerraformValue<bool>>("open");
         set => SetArgument("open", value);
     }
 
@@ -57,24 +57,18 @@ public partial class GoogleBillingAccountDataSource(string name) : TerraformData
     /// The currency_code attribute.
     /// </summary>
     public TerraformValue<string> CurrencyCode
-    {
-        get => new TerraformReference<string>(this, "currency_code");
-    }
+        => AsReference("currency_code");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The project_ids attribute.
     /// </summary>
     public TerraformSet<string> ProjectIds
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "project_ids").ResolveNodes(ctx));
-    }
+        => AsReference("project_ids");
 
 }

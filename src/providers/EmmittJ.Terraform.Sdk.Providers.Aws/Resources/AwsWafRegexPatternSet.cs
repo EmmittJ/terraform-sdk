@@ -11,9 +11,9 @@ public partial class AwsWafRegexPatternSet(string name) : TerraformResource("aws
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsWafRegexPatternSet(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsWafRegexPatternSet(string name) : TerraformResource("aws
     /// </summary>
     public TerraformSet<string>? RegexPatternStrings
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "regex_pattern_strings").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("regex_pattern_strings");
         set => SetArgument("regex_pattern_strings", value);
     }
 
@@ -40,8 +40,6 @@ public partial class AwsWafRegexPatternSet(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

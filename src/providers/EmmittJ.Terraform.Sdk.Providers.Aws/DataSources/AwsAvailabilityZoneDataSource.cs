@@ -19,7 +19,7 @@ public class AwsAvailabilityZoneDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsAvailabilityZoneDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsAvailabilityZoneDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -70,52 +70,52 @@ public partial class AwsAvailabilityZoneDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<bool>? AllAvailabilityZones
     {
-        get => new TerraformReference<bool>(this, "all_availability_zones");
+        get => GetArgument<TerraformValue<bool>>("all_availability_zones");
         set => SetArgument("all_availability_zones", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformValue<string> State
+    public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    public TerraformValue<string> ZoneId
+    public TerraformValue<string>? ZoneId
     {
-        get => new TerraformReference<string>(this, "zone_id");
+        get => GetArgument<TerraformValue<string>>("zone_id");
         set => SetArgument("zone_id", value);
     }
 
@@ -123,65 +123,49 @@ public partial class AwsAvailabilityZoneDataSource(string name) : TerraformDataS
     /// The group_long_name attribute.
     /// </summary>
     public TerraformValue<string> GroupLongName
-    {
-        get => new TerraformReference<string>(this, "group_long_name");
-    }
+        => AsReference("group_long_name");
 
     /// <summary>
     /// The group_name attribute.
     /// </summary>
     public TerraformValue<string> GroupName
-    {
-        get => new TerraformReference<string>(this, "group_name");
-    }
+        => AsReference("group_name");
 
     /// <summary>
     /// The name_suffix attribute.
     /// </summary>
     public TerraformValue<string> NameSuffix
-    {
-        get => new TerraformReference<string>(this, "name_suffix");
-    }
+        => AsReference("name_suffix");
 
     /// <summary>
     /// The network_border_group attribute.
     /// </summary>
     public TerraformValue<string> NetworkBorderGroup
-    {
-        get => new TerraformReference<string>(this, "network_border_group");
-    }
+        => AsReference("network_border_group");
 
     /// <summary>
     /// The opt_in_status attribute.
     /// </summary>
     public TerraformValue<string> OptInStatus
-    {
-        get => new TerraformReference<string>(this, "opt_in_status");
-    }
+        => AsReference("opt_in_status");
 
     /// <summary>
     /// The parent_zone_id attribute.
     /// </summary>
     public TerraformValue<string> ParentZoneId
-    {
-        get => new TerraformReference<string>(this, "parent_zone_id");
-    }
+        => AsReference("parent_zone_id");
 
     /// <summary>
     /// The parent_zone_name attribute.
     /// </summary>
     public TerraformValue<string> ParentZoneName
-    {
-        get => new TerraformReference<string>(this, "parent_zone_name");
-    }
+        => AsReference("parent_zone_name");
 
     /// <summary>
     /// The zone_type attribute.
     /// </summary>
     public TerraformValue<string> ZoneType
-    {
-        get => new TerraformReference<string>(this, "zone_type");
-    }
+        => AsReference("zone_type");
 
     /// <summary>
     /// Filter block (nesting mode: set).

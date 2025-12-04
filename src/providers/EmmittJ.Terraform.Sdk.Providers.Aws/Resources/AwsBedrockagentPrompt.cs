@@ -18,7 +18,7 @@ public class AwsBedrockagentPromptVariantBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AdditionalModelRequestFields
     {
-        get => new TerraformReference<string>(this, "additional_model_request_fields");
+        get => GetArgument<TerraformValue<string>>("additional_model_request_fields");
         set => SetArgument("additional_model_request_fields", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsBedrockagentPromptVariantBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ModelId
     {
-        get => new TerraformReference<string>(this, "model_id");
+        get => GetArgument<TerraformValue<string>>("model_id");
         set => SetArgument("model_id", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsBedrockagentPromptVariantBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsBedrockagentPromptVariantBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateType is required")]
     public required TerraformValue<string> TemplateType
     {
-        get => new TerraformReference<string>(this, "template_type");
+        get => GetArgument<TerraformValue<string>>("template_type");
         set => SetArgument("template_type", value);
     }
 
@@ -128,7 +128,7 @@ public class AwsBedrockagentPromptVariantBlockGenAiResourceBlockAgentBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentIdentifier is required")]
     public required TerraformValue<string> AgentIdentifier
     {
-        get => new TerraformReference<string>(this, "agent_identifier");
+        get => GetArgument<TerraformValue<string>>("agent_identifier");
         set => SetArgument("agent_identifier", value);
     }
 
@@ -172,7 +172,7 @@ public class AwsBedrockagentPromptVariantBlockInferenceConfigurationBlockTextBlo
     /// </summary>
     public TerraformValue<double>? MaxTokens
     {
-        get => new TerraformReference<double>(this, "max_tokens");
+        get => GetArgument<TerraformValue<double>>("max_tokens");
         set => SetArgument("max_tokens", value);
     }
 
@@ -181,7 +181,7 @@ public class AwsBedrockagentPromptVariantBlockInferenceConfigurationBlockTextBlo
     /// </summary>
     public TerraformList<string>? StopSequences
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "stop_sequences").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("stop_sequences");
         set => SetArgument("stop_sequences", value);
     }
 
@@ -190,7 +190,7 @@ public class AwsBedrockagentPromptVariantBlockInferenceConfigurationBlockTextBlo
     /// </summary>
     public TerraformValue<double>? Temperature
     {
-        get => new TerraformReference<double>(this, "temperature");
+        get => GetArgument<TerraformValue<double>>("temperature");
         set => SetArgument("temperature", value);
     }
 
@@ -199,7 +199,7 @@ public class AwsBedrockagentPromptVariantBlockInferenceConfigurationBlockTextBlo
     /// </summary>
     public TerraformValue<double>? TopP
     {
-        get => new TerraformReference<double>(this, "top_p");
+        get => GetArgument<TerraformValue<double>>("top_p");
         set => SetArgument("top_p", value);
     }
 
@@ -222,7 +222,7 @@ public class AwsBedrockagentPromptVariantBlockMetadataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -232,7 +232,7 @@ public class AwsBedrockagentPromptVariantBlockMetadataBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -335,7 +335,7 @@ public class AwsBedrockagentPromptVariantBlockTemplateConfigurationBlockChatBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -358,7 +358,7 @@ public class AwsBedrockagentPromptVariantBlockTemplateConfigurationBlockChatBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => new TerraformReference<string>(this, "role");
+        get => GetArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 
@@ -389,7 +389,7 @@ public class AwsBedrockagentPromptVariantBlockTemplateConfigurationBlockChatBloc
     /// </summary>
     public TerraformValue<string>? Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -421,7 +421,7 @@ public class AwsBedrockagentPromptVariantBlockTemplateConfigurationBlockChatBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -443,7 +443,7 @@ public class AwsBedrockagentPromptVariantBlockTemplateConfigurationBlockChatBloc
     /// </summary>
     public TerraformValue<string>? Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -475,7 +475,7 @@ public class AwsBedrockagentPromptVariantBlockTemplateConfigurationBlockChatBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -560,7 +560,7 @@ public class AwsBedrockagentPromptVariantBlockTemplateConfigurationBlockChatBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -582,7 +582,7 @@ public class AwsBedrockagentPromptVariantBlockTemplateConfigurationBlockChatBloc
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -592,7 +592,7 @@ public class AwsBedrockagentPromptVariantBlockTemplateConfigurationBlockChatBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -623,7 +623,7 @@ public class AwsBedrockagentPromptVariantBlockTemplateConfigurationBlockChatBloc
     /// </summary>
     public TerraformValue<string>? Json
     {
-        get => new TerraformReference<string>(this, "json");
+        get => GetArgument<TerraformValue<string>>("json");
         set => SetArgument("json", value);
     }
 
@@ -712,7 +712,7 @@ public class AwsBedrockagentPromptVariantBlockTemplateConfigurationBlockChatBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -735,7 +735,7 @@ public class AwsBedrockagentPromptVariantBlockTemplateConfigurationBlockTextBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -776,7 +776,7 @@ public class AwsBedrockagentPromptVariantBlockTemplateConfigurationBlockTextBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -799,7 +799,7 @@ public class AwsBedrockagentPromptVariantBlockTemplateConfigurationBlockTextBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -817,7 +817,7 @@ public partial class AwsBedrockagentPrompt(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? CustomerEncryptionKeyArn
     {
-        get => new TerraformReference<string>(this, "customer_encryption_key_arn");
+        get => GetArgument<TerraformValue<string>>("customer_encryption_key_arn");
         set => SetArgument("customer_encryption_key_arn", value);
     }
 
@@ -826,7 +826,7 @@ public partial class AwsBedrockagentPrompt(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? DefaultVariant
     {
-        get => new TerraformReference<string>(this, "default_variant");
+        get => GetArgument<TerraformValue<string>>("default_variant");
         set => SetArgument("default_variant", value);
     }
 
@@ -835,7 +835,7 @@ public partial class AwsBedrockagentPrompt(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -845,16 +845,16 @@ public partial class AwsBedrockagentPrompt(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -863,7 +863,7 @@ public partial class AwsBedrockagentPrompt(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -871,49 +871,37 @@ public partial class AwsBedrockagentPrompt(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-    {
-        get => new TerraformReference<string>(this, "updated_at");
-    }
+        => AsReference("updated_at");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
     /// <summary>
     /// Variant block (nesting mode: list).

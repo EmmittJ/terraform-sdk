@@ -19,7 +19,7 @@ public class GoogleColabRuntimeNotebookRuntimeTemplateRefBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotebookRuntimeTemplate is required")]
     public required TerraformValue<string> NotebookRuntimeTemplate
     {
-        get => new TerraformReference<string>(this, "notebook_runtime_template");
+        get => GetArgument<TerraformValue<string>>("notebook_runtime_template");
         set => SetArgument("notebook_runtime_template", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleColabRuntimeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleColabRuntimeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleColabRuntimeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -78,7 +78,7 @@ public partial class GoogleColabRuntime(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<bool>? AutoUpgrade
     {
-        get => new TerraformReference<bool>(this, "auto_upgrade");
+        get => GetArgument<TerraformValue<bool>>("auto_upgrade");
         set => SetArgument("auto_upgrade", value);
     }
 
@@ -87,7 +87,7 @@ public partial class GoogleColabRuntime(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -96,7 +96,7 @@ public partial class GoogleColabRuntime(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? DesiredState
     {
-        get => new TerraformReference<string>(this, "desired_state");
+        get => GetArgument<TerraformValue<string>>("desired_state");
         set => SetArgument("desired_state", value);
     }
 
@@ -106,16 +106,16 @@ public partial class GoogleColabRuntime(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -125,7 +125,7 @@ public partial class GoogleColabRuntime(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -134,16 +134,16 @@ public partial class GoogleColabRuntime(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -153,7 +153,7 @@ public partial class GoogleColabRuntime(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeUser is required")]
     public required TerraformValue<string> RuntimeUser
     {
-        get => new TerraformReference<string>(this, "runtime_user");
+        get => GetArgument<TerraformValue<string>>("runtime_user");
         set => SetArgument("runtime_user", value);
     }
 
@@ -161,33 +161,25 @@ public partial class GoogleColabRuntime(string name) : TerraformResource("google
     /// Output only. Timestamp when this NotebookRuntime will be expired.
     /// </summary>
     public TerraformValue<string> ExpirationTime
-    {
-        get => new TerraformReference<string>(this, "expiration_time");
-    }
+        => AsReference("expiration_time");
 
     /// <summary>
     /// Output only. Checks if the NotebookRuntime is upgradable.
     /// </summary>
     public TerraformValue<bool> IsUpgradable
-    {
-        get => new TerraformReference<bool>(this, "is_upgradable");
-    }
+        => AsReference("is_upgradable");
 
     /// <summary>
     /// Output only. The type of the notebook runtime.
     /// </summary>
     public TerraformValue<string> NotebookRuntimeType
-    {
-        get => new TerraformReference<string>(this, "notebook_runtime_type");
-    }
+        => AsReference("notebook_runtime_type");
 
     /// <summary>
     /// Output only. The state of the runtime.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// NotebookRuntimeTemplateRef block (nesting mode: list).

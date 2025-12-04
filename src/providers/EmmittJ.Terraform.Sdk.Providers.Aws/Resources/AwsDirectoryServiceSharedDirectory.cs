@@ -19,7 +19,7 @@ public class AwsDirectoryServiceSharedDirectoryTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsDirectoryServiceSharedDirectoryTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsDirectoryServiceSharedDirectoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -70,16 +70,16 @@ public partial class AwsDirectoryServiceSharedDirectory(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
     public required TerraformValue<string> DirectoryId
     {
-        get => new TerraformReference<string>(this, "directory_id");
+        get => GetArgument<TerraformValue<string>>("directory_id");
         set => SetArgument("directory_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsDirectoryServiceSharedDirectory(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Method
     {
-        get => new TerraformReference<string>(this, "method");
+        get => GetArgument<TerraformValue<string>>("method");
         set => SetArgument("method", value);
     }
 
@@ -97,16 +97,16 @@ public partial class AwsDirectoryServiceSharedDirectory(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Notes
     {
-        get => new TerraformReference<string>(this, "notes");
+        get => GetArgument<TerraformValue<string>>("notes");
         set => SetArgument("notes", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -114,9 +114,7 @@ public partial class AwsDirectoryServiceSharedDirectory(string name) : Terraform
     /// The shared_directory_id attribute.
     /// </summary>
     public TerraformValue<string> SharedDirectoryId
-    {
-        get => new TerraformReference<string>(this, "shared_directory_id");
-    }
+        => AsReference("shared_directory_id");
 
     /// <summary>
     /// Target block (nesting mode: list).

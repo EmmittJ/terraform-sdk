@@ -18,7 +18,7 @@ public class AwsPinpointEmailTemplateEmailTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DefaultSubstitutions
     {
-        get => new TerraformReference<string>(this, "default_substitutions");
+        get => GetArgument<TerraformValue<string>>("default_substitutions");
         set => SetArgument("default_substitutions", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsPinpointEmailTemplateEmailTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsPinpointEmailTemplateEmailTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? HtmlPart
     {
-        get => new TerraformReference<string>(this, "html_part");
+        get => GetArgument<TerraformValue<string>>("html_part");
         set => SetArgument("html_part", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsPinpointEmailTemplateEmailTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RecommenderId
     {
-        get => new TerraformReference<string>(this, "recommender_id");
+        get => GetArgument<TerraformValue<string>>("recommender_id");
         set => SetArgument("recommender_id", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsPinpointEmailTemplateEmailTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Subject
     {
-        get => new TerraformReference<string>(this, "subject");
+        get => GetArgument<TerraformValue<string>>("subject");
         set => SetArgument("subject", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsPinpointEmailTemplateEmailTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TextPart
     {
-        get => new TerraformReference<string>(this, "text_part");
+        get => GetArgument<TerraformValue<string>>("text_part");
         set => SetArgument("text_part", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsPinpointEmailTemplateEmailTemplateBlockHeaderBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -103,7 +103,7 @@ public class AwsPinpointEmailTemplateEmailTemplateBlockHeaderBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -119,9 +119,9 @@ public partial class AwsPinpointEmailTemplate(string name) : TerraformResource("
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AwsPinpointEmailTemplate(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AwsPinpointEmailTemplate(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateName is required")]
     public required TerraformValue<string> TemplateName
     {
-        get => new TerraformReference<string>(this, "template_name");
+        get => GetArgument<TerraformValue<string>>("template_name");
         set => SetArgument("template_name", value);
     }
 
@@ -148,17 +148,13 @@ public partial class AwsPinpointEmailTemplate(string name) : TerraformResource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// EmailTemplate block (nesting mode: list).

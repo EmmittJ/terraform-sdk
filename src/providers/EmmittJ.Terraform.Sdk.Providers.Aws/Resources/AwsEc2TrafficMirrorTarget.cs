@@ -13,7 +13,7 @@ public partial class AwsEc2TrafficMirrorTarget(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -22,16 +22,16 @@ public partial class AwsEc2TrafficMirrorTarget(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? GatewayLoadBalancerEndpointId
     {
-        get => new TerraformReference<string>(this, "gateway_load_balancer_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("gateway_load_balancer_endpoint_id");
         set => SetArgument("gateway_load_balancer_endpoint_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsEc2TrafficMirrorTarget(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? NetworkInterfaceId
     {
-        get => new TerraformReference<string>(this, "network_interface_id");
+        get => GetArgument<TerraformValue<string>>("network_interface_id");
         set => SetArgument("network_interface_id", value);
     }
 
@@ -49,16 +49,16 @@ public partial class AwsEc2TrafficMirrorTarget(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? NetworkLoadBalancerArn
     {
-        get => new TerraformReference<string>(this, "network_load_balancer_arn");
+        get => GetArgument<TerraformValue<string>>("network_load_balancer_arn");
         set => SetArgument("network_load_balancer_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -67,16 +67,16 @@ public partial class AwsEc2TrafficMirrorTarget(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -84,16 +84,12 @@ public partial class AwsEc2TrafficMirrorTarget(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
 }

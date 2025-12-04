@@ -11,9 +11,9 @@ public partial class AwsCloudfrontRealtimeLogConfigDataSource(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsCloudfrontRealtimeLogConfigDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -31,32 +31,24 @@ public partial class AwsCloudfrontRealtimeLogConfigDataSource(string name) : Ter
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Endpoint
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "endpoint").ResolveNodes(ctx));
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// The fields attribute.
     /// </summary>
     public TerraformSet<string> Fields
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "fields").ResolveNodes(ctx));
-    }
+        => AsReference("fields");
 
     /// <summary>
     /// The sampling_rate attribute.
     /// </summary>
     public TerraformValue<double> SamplingRate
-    {
-        get => new TerraformReference<double>(this, "sampling_rate");
-    }
+        => AsReference("sampling_rate");
 
 }

@@ -51,7 +51,7 @@ public class AwsVpclatticeListenerDefaultActionBlockFixedResponseBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
     public required TerraformValue<double> StatusCode
     {
-        get => new TerraformReference<double>(this, "status_code");
+        get => GetArgument<TerraformValue<double>>("status_code");
         set => SetArgument("status_code", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsVpclatticeListenerDefaultActionBlockForwardBlockTargetGroupsBloc
     /// </summary>
     public TerraformValue<string>? TargetGroupIdentifier
     {
-        get => new TerraformReference<string>(this, "target_group_identifier");
+        get => GetArgument<TerraformValue<string>>("target_group_identifier");
         set => SetArgument("target_group_identifier", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsVpclatticeListenerDefaultActionBlockForwardBlockTargetGroupsBloc
     /// </summary>
     public TerraformValue<double>? Weight
     {
-        get => new TerraformReference<double>(this, "weight");
+        get => GetArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsVpclatticeListenerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsVpclatticeListenerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -145,7 +145,7 @@ public class AwsVpclatticeListenerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -161,9 +161,9 @@ public partial class AwsVpclatticeListener(string name) : TerraformResource("aws
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -173,16 +173,16 @@ public partial class AwsVpclatticeListener(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformValue<double> Port
+    public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -192,34 +192,34 @@ public partial class AwsVpclatticeListener(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The service_arn attribute.
     /// </summary>
-    public TerraformValue<string> ServiceArn
+    public TerraformValue<string>? ServiceArn
     {
-        get => new TerraformReference<string>(this, "service_arn");
+        get => GetArgument<TerraformValue<string>>("service_arn");
         set => SetArgument("service_arn", value);
     }
 
     /// <summary>
     /// The service_identifier attribute.
     /// </summary>
-    public TerraformValue<string> ServiceIdentifier
+    public TerraformValue<string>? ServiceIdentifier
     {
-        get => new TerraformReference<string>(this, "service_identifier");
+        get => GetArgument<TerraformValue<string>>("service_identifier");
         set => SetArgument("service_identifier", value);
     }
 
@@ -228,16 +228,16 @@ public partial class AwsVpclatticeListener(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -245,33 +245,25 @@ public partial class AwsVpclatticeListener(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The last_updated_at attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedAt
-    {
-        get => new TerraformReference<string>(this, "last_updated_at");
-    }
+        => AsReference("last_updated_at");
 
     /// <summary>
     /// The listener_id attribute.
     /// </summary>
     public TerraformValue<string> ListenerId
-    {
-        get => new TerraformReference<string>(this, "listener_id");
-    }
+        => AsReference("listener_id");
 
     /// <summary>
     /// DefaultAction block (nesting mode: list).

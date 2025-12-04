@@ -18,16 +18,16 @@ public class AwsGlobalacceleratorEndpointGroupEndpointConfigurationBlock : Terra
     /// </summary>
     public TerraformValue<string>? AttachmentArn
     {
-        get => new TerraformReference<string>(this, "attachment_arn");
+        get => GetArgument<TerraformValue<string>>("attachment_arn");
         set => SetArgument("attachment_arn", value);
     }
 
     /// <summary>
     /// The client_ip_preservation_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> ClientIpPreservationEnabled
+    public TerraformValue<bool>? ClientIpPreservationEnabled
     {
-        get => new TerraformReference<bool>(this, "client_ip_preservation_enabled");
+        get => GetArgument<TerraformValue<bool>>("client_ip_preservation_enabled");
         set => SetArgument("client_ip_preservation_enabled", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsGlobalacceleratorEndpointGroupEndpointConfigurationBlock : Terra
     /// </summary>
     public TerraformValue<string>? EndpointId
     {
-        get => new TerraformReference<string>(this, "endpoint_id");
+        get => GetArgument<TerraformValue<string>>("endpoint_id");
         set => SetArgument("endpoint_id", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsGlobalacceleratorEndpointGroupEndpointConfigurationBlock : Terra
     /// </summary>
     public TerraformValue<double>? Weight
     {
-        get => new TerraformReference<double>(this, "weight");
+        get => GetArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsGlobalacceleratorEndpointGroupPortOverrideBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointPort is required")]
     public required TerraformValue<double> EndpointPort
     {
-        get => new TerraformReference<double>(this, "endpoint_port");
+        get => GetArgument<TerraformValue<double>>("endpoint_port");
         set => SetArgument("endpoint_port", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsGlobalacceleratorEndpointGroupPortOverrideBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerPort is required")]
     public required TerraformValue<double> ListenerPort
     {
-        get => new TerraformReference<double>(this, "listener_port");
+        get => GetArgument<TerraformValue<double>>("listener_port");
         set => SetArgument("listener_port", value);
     }
 
@@ -102,7 +102,7 @@ public class AwsGlobalacceleratorEndpointGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -111,7 +111,7 @@ public class AwsGlobalacceleratorEndpointGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -120,7 +120,7 @@ public class AwsGlobalacceleratorEndpointGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -136,9 +136,9 @@ public partial class AwsGlobalacceleratorEndpointGroup(string name) : TerraformR
     /// <summary>
     /// The endpoint_group_region attribute.
     /// </summary>
-    public TerraformValue<string> EndpointGroupRegion
+    public TerraformValue<string>? EndpointGroupRegion
     {
-        get => new TerraformReference<string>(this, "endpoint_group_region");
+        get => GetArgument<TerraformValue<string>>("endpoint_group_region");
         set => SetArgument("endpoint_group_region", value);
     }
 
@@ -147,25 +147,25 @@ public partial class AwsGlobalacceleratorEndpointGroup(string name) : TerraformR
     /// </summary>
     public TerraformValue<double>? HealthCheckIntervalSeconds
     {
-        get => new TerraformReference<double>(this, "health_check_interval_seconds");
+        get => GetArgument<TerraformValue<double>>("health_check_interval_seconds");
         set => SetArgument("health_check_interval_seconds", value);
     }
 
     /// <summary>
     /// The health_check_path attribute.
     /// </summary>
-    public TerraformValue<string> HealthCheckPath
+    public TerraformValue<string>? HealthCheckPath
     {
-        get => new TerraformReference<string>(this, "health_check_path");
+        get => GetArgument<TerraformValue<string>>("health_check_path");
         set => SetArgument("health_check_path", value);
     }
 
     /// <summary>
     /// The health_check_port attribute.
     /// </summary>
-    public TerraformValue<double> HealthCheckPort
+    public TerraformValue<double>? HealthCheckPort
     {
-        get => new TerraformReference<double>(this, "health_check_port");
+        get => GetArgument<TerraformValue<double>>("health_check_port");
         set => SetArgument("health_check_port", value);
     }
 
@@ -174,16 +174,16 @@ public partial class AwsGlobalacceleratorEndpointGroup(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? HealthCheckProtocol
     {
-        get => new TerraformReference<string>(this, "health_check_protocol");
+        get => GetArgument<TerraformValue<string>>("health_check_protocol");
         set => SetArgument("health_check_protocol", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -193,7 +193,7 @@ public partial class AwsGlobalacceleratorEndpointGroup(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListenerArn is required")]
     public required TerraformValue<string> ListenerArn
     {
-        get => new TerraformReference<string>(this, "listener_arn");
+        get => GetArgument<TerraformValue<string>>("listener_arn");
         set => SetArgument("listener_arn", value);
     }
 
@@ -202,7 +202,7 @@ public partial class AwsGlobalacceleratorEndpointGroup(string name) : TerraformR
     /// </summary>
     public TerraformValue<double>? ThresholdCount
     {
-        get => new TerraformReference<double>(this, "threshold_count");
+        get => GetArgument<TerraformValue<double>>("threshold_count");
         set => SetArgument("threshold_count", value);
     }
 
@@ -211,7 +211,7 @@ public partial class AwsGlobalacceleratorEndpointGroup(string name) : TerraformR
     /// </summary>
     public TerraformValue<double>? TrafficDialPercentage
     {
-        get => new TerraformReference<double>(this, "traffic_dial_percentage");
+        get => GetArgument<TerraformValue<double>>("traffic_dial_percentage");
         set => SetArgument("traffic_dial_percentage", value);
     }
 
@@ -219,9 +219,7 @@ public partial class AwsGlobalacceleratorEndpointGroup(string name) : TerraformR
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// EndpointConfiguration block (nesting mode: set).

@@ -11,9 +11,9 @@ public partial class GoogleComputeInstanceGroupDataSource(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,34 +22,34 @@ public partial class GoogleComputeInstanceGroupDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    public TerraformValue<string> SelfLink
+    public TerraformValue<string>? SelfLink
     {
-        get => new TerraformReference<string>(this, "self_link");
+        get => GetArgument<TerraformValue<string>>("self_link");
         set => SetArgument("self_link", value);
     }
 
     /// <summary>
     /// The zone attribute.
     /// </summary>
-    public TerraformValue<string> Zone
+    public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -57,40 +57,30 @@ public partial class GoogleComputeInstanceGroupDataSource(string name) : Terrafo
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The instances attribute.
     /// </summary>
     public TerraformSet<string> Instances
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "instances").ResolveNodes(ctx));
-    }
+        => AsReference("instances");
 
     /// <summary>
     /// The named_port attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NamedPort
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "named_port").ResolveNodes(ctx));
-    }
+        => AsReference("named_port");
 
     /// <summary>
     /// The network attribute.
     /// </summary>
     public TerraformValue<string> Network
-    {
-        get => new TerraformReference<string>(this, "network");
-    }
+        => AsReference("network");
 
     /// <summary>
     /// The size attribute.
     /// </summary>
     public TerraformValue<double> Size
-    {
-        get => new TerraformReference<double>(this, "size");
-    }
+        => AsReference("size");
 
 }

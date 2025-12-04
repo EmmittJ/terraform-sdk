@@ -13,7 +13,7 @@ public partial class AwsAuditmanagerAccountRegistration(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? DelegatedAdminAccount
     {
-        get => new TerraformReference<string>(this, "delegated_admin_account");
+        get => GetArgument<TerraformValue<string>>("delegated_admin_account");
         set => SetArgument("delegated_admin_account", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsAuditmanagerAccountRegistration(string name) : Terraform
     /// </summary>
     public TerraformValue<bool>? DeregisterOnDestroy
     {
-        get => new TerraformReference<bool>(this, "deregister_on_destroy");
+        get => GetArgument<TerraformValue<bool>>("deregister_on_destroy");
         set => SetArgument("deregister_on_destroy", value);
     }
 
@@ -31,16 +31,16 @@ public partial class AwsAuditmanagerAccountRegistration(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -49,16 +49,12 @@ public partial class AwsAuditmanagerAccountRegistration(string name) : Terraform
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }

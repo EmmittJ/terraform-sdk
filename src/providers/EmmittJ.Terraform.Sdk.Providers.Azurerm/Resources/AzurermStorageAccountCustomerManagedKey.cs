@@ -18,7 +18,7 @@ public class AzurermStorageAccountCustomerManagedKeyTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermStorageAccountCustomerManagedKeyTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermStorageAccountCustomerManagedKeyTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermStorageAccountCustomerManagedKeyTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AzurermStorageAccountCustomerManagedKey(string name) : Terr
     /// </summary>
     public TerraformValue<string>? FederatedIdentityClientId
     {
-        get => new TerraformReference<string>(this, "federated_identity_client_id");
+        get => GetArgument<TerraformValue<string>>("federated_identity_client_id");
         set => SetArgument("federated_identity_client_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermStorageAccountCustomerManagedKey(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyName is required")]
     public required TerraformValue<string> KeyName
     {
-        get => new TerraformReference<string>(this, "key_name");
+        get => GetArgument<TerraformValue<string>>("key_name");
         set => SetArgument("key_name", value);
     }
 
@@ -91,16 +91,16 @@ public partial class AzurermStorageAccountCustomerManagedKey(string name) : Terr
     /// </summary>
     public TerraformValue<string>? KeyVaultId
     {
-        get => new TerraformReference<string>(this, "key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
     /// <summary>
     /// The key_vault_uri attribute.
     /// </summary>
-    public TerraformValue<string> KeyVaultUri
+    public TerraformValue<string>? KeyVaultUri
     {
-        get => new TerraformReference<string>(this, "key_vault_uri");
+        get => GetArgument<TerraformValue<string>>("key_vault_uri");
         set => SetArgument("key_vault_uri", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermStorageAccountCustomerManagedKey(string name) : Terr
     /// </summary>
     public TerraformValue<string>? KeyVersion
     {
-        get => new TerraformReference<string>(this, "key_version");
+        get => GetArgument<TerraformValue<string>>("key_version");
         set => SetArgument("key_version", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermStorageAccountCustomerManagedKey(string name) : Terr
     /// </summary>
     public TerraformValue<string>? ManagedHsmKeyId
     {
-        get => new TerraformReference<string>(this, "managed_hsm_key_id");
+        get => GetArgument<TerraformValue<string>>("managed_hsm_key_id");
         set => SetArgument("managed_hsm_key_id", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermStorageAccountCustomerManagedKey(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => new TerraformReference<string>(this, "storage_account_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AzurermStorageAccountCustomerManagedKey(string name) : Terr
     /// </summary>
     public TerraformValue<string>? UserAssignedIdentityId
     {
-        get => new TerraformReference<string>(this, "user_assigned_identity_id");
+        get => GetArgument<TerraformValue<string>>("user_assigned_identity_id");
         set => SetArgument("user_assigned_identity_id", value);
     }
 

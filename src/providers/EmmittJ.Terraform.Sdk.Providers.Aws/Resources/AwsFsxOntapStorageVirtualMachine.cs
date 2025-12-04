@@ -18,7 +18,7 @@ public class AwsFsxOntapStorageVirtualMachineActiveDirectoryConfigurationBlock :
     /// </summary>
     public TerraformValue<string>? NetbiosName
     {
-        get => new TerraformReference<string>(this, "netbios_name");
+        get => GetArgument<TerraformValue<string>>("netbios_name");
         set => SetArgument("netbios_name", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsFsxOntapStorageVirtualMachineActiveDirectoryConfigurationBlockSe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsIps is required")]
     public required TerraformSet<string> DnsIps
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "dns_ips").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("dns_ips");
         set => SetArgument("dns_ips", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsFsxOntapStorageVirtualMachineActiveDirectoryConfigurationBlockSe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsFsxOntapStorageVirtualMachineActiveDirectoryConfigurationBlockSe
     /// </summary>
     public TerraformValue<string>? FileSystemAdministratorsGroup
     {
-        get => new TerraformReference<string>(this, "file_system_administrators_group");
+        get => GetArgument<TerraformValue<string>>("file_system_administrators_group");
         set => SetArgument("file_system_administrators_group", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsFsxOntapStorageVirtualMachineActiveDirectoryConfigurationBlockSe
     /// </summary>
     public TerraformValue<string>? OrganizationalUnitDistinguishedName
     {
-        get => new TerraformReference<string>(this, "organizational_unit_distinguished_name");
+        get => GetArgument<TerraformValue<string>>("organizational_unit_distinguished_name");
         set => SetArgument("organizational_unit_distinguished_name", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsFsxOntapStorageVirtualMachineActiveDirectoryConfigurationBlockSe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsFsxOntapStorageVirtualMachineActiveDirectoryConfigurationBlockSe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsFsxOntapStorageVirtualMachineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsFsxOntapStorageVirtualMachineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsFsxOntapStorageVirtualMachineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -159,16 +159,16 @@ public partial class AwsFsxOntapStorageVirtualMachine(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformValue<string> FileSystemId
     {
-        get => new TerraformReference<string>(this, "file_system_id");
+        get => GetArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -178,16 +178,16 @@ public partial class AwsFsxOntapStorageVirtualMachine(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -196,7 +196,7 @@ public partial class AwsFsxOntapStorageVirtualMachine(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? RootVolumeSecurityStyle
     {
-        get => new TerraformReference<string>(this, "root_volume_security_style");
+        get => GetArgument<TerraformValue<string>>("root_volume_security_style");
         set => SetArgument("root_volume_security_style", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AwsFsxOntapStorageVirtualMachine(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? SvmAdminPassword
     {
-        get => new TerraformReference<string>(this, "svm_admin_password");
+        get => GetArgument<TerraformValue<string>>("svm_admin_password");
         set => SetArgument("svm_admin_password", value);
     }
 
@@ -214,16 +214,16 @@ public partial class AwsFsxOntapStorageVirtualMachine(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -231,33 +231,25 @@ public partial class AwsFsxOntapStorageVirtualMachine(string name) : TerraformRe
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The endpoints attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Endpoints
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "endpoints").ResolveNodes(ctx));
-    }
+        => AsReference("endpoints");
 
     /// <summary>
     /// The subtype attribute.
     /// </summary>
     public TerraformValue<string> Subtype
-    {
-        get => new TerraformReference<string>(this, "subtype");
-    }
+        => AsReference("subtype");
 
     /// <summary>
     /// The uuid attribute.
     /// </summary>
     public TerraformValue<string> Uuid
-    {
-        get => new TerraformReference<string>(this, "uuid");
-    }
+        => AsReference("uuid");
 
     /// <summary>
     /// ActiveDirectoryConfiguration block (nesting mode: list).

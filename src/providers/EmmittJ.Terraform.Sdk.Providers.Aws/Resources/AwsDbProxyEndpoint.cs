@@ -18,7 +18,7 @@ public class AwsDbProxyEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsDbProxyEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsDbProxyEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsDbProxyEndpoint(string name) : TerraformResource("aws_db
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbProxyEndpointName is required")]
     public required TerraformValue<string> DbProxyEndpointName
     {
-        get => new TerraformReference<string>(this, "db_proxy_endpoint_name");
+        get => GetArgument<TerraformValue<string>>("db_proxy_endpoint_name");
         set => SetArgument("db_proxy_endpoint_name", value);
     }
 
@@ -65,25 +65,25 @@ public partial class AwsDbProxyEndpoint(string name) : TerraformResource("aws_db
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbProxyName is required")]
     public required TerraformValue<string> DbProxyName
     {
-        get => new TerraformReference<string>(this, "db_proxy_name");
+        get => GetArgument<TerraformValue<string>>("db_proxy_name");
         set => SetArgument("db_proxy_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -92,16 +92,16 @@ public partial class AwsDbProxyEndpoint(string name) : TerraformResource("aws_db
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -110,16 +110,16 @@ public partial class AwsDbProxyEndpoint(string name) : TerraformResource("aws_db
     /// </summary>
     public TerraformValue<string>? TargetRole
     {
-        get => new TerraformReference<string>(this, "target_role");
+        get => GetArgument<TerraformValue<string>>("target_role");
         set => SetArgument("target_role", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string> VpcSecurityGroupIds
+    public TerraformSet<string>? VpcSecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "vpc_security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AwsDbProxyEndpoint(string name) : TerraformResource("aws_db
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcSubnetIds is required")]
     public required TerraformSet<string> VpcSubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "vpc_subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("vpc_subnet_ids");
         set => SetArgument("vpc_subnet_ids", value);
     }
 
@@ -137,33 +137,25 @@ public partial class AwsDbProxyEndpoint(string name) : TerraformResource("aws_db
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// The is_default attribute.
     /// </summary>
     public TerraformValue<bool> IsDefault
-    {
-        get => new TerraformReference<bool>(this, "is_default");
-    }
+        => AsReference("is_default");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-    {
-        get => new TerraformReference<string>(this, "vpc_id");
-    }
+        => AsReference("vpc_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

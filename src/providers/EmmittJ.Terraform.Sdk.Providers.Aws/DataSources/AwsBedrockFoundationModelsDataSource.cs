@@ -13,7 +13,7 @@ public partial class AwsBedrockFoundationModelsDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? ByCustomizationType
     {
-        get => new TerraformReference<string>(this, "by_customization_type");
+        get => GetArgument<TerraformValue<string>>("by_customization_type");
         set => SetArgument("by_customization_type", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsBedrockFoundationModelsDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? ByInferenceType
     {
-        get => new TerraformReference<string>(this, "by_inference_type");
+        get => GetArgument<TerraformValue<string>>("by_inference_type");
         set => SetArgument("by_inference_type", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsBedrockFoundationModelsDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? ByOutputModality
     {
-        get => new TerraformReference<string>(this, "by_output_modality");
+        get => GetArgument<TerraformValue<string>>("by_output_modality");
         set => SetArgument("by_output_modality", value);
     }
 
@@ -40,16 +40,16 @@ public partial class AwsBedrockFoundationModelsDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? ByProvider
     {
-        get => new TerraformReference<string>(this, "by_provider");
+        get => GetArgument<TerraformValue<string>>("by_provider");
         set => SetArgument("by_provider", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -57,16 +57,12 @@ public partial class AwsBedrockFoundationModelsDataSource(string name) : Terrafo
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The model_summaries attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ModelSummaries
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "model_summaries").ResolveNodes(ctx));
-    }
+        => AsReference("model_summaries");
 
 }

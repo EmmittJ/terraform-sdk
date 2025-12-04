@@ -18,7 +18,7 @@ public class AwsOpensearchserverlessSecurityConfigSamlOptionsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? GroupAttribute
     {
-        get => new TerraformReference<string>(this, "group_attribute");
+        get => GetArgument<TerraformValue<string>>("group_attribute");
         set => SetArgument("group_attribute", value);
     }
 
@@ -28,16 +28,16 @@ public class AwsOpensearchserverlessSecurityConfigSamlOptionsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Metadata is required")]
     public required TerraformValue<string> Metadata
     {
-        get => new TerraformReference<string>(this, "metadata");
+        get => GetArgument<TerraformValue<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
     /// <summary>
     /// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
     /// </summary>
-    public TerraformValue<double> SessionTimeout
+    public TerraformValue<double>? SessionTimeout
     {
-        get => new TerraformReference<double>(this, "session_timeout");
+        get => GetArgument<TerraformValue<double>>("session_timeout");
         set => SetArgument("session_timeout", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsOpensearchserverlessSecurityConfigSamlOptionsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? UserAttribute
     {
-        get => new TerraformReference<string>(this, "user_attribute");
+        get => GetArgument<TerraformValue<string>>("user_attribute");
         set => SetArgument("user_attribute", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsOpensearchserverlessSecurityConfig(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AwsOpensearchserverlessSecurityConfig(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AwsOpensearchserverlessSecurityConfig(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -101,17 +101,13 @@ public partial class AwsOpensearchserverlessSecurityConfig(string name) : Terraf
     /// Version of the configuration.
     /// </summary>
     public TerraformValue<string> ConfigVersion
-    {
-        get => new TerraformReference<string>(this, "config_version");
-    }
+        => AsReference("config_version");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// SamlOptions block (nesting mode: list).

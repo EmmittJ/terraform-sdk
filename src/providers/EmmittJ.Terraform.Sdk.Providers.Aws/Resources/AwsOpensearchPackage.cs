@@ -19,7 +19,7 @@ public class AwsOpensearchPackagePackageSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformValue<string> S3BucketName
     {
-        get => new TerraformReference<string>(this, "s3_bucket_name");
+        get => GetArgument<TerraformValue<string>>("s3_bucket_name");
         set => SetArgument("s3_bucket_name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsOpensearchPackagePackageSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Key is required")]
     public required TerraformValue<string> S3Key
     {
-        get => new TerraformReference<string>(this, "s3_key");
+        get => GetArgument<TerraformValue<string>>("s3_key");
         set => SetArgument("s3_key", value);
     }
 
@@ -47,16 +47,16 @@ public partial class AwsOpensearchPackage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? EngineVersion
     {
-        get => new TerraformReference<string>(this, "engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version");
         set => SetArgument("engine_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsOpensearchPackage(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? PackageDescription
     {
-        get => new TerraformReference<string>(this, "package_description");
+        get => GetArgument<TerraformValue<string>>("package_description");
         set => SetArgument("package_description", value);
     }
 
@@ -75,7 +75,7 @@ public partial class AwsOpensearchPackage(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PackageName is required")]
     public required TerraformValue<string> PackageName
     {
-        get => new TerraformReference<string>(this, "package_name");
+        get => GetArgument<TerraformValue<string>>("package_name");
         set => SetArgument("package_name", value);
     }
 
@@ -85,16 +85,16 @@ public partial class AwsOpensearchPackage(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PackageType is required")]
     public required TerraformValue<string> PackageType
     {
-        get => new TerraformReference<string>(this, "package_type");
+        get => GetArgument<TerraformValue<string>>("package_type");
         set => SetArgument("package_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -102,17 +102,13 @@ public partial class AwsOpensearchPackage(string name) : TerraformResource("aws_
     /// The available_package_version attribute.
     /// </summary>
     public TerraformValue<string> AvailablePackageVersion
-    {
-        get => new TerraformReference<string>(this, "available_package_version");
-    }
+        => AsReference("available_package_version");
 
     /// <summary>
     /// The package_id attribute.
     /// </summary>
     public TerraformValue<string> PackageId
-    {
-        get => new TerraformReference<string>(this, "package_id");
-    }
+        => AsReference("package_id");
 
     /// <summary>
     /// PackageSource block (nesting mode: list).

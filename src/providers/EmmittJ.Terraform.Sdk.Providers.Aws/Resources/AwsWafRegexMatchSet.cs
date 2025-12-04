@@ -19,7 +19,7 @@ public class AwsWafRegexMatchSetRegexMatchTupleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegexPatternSetId is required")]
     public required TerraformValue<string> RegexPatternSetId
     {
-        get => new TerraformReference<string>(this, "regex_pattern_set_id");
+        get => GetArgument<TerraformValue<string>>("regex_pattern_set_id");
         set => SetArgument("regex_pattern_set_id", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsWafRegexMatchSetRegexMatchTupleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
     public required TerraformValue<string> TextTransformation
     {
-        get => new TerraformReference<string>(this, "text_transformation");
+        get => GetArgument<TerraformValue<string>>("text_transformation");
         set => SetArgument("text_transformation", value);
     }
 
@@ -64,7 +64,7 @@ public class AwsWafRegexMatchSetRegexMatchTupleBlockFieldToMatchBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Data
     {
-        get => new TerraformReference<string>(this, "data");
+        get => GetArgument<TerraformValue<string>>("data");
         set => SetArgument("data", value);
     }
 
@@ -74,7 +74,7 @@ public class AwsWafRegexMatchSetRegexMatchTupleBlockFieldToMatchBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -90,9 +90,9 @@ public partial class AwsWafRegexMatchSet(string name) : TerraformResource("aws_w
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AwsWafRegexMatchSet(string name) : TerraformResource("aws_w
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -110,9 +110,7 @@ public partial class AwsWafRegexMatchSet(string name) : TerraformResource("aws_w
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// RegexMatchTuple block (nesting mode: set).

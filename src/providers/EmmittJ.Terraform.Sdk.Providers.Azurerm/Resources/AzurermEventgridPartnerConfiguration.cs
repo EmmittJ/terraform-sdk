@@ -18,7 +18,7 @@ public class AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock : Ter
     /// </summary>
     public TerraformValue<string>? AuthorizationExpirationTimeInUtc
     {
-        get => new TerraformReference<string>(this, "authorization_expiration_time_in_utc");
+        get => GetArgument<TerraformValue<string>>("authorization_expiration_time_in_utc");
         set => SetArgument("authorization_expiration_time_in_utc", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerName is required")]
     public required TerraformValue<string> PartnerName
     {
-        get => new TerraformReference<string>(this, "partner_name");
+        get => GetArgument<TerraformValue<string>>("partner_name");
         set => SetArgument("partner_name", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerRegistrationId is required")]
     public required TerraformValue<string> PartnerRegistrationId
     {
-        get => new TerraformReference<string>(this, "partner_registration_id");
+        get => GetArgument<TerraformValue<string>>("partner_registration_id");
         set => SetArgument("partner_registration_id", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermEventgridPartnerConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermEventgridPartnerConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermEventgridPartnerConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermEventgridPartnerConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -106,16 +106,16 @@ public partial class AzurermEventgridPartnerConfiguration(string name) : Terrafo
     /// </summary>
     public TerraformValue<double>? DefaultMaximumExpirationTimeInDays
     {
-        get => new TerraformReference<double>(this, "default_maximum_expiration_time_in_days");
+        get => GetArgument<TerraformValue<double>>("default_maximum_expiration_time_in_days");
         set => SetArgument("default_maximum_expiration_time_in_days", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AzurermEventgridPartnerConfiguration(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AzurermEventgridPartnerConfiguration(string name) : Terrafo
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

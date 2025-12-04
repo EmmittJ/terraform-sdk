@@ -18,7 +18,7 @@ public class AzurermNginxConfigurationDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermNginxConfigurationDataSource(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermNginxConfigurationDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
     public required TerraformValue<string> NginxDeploymentId
     {
-        get => new TerraformReference<string>(this, "nginx_deployment_id");
+        get => GetArgument<TerraformValue<string>>("nginx_deployment_id");
         set => SetArgument("nginx_deployment_id", value);
     }
 
@@ -54,33 +54,25 @@ public partial class AzurermNginxConfigurationDataSource(string name) : Terrafor
     /// The config_file attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> ConfigFile
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "config_file").ResolveNodes(ctx));
-    }
+        => AsReference("config_file");
 
     /// <summary>
     /// The package_data attribute.
     /// </summary>
     public TerraformValue<string> PackageData
-    {
-        get => new TerraformReference<string>(this, "package_data");
-    }
+        => AsReference("package_data");
 
     /// <summary>
     /// The protected_file attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> ProtectedFile
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "protected_file").ResolveNodes(ctx));
-    }
+        => AsReference("protected_file");
 
     /// <summary>
     /// The root_file attribute.
     /// </summary>
     public TerraformValue<string> RootFile
-    {
-        get => new TerraformReference<string>(this, "root_file");
-    }
+        => AsReference("root_file");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

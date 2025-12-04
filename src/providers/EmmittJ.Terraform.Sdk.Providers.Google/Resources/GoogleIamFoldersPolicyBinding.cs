@@ -18,7 +18,7 @@ public class GoogleIamFoldersPolicyBindingConditionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleIamFoldersPolicyBindingConditionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleIamFoldersPolicyBindingConditionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -45,7 +45,7 @@ public class GoogleIamFoldersPolicyBindingConditionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleIamFoldersPolicyBindingTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PrincipalSet
     {
-        get => new TerraformReference<string>(this, "principal_set");
+        get => GetArgument<TerraformValue<string>>("principal_set");
         set => SetArgument("principal_set", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleIamFoldersPolicyBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -103,7 +103,7 @@ public class GoogleIamFoldersPolicyBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -112,7 +112,7 @@ public class GoogleIamFoldersPolicyBindingTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -134,7 +134,7 @@ public partial class GoogleIamFoldersPolicyBinding(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -143,7 +143,7 @@ public partial class GoogleIamFoldersPolicyBinding(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -153,16 +153,16 @@ public partial class GoogleIamFoldersPolicyBinding(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
     public required TerraformValue<string> Folder
     {
-        get => new TerraformReference<string>(this, "folder");
+        get => GetArgument<TerraformValue<string>>("folder");
         set => SetArgument("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -172,7 +172,7 @@ public partial class GoogleIamFoldersPolicyBinding(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -182,7 +182,7 @@ public partial class GoogleIamFoldersPolicyBinding(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformValue<string> Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
@@ -192,7 +192,7 @@ public partial class GoogleIamFoldersPolicyBinding(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyBindingId is required")]
     public required TerraformValue<string> PolicyBindingId
     {
-        get => new TerraformReference<string>(this, "policy_binding_id");
+        get => GetArgument<TerraformValue<string>>("policy_binding_id");
         set => SetArgument("policy_binding_id", value);
     }
 
@@ -203,7 +203,7 @@ public partial class GoogleIamFoldersPolicyBinding(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? PolicyKind
     {
-        get => new TerraformReference<string>(this, "policy_kind");
+        get => GetArgument<TerraformValue<string>>("policy_kind");
         set => SetArgument("policy_kind", value);
     }
 
@@ -211,57 +211,43 @@ public partial class GoogleIamFoldersPolicyBinding(string name) : TerraformResou
     /// Output only. The time when the policy binding was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// Optional. The etag for the policy binding. If this is provided on update, it must match the server&#39;s etag.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The name of the policy binding in the format &#39;{binding_parent/locations/{location}/policyBindings/{policy_binding_id}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. The globally unique ID of the policy to be bound.
     /// </summary>
     public TerraformValue<string> PolicyUid
-    {
-        get => new TerraformReference<string>(this, "policy_uid");
-    }
+        => AsReference("policy_uid");
 
     /// <summary>
     /// Output only. The globally unique ID of the policy binding. Assigned when the policy binding is created.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Output only. The time when the policy binding was most recently updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Condition block (nesting mode: list).

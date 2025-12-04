@@ -18,7 +18,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -30,7 +30,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -40,7 +40,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
     public required TerraformValue<string> Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -86,7 +86,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlockBasicBlock :
     /// </summary>
     public TerraformValue<string>? CombiningFunction
     {
-        get => new TerraformReference<string>(this, "combining_function");
+        get => GetArgument<TerraformValue<string>>("combining_function");
         set => SetArgument("combining_function", value);
     }
 
@@ -129,7 +129,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlockBasicBlockCo
     /// </summary>
     public TerraformList<string>? IpSubnetworks
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ip_subnetworks").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ip_subnetworks");
         set => SetArgument("ip_subnetworks", value);
     }
 
@@ -145,7 +145,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlockBasicBlockCo
     /// </summary>
     public TerraformList<string>? Members
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "members").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("members");
         set => SetArgument("members", value);
     }
 
@@ -156,7 +156,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlockBasicBlockCo
     /// </summary>
     public TerraformValue<bool>? Negate
     {
-        get => new TerraformReference<bool>(this, "negate");
+        get => GetArgument<TerraformValue<bool>>("negate");
         set => SetArgument("negate", value);
     }
 
@@ -167,7 +167,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlockBasicBlockCo
     /// </summary>
     public TerraformList<string>? Regions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("regions");
         set => SetArgument("regions", value);
     }
 
@@ -180,7 +180,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlockBasicBlockCo
     /// </summary>
     public TerraformList<string>? RequiredAccessLevels
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "required_access_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("required_access_levels");
         set => SetArgument("required_access_levels", value);
     }
 
@@ -222,7 +222,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlockBasicBlockCo
     /// </summary>
     public TerraformList<string>? AllowedDeviceManagementLevels
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_device_management_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_device_management_levels");
         set => SetArgument("allowed_device_management_levels", value);
     }
 
@@ -232,7 +232,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlockBasicBlockCo
     /// </summary>
     public TerraformList<string>? AllowedEncryptionStatuses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_encryption_statuses").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_encryption_statuses");
         set => SetArgument("allowed_encryption_statuses", value);
     }
 
@@ -241,7 +241,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlockBasicBlockCo
     /// </summary>
     public TerraformValue<bool>? RequireAdminApproval
     {
-        get => new TerraformReference<bool>(this, "require_admin_approval");
+        get => GetArgument<TerraformValue<bool>>("require_admin_approval");
         set => SetArgument("require_admin_approval", value);
     }
 
@@ -250,7 +250,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlockBasicBlockCo
     /// </summary>
     public TerraformValue<bool>? RequireCorpOwned
     {
-        get => new TerraformReference<bool>(this, "require_corp_owned");
+        get => GetArgument<TerraformValue<bool>>("require_corp_owned");
         set => SetArgument("require_corp_owned", value);
     }
 
@@ -260,7 +260,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlockBasicBlockCo
     /// </summary>
     public TerraformValue<bool>? RequireScreenLock
     {
-        get => new TerraformReference<bool>(this, "require_screen_lock");
+        get => GetArgument<TerraformValue<bool>>("require_screen_lock");
         set => SetArgument("require_screen_lock", value);
     }
 
@@ -293,7 +293,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlockBasicBlockCo
     /// </summary>
     public TerraformValue<string>? MinimumVersion
     {
-        get => new TerraformReference<string>(this, "minimum_version");
+        get => GetArgument<TerraformValue<string>>("minimum_version");
         set => SetArgument("minimum_version", value);
     }
 
@@ -303,7 +303,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlockBasicBlockCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsType is required")]
     public required TerraformValue<string> OsType
     {
-        get => new TerraformReference<string>(this, "os_type");
+        get => GetArgument<TerraformValue<string>>("os_type");
         set => SetArgument("os_type", value);
     }
 
@@ -349,7 +349,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlockBasicBlockCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -358,7 +358,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlockBasicBlockCo
     /// </summary>
     public TerraformList<string>? VpcIpSubnetworks
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "vpc_ip_subnetworks").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("vpc_ip_subnetworks");
         set => SetArgument("vpc_ip_subnetworks", value);
     }
 
@@ -406,7 +406,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlockCustomBlockE
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -416,7 +416,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlockCustomBlockE
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -425,7 +425,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlockCustomBlockE
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -434,7 +434,7 @@ public class GoogleAccessContextManagerAccessLevelsAccessLevelsBlockCustomBlockE
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -457,7 +457,7 @@ public class GoogleAccessContextManagerAccessLevelsTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -466,7 +466,7 @@ public class GoogleAccessContextManagerAccessLevelsTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -475,7 +475,7 @@ public class GoogleAccessContextManagerAccessLevelsTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -491,9 +491,9 @@ public partial class GoogleAccessContextManagerAccessLevels(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -504,7 +504,7 @@ public partial class GoogleAccessContextManagerAccessLevels(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 

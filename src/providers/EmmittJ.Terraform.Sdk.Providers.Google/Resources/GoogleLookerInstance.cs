@@ -23,7 +23,7 @@ public class GoogleLookerInstanceAdminSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AllowedEmailDomains
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_email_domains").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_email_domains");
         set => SetArgument("allowed_email_domains", value);
     }
 
@@ -46,7 +46,7 @@ public class GoogleLookerInstanceCustomDomainBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Domain
     {
-        get => new TerraformReference<string>(this, "domain");
+        get => GetArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
@@ -54,9 +54,7 @@ public class GoogleLookerInstanceCustomDomainBlock : TerraformBlock
     /// Status of the custom domain.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
 }
 
@@ -130,7 +128,7 @@ public class GoogleLookerInstanceDenyMaintenancePeriodBlockEndDateBlock : Terraf
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -140,7 +138,7 @@ public class GoogleLookerInstanceDenyMaintenancePeriodBlockEndDateBlock : Terraf
     /// </summary>
     public TerraformValue<double>? Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -150,7 +148,7 @@ public class GoogleLookerInstanceDenyMaintenancePeriodBlockEndDateBlock : Terraf
     /// </summary>
     public TerraformValue<double>? Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -173,7 +171,7 @@ public class GoogleLookerInstanceDenyMaintenancePeriodBlockStartDateBlock : Terr
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -183,7 +181,7 @@ public class GoogleLookerInstanceDenyMaintenancePeriodBlockStartDateBlock : Terr
     /// </summary>
     public TerraformValue<double>? Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -193,7 +191,7 @@ public class GoogleLookerInstanceDenyMaintenancePeriodBlockStartDateBlock : Terr
     /// </summary>
     public TerraformValue<double>? Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -215,7 +213,7 @@ public class GoogleLookerInstanceDenyMaintenancePeriodBlockTimeBlock : Terraform
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -224,7 +222,7 @@ public class GoogleLookerInstanceDenyMaintenancePeriodBlockTimeBlock : Terraform
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -233,7 +231,7 @@ public class GoogleLookerInstanceDenyMaintenancePeriodBlockTimeBlock : Terraform
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -242,7 +240,7 @@ public class GoogleLookerInstanceDenyMaintenancePeriodBlockTimeBlock : Terraform
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -265,7 +263,7 @@ public class GoogleLookerInstanceEncryptionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -273,17 +271,13 @@ public class GoogleLookerInstanceEncryptionConfigBlock : TerraformBlock
     /// Full name and version of the CMEK key currently in use to encrypt Looker data.
     /// </summary>
     public TerraformValue<string> KmsKeyNameVersion
-    {
-        get => new TerraformReference<string>(this, "kms_key_name_version");
-    }
+        => AsReference("kms_key_name_version");
 
     /// <summary>
     /// Status of the customer managed encryption key (CMEK) in KMS.
     /// </summary>
     public TerraformValue<string> KmsKeyState
-    {
-        get => new TerraformReference<string>(this, "kms_key_state");
-    }
+        => AsReference("kms_key_state");
 
 }
 
@@ -313,7 +307,7 @@ public class GoogleLookerInstanceMaintenanceWindowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformValue<string> DayOfWeek
     {
-        get => new TerraformReference<string>(this, "day_of_week");
+        get => GetArgument<TerraformValue<string>>("day_of_week");
         set => SetArgument("day_of_week", value);
     }
 
@@ -348,7 +342,7 @@ public class GoogleLookerInstanceMaintenanceWindowBlockStartTimeBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -357,7 +351,7 @@ public class GoogleLookerInstanceMaintenanceWindowBlockStartTimeBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -366,7 +360,7 @@ public class GoogleLookerInstanceMaintenanceWindowBlockStartTimeBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -375,7 +369,7 @@ public class GoogleLookerInstanceMaintenanceWindowBlockStartTimeBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -399,7 +393,7 @@ public class GoogleLookerInstanceOauthConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -409,7 +403,7 @@ public class GoogleLookerInstanceOauthConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
     public required TerraformValue<string> ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -432,7 +426,7 @@ public class GoogleLookerInstancePscConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AllowedVpcs
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_vpcs").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_vpcs");
         set => SetArgument("allowed_vpcs", value);
     }
 
@@ -440,9 +434,7 @@ public class GoogleLookerInstancePscConfigBlock : TerraformBlock
     /// URI of the Looker service attachment.
     /// </summary>
     public TerraformValue<string> LookerServiceAttachmentUri
-    {
-        get => new TerraformReference<string>(this, "looker_service_attachment_uri");
-    }
+        => AsReference("looker_service_attachment_uri");
 
     /// <summary>
     /// ServiceAttachments block (nesting mode: list).
@@ -470,16 +462,14 @@ public class GoogleLookerInstancePscConfigBlockServiceAttachmentsBlock : Terrafo
     /// Status of the service attachment connection.
     /// </summary>
     public TerraformValue<string> ConnectionStatus
-    {
-        get => new TerraformReference<string>(this, "connection_status");
-    }
+        => AsReference("connection_status");
 
     /// <summary>
     /// Fully qualified domain name that will be used in the private DNS record created for the service attachment.
     /// </summary>
     public TerraformValue<string>? LocalFqdn
     {
-        get => new TerraformReference<string>(this, "local_fqdn");
+        get => GetArgument<TerraformValue<string>>("local_fqdn");
         set => SetArgument("local_fqdn", value);
     }
 
@@ -488,7 +478,7 @@ public class GoogleLookerInstancePscConfigBlockServiceAttachmentsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? TargetServiceAttachmentUri
     {
-        get => new TerraformReference<string>(this, "target_service_attachment_uri");
+        get => GetArgument<TerraformValue<string>>("target_service_attachment_uri");
         set => SetArgument("target_service_attachment_uri", value);
     }
 
@@ -511,7 +501,7 @@ public class GoogleLookerInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -520,7 +510,7 @@ public class GoogleLookerInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -529,7 +519,7 @@ public class GoogleLookerInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -552,7 +542,7 @@ public class GoogleLookerInstanceUserMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? AdditionalDeveloperUserCount
     {
-        get => new TerraformReference<double>(this, "additional_developer_user_count");
+        get => GetArgument<TerraformValue<double>>("additional_developer_user_count");
         set => SetArgument("additional_developer_user_count", value);
     }
 
@@ -561,7 +551,7 @@ public class GoogleLookerInstanceUserMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? AdditionalStandardUserCount
     {
-        get => new TerraformReference<double>(this, "additional_standard_user_count");
+        get => GetArgument<TerraformValue<double>>("additional_standard_user_count");
         set => SetArgument("additional_standard_user_count", value);
     }
 
@@ -570,7 +560,7 @@ public class GoogleLookerInstanceUserMetadataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? AdditionalViewerUserCount
     {
-        get => new TerraformReference<double>(this, "additional_viewer_user_count");
+        get => GetArgument<TerraformValue<double>>("additional_viewer_user_count");
         set => SetArgument("additional_viewer_user_count", value);
     }
 
@@ -590,7 +580,7 @@ public partial class GoogleLookerInstance(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? ConsumerNetwork
     {
-        get => new TerraformReference<string>(this, "consumer_network");
+        get => GetArgument<TerraformValue<string>>("consumer_network");
         set => SetArgument("consumer_network", value);
     }
 
@@ -602,7 +592,7 @@ public partial class GoogleLookerInstance(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? DeletionPolicy
     {
-        get => new TerraformReference<string>(this, "deletion_policy");
+        get => GetArgument<TerraformValue<string>>("deletion_policy");
         set => SetArgument("deletion_policy", value);
     }
 
@@ -611,7 +601,7 @@ public partial class GoogleLookerInstance(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<bool>? FipsEnabled
     {
-        get => new TerraformReference<bool>(this, "fips_enabled");
+        get => GetArgument<TerraformValue<bool>>("fips_enabled");
         set => SetArgument("fips_enabled", value);
     }
 
@@ -620,16 +610,16 @@ public partial class GoogleLookerInstance(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<bool>? GeminiEnabled
     {
-        get => new TerraformReference<bool>(this, "gemini_enabled");
+        get => GetArgument<TerraformValue<bool>>("gemini_enabled");
         set => SetArgument("gemini_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -639,7 +629,7 @@ public partial class GoogleLookerInstance(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -659,7 +649,7 @@ public partial class GoogleLookerInstance(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? PlatformEdition
     {
-        get => new TerraformReference<string>(this, "platform_edition");
+        get => GetArgument<TerraformValue<string>>("platform_edition");
         set => SetArgument("platform_edition", value);
     }
 
@@ -668,16 +658,16 @@ public partial class GoogleLookerInstance(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<bool>? PrivateIpEnabled
     {
-        get => new TerraformReference<bool>(this, "private_ip_enabled");
+        get => GetArgument<TerraformValue<bool>>("private_ip_enabled");
         set => SetArgument("private_ip_enabled", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -686,7 +676,7 @@ public partial class GoogleLookerInstance(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<bool>? PscEnabled
     {
-        get => new TerraformReference<bool>(this, "psc_enabled");
+        get => GetArgument<TerraformValue<bool>>("psc_enabled");
         set => SetArgument("psc_enabled", value);
     }
 
@@ -695,16 +685,16 @@ public partial class GoogleLookerInstance(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<bool>? PublicIpEnabled
     {
-        get => new TerraformReference<bool>(this, "public_ip_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_ip_enabled");
         set => SetArgument("public_ip_enabled", value);
     }
 
     /// <summary>
     /// The name of the Looker region of the instance.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -714,7 +704,7 @@ public partial class GoogleLookerInstance(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? ReservedRange
     {
-        get => new TerraformReference<string>(this, "reserved_range");
+        get => GetArgument<TerraformValue<string>>("reserved_range");
         set => SetArgument("reserved_range", value);
     }
 
@@ -723,58 +713,44 @@ public partial class GoogleLookerInstance(string name) : TerraformResource("goog
     /// accurate to nanoseconds.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Public Egress IP (IPv4).
     /// </summary>
     public TerraformValue<string> EgressPublicIp
-    {
-        get => new TerraformReference<string>(this, "egress_public_ip");
-    }
+        => AsReference("egress_public_ip");
 
     /// <summary>
     /// Private Ingress IP (IPv4).
     /// </summary>
     public TerraformValue<string> IngressPrivateIp
-    {
-        get => new TerraformReference<string>(this, "ingress_private_ip");
-    }
+        => AsReference("ingress_private_ip");
 
     /// <summary>
     /// Public Ingress IP (IPv4).
     /// </summary>
     public TerraformValue<string> IngressPublicIp
-    {
-        get => new TerraformReference<string>(this, "ingress_public_ip");
-    }
+        => AsReference("ingress_public_ip");
 
     /// <summary>
     /// Looker instance URI which can be used to access the Looker Instance UI.
     /// </summary>
     public TerraformValue<string> LookerUri
-    {
-        get => new TerraformReference<string>(this, "looker_uri");
-    }
+        => AsReference("looker_uri");
 
     /// <summary>
     /// The Looker version that the instance is using.
     /// </summary>
     public TerraformValue<string> LookerVersion
-    {
-        get => new TerraformReference<string>(this, "looker_version");
-    }
+        => AsReference("looker_version");
 
     /// <summary>
     /// The time the instance was updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
     /// accurate to nanoseconds.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// AdminSettings block (nesting mode: list).

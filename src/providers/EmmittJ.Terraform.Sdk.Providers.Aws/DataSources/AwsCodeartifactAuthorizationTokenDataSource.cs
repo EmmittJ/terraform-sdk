@@ -14,16 +14,16 @@ public partial class AwsCodeartifactAuthorizationTokenDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => new TerraformReference<string>(this, "domain");
+        get => GetArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
     /// <summary>
     /// The domain_owner attribute.
     /// </summary>
-    public TerraformValue<string> DomainOwner
+    public TerraformValue<string>? DomainOwner
     {
-        get => new TerraformReference<string>(this, "domain_owner");
+        get => GetArgument<TerraformValue<string>>("domain_owner");
         set => SetArgument("domain_owner", value);
     }
 
@@ -32,25 +32,25 @@ public partial class AwsCodeartifactAuthorizationTokenDataSource(string name) : 
     /// </summary>
     public TerraformValue<double>? DurationSeconds
     {
-        get => new TerraformReference<double>(this, "duration_seconds");
+        get => GetArgument<TerraformValue<double>>("duration_seconds");
         set => SetArgument("duration_seconds", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -58,16 +58,12 @@ public partial class AwsCodeartifactAuthorizationTokenDataSource(string name) : 
     /// The authorization_token attribute.
     /// </summary>
     public TerraformValue<string> AuthorizationToken
-    {
-        get => new TerraformReference<string>(this, "authorization_token");
-    }
+        => AsReference("authorization_token");
 
     /// <summary>
     /// The expiration attribute.
     /// </summary>
     public TerraformValue<string> Expiration
-    {
-        get => new TerraformReference<string>(this, "expiration");
-    }
+        => AsReference("expiration");
 
 }

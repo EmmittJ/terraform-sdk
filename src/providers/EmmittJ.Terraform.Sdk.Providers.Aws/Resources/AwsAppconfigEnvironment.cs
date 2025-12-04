@@ -19,7 +19,7 @@ public class AwsAppconfigEnvironmentMonitorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmArn is required")]
     public required TerraformValue<string> AlarmArn
     {
-        get => new TerraformReference<string>(this, "alarm_arn");
+        get => GetArgument<TerraformValue<string>>("alarm_arn");
         set => SetArgument("alarm_arn", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsAppconfigEnvironmentMonitorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AlarmRoleArn
     {
-        get => new TerraformReference<string>(this, "alarm_role_arn");
+        get => GetArgument<TerraformValue<string>>("alarm_role_arn");
         set => SetArgument("alarm_role_arn", value);
     }
 
@@ -47,16 +47,16 @@ public partial class AwsAppconfigEnvironment(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => new TerraformReference<string>(this, "application_id");
+        get => GetArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string> Description
+    public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -66,16 +66,16 @@ public partial class AwsAppconfigEnvironment(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AwsAppconfigEnvironment(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -92,42 +92,32 @@ public partial class AwsAppconfigEnvironment(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The environment_id attribute.
     /// </summary>
     public TerraformValue<string> EnvironmentId
-    {
-        get => new TerraformReference<string>(this, "environment_id");
-    }
+        => AsReference("environment_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Monitor block (nesting mode: set).

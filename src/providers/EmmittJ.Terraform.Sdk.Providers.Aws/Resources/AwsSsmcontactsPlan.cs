@@ -19,7 +19,7 @@ public class AwsSsmcontactsPlanStageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DurationInMinutes is required")]
     public required TerraformValue<double> DurationInMinutes
     {
-        get => new TerraformReference<double>(this, "duration_in_minutes");
+        get => GetArgument<TerraformValue<double>>("duration_in_minutes");
         set => SetArgument("duration_in_minutes", value);
     }
 
@@ -84,7 +84,7 @@ public class AwsSsmcontactsPlanStageBlockTargetBlockChannelTargetInfoBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactChannelId is required")]
     public required TerraformValue<string> ContactChannelId
     {
-        get => new TerraformReference<string>(this, "contact_channel_id");
+        get => GetArgument<TerraformValue<string>>("contact_channel_id");
         set => SetArgument("contact_channel_id", value);
     }
 
@@ -93,7 +93,7 @@ public class AwsSsmcontactsPlanStageBlockTargetBlockChannelTargetInfoBlock : Ter
     /// </summary>
     public TerraformValue<double>? RetryIntervalInMinutes
     {
-        get => new TerraformReference<double>(this, "retry_interval_in_minutes");
+        get => GetArgument<TerraformValue<double>>("retry_interval_in_minutes");
         set => SetArgument("retry_interval_in_minutes", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsSsmcontactsPlanStageBlockTargetBlockContactTargetInfoBlock : Ter
     /// </summary>
     public TerraformValue<string>? ContactId
     {
-        get => new TerraformReference<string>(this, "contact_id");
+        get => GetArgument<TerraformValue<string>>("contact_id");
         set => SetArgument("contact_id", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsSsmcontactsPlanStageBlockTargetBlockContactTargetInfoBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsEssential is required")]
     public required TerraformValue<bool> IsEssential
     {
-        get => new TerraformReference<bool>(this, "is_essential");
+        get => GetArgument<TerraformValue<bool>>("is_essential");
         set => SetArgument("is_essential", value);
     }
 
@@ -144,25 +144,25 @@ public partial class AwsSsmcontactsPlan(string name) : TerraformResource("aws_ss
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactId is required")]
     public required TerraformValue<string> ContactId
     {
-        get => new TerraformReference<string>(this, "contact_id");
+        get => GetArgument<TerraformValue<string>>("contact_id");
         set => SetArgument("contact_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

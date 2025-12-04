@@ -40,7 +40,7 @@ public class AwsBedrockagentcoreGatewayAuthorizerConfigurationBlockCustomJwtAuth
     /// </summary>
     public TerraformSet<string>? AllowedAudience
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_audience").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_audience");
         set => SetArgument("allowed_audience", value);
     }
 
@@ -49,7 +49,7 @@ public class AwsBedrockagentcoreGatewayAuthorizerConfigurationBlockCustomJwtAuth
     /// </summary>
     public TerraformSet<string>? AllowedClients
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_clients").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_clients");
         set => SetArgument("allowed_clients", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsBedrockagentcoreGatewayAuthorizerConfigurationBlockCustomJwtAuth
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiscoveryUrl is required")]
     public required TerraformValue<string> DiscoveryUrl
     {
-        get => new TerraformReference<string>(this, "discovery_url");
+        get => GetArgument<TerraformValue<string>>("discovery_url");
         set => SetArgument("discovery_url", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsBedrockagentcoreGatewayProtocolConfigurationBlockMcpBlock : Terr
     /// </summary>
     public TerraformValue<string>? Instructions
     {
-        get => new TerraformReference<string>(this, "instructions");
+        get => GetArgument<TerraformValue<string>>("instructions");
         set => SetArgument("instructions", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsBedrockagentcoreGatewayProtocolConfigurationBlockMcpBlock : Terr
     /// </summary>
     public TerraformValue<string>? SearchType
     {
-        get => new TerraformReference<string>(this, "search_type");
+        get => GetArgument<TerraformValue<string>>("search_type");
         set => SetArgument("search_type", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsBedrockagentcoreGatewayProtocolConfigurationBlockMcpBlock : Terr
     /// </summary>
     public TerraformSet<string>? SupportedVersions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "supported_versions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("supported_versions");
         set => SetArgument("supported_versions", value);
     }
 
@@ -145,7 +145,7 @@ public class AwsBedrockagentcoreGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -154,7 +154,7 @@ public class AwsBedrockagentcoreGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -163,7 +163,7 @@ public class AwsBedrockagentcoreGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AwsBedrockagentcoreGateway(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerType is required")]
     public required TerraformValue<string> AuthorizerType
     {
-        get => new TerraformReference<string>(this, "authorizer_type");
+        get => GetArgument<TerraformValue<string>>("authorizer_type");
         set => SetArgument("authorizer_type", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AwsBedrockagentcoreGateway(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AwsBedrockagentcoreGateway(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? ExceptionLevel
     {
-        get => new TerraformReference<string>(this, "exception_level");
+        get => GetArgument<TerraformValue<string>>("exception_level");
         set => SetArgument("exception_level", value);
     }
 
@@ -209,7 +209,7 @@ public partial class AwsBedrockagentcoreGateway(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -219,7 +219,7 @@ public partial class AwsBedrockagentcoreGateway(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -229,16 +229,16 @@ public partial class AwsBedrockagentcoreGateway(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtocolType is required")]
     public required TerraformValue<string> ProtocolType
     {
-        get => new TerraformReference<string>(this, "protocol_type");
+        get => GetArgument<TerraformValue<string>>("protocol_type");
         set => SetArgument("protocol_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -248,7 +248,7 @@ public partial class AwsBedrockagentcoreGateway(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -257,7 +257,7 @@ public partial class AwsBedrockagentcoreGateway(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -265,41 +265,31 @@ public partial class AwsBedrockagentcoreGateway(string name) : TerraformResource
     /// The gateway_arn attribute.
     /// </summary>
     public TerraformValue<string> GatewayArn
-    {
-        get => new TerraformReference<string>(this, "gateway_arn");
-    }
+        => AsReference("gateway_arn");
 
     /// <summary>
     /// The gateway_id attribute.
     /// </summary>
     public TerraformValue<string> GatewayId
-    {
-        get => new TerraformReference<string>(this, "gateway_id");
-    }
+        => AsReference("gateway_id");
 
     /// <summary>
     /// The gateway_url attribute.
     /// </summary>
     public TerraformValue<string> GatewayUrl
-    {
-        get => new TerraformReference<string>(this, "gateway_url");
-    }
+        => AsReference("gateway_url");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// The workload_identity_details attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> WorkloadIdentityDetails
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "workload_identity_details").ResolveNodes(ctx));
-    }
+        => AsReference("workload_identity_details");
 
     /// <summary>
     /// AuthorizerConfiguration block (nesting mode: list).

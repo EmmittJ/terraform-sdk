@@ -11,9 +11,9 @@ public partial class AwsLicensemanagerReceivedLicenseDataSource(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsLicensemanagerReceivedLicenseDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseArn is required")]
     public required TerraformValue<string> LicenseArn
     {
-        get => new TerraformReference<string>(this, "license_arn");
+        get => GetArgument<TerraformValue<string>>("license_arn");
         set => SetArgument("license_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -40,112 +40,84 @@ public partial class AwsLicensemanagerReceivedLicenseDataSource(string name) : T
     /// The beneficiary attribute.
     /// </summary>
     public TerraformValue<string> Beneficiary
-    {
-        get => new TerraformReference<string>(this, "beneficiary");
-    }
+        => AsReference("beneficiary");
 
     /// <summary>
     /// The consumption_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConsumptionConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "consumption_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("consumption_configuration");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The entitlements attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Entitlements
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "entitlements").ResolveNodes(ctx));
-    }
+        => AsReference("entitlements");
 
     /// <summary>
     /// The home_region attribute.
     /// </summary>
     public TerraformValue<string> HomeRegion
-    {
-        get => new TerraformReference<string>(this, "home_region");
-    }
+        => AsReference("home_region");
 
     /// <summary>
     /// The issuer attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Issuer
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "issuer").ResolveNodes(ctx));
-    }
+        => AsReference("issuer");
 
     /// <summary>
     /// The license_metadata attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> LicenseMetadata
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "license_metadata").ResolveNodes(ctx));
-    }
+        => AsReference("license_metadata");
 
     /// <summary>
     /// The license_name attribute.
     /// </summary>
     public TerraformValue<string> LicenseName
-    {
-        get => new TerraformReference<string>(this, "license_name");
-    }
+        => AsReference("license_name");
 
     /// <summary>
     /// The product_name attribute.
     /// </summary>
     public TerraformValue<string> ProductName
-    {
-        get => new TerraformReference<string>(this, "product_name");
-    }
+        => AsReference("product_name");
 
     /// <summary>
     /// The product_sku attribute.
     /// </summary>
     public TerraformValue<string> ProductSku
-    {
-        get => new TerraformReference<string>(this, "product_sku");
-    }
+        => AsReference("product_sku");
 
     /// <summary>
     /// The received_metadata attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReceivedMetadata
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "received_metadata").ResolveNodes(ctx));
-    }
+        => AsReference("received_metadata");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The validity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Validity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "validity").ResolveNodes(ctx));
-    }
+        => AsReference("validity");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
 }

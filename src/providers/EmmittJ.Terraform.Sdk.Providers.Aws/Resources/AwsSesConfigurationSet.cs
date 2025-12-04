@@ -18,7 +18,7 @@ public class AwsSesConfigurationSetDeliveryOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TlsPolicy
     {
-        get => new TerraformReference<string>(this, "tls_policy");
+        get => GetArgument<TerraformValue<string>>("tls_policy");
         set => SetArgument("tls_policy", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsSesConfigurationSetTrackingOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CustomRedirectDomain
     {
-        get => new TerraformReference<string>(this, "custom_redirect_domain");
+        get => GetArgument<TerraformValue<string>>("custom_redirect_domain");
         set => SetArgument("custom_redirect_domain", value);
     }
 
@@ -57,9 +57,9 @@ public partial class AwsSesConfigurationSet(string name) : TerraformResource("aw
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -69,16 +69,16 @@ public partial class AwsSesConfigurationSet(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -87,7 +87,7 @@ public partial class AwsSesConfigurationSet(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<bool>? ReputationMetricsEnabled
     {
-        get => new TerraformReference<bool>(this, "reputation_metrics_enabled");
+        get => GetArgument<TerraformValue<bool>>("reputation_metrics_enabled");
         set => SetArgument("reputation_metrics_enabled", value);
     }
 
@@ -96,7 +96,7 @@ public partial class AwsSesConfigurationSet(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<bool>? SendingEnabled
     {
-        get => new TerraformReference<bool>(this, "sending_enabled");
+        get => GetArgument<TerraformValue<bool>>("sending_enabled");
         set => SetArgument("sending_enabled", value);
     }
 
@@ -104,17 +104,13 @@ public partial class AwsSesConfigurationSet(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The last_fresh_start attribute.
     /// </summary>
     public TerraformValue<string> LastFreshStart
-    {
-        get => new TerraformReference<string>(this, "last_fresh_start");
-    }
+        => AsReference("last_fresh_start");
 
     /// <summary>
     /// DeliveryOptions block (nesting mode: list).

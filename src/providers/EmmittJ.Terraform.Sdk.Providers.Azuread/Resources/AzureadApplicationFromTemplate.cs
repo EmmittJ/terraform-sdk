@@ -18,7 +18,7 @@ public class AzureadApplicationFromTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadApplicationFromTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadApplicationFromTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzureadApplicationFromTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AzureadApplicationFromTemplate(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzureadApplicationFromTemplate(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateId is required")]
     public required TerraformValue<string> TemplateId
     {
-        get => new TerraformReference<string>(this, "template_id");
+        get => GetArgument<TerraformValue<string>>("template_id");
         set => SetArgument("template_id", value);
     }
 
@@ -91,33 +91,25 @@ public partial class AzureadApplicationFromTemplate(string name) : TerraformReso
     /// The resource ID for this application
     /// </summary>
     public TerraformValue<string> ApplicationId
-    {
-        get => new TerraformReference<string>(this, "application_id");
-    }
+        => AsReference("application_id");
 
     /// <summary>
     /// The object ID for this application
     /// </summary>
     public TerraformValue<string> ApplicationObjectId
-    {
-        get => new TerraformReference<string>(this, "application_object_id");
-    }
+        => AsReference("application_object_id");
 
     /// <summary>
     /// The resource ID for this service principal
     /// </summary>
     public TerraformValue<string> ServicePrincipalId
-    {
-        get => new TerraformReference<string>(this, "service_principal_id");
-    }
+        => AsReference("service_principal_id");
 
     /// <summary>
     /// The object ID for this service principal
     /// </summary>
     public TerraformValue<string> ServicePrincipalObjectId
-    {
-        get => new TerraformReference<string>(this, "service_principal_object_id");
-    }
+        => AsReference("service_principal_object_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

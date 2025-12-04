@@ -18,7 +18,7 @@ public class AwsNeptunegraphGraphTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsNeptunegraphGraphTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsNeptunegraphGraphTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsNeptunegraphGraphVectorSearchConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? VectorSearchDimension
     {
-        get => new TerraformReference<double>(this, "vector_search_dimension");
+        get => GetArgument<TerraformValue<double>>("vector_search_dimension");
         set => SetArgument("vector_search_dimension", value);
     }
 
@@ -75,9 +75,9 @@ public partial class AwsNeptunegraphGraph(string name) : TerraformResource("aws_
     /// <summary>
     /// A value that indicates whether the graph has deletion protection enabled. The graph can&#39;t be deleted when deletion protection is enabled.
     /// </summary>
-    public TerraformValue<bool> DeletionProtection
+    public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
@@ -88,9 +88,9 @@ public partial class AwsNeptunegraphGraph(string name) : TerraformResource("aws_
     /// 								If you don&#39;t specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
     /// 								followed by a combination of Stack Name and a UUID.
     /// </summary>
-    public TerraformValue<string> GraphName
+    public TerraformValue<string>? GraphName
     {
-        get => new TerraformReference<string>(this, "graph_name");
+        get => GetArgument<TerraformValue<string>>("graph_name");
         set => SetArgument("graph_name", value);
     }
 
@@ -99,16 +99,16 @@ public partial class AwsNeptunegraphGraph(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? GraphNamePrefix
     {
-        get => new TerraformReference<string>(this, "graph_name_prefix");
+        get => GetArgument<TerraformValue<string>>("graph_name_prefix");
         set => SetArgument("graph_name_prefix", value);
     }
 
     /// <summary>
     /// Specifies a KMS key to use to encrypt data in the new graph.  Value must be ARN of KMS Key.
     /// </summary>
-    public TerraformValue<string> KmsKeyIdentifier
+    public TerraformValue<string>? KmsKeyIdentifier
     {
-        get => new TerraformReference<string>(this, "kms_key_identifier");
+        get => GetArgument<TerraformValue<string>>("kms_key_identifier");
         set => SetArgument("kms_key_identifier", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AwsNeptunegraphGraph(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProvisionedMemory is required")]
     public required TerraformValue<double> ProvisionedMemory
     {
-        get => new TerraformReference<double>(this, "provisioned_memory");
+        get => GetArgument<TerraformValue<double>>("provisioned_memory");
         set => SetArgument("provisioned_memory", value);
     }
 
@@ -130,27 +130,27 @@ public partial class AwsNeptunegraphGraph(string name) : TerraformResource("aws_
     /// 								to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private 
     /// 								IP address that is reachable from the VPC.
     /// </summary>
-    public TerraformValue<bool> PublicConnectivity
+    public TerraformValue<bool>? PublicConnectivity
     {
-        get => new TerraformReference<bool>(this, "public_connectivity");
+        get => GetArgument<TerraformValue<bool>>("public_connectivity");
         set => SetArgument("public_connectivity", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The number of replicas in other AZs.  Value must be between 0 and 2.
     /// </summary>
-    public TerraformValue<double> ReplicaCount
+    public TerraformValue<double>? ReplicaCount
     {
-        get => new TerraformReference<double>(this, "replica_count");
+        get => GetArgument<TerraformValue<double>>("replica_count");
         set => SetArgument("replica_count", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AwsNeptunegraphGraph(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -167,33 +167,25 @@ public partial class AwsNeptunegraphGraph(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

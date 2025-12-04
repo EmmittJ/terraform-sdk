@@ -77,7 +77,7 @@ public class AwsDatasyncLocationFsxOntapFileSystemProtocolBlockNfsBlockMountOpti
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsDatasyncLocationFsxOntapFileSystemProtocolBlockSmbBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Domain
     {
-        get => new TerraformReference<string>(this, "domain");
+        get => GetArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsDatasyncLocationFsxOntapFileSystemProtocolBlockSmbBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -119,7 +119,7 @@ public class AwsDatasyncLocationFsxOntapFileSystemProtocolBlockSmbBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     public required TerraformValue<string> User
     {
-        get => new TerraformReference<string>(this, "user");
+        get => GetArgument<TerraformValue<string>>("user");
         set => SetArgument("user", value);
     }
 
@@ -154,7 +154,7 @@ public class AwsDatasyncLocationFsxOntapFileSystemProtocolBlockSmbBlockMountOpti
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -170,18 +170,18 @@ public partial class AwsDatasyncLocationFsxOntapFileSystem(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AwsDatasyncLocationFsxOntapFileSystem(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupArns is required")]
     public required TerraformSet<string> SecurityGroupArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_arns");
         set => SetArgument("security_group_arns", value);
     }
 
@@ -201,16 +201,16 @@ public partial class AwsDatasyncLocationFsxOntapFileSystem(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageVirtualMachineArn is required")]
     public required TerraformValue<string> StorageVirtualMachineArn
     {
-        get => new TerraformReference<string>(this, "storage_virtual_machine_arn");
+        get => GetArgument<TerraformValue<string>>("storage_virtual_machine_arn");
         set => SetArgument("storage_virtual_machine_arn", value);
     }
 
     /// <summary>
     /// The subdirectory attribute.
     /// </summary>
-    public TerraformValue<string> Subdirectory
+    public TerraformValue<string>? Subdirectory
     {
-        get => new TerraformReference<string>(this, "subdirectory");
+        get => GetArgument<TerraformValue<string>>("subdirectory");
         set => SetArgument("subdirectory", value);
     }
 
@@ -219,16 +219,16 @@ public partial class AwsDatasyncLocationFsxOntapFileSystem(string name) : Terraf
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -236,33 +236,25 @@ public partial class AwsDatasyncLocationFsxOntapFileSystem(string name) : Terraf
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-    {
-        get => new TerraformReference<string>(this, "creation_time");
-    }
+        => AsReference("creation_time");
 
     /// <summary>
     /// The fsx_filesystem_arn attribute.
     /// </summary>
     public TerraformValue<string> FsxFilesystemArn
-    {
-        get => new TerraformReference<string>(this, "fsx_filesystem_arn");
-    }
+        => AsReference("fsx_filesystem_arn");
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     public TerraformValue<string> Uri
-    {
-        get => new TerraformReference<string>(this, "uri");
-    }
+        => AsReference("uri");
 
     /// <summary>
     /// Protocol block (nesting mode: list).

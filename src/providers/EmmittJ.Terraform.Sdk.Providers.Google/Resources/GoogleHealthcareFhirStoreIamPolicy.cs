@@ -14,16 +14,16 @@ public partial class GoogleHealthcareFhirStoreIamPolicy(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FhirStoreId is required")]
     public required TerraformValue<string> FhirStoreId
     {
-        get => new TerraformReference<string>(this, "fhir_store_id");
+        get => GetArgument<TerraformValue<string>>("fhir_store_id");
         set => SetArgument("fhir_store_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleHealthcareFhirStoreIamPolicy(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
     public required TerraformValue<string> PolicyData
     {
-        get => new TerraformReference<string>(this, "policy_data");
+        get => GetArgument<TerraformValue<string>>("policy_data");
         set => SetArgument("policy_data", value);
     }
 
@@ -41,8 +41,6 @@ public partial class GoogleHealthcareFhirStoreIamPolicy(string name) : Terraform
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
 }

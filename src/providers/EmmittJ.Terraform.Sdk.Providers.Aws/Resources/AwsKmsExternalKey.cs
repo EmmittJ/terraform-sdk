@@ -13,7 +13,7 @@ public partial class AwsKmsExternalKey(string name) : TerraformResource("aws_kms
     /// </summary>
     public TerraformValue<bool>? BypassPolicyLockoutSafetyCheck
     {
-        get => new TerraformReference<bool>(this, "bypass_policy_lockout_safety_check");
+        get => GetArgument<TerraformValue<bool>>("bypass_policy_lockout_safety_check");
         set => SetArgument("bypass_policy_lockout_safety_check", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsKmsExternalKey(string name) : TerraformResource("aws_kms
     /// </summary>
     public TerraformValue<double>? DeletionWindowInDays
     {
-        get => new TerraformReference<double>(this, "deletion_window_in_days");
+        get => GetArgument<TerraformValue<double>>("deletion_window_in_days");
         set => SetArgument("deletion_window_in_days", value);
     }
 
@@ -31,25 +31,25 @@ public partial class AwsKmsExternalKey(string name) : TerraformResource("aws_kms
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool> Enabled
+    public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -58,52 +58,52 @@ public partial class AwsKmsExternalKey(string name) : TerraformResource("aws_kms
     /// </summary>
     public TerraformValue<string>? KeyMaterialBase64
     {
-        get => new TerraformReference<string>(this, "key_material_base64");
+        get => GetArgument<TerraformValue<string>>("key_material_base64");
         set => SetArgument("key_material_base64", value);
     }
 
     /// <summary>
     /// The key_spec attribute.
     /// </summary>
-    public TerraformValue<string> KeySpec
+    public TerraformValue<string>? KeySpec
     {
-        get => new TerraformReference<string>(this, "key_spec");
+        get => GetArgument<TerraformValue<string>>("key_spec");
         set => SetArgument("key_spec", value);
     }
 
     /// <summary>
     /// The key_usage attribute.
     /// </summary>
-    public TerraformValue<string> KeyUsage
+    public TerraformValue<string>? KeyUsage
     {
-        get => new TerraformReference<string>(this, "key_usage");
+        get => GetArgument<TerraformValue<string>>("key_usage");
         set => SetArgument("key_usage", value);
     }
 
     /// <summary>
     /// The multi_region attribute.
     /// </summary>
-    public TerraformValue<bool> MultiRegion
+    public TerraformValue<bool>? MultiRegion
     {
-        get => new TerraformReference<bool>(this, "multi_region");
+        get => GetArgument<TerraformValue<bool>>("multi_region");
         set => SetArgument("multi_region", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformValue<string> Policy
+    public TerraformValue<string>? Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -112,16 +112,16 @@ public partial class AwsKmsExternalKey(string name) : TerraformResource("aws_kms
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AwsKmsExternalKey(string name) : TerraformResource("aws_kms
     /// </summary>
     public TerraformValue<string>? ValidTo
     {
-        get => new TerraformReference<string>(this, "valid_to");
+        get => GetArgument<TerraformValue<string>>("valid_to");
         set => SetArgument("valid_to", value);
     }
 
@@ -138,24 +138,18 @@ public partial class AwsKmsExternalKey(string name) : TerraformResource("aws_kms
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The expiration_model attribute.
     /// </summary>
     public TerraformValue<string> ExpirationModel
-    {
-        get => new TerraformReference<string>(this, "expiration_model");
-    }
+        => AsReference("expiration_model");
 
     /// <summary>
     /// The key_state attribute.
     /// </summary>
     public TerraformValue<string> KeyState
-    {
-        get => new TerraformReference<string>(this, "key_state");
-    }
+        => AsReference("key_state");
 
 }

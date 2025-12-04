@@ -11,9 +11,9 @@ public partial class AwsEcrImagesDataSource(string name) : TerraformDataSource("
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsEcrImagesDataSource(string name) : TerraformDataSource("
     /// </summary>
     public TerraformValue<string>? RegistryId
     {
-        get => new TerraformReference<string>(this, "registry_id");
+        get => GetArgument<TerraformValue<string>>("registry_id");
         set => SetArgument("registry_id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsEcrImagesDataSource(string name) : TerraformDataSource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformValue<string> RepositoryName
     {
-        get => new TerraformReference<string>(this, "repository_name");
+        get => GetArgument<TerraformValue<string>>("repository_name");
         set => SetArgument("repository_name", value);
     }
 
@@ -40,8 +40,6 @@ public partial class AwsEcrImagesDataSource(string name) : TerraformDataSource("
     /// The image_ids attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ImageIds
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "image_ids").ResolveNodes(ctx));
-    }
+        => AsReference("image_ids");
 
 }

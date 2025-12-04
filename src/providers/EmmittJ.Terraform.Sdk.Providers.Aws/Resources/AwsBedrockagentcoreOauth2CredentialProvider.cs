@@ -85,7 +85,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<double>? ClientCredentialsWoVersion
     {
-        get => new TerraformReference<double>(this, "client_credentials_wo_version");
+        get => GetArgument<TerraformValue<double>>("client_credentials_wo_version");
         set => SetArgument("client_credentials_wo_version", value);
     }
 
@@ -94,7 +94,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -103,7 +103,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientIdWo
     {
-        get => new TerraformReference<string>(this, "client_id_wo");
+        get => GetArgument<TerraformValue<string>>("client_id_wo");
         set => SetArgument("client_id_wo", value);
     }
 
@@ -112,7 +112,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientSecretWo
     {
-        get => new TerraformReference<string>(this, "client_secret_wo");
+        get => GetArgument<TerraformValue<string>>("client_secret_wo");
         set => SetArgument("client_secret_wo", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? DiscoveryUrl
     {
-        get => new TerraformReference<string>(this, "discovery_url");
+        get => GetArgument<TerraformValue<string>>("discovery_url");
         set => SetArgument("discovery_url", value);
     }
 
@@ -184,7 +184,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationEndpoint is required")]
     public required TerraformValue<string> AuthorizationEndpoint
     {
-        get => new TerraformReference<string>(this, "authorization_endpoint");
+        get => GetArgument<TerraformValue<string>>("authorization_endpoint");
         set => SetArgument("authorization_endpoint", value);
     }
 
@@ -194,7 +194,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformValue<string> Issuer
     {
-        get => new TerraformReference<string>(this, "issuer");
+        get => GetArgument<TerraformValue<string>>("issuer");
         set => SetArgument("issuer", value);
     }
 
@@ -203,7 +203,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformSet<string>? ResponseTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "response_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("response_types");
         set => SetArgument("response_types", value);
     }
 
@@ -213,7 +213,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenEndpoint is required")]
     public required TerraformValue<string> TokenEndpoint
     {
-        get => new TerraformReference<string>(this, "token_endpoint");
+        get => GetArgument<TerraformValue<string>>("token_endpoint");
         set => SetArgument("token_endpoint", value);
     }
 
@@ -235,7 +235,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<double>? ClientCredentialsWoVersion
     {
-        get => new TerraformReference<double>(this, "client_credentials_wo_version");
+        get => GetArgument<TerraformValue<double>>("client_credentials_wo_version");
         set => SetArgument("client_credentials_wo_version", value);
     }
 
@@ -244,7 +244,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -253,7 +253,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientIdWo
     {
-        get => new TerraformReference<string>(this, "client_id_wo");
+        get => GetArgument<TerraformValue<string>>("client_id_wo");
         set => SetArgument("client_id_wo", value);
     }
 
@@ -262,7 +262,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -271,7 +271,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientSecretWo
     {
-        get => new TerraformReference<string>(this, "client_secret_wo");
+        get => GetArgument<TerraformValue<string>>("client_secret_wo");
         set => SetArgument("client_secret_wo", value);
     }
 
@@ -279,9 +279,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// The oauth_discovery attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> OauthDiscovery
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "oauth_discovery").ResolveNodes(ctx));
-    }
+        => AsReference("oauth_discovery");
 
 }
 
@@ -301,7 +299,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<double>? ClientCredentialsWoVersion
     {
-        get => new TerraformReference<double>(this, "client_credentials_wo_version");
+        get => GetArgument<TerraformValue<double>>("client_credentials_wo_version");
         set => SetArgument("client_credentials_wo_version", value);
     }
 
@@ -310,7 +308,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -319,7 +317,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientIdWo
     {
-        get => new TerraformReference<string>(this, "client_id_wo");
+        get => GetArgument<TerraformValue<string>>("client_id_wo");
         set => SetArgument("client_id_wo", value);
     }
 
@@ -328,7 +326,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -337,7 +335,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientSecretWo
     {
-        get => new TerraformReference<string>(this, "client_secret_wo");
+        get => GetArgument<TerraformValue<string>>("client_secret_wo");
         set => SetArgument("client_secret_wo", value);
     }
 
@@ -345,9 +343,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// The oauth_discovery attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> OauthDiscovery
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "oauth_discovery").ResolveNodes(ctx));
-    }
+        => AsReference("oauth_discovery");
 
 }
 
@@ -367,7 +363,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<double>? ClientCredentialsWoVersion
     {
-        get => new TerraformReference<double>(this, "client_credentials_wo_version");
+        get => GetArgument<TerraformValue<double>>("client_credentials_wo_version");
         set => SetArgument("client_credentials_wo_version", value);
     }
 
@@ -376,7 +372,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -385,7 +381,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientIdWo
     {
-        get => new TerraformReference<string>(this, "client_id_wo");
+        get => GetArgument<TerraformValue<string>>("client_id_wo");
         set => SetArgument("client_id_wo", value);
     }
 
@@ -394,7 +390,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -403,7 +399,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientSecretWo
     {
-        get => new TerraformReference<string>(this, "client_secret_wo");
+        get => GetArgument<TerraformValue<string>>("client_secret_wo");
         set => SetArgument("client_secret_wo", value);
     }
 
@@ -411,9 +407,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// The oauth_discovery attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> OauthDiscovery
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "oauth_discovery").ResolveNodes(ctx));
-    }
+        => AsReference("oauth_discovery");
 
 }
 
@@ -433,7 +427,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<double>? ClientCredentialsWoVersion
     {
-        get => new TerraformReference<double>(this, "client_credentials_wo_version");
+        get => GetArgument<TerraformValue<double>>("client_credentials_wo_version");
         set => SetArgument("client_credentials_wo_version", value);
     }
 
@@ -442,7 +436,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -451,7 +445,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientIdWo
     {
-        get => new TerraformReference<string>(this, "client_id_wo");
+        get => GetArgument<TerraformValue<string>>("client_id_wo");
         set => SetArgument("client_id_wo", value);
     }
 
@@ -460,7 +454,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -469,7 +463,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientSecretWo
     {
-        get => new TerraformReference<string>(this, "client_secret_wo");
+        get => GetArgument<TerraformValue<string>>("client_secret_wo");
         set => SetArgument("client_secret_wo", value);
     }
 
@@ -477,9 +471,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// The oauth_discovery attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> OauthDiscovery
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "oauth_discovery").ResolveNodes(ctx));
-    }
+        => AsReference("oauth_discovery");
 
 }
 
@@ -499,7 +491,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<double>? ClientCredentialsWoVersion
     {
-        get => new TerraformReference<double>(this, "client_credentials_wo_version");
+        get => GetArgument<TerraformValue<double>>("client_credentials_wo_version");
         set => SetArgument("client_credentials_wo_version", value);
     }
 
@@ -508,7 +500,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -517,7 +509,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientIdWo
     {
-        get => new TerraformReference<string>(this, "client_id_wo");
+        get => GetArgument<TerraformValue<string>>("client_id_wo");
         set => SetArgument("client_id_wo", value);
     }
 
@@ -526,7 +518,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -535,7 +527,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// </summary>
     public TerraformValue<string>? ClientSecretWo
     {
-        get => new TerraformReference<string>(this, "client_secret_wo");
+        get => GetArgument<TerraformValue<string>>("client_secret_wo");
         set => SetArgument("client_secret_wo", value);
     }
 
@@ -543,9 +535,7 @@ public class AwsBedrockagentcoreOauth2CredentialProviderOauth2ProviderConfigBloc
     /// The oauth_discovery attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> OauthDiscovery
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "oauth_discovery").ResolveNodes(ctx));
-    }
+        => AsReference("oauth_discovery");
 
 }
 
@@ -562,7 +552,7 @@ public partial class AwsBedrockagentcoreOauth2CredentialProvider(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CredentialProviderVendor is required")]
     public required TerraformValue<string> CredentialProviderVendor
     {
-        get => new TerraformReference<string>(this, "credential_provider_vendor");
+        get => GetArgument<TerraformValue<string>>("credential_provider_vendor");
         set => SetArgument("credential_provider_vendor", value);
     }
 
@@ -572,16 +562,16 @@ public partial class AwsBedrockagentcoreOauth2CredentialProvider(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -589,17 +579,13 @@ public partial class AwsBedrockagentcoreOauth2CredentialProvider(string name) : 
     /// The client_secret_arn attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ClientSecretArn
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "client_secret_arn").ResolveNodes(ctx));
-    }
+        => AsReference("client_secret_arn");
 
     /// <summary>
     /// The credential_provider_arn attribute.
     /// </summary>
     public TerraformValue<string> CredentialProviderArn
-    {
-        get => new TerraformReference<string>(this, "credential_provider_arn");
-    }
+        => AsReference("credential_provider_arn");
 
     /// <summary>
     /// Oauth2ProviderConfig block (nesting mode: list).

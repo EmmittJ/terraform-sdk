@@ -14,7 +14,7 @@ public partial class AwsRedshiftUsageLimit(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Amount is required")]
     public required TerraformValue<double> Amount
     {
-        get => new TerraformReference<double>(this, "amount");
+        get => GetArgument<TerraformValue<double>>("amount");
         set => SetArgument("amount", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsRedshiftUsageLimit(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? BreachAction
     {
-        get => new TerraformReference<string>(this, "breach_action");
+        get => GetArgument<TerraformValue<string>>("breach_action");
         set => SetArgument("breach_action", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsRedshiftUsageLimit(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformValue<string> ClusterIdentifier
     {
-        get => new TerraformReference<string>(this, "cluster_identifier");
+        get => GetArgument<TerraformValue<string>>("cluster_identifier");
         set => SetArgument("cluster_identifier", value);
     }
 
@@ -43,16 +43,16 @@ public partial class AwsRedshiftUsageLimit(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FeatureType is required")]
     public required TerraformValue<string> FeatureType
     {
-        get => new TerraformReference<string>(this, "feature_type");
+        get => GetArgument<TerraformValue<string>>("feature_type");
         set => SetArgument("feature_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -62,7 +62,7 @@ public partial class AwsRedshiftUsageLimit(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LimitType is required")]
     public required TerraformValue<string> LimitType
     {
-        get => new TerraformReference<string>(this, "limit_type");
+        get => GetArgument<TerraformValue<string>>("limit_type");
         set => SetArgument("limit_type", value);
     }
 
@@ -71,16 +71,16 @@ public partial class AwsRedshiftUsageLimit(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? Period
     {
-        get => new TerraformReference<string>(this, "period");
+        get => GetArgument<TerraformValue<string>>("period");
         set => SetArgument("period", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -89,16 +89,16 @@ public partial class AwsRedshiftUsageLimit(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -106,8 +106,6 @@ public partial class AwsRedshiftUsageLimit(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

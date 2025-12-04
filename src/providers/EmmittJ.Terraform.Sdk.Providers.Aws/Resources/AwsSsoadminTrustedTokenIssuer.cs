@@ -41,7 +41,7 @@ public class AwsSsoadminTrustedTokenIssuerTrustedTokenIssuerConfigurationBlockOi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClaimAttributePath is required")]
     public required TerraformValue<string> ClaimAttributePath
     {
-        get => new TerraformReference<string>(this, "claim_attribute_path");
+        get => GetArgument<TerraformValue<string>>("claim_attribute_path");
         set => SetArgument("claim_attribute_path", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsSsoadminTrustedTokenIssuerTrustedTokenIssuerConfigurationBlockOi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityStoreAttributePath is required")]
     public required TerraformValue<string> IdentityStoreAttributePath
     {
-        get => new TerraformReference<string>(this, "identity_store_attribute_path");
+        get => GetArgument<TerraformValue<string>>("identity_store_attribute_path");
         set => SetArgument("identity_store_attribute_path", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsSsoadminTrustedTokenIssuerTrustedTokenIssuerConfigurationBlockOi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUrl is required")]
     public required TerraformValue<string> IssuerUrl
     {
-        get => new TerraformReference<string>(this, "issuer_url");
+        get => GetArgument<TerraformValue<string>>("issuer_url");
         set => SetArgument("issuer_url", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsSsoadminTrustedTokenIssuerTrustedTokenIssuerConfigurationBlockOi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JwksRetrievalOption is required")]
     public required TerraformValue<string> JwksRetrievalOption
     {
-        get => new TerraformReference<string>(this, "jwks_retrieval_option");
+        get => GetArgument<TerraformValue<string>>("jwks_retrieval_option");
         set => SetArgument("jwks_retrieval_option", value);
     }
 
@@ -89,7 +89,7 @@ public partial class AwsSsoadminTrustedTokenIssuer(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? ClientToken
     {
-        get => new TerraformReference<string>(this, "client_token");
+        get => GetArgument<TerraformValue<string>>("client_token");
         set => SetArgument("client_token", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AwsSsoadminTrustedTokenIssuer(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     public required TerraformValue<string> InstanceArn
     {
-        get => new TerraformReference<string>(this, "instance_arn");
+        get => GetArgument<TerraformValue<string>>("instance_arn");
         set => SetArgument("instance_arn", value);
     }
 
@@ -109,16 +109,16 @@ public partial class AwsSsoadminTrustedTokenIssuer(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AwsSsoadminTrustedTokenIssuer(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AwsSsoadminTrustedTokenIssuer(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustedTokenIssuerType is required")]
     public required TerraformValue<string> TrustedTokenIssuerType
     {
-        get => new TerraformReference<string>(this, "trusted_token_issuer_type");
+        get => GetArgument<TerraformValue<string>>("trusted_token_issuer_type");
         set => SetArgument("trusted_token_issuer_type", value);
     }
 
@@ -145,25 +145,19 @@ public partial class AwsSsoadminTrustedTokenIssuer(string name) : TerraformResou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// TrustedTokenIssuerConfiguration block (nesting mode: list).

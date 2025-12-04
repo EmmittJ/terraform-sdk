@@ -18,7 +18,7 @@ public class AzurermAppServiceHybridConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermAppServiceHybridConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermAppServiceHybridConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermAppServiceHybridConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzurermAppServiceHybridConnection(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceName is required")]
     public required TerraformValue<string> AppServiceName
     {
-        get => new TerraformReference<string>(this, "app_service_name");
+        get => GetArgument<TerraformValue<string>>("app_service_name");
         set => SetArgument("app_service_name", value);
     }
 
@@ -75,16 +75,16 @@ public partial class AzurermAppServiceHybridConnection(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => new TerraformReference<string>(this, "hostname");
+        get => GetArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermAppServiceHybridConnection(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AzurermAppServiceHybridConnection(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelayId is required")]
     public required TerraformValue<string> RelayId
     {
-        get => new TerraformReference<string>(this, "relay_id");
+        get => GetArgument<TerraformValue<string>>("relay_id");
         set => SetArgument("relay_id", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AzurermAppServiceHybridConnection(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -123,7 +123,7 @@ public partial class AzurermAppServiceHybridConnection(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? SendKeyName
     {
-        get => new TerraformReference<string>(this, "send_key_name");
+        get => GetArgument<TerraformValue<string>>("send_key_name");
         set => SetArgument("send_key_name", value);
     }
 
@@ -131,41 +131,31 @@ public partial class AzurermAppServiceHybridConnection(string name) : TerraformR
     /// The namespace_name attribute.
     /// </summary>
     public TerraformValue<string> NamespaceName
-    {
-        get => new TerraformReference<string>(this, "namespace_name");
-    }
+        => AsReference("namespace_name");
 
     /// <summary>
     /// The relay_name attribute.
     /// </summary>
     public TerraformValue<string> RelayName
-    {
-        get => new TerraformReference<string>(this, "relay_name");
-    }
+        => AsReference("relay_name");
 
     /// <summary>
     /// The send_key_value attribute.
     /// </summary>
     public TerraformValue<string> SendKeyValue
-    {
-        get => new TerraformReference<string>(this, "send_key_value");
-    }
+        => AsReference("send_key_value");
 
     /// <summary>
     /// The service_bus_namespace attribute.
     /// </summary>
     public TerraformValue<string> ServiceBusNamespace
-    {
-        get => new TerraformReference<string>(this, "service_bus_namespace");
-    }
+        => AsReference("service_bus_namespace");
 
     /// <summary>
     /// The service_bus_suffix attribute.
     /// </summary>
     public TerraformValue<string> ServiceBusSuffix
-    {
-        get => new TerraformReference<string>(this, "service_bus_suffix");
-    }
+        => AsReference("service_bus_suffix");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

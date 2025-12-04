@@ -18,7 +18,7 @@ public class AwsIdentitystoreUserAddressesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Country
     {
-        get => new TerraformReference<string>(this, "country");
+        get => GetArgument<TerraformValue<string>>("country");
         set => SetArgument("country", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsIdentitystoreUserAddressesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Formatted
     {
-        get => new TerraformReference<string>(this, "formatted");
+        get => GetArgument<TerraformValue<string>>("formatted");
         set => SetArgument("formatted", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsIdentitystoreUserAddressesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Locality
     {
-        get => new TerraformReference<string>(this, "locality");
+        get => GetArgument<TerraformValue<string>>("locality");
         set => SetArgument("locality", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsIdentitystoreUserAddressesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PostalCode
     {
-        get => new TerraformReference<string>(this, "postal_code");
+        get => GetArgument<TerraformValue<string>>("postal_code");
         set => SetArgument("postal_code", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsIdentitystoreUserAddressesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Primary
     {
-        get => new TerraformReference<bool>(this, "primary");
+        get => GetArgument<TerraformValue<bool>>("primary");
         set => SetArgument("primary", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsIdentitystoreUserAddressesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsIdentitystoreUserAddressesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StreetAddress
     {
-        get => new TerraformReference<string>(this, "street_address");
+        get => GetArgument<TerraformValue<string>>("street_address");
         set => SetArgument("street_address", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsIdentitystoreUserAddressesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsIdentitystoreUserEmailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Primary
     {
-        get => new TerraformReference<bool>(this, "primary");
+        get => GetArgument<TerraformValue<bool>>("primary");
         set => SetArgument("primary", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsIdentitystoreUserEmailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsIdentitystoreUserEmailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -146,7 +146,7 @@ public class AwsIdentitystoreUserNameBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FamilyName is required")]
     public required TerraformValue<string> FamilyName
     {
-        get => new TerraformReference<string>(this, "family_name");
+        get => GetArgument<TerraformValue<string>>("family_name");
         set => SetArgument("family_name", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsIdentitystoreUserNameBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Formatted
     {
-        get => new TerraformReference<string>(this, "formatted");
+        get => GetArgument<TerraformValue<string>>("formatted");
         set => SetArgument("formatted", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsIdentitystoreUserNameBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GivenName is required")]
     public required TerraformValue<string> GivenName
     {
-        get => new TerraformReference<string>(this, "given_name");
+        get => GetArgument<TerraformValue<string>>("given_name");
         set => SetArgument("given_name", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsIdentitystoreUserNameBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? HonorificPrefix
     {
-        get => new TerraformReference<string>(this, "honorific_prefix");
+        get => GetArgument<TerraformValue<string>>("honorific_prefix");
         set => SetArgument("honorific_prefix", value);
     }
 
@@ -183,7 +183,7 @@ public class AwsIdentitystoreUserNameBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? HonorificSuffix
     {
-        get => new TerraformReference<string>(this, "honorific_suffix");
+        get => GetArgument<TerraformValue<string>>("honorific_suffix");
         set => SetArgument("honorific_suffix", value);
     }
 
@@ -192,7 +192,7 @@ public class AwsIdentitystoreUserNameBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MiddleName
     {
-        get => new TerraformReference<string>(this, "middle_name");
+        get => GetArgument<TerraformValue<string>>("middle_name");
         set => SetArgument("middle_name", value);
     }
 
@@ -215,7 +215,7 @@ public class AwsIdentitystoreUserPhoneNumbersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Primary
     {
-        get => new TerraformReference<bool>(this, "primary");
+        get => GetArgument<TerraformValue<bool>>("primary");
         set => SetArgument("primary", value);
     }
 
@@ -224,7 +224,7 @@ public class AwsIdentitystoreUserPhoneNumbersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -233,7 +233,7 @@ public class AwsIdentitystoreUserPhoneNumbersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -252,16 +252,16 @@ public partial class AwsIdentitystoreUser(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -271,7 +271,7 @@ public partial class AwsIdentitystoreUser(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityStoreId is required")]
     public required TerraformValue<string> IdentityStoreId
     {
-        get => new TerraformReference<string>(this, "identity_store_id");
+        get => GetArgument<TerraformValue<string>>("identity_store_id");
         set => SetArgument("identity_store_id", value);
     }
 
@@ -280,7 +280,7 @@ public partial class AwsIdentitystoreUser(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Locale
     {
-        get => new TerraformReference<string>(this, "locale");
+        get => GetArgument<TerraformValue<string>>("locale");
         set => SetArgument("locale", value);
     }
 
@@ -289,7 +289,7 @@ public partial class AwsIdentitystoreUser(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Nickname
     {
-        get => new TerraformReference<string>(this, "nickname");
+        get => GetArgument<TerraformValue<string>>("nickname");
         set => SetArgument("nickname", value);
     }
 
@@ -298,7 +298,7 @@ public partial class AwsIdentitystoreUser(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? PreferredLanguage
     {
-        get => new TerraformReference<string>(this, "preferred_language");
+        get => GetArgument<TerraformValue<string>>("preferred_language");
         set => SetArgument("preferred_language", value);
     }
 
@@ -307,16 +307,16 @@ public partial class AwsIdentitystoreUser(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? ProfileUrl
     {
-        get => new TerraformReference<string>(this, "profile_url");
+        get => GetArgument<TerraformValue<string>>("profile_url");
         set => SetArgument("profile_url", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -325,7 +325,7 @@ public partial class AwsIdentitystoreUser(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Timezone
     {
-        get => new TerraformReference<string>(this, "timezone");
+        get => GetArgument<TerraformValue<string>>("timezone");
         set => SetArgument("timezone", value);
     }
 
@@ -334,7 +334,7 @@ public partial class AwsIdentitystoreUser(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -344,7 +344,7 @@ public partial class AwsIdentitystoreUser(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformValue<string> UserName
     {
-        get => new TerraformReference<string>(this, "user_name");
+        get => GetArgument<TerraformValue<string>>("user_name");
         set => SetArgument("user_name", value);
     }
 
@@ -353,7 +353,7 @@ public partial class AwsIdentitystoreUser(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? UserType
     {
-        get => new TerraformReference<string>(this, "user_type");
+        get => GetArgument<TerraformValue<string>>("user_type");
         set => SetArgument("user_type", value);
     }
 
@@ -361,17 +361,13 @@ public partial class AwsIdentitystoreUser(string name) : TerraformResource("aws_
     /// The external_ids attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ExternalIds
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "external_ids").ResolveNodes(ctx));
-    }
+        => AsReference("external_ids");
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
     public TerraformValue<string> UserId
-    {
-        get => new TerraformReference<string>(this, "user_id");
-    }
+        => AsReference("user_id");
 
     /// <summary>
     /// Addresses block (nesting mode: list).

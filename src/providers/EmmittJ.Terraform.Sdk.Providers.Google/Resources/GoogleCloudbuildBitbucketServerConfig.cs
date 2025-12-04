@@ -19,7 +19,7 @@ public class GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectKey is required")]
     public required TerraformValue<string> ProjectKey
     {
-        get => new TerraformReference<string>(this, "project_key");
+        get => GetArgument<TerraformValue<string>>("project_key");
         set => SetArgument("project_key", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleCloudbuildBitbucketServerConfigConnectedRepositoriesBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoSlug is required")]
     public required TerraformValue<string> RepoSlug
     {
-        get => new TerraformReference<string>(this, "repo_slug");
+        get => GetArgument<TerraformValue<string>>("repo_slug");
         set => SetArgument("repo_slug", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleCloudbuildBitbucketServerConfigSecretsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminAccessTokenVersionName is required")]
     public required TerraformValue<string> AdminAccessTokenVersionName
     {
-        get => new TerraformReference<string>(this, "admin_access_token_version_name");
+        get => GetArgument<TerraformValue<string>>("admin_access_token_version_name");
         set => SetArgument("admin_access_token_version_name", value);
     }
 
@@ -63,7 +63,7 @@ public class GoogleCloudbuildBitbucketServerConfigSecretsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReadAccessTokenVersionName is required")]
     public required TerraformValue<string> ReadAccessTokenVersionName
     {
-        get => new TerraformReference<string>(this, "read_access_token_version_name");
+        get => GetArgument<TerraformValue<string>>("read_access_token_version_name");
         set => SetArgument("read_access_token_version_name", value);
     }
 
@@ -74,7 +74,7 @@ public class GoogleCloudbuildBitbucketServerConfigSecretsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretVersionName is required")]
     public required TerraformValue<string> WebhookSecretVersionName
     {
-        get => new TerraformReference<string>(this, "webhook_secret_version_name");
+        get => GetArgument<TerraformValue<string>>("webhook_secret_version_name");
         set => SetArgument("webhook_secret_version_name", value);
     }
 
@@ -97,7 +97,7 @@ public class GoogleCloudbuildBitbucketServerConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -106,7 +106,7 @@ public class GoogleCloudbuildBitbucketServerConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -115,7 +115,7 @@ public class GoogleCloudbuildBitbucketServerConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -135,7 +135,7 @@ public partial class GoogleCloudbuildBitbucketServerConfig(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKey is required")]
     public required TerraformValue<string> ApiKey
     {
-        get => new TerraformReference<string>(this, "api_key");
+        get => GetArgument<TerraformValue<string>>("api_key");
         set => SetArgument("api_key", value);
     }
 
@@ -145,7 +145,7 @@ public partial class GoogleCloudbuildBitbucketServerConfig(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigId is required")]
     public required TerraformValue<string> ConfigId
     {
-        get => new TerraformReference<string>(this, "config_id");
+        get => GetArgument<TerraformValue<string>>("config_id");
         set => SetArgument("config_id", value);
     }
 
@@ -156,16 +156,16 @@ public partial class GoogleCloudbuildBitbucketServerConfig(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
     public required TerraformValue<string> HostUri
     {
-        get => new TerraformReference<string>(this, "host_uri");
+        get => GetArgument<TerraformValue<string>>("host_uri");
         set => SetArgument("host_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -175,7 +175,7 @@ public partial class GoogleCloudbuildBitbucketServerConfig(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -187,16 +187,16 @@ public partial class GoogleCloudbuildBitbucketServerConfig(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? PeeredNetwork
     {
-        get => new TerraformReference<string>(this, "peered_network");
+        get => GetArgument<TerraformValue<string>>("peered_network");
         set => SetArgument("peered_network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -205,7 +205,7 @@ public partial class GoogleCloudbuildBitbucketServerConfig(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? SslCa
     {
-        get => new TerraformReference<string>(this, "ssl_ca");
+        get => GetArgument<TerraformValue<string>>("ssl_ca");
         set => SetArgument("ssl_ca", value);
     }
 
@@ -215,7 +215,7 @@ public partial class GoogleCloudbuildBitbucketServerConfig(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -223,17 +223,13 @@ public partial class GoogleCloudbuildBitbucketServerConfig(string name) : Terraf
     /// The resource name for the config.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. UUID included in webhook requests. The UUID is used to look up the corresponding config.
     /// </summary>
     public TerraformValue<string> WebhookKey
-    {
-        get => new TerraformReference<string>(this, "webhook_key");
-    }
+        => AsReference("webhook_key");
 
     /// <summary>
     /// ConnectedRepositories block (nesting mode: set).

@@ -19,7 +19,7 @@ public class AwsVerifiedaccessEndpointCidrOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidr is required")]
     public required TerraformValue<string> Cidr
     {
-        get => new TerraformReference<string>(this, "cidr");
+        get => GetArgument<TerraformValue<string>>("cidr");
         set => SetArgument("cidr", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsVerifiedaccessEndpointCidrOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsVerifiedaccessEndpointCidrOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsVerifiedaccessEndpointCidrOptionsBlockPortRangeBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformValue<double> FromPort
     {
-        get => new TerraformReference<double>(this, "from_port");
+        get => GetArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsVerifiedaccessEndpointCidrOptionsBlockPortRangeBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformValue<double> ToPort
     {
-        get => new TerraformReference<double>(this, "to_port");
+        get => GetArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsVerifiedaccessEndpointLoadBalancerOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LoadBalancerArn
     {
-        get => new TerraformReference<string>(this, "load_balancer_arn");
+        get => GetArgument<TerraformValue<string>>("load_balancer_arn");
         set => SetArgument("load_balancer_arn", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsVerifiedaccessEndpointLoadBalancerOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsVerifiedaccessEndpointLoadBalancerOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -132,7 +132,7 @@ public class AwsVerifiedaccessEndpointLoadBalancerOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -164,7 +164,7 @@ public class AwsVerifiedaccessEndpointLoadBalancerOptionsBlockPortRangeBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformValue<double> FromPort
     {
-        get => new TerraformReference<double>(this, "from_port");
+        get => GetArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsVerifiedaccessEndpointLoadBalancerOptionsBlockPortRangeBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformValue<double> ToPort
     {
-        get => new TerraformReference<double>(this, "to_port");
+        get => GetArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -197,7 +197,7 @@ public class AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? NetworkInterfaceId
     {
-        get => new TerraformReference<string>(this, "network_interface_id");
+        get => GetArgument<TerraformValue<string>>("network_interface_id");
         set => SetArgument("network_interface_id", value);
     }
 
@@ -206,7 +206,7 @@ public class AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlock : TerraformBl
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -215,7 +215,7 @@ public class AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -247,7 +247,7 @@ public class AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlockPortRangeBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformValue<double> FromPort
     {
-        get => new TerraformReference<double>(this, "from_port");
+        get => GetArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -257,7 +257,7 @@ public class AwsVerifiedaccessEndpointNetworkInterfaceOptionsBlockPortRangeBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformValue<double> ToPort
     {
-        get => new TerraformReference<double>(this, "to_port");
+        get => GetArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -280,7 +280,7 @@ public class AwsVerifiedaccessEndpointRdsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -289,7 +289,7 @@ public class AwsVerifiedaccessEndpointRdsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -298,7 +298,7 @@ public class AwsVerifiedaccessEndpointRdsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RdsDbClusterArn
     {
-        get => new TerraformReference<string>(this, "rds_db_cluster_arn");
+        get => GetArgument<TerraformValue<string>>("rds_db_cluster_arn");
         set => SetArgument("rds_db_cluster_arn", value);
     }
 
@@ -307,7 +307,7 @@ public class AwsVerifiedaccessEndpointRdsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RdsDbInstanceArn
     {
-        get => new TerraformReference<string>(this, "rds_db_instance_arn");
+        get => GetArgument<TerraformValue<string>>("rds_db_instance_arn");
         set => SetArgument("rds_db_instance_arn", value);
     }
 
@@ -316,7 +316,7 @@ public class AwsVerifiedaccessEndpointRdsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RdsDbProxyArn
     {
-        get => new TerraformReference<string>(this, "rds_db_proxy_arn");
+        get => GetArgument<TerraformValue<string>>("rds_db_proxy_arn");
         set => SetArgument("rds_db_proxy_arn", value);
     }
 
@@ -325,7 +325,7 @@ public class AwsVerifiedaccessEndpointRdsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RdsEndpoint
     {
-        get => new TerraformReference<string>(this, "rds_endpoint");
+        get => GetArgument<TerraformValue<string>>("rds_endpoint");
         set => SetArgument("rds_endpoint", value);
     }
 
@@ -334,7 +334,7 @@ public class AwsVerifiedaccessEndpointRdsOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -357,7 +357,7 @@ public class AwsVerifiedaccessEndpointSseSpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? CustomerManagedKeyEnabled
     {
-        get => new TerraformReference<bool>(this, "customer_managed_key_enabled");
+        get => GetArgument<TerraformValue<bool>>("customer_managed_key_enabled");
         set => SetArgument("customer_managed_key_enabled", value);
     }
 
@@ -366,7 +366,7 @@ public class AwsVerifiedaccessEndpointSseSpecificationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -389,7 +389,7 @@ public class AwsVerifiedaccessEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -398,7 +398,7 @@ public class AwsVerifiedaccessEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -407,7 +407,7 @@ public class AwsVerifiedaccessEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -425,7 +425,7 @@ public partial class AwsVerifiedaccessEndpoint(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? ApplicationDomain
     {
-        get => new TerraformReference<string>(this, "application_domain");
+        get => GetArgument<TerraformValue<string>>("application_domain");
         set => SetArgument("application_domain", value);
     }
 
@@ -435,7 +435,7 @@ public partial class AwsVerifiedaccessEndpoint(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentType is required")]
     public required TerraformValue<string> AttachmentType
     {
-        get => new TerraformReference<string>(this, "attachment_type");
+        get => GetArgument<TerraformValue<string>>("attachment_type");
         set => SetArgument("attachment_type", value);
     }
 
@@ -444,7 +444,7 @@ public partial class AwsVerifiedaccessEndpoint(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -453,7 +453,7 @@ public partial class AwsVerifiedaccessEndpoint(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? DomainCertificateArn
     {
-        get => new TerraformReference<string>(this, "domain_certificate_arn");
+        get => GetArgument<TerraformValue<string>>("domain_certificate_arn");
         set => SetArgument("domain_certificate_arn", value);
     }
 
@@ -462,7 +462,7 @@ public partial class AwsVerifiedaccessEndpoint(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? EndpointDomainPrefix
     {
-        get => new TerraformReference<string>(this, "endpoint_domain_prefix");
+        get => GetArgument<TerraformValue<string>>("endpoint_domain_prefix");
         set => SetArgument("endpoint_domain_prefix", value);
     }
 
@@ -472,16 +472,16 @@ public partial class AwsVerifiedaccessEndpoint(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
     public required TerraformValue<string> EndpointType
     {
-        get => new TerraformReference<string>(this, "endpoint_type");
+        get => GetArgument<TerraformValue<string>>("endpoint_type");
         set => SetArgument("endpoint_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -490,16 +490,16 @@ public partial class AwsVerifiedaccessEndpoint(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? PolicyDocument
     {
-        get => new TerraformReference<string>(this, "policy_document");
+        get => GetArgument<TerraformValue<string>>("policy_document");
         set => SetArgument("policy_document", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -508,7 +508,7 @@ public partial class AwsVerifiedaccessEndpoint(string name) : TerraformResource(
     /// </summary>
     public TerraformSet<string>? SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -517,16 +517,16 @@ public partial class AwsVerifiedaccessEndpoint(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -536,7 +536,7 @@ public partial class AwsVerifiedaccessEndpoint(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerifiedAccessGroupId is required")]
     public required TerraformValue<string> VerifiedAccessGroupId
     {
-        get => new TerraformReference<string>(this, "verified_access_group_id");
+        get => GetArgument<TerraformValue<string>>("verified_access_group_id");
         set => SetArgument("verified_access_group_id", value);
     }
 
@@ -544,25 +544,19 @@ public partial class AwsVerifiedaccessEndpoint(string name) : TerraformResource(
     /// The device_validation_domain attribute.
     /// </summary>
     public TerraformValue<string> DeviceValidationDomain
-    {
-        get => new TerraformReference<string>(this, "device_validation_domain");
-    }
+        => AsReference("device_validation_domain");
 
     /// <summary>
     /// The endpoint_domain attribute.
     /// </summary>
     public TerraformValue<string> EndpointDomain
-    {
-        get => new TerraformReference<string>(this, "endpoint_domain");
-    }
+        => AsReference("endpoint_domain");
 
     /// <summary>
     /// The verified_access_instance_id attribute.
     /// </summary>
     public TerraformValue<string> VerifiedAccessInstanceId
-    {
-        get => new TerraformReference<string>(this, "verified_access_instance_id");
-    }
+        => AsReference("verified_access_instance_id");
 
     /// <summary>
     /// CidrOptions block (nesting mode: list).

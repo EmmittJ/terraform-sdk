@@ -18,7 +18,7 @@ public class AwsLambdaAliasRoutingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<double>? AdditionalVersionWeights
     {
-        get => TerraformMap<double>.Lazy(ctx => new TerraformReference<TerraformMap<double>>(this, "additional_version_weights").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<double>>("additional_version_weights");
         set => SetArgument("additional_version_weights", value);
     }
 
@@ -36,7 +36,7 @@ public partial class AwsLambdaAlias(string name) : TerraformResource("aws_lambda
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AwsLambdaAlias(string name) : TerraformResource("aws_lambda
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformValue<string> FunctionName
     {
-        get => new TerraformReference<string>(this, "function_name");
+        get => GetArgument<TerraformValue<string>>("function_name");
         set => SetArgument("function_name", value);
     }
 
@@ -56,16 +56,16 @@ public partial class AwsLambdaAlias(string name) : TerraformResource("aws_lambda
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionVersion is required")]
     public required TerraformValue<string> FunctionVersion
     {
-        get => new TerraformReference<string>(this, "function_version");
+        get => GetArgument<TerraformValue<string>>("function_version");
         set => SetArgument("function_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -75,16 +75,16 @@ public partial class AwsLambdaAlias(string name) : TerraformResource("aws_lambda
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -92,17 +92,13 @@ public partial class AwsLambdaAlias(string name) : TerraformResource("aws_lambda
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The invoke_arn attribute.
     /// </summary>
     public TerraformValue<string> InvokeArn
-    {
-        get => new TerraformReference<string>(this, "invoke_arn");
-    }
+        => AsReference("invoke_arn");
 
     /// <summary>
     /// RoutingConfig block (nesting mode: list).

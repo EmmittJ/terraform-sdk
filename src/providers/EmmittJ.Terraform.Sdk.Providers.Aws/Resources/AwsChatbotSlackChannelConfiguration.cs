@@ -18,7 +18,7 @@ public class AwsChatbotSlackChannelConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsChatbotSlackChannelConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsChatbotSlackChannelConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AwsChatbotSlackChannelConfiguration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationName is required")]
     public required TerraformValue<string> ConfigurationName
     {
-        get => new TerraformReference<string>(this, "configuration_name");
+        get => GetArgument<TerraformValue<string>>("configuration_name");
         set => SetArgument("configuration_name", value);
     }
 
     /// <summary>
     /// The guardrail_policy_arns attribute.
     /// </summary>
-    public TerraformList<string> GuardrailPolicyArns
+    public TerraformList<string>? GuardrailPolicyArns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "guardrail_policy_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("guardrail_policy_arns");
         set => SetArgument("guardrail_policy_arns", value);
     }
 
@@ -74,25 +74,25 @@ public partial class AwsChatbotSlackChannelConfiguration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
     public required TerraformValue<string> IamRoleArn
     {
-        get => new TerraformReference<string>(this, "iam_role_arn");
+        get => GetArgument<TerraformValue<string>>("iam_role_arn");
         set => SetArgument("iam_role_arn", value);
     }
 
     /// <summary>
     /// The logging_level attribute.
     /// </summary>
-    public TerraformValue<string> LoggingLevel
+    public TerraformValue<string>? LoggingLevel
     {
-        get => new TerraformReference<string>(this, "logging_level");
+        get => GetArgument<TerraformValue<string>>("logging_level");
         set => SetArgument("logging_level", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AwsChatbotSlackChannelConfiguration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlackChannelId is required")]
     public required TerraformValue<string> SlackChannelId
     {
-        get => new TerraformReference<string>(this, "slack_channel_id");
+        get => GetArgument<TerraformValue<string>>("slack_channel_id");
         set => SetArgument("slack_channel_id", value);
     }
 
@@ -112,16 +112,16 @@ public partial class AwsChatbotSlackChannelConfiguration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlackTeamId is required")]
     public required TerraformValue<string> SlackTeamId
     {
-        get => new TerraformReference<string>(this, "slack_team_id");
+        get => GetArgument<TerraformValue<string>>("slack_team_id");
         set => SetArgument("slack_team_id", value);
     }
 
     /// <summary>
     /// The sns_topic_arns attribute.
     /// </summary>
-    public TerraformSet<string> SnsTopicArns
+    public TerraformSet<string>? SnsTopicArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "sns_topic_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("sns_topic_arns");
         set => SetArgument("sns_topic_arns", value);
     }
 
@@ -130,16 +130,16 @@ public partial class AwsChatbotSlackChannelConfiguration(string name) : Terrafor
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The user_authorization_required attribute.
     /// </summary>
-    public TerraformValue<bool> UserAuthorizationRequired
+    public TerraformValue<bool>? UserAuthorizationRequired
     {
-        get => new TerraformReference<bool>(this, "user_authorization_required");
+        get => GetArgument<TerraformValue<bool>>("user_authorization_required");
         set => SetArgument("user_authorization_required", value);
     }
 
@@ -147,33 +147,25 @@ public partial class AwsChatbotSlackChannelConfiguration(string name) : Terrafor
     /// The chat_configuration_arn attribute.
     /// </summary>
     public TerraformValue<string> ChatConfigurationArn
-    {
-        get => new TerraformReference<string>(this, "chat_configuration_arn");
-    }
+        => AsReference("chat_configuration_arn");
 
     /// <summary>
     /// The slack_channel_name attribute.
     /// </summary>
     public TerraformValue<string> SlackChannelName
-    {
-        get => new TerraformReference<string>(this, "slack_channel_name");
-    }
+        => AsReference("slack_channel_name");
 
     /// <summary>
     /// The slack_team_name attribute.
     /// </summary>
     public TerraformValue<string> SlackTeamName
-    {
-        get => new TerraformReference<string>(this, "slack_team_name");
-    }
+        => AsReference("slack_team_name");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

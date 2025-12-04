@@ -11,9 +11,9 @@ public partial class AwsQuicksightUserCustomPermission(string name) : TerraformR
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string> AwsAccountId
+    public TerraformValue<string>? AwsAccountId
     {
-        get => new TerraformReference<string>(this, "aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -23,25 +23,25 @@ public partial class AwsQuicksightUserCustomPermission(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomPermissionsName is required")]
     public required TerraformValue<string> CustomPermissionsName
     {
-        get => new TerraformReference<string>(this, "custom_permissions_name");
+        get => GetArgument<TerraformValue<string>>("custom_permissions_name");
         set => SetArgument("custom_permissions_name", value);
     }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    public TerraformValue<string> NamespaceAttribute
+    public TerraformValue<string>? NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsQuicksightUserCustomPermission(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformValue<string> UserName
     {
-        get => new TerraformReference<string>(this, "user_name");
+        get => GetArgument<TerraformValue<string>>("user_name");
         set => SetArgument("user_name", value);
     }
 

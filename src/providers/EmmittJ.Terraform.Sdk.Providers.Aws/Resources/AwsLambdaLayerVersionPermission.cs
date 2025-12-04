@@ -14,16 +14,16 @@ public partial class AwsLambdaLayerVersionPermission(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsLambdaLayerVersionPermission(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LayerName is required")]
     public required TerraformValue<string> LayerName
     {
-        get => new TerraformReference<string>(this, "layer_name");
+        get => GetArgument<TerraformValue<string>>("layer_name");
         set => SetArgument("layer_name", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsLambdaLayerVersionPermission(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? OrganizationId
     {
-        get => new TerraformReference<string>(this, "organization_id");
+        get => GetArgument<TerraformValue<string>>("organization_id");
         set => SetArgument("organization_id", value);
     }
 
@@ -52,16 +52,16 @@ public partial class AwsLambdaLayerVersionPermission(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformValue<string> Principal
     {
-        get => new TerraformReference<string>(this, "principal");
+        get => GetArgument<TerraformValue<string>>("principal");
         set => SetArgument("principal", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsLambdaLayerVersionPermission(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? SkipDestroy
     {
-        get => new TerraformReference<bool>(this, "skip_destroy");
+        get => GetArgument<TerraformValue<bool>>("skip_destroy");
         set => SetArgument("skip_destroy", value);
     }
 
@@ -80,7 +80,7 @@ public partial class AwsLambdaLayerVersionPermission(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatementId is required")]
     public required TerraformValue<string> StatementId
     {
-        get => new TerraformReference<string>(this, "statement_id");
+        get => GetArgument<TerraformValue<string>>("statement_id");
         set => SetArgument("statement_id", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsLambdaLayerVersionPermission(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionNumber is required")]
     public required TerraformValue<double> VersionNumber
     {
-        get => new TerraformReference<double>(this, "version_number");
+        get => GetArgument<TerraformValue<double>>("version_number");
         set => SetArgument("version_number", value);
     }
 
@@ -98,16 +98,12 @@ public partial class AwsLambdaLayerVersionPermission(string name) : TerraformRes
     /// The policy attribute.
     /// </summary>
     public TerraformValue<string> Policy
-    {
-        get => new TerraformReference<string>(this, "policy");
-    }
+        => AsReference("policy");
 
     /// <summary>
     /// The revision_id attribute.
     /// </summary>
     public TerraformValue<string> RevisionId
-    {
-        get => new TerraformReference<string>(this, "revision_id");
-    }
+        => AsReference("revision_id");
 
 }

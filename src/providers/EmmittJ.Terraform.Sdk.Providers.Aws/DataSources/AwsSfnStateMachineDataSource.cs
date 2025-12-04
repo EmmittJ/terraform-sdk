@@ -11,9 +11,9 @@ public partial class AwsSfnStateMachineDataSource(string name) : TerraformDataSo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsSfnStateMachineDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -40,56 +40,42 @@ public partial class AwsSfnStateMachineDataSource(string name) : TerraformDataSo
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
     public TerraformValue<string> CreationDate
-    {
-        get => new TerraformReference<string>(this, "creation_date");
-    }
+        => AsReference("creation_date");
 
     /// <summary>
     /// The definition attribute.
     /// </summary>
     public TerraformValue<string> Definition
-    {
-        get => new TerraformReference<string>(this, "definition");
-    }
+        => AsReference("definition");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The revision_id attribute.
     /// </summary>
     public TerraformValue<string> RevisionId
-    {
-        get => new TerraformReference<string>(this, "revision_id");
-    }
+        => AsReference("revision_id");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     public TerraformValue<string> RoleArn
-    {
-        get => new TerraformReference<string>(this, "role_arn");
-    }
+        => AsReference("role_arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }

@@ -49,7 +49,7 @@ public class AwsVerifiedpermissionsPolicyDefinitionBlockStaticAttributeBlock : T
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsVerifiedpermissionsPolicyDefinitionBlockStaticAttributeBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Statement is required")]
     public required TerraformValue<string> Statement
     {
-        get => new TerraformReference<string>(this, "statement");
+        get => GetArgument<TerraformValue<string>>("statement");
         set => SetArgument("statement", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsVerifiedpermissionsPolicyDefinitionBlockTemplateLinkedBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyTemplateId is required")]
     public required TerraformValue<string> PolicyTemplateId
     {
-        get => new TerraformReference<string>(this, "policy_template_id");
+        get => GetArgument<TerraformValue<string>>("policy_template_id");
         set => SetArgument("policy_template_id", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsVerifiedpermissionsPolicyDefinitionBlockTemplateLinkedBlockPrinc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityId is required")]
     public required TerraformValue<string> EntityId
     {
-        get => new TerraformReference<string>(this, "entity_id");
+        get => GetArgument<TerraformValue<string>>("entity_id");
         set => SetArgument("entity_id", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsVerifiedpermissionsPolicyDefinitionBlockTemplateLinkedBlockPrinc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityType is required")]
     public required TerraformValue<string> EntityType
     {
-        get => new TerraformReference<string>(this, "entity_type");
+        get => GetArgument<TerraformValue<string>>("entity_type");
         set => SetArgument("entity_type", value);
     }
 
@@ -156,7 +156,7 @@ public class AwsVerifiedpermissionsPolicyDefinitionBlockTemplateLinkedBlockResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityId is required")]
     public required TerraformValue<string> EntityId
     {
-        get => new TerraformReference<string>(this, "entity_id");
+        get => GetArgument<TerraformValue<string>>("entity_id");
         set => SetArgument("entity_id", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsVerifiedpermissionsPolicyDefinitionBlockTemplateLinkedBlockResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityType is required")]
     public required TerraformValue<string> EntityType
     {
-        get => new TerraformReference<string>(this, "entity_type");
+        get => GetArgument<TerraformValue<string>>("entity_type");
         set => SetArgument("entity_type", value);
     }
 
@@ -185,16 +185,16 @@ public partial class AwsVerifiedpermissionsPolicy(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyStoreId is required")]
     public required TerraformValue<string> PolicyStoreId
     {
-        get => new TerraformReference<string>(this, "policy_store_id");
+        get => GetArgument<TerraformValue<string>>("policy_store_id");
         set => SetArgument("policy_store_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -202,25 +202,19 @@ public partial class AwsVerifiedpermissionsPolicy(string name) : TerraformResour
     /// The created_date attribute.
     /// </summary>
     public TerraformValue<string> CreatedDate
-    {
-        get => new TerraformReference<string>(this, "created_date");
-    }
+        => AsReference("created_date");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The policy_id attribute.
     /// </summary>
     public TerraformValue<string> PolicyId
-    {
-        get => new TerraformReference<string>(this, "policy_id");
-    }
+        => AsReference("policy_id");
 
     /// <summary>
     /// Definition block (nesting mode: list).

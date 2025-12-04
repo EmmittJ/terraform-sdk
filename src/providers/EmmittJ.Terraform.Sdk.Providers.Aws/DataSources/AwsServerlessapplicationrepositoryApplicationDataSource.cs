@@ -14,34 +14,34 @@ public partial class AwsServerlessapplicationrepositoryApplicationDataSource(str
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => new TerraformReference<string>(this, "application_id");
+        get => GetArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The semantic_version attribute.
     /// </summary>
-    public TerraformValue<string> SemanticVersion
+    public TerraformValue<string>? SemanticVersion
     {
-        get => new TerraformReference<string>(this, "semantic_version");
+        get => GetArgument<TerraformValue<string>>("semantic_version");
         set => SetArgument("semantic_version", value);
     }
 
@@ -49,32 +49,24 @@ public partial class AwsServerlessapplicationrepositoryApplicationDataSource(str
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The required_capabilities attribute.
     /// </summary>
     public TerraformSet<string> RequiredCapabilities
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "required_capabilities").ResolveNodes(ctx));
-    }
+        => AsReference("required_capabilities");
 
     /// <summary>
     /// The source_code_url attribute.
     /// </summary>
     public TerraformValue<string> SourceCodeUrl
-    {
-        get => new TerraformReference<string>(this, "source_code_url");
-    }
+        => AsReference("source_code_url");
 
     /// <summary>
     /// The template_url attribute.
     /// </summary>
     public TerraformValue<string> TemplateUrl
-    {
-        get => new TerraformReference<string>(this, "template_url");
-    }
+        => AsReference("template_url");
 
 }

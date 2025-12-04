@@ -14,7 +14,7 @@ public partial class AwsRoute53ResolverFirewallRule(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsRoute53ResolverFirewallRule(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? BlockOverrideDnsType
     {
-        get => new TerraformReference<string>(this, "block_override_dns_type");
+        get => GetArgument<TerraformValue<string>>("block_override_dns_type");
         set => SetArgument("block_override_dns_type", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsRoute53ResolverFirewallRule(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? BlockOverrideDomain
     {
-        get => new TerraformReference<string>(this, "block_override_domain");
+        get => GetArgument<TerraformValue<string>>("block_override_domain");
         set => SetArgument("block_override_domain", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsRoute53ResolverFirewallRule(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double>? BlockOverrideTtl
     {
-        get => new TerraformReference<double>(this, "block_override_ttl");
+        get => GetArgument<TerraformValue<double>>("block_override_ttl");
         set => SetArgument("block_override_ttl", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsRoute53ResolverFirewallRule(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? BlockResponse
     {
-        get => new TerraformReference<string>(this, "block_response");
+        get => GetArgument<TerraformValue<string>>("block_response");
         set => SetArgument("block_response", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsRoute53ResolverFirewallRule(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallDomainListId is required")]
     public required TerraformValue<string> FirewallDomainListId
     {
-        get => new TerraformReference<string>(this, "firewall_domain_list_id");
+        get => GetArgument<TerraformValue<string>>("firewall_domain_list_id");
         set => SetArgument("firewall_domain_list_id", value);
     }
 
@@ -69,7 +69,7 @@ public partial class AwsRoute53ResolverFirewallRule(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? FirewallDomainRedirectionAction
     {
-        get => new TerraformReference<string>(this, "firewall_domain_redirection_action");
+        get => GetArgument<TerraformValue<string>>("firewall_domain_redirection_action");
         set => SetArgument("firewall_domain_redirection_action", value);
     }
 
@@ -79,16 +79,16 @@ public partial class AwsRoute53ResolverFirewallRule(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallRuleGroupId is required")]
     public required TerraformValue<string> FirewallRuleGroupId
     {
-        get => new TerraformReference<string>(this, "firewall_rule_group_id");
+        get => GetArgument<TerraformValue<string>>("firewall_rule_group_id");
         set => SetArgument("firewall_rule_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -98,7 +98,7 @@ public partial class AwsRoute53ResolverFirewallRule(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AwsRoute53ResolverFirewallRule(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -117,16 +117,16 @@ public partial class AwsRoute53ResolverFirewallRule(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? QType
     {
-        get => new TerraformReference<string>(this, "q_type");
+        get => GetArgument<TerraformValue<string>>("q_type");
         set => SetArgument("q_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

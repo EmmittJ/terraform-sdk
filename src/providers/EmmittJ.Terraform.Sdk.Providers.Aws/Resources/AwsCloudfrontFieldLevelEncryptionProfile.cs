@@ -41,7 +41,7 @@ public class AwsCloudfrontFieldLevelEncryptionProfileEncryptionEntitiesBlockItem
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderId is required")]
     public required TerraformValue<string> ProviderId
     {
-        get => new TerraformReference<string>(this, "provider_id");
+        get => GetArgument<TerraformValue<string>>("provider_id");
         set => SetArgument("provider_id", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsCloudfrontFieldLevelEncryptionProfileEncryptionEntitiesBlockItem
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKeyId is required")]
     public required TerraformValue<string> PublicKeyId
     {
-        get => new TerraformReference<string>(this, "public_key_id");
+        get => GetArgument<TerraformValue<string>>("public_key_id");
         set => SetArgument("public_key_id", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsCloudfrontFieldLevelEncryptionProfileEncryptionEntitiesBlockItem
     /// </summary>
     public TerraformSet<string>? Items
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "items").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("items");
         set => SetArgument("items", value);
     }
 
@@ -104,16 +104,16 @@ public partial class AwsCloudfrontFieldLevelEncryptionProfile(string name) : Ter
     /// </summary>
     public TerraformValue<string>? Comment
     {
-        get => new TerraformReference<string>(this, "comment");
+        get => GetArgument<TerraformValue<string>>("comment");
         set => SetArgument("comment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -123,7 +123,7 @@ public partial class AwsCloudfrontFieldLevelEncryptionProfile(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -131,25 +131,19 @@ public partial class AwsCloudfrontFieldLevelEncryptionProfile(string name) : Ter
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
     public TerraformValue<string> CallerReference
-    {
-        get => new TerraformReference<string>(this, "caller_reference");
-    }
+        => AsReference("caller_reference");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// EncryptionEntities block (nesting mode: list).

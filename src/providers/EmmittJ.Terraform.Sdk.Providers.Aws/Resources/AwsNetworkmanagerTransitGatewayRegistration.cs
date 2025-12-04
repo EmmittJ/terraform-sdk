@@ -18,7 +18,7 @@ public class AwsNetworkmanagerTransitGatewayRegistrationTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsNetworkmanagerTransitGatewayRegistrationTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,16 +46,16 @@ public partial class AwsNetworkmanagerTransitGatewayRegistration(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     public required TerraformValue<string> GlobalNetworkId
     {
-        get => new TerraformReference<string>(this, "global_network_id");
+        get => GetArgument<TerraformValue<string>>("global_network_id");
         set => SetArgument("global_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsNetworkmanagerTransitGatewayRegistration(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayArn is required")]
     public required TerraformValue<string> TransitGatewayArn
     {
-        get => new TerraformReference<string>(this, "transit_gateway_arn");
+        get => GetArgument<TerraformValue<string>>("transit_gateway_arn");
         set => SetArgument("transit_gateway_arn", value);
     }
 

@@ -18,7 +18,7 @@ public class AwsBedrockagentAgentActionGroupActionGroupExecutorBlock : Terraform
     /// </summary>
     public TerraformValue<string>? CustomControl
     {
-        get => new TerraformReference<string>(this, "custom_control");
+        get => GetArgument<TerraformValue<string>>("custom_control");
         set => SetArgument("custom_control", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsBedrockagentAgentActionGroupActionGroupExecutorBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Lambda
     {
-        get => new TerraformReference<string>(this, "lambda");
+        get => GetArgument<TerraformValue<string>>("lambda");
         set => SetArgument("lambda", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsBedrockagentAgentActionGroupApiSchemaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Payload
     {
-        get => new TerraformReference<string>(this, "payload");
+        get => GetArgument<TerraformValue<string>>("payload");
         set => SetArgument("payload", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsBedrockagentAgentActionGroupApiSchemaBlockS3Block : TerraformBlo
     /// </summary>
     public TerraformValue<string>? S3BucketName
     {
-        get => new TerraformReference<string>(this, "s3_bucket_name");
+        get => GetArgument<TerraformValue<string>>("s3_bucket_name");
         set => SetArgument("s3_bucket_name", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsBedrockagentAgentActionGroupApiSchemaBlockS3Block : TerraformBlo
     /// </summary>
     public TerraformValue<string>? S3ObjectKey
     {
-        get => new TerraformReference<string>(this, "s3_object_key");
+        get => GetArgument<TerraformValue<string>>("s3_object_key");
         set => SetArgument("s3_object_key", value);
     }
 
@@ -157,7 +157,7 @@ public class AwsBedrockagentAgentActionGroupFunctionSchemaBlockMemberFunctionsBl
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -167,7 +167,7 @@ public class AwsBedrockagentAgentActionGroupFunctionSchemaBlockMemberFunctionsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -198,7 +198,7 @@ public class AwsBedrockagentAgentActionGroupFunctionSchemaBlockMemberFunctionsBl
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -208,7 +208,7 @@ public class AwsBedrockagentAgentActionGroupFunctionSchemaBlockMemberFunctionsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -217,7 +217,7 @@ public class AwsBedrockagentAgentActionGroupFunctionSchemaBlockMemberFunctionsBl
     /// </summary>
     public TerraformValue<bool>? Required
     {
-        get => new TerraformReference<bool>(this, "required");
+        get => GetArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -227,7 +227,7 @@ public class AwsBedrockagentAgentActionGroupFunctionSchemaBlockMemberFunctionsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -250,7 +250,7 @@ public class AwsBedrockagentAgentActionGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -259,7 +259,7 @@ public class AwsBedrockagentAgentActionGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -278,16 +278,16 @@ public partial class AwsBedrockagentAgentActionGroup(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionGroupName is required")]
     public required TerraformValue<string> ActionGroupName
     {
-        get => new TerraformReference<string>(this, "action_group_name");
+        get => GetArgument<TerraformValue<string>>("action_group_name");
         set => SetArgument("action_group_name", value);
     }
 
     /// <summary>
     /// The action_group_state attribute.
     /// </summary>
-    public TerraformValue<string> ActionGroupState
+    public TerraformValue<string>? ActionGroupState
     {
-        get => new TerraformReference<string>(this, "action_group_state");
+        get => GetArgument<TerraformValue<string>>("action_group_state");
         set => SetArgument("action_group_state", value);
     }
 
@@ -297,7 +297,7 @@ public partial class AwsBedrockagentAgentActionGroup(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
     public required TerraformValue<string> AgentId
     {
-        get => new TerraformReference<string>(this, "agent_id");
+        get => GetArgument<TerraformValue<string>>("agent_id");
         set => SetArgument("agent_id", value);
     }
 
@@ -307,7 +307,7 @@ public partial class AwsBedrockagentAgentActionGroup(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentVersion is required")]
     public required TerraformValue<string> AgentVersion
     {
-        get => new TerraformReference<string>(this, "agent_version");
+        get => GetArgument<TerraformValue<string>>("agent_version");
         set => SetArgument("agent_version", value);
     }
 
@@ -316,7 +316,7 @@ public partial class AwsBedrockagentAgentActionGroup(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -325,34 +325,34 @@ public partial class AwsBedrockagentAgentActionGroup(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? ParentActionGroupSignature
     {
-        get => new TerraformReference<string>(this, "parent_action_group_signature");
+        get => GetArgument<TerraformValue<string>>("parent_action_group_signature");
         set => SetArgument("parent_action_group_signature", value);
     }
 
     /// <summary>
     /// The prepare_agent attribute.
     /// </summary>
-    public TerraformValue<bool> PrepareAgent
+    public TerraformValue<bool>? PrepareAgent
     {
-        get => new TerraformReference<bool>(this, "prepare_agent");
+        get => GetArgument<TerraformValue<bool>>("prepare_agent");
         set => SetArgument("prepare_agent", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The skip_resource_in_use_check attribute.
     /// </summary>
-    public TerraformValue<bool> SkipResourceInUseCheck
+    public TerraformValue<bool>? SkipResourceInUseCheck
     {
-        get => new TerraformReference<bool>(this, "skip_resource_in_use_check");
+        get => GetArgument<TerraformValue<bool>>("skip_resource_in_use_check");
         set => SetArgument("skip_resource_in_use_check", value);
     }
 
@@ -360,17 +360,13 @@ public partial class AwsBedrockagentAgentActionGroup(string name) : TerraformRes
     /// The action_group_id attribute.
     /// </summary>
     public TerraformValue<string> ActionGroupId
-    {
-        get => new TerraformReference<string>(this, "action_group_id");
-    }
+        => AsReference("action_group_id");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// ActionGroupExecutor block (nesting mode: list).

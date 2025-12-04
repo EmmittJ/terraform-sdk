@@ -18,7 +18,7 @@ public class AzurermNetworkManagerDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermNetworkManagerDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermNetworkManagerDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermNetworkManagerDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AzurermNetworkManagerDeployment(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationIds is required")]
     public TerraformList<string>? ConfigurationIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "configuration_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("configuration_ids");
         set => SetArgument("configuration_ids", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermNetworkManagerDeployment(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermNetworkManagerDeployment(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
     public required TerraformValue<string> NetworkManagerId
     {
-        get => new TerraformReference<string>(this, "network_manager_id");
+        get => GetArgument<TerraformValue<string>>("network_manager_id");
         set => SetArgument("network_manager_id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermNetworkManagerDeployment(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeAccess is required")]
     public required TerraformValue<string> ScopeAccess
     {
-        get => new TerraformReference<string>(this, "scope_access");
+        get => GetArgument<TerraformValue<string>>("scope_access");
         set => SetArgument("scope_access", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermNetworkManagerDeployment(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? Triggers
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "triggers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("triggers");
         set => SetArgument("triggers", value);
     }
 

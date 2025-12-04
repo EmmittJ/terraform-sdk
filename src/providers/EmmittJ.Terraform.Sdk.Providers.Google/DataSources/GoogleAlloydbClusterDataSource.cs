@@ -14,16 +14,16 @@ public partial class GoogleAlloydbClusterDataSource(string name) : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => new TerraformReference<string>(this, "cluster_id");
+        get => GetArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleAlloydbClusterDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleAlloydbClusterDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -54,33 +54,25 @@ public partial class GoogleAlloydbClusterDataSource(string name) : TerraformData
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
     public TerraformMap<string> Annotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
-    }
+        => AsReference("annotations");
 
     /// <summary>
     /// The automated backup policy for this cluster. AutomatedBackupPolicy is disabled by default.
     /// </summary>
     public TerraformList<TerraformMap<object>> AutomatedBackupPolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "automated_backup_policy").ResolveNodes(ctx));
-    }
+        => AsReference("automated_backup_policy");
 
     /// <summary>
     /// Cluster created from backup.
     /// </summary>
     public TerraformList<TerraformMap<object>> BackupSource
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "backup_source").ResolveNodes(ctx));
-    }
+        => AsReference("backup_source");
 
     /// <summary>
     /// The type of cluster. If not set, defaults to PRIMARY. Default value: &amp;quot;PRIMARY&amp;quot; Possible values: [&amp;quot;PRIMARY&amp;quot;, &amp;quot;SECONDARY&amp;quot;]
     /// </summary>
     public TerraformValue<string> ClusterType
-    {
-        get => new TerraformReference<string>(this, "cluster_type");
-    }
+        => AsReference("cluster_type");
 
     /// <summary>
     /// The continuous backup config for this cluster.
@@ -88,26 +80,20 @@ public partial class GoogleAlloydbClusterDataSource(string name) : TerraformData
     /// If no policy is provided then the default policy will be used. The default policy takes one backup a day and retains backups for 14 days.
     /// </summary>
     public TerraformList<TerraformMap<object>> ContinuousBackupConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "continuous_backup_config").ResolveNodes(ctx));
-    }
+        => AsReference("continuous_backup_config");
 
     /// <summary>
     /// ContinuousBackupInfo describes the continuous backup properties of a cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> ContinuousBackupInfo
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "continuous_backup_info").ResolveNodes(ctx));
-    }
+        => AsReference("continuous_backup_info");
 
     /// <summary>
     /// The database engine major version. This is an optional field and it&#39;s populated at the Cluster creation time.
     /// Note: Changing this field to a higer version results in upgrading the AlloyDB cluster which is an irreversible change.
     /// </summary>
     public TerraformValue<string> DatabaseVersion
-    {
-        get => new TerraformReference<string>(this, "database_version");
-    }
+        => AsReference("database_version");
 
     /// <summary>
     /// Policy to determine if the cluster should be deleted forcefully.
@@ -116,9 +102,7 @@ public partial class GoogleAlloydbClusterDataSource(string name) : TerraformData
     /// Possible values: DEFAULT, FORCE
     /// </summary>
     public TerraformValue<string> DeletionPolicy
-    {
-        get => new TerraformReference<string>(this, "deletion_policy");
-    }
+        => AsReference("deletion_policy");
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the cluster.
@@ -127,65 +111,49 @@ public partial class GoogleAlloydbClusterDataSource(string name) : TerraformData
     /// When the field is set to false, deleting the cluster is allowed.
     /// </summary>
     public TerraformValue<bool> DeletionProtection
-    {
-        get => new TerraformReference<bool>(this, "deletion_protection");
-    }
+        => AsReference("deletion_protection");
 
     /// <summary>
     /// User-settable and human-readable display name for the Cluster.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// EncryptionConfig describes the encryption config of a cluster or a backup that is encrypted with a CMEK (customer-managed encryption key).
     /// </summary>
     public TerraformList<TerraformMap<object>> EncryptionConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "encryption_config").ResolveNodes(ctx));
-    }
+        => AsReference("encryption_config");
 
     /// <summary>
     /// EncryptionInfo describes the encryption information of a cluster or a backup.
     /// </summary>
     public TerraformList<TerraformMap<object>> EncryptionInfo
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "encryption_info").ResolveNodes(ctx));
-    }
+        => AsReference("encryption_info");
 
     /// <summary>
     /// For Resource freshness validation (https://google.aip.dev/154)
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Initial user to setup during cluster creation. This must be set for all new Clusters.
     /// </summary>
     public TerraformList<TerraformMap<object>> InitialUser
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "initial_user").ResolveNodes(ctx));
-    }
+        => AsReference("initial_user");
 
     /// <summary>
     /// User-defined labels for the alloydb cluster.
@@ -194,49 +162,37 @@ public partial class GoogleAlloydbClusterDataSource(string name) : TerraformData
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
-    }
+        => AsReference("labels");
 
     /// <summary>
     /// MaintenanceUpdatePolicy defines the policy for system updates.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenanceUpdatePolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "maintenance_update_policy").ResolveNodes(ctx));
-    }
+        => AsReference("maintenance_update_policy");
 
     /// <summary>
     /// Cluster created via DMS migration.
     /// </summary>
     public TerraformList<TerraformMap<object>> MigrationSource
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "migration_source").ResolveNodes(ctx));
-    }
+        => AsReference("migration_source");
 
     /// <summary>
     /// The name of the cluster resource.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Metadata related to network configuration.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "network_config").ResolveNodes(ctx));
-    }
+        => AsReference("network_config");
 
     /// <summary>
     /// Configuration for Private Service Connect (PSC) for the cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> PscConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "psc_config").ResolveNodes(ctx));
-    }
+        => AsReference("psc_config");
 
     /// <summary>
     /// Output only. Reconciling (https://google.aip.dev/128#reconciliation).
@@ -244,33 +200,25 @@ public partial class GoogleAlloydbClusterDataSource(string name) : TerraformData
     /// This can happen due to user-triggered updates or system actions like failover or maintenance.
     /// </summary>
     public TerraformValue<bool> Reconciling
-    {
-        get => new TerraformReference<bool>(this, "reconciling");
-    }
+        => AsReference("reconciling");
 
     /// <summary>
     /// The source when restoring from a backup. Conflicts with &#39;restore_continuous_backup_source&#39;, both can&#39;t be set together.
     /// </summary>
     public TerraformList<TerraformMap<object>> RestoreBackupSource
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "restore_backup_source").ResolveNodes(ctx));
-    }
+        => AsReference("restore_backup_source");
 
     /// <summary>
     /// The source when restoring via point in time recovery (PITR). Conflicts with &#39;restore_backup_source&#39;, both can&#39;t be set together.
     /// </summary>
     public TerraformList<TerraformMap<object>> RestoreContinuousBackupSource
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "restore_continuous_backup_source").ResolveNodes(ctx));
-    }
+        => AsReference("restore_continuous_backup_source");
 
     /// <summary>
     /// Configuration of the secondary cluster for Cross Region Replication. This should be set if and only if the cluster is of type SECONDARY.
     /// </summary>
     public TerraformList<TerraformMap<object>> SecondaryConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "secondary_config").ResolveNodes(ctx));
-    }
+        => AsReference("secondary_config");
 
     /// <summary>
     /// Set to true to skip awaiting on the major version upgrade of the cluster.
@@ -278,49 +226,37 @@ public partial class GoogleAlloydbClusterDataSource(string name) : TerraformData
     /// Default value: &amp;quot;true&amp;quot;
     /// </summary>
     public TerraformValue<bool> SkipAwaitMajorVersionUpgrade
-    {
-        get => new TerraformReference<bool>(this, "skip_await_major_version_upgrade");
-    }
+        => AsReference("skip_await_major_version_upgrade");
 
     /// <summary>
     /// Output only. The current serving state of the cluster.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The subscrition type of cluster. Possible values: [&amp;quot;TRIAL&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
     public TerraformValue<string> SubscriptionType
-    {
-        get => new TerraformReference<string>(this, "subscription_type");
-    }
+        => AsReference("subscription_type");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Contains information and all metadata related to TRIAL clusters.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrialMetadata
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "trial_metadata").ResolveNodes(ctx));
-    }
+        => AsReference("trial_metadata");
 
     /// <summary>
     /// The system-generated UID of the resource.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
 }

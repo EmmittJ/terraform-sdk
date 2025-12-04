@@ -45,7 +45,7 @@ public class GoogleDnsPolicyAlternativeNameServerConfigBlockTargetNameServersBlo
     /// </summary>
     public TerraformValue<string>? ForwardingPath
     {
-        get => new TerraformReference<string>(this, "forwarding_path");
+        get => GetArgument<TerraformValue<string>>("forwarding_path");
         set => SetArgument("forwarding_path", value);
     }
 
@@ -55,7 +55,7 @@ public class GoogleDnsPolicyAlternativeNameServerConfigBlockTargetNameServersBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ipv4Address is required")]
     public required TerraformValue<string> Ipv4Address
     {
-        get => new TerraformReference<string>(this, "ipv4_address");
+        get => GetArgument<TerraformValue<string>>("ipv4_address");
         set => SetArgument("ipv4_address", value);
     }
 
@@ -104,7 +104,7 @@ public class GoogleDnsPolicyDns64ConfigBlockScopeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllQueries
     {
-        get => new TerraformReference<bool>(this, "all_queries");
+        get => GetArgument<TerraformValue<bool>>("all_queries");
         set => SetArgument("all_queries", value);
     }
 
@@ -130,7 +130,7 @@ public class GoogleDnsPolicyNetworksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkUrl is required")]
     public required TerraformValue<string> NetworkUrl
     {
-        get => new TerraformReference<string>(this, "network_url");
+        get => GetArgument<TerraformValue<string>>("network_url");
         set => SetArgument("network_url", value);
     }
 
@@ -153,7 +153,7 @@ public class GoogleDnsPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -162,7 +162,7 @@ public class GoogleDnsPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -171,7 +171,7 @@ public class GoogleDnsPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -189,7 +189,7 @@ public partial class GoogleDnsPolicy(string name) : TerraformResource("google_dn
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -201,7 +201,7 @@ public partial class GoogleDnsPolicy(string name) : TerraformResource("google_dn
     /// </summary>
     public TerraformValue<bool>? EnableInboundForwarding
     {
-        get => new TerraformReference<bool>(this, "enable_inbound_forwarding");
+        get => GetArgument<TerraformValue<bool>>("enable_inbound_forwarding");
         set => SetArgument("enable_inbound_forwarding", value);
     }
 
@@ -211,16 +211,16 @@ public partial class GoogleDnsPolicy(string name) : TerraformResource("google_dn
     /// </summary>
     public TerraformValue<bool>? EnableLogging
     {
-        get => new TerraformReference<bool>(this, "enable_logging");
+        get => GetArgument<TerraformValue<bool>>("enable_logging");
         set => SetArgument("enable_logging", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -230,16 +230,16 @@ public partial class GoogleDnsPolicy(string name) : TerraformResource("google_dn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 

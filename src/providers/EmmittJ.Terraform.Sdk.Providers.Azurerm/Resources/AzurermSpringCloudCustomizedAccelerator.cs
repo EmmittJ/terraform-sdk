@@ -18,7 +18,7 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Branch
     {
-        get => new TerraformReference<string>(this, "branch");
+        get => GetArgument<TerraformValue<string>>("branch");
         set => SetArgument("branch", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? CaCertificateId
     {
-        get => new TerraformReference<string>(this, "ca_certificate_id");
+        get => GetArgument<TerraformValue<string>>("ca_certificate_id");
         set => SetArgument("ca_certificate_id", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Commit
     {
-        get => new TerraformReference<string>(this, "commit");
+        get => GetArgument<TerraformValue<string>>("commit");
         set => SetArgument("commit", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? GitTag
     {
-        get => new TerraformReference<string>(this, "git_tag");
+        get => GetArgument<TerraformValue<string>>("git_tag");
         set => SetArgument("git_tag", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? IntervalInSeconds
     {
-        get => new TerraformReference<double>(this, "interval_in_seconds");
+        get => GetArgument<TerraformValue<double>>("interval_in_seconds");
         set => SetArgument("interval_in_seconds", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -73,7 +73,7 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -116,7 +116,7 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlockBasicAuthB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -126,7 +126,7 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlockBasicAuthB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -148,7 +148,7 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlockSshAuthBlo
     /// </summary>
     public TerraformValue<string>? HostKey
     {
-        get => new TerraformReference<string>(this, "host_key");
+        get => GetArgument<TerraformValue<string>>("host_key");
         set => SetArgument("host_key", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlockSshAuthBlo
     /// </summary>
     public TerraformValue<string>? HostKeyAlgorithm
     {
-        get => new TerraformReference<string>(this, "host_key_algorithm");
+        get => GetArgument<TerraformValue<string>>("host_key_algorithm");
         set => SetArgument("host_key_algorithm", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlockSshAuthBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
     public required TerraformValue<string> PrivateKey
     {
-        get => new TerraformReference<string>(this, "private_key");
+        get => GetArgument<TerraformValue<string>>("private_key");
         set => SetArgument("private_key", value);
     }
 
@@ -190,7 +190,7 @@ public class AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -199,7 +199,7 @@ public class AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -208,7 +208,7 @@ public class AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -217,7 +217,7 @@ public class AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -235,7 +235,7 @@ public partial class AzurermSpringCloudCustomizedAccelerator(string name) : Terr
     /// </summary>
     public TerraformList<string>? AcceleratorTags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "accelerator_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("accelerator_tags");
         set => SetArgument("accelerator_tags", value);
     }
 
@@ -244,7 +244,7 @@ public partial class AzurermSpringCloudCustomizedAccelerator(string name) : Terr
     /// </summary>
     public TerraformValue<string>? AcceleratorType
     {
-        get => new TerraformReference<string>(this, "accelerator_type");
+        get => GetArgument<TerraformValue<string>>("accelerator_type");
         set => SetArgument("accelerator_type", value);
     }
 
@@ -253,7 +253,7 @@ public partial class AzurermSpringCloudCustomizedAccelerator(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -262,7 +262,7 @@ public partial class AzurermSpringCloudCustomizedAccelerator(string name) : Terr
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -271,16 +271,16 @@ public partial class AzurermSpringCloudCustomizedAccelerator(string name) : Terr
     /// </summary>
     public TerraformValue<string>? IconUrl
     {
-        get => new TerraformReference<string>(this, "icon_url");
+        get => GetArgument<TerraformValue<string>>("icon_url");
         set => SetArgument("icon_url", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -290,7 +290,7 @@ public partial class AzurermSpringCloudCustomizedAccelerator(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -300,7 +300,7 @@ public partial class AzurermSpringCloudCustomizedAccelerator(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAcceleratorId is required")]
     public required TerraformValue<string> SpringCloudAcceleratorId
     {
-        get => new TerraformReference<string>(this, "spring_cloud_accelerator_id");
+        get => GetArgument<TerraformValue<string>>("spring_cloud_accelerator_id");
         set => SetArgument("spring_cloud_accelerator_id", value);
     }
 

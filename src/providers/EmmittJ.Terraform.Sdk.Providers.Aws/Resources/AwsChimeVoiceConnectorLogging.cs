@@ -13,7 +13,7 @@ public partial class AwsChimeVoiceConnectorLogging(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? EnableMediaMetricLogs
     {
-        get => new TerraformReference<bool>(this, "enable_media_metric_logs");
+        get => GetArgument<TerraformValue<bool>>("enable_media_metric_logs");
         set => SetArgument("enable_media_metric_logs", value);
     }
 
@@ -22,25 +22,25 @@ public partial class AwsChimeVoiceConnectorLogging(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? EnableSipLogs
     {
-        get => new TerraformReference<bool>(this, "enable_sip_logs");
+        get => GetArgument<TerraformValue<bool>>("enable_sip_logs");
         set => SetArgument("enable_sip_logs", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsChimeVoiceConnectorLogging(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
     public required TerraformValue<string> VoiceConnectorId
     {
-        get => new TerraformReference<string>(this, "voice_connector_id");
+        get => GetArgument<TerraformValue<string>>("voice_connector_id");
         set => SetArgument("voice_connector_id", value);
     }
 

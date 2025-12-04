@@ -11,18 +11,18 @@ public partial class AwsCostoptimizationhubPreferences(string name) : TerraformR
     /// <summary>
     /// The member_account_discount_visibility attribute.
     /// </summary>
-    public TerraformValue<string> MemberAccountDiscountVisibility
+    public TerraformValue<string>? MemberAccountDiscountVisibility
     {
-        get => new TerraformReference<string>(this, "member_account_discount_visibility");
+        get => GetArgument<TerraformValue<string>>("member_account_discount_visibility");
         set => SetArgument("member_account_discount_visibility", value);
     }
 
     /// <summary>
     /// The savings_estimation_mode attribute.
     /// </summary>
-    public TerraformValue<string> SavingsEstimationMode
+    public TerraformValue<string>? SavingsEstimationMode
     {
-        get => new TerraformReference<string>(this, "savings_estimation_mode");
+        get => GetArgument<TerraformValue<string>>("savings_estimation_mode");
         set => SetArgument("savings_estimation_mode", value);
     }
 
@@ -30,8 +30,6 @@ public partial class AwsCostoptimizationhubPreferences(string name) : TerraformR
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
 }

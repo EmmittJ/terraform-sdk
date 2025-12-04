@@ -18,7 +18,7 @@ public class AzurermAppServiceDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -35,9 +35,9 @@ public partial class AzurermAppServiceDataSource(string name) : TerraformDataSou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -47,7 +47,7 @@ public partial class AzurermAppServiceDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -57,7 +57,7 @@ public partial class AzurermAppServiceDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -65,145 +65,109 @@ public partial class AzurermAppServiceDataSource(string name) : TerraformDataSou
     /// The app_service_plan_id attribute.
     /// </summary>
     public TerraformValue<string> AppServicePlanId
-    {
-        get => new TerraformReference<string>(this, "app_service_plan_id");
-    }
+        => AsReference("app_service_plan_id");
 
     /// <summary>
     /// The app_settings attribute.
     /// </summary>
     public TerraformMap<string> AppSettings
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "app_settings").ResolveNodes(ctx));
-    }
+        => AsReference("app_settings");
 
     /// <summary>
     /// The client_affinity_enabled attribute.
     /// </summary>
     public TerraformValue<bool> ClientAffinityEnabled
-    {
-        get => new TerraformReference<bool>(this, "client_affinity_enabled");
-    }
+        => AsReference("client_affinity_enabled");
 
     /// <summary>
     /// The client_cert_enabled attribute.
     /// </summary>
     public TerraformValue<bool> ClientCertEnabled
-    {
-        get => new TerraformReference<bool>(this, "client_cert_enabled");
-    }
+        => AsReference("client_cert_enabled");
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConnectionString
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "connection_string").ResolveNodes(ctx));
-    }
+        => AsReference("connection_string");
 
     /// <summary>
     /// The custom_domain_verification_id attribute.
     /// </summary>
     public TerraformValue<string> CustomDomainVerificationId
-    {
-        get => new TerraformReference<string>(this, "custom_domain_verification_id");
-    }
+        => AsReference("custom_domain_verification_id");
 
     /// <summary>
     /// The default_site_hostname attribute.
     /// </summary>
     public TerraformValue<string> DefaultSiteHostname
-    {
-        get => new TerraformReference<string>(this, "default_site_hostname");
-    }
+        => AsReference("default_site_hostname");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-    {
-        get => new TerraformReference<bool>(this, "enabled");
-    }
+        => AsReference("enabled");
 
     /// <summary>
     /// The https_only attribute.
     /// </summary>
     public TerraformValue<bool> HttpsOnly
-    {
-        get => new TerraformReference<bool>(this, "https_only");
-    }
+        => AsReference("https_only");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The outbound_ip_address_list attribute.
     /// </summary>
     public TerraformList<string> OutboundIpAddressList
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "outbound_ip_address_list").ResolveNodes(ctx));
-    }
+        => AsReference("outbound_ip_address_list");
 
     /// <summary>
     /// The outbound_ip_addresses attribute.
     /// </summary>
     public TerraformValue<string> OutboundIpAddresses
-    {
-        get => new TerraformReference<string>(this, "outbound_ip_addresses");
-    }
+        => AsReference("outbound_ip_addresses");
 
     /// <summary>
     /// The possible_outbound_ip_address_list attribute.
     /// </summary>
     public TerraformList<string> PossibleOutboundIpAddressList
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "possible_outbound_ip_address_list").ResolveNodes(ctx));
-    }
+        => AsReference("possible_outbound_ip_address_list");
 
     /// <summary>
     /// The possible_outbound_ip_addresses attribute.
     /// </summary>
     public TerraformValue<string> PossibleOutboundIpAddresses
-    {
-        get => new TerraformReference<string>(this, "possible_outbound_ip_addresses");
-    }
+        => AsReference("possible_outbound_ip_addresses");
 
     /// <summary>
     /// The site_config attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SiteConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "site_config").ResolveNodes(ctx));
-    }
+        => AsReference("site_config");
 
     /// <summary>
     /// The site_credential attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SiteCredential
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "site_credential").ResolveNodes(ctx));
-    }
+        => AsReference("site_credential");
 
     /// <summary>
     /// The source_control attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SourceControl
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "source_control").ResolveNodes(ctx));
-    }
+        => AsReference("source_control");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

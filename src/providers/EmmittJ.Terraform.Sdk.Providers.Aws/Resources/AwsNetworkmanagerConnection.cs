@@ -18,7 +18,7 @@ public class AwsNetworkmanagerConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsNetworkmanagerConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsNetworkmanagerConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsNetworkmanagerConnection(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectedDeviceId is required")]
     public required TerraformValue<string> ConnectedDeviceId
     {
-        get => new TerraformReference<string>(this, "connected_device_id");
+        get => GetArgument<TerraformValue<string>>("connected_device_id");
         set => SetArgument("connected_device_id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsNetworkmanagerConnection(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? ConnectedLinkId
     {
-        get => new TerraformReference<string>(this, "connected_link_id");
+        get => GetArgument<TerraformValue<string>>("connected_link_id");
         set => SetArgument("connected_link_id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsNetworkmanagerConnection(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsNetworkmanagerConnection(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceId is required")]
     public required TerraformValue<string> DeviceId
     {
-        get => new TerraformReference<string>(this, "device_id");
+        get => GetArgument<TerraformValue<string>>("device_id");
         set => SetArgument("device_id", value);
     }
 
@@ -93,16 +93,16 @@ public partial class AwsNetworkmanagerConnection(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
     public required TerraformValue<string> GlobalNetworkId
     {
-        get => new TerraformReference<string>(this, "global_network_id");
+        get => GetArgument<TerraformValue<string>>("global_network_id");
         set => SetArgument("global_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AwsNetworkmanagerConnection(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? LinkId
     {
-        get => new TerraformReference<string>(this, "link_id");
+        get => GetArgument<TerraformValue<string>>("link_id");
         set => SetArgument("link_id", value);
     }
 
@@ -120,16 +120,16 @@ public partial class AwsNetworkmanagerConnection(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -137,9 +137,7 @@ public partial class AwsNetworkmanagerConnection(string name) : TerraformResourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

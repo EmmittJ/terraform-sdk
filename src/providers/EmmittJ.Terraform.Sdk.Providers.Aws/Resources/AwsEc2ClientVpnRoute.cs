@@ -18,7 +18,7 @@ public class AwsEc2ClientVpnRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsEc2ClientVpnRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AwsEc2ClientVpnRoute(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientVpnEndpointId is required")]
     public required TerraformValue<string> ClientVpnEndpointId
     {
-        get => new TerraformReference<string>(this, "client_vpn_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("client_vpn_endpoint_id");
         set => SetArgument("client_vpn_endpoint_id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsEc2ClientVpnRoute(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -65,25 +65,25 @@ public partial class AwsEc2ClientVpnRoute(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationCidrBlock is required")]
     public required TerraformValue<string> DestinationCidrBlock
     {
-        get => new TerraformReference<string>(this, "destination_cidr_block");
+        get => GetArgument<TerraformValue<string>>("destination_cidr_block");
         set => SetArgument("destination_cidr_block", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AwsEc2ClientVpnRoute(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVpcSubnetId is required")]
     public required TerraformValue<string> TargetVpcSubnetId
     {
-        get => new TerraformReference<string>(this, "target_vpc_subnet_id");
+        get => GetArgument<TerraformValue<string>>("target_vpc_subnet_id");
         set => SetArgument("target_vpc_subnet_id", value);
     }
 
@@ -101,17 +101,13 @@ public partial class AwsEc2ClientVpnRoute(string name) : TerraformResource("aws_
     /// The origin attribute.
     /// </summary>
     public TerraformValue<string> Origin
-    {
-        get => new TerraformReference<string>(this, "origin");
-    }
+        => AsReference("origin");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

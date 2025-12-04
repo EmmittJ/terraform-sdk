@@ -18,7 +18,7 @@ public class AzurermLbBackendAddressPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermLbBackendAddressPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermLbBackendAddressPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermLbBackendAddressPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermLbBackendAddressPoolTunnelInterfaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     public required TerraformValue<double> Identifier
     {
-        get => new TerraformReference<double>(this, "identifier");
+        get => GetArgument<TerraformValue<double>>("identifier");
         set => SetArgument("identifier", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermLbBackendAddressPoolTunnelInterfaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -89,7 +89,7 @@ public class AzurermLbBackendAddressPoolTunnelInterfaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -99,7 +99,7 @@ public class AzurermLbBackendAddressPoolTunnelInterfaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -115,9 +115,9 @@ public partial class AzurermLbBackendAddressPool(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzurermLbBackendAddressPool(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
     public required TerraformValue<string> LoadbalancerId
     {
-        get => new TerraformReference<string>(this, "loadbalancer_id");
+        get => GetArgument<TerraformValue<string>>("loadbalancer_id");
         set => SetArgument("loadbalancer_id", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AzurermLbBackendAddressPool(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AzurermLbBackendAddressPool(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? SynchronousMode
     {
-        get => new TerraformReference<string>(this, "synchronous_mode");
+        get => GetArgument<TerraformValue<string>>("synchronous_mode");
         set => SetArgument("synchronous_mode", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AzurermLbBackendAddressPool(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? VirtualNetworkId
     {
-        get => new TerraformReference<string>(this, "virtual_network_id");
+        get => GetArgument<TerraformValue<string>>("virtual_network_id");
         set => SetArgument("virtual_network_id", value);
     }
 
@@ -163,33 +163,25 @@ public partial class AzurermLbBackendAddressPool(string name) : TerraformResourc
     /// The backend_ip_configurations attribute.
     /// </summary>
     public TerraformList<string> BackendIpConfigurations
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "backend_ip_configurations").ResolveNodes(ctx));
-    }
+        => AsReference("backend_ip_configurations");
 
     /// <summary>
     /// The inbound_nat_rules attribute.
     /// </summary>
     public TerraformList<string> InboundNatRules
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "inbound_nat_rules").ResolveNodes(ctx));
-    }
+        => AsReference("inbound_nat_rules");
 
     /// <summary>
     /// The load_balancing_rules attribute.
     /// </summary>
     public TerraformList<string> LoadBalancingRules
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "load_balancing_rules").ResolveNodes(ctx));
-    }
+        => AsReference("load_balancing_rules");
 
     /// <summary>
     /// The outbound_rules attribute.
     /// </summary>
     public TerraformList<string> OutboundRules
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "outbound_rules").ResolveNodes(ctx));
-    }
+        => AsReference("outbound_rules");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

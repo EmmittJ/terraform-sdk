@@ -11,9 +11,9 @@ public partial class GoogleContainerEngineVersionsDataSource(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleContainerEngineVersionsDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleContainerEngineVersionsDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -40,7 +40,7 @@ public partial class GoogleContainerEngineVersionsDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string>? VersionPrefix
     {
-        get => new TerraformReference<string>(this, "version_prefix");
+        get => GetArgument<TerraformValue<string>>("version_prefix");
         set => SetArgument("version_prefix", value);
     }
 
@@ -48,64 +48,48 @@ public partial class GoogleContainerEngineVersionsDataSource(string name) : Terr
     /// The default_cluster_version attribute.
     /// </summary>
     public TerraformValue<string> DefaultClusterVersion
-    {
-        get => new TerraformReference<string>(this, "default_cluster_version");
-    }
+        => AsReference("default_cluster_version");
 
     /// <summary>
     /// The latest_master_version attribute.
     /// </summary>
     public TerraformValue<string> LatestMasterVersion
-    {
-        get => new TerraformReference<string>(this, "latest_master_version");
-    }
+        => AsReference("latest_master_version");
 
     /// <summary>
     /// The latest_node_version attribute.
     /// </summary>
     public TerraformValue<string> LatestNodeVersion
-    {
-        get => new TerraformReference<string>(this, "latest_node_version");
-    }
+        => AsReference("latest_node_version");
 
     /// <summary>
     /// The release_channel_default_version attribute.
     /// </summary>
     public TerraformMap<string> ReleaseChannelDefaultVersion
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "release_channel_default_version").ResolveNodes(ctx));
-    }
+        => AsReference("release_channel_default_version");
 
     /// <summary>
     /// The release_channel_latest_version attribute.
     /// </summary>
     public TerraformMap<string> ReleaseChannelLatestVersion
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "release_channel_latest_version").ResolveNodes(ctx));
-    }
+        => AsReference("release_channel_latest_version");
 
     /// <summary>
     /// The release_channel_upgrade_target_version attribute.
     /// </summary>
     public TerraformMap<string> ReleaseChannelUpgradeTargetVersion
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "release_channel_upgrade_target_version").ResolveNodes(ctx));
-    }
+        => AsReference("release_channel_upgrade_target_version");
 
     /// <summary>
     /// The valid_master_versions attribute.
     /// </summary>
     public TerraformList<string> ValidMasterVersions
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "valid_master_versions").ResolveNodes(ctx));
-    }
+        => AsReference("valid_master_versions");
 
     /// <summary>
     /// The valid_node_versions attribute.
     /// </summary>
     public TerraformList<string> ValidNodeVersions
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "valid_node_versions").ResolveNodes(ctx));
-    }
+        => AsReference("valid_node_versions");
 
 }

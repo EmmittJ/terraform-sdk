@@ -14,25 +14,25 @@ public partial class AwsIamSamlProviderDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -40,32 +40,24 @@ public partial class AwsIamSamlProviderDataSource(string name) : TerraformDataSo
     /// The create_date attribute.
     /// </summary>
     public TerraformValue<string> CreateDate
-    {
-        get => new TerraformReference<string>(this, "create_date");
-    }
+        => AsReference("create_date");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The saml_metadata_document attribute.
     /// </summary>
     public TerraformValue<string> SamlMetadataDocument
-    {
-        get => new TerraformReference<string>(this, "saml_metadata_document");
-    }
+        => AsReference("saml_metadata_document");
 
     /// <summary>
     /// The valid_until attribute.
     /// </summary>
     public TerraformValue<string> ValidUntil
-    {
-        get => new TerraformReference<string>(this, "valid_until");
-    }
+        => AsReference("valid_until");
 
 }

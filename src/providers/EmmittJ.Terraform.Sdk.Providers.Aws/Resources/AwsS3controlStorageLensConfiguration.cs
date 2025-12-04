@@ -19,7 +19,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -160,7 +160,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockAc
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -182,7 +182,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockAc
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -204,7 +204,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockAc
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -289,7 +289,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockAc
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -311,7 +311,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockAc
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -333,7 +333,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockAc
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -355,7 +355,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockAc
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -403,7 +403,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockAc
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -435,7 +435,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockAc
     /// </summary>
     public TerraformValue<string>? Delimiter
     {
-        get => new TerraformReference<string>(this, "delimiter");
+        get => GetArgument<TerraformValue<string>>("delimiter");
         set => SetArgument("delimiter", value);
     }
 
@@ -444,7 +444,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockAc
     /// </summary>
     public TerraformValue<double>? MaxDepth
     {
-        get => new TerraformReference<double>(this, "max_depth");
+        get => GetArgument<TerraformValue<double>>("max_depth");
         set => SetArgument("max_depth", value);
     }
 
@@ -453,7 +453,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockAc
     /// </summary>
     public TerraformValue<double>? MinStorageBytesPercentage
     {
-        get => new TerraformReference<double>(this, "min_storage_bytes_percentage");
+        get => GetArgument<TerraformValue<double>>("min_storage_bytes_percentage");
         set => SetArgument("min_storage_bytes_percentage", value);
     }
 
@@ -475,7 +475,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockAc
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -498,7 +498,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockAw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -554,7 +554,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -577,7 +577,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformValue<string> AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -587,7 +587,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -597,7 +597,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => new TerraformReference<string>(this, "format");
+        get => GetArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
@@ -607,7 +607,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutputSchemaVersion is required")]
     public required TerraformValue<string> OutputSchemaVersion
     {
-        get => new TerraformReference<string>(this, "output_schema_version");
+        get => GetArgument<TerraformValue<string>>("output_schema_version");
         set => SetArgument("output_schema_version", value);
     }
 
@@ -616,7 +616,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockDa
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -681,7 +681,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformValue<string> KeyId
     {
-        get => new TerraformReference<string>(this, "key_id");
+        get => GetArgument<TerraformValue<string>>("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -716,7 +716,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockEx
     /// </summary>
     public TerraformSet<string>? Buckets
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "buckets").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("buckets");
         set => SetArgument("buckets", value);
     }
 
@@ -725,7 +725,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockEx
     /// </summary>
     public TerraformSet<string>? Regions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("regions");
         set => SetArgument("regions", value);
     }
 
@@ -747,7 +747,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockIn
     /// </summary>
     public TerraformSet<string>? Buckets
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "buckets").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("buckets");
         set => SetArgument("buckets", value);
     }
 
@@ -756,7 +756,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlockIn
     /// </summary>
     public TerraformSet<string>? Regions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("regions");
         set => SetArgument("regions", value);
     }
 
@@ -772,9 +772,9 @@ public partial class AwsS3controlStorageLensConfiguration(string name) : Terrafo
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformValue<string> AccountId
+    public TerraformValue<string>? AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -784,25 +784,25 @@ public partial class AwsS3controlStorageLensConfiguration(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigId is required")]
     public required TerraformValue<string> ConfigId
     {
-        get => new TerraformReference<string>(this, "config_id");
+        get => GetArgument<TerraformValue<string>>("config_id");
         set => SetArgument("config_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -811,16 +811,16 @@ public partial class AwsS3controlStorageLensConfiguration(string name) : Terrafo
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -828,9 +828,7 @@ public partial class AwsS3controlStorageLensConfiguration(string name) : Terrafo
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// StorageLensConfiguration block (nesting mode: list).

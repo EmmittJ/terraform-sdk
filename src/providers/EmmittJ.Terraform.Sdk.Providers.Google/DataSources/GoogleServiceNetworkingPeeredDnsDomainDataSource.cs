@@ -11,9 +11,9 @@ public partial class GoogleServiceNetworkingPeeredDnsDomainDataSource(string nam
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleServiceNetworkingPeeredDnsDomainDataSource(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleServiceNetworkingPeeredDnsDomainDataSource(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -43,7 +43,7 @@ public partial class GoogleServiceNetworkingPeeredDnsDomainDataSource(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformValue<string> Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -53,7 +53,7 @@ public partial class GoogleServiceNetworkingPeeredDnsDomainDataSource(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -61,16 +61,12 @@ public partial class GoogleServiceNetworkingPeeredDnsDomainDataSource(string nam
     /// The dns_suffix attribute.
     /// </summary>
     public TerraformValue<string> DnsSuffix
-    {
-        get => new TerraformReference<string>(this, "dns_suffix");
-    }
+        => AsReference("dns_suffix");
 
     /// <summary>
     /// The parent attribute.
     /// </summary>
     public TerraformValue<string> Parent
-    {
-        get => new TerraformReference<string>(this, "parent");
-    }
+        => AsReference("parent");
 
 }

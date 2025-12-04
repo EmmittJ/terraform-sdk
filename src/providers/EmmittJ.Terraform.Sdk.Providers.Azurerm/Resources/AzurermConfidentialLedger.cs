@@ -19,7 +19,7 @@ public class AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LedgerRoleName is required")]
     public required TerraformValue<string> LedgerRoleName
     {
-        get => new TerraformReference<string>(this, "ledger_role_name");
+        get => GetArgument<TerraformValue<string>>("ledger_role_name");
         set => SetArgument("ledger_role_name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
     public required TerraformValue<string> PrincipalId
     {
-        get => new TerraformReference<string>(this, "principal_id");
+        get => GetArgument<TerraformValue<string>>("principal_id");
         set => SetArgument("principal_id", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LedgerRoleName is required")]
     public required TerraformValue<string> LedgerRoleName
     {
-        get => new TerraformReference<string>(this, "ledger_role_name");
+        get => GetArgument<TerraformValue<string>>("ledger_role_name");
         set => SetArgument("ledger_role_name", value);
     }
 
@@ -73,7 +73,7 @@ public class AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PemPublicKey is required")]
     public required TerraformValue<string> PemPublicKey
     {
-        get => new TerraformReference<string>(this, "pem_public_key");
+        get => GetArgument<TerraformValue<string>>("pem_public_key");
         set => SetArgument("pem_public_key", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermConfidentialLedgerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermConfidentialLedgerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermConfidentialLedgerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermConfidentialLedgerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -139,9 +139,9 @@ public partial class AzurermConfidentialLedger(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AzurermConfidentialLedger(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LedgerType is required")]
     public required TerraformValue<string> LedgerType
     {
-        get => new TerraformReference<string>(this, "ledger_type");
+        get => GetArgument<TerraformValue<string>>("ledger_type");
         set => SetArgument("ledger_type", value);
     }
 
@@ -161,7 +161,7 @@ public partial class AzurermConfidentialLedger(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AzurermConfidentialLedger(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AzurermConfidentialLedger(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -190,7 +190,7 @@ public partial class AzurermConfidentialLedger(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -198,17 +198,13 @@ public partial class AzurermConfidentialLedger(string name) : TerraformResource(
     /// The identity_service_endpoint attribute.
     /// </summary>
     public TerraformValue<string> IdentityServiceEndpoint
-    {
-        get => new TerraformReference<string>(this, "identity_service_endpoint");
-    }
+        => AsReference("identity_service_endpoint");
 
     /// <summary>
     /// The ledger_endpoint attribute.
     /// </summary>
     public TerraformValue<string> LedgerEndpoint
-    {
-        get => new TerraformReference<string>(this, "ledger_endpoint");
-    }
+        => AsReference("ledger_endpoint");
 
     /// <summary>
     /// AzureadBasedServicePrincipal block (nesting mode: list).

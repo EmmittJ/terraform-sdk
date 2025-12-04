@@ -18,7 +18,7 @@ public class AwsLexBotAbortStatementBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ResponseCard
     {
-        get => new TerraformReference<string>(this, "response_card");
+        get => GetArgument<TerraformValue<string>>("response_card");
         set => SetArgument("response_card", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsLexBotAbortStatementBlockMessageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => new TerraformReference<string>(this, "content");
+        get => GetArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -64,7 +64,7 @@ public class AwsLexBotAbortStatementBlockMessageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformValue<string> ContentType
     {
-        get => new TerraformReference<string>(this, "content_type");
+        get => GetArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsLexBotAbortStatementBlockMessageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? GroupNumber
     {
-        get => new TerraformReference<double>(this, "group_number");
+        get => GetArgument<TerraformValue<double>>("group_number");
         set => SetArgument("group_number", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsLexBotClarificationPromptBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAttempts is required")]
     public required TerraformValue<double> MaxAttempts
     {
-        get => new TerraformReference<double>(this, "max_attempts");
+        get => GetArgument<TerraformValue<double>>("max_attempts");
         set => SetArgument("max_attempts", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsLexBotClarificationPromptBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ResponseCard
     {
-        get => new TerraformReference<string>(this, "response_card");
+        get => GetArgument<TerraformValue<string>>("response_card");
         set => SetArgument("response_card", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsLexBotClarificationPromptBlockMessageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => new TerraformReference<string>(this, "content");
+        get => GetArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsLexBotClarificationPromptBlockMessageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
     public required TerraformValue<string> ContentType
     {
-        get => new TerraformReference<string>(this, "content_type");
+        get => GetArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -161,7 +161,7 @@ public class AwsLexBotClarificationPromptBlockMessageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? GroupNumber
     {
-        get => new TerraformReference<double>(this, "group_number");
+        get => GetArgument<TerraformValue<double>>("group_number");
         set => SetArgument("group_number", value);
     }
 
@@ -185,7 +185,7 @@ public class AwsLexBotIntentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntentName is required")]
     public required TerraformValue<string> IntentName
     {
-        get => new TerraformReference<string>(this, "intent_name");
+        get => GetArgument<TerraformValue<string>>("intent_name");
         set => SetArgument("intent_name", value);
     }
 
@@ -195,7 +195,7 @@ public class AwsLexBotIntentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntentVersion is required")]
     public required TerraformValue<string> IntentVersion
     {
-        get => new TerraformReference<string>(this, "intent_version");
+        get => GetArgument<TerraformValue<string>>("intent_version");
         set => SetArgument("intent_version", value);
     }
 
@@ -218,7 +218,7 @@ public class AwsLexBotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -227,7 +227,7 @@ public class AwsLexBotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -236,7 +236,7 @@ public class AwsLexBotTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -255,7 +255,7 @@ public partial class AwsLexBot(string name) : TerraformResource("aws_lex_bot", n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChildDirected is required")]
     public required TerraformValue<bool> ChildDirected
     {
-        get => new TerraformReference<bool>(this, "child_directed");
+        get => GetArgument<TerraformValue<bool>>("child_directed");
         set => SetArgument("child_directed", value);
     }
 
@@ -264,7 +264,7 @@ public partial class AwsLexBot(string name) : TerraformResource("aws_lex_bot", n
     /// </summary>
     public TerraformValue<bool>? CreateVersion
     {
-        get => new TerraformReference<bool>(this, "create_version");
+        get => GetArgument<TerraformValue<bool>>("create_version");
         set => SetArgument("create_version", value);
     }
 
@@ -273,7 +273,7 @@ public partial class AwsLexBot(string name) : TerraformResource("aws_lex_bot", n
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -282,7 +282,7 @@ public partial class AwsLexBot(string name) : TerraformResource("aws_lex_bot", n
     /// </summary>
     public TerraformValue<bool>? DetectSentiment
     {
-        get => new TerraformReference<bool>(this, "detect_sentiment");
+        get => GetArgument<TerraformValue<bool>>("detect_sentiment");
         set => SetArgument("detect_sentiment", value);
     }
 
@@ -291,16 +291,16 @@ public partial class AwsLexBot(string name) : TerraformResource("aws_lex_bot", n
     /// </summary>
     public TerraformValue<bool>? EnableModelImprovements
     {
-        get => new TerraformReference<bool>(this, "enable_model_improvements");
+        get => GetArgument<TerraformValue<bool>>("enable_model_improvements");
         set => SetArgument("enable_model_improvements", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -309,7 +309,7 @@ public partial class AwsLexBot(string name) : TerraformResource("aws_lex_bot", n
     /// </summary>
     public TerraformValue<double>? IdleSessionTtlInSeconds
     {
-        get => new TerraformReference<double>(this, "idle_session_ttl_in_seconds");
+        get => GetArgument<TerraformValue<double>>("idle_session_ttl_in_seconds");
         set => SetArgument("idle_session_ttl_in_seconds", value);
     }
 
@@ -318,7 +318,7 @@ public partial class AwsLexBot(string name) : TerraformResource("aws_lex_bot", n
     /// </summary>
     public TerraformValue<string>? Locale
     {
-        get => new TerraformReference<string>(this, "locale");
+        get => GetArgument<TerraformValue<string>>("locale");
         set => SetArgument("locale", value);
     }
 
@@ -328,7 +328,7 @@ public partial class AwsLexBot(string name) : TerraformResource("aws_lex_bot", n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -337,7 +337,7 @@ public partial class AwsLexBot(string name) : TerraformResource("aws_lex_bot", n
     /// </summary>
     public TerraformValue<double>? NluIntentConfidenceThreshold
     {
-        get => new TerraformReference<double>(this, "nlu_intent_confidence_threshold");
+        get => GetArgument<TerraformValue<double>>("nlu_intent_confidence_threshold");
         set => SetArgument("nlu_intent_confidence_threshold", value);
     }
 
@@ -346,25 +346,25 @@ public partial class AwsLexBot(string name) : TerraformResource("aws_lex_bot", n
     /// </summary>
     public TerraformValue<string>? ProcessBehavior
     {
-        get => new TerraformReference<string>(this, "process_behavior");
+        get => GetArgument<TerraformValue<string>>("process_behavior");
         set => SetArgument("process_behavior", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The voice_id attribute.
     /// </summary>
-    public TerraformValue<string> VoiceId
+    public TerraformValue<string>? VoiceId
     {
-        get => new TerraformReference<string>(this, "voice_id");
+        get => GetArgument<TerraformValue<string>>("voice_id");
         set => SetArgument("voice_id", value);
     }
 
@@ -372,57 +372,43 @@ public partial class AwsLexBot(string name) : TerraformResource("aws_lex_bot", n
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The checksum attribute.
     /// </summary>
     public TerraformValue<string> Checksum
-    {
-        get => new TerraformReference<string>(this, "checksum");
-    }
+        => AsReference("checksum");
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
     public TerraformValue<string> CreatedDate
-    {
-        get => new TerraformReference<string>(this, "created_date");
-    }
+        => AsReference("created_date");
 
     /// <summary>
     /// The failure_reason attribute.
     /// </summary>
     public TerraformValue<string> FailureReason
-    {
-        get => new TerraformReference<string>(this, "failure_reason");
-    }
+        => AsReference("failure_reason");
 
     /// <summary>
     /// The last_updated_date attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedDate
-    {
-        get => new TerraformReference<string>(this, "last_updated_date");
-    }
+        => AsReference("last_updated_date");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
     /// <summary>
     /// AbortStatement block (nesting mode: list).

@@ -14,7 +14,7 @@ public partial class AwsIotCertificate(string name) : TerraformResource("aws_iot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Active is required")]
     public required TerraformValue<bool> Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsIotCertificate(string name) : TerraformResource("aws_iot
     /// </summary>
     public TerraformValue<string>? CaPem
     {
-        get => new TerraformReference<string>(this, "ca_pem");
+        get => GetArgument<TerraformValue<string>>("ca_pem");
         set => SetArgument("ca_pem", value);
     }
 
     /// <summary>
     /// The certificate_pem attribute.
     /// </summary>
-    public TerraformValue<string> CertificatePem
+    public TerraformValue<string>? CertificatePem
     {
-        get => new TerraformReference<string>(this, "certificate_pem");
+        get => GetArgument<TerraformValue<string>>("certificate_pem");
         set => SetArgument("certificate_pem", value);
     }
 
@@ -41,25 +41,25 @@ public partial class AwsIotCertificate(string name) : TerraformResource("aws_iot
     /// </summary>
     public TerraformValue<string>? Csr
     {
-        get => new TerraformReference<string>(this, "csr");
+        get => GetArgument<TerraformValue<string>>("csr");
         set => SetArgument("csr", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -67,32 +67,24 @@ public partial class AwsIotCertificate(string name) : TerraformResource("aws_iot
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The ca_certificate_id attribute.
     /// </summary>
     public TerraformValue<string> CaCertificateId
-    {
-        get => new TerraformReference<string>(this, "ca_certificate_id");
-    }
+        => AsReference("ca_certificate_id");
 
     /// <summary>
     /// The private_key attribute.
     /// </summary>
     public TerraformValue<string> PrivateKey
-    {
-        get => new TerraformReference<string>(this, "private_key");
-    }
+        => AsReference("private_key");
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     public TerraformValue<string> PublicKey
-    {
-        get => new TerraformReference<string>(this, "public_key");
-    }
+        => AsReference("public_key");
 
 }

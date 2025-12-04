@@ -14,16 +14,16 @@ public partial class GoogleOracleDatabaseDbServersDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructure is required")]
     public required TerraformValue<string> CloudExadataInfrastructure
     {
-        get => new TerraformReference<string>(this, "cloud_exadata_infrastructure");
+        get => GetArgument<TerraformValue<string>>("cloud_exadata_infrastructure");
         set => SetArgument("cloud_exadata_infrastructure", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleOracleDatabaseDbServersDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleOracleDatabaseDbServersDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -50,8 +50,6 @@ public partial class GoogleOracleDatabaseDbServersDataSource(string name) : Terr
     /// The db_servers attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DbServers
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "db_servers").ResolveNodes(ctx));
-    }
+        => AsReference("db_servers");
 
 }

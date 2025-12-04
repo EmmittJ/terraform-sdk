@@ -18,7 +18,7 @@ public class AzurermRedisEnterpriseDatabaseModuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Args
     {
-        get => new TerraformReference<string>(this, "args");
+        get => GetArgument<TerraformValue<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermRedisEnterpriseDatabaseModuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -36,9 +36,7 @@ public class AzurermRedisEnterpriseDatabaseModuleBlock : TerraformBlock
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
 }
 
@@ -59,7 +57,7 @@ public class AzurermRedisEnterpriseDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -68,7 +66,7 @@ public class AzurermRedisEnterpriseDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -77,7 +75,7 @@ public class AzurermRedisEnterpriseDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -86,7 +84,7 @@ public class AzurermRedisEnterpriseDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -105,7 +103,7 @@ public partial class AzurermRedisEnterpriseDatabase(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? ClientProtocol
     {
-        get => new TerraformReference<string>(this, "client_protocol");
+        get => GetArgument<TerraformValue<string>>("client_protocol");
         set => SetArgument("client_protocol", value);
     }
 
@@ -115,7 +113,7 @@ public partial class AzurermRedisEnterpriseDatabase(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => new TerraformReference<string>(this, "cluster_id");
+        get => GetArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
@@ -124,7 +122,7 @@ public partial class AzurermRedisEnterpriseDatabase(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? ClusteringPolicy
     {
-        get => new TerraformReference<string>(this, "clustering_policy");
+        get => GetArgument<TerraformValue<string>>("clustering_policy");
         set => SetArgument("clustering_policy", value);
     }
 
@@ -133,16 +131,16 @@ public partial class AzurermRedisEnterpriseDatabase(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? EvictionPolicy
     {
-        get => new TerraformReference<string>(this, "eviction_policy");
+        get => GetArgument<TerraformValue<string>>("eviction_policy");
         set => SetArgument("eviction_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -151,7 +149,7 @@ public partial class AzurermRedisEnterpriseDatabase(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? LinkedDatabaseGroupNickname
     {
-        get => new TerraformReference<string>(this, "linked_database_group_nickname");
+        get => GetArgument<TerraformValue<string>>("linked_database_group_nickname");
         set => SetArgument("linked_database_group_nickname", value);
     }
 
@@ -160,7 +158,7 @@ public partial class AzurermRedisEnterpriseDatabase(string name) : TerraformReso
     /// </summary>
     public TerraformSet<string>? LinkedDatabaseId
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "linked_database_id").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("linked_database_id");
         set => SetArgument("linked_database_id", value);
     }
 
@@ -169,7 +167,7 @@ public partial class AzurermRedisEnterpriseDatabase(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -178,7 +176,7 @@ public partial class AzurermRedisEnterpriseDatabase(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -186,17 +184,13 @@ public partial class AzurermRedisEnterpriseDatabase(string name) : TerraformReso
     /// The primary_access_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "primary_access_key");
-    }
+        => AsReference("primary_access_key");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "secondary_access_key");
-    }
+        => AsReference("secondary_access_key");
 
     /// <summary>
     /// Module block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AwsCloudcontrolapiResourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsCloudcontrolapiResourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsCloudcontrolapiResourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,25 +55,25 @@ public partial class AwsCloudcontrolapiResource(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredState is required")]
     public required TerraformValue<string> DesiredState
     {
-        get => new TerraformReference<string>(this, "desired_state");
+        get => GetArgument<TerraformValue<string>>("desired_state");
         set => SetArgument("desired_state", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -82,16 +82,16 @@ public partial class AwsCloudcontrolapiResource(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
     /// <summary>
     /// The schema attribute.
     /// </summary>
-    public TerraformValue<string> Schema
+    public TerraformValue<string>? Schema
     {
-        get => new TerraformReference<string>(this, "schema");
+        get => GetArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AwsCloudcontrolapiResource(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeName is required")]
     public required TerraformValue<string> TypeName
     {
-        get => new TerraformReference<string>(this, "type_name");
+        get => GetArgument<TerraformValue<string>>("type_name");
         set => SetArgument("type_name", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AwsCloudcontrolapiResource(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? TypeVersionId
     {
-        get => new TerraformReference<string>(this, "type_version_id");
+        get => GetArgument<TerraformValue<string>>("type_version_id");
         set => SetArgument("type_version_id", value);
     }
 
@@ -118,9 +118,7 @@ public partial class AwsCloudcontrolapiResource(string name) : TerraformResource
     /// The properties attribute.
     /// </summary>
     public TerraformValue<string> Properties
-    {
-        get => new TerraformReference<string>(this, "properties");
-    }
+        => AsReference("properties");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

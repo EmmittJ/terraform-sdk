@@ -14,16 +14,16 @@ public partial class AwsLambdaFunctionUrlDataSource(string name) : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformValue<string> FunctionName
     {
-        get => new TerraformReference<string>(this, "function_name");
+        get => GetArgument<TerraformValue<string>>("function_name");
         set => SetArgument("function_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,16 +32,16 @@ public partial class AwsLambdaFunctionUrlDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string>? Qualifier
     {
-        get => new TerraformReference<string>(this, "qualifier");
+        get => GetArgument<TerraformValue<string>>("qualifier");
         set => SetArgument("qualifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -49,64 +49,48 @@ public partial class AwsLambdaFunctionUrlDataSource(string name) : TerraformData
     /// The authorization_type attribute.
     /// </summary>
     public TerraformValue<string> AuthorizationType
-    {
-        get => new TerraformReference<string>(this, "authorization_type");
-    }
+        => AsReference("authorization_type");
 
     /// <summary>
     /// The cors attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Cors
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cors").ResolveNodes(ctx));
-    }
+        => AsReference("cors");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-    {
-        get => new TerraformReference<string>(this, "creation_time");
-    }
+        => AsReference("creation_time");
 
     /// <summary>
     /// The function_arn attribute.
     /// </summary>
     public TerraformValue<string> FunctionArn
-    {
-        get => new TerraformReference<string>(this, "function_arn");
-    }
+        => AsReference("function_arn");
 
     /// <summary>
     /// The function_url attribute.
     /// </summary>
     public TerraformValue<string> FunctionUrl
-    {
-        get => new TerraformReference<string>(this, "function_url");
-    }
+        => AsReference("function_url");
 
     /// <summary>
     /// The invoke_mode attribute.
     /// </summary>
     public TerraformValue<string> InvokeMode
-    {
-        get => new TerraformReference<string>(this, "invoke_mode");
-    }
+        => AsReference("invoke_mode");
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedTime
-    {
-        get => new TerraformReference<string>(this, "last_modified_time");
-    }
+        => AsReference("last_modified_time");
 
     /// <summary>
     /// The url_id attribute.
     /// </summary>
     public TerraformValue<string> UrlId
-    {
-        get => new TerraformReference<string>(this, "url_id");
-    }
+        => AsReference("url_id");
 
 }

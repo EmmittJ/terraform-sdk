@@ -14,7 +14,7 @@ public partial class AwsAuditmanagerAssessmentReport(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssessmentId is required")]
     public required TerraformValue<string> AssessmentId
     {
-        get => new TerraformReference<string>(this, "assessment_id");
+        get => GetArgument<TerraformValue<string>>("assessment_id");
         set => SetArgument("assessment_id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsAuditmanagerAssessmentReport(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsAuditmanagerAssessmentReport(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -50,24 +50,18 @@ public partial class AwsAuditmanagerAssessmentReport(string name) : TerraformRes
     /// The author attribute.
     /// </summary>
     public TerraformValue<string> Author
-    {
-        get => new TerraformReference<string>(this, "author");
-    }
+        => AsReference("author");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }

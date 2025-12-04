@@ -19,7 +19,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     public required TerraformValue<string> WebhookSecretSecretVersion
     {
-        get => new TerraformReference<string>(this, "webhook_secret_secret_version");
+        get => GetArgument<TerraformValue<string>>("webhook_secret_secret_version");
         set => SetArgument("webhook_secret_secret_version", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Workspace is required")]
     public required TerraformValue<string> Workspace
     {
-        get => new TerraformReference<string>(this, "workspace");
+        get => GetArgument<TerraformValue<string>>("workspace");
         set => SetArgument("workspace", value);
     }
 
@@ -78,7 +78,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlockAuthorizerCred
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserTokenSecretVersion is required")]
     public required TerraformValue<string> UserTokenSecretVersion
     {
-        get => new TerraformReference<string>(this, "user_token_secret_version");
+        get => GetArgument<TerraformValue<string>>("user_token_secret_version");
         set => SetArgument("user_token_secret_version", value);
     }
 
@@ -86,9 +86,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlockAuthorizerCred
     /// Output only. The username associated to this token.
     /// </summary>
     public TerraformValue<string> Username
-    {
-        get => new TerraformReference<string>(this, "username");
-    }
+        => AsReference("username");
 
 }
 
@@ -109,7 +107,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlockReadAuthorizer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserTokenSecretVersion is required")]
     public required TerraformValue<string> UserTokenSecretVersion
     {
-        get => new TerraformReference<string>(this, "user_token_secret_version");
+        get => GetArgument<TerraformValue<string>>("user_token_secret_version");
         set => SetArgument("user_token_secret_version", value);
     }
 
@@ -117,9 +115,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketCloudConfigBlockReadAuthorizer
     /// Output only. The username associated to this token.
     /// </summary>
     public TerraformValue<string> Username
-    {
-        get => new TerraformReference<string>(this, "username");
-    }
+        => AsReference("username");
 
 }
 
@@ -141,7 +137,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
     public required TerraformValue<string> HostUri
     {
-        get => new TerraformReference<string>(this, "host_uri");
+        get => GetArgument<TerraformValue<string>>("host_uri");
         set => SetArgument("host_uri", value);
     }
 
@@ -149,16 +145,14 @@ public class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlock : Terraf
     /// Output only. Version of the Bitbucket Data Center running on the &#39;host_uri&#39;.
     /// </summary>
     public TerraformValue<string> ServerVersion
-    {
-        get => new TerraformReference<string>(this, "server_version");
-    }
+        => AsReference("server_version");
 
     /// <summary>
     /// SSL certificate to use for requests to the Bitbucket Data Center.
     /// </summary>
     public TerraformValue<string>? SslCa
     {
-        get => new TerraformReference<string>(this, "ssl_ca");
+        get => GetArgument<TerraformValue<string>>("ssl_ca");
         set => SetArgument("ssl_ca", value);
     }
 
@@ -168,7 +162,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     public required TerraformValue<string> WebhookSecretSecretVersion
     {
-        get => new TerraformReference<string>(this, "webhook_secret_secret_version");
+        get => GetArgument<TerraformValue<string>>("webhook_secret_secret_version");
         set => SetArgument("webhook_secret_secret_version", value);
     }
 
@@ -227,7 +221,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlockAuthorize
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserTokenSecretVersion is required")]
     public required TerraformValue<string> UserTokenSecretVersion
     {
-        get => new TerraformReference<string>(this, "user_token_secret_version");
+        get => GetArgument<TerraformValue<string>>("user_token_secret_version");
         set => SetArgument("user_token_secret_version", value);
     }
 
@@ -235,9 +229,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlockAuthorize
     /// Output only. The username associated to this token.
     /// </summary>
     public TerraformValue<string> Username
-    {
-        get => new TerraformReference<string>(this, "username");
-    }
+        => AsReference("username");
 
 }
 
@@ -258,7 +250,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlockReadAutho
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserTokenSecretVersion is required")]
     public required TerraformValue<string> UserTokenSecretVersion
     {
-        get => new TerraformReference<string>(this, "user_token_secret_version");
+        get => GetArgument<TerraformValue<string>>("user_token_secret_version");
         set => SetArgument("user_token_secret_version", value);
     }
 
@@ -266,9 +258,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlockReadAutho
     /// Output only. The username associated to this token.
     /// </summary>
     public TerraformValue<string> Username
-    {
-        get => new TerraformReference<string>(this, "username");
-    }
+        => AsReference("username");
 
 }
 
@@ -289,7 +279,7 @@ public class GoogleCloudbuildv2ConnectionBitbucketDataCenterConfigBlockServiceDi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -312,7 +302,7 @@ public class GoogleCloudbuildv2ConnectionGithubConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? AppInstallationId
     {
-        get => new TerraformReference<double>(this, "app_installation_id");
+        get => GetArgument<TerraformValue<double>>("app_installation_id");
         set => SetArgument("app_installation_id", value);
     }
 
@@ -344,7 +334,7 @@ public class GoogleCloudbuildv2ConnectionGithubConfigBlockAuthorizerCredentialBl
     /// </summary>
     public TerraformValue<string>? OauthTokenSecretVersion
     {
-        get => new TerraformReference<string>(this, "oauth_token_secret_version");
+        get => GetArgument<TerraformValue<string>>("oauth_token_secret_version");
         set => SetArgument("oauth_token_secret_version", value);
     }
 
@@ -352,9 +342,7 @@ public class GoogleCloudbuildv2ConnectionGithubConfigBlockAuthorizerCredentialBl
     /// Output only. The username associated to this token.
     /// </summary>
     public TerraformValue<string> Username
-    {
-        get => new TerraformReference<string>(this, "username");
-    }
+        => AsReference("username");
 
 }
 
@@ -375,7 +363,7 @@ public class GoogleCloudbuildv2ConnectionGithubEnterpriseConfigBlock : Terraform
     /// </summary>
     public TerraformValue<double>? AppId
     {
-        get => new TerraformReference<double>(this, "app_id");
+        get => GetArgument<TerraformValue<double>>("app_id");
         set => SetArgument("app_id", value);
     }
 
@@ -384,7 +372,7 @@ public class GoogleCloudbuildv2ConnectionGithubEnterpriseConfigBlock : Terraform
     /// </summary>
     public TerraformValue<double>? AppInstallationId
     {
-        get => new TerraformReference<double>(this, "app_installation_id");
+        get => GetArgument<TerraformValue<double>>("app_installation_id");
         set => SetArgument("app_installation_id", value);
     }
 
@@ -393,7 +381,7 @@ public class GoogleCloudbuildv2ConnectionGithubEnterpriseConfigBlock : Terraform
     /// </summary>
     public TerraformValue<string>? AppSlug
     {
-        get => new TerraformReference<string>(this, "app_slug");
+        get => GetArgument<TerraformValue<string>>("app_slug");
         set => SetArgument("app_slug", value);
     }
 
@@ -403,7 +391,7 @@ public class GoogleCloudbuildv2ConnectionGithubEnterpriseConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostUri is required")]
     public required TerraformValue<string> HostUri
     {
-        get => new TerraformReference<string>(this, "host_uri");
+        get => GetArgument<TerraformValue<string>>("host_uri");
         set => SetArgument("host_uri", value);
     }
 
@@ -412,7 +400,7 @@ public class GoogleCloudbuildv2ConnectionGithubEnterpriseConfigBlock : Terraform
     /// </summary>
     public TerraformValue<string>? PrivateKeySecretVersion
     {
-        get => new TerraformReference<string>(this, "private_key_secret_version");
+        get => GetArgument<TerraformValue<string>>("private_key_secret_version");
         set => SetArgument("private_key_secret_version", value);
     }
 
@@ -421,7 +409,7 @@ public class GoogleCloudbuildv2ConnectionGithubEnterpriseConfigBlock : Terraform
     /// </summary>
     public TerraformValue<string>? SslCa
     {
-        get => new TerraformReference<string>(this, "ssl_ca");
+        get => GetArgument<TerraformValue<string>>("ssl_ca");
         set => SetArgument("ssl_ca", value);
     }
 
@@ -430,7 +418,7 @@ public class GoogleCloudbuildv2ConnectionGithubEnterpriseConfigBlock : Terraform
     /// </summary>
     public TerraformValue<string>? WebhookSecretSecretVersion
     {
-        get => new TerraformReference<string>(this, "webhook_secret_secret_version");
+        get => GetArgument<TerraformValue<string>>("webhook_secret_secret_version");
         set => SetArgument("webhook_secret_secret_version", value);
     }
 
@@ -463,7 +451,7 @@ public class GoogleCloudbuildv2ConnectionGithubEnterpriseConfigBlockServiceDirec
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -484,9 +472,9 @@ public class GoogleCloudbuildv2ConnectionGitlabConfigBlock : TerraformBlock
     /// <summary>
     /// The URI of the GitLab Enterprise host this connection is for. If not specified, the default value is https://gitlab.com.
     /// </summary>
-    public TerraformValue<string> HostUri
+    public TerraformValue<string>? HostUri
     {
-        get => new TerraformReference<string>(this, "host_uri");
+        get => GetArgument<TerraformValue<string>>("host_uri");
         set => SetArgument("host_uri", value);
     }
 
@@ -494,16 +482,14 @@ public class GoogleCloudbuildv2ConnectionGitlabConfigBlock : TerraformBlock
     /// Output only. Version of the GitLab Enterprise server running on the &#39;host_uri&#39;.
     /// </summary>
     public TerraformValue<string> ServerVersion
-    {
-        get => new TerraformReference<string>(this, "server_version");
-    }
+        => AsReference("server_version");
 
     /// <summary>
     /// SSL certificate to use for requests to GitLab Enterprise.
     /// </summary>
     public TerraformValue<string>? SslCa
     {
-        get => new TerraformReference<string>(this, "ssl_ca");
+        get => GetArgument<TerraformValue<string>>("ssl_ca");
         set => SetArgument("ssl_ca", value);
     }
 
@@ -513,7 +499,7 @@ public class GoogleCloudbuildv2ConnectionGitlabConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebhookSecretSecretVersion is required")]
     public required TerraformValue<string> WebhookSecretSecretVersion
     {
-        get => new TerraformReference<string>(this, "webhook_secret_secret_version");
+        get => GetArgument<TerraformValue<string>>("webhook_secret_secret_version");
         set => SetArgument("webhook_secret_secret_version", value);
     }
 
@@ -572,7 +558,7 @@ public class GoogleCloudbuildv2ConnectionGitlabConfigBlockAuthorizerCredentialBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserTokenSecretVersion is required")]
     public required TerraformValue<string> UserTokenSecretVersion
     {
-        get => new TerraformReference<string>(this, "user_token_secret_version");
+        get => GetArgument<TerraformValue<string>>("user_token_secret_version");
         set => SetArgument("user_token_secret_version", value);
     }
 
@@ -580,9 +566,7 @@ public class GoogleCloudbuildv2ConnectionGitlabConfigBlockAuthorizerCredentialBl
     /// Output only. The username associated to this token.
     /// </summary>
     public TerraformValue<string> Username
-    {
-        get => new TerraformReference<string>(this, "username");
-    }
+        => AsReference("username");
 
 }
 
@@ -603,7 +587,7 @@ public class GoogleCloudbuildv2ConnectionGitlabConfigBlockReadAuthorizerCredenti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserTokenSecretVersion is required")]
     public required TerraformValue<string> UserTokenSecretVersion
     {
-        get => new TerraformReference<string>(this, "user_token_secret_version");
+        get => GetArgument<TerraformValue<string>>("user_token_secret_version");
         set => SetArgument("user_token_secret_version", value);
     }
 
@@ -611,9 +595,7 @@ public class GoogleCloudbuildv2ConnectionGitlabConfigBlockReadAuthorizerCredenti
     /// Output only. The username associated to this token.
     /// </summary>
     public TerraformValue<string> Username
-    {
-        get => new TerraformReference<string>(this, "username");
-    }
+        => AsReference("username");
 
 }
 
@@ -634,7 +616,7 @@ public class GoogleCloudbuildv2ConnectionGitlabConfigBlockServiceDirectoryConfig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -657,7 +639,7 @@ public class GoogleCloudbuildv2ConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -666,7 +648,7 @@ public class GoogleCloudbuildv2ConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -675,7 +657,7 @@ public class GoogleCloudbuildv2ConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -696,7 +678,7 @@ public partial class GoogleCloudbuildv2Connection(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -705,16 +687,16 @@ public partial class GoogleCloudbuildv2Connection(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -724,7 +706,7 @@ public partial class GoogleCloudbuildv2Connection(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -734,16 +716,16 @@ public partial class GoogleCloudbuildv2Connection(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -751,49 +733,37 @@ public partial class GoogleCloudbuildv2Connection(string name) : TerraformResour
     /// Output only. Server assigned timestamp for when the connection was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Output only. Installation state of the Connection.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstallationState
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "installation_state").ResolveNodes(ctx));
-    }
+        => AsReference("installation_state");
 
     /// <summary>
     /// Output only. Set to true when the connection is being set up or updated in the background.
     /// </summary>
     public TerraformValue<bool> Reconciling
-    {
-        get => new TerraformReference<bool>(this, "reconciling");
-    }
+        => AsReference("reconciling");
 
     /// <summary>
     /// Output only. Server assigned timestamp for when the connection was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// BitbucketCloudConfig block (nesting mode: list).

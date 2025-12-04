@@ -18,7 +18,7 @@ public class AzurermKeyVaultCertificatesDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermKeyVaultCertificatesDataSource(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzurermKeyVaultCertificatesDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<bool>? IncludePending
     {
-        get => new TerraformReference<bool>(this, "include_pending");
+        get => GetArgument<TerraformValue<bool>>("include_pending");
         set => SetArgument("include_pending", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermKeyVaultCertificatesDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformValue<string> KeyVaultId
     {
-        get => new TerraformReference<string>(this, "key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -63,17 +63,13 @@ public partial class AzurermKeyVaultCertificatesDataSource(string name) : Terraf
     /// The certificates attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Certificates
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "certificates").ResolveNodes(ctx));
-    }
+        => AsReference("certificates");
 
     /// <summary>
     /// The names attribute.
     /// </summary>
     public TerraformList<string> Names
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "names").ResolveNodes(ctx));
-    }
+        => AsReference("names");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

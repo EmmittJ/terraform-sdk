@@ -14,7 +14,7 @@ public partial class AwsSecurityhubMember(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformValue<string> AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsSecurityhubMember(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -41,16 +41,16 @@ public partial class AwsSecurityhubMember(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<bool>? Invite
     {
-        get => new TerraformReference<bool>(this, "invite");
+        get => GetArgument<TerraformValue<bool>>("invite");
         set => SetArgument("invite", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -58,16 +58,12 @@ public partial class AwsSecurityhubMember(string name) : TerraformResource("aws_
     /// The master_id attribute.
     /// </summary>
     public TerraformValue<string> MasterId
-    {
-        get => new TerraformReference<string>(this, "master_id");
-    }
+        => AsReference("master_id");
 
     /// <summary>
     /// The member_status attribute.
     /// </summary>
     public TerraformValue<string> MemberStatus
-    {
-        get => new TerraformReference<string>(this, "member_status");
-    }
+        => AsReference("member_status");
 
 }

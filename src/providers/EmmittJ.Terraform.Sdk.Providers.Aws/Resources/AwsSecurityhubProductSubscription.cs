@@ -11,9 +11,9 @@ public partial class AwsSecurityhubProductSubscription(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsSecurityhubProductSubscription(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductArn is required")]
     public required TerraformValue<string> ProductArn
     {
-        get => new TerraformReference<string>(this, "product_arn");
+        get => GetArgument<TerraformValue<string>>("product_arn");
         set => SetArgument("product_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -40,8 +40,6 @@ public partial class AwsSecurityhubProductSubscription(string name) : TerraformR
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

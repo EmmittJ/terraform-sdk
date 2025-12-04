@@ -19,7 +19,7 @@ public class GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock : 
     /// </summary>
     public TerraformList<string>? IncludeImportRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "include_import_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("include_import_ranges");
         set => SetArgument("include_import_ranges", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteToSiteDataTransfer is required")]
     public required TerraformValue<bool> SiteToSiteDataTransfer
     {
-        get => new TerraformReference<bool>(this, "site_to_site_data_transfer");
+        get => GetArgument<TerraformValue<bool>>("site_to_site_data_transfer");
         set => SetArgument("site_to_site_data_transfer", value);
     }
 
@@ -39,7 +39,7 @@ public class GoogleNetworkConnectivitySpokeLinkedInterconnectAttachmentsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uris is required")]
     public TerraformList<string>? Uris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("uris");
         set => SetArgument("uris", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock : Terra
     /// </summary>
     public TerraformList<string>? ExcludeExportRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclude_export_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclude_export_ranges");
         set => SetArgument("exclude_export_ranges", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock : Terra
     /// </summary>
     public TerraformList<string>? IncludeExportRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "include_export_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("include_export_ranges");
         set => SetArgument("include_export_ranges", value);
     }
 
@@ -81,7 +81,7 @@ public class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Peering is required")]
     public required TerraformValue<string> Peering
     {
-        get => new TerraformReference<string>(this, "peering");
+        get => GetArgument<TerraformValue<string>>("peering");
         set => SetArgument("peering", value);
     }
 
@@ -99,9 +99,7 @@ public class GoogleNetworkConnectivitySpokeLinkedProducerVpcNetworkBlock : Terra
     /// The URI of the Producer VPC.
     /// </summary>
     public TerraformValue<string> ProducerNetwork
-    {
-        get => new TerraformReference<string>(this, "producer_network");
-    }
+        => AsReference("producer_network");
 
 }
 
@@ -123,7 +121,7 @@ public class GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock :
     /// </summary>
     public TerraformList<string>? IncludeImportRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "include_import_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("include_import_ranges");
         set => SetArgument("include_import_ranges", value);
     }
 
@@ -133,7 +131,7 @@ public class GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteToSiteDataTransfer is required")]
     public required TerraformValue<bool> SiteToSiteDataTransfer
     {
-        get => new TerraformReference<bool>(this, "site_to_site_data_transfer");
+        get => GetArgument<TerraformValue<bool>>("site_to_site_data_transfer");
         set => SetArgument("site_to_site_data_transfer", value);
     }
 
@@ -168,7 +166,7 @@ public class GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlockIn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     public required TerraformValue<string> IpAddress
     {
-        get => new TerraformReference<string>(this, "ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -178,7 +176,7 @@ public class GoogleNetworkConnectivitySpokeLinkedRouterApplianceInstancesBlockIn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachine is required")]
     public required TerraformValue<string> VirtualMachine
     {
-        get => new TerraformReference<string>(this, "virtual_machine");
+        get => GetArgument<TerraformValue<string>>("virtual_machine");
         set => SetArgument("virtual_machine", value);
     }
 
@@ -201,7 +199,7 @@ public class GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock : TerraformBloc
     /// </summary>
     public TerraformList<string>? ExcludeExportRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclude_export_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclude_export_ranges");
         set => SetArgument("exclude_export_ranges", value);
     }
 
@@ -210,7 +208,7 @@ public class GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock : TerraformBloc
     /// </summary>
     public TerraformList<string>? IncludeExportRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "include_export_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("include_export_ranges");
         set => SetArgument("include_export_ranges", value);
     }
 
@@ -220,7 +218,7 @@ public class GoogleNetworkConnectivitySpokeLinkedVpcNetworkBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -244,7 +242,7 @@ public class GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock : TerraformBloc
     /// </summary>
     public TerraformList<string>? IncludeImportRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "include_import_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("include_import_ranges");
         set => SetArgument("include_import_ranges", value);
     }
 
@@ -254,7 +252,7 @@ public class GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteToSiteDataTransfer is required")]
     public required TerraformValue<bool> SiteToSiteDataTransfer
     {
-        get => new TerraformReference<bool>(this, "site_to_site_data_transfer");
+        get => GetArgument<TerraformValue<bool>>("site_to_site_data_transfer");
         set => SetArgument("site_to_site_data_transfer", value);
     }
 
@@ -264,7 +262,7 @@ public class GoogleNetworkConnectivitySpokeLinkedVpnTunnelsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uris is required")]
     public TerraformList<string>? Uris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("uris");
         set => SetArgument("uris", value);
     }
 
@@ -287,7 +285,7 @@ public class GoogleNetworkConnectivitySpokeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -296,7 +294,7 @@ public class GoogleNetworkConnectivitySpokeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -305,7 +303,7 @@ public class GoogleNetworkConnectivitySpokeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -323,16 +321,16 @@ public partial class GoogleNetworkConnectivitySpoke(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The name of the group that this spoke is associated with.
     /// </summary>
-    public TerraformValue<string> Group
+    public TerraformValue<string>? Group
     {
-        get => new TerraformReference<string>(this, "group");
+        get => GetArgument<TerraformValue<string>>("group");
         set => SetArgument("group", value);
     }
 
@@ -342,16 +340,16 @@ public partial class GoogleNetworkConnectivitySpoke(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hub is required")]
     public required TerraformValue<string> Hub
     {
-        get => new TerraformReference<string>(this, "hub");
+        get => GetArgument<TerraformValue<string>>("hub");
         set => SetArgument("hub", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -363,7 +361,7 @@ public partial class GoogleNetworkConnectivitySpoke(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -373,7 +371,7 @@ public partial class GoogleNetworkConnectivitySpoke(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -383,16 +381,16 @@ public partial class GoogleNetworkConnectivitySpoke(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -400,58 +398,44 @@ public partial class GoogleNetworkConnectivitySpoke(string name) : TerraformReso
     /// Output only. The time the spoke was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The reasons for the current state in the lifecycle
     /// </summary>
     public TerraformList<TerraformMap<object>> Reasons
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "reasons").ResolveNodes(ctx));
-    }
+        => AsReference("reasons");
 
     /// <summary>
     /// Output only. The current lifecycle state of this spoke.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Output only. The Google-generated UUID for the spoke. This value is unique across all spoke resources. If a spoke is deleted and another with the same name is created, the new spoke is assigned a different unique_id.
     /// </summary>
     public TerraformValue<string> UniqueId
-    {
-        get => new TerraformReference<string>(this, "unique_id");
-    }
+        => AsReference("unique_id");
 
     /// <summary>
     /// Output only. The time the spoke was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// LinkedInterconnectAttachments block (nesting mode: list).

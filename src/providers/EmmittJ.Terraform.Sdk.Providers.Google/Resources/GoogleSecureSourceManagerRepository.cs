@@ -18,7 +18,7 @@ public class GoogleSecureSourceManagerRepositoryInitialConfigBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? DefaultBranch
     {
-        get => new TerraformReference<string>(this, "default_branch");
+        get => GetArgument<TerraformValue<string>>("default_branch");
         set => SetArgument("default_branch", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleSecureSourceManagerRepositoryInitialConfigBlock : TerraformBl
     /// </summary>
     public TerraformList<string>? Gitignores
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "gitignores").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("gitignores");
         set => SetArgument("gitignores", value);
     }
 
@@ -38,7 +38,7 @@ public class GoogleSecureSourceManagerRepositoryInitialConfigBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? License
     {
-        get => new TerraformReference<string>(this, "license");
+        get => GetArgument<TerraformValue<string>>("license");
         set => SetArgument("license", value);
     }
 
@@ -48,7 +48,7 @@ public class GoogleSecureSourceManagerRepositoryInitialConfigBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Readme
     {
-        get => new TerraformReference<string>(this, "readme");
+        get => GetArgument<TerraformValue<string>>("readme");
         set => SetArgument("readme", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleSecureSourceManagerRepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleSecureSourceManagerRepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -89,7 +89,7 @@ public class GoogleSecureSourceManagerRepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -114,7 +114,7 @@ public partial class GoogleSecureSourceManagerRepository(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? DeletionPolicy
     {
-        get => new TerraformReference<string>(this, "deletion_policy");
+        get => GetArgument<TerraformValue<string>>("deletion_policy");
         set => SetArgument("deletion_policy", value);
     }
 
@@ -123,16 +123,16 @@ public partial class GoogleSecureSourceManagerRepository(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -142,7 +142,7 @@ public partial class GoogleSecureSourceManagerRepository(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -152,16 +152,16 @@ public partial class GoogleSecureSourceManagerRepository(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -171,7 +171,7 @@ public partial class GoogleSecureSourceManagerRepository(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformValue<string> RepositoryId
     {
-        get => new TerraformReference<string>(this, "repository_id");
+        get => GetArgument<TerraformValue<string>>("repository_id");
         set => SetArgument("repository_id", value);
     }
 
@@ -179,41 +179,31 @@ public partial class GoogleSecureSourceManagerRepository(string name) : Terrafor
     /// Time the repository was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The resource name for the Repository.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Unique identifier of the repository.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Time the repository was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// URIs for the repository.
     /// </summary>
     public TerraformList<TerraformMap<object>> Uris
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "uris").ResolveNodes(ctx));
-    }
+        => AsReference("uris");
 
     /// <summary>
     /// InitialConfig block (nesting mode: list).

@@ -17,17 +17,13 @@ public class AwsLbListenerRuleDataSourceActionBlock : TerraformBlock
     /// The order attribute.
     /// </summary>
     public TerraformValue<double> Order
-    {
-        get => new TerraformReference<double>(this, "order");
-    }
+        => AsReference("order");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// AuthenticateCognito block (nesting mode: list).
@@ -91,65 +87,49 @@ public class AwsLbListenerRuleDataSourceActionBlockAuthenticateCognitoBlock : Te
     /// The authentication_request_extra_params attribute.
     /// </summary>
     public TerraformMap<string> AuthenticationRequestExtraParams
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "authentication_request_extra_params").ResolveNodes(ctx));
-    }
+        => AsReference("authentication_request_extra_params");
 
     /// <summary>
     /// The on_unauthenticated_request attribute.
     /// </summary>
     public TerraformValue<string> OnUnauthenticatedRequest
-    {
-        get => new TerraformReference<string>(this, "on_unauthenticated_request");
-    }
+        => AsReference("on_unauthenticated_request");
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     public TerraformValue<string> Scope
-    {
-        get => new TerraformReference<string>(this, "scope");
-    }
+        => AsReference("scope");
 
     /// <summary>
     /// The session_cookie_name attribute.
     /// </summary>
     public TerraformValue<string> SessionCookieName
-    {
-        get => new TerraformReference<string>(this, "session_cookie_name");
-    }
+        => AsReference("session_cookie_name");
 
     /// <summary>
     /// The session_timeout attribute.
     /// </summary>
     public TerraformValue<double> SessionTimeout
-    {
-        get => new TerraformReference<double>(this, "session_timeout");
-    }
+        => AsReference("session_timeout");
 
     /// <summary>
     /// The user_pool_arn attribute.
     /// </summary>
     public TerraformValue<string> UserPoolArn
-    {
-        get => new TerraformReference<string>(this, "user_pool_arn");
-    }
+        => AsReference("user_pool_arn");
 
     /// <summary>
     /// The user_pool_client_id attribute.
     /// </summary>
     public TerraformValue<string> UserPoolClientId
-    {
-        get => new TerraformReference<string>(this, "user_pool_client_id");
-    }
+        => AsReference("user_pool_client_id");
 
     /// <summary>
     /// The user_pool_domain attribute.
     /// </summary>
     public TerraformValue<string> UserPoolDomain
-    {
-        get => new TerraformReference<string>(this, "user_pool_domain");
-    }
+        => AsReference("user_pool_domain");
 
 }
 
@@ -168,81 +148,61 @@ public class AwsLbListenerRuleDataSourceActionBlockAuthenticateOidcBlock : Terra
     /// The authentication_request_extra_params attribute.
     /// </summary>
     public TerraformMap<string> AuthenticationRequestExtraParams
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "authentication_request_extra_params").ResolveNodes(ctx));
-    }
+        => AsReference("authentication_request_extra_params");
 
     /// <summary>
     /// The authorization_endpoint attribute.
     /// </summary>
     public TerraformValue<string> AuthorizationEndpoint
-    {
-        get => new TerraformReference<string>(this, "authorization_endpoint");
-    }
+        => AsReference("authorization_endpoint");
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
     public TerraformValue<string> ClientId
-    {
-        get => new TerraformReference<string>(this, "client_id");
-    }
+        => AsReference("client_id");
 
     /// <summary>
     /// The issuer attribute.
     /// </summary>
     public TerraformValue<string> Issuer
-    {
-        get => new TerraformReference<string>(this, "issuer");
-    }
+        => AsReference("issuer");
 
     /// <summary>
     /// The on_unauthenticated_request attribute.
     /// </summary>
     public TerraformValue<string> OnUnauthenticatedRequest
-    {
-        get => new TerraformReference<string>(this, "on_unauthenticated_request");
-    }
+        => AsReference("on_unauthenticated_request");
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     public TerraformValue<string> Scope
-    {
-        get => new TerraformReference<string>(this, "scope");
-    }
+        => AsReference("scope");
 
     /// <summary>
     /// The session_cookie_name attribute.
     /// </summary>
     public TerraformValue<string> SessionCookieName
-    {
-        get => new TerraformReference<string>(this, "session_cookie_name");
-    }
+        => AsReference("session_cookie_name");
 
     /// <summary>
     /// The session_timeout attribute.
     /// </summary>
     public TerraformValue<double> SessionTimeout
-    {
-        get => new TerraformReference<double>(this, "session_timeout");
-    }
+        => AsReference("session_timeout");
 
     /// <summary>
     /// The token_endpoint attribute.
     /// </summary>
     public TerraformValue<string> TokenEndpoint
-    {
-        get => new TerraformReference<string>(this, "token_endpoint");
-    }
+        => AsReference("token_endpoint");
 
     /// <summary>
     /// The user_info_endpoint attribute.
     /// </summary>
     public TerraformValue<string> UserInfoEndpoint
-    {
-        get => new TerraformReference<string>(this, "user_info_endpoint");
-    }
+        => AsReference("user_info_endpoint");
 
 }
 
@@ -261,25 +221,19 @@ public class AwsLbListenerRuleDataSourceActionBlockFixedResponseBlock : Terrafor
     /// The content_type attribute.
     /// </summary>
     public TerraformValue<string> ContentType
-    {
-        get => new TerraformReference<string>(this, "content_type");
-    }
+        => AsReference("content_type");
 
     /// <summary>
     /// The message_body attribute.
     /// </summary>
     public TerraformValue<string> MessageBody
-    {
-        get => new TerraformReference<string>(this, "message_body");
-    }
+        => AsReference("message_body");
 
     /// <summary>
     /// The status_code attribute.
     /// </summary>
     public TerraformValue<string> StatusCode
-    {
-        get => new TerraformReference<string>(this, "status_code");
-    }
+        => AsReference("status_code");
 
 }
 
@@ -329,17 +283,13 @@ public class AwsLbListenerRuleDataSourceActionBlockForwardBlockStickinessBlock :
     /// The duration attribute.
     /// </summary>
     public TerraformValue<double> Duration
-    {
-        get => new TerraformReference<double>(this, "duration");
-    }
+        => AsReference("duration");
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     public TerraformValue<bool> Enabled
-    {
-        get => new TerraformReference<bool>(this, "enabled");
-    }
+        => AsReference("enabled");
 
 }
 
@@ -358,17 +308,13 @@ public class AwsLbListenerRuleDataSourceActionBlockForwardBlockTargetGroupBlock 
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The weight attribute.
     /// </summary>
     public TerraformValue<double> Weight
-    {
-        get => new TerraformReference<double>(this, "weight");
-    }
+        => AsReference("weight");
 
 }
 
@@ -387,49 +333,37 @@ public class AwsLbListenerRuleDataSourceActionBlockRedirectBlock : TerraformBloc
     /// The host attribute.
     /// </summary>
     public TerraformValue<string> Host
-    {
-        get => new TerraformReference<string>(this, "host");
-    }
+        => AsReference("host");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     public TerraformValue<string> Path
-    {
-        get => new TerraformReference<string>(this, "path");
-    }
+        => AsReference("path");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     public TerraformValue<string> Port
-    {
-        get => new TerraformReference<string>(this, "port");
-    }
+        => AsReference("port");
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     public TerraformValue<string> Protocol
-    {
-        get => new TerraformReference<string>(this, "protocol");
-    }
+        => AsReference("protocol");
 
     /// <summary>
     /// The query attribute.
     /// </summary>
     public TerraformValue<string> Query
-    {
-        get => new TerraformReference<string>(this, "query");
-    }
+        => AsReference("query");
 
     /// <summary>
     /// The status_code attribute.
     /// </summary>
     public TerraformValue<string> StatusCode
-    {
-        get => new TerraformReference<string>(this, "status_code");
-    }
+        => AsReference("status_code");
 
 }
 
@@ -516,17 +450,13 @@ public class AwsLbListenerRuleDataSourceConditionBlockHostHeaderBlock : Terrafor
     /// The regex_values attribute.
     /// </summary>
     public TerraformSet<string> RegexValues
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "regex_values").ResolveNodes(ctx));
-    }
+        => AsReference("regex_values");
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     public TerraformSet<string> ValuesAttribute
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
-    }
+        => AsReference("values");
 
 }
 
@@ -545,25 +475,19 @@ public class AwsLbListenerRuleDataSourceConditionBlockHttpHeaderBlock : Terrafor
     /// The http_header_name attribute.
     /// </summary>
     public TerraformValue<string> HttpHeaderName
-    {
-        get => new TerraformReference<string>(this, "http_header_name");
-    }
+        => AsReference("http_header_name");
 
     /// <summary>
     /// The regex_values attribute.
     /// </summary>
     public TerraformSet<string> RegexValues
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "regex_values").ResolveNodes(ctx));
-    }
+        => AsReference("regex_values");
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     public TerraformSet<string> ValuesAttribute
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
-    }
+        => AsReference("values");
 
 }
 
@@ -582,9 +506,7 @@ public class AwsLbListenerRuleDataSourceConditionBlockHttpRequestMethodBlock : T
     /// The values attribute.
     /// </summary>
     public TerraformSet<string> ValuesAttribute
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
-    }
+        => AsReference("values");
 
 }
 
@@ -603,17 +525,13 @@ public class AwsLbListenerRuleDataSourceConditionBlockPathPatternBlock : Terrafo
     /// The regex_values attribute.
     /// </summary>
     public TerraformSet<string> RegexValues
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "regex_values").ResolveNodes(ctx));
-    }
+        => AsReference("regex_values");
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     public TerraformSet<string> ValuesAttribute
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
-    }
+        => AsReference("values");
 
 }
 
@@ -654,17 +572,13 @@ public class AwsLbListenerRuleDataSourceConditionBlockQueryStringBlockValuesAttr
     /// The key attribute.
     /// </summary>
     public TerraformValue<string> Key
-    {
-        get => new TerraformReference<string>(this, "key");
-    }
+        => AsReference("key");
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     public TerraformValue<string> Value
-    {
-        get => new TerraformReference<string>(this, "value");
-    }
+        => AsReference("value");
 
 }
 
@@ -683,9 +597,7 @@ public class AwsLbListenerRuleDataSourceConditionBlockSourceIpBlock : TerraformB
     /// The values attribute.
     /// </summary>
     public TerraformSet<string> ValuesAttribute
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
-    }
+        => AsReference("values");
 
 }
 
@@ -705,9 +617,7 @@ public class AwsLbListenerRuleDataSourceTransformBlock : TerraformBlock
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// HostHeaderRewriteConfig block (nesting mode: list).
@@ -766,17 +676,13 @@ public class AwsLbListenerRuleDataSourceTransformBlockHostHeaderRewriteConfigBlo
     /// The regex attribute.
     /// </summary>
     public TerraformValue<string> Regex
-    {
-        get => new TerraformReference<string>(this, "regex");
-    }
+        => AsReference("regex");
 
     /// <summary>
     /// The replace attribute.
     /// </summary>
     public TerraformValue<string> Replace
-    {
-        get => new TerraformReference<string>(this, "replace");
-    }
+        => AsReference("replace");
 
 }
 
@@ -817,17 +723,13 @@ public class AwsLbListenerRuleDataSourceTransformBlockUrlRewriteConfigBlockRewri
     /// The regex attribute.
     /// </summary>
     public TerraformValue<string> Regex
-    {
-        get => new TerraformReference<string>(this, "regex");
-    }
+        => AsReference("regex");
 
     /// <summary>
     /// The replace attribute.
     /// </summary>
     public TerraformValue<string> Replace
-    {
-        get => new TerraformReference<string>(this, "replace");
-    }
+        => AsReference("replace");
 
 }
 
@@ -841,36 +743,36 @@ public partial class AwsLbListenerRuleDataSource(string name) : TerraformDataSou
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformValue<string> Arn
+    public TerraformValue<string>? Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
     /// <summary>
     /// The listener_arn attribute.
     /// </summary>
-    public TerraformValue<string> ListenerArn
+    public TerraformValue<string>? ListenerArn
     {
-        get => new TerraformReference<string>(this, "listener_arn");
+        get => GetArgument<TerraformValue<string>>("listener_arn");
         set => SetArgument("listener_arn", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformValue<double> Priority
+    public TerraformValue<double>? Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -878,9 +780,7 @@ public partial class AwsLbListenerRuleDataSource(string name) : TerraformDataSou
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// Action block (nesting mode: list).

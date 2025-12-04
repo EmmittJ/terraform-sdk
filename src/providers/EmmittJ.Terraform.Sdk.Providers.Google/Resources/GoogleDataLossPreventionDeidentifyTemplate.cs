@@ -165,7 +165,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockImag
     /// </summary>
     public TerraformValue<double>? Blue
     {
-        get => new TerraformReference<double>(this, "blue");
+        get => GetArgument<TerraformValue<double>>("blue");
         set => SetArgument("blue", value);
     }
 
@@ -174,7 +174,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockImag
     /// </summary>
     public TerraformValue<double>? Green
     {
-        get => new TerraformReference<double>(this, "green");
+        get => GetArgument<TerraformValue<double>>("green");
         set => SetArgument("green", value);
     }
 
@@ -183,7 +183,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockImag
     /// </summary>
     public TerraformValue<double>? Red
     {
-        get => new TerraformReference<double>(this, "red");
+        get => GetArgument<TerraformValue<double>>("red");
         set => SetArgument("red", value);
     }
 
@@ -231,7 +231,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockImag
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -240,7 +240,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockImag
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -273,7 +273,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockImag
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => new TerraformReference<string>(this, "score");
+        get => GetArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -356,7 +356,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -365,7 +365,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -398,7 +398,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => new TerraformReference<string>(this, "score");
+        get => GetArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -420,7 +420,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<bool>? ReplaceWithInfoTypeConfig
     {
-        get => new TerraformReference<bool>(this, "replace_with_info_type_config");
+        get => GetArgument<TerraformValue<bool>>("replace_with_info_type_config");
         set => SetArgument("replace_with_info_type_config", value);
     }
 
@@ -620,7 +620,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? DayOfWeekValue
     {
-        get => new TerraformReference<string>(this, "day_of_week_value");
+        get => GetArgument<TerraformValue<string>>("day_of_week_value");
         set => SetArgument("day_of_week_value", value);
     }
 
@@ -629,7 +629,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? FloatValue
     {
-        get => new TerraformReference<double>(this, "float_value");
+        get => GetArgument<TerraformValue<double>>("float_value");
         set => SetArgument("float_value", value);
     }
 
@@ -638,7 +638,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? IntegerValue
     {
-        get => new TerraformReference<string>(this, "integer_value");
+        get => GetArgument<TerraformValue<string>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -647,7 +647,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -656,7 +656,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? TimestampValue
     {
-        get => new TerraformReference<string>(this, "timestamp_value");
+        get => GetArgument<TerraformValue<string>>("timestamp_value");
         set => SetArgument("timestamp_value", value);
     }
 
@@ -698,7 +698,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -707,7 +707,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -716,7 +716,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -738,7 +738,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -747,7 +747,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -756,7 +756,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -765,7 +765,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -787,7 +787,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? DayOfWeekValue
     {
-        get => new TerraformReference<string>(this, "day_of_week_value");
+        get => GetArgument<TerraformValue<string>>("day_of_week_value");
         set => SetArgument("day_of_week_value", value);
     }
 
@@ -796,7 +796,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? FloatValue
     {
-        get => new TerraformReference<double>(this, "float_value");
+        get => GetArgument<TerraformValue<double>>("float_value");
         set => SetArgument("float_value", value);
     }
 
@@ -805,7 +805,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? IntegerValue
     {
-        get => new TerraformReference<string>(this, "integer_value");
+        get => GetArgument<TerraformValue<string>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -814,7 +814,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -823,7 +823,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? TimestampValue
     {
-        get => new TerraformReference<string>(this, "timestamp_value");
+        get => GetArgument<TerraformValue<string>>("timestamp_value");
         set => SetArgument("timestamp_value", value);
     }
 
@@ -865,7 +865,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -874,7 +874,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -883,7 +883,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -905,7 +905,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -914,7 +914,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -923,7 +923,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -932,7 +932,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -954,7 +954,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? DayOfWeekValue
     {
-        get => new TerraformReference<string>(this, "day_of_week_value");
+        get => GetArgument<TerraformValue<string>>("day_of_week_value");
         set => SetArgument("day_of_week_value", value);
     }
 
@@ -963,7 +963,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? FloatValue
     {
-        get => new TerraformReference<double>(this, "float_value");
+        get => GetArgument<TerraformValue<double>>("float_value");
         set => SetArgument("float_value", value);
     }
 
@@ -972,7 +972,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? IntegerValue
     {
-        get => new TerraformReference<string>(this, "integer_value");
+        get => GetArgument<TerraformValue<string>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -981,7 +981,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -990,7 +990,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? TimestampValue
     {
-        get => new TerraformReference<string>(this, "timestamp_value");
+        get => GetArgument<TerraformValue<string>>("timestamp_value");
         set => SetArgument("timestamp_value", value);
     }
 
@@ -1032,7 +1032,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -1041,7 +1041,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -1050,7 +1050,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -1072,7 +1072,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -1081,7 +1081,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -1090,7 +1090,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -1099,7 +1099,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -1123,7 +1123,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? MaskingCharacter
     {
-        get => new TerraformReference<string>(this, "masking_character");
+        get => GetArgument<TerraformValue<string>>("masking_character");
         set => SetArgument("masking_character", value);
     }
 
@@ -1132,7 +1132,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? NumberToMask
     {
-        get => new TerraformReference<double>(this, "number_to_mask");
+        get => GetArgument<TerraformValue<double>>("number_to_mask");
         set => SetArgument("number_to_mask", value);
     }
 
@@ -1142,7 +1142,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<bool>? ReverseOrder
     {
-        get => new TerraformReference<bool>(this, "reverse_order");
+        get => GetArgument<TerraformValue<bool>>("reverse_order");
         set => SetArgument("reverse_order", value);
     }
 
@@ -1173,7 +1173,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? CharactersToSkip
     {
-        get => new TerraformReference<string>(this, "characters_to_skip");
+        get => GetArgument<TerraformValue<string>>("characters_to_skip");
         set => SetArgument("characters_to_skip", value);
     }
 
@@ -1182,7 +1182,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? CommonCharactersToIgnore
     {
-        get => new TerraformReference<string>(this, "common_characters_to_ignore");
+        get => GetArgument<TerraformValue<string>>("common_characters_to_ignore");
         set => SetArgument("common_characters_to_ignore", value);
     }
 
@@ -1247,7 +1247,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1313,7 +1313,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => new TerraformReference<string>(this, "crypto_key_name");
+        get => GetArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -1325,7 +1325,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => new TerraformReference<string>(this, "wrapped_key");
+        get => GetArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -1348,7 +1348,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1373,7 +1373,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1395,7 +1395,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1404,7 +1404,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -1437,7 +1437,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => new TerraformReference<string>(this, "score");
+        get => GetArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -1526,7 +1526,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => new TerraformReference<string>(this, "crypto_key_name");
+        get => GetArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -1538,7 +1538,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => new TerraformReference<string>(this, "wrapped_key");
+        get => GetArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -1561,7 +1561,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1586,7 +1586,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1608,7 +1608,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? CommonAlphabet
     {
-        get => new TerraformReference<string>(this, "common_alphabet");
+        get => GetArgument<TerraformValue<string>>("common_alphabet");
         set => SetArgument("common_alphabet", value);
     }
 
@@ -1619,7 +1619,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? CustomAlphabet
     {
-        get => new TerraformReference<string>(this, "custom_alphabet");
+        get => GetArgument<TerraformValue<string>>("custom_alphabet");
         set => SetArgument("custom_alphabet", value);
     }
 
@@ -1628,7 +1628,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Radix
     {
-        get => new TerraformReference<double>(this, "radix");
+        get => GetArgument<TerraformValue<double>>("radix");
         set => SetArgument("radix", value);
     }
 
@@ -1680,7 +1680,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1746,7 +1746,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => new TerraformReference<string>(this, "crypto_key_name");
+        get => GetArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -1758,7 +1758,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => new TerraformReference<string>(this, "wrapped_key");
+        get => GetArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -1781,7 +1781,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1806,7 +1806,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1828,7 +1828,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1837,7 +1837,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -1870,7 +1870,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => new TerraformReference<string>(this, "score");
+        get => GetArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -1893,7 +1893,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LowerBoundDays is required")]
     public required TerraformValue<double> LowerBoundDays
     {
-        get => new TerraformReference<double>(this, "lower_bound_days");
+        get => GetArgument<TerraformValue<double>>("lower_bound_days");
         set => SetArgument("lower_bound_days", value);
     }
 
@@ -1904,7 +1904,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UpperBoundDays is required")]
     public required TerraformValue<double> UpperBoundDays
     {
-        get => new TerraformReference<double>(this, "upper_bound_days");
+        get => GetArgument<TerraformValue<double>>("upper_bound_days");
         set => SetArgument("upper_bound_days", value);
     }
 
@@ -1947,7 +1947,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2013,7 +2013,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => new TerraformReference<string>(this, "crypto_key_name");
+        get => GetArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -2024,7 +2024,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => new TerraformReference<string>(this, "wrapped_key");
+        get => GetArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -2047,7 +2047,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2071,7 +2071,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -2096,7 +2096,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketSize is required")]
     public required TerraformValue<double> BucketSize
     {
-        get => new TerraformReference<double>(this, "bucket_size");
+        get => GetArgument<TerraformValue<double>>("bucket_size");
         set => SetArgument("bucket_size", value);
     }
 
@@ -2144,7 +2144,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? FloatValue
     {
-        get => new TerraformReference<double>(this, "float_value");
+        get => GetArgument<TerraformValue<double>>("float_value");
         set => SetArgument("float_value", value);
     }
 
@@ -2153,7 +2153,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? IntegerValue
     {
-        get => new TerraformReference<string>(this, "integer_value");
+        get => GetArgument<TerraformValue<string>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -2175,7 +2175,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? FloatValue
     {
-        get => new TerraformReference<double>(this, "float_value");
+        get => GetArgument<TerraformValue<double>>("float_value");
         set => SetArgument("float_value", value);
     }
 
@@ -2184,7 +2184,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? IntegerValue
     {
-        get => new TerraformReference<string>(this, "integer_value");
+        get => GetArgument<TerraformValue<string>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -2245,7 +2245,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<bool>? BooleanValue
     {
-        get => new TerraformReference<bool>(this, "boolean_value");
+        get => GetArgument<TerraformValue<bool>>("boolean_value");
         set => SetArgument("boolean_value", value);
     }
 
@@ -2254,7 +2254,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? DayOfWeekValue
     {
-        get => new TerraformReference<string>(this, "day_of_week_value");
+        get => GetArgument<TerraformValue<string>>("day_of_week_value");
         set => SetArgument("day_of_week_value", value);
     }
 
@@ -2263,7 +2263,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? FloatValue
     {
-        get => new TerraformReference<double>(this, "float_value");
+        get => GetArgument<TerraformValue<double>>("float_value");
         set => SetArgument("float_value", value);
     }
 
@@ -2272,7 +2272,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? IntegerValue
     {
-        get => new TerraformReference<double>(this, "integer_value");
+        get => GetArgument<TerraformValue<double>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -2281,7 +2281,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -2291,7 +2291,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? TimestampValue
     {
-        get => new TerraformReference<string>(this, "timestamp_value");
+        get => GetArgument<TerraformValue<string>>("timestamp_value");
         set => SetArgument("timestamp_value", value);
     }
 
@@ -2334,7 +2334,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -2343,7 +2343,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -2352,7 +2352,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -2374,7 +2374,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -2383,7 +2383,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -2392,7 +2392,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -2401,7 +2401,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -2450,7 +2450,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Words is required")]
     public TerraformList<string>? Words
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "words").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("words");
         set => SetArgument("words", value);
     }
 
@@ -2472,7 +2472,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockInfo
     /// </summary>
     public TerraformValue<string>? PartToExtract
     {
-        get => new TerraformReference<string>(this, "part_to_extract");
+        get => GetArgument<TerraformValue<string>>("part_to_extract");
         set => SetArgument("part_to_extract", value);
     }
 
@@ -2603,7 +2603,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? LogicalOperator
     {
-        get => new TerraformReference<string>(this, "logical_operator");
+        get => GetArgument<TerraformValue<string>>("logical_operator");
         set => SetArgument("logical_operator", value);
     }
 
@@ -2658,7 +2658,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -2703,7 +2703,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2725,7 +2725,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<bool>? BooleanValue
     {
-        get => new TerraformReference<bool>(this, "boolean_value");
+        get => GetArgument<TerraformValue<bool>>("boolean_value");
         set => SetArgument("boolean_value", value);
     }
 
@@ -2734,7 +2734,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? DayOfWeekValue
     {
-        get => new TerraformReference<string>(this, "day_of_week_value");
+        get => GetArgument<TerraformValue<string>>("day_of_week_value");
         set => SetArgument("day_of_week_value", value);
     }
 
@@ -2743,7 +2743,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? FloatValue
     {
-        get => new TerraformReference<double>(this, "float_value");
+        get => GetArgument<TerraformValue<double>>("float_value");
         set => SetArgument("float_value", value);
     }
 
@@ -2752,7 +2752,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? IntegerValue
     {
-        get => new TerraformReference<string>(this, "integer_value");
+        get => GetArgument<TerraformValue<string>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -2761,7 +2761,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -2770,7 +2770,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? TimestampValue
     {
-        get => new TerraformReference<string>(this, "timestamp_value");
+        get => GetArgument<TerraformValue<string>>("timestamp_value");
         set => SetArgument("timestamp_value", value);
     }
 
@@ -2812,7 +2812,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -2821,7 +2821,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -2830,7 +2830,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -2852,7 +2852,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -2861,7 +2861,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -2870,7 +2870,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -2879,7 +2879,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -2901,7 +2901,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2984,7 +2984,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2993,7 +2993,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -3026,7 +3026,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => new TerraformReference<string>(this, "score");
+        get => GetArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -3252,7 +3252,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? DayOfWeekValue
     {
-        get => new TerraformReference<string>(this, "day_of_week_value");
+        get => GetArgument<TerraformValue<string>>("day_of_week_value");
         set => SetArgument("day_of_week_value", value);
     }
 
@@ -3261,7 +3261,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? FloatValue
     {
-        get => new TerraformReference<double>(this, "float_value");
+        get => GetArgument<TerraformValue<double>>("float_value");
         set => SetArgument("float_value", value);
     }
 
@@ -3270,7 +3270,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? IntegerValue
     {
-        get => new TerraformReference<string>(this, "integer_value");
+        get => GetArgument<TerraformValue<string>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -3279,7 +3279,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -3288,7 +3288,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? TimestampValue
     {
-        get => new TerraformReference<string>(this, "timestamp_value");
+        get => GetArgument<TerraformValue<string>>("timestamp_value");
         set => SetArgument("timestamp_value", value);
     }
 
@@ -3330,7 +3330,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -3339,7 +3339,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -3348,7 +3348,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -3370,7 +3370,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -3379,7 +3379,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -3388,7 +3388,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -3397,7 +3397,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -3419,7 +3419,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? DayOfWeekValue
     {
-        get => new TerraformReference<string>(this, "day_of_week_value");
+        get => GetArgument<TerraformValue<string>>("day_of_week_value");
         set => SetArgument("day_of_week_value", value);
     }
 
@@ -3428,7 +3428,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? FloatValue
     {
-        get => new TerraformReference<double>(this, "float_value");
+        get => GetArgument<TerraformValue<double>>("float_value");
         set => SetArgument("float_value", value);
     }
 
@@ -3437,7 +3437,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? IntegerValue
     {
-        get => new TerraformReference<string>(this, "integer_value");
+        get => GetArgument<TerraformValue<string>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -3446,7 +3446,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -3455,7 +3455,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? TimestampValue
     {
-        get => new TerraformReference<string>(this, "timestamp_value");
+        get => GetArgument<TerraformValue<string>>("timestamp_value");
         set => SetArgument("timestamp_value", value);
     }
 
@@ -3497,7 +3497,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -3506,7 +3506,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -3515,7 +3515,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -3537,7 +3537,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -3546,7 +3546,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -3555,7 +3555,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -3564,7 +3564,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -3586,7 +3586,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? DayOfWeekValue
     {
-        get => new TerraformReference<string>(this, "day_of_week_value");
+        get => GetArgument<TerraformValue<string>>("day_of_week_value");
         set => SetArgument("day_of_week_value", value);
     }
 
@@ -3595,7 +3595,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? FloatValue
     {
-        get => new TerraformReference<double>(this, "float_value");
+        get => GetArgument<TerraformValue<double>>("float_value");
         set => SetArgument("float_value", value);
     }
 
@@ -3604,7 +3604,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? IntegerValue
     {
-        get => new TerraformReference<string>(this, "integer_value");
+        get => GetArgument<TerraformValue<string>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -3613,7 +3613,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -3622,7 +3622,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? TimestampValue
     {
-        get => new TerraformReference<string>(this, "timestamp_value");
+        get => GetArgument<TerraformValue<string>>("timestamp_value");
         set => SetArgument("timestamp_value", value);
     }
 
@@ -3664,7 +3664,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -3673,7 +3673,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -3682,7 +3682,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -3704,7 +3704,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -3713,7 +3713,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -3722,7 +3722,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -3731,7 +3731,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -3755,7 +3755,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? MaskingCharacter
     {
-        get => new TerraformReference<string>(this, "masking_character");
+        get => GetArgument<TerraformValue<string>>("masking_character");
         set => SetArgument("masking_character", value);
     }
 
@@ -3772,7 +3772,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? NumberToMask
     {
-        get => new TerraformReference<double>(this, "number_to_mask");
+        get => GetArgument<TerraformValue<double>>("number_to_mask");
         set => SetArgument("number_to_mask", value);
     }
 
@@ -3782,7 +3782,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<bool>? ReverseOrder
     {
-        get => new TerraformReference<bool>(this, "reverse_order");
+        get => GetArgument<TerraformValue<bool>>("reverse_order");
         set => SetArgument("reverse_order", value);
     }
 
@@ -3813,7 +3813,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? CharactersToSkip
     {
-        get => new TerraformReference<string>(this, "characters_to_skip");
+        get => GetArgument<TerraformValue<string>>("characters_to_skip");
         set => SetArgument("characters_to_skip", value);
     }
 
@@ -3822,7 +3822,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? CommonCharactersToIgnore
     {
-        get => new TerraformReference<string>(this, "common_characters_to_ignore");
+        get => GetArgument<TerraformValue<string>>("common_characters_to_ignore");
         set => SetArgument("common_characters_to_ignore", value);
     }
 
@@ -3894,7 +3894,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -3960,7 +3960,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => new TerraformReference<string>(this, "crypto_key_name");
+        get => GetArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -3972,7 +3972,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => new TerraformReference<string>(this, "wrapped_key");
+        get => GetArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -3995,7 +3995,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -4020,7 +4020,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -4043,7 +4043,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -4052,7 +4052,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -4085,7 +4085,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => new TerraformReference<string>(this, "score");
+        get => GetArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -4177,7 +4177,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => new TerraformReference<string>(this, "crypto_key_name");
+        get => GetArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -4189,7 +4189,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => new TerraformReference<string>(this, "wrapped_key");
+        get => GetArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -4212,7 +4212,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -4237,7 +4237,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -4259,7 +4259,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? CommonAlphabet
     {
-        get => new TerraformReference<string>(this, "common_alphabet");
+        get => GetArgument<TerraformValue<string>>("common_alphabet");
         set => SetArgument("common_alphabet", value);
     }
 
@@ -4270,7 +4270,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? CustomAlphabet
     {
-        get => new TerraformReference<string>(this, "custom_alphabet");
+        get => GetArgument<TerraformValue<string>>("custom_alphabet");
         set => SetArgument("custom_alphabet", value);
     }
 
@@ -4279,7 +4279,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Radix
     {
-        get => new TerraformReference<double>(this, "radix");
+        get => GetArgument<TerraformValue<double>>("radix");
         set => SetArgument("radix", value);
     }
 
@@ -4335,7 +4335,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -4401,7 +4401,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => new TerraformReference<string>(this, "crypto_key_name");
+        get => GetArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -4413,7 +4413,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => new TerraformReference<string>(this, "wrapped_key");
+        get => GetArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -4436,7 +4436,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -4461,7 +4461,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -4484,7 +4484,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -4493,7 +4493,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -4526,7 +4526,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => new TerraformReference<string>(this, "score");
+        get => GetArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -4549,7 +4549,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LowerBoundDays is required")]
     public required TerraformValue<double> LowerBoundDays
     {
-        get => new TerraformReference<double>(this, "lower_bound_days");
+        get => GetArgument<TerraformValue<double>>("lower_bound_days");
         set => SetArgument("lower_bound_days", value);
     }
 
@@ -4561,7 +4561,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UpperBoundDays is required")]
     public required TerraformValue<double> UpperBoundDays
     {
-        get => new TerraformReference<double>(this, "upper_bound_days");
+        get => GetArgument<TerraformValue<double>>("upper_bound_days");
         set => SetArgument("upper_bound_days", value);
     }
 
@@ -4604,7 +4604,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -4670,7 +4670,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => new TerraformReference<string>(this, "crypto_key_name");
+        get => GetArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -4682,7 +4682,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => new TerraformReference<string>(this, "wrapped_key");
+        get => GetArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -4705,7 +4705,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -4730,7 +4730,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -4755,7 +4755,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketSize is required")]
     public required TerraformValue<double> BucketSize
     {
-        get => new TerraformReference<double>(this, "bucket_size");
+        get => GetArgument<TerraformValue<double>>("bucket_size");
         set => SetArgument("bucket_size", value);
     }
 
@@ -4803,7 +4803,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? FloatValue
     {
-        get => new TerraformReference<double>(this, "float_value");
+        get => GetArgument<TerraformValue<double>>("float_value");
         set => SetArgument("float_value", value);
     }
 
@@ -4812,7 +4812,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? IntegerValue
     {
-        get => new TerraformReference<string>(this, "integer_value");
+        get => GetArgument<TerraformValue<string>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -4834,7 +4834,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? FloatValue
     {
-        get => new TerraformReference<double>(this, "float_value");
+        get => GetArgument<TerraformValue<double>>("float_value");
         set => SetArgument("float_value", value);
     }
 
@@ -4843,7 +4843,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? IntegerValue
     {
-        get => new TerraformReference<string>(this, "integer_value");
+        get => GetArgument<TerraformValue<string>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -4904,7 +4904,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<bool>? BooleanValue
     {
-        get => new TerraformReference<bool>(this, "boolean_value");
+        get => GetArgument<TerraformValue<bool>>("boolean_value");
         set => SetArgument("boolean_value", value);
     }
 
@@ -4913,7 +4913,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? DayOfWeekValue
     {
-        get => new TerraformReference<string>(this, "day_of_week_value");
+        get => GetArgument<TerraformValue<string>>("day_of_week_value");
         set => SetArgument("day_of_week_value", value);
     }
 
@@ -4922,7 +4922,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? FloatValue
     {
-        get => new TerraformReference<double>(this, "float_value");
+        get => GetArgument<TerraformValue<double>>("float_value");
         set => SetArgument("float_value", value);
     }
 
@@ -4931,7 +4931,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? IntegerValue
     {
-        get => new TerraformReference<string>(this, "integer_value");
+        get => GetArgument<TerraformValue<string>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -4940,7 +4940,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -4950,7 +4950,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? TimestampValue
     {
-        get => new TerraformReference<string>(this, "timestamp_value");
+        get => GetArgument<TerraformValue<string>>("timestamp_value");
         set => SetArgument("timestamp_value", value);
     }
 
@@ -4992,7 +4992,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -5001,7 +5001,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -5010,7 +5010,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -5032,7 +5032,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -5041,7 +5041,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -5050,7 +5050,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -5059,7 +5059,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -5108,7 +5108,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Words is required")]
     public TerraformList<string>? Words
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "words").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("words");
         set => SetArgument("words", value);
     }
 
@@ -5144,7 +5144,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartToExtract is required")]
     public required TerraformValue<string> PartToExtract
     {
-        get => new TerraformReference<string>(this, "part_to_extract");
+        get => GetArgument<TerraformValue<string>>("part_to_extract");
         set => SetArgument("part_to_extract", value);
     }
 
@@ -5357,7 +5357,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<bool>? BooleanValue
     {
-        get => new TerraformReference<bool>(this, "boolean_value");
+        get => GetArgument<TerraformValue<bool>>("boolean_value");
         set => SetArgument("boolean_value", value);
     }
 
@@ -5366,7 +5366,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? DayOfWeekValue
     {
-        get => new TerraformReference<string>(this, "day_of_week_value");
+        get => GetArgument<TerraformValue<string>>("day_of_week_value");
         set => SetArgument("day_of_week_value", value);
     }
 
@@ -5375,7 +5375,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? FloatValue
     {
-        get => new TerraformReference<double>(this, "float_value");
+        get => GetArgument<TerraformValue<double>>("float_value");
         set => SetArgument("float_value", value);
     }
 
@@ -5384,7 +5384,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? IntegerValue
     {
-        get => new TerraformReference<string>(this, "integer_value");
+        get => GetArgument<TerraformValue<string>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -5393,7 +5393,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -5402,7 +5402,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? TimestampValue
     {
-        get => new TerraformReference<string>(this, "timestamp_value");
+        get => GetArgument<TerraformValue<string>>("timestamp_value");
         set => SetArgument("timestamp_value", value);
     }
 
@@ -5444,7 +5444,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -5453,7 +5453,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -5462,7 +5462,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -5484,7 +5484,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -5493,7 +5493,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -5502,7 +5502,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -5511,7 +5511,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -5533,7 +5533,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<bool>? BooleanValue
     {
-        get => new TerraformReference<bool>(this, "boolean_value");
+        get => GetArgument<TerraformValue<bool>>("boolean_value");
         set => SetArgument("boolean_value", value);
     }
 
@@ -5542,7 +5542,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? DayOfWeekValue
     {
-        get => new TerraformReference<string>(this, "day_of_week_value");
+        get => GetArgument<TerraformValue<string>>("day_of_week_value");
         set => SetArgument("day_of_week_value", value);
     }
 
@@ -5551,7 +5551,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? FloatValue
     {
-        get => new TerraformReference<double>(this, "float_value");
+        get => GetArgument<TerraformValue<double>>("float_value");
         set => SetArgument("float_value", value);
     }
 
@@ -5560,7 +5560,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? IntegerValue
     {
-        get => new TerraformReference<string>(this, "integer_value");
+        get => GetArgument<TerraformValue<string>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -5569,7 +5569,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -5578,7 +5578,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? TimestampValue
     {
-        get => new TerraformReference<string>(this, "timestamp_value");
+        get => GetArgument<TerraformValue<string>>("timestamp_value");
         set => SetArgument("timestamp_value", value);
     }
 
@@ -5620,7 +5620,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -5629,7 +5629,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -5638,7 +5638,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -5660,7 +5660,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -5669,7 +5669,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -5678,7 +5678,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -5687,7 +5687,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -5709,7 +5709,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<bool>? BooleanValue
     {
-        get => new TerraformReference<bool>(this, "boolean_value");
+        get => GetArgument<TerraformValue<bool>>("boolean_value");
         set => SetArgument("boolean_value", value);
     }
 
@@ -5718,7 +5718,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? DayOfWeekValue
     {
-        get => new TerraformReference<string>(this, "day_of_week_value");
+        get => GetArgument<TerraformValue<string>>("day_of_week_value");
         set => SetArgument("day_of_week_value", value);
     }
 
@@ -5727,7 +5727,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? FloatValue
     {
-        get => new TerraformReference<double>(this, "float_value");
+        get => GetArgument<TerraformValue<double>>("float_value");
         set => SetArgument("float_value", value);
     }
 
@@ -5736,7 +5736,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? IntegerValue
     {
-        get => new TerraformReference<string>(this, "integer_value");
+        get => GetArgument<TerraformValue<string>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -5745,7 +5745,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -5754,7 +5754,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? TimestampValue
     {
-        get => new TerraformReference<string>(this, "timestamp_value");
+        get => GetArgument<TerraformValue<string>>("timestamp_value");
         set => SetArgument("timestamp_value", value);
     }
 
@@ -5796,7 +5796,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -5805,7 +5805,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -5814,7 +5814,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -5836,7 +5836,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -5845,7 +5845,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -5854,7 +5854,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -5863,7 +5863,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -5887,7 +5887,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? MaskingCharacter
     {
-        get => new TerraformReference<string>(this, "masking_character");
+        get => GetArgument<TerraformValue<string>>("masking_character");
         set => SetArgument("masking_character", value);
     }
 
@@ -5904,7 +5904,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? NumberToMask
     {
-        get => new TerraformReference<double>(this, "number_to_mask");
+        get => GetArgument<TerraformValue<double>>("number_to_mask");
         set => SetArgument("number_to_mask", value);
     }
 
@@ -5914,7 +5914,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<bool>? ReverseOrder
     {
-        get => new TerraformReference<bool>(this, "reverse_order");
+        get => GetArgument<TerraformValue<bool>>("reverse_order");
         set => SetArgument("reverse_order", value);
     }
 
@@ -5945,7 +5945,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? CharactersToSkip
     {
-        get => new TerraformReference<string>(this, "characters_to_skip");
+        get => GetArgument<TerraformValue<string>>("characters_to_skip");
         set => SetArgument("characters_to_skip", value);
     }
 
@@ -5954,7 +5954,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? CommonCharactersToIgnore
     {
-        get => new TerraformReference<string>(this, "common_characters_to_ignore");
+        get => GetArgument<TerraformValue<string>>("common_characters_to_ignore");
         set => SetArgument("common_characters_to_ignore", value);
     }
 
@@ -6019,7 +6019,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -6085,7 +6085,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => new TerraformReference<string>(this, "crypto_key_name");
+        get => GetArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -6097,7 +6097,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => new TerraformReference<string>(this, "wrapped_key");
+        get => GetArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -6120,7 +6120,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -6145,7 +6145,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -6167,7 +6167,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -6176,7 +6176,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -6209,7 +6209,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => new TerraformReference<string>(this, "score");
+        get => GetArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -6298,7 +6298,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => new TerraformReference<string>(this, "crypto_key_name");
+        get => GetArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -6310,7 +6310,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => new TerraformReference<string>(this, "wrapped_key");
+        get => GetArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -6333,7 +6333,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -6358,7 +6358,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -6380,7 +6380,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? CommonAlphabet
     {
-        get => new TerraformReference<string>(this, "common_alphabet");
+        get => GetArgument<TerraformValue<string>>("common_alphabet");
         set => SetArgument("common_alphabet", value);
     }
 
@@ -6391,7 +6391,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? CustomAlphabet
     {
-        get => new TerraformReference<string>(this, "custom_alphabet");
+        get => GetArgument<TerraformValue<string>>("custom_alphabet");
         set => SetArgument("custom_alphabet", value);
     }
 
@@ -6400,7 +6400,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Radix
     {
-        get => new TerraformReference<double>(this, "radix");
+        get => GetArgument<TerraformValue<double>>("radix");
         set => SetArgument("radix", value);
     }
 
@@ -6452,7 +6452,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -6518,7 +6518,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => new TerraformReference<string>(this, "crypto_key_name");
+        get => GetArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -6530,7 +6530,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => new TerraformReference<string>(this, "wrapped_key");
+        get => GetArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -6553,7 +6553,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -6578,7 +6578,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -6600,7 +6600,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -6609,7 +6609,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -6642,7 +6642,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
     public required TerraformValue<string> Score
     {
-        get => new TerraformReference<string>(this, "score");
+        get => GetArgument<TerraformValue<string>>("score");
         set => SetArgument("score", value);
     }
 
@@ -6665,7 +6665,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LowerBoundDays is required")]
     public required TerraformValue<double> LowerBoundDays
     {
-        get => new TerraformReference<double>(this, "lower_bound_days");
+        get => GetArgument<TerraformValue<double>>("lower_bound_days");
         set => SetArgument("lower_bound_days", value);
     }
 
@@ -6677,7 +6677,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UpperBoundDays is required")]
     public required TerraformValue<double> UpperBoundDays
     {
-        get => new TerraformReference<double>(this, "upper_bound_days");
+        get => GetArgument<TerraformValue<double>>("upper_bound_days");
         set => SetArgument("upper_bound_days", value);
     }
 
@@ -6719,7 +6719,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -6785,7 +6785,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyName is required")]
     public required TerraformValue<string> CryptoKeyName
     {
-        get => new TerraformReference<string>(this, "crypto_key_name");
+        get => GetArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -6797,7 +6797,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WrappedKey is required")]
     public required TerraformValue<string> WrappedKey
     {
-        get => new TerraformReference<string>(this, "wrapped_key");
+        get => GetArgument<TerraformValue<string>>("wrapped_key");
         set => SetArgument("wrapped_key", value);
     }
 
@@ -6820,7 +6820,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -6845,7 +6845,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -6870,7 +6870,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketSize is required")]
     public required TerraformValue<double> BucketSize
     {
-        get => new TerraformReference<double>(this, "bucket_size");
+        get => GetArgument<TerraformValue<double>>("bucket_size");
         set => SetArgument("bucket_size", value);
     }
 
@@ -6918,7 +6918,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<bool>? BooleanValue
     {
-        get => new TerraformReference<bool>(this, "boolean_value");
+        get => GetArgument<TerraformValue<bool>>("boolean_value");
         set => SetArgument("boolean_value", value);
     }
 
@@ -6927,7 +6927,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? DayOfWeekValue
     {
-        get => new TerraformReference<string>(this, "day_of_week_value");
+        get => GetArgument<TerraformValue<string>>("day_of_week_value");
         set => SetArgument("day_of_week_value", value);
     }
 
@@ -6936,7 +6936,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? FloatValue
     {
-        get => new TerraformReference<double>(this, "float_value");
+        get => GetArgument<TerraformValue<double>>("float_value");
         set => SetArgument("float_value", value);
     }
 
@@ -6945,7 +6945,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? IntegerValue
     {
-        get => new TerraformReference<string>(this, "integer_value");
+        get => GetArgument<TerraformValue<string>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -6954,7 +6954,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -6963,7 +6963,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? TimestampValue
     {
-        get => new TerraformReference<string>(this, "timestamp_value");
+        get => GetArgument<TerraformValue<string>>("timestamp_value");
         set => SetArgument("timestamp_value", value);
     }
 
@@ -7005,7 +7005,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -7014,7 +7014,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -7023,7 +7023,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -7045,7 +7045,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -7054,7 +7054,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -7063,7 +7063,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -7072,7 +7072,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -7094,7 +7094,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<bool>? BooleanValue
     {
-        get => new TerraformReference<bool>(this, "boolean_value");
+        get => GetArgument<TerraformValue<bool>>("boolean_value");
         set => SetArgument("boolean_value", value);
     }
 
@@ -7103,7 +7103,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? DayOfWeekValue
     {
-        get => new TerraformReference<string>(this, "day_of_week_value");
+        get => GetArgument<TerraformValue<string>>("day_of_week_value");
         set => SetArgument("day_of_week_value", value);
     }
 
@@ -7112,7 +7112,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? FloatValue
     {
-        get => new TerraformReference<double>(this, "float_value");
+        get => GetArgument<TerraformValue<double>>("float_value");
         set => SetArgument("float_value", value);
     }
 
@@ -7121,7 +7121,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? IntegerValue
     {
-        get => new TerraformReference<string>(this, "integer_value");
+        get => GetArgument<TerraformValue<string>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -7130,7 +7130,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -7139,7 +7139,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? TimestampValue
     {
-        get => new TerraformReference<string>(this, "timestamp_value");
+        get => GetArgument<TerraformValue<string>>("timestamp_value");
         set => SetArgument("timestamp_value", value);
     }
 
@@ -7181,7 +7181,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -7190,7 +7190,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -7199,7 +7199,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -7221,7 +7221,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -7230,7 +7230,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -7239,7 +7239,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -7248,7 +7248,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -7309,7 +7309,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<bool>? BooleanValue
     {
-        get => new TerraformReference<bool>(this, "boolean_value");
+        get => GetArgument<TerraformValue<bool>>("boolean_value");
         set => SetArgument("boolean_value", value);
     }
 
@@ -7318,7 +7318,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? DayOfWeekValue
     {
-        get => new TerraformReference<string>(this, "day_of_week_value");
+        get => GetArgument<TerraformValue<string>>("day_of_week_value");
         set => SetArgument("day_of_week_value", value);
     }
 
@@ -7327,7 +7327,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? FloatValue
     {
-        get => new TerraformReference<double>(this, "float_value");
+        get => GetArgument<TerraformValue<double>>("float_value");
         set => SetArgument("float_value", value);
     }
 
@@ -7336,7 +7336,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? IntegerValue
     {
-        get => new TerraformReference<string>(this, "integer_value");
+        get => GetArgument<TerraformValue<string>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -7345,7 +7345,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -7354,7 +7354,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? TimestampValue
     {
-        get => new TerraformReference<string>(this, "timestamp_value");
+        get => GetArgument<TerraformValue<string>>("timestamp_value");
         set => SetArgument("timestamp_value", value);
     }
 
@@ -7396,7 +7396,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -7405,7 +7405,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -7414,7 +7414,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -7436,7 +7436,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -7445,7 +7445,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -7454,7 +7454,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -7463,7 +7463,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -7509,7 +7509,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Words is required")]
     public TerraformList<string>? Words
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "words").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("words");
         set => SetArgument("words", value);
     }
 
@@ -7531,7 +7531,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? PartToExtract
     {
-        get => new TerraformReference<string>(this, "part_to_extract");
+        get => GetArgument<TerraformValue<string>>("part_to_extract");
         set => SetArgument("part_to_extract", value);
     }
 
@@ -7599,7 +7599,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? LogicalOperator
     {
-        get => new TerraformReference<string>(this, "logical_operator");
+        get => GetArgument<TerraformValue<string>>("logical_operator");
         set => SetArgument("logical_operator", value);
     }
 
@@ -7654,7 +7654,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -7699,7 +7699,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -7721,7 +7721,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<bool>? BooleanValue
     {
-        get => new TerraformReference<bool>(this, "boolean_value");
+        get => GetArgument<TerraformValue<bool>>("boolean_value");
         set => SetArgument("boolean_value", value);
     }
 
@@ -7730,7 +7730,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? DayOfWeekValue
     {
-        get => new TerraformReference<string>(this, "day_of_week_value");
+        get => GetArgument<TerraformValue<string>>("day_of_week_value");
         set => SetArgument("day_of_week_value", value);
     }
 
@@ -7739,7 +7739,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? FloatValue
     {
-        get => new TerraformReference<double>(this, "float_value");
+        get => GetArgument<TerraformValue<double>>("float_value");
         set => SetArgument("float_value", value);
     }
 
@@ -7748,7 +7748,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? IntegerValue
     {
-        get => new TerraformReference<string>(this, "integer_value");
+        get => GetArgument<TerraformValue<string>>("integer_value");
         set => SetArgument("integer_value", value);
     }
 
@@ -7757,7 +7757,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? StringValue
     {
-        get => new TerraformReference<string>(this, "string_value");
+        get => GetArgument<TerraformValue<string>>("string_value");
         set => SetArgument("string_value", value);
     }
 
@@ -7766,7 +7766,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<string>? TimestampValue
     {
-        get => new TerraformReference<string>(this, "timestamp_value");
+        get => GetArgument<TerraformValue<string>>("timestamp_value");
         set => SetArgument("timestamp_value", value);
     }
 
@@ -7808,7 +7808,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -7817,7 +7817,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -7826,7 +7826,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -7848,7 +7848,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -7857,7 +7857,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -7866,7 +7866,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -7875,7 +7875,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateDeidentifyConfigBlockReco
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -7898,7 +7898,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -7907,7 +7907,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -7916,7 +7916,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -7934,7 +7934,7 @@ public partial class GoogleDataLossPreventionDeidentifyTemplate(string name) : T
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -7943,16 +7943,16 @@ public partial class GoogleDataLossPreventionDeidentifyTemplate(string name) : T
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -7967,7 +7967,7 @@ public partial class GoogleDataLossPreventionDeidentifyTemplate(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -7976,9 +7976,9 @@ public partial class GoogleDataLossPreventionDeidentifyTemplate(string name) : T
     /// that is, it must match the regular expression: [a-zA-Z\d-_]+. The maximum length is
     /// 100 characters. Can be empty to allow the system to generate one.
     /// </summary>
-    public TerraformValue<string> TemplateId
+    public TerraformValue<string>? TemplateId
     {
-        get => new TerraformReference<string>(this, "template_id");
+        get => GetArgument<TerraformValue<string>>("template_id");
         set => SetArgument("template_id", value);
     }
 
@@ -7986,25 +7986,19 @@ public partial class GoogleDataLossPreventionDeidentifyTemplate(string name) : T
     /// The creation timestamp of an deidentifyTemplate. Set by the server.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The resource name of the template. Set by the server.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The last update timestamp of an deidentifyTemplate. Set by the server.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// DeidentifyConfig block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AzurermManagementGroupDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,27 +34,27 @@ public partial class AzurermManagementGroupDataSource(string name) : TerraformDa
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -62,49 +62,37 @@ public partial class AzurermManagementGroupDataSource(string name) : TerraformDa
     /// The all_management_group_ids attribute.
     /// </summary>
     public TerraformList<string> AllManagementGroupIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "all_management_group_ids").ResolveNodes(ctx));
-    }
+        => AsReference("all_management_group_ids");
 
     /// <summary>
     /// The all_subscription_ids attribute.
     /// </summary>
     public TerraformList<string> AllSubscriptionIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "all_subscription_ids").ResolveNodes(ctx));
-    }
+        => AsReference("all_subscription_ids");
 
     /// <summary>
     /// The management_group_ids attribute.
     /// </summary>
     public TerraformList<string> ManagementGroupIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "management_group_ids").ResolveNodes(ctx));
-    }
+        => AsReference("management_group_ids");
 
     /// <summary>
     /// The parent_management_group_id attribute.
     /// </summary>
     public TerraformValue<string> ParentManagementGroupId
-    {
-        get => new TerraformReference<string>(this, "parent_management_group_id");
-    }
+        => AsReference("parent_management_group_id");
 
     /// <summary>
     /// The subscription_ids attribute.
     /// </summary>
     public TerraformList<string> SubscriptionIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "subscription_ids").ResolveNodes(ctx));
-    }
+        => AsReference("subscription_ids");
 
     /// <summary>
     /// The tenant_scoped_id attribute.
     /// </summary>
     public TerraformValue<string> TenantScopedId
-    {
-        get => new TerraformReference<string>(this, "tenant_scoped_id");
-    }
+        => AsReference("tenant_scoped_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

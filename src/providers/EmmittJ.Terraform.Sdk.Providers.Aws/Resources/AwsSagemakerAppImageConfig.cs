@@ -51,7 +51,7 @@ public class AwsSagemakerAppImageConfigCodeEditorAppImageConfigBlockContainerCon
     /// </summary>
     public TerraformList<string>? ContainerArguments
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "container_arguments").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("container_arguments");
         set => SetArgument("container_arguments", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsSagemakerAppImageConfigCodeEditorAppImageConfigBlockContainerCon
     /// </summary>
     public TerraformList<string>? ContainerEntrypoint
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "container_entrypoint").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("container_entrypoint");
         set => SetArgument("container_entrypoint", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsSagemakerAppImageConfigCodeEditorAppImageConfigBlockContainerCon
     /// </summary>
     public TerraformMap<string>? ContainerEnvironmentVariables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "container_environment_variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("container_environment_variables");
         set => SetArgument("container_environment_variables", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsSagemakerAppImageConfigCodeEditorAppImageConfigBlockFileSystemCo
     /// </summary>
     public TerraformValue<double>? DefaultGid
     {
-        get => new TerraformReference<double>(this, "default_gid");
+        get => GetArgument<TerraformValue<double>>("default_gid");
         set => SetArgument("default_gid", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsSagemakerAppImageConfigCodeEditorAppImageConfigBlockFileSystemCo
     /// </summary>
     public TerraformValue<double>? DefaultUid
     {
-        get => new TerraformReference<double>(this, "default_uid");
+        get => GetArgument<TerraformValue<double>>("default_uid");
         set => SetArgument("default_uid", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsSagemakerAppImageConfigCodeEditorAppImageConfigBlockFileSystemCo
     /// </summary>
     public TerraformValue<string>? MountPath
     {
-        get => new TerraformReference<string>(this, "mount_path");
+        get => GetArgument<TerraformValue<string>>("mount_path");
         set => SetArgument("mount_path", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsSagemakerAppImageConfigJupyterLabImageConfigBlockContainerConfig
     /// </summary>
     public TerraformList<string>? ContainerArguments
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "container_arguments").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("container_arguments");
         set => SetArgument("container_arguments", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsSagemakerAppImageConfigJupyterLabImageConfigBlockContainerConfig
     /// </summary>
     public TerraformList<string>? ContainerEntrypoint
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "container_entrypoint").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("container_entrypoint");
         set => SetArgument("container_entrypoint", value);
     }
 
@@ -183,7 +183,7 @@ public class AwsSagemakerAppImageConfigJupyterLabImageConfigBlockContainerConfig
     /// </summary>
     public TerraformMap<string>? ContainerEnvironmentVariables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "container_environment_variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("container_environment_variables");
         set => SetArgument("container_environment_variables", value);
     }
 
@@ -205,7 +205,7 @@ public class AwsSagemakerAppImageConfigJupyterLabImageConfigBlockFileSystemConfi
     /// </summary>
     public TerraformValue<double>? DefaultGid
     {
-        get => new TerraformReference<double>(this, "default_gid");
+        get => GetArgument<TerraformValue<double>>("default_gid");
         set => SetArgument("default_gid", value);
     }
 
@@ -214,7 +214,7 @@ public class AwsSagemakerAppImageConfigJupyterLabImageConfigBlockFileSystemConfi
     /// </summary>
     public TerraformValue<double>? DefaultUid
     {
-        get => new TerraformReference<double>(this, "default_uid");
+        get => GetArgument<TerraformValue<double>>("default_uid");
         set => SetArgument("default_uid", value);
     }
 
@@ -223,7 +223,7 @@ public class AwsSagemakerAppImageConfigJupyterLabImageConfigBlockFileSystemConfi
     /// </summary>
     public TerraformValue<string>? MountPath
     {
-        get => new TerraformReference<string>(this, "mount_path");
+        get => GetArgument<TerraformValue<string>>("mount_path");
         set => SetArgument("mount_path", value);
     }
 
@@ -282,7 +282,7 @@ public class AwsSagemakerAppImageConfigKernelGatewayImageConfigBlockFileSystemCo
     /// </summary>
     public TerraformValue<double>? DefaultGid
     {
-        get => new TerraformReference<double>(this, "default_gid");
+        get => GetArgument<TerraformValue<double>>("default_gid");
         set => SetArgument("default_gid", value);
     }
 
@@ -291,7 +291,7 @@ public class AwsSagemakerAppImageConfigKernelGatewayImageConfigBlockFileSystemCo
     /// </summary>
     public TerraformValue<double>? DefaultUid
     {
-        get => new TerraformReference<double>(this, "default_uid");
+        get => GetArgument<TerraformValue<double>>("default_uid");
         set => SetArgument("default_uid", value);
     }
 
@@ -300,7 +300,7 @@ public class AwsSagemakerAppImageConfigKernelGatewayImageConfigBlockFileSystemCo
     /// </summary>
     public TerraformValue<string>? MountPath
     {
-        get => new TerraformReference<string>(this, "mount_path");
+        get => GetArgument<TerraformValue<string>>("mount_path");
         set => SetArgument("mount_path", value);
     }
 
@@ -322,7 +322,7 @@ public class AwsSagemakerAppImageConfigKernelGatewayImageConfigBlockKernelSpecBl
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -332,7 +332,7 @@ public class AwsSagemakerAppImageConfigKernelGatewayImageConfigBlockKernelSpecBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -351,25 +351,25 @@ public partial class AwsSagemakerAppImageConfig(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppImageConfigName is required")]
     public required TerraformValue<string> AppImageConfigName
     {
-        get => new TerraformReference<string>(this, "app_image_config_name");
+        get => GetArgument<TerraformValue<string>>("app_image_config_name");
         set => SetArgument("app_image_config_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -378,16 +378,16 @@ public partial class AwsSagemakerAppImageConfig(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -395,9 +395,7 @@ public partial class AwsSagemakerAppImageConfig(string name) : TerraformResource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// CodeEditorAppImageConfig block (nesting mode: list).

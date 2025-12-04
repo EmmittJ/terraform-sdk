@@ -11,9 +11,9 @@ public partial class GoogleProjectServiceDataSource(string name) : TerraformData
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleProjectServiceDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleProjectServiceDataSource(string name) : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -40,16 +40,12 @@ public partial class GoogleProjectServiceDataSource(string name) : TerraformData
     /// The disable_dependent_services attribute.
     /// </summary>
     public TerraformValue<bool> DisableDependentServices
-    {
-        get => new TerraformReference<bool>(this, "disable_dependent_services");
-    }
+        => AsReference("disable_dependent_services");
 
     /// <summary>
     /// The disable_on_destroy attribute.
     /// </summary>
     public TerraformValue<bool> DisableOnDestroy
-    {
-        get => new TerraformReference<bool>(this, "disable_on_destroy");
-    }
+        => AsReference("disable_on_destroy");
 
 }

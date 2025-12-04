@@ -19,7 +19,7 @@ public class AwsGlueCatalogTableOptimizerConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsGlueCatalogTableOptimizerConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsGlueCatalogTableOptimizerConfigurationBlockOrphanFileDeletionCon
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -100,16 +100,16 @@ public class AwsGlueCatalogTableOptimizerConfigurationBlockOrphanFileDeletionCon
     /// </summary>
     public TerraformValue<double>? OrphanFileRetentionPeriodInDays
     {
-        get => new TerraformReference<double>(this, "orphan_file_retention_period_in_days");
+        get => GetArgument<TerraformValue<double>>("orphan_file_retention_period_in_days");
         set => SetArgument("orphan_file_retention_period_in_days", value);
     }
 
     /// <summary>
     /// The run_rate_in_hours attribute.
     /// </summary>
-    public TerraformValue<double> RunRateInHours
+    public TerraformValue<double>? RunRateInHours
     {
-        get => new TerraformReference<double>(this, "run_rate_in_hours");
+        get => GetArgument<TerraformValue<double>>("run_rate_in_hours");
         set => SetArgument("run_rate_in_hours", value);
     }
 
@@ -153,7 +153,7 @@ public class AwsGlueCatalogTableOptimizerConfigurationBlockRetentionConfiguratio
     /// </summary>
     public TerraformValue<bool>? CleanExpiredFiles
     {
-        get => new TerraformReference<bool>(this, "clean_expired_files");
+        get => GetArgument<TerraformValue<bool>>("clean_expired_files");
         set => SetArgument("clean_expired_files", value);
     }
 
@@ -162,16 +162,16 @@ public class AwsGlueCatalogTableOptimizerConfigurationBlockRetentionConfiguratio
     /// </summary>
     public TerraformValue<double>? NumberOfSnapshotsToRetain
     {
-        get => new TerraformReference<double>(this, "number_of_snapshots_to_retain");
+        get => GetArgument<TerraformValue<double>>("number_of_snapshots_to_retain");
         set => SetArgument("number_of_snapshots_to_retain", value);
     }
 
     /// <summary>
     /// The run_rate_in_hours attribute.
     /// </summary>
-    public TerraformValue<double> RunRateInHours
+    public TerraformValue<double>? RunRateInHours
     {
-        get => new TerraformReference<double>(this, "run_rate_in_hours");
+        get => GetArgument<TerraformValue<double>>("run_rate_in_hours");
         set => SetArgument("run_rate_in_hours", value);
     }
 
@@ -180,7 +180,7 @@ public class AwsGlueCatalogTableOptimizerConfigurationBlockRetentionConfiguratio
     /// </summary>
     public TerraformValue<double>? SnapshotRetentionPeriodInDays
     {
-        get => new TerraformReference<double>(this, "snapshot_retention_period_in_days");
+        get => GetArgument<TerraformValue<double>>("snapshot_retention_period_in_days");
         set => SetArgument("snapshot_retention_period_in_days", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AwsGlueCatalogTableOptimizer(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     public required TerraformValue<string> CatalogId
     {
-        get => new TerraformReference<string>(this, "catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -209,16 +209,16 @@ public partial class AwsGlueCatalogTableOptimizer(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -228,7 +228,7 @@ public partial class AwsGlueCatalogTableOptimizer(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -238,7 +238,7 @@ public partial class AwsGlueCatalogTableOptimizer(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

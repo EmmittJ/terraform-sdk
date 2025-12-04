@@ -18,7 +18,7 @@ public class AzurermPostgresqlFirewallRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermPostgresqlFirewallRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermPostgresqlFirewallRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -56,16 +56,16 @@ public partial class AzurermPostgresqlFirewallRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndIpAddress is required")]
     public required TerraformValue<string> EndIpAddress
     {
-        get => new TerraformReference<string>(this, "end_ip_address");
+        get => GetArgument<TerraformValue<string>>("end_ip_address");
         set => SetArgument("end_ip_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -75,7 +75,7 @@ public partial class AzurermPostgresqlFirewallRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -85,7 +85,7 @@ public partial class AzurermPostgresqlFirewallRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AzurermPostgresqlFirewallRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
     public required TerraformValue<string> ServerName
     {
-        get => new TerraformReference<string>(this, "server_name");
+        get => GetArgument<TerraformValue<string>>("server_name");
         set => SetArgument("server_name", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AzurermPostgresqlFirewallRule(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartIpAddress is required")]
     public required TerraformValue<string> StartIpAddress
     {
-        get => new TerraformReference<string>(this, "start_ip_address");
+        get => GetArgument<TerraformValue<string>>("start_ip_address");
         set => SetArgument("start_ip_address", value);
     }
 

@@ -18,7 +18,7 @@ public class AzurermNetworkConnectionMonitorEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Address
     {
-        get => new TerraformReference<string>(this, "address");
+        get => GetArgument<TerraformValue<string>>("address");
         set => SetArgument("address", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermNetworkConnectionMonitorEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CoverageLevel
     {
-        get => new TerraformReference<string>(this, "coverage_level");
+        get => GetArgument<TerraformValue<string>>("coverage_level");
         set => SetArgument("coverage_level", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermNetworkConnectionMonitorEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ExcludedIpAddresses
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "excluded_ip_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("excluded_ip_addresses");
         set => SetArgument("excluded_ip_addresses", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermNetworkConnectionMonitorEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IncludedIpAddresses
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "included_ip_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("included_ip_addresses");
         set => SetArgument("included_ip_addresses", value);
     }
 
@@ -55,7 +55,7 @@ public class AzurermNetworkConnectionMonitorEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -64,7 +64,7 @@ public class AzurermNetworkConnectionMonitorEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TargetResourceId
     {
-        get => new TerraformReference<string>(this, "target_resource_id");
+        get => GetArgument<TerraformValue<string>>("target_resource_id");
         set => SetArgument("target_resource_id", value);
     }
 
@@ -73,7 +73,7 @@ public class AzurermNetworkConnectionMonitorEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TargetResourceType
     {
-        get => new TerraformReference<string>(this, "target_resource_type");
+        get => GetArgument<TerraformValue<string>>("target_resource_type");
         set => SetArgument("target_resource_type", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermNetworkConnectionMonitorEndpointBlockFilterBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -136,7 +136,7 @@ public class AzurermNetworkConnectionMonitorEndpointBlockFilterBlockItemBlock : 
     /// </summary>
     public TerraformValue<string>? Address
     {
-        get => new TerraformReference<string>(this, "address");
+        get => GetArgument<TerraformValue<string>>("address");
         set => SetArgument("address", value);
     }
 
@@ -145,7 +145,7 @@ public class AzurermNetworkConnectionMonitorEndpointBlockFilterBlockItemBlock : 
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -178,7 +178,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? PreferredIpVersion
     {
-        get => new TerraformReference<string>(this, "preferred_ip_version");
+        get => GetArgument<TerraformValue<string>>("preferred_ip_version");
         set => SetArgument("preferred_ip_version", value);
     }
 
@@ -188,7 +188,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -197,7 +197,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformValue<double>? TestFrequencyInSeconds
     {
-        get => new TerraformReference<double>(this, "test_frequency_in_seconds");
+        get => GetArgument<TerraformValue<double>>("test_frequency_in_seconds");
         set => SetArgument("test_frequency_in_seconds", value);
     }
 
@@ -259,7 +259,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlockHttpConfigurat
     /// </summary>
     public TerraformValue<string>? Method
     {
-        get => new TerraformReference<string>(this, "method");
+        get => GetArgument<TerraformValue<string>>("method");
         set => SetArgument("method", value);
     }
 
@@ -268,7 +268,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlockHttpConfigurat
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -277,7 +277,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlockHttpConfigurat
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -286,7 +286,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlockHttpConfigurat
     /// </summary>
     public TerraformValue<bool>? PreferHttps
     {
-        get => new TerraformReference<bool>(this, "prefer_https");
+        get => GetArgument<TerraformValue<bool>>("prefer_https");
         set => SetArgument("prefer_https", value);
     }
 
@@ -295,7 +295,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlockHttpConfigurat
     /// </summary>
     public TerraformSet<string>? ValidStatusCodeRanges
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "valid_status_code_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("valid_status_code_ranges");
         set => SetArgument("valid_status_code_ranges", value);
     }
 
@@ -327,7 +327,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlockHttpConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -337,7 +337,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlockHttpConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -359,7 +359,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlockIcmpConfigurat
     /// </summary>
     public TerraformValue<bool>? TraceRouteEnabled
     {
-        get => new TerraformReference<bool>(this, "trace_route_enabled");
+        get => GetArgument<TerraformValue<bool>>("trace_route_enabled");
         set => SetArgument("trace_route_enabled", value);
     }
 
@@ -381,7 +381,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlockSuccessThresho
     /// </summary>
     public TerraformValue<double>? ChecksFailedPercent
     {
-        get => new TerraformReference<double>(this, "checks_failed_percent");
+        get => GetArgument<TerraformValue<double>>("checks_failed_percent");
         set => SetArgument("checks_failed_percent", value);
     }
 
@@ -390,7 +390,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlockSuccessThresho
     /// </summary>
     public TerraformValue<double>? RoundTripTimeMs
     {
-        get => new TerraformReference<double>(this, "round_trip_time_ms");
+        get => GetArgument<TerraformValue<double>>("round_trip_time_ms");
         set => SetArgument("round_trip_time_ms", value);
     }
 
@@ -412,7 +412,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlockTcpConfigurati
     /// </summary>
     public TerraformValue<string>? DestinationPortBehavior
     {
-        get => new TerraformReference<string>(this, "destination_port_behavior");
+        get => GetArgument<TerraformValue<string>>("destination_port_behavior");
         set => SetArgument("destination_port_behavior", value);
     }
 
@@ -422,7 +422,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlockTcpConfigurati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -431,7 +431,7 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlockTcpConfigurati
     /// </summary>
     public TerraformValue<bool>? TraceRouteEnabled
     {
-        get => new TerraformReference<bool>(this, "trace_route_enabled");
+        get => GetArgument<TerraformValue<bool>>("trace_route_enabled");
         set => SetArgument("trace_route_enabled", value);
     }
 
@@ -455,7 +455,7 @@ public class AzurermNetworkConnectionMonitorTestGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationEndpoints is required")]
     public required TerraformSet<string> DestinationEndpoints
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "destination_endpoints").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("destination_endpoints");
         set => SetArgument("destination_endpoints", value);
     }
 
@@ -464,7 +464,7 @@ public class AzurermNetworkConnectionMonitorTestGroupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -474,7 +474,7 @@ public class AzurermNetworkConnectionMonitorTestGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -484,7 +484,7 @@ public class AzurermNetworkConnectionMonitorTestGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceEndpoints is required")]
     public required TerraformSet<string> SourceEndpoints
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "source_endpoints").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("source_endpoints");
         set => SetArgument("source_endpoints", value);
     }
 
@@ -494,7 +494,7 @@ public class AzurermNetworkConnectionMonitorTestGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TestConfigurationNames is required")]
     public required TerraformSet<string> TestConfigurationNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "test_configuration_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("test_configuration_names");
         set => SetArgument("test_configuration_names", value);
     }
 
@@ -517,7 +517,7 @@ public class AzurermNetworkConnectionMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -526,7 +526,7 @@ public class AzurermNetworkConnectionMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -535,7 +535,7 @@ public class AzurermNetworkConnectionMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -544,7 +544,7 @@ public class AzurermNetworkConnectionMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -560,9 +560,9 @@ public partial class AzurermNetworkConnectionMonitor(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -572,7 +572,7 @@ public partial class AzurermNetworkConnectionMonitor(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -582,7 +582,7 @@ public partial class AzurermNetworkConnectionMonitor(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -592,7 +592,7 @@ public partial class AzurermNetworkConnectionMonitor(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkWatcherId is required")]
     public required TerraformValue<string> NetworkWatcherId
     {
-        get => new TerraformReference<string>(this, "network_watcher_id");
+        get => GetArgument<TerraformValue<string>>("network_watcher_id");
         set => SetArgument("network_watcher_id", value);
     }
 
@@ -601,7 +601,7 @@ public partial class AzurermNetworkConnectionMonitor(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? Notes
     {
-        get => new TerraformReference<string>(this, "notes");
+        get => GetArgument<TerraformValue<string>>("notes");
         set => SetArgument("notes", value);
     }
 
@@ -610,7 +610,7 @@ public partial class AzurermNetworkConnectionMonitor(string name) : TerraformRes
     /// </summary>
     public TerraformSet<string>? OutputWorkspaceResourceIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "output_workspace_resource_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("output_workspace_resource_ids");
         set => SetArgument("output_workspace_resource_ids", value);
     }
 
@@ -619,7 +619,7 @@ public partial class AzurermNetworkConnectionMonitor(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

@@ -18,7 +18,7 @@ public class AwsCleanroomsMembershipDefaultResultConfigurationBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsCleanroomsMembershipDefaultResultConfigurationBlockOutputConfigu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsCleanroomsMembershipDefaultResultConfigurationBlockOutputConfigu
     /// </summary>
     public TerraformValue<string>? KeyPrefix
     {
-        get => new TerraformReference<string>(this, "key_prefix");
+        get => GetArgument<TerraformValue<string>>("key_prefix");
         set => SetArgument("key_prefix", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsCleanroomsMembershipDefaultResultConfigurationBlockOutputConfigu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResultFormat is required")]
     public required TerraformValue<string> ResultFormat
     {
-        get => new TerraformReference<string>(this, "result_format");
+        get => GetArgument<TerraformValue<string>>("result_format");
         set => SetArgument("result_format", value);
     }
 
@@ -137,7 +137,7 @@ public class AwsCleanroomsMembershipPaymentConfigurationBlockQueryComputeBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsResponsible is required")]
     public required TerraformValue<bool> IsResponsible
     {
-        get => new TerraformReference<bool>(this, "is_responsible");
+        get => GetArgument<TerraformValue<bool>>("is_responsible");
         set => SetArgument("is_responsible", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AwsCleanroomsMembership(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollaborationId is required")]
     public required TerraformValue<string> CollaborationId
     {
-        get => new TerraformReference<string>(this, "collaboration_id");
+        get => GetArgument<TerraformValue<string>>("collaboration_id");
         set => SetArgument("collaboration_id", value);
     }
 
@@ -166,16 +166,16 @@ public partial class AwsCleanroomsMembership(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryLogStatus is required")]
     public required TerraformValue<string> QueryLogStatus
     {
-        get => new TerraformReference<string>(this, "query_log_status");
+        get => GetArgument<TerraformValue<string>>("query_log_status");
         set => SetArgument("query_log_status", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AwsCleanroomsMembership(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -192,89 +192,67 @@ public partial class AwsCleanroomsMembership(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The collaboration_arn attribute.
     /// </summary>
     public TerraformValue<string> CollaborationArn
-    {
-        get => new TerraformReference<string>(this, "collaboration_arn");
-    }
+        => AsReference("collaboration_arn");
 
     /// <summary>
     /// The collaboration_creator_account_id attribute.
     /// </summary>
     public TerraformValue<string> CollaborationCreatorAccountId
-    {
-        get => new TerraformReference<string>(this, "collaboration_creator_account_id");
-    }
+        => AsReference("collaboration_creator_account_id");
 
     /// <summary>
     /// The collaboration_creator_display_name attribute.
     /// </summary>
     public TerraformValue<string> CollaborationCreatorDisplayName
-    {
-        get => new TerraformReference<string>(this, "collaboration_creator_display_name");
-    }
+        => AsReference("collaboration_creator_display_name");
 
     /// <summary>
     /// The collaboration_name attribute.
     /// </summary>
     public TerraformValue<string> CollaborationName
-    {
-        get => new TerraformReference<string>(this, "collaboration_name");
-    }
+        => AsReference("collaboration_name");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The member_abilities attribute.
     /// </summary>
     public TerraformList<string> MemberAbilities
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "member_abilities").ResolveNodes(ctx));
-    }
+        => AsReference("member_abilities");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// DefaultResultConfiguration block (nesting mode: list).

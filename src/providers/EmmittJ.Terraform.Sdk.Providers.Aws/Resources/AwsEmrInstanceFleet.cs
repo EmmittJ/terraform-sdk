@@ -18,7 +18,7 @@ public class AwsEmrInstanceFleetInstanceTypeConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BidPrice
     {
-        get => new TerraformReference<string>(this, "bid_price");
+        get => GetArgument<TerraformValue<string>>("bid_price");
         set => SetArgument("bid_price", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsEmrInstanceFleetInstanceTypeConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? BidPriceAsPercentageOfOnDemandPrice
     {
-        get => new TerraformReference<double>(this, "bid_price_as_percentage_of_on_demand_price");
+        get => GetArgument<TerraformValue<double>>("bid_price_as_percentage_of_on_demand_price");
         set => SetArgument("bid_price_as_percentage_of_on_demand_price", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsEmrInstanceFleetInstanceTypeConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsEmrInstanceFleetInstanceTypeConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? WeightedCapacity
     {
-        get => new TerraformReference<double>(this, "weighted_capacity");
+        get => GetArgument<TerraformValue<double>>("weighted_capacity");
         set => SetArgument("weighted_capacity", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsEmrInstanceFleetInstanceTypeConfigsBlockConfigurationsBlock : Te
     /// </summary>
     public TerraformValue<string>? Classification
     {
-        get => new TerraformReference<string>(this, "classification");
+        get => GetArgument<TerraformValue<string>>("classification");
         set => SetArgument("classification", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsEmrInstanceFleetInstanceTypeConfigsBlockConfigurationsBlock : Te
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsEmrInstanceFleetInstanceTypeConfigsBlockEbsConfigBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? Iops
     {
-        get => new TerraformReference<double>(this, "iops");
+        get => GetArgument<TerraformValue<double>>("iops");
         set => SetArgument("iops", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsEmrInstanceFleetInstanceTypeConfigsBlockEbsConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     public required TerraformValue<double> Size
     {
-        get => new TerraformReference<double>(this, "size");
+        get => GetArgument<TerraformValue<double>>("size");
         set => SetArgument("size", value);
     }
 
@@ -137,7 +137,7 @@ public class AwsEmrInstanceFleetInstanceTypeConfigsBlockEbsConfigBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -146,7 +146,7 @@ public class AwsEmrInstanceFleetInstanceTypeConfigsBlockEbsConfigBlock : Terrafo
     /// </summary>
     public TerraformValue<double>? VolumesPerInstance
     {
-        get => new TerraformReference<double>(this, "volumes_per_instance");
+        get => GetArgument<TerraformValue<double>>("volumes_per_instance");
         set => SetArgument("volumes_per_instance", value);
     }
 
@@ -201,7 +201,7 @@ public class AwsEmrInstanceFleetLaunchSpecificationsBlockOnDemandSpecificationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocationStrategy is required")]
     public required TerraformValue<string> AllocationStrategy
     {
-        get => new TerraformReference<string>(this, "allocation_strategy");
+        get => GetArgument<TerraformValue<string>>("allocation_strategy");
         set => SetArgument("allocation_strategy", value);
     }
 
@@ -224,7 +224,7 @@ public class AwsEmrInstanceFleetLaunchSpecificationsBlockSpotSpecificationBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocationStrategy is required")]
     public required TerraformValue<string> AllocationStrategy
     {
-        get => new TerraformReference<string>(this, "allocation_strategy");
+        get => GetArgument<TerraformValue<string>>("allocation_strategy");
         set => SetArgument("allocation_strategy", value);
     }
 
@@ -233,7 +233,7 @@ public class AwsEmrInstanceFleetLaunchSpecificationsBlockSpotSpecificationBlock 
     /// </summary>
     public TerraformValue<double>? BlockDurationMinutes
     {
-        get => new TerraformReference<double>(this, "block_duration_minutes");
+        get => GetArgument<TerraformValue<double>>("block_duration_minutes");
         set => SetArgument("block_duration_minutes", value);
     }
 
@@ -243,7 +243,7 @@ public class AwsEmrInstanceFleetLaunchSpecificationsBlockSpotSpecificationBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeoutAction is required")]
     public required TerraformValue<string> TimeoutAction
     {
-        get => new TerraformReference<string>(this, "timeout_action");
+        get => GetArgument<TerraformValue<string>>("timeout_action");
         set => SetArgument("timeout_action", value);
     }
 
@@ -253,7 +253,7 @@ public class AwsEmrInstanceFleetLaunchSpecificationsBlockSpotSpecificationBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeoutDurationMinutes is required")]
     public required TerraformValue<double> TimeoutDurationMinutes
     {
-        get => new TerraformReference<double>(this, "timeout_duration_minutes");
+        get => GetArgument<TerraformValue<double>>("timeout_duration_minutes");
         set => SetArgument("timeout_duration_minutes", value);
     }
 
@@ -272,16 +272,16 @@ public partial class AwsEmrInstanceFleet(string name) : TerraformResource("aws_e
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => new TerraformReference<string>(this, "cluster_id");
+        get => GetArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -290,16 +290,16 @@ public partial class AwsEmrInstanceFleet(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -308,7 +308,7 @@ public partial class AwsEmrInstanceFleet(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformValue<double>? TargetOnDemandCapacity
     {
-        get => new TerraformReference<double>(this, "target_on_demand_capacity");
+        get => GetArgument<TerraformValue<double>>("target_on_demand_capacity");
         set => SetArgument("target_on_demand_capacity", value);
     }
 
@@ -317,7 +317,7 @@ public partial class AwsEmrInstanceFleet(string name) : TerraformResource("aws_e
     /// </summary>
     public TerraformValue<double>? TargetSpotCapacity
     {
-        get => new TerraformReference<double>(this, "target_spot_capacity");
+        get => GetArgument<TerraformValue<double>>("target_spot_capacity");
         set => SetArgument("target_spot_capacity", value);
     }
 
@@ -325,17 +325,13 @@ public partial class AwsEmrInstanceFleet(string name) : TerraformResource("aws_e
     /// The provisioned_on_demand_capacity attribute.
     /// </summary>
     public TerraformValue<double> ProvisionedOnDemandCapacity
-    {
-        get => new TerraformReference<double>(this, "provisioned_on_demand_capacity");
-    }
+        => AsReference("provisioned_on_demand_capacity");
 
     /// <summary>
     /// The provisioned_spot_capacity attribute.
     /// </summary>
     public TerraformValue<double> ProvisionedSpotCapacity
-    {
-        get => new TerraformReference<double>(this, "provisioned_spot_capacity");
-    }
+        => AsReference("provisioned_spot_capacity");
 
     /// <summary>
     /// InstanceTypeConfigs block (nesting mode: set).

@@ -18,7 +18,7 @@ public class AzurermSubscriptionTemplateDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSubscriptionTemplateDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSubscriptionTemplateDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSubscriptionTemplateDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AzurermSubscriptionTemplateDeployment(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? DebugLevel
     {
-        get => new TerraformReference<string>(this, "debug_level");
+        get => GetArgument<TerraformValue<string>>("debug_level");
         set => SetArgument("debug_level", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermSubscriptionTemplateDeployment(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -92,16 +92,16 @@ public partial class AzurermSubscriptionTemplateDeployment(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The parameters_content attribute.
     /// </summary>
-    public TerraformValue<string> ParametersContent
+    public TerraformValue<string>? ParametersContent
     {
-        get => new TerraformReference<string>(this, "parameters_content");
+        get => GetArgument<TerraformValue<string>>("parameters_content");
         set => SetArgument("parameters_content", value);
     }
 
@@ -110,16 +110,16 @@ public partial class AzurermSubscriptionTemplateDeployment(string name) : Terraf
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The template_content attribute.
     /// </summary>
-    public TerraformValue<string> TemplateContent
+    public TerraformValue<string>? TemplateContent
     {
-        get => new TerraformReference<string>(this, "template_content");
+        get => GetArgument<TerraformValue<string>>("template_content");
         set => SetArgument("template_content", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermSubscriptionTemplateDeployment(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? TemplateSpecVersionId
     {
-        get => new TerraformReference<string>(this, "template_spec_version_id");
+        get => GetArgument<TerraformValue<string>>("template_spec_version_id");
         set => SetArgument("template_spec_version_id", value);
     }
 
@@ -136,9 +136,7 @@ public partial class AzurermSubscriptionTemplateDeployment(string name) : Terraf
     /// The output_content attribute.
     /// </summary>
     public TerraformValue<string> OutputContent
-    {
-        get => new TerraformReference<string>(this, "output_content");
-    }
+        => AsReference("output_content");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

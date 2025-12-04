@@ -14,7 +14,7 @@ public partial class AwsGrafanaWorkspaceServiceAccount(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrafanaRole is required")]
     public required TerraformValue<string> GrafanaRole
     {
-        get => new TerraformReference<string>(this, "grafana_role");
+        get => GetArgument<TerraformValue<string>>("grafana_role");
         set => SetArgument("grafana_role", value);
     }
 
@@ -24,16 +24,16 @@ public partial class AwsGrafanaWorkspaceServiceAccount(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -43,7 +43,7 @@ public partial class AwsGrafanaWorkspaceServiceAccount(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => new TerraformReference<string>(this, "workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -51,16 +51,12 @@ public partial class AwsGrafanaWorkspaceServiceAccount(string name) : TerraformR
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The service_account_id attribute.
     /// </summary>
     public TerraformValue<string> ServiceAccountId
-    {
-        get => new TerraformReference<string>(this, "service_account_id");
-    }
+        => AsReference("service_account_id");
 
 }

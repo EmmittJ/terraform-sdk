@@ -18,7 +18,7 @@ public class GoogleDialogflowCxPlaybookInstructionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Guidelines
     {
-        get => new TerraformReference<string>(this, "guidelines");
+        get => GetArgument<TerraformValue<string>>("guidelines");
         set => SetArgument("guidelines", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleDialogflowCxPlaybookInstructionBlockStepsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Steps
     {
-        get => new TerraformReference<string>(this, "steps");
+        get => GetArgument<TerraformValue<string>>("steps");
         set => SetArgument("steps", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleDialogflowCxPlaybookInstructionBlockStepsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -83,7 +83,7 @@ public class GoogleDialogflowCxPlaybookLlmModelSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Model
     {
-        get => new TerraformReference<string>(this, "model");
+        get => GetArgument<TerraformValue<string>>("model");
         set => SetArgument("model", value);
     }
 
@@ -92,7 +92,7 @@ public class GoogleDialogflowCxPlaybookLlmModelSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PromptText
     {
-        get => new TerraformReference<string>(this, "prompt_text");
+        get => GetArgument<TerraformValue<string>>("prompt_text");
         set => SetArgument("prompt_text", value);
     }
 
@@ -115,7 +115,7 @@ public class GoogleDialogflowCxPlaybookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -124,7 +124,7 @@ public class GoogleDialogflowCxPlaybookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleDialogflowCxPlaybookTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -152,7 +152,7 @@ public partial class GoogleDialogflowCxPlaybook(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -162,16 +162,16 @@ public partial class GoogleDialogflowCxPlaybook(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Goal is required")]
     public required TerraformValue<string> Goal
     {
-        get => new TerraformReference<string>(this, "goal");
+        get => GetArgument<TerraformValue<string>>("goal");
         set => SetArgument("goal", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -181,7 +181,7 @@ public partial class GoogleDialogflowCxPlaybook(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -190,7 +190,7 @@ public partial class GoogleDialogflowCxPlaybook(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? PlaybookType
     {
-        get => new TerraformReference<string>(this, "playbook_type");
+        get => GetArgument<TerraformValue<string>>("playbook_type");
         set => SetArgument("playbook_type", value);
     }
 
@@ -199,7 +199,7 @@ public partial class GoogleDialogflowCxPlaybook(string name) : TerraformResource
     /// </summary>
     public TerraformList<string>? ReferencedTools
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "referenced_tools").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("referenced_tools");
         set => SetArgument("referenced_tools", value);
     }
 
@@ -209,42 +209,32 @@ public partial class GoogleDialogflowCxPlaybook(string name) : TerraformResource
     /// Uses RFC 3339, where generated output will always be Z-normalized and uses 0, 3, 6 or 9 fractional digits. Offsets other than &amp;quot;Z&amp;quot; are also accepted. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot;, &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot; or &amp;quot;2014-10-02T15:01:23+05:30&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The unique identifier of the Playbook.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/playbooks/&amp;lt;Playbook ID&amp;gt;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The resource name of flows referenced by the current playbook in the instructions.
     /// </summary>
     public TerraformList<string> ReferencedFlows
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "referenced_flows").ResolveNodes(ctx));
-    }
+        => AsReference("referenced_flows");
 
     /// <summary>
     /// The resource name of other playbooks referenced by the current playbook in the instructions.
     /// </summary>
     public TerraformList<string> ReferencedPlaybooks
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "referenced_playbooks").ResolveNodes(ctx));
-    }
+        => AsReference("referenced_playbooks");
 
     /// <summary>
     /// Estimated number of tokes current playbook takes when sent to the LLM.
     /// </summary>
     public TerraformValue<string> TokenCount
-    {
-        get => new TerraformReference<string>(this, "token_count");
-    }
+        => AsReference("token_count");
 
     /// <summary>
     /// Last time the playbook version was updated.
@@ -252,9 +242,7 @@ public partial class GoogleDialogflowCxPlaybook(string name) : TerraformResource
     /// Uses RFC 3339, where generated output will always be Z-normalized and uses 0, 3, 6 or 9 fractional digits. Offsets other than &amp;quot;Z&amp;quot; are also accepted. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot;, &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot; or &amp;quot;2014-10-02T15:01:23+05:30&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Instruction block (nesting mode: list).

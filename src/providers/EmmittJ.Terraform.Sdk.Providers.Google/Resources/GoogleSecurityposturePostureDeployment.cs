@@ -18,7 +18,7 @@ public class GoogleSecurityposturePostureDeploymentTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleSecurityposturePostureDeploymentTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleSecurityposturePostureDeploymentTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,16 +54,16 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -83,7 +83,7 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -93,7 +93,7 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureDeploymentId is required")]
     public required TerraformValue<string> PostureDeploymentId
     {
-        get => new TerraformReference<string>(this, "posture_deployment_id");
+        get => GetArgument<TerraformValue<string>>("posture_deployment_id");
         set => SetArgument("posture_deployment_id", value);
     }
 
@@ -104,7 +104,7 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureId is required")]
     public required TerraformValue<string> PostureId
     {
-        get => new TerraformReference<string>(this, "posture_id");
+        get => GetArgument<TerraformValue<string>>("posture_id");
         set => SetArgument("posture_id", value);
     }
 
@@ -114,7 +114,7 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PostureRevisionId is required")]
     public required TerraformValue<string> PostureRevisionId
     {
-        get => new TerraformReference<string>(this, "posture_revision_id");
+        get => GetArgument<TerraformValue<string>>("posture_revision_id");
         set => SetArgument("posture_revision_id", value);
     }
 
@@ -127,7 +127,7 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResource is required")]
     public required TerraformValue<string> TargetResource
     {
-        get => new TerraformReference<string>(this, "target_resource");
+        get => GetArgument<TerraformValue<string>>("target_resource");
         set => SetArgument("target_resource", value);
     }
 
@@ -135,9 +135,7 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     /// Time the posture deployment was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// This is an output only optional field which will be filled in case when
@@ -145,9 +143,7 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     /// It denotes the desired posture to be deployed.
     /// </summary>
     public TerraformValue<string> DesiredPostureId
-    {
-        get => new TerraformReference<string>(this, "desired_posture_id");
-    }
+        => AsReference("desired_posture_id");
 
     /// <summary>
     /// This is an output only optional field which will be filled in case when
@@ -155,17 +151,13 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     /// It denotes the desired posture revision_id to be deployed.
     /// </summary>
     public TerraformValue<string> DesiredPostureRevisionId
-    {
-        get => new TerraformReference<string>(this, "desired_posture_revision_id");
-    }
+        => AsReference("desired_posture_revision_id");
 
     /// <summary>
     /// For Resource freshness validation (https://google.aip.dev/154)
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// This is a output only optional field which will be filled in case where
@@ -174,42 +166,32 @@ public partial class GoogleSecurityposturePostureDeployment(string name) : Terra
     /// CREATE/UPDATE/DELETE methods.
     /// </summary>
     public TerraformValue<string> FailureMessage
-    {
-        get => new TerraformReference<string>(this, "failure_message");
-    }
+        => AsReference("failure_message");
 
     /// <summary>
     /// Name of the posture deployment instance.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// If set, there are currently changes in flight to the posture deployment.
     /// </summary>
     public TerraformValue<bool> Reconciling
-    {
-        get => new TerraformReference<bool>(this, "reconciling");
-    }
+        => AsReference("reconciling");
 
     /// <summary>
     /// State of the posture deployment. A posture deployment can be in the following terminal states:
     /// ACTIVE, CREATE_FAILED, UPDATE_FAILED, DELETE_FAILED.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Time the posture deployment was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

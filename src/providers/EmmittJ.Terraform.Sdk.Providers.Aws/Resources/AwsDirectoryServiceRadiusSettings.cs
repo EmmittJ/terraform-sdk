@@ -18,7 +18,7 @@ public class AwsDirectoryServiceRadiusSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsDirectoryServiceRadiusSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AwsDirectoryServiceRadiusSettings(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationProtocol is required")]
     public required TerraformValue<string> AuthenticationProtocol
     {
-        get => new TerraformReference<string>(this, "authentication_protocol");
+        get => GetArgument<TerraformValue<string>>("authentication_protocol");
         set => SetArgument("authentication_protocol", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsDirectoryServiceRadiusSettings(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
     public required TerraformValue<string> DirectoryId
     {
-        get => new TerraformReference<string>(this, "directory_id");
+        get => GetArgument<TerraformValue<string>>("directory_id");
         set => SetArgument("directory_id", value);
     }
 
@@ -66,16 +66,16 @@ public partial class AwsDirectoryServiceRadiusSettings(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayLabel is required")]
     public required TerraformValue<string> DisplayLabel
     {
-        get => new TerraformReference<string>(this, "display_label");
+        get => GetArgument<TerraformValue<string>>("display_label");
         set => SetArgument("display_label", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -85,7 +85,7 @@ public partial class AwsDirectoryServiceRadiusSettings(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RadiusPort is required")]
     public required TerraformValue<double> RadiusPort
     {
-        get => new TerraformReference<double>(this, "radius_port");
+        get => GetArgument<TerraformValue<double>>("radius_port");
         set => SetArgument("radius_port", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsDirectoryServiceRadiusSettings(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RadiusRetries is required")]
     public required TerraformValue<double> RadiusRetries
     {
-        get => new TerraformReference<double>(this, "radius_retries");
+        get => GetArgument<TerraformValue<double>>("radius_retries");
         set => SetArgument("radius_retries", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AwsDirectoryServiceRadiusSettings(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RadiusServers is required")]
     public required TerraformSet<string> RadiusServers
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "radius_servers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("radius_servers");
         set => SetArgument("radius_servers", value);
     }
 
@@ -115,16 +115,16 @@ public partial class AwsDirectoryServiceRadiusSettings(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RadiusTimeout is required")]
     public required TerraformValue<double> RadiusTimeout
     {
-        get => new TerraformReference<double>(this, "radius_timeout");
+        get => GetArgument<TerraformValue<double>>("radius_timeout");
         set => SetArgument("radius_timeout", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AwsDirectoryServiceRadiusSettings(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedSecret is required")]
     public required TerraformValue<string> SharedSecret
     {
-        get => new TerraformReference<string>(this, "shared_secret");
+        get => GetArgument<TerraformValue<string>>("shared_secret");
         set => SetArgument("shared_secret", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AwsDirectoryServiceRadiusSettings(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? UseSameUsername
     {
-        get => new TerraformReference<bool>(this, "use_same_username");
+        get => GetArgument<TerraformValue<bool>>("use_same_username");
         set => SetArgument("use_same_username", value);
     }
 

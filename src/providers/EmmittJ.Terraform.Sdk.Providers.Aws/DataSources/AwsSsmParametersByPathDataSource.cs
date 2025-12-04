@@ -11,9 +11,9 @@ public partial class AwsSsmParametersByPathDataSource(string name) : TerraformDa
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsSsmParametersByPathDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -32,16 +32,16 @@ public partial class AwsSsmParametersByPathDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<bool>? Recursive
     {
-        get => new TerraformReference<bool>(this, "recursive");
+        get => GetArgument<TerraformValue<bool>>("recursive");
         set => SetArgument("recursive", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsSsmParametersByPathDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<bool>? WithDecryption
     {
-        get => new TerraformReference<bool>(this, "with_decryption");
+        get => GetArgument<TerraformValue<bool>>("with_decryption");
         set => SetArgument("with_decryption", value);
     }
 
@@ -58,32 +58,24 @@ public partial class AwsSsmParametersByPathDataSource(string name) : TerraformDa
     /// The arns attribute.
     /// </summary>
     public TerraformList<string> Arns
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "arns").ResolveNodes(ctx));
-    }
+        => AsReference("arns");
 
     /// <summary>
     /// The names attribute.
     /// </summary>
     public TerraformList<string> Names
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "names").ResolveNodes(ctx));
-    }
+        => AsReference("names");
 
     /// <summary>
     /// The types attribute.
     /// </summary>
     public TerraformList<string> Types
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "types").ResolveNodes(ctx));
-    }
+        => AsReference("types");
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     public TerraformList<string> ValuesAttribute
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
-    }
+        => AsReference("values");
 
 }

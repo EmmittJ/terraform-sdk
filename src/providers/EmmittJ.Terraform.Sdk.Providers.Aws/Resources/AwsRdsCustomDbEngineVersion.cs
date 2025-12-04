@@ -18,7 +18,7 @@ public class AwsRdsCustomDbEngineVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsRdsCustomDbEngineVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsRdsCustomDbEngineVersionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsRdsCustomDbEngineVersion(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? DatabaseInstallationFilesS3BucketName
     {
-        get => new TerraformReference<string>(this, "database_installation_files_s3_bucket_name");
+        get => GetArgument<TerraformValue<string>>("database_installation_files_s3_bucket_name");
         set => SetArgument("database_installation_files_s3_bucket_name", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsRdsCustomDbEngineVersion(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? DatabaseInstallationFilesS3Prefix
     {
-        get => new TerraformReference<string>(this, "database_installation_files_s3_prefix");
+        get => GetArgument<TerraformValue<string>>("database_installation_files_s3_prefix");
         set => SetArgument("database_installation_files_s3_prefix", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsRdsCustomDbEngineVersion(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsRdsCustomDbEngineVersion(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
     public required TerraformValue<string> Engine
     {
-        get => new TerraformReference<string>(this, "engine");
+        get => GetArgument<TerraformValue<string>>("engine");
         set => SetArgument("engine", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AwsRdsCustomDbEngineVersion(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineVersion is required")]
     public required TerraformValue<string> EngineVersion
     {
-        get => new TerraformReference<string>(this, "engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -101,25 +101,25 @@ public partial class AwsRdsCustomDbEngineVersion(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? Filename
     {
-        get => new TerraformReference<string>(this, "filename");
+        get => GetArgument<TerraformValue<string>>("filename");
         set => SetArgument("filename", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string> KmsKeyId
+    public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AwsRdsCustomDbEngineVersion(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? Manifest
     {
-        get => new TerraformReference<string>(this, "manifest");
+        get => GetArgument<TerraformValue<string>>("manifest");
         set => SetArgument("manifest", value);
     }
 
@@ -137,16 +137,16 @@ public partial class AwsRdsCustomDbEngineVersion(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? ManifestHash
     {
-        get => new TerraformReference<string>(this, "manifest_hash");
+        get => GetArgument<TerraformValue<string>>("manifest_hash");
         set => SetArgument("manifest_hash", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -155,16 +155,16 @@ public partial class AwsRdsCustomDbEngineVersion(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? SourceImageId
     {
-        get => new TerraformReference<string>(this, "source_image_id");
+        get => GetArgument<TerraformValue<string>>("source_image_id");
         set => SetArgument("source_image_id", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformValue<string> Status
+    public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -173,16 +173,16 @@ public partial class AwsRdsCustomDbEngineVersion(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -190,49 +190,37 @@ public partial class AwsRdsCustomDbEngineVersion(string name) : TerraformResourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The db_parameter_group_family attribute.
     /// </summary>
     public TerraformValue<string> DbParameterGroupFamily
-    {
-        get => new TerraformReference<string>(this, "db_parameter_group_family");
-    }
+        => AsReference("db_parameter_group_family");
 
     /// <summary>
     /// The image_id attribute.
     /// </summary>
     public TerraformValue<string> ImageId
-    {
-        get => new TerraformReference<string>(this, "image_id");
-    }
+        => AsReference("image_id");
 
     /// <summary>
     /// The major_engine_version attribute.
     /// </summary>
     public TerraformValue<string> MajorEngineVersion
-    {
-        get => new TerraformReference<string>(this, "major_engine_version");
-    }
+        => AsReference("major_engine_version");
 
     /// <summary>
     /// The manifest_computed attribute.
     /// </summary>
     public TerraformValue<string> ManifestComputed
-    {
-        get => new TerraformReference<string>(this, "manifest_computed");
-    }
+        => AsReference("manifest_computed");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

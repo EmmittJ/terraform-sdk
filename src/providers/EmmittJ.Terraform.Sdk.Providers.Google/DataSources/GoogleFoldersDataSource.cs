@@ -11,9 +11,9 @@ public partial class GoogleFoldersDataSource(string name) : TerraformDataSource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleFoldersDataSource(string name) : TerraformDataSource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentId is required")]
     public required TerraformValue<string> ParentId
     {
-        get => new TerraformReference<string>(this, "parent_id");
+        get => GetArgument<TerraformValue<string>>("parent_id");
         set => SetArgument("parent_id", value);
     }
 
@@ -31,8 +31,6 @@ public partial class GoogleFoldersDataSource(string name) : TerraformDataSource(
     /// The folders attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Folders
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "folders").ResolveNodes(ctx));
-    }
+        => AsReference("folders");
 
 }

@@ -19,7 +19,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockCopyStepDetailsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockCopyStepDetailsBlock : Terr
     /// </summary>
     public TerraformValue<string>? OverwriteExisting
     {
-        get => new TerraformReference<string>(this, "overwrite_existing");
+        get => GetArgument<TerraformValue<string>>("overwrite_existing");
         set => SetArgument("overwrite_existing", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockCopyStepDetailsBlock : Terr
     /// </summary>
     public TerraformValue<string>? SourceFileLocation
     {
-        get => new TerraformReference<string>(this, "source_file_location");
+        get => GetArgument<TerraformValue<string>>("source_file_location");
         set => SetArgument("source_file_location", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockCopyStepDetailsBlockDestina
     /// </summary>
     public TerraformValue<string>? FileSystemId
     {
-        get => new TerraformReference<string>(this, "file_system_id");
+        get => GetArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
@@ -183,7 +183,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockCopyStepDetailsBlockDestina
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -205,7 +205,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockCopyStepDetailsBlockDestina
     /// </summary>
     public TerraformValue<string>? Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -214,7 +214,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockCopyStepDetailsBlockDestina
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -236,7 +236,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockCustomStepDetailsBlock : Te
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -245,7 +245,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockCustomStepDetailsBlock : Te
     /// </summary>
     public TerraformValue<string>? SourceFileLocation
     {
-        get => new TerraformReference<string>(this, "source_file_location");
+        get => GetArgument<TerraformValue<string>>("source_file_location");
         set => SetArgument("source_file_location", value);
     }
 
@@ -254,7 +254,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockCustomStepDetailsBlock : Te
     /// </summary>
     public TerraformValue<string>? Target
     {
-        get => new TerraformReference<string>(this, "target");
+        get => GetArgument<TerraformValue<string>>("target");
         set => SetArgument("target", value);
     }
 
@@ -263,7 +263,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockCustomStepDetailsBlock : Te
     /// </summary>
     public TerraformValue<double>? TimeoutSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_seconds");
         set => SetArgument("timeout_seconds", value);
     }
 
@@ -285,7 +285,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockDecryptStepDetailsBlock : T
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -294,7 +294,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockDecryptStepDetailsBlock : T
     /// </summary>
     public TerraformValue<string>? OverwriteExisting
     {
-        get => new TerraformReference<string>(this, "overwrite_existing");
+        get => GetArgument<TerraformValue<string>>("overwrite_existing");
         set => SetArgument("overwrite_existing", value);
     }
 
@@ -303,7 +303,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockDecryptStepDetailsBlock : T
     /// </summary>
     public TerraformValue<string>? SourceFileLocation
     {
-        get => new TerraformReference<string>(this, "source_file_location");
+        get => GetArgument<TerraformValue<string>>("source_file_location");
         set => SetArgument("source_file_location", value);
     }
 
@@ -313,7 +313,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockDecryptStepDetailsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -378,7 +378,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockDecryptStepDetailsBlockDest
     /// </summary>
     public TerraformValue<string>? FileSystemId
     {
-        get => new TerraformReference<string>(this, "file_system_id");
+        get => GetArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
@@ -387,7 +387,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockDecryptStepDetailsBlockDest
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -409,7 +409,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockDecryptStepDetailsBlockDest
     /// </summary>
     public TerraformValue<string>? Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -418,7 +418,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockDecryptStepDetailsBlockDest
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -440,7 +440,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockDeleteStepDetailsBlock : Te
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -449,7 +449,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockDeleteStepDetailsBlock : Te
     /// </summary>
     public TerraformValue<string>? SourceFileLocation
     {
-        get => new TerraformReference<string>(this, "source_file_location");
+        get => GetArgument<TerraformValue<string>>("source_file_location");
         set => SetArgument("source_file_location", value);
     }
 
@@ -471,7 +471,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockTagStepDetailsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -480,7 +480,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockTagStepDetailsBlock : Terra
     /// </summary>
     public TerraformValue<string>? SourceFileLocation
     {
-        get => new TerraformReference<string>(this, "source_file_location");
+        get => GetArgument<TerraformValue<string>>("source_file_location");
         set => SetArgument("source_file_location", value);
     }
 
@@ -513,7 +513,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockTagStepDetailsBlockTagsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -523,7 +523,7 @@ public class AwsTransferWorkflowOnExceptionStepsBlockTagStepDetailsBlockTagsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -547,7 +547,7 @@ public class AwsTransferWorkflowStepsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -619,7 +619,7 @@ public class AwsTransferWorkflowStepsBlockCopyStepDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -628,7 +628,7 @@ public class AwsTransferWorkflowStepsBlockCopyStepDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OverwriteExisting
     {
-        get => new TerraformReference<string>(this, "overwrite_existing");
+        get => GetArgument<TerraformValue<string>>("overwrite_existing");
         set => SetArgument("overwrite_existing", value);
     }
 
@@ -637,7 +637,7 @@ public class AwsTransferWorkflowStepsBlockCopyStepDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SourceFileLocation
     {
-        get => new TerraformReference<string>(this, "source_file_location");
+        get => GetArgument<TerraformValue<string>>("source_file_location");
         set => SetArgument("source_file_location", value);
     }
 
@@ -702,7 +702,7 @@ public class AwsTransferWorkflowStepsBlockCopyStepDetailsBlockDestinationFileLoc
     /// </summary>
     public TerraformValue<string>? FileSystemId
     {
-        get => new TerraformReference<string>(this, "file_system_id");
+        get => GetArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
@@ -711,7 +711,7 @@ public class AwsTransferWorkflowStepsBlockCopyStepDetailsBlockDestinationFileLoc
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -733,7 +733,7 @@ public class AwsTransferWorkflowStepsBlockCopyStepDetailsBlockDestinationFileLoc
     /// </summary>
     public TerraformValue<string>? Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -742,7 +742,7 @@ public class AwsTransferWorkflowStepsBlockCopyStepDetailsBlockDestinationFileLoc
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -764,7 +764,7 @@ public class AwsTransferWorkflowStepsBlockCustomStepDetailsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -773,7 +773,7 @@ public class AwsTransferWorkflowStepsBlockCustomStepDetailsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? SourceFileLocation
     {
-        get => new TerraformReference<string>(this, "source_file_location");
+        get => GetArgument<TerraformValue<string>>("source_file_location");
         set => SetArgument("source_file_location", value);
     }
 
@@ -782,7 +782,7 @@ public class AwsTransferWorkflowStepsBlockCustomStepDetailsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Target
     {
-        get => new TerraformReference<string>(this, "target");
+        get => GetArgument<TerraformValue<string>>("target");
         set => SetArgument("target", value);
     }
 
@@ -791,7 +791,7 @@ public class AwsTransferWorkflowStepsBlockCustomStepDetailsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double>? TimeoutSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_seconds");
         set => SetArgument("timeout_seconds", value);
     }
 
@@ -813,7 +813,7 @@ public class AwsTransferWorkflowStepsBlockDecryptStepDetailsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -822,7 +822,7 @@ public class AwsTransferWorkflowStepsBlockDecryptStepDetailsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? OverwriteExisting
     {
-        get => new TerraformReference<string>(this, "overwrite_existing");
+        get => GetArgument<TerraformValue<string>>("overwrite_existing");
         set => SetArgument("overwrite_existing", value);
     }
 
@@ -831,7 +831,7 @@ public class AwsTransferWorkflowStepsBlockDecryptStepDetailsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? SourceFileLocation
     {
-        get => new TerraformReference<string>(this, "source_file_location");
+        get => GetArgument<TerraformValue<string>>("source_file_location");
         set => SetArgument("source_file_location", value);
     }
 
@@ -841,7 +841,7 @@ public class AwsTransferWorkflowStepsBlockDecryptStepDetailsBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -906,7 +906,7 @@ public class AwsTransferWorkflowStepsBlockDecryptStepDetailsBlockDestinationFile
     /// </summary>
     public TerraformValue<string>? FileSystemId
     {
-        get => new TerraformReference<string>(this, "file_system_id");
+        get => GetArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
@@ -915,7 +915,7 @@ public class AwsTransferWorkflowStepsBlockDecryptStepDetailsBlockDestinationFile
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -937,7 +937,7 @@ public class AwsTransferWorkflowStepsBlockDecryptStepDetailsBlockDestinationFile
     /// </summary>
     public TerraformValue<string>? Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -946,7 +946,7 @@ public class AwsTransferWorkflowStepsBlockDecryptStepDetailsBlockDestinationFile
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -968,7 +968,7 @@ public class AwsTransferWorkflowStepsBlockDeleteStepDetailsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -977,7 +977,7 @@ public class AwsTransferWorkflowStepsBlockDeleteStepDetailsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? SourceFileLocation
     {
-        get => new TerraformReference<string>(this, "source_file_location");
+        get => GetArgument<TerraformValue<string>>("source_file_location");
         set => SetArgument("source_file_location", value);
     }
 
@@ -999,7 +999,7 @@ public class AwsTransferWorkflowStepsBlockTagStepDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1008,7 +1008,7 @@ public class AwsTransferWorkflowStepsBlockTagStepDetailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SourceFileLocation
     {
-        get => new TerraformReference<string>(this, "source_file_location");
+        get => GetArgument<TerraformValue<string>>("source_file_location");
         set => SetArgument("source_file_location", value);
     }
 
@@ -1041,7 +1041,7 @@ public class AwsTransferWorkflowStepsBlockTagStepDetailsBlockTagsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1051,7 +1051,7 @@ public class AwsTransferWorkflowStepsBlockTagStepDetailsBlockTagsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1069,25 +1069,25 @@ public partial class AwsTransferWorkflow(string name) : TerraformResource("aws_t
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -1096,16 +1096,16 @@ public partial class AwsTransferWorkflow(string name) : TerraformResource("aws_t
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1113,9 +1113,7 @@ public partial class AwsTransferWorkflow(string name) : TerraformResource("aws_t
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// OnExceptionSteps block (nesting mode: list).

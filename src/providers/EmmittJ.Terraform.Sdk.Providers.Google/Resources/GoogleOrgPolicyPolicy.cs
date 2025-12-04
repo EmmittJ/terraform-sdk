@@ -17,16 +17,14 @@ public class GoogleOrgPolicyPolicyDryRunSpecBlock : TerraformBlock
     /// An opaque tag indicating the current version of the policy, used for concurrency control. This field is ignored if used in a &#39;CreatePolicy&#39; request. When the policy&#39; is returned from either a &#39;GetPolicy&#39; or a &#39;ListPolicies&#39; request, this &#39;etag&#39; indicates the version of the current policy to use when executing a read-modify-write loop. When the policy is returned from a &#39;GetEffectivePolicy&#39; request, the &#39;etag&#39; will be unset.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Determines the inheritance behavior for this policy. If &#39;inherit_from_parent&#39; is true, policy rules set higher up in the hierarchy (up to the closest root) are inherited and present in the effective policy. If it is false, then no rules are inherited, and this policy becomes the new root for evaluation. This field can be set only for policies which configure list constraints.
     /// </summary>
     public TerraformValue<bool>? InheritFromParent
     {
-        get => new TerraformReference<bool>(this, "inherit_from_parent");
+        get => GetArgument<TerraformValue<bool>>("inherit_from_parent");
         set => SetArgument("inherit_from_parent", value);
     }
 
@@ -35,7 +33,7 @@ public class GoogleOrgPolicyPolicyDryRunSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Reset
     {
-        get => new TerraformReference<bool>(this, "reset");
+        get => GetArgument<TerraformValue<bool>>("reset");
         set => SetArgument("reset", value);
     }
 
@@ -43,9 +41,7 @@ public class GoogleOrgPolicyPolicyDryRunSpecBlock : TerraformBlock
     /// Output only. The time stamp this was previously updated. This represents the last time a call to &#39;CreatePolicy&#39; or &#39;UpdatePolicy&#39; was made for that policy.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Rules block (nesting mode: list).
@@ -74,7 +70,7 @@ public class GoogleOrgPolicyPolicyDryRunSpecBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AllowAll
     {
-        get => new TerraformReference<string>(this, "allow_all");
+        get => GetArgument<TerraformValue<string>>("allow_all");
         set => SetArgument("allow_all", value);
     }
 
@@ -83,7 +79,7 @@ public class GoogleOrgPolicyPolicyDryRunSpecBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DenyAll
     {
-        get => new TerraformReference<string>(this, "deny_all");
+        get => GetArgument<TerraformValue<string>>("deny_all");
         set => SetArgument("deny_all", value);
     }
 
@@ -92,7 +88,7 @@ public class GoogleOrgPolicyPolicyDryRunSpecBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Enforce
     {
-        get => new TerraformReference<string>(this, "enforce");
+        get => GetArgument<TerraformValue<string>>("enforce");
         set => SetArgument("enforce", value);
     }
 
@@ -101,7 +97,7 @@ public class GoogleOrgPolicyPolicyDryRunSpecBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Parameters
     {
-        get => new TerraformReference<string>(this, "parameters");
+        get => GetArgument<TerraformValue<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -143,7 +139,7 @@ public class GoogleOrgPolicyPolicyDryRunSpecBlockRulesBlockConditionBlock : Terr
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -152,7 +148,7 @@ public class GoogleOrgPolicyPolicyDryRunSpecBlockRulesBlockConditionBlock : Terr
     /// </summary>
     public TerraformValue<string>? Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -161,7 +157,7 @@ public class GoogleOrgPolicyPolicyDryRunSpecBlockRulesBlockConditionBlock : Terr
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -170,7 +166,7 @@ public class GoogleOrgPolicyPolicyDryRunSpecBlockRulesBlockConditionBlock : Terr
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -192,7 +188,7 @@ public class GoogleOrgPolicyPolicyDryRunSpecBlockRulesBlockValuesAttributeBlock 
     /// </summary>
     public TerraformList<string>? AllowedValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_values");
         set => SetArgument("allowed_values", value);
     }
 
@@ -201,7 +197,7 @@ public class GoogleOrgPolicyPolicyDryRunSpecBlockRulesBlockValuesAttributeBlock 
     /// </summary>
     public TerraformList<string>? DeniedValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "denied_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("denied_values");
         set => SetArgument("denied_values", value);
     }
 
@@ -223,16 +219,14 @@ public class GoogleOrgPolicyPolicySpecBlock : TerraformBlock
     /// An opaque tag indicating the current version of the &#39;Policy&#39;, used for concurrency control. This field is ignored if used in a &#39;CreatePolicy&#39; request. When the &#39;Policy&#39; is returned from either a &#39;GetPolicy&#39; or a &#39;ListPolicies&#39; request, this &#39;etag&#39; indicates the version of the current &#39;Policy&#39; to use when executing a read-modify-write loop. When the &#39;Policy&#39; is returned from a &#39;GetEffectivePolicy&#39; request, the &#39;etag&#39; will be unset.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Determines the inheritance behavior for this &#39;Policy&#39;. If &#39;inherit_from_parent&#39; is true, PolicyRules set higher up in the hierarchy (up to the closest root) are inherited and present in the effective policy. If it is false, then no rules are inherited, and this Policy becomes the new root for evaluation. This field can be set only for Policies which configure list constraints.
     /// </summary>
     public TerraformValue<bool>? InheritFromParent
     {
-        get => new TerraformReference<bool>(this, "inherit_from_parent");
+        get => GetArgument<TerraformValue<bool>>("inherit_from_parent");
         set => SetArgument("inherit_from_parent", value);
     }
 
@@ -241,7 +235,7 @@ public class GoogleOrgPolicyPolicySpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Reset
     {
-        get => new TerraformReference<bool>(this, "reset");
+        get => GetArgument<TerraformValue<bool>>("reset");
         set => SetArgument("reset", value);
     }
 
@@ -249,9 +243,7 @@ public class GoogleOrgPolicyPolicySpecBlock : TerraformBlock
     /// Output only. The time stamp this was previously updated. This represents the last time a call to &#39;CreatePolicy&#39; or &#39;UpdatePolicy&#39; was made for that &#39;Policy&#39;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Rules block (nesting mode: list).
@@ -280,7 +272,7 @@ public class GoogleOrgPolicyPolicySpecBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AllowAll
     {
-        get => new TerraformReference<string>(this, "allow_all");
+        get => GetArgument<TerraformValue<string>>("allow_all");
         set => SetArgument("allow_all", value);
     }
 
@@ -289,7 +281,7 @@ public class GoogleOrgPolicyPolicySpecBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DenyAll
     {
-        get => new TerraformReference<string>(this, "deny_all");
+        get => GetArgument<TerraformValue<string>>("deny_all");
         set => SetArgument("deny_all", value);
     }
 
@@ -298,7 +290,7 @@ public class GoogleOrgPolicyPolicySpecBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Enforce
     {
-        get => new TerraformReference<string>(this, "enforce");
+        get => GetArgument<TerraformValue<string>>("enforce");
         set => SetArgument("enforce", value);
     }
 
@@ -307,7 +299,7 @@ public class GoogleOrgPolicyPolicySpecBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Parameters
     {
-        get => new TerraformReference<string>(this, "parameters");
+        get => GetArgument<TerraformValue<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -349,7 +341,7 @@ public class GoogleOrgPolicyPolicySpecBlockRulesBlockConditionBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -358,7 +350,7 @@ public class GoogleOrgPolicyPolicySpecBlockRulesBlockConditionBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -367,7 +359,7 @@ public class GoogleOrgPolicyPolicySpecBlockRulesBlockConditionBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -376,7 +368,7 @@ public class GoogleOrgPolicyPolicySpecBlockRulesBlockConditionBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -398,7 +390,7 @@ public class GoogleOrgPolicyPolicySpecBlockRulesBlockValuesAttributeBlock : Terr
     /// </summary>
     public TerraformList<string>? AllowedValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_values");
         set => SetArgument("allowed_values", value);
     }
 
@@ -407,7 +399,7 @@ public class GoogleOrgPolicyPolicySpecBlockRulesBlockValuesAttributeBlock : Terr
     /// </summary>
     public TerraformList<string>? DeniedValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "denied_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("denied_values");
         set => SetArgument("denied_values", value);
     }
 
@@ -430,7 +422,7 @@ public class GoogleOrgPolicyPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -439,7 +431,7 @@ public class GoogleOrgPolicyPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -448,7 +440,7 @@ public class GoogleOrgPolicyPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -464,9 +456,9 @@ public partial class GoogleOrgPolicyPolicy(string name) : TerraformResource("goo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -476,7 +468,7 @@ public partial class GoogleOrgPolicyPolicy(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -486,7 +478,7 @@ public partial class GoogleOrgPolicyPolicy(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -494,9 +486,7 @@ public partial class GoogleOrgPolicyPolicy(string name) : TerraformResource("goo
     /// Optional. An opaque tag indicating the current state of the policy, used for concurrency control. This &#39;etag&#39; is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// DryRunSpec block (nesting mode: list).

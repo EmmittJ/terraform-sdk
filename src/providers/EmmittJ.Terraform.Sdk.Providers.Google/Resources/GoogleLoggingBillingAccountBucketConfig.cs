@@ -24,7 +24,7 @@ public class GoogleLoggingBillingAccountBucketConfigCmekSettingsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -37,17 +37,13 @@ public class GoogleLoggingBillingAccountBucketConfigCmekSettingsBlock : Terrafor
     /// This is a read-only field used to convey the specific configured CryptoKeyVersion of kms_key that has been configured. It will be populated in cases where the CMEK settings are bound to a single key version.
     /// </summary>
     public TerraformValue<string> KmsKeyVersionName
-    {
-        get => new TerraformReference<string>(this, "kms_key_version_name");
-    }
+        => AsReference("kms_key_version_name");
 
     /// <summary>
     /// The resource name of the CMEK settings.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The service account associated with a project for which CMEK will apply.
@@ -55,9 +51,7 @@ public class GoogleLoggingBillingAccountBucketConfigCmekSettingsBlock : Terrafor
     /// See [Enabling CMEK for Logging Buckets](https://cloud.google.com/logging/docs/routing/managed-encryption-storage) for more information.
     /// </summary>
     public TerraformValue<string> ServiceAccountId
-    {
-        get => new TerraformReference<string>(this, "service_account_id");
-    }
+        => AsReference("service_account_id");
 
 }
 
@@ -79,7 +73,7 @@ public class GoogleLoggingBillingAccountBucketConfigIndexConfigsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldPath is required")]
     public required TerraformValue<string> FieldPath
     {
-        get => new TerraformReference<string>(this, "field_path");
+        get => GetArgument<TerraformValue<string>>("field_path");
         set => SetArgument("field_path", value);
     }
 
@@ -91,7 +85,7 @@ public class GoogleLoggingBillingAccountBucketConfigIndexConfigsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -110,7 +104,7 @@ public partial class GoogleLoggingBillingAccountBucketConfig(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccount is required")]
     public required TerraformValue<string> BillingAccount
     {
-        get => new TerraformReference<string>(this, "billing_account");
+        get => GetArgument<TerraformValue<string>>("billing_account");
         set => SetArgument("billing_account", value);
     }
 
@@ -120,25 +114,25 @@ public partial class GoogleLoggingBillingAccountBucketConfig(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketId is required")]
     public required TerraformValue<string> BucketId
     {
-        get => new TerraformReference<string>(this, "bucket_id");
+        get => GetArgument<TerraformValue<string>>("bucket_id");
         set => SetArgument("bucket_id", value);
     }
 
     /// <summary>
     /// An optional description for this bucket.
     /// </summary>
-    public TerraformValue<string> Description
+    public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -148,7 +142,7 @@ public partial class GoogleLoggingBillingAccountBucketConfig(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -157,7 +151,7 @@ public partial class GoogleLoggingBillingAccountBucketConfig(string name) : Terr
     /// </summary>
     public TerraformValue<double>? RetentionDays
     {
-        get => new TerraformReference<double>(this, "retention_days");
+        get => GetArgument<TerraformValue<double>>("retention_days");
         set => SetArgument("retention_days", value);
     }
 
@@ -165,17 +159,13 @@ public partial class GoogleLoggingBillingAccountBucketConfig(string name) : Terr
     /// The bucket&#39;s lifecycle such as active or deleted.
     /// </summary>
     public TerraformValue<string> LifecycleState
-    {
-        get => new TerraformReference<string>(this, "lifecycle_state");
-    }
+        => AsReference("lifecycle_state");
 
     /// <summary>
     /// The resource name of the bucket
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// CmekSettings block (nesting mode: list).

@@ -19,7 +19,7 @@ public class AzurermContainerAppDaprBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformValue<string> AppId
     {
-        get => new TerraformReference<string>(this, "app_id");
+        get => GetArgument<TerraformValue<string>>("app_id");
         set => SetArgument("app_id", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermContainerAppDaprBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? AppPort
     {
-        get => new TerraformReference<double>(this, "app_port");
+        get => GetArgument<TerraformValue<double>>("app_port");
         set => SetArgument("app_port", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermContainerAppDaprBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AppProtocol
     {
-        get => new TerraformReference<string>(this, "app_protocol");
+        get => GetArgument<TerraformValue<string>>("app_protocol");
         set => SetArgument("app_protocol", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermContainerAppIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -68,17 +68,13 @@ public class AzurermContainerAppIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -86,7 +82,7 @@ public class AzurermContainerAppIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -109,7 +105,7 @@ public class AzurermContainerAppIngressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowInsecureConnections
     {
-        get => new TerraformReference<bool>(this, "allow_insecure_connections");
+        get => GetArgument<TerraformValue<bool>>("allow_insecure_connections");
         set => SetArgument("allow_insecure_connections", value);
     }
 
@@ -118,7 +114,7 @@ public class AzurermContainerAppIngressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ClientCertificateMode
     {
-        get => new TerraformReference<string>(this, "client_certificate_mode");
+        get => GetArgument<TerraformValue<string>>("client_certificate_mode");
         set => SetArgument("client_certificate_mode", value);
     }
 
@@ -126,16 +122,14 @@ public class AzurermContainerAppIngressBlock : TerraformBlock
     /// The custom_domain attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CustomDomain
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "custom_domain").ResolveNodes(ctx));
-    }
+        => AsReference("custom_domain");
 
     /// <summary>
     /// The exposed port on the container for the Ingress traffic.
     /// </summary>
     public TerraformValue<double>? ExposedPort
     {
-        get => new TerraformReference<double>(this, "exposed_port");
+        get => GetArgument<TerraformValue<double>>("exposed_port");
         set => SetArgument("exposed_port", value);
     }
 
@@ -144,7 +138,7 @@ public class AzurermContainerAppIngressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ExternalEnabled
     {
-        get => new TerraformReference<bool>(this, "external_enabled");
+        get => GetArgument<TerraformValue<bool>>("external_enabled");
         set => SetArgument("external_enabled", value);
     }
 
@@ -152,9 +146,7 @@ public class AzurermContainerAppIngressBlock : TerraformBlock
     /// The FQDN of the ingress.
     /// </summary>
     public TerraformValue<string> Fqdn
-    {
-        get => new TerraformReference<string>(this, "fqdn");
-    }
+        => AsReference("fqdn");
 
     /// <summary>
     /// The target port on the container for the Ingress traffic.
@@ -162,7 +154,7 @@ public class AzurermContainerAppIngressBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetPort is required")]
     public required TerraformValue<double> TargetPort
     {
-        get => new TerraformReference<double>(this, "target_port");
+        get => GetArgument<TerraformValue<double>>("target_port");
         set => SetArgument("target_port", value);
     }
 
@@ -171,7 +163,7 @@ public class AzurermContainerAppIngressBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Transport
     {
-        get => new TerraformReference<string>(this, "transport");
+        get => GetArgument<TerraformValue<string>>("transport");
         set => SetArgument("transport", value);
     }
 
@@ -224,7 +216,7 @@ public class AzurermContainerAppIngressBlockCorsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowCredentialsEnabled
     {
-        get => new TerraformReference<bool>(this, "allow_credentials_enabled");
+        get => GetArgument<TerraformValue<bool>>("allow_credentials_enabled");
         set => SetArgument("allow_credentials_enabled", value);
     }
 
@@ -233,7 +225,7 @@ public class AzurermContainerAppIngressBlockCorsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AllowedHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_headers");
         set => SetArgument("allowed_headers", value);
     }
 
@@ -242,7 +234,7 @@ public class AzurermContainerAppIngressBlockCorsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AllowedMethods
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_methods");
         set => SetArgument("allowed_methods", value);
     }
 
@@ -252,7 +244,7 @@ public class AzurermContainerAppIngressBlockCorsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
     public TerraformList<string>? AllowedOrigins
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_origins").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_origins");
         set => SetArgument("allowed_origins", value);
     }
 
@@ -261,7 +253,7 @@ public class AzurermContainerAppIngressBlockCorsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ExposedHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exposed_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exposed_headers");
         set => SetArgument("exposed_headers", value);
     }
 
@@ -270,7 +262,7 @@ public class AzurermContainerAppIngressBlockCorsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxAgeInSeconds
     {
-        get => new TerraformReference<double>(this, "max_age_in_seconds");
+        get => GetArgument<TerraformValue<double>>("max_age_in_seconds");
         set => SetArgument("max_age_in_seconds", value);
     }
 
@@ -293,7 +285,7 @@ public class AzurermContainerAppIngressBlockIpSecurityRestrictionBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -302,7 +294,7 @@ public class AzurermContainerAppIngressBlockIpSecurityRestrictionBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -312,7 +304,7 @@ public class AzurermContainerAppIngressBlockIpSecurityRestrictionBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddressRange is required")]
     public required TerraformValue<string> IpAddressRange
     {
-        get => new TerraformReference<string>(this, "ip_address_range");
+        get => GetArgument<TerraformValue<string>>("ip_address_range");
         set => SetArgument("ip_address_range", value);
     }
 
@@ -322,7 +314,7 @@ public class AzurermContainerAppIngressBlockIpSecurityRestrictionBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -344,7 +336,7 @@ public class AzurermContainerAppIngressBlockTrafficWeightBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Label
     {
-        get => new TerraformReference<string>(this, "label");
+        get => GetArgument<TerraformValue<string>>("label");
         set => SetArgument("label", value);
     }
 
@@ -353,7 +345,7 @@ public class AzurermContainerAppIngressBlockTrafficWeightBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? LatestRevision
     {
-        get => new TerraformReference<bool>(this, "latest_revision");
+        get => GetArgument<TerraformValue<bool>>("latest_revision");
         set => SetArgument("latest_revision", value);
     }
 
@@ -363,7 +355,7 @@ public class AzurermContainerAppIngressBlockTrafficWeightBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Percentage is required")]
     public required TerraformValue<double> Percentage
     {
-        get => new TerraformReference<double>(this, "percentage");
+        get => GetArgument<TerraformValue<double>>("percentage");
         set => SetArgument("percentage", value);
     }
 
@@ -372,7 +364,7 @@ public class AzurermContainerAppIngressBlockTrafficWeightBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RevisionSuffix
     {
-        get => new TerraformReference<string>(this, "revision_suffix");
+        get => GetArgument<TerraformValue<string>>("revision_suffix");
         set => SetArgument("revision_suffix", value);
     }
 
@@ -395,7 +387,7 @@ public class AzurermContainerAppRegistryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Identity
     {
-        get => new TerraformReference<string>(this, "identity");
+        get => GetArgument<TerraformValue<string>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -404,7 +396,7 @@ public class AzurermContainerAppRegistryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PasswordSecretName
     {
-        get => new TerraformReference<string>(this, "password_secret_name");
+        get => GetArgument<TerraformValue<string>>("password_secret_name");
         set => SetArgument("password_secret_name", value);
     }
 
@@ -414,7 +406,7 @@ public class AzurermContainerAppRegistryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformValue<string> Server
     {
-        get => new TerraformReference<string>(this, "server");
+        get => GetArgument<TerraformValue<string>>("server");
         set => SetArgument("server", value);
     }
 
@@ -423,7 +415,7 @@ public class AzurermContainerAppRegistryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -446,7 +438,7 @@ public class AzurermContainerAppSecretBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Identity
     {
-        get => new TerraformReference<string>(this, "identity");
+        get => GetArgument<TerraformValue<string>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -455,7 +447,7 @@ public class AzurermContainerAppSecretBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KeyVaultSecretId
     {
-        get => new TerraformReference<string>(this, "key_vault_secret_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_secret_id");
         set => SetArgument("key_vault_secret_id", value);
     }
 
@@ -465,7 +457,7 @@ public class AzurermContainerAppSecretBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -474,7 +466,7 @@ public class AzurermContainerAppSecretBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -497,7 +489,7 @@ public class AzurermContainerAppTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxReplicas
     {
-        get => new TerraformReference<double>(this, "max_replicas");
+        get => GetArgument<TerraformValue<double>>("max_replicas");
         set => SetArgument("max_replicas", value);
     }
 
@@ -506,16 +498,16 @@ public class AzurermContainerAppTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MinReplicas
     {
-        get => new TerraformReference<double>(this, "min_replicas");
+        get => GetArgument<TerraformValue<double>>("min_replicas");
         set => SetArgument("min_replicas", value);
     }
 
     /// <summary>
     /// The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
     /// </summary>
-    public TerraformValue<string> RevisionSuffix
+    public TerraformValue<string>? RevisionSuffix
     {
-        get => new TerraformReference<string>(this, "revision_suffix");
+        get => GetArgument<TerraformValue<string>>("revision_suffix");
         set => SetArgument("revision_suffix", value);
     }
 
@@ -524,7 +516,7 @@ public class AzurermContainerAppTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? TerminationGracePeriodSeconds
     {
-        get => new TerraformReference<double>(this, "termination_grace_period_seconds");
+        get => GetArgument<TerraformValue<double>>("termination_grace_period_seconds");
         set => SetArgument("termination_grace_period_seconds", value);
     }
 
@@ -613,7 +605,7 @@ public class AzurermContainerAppTemplateBlockAzureQueueScaleRuleBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -623,7 +615,7 @@ public class AzurermContainerAppTemplateBlockAzureQueueScaleRuleBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueLength is required")]
     public required TerraformValue<double> QueueLength
     {
-        get => new TerraformReference<double>(this, "queue_length");
+        get => GetArgument<TerraformValue<double>>("queue_length");
         set => SetArgument("queue_length", value);
     }
 
@@ -633,7 +625,7 @@ public class AzurermContainerAppTemplateBlockAzureQueueScaleRuleBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueName is required")]
     public required TerraformValue<string> QueueName
     {
-        get => new TerraformReference<string>(this, "queue_name");
+        get => GetArgument<TerraformValue<string>>("queue_name");
         set => SetArgument("queue_name", value);
     }
 
@@ -668,7 +660,7 @@ public class AzurermContainerAppTemplateBlockAzureQueueScaleRuleBlockAuthenticat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => new TerraformReference<string>(this, "secret_name");
+        get => GetArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -678,7 +670,7 @@ public class AzurermContainerAppTemplateBlockAzureQueueScaleRuleBlockAuthenticat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerParameter is required")]
     public required TerraformValue<string> TriggerParameter
     {
-        get => new TerraformReference<string>(this, "trigger_parameter");
+        get => GetArgument<TerraformValue<string>>("trigger_parameter");
         set => SetArgument("trigger_parameter", value);
     }
 
@@ -700,7 +692,7 @@ public class AzurermContainerAppTemplateBlockContainerBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -709,7 +701,7 @@ public class AzurermContainerAppTemplateBlockContainerBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Command
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "command").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("command");
         set => SetArgument("command", value);
     }
 
@@ -719,7 +711,7 @@ public class AzurermContainerAppTemplateBlockContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cpu is required")]
     public required TerraformValue<double> Cpu
     {
-        get => new TerraformReference<double>(this, "cpu");
+        get => GetArgument<TerraformValue<double>>("cpu");
         set => SetArgument("cpu", value);
     }
 
@@ -727,9 +719,7 @@ public class AzurermContainerAppTemplateBlockContainerBlock : TerraformBlock
     /// The amount of ephemeral storage available to the Container App.
     /// </summary>
     public TerraformValue<string> EphemeralStorage
-    {
-        get => new TerraformReference<string>(this, "ephemeral_storage");
-    }
+        => AsReference("ephemeral_storage");
 
     /// <summary>
     /// The image to use to create the container.
@@ -737,7 +727,7 @@ public class AzurermContainerAppTemplateBlockContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -747,7 +737,7 @@ public class AzurermContainerAppTemplateBlockContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Memory is required")]
     public required TerraformValue<string> Memory
     {
-        get => new TerraformReference<string>(this, "memory");
+        get => GetArgument<TerraformValue<string>>("memory");
         set => SetArgument("memory", value);
     }
 
@@ -757,7 +747,7 @@ public class AzurermContainerAppTemplateBlockContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -825,7 +815,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockEnvBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -834,7 +824,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockEnvBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? SecretName
     {
-        get => new TerraformReference<string>(this, "secret_name");
+        get => GetArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -843,7 +833,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockEnvBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -865,7 +855,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockLivenessProbeBlock : 
     /// </summary>
     public TerraformValue<double>? FailureCountThreshold
     {
-        get => new TerraformReference<double>(this, "failure_count_threshold");
+        get => GetArgument<TerraformValue<double>>("failure_count_threshold");
         set => SetArgument("failure_count_threshold", value);
     }
 
@@ -874,7 +864,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockLivenessProbeBlock : 
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -883,7 +873,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockLivenessProbeBlock : 
     /// </summary>
     public TerraformValue<double>? InitialDelay
     {
-        get => new TerraformReference<double>(this, "initial_delay");
+        get => GetArgument<TerraformValue<double>>("initial_delay");
         set => SetArgument("initial_delay", value);
     }
 
@@ -892,16 +882,16 @@ public class AzurermContainerAppTemplateBlockContainerBlockLivenessProbeBlock : 
     /// </summary>
     public TerraformValue<double>? IntervalSeconds
     {
-        get => new TerraformReference<double>(this, "interval_seconds");
+        get => GetArgument<TerraformValue<double>>("interval_seconds");
         set => SetArgument("interval_seconds", value);
     }
 
     /// <summary>
     /// The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
     /// </summary>
-    public TerraformValue<string> Path
+    public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -911,7 +901,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockLivenessProbeBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -919,16 +909,14 @@ public class AzurermContainerAppTemplateBlockContainerBlockLivenessProbeBlock : 
     /// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
     /// </summary>
     public TerraformValue<double> TerminationGracePeriodSeconds
-    {
-        get => new TerraformReference<double>(this, "termination_grace_period_seconds");
-    }
+        => AsReference("termination_grace_period_seconds");
 
     /// <summary>
     /// Time in seconds after which the probe times out. Possible values are between `1` an `240`. Defaults to `1`.
     /// </summary>
     public TerraformValue<double>? Timeout
     {
-        get => new TerraformReference<double>(this, "timeout");
+        get => GetArgument<TerraformValue<double>>("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -938,7 +926,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockLivenessProbeBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Transport is required")]
     public required TerraformValue<string> Transport
     {
-        get => new TerraformReference<string>(this, "transport");
+        get => GetArgument<TerraformValue<string>>("transport");
         set => SetArgument("transport", value);
     }
 
@@ -970,7 +958,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockLivenessProbeBlockHea
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -980,7 +968,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockLivenessProbeBlockHea
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1002,7 +990,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockReadinessProbeBlock :
     /// </summary>
     public TerraformValue<double>? FailureCountThreshold
     {
-        get => new TerraformReference<double>(this, "failure_count_threshold");
+        get => GetArgument<TerraformValue<double>>("failure_count_threshold");
         set => SetArgument("failure_count_threshold", value);
     }
 
@@ -1011,7 +999,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockReadinessProbeBlock :
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -1020,7 +1008,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockReadinessProbeBlock :
     /// </summary>
     public TerraformValue<double>? InitialDelay
     {
-        get => new TerraformReference<double>(this, "initial_delay");
+        get => GetArgument<TerraformValue<double>>("initial_delay");
         set => SetArgument("initial_delay", value);
     }
 
@@ -1029,16 +1017,16 @@ public class AzurermContainerAppTemplateBlockContainerBlockReadinessProbeBlock :
     /// </summary>
     public TerraformValue<double>? IntervalSeconds
     {
-        get => new TerraformReference<double>(this, "interval_seconds");
+        get => GetArgument<TerraformValue<double>>("interval_seconds");
         set => SetArgument("interval_seconds", value);
     }
 
     /// <summary>
     /// The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
     /// </summary>
-    public TerraformValue<string> Path
+    public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1048,7 +1036,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockReadinessProbeBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -1057,7 +1045,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockReadinessProbeBlock :
     /// </summary>
     public TerraformValue<double>? SuccessCountThreshold
     {
-        get => new TerraformReference<double>(this, "success_count_threshold");
+        get => GetArgument<TerraformValue<double>>("success_count_threshold");
         set => SetArgument("success_count_threshold", value);
     }
 
@@ -1066,7 +1054,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockReadinessProbeBlock :
     /// </summary>
     public TerraformValue<double>? Timeout
     {
-        get => new TerraformReference<double>(this, "timeout");
+        get => GetArgument<TerraformValue<double>>("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -1076,7 +1064,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockReadinessProbeBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Transport is required")]
     public required TerraformValue<string> Transport
     {
-        get => new TerraformReference<string>(this, "transport");
+        get => GetArgument<TerraformValue<string>>("transport");
         set => SetArgument("transport", value);
     }
 
@@ -1108,7 +1096,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockReadinessProbeBlockHe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1118,7 +1106,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockReadinessProbeBlockHe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1140,7 +1128,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockStartupProbeBlock : T
     /// </summary>
     public TerraformValue<double>? FailureCountThreshold
     {
-        get => new TerraformReference<double>(this, "failure_count_threshold");
+        get => GetArgument<TerraformValue<double>>("failure_count_threshold");
         set => SetArgument("failure_count_threshold", value);
     }
 
@@ -1149,7 +1137,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockStartupProbeBlock : T
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -1158,7 +1146,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockStartupProbeBlock : T
     /// </summary>
     public TerraformValue<double>? InitialDelay
     {
-        get => new TerraformReference<double>(this, "initial_delay");
+        get => GetArgument<TerraformValue<double>>("initial_delay");
         set => SetArgument("initial_delay", value);
     }
 
@@ -1167,16 +1155,16 @@ public class AzurermContainerAppTemplateBlockContainerBlockStartupProbeBlock : T
     /// </summary>
     public TerraformValue<double>? IntervalSeconds
     {
-        get => new TerraformReference<double>(this, "interval_seconds");
+        get => GetArgument<TerraformValue<double>>("interval_seconds");
         set => SetArgument("interval_seconds", value);
     }
 
     /// <summary>
     /// The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
     /// </summary>
-    public TerraformValue<string> Path
+    public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1186,7 +1174,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockStartupProbeBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -1194,16 +1182,14 @@ public class AzurermContainerAppTemplateBlockContainerBlockStartupProbeBlock : T
     /// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
     /// </summary>
     public TerraformValue<double> TerminationGracePeriodSeconds
-    {
-        get => new TerraformReference<double>(this, "termination_grace_period_seconds");
-    }
+        => AsReference("termination_grace_period_seconds");
 
     /// <summary>
     /// Time in seconds after which the probe times out. Possible values are between `1` an `240`. Defaults to `1`.
     /// </summary>
     public TerraformValue<double>? Timeout
     {
-        get => new TerraformReference<double>(this, "timeout");
+        get => GetArgument<TerraformValue<double>>("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -1213,7 +1199,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockStartupProbeBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Transport is required")]
     public required TerraformValue<string> Transport
     {
-        get => new TerraformReference<string>(this, "transport");
+        get => GetArgument<TerraformValue<string>>("transport");
         set => SetArgument("transport", value);
     }
 
@@ -1245,7 +1231,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockStartupProbeBlockHead
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1255,7 +1241,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockStartupProbeBlockHead
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1278,7 +1264,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockVolumeMountsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1288,7 +1274,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockVolumeMountsBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1297,7 +1283,7 @@ public class AzurermContainerAppTemplateBlockContainerBlockVolumeMountsBlock : T
     /// </summary>
     public TerraformValue<string>? SubPath
     {
-        get => new TerraformReference<string>(this, "sub_path");
+        get => GetArgument<TerraformValue<string>>("sub_path");
         set => SetArgument("sub_path", value);
     }
 
@@ -1320,7 +1306,7 @@ public class AzurermContainerAppTemplateBlockCustomScaleRuleBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomRuleType is required")]
     public required TerraformValue<string> CustomRuleType
     {
-        get => new TerraformReference<string>(this, "custom_rule_type");
+        get => GetArgument<TerraformValue<string>>("custom_rule_type");
         set => SetArgument("custom_rule_type", value);
     }
 
@@ -1330,7 +1316,7 @@ public class AzurermContainerAppTemplateBlockCustomScaleRuleBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Metadata is required")]
     public required TerraformMap<string> Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -1340,7 +1326,7 @@ public class AzurermContainerAppTemplateBlockCustomScaleRuleBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1372,7 +1358,7 @@ public class AzurermContainerAppTemplateBlockCustomScaleRuleBlockAuthenticationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => new TerraformReference<string>(this, "secret_name");
+        get => GetArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -1382,7 +1368,7 @@ public class AzurermContainerAppTemplateBlockCustomScaleRuleBlockAuthenticationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerParameter is required")]
     public required TerraformValue<string> TriggerParameter
     {
-        get => new TerraformReference<string>(this, "trigger_parameter");
+        get => GetArgument<TerraformValue<string>>("trigger_parameter");
         set => SetArgument("trigger_parameter", value);
     }
 
@@ -1405,7 +1391,7 @@ public class AzurermContainerAppTemplateBlockHttpScaleRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConcurrentRequests is required")]
     public required TerraformValue<string> ConcurrentRequests
     {
-        get => new TerraformReference<string>(this, "concurrent_requests");
+        get => GetArgument<TerraformValue<string>>("concurrent_requests");
         set => SetArgument("concurrent_requests", value);
     }
 
@@ -1415,7 +1401,7 @@ public class AzurermContainerAppTemplateBlockHttpScaleRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1447,7 +1433,7 @@ public class AzurermContainerAppTemplateBlockHttpScaleRuleBlockAuthenticationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => new TerraformReference<string>(this, "secret_name");
+        get => GetArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -1456,7 +1442,7 @@ public class AzurermContainerAppTemplateBlockHttpScaleRuleBlockAuthenticationBlo
     /// </summary>
     public TerraformValue<string>? TriggerParameter
     {
-        get => new TerraformReference<string>(this, "trigger_parameter");
+        get => GetArgument<TerraformValue<string>>("trigger_parameter");
         set => SetArgument("trigger_parameter", value);
     }
 
@@ -1478,7 +1464,7 @@ public class AzurermContainerAppTemplateBlockInitContainerBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -1487,7 +1473,7 @@ public class AzurermContainerAppTemplateBlockInitContainerBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Command
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "command").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("command");
         set => SetArgument("command", value);
     }
 
@@ -1496,7 +1482,7 @@ public class AzurermContainerAppTemplateBlockInitContainerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Cpu
     {
-        get => new TerraformReference<double>(this, "cpu");
+        get => GetArgument<TerraformValue<double>>("cpu");
         set => SetArgument("cpu", value);
     }
 
@@ -1504,9 +1490,7 @@ public class AzurermContainerAppTemplateBlockInitContainerBlock : TerraformBlock
     /// The amount of ephemeral storage available to the Container App.
     /// </summary>
     public TerraformValue<string> EphemeralStorage
-    {
-        get => new TerraformReference<string>(this, "ephemeral_storage");
-    }
+        => AsReference("ephemeral_storage");
 
     /// <summary>
     /// The image to use to create the container.
@@ -1514,7 +1498,7 @@ public class AzurermContainerAppTemplateBlockInitContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -1523,7 +1507,7 @@ public class AzurermContainerAppTemplateBlockInitContainerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Memory
     {
-        get => new TerraformReference<string>(this, "memory");
+        get => GetArgument<TerraformValue<string>>("memory");
         set => SetArgument("memory", value);
     }
 
@@ -1533,7 +1517,7 @@ public class AzurermContainerAppTemplateBlockInitContainerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1574,7 +1558,7 @@ public class AzurermContainerAppTemplateBlockInitContainerBlockEnvBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1583,7 +1567,7 @@ public class AzurermContainerAppTemplateBlockInitContainerBlockEnvBlock : Terraf
     /// </summary>
     public TerraformValue<string>? SecretName
     {
-        get => new TerraformReference<string>(this, "secret_name");
+        get => GetArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -1592,7 +1576,7 @@ public class AzurermContainerAppTemplateBlockInitContainerBlockEnvBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1615,7 +1599,7 @@ public class AzurermContainerAppTemplateBlockInitContainerBlockVolumeMountsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1625,7 +1609,7 @@ public class AzurermContainerAppTemplateBlockInitContainerBlockVolumeMountsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1634,7 +1618,7 @@ public class AzurermContainerAppTemplateBlockInitContainerBlockVolumeMountsBlock
     /// </summary>
     public TerraformValue<string>? SubPath
     {
-        get => new TerraformReference<string>(this, "sub_path");
+        get => GetArgument<TerraformValue<string>>("sub_path");
         set => SetArgument("sub_path", value);
     }
 
@@ -1657,7 +1641,7 @@ public class AzurermContainerAppTemplateBlockTcpScaleRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConcurrentRequests is required")]
     public required TerraformValue<string> ConcurrentRequests
     {
-        get => new TerraformReference<string>(this, "concurrent_requests");
+        get => GetArgument<TerraformValue<string>>("concurrent_requests");
         set => SetArgument("concurrent_requests", value);
     }
 
@@ -1667,7 +1651,7 @@ public class AzurermContainerAppTemplateBlockTcpScaleRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1699,7 +1683,7 @@ public class AzurermContainerAppTemplateBlockTcpScaleRuleBlockAuthenticationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => new TerraformReference<string>(this, "secret_name");
+        get => GetArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -1708,7 +1692,7 @@ public class AzurermContainerAppTemplateBlockTcpScaleRuleBlockAuthenticationBloc
     /// </summary>
     public TerraformValue<string>? TriggerParameter
     {
-        get => new TerraformReference<string>(this, "trigger_parameter");
+        get => GetArgument<TerraformValue<string>>("trigger_parameter");
         set => SetArgument("trigger_parameter", value);
     }
 
@@ -1730,7 +1714,7 @@ public class AzurermContainerAppTemplateBlockVolumeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MountOptions
     {
-        get => new TerraformReference<string>(this, "mount_options");
+        get => GetArgument<TerraformValue<string>>("mount_options");
         set => SetArgument("mount_options", value);
     }
 
@@ -1740,7 +1724,7 @@ public class AzurermContainerAppTemplateBlockVolumeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1749,7 +1733,7 @@ public class AzurermContainerAppTemplateBlockVolumeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StorageName
     {
-        get => new TerraformReference<string>(this, "storage_name");
+        get => GetArgument<TerraformValue<string>>("storage_name");
         set => SetArgument("storage_name", value);
     }
 
@@ -1758,7 +1742,7 @@ public class AzurermContainerAppTemplateBlockVolumeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StorageType
     {
-        get => new TerraformReference<string>(this, "storage_type");
+        get => GetArgument<TerraformValue<string>>("storage_type");
         set => SetArgument("storage_type", value);
     }
 
@@ -1781,7 +1765,7 @@ public class AzurermContainerAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1790,7 +1774,7 @@ public class AzurermContainerAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1799,7 +1783,7 @@ public class AzurermContainerAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -1808,7 +1792,7 @@ public class AzurermContainerAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1827,16 +1811,16 @@ public partial class AzurermContainerApp(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
     public required TerraformValue<string> ContainerAppEnvironmentId
     {
-        get => new TerraformReference<string>(this, "container_app_environment_id");
+        get => GetArgument<TerraformValue<string>>("container_app_environment_id");
         set => SetArgument("container_app_environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1845,7 +1829,7 @@ public partial class AzurermContainerApp(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<double>? MaxInactiveRevisions
     {
-        get => new TerraformReference<double>(this, "max_inactive_revisions");
+        get => GetArgument<TerraformValue<double>>("max_inactive_revisions");
         set => SetArgument("max_inactive_revisions", value);
     }
 
@@ -1855,7 +1839,7 @@ public partial class AzurermContainerApp(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1865,7 +1849,7 @@ public partial class AzurermContainerApp(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -1875,7 +1859,7 @@ public partial class AzurermContainerApp(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RevisionMode is required")]
     public required TerraformValue<string> RevisionMode
     {
-        get => new TerraformReference<string>(this, "revision_mode");
+        get => GetArgument<TerraformValue<string>>("revision_mode");
         set => SetArgument("revision_mode", value);
     }
 
@@ -1884,7 +1868,7 @@ public partial class AzurermContainerApp(string name) : TerraformResource("azure
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -1893,7 +1877,7 @@ public partial class AzurermContainerApp(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string>? WorkloadProfileName
     {
-        get => new TerraformReference<string>(this, "workload_profile_name");
+        get => GetArgument<TerraformValue<string>>("workload_profile_name");
         set => SetArgument("workload_profile_name", value);
     }
 
@@ -1901,41 +1885,31 @@ public partial class AzurermContainerApp(string name) : TerraformResource("azure
     /// The ID of the Custom Domain Verification for this Container App.
     /// </summary>
     public TerraformValue<string> CustomDomainVerificationId
-    {
-        get => new TerraformReference<string>(this, "custom_domain_verification_id");
-    }
+        => AsReference("custom_domain_verification_id");
 
     /// <summary>
     /// The FQDN of the Latest Revision of the Container App.
     /// </summary>
     public TerraformValue<string> LatestRevisionFqdn
-    {
-        get => new TerraformReference<string>(this, "latest_revision_fqdn");
-    }
+        => AsReference("latest_revision_fqdn");
 
     /// <summary>
     /// The name of the latest Container Revision.
     /// </summary>
     public TerraformValue<string> LatestRevisionName
-    {
-        get => new TerraformReference<string>(this, "latest_revision_name");
-    }
+        => AsReference("latest_revision_name");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The outbound_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> OutboundIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "outbound_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("outbound_ip_addresses");
 
     /// <summary>
     /// Dapr block (nesting mode: list).

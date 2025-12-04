@@ -17,16 +17,14 @@ public class GoogleEventarcTriggerDestinationBlock : TerraformBlock
     /// The Cloud Function resource name. Only Cloud Functions V2 is supported. Format projects/{project}/locations/{location}/functions/{function} This is a read-only field. [WARNING] Creating Cloud Functions V2 triggers is only supported via the Cloud Functions product. An error will be returned if the user sets this value.
     /// </summary>
     public TerraformValue<string> CloudFunction
-    {
-        get => new TerraformReference<string>(this, "cloud_function");
-    }
+        => AsReference("cloud_function");
 
     /// <summary>
     /// The resource name of the Workflow whose Executions are triggered by the events. The Workflow resource should be deployed in the same project as the trigger. Format: &#39;projects/{project}/locations/{location}/workflows/{workflow}&#39;
     /// </summary>
     public TerraformValue<string>? Workflow
     {
-        get => new TerraformReference<string>(this, "workflow");
+        get => GetArgument<TerraformValue<string>>("workflow");
         set => SetArgument("workflow", value);
     }
 
@@ -88,16 +86,16 @@ public class GoogleEventarcTriggerDestinationBlockCloudRunServiceBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
     /// <summary>
     /// Required. The region the Cloud Run service is deployed in.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -107,7 +105,7 @@ public class GoogleEventarcTriggerDestinationBlockCloudRunServiceBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -130,7 +128,7 @@ public class GoogleEventarcTriggerDestinationBlockGkeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => new TerraformReference<string>(this, "cluster");
+        get => GetArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
@@ -140,7 +138,7 @@ public class GoogleEventarcTriggerDestinationBlockGkeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -150,7 +148,7 @@ public class GoogleEventarcTriggerDestinationBlockGkeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceAttribute is required")]
     public required TerraformValue<string> NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -159,7 +157,7 @@ public class GoogleEventarcTriggerDestinationBlockGkeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -169,7 +167,7 @@ public class GoogleEventarcTriggerDestinationBlockGkeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -192,7 +190,7 @@ public class GoogleEventarcTriggerDestinationBlockHttpEndpointBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -215,7 +213,7 @@ public class GoogleEventarcTriggerDestinationBlockNetworkConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkAttachment is required")]
     public required TerraformValue<string> NetworkAttachment
     {
-        get => new TerraformReference<string>(this, "network_attachment");
+        get => GetArgument<TerraformValue<string>>("network_attachment");
         set => SetArgument("network_attachment", value);
     }
 
@@ -239,7 +237,7 @@ public class GoogleEventarcTriggerMatchingCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Attribute is required")]
     public required TerraformValue<string> Attribute
     {
-        get => new TerraformReference<string>(this, "attribute");
+        get => GetArgument<TerraformValue<string>>("attribute");
         set => SetArgument("attribute", value);
     }
 
@@ -248,7 +246,7 @@ public class GoogleEventarcTriggerMatchingCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -258,7 +256,7 @@ public class GoogleEventarcTriggerMatchingCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -281,7 +279,7 @@ public class GoogleEventarcTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -290,7 +288,7 @@ public class GoogleEventarcTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -299,7 +297,7 @@ public class GoogleEventarcTriggerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -344,16 +342,14 @@ public class GoogleEventarcTriggerTransportBlockPubsubBlock : TerraformBlock
     /// Output only. The name of the Pub/Sub subscription created and managed by Eventarc system as a transport for the event delivery. Format: &#39;projects/{PROJECT_ID}/subscriptions/{SUBSCRIPTION_NAME}&#39;.
     /// </summary>
     public TerraformValue<string> Subscription
-    {
-        get => new TerraformReference<string>(this, "subscription");
-    }
+        => AsReference("subscription");
 
     /// <summary>
     /// Optional. The name of the Pub/Sub topic created and managed by Eventarc system as a transport for the event delivery. Format: &#39;projects/{PROJECT_ID}/topics/{TOPIC_NAME}. You may set an existing topic for triggers of the type google.cloud.pubsub.topic.v1.messagePublished&#39; only. The topic you provide here will not be deleted by Eventarc at trigger deletion.
     /// </summary>
     public TerraformValue<string>? Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -371,25 +367,25 @@ public partial class GoogleEventarcTrigger(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string>? Channel
     {
-        get => new TerraformReference<string>(this, "channel");
+        get => GetArgument<TerraformValue<string>>("channel");
         set => SetArgument("channel", value);
     }
 
     /// <summary>
     /// Optional. EventDataContentType specifies the type of payload in MIME format that is expected from the CloudEvent data field. This is set to &#39;application/json&#39; if the value is not defined.
     /// </summary>
-    public TerraformValue<string> EventDataContentType
+    public TerraformValue<string>? EventDataContentType
     {
-        get => new TerraformReference<string>(this, "event_data_content_type");
+        get => GetArgument<TerraformValue<string>>("event_data_content_type");
         set => SetArgument("event_data_content_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -401,7 +397,7 @@ public partial class GoogleEventarcTrigger(string name) : TerraformResource("goo
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -411,7 +407,7 @@ public partial class GoogleEventarcTrigger(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -421,16 +417,16 @@ public partial class GoogleEventarcTrigger(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -439,7 +435,7 @@ public partial class GoogleEventarcTrigger(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string>? ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -447,58 +443,44 @@ public partial class GoogleEventarcTrigger(string name) : TerraformResource("goo
     /// Output only. The reason(s) why a trigger is in FAILED state.
     /// </summary>
     public TerraformMap<string> Conditions
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "conditions").ResolveNodes(ctx));
-    }
+        => AsReference("conditions");
 
     /// <summary>
     /// Output only. The creation time.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Output only. This checksum is computed by the server based on the value of other fields, and may be sent only on create requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Output only. Server assigned unique identifier for the trigger. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Output only. The last-modified time.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Destination block (nesting mode: list).

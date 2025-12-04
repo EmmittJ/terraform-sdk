@@ -19,7 +19,7 @@ public class AwsVpcPeeringConnectionDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsVpcPeeringConnectionDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsVpcPeeringConnectionDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -68,81 +68,81 @@ public partial class AwsVpcPeeringConnectionDataSource(string name) : TerraformD
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
-    public TerraformValue<string> CidrBlock
+    public TerraformValue<string>? CidrBlock
     {
-        get => new TerraformReference<string>(this, "cidr_block");
+        get => GetArgument<TerraformValue<string>>("cidr_block");
         set => SetArgument("cidr_block", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    public TerraformValue<string> OwnerId
+    public TerraformValue<string>? OwnerId
     {
-        get => new TerraformReference<string>(this, "owner_id");
+        get => GetArgument<TerraformValue<string>>("owner_id");
         set => SetArgument("owner_id", value);
     }
 
     /// <summary>
     /// The peer_cidr_block attribute.
     /// </summary>
-    public TerraformValue<string> PeerCidrBlock
+    public TerraformValue<string>? PeerCidrBlock
     {
-        get => new TerraformReference<string>(this, "peer_cidr_block");
+        get => GetArgument<TerraformValue<string>>("peer_cidr_block");
         set => SetArgument("peer_cidr_block", value);
     }
 
     /// <summary>
     /// The peer_owner_id attribute.
     /// </summary>
-    public TerraformValue<string> PeerOwnerId
+    public TerraformValue<string>? PeerOwnerId
     {
-        get => new TerraformReference<string>(this, "peer_owner_id");
+        get => GetArgument<TerraformValue<string>>("peer_owner_id");
         set => SetArgument("peer_owner_id", value);
     }
 
     /// <summary>
     /// The peer_vpc_id attribute.
     /// </summary>
-    public TerraformValue<string> PeerVpcId
+    public TerraformValue<string>? PeerVpcId
     {
-        get => new TerraformReference<string>(this, "peer_vpc_id");
+        get => GetArgument<TerraformValue<string>>("peer_vpc_id");
         set => SetArgument("peer_vpc_id", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformValue<string> Status
+    public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformValue<string> VpcId
+    public TerraformValue<string>? VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -150,74 +150,56 @@ public partial class AwsVpcPeeringConnectionDataSource(string name) : TerraformD
     /// The accepter attribute.
     /// </summary>
     public TerraformMap<bool> Accepter
-    {
-        get => TerraformMap<bool>.Lazy(ctx => new TerraformReference<TerraformMap<bool>>(this, "accepter").ResolveNodes(ctx));
-    }
+        => AsReference("accepter");
 
     /// <summary>
     /// The cidr_block_set attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CidrBlockSet
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cidr_block_set").ResolveNodes(ctx));
-    }
+        => AsReference("cidr_block_set");
 
     /// <summary>
     /// The ipv6_cidr_block_set attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Ipv6CidrBlockSet
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "ipv6_cidr_block_set").ResolveNodes(ctx));
-    }
+        => AsReference("ipv6_cidr_block_set");
 
     /// <summary>
     /// The peer_cidr_block_set attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PeerCidrBlockSet
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "peer_cidr_block_set").ResolveNodes(ctx));
-    }
+        => AsReference("peer_cidr_block_set");
 
     /// <summary>
     /// The peer_ipv6_cidr_block_set attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PeerIpv6CidrBlockSet
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "peer_ipv6_cidr_block_set").ResolveNodes(ctx));
-    }
+        => AsReference("peer_ipv6_cidr_block_set");
 
     /// <summary>
     /// The peer_region attribute.
     /// </summary>
     public TerraformValue<string> PeerRegion
-    {
-        get => new TerraformReference<string>(this, "peer_region");
-    }
+        => AsReference("peer_region");
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Region
-    {
-        get => new TerraformReference<string>(this, "region");
-    }
+        => AsReference("region");
 
     /// <summary>
     /// The requester attribute.
     /// </summary>
     public TerraformMap<bool> Requester
-    {
-        get => TerraformMap<bool>.Lazy(ctx => new TerraformReference<TerraformMap<bool>>(this, "requester").ResolveNodes(ctx));
-    }
+        => AsReference("requester");
 
     /// <summary>
     /// The requester_region attribute.
     /// </summary>
     public TerraformValue<string> RequesterRegion
-    {
-        get => new TerraformReference<string>(this, "requester_region");
-    }
+        => AsReference("requester_region");
 
     /// <summary>
     /// Filter block (nesting mode: set).

@@ -18,7 +18,7 @@ public class AzurermApplicationInsightsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermApplicationInsightsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermApplicationInsightsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermApplicationInsightsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermApplicationInsights(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationType is required")]
     public required TerraformValue<string> ApplicationType
     {
-        get => new TerraformReference<string>(this, "application_type");
+        get => GetArgument<TerraformValue<string>>("application_type");
         set => SetArgument("application_type", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermApplicationInsights(string name) : TerraformResource
     /// </summary>
     public TerraformValue<double>? DailyDataCapInGb
     {
-        get => new TerraformReference<double>(this, "daily_data_cap_in_gb");
+        get => GetArgument<TerraformValue<double>>("daily_data_cap_in_gb");
         set => SetArgument("daily_data_cap_in_gb", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermApplicationInsights(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? DailyDataCapNotificationsDisabled
     {
-        get => new TerraformReference<bool>(this, "daily_data_cap_notifications_disabled");
+        get => GetArgument<TerraformValue<bool>>("daily_data_cap_notifications_disabled");
         set => SetArgument("daily_data_cap_notifications_disabled", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermApplicationInsights(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? DisableIpMasking
     {
-        get => new TerraformReference<bool>(this, "disable_ip_masking");
+        get => GetArgument<TerraformValue<bool>>("disable_ip_masking");
         set => SetArgument("disable_ip_masking", value);
     }
 
@@ -100,16 +100,16 @@ public partial class AzurermApplicationInsights(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? ForceCustomerStorageForProfiler
     {
-        get => new TerraformReference<bool>(this, "force_customer_storage_for_profiler");
+        get => GetArgument<TerraformValue<bool>>("force_customer_storage_for_profiler");
         set => SetArgument("force_customer_storage_for_profiler", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermApplicationInsights(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? InternetIngestionEnabled
     {
-        get => new TerraformReference<bool>(this, "internet_ingestion_enabled");
+        get => GetArgument<TerraformValue<bool>>("internet_ingestion_enabled");
         set => SetArgument("internet_ingestion_enabled", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzurermApplicationInsights(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? InternetQueryEnabled
     {
-        get => new TerraformReference<bool>(this, "internet_query_enabled");
+        get => GetArgument<TerraformValue<bool>>("internet_query_enabled");
         set => SetArgument("internet_query_enabled", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AzurermApplicationInsights(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? LocalAuthenticationDisabled
     {
-        get => new TerraformReference<bool>(this, "local_authentication_disabled");
+        get => GetArgument<TerraformValue<bool>>("local_authentication_disabled");
         set => SetArgument("local_authentication_disabled", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AzurermApplicationInsights(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AzurermApplicationInsights(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -166,7 +166,7 @@ public partial class AzurermApplicationInsights(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -175,7 +175,7 @@ public partial class AzurermApplicationInsights(string name) : TerraformResource
     /// </summary>
     public TerraformValue<double>? RetentionInDays
     {
-        get => new TerraformReference<double>(this, "retention_in_days");
+        get => GetArgument<TerraformValue<double>>("retention_in_days");
         set => SetArgument("retention_in_days", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AzurermApplicationInsights(string name) : TerraformResource
     /// </summary>
     public TerraformValue<double>? SamplingPercentage
     {
-        get => new TerraformReference<double>(this, "sampling_percentage");
+        get => GetArgument<TerraformValue<double>>("sampling_percentage");
         set => SetArgument("sampling_percentage", value);
     }
 
@@ -193,16 +193,16 @@ public partial class AzurermApplicationInsights(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformValue<string> WorkspaceId
+    public TerraformValue<string>? WorkspaceId
     {
-        get => new TerraformReference<string>(this, "workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -210,25 +210,19 @@ public partial class AzurermApplicationInsights(string name) : TerraformResource
     /// The app_id attribute.
     /// </summary>
     public TerraformValue<string> AppId
-    {
-        get => new TerraformReference<string>(this, "app_id");
-    }
+        => AsReference("app_id");
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
     public TerraformValue<string> ConnectionString
-    {
-        get => new TerraformReference<string>(this, "connection_string");
-    }
+        => AsReference("connection_string");
 
     /// <summary>
     /// The instrumentation_key attribute.
     /// </summary>
     public TerraformValue<string> InstrumentationKey
-    {
-        get => new TerraformReference<string>(this, "instrumentation_key");
-    }
+        => AsReference("instrumentation_key");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

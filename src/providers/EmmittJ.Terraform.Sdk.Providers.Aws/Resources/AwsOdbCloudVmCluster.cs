@@ -19,7 +19,7 @@ public class AwsOdbCloudVmClusterDataCollectionOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsDiagnosticsEventsEnabled is required")]
     public required TerraformValue<bool> IsDiagnosticsEventsEnabled
     {
-        get => new TerraformReference<bool>(this, "is_diagnostics_events_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_diagnostics_events_enabled");
         set => SetArgument("is_diagnostics_events_enabled", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsOdbCloudVmClusterDataCollectionOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsHealthMonitoringEnabled is required")]
     public required TerraformValue<bool> IsHealthMonitoringEnabled
     {
-        get => new TerraformReference<bool>(this, "is_health_monitoring_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_health_monitoring_enabled");
         set => SetArgument("is_health_monitoring_enabled", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsOdbCloudVmClusterDataCollectionOptionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsIncidentLogsEnabled is required")]
     public required TerraformValue<bool> IsIncidentLogsEnabled
     {
-        get => new TerraformReference<bool>(this, "is_incident_logs_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_incident_logs_enabled");
         set => SetArgument("is_incident_logs_enabled", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsOdbCloudVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsOdbCloudVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -80,7 +80,7 @@ public class AwsOdbCloudVmClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -99,16 +99,16 @@ public partial class AwsOdbCloudVmCluster(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
     public required TerraformValue<string> CloudExadataInfrastructureId
     {
-        get => new TerraformReference<string>(this, "cloud_exadata_infrastructure_id");
+        get => GetArgument<TerraformValue<string>>("cloud_exadata_infrastructure_id");
         set => SetArgument("cloud_exadata_infrastructure_id", value);
     }
 
     /// <summary>
     /// The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
     /// </summary>
-    public TerraformValue<string> ClusterName
+    public TerraformValue<string>? ClusterName
     {
-        get => new TerraformReference<string>(this, "cluster_name");
+        get => GetArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AwsOdbCloudVmCluster(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCoreCount is required")]
     public required TerraformValue<double> CpuCoreCount
     {
-        get => new TerraformReference<double>(this, "cpu_core_count");
+        get => GetArgument<TerraformValue<double>>("cpu_core_count");
         set => SetArgument("cpu_core_count", value);
     }
 
@@ -128,16 +128,16 @@ public partial class AwsOdbCloudVmCluster(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStorageSizeInTbs is required")]
     public required TerraformValue<double> DataStorageSizeInTbs
     {
-        get => new TerraformReference<double>(this, "data_storage_size_in_tbs");
+        get => GetArgument<TerraformValue<double>>("data_storage_size_in_tbs");
         set => SetArgument("data_storage_size_in_tbs", value);
     }
 
     /// <summary>
     /// The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
     /// </summary>
-    public TerraformValue<double> DbNodeStorageSizeInGbs
+    public TerraformValue<double>? DbNodeStorageSizeInGbs
     {
-        get => new TerraformReference<double>(this, "db_node_storage_size_in_gbs");
+        get => GetArgument<TerraformValue<double>>("db_node_storage_size_in_gbs");
         set => SetArgument("db_node_storage_size_in_gbs", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AwsOdbCloudVmCluster(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbServers is required")]
     public required TerraformSet<string> DbServers
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "db_servers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("db_servers");
         set => SetArgument("db_servers", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AwsOdbCloudVmCluster(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AwsOdbCloudVmCluster(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GiVersion is required")]
     public required TerraformValue<string> GiVersion
     {
-        get => new TerraformReference<string>(this, "gi_version");
+        get => GetArgument<TerraformValue<string>>("gi_version");
         set => SetArgument("gi_version", value);
     }
 
@@ -177,43 +177,43 @@ public partial class AwsOdbCloudVmCluster(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostnamePrefix is required")]
     public required TerraformValue<string> HostnamePrefix
     {
-        get => new TerraformReference<string>(this, "hostname_prefix");
+        get => GetArgument<TerraformValue<string>>("hostname_prefix");
         set => SetArgument("hostname_prefix", value);
     }
 
     /// <summary>
     /// Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
     /// </summary>
-    public TerraformValue<bool> IsLocalBackupEnabled
+    public TerraformValue<bool>? IsLocalBackupEnabled
     {
-        get => new TerraformReference<bool>(this, "is_local_backup_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_local_backup_enabled");
         set => SetArgument("is_local_backup_enabled", value);
     }
 
     /// <summary>
     /// Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
     /// </summary>
-    public TerraformValue<bool> IsSparseDiskgroupEnabled
+    public TerraformValue<bool>? IsSparseDiskgroupEnabled
     {
-        get => new TerraformReference<bool>(this, "is_sparse_diskgroup_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_sparse_diskgroup_enabled");
         set => SetArgument("is_sparse_diskgroup_enabled", value);
     }
 
     /// <summary>
     /// The Oracle license model to apply to the VM cluster. Default: LICENSE_INCLUDED. Changing this will create a new resource.
     /// </summary>
-    public TerraformValue<string> LicenseModel
+    public TerraformValue<string>? LicenseModel
     {
-        get => new TerraformReference<string>(this, "license_model");
+        get => GetArgument<TerraformValue<string>>("license_model");
         set => SetArgument("license_model", value);
     }
 
     /// <summary>
     /// The amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
     /// </summary>
-    public TerraformValue<double> MemorySizeInGbs
+    public TerraformValue<double>? MemorySizeInGbs
     {
-        get => new TerraformReference<double>(this, "memory_size_in_gbs");
+        get => GetArgument<TerraformValue<double>>("memory_size_in_gbs");
         set => SetArgument("memory_size_in_gbs", value);
     }
 
@@ -223,25 +223,25 @@ public partial class AwsOdbCloudVmCluster(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbNetworkId is required")]
     public required TerraformValue<string> OdbNetworkId
     {
-        get => new TerraformReference<string>(this, "odb_network_id");
+        get => GetArgument<TerraformValue<string>>("odb_network_id");
         set => SetArgument("odb_network_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999 with the following exceptions: 2484 , 6100 , 6200 , 7060, 7070 , 7085 , and 7879Default: 1521. Changing this will create a new resource.
     /// </summary>
-    public TerraformValue<double> ScanListenerPortTcp
+    public TerraformValue<double>? ScanListenerPortTcp
     {
-        get => new TerraformReference<double>(this, "scan_listener_port_tcp");
+        get => GetArgument<TerraformValue<double>>("scan_listener_port_tcp");
         set => SetArgument("scan_listener_port_tcp", value);
     }
 
@@ -251,7 +251,7 @@ public partial class AwsOdbCloudVmCluster(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SshPublicKeys is required")]
     public required TerraformSet<string> SshPublicKeys
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ssh_public_keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("ssh_public_keys");
         set => SetArgument("ssh_public_keys", value);
     }
 
@@ -260,16 +260,16 @@ public partial class AwsOdbCloudVmCluster(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The configured time zone of the VM cluster. Changing this will create a new resource.
     /// </summary>
-    public TerraformValue<string> Timezone
+    public TerraformValue<string>? Timezone
     {
-        get => new TerraformReference<string>(this, "timezone");
+        get => GetArgument<TerraformValue<string>>("timezone");
         set => SetArgument("timezone", value);
     }
 
@@ -277,209 +277,157 @@ public partial class AwsOdbCloudVmCluster(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The compute model used when the instance is created or cloned — either ECPU or OCPU. ECPU is a virtualized compute unit; OCPU is a physical processor core with hyper-threading.
     /// </summary>
     public TerraformValue<string> ComputeModel
-    {
-        get => new TerraformReference<string>(this, "compute_model");
-    }
+        => AsReference("compute_model");
 
     /// <summary>
     /// The timestamp when the VM cluster was created.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
     /// </summary>
     public TerraformValue<string> DiskRedundancy
-    {
-        get => new TerraformReference<string>(this, "disk_redundancy");
-    }
+        => AsReference("disk_redundancy");
 
     /// <summary>
     /// The domain name associated with the VM cluster.
     /// </summary>
     public TerraformValue<string> Domain
-    {
-        get => new TerraformReference<string>(this, "domain");
-    }
+        => AsReference("domain");
 
     /// <summary>
     /// A complete software version of Oracle Grid Infrastructure (GI).
     /// </summary>
     public TerraformValue<string> GiVersionComputed
-    {
-        get => new TerraformReference<string>(this, "gi_version_computed");
-    }
+        => AsReference("gi_version_computed");
 
     /// <summary>
     /// The host name for the VM cluster. Constraints: - Can&#39;t be &amp;quot;localhost&amp;quot; or &amp;quot;hostname&amp;quot;. - Can&#39;t contain &amp;quot;-version&amp;quot;. - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
     /// </summary>
     public TerraformValue<string> HostnamePrefixComputed
-    {
-        get => new TerraformReference<string>(this, "hostname_prefix_computed");
-    }
+        => AsReference("hostname_prefix_computed");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> IormConfigCache
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "iorm_config_cache").ResolveNodes(ctx));
-    }
+        => AsReference("iorm_config_cache");
 
     /// <summary>
     /// The OCID of the most recent maintenance update history entry.
     /// </summary>
     public TerraformValue<string> LastUpdateHistoryEntryId
-    {
-        get => new TerraformReference<string>(this, "last_update_history_entry_id");
-    }
+        => AsReference("last_update_history_entry_id");
 
     /// <summary>
     /// The listener port number configured on the VM cluster.
     /// </summary>
     public TerraformValue<double> ListenerPort
-    {
-        get => new TerraformReference<double>(this, "listener_port");
-    }
+        => AsReference("listener_port");
 
     /// <summary>
     /// The total number of nodes in the VM cluster.
     /// </summary>
     public TerraformValue<double> NodeCount
-    {
-        get => new TerraformReference<double>(this, "node_count");
-    }
+        => AsReference("node_count");
 
     /// <summary>
     /// The name of the OCI resource anchor associated with the VM cluster.
     /// </summary>
     public TerraformValue<string> OciResourceAnchorName
-    {
-        get => new TerraformReference<string>(this, "oci_resource_anchor_name");
-    }
+        => AsReference("oci_resource_anchor_name");
 
     /// <summary>
     /// The HTTPS link to the VM cluster resource in OCI.
     /// </summary>
     public TerraformValue<string> OciUrl
-    {
-        get => new TerraformReference<string>(this, "oci_url");
-    }
+        => AsReference("oci_url");
 
     /// <summary>
     /// The OCID (Oracle Cloud Identifier) of the VM cluster.
     /// </summary>
     public TerraformValue<string> Ocid
-    {
-        get => new TerraformReference<string>(this, "ocid");
-    }
+        => AsReference("ocid");
 
     /// <summary>
     /// The percentage of progress made on the current operation for the VM cluster.
     /// </summary>
     public TerraformValue<double> PercentProgress
-    {
-        get => new TerraformReference<double>(this, "percent_progress");
-    }
+        => AsReference("percent_progress");
 
     /// <summary>
     /// The fully qualified domain name (FQDN) for the SCAN IP addresses associated with the VM cluster.
     /// </summary>
     public TerraformValue<string> ScanDnsName
-    {
-        get => new TerraformReference<string>(this, "scan_dns_name");
-    }
+        => AsReference("scan_dns_name");
 
     /// <summary>
     /// The OCID of the DNS record for the SCAN IPs linked to the VM cluster.
     /// </summary>
     public TerraformValue<string> ScanDnsRecordId
-    {
-        get => new TerraformReference<string>(this, "scan_dns_record_id");
-    }
+        => AsReference("scan_dns_record_id");
 
     /// <summary>
     /// The list of OCIDs for SCAN IP addresses associated with the VM cluster.
     /// </summary>
     public TerraformList<string> ScanIpIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scan_ip_ids").ResolveNodes(ctx));
-    }
+        => AsReference("scan_ip_ids");
 
     /// <summary>
     /// The hardware model name of the Exadata infrastructure running the VM cluster.
     /// </summary>
     public TerraformValue<string> Shape
-    {
-        get => new TerraformReference<string>(this, "shape");
-    }
+        => AsReference("shape");
 
     /// <summary>
     /// The current lifecycle status of the VM cluster.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// Additional information regarding the current status of the VM cluster.
     /// </summary>
     public TerraformValue<string> StatusReason
-    {
-        get => new TerraformReference<string>(this, "status_reason");
-    }
+        => AsReference("status_reason");
 
     /// <summary>
     /// The local node storage allocated to the VM cluster, in gigabytes (GB).
     /// </summary>
     public TerraformValue<double> StorageSizeInGbs
-    {
-        get => new TerraformReference<double>(this, "storage_size_in_gbs");
-    }
+        => AsReference("storage_size_in_gbs");
 
     /// <summary>
     /// The operating system version of the image chosen for the VM cluster.
     /// </summary>
     public TerraformValue<string> SystemVersion
-    {
-        get => new TerraformReference<string>(this, "system_version");
-    }
+        => AsReference("system_version");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// The virtual IP (VIP) addresses assigned to the VM cluster. CRS assigns one VIP per node for failover support.
     /// </summary>
     public TerraformList<string> VipIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "vip_ids").ResolveNodes(ctx));
-    }
+        => AsReference("vip_ids");
 
     /// <summary>
     /// DataCollectionOptions block (nesting mode: list).

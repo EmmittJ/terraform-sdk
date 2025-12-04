@@ -19,7 +19,7 @@ public class AzurermFirewallIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -27,16 +27,14 @@ public class AzurermFirewallIpConfigurationBlock : TerraformBlock
     /// The private_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
-    {
-        get => new TerraformReference<string>(this, "private_ip_address");
-    }
+        => AsReference("private_ip_address");
 
     /// <summary>
     /// The public_ip_address_id attribute.
     /// </summary>
     public TerraformValue<string>? PublicIpAddressId
     {
-        get => new TerraformReference<string>(this, "public_ip_address_id");
+        get => GetArgument<TerraformValue<string>>("public_ip_address_id");
         set => SetArgument("public_ip_address_id", value);
     }
 
@@ -45,7 +43,7 @@ public class AzurermFirewallIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -69,7 +67,7 @@ public class AzurermFirewallManagementIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -77,9 +75,7 @@ public class AzurermFirewallManagementIpConfigurationBlock : TerraformBlock
     /// The private_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
-    {
-        get => new TerraformReference<string>(this, "private_ip_address");
-    }
+        => AsReference("private_ip_address");
 
     /// <summary>
     /// The public_ip_address_id attribute.
@@ -87,7 +83,7 @@ public class AzurermFirewallManagementIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddressId is required")]
     public required TerraformValue<string> PublicIpAddressId
     {
-        get => new TerraformReference<string>(this, "public_ip_address_id");
+        get => GetArgument<TerraformValue<string>>("public_ip_address_id");
         set => SetArgument("public_ip_address_id", value);
     }
 
@@ -97,7 +93,7 @@ public class AzurermFirewallManagementIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -120,7 +116,7 @@ public class AzurermFirewallTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -129,7 +125,7 @@ public class AzurermFirewallTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -138,7 +134,7 @@ public class AzurermFirewallTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -147,7 +143,7 @@ public class AzurermFirewallTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -169,24 +165,20 @@ public class AzurermFirewallVirtualHubBlock : TerraformBlock
     /// The private_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
-    {
-        get => new TerraformReference<string>(this, "private_ip_address");
-    }
+        => AsReference("private_ip_address");
 
     /// <summary>
     /// The public_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> PublicIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "public_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("public_ip_addresses");
 
     /// <summary>
     /// The public_ip_count attribute.
     /// </summary>
     public TerraformValue<double>? PublicIpCount
     {
-        get => new TerraformReference<double>(this, "public_ip_count");
+        get => GetArgument<TerraformValue<double>>("public_ip_count");
         set => SetArgument("public_ip_count", value);
     }
 
@@ -196,7 +188,7 @@ public class AzurermFirewallVirtualHubBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformValue<string> VirtualHubId
     {
-        get => new TerraformReference<string>(this, "virtual_hub_id");
+        get => GetArgument<TerraformValue<string>>("virtual_hub_id");
         set => SetArgument("virtual_hub_id", value);
     }
 
@@ -212,9 +204,9 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     /// <summary>
     /// The dns_proxy_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> DnsProxyEnabled
+    public TerraformValue<bool>? DnsProxyEnabled
     {
-        get => new TerraformReference<bool>(this, "dns_proxy_enabled");
+        get => GetArgument<TerraformValue<bool>>("dns_proxy_enabled");
         set => SetArgument("dns_proxy_enabled", value);
     }
 
@@ -223,7 +215,7 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     /// </summary>
     public TerraformList<string>? DnsServers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dns_servers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("dns_servers");
         set => SetArgument("dns_servers", value);
     }
 
@@ -232,16 +224,16 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     /// </summary>
     public TerraformValue<string>? FirewallPolicyId
     {
-        get => new TerraformReference<string>(this, "firewall_policy_id");
+        get => GetArgument<TerraformValue<string>>("firewall_policy_id");
         set => SetArgument("firewall_policy_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -251,7 +243,7 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -261,7 +253,7 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -270,7 +262,7 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     /// </summary>
     public TerraformSet<string>? PrivateIpRanges
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "private_ip_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("private_ip_ranges");
         set => SetArgument("private_ip_ranges", value);
     }
 
@@ -280,7 +272,7 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -290,7 +282,7 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => new TerraformReference<string>(this, "sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -300,7 +292,7 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuTier is required")]
     public required TerraformValue<string> SkuTier
     {
-        get => new TerraformReference<string>(this, "sku_tier");
+        get => GetArgument<TerraformValue<string>>("sku_tier");
         set => SetArgument("sku_tier", value);
     }
 
@@ -309,16 +301,16 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The threat_intel_mode attribute.
     /// </summary>
-    public TerraformValue<string> ThreatIntelMode
+    public TerraformValue<string>? ThreatIntelMode
     {
-        get => new TerraformReference<string>(this, "threat_intel_mode");
+        get => GetArgument<TerraformValue<string>>("threat_intel_mode");
         set => SetArgument("threat_intel_mode", value);
     }
 
@@ -327,7 +319,7 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     /// </summary>
     public TerraformSet<string>? Zones
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "zones").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("zones");
         set => SetArgument("zones", value);
     }
 

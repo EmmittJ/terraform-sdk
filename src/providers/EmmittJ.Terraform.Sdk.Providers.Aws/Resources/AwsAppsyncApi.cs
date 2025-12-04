@@ -77,7 +77,7 @@ public class AwsAppsyncApiEventConfigBlockAuthProviderBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformValue<string> AuthType
     {
-        get => new TerraformReference<string>(this, "auth_type");
+        get => GetArgument<TerraformValue<string>>("auth_type");
         set => SetArgument("auth_type", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsAppsyncApiEventConfigBlockAuthProviderBlockCognitoConfigBlock : 
     /// </summary>
     public TerraformValue<string>? AppIdClientRegex
     {
-        get => new TerraformReference<string>(this, "app_id_client_regex");
+        get => GetArgument<TerraformValue<string>>("app_id_client_regex");
         set => SetArgument("app_id_client_regex", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsAppsyncApiEventConfigBlockAuthProviderBlockCognitoConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsRegion is required")]
     public required TerraformValue<string> AwsRegion
     {
-        get => new TerraformReference<string>(this, "aws_region");
+        get => GetArgument<TerraformValue<string>>("aws_region");
         set => SetArgument("aws_region", value);
     }
 
@@ -146,7 +146,7 @@ public class AwsAppsyncApiEventConfigBlockAuthProviderBlockCognitoConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformValue<string> UserPoolId
     {
-        get => new TerraformReference<string>(this, "user_pool_id");
+        get => GetArgument<TerraformValue<string>>("user_pool_id");
         set => SetArgument("user_pool_id", value);
     }
 
@@ -166,9 +166,9 @@ public class AwsAppsyncApiEventConfigBlockAuthProviderBlockLambdaAuthorizerConfi
     /// <summary>
     /// The authorizer_result_ttl_in_seconds attribute.
     /// </summary>
-    public TerraformValue<double> AuthorizerResultTtlInSeconds
+    public TerraformValue<double>? AuthorizerResultTtlInSeconds
     {
-        get => new TerraformReference<double>(this, "authorizer_result_ttl_in_seconds");
+        get => GetArgument<TerraformValue<double>>("authorizer_result_ttl_in_seconds");
         set => SetArgument("authorizer_result_ttl_in_seconds", value);
     }
 
@@ -178,7 +178,7 @@ public class AwsAppsyncApiEventConfigBlockAuthProviderBlockLambdaAuthorizerConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerUri is required")]
     public required TerraformValue<string> AuthorizerUri
     {
-        get => new TerraformReference<string>(this, "authorizer_uri");
+        get => GetArgument<TerraformValue<string>>("authorizer_uri");
         set => SetArgument("authorizer_uri", value);
     }
 
@@ -187,7 +187,7 @@ public class AwsAppsyncApiEventConfigBlockAuthProviderBlockLambdaAuthorizerConfi
     /// </summary>
     public TerraformValue<string>? IdentityValidationExpression
     {
-        get => new TerraformReference<string>(this, "identity_validation_expression");
+        get => GetArgument<TerraformValue<string>>("identity_validation_expression");
         set => SetArgument("identity_validation_expression", value);
     }
 
@@ -207,9 +207,9 @@ public class AwsAppsyncApiEventConfigBlockAuthProviderBlockOpenidConnectConfigBl
     /// <summary>
     /// The auth_ttl attribute.
     /// </summary>
-    public TerraformValue<double> AuthTtl
+    public TerraformValue<double>? AuthTtl
     {
-        get => new TerraformReference<double>(this, "auth_ttl");
+        get => GetArgument<TerraformValue<double>>("auth_ttl");
         set => SetArgument("auth_ttl", value);
     }
 
@@ -218,16 +218,16 @@ public class AwsAppsyncApiEventConfigBlockAuthProviderBlockOpenidConnectConfigBl
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
     /// <summary>
     /// The iat_ttl attribute.
     /// </summary>
-    public TerraformValue<double> IatTtl
+    public TerraformValue<double>? IatTtl
     {
-        get => new TerraformReference<double>(this, "iat_ttl");
+        get => GetArgument<TerraformValue<double>>("iat_ttl");
         set => SetArgument("iat_ttl", value);
     }
 
@@ -237,7 +237,7 @@ public class AwsAppsyncApiEventConfigBlockAuthProviderBlockOpenidConnectConfigBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformValue<string> Issuer
     {
-        get => new TerraformReference<string>(this, "issuer");
+        get => GetArgument<TerraformValue<string>>("issuer");
         set => SetArgument("issuer", value);
     }
 
@@ -260,7 +260,7 @@ public class AwsAppsyncApiEventConfigBlockConnectionAuthModeBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformValue<string> AuthType
     {
-        get => new TerraformReference<string>(this, "auth_type");
+        get => GetArgument<TerraformValue<string>>("auth_type");
         set => SetArgument("auth_type", value);
     }
 
@@ -283,7 +283,7 @@ public class AwsAppsyncApiEventConfigBlockDefaultPublishAuthModeBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformValue<string> AuthType
     {
-        get => new TerraformReference<string>(this, "auth_type");
+        get => GetArgument<TerraformValue<string>>("auth_type");
         set => SetArgument("auth_type", value);
     }
 
@@ -306,7 +306,7 @@ public class AwsAppsyncApiEventConfigBlockDefaultSubscribeAuthModeBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformValue<string> AuthType
     {
-        get => new TerraformReference<string>(this, "auth_type");
+        get => GetArgument<TerraformValue<string>>("auth_type");
         set => SetArgument("auth_type", value);
     }
 
@@ -329,7 +329,7 @@ public class AwsAppsyncApiEventConfigBlockLogConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudwatchLogsRoleArn is required")]
     public required TerraformValue<string> CloudwatchLogsRoleArn
     {
-        get => new TerraformReference<string>(this, "cloudwatch_logs_role_arn");
+        get => GetArgument<TerraformValue<string>>("cloudwatch_logs_role_arn");
         set => SetArgument("cloudwatch_logs_role_arn", value);
     }
 
@@ -339,7 +339,7 @@ public class AwsAppsyncApiEventConfigBlockLogConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogLevel is required")]
     public required TerraformValue<string> LogLevel
     {
-        get => new TerraformReference<string>(this, "log_level");
+        get => GetArgument<TerraformValue<string>>("log_level");
         set => SetArgument("log_level", value);
     }
 
@@ -358,7 +358,7 @@ public partial class AwsAppsyncApi(string name) : TerraformResource("aws_appsync
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -367,16 +367,16 @@ public partial class AwsAppsyncApi(string name) : TerraformResource("aws_appsync
     /// </summary>
     public TerraformValue<string>? OwnerContact
     {
-        get => new TerraformReference<string>(this, "owner_contact");
+        get => GetArgument<TerraformValue<string>>("owner_contact");
         set => SetArgument("owner_contact", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -385,7 +385,7 @@ public partial class AwsAppsyncApi(string name) : TerraformResource("aws_appsync
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -393,49 +393,37 @@ public partial class AwsAppsyncApi(string name) : TerraformResource("aws_appsync
     /// The api_arn attribute.
     /// </summary>
     public TerraformValue<string> ApiArn
-    {
-        get => new TerraformReference<string>(this, "api_arn");
-    }
+        => AsReference("api_arn");
 
     /// <summary>
     /// The api_id attribute.
     /// </summary>
     public TerraformValue<string> ApiId
-    {
-        get => new TerraformReference<string>(this, "api_id");
-    }
+        => AsReference("api_id");
 
     /// <summary>
     /// The dns attribute.
     /// </summary>
     public TerraformMap<string> Dns
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "dns").ResolveNodes(ctx));
-    }
+        => AsReference("dns");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// The waf_web_acl_arn attribute.
     /// </summary>
     public TerraformValue<string> WafWebAclArn
-    {
-        get => new TerraformReference<string>(this, "waf_web_acl_arn");
-    }
+        => AsReference("waf_web_acl_arn");
 
     /// <summary>
     /// The xray_enabled attribute.
     /// </summary>
     public TerraformValue<bool> XrayEnabled
-    {
-        get => new TerraformReference<bool>(this, "xray_enabled");
-    }
+        => AsReference("xray_enabled");
 
     /// <summary>
     /// EventConfig block (nesting mode: list).

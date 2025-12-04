@@ -14,16 +14,16 @@ public partial class AwsGlacierVaultLock(string name) : TerraformResource("aws_g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CompleteLock is required")]
     public required TerraformValue<bool> CompleteLock
     {
-        get => new TerraformReference<bool>(this, "complete_lock");
+        get => GetArgument<TerraformValue<bool>>("complete_lock");
         set => SetArgument("complete_lock", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsGlacierVaultLock(string name) : TerraformResource("aws_g
     /// </summary>
     public TerraformValue<bool>? IgnoreDeletionError
     {
-        get => new TerraformReference<bool>(this, "ignore_deletion_error");
+        get => GetArgument<TerraformValue<bool>>("ignore_deletion_error");
         set => SetArgument("ignore_deletion_error", value);
     }
 
@@ -42,16 +42,16 @@ public partial class AwsGlacierVaultLock(string name) : TerraformResource("aws_g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     public required TerraformValue<string> Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsGlacierVaultLock(string name) : TerraformResource("aws_g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultName is required")]
     public required TerraformValue<string> VaultName
     {
-        get => new TerraformReference<string>(this, "vault_name");
+        get => GetArgument<TerraformValue<string>>("vault_name");
         set => SetArgument("vault_name", value);
     }
 

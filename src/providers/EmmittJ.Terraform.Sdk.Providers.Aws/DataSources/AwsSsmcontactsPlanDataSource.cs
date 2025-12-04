@@ -14,25 +14,25 @@ public partial class AwsSsmcontactsPlanDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactId is required")]
     public required TerraformValue<string> ContactId
     {
-        get => new TerraformReference<string>(this, "contact_id");
+        get => GetArgument<TerraformValue<string>>("contact_id");
         set => SetArgument("contact_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -40,8 +40,6 @@ public partial class AwsSsmcontactsPlanDataSource(string name) : TerraformDataSo
     /// The stage attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Stage
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "stage").ResolveNodes(ctx));
-    }
+        => AsReference("stage");
 
 }

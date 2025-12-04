@@ -43,7 +43,7 @@ public class GoogleSccV2ProjectNotificationConfigStreamingConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -66,7 +66,7 @@ public class GoogleSccV2ProjectNotificationConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -75,7 +75,7 @@ public class GoogleSccV2ProjectNotificationConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleSccV2ProjectNotificationConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -103,7 +103,7 @@ public partial class GoogleSccV2ProjectNotificationConfig(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigId is required")]
     public required TerraformValue<string> ConfigId
     {
-        get => new TerraformReference<string>(this, "config_id");
+        get => GetArgument<TerraformValue<string>>("config_id");
         set => SetArgument("config_id", value);
     }
 
@@ -112,16 +112,16 @@ public partial class GoogleSccV2ProjectNotificationConfig(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -130,16 +130,16 @@ public partial class GoogleSccV2ProjectNotificationConfig(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -149,7 +149,7 @@ public partial class GoogleSccV2ProjectNotificationConfig(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? PubsubTopic
     {
-        get => new TerraformReference<string>(this, "pubsub_topic");
+        get => GetArgument<TerraformValue<string>>("pubsub_topic");
         set => SetArgument("pubsub_topic", value);
     }
 
@@ -158,18 +158,14 @@ public partial class GoogleSccV2ProjectNotificationConfig(string name) : Terrafo
     /// &#39;projects/{{projectId}}/locations/{{location}}/notificationConfigs/{{config_id}}&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The service account that needs &amp;quot;pubsub.topics.publish&amp;quot; permission to
     /// publish to the Pub/Sub topic.
     /// </summary>
     public TerraformValue<string> ServiceAccount
-    {
-        get => new TerraformReference<string>(this, "service_account");
-    }
+        => AsReference("service_account");
 
     /// <summary>
     /// StreamingConfig block (nesting mode: list).

@@ -19,7 +19,7 @@ public class AzurermIotSecuritySolutionAdditionalWorkspaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataTypes is required")]
     public required TerraformSet<string> DataTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "data_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("data_types");
         set => SetArgument("data_types", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermIotSecuritySolutionAdditionalWorkspaceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => new TerraformReference<string>(this, "workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? AcrAuthentication
     {
-        get => new TerraformReference<bool>(this, "acr_authentication");
+        get => GetArgument<TerraformValue<bool>>("acr_authentication");
         set => SetArgument("acr_authentication", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? AgentSendUnutilizedMsg
     {
-        get => new TerraformReference<bool>(this, "agent_send_unutilized_msg");
+        get => GetArgument<TerraformValue<bool>>("agent_send_unutilized_msg");
         set => SetArgument("agent_send_unutilized_msg", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? Baseline
     {
-        get => new TerraformReference<bool>(this, "baseline");
+        get => GetArgument<TerraformValue<bool>>("baseline");
         set => SetArgument("baseline", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? EdgeHubMemOptimize
     {
-        get => new TerraformReference<bool>(this, "edge_hub_mem_optimize");
+        get => GetArgument<TerraformValue<bool>>("edge_hub_mem_optimize");
         set => SetArgument("edge_hub_mem_optimize", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? EdgeLoggingOption
     {
-        get => new TerraformReference<bool>(this, "edge_logging_option");
+        get => GetArgument<TerraformValue<bool>>("edge_logging_option");
         set => SetArgument("edge_logging_option", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? InconsistentModuleSettings
     {
-        get => new TerraformReference<bool>(this, "inconsistent_module_settings");
+        get => GetArgument<TerraformValue<bool>>("inconsistent_module_settings");
         set => SetArgument("inconsistent_module_settings", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? InstallAgent
     {
-        get => new TerraformReference<bool>(this, "install_agent");
+        get => GetArgument<TerraformValue<bool>>("install_agent");
         set => SetArgument("install_agent", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? IpFilterDenyAll
     {
-        get => new TerraformReference<bool>(this, "ip_filter_deny_all");
+        get => GetArgument<TerraformValue<bool>>("ip_filter_deny_all");
         set => SetArgument("ip_filter_deny_all", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? IpFilterPermissiveRule
     {
-        get => new TerraformReference<bool>(this, "ip_filter_permissive_rule");
+        get => GetArgument<TerraformValue<bool>>("ip_filter_permissive_rule");
         set => SetArgument("ip_filter_permissive_rule", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? OpenPorts
     {
-        get => new TerraformReference<bool>(this, "open_ports");
+        get => GetArgument<TerraformValue<bool>>("open_ports");
         set => SetArgument("open_ports", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? PermissiveFirewallPolicy
     {
-        get => new TerraformReference<bool>(this, "permissive_firewall_policy");
+        get => GetArgument<TerraformValue<bool>>("permissive_firewall_policy");
         set => SetArgument("permissive_firewall_policy", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? PermissiveInputFirewallRules
     {
-        get => new TerraformReference<bool>(this, "permissive_input_firewall_rules");
+        get => GetArgument<TerraformValue<bool>>("permissive_input_firewall_rules");
         set => SetArgument("permissive_input_firewall_rules", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? PermissiveOutputFirewallRules
     {
-        get => new TerraformReference<bool>(this, "permissive_output_firewall_rules");
+        get => GetArgument<TerraformValue<bool>>("permissive_output_firewall_rules");
         set => SetArgument("permissive_output_firewall_rules", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? PrivilegedDockerOptions
     {
-        get => new TerraformReference<bool>(this, "privileged_docker_options");
+        get => GetArgument<TerraformValue<bool>>("privileged_docker_options");
         set => SetArgument("privileged_docker_options", value);
     }
 
@@ -178,7 +178,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? SharedCredentials
     {
-        get => new TerraformReference<bool>(this, "shared_credentials");
+        get => GetArgument<TerraformValue<bool>>("shared_credentials");
         set => SetArgument("shared_credentials", value);
     }
 
@@ -187,7 +187,7 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? VulnerableTlsCipherSuite
     {
-        get => new TerraformReference<bool>(this, "vulnerable_tls_cipher_suite");
+        get => GetArgument<TerraformValue<bool>>("vulnerable_tls_cipher_suite");
         set => SetArgument("vulnerable_tls_cipher_suite", value);
     }
 
@@ -210,7 +210,7 @@ public class AzurermIotSecuritySolutionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -219,7 +219,7 @@ public class AzurermIotSecuritySolutionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -228,7 +228,7 @@ public class AzurermIotSecuritySolutionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -237,7 +237,7 @@ public class AzurermIotSecuritySolutionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -255,7 +255,7 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     /// </summary>
     public TerraformSet<string>? DisabledDataSources
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "disabled_data_sources").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("disabled_data_sources");
         set => SetArgument("disabled_data_sources", value);
     }
 
@@ -265,7 +265,7 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -274,7 +274,7 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -283,16 +283,16 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     /// </summary>
     public TerraformSet<string>? EventsToExport
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "events_to_export").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("events_to_export");
         set => SetArgument("events_to_export", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -302,7 +302,7 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubIds is required")]
     public required TerraformSet<string> IothubIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "iothub_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("iothub_ids");
         set => SetArgument("iothub_ids", value);
     }
 
@@ -312,7 +312,7 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -321,7 +321,7 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? LogAnalyticsWorkspaceId
     {
-        get => new TerraformReference<string>(this, "log_analytics_workspace_id");
+        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
@@ -330,7 +330,7 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? LogUnmaskedIpsEnabled
     {
-        get => new TerraformReference<bool>(this, "log_unmasked_ips_enabled");
+        get => GetArgument<TerraformValue<bool>>("log_unmasked_ips_enabled");
         set => SetArgument("log_unmasked_ips_enabled", value);
     }
 
@@ -340,25 +340,25 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The query_for_resources attribute.
     /// </summary>
-    public TerraformValue<string> QueryForResources
+    public TerraformValue<string>? QueryForResources
     {
-        get => new TerraformReference<string>(this, "query_for_resources");
+        get => GetArgument<TerraformValue<string>>("query_for_resources");
         set => SetArgument("query_for_resources", value);
     }
 
     /// <summary>
     /// The query_subscription_ids attribute.
     /// </summary>
-    public TerraformSet<string> QuerySubscriptionIds
+    public TerraformSet<string>? QuerySubscriptionIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "query_subscription_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("query_subscription_ids");
         set => SetArgument("query_subscription_ids", value);
     }
 
@@ -368,7 +368,7 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -377,7 +377,7 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

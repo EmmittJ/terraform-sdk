@@ -11,9 +11,9 @@ public partial class GoogleContainerAttachedVersionsDataSource(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleContainerAttachedVersionsDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleContainerAttachedVersionsDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformValue<string> Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -41,8 +41,6 @@ public partial class GoogleContainerAttachedVersionsDataSource(string name) : Te
     /// The valid_versions attribute.
     /// </summary>
     public TerraformList<string> ValidVersions
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "valid_versions").ResolveNodes(ctx));
-    }
+        => AsReference("valid_versions");
 
 }

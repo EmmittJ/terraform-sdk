@@ -18,7 +18,7 @@ public class AzurermElasticCloudElasticsearchLogsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SendActivityLogs
     {
-        get => new TerraformReference<bool>(this, "send_activity_logs");
+        get => GetArgument<TerraformValue<bool>>("send_activity_logs");
         set => SetArgument("send_activity_logs", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermElasticCloudElasticsearchLogsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SendAzureadLogs
     {
-        get => new TerraformReference<bool>(this, "send_azuread_logs");
+        get => GetArgument<TerraformValue<bool>>("send_azuread_logs");
         set => SetArgument("send_azuread_logs", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermElasticCloudElasticsearchLogsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SendSubscriptionLogs
     {
-        get => new TerraformReference<bool>(this, "send_subscription_logs");
+        get => GetArgument<TerraformValue<bool>>("send_subscription_logs");
         set => SetArgument("send_subscription_logs", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermElasticCloudElasticsearchLogsBlockFilteringTagBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermElasticCloudElasticsearchLogsBlockFilteringTagBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermElasticCloudElasticsearchLogsBlockFilteringTagBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -111,7 +111,7 @@ public class AzurermElasticCloudElasticsearchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermElasticCloudElasticsearchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -129,7 +129,7 @@ public class AzurermElasticCloudElasticsearchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -138,7 +138,7 @@ public class AzurermElasticCloudElasticsearchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -157,16 +157,16 @@ public partial class AzurermElasticCloudElasticsearch(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElasticCloudEmailAddress is required")]
     public required TerraformValue<string> ElasticCloudEmailAddress
     {
-        get => new TerraformReference<string>(this, "elastic_cloud_email_address");
+        get => GetArgument<TerraformValue<string>>("elastic_cloud_email_address");
         set => SetArgument("elastic_cloud_email_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AzurermElasticCloudElasticsearch(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -185,7 +185,7 @@ public partial class AzurermElasticCloudElasticsearch(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? MonitoringEnabled
     {
-        get => new TerraformReference<bool>(this, "monitoring_enabled");
+        get => GetArgument<TerraformValue<bool>>("monitoring_enabled");
         set => SetArgument("monitoring_enabled", value);
     }
 
@@ -195,7 +195,7 @@ public partial class AzurermElasticCloudElasticsearch(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AzurermElasticCloudElasticsearch(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -215,7 +215,7 @@ public partial class AzurermElasticCloudElasticsearch(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => new TerraformReference<string>(this, "sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -224,7 +224,7 @@ public partial class AzurermElasticCloudElasticsearch(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -232,49 +232,37 @@ public partial class AzurermElasticCloudElasticsearch(string name) : TerraformRe
     /// The elastic_cloud_deployment_id attribute.
     /// </summary>
     public TerraformValue<string> ElasticCloudDeploymentId
-    {
-        get => new TerraformReference<string>(this, "elastic_cloud_deployment_id");
-    }
+        => AsReference("elastic_cloud_deployment_id");
 
     /// <summary>
     /// The elastic_cloud_sso_default_url attribute.
     /// </summary>
     public TerraformValue<string> ElasticCloudSsoDefaultUrl
-    {
-        get => new TerraformReference<string>(this, "elastic_cloud_sso_default_url");
-    }
+        => AsReference("elastic_cloud_sso_default_url");
 
     /// <summary>
     /// The elastic_cloud_user_id attribute.
     /// </summary>
     public TerraformValue<string> ElasticCloudUserId
-    {
-        get => new TerraformReference<string>(this, "elastic_cloud_user_id");
-    }
+        => AsReference("elastic_cloud_user_id");
 
     /// <summary>
     /// The elasticsearch_service_url attribute.
     /// </summary>
     public TerraformValue<string> ElasticsearchServiceUrl
-    {
-        get => new TerraformReference<string>(this, "elasticsearch_service_url");
-    }
+        => AsReference("elasticsearch_service_url");
 
     /// <summary>
     /// The kibana_service_url attribute.
     /// </summary>
     public TerraformValue<string> KibanaServiceUrl
-    {
-        get => new TerraformReference<string>(this, "kibana_service_url");
-    }
+        => AsReference("kibana_service_url");
 
     /// <summary>
     /// The kibana_sso_uri attribute.
     /// </summary>
     public TerraformValue<string> KibanaSsoUri
-    {
-        get => new TerraformReference<string>(this, "kibana_sso_uri");
-    }
+        => AsReference("kibana_sso_uri");
 
     /// <summary>
     /// Logs block (nesting mode: list).

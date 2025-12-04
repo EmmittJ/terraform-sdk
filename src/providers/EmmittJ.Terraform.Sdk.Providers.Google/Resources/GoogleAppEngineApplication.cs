@@ -19,7 +19,7 @@ public class GoogleAppEngineApplicationFeatureSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SplitHealthChecks is required")]
     public required TerraformValue<bool> SplitHealthChecks
     {
-        get => new TerraformReference<bool>(this, "split_health_checks");
+        get => GetArgument<TerraformValue<bool>>("split_health_checks");
         set => SetArgument("split_health_checks", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleAppEngineApplicationIapBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleAppEngineApplicationIapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Oauth2ClientId is required")]
     public required TerraformValue<string> Oauth2ClientId
     {
-        get => new TerraformReference<string>(this, "oauth2_client_id");
+        get => GetArgument<TerraformValue<string>>("oauth2_client_id");
         set => SetArgument("oauth2_client_id", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleAppEngineApplicationIapBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Oauth2ClientSecret is required")]
     public required TerraformValue<string> Oauth2ClientSecret
     {
-        get => new TerraformReference<string>(this, "oauth2_client_secret");
+        get => GetArgument<TerraformValue<string>>("oauth2_client_secret");
         set => SetArgument("oauth2_client_secret", value);
     }
 
@@ -70,9 +70,7 @@ public class GoogleAppEngineApplicationIapBlock : TerraformBlock
     /// Hex-encoded SHA-256 hash of the client secret.
     /// </summary>
     public TerraformValue<string> Oauth2ClientSecretSha256
-    {
-        get => new TerraformReference<string>(this, "oauth2_client_secret_sha256");
-    }
+        => AsReference("oauth2_client_secret_sha256");
 
 }
 
@@ -93,7 +91,7 @@ public class GoogleAppEngineApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -102,7 +100,7 @@ public class GoogleAppEngineApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -118,27 +116,27 @@ public partial class GoogleAppEngineApplication(string name) : TerraformResource
     /// <summary>
     /// The domain to authenticate users with when using App Engine&#39;s User API.
     /// </summary>
-    public TerraformValue<string> AuthDomain
+    public TerraformValue<string>? AuthDomain
     {
-        get => new TerraformReference<string>(this, "auth_domain");
+        get => GetArgument<TerraformValue<string>>("auth_domain");
         set => SetArgument("auth_domain", value);
     }
 
     /// <summary>
     /// The database_type attribute.
     /// </summary>
-    public TerraformValue<string> DatabaseType
+    public TerraformValue<string>? DatabaseType
     {
-        get => new TerraformReference<string>(this, "database_type");
+        get => GetArgument<TerraformValue<string>>("database_type");
         set => SetArgument("database_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -148,34 +146,34 @@ public partial class GoogleAppEngineApplication(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationId is required")]
     public required TerraformValue<string> LocationId
     {
-        get => new TerraformReference<string>(this, "location_id");
+        get => GetArgument<TerraformValue<string>>("location_id");
         set => SetArgument("location_id", value);
     }
 
     /// <summary>
     /// The project ID to create the application under.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The serving status of the app.
     /// </summary>
-    public TerraformValue<string> ServingStatus
+    public TerraformValue<string>? ServingStatus
     {
-        get => new TerraformReference<string>(this, "serving_status");
+        get => GetArgument<TerraformValue<string>>("serving_status");
         set => SetArgument("serving_status", value);
     }
 
     /// <summary>
     /// The SSL policy that will be applied to the application. If set to Modern it will restrict traffic with TLS \u003c 1.2 and allow only Modern Ciphers suite
     /// </summary>
-    public TerraformValue<string> SslPolicy
+    public TerraformValue<string>? SslPolicy
     {
-        get => new TerraformReference<string>(this, "ssl_policy");
+        get => GetArgument<TerraformValue<string>>("ssl_policy");
         set => SetArgument("ssl_policy", value);
     }
 
@@ -183,57 +181,43 @@ public partial class GoogleAppEngineApplication(string name) : TerraformResource
     /// Identifier of the app.
     /// </summary>
     public TerraformValue<string> AppId
-    {
-        get => new TerraformReference<string>(this, "app_id");
-    }
+        => AsReference("app_id");
 
     /// <summary>
     /// The GCS bucket code is being stored in for this app.
     /// </summary>
     public TerraformValue<string> CodeBucket
-    {
-        get => new TerraformReference<string>(this, "code_bucket");
-    }
+        => AsReference("code_bucket");
 
     /// <summary>
     /// The GCS bucket content is being stored in for this app.
     /// </summary>
     public TerraformValue<string> DefaultBucket
-    {
-        get => new TerraformReference<string>(this, "default_bucket");
-    }
+        => AsReference("default_bucket");
 
     /// <summary>
     /// The default hostname for this app.
     /// </summary>
     public TerraformValue<string> DefaultHostname
-    {
-        get => new TerraformReference<string>(this, "default_hostname");
-    }
+        => AsReference("default_hostname");
 
     /// <summary>
     /// The GCR domain used for storing managed Docker images for this app.
     /// </summary>
     public TerraformValue<string> GcrDomain
-    {
-        get => new TerraformReference<string>(this, "gcr_domain");
-    }
+        => AsReference("gcr_domain");
 
     /// <summary>
     /// Unique name of the app.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// A list of dispatch rule blocks. Each block has a domain, path, and service field.
     /// </summary>
     public TerraformList<TerraformMap<object>> UrlDispatchRule
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "url_dispatch_rule").ResolveNodes(ctx));
-    }
+        => AsReference("url_dispatch_rule");
 
     /// <summary>
     /// FeatureSettings block (nesting mode: list).

@@ -41,7 +41,7 @@ public class GoogleFirestoreFieldIndexConfigBlockIndexesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ArrayConfig
     {
-        get => new TerraformReference<string>(this, "array_config");
+        get => GetArgument<TerraformValue<string>>("array_config");
         set => SetArgument("array_config", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleFirestoreFieldIndexConfigBlockIndexesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Order
     {
-        get => new TerraformReference<string>(this, "order");
+        get => GetArgument<TerraformValue<string>>("order");
         set => SetArgument("order", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleFirestoreFieldIndexConfigBlockIndexesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? QueryScope
     {
-        get => new TerraformReference<string>(this, "query_scope");
+        get => GetArgument<TerraformValue<string>>("query_scope");
         set => SetArgument("query_scope", value);
     }
 
@@ -85,7 +85,7 @@ public class GoogleFirestoreFieldTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleFirestoreFieldTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -103,7 +103,7 @@ public class GoogleFirestoreFieldTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -125,9 +125,7 @@ public class GoogleFirestoreFieldTtlConfigBlock : TerraformBlock
     /// The state of TTL (time-to-live) configuration for documents that have this Field set.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
 }
 
@@ -144,7 +142,7 @@ public partial class GoogleFirestoreField(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
     public required TerraformValue<string> Collection
     {
-        get => new TerraformReference<string>(this, "collection");
+        get => GetArgument<TerraformValue<string>>("collection");
         set => SetArgument("collection", value);
     }
 
@@ -153,7 +151,7 @@ public partial class GoogleFirestoreField(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -163,25 +161,25 @@ public partial class GoogleFirestoreField(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
     public required TerraformValue<string> Field
     {
-        get => new TerraformReference<string>(this, "field");
+        get => GetArgument<TerraformValue<string>>("field");
         set => SetArgument("field", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -190,9 +188,7 @@ public partial class GoogleFirestoreField(string name) : TerraformResource("goog
     /// &#39;projects/{{project}}/databases/{{database}}/collectionGroups/{{collection}}/fields/{{field}}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// IndexConfig block (nesting mode: list).

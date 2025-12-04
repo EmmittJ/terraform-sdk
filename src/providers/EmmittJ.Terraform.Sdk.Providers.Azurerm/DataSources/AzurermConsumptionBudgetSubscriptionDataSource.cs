@@ -18,7 +18,7 @@ public class AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermConsumptionBudgetSubscriptionDataSource(string name)
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermConsumptionBudgetSubscriptionDataSource(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermConsumptionBudgetSubscriptionDataSource(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformValue<string> SubscriptionId
     {
-        get => new TerraformReference<string>(this, "subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 
@@ -64,41 +64,31 @@ public partial class AzurermConsumptionBudgetSubscriptionDataSource(string name)
     /// The amount attribute.
     /// </summary>
     public TerraformValue<double> Amount
-    {
-        get => new TerraformReference<double>(this, "amount");
-    }
+        => AsReference("amount");
 
     /// <summary>
     /// The filter attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Filter
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "filter").ResolveNodes(ctx));
-    }
+        => AsReference("filter");
 
     /// <summary>
     /// The notification attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Notification
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "notification").ResolveNodes(ctx));
-    }
+        => AsReference("notification");
 
     /// <summary>
     /// The time_grain attribute.
     /// </summary>
     public TerraformValue<string> TimeGrain
-    {
-        get => new TerraformReference<string>(this, "time_grain");
-    }
+        => AsReference("time_grain");
 
     /// <summary>
     /// The time_period attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TimePeriod
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "time_period").ResolveNodes(ctx));
-    }
+        => AsReference("time_period");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class AzurermBillingMpaAccountScopeDataSourceTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,7 +37,7 @@ public partial class AzurermBillingMpaAccountScopeDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccountName is required")]
     public required TerraformValue<string> BillingAccountName
     {
-        get => new TerraformReference<string>(this, "billing_account_name");
+        get => GetArgument<TerraformValue<string>>("billing_account_name");
         set => SetArgument("billing_account_name", value);
     }
 
@@ -47,16 +47,16 @@ public partial class AzurermBillingMpaAccountScopeDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerName is required")]
     public required TerraformValue<string> CustomerName
     {
-        get => new TerraformReference<string>(this, "customer_name");
+        get => GetArgument<TerraformValue<string>>("customer_name");
         set => SetArgument("customer_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 

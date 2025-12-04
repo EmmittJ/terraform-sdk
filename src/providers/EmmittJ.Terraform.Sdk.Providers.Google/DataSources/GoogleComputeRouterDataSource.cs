@@ -11,9 +11,9 @@ public partial class GoogleComputeRouterDataSource(string name) : TerraformDataS
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -28,7 +28,7 @@ public partial class GoogleComputeRouterDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -38,7 +38,7 @@ public partial class GoogleComputeRouterDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -47,7 +47,7 @@ public partial class GoogleComputeRouterDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -56,7 +56,7 @@ public partial class GoogleComputeRouterDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -64,57 +64,43 @@ public partial class GoogleComputeRouterDataSource(string name) : TerraformDataS
     /// BGP information specific to this router.
     /// </summary>
     public TerraformList<TerraformMap<object>> Bgp
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "bgp").ResolveNodes(ctx));
-    }
+        => AsReference("bgp");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// Indicates if a router is dedicated for use with encrypted VLAN
     /// attachments (interconnectAttachments).
     /// </summary>
     public TerraformValue<bool> EncryptedInterconnectRouter
-    {
-        get => new TerraformReference<bool>(this, "encrypted_interconnect_router");
-    }
+        => AsReference("encrypted_interconnect_router");
 
     /// <summary>
     /// Keys used for MD5 authentication.
     /// </summary>
     public TerraformList<TerraformMap<object>> Md5AuthenticationKeys
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "md5_authentication_keys").ResolveNodes(ctx));
-    }
+        => AsReference("md5_authentication_keys");
 
     /// <summary>
     /// Additional params passed with the request, but not persisted as part of resource payload
     /// </summary>
     public TerraformList<TerraformMap<object>> ParamsAttribute
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "params").ResolveNodes(ctx));
-    }
+        => AsReference("params");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
 }

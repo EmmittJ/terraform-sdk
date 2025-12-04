@@ -41,7 +41,7 @@ public class GoogleDialogflowCxPageAdvancedSettingsBlockDtmfSettingsBlock : Terr
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleDialogflowCxPageAdvancedSettingsBlockDtmfSettingsBlock : Terr
     /// </summary>
     public TerraformValue<string>? FinishDigit
     {
-        get => new TerraformReference<string>(this, "finish_digit");
+        get => GetArgument<TerraformValue<string>>("finish_digit");
         set => SetArgument("finish_digit", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleDialogflowCxPageAdvancedSettingsBlockDtmfSettingsBlock : Terr
     /// </summary>
     public TerraformValue<double>? MaxDigits
     {
-        get => new TerraformReference<double>(this, "max_digits");
+        get => GetArgument<TerraformValue<double>>("max_digits");
         set => SetArgument("max_digits", value);
     }
 
@@ -82,7 +82,7 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ReturnPartialResponses
     {
-        get => new TerraformReference<bool>(this, "return_partial_responses");
+        get => GetArgument<TerraformValue<bool>>("return_partial_responses");
         set => SetArgument("return_partial_responses", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Tag
     {
-        get => new TerraformReference<string>(this, "tag");
+        get => GetArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -100,7 +100,7 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Webhook
     {
-        get => new TerraformReference<string>(this, "webhook");
+        get => GetArgument<TerraformValue<string>>("webhook");
         set => SetArgument("webhook", value);
     }
 
@@ -150,7 +150,7 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlockConditionalCasesBlock : 
     /// </summary>
     public TerraformValue<string>? Cases
     {
-        get => new TerraformReference<string>(this, "cases");
+        get => GetArgument<TerraformValue<string>>("cases");
         set => SetArgument("cases", value);
     }
 
@@ -172,7 +172,7 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlockMessagesBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Channel
     {
-        get => new TerraformReference<string>(this, "channel");
+        get => GetArgument<TerraformValue<string>>("channel");
         set => SetArgument("channel", value);
     }
 
@@ -181,7 +181,7 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlockMessagesBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Payload
     {
-        get => new TerraformReference<string>(this, "payload");
+        get => GetArgument<TerraformValue<string>>("payload");
         set => SetArgument("payload", value);
     }
 
@@ -263,7 +263,7 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlockMessagesBlockConversatio
     /// </summary>
     public TerraformValue<string>? Metadata
     {
-        get => new TerraformReference<string>(this, "metadata");
+        get => GetArgument<TerraformValue<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -285,7 +285,7 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlockMessagesBlockLiveAgentHa
     /// </summary>
     public TerraformValue<string>? Metadata
     {
-        get => new TerraformReference<string>(this, "metadata");
+        get => GetArgument<TerraformValue<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -306,16 +306,14 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlockMessagesBlockOutputAudio
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-    {
-        get => new TerraformReference<bool>(this, "allow_playback_interruption");
-    }
+        => AsReference("allow_playback_interruption");
 
     /// <summary>
     /// The SSML text to be synthesized. For more information, see SSML.
     /// </summary>
     public TerraformValue<string>? Ssml
     {
-        get => new TerraformReference<string>(this, "ssml");
+        get => GetArgument<TerraformValue<string>>("ssml");
         set => SetArgument("ssml", value);
     }
 
@@ -324,7 +322,7 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlockMessagesBlockOutputAudio
     /// </summary>
     public TerraformValue<string>? Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -345,9 +343,7 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlockMessagesBlockPlayAudioBl
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-    {
-        get => new TerraformReference<bool>(this, "allow_playback_interruption");
-    }
+        => AsReference("allow_playback_interruption");
 
     /// <summary>
     /// URI of the audio clip. Dialogflow does not impose any validation on this value. It is specific to the client that reads it.
@@ -355,7 +351,7 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlockMessagesBlockPlayAudioBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AudioUri is required")]
     public required TerraformValue<string> AudioUri
     {
-        get => new TerraformReference<string>(this, "audio_uri");
+        get => GetArgument<TerraformValue<string>>("audio_uri");
         set => SetArgument("audio_uri", value);
     }
 
@@ -378,7 +374,7 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlockMessagesBlockTelephonyTr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => new TerraformReference<string>(this, "phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -399,16 +395,14 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlockMessagesBlockTextBlock :
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-    {
-        get => new TerraformReference<bool>(this, "allow_playback_interruption");
-    }
+        => AsReference("allow_playback_interruption");
 
     /// <summary>
     /// A collection of text responses.
     /// </summary>
     public TerraformList<string>? Text
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "text").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -430,7 +424,7 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlockSetParameterActionsBlock
     /// </summary>
     public TerraformValue<string>? Parameter
     {
-        get => new TerraformReference<string>(this, "parameter");
+        get => GetArgument<TerraformValue<string>>("parameter");
         set => SetArgument("parameter", value);
     }
 
@@ -439,7 +433,7 @@ public class GoogleDialogflowCxPageEntryFulfillmentBlockSetParameterActionsBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -462,7 +456,7 @@ public class GoogleDialogflowCxPageEventHandlersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EventAttribute
     {
-        get => new TerraformReference<string>(this, "event");
+        get => GetArgument<TerraformValue<string>>("event");
         set => SetArgument("event", value);
     }
 
@@ -470,9 +464,7 @@ public class GoogleDialogflowCxPageEventHandlersBlock : TerraformBlock
     /// The unique identifier of this event handler.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The target flow to transition to.
@@ -480,7 +472,7 @@ public class GoogleDialogflowCxPageEventHandlersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TargetFlow
     {
-        get => new TerraformReference<string>(this, "target_flow");
+        get => GetArgument<TerraformValue<string>>("target_flow");
         set => SetArgument("target_flow", value);
     }
 
@@ -490,7 +482,7 @@ public class GoogleDialogflowCxPageEventHandlersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TargetPage
     {
-        get => new TerraformReference<string>(this, "target_page");
+        get => GetArgument<TerraformValue<string>>("target_page");
         set => SetArgument("target_page", value);
     }
 
@@ -522,7 +514,7 @@ public class GoogleDialogflowCxPageEventHandlersBlockTriggerFulfillmentBlock : T
     /// </summary>
     public TerraformValue<bool>? ReturnPartialResponses
     {
-        get => new TerraformReference<bool>(this, "return_partial_responses");
+        get => GetArgument<TerraformValue<bool>>("return_partial_responses");
         set => SetArgument("return_partial_responses", value);
     }
 
@@ -531,7 +523,7 @@ public class GoogleDialogflowCxPageEventHandlersBlockTriggerFulfillmentBlock : T
     /// </summary>
     public TerraformValue<string>? Tag
     {
-        get => new TerraformReference<string>(this, "tag");
+        get => GetArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -540,7 +532,7 @@ public class GoogleDialogflowCxPageEventHandlersBlockTriggerFulfillmentBlock : T
     /// </summary>
     public TerraformValue<string>? Webhook
     {
-        get => new TerraformReference<string>(this, "webhook");
+        get => GetArgument<TerraformValue<string>>("webhook");
         set => SetArgument("webhook", value);
     }
 
@@ -590,7 +582,7 @@ public class GoogleDialogflowCxPageEventHandlersBlockTriggerFulfillmentBlockCond
     /// </summary>
     public TerraformValue<string>? Cases
     {
-        get => new TerraformReference<string>(this, "cases");
+        get => GetArgument<TerraformValue<string>>("cases");
         set => SetArgument("cases", value);
     }
 
@@ -612,7 +604,7 @@ public class GoogleDialogflowCxPageEventHandlersBlockTriggerFulfillmentBlockMess
     /// </summary>
     public TerraformValue<string>? Channel
     {
-        get => new TerraformReference<string>(this, "channel");
+        get => GetArgument<TerraformValue<string>>("channel");
         set => SetArgument("channel", value);
     }
 
@@ -621,7 +613,7 @@ public class GoogleDialogflowCxPageEventHandlersBlockTriggerFulfillmentBlockMess
     /// </summary>
     public TerraformValue<string>? Payload
     {
-        get => new TerraformReference<string>(this, "payload");
+        get => GetArgument<TerraformValue<string>>("payload");
         set => SetArgument("payload", value);
     }
 
@@ -703,7 +695,7 @@ public class GoogleDialogflowCxPageEventHandlersBlockTriggerFulfillmentBlockMess
     /// </summary>
     public TerraformValue<string>? Metadata
     {
-        get => new TerraformReference<string>(this, "metadata");
+        get => GetArgument<TerraformValue<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -725,7 +717,7 @@ public class GoogleDialogflowCxPageEventHandlersBlockTriggerFulfillmentBlockMess
     /// </summary>
     public TerraformValue<string>? Metadata
     {
-        get => new TerraformReference<string>(this, "metadata");
+        get => GetArgument<TerraformValue<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -746,16 +738,14 @@ public class GoogleDialogflowCxPageEventHandlersBlockTriggerFulfillmentBlockMess
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-    {
-        get => new TerraformReference<bool>(this, "allow_playback_interruption");
-    }
+        => AsReference("allow_playback_interruption");
 
     /// <summary>
     /// The SSML text to be synthesized. For more information, see SSML.
     /// </summary>
     public TerraformValue<string>? Ssml
     {
-        get => new TerraformReference<string>(this, "ssml");
+        get => GetArgument<TerraformValue<string>>("ssml");
         set => SetArgument("ssml", value);
     }
 
@@ -764,7 +754,7 @@ public class GoogleDialogflowCxPageEventHandlersBlockTriggerFulfillmentBlockMess
     /// </summary>
     public TerraformValue<string>? Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -785,9 +775,7 @@ public class GoogleDialogflowCxPageEventHandlersBlockTriggerFulfillmentBlockMess
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-    {
-        get => new TerraformReference<bool>(this, "allow_playback_interruption");
-    }
+        => AsReference("allow_playback_interruption");
 
     /// <summary>
     /// URI of the audio clip. Dialogflow does not impose any validation on this value. It is specific to the client that reads it.
@@ -795,7 +783,7 @@ public class GoogleDialogflowCxPageEventHandlersBlockTriggerFulfillmentBlockMess
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AudioUri is required")]
     public required TerraformValue<string> AudioUri
     {
-        get => new TerraformReference<string>(this, "audio_uri");
+        get => GetArgument<TerraformValue<string>>("audio_uri");
         set => SetArgument("audio_uri", value);
     }
 
@@ -818,7 +806,7 @@ public class GoogleDialogflowCxPageEventHandlersBlockTriggerFulfillmentBlockMess
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => new TerraformReference<string>(this, "phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -839,16 +827,14 @@ public class GoogleDialogflowCxPageEventHandlersBlockTriggerFulfillmentBlockMess
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-    {
-        get => new TerraformReference<bool>(this, "allow_playback_interruption");
-    }
+        => AsReference("allow_playback_interruption");
 
     /// <summary>
     /// A collection of text responses.
     /// </summary>
     public TerraformList<string>? Text
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "text").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -870,7 +856,7 @@ public class GoogleDialogflowCxPageEventHandlersBlockTriggerFulfillmentBlockSetP
     /// </summary>
     public TerraformValue<string>? Parameter
     {
-        get => new TerraformReference<string>(this, "parameter");
+        get => GetArgument<TerraformValue<string>>("parameter");
         set => SetArgument("parameter", value);
     }
 
@@ -879,7 +865,7 @@ public class GoogleDialogflowCxPageEventHandlersBlockTriggerFulfillmentBlockSetP
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -924,7 +910,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DefaultValue
     {
-        get => new TerraformReference<string>(this, "default_value");
+        get => GetArgument<TerraformValue<string>>("default_value");
         set => SetArgument("default_value", value);
     }
 
@@ -933,7 +919,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -943,7 +929,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EntityType
     {
-        get => new TerraformReference<string>(this, "entity_type");
+        get => GetArgument<TerraformValue<string>>("entity_type");
         set => SetArgument("entity_type", value);
     }
 
@@ -952,7 +938,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IsList
     {
-        get => new TerraformReference<bool>(this, "is_list");
+        get => GetArgument<TerraformValue<bool>>("is_list");
         set => SetArgument("is_list", value);
     }
 
@@ -962,7 +948,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Redact
     {
-        get => new TerraformReference<bool>(this, "redact");
+        get => GetArgument<TerraformValue<bool>>("redact");
         set => SetArgument("redact", value);
     }
 
@@ -972,7 +958,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Required
     {
-        get => new TerraformReference<bool>(this, "required");
+        get => GetArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -1037,7 +1023,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockAdvancedSettingsBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1046,7 +1032,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockAdvancedSettingsBlock
     /// </summary>
     public TerraformValue<string>? FinishDigit
     {
-        get => new TerraformReference<string>(this, "finish_digit");
+        get => GetArgument<TerraformValue<string>>("finish_digit");
         set => SetArgument("finish_digit", value);
     }
 
@@ -1055,7 +1041,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockAdvancedSettingsBlock
     /// </summary>
     public TerraformValue<double>? MaxDigits
     {
-        get => new TerraformReference<double>(this, "max_digits");
+        get => GetArgument<TerraformValue<double>>("max_digits");
         set => SetArgument("max_digits", value);
     }
 
@@ -1109,7 +1095,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockInit
     /// </summary>
     public TerraformValue<bool>? ReturnPartialResponses
     {
-        get => new TerraformReference<bool>(this, "return_partial_responses");
+        get => GetArgument<TerraformValue<bool>>("return_partial_responses");
         set => SetArgument("return_partial_responses", value);
     }
 
@@ -1118,7 +1104,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockInit
     /// </summary>
     public TerraformValue<string>? Tag
     {
-        get => new TerraformReference<string>(this, "tag");
+        get => GetArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -1127,7 +1113,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockInit
     /// </summary>
     public TerraformValue<string>? Webhook
     {
-        get => new TerraformReference<string>(this, "webhook");
+        get => GetArgument<TerraformValue<string>>("webhook");
         set => SetArgument("webhook", value);
     }
 
@@ -1177,7 +1163,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockInit
     /// </summary>
     public TerraformValue<string>? Cases
     {
-        get => new TerraformReference<string>(this, "cases");
+        get => GetArgument<TerraformValue<string>>("cases");
         set => SetArgument("cases", value);
     }
 
@@ -1199,7 +1185,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockInit
     /// </summary>
     public TerraformValue<string>? Channel
     {
-        get => new TerraformReference<string>(this, "channel");
+        get => GetArgument<TerraformValue<string>>("channel");
         set => SetArgument("channel", value);
     }
 
@@ -1208,7 +1194,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockInit
     /// </summary>
     public TerraformValue<string>? Payload
     {
-        get => new TerraformReference<string>(this, "payload");
+        get => GetArgument<TerraformValue<string>>("payload");
         set => SetArgument("payload", value);
     }
 
@@ -1290,7 +1276,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockInit
     /// </summary>
     public TerraformValue<string>? Metadata
     {
-        get => new TerraformReference<string>(this, "metadata");
+        get => GetArgument<TerraformValue<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -1312,7 +1298,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockInit
     /// </summary>
     public TerraformValue<string>? Metadata
     {
-        get => new TerraformReference<string>(this, "metadata");
+        get => GetArgument<TerraformValue<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -1333,16 +1319,14 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockInit
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-    {
-        get => new TerraformReference<bool>(this, "allow_playback_interruption");
-    }
+        => AsReference("allow_playback_interruption");
 
     /// <summary>
     /// The SSML text to be synthesized. For more information, see SSML.
     /// </summary>
     public TerraformValue<string>? Ssml
     {
-        get => new TerraformReference<string>(this, "ssml");
+        get => GetArgument<TerraformValue<string>>("ssml");
         set => SetArgument("ssml", value);
     }
 
@@ -1351,7 +1335,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockInit
     /// </summary>
     public TerraformValue<string>? Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -1372,9 +1356,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockInit
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-    {
-        get => new TerraformReference<bool>(this, "allow_playback_interruption");
-    }
+        => AsReference("allow_playback_interruption");
 
     /// <summary>
     /// URI of the audio clip. Dialogflow does not impose any validation on this value. It is specific to the client that reads it.
@@ -1382,7 +1364,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockInit
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AudioUri is required")]
     public required TerraformValue<string> AudioUri
     {
-        get => new TerraformReference<string>(this, "audio_uri");
+        get => GetArgument<TerraformValue<string>>("audio_uri");
         set => SetArgument("audio_uri", value);
     }
 
@@ -1405,7 +1387,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockInit
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => new TerraformReference<string>(this, "phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -1426,16 +1408,14 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockInit
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-    {
-        get => new TerraformReference<bool>(this, "allow_playback_interruption");
-    }
+        => AsReference("allow_playback_interruption");
 
     /// <summary>
     /// A collection of text responses.
     /// </summary>
     public TerraformList<string>? Text
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "text").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -1457,7 +1437,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockInit
     /// </summary>
     public TerraformValue<string>? Parameter
     {
-        get => new TerraformReference<string>(this, "parameter");
+        get => GetArgument<TerraformValue<string>>("parameter");
         set => SetArgument("parameter", value);
     }
 
@@ -1466,7 +1446,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockInit
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1488,7 +1468,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// </summary>
     public TerraformValue<string>? EventAttribute
     {
-        get => new TerraformReference<string>(this, "event");
+        get => GetArgument<TerraformValue<string>>("event");
         set => SetArgument("event", value);
     }
 
@@ -1496,9 +1476,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// The unique identifier of this event handler.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The target flow to transition to.
@@ -1506,7 +1484,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// </summary>
     public TerraformValue<string>? TargetFlow
     {
-        get => new TerraformReference<string>(this, "target_flow");
+        get => GetArgument<TerraformValue<string>>("target_flow");
         set => SetArgument("target_flow", value);
     }
 
@@ -1516,7 +1494,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// </summary>
     public TerraformValue<string>? TargetPage
     {
-        get => new TerraformReference<string>(this, "target_page");
+        get => GetArgument<TerraformValue<string>>("target_page");
         set => SetArgument("target_page", value);
     }
 
@@ -1548,7 +1526,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// </summary>
     public TerraformValue<bool>? ReturnPartialResponses
     {
-        get => new TerraformReference<bool>(this, "return_partial_responses");
+        get => GetArgument<TerraformValue<bool>>("return_partial_responses");
         set => SetArgument("return_partial_responses", value);
     }
 
@@ -1557,7 +1535,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// </summary>
     public TerraformValue<string>? Tag
     {
-        get => new TerraformReference<string>(this, "tag");
+        get => GetArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -1566,7 +1544,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// </summary>
     public TerraformValue<string>? Webhook
     {
-        get => new TerraformReference<string>(this, "webhook");
+        get => GetArgument<TerraformValue<string>>("webhook");
         set => SetArgument("webhook", value);
     }
 
@@ -1616,7 +1594,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// </summary>
     public TerraformValue<string>? Cases
     {
-        get => new TerraformReference<string>(this, "cases");
+        get => GetArgument<TerraformValue<string>>("cases");
         set => SetArgument("cases", value);
     }
 
@@ -1638,7 +1616,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// </summary>
     public TerraformValue<string>? Channel
     {
-        get => new TerraformReference<string>(this, "channel");
+        get => GetArgument<TerraformValue<string>>("channel");
         set => SetArgument("channel", value);
     }
 
@@ -1647,7 +1625,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// </summary>
     public TerraformValue<string>? Payload
     {
-        get => new TerraformReference<string>(this, "payload");
+        get => GetArgument<TerraformValue<string>>("payload");
         set => SetArgument("payload", value);
     }
 
@@ -1729,7 +1707,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// </summary>
     public TerraformValue<string>? Metadata
     {
-        get => new TerraformReference<string>(this, "metadata");
+        get => GetArgument<TerraformValue<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -1751,7 +1729,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// </summary>
     public TerraformValue<string>? Metadata
     {
-        get => new TerraformReference<string>(this, "metadata");
+        get => GetArgument<TerraformValue<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -1772,16 +1750,14 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-    {
-        get => new TerraformReference<bool>(this, "allow_playback_interruption");
-    }
+        => AsReference("allow_playback_interruption");
 
     /// <summary>
     /// The SSML text to be synthesized. For more information, see SSML.
     /// </summary>
     public TerraformValue<string>? Ssml
     {
-        get => new TerraformReference<string>(this, "ssml");
+        get => GetArgument<TerraformValue<string>>("ssml");
         set => SetArgument("ssml", value);
     }
 
@@ -1790,7 +1766,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// </summary>
     public TerraformValue<string>? Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -1811,9 +1787,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-    {
-        get => new TerraformReference<bool>(this, "allow_playback_interruption");
-    }
+        => AsReference("allow_playback_interruption");
 
     /// <summary>
     /// URI of the audio clip. Dialogflow does not impose any validation on this value. It is specific to the client that reads it.
@@ -1821,7 +1795,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AudioUri is required")]
     public required TerraformValue<string> AudioUri
     {
-        get => new TerraformReference<string>(this, "audio_uri");
+        get => GetArgument<TerraformValue<string>>("audio_uri");
         set => SetArgument("audio_uri", value);
     }
 
@@ -1844,7 +1818,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => new TerraformReference<string>(this, "phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -1865,16 +1839,14 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-    {
-        get => new TerraformReference<bool>(this, "allow_playback_interruption");
-    }
+        => AsReference("allow_playback_interruption");
 
     /// <summary>
     /// A collection of text responses.
     /// </summary>
     public TerraformList<string>? Text
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "text").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -1896,7 +1868,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// </summary>
     public TerraformValue<string>? Parameter
     {
-        get => new TerraformReference<string>(this, "parameter");
+        get => GetArgument<TerraformValue<string>>("parameter");
         set => SetArgument("parameter", value);
     }
 
@@ -1905,7 +1877,7 @@ public class GoogleDialogflowCxPageFormBlockParametersBlockFillBehaviorBlockRepr
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1928,7 +1900,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1938,7 +1910,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? TargetFlow
     {
-        get => new TerraformReference<string>(this, "target_flow");
+        get => GetArgument<TerraformValue<string>>("target_flow");
         set => SetArgument("target_flow", value);
     }
 
@@ -1949,7 +1921,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? TargetPage
     {
-        get => new TerraformReference<string>(this, "target_page");
+        get => GetArgument<TerraformValue<string>>("target_page");
         set => SetArgument("target_page", value);
     }
 
@@ -1990,7 +1962,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockDataStoreConne
     /// </summary>
     public TerraformValue<string>? DataStore
     {
-        get => new TerraformReference<string>(this, "data_store");
+        get => GetArgument<TerraformValue<string>>("data_store");
         set => SetArgument("data_store", value);
     }
 
@@ -2002,7 +1974,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockDataStoreConne
     /// </summary>
     public TerraformValue<string>? DataStoreType
     {
-        get => new TerraformReference<string>(this, "data_store_type");
+        get => GetArgument<TerraformValue<string>>("data_store_type");
         set => SetArgument("data_store_type", value);
     }
 
@@ -2013,7 +1985,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockDataStoreConne
     /// </summary>
     public TerraformValue<string>? DocumentProcessingMode
     {
-        get => new TerraformReference<string>(this, "document_processing_mode");
+        get => GetArgument<TerraformValue<string>>("document_processing_mode");
         set => SetArgument("document_processing_mode", value);
     }
 
@@ -2035,7 +2007,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<bool>? EnableGenerativeFallback
     {
-        get => new TerraformReference<bool>(this, "enable_generative_fallback");
+        get => GetArgument<TerraformValue<bool>>("enable_generative_fallback");
         set => SetArgument("enable_generative_fallback", value);
     }
 
@@ -2044,7 +2016,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<bool>? ReturnPartialResponses
     {
-        get => new TerraformReference<bool>(this, "return_partial_responses");
+        get => GetArgument<TerraformValue<bool>>("return_partial_responses");
         set => SetArgument("return_partial_responses", value);
     }
 
@@ -2053,7 +2025,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<string>? Tag
     {
-        get => new TerraformReference<string>(this, "tag");
+        get => GetArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -2062,7 +2034,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<string>? Webhook
     {
-        get => new TerraformReference<string>(this, "webhook");
+        get => GetArgument<TerraformValue<string>>("webhook");
         set => SetArgument("webhook", value);
     }
 
@@ -2164,7 +2136,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -2174,7 +2146,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<string>? EndpointingTimeoutDuration
     {
-        get => new TerraformReference<string>(this, "endpointing_timeout_duration");
+        get => GetArgument<TerraformValue<string>>("endpointing_timeout_duration");
         set => SetArgument("endpointing_timeout_duration", value);
     }
 
@@ -2183,7 +2155,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<string>? FinishDigit
     {
-        get => new TerraformReference<string>(this, "finish_digit");
+        get => GetArgument<TerraformValue<string>>("finish_digit");
         set => SetArgument("finish_digit", value);
     }
 
@@ -2193,7 +2165,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<string>? InterdigitTimeoutDuration
     {
-        get => new TerraformReference<string>(this, "interdigit_timeout_duration");
+        get => GetArgument<TerraformValue<string>>("interdigit_timeout_duration");
         set => SetArgument("interdigit_timeout_duration", value);
     }
 
@@ -2202,7 +2174,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<double>? MaxDigits
     {
-        get => new TerraformReference<double>(this, "max_digits");
+        get => GetArgument<TerraformValue<double>>("max_digits");
         set => SetArgument("max_digits", value);
     }
 
@@ -2224,7 +2196,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<bool>? EnableConsentBasedRedaction
     {
-        get => new TerraformReference<bool>(this, "enable_consent_based_redaction");
+        get => GetArgument<TerraformValue<bool>>("enable_consent_based_redaction");
         set => SetArgument("enable_consent_based_redaction", value);
     }
 
@@ -2233,7 +2205,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<bool>? EnableInteractionLogging
     {
-        get => new TerraformReference<bool>(this, "enable_interaction_logging");
+        get => GetArgument<TerraformValue<bool>>("enable_interaction_logging");
         set => SetArgument("enable_interaction_logging", value);
     }
 
@@ -2242,7 +2214,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<bool>? EnableStackdriverLogging
     {
-        get => new TerraformReference<bool>(this, "enable_stackdriver_logging");
+        get => GetArgument<TerraformValue<bool>>("enable_stackdriver_logging");
         set => SetArgument("enable_stackdriver_logging", value);
     }
 
@@ -2264,7 +2236,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<double>? EndpointerSensitivity
     {
-        get => new TerraformReference<double>(this, "endpointer_sensitivity");
+        get => GetArgument<TerraformValue<double>>("endpointer_sensitivity");
         set => SetArgument("endpointer_sensitivity", value);
     }
 
@@ -2274,7 +2246,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformMap<string>? Models
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "models").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("models");
         set => SetArgument("models", value);
     }
 
@@ -2284,7 +2256,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<string>? NoSpeechTimeout
     {
-        get => new TerraformReference<string>(this, "no_speech_timeout");
+        get => GetArgument<TerraformValue<string>>("no_speech_timeout");
         set => SetArgument("no_speech_timeout", value);
     }
 
@@ -2293,7 +2265,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<bool>? UseTimeoutBasedEndpointing
     {
-        get => new TerraformReference<bool>(this, "use_timeout_based_endpointing");
+        get => GetArgument<TerraformValue<bool>>("use_timeout_based_endpointing");
         set => SetArgument("use_timeout_based_endpointing", value);
     }
 
@@ -2316,7 +2288,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<string>? Cases
     {
-        get => new TerraformReference<string>(this, "cases");
+        get => GetArgument<TerraformValue<string>>("cases");
         set => SetArgument("cases", value);
     }
 
@@ -2338,7 +2310,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<string>? Channel
     {
-        get => new TerraformReference<string>(this, "channel");
+        get => GetArgument<TerraformValue<string>>("channel");
         set => SetArgument("channel", value);
     }
 
@@ -2348,18 +2320,14 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// This field is part of a union field &#39;message&#39;: Only one of &#39;text&#39;, &#39;payload&#39;, &#39;conversationSuccess&#39;, &#39;outputAudioText&#39;, &#39;liveAgentHandoff&#39;, &#39;endInteraction&#39;, &#39;playAudio&#39;, &#39;mixedAudio&#39;, &#39;telephonyTransferCall&#39;, or &#39;knowledgeInfoCard&#39; may be set.
     /// </summary>
     public TerraformList<TerraformMap<object>> EndInteraction
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "end_interaction").ResolveNodes(ctx));
-    }
+        => AsReference("end_interaction");
 
     /// <summary>
     /// Represents an audio message that is composed of both segments synthesized from the Dialogflow agent prompts and ones hosted externally at the specified URIs. The external URIs are specified via playAudio. This message is generated by Dialogflow only and not supposed to be defined by the user.
     /// This field is part of a union field &#39;message&#39;: Only one of &#39;text&#39;, &#39;payload&#39;, &#39;conversationSuccess&#39;, &#39;outputAudioText&#39;, &#39;liveAgentHandoff&#39;, &#39;endInteraction&#39;, &#39;playAudio&#39;, &#39;mixedAudio&#39;, &#39;telephonyTransferCall&#39;, or &#39;knowledgeInfoCard&#39; may be set.
     /// </summary>
     public TerraformList<TerraformMap<object>> MixedAudio
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "mixed_audio").ResolveNodes(ctx));
-    }
+        => AsReference("mixed_audio");
 
     /// <summary>
     /// Returns a response containing a custom, platform-specific payload.
@@ -2367,7 +2335,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<string>? Payload
     {
-        get => new TerraformReference<string>(this, "payload");
+        get => GetArgument<TerraformValue<string>>("payload");
         set => SetArgument("payload", value);
     }
 
@@ -2459,7 +2427,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<string>? Metadata
     {
-        get => new TerraformReference<string>(this, "metadata");
+        get => GetArgument<TerraformValue<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -2494,7 +2462,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<string>? Metadata
     {
-        get => new TerraformReference<string>(this, "metadata");
+        get => GetArgument<TerraformValue<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -2515,9 +2483,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-    {
-        get => new TerraformReference<bool>(this, "allow_playback_interruption");
-    }
+        => AsReference("allow_playback_interruption");
 
     /// <summary>
     /// The SSML text to be synthesized. For more information, see SSML.
@@ -2525,7 +2491,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<string>? Ssml
     {
-        get => new TerraformReference<string>(this, "ssml");
+        get => GetArgument<TerraformValue<string>>("ssml");
         set => SetArgument("ssml", value);
     }
 
@@ -2535,7 +2501,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<string>? Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -2556,9 +2522,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-    {
-        get => new TerraformReference<bool>(this, "allow_playback_interruption");
-    }
+        => AsReference("allow_playback_interruption");
 
     /// <summary>
     /// URI of the audio clip. Dialogflow does not impose any validation on this value. It is specific to the client that reads it.
@@ -2566,7 +2530,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AudioUri is required")]
     public required TerraformValue<string> AudioUri
     {
-        get => new TerraformReference<string>(this, "audio_uri");
+        get => GetArgument<TerraformValue<string>>("audio_uri");
         set => SetArgument("audio_uri", value);
     }
 
@@ -2589,7 +2553,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => new TerraformReference<string>(this, "phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -2610,9 +2574,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-    {
-        get => new TerraformReference<bool>(this, "allow_playback_interruption");
-    }
+        => AsReference("allow_playback_interruption");
 
     /// <summary>
     /// A collection of text response variants. If multiple variants are defined, only one text response variant is returned at runtime.
@@ -2620,7 +2582,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformList<string>? Text
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "text").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -2642,7 +2604,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<string>? Parameter
     {
-        get => new TerraformReference<string>(this, "parameter");
+        get => GetArgument<TerraformValue<string>>("parameter");
         set => SetArgument("parameter", value);
     }
 
@@ -2651,7 +2613,7 @@ public class GoogleDialogflowCxPageKnowledgeConnectorSettingsBlockTriggerFulfill
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2674,7 +2636,7 @@ public class GoogleDialogflowCxPageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -2683,7 +2645,7 @@ public class GoogleDialogflowCxPageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -2692,7 +2654,7 @@ public class GoogleDialogflowCxPageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -2716,7 +2678,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Condition
     {
-        get => new TerraformReference<string>(this, "condition");
+        get => GetArgument<TerraformValue<string>>("condition");
         set => SetArgument("condition", value);
     }
 
@@ -2726,7 +2688,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Intent
     {
-        get => new TerraformReference<string>(this, "intent");
+        get => GetArgument<TerraformValue<string>>("intent");
         set => SetArgument("intent", value);
     }
 
@@ -2734,9 +2696,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlock : TerraformBlock
     /// The unique identifier of this transition route.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The target flow to transition to.
@@ -2744,7 +2704,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TargetFlow
     {
-        get => new TerraformReference<string>(this, "target_flow");
+        get => GetArgument<TerraformValue<string>>("target_flow");
         set => SetArgument("target_flow", value);
     }
 
@@ -2754,7 +2714,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TargetPage
     {
-        get => new TerraformReference<string>(this, "target_page");
+        get => GetArgument<TerraformValue<string>>("target_page");
         set => SetArgument("target_page", value);
     }
 
@@ -2786,7 +2746,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlockTriggerFulfillmentBlock 
     /// </summary>
     public TerraformValue<bool>? ReturnPartialResponses
     {
-        get => new TerraformReference<bool>(this, "return_partial_responses");
+        get => GetArgument<TerraformValue<bool>>("return_partial_responses");
         set => SetArgument("return_partial_responses", value);
     }
 
@@ -2795,7 +2755,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlockTriggerFulfillmentBlock 
     /// </summary>
     public TerraformValue<string>? Tag
     {
-        get => new TerraformReference<string>(this, "tag");
+        get => GetArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -2804,7 +2764,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlockTriggerFulfillmentBlock 
     /// </summary>
     public TerraformValue<string>? Webhook
     {
-        get => new TerraformReference<string>(this, "webhook");
+        get => GetArgument<TerraformValue<string>>("webhook");
         set => SetArgument("webhook", value);
     }
 
@@ -2854,7 +2814,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlockTriggerFulfillmentBlockC
     /// </summary>
     public TerraformValue<string>? Cases
     {
-        get => new TerraformReference<string>(this, "cases");
+        get => GetArgument<TerraformValue<string>>("cases");
         set => SetArgument("cases", value);
     }
 
@@ -2876,7 +2836,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlockTriggerFulfillmentBlockM
     /// </summary>
     public TerraformValue<string>? Channel
     {
-        get => new TerraformReference<string>(this, "channel");
+        get => GetArgument<TerraformValue<string>>("channel");
         set => SetArgument("channel", value);
     }
 
@@ -2885,7 +2845,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlockTriggerFulfillmentBlockM
     /// </summary>
     public TerraformValue<string>? Payload
     {
-        get => new TerraformReference<string>(this, "payload");
+        get => GetArgument<TerraformValue<string>>("payload");
         set => SetArgument("payload", value);
     }
 
@@ -2967,7 +2927,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlockTriggerFulfillmentBlockM
     /// </summary>
     public TerraformValue<string>? Metadata
     {
-        get => new TerraformReference<string>(this, "metadata");
+        get => GetArgument<TerraformValue<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -2989,7 +2949,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlockTriggerFulfillmentBlockM
     /// </summary>
     public TerraformValue<string>? Metadata
     {
-        get => new TerraformReference<string>(this, "metadata");
+        get => GetArgument<TerraformValue<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -3010,16 +2970,14 @@ public class GoogleDialogflowCxPageTransitionRoutesBlockTriggerFulfillmentBlockM
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-    {
-        get => new TerraformReference<bool>(this, "allow_playback_interruption");
-    }
+        => AsReference("allow_playback_interruption");
 
     /// <summary>
     /// The SSML text to be synthesized. For more information, see SSML.
     /// </summary>
     public TerraformValue<string>? Ssml
     {
-        get => new TerraformReference<string>(this, "ssml");
+        get => GetArgument<TerraformValue<string>>("ssml");
         set => SetArgument("ssml", value);
     }
 
@@ -3028,7 +2986,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlockTriggerFulfillmentBlockM
     /// </summary>
     public TerraformValue<string>? Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -3049,9 +3007,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlockTriggerFulfillmentBlockM
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-    {
-        get => new TerraformReference<bool>(this, "allow_playback_interruption");
-    }
+        => AsReference("allow_playback_interruption");
 
     /// <summary>
     /// URI of the audio clip. Dialogflow does not impose any validation on this value. It is specific to the client that reads it.
@@ -3059,7 +3015,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlockTriggerFulfillmentBlockM
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AudioUri is required")]
     public required TerraformValue<string> AudioUri
     {
-        get => new TerraformReference<string>(this, "audio_uri");
+        get => GetArgument<TerraformValue<string>>("audio_uri");
         set => SetArgument("audio_uri", value);
     }
 
@@ -3082,7 +3038,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlockTriggerFulfillmentBlockM
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => new TerraformReference<string>(this, "phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -3103,16 +3059,14 @@ public class GoogleDialogflowCxPageTransitionRoutesBlockTriggerFulfillmentBlockM
     /// Whether the playback of this message can be interrupted by the end user&#39;s speech and the client can then starts the next Dialogflow request.
     /// </summary>
     public TerraformValue<bool> AllowPlaybackInterruption
-    {
-        get => new TerraformReference<bool>(this, "allow_playback_interruption");
-    }
+        => AsReference("allow_playback_interruption");
 
     /// <summary>
     /// A collection of text responses.
     /// </summary>
     public TerraformList<string>? Text
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "text").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -3134,7 +3088,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlockTriggerFulfillmentBlockS
     /// </summary>
     public TerraformValue<string>? Parameter
     {
-        get => new TerraformReference<string>(this, "parameter");
+        get => GetArgument<TerraformValue<string>>("parameter");
         set => SetArgument("parameter", value);
     }
 
@@ -3143,7 +3097,7 @@ public class GoogleDialogflowCxPageTransitionRoutesBlockTriggerFulfillmentBlockS
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -3162,16 +3116,16 @@ public partial class GoogleDialogflowCxPage(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -3192,7 +3146,7 @@ public partial class GoogleDialogflowCxPage(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? LanguageCode
     {
-        get => new TerraformReference<string>(this, "language_code");
+        get => GetArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -3202,7 +3156,7 @@ public partial class GoogleDialogflowCxPage(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -3214,7 +3168,7 @@ public partial class GoogleDialogflowCxPage(string name) : TerraformResource("go
     /// </summary>
     public TerraformList<string>? TransitionRouteGroups
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "transition_route_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("transition_route_groups");
         set => SetArgument("transition_route_groups", value);
     }
 
@@ -3223,9 +3177,7 @@ public partial class GoogleDialogflowCxPage(string name) : TerraformResource("go
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/flows/&amp;lt;Flow ID&amp;gt;/pages/&amp;lt;Page ID&amp;gt;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// AdvancedSettings block (nesting mode: list).

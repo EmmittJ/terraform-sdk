@@ -40,7 +40,7 @@ public class AwsMacie2FindingsFilterFindingCriteriaBlockCriterionBlock : Terrafo
     /// </summary>
     public TerraformSet<string>? Eq
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "eq").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("eq");
         set => SetArgument("eq", value);
     }
 
@@ -49,7 +49,7 @@ public class AwsMacie2FindingsFilterFindingCriteriaBlockCriterionBlock : Terrafo
     /// </summary>
     public TerraformSet<string>? EqExactMatch
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "eq_exact_match").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("eq_exact_match");
         set => SetArgument("eq_exact_match", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsMacie2FindingsFilterFindingCriteriaBlockCriterionBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
     public required TerraformValue<string> Field
     {
-        get => new TerraformReference<string>(this, "field");
+        get => GetArgument<TerraformValue<string>>("field");
         set => SetArgument("field", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsMacie2FindingsFilterFindingCriteriaBlockCriterionBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Gt
     {
-        get => new TerraformReference<string>(this, "gt");
+        get => GetArgument<TerraformValue<string>>("gt");
         set => SetArgument("gt", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsMacie2FindingsFilterFindingCriteriaBlockCriterionBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Gte
     {
-        get => new TerraformReference<string>(this, "gte");
+        get => GetArgument<TerraformValue<string>>("gte");
         set => SetArgument("gte", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsMacie2FindingsFilterFindingCriteriaBlockCriterionBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Lt
     {
-        get => new TerraformReference<string>(this, "lt");
+        get => GetArgument<TerraformValue<string>>("lt");
         set => SetArgument("lt", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsMacie2FindingsFilterFindingCriteriaBlockCriterionBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Lte
     {
-        get => new TerraformReference<string>(this, "lte");
+        get => GetArgument<TerraformValue<string>>("lte");
         set => SetArgument("lte", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsMacie2FindingsFilterFindingCriteriaBlockCriterionBlock : Terrafo
     /// </summary>
     public TerraformSet<string>? Neq
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "neq").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("neq");
         set => SetArgument("neq", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsMacie2FindingsFilterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AwsMacie2FindingsFilter(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -155,52 +155,52 @@ public partial class AwsMacie2FindingsFilter(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
     /// <summary>
     /// The position attribute.
     /// </summary>
-    public TerraformValue<double> Position
+    public TerraformValue<double>? Position
     {
-        get => new TerraformReference<double>(this, "position");
+        get => GetArgument<TerraformValue<double>>("position");
         set => SetArgument("position", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -209,16 +209,16 @@ public partial class AwsMacie2FindingsFilter(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -226,9 +226,7 @@ public partial class AwsMacie2FindingsFilter(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// FindingCriteria block (nesting mode: list).

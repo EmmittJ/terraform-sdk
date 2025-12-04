@@ -20,7 +20,7 @@ public class GoogleNotebooksRuntimeAccessConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AccessType
     {
-        get => new TerraformReference<string>(this, "access_type");
+        get => GetArgument<TerraformValue<string>>("access_type");
         set => SetArgument("access_type", value);
     }
 
@@ -28,9 +28,7 @@ public class GoogleNotebooksRuntimeAccessConfigBlock : TerraformBlock
     /// The proxy endpoint that is used to access the runtime.
     /// </summary>
     public TerraformValue<string> ProxyUri
-    {
-        get => new TerraformReference<string>(this, "proxy_uri");
-    }
+        => AsReference("proxy_uri");
 
     /// <summary>
     /// The owner of this runtime after creation. Format: &#39;alias@example.com&#39;.
@@ -38,7 +36,7 @@ public class GoogleNotebooksRuntimeAccessConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RuntimeOwner
     {
-        get => new TerraformReference<string>(this, "runtime_owner");
+        get => GetArgument<TerraformValue<string>>("runtime_owner");
         set => SetArgument("runtime_owner", value);
     }
 
@@ -62,7 +60,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CustomGpuDriverPath
     {
-        get => new TerraformReference<string>(this, "custom_gpu_driver_path");
+        get => GetArgument<TerraformValue<string>>("custom_gpu_driver_path");
         set => SetArgument("custom_gpu_driver_path", value);
     }
 
@@ -71,7 +69,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableHealthMonitoring
     {
-        get => new TerraformReference<bool>(this, "enable_health_monitoring");
+        get => GetArgument<TerraformValue<bool>>("enable_health_monitoring");
         set => SetArgument("enable_health_monitoring", value);
     }
 
@@ -81,7 +79,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IdleShutdown
     {
-        get => new TerraformReference<bool>(this, "idle_shutdown");
+        get => GetArgument<TerraformValue<bool>>("idle_shutdown");
         set => SetArgument("idle_shutdown", value);
     }
 
@@ -91,7 +89,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? IdleShutdownTimeout
     {
-        get => new TerraformReference<double>(this, "idle_shutdown_timeout");
+        get => GetArgument<TerraformValue<double>>("idle_shutdown_timeout");
         set => SetArgument("idle_shutdown_timeout", value);
     }
 
@@ -100,7 +98,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? InstallGpuDriver
     {
-        get => new TerraformReference<bool>(this, "install_gpu_driver");
+        get => GetArgument<TerraformValue<bool>>("install_gpu_driver");
         set => SetArgument("install_gpu_driver", value);
     }
 
@@ -110,7 +108,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? NotebookUpgradeSchedule
     {
-        get => new TerraformReference<string>(this, "notebook_upgrade_schedule");
+        get => GetArgument<TerraformValue<string>>("notebook_upgrade_schedule");
         set => SetArgument("notebook_upgrade_schedule", value);
     }
 
@@ -121,7 +119,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PostStartupScript
     {
-        get => new TerraformReference<string>(this, "post_startup_script");
+        get => GetArgument<TerraformValue<string>>("post_startup_script");
         set => SetArgument("post_startup_script", value);
     }
 
@@ -130,7 +128,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PostStartupScriptBehavior
     {
-        get => new TerraformReference<string>(this, "post_startup_script_behavior");
+        get => GetArgument<TerraformValue<string>>("post_startup_script_behavior");
         set => SetArgument("post_startup_script_behavior", value);
     }
 
@@ -138,9 +136,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlock
     /// Bool indicating whether an newer image is available in an image family.
     /// </summary>
     public TerraformValue<bool> Upgradeable
-    {
-        get => new TerraformReference<bool>(this, "upgradeable");
-    }
+        => AsReference("upgradeable");
 
     /// <summary>
     /// Kernels block (nesting mode: list).
@@ -171,7 +167,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlockKernelsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformValue<string> Repository
     {
-        get => new TerraformReference<string>(this, "repository");
+        get => GetArgument<TerraformValue<string>>("repository");
         set => SetArgument("repository", value);
     }
 
@@ -180,7 +176,7 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlockKernelsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Tag
     {
-        get => new TerraformReference<string>(this, "tag");
+        get => GetArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -203,7 +199,7 @@ public class GoogleNotebooksRuntimeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -212,7 +208,7 @@ public class GoogleNotebooksRuntimeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -221,7 +217,7 @@ public class GoogleNotebooksRuntimeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -243,17 +239,13 @@ public class GoogleNotebooksRuntimeVirtualMachineBlock : TerraformBlock
     /// The unique identifier of the Managed Compute Engine instance.
     /// </summary>
     public TerraformValue<string> InstanceId
-    {
-        get => new TerraformReference<string>(this, "instance_id");
-    }
+        => AsReference("instance_id");
 
     /// <summary>
     /// The user-friendly name of the Managed Compute Engine instance.
     /// </summary>
     public TerraformValue<string> InstanceName
-    {
-        get => new TerraformReference<string>(this, "instance_name");
-    }
+        => AsReference("instance_name");
 
     /// <summary>
     /// VirtualMachineConfig block (nesting mode: list).
@@ -284,9 +276,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlock 
     /// storing-retrieving-metadata#guest_attributes)).
     /// </summary>
     public TerraformMap<string> GuestAttributes
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "guest_attributes").ResolveNodes(ctx));
-    }
+        => AsReference("guest_attributes");
 
     /// <summary>
     /// If true, runtime will only have internal IP addresses. By default,
@@ -298,7 +288,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlock 
     /// </summary>
     public TerraformValue<bool>? InternalIpOnly
     {
-        get => new TerraformReference<bool>(this, "internal_ip_only");
+        get => GetArgument<TerraformValue<bool>>("internal_ip_only");
         set => SetArgument("internal_ip_only", value);
     }
 
@@ -310,9 +300,9 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlock 
     /// conform to [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt). No
     /// more than 32 labels can be associated with a cluster.
     /// </summary>
-    public TerraformMap<string> Labels
+    public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -322,7 +312,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineType is required")]
     public required TerraformValue<string> MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -332,9 +322,9 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlock 
     /// /compute/docs/storing-retrieving-metadata#project_and_instance
     /// _metadata)).
     /// </summary>
-    public TerraformMap<string> Metadata
+    public TerraformMap<string>? Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -356,7 +346,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlock 
     /// </summary>
     public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -366,7 +356,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlock 
     /// </summary>
     public TerraformValue<string>? NicType
     {
-        get => new TerraformReference<string>(this, "nic_type");
+        get => GetArgument<TerraformValue<string>>("nic_type");
         set => SetArgument("nic_type", value);
     }
 
@@ -376,7 +366,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlock 
     /// </summary>
     public TerraformValue<string>? ReservedIpRange
     {
-        get => new TerraformReference<string>(this, "reserved_ip_range");
+        get => GetArgument<TerraformValue<string>>("reserved_ip_range");
         set => SetArgument("reserved_ip_range", value);
     }
 
@@ -390,7 +380,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlock 
     /// </summary>
     public TerraformValue<string>? Subnet
     {
-        get => new TerraformReference<string>(this, "subnet");
+        get => GetArgument<TerraformValue<string>>("subnet");
         set => SetArgument("subnet", value);
     }
 
@@ -399,9 +389,9 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlock 
     /// (https://cloud.google.com/compute/docs/
     /// label-or-tag-resources#tags)).
     /// </summary>
-    public TerraformList<string> Tags
+    public TerraformList<string>? Tags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -409,9 +399,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlock 
     /// The zone where the virtual machine is located.
     /// </summary>
     public TerraformValue<string> Zone
-    {
-        get => new TerraformReference<string>(this, "zone");
-    }
+        => AsReference("zone");
 
     /// <summary>
     /// AcceleratorConfig block (nesting mode: list).
@@ -483,7 +471,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockA
     /// </summary>
     public TerraformValue<double>? CoreCount
     {
-        get => new TerraformReference<double>(this, "core_count");
+        get => GetArgument<TerraformValue<double>>("core_count");
         set => SetArgument("core_count", value);
     }
 
@@ -494,7 +482,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockA
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -518,7 +506,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformValue<string> Repository
     {
-        get => new TerraformReference<string>(this, "repository");
+        get => GetArgument<TerraformValue<string>>("repository");
         set => SetArgument("repository", value);
     }
 
@@ -527,7 +515,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockC
     /// </summary>
     public TerraformValue<string>? Tag
     {
-        get => new TerraformReference<string>(this, "tag");
+        get => GetArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -550,9 +538,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// detached from the instance).
     /// </summary>
     public TerraformValue<bool> AutoDelete
-    {
-        get => new TerraformReference<bool>(this, "auto_delete");
-    }
+        => AsReference("auto_delete");
 
     /// <summary>
     /// Optional. Indicates that this is a boot disk. The virtual
@@ -560,9 +546,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// root filesystem.
     /// </summary>
     public TerraformValue<bool> Boot
-    {
-        get => new TerraformReference<bool>(this, "boot");
-    }
+        => AsReference("boot");
 
     /// <summary>
     /// Optional. Specifies a unique device name of your choice
@@ -576,9 +560,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// is only applicable for persistent disks.
     /// </summary>
     public TerraformValue<string> DeviceName
-    {
-        get => new TerraformReference<string>(this, "device_name");
-    }
+        => AsReference("device_name");
 
     /// <summary>
     /// Indicates a list of features to enable on the guest operating
@@ -588,9 +570,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// options. &#39;&#39;
     /// </summary>
     public TerraformList<string> GuestOsFeatures
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "guest_os_features").ResolveNodes(ctx));
-    }
+        => AsReference("guest_os_features");
 
     /// <summary>
     /// Output only. A zero-based index to this disk, where 0 is
@@ -598,9 +578,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// to an instance, each disk would have a unique index number.
     /// </summary>
     public TerraformValue<double> Index
-    {
-        get => new TerraformReference<double>(this, "index");
-    }
+        => AsReference("index");
 
     /// <summary>
     /// &amp;quot;Specifies the disk interface to use for attaching this disk,
@@ -612,7 +590,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// </summary>
     public TerraformValue<string>? InterfaceAttribute
     {
-        get => new TerraformReference<string>(this, "interface");
+        get => GetArgument<TerraformValue<string>>("interface");
         set => SetArgument("interface", value);
     }
 
@@ -621,17 +599,13 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// disks.
     /// </summary>
     public TerraformValue<string> Kind
-    {
-        get => new TerraformReference<string>(this, "kind");
-    }
+        => AsReference("kind");
 
     /// <summary>
     /// Output only. Any valid publicly visible licenses.
     /// </summary>
     public TerraformList<string> Licenses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "licenses").ResolveNodes(ctx));
-    }
+        => AsReference("licenses");
 
     /// <summary>
     /// The mode in which to attach this disk, either READ_WRITE
@@ -640,7 +614,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -650,7 +624,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// </summary>
     public TerraformValue<string>? Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -660,7 +634,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -692,7 +666,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -704,7 +678,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// </summary>
     public TerraformValue<string>? DiskName
     {
-        get => new TerraformReference<string>(this, "disk_name");
+        get => GetArgument<TerraformValue<string>>("disk_name");
         set => SetArgument("disk_name", value);
     }
 
@@ -716,7 +690,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// </summary>
     public TerraformValue<double>? DiskSizeGb
     {
-        get => new TerraformReference<double>(this, "disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -728,7 +702,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// </summary>
     public TerraformValue<string>? DiskType
     {
-        get => new TerraformReference<string>(this, "disk_type");
+        get => GetArgument<TerraformValue<string>>("disk_type");
         set => SetArgument("disk_type", value);
     }
 
@@ -737,9 +711,9 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockD
     /// by the disks.setLabels method. This field is only
     /// applicable for persistent disks.
     /// </summary>
-    public TerraformMap<string> Labels
+    public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -765,7 +739,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockE
     /// </summary>
     public TerraformValue<string>? KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -792,7 +766,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockS
     /// </summary>
     public TerraformValue<bool>? EnableIntegrityMonitoring
     {
-        get => new TerraformReference<bool>(this, "enable_integrity_monitoring");
+        get => GetArgument<TerraformValue<bool>>("enable_integrity_monitoring");
         set => SetArgument("enable_integrity_monitoring", value);
     }
 
@@ -805,7 +779,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockS
     /// </summary>
     public TerraformValue<bool>? EnableSecureBoot
     {
-        get => new TerraformReference<bool>(this, "enable_secure_boot");
+        get => GetArgument<TerraformValue<bool>>("enable_secure_boot");
         set => SetArgument("enable_secure_boot", value);
     }
 
@@ -815,7 +789,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlockVirtualMachineConfigBlockS
     /// </summary>
     public TerraformValue<bool>? EnableVtpm
     {
-        get => new TerraformReference<bool>(this, "enable_vtpm");
+        get => GetArgument<TerraformValue<bool>>("enable_vtpm");
         set => SetArgument("enable_vtpm", value);
     }
 
@@ -832,9 +806,9 @@ public partial class GoogleNotebooksRuntime(string name) : TerraformResource("go
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -852,7 +826,7 @@ public partial class GoogleNotebooksRuntime(string name) : TerraformResource("go
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -862,7 +836,7 @@ public partial class GoogleNotebooksRuntime(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -872,16 +846,16 @@ public partial class GoogleNotebooksRuntime(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -889,9 +863,7 @@ public partial class GoogleNotebooksRuntime(string name) : TerraformResource("go
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The health state of this runtime. For a list of possible output
@@ -899,35 +871,27 @@ public partial class GoogleNotebooksRuntime(string name) : TerraformResource("go
     /// reference/rest/v1/projects.locations.runtimes#healthstate&#39;.
     /// </summary>
     public TerraformValue<string> HealthState
-    {
-        get => new TerraformReference<string>(this, "health_state");
-    }
+        => AsReference("health_state");
 
     /// <summary>
     /// Contains Runtime daemon metrics such as Service status and JupyterLab
     /// status
     /// </summary>
     public TerraformList<TerraformMap<object>> Metrics
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "metrics").ResolveNodes(ctx));
-    }
+        => AsReference("metrics");
 
     /// <summary>
     /// The state of this runtime.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// AccessConfig block (nesting mode: list).

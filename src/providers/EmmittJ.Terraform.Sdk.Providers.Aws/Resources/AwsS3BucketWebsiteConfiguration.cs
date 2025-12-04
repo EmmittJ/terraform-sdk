@@ -19,7 +19,7 @@ public class AwsS3BucketWebsiteConfigurationErrorDocumentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsS3BucketWebsiteConfigurationIndexDocumentBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Suffix is required")]
     public required TerraformValue<string> Suffix
     {
-        get => new TerraformReference<string>(this, "suffix");
+        get => GetArgument<TerraformValue<string>>("suffix");
         set => SetArgument("suffix", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => new TerraformReference<string>(this, "host_name");
+        get => GetArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -135,7 +135,7 @@ public class AwsS3BucketWebsiteConfigurationRoutingRuleBlockConditionBlock : Ter
     /// </summary>
     public TerraformValue<string>? HttpErrorCodeReturnedEquals
     {
-        get => new TerraformReference<string>(this, "http_error_code_returned_equals");
+        get => GetArgument<TerraformValue<string>>("http_error_code_returned_equals");
         set => SetArgument("http_error_code_returned_equals", value);
     }
 
@@ -144,7 +144,7 @@ public class AwsS3BucketWebsiteConfigurationRoutingRuleBlockConditionBlock : Ter
     /// </summary>
     public TerraformValue<string>? KeyPrefixEquals
     {
-        get => new TerraformReference<string>(this, "key_prefix_equals");
+        get => GetArgument<TerraformValue<string>>("key_prefix_equals");
         set => SetArgument("key_prefix_equals", value);
     }
 
@@ -166,7 +166,7 @@ public class AwsS3BucketWebsiteConfigurationRoutingRuleBlockRedirectBlock : Terr
     /// </summary>
     public TerraformValue<string>? HostName
     {
-        get => new TerraformReference<string>(this, "host_name");
+        get => GetArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsS3BucketWebsiteConfigurationRoutingRuleBlockRedirectBlock : Terr
     /// </summary>
     public TerraformValue<string>? HttpRedirectCode
     {
-        get => new TerraformReference<string>(this, "http_redirect_code");
+        get => GetArgument<TerraformValue<string>>("http_redirect_code");
         set => SetArgument("http_redirect_code", value);
     }
 
@@ -184,7 +184,7 @@ public class AwsS3BucketWebsiteConfigurationRoutingRuleBlockRedirectBlock : Terr
     /// </summary>
     public TerraformValue<string>? Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -193,7 +193,7 @@ public class AwsS3BucketWebsiteConfigurationRoutingRuleBlockRedirectBlock : Terr
     /// </summary>
     public TerraformValue<string>? ReplaceKeyPrefixWith
     {
-        get => new TerraformReference<string>(this, "replace_key_prefix_with");
+        get => GetArgument<TerraformValue<string>>("replace_key_prefix_with");
         set => SetArgument("replace_key_prefix_with", value);
     }
 
@@ -202,7 +202,7 @@ public class AwsS3BucketWebsiteConfigurationRoutingRuleBlockRedirectBlock : Terr
     /// </summary>
     public TerraformValue<string>? ReplaceKeyWith
     {
-        get => new TerraformReference<string>(this, "replace_key_with");
+        get => GetArgument<TerraformValue<string>>("replace_key_with");
         set => SetArgument("replace_key_with", value);
     }
 
@@ -221,7 +221,7 @@ public partial class AwsS3BucketWebsiteConfiguration(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -230,34 +230,34 @@ public partial class AwsS3BucketWebsiteConfiguration(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? ExpectedBucketOwner
     {
-        get => new TerraformReference<string>(this, "expected_bucket_owner");
+        get => GetArgument<TerraformValue<string>>("expected_bucket_owner");
         set => SetArgument("expected_bucket_owner", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The routing_rules attribute.
     /// </summary>
-    public TerraformValue<string> RoutingRules
+    public TerraformValue<string>? RoutingRules
     {
-        get => new TerraformReference<string>(this, "routing_rules");
+        get => GetArgument<TerraformValue<string>>("routing_rules");
         set => SetArgument("routing_rules", value);
     }
 
@@ -265,17 +265,13 @@ public partial class AwsS3BucketWebsiteConfiguration(string name) : TerraformRes
     /// The website_domain attribute.
     /// </summary>
     public TerraformValue<string> WebsiteDomain
-    {
-        get => new TerraformReference<string>(this, "website_domain");
-    }
+        => AsReference("website_domain");
 
     /// <summary>
     /// The website_endpoint attribute.
     /// </summary>
     public TerraformValue<string> WebsiteEndpoint
-    {
-        get => new TerraformReference<string>(this, "website_endpoint");
-    }
+        => AsReference("website_endpoint");
 
     /// <summary>
     /// ErrorDocument block (nesting mode: list).

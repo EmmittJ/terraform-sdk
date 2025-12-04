@@ -18,7 +18,7 @@ public class AwsPinpointsmsvoicev2PhoneNumberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsPinpointsmsvoicev2PhoneNumberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsPinpointsmsvoicev2PhoneNumberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -52,9 +52,9 @@ public partial class AwsPinpointsmsvoicev2PhoneNumber(string name) : TerraformRe
     /// <summary>
     /// The deletion_protection_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> DeletionProtectionEnabled
+    public TerraformValue<bool>? DeletionProtectionEnabled
     {
-        get => new TerraformReference<bool>(this, "deletion_protection_enabled");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection_enabled");
         set => SetArgument("deletion_protection_enabled", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsPinpointsmsvoicev2PhoneNumber(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsoCountryCode is required")]
     public required TerraformValue<string> IsoCountryCode
     {
-        get => new TerraformReference<string>(this, "iso_country_code");
+        get => GetArgument<TerraformValue<string>>("iso_country_code");
         set => SetArgument("iso_country_code", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsPinpointsmsvoicev2PhoneNumber(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageType is required")]
     public required TerraformValue<string> MessageType
     {
-        get => new TerraformReference<string>(this, "message_type");
+        get => GetArgument<TerraformValue<string>>("message_type");
         set => SetArgument("message_type", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AwsPinpointsmsvoicev2PhoneNumber(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberCapabilities is required")]
     public required TerraformSet<string> NumberCapabilities
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "number_capabilities").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("number_capabilities");
         set => SetArgument("number_capabilities", value);
     }
 
@@ -94,25 +94,25 @@ public partial class AwsPinpointsmsvoicev2PhoneNumber(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberType is required")]
     public required TerraformValue<string> NumberType
     {
-        get => new TerraformReference<string>(this, "number_type");
+        get => GetArgument<TerraformValue<string>>("number_type");
         set => SetArgument("number_type", value);
     }
 
     /// <summary>
     /// The opt_out_list_name attribute.
     /// </summary>
-    public TerraformValue<string> OptOutListName
+    public TerraformValue<string>? OptOutListName
     {
-        get => new TerraformReference<string>(this, "opt_out_list_name");
+        get => GetArgument<TerraformValue<string>>("opt_out_list_name");
         set => SetArgument("opt_out_list_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -121,16 +121,16 @@ public partial class AwsPinpointsmsvoicev2PhoneNumber(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? RegistrationId
     {
-        get => new TerraformReference<string>(this, "registration_id");
+        get => GetArgument<TerraformValue<string>>("registration_id");
         set => SetArgument("registration_id", value);
     }
 
     /// <summary>
     /// The self_managed_opt_outs_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> SelfManagedOptOutsEnabled
+    public TerraformValue<bool>? SelfManagedOptOutsEnabled
     {
-        get => new TerraformReference<bool>(this, "self_managed_opt_outs_enabled");
+        get => GetArgument<TerraformValue<bool>>("self_managed_opt_outs_enabled");
         set => SetArgument("self_managed_opt_outs_enabled", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AwsPinpointsmsvoicev2PhoneNumber(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -148,16 +148,16 @@ public partial class AwsPinpointsmsvoicev2PhoneNumber(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? TwoWayChannelArn
     {
-        get => new TerraformReference<string>(this, "two_way_channel_arn");
+        get => GetArgument<TerraformValue<string>>("two_way_channel_arn");
         set => SetArgument("two_way_channel_arn", value);
     }
 
     /// <summary>
     /// The two_way_channel_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> TwoWayChannelEnabled
+    public TerraformValue<bool>? TwoWayChannelEnabled
     {
-        get => new TerraformReference<bool>(this, "two_way_channel_enabled");
+        get => GetArgument<TerraformValue<bool>>("two_way_channel_enabled");
         set => SetArgument("two_way_channel_enabled", value);
     }
 
@@ -166,7 +166,7 @@ public partial class AwsPinpointsmsvoicev2PhoneNumber(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? TwoWayChannelRole
     {
-        get => new TerraformReference<string>(this, "two_way_channel_role");
+        get => GetArgument<TerraformValue<string>>("two_way_channel_role");
         set => SetArgument("two_way_channel_role", value);
     }
 
@@ -174,41 +174,31 @@ public partial class AwsPinpointsmsvoicev2PhoneNumber(string name) : TerraformRe
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The monthly_leasing_price attribute.
     /// </summary>
     public TerraformValue<string> MonthlyLeasingPrice
-    {
-        get => new TerraformReference<string>(this, "monthly_leasing_price");
-    }
+        => AsReference("monthly_leasing_price");
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
     public TerraformValue<string> PhoneNumber
-    {
-        get => new TerraformReference<string>(this, "phone_number");
-    }
+        => AsReference("phone_number");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

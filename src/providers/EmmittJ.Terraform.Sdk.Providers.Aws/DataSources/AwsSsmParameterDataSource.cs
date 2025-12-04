@@ -11,9 +11,9 @@ public partial class AwsSsmParameterDataSource(string name) : TerraformDataSourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsSsmParameterDataSource(string name) : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsSsmParameterDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformValue<bool>? WithDecryption
     {
-        get => new TerraformReference<bool>(this, "with_decryption");
+        get => GetArgument<TerraformValue<bool>>("with_decryption");
         set => SetArgument("with_decryption", value);
     }
 
@@ -49,40 +49,30 @@ public partial class AwsSsmParameterDataSource(string name) : TerraformDataSourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The insecure_value attribute.
     /// </summary>
     public TerraformValue<string> InsecureValue
-    {
-        get => new TerraformReference<string>(this, "insecure_value");
-    }
+        => AsReference("insecure_value");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     public TerraformValue<string> Value
-    {
-        get => new TerraformReference<string>(this, "value");
-    }
+        => AsReference("value");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<double> Version
-    {
-        get => new TerraformReference<double>(this, "version");
-    }
+        => AsReference("version");
 
 }

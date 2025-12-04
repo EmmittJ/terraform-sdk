@@ -19,7 +19,7 @@ public class AzurermElasticSanVolumeCreateSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceId is required")]
     public required TerraformValue<string> SourceId
     {
-        get => new TerraformReference<string>(this, "source_id");
+        get => GetArgument<TerraformValue<string>>("source_id");
         set => SetArgument("source_id", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermElasticSanVolumeCreateSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
     public required TerraformValue<string> SourceType
     {
-        get => new TerraformReference<string>(this, "source_type");
+        get => GetArgument<TerraformValue<string>>("source_type");
         set => SetArgument("source_type", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermElasticSanVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermElasticSanVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermElasticSanVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermElasticSanVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -95,9 +95,9 @@ public partial class AzurermElasticSanVolume(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -107,7 +107,7 @@ public partial class AzurermElasticSanVolume(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AzurermElasticSanVolume(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGib is required")]
     public required TerraformValue<double> SizeInGib
     {
-        get => new TerraformReference<double>(this, "size_in_gib");
+        get => GetArgument<TerraformValue<double>>("size_in_gib");
         set => SetArgument("size_in_gib", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzurermElasticSanVolume(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeGroupId is required")]
     public required TerraformValue<string> VolumeGroupId
     {
-        get => new TerraformReference<string>(this, "volume_group_id");
+        get => GetArgument<TerraformValue<string>>("volume_group_id");
         set => SetArgument("volume_group_id", value);
     }
 
@@ -135,33 +135,25 @@ public partial class AzurermElasticSanVolume(string name) : TerraformResource("a
     /// The target_iqn attribute.
     /// </summary>
     public TerraformValue<string> TargetIqn
-    {
-        get => new TerraformReference<string>(this, "target_iqn");
-    }
+        => AsReference("target_iqn");
 
     /// <summary>
     /// The target_portal_hostname attribute.
     /// </summary>
     public TerraformValue<string> TargetPortalHostname
-    {
-        get => new TerraformReference<string>(this, "target_portal_hostname");
-    }
+        => AsReference("target_portal_hostname");
 
     /// <summary>
     /// The target_portal_port attribute.
     /// </summary>
     public TerraformValue<double> TargetPortalPort
-    {
-        get => new TerraformReference<double>(this, "target_portal_port");
-    }
+        => AsReference("target_portal_port");
 
     /// <summary>
     /// The volume_id attribute.
     /// </summary>
     public TerraformValue<string> VolumeId
-    {
-        get => new TerraformReference<string>(this, "volume_id");
-    }
+        => AsReference("volume_id");
 
     /// <summary>
     /// CreateSource block (nesting mode: list).

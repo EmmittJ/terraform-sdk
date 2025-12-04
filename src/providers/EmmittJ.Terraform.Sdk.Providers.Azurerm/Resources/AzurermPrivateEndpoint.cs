@@ -16,9 +16,9 @@ public class AzurermPrivateEndpointIpConfigurationBlock : TerraformBlock
     /// <summary>
     /// The member_name attribute.
     /// </summary>
-    public TerraformValue<string> MemberName
+    public TerraformValue<string>? MemberName
     {
-        get => new TerraformReference<string>(this, "member_name");
+        get => GetArgument<TerraformValue<string>>("member_name");
         set => SetArgument("member_name", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermPrivateEndpointIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermPrivateEndpointIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateIpAddress is required")]
     public required TerraformValue<string> PrivateIpAddress
     {
-        get => new TerraformReference<string>(this, "private_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_ip_address");
         set => SetArgument("private_ip_address", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermPrivateEndpointIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SubresourceName
     {
-        get => new TerraformReference<string>(this, "subresource_name");
+        get => GetArgument<TerraformValue<string>>("subresource_name");
         set => SetArgument("subresource_name", value);
     }
 
@@ -69,9 +69,7 @@ public class AzurermPrivateEndpointPrivateDnsZoneGroupBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -79,7 +77,7 @@ public class AzurermPrivateEndpointPrivateDnsZoneGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -89,7 +87,7 @@ public class AzurermPrivateEndpointPrivateDnsZoneGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateDnsZoneIds is required")]
     public TerraformList<string>? PrivateDnsZoneIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "private_dns_zone_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("private_dns_zone_ids");
         set => SetArgument("private_dns_zone_ids", value);
     }
 
@@ -113,7 +111,7 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IsManualConnection is required")]
     public required TerraformValue<bool> IsManualConnection
     {
-        get => new TerraformReference<bool>(this, "is_manual_connection");
+        get => GetArgument<TerraformValue<bool>>("is_manual_connection");
         set => SetArgument("is_manual_connection", value);
     }
 
@@ -123,7 +121,7 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -132,7 +130,7 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? PrivateConnectionResourceAlias
     {
-        get => new TerraformReference<string>(this, "private_connection_resource_alias");
+        get => GetArgument<TerraformValue<string>>("private_connection_resource_alias");
         set => SetArgument("private_connection_resource_alias", value);
     }
 
@@ -141,7 +139,7 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? PrivateConnectionResourceId
     {
-        get => new TerraformReference<string>(this, "private_connection_resource_id");
+        get => GetArgument<TerraformValue<string>>("private_connection_resource_id");
         set => SetArgument("private_connection_resource_id", value);
     }
 
@@ -149,16 +147,14 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : TerraformBloc
     /// The private_ip_address attribute.
     /// </summary>
     public TerraformValue<string> PrivateIpAddress
-    {
-        get => new TerraformReference<string>(this, "private_ip_address");
-    }
+        => AsReference("private_ip_address");
 
     /// <summary>
     /// The request_message attribute.
     /// </summary>
     public TerraformValue<string>? RequestMessage
     {
-        get => new TerraformReference<string>(this, "request_message");
+        get => GetArgument<TerraformValue<string>>("request_message");
         set => SetArgument("request_message", value);
     }
 
@@ -167,7 +163,7 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : TerraformBloc
     /// </summary>
     public TerraformList<string>? SubresourceNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "subresource_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("subresource_names");
         set => SetArgument("subresource_names", value);
     }
 
@@ -190,7 +186,7 @@ public class AzurermPrivateEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -199,7 +195,7 @@ public class AzurermPrivateEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -208,7 +204,7 @@ public class AzurermPrivateEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -217,7 +213,7 @@ public class AzurermPrivateEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -235,16 +231,16 @@ public partial class AzurermPrivateEndpoint(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? CustomNetworkInterfaceName
     {
-        get => new TerraformReference<string>(this, "custom_network_interface_name");
+        get => GetArgument<TerraformValue<string>>("custom_network_interface_name");
         set => SetArgument("custom_network_interface_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -254,7 +250,7 @@ public partial class AzurermPrivateEndpoint(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -264,7 +260,7 @@ public partial class AzurermPrivateEndpoint(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -274,7 +270,7 @@ public partial class AzurermPrivateEndpoint(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -284,7 +280,7 @@ public partial class AzurermPrivateEndpoint(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -293,7 +289,7 @@ public partial class AzurermPrivateEndpoint(string name) : TerraformResource("az
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -301,25 +297,19 @@ public partial class AzurermPrivateEndpoint(string name) : TerraformResource("az
     /// The custom_dns_configs attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CustomDnsConfigs
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "custom_dns_configs").ResolveNodes(ctx));
-    }
+        => AsReference("custom_dns_configs");
 
     /// <summary>
     /// The network_interface attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkInterface
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "network_interface").ResolveNodes(ctx));
-    }
+        => AsReference("network_interface");
 
     /// <summary>
     /// The private_dns_zone_configs attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrivateDnsZoneConfigs
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "private_dns_zone_configs").ResolveNodes(ctx));
-    }
+        => AsReference("private_dns_zone_configs");
 
     /// <summary>
     /// IpConfiguration block (nesting mode: list).

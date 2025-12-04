@@ -51,7 +51,7 @@ public class GoogleDataprocBatchEnvironmentConfigBlockExecutionConfigBlock : Ter
     /// </summary>
     public TerraformValue<string>? KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleDataprocBatchEnvironmentConfigBlockExecutionConfigBlock : Ter
     /// </summary>
     public TerraformList<string>? NetworkTags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "network_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("network_tags");
         set => SetArgument("network_tags", value);
     }
 
@@ -69,16 +69,16 @@ public class GoogleDataprocBatchEnvironmentConfigBlockExecutionConfigBlock : Ter
     /// </summary>
     public TerraformValue<string>? NetworkUri
     {
-        get => new TerraformReference<string>(this, "network_uri");
+        get => GetArgument<TerraformValue<string>>("network_uri");
         set => SetArgument("network_uri", value);
     }
 
     /// <summary>
     /// Service account that used to execute workload.
     /// </summary>
-    public TerraformValue<string> ServiceAccount
+    public TerraformValue<string>? ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleDataprocBatchEnvironmentConfigBlockExecutionConfigBlock : Ter
     /// </summary>
     public TerraformValue<string>? StagingBucket
     {
-        get => new TerraformReference<string>(this, "staging_bucket");
+        get => GetArgument<TerraformValue<string>>("staging_bucket");
         set => SetArgument("staging_bucket", value);
     }
 
@@ -100,7 +100,7 @@ public class GoogleDataprocBatchEnvironmentConfigBlockExecutionConfigBlock : Ter
     /// </summary>
     public TerraformValue<string>? SubnetworkUri
     {
-        get => new TerraformReference<string>(this, "subnetwork_uri");
+        get => GetArgument<TerraformValue<string>>("subnetwork_uri");
         set => SetArgument("subnetwork_uri", value);
     }
 
@@ -114,9 +114,9 @@ public class GoogleDataprocBatchEnvironmentConfigBlockExecutionConfigBlock : Ter
     /// the conditions are treated as OR conditions: the workload will be terminated when it has been idle for idleTtl or
     /// when ttl has been exceeded, whichever occurs first.
     /// </summary>
-    public TerraformValue<string> Ttl
+    public TerraformValue<string>? Ttl
     {
-        get => new TerraformReference<string>(this, "ttl");
+        get => GetArgument<TerraformValue<string>>("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -148,7 +148,7 @@ public class GoogleDataprocBatchEnvironmentConfigBlockExecutionConfigBlockAuthen
     /// </summary>
     public TerraformValue<string>? UserWorkloadAuthenticationType
     {
-        get => new TerraformReference<string>(this, "user_workload_authentication_type");
+        get => GetArgument<TerraformValue<string>>("user_workload_authentication_type");
         set => SetArgument("user_workload_authentication_type", value);
     }
 
@@ -170,7 +170,7 @@ public class GoogleDataprocBatchEnvironmentConfigBlockPeripheralsConfigBlock : T
     /// </summary>
     public TerraformValue<string>? MetastoreService
     {
-        get => new TerraformReference<string>(this, "metastore_service");
+        get => GetArgument<TerraformValue<string>>("metastore_service");
         set => SetArgument("metastore_service", value);
     }
 
@@ -202,7 +202,7 @@ public class GoogleDataprocBatchEnvironmentConfigBlockPeripheralsConfigBlockSpar
     /// </summary>
     public TerraformValue<string>? DataprocCluster
     {
-        get => new TerraformReference<string>(this, "dataproc_cluster");
+        get => GetArgument<TerraformValue<string>>("dataproc_cluster");
         set => SetArgument("dataproc_cluster", value);
     }
 
@@ -226,7 +226,7 @@ public class GoogleDataprocBatchPysparkBatchBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ArchiveUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "archive_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("archive_uris");
         set => SetArgument("archive_uris", value);
     }
 
@@ -236,7 +236,7 @@ public class GoogleDataprocBatchPysparkBatchBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -245,7 +245,7 @@ public class GoogleDataprocBatchPysparkBatchBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? FileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("file_uris");
         set => SetArgument("file_uris", value);
     }
 
@@ -254,7 +254,7 @@ public class GoogleDataprocBatchPysparkBatchBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? JarFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "jar_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("jar_file_uris");
         set => SetArgument("jar_file_uris", value);
     }
 
@@ -263,7 +263,7 @@ public class GoogleDataprocBatchPysparkBatchBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MainPythonFileUri
     {
-        get => new TerraformReference<string>(this, "main_python_file_uri");
+        get => GetArgument<TerraformValue<string>>("main_python_file_uri");
         set => SetArgument("main_python_file_uri", value);
     }
 
@@ -273,7 +273,7 @@ public class GoogleDataprocBatchPysparkBatchBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? PythonFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "python_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("python_file_uris");
         set => SetArgument("python_file_uris", value);
     }
 
@@ -296,7 +296,7 @@ public class GoogleDataprocBatchRuntimeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cohort
     {
-        get => new TerraformReference<string>(this, "cohort");
+        get => GetArgument<TerraformValue<string>>("cohort");
         set => SetArgument("cohort", value);
     }
 
@@ -305,7 +305,7 @@ public class GoogleDataprocBatchRuntimeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ContainerImage
     {
-        get => new TerraformReference<string>(this, "container_image");
+        get => GetArgument<TerraformValue<string>>("container_image");
         set => SetArgument("container_image", value);
     }
 
@@ -313,25 +313,23 @@ public class GoogleDataprocBatchRuntimeConfigBlock : TerraformBlock
     /// A mapping of property names to values, which are used to configure workload execution.
     /// </summary>
     public TerraformMap<string> EffectiveProperties
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_properties").ResolveNodes(ctx));
-    }
+        => AsReference("effective_properties");
 
     /// <summary>
     /// A mapping of property names to values, which are used to configure workload execution.
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
     /// <summary>
     /// Version of the batch runtime.
     /// </summary>
-    public TerraformValue<string> Version
+    public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -363,7 +361,7 @@ public class GoogleDataprocBatchRuntimeConfigBlockAutotuningConfigBlock : Terraf
     /// </summary>
     public TerraformList<string>? Scenarios
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scenarios").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("scenarios");
         set => SetArgument("scenarios", value);
     }
 
@@ -387,7 +385,7 @@ public class GoogleDataprocBatchSparkBatchBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ArchiveUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "archive_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("archive_uris");
         set => SetArgument("archive_uris", value);
     }
 
@@ -397,7 +395,7 @@ public class GoogleDataprocBatchSparkBatchBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -406,7 +404,7 @@ public class GoogleDataprocBatchSparkBatchBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? FileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("file_uris");
         set => SetArgument("file_uris", value);
     }
 
@@ -415,7 +413,7 @@ public class GoogleDataprocBatchSparkBatchBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? JarFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "jar_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("jar_file_uris");
         set => SetArgument("jar_file_uris", value);
     }
 
@@ -425,7 +423,7 @@ public class GoogleDataprocBatchSparkBatchBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MainClass
     {
-        get => new TerraformReference<string>(this, "main_class");
+        get => GetArgument<TerraformValue<string>>("main_class");
         set => SetArgument("main_class", value);
     }
 
@@ -434,7 +432,7 @@ public class GoogleDataprocBatchSparkBatchBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MainJarFileUri
     {
-        get => new TerraformReference<string>(this, "main_jar_file_uri");
+        get => GetArgument<TerraformValue<string>>("main_jar_file_uri");
         set => SetArgument("main_jar_file_uri", value);
     }
 
@@ -458,7 +456,7 @@ public class GoogleDataprocBatchSparkRBatchBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ArchiveUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "archive_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("archive_uris");
         set => SetArgument("archive_uris", value);
     }
 
@@ -468,7 +466,7 @@ public class GoogleDataprocBatchSparkRBatchBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -477,7 +475,7 @@ public class GoogleDataprocBatchSparkRBatchBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? FileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("file_uris");
         set => SetArgument("file_uris", value);
     }
 
@@ -486,7 +484,7 @@ public class GoogleDataprocBatchSparkRBatchBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MainRFileUri
     {
-        get => new TerraformReference<string>(this, "main_r_file_uri");
+        get => GetArgument<TerraformValue<string>>("main_r_file_uri");
         set => SetArgument("main_r_file_uri", value);
     }
 
@@ -509,7 +507,7 @@ public class GoogleDataprocBatchSparkSqlBatchBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? JarFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "jar_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("jar_file_uris");
         set => SetArgument("jar_file_uris", value);
     }
 
@@ -518,7 +516,7 @@ public class GoogleDataprocBatchSparkSqlBatchBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? QueryFileUri
     {
-        get => new TerraformReference<string>(this, "query_file_uri");
+        get => GetArgument<TerraformValue<string>>("query_file_uri");
         set => SetArgument("query_file_uri", value);
     }
 
@@ -527,7 +525,7 @@ public class GoogleDataprocBatchSparkSqlBatchBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? QueryVariables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "query_variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("query_variables");
         set => SetArgument("query_variables", value);
     }
 
@@ -550,7 +548,7 @@ public class GoogleDataprocBatchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -559,7 +557,7 @@ public class GoogleDataprocBatchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -568,7 +566,7 @@ public class GoogleDataprocBatchTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -587,16 +585,16 @@ public partial class GoogleDataprocBatch(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? BatchId
     {
-        get => new TerraformReference<string>(this, "batch_id");
+        get => GetArgument<TerraformValue<string>>("batch_id");
         set => SetArgument("batch_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -609,7 +607,7 @@ public partial class GoogleDataprocBatch(string name) : TerraformResource("googl
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -618,16 +616,16 @@ public partial class GoogleDataprocBatch(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -635,98 +633,74 @@ public partial class GoogleDataprocBatch(string name) : TerraformResource("googl
     /// The time when the batch was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The email address of the user who created the batch.
     /// </summary>
     public TerraformValue<string> Creator
-    {
-        get => new TerraformReference<string>(this, "creator");
-    }
+        => AsReference("creator");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The resource name of the batch.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The resource name of the operation associated with this batch.
     /// </summary>
     public TerraformValue<string> Operation
-    {
-        get => new TerraformReference<string>(this, "operation");
-    }
+        => AsReference("operation");
 
     /// <summary>
     /// Runtime information about batch execution.
     /// </summary>
     public TerraformList<TerraformMap<object>> RuntimeInfo
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "runtime_info").ResolveNodes(ctx));
-    }
+        => AsReference("runtime_info");
 
     /// <summary>
     /// The state of the batch. For possible values, see the [API documentation](https://cloud.google.com/dataproc-serverless/docs/reference/rest/v1/projects.locations.batches#State).
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Historical state information for the batch.
     /// </summary>
     public TerraformList<TerraformMap<object>> StateHistory
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "state_history").ResolveNodes(ctx));
-    }
+        => AsReference("state_history");
 
     /// <summary>
     /// Batch state details, such as a failure description if the state is FAILED.
     /// </summary>
     public TerraformValue<string> StateMessage
-    {
-        get => new TerraformReference<string>(this, "state_message");
-    }
+        => AsReference("state_message");
 
     /// <summary>
     /// Batch state details, such as a failure description if the state is FAILED.
     /// </summary>
     public TerraformValue<string> StateTime
-    {
-        get => new TerraformReference<string>(this, "state_time");
-    }
+        => AsReference("state_time");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// A batch UUID (Unique Universal Identifier). The service generates this value when it creates the batch.
     /// </summary>
     public TerraformValue<string> Uuid
-    {
-        get => new TerraformReference<string>(this, "uuid");
-    }
+        => AsReference("uuid");
 
     /// <summary>
     /// EnvironmentConfig block (nesting mode: list).

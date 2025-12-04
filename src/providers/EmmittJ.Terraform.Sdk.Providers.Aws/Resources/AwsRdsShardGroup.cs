@@ -18,7 +18,7 @@ public class AwsRdsShardGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsRdsShardGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsRdsShardGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -52,9 +52,9 @@ public partial class AwsRdsShardGroup(string name) : TerraformResource("aws_rds_
     /// <summary>
     /// The compute_redundancy attribute.
     /// </summary>
-    public TerraformValue<double> ComputeRedundancy
+    public TerraformValue<double>? ComputeRedundancy
     {
-        get => new TerraformReference<double>(this, "compute_redundancy");
+        get => GetArgument<TerraformValue<double>>("compute_redundancy");
         set => SetArgument("compute_redundancy", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsRdsShardGroup(string name) : TerraformResource("aws_rds_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbClusterIdentifier is required")]
     public required TerraformValue<string> DbClusterIdentifier
     {
-        get => new TerraformReference<string>(this, "db_cluster_identifier");
+        get => GetArgument<TerraformValue<string>>("db_cluster_identifier");
         set => SetArgument("db_cluster_identifier", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsRdsShardGroup(string name) : TerraformResource("aws_rds_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbShardGroupIdentifier is required")]
     public required TerraformValue<string> DbShardGroupIdentifier
     {
-        get => new TerraformReference<string>(this, "db_shard_group_identifier");
+        get => GetArgument<TerraformValue<string>>("db_shard_group_identifier");
         set => SetArgument("db_shard_group_identifier", value);
     }
 
@@ -84,34 +84,34 @@ public partial class AwsRdsShardGroup(string name) : TerraformResource("aws_rds_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAcu is required")]
     public required TerraformValue<double> MaxAcu
     {
-        get => new TerraformReference<double>(this, "max_acu");
+        get => GetArgument<TerraformValue<double>>("max_acu");
         set => SetArgument("max_acu", value);
     }
 
     /// <summary>
     /// The min_acu attribute.
     /// </summary>
-    public TerraformValue<double> MinAcu
+    public TerraformValue<double>? MinAcu
     {
-        get => new TerraformReference<double>(this, "min_acu");
+        get => GetArgument<TerraformValue<double>>("min_acu");
         set => SetArgument("min_acu", value);
     }
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    public TerraformValue<bool> PubliclyAccessible
+    public TerraformValue<bool>? PubliclyAccessible
     {
-        get => new TerraformReference<bool>(this, "publicly_accessible");
+        get => GetArgument<TerraformValue<bool>>("publicly_accessible");
         set => SetArgument("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AwsRdsShardGroup(string name) : TerraformResource("aws_rds_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -128,33 +128,25 @@ public partial class AwsRdsShardGroup(string name) : TerraformResource("aws_rds_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The db_shard_group_resource_id attribute.
     /// </summary>
     public TerraformValue<string> DbShardGroupResourceId
-    {
-        get => new TerraformReference<string>(this, "db_shard_group_resource_id");
-    }
+        => AsReference("db_shard_group_resource_id");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

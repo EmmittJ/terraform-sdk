@@ -18,7 +18,7 @@ public class AzurermHealthcareServiceAuthenticationConfigurationBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Audience
     {
-        get => new TerraformReference<string>(this, "audience");
+        get => GetArgument<TerraformValue<string>>("audience");
         set => SetArgument("audience", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermHealthcareServiceAuthenticationConfigurationBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Authority
     {
-        get => new TerraformReference<string>(this, "authority");
+        get => GetArgument<TerraformValue<string>>("authority");
         set => SetArgument("authority", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermHealthcareServiceAuthenticationConfigurationBlock : Terrafor
     /// </summary>
     public TerraformValue<bool>? SmartProxyEnabled
     {
-        get => new TerraformReference<bool>(this, "smart_proxy_enabled");
+        get => GetArgument<TerraformValue<bool>>("smart_proxy_enabled");
         set => SetArgument("smart_proxy_enabled", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermHealthcareServiceCorsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowCredentials
     {
-        get => new TerraformReference<bool>(this, "allow_credentials");
+        get => GetArgument<TerraformValue<bool>>("allow_credentials");
         set => SetArgument("allow_credentials", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermHealthcareServiceCorsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? AllowedHeaders
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_headers");
         set => SetArgument("allowed_headers", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermHealthcareServiceCorsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AllowedMethods
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_methods");
         set => SetArgument("allowed_methods", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermHealthcareServiceCorsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? AllowedOrigins
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_origins").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_origins");
         set => SetArgument("allowed_origins", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermHealthcareServiceCorsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxAgeInSeconds
     {
-        get => new TerraformReference<double>(this, "max_age_in_seconds");
+        get => GetArgument<TerraformValue<double>>("max_age_in_seconds");
         set => SetArgument("max_age_in_seconds", value);
     }
 
@@ -117,17 +117,13 @@ public class AzurermHealthcareServiceIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -135,7 +131,7 @@ public class AzurermHealthcareServiceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -158,7 +154,7 @@ public class AzurermHealthcareServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -167,7 +163,7 @@ public class AzurermHealthcareServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -176,7 +172,7 @@ public class AzurermHealthcareServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -185,7 +181,7 @@ public class AzurermHealthcareServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -203,7 +199,7 @@ public partial class AzurermHealthcareService(string name) : TerraformResource("
     /// </summary>
     public TerraformSet<string>? AccessPolicyObjectIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "access_policy_object_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("access_policy_object_ids");
         set => SetArgument("access_policy_object_ids", value);
     }
 
@@ -212,7 +208,7 @@ public partial class AzurermHealthcareService(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? ConfigurationExportStorageAccountName
     {
-        get => new TerraformReference<string>(this, "configuration_export_storage_account_name");
+        get => GetArgument<TerraformValue<string>>("configuration_export_storage_account_name");
         set => SetArgument("configuration_export_storage_account_name", value);
     }
 
@@ -221,7 +217,7 @@ public partial class AzurermHealthcareService(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? CosmosdbKeyVaultKeyVersionlessId
     {
-        get => new TerraformReference<string>(this, "cosmosdb_key_vault_key_versionless_id");
+        get => GetArgument<TerraformValue<string>>("cosmosdb_key_vault_key_versionless_id");
         set => SetArgument("cosmosdb_key_vault_key_versionless_id", value);
     }
 
@@ -230,16 +226,16 @@ public partial class AzurermHealthcareService(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double>? CosmosdbThroughput
     {
-        get => new TerraformReference<double>(this, "cosmosdb_throughput");
+        get => GetArgument<TerraformValue<double>>("cosmosdb_throughput");
         set => SetArgument("cosmosdb_throughput", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -248,7 +244,7 @@ public partial class AzurermHealthcareService(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Kind
     {
-        get => new TerraformReference<string>(this, "kind");
+        get => GetArgument<TerraformValue<string>>("kind");
         set => SetArgument("kind", value);
     }
 
@@ -258,7 +254,7 @@ public partial class AzurermHealthcareService(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -268,7 +264,7 @@ public partial class AzurermHealthcareService(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -277,7 +273,7 @@ public partial class AzurermHealthcareService(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -287,7 +283,7 @@ public partial class AzurermHealthcareService(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -296,7 +292,7 @@ public partial class AzurermHealthcareService(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

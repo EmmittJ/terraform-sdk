@@ -19,7 +19,7 @@ public class AzurermStorageAccountLocalUserPermissionScopeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceNameAttribute is required")]
     public required TerraformValue<string> ResourceNameAttribute
     {
-        get => new TerraformReference<string>(this, "resource_name");
+        get => GetArgument<TerraformValue<string>>("resource_name");
         set => SetArgument("resource_name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermStorageAccountLocalUserPermissionScopeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -64,7 +64,7 @@ public class AzurermStorageAccountLocalUserPermissionScopeBlockPermissionsBlock 
     /// </summary>
     public TerraformValue<bool>? Create
     {
-        get => new TerraformReference<bool>(this, "create");
+        get => GetArgument<TerraformValue<bool>>("create");
         set => SetArgument("create", value);
     }
 
@@ -73,7 +73,7 @@ public class AzurermStorageAccountLocalUserPermissionScopeBlockPermissionsBlock 
     /// </summary>
     public TerraformValue<bool>? Delete
     {
-        get => new TerraformReference<bool>(this, "delete");
+        get => GetArgument<TerraformValue<bool>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -82,7 +82,7 @@ public class AzurermStorageAccountLocalUserPermissionScopeBlockPermissionsBlock 
     /// </summary>
     public TerraformValue<bool>? List
     {
-        get => new TerraformReference<bool>(this, "list");
+        get => GetArgument<TerraformValue<bool>>("list");
         set => SetArgument("list", value);
     }
 
@@ -91,7 +91,7 @@ public class AzurermStorageAccountLocalUserPermissionScopeBlockPermissionsBlock 
     /// </summary>
     public TerraformValue<bool>? Read
     {
-        get => new TerraformReference<bool>(this, "read");
+        get => GetArgument<TerraformValue<bool>>("read");
         set => SetArgument("read", value);
     }
 
@@ -100,7 +100,7 @@ public class AzurermStorageAccountLocalUserPermissionScopeBlockPermissionsBlock 
     /// </summary>
     public TerraformValue<bool>? Write
     {
-        get => new TerraformReference<bool>(this, "write");
+        get => GetArgument<TerraformValue<bool>>("write");
         set => SetArgument("write", value);
     }
 
@@ -123,7 +123,7 @@ public class AzurermStorageAccountLocalUserSshAuthorizedKeyBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermStorageAccountLocalUserSshAuthorizedKeyBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -156,7 +156,7 @@ public class AzurermStorageAccountLocalUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -165,7 +165,7 @@ public class AzurermStorageAccountLocalUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -174,7 +174,7 @@ public class AzurermStorageAccountLocalUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -183,7 +183,7 @@ public class AzurermStorageAccountLocalUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -201,16 +201,16 @@ public partial class AzurermStorageAccountLocalUser(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? HomeDirectory
     {
-        get => new TerraformReference<string>(this, "home_directory");
+        get => GetArgument<TerraformValue<string>>("home_directory");
         set => SetArgument("home_directory", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -220,7 +220,7 @@ public partial class AzurermStorageAccountLocalUser(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -229,7 +229,7 @@ public partial class AzurermStorageAccountLocalUser(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? SshKeyEnabled
     {
-        get => new TerraformReference<bool>(this, "ssh_key_enabled");
+        get => GetArgument<TerraformValue<bool>>("ssh_key_enabled");
         set => SetArgument("ssh_key_enabled", value);
     }
 
@@ -238,7 +238,7 @@ public partial class AzurermStorageAccountLocalUser(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? SshPasswordEnabled
     {
-        get => new TerraformReference<bool>(this, "ssh_password_enabled");
+        get => GetArgument<TerraformValue<bool>>("ssh_password_enabled");
         set => SetArgument("ssh_password_enabled", value);
     }
 
@@ -248,7 +248,7 @@ public partial class AzurermStorageAccountLocalUser(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => new TerraformReference<string>(this, "storage_account_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
@@ -256,17 +256,13 @@ public partial class AzurermStorageAccountLocalUser(string name) : TerraformReso
     /// The password attribute.
     /// </summary>
     public TerraformValue<string> Password
-    {
-        get => new TerraformReference<string>(this, "password");
-    }
+        => AsReference("password");
 
     /// <summary>
     /// The sid attribute.
     /// </summary>
     public TerraformValue<string> Sid
-    {
-        get => new TerraformReference<string>(this, "sid");
-    }
+        => AsReference("sid");
 
     /// <summary>
     /// PermissionScope block (nesting mode: list).

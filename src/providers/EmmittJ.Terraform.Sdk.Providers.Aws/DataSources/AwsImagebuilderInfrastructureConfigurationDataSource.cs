@@ -14,43 +14,43 @@ public partial class AwsImagebuilderInfrastructureConfigurationDataSource(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The resource_tags attribute.
     /// </summary>
-    public TerraformMap<string> ResourceTags
+    public TerraformMap<string>? ResourceTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "resource_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("resource_tags");
         set => SetArgument("resource_tags", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -58,112 +58,84 @@ public partial class AwsImagebuilderInfrastructureConfigurationDataSource(string
     /// The date_created attribute.
     /// </summary>
     public TerraformValue<string> DateCreated
-    {
-        get => new TerraformReference<string>(this, "date_created");
-    }
+        => AsReference("date_created");
 
     /// <summary>
     /// The date_updated attribute.
     /// </summary>
     public TerraformValue<string> DateUpdated
-    {
-        get => new TerraformReference<string>(this, "date_updated");
-    }
+        => AsReference("date_updated");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The instance_metadata_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstanceMetadataOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "instance_metadata_options").ResolveNodes(ctx));
-    }
+        => AsReference("instance_metadata_options");
 
     /// <summary>
     /// The instance_profile_name attribute.
     /// </summary>
     public TerraformValue<string> InstanceProfileName
-    {
-        get => new TerraformReference<string>(this, "instance_profile_name");
-    }
+        => AsReference("instance_profile_name");
 
     /// <summary>
     /// The instance_types attribute.
     /// </summary>
     public TerraformSet<string> InstanceTypes
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "instance_types").ResolveNodes(ctx));
-    }
+        => AsReference("instance_types");
 
     /// <summary>
     /// The key_pair attribute.
     /// </summary>
     public TerraformValue<string> KeyPair
-    {
-        get => new TerraformReference<string>(this, "key_pair");
-    }
+        => AsReference("key_pair");
 
     /// <summary>
     /// The logging attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Logging
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "logging").ResolveNodes(ctx));
-    }
+        => AsReference("logging");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The placement attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Placement
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "placement").ResolveNodes(ctx));
-    }
+        => AsReference("placement");
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     public TerraformSet<string> SecurityGroupIds
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
-    }
+        => AsReference("security_group_ids");
 
     /// <summary>
     /// The sns_topic_arn attribute.
     /// </summary>
     public TerraformValue<string> SnsTopicArn
-    {
-        get => new TerraformReference<string>(this, "sns_topic_arn");
-    }
+        => AsReference("sns_topic_arn");
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     public TerraformValue<string> SubnetId
-    {
-        get => new TerraformReference<string>(this, "subnet_id");
-    }
+        => AsReference("subnet_id");
 
     /// <summary>
     /// The terminate_instance_on_failure attribute.
     /// </summary>
     public TerraformValue<bool> TerminateInstanceOnFailure
-    {
-        get => new TerraformReference<bool>(this, "terminate_instance_on_failure");
-    }
+        => AsReference("terminate_instance_on_failure");
 
 }

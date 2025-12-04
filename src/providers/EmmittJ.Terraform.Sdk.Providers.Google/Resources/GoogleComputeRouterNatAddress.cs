@@ -18,7 +18,7 @@ public class GoogleComputeRouterNatAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeRouterNatAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleComputeRouterNatAddressTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,16 +55,16 @@ public partial class GoogleComputeRouterNatAddress(string name) : TerraformResou
     /// </summary>
     public TerraformSet<string>? DrainNatIps
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "drain_nat_ips").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("drain_nat_ips");
         set => SetArgument("drain_nat_ips", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -75,25 +75,25 @@ public partial class GoogleComputeRouterNatAddress(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatIps is required")]
     public required TerraformSet<string> NatIps
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "nat_ips").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("nat_ips");
         set => SetArgument("nat_ips", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Region where the NAT service reside.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -103,7 +103,7 @@ public partial class GoogleComputeRouterNatAddress(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
     public required TerraformValue<string> Router
     {
-        get => new TerraformReference<string>(this, "router");
+        get => GetArgument<TerraformValue<string>>("router");
         set => SetArgument("router", value);
     }
 
@@ -113,7 +113,7 @@ public partial class GoogleComputeRouterNatAddress(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouterNat is required")]
     public required TerraformValue<string> RouterNat
     {
-        get => new TerraformReference<string>(this, "router_nat");
+        get => GetArgument<TerraformValue<string>>("router_nat");
         set => SetArgument("router_nat", value);
     }
 

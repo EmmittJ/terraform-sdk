@@ -19,7 +19,7 @@ public class AwsNatGatewayDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsNatGatewayDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsNatGatewayDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -68,54 +68,54 @@ public partial class AwsNatGatewayDataSource(string name) : TerraformDataSource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformValue<string> State
+    public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformValue<string> SubnetId
+    public TerraformValue<string>? SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformValue<string> VpcId
+    public TerraformValue<string>? VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -123,73 +123,55 @@ public partial class AwsNatGatewayDataSource(string name) : TerraformDataSource(
     /// The allocation_id attribute.
     /// </summary>
     public TerraformValue<string> AllocationId
-    {
-        get => new TerraformReference<string>(this, "allocation_id");
-    }
+        => AsReference("allocation_id");
 
     /// <summary>
     /// The association_id attribute.
     /// </summary>
     public TerraformValue<string> AssociationId
-    {
-        get => new TerraformReference<string>(this, "association_id");
-    }
+        => AsReference("association_id");
 
     /// <summary>
     /// The connectivity_type attribute.
     /// </summary>
     public TerraformValue<string> ConnectivityType
-    {
-        get => new TerraformReference<string>(this, "connectivity_type");
-    }
+        => AsReference("connectivity_type");
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
     public TerraformValue<string> NetworkInterfaceId
-    {
-        get => new TerraformReference<string>(this, "network_interface_id");
-    }
+        => AsReference("network_interface_id");
 
     /// <summary>
     /// The private_ip attribute.
     /// </summary>
     public TerraformValue<string> PrivateIp
-    {
-        get => new TerraformReference<string>(this, "private_ip");
-    }
+        => AsReference("private_ip");
 
     /// <summary>
     /// The public_ip attribute.
     /// </summary>
     public TerraformValue<string> PublicIp
-    {
-        get => new TerraformReference<string>(this, "public_ip");
-    }
+        => AsReference("public_ip");
 
     /// <summary>
     /// The secondary_allocation_ids attribute.
     /// </summary>
     public TerraformList<string> SecondaryAllocationIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "secondary_allocation_ids").ResolveNodes(ctx));
-    }
+        => AsReference("secondary_allocation_ids");
 
     /// <summary>
     /// The secondary_private_ip_address_count attribute.
     /// </summary>
     public TerraformValue<double> SecondaryPrivateIpAddressCount
-    {
-        get => new TerraformReference<double>(this, "secondary_private_ip_address_count");
-    }
+        => AsReference("secondary_private_ip_address_count");
 
     /// <summary>
     /// The secondary_private_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> SecondaryPrivateIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "secondary_private_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("secondary_private_ip_addresses");
 
     /// <summary>
     /// Filter block (nesting mode: set).

@@ -18,7 +18,7 @@ public class AzurermSecurityCenterAutomationActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConnectionString
     {
-        get => new TerraformReference<string>(this, "connection_string");
+        get => GetArgument<TerraformValue<string>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermSecurityCenterAutomationActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformValue<string> ResourceId
     {
-        get => new TerraformReference<string>(this, "resource_id");
+        get => GetArgument<TerraformValue<string>>("resource_id");
         set => SetArgument("resource_id", value);
     }
 
@@ -37,16 +37,16 @@ public class AzurermSecurityCenterAutomationActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TriggerUrl
     {
-        get => new TerraformReference<string>(this, "trigger_url");
+        get => GetArgument<TerraformValue<string>>("trigger_url");
         set => SetArgument("trigger_url", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string> Type
+    public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermSecurityCenterAutomationSourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventSource is required")]
     public required TerraformValue<string> EventSource
     {
-        get => new TerraformReference<string>(this, "event_source");
+        get => GetArgument<TerraformValue<string>>("event_source");
         set => SetArgument("event_source", value);
     }
 
@@ -127,7 +127,7 @@ public class AzurermSecurityCenterAutomationSourceBlockRuleSetBlockRuleBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpectedValue is required")]
     public required TerraformValue<string> ExpectedValue
     {
-        get => new TerraformReference<string>(this, "expected_value");
+        get => GetArgument<TerraformValue<string>>("expected_value");
         set => SetArgument("expected_value", value);
     }
 
@@ -137,7 +137,7 @@ public class AzurermSecurityCenterAutomationSourceBlockRuleSetBlockRuleBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -147,7 +147,7 @@ public class AzurermSecurityCenterAutomationSourceBlockRuleSetBlockRuleBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PropertyPath is required")]
     public required TerraformValue<string> PropertyPath
     {
-        get => new TerraformReference<string>(this, "property_path");
+        get => GetArgument<TerraformValue<string>>("property_path");
         set => SetArgument("property_path", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermSecurityCenterAutomationSourceBlockRuleSetBlockRuleBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PropertyType is required")]
     public required TerraformValue<string> PropertyType
     {
-        get => new TerraformReference<string>(this, "property_type");
+        get => GetArgument<TerraformValue<string>>("property_type");
         set => SetArgument("property_type", value);
     }
 
@@ -180,7 +180,7 @@ public class AzurermSecurityCenterAutomationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -189,7 +189,7 @@ public class AzurermSecurityCenterAutomationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -198,7 +198,7 @@ public class AzurermSecurityCenterAutomationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -207,7 +207,7 @@ public class AzurermSecurityCenterAutomationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -225,7 +225,7 @@ public partial class AzurermSecurityCenterAutomation(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -234,16 +234,16 @@ public partial class AzurermSecurityCenterAutomation(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -253,7 +253,7 @@ public partial class AzurermSecurityCenterAutomation(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -263,7 +263,7 @@ public partial class AzurermSecurityCenterAutomation(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -273,7 +273,7 @@ public partial class AzurermSecurityCenterAutomation(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -283,7 +283,7 @@ public partial class AzurermSecurityCenterAutomation(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
     public TerraformList<string>? Scopes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("scopes");
         set => SetArgument("scopes", value);
     }
 
@@ -292,7 +292,7 @@ public partial class AzurermSecurityCenterAutomation(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

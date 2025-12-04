@@ -18,7 +18,7 @@ public class AzurermStorageContainerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermStorageContainerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermStorageContainerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermStorageContainerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AzurermStorageContainer(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? ContainerAccessType
     {
-        get => new TerraformReference<string>(this, "container_access_type");
+        get => GetArgument<TerraformValue<string>>("container_access_type");
         set => SetArgument("container_access_type", value);
     }
 
     /// <summary>
     /// The default_encryption_scope attribute.
     /// </summary>
-    public TerraformValue<string> DefaultEncryptionScope
+    public TerraformValue<string>? DefaultEncryptionScope
     {
-        get => new TerraformReference<string>(this, "default_encryption_scope");
+        get => GetArgument<TerraformValue<string>>("default_encryption_scope");
         set => SetArgument("default_encryption_scope", value);
     }
 
@@ -81,25 +81,25 @@ public partial class AzurermStorageContainer(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? EncryptionScopeOverrideEnabled
     {
-        get => new TerraformReference<bool>(this, "encryption_scope_override_enabled");
+        get => GetArgument<TerraformValue<bool>>("encryption_scope_override_enabled");
         set => SetArgument("encryption_scope_override_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformMap<string> Metadata
+    public TerraformMap<string>? Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermStorageContainer(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermStorageContainer(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? StorageAccountId
     {
-        get => new TerraformReference<string>(this, "storage_account_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermStorageContainer(string name) : TerraformResource("a
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? StorageAccountName
     {
-        get => new TerraformReference<string>(this, "storage_account_name");
+        get => GetArgument<TerraformValue<string>>("storage_account_name");
         set => SetArgument("storage_account_name", value);
     }
 
@@ -136,26 +136,20 @@ public partial class AzurermStorageContainer(string name) : TerraformResource("a
     /// The has_immutability_policy attribute.
     /// </summary>
     public TerraformValue<bool> HasImmutabilityPolicy
-    {
-        get => new TerraformReference<bool>(this, "has_immutability_policy");
-    }
+        => AsReference("has_immutability_policy");
 
     /// <summary>
     /// The has_legal_hold attribute.
     /// </summary>
     public TerraformValue<bool> HasLegalHold
-    {
-        get => new TerraformReference<bool>(this, "has_legal_hold");
-    }
+        => AsReference("has_legal_hold");
 
     /// <summary>
     /// The resource_manager_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> ResourceManagerId
-    {
-        get => new TerraformReference<string>(this, "resource_manager_id");
-    }
+        => AsReference("resource_manager_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

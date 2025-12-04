@@ -18,7 +18,7 @@ public class AwsEc2CapacityReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsEc2CapacityReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsEc2CapacityReservationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsEc2CapacityReservation(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZone is required")]
     public required TerraformValue<string> AvailabilityZone
     {
-        get => new TerraformReference<string>(this, "availability_zone");
+        get => GetArgument<TerraformValue<string>>("availability_zone");
         set => SetArgument("availability_zone", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsEc2CapacityReservation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? EbsOptimized
     {
-        get => new TerraformReference<bool>(this, "ebs_optimized");
+        get => GetArgument<TerraformValue<bool>>("ebs_optimized");
         set => SetArgument("ebs_optimized", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsEc2CapacityReservation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? EndDate
     {
-        get => new TerraformReference<string>(this, "end_date");
+        get => GetArgument<TerraformValue<string>>("end_date");
         set => SetArgument("end_date", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsEc2CapacityReservation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? EndDateType
     {
-        get => new TerraformReference<string>(this, "end_date_type");
+        get => GetArgument<TerraformValue<string>>("end_date_type");
         set => SetArgument("end_date_type", value);
     }
 
@@ -91,16 +91,16 @@ public partial class AwsEc2CapacityReservation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? EphemeralStorage
     {
-        get => new TerraformReference<bool>(this, "ephemeral_storage");
+        get => GetArgument<TerraformValue<bool>>("ephemeral_storage");
         set => SetArgument("ephemeral_storage", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AwsEc2CapacityReservation(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceCount is required")]
     public required TerraformValue<double> InstanceCount
     {
-        get => new TerraformReference<double>(this, "instance_count");
+        get => GetArgument<TerraformValue<double>>("instance_count");
         set => SetArgument("instance_count", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AwsEc2CapacityReservation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? InstanceMatchCriteria
     {
-        get => new TerraformReference<string>(this, "instance_match_criteria");
+        get => GetArgument<TerraformValue<string>>("instance_match_criteria");
         set => SetArgument("instance_match_criteria", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AwsEc2CapacityReservation(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePlatform is required")]
     public required TerraformValue<string> InstancePlatform
     {
-        get => new TerraformReference<string>(this, "instance_platform");
+        get => GetArgument<TerraformValue<string>>("instance_platform");
         set => SetArgument("instance_platform", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AwsEc2CapacityReservation(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AwsEc2CapacityReservation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? OutpostArn
     {
-        get => new TerraformReference<string>(this, "outpost_arn");
+        get => GetArgument<TerraformValue<string>>("outpost_arn");
         set => SetArgument("outpost_arn", value);
     }
 
@@ -157,16 +157,16 @@ public partial class AwsEc2CapacityReservation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? PlacementGroupArn
     {
-        get => new TerraformReference<string>(this, "placement_group_arn");
+        get => GetArgument<TerraformValue<string>>("placement_group_arn");
         set => SetArgument("placement_group_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -175,16 +175,16 @@ public partial class AwsEc2CapacityReservation(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -193,7 +193,7 @@ public partial class AwsEc2CapacityReservation(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Tenancy
     {
-        get => new TerraformReference<string>(this, "tenancy");
+        get => GetArgument<TerraformValue<string>>("tenancy");
         set => SetArgument("tenancy", value);
     }
 
@@ -201,17 +201,13 @@ public partial class AwsEc2CapacityReservation(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -19,7 +19,7 @@ public class AwsDevopsguruResourceCollectionCloudformationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StackNames is required")]
     public TerraformList<string>? StackNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "stack_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("stack_names");
         set => SetArgument("stack_names", value);
     }
 
@@ -43,7 +43,7 @@ public class AwsDevopsguruResourceCollectionTagsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBoundaryKey is required")]
     public required TerraformValue<string> AppBoundaryKey
     {
-        get => new TerraformReference<string>(this, "app_boundary_key");
+        get => GetArgument<TerraformValue<string>>("app_boundary_key");
         set => SetArgument("app_boundary_key", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsDevopsguruResourceCollectionTagsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagValues is required")]
     public TerraformList<string>? TagValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tag_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("tag_values");
         set => SetArgument("tag_values", value);
     }
 
@@ -69,9 +69,9 @@ public partial class AwsDevopsguruResourceCollection(string name) : TerraformRes
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsDevopsguruResourceCollection(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -89,9 +89,7 @@ public partial class AwsDevopsguruResourceCollection(string name) : TerraformRes
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// Cloudformation block (nesting mode: list).

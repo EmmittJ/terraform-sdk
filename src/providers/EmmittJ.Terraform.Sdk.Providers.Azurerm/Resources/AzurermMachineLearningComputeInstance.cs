@@ -18,7 +18,7 @@ public class AzurermMachineLearningComputeInstanceAssignToUserBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? ObjectId
     {
-        get => new TerraformReference<string>(this, "object_id");
+        get => GetArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermMachineLearningComputeInstanceAssignToUserBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -50,7 +50,7 @@ public class AzurermMachineLearningComputeInstanceIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -58,17 +58,13 @@ public class AzurermMachineLearningComputeInstanceIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -76,7 +72,7 @@ public class AzurermMachineLearningComputeInstanceIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -98,9 +94,7 @@ public class AzurermMachineLearningComputeInstanceSshBlock : TerraformBlock
     /// The port attribute.
     /// </summary>
     public TerraformValue<double> Port
-    {
-        get => new TerraformReference<double>(this, "port");
-    }
+        => AsReference("port");
 
     /// <summary>
     /// The public_key attribute.
@@ -108,7 +102,7 @@ public class AzurermMachineLearningComputeInstanceSshBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKey is required")]
     public required TerraformValue<string> PublicKey
     {
-        get => new TerraformReference<string>(this, "public_key");
+        get => GetArgument<TerraformValue<string>>("public_key");
         set => SetArgument("public_key", value);
     }
 
@@ -116,9 +110,7 @@ public class AzurermMachineLearningComputeInstanceSshBlock : TerraformBlock
     /// The username attribute.
     /// </summary>
     public TerraformValue<string> Username
-    {
-        get => new TerraformReference<string>(this, "username");
-    }
+        => AsReference("username");
 
 }
 
@@ -139,7 +131,7 @@ public class AzurermMachineLearningComputeInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -148,7 +140,7 @@ public class AzurermMachineLearningComputeInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -157,7 +149,7 @@ public class AzurermMachineLearningComputeInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -175,7 +167,7 @@ public partial class AzurermMachineLearningComputeInstance(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? AuthorizationType
     {
-        get => new TerraformReference<string>(this, "authorization_type");
+        get => GetArgument<TerraformValue<string>>("authorization_type");
         set => SetArgument("authorization_type", value);
     }
 
@@ -184,16 +176,16 @@ public partial class AzurermMachineLearningComputeInstance(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -202,7 +194,7 @@ public partial class AzurermMachineLearningComputeInstance(string name) : Terraf
     /// </summary>
     public TerraformValue<bool>? LocalAuthEnabled
     {
-        get => new TerraformReference<bool>(this, "local_auth_enabled");
+        get => GetArgument<TerraformValue<bool>>("local_auth_enabled");
         set => SetArgument("local_auth_enabled", value);
     }
 
@@ -212,7 +204,7 @@ public partial class AzurermMachineLearningComputeInstance(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineLearningWorkspaceId is required")]
     public required TerraformValue<string> MachineLearningWorkspaceId
     {
-        get => new TerraformReference<string>(this, "machine_learning_workspace_id");
+        get => GetArgument<TerraformValue<string>>("machine_learning_workspace_id");
         set => SetArgument("machine_learning_workspace_id", value);
     }
 
@@ -222,7 +214,7 @@ public partial class AzurermMachineLearningComputeInstance(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -231,7 +223,7 @@ public partial class AzurermMachineLearningComputeInstance(string name) : Terraf
     /// </summary>
     public TerraformValue<bool>? NodePublicIpEnabled
     {
-        get => new TerraformReference<bool>(this, "node_public_ip_enabled");
+        get => GetArgument<TerraformValue<bool>>("node_public_ip_enabled");
         set => SetArgument("node_public_ip_enabled", value);
     }
 
@@ -240,7 +232,7 @@ public partial class AzurermMachineLearningComputeInstance(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? SubnetResourceId
     {
-        get => new TerraformReference<string>(this, "subnet_resource_id");
+        get => GetArgument<TerraformValue<string>>("subnet_resource_id");
         set => SetArgument("subnet_resource_id", value);
     }
 
@@ -249,7 +241,7 @@ public partial class AzurermMachineLearningComputeInstance(string name) : Terraf
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -259,7 +251,7 @@ public partial class AzurermMachineLearningComputeInstance(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineSize is required")]
     public required TerraformValue<string> VirtualMachineSize
     {
-        get => new TerraformReference<string>(this, "virtual_machine_size");
+        get => GetArgument<TerraformValue<string>>("virtual_machine_size");
         set => SetArgument("virtual_machine_size", value);
     }
 

@@ -18,7 +18,7 @@ public class GoogleComputeRegionCommitmentLicenseResourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Amount
     {
-        get => new TerraformReference<string>(this, "amount");
+        get => GetArgument<TerraformValue<string>>("amount");
         set => SetArgument("amount", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeRegionCommitmentLicenseResourceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CoresPerLicense
     {
-        get => new TerraformReference<string>(this, "cores_per_license");
+        get => GetArgument<TerraformValue<string>>("cores_per_license");
         set => SetArgument("cores_per_license", value);
     }
 
@@ -37,7 +37,7 @@ public class GoogleComputeRegionCommitmentLicenseResourceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "License is required")]
     public required TerraformValue<string> License
     {
-        get => new TerraformReference<string>(this, "license");
+        get => GetArgument<TerraformValue<string>>("license");
         set => SetArgument("license", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleComputeRegionCommitmentResourcesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AcceleratorType
     {
-        get => new TerraformReference<string>(this, "accelerator_type");
+        get => GetArgument<TerraformValue<string>>("accelerator_type");
         set => SetArgument("accelerator_type", value);
     }
 
@@ -72,7 +72,7 @@ public class GoogleComputeRegionCommitmentResourcesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Amount
     {
-        get => new TerraformReference<string>(this, "amount");
+        get => GetArgument<TerraformValue<string>>("amount");
         set => SetArgument("amount", value);
     }
 
@@ -82,7 +82,7 @@ public class GoogleComputeRegionCommitmentResourcesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleComputeRegionCommitmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -114,7 +114,7 @@ public class GoogleComputeRegionCommitmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -133,9 +133,9 @@ public partial class GoogleComputeRegionCommitment(string name) : TerraformResou
     /// If the field is set to true, the commitment will be automatically renewed for either
     /// one or three years according to the terms of the existing commitment.
     /// </summary>
-    public TerraformValue<bool> AutoRenew
+    public TerraformValue<bool>? AutoRenew
     {
-        get => new TerraformReference<bool>(this, "auto_renew");
+        get => GetArgument<TerraformValue<bool>>("auto_renew");
         set => SetArgument("auto_renew", value);
     }
 
@@ -145,9 +145,9 @@ public partial class GoogleComputeRegionCommitment(string name) : TerraformResou
     /// specifies commitments composed of software licenses, listed in licenseResources.
     /// Note that only MACHINE commitments should have a Type specified. Possible values: [&amp;quot;LICENSE&amp;quot;, &amp;quot;MACHINE&amp;quot;]
     /// </summary>
-    public TerraformValue<string> Category
+    public TerraformValue<string>? Category
     {
-        get => new TerraformReference<string>(this, "category");
+        get => GetArgument<TerraformValue<string>>("category");
         set => SetArgument("category", value);
     }
 
@@ -156,25 +156,25 @@ public partial class GoogleComputeRegionCommitment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// Specifies the already existing reservations to attach to the Commitment.
     /// </summary>
-    public TerraformValue<string> ExistingReservations
+    public TerraformValue<string>? ExistingReservations
     {
-        get => new TerraformReference<string>(this, "existing_reservations");
+        get => GetArgument<TerraformValue<string>>("existing_reservations");
         set => SetArgument("existing_reservations", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -188,7 +188,7 @@ public partial class GoogleComputeRegionCommitment(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -199,25 +199,25 @@ public partial class GoogleComputeRegionCommitment(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     public required TerraformValue<string> Plan
     {
-        get => new TerraformReference<string>(this, "plan");
+        get => GetArgument<TerraformValue<string>>("plan");
         set => SetArgument("plan", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// URL of the region where this commitment may be used.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -228,9 +228,9 @@ public partial class GoogleComputeRegionCommitment(string name) : TerraformResou
     /// &#39;GENERAL_PURPOSE_T2D&#39;, &#39;GENERAL_PURPOSE_C3&#39;, &#39;COMPUTE_OPTIMIZED_C2&#39;, &#39;COMPUTE_OPTIMIZED_C2D&#39; and
     /// &#39;GRAPHICS_OPTIMIZED_G2&#39;
     /// </summary>
-    public TerraformValue<string> Type
+    public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -238,58 +238,44 @@ public partial class GoogleComputeRegionCommitment(string name) : TerraformResou
     /// Unique identifier for the resource.
     /// </summary>
     public TerraformValue<double> CommitmentId
-    {
-        get => new TerraformReference<double>(this, "commitment_id");
-    }
+        => AsReference("commitment_id");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// Commitment end time in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> EndTimestamp
-    {
-        get => new TerraformReference<string>(this, "end_timestamp");
-    }
+        => AsReference("end_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Commitment start time in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> StartTimestamp
-    {
-        get => new TerraformReference<string>(this, "start_timestamp");
-    }
+        => AsReference("start_timestamp");
 
     /// <summary>
     /// Status of the commitment with regards to eventual expiration
     /// (each commitment has an end date defined).
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// A human-readable explanation of the status.
     /// </summary>
     public TerraformValue<string> StatusMessage
-    {
-        get => new TerraformReference<string>(this, "status_message");
-    }
+        => AsReference("status_message");
 
     /// <summary>
     /// LicenseResource block (nesting mode: list).

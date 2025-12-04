@@ -18,7 +18,7 @@ public class AzurermSynapseIntegrationRuntimeAzureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSynapseIntegrationRuntimeAzureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSynapseIntegrationRuntimeAzureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSynapseIntegrationRuntimeAzureTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermSynapseIntegrationRuntimeAzure(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? ComputeType
     {
-        get => new TerraformReference<string>(this, "compute_type");
+        get => GetArgument<TerraformValue<string>>("compute_type");
         set => SetArgument("compute_type", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermSynapseIntegrationRuntimeAzure(string name) : Terraf
     /// </summary>
     public TerraformValue<double>? CoreCount
     {
-        get => new TerraformReference<double>(this, "core_count");
+        get => GetArgument<TerraformValue<double>>("core_count");
         set => SetArgument("core_count", value);
     }
 
@@ -81,16 +81,16 @@ public partial class AzurermSynapseIntegrationRuntimeAzure(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermSynapseIntegrationRuntimeAzure(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermSynapseIntegrationRuntimeAzure(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermSynapseIntegrationRuntimeAzure(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformValue<string> SynapseWorkspaceId
     {
-        get => new TerraformReference<string>(this, "synapse_workspace_id");
+        get => GetArgument<TerraformValue<string>>("synapse_workspace_id");
         set => SetArgument("synapse_workspace_id", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermSynapseIntegrationRuntimeAzure(string name) : Terraf
     /// </summary>
     public TerraformValue<double>? TimeToLiveMin
     {
-        get => new TerraformReference<double>(this, "time_to_live_min");
+        get => GetArgument<TerraformValue<double>>("time_to_live_min");
         set => SetArgument("time_to_live_min", value);
     }
 

@@ -19,7 +19,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -27,9 +27,9 @@ public class AwsS3BucketLifecycleConfigurationRuleBlock : TerraformBlock
     /// The prefix attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> Prefix
+    public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformValue<string> Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockAbortIncompleteMultipartU
     /// </summary>
     public TerraformValue<double>? DaysAfterInitiation
     {
-        get => new TerraformReference<double>(this, "days_after_initiation");
+        get => GetArgument<TerraformValue<double>>("days_after_initiation");
         set => SetArgument("days_after_initiation", value);
     }
 
@@ -137,25 +137,25 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockExpirationBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Date
     {
-        get => new TerraformReference<string>(this, "date");
+        get => GetArgument<TerraformValue<string>>("date");
         set => SetArgument("date", value);
     }
 
     /// <summary>
     /// The days attribute.
     /// </summary>
-    public TerraformValue<double> Days
+    public TerraformValue<double>? Days
     {
-        get => new TerraformReference<double>(this, "days");
+        get => GetArgument<TerraformValue<double>>("days");
         set => SetArgument("days", value);
     }
 
     /// <summary>
     /// The expired_object_delete_marker attribute.
     /// </summary>
-    public TerraformValue<bool> ExpiredObjectDeleteMarker
+    public TerraformValue<bool>? ExpiredObjectDeleteMarker
     {
-        get => new TerraformReference<bool>(this, "expired_object_delete_marker");
+        get => GetArgument<TerraformValue<bool>>("expired_object_delete_marker");
         set => SetArgument("expired_object_delete_marker", value);
     }
 
@@ -175,27 +175,27 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockFilterBlock : TerraformBl
     /// <summary>
     /// The object_size_greater_than attribute.
     /// </summary>
-    public TerraformValue<double> ObjectSizeGreaterThan
+    public TerraformValue<double>? ObjectSizeGreaterThan
     {
-        get => new TerraformReference<double>(this, "object_size_greater_than");
+        get => GetArgument<TerraformValue<double>>("object_size_greater_than");
         set => SetArgument("object_size_greater_than", value);
     }
 
     /// <summary>
     /// The object_size_less_than attribute.
     /// </summary>
-    public TerraformValue<double> ObjectSizeLessThan
+    public TerraformValue<double>? ObjectSizeLessThan
     {
-        get => new TerraformReference<double>(this, "object_size_less_than");
+        get => GetArgument<TerraformValue<double>>("object_size_less_than");
         set => SetArgument("object_size_less_than", value);
     }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformValue<string> Prefix
+    public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -233,27 +233,27 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockFilterBlockAndBlock : Ter
     /// <summary>
     /// The object_size_greater_than attribute.
     /// </summary>
-    public TerraformValue<double> ObjectSizeGreaterThan
+    public TerraformValue<double>? ObjectSizeGreaterThan
     {
-        get => new TerraformReference<double>(this, "object_size_greater_than");
+        get => GetArgument<TerraformValue<double>>("object_size_greater_than");
         set => SetArgument("object_size_greater_than", value);
     }
 
     /// <summary>
     /// The object_size_less_than attribute.
     /// </summary>
-    public TerraformValue<double> ObjectSizeLessThan
+    public TerraformValue<double>? ObjectSizeLessThan
     {
-        get => new TerraformReference<double>(this, "object_size_less_than");
+        get => GetArgument<TerraformValue<double>>("object_size_less_than");
         set => SetArgument("object_size_less_than", value);
     }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformValue<string> Prefix
+    public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -262,7 +262,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockFilterBlockAndBlock : Ter
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -285,7 +285,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockFilterBlockTagBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -295,7 +295,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockFilterBlockTagBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -317,7 +317,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockNoncurrentVersionExpirati
     /// </summary>
     public TerraformValue<double>? NewerNoncurrentVersions
     {
-        get => new TerraformReference<double>(this, "newer_noncurrent_versions");
+        get => GetArgument<TerraformValue<double>>("newer_noncurrent_versions");
         set => SetArgument("newer_noncurrent_versions", value);
     }
 
@@ -327,7 +327,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockNoncurrentVersionExpirati
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoncurrentDays is required")]
     public required TerraformValue<double> NoncurrentDays
     {
-        get => new TerraformReference<double>(this, "noncurrent_days");
+        get => GetArgument<TerraformValue<double>>("noncurrent_days");
         set => SetArgument("noncurrent_days", value);
     }
 
@@ -349,7 +349,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockNoncurrentVersionTransiti
     /// </summary>
     public TerraformValue<double>? NewerNoncurrentVersions
     {
-        get => new TerraformReference<double>(this, "newer_noncurrent_versions");
+        get => GetArgument<TerraformValue<double>>("newer_noncurrent_versions");
         set => SetArgument("newer_noncurrent_versions", value);
     }
 
@@ -359,7 +359,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockNoncurrentVersionTransiti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoncurrentDays is required")]
     public required TerraformValue<double> NoncurrentDays
     {
-        get => new TerraformReference<double>(this, "noncurrent_days");
+        get => GetArgument<TerraformValue<double>>("noncurrent_days");
         set => SetArgument("noncurrent_days", value);
     }
 
@@ -369,7 +369,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockNoncurrentVersionTransiti
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageClass is required")]
     public required TerraformValue<string> StorageClass
     {
-        get => new TerraformReference<string>(this, "storage_class");
+        get => GetArgument<TerraformValue<string>>("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -391,16 +391,16 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockTransitionBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Date
     {
-        get => new TerraformReference<string>(this, "date");
+        get => GetArgument<TerraformValue<string>>("date");
         set => SetArgument("date", value);
     }
 
     /// <summary>
     /// The days attribute.
     /// </summary>
-    public TerraformValue<double> Days
+    public TerraformValue<double>? Days
     {
-        get => new TerraformReference<double>(this, "days");
+        get => GetArgument<TerraformValue<double>>("days");
         set => SetArgument("days", value);
     }
 
@@ -410,7 +410,7 @@ public class AwsS3BucketLifecycleConfigurationRuleBlockTransitionBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageClass is required")]
     public required TerraformValue<string> StorageClass
     {
-        get => new TerraformReference<string>(this, "storage_class");
+        get => GetArgument<TerraformValue<string>>("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -433,7 +433,7 @@ public class AwsS3BucketLifecycleConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -442,7 +442,7 @@ public class AwsS3BucketLifecycleConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -461,34 +461,34 @@ public partial class AwsS3BucketLifecycleConfiguration(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    public TerraformValue<string> ExpectedBucketOwner
+    public TerraformValue<string>? ExpectedBucketOwner
     {
-        get => new TerraformReference<string>(this, "expected_bucket_owner");
+        get => GetArgument<TerraformValue<string>>("expected_bucket_owner");
         set => SetArgument("expected_bucket_owner", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The transition_default_minimum_object_size attribute.
     /// </summary>
-    public TerraformValue<string> TransitionDefaultMinimumObjectSize
+    public TerraformValue<string>? TransitionDefaultMinimumObjectSize
     {
-        get => new TerraformReference<string>(this, "transition_default_minimum_object_size");
+        get => GetArgument<TerraformValue<string>>("transition_default_minimum_object_size");
         set => SetArgument("transition_default_minimum_object_size", value);
     }
 
@@ -497,9 +497,7 @@ public partial class AwsS3BucketLifecycleConfiguration(string name) : TerraformR
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// Rule block (nesting mode: list).

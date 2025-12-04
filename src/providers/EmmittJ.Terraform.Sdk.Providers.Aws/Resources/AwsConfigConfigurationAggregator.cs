@@ -19,7 +19,7 @@ public class AwsConfigConfigurationAggregatorAccountAggregationSourceBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountIds is required")]
     public TerraformList<string>? AccountIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "account_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("account_ids");
         set => SetArgument("account_ids", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsConfigConfigurationAggregatorAccountAggregationSourceBlock : Ter
     /// </summary>
     public TerraformValue<bool>? AllRegions
     {
-        get => new TerraformReference<bool>(this, "all_regions");
+        get => GetArgument<TerraformValue<bool>>("all_regions");
         set => SetArgument("all_regions", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsConfigConfigurationAggregatorAccountAggregationSourceBlock : Ter
     /// </summary>
     public TerraformList<string>? Regions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("regions");
         set => SetArgument("regions", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsConfigConfigurationAggregatorOrganizationAggregationSourceBlock 
     /// </summary>
     public TerraformValue<bool>? AllRegions
     {
-        get => new TerraformReference<bool>(this, "all_regions");
+        get => GetArgument<TerraformValue<bool>>("all_regions");
         set => SetArgument("all_regions", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsConfigConfigurationAggregatorOrganizationAggregationSourceBlock 
     /// </summary>
     public TerraformList<string>? Regions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("regions");
         set => SetArgument("regions", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsConfigConfigurationAggregatorOrganizationAggregationSourceBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -95,9 +95,9 @@ public partial class AwsConfigConfigurationAggregator(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -107,16 +107,16 @@ public partial class AwsConfigConfigurationAggregator(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -125,16 +125,16 @@ public partial class AwsConfigConfigurationAggregator(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -142,9 +142,7 @@ public partial class AwsConfigConfigurationAggregator(string name) : TerraformRe
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// AccountAggregationSource block (nesting mode: list).

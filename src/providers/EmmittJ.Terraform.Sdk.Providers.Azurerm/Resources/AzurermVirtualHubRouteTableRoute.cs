@@ -18,7 +18,7 @@ public class AzurermVirtualHubRouteTableRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermVirtualHubRouteTableRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermVirtualHubRouteTableRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermVirtualHubRouteTableRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermVirtualHubRouteTableRoute(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destinations is required")]
     public required TerraformSet<string> Destinations
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "destinations").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("destinations");
         set => SetArgument("destinations", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzurermVirtualHubRouteTableRoute(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationsType is required")]
     public required TerraformValue<string> DestinationsType
     {
-        get => new TerraformReference<string>(this, "destinations_type");
+        get => GetArgument<TerraformValue<string>>("destinations_type");
         set => SetArgument("destinations_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermVirtualHubRouteTableRoute(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermVirtualHubRouteTableRoute(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextHop is required")]
     public required TerraformValue<string> NextHop
     {
-        get => new TerraformReference<string>(this, "next_hop");
+        get => GetArgument<TerraformValue<string>>("next_hop");
         set => SetArgument("next_hop", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermVirtualHubRouteTableRoute(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? NextHopType
     {
-        get => new TerraformReference<string>(this, "next_hop_type");
+        get => GetArgument<TerraformValue<string>>("next_hop_type");
         set => SetArgument("next_hop_type", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermVirtualHubRouteTableRoute(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteTableId is required")]
     public required TerraformValue<string> RouteTableId
     {
-        get => new TerraformReference<string>(this, "route_table_id");
+        get => GetArgument<TerraformValue<string>>("route_table_id");
         set => SetArgument("route_table_id", value);
     }
 

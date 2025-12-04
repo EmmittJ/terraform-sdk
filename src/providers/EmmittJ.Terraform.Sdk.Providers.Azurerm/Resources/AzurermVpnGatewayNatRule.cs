@@ -19,7 +19,7 @@ public class AzurermVpnGatewayNatRuleExternalMappingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressSpace is required")]
     public required TerraformValue<string> AddressSpace
     {
-        get => new TerraformReference<string>(this, "address_space");
+        get => GetArgument<TerraformValue<string>>("address_space");
         set => SetArgument("address_space", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermVpnGatewayNatRuleExternalMappingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PortRange
     {
-        get => new TerraformReference<string>(this, "port_range");
+        get => GetArgument<TerraformValue<string>>("port_range");
         set => SetArgument("port_range", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermVpnGatewayNatRuleInternalMappingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressSpace is required")]
     public required TerraformValue<string> AddressSpace
     {
-        get => new TerraformReference<string>(this, "address_space");
+        get => GetArgument<TerraformValue<string>>("address_space");
         set => SetArgument("address_space", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermVpnGatewayNatRuleInternalMappingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PortRange
     {
-        get => new TerraformReference<string>(this, "port_range");
+        get => GetArgument<TerraformValue<string>>("port_range");
         set => SetArgument("port_range", value);
     }
 
@@ -84,7 +84,7 @@ public class AzurermVpnGatewayNatRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -93,7 +93,7 @@ public class AzurermVpnGatewayNatRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -102,7 +102,7 @@ public class AzurermVpnGatewayNatRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -111,7 +111,7 @@ public class AzurermVpnGatewayNatRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -127,9 +127,9 @@ public partial class AzurermVpnGatewayNatRule(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzurermVpnGatewayNatRule(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? IpConfigurationId
     {
-        get => new TerraformReference<string>(this, "ip_configuration_id");
+        get => GetArgument<TerraformValue<string>>("ip_configuration_id");
         set => SetArgument("ip_configuration_id", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AzurermVpnGatewayNatRule(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AzurermVpnGatewayNatRule(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -166,7 +166,7 @@ public partial class AzurermVpnGatewayNatRule(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AzurermVpnGatewayNatRule(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnGatewayId is required")]
     public required TerraformValue<string> VpnGatewayId
     {
-        get => new TerraformReference<string>(this, "vpn_gateway_id");
+        get => GetArgument<TerraformValue<string>>("vpn_gateway_id");
         set => SetArgument("vpn_gateway_id", value);
     }
 

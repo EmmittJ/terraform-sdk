@@ -20,7 +20,7 @@ public class GoogleDialogflowConversationProfileAutomatedAgentConfigBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Agent is required")]
     public required TerraformValue<string> Agent
     {
-        get => new TerraformReference<string>(this, "agent");
+        get => GetArgument<TerraformValue<string>>("agent");
         set => SetArgument("agent", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleDialogflowConversationProfileAutomatedAgentConfigBlock : Terr
     /// </summary>
     public TerraformValue<string>? SessionTtl
     {
-        get => new TerraformReference<string>(this, "session_ttl");
+        get => GetArgument<TerraformValue<string>>("session_ttl");
         set => SetArgument("session_ttl", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     /// </summary>
     public TerraformValue<bool>? DisableHighLatencyFeaturesSyncDelivery
     {
-        get => new TerraformReference<bool>(this, "disable_high_latency_features_sync_delivery");
+        get => GetArgument<TerraformValue<bool>>("disable_high_latency_features_sync_delivery");
         set => SetArgument("disable_high_latency_features_sync_delivery", value);
     }
 
@@ -114,7 +114,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     /// </summary>
     public TerraformList<string>? Generators
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "generators").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("generators");
         set => SetArgument("generators", value);
     }
 
@@ -125,7 +125,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     /// </summary>
     public TerraformValue<bool>? GroupSuggestionResponses
     {
-        get => new TerraformReference<bool>(this, "group_suggestion_responses");
+        get => GetArgument<TerraformValue<bool>>("group_suggestion_responses");
         set => SetArgument("group_suggestion_responses", value);
     }
 
@@ -157,7 +157,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     /// </summary>
     public TerraformValue<bool>? DisableAgentQueryLogging
     {
-        get => new TerraformReference<bool>(this, "disable_agent_query_logging");
+        get => GetArgument<TerraformValue<bool>>("disable_agent_query_logging");
         set => SetArgument("disable_agent_query_logging", value);
     }
 
@@ -167,7 +167,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     /// </summary>
     public TerraformValue<bool>? EnableConversationAugmentedQuery
     {
-        get => new TerraformReference<bool>(this, "enable_conversation_augmented_query");
+        get => GetArgument<TerraformValue<bool>>("enable_conversation_augmented_query");
         set => SetArgument("enable_conversation_augmented_query", value);
     }
 
@@ -177,7 +177,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     /// </summary>
     public TerraformValue<bool>? EnableEventBasedSuggestion
     {
-        get => new TerraformReference<bool>(this, "enable_event_based_suggestion");
+        get => GetArgument<TerraformValue<bool>>("enable_event_based_suggestion");
         set => SetArgument("enable_event_based_suggestion", value);
     }
 
@@ -187,7 +187,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     /// </summary>
     public TerraformValue<bool>? EnableQuerySuggestionOnly
     {
-        get => new TerraformReference<bool>(this, "enable_query_suggestion_only");
+        get => GetArgument<TerraformValue<bool>>("enable_query_suggestion_only");
         set => SetArgument("enable_query_suggestion_only", value);
     }
 
@@ -197,7 +197,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     /// </summary>
     public TerraformValue<bool>? EnableQuerySuggestionWhenNoAnswer
     {
-        get => new TerraformReference<bool>(this, "enable_query_suggestion_when_no_answer");
+        get => GetArgument<TerraformValue<bool>>("enable_query_suggestion_when_no_answer");
         set => SetArgument("enable_query_suggestion_when_no_answer", value);
     }
 
@@ -269,7 +269,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     /// </summary>
     public TerraformValue<string>? BaselineModelVersion
     {
-        get => new TerraformReference<string>(this, "baseline_model_version");
+        get => GetArgument<TerraformValue<string>>("baseline_model_version");
         set => SetArgument("baseline_model_version", value);
     }
 
@@ -278,7 +278,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     /// </summary>
     public TerraformValue<string>? Model
     {
-        get => new TerraformReference<string>(this, "model");
+        get => GetArgument<TerraformValue<string>>("model");
         set => SetArgument("model", value);
     }
 
@@ -300,7 +300,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     /// </summary>
     public TerraformValue<double>? RecentSentencesCount
     {
-        get => new TerraformReference<double>(this, "recent_sentences_count");
+        get => GetArgument<TerraformValue<double>>("recent_sentences_count");
         set => SetArgument("recent_sentences_count", value);
     }
 
@@ -323,7 +323,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     /// </summary>
     public TerraformValue<double>? ConfidenceThreshold
     {
-        get => new TerraformReference<double>(this, "confidence_threshold");
+        get => GetArgument<TerraformValue<double>>("confidence_threshold");
         set => SetArgument("confidence_threshold", value);
     }
 
@@ -332,7 +332,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     /// </summary>
     public TerraformValue<double>? MaxResults
     {
-        get => new TerraformReference<double>(this, "max_results");
+        get => GetArgument<TerraformValue<double>>("max_results");
         set => SetArgument("max_results", value);
     }
 
@@ -404,7 +404,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     /// </summary>
     public TerraformValue<bool>? DropHandoffMessages
     {
-        get => new TerraformReference<bool>(this, "drop_handoff_messages");
+        get => GetArgument<TerraformValue<bool>>("drop_handoff_messages");
         set => SetArgument("drop_handoff_messages", value);
     }
 
@@ -413,7 +413,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     /// </summary>
     public TerraformValue<bool>? DropIvrMessages
     {
-        get => new TerraformReference<bool>(this, "drop_ivr_messages");
+        get => GetArgument<TerraformValue<bool>>("drop_ivr_messages");
         set => SetArgument("drop_ivr_messages", value);
     }
 
@@ -422,7 +422,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     /// </summary>
     public TerraformValue<bool>? DropVirtualAgentMessages
     {
-        get => new TerraformReference<bool>(this, "drop_virtual_agent_messages");
+        get => GetArgument<TerraformValue<bool>>("drop_virtual_agent_messages");
         set => SetArgument("drop_virtual_agent_messages", value);
     }
 
@@ -445,7 +445,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Agent is required")]
     public required TerraformValue<string> Agent
     {
-        get => new TerraformReference<string>(this, "agent");
+        get => GetArgument<TerraformValue<string>>("agent");
         set => SetArgument("agent", value);
     }
 
@@ -477,7 +477,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     /// </summary>
     public TerraformValue<string>? Agent
     {
-        get => new TerraformReference<string>(this, "agent");
+        get => GetArgument<TerraformValue<string>>("agent");
         set => SetArgument("agent", value);
     }
 
@@ -500,7 +500,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Documents is required")]
     public TerraformList<string>? Documents
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "documents").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("documents");
         set => SetArgument("documents", value);
     }
 
@@ -523,7 +523,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KnowledgeBases is required")]
     public TerraformList<string>? KnowledgeBases
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "knowledge_bases").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("knowledge_bases");
         set => SetArgument("knowledge_bases", value);
     }
 
@@ -546,7 +546,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     /// </summary>
     public TerraformList<string>? SectionTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "section_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("section_types");
         set => SetArgument("section_types", value);
     }
 
@@ -568,7 +568,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -590,7 +590,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     /// </summary>
     public TerraformValue<bool>? NoSmallTalk
     {
-        get => new TerraformReference<bool>(this, "no_small_talk");
+        get => GetArgument<TerraformValue<bool>>("no_small_talk");
         set => SetArgument("no_small_talk", value);
     }
 
@@ -599,7 +599,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockEn
     /// </summary>
     public TerraformValue<bool>? OnlyEndUser
     {
-        get => new TerraformReference<bool>(this, "only_end_user");
+        get => GetArgument<TerraformValue<bool>>("only_end_user");
         set => SetArgument("only_end_user", value);
     }
 
@@ -621,7 +621,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     /// </summary>
     public TerraformValue<bool>? DisableHighLatencyFeaturesSyncDelivery
     {
-        get => new TerraformReference<bool>(this, "disable_high_latency_features_sync_delivery");
+        get => GetArgument<TerraformValue<bool>>("disable_high_latency_features_sync_delivery");
         set => SetArgument("disable_high_latency_features_sync_delivery", value);
     }
 
@@ -630,7 +630,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     /// </summary>
     public TerraformList<string>? Generators
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "generators").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("generators");
         set => SetArgument("generators", value);
     }
 
@@ -641,7 +641,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     /// </summary>
     public TerraformValue<bool>? GroupSuggestionResponses
     {
-        get => new TerraformReference<bool>(this, "group_suggestion_responses");
+        get => GetArgument<TerraformValue<bool>>("group_suggestion_responses");
         set => SetArgument("group_suggestion_responses", value);
     }
 
@@ -673,7 +673,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     /// </summary>
     public TerraformValue<bool>? DisableAgentQueryLogging
     {
-        get => new TerraformReference<bool>(this, "disable_agent_query_logging");
+        get => GetArgument<TerraformValue<bool>>("disable_agent_query_logging");
         set => SetArgument("disable_agent_query_logging", value);
     }
 
@@ -683,7 +683,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     /// </summary>
     public TerraformValue<bool>? EnableConversationAugmentedQuery
     {
-        get => new TerraformReference<bool>(this, "enable_conversation_augmented_query");
+        get => GetArgument<TerraformValue<bool>>("enable_conversation_augmented_query");
         set => SetArgument("enable_conversation_augmented_query", value);
     }
 
@@ -693,7 +693,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     /// </summary>
     public TerraformValue<bool>? EnableEventBasedSuggestion
     {
-        get => new TerraformReference<bool>(this, "enable_event_based_suggestion");
+        get => GetArgument<TerraformValue<bool>>("enable_event_based_suggestion");
         set => SetArgument("enable_event_based_suggestion", value);
     }
 
@@ -703,7 +703,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     /// </summary>
     public TerraformValue<bool>? EnableQuerySuggestionOnly
     {
-        get => new TerraformReference<bool>(this, "enable_query_suggestion_only");
+        get => GetArgument<TerraformValue<bool>>("enable_query_suggestion_only");
         set => SetArgument("enable_query_suggestion_only", value);
     }
 
@@ -713,7 +713,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     /// </summary>
     public TerraformValue<bool>? EnableQuerySuggestionWhenNoAnswer
     {
-        get => new TerraformReference<bool>(this, "enable_query_suggestion_when_no_answer");
+        get => GetArgument<TerraformValue<bool>>("enable_query_suggestion_when_no_answer");
         set => SetArgument("enable_query_suggestion_when_no_answer", value);
     }
 
@@ -785,7 +785,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     /// </summary>
     public TerraformValue<string>? BaselineModelVersion
     {
-        get => new TerraformReference<string>(this, "baseline_model_version");
+        get => GetArgument<TerraformValue<string>>("baseline_model_version");
         set => SetArgument("baseline_model_version", value);
     }
 
@@ -794,7 +794,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     /// </summary>
     public TerraformValue<string>? Model
     {
-        get => new TerraformReference<string>(this, "model");
+        get => GetArgument<TerraformValue<string>>("model");
         set => SetArgument("model", value);
     }
 
@@ -816,7 +816,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     /// </summary>
     public TerraformValue<double>? RecentSentencesCount
     {
-        get => new TerraformReference<double>(this, "recent_sentences_count");
+        get => GetArgument<TerraformValue<double>>("recent_sentences_count");
         set => SetArgument("recent_sentences_count", value);
     }
 
@@ -839,7 +839,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     /// </summary>
     public TerraformValue<double>? ConfidenceThreshold
     {
-        get => new TerraformReference<double>(this, "confidence_threshold");
+        get => GetArgument<TerraformValue<double>>("confidence_threshold");
         set => SetArgument("confidence_threshold", value);
     }
 
@@ -848,7 +848,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     /// </summary>
     public TerraformValue<double>? MaxResults
     {
-        get => new TerraformReference<double>(this, "max_results");
+        get => GetArgument<TerraformValue<double>>("max_results");
         set => SetArgument("max_results", value);
     }
 
@@ -900,7 +900,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     /// </summary>
     public TerraformValue<bool>? DropHandoffMessages
     {
-        get => new TerraformReference<bool>(this, "drop_handoff_messages");
+        get => GetArgument<TerraformValue<bool>>("drop_handoff_messages");
         set => SetArgument("drop_handoff_messages", value);
     }
 
@@ -909,7 +909,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     /// </summary>
     public TerraformValue<bool>? DropIvrMessages
     {
-        get => new TerraformReference<bool>(this, "drop_ivr_messages");
+        get => GetArgument<TerraformValue<bool>>("drop_ivr_messages");
         set => SetArgument("drop_ivr_messages", value);
     }
 
@@ -918,7 +918,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     /// </summary>
     public TerraformValue<bool>? DropVirtualAgentMessages
     {
-        get => new TerraformReference<bool>(this, "drop_virtual_agent_messages");
+        get => GetArgument<TerraformValue<bool>>("drop_virtual_agent_messages");
         set => SetArgument("drop_virtual_agent_messages", value);
     }
 
@@ -941,7 +941,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Agent is required")]
     public required TerraformValue<string> Agent
     {
-        get => new TerraformReference<string>(this, "agent");
+        get => GetArgument<TerraformValue<string>>("agent");
         set => SetArgument("agent", value);
     }
 
@@ -973,7 +973,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     /// </summary>
     public TerraformValue<string>? Agent
     {
-        get => new TerraformReference<string>(this, "agent");
+        get => GetArgument<TerraformValue<string>>("agent");
         set => SetArgument("agent", value);
     }
 
@@ -996,7 +996,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     /// </summary>
     public TerraformList<string>? SectionTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "section_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("section_types");
         set => SetArgument("section_types", value);
     }
 
@@ -1018,7 +1018,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1040,7 +1040,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     /// </summary>
     public TerraformValue<bool>? NoSmallTalk
     {
-        get => new TerraformReference<bool>(this, "no_small_talk");
+        get => GetArgument<TerraformValue<bool>>("no_small_talk");
         set => SetArgument("no_small_talk", value);
     }
 
@@ -1049,7 +1049,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockHu
     /// </summary>
     public TerraformValue<bool>? OnlyEndUser
     {
-        get => new TerraformReference<bool>(this, "only_end_user");
+        get => GetArgument<TerraformValue<bool>>("only_end_user");
         set => SetArgument("only_end_user", value);
     }
 
@@ -1071,7 +1071,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockMe
     /// </summary>
     public TerraformValue<bool>? EnableEntityExtraction
     {
-        get => new TerraformReference<bool>(this, "enable_entity_extraction");
+        get => GetArgument<TerraformValue<bool>>("enable_entity_extraction");
         set => SetArgument("enable_entity_extraction", value);
     }
 
@@ -1080,7 +1080,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockMe
     /// </summary>
     public TerraformValue<bool>? EnableSentimentAnalysis
     {
-        get => new TerraformReference<bool>(this, "enable_sentiment_analysis");
+        get => GetArgument<TerraformValue<bool>>("enable_sentiment_analysis");
         set => SetArgument("enable_sentiment_analysis", value);
     }
 
@@ -1102,7 +1102,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockNo
     /// </summary>
     public TerraformValue<string>? MessageFormat
     {
-        get => new TerraformReference<string>(this, "message_format");
+        get => GetArgument<TerraformValue<string>>("message_format");
         set => SetArgument("message_format", value);
     }
 
@@ -1111,7 +1111,7 @@ public class GoogleDialogflowConversationProfileHumanAgentAssistantConfigBlockNo
     /// </summary>
     public TerraformValue<string>? Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -1158,7 +1158,7 @@ public class GoogleDialogflowConversationProfileHumanAgentHandoffConfigBlockLive
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountNumber is required")]
     public required TerraformValue<string> AccountNumber
     {
-        get => new TerraformReference<string>(this, "account_number");
+        get => GetArgument<TerraformValue<string>>("account_number");
         set => SetArgument("account_number", value);
     }
 
@@ -1181,7 +1181,7 @@ public class GoogleDialogflowConversationProfileLoggingConfigBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? EnableStackdriverLogging
     {
-        get => new TerraformReference<bool>(this, "enable_stackdriver_logging");
+        get => GetArgument<TerraformValue<bool>>("enable_stackdriver_logging");
         set => SetArgument("enable_stackdriver_logging", value);
     }
 
@@ -1204,7 +1204,7 @@ public class GoogleDialogflowConversationProfileNewMessageEventNotificationConfi
     /// </summary>
     public TerraformValue<string>? MessageFormat
     {
-        get => new TerraformReference<string>(this, "message_format");
+        get => GetArgument<TerraformValue<string>>("message_format");
         set => SetArgument("message_format", value);
     }
 
@@ -1213,7 +1213,7 @@ public class GoogleDialogflowConversationProfileNewMessageEventNotificationConfi
     /// </summary>
     public TerraformValue<string>? Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -1236,7 +1236,7 @@ public class GoogleDialogflowConversationProfileNewRecognitionResultNotification
     /// </summary>
     public TerraformValue<string>? MessageFormat
     {
-        get => new TerraformReference<string>(this, "message_format");
+        get => GetArgument<TerraformValue<string>>("message_format");
         set => SetArgument("message_format", value);
     }
 
@@ -1248,7 +1248,7 @@ public class GoogleDialogflowConversationProfileNewRecognitionResultNotification
     /// </summary>
     public TerraformValue<string>? Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -1271,7 +1271,7 @@ public class GoogleDialogflowConversationProfileNotificationConfigBlock : Terraf
     /// </summary>
     public TerraformValue<string>? MessageFormat
     {
-        get => new TerraformReference<string>(this, "message_format");
+        get => GetArgument<TerraformValue<string>>("message_format");
         set => SetArgument("message_format", value);
     }
 
@@ -1280,7 +1280,7 @@ public class GoogleDialogflowConversationProfileNotificationConfigBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -1303,7 +1303,7 @@ public class GoogleDialogflowConversationProfileSttConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AudioEncoding
     {
-        get => new TerraformReference<string>(this, "audio_encoding");
+        get => GetArgument<TerraformValue<string>>("audio_encoding");
         set => SetArgument("audio_encoding", value);
     }
 
@@ -1312,16 +1312,16 @@ public class GoogleDialogflowConversationProfileSttConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableWordInfo
     {
-        get => new TerraformReference<bool>(this, "enable_word_info");
+        get => GetArgument<TerraformValue<bool>>("enable_word_info");
         set => SetArgument("enable_word_info", value);
     }
 
     /// <summary>
     /// The language of the supplied audio.
     /// </summary>
-    public TerraformValue<string> LanguageCode
+    public TerraformValue<string>? LanguageCode
     {
-        get => new TerraformReference<string>(this, "language_code");
+        get => GetArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -1331,7 +1331,7 @@ public class GoogleDialogflowConversationProfileSttConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Model
     {
-        get => new TerraformReference<string>(this, "model");
+        get => GetArgument<TerraformValue<string>>("model");
         set => SetArgument("model", value);
     }
 
@@ -1340,7 +1340,7 @@ public class GoogleDialogflowConversationProfileSttConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SampleRateHertz
     {
-        get => new TerraformReference<double>(this, "sample_rate_hertz");
+        get => GetArgument<TerraformValue<double>>("sample_rate_hertz");
         set => SetArgument("sample_rate_hertz", value);
     }
 
@@ -1349,7 +1349,7 @@ public class GoogleDialogflowConversationProfileSttConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SpeechModelVariant
     {
-        get => new TerraformReference<string>(this, "speech_model_variant");
+        get => GetArgument<TerraformValue<string>>("speech_model_variant");
         set => SetArgument("speech_model_variant", value);
     }
 
@@ -1358,7 +1358,7 @@ public class GoogleDialogflowConversationProfileSttConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? UseTimeoutBasedEndpointing
     {
-        get => new TerraformReference<bool>(this, "use_timeout_based_endpointing");
+        get => GetArgument<TerraformValue<bool>>("use_timeout_based_endpointing");
         set => SetArgument("use_timeout_based_endpointing", value);
     }
 
@@ -1381,7 +1381,7 @@ public class GoogleDialogflowConversationProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1390,7 +1390,7 @@ public class GoogleDialogflowConversationProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1399,7 +1399,7 @@ public class GoogleDialogflowConversationProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1422,7 +1422,7 @@ public class GoogleDialogflowConversationProfileTtsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? EffectsProfileId
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "effects_profile_id").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("effects_profile_id");
         set => SetArgument("effects_profile_id", value);
     }
 
@@ -1431,7 +1431,7 @@ public class GoogleDialogflowConversationProfileTtsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Pitch
     {
-        get => new TerraformReference<double>(this, "pitch");
+        get => GetArgument<TerraformValue<double>>("pitch");
         set => SetArgument("pitch", value);
     }
 
@@ -1440,7 +1440,7 @@ public class GoogleDialogflowConversationProfileTtsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SpeakingRate
     {
-        get => new TerraformReference<double>(this, "speaking_rate");
+        get => GetArgument<TerraformValue<double>>("speaking_rate");
         set => SetArgument("speaking_rate", value);
     }
 
@@ -1449,7 +1449,7 @@ public class GoogleDialogflowConversationProfileTtsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? VolumeGainDb
     {
-        get => new TerraformReference<double>(this, "volume_gain_db");
+        get => GetArgument<TerraformValue<double>>("volume_gain_db");
         set => SetArgument("volume_gain_db", value);
     }
 
@@ -1481,7 +1481,7 @@ public class GoogleDialogflowConversationProfileTtsConfigBlockVoiceBlock : Terra
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1490,7 +1490,7 @@ public class GoogleDialogflowConversationProfileTtsConfigBlockVoiceBlock : Terra
     /// </summary>
     public TerraformValue<string>? SsmlGender
     {
-        get => new TerraformReference<string>(this, "ssml_gender");
+        get => GetArgument<TerraformValue<string>>("ssml_gender");
         set => SetArgument("ssml_gender", value);
     }
 
@@ -1509,25 +1509,25 @@ public partial class GoogleDialogflowConversationProfile(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Language code for the conversation profile. This should be a BCP-47 language tag.
     /// </summary>
-    public TerraformValue<string> LanguageCode
+    public TerraformValue<string>? LanguageCode
     {
-        get => new TerraformReference<string>(this, "language_code");
+        get => GetArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -1537,16 +1537,16 @@ public partial class GoogleDialogflowConversationProfile(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -1555,7 +1555,7 @@ public partial class GoogleDialogflowConversationProfile(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? SecuritySettings
     {
-        get => new TerraformReference<string>(this, "security_settings");
+        get => GetArgument<TerraformValue<string>>("security_settings");
         set => SetArgument("security_settings", value);
     }
 
@@ -1564,7 +1564,7 @@ public partial class GoogleDialogflowConversationProfile(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -1572,9 +1572,7 @@ public partial class GoogleDialogflowConversationProfile(string name) : Terrafor
     /// name
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// AutomatedAgentConfig block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AwsServicecatalogProvisioningArtifactsDataSourceTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -36,16 +36,16 @@ public partial class AwsServicecatalogProvisioningArtifactsDataSource(string nam
     /// </summary>
     public TerraformValue<string>? AcceptLanguage
     {
-        get => new TerraformReference<string>(this, "accept_language");
+        get => GetArgument<TerraformValue<string>>("accept_language");
         set => SetArgument("accept_language", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AwsServicecatalogProvisioningArtifactsDataSource(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
     public required TerraformValue<string> ProductId
     {
-        get => new TerraformReference<string>(this, "product_id");
+        get => GetArgument<TerraformValue<string>>("product_id");
         set => SetArgument("product_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -72,9 +72,7 @@ public partial class AwsServicecatalogProvisioningArtifactsDataSource(string nam
     /// The provisioning_artifact_details attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ProvisioningArtifactDetails
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "provisioning_artifact_details").ResolveNodes(ctx));
-    }
+        => AsReference("provisioning_artifact_details");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

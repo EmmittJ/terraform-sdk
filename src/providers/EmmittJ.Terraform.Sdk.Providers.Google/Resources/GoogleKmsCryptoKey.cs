@@ -18,7 +18,7 @@ public class GoogleKmsCryptoKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleKmsCryptoKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleKmsCryptoKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleKmsCryptoKeyVersionTemplateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
     public required TerraformValue<string> Algorithm
     {
-        get => new TerraformReference<string>(this, "algorithm");
+        get => GetArgument<TerraformValue<string>>("algorithm");
         set => SetArgument("algorithm", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleKmsCryptoKeyVersionTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ProtectionLevel
     {
-        get => new TerraformReference<string>(this, "protection_level");
+        get => GetArgument<TerraformValue<string>>("protection_level");
         set => SetArgument("protection_level", value);
     }
 
@@ -87,9 +87,9 @@ public partial class GoogleKmsCryptoKey(string name) : TerraformResource("google
     /// The resource name of the backend environment associated with all CryptoKeyVersions within this CryptoKey.
     /// The resource name is in the format &amp;quot;projects/*/locations/*/ekmConnections/*&amp;quot; and only applies to &amp;quot;EXTERNAL_VPC&amp;quot; keys.
     /// </summary>
-    public TerraformValue<string> CryptoKeyBackend
+    public TerraformValue<string>? CryptoKeyBackend
     {
-        get => new TerraformReference<string>(this, "crypto_key_backend");
+        get => GetArgument<TerraformValue<string>>("crypto_key_backend");
         set => SetArgument("crypto_key_backend", value);
     }
 
@@ -97,27 +97,27 @@ public partial class GoogleKmsCryptoKey(string name) : TerraformResource("google
     /// The period of time that versions of this key spend in the DESTROY_SCHEDULED state before transitioning to DESTROYED.
     /// If not specified at creation time, the default duration is 30 days.
     /// </summary>
-    public TerraformValue<string> DestroyScheduledDuration
+    public TerraformValue<string>? DestroyScheduledDuration
     {
-        get => new TerraformReference<string>(this, "destroy_scheduled_duration");
+        get => GetArgument<TerraformValue<string>>("destroy_scheduled_duration");
         set => SetArgument("destroy_scheduled_duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Whether this key may contain imported versions only.
     /// </summary>
-    public TerraformValue<bool> ImportOnly
+    public TerraformValue<bool>? ImportOnly
     {
-        get => new TerraformReference<bool>(this, "import_only");
+        get => GetArgument<TerraformValue<bool>>("import_only");
         set => SetArgument("import_only", value);
     }
 
@@ -128,7 +128,7 @@ public partial class GoogleKmsCryptoKey(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
     public required TerraformValue<string> KeyRing
     {
-        get => new TerraformReference<string>(this, "key_ring");
+        get => GetArgument<TerraformValue<string>>("key_ring");
         set => SetArgument("key_ring", value);
     }
 
@@ -141,7 +141,7 @@ public partial class GoogleKmsCryptoKey(string name) : TerraformResource("google
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -151,7 +151,7 @@ public partial class GoogleKmsCryptoKey(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -163,7 +163,7 @@ public partial class GoogleKmsCryptoKey(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? Purpose
     {
-        get => new TerraformReference<string>(this, "purpose");
+        get => GetArgument<TerraformValue<string>>("purpose");
         set => SetArgument("purpose", value);
     }
 
@@ -175,7 +175,7 @@ public partial class GoogleKmsCryptoKey(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? RotationPeriod
     {
-        get => new TerraformReference<string>(this, "rotation_period");
+        get => GetArgument<TerraformValue<string>>("rotation_period");
         set => SetArgument("rotation_period", value);
     }
 
@@ -187,7 +187,7 @@ public partial class GoogleKmsCryptoKey(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<bool>? SkipInitialVersionCreation
     {
-        get => new TerraformReference<bool>(this, "skip_initial_version_creation");
+        get => GetArgument<TerraformValue<bool>>("skip_initial_version_creation");
         set => SetArgument("skip_initial_version_creation", value);
     }
 
@@ -195,27 +195,21 @@ public partial class GoogleKmsCryptoKey(string name) : TerraformResource("google
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// A copy of the primary CryptoKeyVersion that will be used by cryptoKeys.encrypt when this CryptoKey is given in EncryptRequest.name.
     /// Keys with purpose ENCRYPT_DECRYPT may have a primary. For other keys, this field will be unset.
     /// </summary>
     public TerraformList<TerraformMap<object>> Primary
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "primary").ResolveNodes(ctx));
-    }
+        => AsReference("primary");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -11,9 +11,9 @@ public partial class AwsCallerIdentityDataSource(string name) : TerraformDataSou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -21,24 +21,18 @@ public partial class AwsCallerIdentityDataSource(string name) : TerraformDataSou
     /// The account_id attribute.
     /// </summary>
     public TerraformValue<string> AccountId
-    {
-        get => new TerraformReference<string>(this, "account_id");
-    }
+        => AsReference("account_id");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
     public TerraformValue<string> UserId
-    {
-        get => new TerraformReference<string>(this, "user_id");
-    }
+        => AsReference("user_id");
 
 }

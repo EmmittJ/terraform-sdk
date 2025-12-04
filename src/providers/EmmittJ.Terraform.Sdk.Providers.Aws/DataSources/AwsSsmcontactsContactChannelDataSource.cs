@@ -14,25 +14,25 @@ public partial class AwsSsmcontactsContactChannelDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -40,40 +40,30 @@ public partial class AwsSsmcontactsContactChannelDataSource(string name) : Terra
     /// The activation_status attribute.
     /// </summary>
     public TerraformValue<string> ActivationStatus
-    {
-        get => new TerraformReference<string>(this, "activation_status");
-    }
+        => AsReference("activation_status");
 
     /// <summary>
     /// The contact_id attribute.
     /// </summary>
     public TerraformValue<string> ContactId
-    {
-        get => new TerraformReference<string>(this, "contact_id");
-    }
+        => AsReference("contact_id");
 
     /// <summary>
     /// The delivery_address attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DeliveryAddress
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "delivery_address").ResolveNodes(ctx));
-    }
+        => AsReference("delivery_address");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
 }

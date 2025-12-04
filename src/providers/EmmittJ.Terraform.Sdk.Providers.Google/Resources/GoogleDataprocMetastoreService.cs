@@ -20,7 +20,7 @@ public class GoogleDataprocMetastoreServiceEncryptionConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
     public required TerraformValue<string> KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -42,9 +42,9 @@ public class GoogleDataprocMetastoreServiceHiveMetastoreConfigBlock : TerraformB
     /// A mapping of Hive metastore configuration key-value pairs to apply to the Hive metastore (configured in hive-site.xml).
     /// The mappings override system defaults (some keys cannot be overridden)
     /// </summary>
-    public TerraformMap<string> ConfigOverrides
+    public TerraformMap<string>? ConfigOverrides
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "config_overrides").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("config_overrides");
         set => SetArgument("config_overrides", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleDataprocMetastoreServiceHiveMetastoreConfigBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? EndpointProtocol
     {
-        get => new TerraformReference<string>(this, "endpoint_protocol");
+        get => GetArgument<TerraformValue<string>>("endpoint_protocol");
         set => SetArgument("endpoint_protocol", value);
     }
 
@@ -63,7 +63,7 @@ public class GoogleDataprocMetastoreServiceHiveMetastoreConfigBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleDataprocMetastoreServiceHiveMetastoreConfigBlockAuxiliaryVers
     /// </summary>
     public TerraformMap<string>? ConfigOverrides
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "config_overrides").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("config_overrides");
         set => SetArgument("config_overrides", value);
     }
 
@@ -115,7 +115,7 @@ public class GoogleDataprocMetastoreServiceHiveMetastoreConfigBlockAuxiliaryVers
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -125,7 +125,7 @@ public class GoogleDataprocMetastoreServiceHiveMetastoreConfigBlockAuxiliaryVers
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -148,7 +148,7 @@ public class GoogleDataprocMetastoreServiceHiveMetastoreConfigBlockKerberosConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Krb5ConfigGcsUri is required")]
     public required TerraformValue<string> Krb5ConfigGcsUri
     {
-        get => new TerraformReference<string>(this, "krb5_config_gcs_uri");
+        get => GetArgument<TerraformValue<string>>("krb5_config_gcs_uri");
         set => SetArgument("krb5_config_gcs_uri", value);
     }
 
@@ -158,7 +158,7 @@ public class GoogleDataprocMetastoreServiceHiveMetastoreConfigBlockKerberosConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformValue<string> Principal
     {
-        get => new TerraformReference<string>(this, "principal");
+        get => GetArgument<TerraformValue<string>>("principal");
         set => SetArgument("principal", value);
     }
 
@@ -196,7 +196,7 @@ public class GoogleDataprocMetastoreServiceHiveMetastoreConfigBlockKerberosConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudSecret is required")]
     public required TerraformValue<string> CloudSecret
     {
-        get => new TerraformReference<string>(this, "cloud_secret");
+        get => GetArgument<TerraformValue<string>>("cloud_secret");
         set => SetArgument("cloud_secret", value);
     }
 
@@ -220,7 +220,7 @@ public class GoogleDataprocMetastoreServiceMaintenanceWindowBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformValue<string> DayOfWeek
     {
-        get => new TerraformReference<string>(this, "day_of_week");
+        get => GetArgument<TerraformValue<string>>("day_of_week");
         set => SetArgument("day_of_week", value);
     }
 
@@ -230,7 +230,7 @@ public class GoogleDataprocMetastoreServiceMaintenanceWindowBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HourOfDay is required")]
     public required TerraformValue<double> HourOfDay
     {
-        get => new TerraformReference<double>(this, "hour_of_day");
+        get => GetArgument<TerraformValue<double>>("hour_of_day");
         set => SetArgument("hour_of_day", value);
     }
 
@@ -280,7 +280,7 @@ public class GoogleDataprocMetastoreServiceMetadataIntegrationBlockDataCatalogCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -327,9 +327,7 @@ public class GoogleDataprocMetastoreServiceNetworkConfigBlockConsumersBlock : Te
     /// The URI of the endpoint used to access the metastore service.
     /// </summary>
     public TerraformValue<string> EndpointUri
-    {
-        get => new TerraformReference<string>(this, "endpoint_uri");
-    }
+        => AsReference("endpoint_uri");
 
     /// <summary>
     /// The subnetwork of the customer project from which an IP address is reserved and used as the Dataproc Metastore service&#39;s endpoint.
@@ -340,7 +338,7 @@ public class GoogleDataprocMetastoreServiceNetworkConfigBlockConsumersBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnetwork is required")]
     public required TerraformValue<string> Subnetwork
     {
-        get => new TerraformReference<string>(this, "subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -363,7 +361,7 @@ public class GoogleDataprocMetastoreServiceScalingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? InstanceSize
     {
-        get => new TerraformReference<string>(this, "instance_size");
+        get => GetArgument<TerraformValue<string>>("instance_size");
         set => SetArgument("instance_size", value);
     }
 
@@ -372,7 +370,7 @@ public class GoogleDataprocMetastoreServiceScalingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ScalingFactor
     {
-        get => new TerraformReference<double>(this, "scaling_factor");
+        get => GetArgument<TerraformValue<double>>("scaling_factor");
         set => SetArgument("scaling_factor", value);
     }
 
@@ -404,7 +402,7 @@ public class GoogleDataprocMetastoreServiceScalingConfigBlockAutoscalingConfigBl
     /// </summary>
     public TerraformValue<bool>? AutoscalingEnabled
     {
-        get => new TerraformReference<bool>(this, "autoscaling_enabled");
+        get => GetArgument<TerraformValue<bool>>("autoscaling_enabled");
         set => SetArgument("autoscaling_enabled", value);
     }
 
@@ -412,9 +410,7 @@ public class GoogleDataprocMetastoreServiceScalingConfigBlockAutoscalingConfigBl
     /// Output only. The scaling factor of a service with autoscaling enabled.
     /// </summary>
     public TerraformValue<double> AutoscalingFactor
-    {
-        get => new TerraformReference<double>(this, "autoscaling_factor");
-    }
+        => AsReference("autoscaling_factor");
 
     /// <summary>
     /// LimitConfig block (nesting mode: list).
@@ -442,18 +438,18 @@ public class GoogleDataprocMetastoreServiceScalingConfigBlockAutoscalingConfigBl
     /// <summary>
     /// The maximum scaling factor that the service will autoscale to. The default value is 6.0.
     /// </summary>
-    public TerraformValue<double> MaxScalingFactor
+    public TerraformValue<double>? MaxScalingFactor
     {
-        get => new TerraformReference<double>(this, "max_scaling_factor");
+        get => GetArgument<TerraformValue<double>>("max_scaling_factor");
         set => SetArgument("max_scaling_factor", value);
     }
 
     /// <summary>
     /// The minimum scaling factor that the service will autoscale to. The default value is 0.1.
     /// </summary>
-    public TerraformValue<double> MinScalingFactor
+    public TerraformValue<double>? MinScalingFactor
     {
-        get => new TerraformReference<double>(this, "min_scaling_factor");
+        get => GetArgument<TerraformValue<double>>("min_scaling_factor");
         set => SetArgument("min_scaling_factor", value);
     }
 
@@ -477,7 +473,7 @@ public class GoogleDataprocMetastoreServiceScheduledBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupLocation is required")]
     public required TerraformValue<string> BackupLocation
     {
-        get => new TerraformReference<string>(this, "backup_location");
+        get => GetArgument<TerraformValue<string>>("backup_location");
         set => SetArgument("backup_location", value);
     }
 
@@ -486,25 +482,25 @@ public class GoogleDataprocMetastoreServiceScheduledBackupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CronSchedule
     {
-        get => new TerraformReference<string>(this, "cron_schedule");
+        get => GetArgument<TerraformValue<string>>("cron_schedule");
         set => SetArgument("cron_schedule", value);
     }
 
     /// <summary>
     /// Defines whether the scheduled backup is enabled. The default value is false.
     /// </summary>
-    public TerraformValue<bool> Enabled
+    public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// Specifies the time zone to be used when interpreting cronSchedule. Must be a time zone name from the time zone database (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), e.g. America/Los_Angeles or Africa/Abidjan. If left unspecified, the default is UTC.
     /// </summary>
-    public TerraformValue<string> TimeZone
+    public TerraformValue<string>? TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -527,7 +523,7 @@ public class GoogleDataprocMetastoreServiceTelemetryConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LogFormat
     {
-        get => new TerraformReference<string>(this, "log_format");
+        get => GetArgument<TerraformValue<string>>("log_format");
         set => SetArgument("log_format", value);
     }
 
@@ -550,7 +546,7 @@ public class GoogleDataprocMetastoreServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -559,7 +555,7 @@ public class GoogleDataprocMetastoreServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -568,7 +564,7 @@ public class GoogleDataprocMetastoreServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -586,7 +582,7 @@ public partial class GoogleDataprocMetastoreService(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? DatabaseType
     {
-        get => new TerraformReference<string>(this, "database_type");
+        get => GetArgument<TerraformValue<string>>("database_type");
         set => SetArgument("database_type", value);
     }
 
@@ -595,16 +591,16 @@ public partial class GoogleDataprocMetastoreService(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -616,7 +612,7 @@ public partial class GoogleDataprocMetastoreService(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -626,7 +622,7 @@ public partial class GoogleDataprocMetastoreService(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -635,27 +631,27 @@ public partial class GoogleDataprocMetastoreService(string name) : TerraformReso
     /// 
     /// &amp;quot;projects/{projectNumber}/global/networks/{network_id}&amp;quot;.
     /// </summary>
-    public TerraformValue<string> Network
+    public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
     /// <summary>
     /// The TCP port at which the metastore service is reached. Default: 9083.
     /// </summary>
-    public TerraformValue<double> Port
+    public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -664,7 +660,7 @@ public partial class GoogleDataprocMetastoreService(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? ReleaseChannel
     {
-        get => new TerraformReference<string>(this, "release_channel");
+        get => GetArgument<TerraformValue<string>>("release_channel");
         set => SetArgument("release_channel", value);
     }
 
@@ -676,7 +672,7 @@ public partial class GoogleDataprocMetastoreService(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformValue<string> ServiceId
     {
-        get => new TerraformReference<string>(this, "service_id");
+        get => GetArgument<TerraformValue<string>>("service_id");
         set => SetArgument("service_id", value);
     }
 
@@ -687,16 +683,16 @@ public partial class GoogleDataprocMetastoreService(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tier of the service. Possible values: [&amp;quot;DEVELOPER&amp;quot;, &amp;quot;ENTERPRISE&amp;quot;]
     /// </summary>
-    public TerraformValue<string> Tier
+    public TerraformValue<string>? Tier
     {
-        get => new TerraformReference<string>(this, "tier");
+        get => GetArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 
@@ -704,82 +700,62 @@ public partial class GoogleDataprocMetastoreService(string name) : TerraformReso
     /// A Cloud Storage URI (starting with gs://) that specifies where artifacts related to the metastore service are stored.
     /// </summary>
     public TerraformValue<string> ArtifactGcsUri
-    {
-        get => new TerraformReference<string>(this, "artifact_gcs_uri");
-    }
+        => AsReference("artifact_gcs_uri");
 
     /// <summary>
     /// Output only. The time when the metastore service was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The URI of the endpoint used to access the metastore service.
     /// </summary>
     public TerraformValue<string> EndpointUri
-    {
-        get => new TerraformReference<string>(this, "endpoint_uri");
-    }
+        => AsReference("endpoint_uri");
 
     /// <summary>
     /// The relative resource name of the metastore service.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The current state of the metastore service.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Additional information about the current state of the metastore service, if available.
     /// </summary>
     public TerraformValue<string> StateMessage
-    {
-        get => new TerraformReference<string>(this, "state_message");
-    }
+        => AsReference("state_message");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The globally unique resource identifier of the metastore service.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Output only. The time when the metastore service was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// EncryptionConfig block (nesting mode: list).

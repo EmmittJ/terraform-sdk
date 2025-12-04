@@ -13,7 +13,7 @@ public partial class AwsDatazoneGlossary(string name) : TerraformResource("aws_d
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsDatazoneGlossary(string name) : TerraformResource("aws_d
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     public required TerraformValue<string> DomainIdentifier
     {
-        get => new TerraformReference<string>(this, "domain_identifier");
+        get => GetArgument<TerraformValue<string>>("domain_identifier");
         set => SetArgument("domain_identifier", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsDatazoneGlossary(string name) : TerraformResource("aws_d
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -43,16 +43,16 @@ public partial class AwsDatazoneGlossary(string name) : TerraformResource("aws_d
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwningProjectIdentifier is required")]
     public required TerraformValue<string> OwningProjectIdentifier
     {
-        get => new TerraformReference<string>(this, "owning_project_identifier");
+        get => GetArgument<TerraformValue<string>>("owning_project_identifier");
         set => SetArgument("owning_project_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsDatazoneGlossary(string name) : TerraformResource("aws_d
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -69,8 +69,6 @@ public partial class AwsDatazoneGlossary(string name) : TerraformResource("aws_d
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
 }

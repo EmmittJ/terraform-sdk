@@ -11,9 +11,9 @@ public partial class GoogleSqlDatabaseDataSource(string name) : TerraformDataSou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -24,7 +24,7 @@ public partial class GoogleSqlDatabaseDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -35,7 +35,7 @@ public partial class GoogleSqlDatabaseDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -44,7 +44,7 @@ public partial class GoogleSqlDatabaseDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -56,9 +56,7 @@ public partial class GoogleSqlDatabaseDataSource(string name) : TerraformDataSou
     /// a value of &#39;UTF8&#39; at creation time.
     /// </summary>
     public TerraformValue<string> Charset
-    {
-        get => new TerraformReference<string>(this, "charset");
-    }
+        => AsReference("charset");
 
     /// <summary>
     /// The collation value. See MySQL&#39;s
@@ -68,9 +66,7 @@ public partial class GoogleSqlDatabaseDataSource(string name) : TerraformDataSou
     /// a value of &#39;en_US.UTF8&#39; at creation time.
     /// </summary>
     public TerraformValue<string> Collation
-    {
-        get => new TerraformReference<string>(this, "collation");
-    }
+        => AsReference("collation");
 
     /// <summary>
     /// The deletion policy for the database. Setting ABANDON allows the resource
@@ -79,16 +75,12 @@ public partial class GoogleSqlDatabaseDataSource(string name) : TerraformDataSou
     /// values are: &amp;quot;ABANDON&amp;quot;, &amp;quot;DELETE&amp;quot;. Defaults to &amp;quot;DELETE&amp;quot;.
     /// </summary>
     public TerraformValue<string> DeletionPolicy
-    {
-        get => new TerraformReference<string>(this, "deletion_policy");
-    }
+        => AsReference("deletion_policy");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
 }

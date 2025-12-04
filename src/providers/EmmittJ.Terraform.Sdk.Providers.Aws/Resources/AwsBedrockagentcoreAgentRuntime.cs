@@ -41,7 +41,7 @@ public class AwsBedrockagentcoreAgentRuntimeAgentRuntimeArtifactBlockContainerCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerUri is required")]
     public required TerraformValue<string> ContainerUri
     {
-        get => new TerraformReference<string>(this, "container_uri");
+        get => GetArgument<TerraformValue<string>>("container_uri");
         set => SetArgument("container_uri", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsBedrockagentcoreAgentRuntimeAuthorizerConfigurationBlockCustomJw
     /// </summary>
     public TerraformSet<string>? AllowedAudience
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_audience").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_audience");
         set => SetArgument("allowed_audience", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsBedrockagentcoreAgentRuntimeAuthorizerConfigurationBlockCustomJw
     /// </summary>
     public TerraformSet<string>? AllowedClients
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_clients").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_clients");
         set => SetArgument("allowed_clients", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsBedrockagentcoreAgentRuntimeAuthorizerConfigurationBlockCustomJw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiscoveryUrl is required")]
     public required TerraformValue<string> DiscoveryUrl
     {
-        get => new TerraformReference<string>(this, "discovery_url");
+        get => GetArgument<TerraformValue<string>>("discovery_url");
         set => SetArgument("discovery_url", value);
     }
 
@@ -129,7 +129,7 @@ public class AwsBedrockagentcoreAgentRuntimeNetworkConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkMode is required")]
     public required TerraformValue<string> NetworkMode
     {
-        get => new TerraformReference<string>(this, "network_mode");
+        get => GetArgument<TerraformValue<string>>("network_mode");
         set => SetArgument("network_mode", value);
     }
 
@@ -161,7 +161,7 @@ public class AwsBedrockagentcoreAgentRuntimeNetworkConfigurationBlockNetworkMode
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroups is required")]
     public required TerraformSet<string> SecurityGroups
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_groups");
         set => SetArgument("security_groups", value);
     }
 
@@ -171,7 +171,7 @@ public class AwsBedrockagentcoreAgentRuntimeNetworkConfigurationBlockNetworkMode
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public required TerraformSet<string> Subnets
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnets").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -194,7 +194,7 @@ public class AwsBedrockagentcoreAgentRuntimeProtocolConfigurationBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? ServerProtocol
     {
-        get => new TerraformReference<string>(this, "server_protocol");
+        get => GetArgument<TerraformValue<string>>("server_protocol");
         set => SetArgument("server_protocol", value);
     }
 
@@ -217,7 +217,7 @@ public class AwsBedrockagentcoreAgentRuntimeRequestHeaderConfigurationBlock : Te
     /// </summary>
     public TerraformSet<string>? RequestHeaderAllowlist
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "request_header_allowlist").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("request_header_allowlist");
         set => SetArgument("request_header_allowlist", value);
     }
 
@@ -240,7 +240,7 @@ public class AwsBedrockagentcoreAgentRuntimeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -249,7 +249,7 @@ public class AwsBedrockagentcoreAgentRuntimeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -258,7 +258,7 @@ public class AwsBedrockagentcoreAgentRuntimeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -277,7 +277,7 @@ public partial class AwsBedrockagentcoreAgentRuntime(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentRuntimeName is required")]
     public required TerraformValue<string> AgentRuntimeName
     {
-        get => new TerraformReference<string>(this, "agent_runtime_name");
+        get => GetArgument<TerraformValue<string>>("agent_runtime_name");
         set => SetArgument("agent_runtime_name", value);
     }
 
@@ -286,7 +286,7 @@ public partial class AwsBedrockagentcoreAgentRuntime(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -295,25 +295,25 @@ public partial class AwsBedrockagentcoreAgentRuntime(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? EnvironmentVariables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "environment_variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("environment_variables");
         set => SetArgument("environment_variables", value);
     }
 
     /// <summary>
     /// The lifecycle_configuration attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>> LifecycleConfiguration
+    public TerraformList<TerraformMap<object>>? LifecycleConfiguration
     {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "lifecycle_configuration").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<TerraformMap<object>>>("lifecycle_configuration");
         set => SetArgument("lifecycle_configuration", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -323,7 +323,7 @@ public partial class AwsBedrockagentcoreAgentRuntime(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -332,7 +332,7 @@ public partial class AwsBedrockagentcoreAgentRuntime(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -340,41 +340,31 @@ public partial class AwsBedrockagentcoreAgentRuntime(string name) : TerraformRes
     /// The agent_runtime_arn attribute.
     /// </summary>
     public TerraformValue<string> AgentRuntimeArn
-    {
-        get => new TerraformReference<string>(this, "agent_runtime_arn");
-    }
+        => AsReference("agent_runtime_arn");
 
     /// <summary>
     /// The agent_runtime_id attribute.
     /// </summary>
     public TerraformValue<string> AgentRuntimeId
-    {
-        get => new TerraformReference<string>(this, "agent_runtime_id");
-    }
+        => AsReference("agent_runtime_id");
 
     /// <summary>
     /// The agent_runtime_version attribute.
     /// </summary>
     public TerraformValue<string> AgentRuntimeVersion
-    {
-        get => new TerraformReference<string>(this, "agent_runtime_version");
-    }
+        => AsReference("agent_runtime_version");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// The workload_identity_details attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> WorkloadIdentityDetails
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "workload_identity_details").ResolveNodes(ctx));
-    }
+        => AsReference("workload_identity_details");
 
     /// <summary>
     /// AgentRuntimeArtifact block (nesting mode: list).

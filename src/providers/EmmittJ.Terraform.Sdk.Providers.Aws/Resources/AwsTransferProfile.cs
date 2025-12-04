@@ -14,7 +14,7 @@ public partial class AwsTransferProfile(string name) : TerraformResource("aws_tr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "As2Id is required")]
     public required TerraformValue<string> As2Id
     {
-        get => new TerraformReference<string>(this, "as2_id");
+        get => GetArgument<TerraformValue<string>>("as2_id");
         set => SetArgument("as2_id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsTransferProfile(string name) : TerraformResource("aws_tr
     /// </summary>
     public TerraformSet<string>? CertificateIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "certificate_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("certificate_ids");
         set => SetArgument("certificate_ids", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -42,16 +42,16 @@ public partial class AwsTransferProfile(string name) : TerraformResource("aws_tr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileType is required")]
     public required TerraformValue<string> ProfileType
     {
-        get => new TerraformReference<string>(this, "profile_type");
+        get => GetArgument<TerraformValue<string>>("profile_type");
         set => SetArgument("profile_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -60,16 +60,16 @@ public partial class AwsTransferProfile(string name) : TerraformResource("aws_tr
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -77,16 +77,12 @@ public partial class AwsTransferProfile(string name) : TerraformResource("aws_tr
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The profile_id attribute.
     /// </summary>
     public TerraformValue<string> ProfileId
-    {
-        get => new TerraformReference<string>(this, "profile_id");
-    }
+        => AsReference("profile_id");
 
 }

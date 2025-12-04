@@ -11,9 +11,9 @@ public partial class GoogleComputeRegionSslPolicyDataSource(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -29,7 +29,7 @@ public partial class GoogleComputeRegionSslPolicyDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -38,7 +38,7 @@ public partial class GoogleComputeRegionSslPolicyDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -47,7 +47,7 @@ public partial class GoogleComputeRegionSslPolicyDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -55,9 +55,7 @@ public partial class GoogleComputeRegionSslPolicyDataSource(string name) : Terra
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// A list of features enabled when the selected profile is CUSTOM. The
@@ -70,43 +68,33 @@ public partial class GoogleComputeRegionSslPolicyDataSource(string name) : Terra
     /// *must not* be present when using any other profile.
     /// </summary>
     public TerraformSet<string> CustomFeatures
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "custom_features").ResolveNodes(ctx));
-    }
+        => AsReference("custom_features");
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The list of features enabled in the SSL policy.
     /// </summary>
     public TerraformSet<string> EnabledFeatures
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "enabled_features").ResolveNodes(ctx));
-    }
+        => AsReference("enabled_features");
 
     /// <summary>
     /// Fingerprint of this resource. A hash of the contents stored in this
     /// object. This field is used in optimistic locking.
     /// </summary>
     public TerraformValue<string> Fingerprint
-    {
-        get => new TerraformReference<string>(this, "fingerprint");
-    }
+        => AsReference("fingerprint");
 
     /// <summary>
     /// The minimum version of SSL protocol that can be used by the clients
     /// to establish a connection with the load balancer. Default value: &amp;quot;TLS_1_0&amp;quot; Possible values: [&amp;quot;TLS_1_0&amp;quot;, &amp;quot;TLS_1_1&amp;quot;, &amp;quot;TLS_1_2&amp;quot;]
     /// </summary>
     public TerraformValue<string> MinTlsVersion
-    {
-        get => new TerraformReference<string>(this, "min_tls_version");
-    }
+        => AsReference("min_tls_version");
 
     /// <summary>
     /// Profile specifies the set of SSL features that can be used by the
@@ -119,16 +107,12 @@ public partial class GoogleComputeRegionSslPolicyDataSource(string name) : Terra
     /// &#39;CUSTOM&#39; is used, the &#39;custom_features&#39; attribute **must be set**. Default value: &amp;quot;COMPATIBLE&amp;quot; Possible values: [&amp;quot;COMPATIBLE&amp;quot;, &amp;quot;MODERN&amp;quot;, &amp;quot;RESTRICTED&amp;quot;, &amp;quot;CUSTOM&amp;quot;]
     /// </summary>
     public TerraformValue<string> Profile
-    {
-        get => new TerraformReference<string>(this, "profile");
-    }
+        => AsReference("profile");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
 }

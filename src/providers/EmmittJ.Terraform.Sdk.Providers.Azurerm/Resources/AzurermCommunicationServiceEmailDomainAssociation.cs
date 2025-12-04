@@ -18,7 +18,7 @@ public class AzurermCommunicationServiceEmailDomainAssociationTimeoutsBlock : Te
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermCommunicationServiceEmailDomainAssociationTimeoutsBlock : Te
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermCommunicationServiceEmailDomainAssociationTimeoutsBlock : Te
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermCommunicationServiceEmailDomainAssociation(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommunicationServiceId is required")]
     public required TerraformValue<string> CommunicationServiceId
     {
-        get => new TerraformReference<string>(this, "communication_service_id");
+        get => GetArgument<TerraformValue<string>>("communication_service_id");
         set => SetArgument("communication_service_id", value);
     }
 
@@ -65,16 +65,16 @@ public partial class AzurermCommunicationServiceEmailDomainAssociation(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailServiceDomainId is required")]
     public required TerraformValue<string> EmailServiceDomainId
     {
-        get => new TerraformReference<string>(this, "email_service_domain_id");
+        get => GetArgument<TerraformValue<string>>("email_service_domain_id");
         set => SetArgument("email_service_domain_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 

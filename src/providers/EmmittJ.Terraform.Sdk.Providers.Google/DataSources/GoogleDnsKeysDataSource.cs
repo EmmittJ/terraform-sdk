@@ -11,9 +11,9 @@ public partial class GoogleDnsKeysDataSource(string name) : TerraformDataSource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class GoogleDnsKeysDataSource(string name) : TerraformDataSource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedZone is required")]
     public required TerraformValue<string> ManagedZone
     {
-        get => new TerraformReference<string>(this, "managed_zone");
+        get => GetArgument<TerraformValue<string>>("managed_zone");
         set => SetArgument("managed_zone", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -40,16 +40,12 @@ public partial class GoogleDnsKeysDataSource(string name) : TerraformDataSource(
     /// The key_signing_keys attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> KeySigningKeys
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "key_signing_keys").ResolveNodes(ctx));
-    }
+        => AsReference("key_signing_keys");
 
     /// <summary>
     /// The zone_signing_keys attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ZoneSigningKeys
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "zone_signing_keys").ResolveNodes(ctx));
-    }
+        => AsReference("zone_signing_keys");
 
 }

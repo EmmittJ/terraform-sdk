@@ -18,7 +18,7 @@ public class AzurermAvailabilitySetDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermAvailabilitySetDataSource(string name) : TerraformDa
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermAvailabilitySetDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermAvailabilitySetDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,41 +64,31 @@ public partial class AzurermAvailabilitySetDataSource(string name) : TerraformDa
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The managed attribute.
     /// </summary>
     public TerraformValue<bool> Managed
-    {
-        get => new TerraformReference<bool>(this, "managed");
-    }
+        => AsReference("managed");
 
     /// <summary>
     /// The platform_fault_domain_count attribute.
     /// </summary>
     public TerraformValue<double> PlatformFaultDomainCount
-    {
-        get => new TerraformReference<double>(this, "platform_fault_domain_count");
-    }
+        => AsReference("platform_fault_domain_count");
 
     /// <summary>
     /// The platform_update_domain_count attribute.
     /// </summary>
     public TerraformValue<double> PlatformUpdateDomainCount
-    {
-        get => new TerraformReference<double>(this, "platform_update_domain_count");
-    }
+        => AsReference("platform_update_domain_count");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

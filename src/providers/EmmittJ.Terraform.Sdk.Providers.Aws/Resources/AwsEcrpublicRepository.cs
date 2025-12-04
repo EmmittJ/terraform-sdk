@@ -18,7 +18,7 @@ public class AwsEcrpublicRepositoryCatalogDataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AboutText
     {
-        get => new TerraformReference<string>(this, "about_text");
+        get => GetArgument<TerraformValue<string>>("about_text");
         set => SetArgument("about_text", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsEcrpublicRepositoryCatalogDataBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Architectures
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "architectures").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("architectures");
         set => SetArgument("architectures", value);
     }
 
@@ -36,16 +36,16 @@ public class AwsEcrpublicRepositoryCatalogDataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The logo_image_blob attribute.
     /// </summary>
-    public TerraformValue<string> LogoImageBlob
+    public TerraformValue<string>? LogoImageBlob
     {
-        get => new TerraformReference<string>(this, "logo_image_blob");
+        get => GetArgument<TerraformValue<string>>("logo_image_blob");
         set => SetArgument("logo_image_blob", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsEcrpublicRepositoryCatalogDataBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? OperatingSystems
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "operating_systems").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("operating_systems");
         set => SetArgument("operating_systems", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsEcrpublicRepositoryCatalogDataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? UsageText
     {
-        get => new TerraformReference<string>(this, "usage_text");
+        get => GetArgument<TerraformValue<string>>("usage_text");
         set => SetArgument("usage_text", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsEcrpublicRepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -104,25 +104,25 @@ public partial class AwsEcrpublicRepository(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<bool>? ForceDestroy
     {
-        get => new TerraformReference<bool>(this, "force_destroy");
+        get => GetArgument<TerraformValue<bool>>("force_destroy");
         set => SetArgument("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AwsEcrpublicRepository(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformValue<string> RepositoryName
     {
-        get => new TerraformReference<string>(this, "repository_name");
+        get => GetArgument<TerraformValue<string>>("repository_name");
         set => SetArgument("repository_name", value);
     }
 
@@ -141,16 +141,16 @@ public partial class AwsEcrpublicRepository(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -158,25 +158,19 @@ public partial class AwsEcrpublicRepository(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The registry_id attribute.
     /// </summary>
     public TerraformValue<string> RegistryId
-    {
-        get => new TerraformReference<string>(this, "registry_id");
-    }
+        => AsReference("registry_id");
 
     /// <summary>
     /// The repository_uri attribute.
     /// </summary>
     public TerraformValue<string> RepositoryUri
-    {
-        get => new TerraformReference<string>(this, "repository_uri");
-    }
+        => AsReference("repository_uri");
 
     /// <summary>
     /// CatalogData block (nesting mode: list).

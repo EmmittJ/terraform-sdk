@@ -19,7 +19,7 @@ public class AwsBedrockagentcoreMemoryStrategyConfigurationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsBedrockagentcoreMemoryStrategyConfigurationBlockConsolidationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppendToPrompt is required")]
     public required TerraformValue<string> AppendToPrompt
     {
-        get => new TerraformReference<string>(this, "append_to_prompt");
+        get => GetArgument<TerraformValue<string>>("append_to_prompt");
         set => SetArgument("append_to_prompt", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsBedrockagentcoreMemoryStrategyConfigurationBlockConsolidationBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelId is required")]
     public required TerraformValue<string> ModelId
     {
-        get => new TerraformReference<string>(this, "model_id");
+        get => GetArgument<TerraformValue<string>>("model_id");
         set => SetArgument("model_id", value);
     }
 
@@ -93,7 +93,7 @@ public class AwsBedrockagentcoreMemoryStrategyConfigurationBlockExtractionBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppendToPrompt is required")]
     public required TerraformValue<string> AppendToPrompt
     {
-        get => new TerraformReference<string>(this, "append_to_prompt");
+        get => GetArgument<TerraformValue<string>>("append_to_prompt");
         set => SetArgument("append_to_prompt", value);
     }
 
@@ -103,7 +103,7 @@ public class AwsBedrockagentcoreMemoryStrategyConfigurationBlockExtractionBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelId is required")]
     public required TerraformValue<string> ModelId
     {
-        get => new TerraformReference<string>(this, "model_id");
+        get => GetArgument<TerraformValue<string>>("model_id");
         set => SetArgument("model_id", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsBedrockagentcoreMemoryStrategyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -135,7 +135,7 @@ public class AwsBedrockagentcoreMemoryStrategyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -144,7 +144,7 @@ public class AwsBedrockagentcoreMemoryStrategyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AwsBedrockagentcoreMemoryStrategy(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AwsBedrockagentcoreMemoryStrategy(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? MemoryExecutionRoleArn
     {
-        get => new TerraformReference<string>(this, "memory_execution_role_arn");
+        get => GetArgument<TerraformValue<string>>("memory_execution_role_arn");
         set => SetArgument("memory_execution_role_arn", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AwsBedrockagentcoreMemoryStrategy(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryId is required")]
     public required TerraformValue<string> MemoryId
     {
-        get => new TerraformReference<string>(this, "memory_id");
+        get => GetArgument<TerraformValue<string>>("memory_id");
         set => SetArgument("memory_id", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AwsBedrockagentcoreMemoryStrategy(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -201,16 +201,16 @@ public partial class AwsBedrockagentcoreMemoryStrategy(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespaces is required")]
     public required TerraformSet<string> Namespaces
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "namespaces").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("namespaces");
         set => SetArgument("namespaces", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -220,7 +220,7 @@ public partial class AwsBedrockagentcoreMemoryStrategy(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -228,9 +228,7 @@ public partial class AwsBedrockagentcoreMemoryStrategy(string name) : TerraformR
     /// The memory_strategy_id attribute.
     /// </summary>
     public TerraformValue<string> MemoryStrategyId
-    {
-        get => new TerraformReference<string>(this, "memory_strategy_id");
-    }
+        => AsReference("memory_strategy_id");
 
     /// <summary>
     /// Configuration block (nesting mode: list).

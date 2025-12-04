@@ -19,7 +19,7 @@ public class AwsRedshiftdataStatementParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsRedshiftdataStatementParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsRedshiftdataStatementTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsRedshiftdataStatement(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? ClusterIdentifier
     {
-        get => new TerraformReference<string>(this, "cluster_identifier");
+        get => GetArgument<TerraformValue<string>>("cluster_identifier");
         set => SetArgument("cluster_identifier", value);
     }
 
@@ -80,7 +80,7 @@ public partial class AwsRedshiftdataStatement(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -89,25 +89,25 @@ public partial class AwsRedshiftdataStatement(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? DbUser
     {
-        get => new TerraformReference<string>(this, "db_user");
+        get => GetArgument<TerraformValue<string>>("db_user");
         set => SetArgument("db_user", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AwsRedshiftdataStatement(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? SecretArn
     {
-        get => new TerraformReference<string>(this, "secret_arn");
+        get => GetArgument<TerraformValue<string>>("secret_arn");
         set => SetArgument("secret_arn", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AwsRedshiftdataStatement(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sql is required")]
     public required TerraformValue<string> Sql
     {
-        get => new TerraformReference<string>(this, "sql");
+        get => GetArgument<TerraformValue<string>>("sql");
         set => SetArgument("sql", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AwsRedshiftdataStatement(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? StatementName
     {
-        get => new TerraformReference<string>(this, "statement_name");
+        get => GetArgument<TerraformValue<string>>("statement_name");
         set => SetArgument("statement_name", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AwsRedshiftdataStatement(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? WithEvent
     {
-        get => new TerraformReference<bool>(this, "with_event");
+        get => GetArgument<TerraformValue<bool>>("with_event");
         set => SetArgument("with_event", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AwsRedshiftdataStatement(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? WorkgroupName
     {
-        get => new TerraformReference<string>(this, "workgroup_name");
+        get => GetArgument<TerraformValue<string>>("workgroup_name");
         set => SetArgument("workgroup_name", value);
     }
 

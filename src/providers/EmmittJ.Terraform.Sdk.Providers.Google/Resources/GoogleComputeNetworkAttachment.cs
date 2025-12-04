@@ -18,7 +18,7 @@ public class GoogleComputeNetworkAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeNetworkAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleComputeNetworkAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleComputeNetworkAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionPreference is required")]
     public required TerraformValue<string> ConnectionPreference
     {
-        get => new TerraformReference<string>(this, "connection_preference");
+        get => GetArgument<TerraformValue<string>>("connection_preference");
         set => SetArgument("connection_preference", value);
     }
 
@@ -64,7 +64,7 @@ public partial class GoogleComputeNetworkAttachment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -74,7 +74,7 @@ public partial class GoogleComputeNetworkAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -83,7 +83,7 @@ public partial class GoogleComputeNetworkAttachment(string name) : TerraformReso
     /// </summary>
     public TerraformList<string>? ProducerAcceptLists
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "producer_accept_lists").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("producer_accept_lists");
         set => SetArgument("producer_accept_lists", value);
     }
 
@@ -92,25 +92,25 @@ public partial class GoogleComputeNetworkAttachment(string name) : TerraformReso
     /// </summary>
     public TerraformList<string>? ProducerRejectLists
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "producer_reject_lists").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("producer_reject_lists");
         set => SetArgument("producer_reject_lists", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// URL of the region where the network attachment resides. This field applies only to the region resource. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -120,7 +120,7 @@ public partial class GoogleComputeNetworkAttachment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnetworks is required")]
     public TerraformList<string>? Subnetworks
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "subnetworks").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("subnetworks");
         set => SetArgument("subnetworks", value);
     }
 
@@ -128,67 +128,51 @@ public partial class GoogleComputeNetworkAttachment(string name) : TerraformReso
     /// An array of connections for all the producers connected to this network attachment.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConnectionEndpoints
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "connection_endpoints").ResolveNodes(ctx));
-    }
+        => AsReference("connection_endpoints");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// Fingerprint of this resource. A hash of the contents stored in this object. This
     /// field is used in optimistic locking. An up-to-date fingerprint must be provided in order to patch.
     /// </summary>
     public TerraformValue<string> Fingerprint
-    {
-        get => new TerraformReference<string>(this, "fingerprint");
-    }
+        => AsReference("fingerprint");
 
     /// <summary>
     /// The unique identifier for the resource type. The server generates this identifier.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// Type of the resource.
     /// </summary>
     public TerraformValue<string> Kind
-    {
-        get => new TerraformReference<string>(this, "kind");
-    }
+        => AsReference("kind");
 
     /// <summary>
     /// The URL of the network which the Network Attachment belongs to. Practically it is inferred by fetching the network of the first subnetwork associated.
     /// Because it is required that all the subnetworks must be from the same network, it is assured that the Network Attachment belongs to the same network as all the subnetworks.
     /// </summary>
     public TerraformValue<string> Network
-    {
-        get => new TerraformReference<string>(this, "network");
-    }
+        => AsReference("network");
 
     /// <summary>
     /// Server-defined URL for the resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Server-defined URL for this resource&#39;s resource id.
     /// </summary>
     public TerraformValue<string> SelfLinkWithId
-    {
-        get => new TerraformReference<string>(this, "self_link_with_id");
-    }
+        => AsReference("self_link_with_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

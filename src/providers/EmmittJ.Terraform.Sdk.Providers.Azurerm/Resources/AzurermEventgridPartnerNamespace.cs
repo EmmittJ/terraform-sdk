@@ -18,7 +18,7 @@ public class AzurermEventgridPartnerNamespaceInboundIpRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermEventgridPartnerNamespaceInboundIpRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpMask is required")]
     public required TerraformValue<string> IpMask
     {
-        get => new TerraformReference<string>(this, "ip_mask");
+        get => GetArgument<TerraformValue<string>>("ip_mask");
         set => SetArgument("ip_mask", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermEventgridPartnerNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermEventgridPartnerNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermEventgridPartnerNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermEventgridPartnerNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -94,9 +94,9 @@ public partial class AzurermEventgridPartnerNamespace(string name) : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AzurermEventgridPartnerNamespace(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? LocalAuthenticationEnabled
     {
-        get => new TerraformReference<bool>(this, "local_authentication_enabled");
+        get => GetArgument<TerraformValue<bool>>("local_authentication_enabled");
         set => SetArgument("local_authentication_enabled", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AzurermEventgridPartnerNamespace(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AzurermEventgridPartnerNamespace(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AzurermEventgridPartnerNamespace(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerRegistrationId is required")]
     public required TerraformValue<string> PartnerRegistrationId
     {
-        get => new TerraformReference<string>(this, "partner_registration_id");
+        get => GetArgument<TerraformValue<string>>("partner_registration_id");
         set => SetArgument("partner_registration_id", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AzurermEventgridPartnerNamespace(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? PartnerTopicRoutingMode
     {
-        get => new TerraformReference<string>(this, "partner_topic_routing_mode");
+        get => GetArgument<TerraformValue<string>>("partner_topic_routing_mode");
         set => SetArgument("partner_topic_routing_mode", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AzurermEventgridPartnerNamespace(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? PublicNetworkAccess
     {
-        get => new TerraformReference<string>(this, "public_network_access");
+        get => GetArgument<TerraformValue<string>>("public_network_access");
         set => SetArgument("public_network_access", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AzurermEventgridPartnerNamespace(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AzurermEventgridPartnerNamespace(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -180,9 +180,7 @@ public partial class AzurermEventgridPartnerNamespace(string name) : TerraformRe
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// InboundIpRule block (nesting mode: list).

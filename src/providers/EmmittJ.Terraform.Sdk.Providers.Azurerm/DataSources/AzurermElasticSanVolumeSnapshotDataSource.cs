@@ -18,7 +18,7 @@ public class AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermElasticSanVolumeSnapshotDataSource(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermElasticSanVolumeSnapshotDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermElasticSanVolumeSnapshotDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeGroupId is required")]
     public required TerraformValue<string> VolumeGroupId
     {
-        get => new TerraformReference<string>(this, "volume_group_id");
+        get => GetArgument<TerraformValue<string>>("volume_group_id");
         set => SetArgument("volume_group_id", value);
     }
 
@@ -64,25 +64,19 @@ public partial class AzurermElasticSanVolumeSnapshotDataSource(string name) : Te
     /// The source_id attribute.
     /// </summary>
     public TerraformValue<string> SourceId
-    {
-        get => new TerraformReference<string>(this, "source_id");
-    }
+        => AsReference("source_id");
 
     /// <summary>
     /// The source_volume_size_in_gib attribute.
     /// </summary>
     public TerraformValue<double> SourceVolumeSizeInGib
-    {
-        get => new TerraformReference<double>(this, "source_volume_size_in_gib");
-    }
+        => AsReference("source_volume_size_in_gib");
 
     /// <summary>
     /// The volume_name attribute.
     /// </summary>
     public TerraformValue<string> VolumeName
-    {
-        get => new TerraformReference<string>(this, "volume_name");
-    }
+        => AsReference("volume_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

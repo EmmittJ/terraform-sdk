@@ -19,7 +19,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceIdentityBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
     public required TerraformSet<string> IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceIdentityBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppResourceGroupName is required")]
     public required TerraformValue<string> AppResourceGroupName
     {
-        get => new TerraformReference<string>(this, "app_resource_group_name");
+        get => GetArgument<TerraformValue<string>>("app_resource_group_name");
         set => SetArgument("app_resource_group_name", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformValue<string>? HighAvailabilityType
     {
-        get => new TerraformReference<string>(this, "high_availability_type");
+        get => GetArgument<TerraformValue<string>>("high_availability_type");
         set => SetArgument("high_availability_type", value);
     }
 
@@ -71,7 +71,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformValue<bool>? SecondaryIpEnabled
     {
-        get => new TerraformReference<bool>(this, "secondary_ip_enabled");
+        get => GetArgument<TerraformValue<bool>>("secondary_ip_enabled");
         set => SetArgument("secondary_ip_enabled", value);
     }
 
@@ -153,7 +153,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceCount is required")]
     public required TerraformValue<double> InstanceCount
     {
-        get => new TerraformReference<double>(this, "instance_count");
+        get => GetArgument<TerraformValue<double>>("instance_count");
         set => SetArgument("instance_count", value);
     }
 
@@ -163,7 +163,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -199,7 +199,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineSize is required")]
     public required TerraformValue<string> VirtualMachineSize
     {
-        get => new TerraformReference<string>(this, "virtual_machine_size");
+        get => GetArgument<TerraformValue<string>>("virtual_machine_size");
         set => SetArgument("virtual_machine_size", value);
     }
 
@@ -248,7 +248,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     public required TerraformValue<string> Offer
     {
-        get => new TerraformReference<string>(this, "offer");
+        get => GetArgument<TerraformValue<string>>("offer");
         set => SetArgument("offer", value);
     }
 
@@ -258,7 +258,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformValue<string> Publisher
     {
-        get => new TerraformReference<string>(this, "publisher");
+        get => GetArgument<TerraformValue<string>>("publisher");
         set => SetArgument("publisher", value);
     }
 
@@ -268,7 +268,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformValue<string> Sku
     {
-        get => new TerraformReference<string>(this, "sku");
+        get => GetArgument<TerraformValue<string>>("sku");
         set => SetArgument("sku", value);
     }
 
@@ -278,7 +278,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -301,7 +301,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
     public required TerraformValue<string> AdminUsername
     {
-        get => new TerraformReference<string>(this, "admin_username");
+        get => GetArgument<TerraformValue<string>>("admin_username");
         set => SetArgument("admin_username", value);
     }
 
@@ -311,7 +311,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SshPrivateKey is required")]
     public required TerraformValue<string> SshPrivateKey
     {
-        get => new TerraformReference<string>(this, "ssh_private_key");
+        get => GetArgument<TerraformValue<string>>("ssh_private_key");
         set => SetArgument("ssh_private_key", value);
     }
 
@@ -321,7 +321,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SshPublicKey is required")]
     public required TerraformValue<string> SshPublicKey
     {
-        get => new TerraformReference<string>(this, "ssh_public_key");
+        get => GetArgument<TerraformValue<string>>("ssh_public_key");
         set => SetArgument("ssh_public_key", value);
     }
 
@@ -344,7 +344,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceCount is required")]
     public required TerraformValue<double> InstanceCount
     {
-        get => new TerraformReference<double>(this, "instance_count");
+        get => GetArgument<TerraformValue<double>>("instance_count");
         set => SetArgument("instance_count", value);
     }
 
@@ -354,7 +354,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -390,7 +390,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineSize is required")]
     public required TerraformValue<string> VirtualMachineSize
     {
-        get => new TerraformReference<string>(this, "virtual_machine_size");
+        get => GetArgument<TerraformValue<string>>("virtual_machine_size");
         set => SetArgument("virtual_machine_size", value);
     }
 
@@ -439,7 +439,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     public required TerraformValue<string> Offer
     {
-        get => new TerraformReference<string>(this, "offer");
+        get => GetArgument<TerraformValue<string>>("offer");
         set => SetArgument("offer", value);
     }
 
@@ -449,7 +449,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformValue<string> Publisher
     {
-        get => new TerraformReference<string>(this, "publisher");
+        get => GetArgument<TerraformValue<string>>("publisher");
         set => SetArgument("publisher", value);
     }
 
@@ -459,7 +459,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformValue<string> Sku
     {
-        get => new TerraformReference<string>(this, "sku");
+        get => GetArgument<TerraformValue<string>>("sku");
         set => SetArgument("sku", value);
     }
 
@@ -469,7 +469,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -492,7 +492,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
     public required TerraformValue<string> AdminUsername
     {
-        get => new TerraformReference<string>(this, "admin_username");
+        get => GetArgument<TerraformValue<string>>("admin_username");
         set => SetArgument("admin_username", value);
     }
 
@@ -502,7 +502,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SshPrivateKey is required")]
     public required TerraformValue<string> SshPrivateKey
     {
-        get => new TerraformReference<string>(this, "ssh_private_key");
+        get => GetArgument<TerraformValue<string>>("ssh_private_key");
         set => SetArgument("ssh_private_key", value);
     }
 
@@ -512,7 +512,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SshPublicKey is required")]
     public required TerraformValue<string> SshPublicKey
     {
-        get => new TerraformReference<string>(this, "ssh_public_key");
+        get => GetArgument<TerraformValue<string>>("ssh_public_key");
         set => SetArgument("ssh_public_key", value);
     }
 
@@ -534,7 +534,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformValue<string>? DatabaseType
     {
-        get => new TerraformReference<string>(this, "database_type");
+        get => GetArgument<TerraformValue<string>>("database_type");
         set => SetArgument("database_type", value);
     }
 
@@ -544,7 +544,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceCount is required")]
     public required TerraformValue<double> InstanceCount
     {
-        get => new TerraformReference<double>(this, "instance_count");
+        get => GetArgument<TerraformValue<double>>("instance_count");
         set => SetArgument("instance_count", value);
     }
 
@@ -554,7 +554,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -599,7 +599,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfDisks is required")]
     public required TerraformValue<double> NumberOfDisks
     {
-        get => new TerraformReference<double>(this, "number_of_disks");
+        get => GetArgument<TerraformValue<double>>("number_of_disks");
         set => SetArgument("number_of_disks", value);
     }
 
@@ -609,7 +609,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGb is required")]
     public required TerraformValue<double> SizeInGb
     {
-        get => new TerraformReference<double>(this, "size_in_gb");
+        get => GetArgument<TerraformValue<double>>("size_in_gb");
         set => SetArgument("size_in_gb", value);
     }
 
@@ -619,7 +619,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => new TerraformReference<string>(this, "sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -629,7 +629,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
     public required TerraformValue<string> VolumeName
     {
-        get => new TerraformReference<string>(this, "volume_name");
+        get => GetArgument<TerraformValue<string>>("volume_name");
         set => SetArgument("volume_name", value);
     }
 
@@ -652,7 +652,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineSize is required")]
     public required TerraformValue<string> VirtualMachineSize
     {
-        get => new TerraformReference<string>(this, "virtual_machine_size");
+        get => GetArgument<TerraformValue<string>>("virtual_machine_size");
         set => SetArgument("virtual_machine_size", value);
     }
 
@@ -701,7 +701,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
     public required TerraformValue<string> Offer
     {
-        get => new TerraformReference<string>(this, "offer");
+        get => GetArgument<TerraformValue<string>>("offer");
         set => SetArgument("offer", value);
     }
 
@@ -711,7 +711,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformValue<string> Publisher
     {
-        get => new TerraformReference<string>(this, "publisher");
+        get => GetArgument<TerraformValue<string>>("publisher");
         set => SetArgument("publisher", value);
     }
 
@@ -721,7 +721,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformValue<string> Sku
     {
-        get => new TerraformReference<string>(this, "sku");
+        get => GetArgument<TerraformValue<string>>("sku");
         set => SetArgument("sku", value);
     }
 
@@ -731,7 +731,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -754,7 +754,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminUsername is required")]
     public required TerraformValue<string> AdminUsername
     {
-        get => new TerraformReference<string>(this, "admin_username");
+        get => GetArgument<TerraformValue<string>>("admin_username");
         set => SetArgument("admin_username", value);
     }
 
@@ -764,7 +764,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SshPrivateKey is required")]
     public required TerraformValue<string> SshPrivateKey
     {
-        get => new TerraformReference<string>(this, "ssh_private_key");
+        get => GetArgument<TerraformValue<string>>("ssh_private_key");
         set => SetArgument("ssh_private_key", value);
     }
 
@@ -774,7 +774,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SshPublicKey is required")]
     public required TerraformValue<string> SshPublicKey
     {
-        get => new TerraformReference<string>(this, "ssh_public_key");
+        get => GetArgument<TerraformValue<string>>("ssh_public_key");
         set => SetArgument("ssh_public_key", value);
     }
 
@@ -849,7 +849,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformValue<string>? AvailabilitySetName
     {
-        get => new TerraformReference<string>(this, "availability_set_name");
+        get => GetArgument<TerraformValue<string>>("availability_set_name");
         set => SetArgument("availability_set_name", value);
     }
 
@@ -880,7 +880,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformValue<string>? HostName
     {
-        get => new TerraformReference<string>(this, "host_name");
+        get => GetArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
@@ -889,7 +889,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformList<string>? NetworkInterfaceNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "network_interface_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("network_interface_names");
         set => SetArgument("network_interface_names", value);
     }
 
@@ -898,7 +898,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformValue<string>? OsDiskName
     {
-        get => new TerraformReference<string>(this, "os_disk_name");
+        get => GetArgument<TerraformValue<string>>("os_disk_name");
         set => SetArgument("os_disk_name", value);
     }
 
@@ -907,7 +907,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformValue<string>? VirtualMachineName
     {
-        get => new TerraformReference<string>(this, "virtual_machine_name");
+        get => GetArgument<TerraformValue<string>>("virtual_machine_name");
         set => SetArgument("virtual_machine_name", value);
     }
 
@@ -939,7 +939,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Names is required")]
     public TerraformList<string>? Names
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("names");
         set => SetArgument("names", value);
     }
 
@@ -949,7 +949,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
     public required TerraformValue<string> VolumeName
     {
-        get => new TerraformReference<string>(this, "volume_name");
+        get => GetArgument<TerraformValue<string>>("volume_name");
         set => SetArgument("volume_name", value);
     }
 
@@ -971,7 +971,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformValue<string>? AvailabilitySetName
     {
-        get => new TerraformReference<string>(this, "availability_set_name");
+        get => GetArgument<TerraformValue<string>>("availability_set_name");
         set => SetArgument("availability_set_name", value);
     }
 
@@ -1012,7 +1012,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformList<string>? BackendPoolNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "backend_pool_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("backend_pool_names");
         set => SetArgument("backend_pool_names", value);
     }
 
@@ -1021,7 +1021,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformList<string>? FrontendIpConfigurationNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "frontend_ip_configuration_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("frontend_ip_configuration_names");
         set => SetArgument("frontend_ip_configuration_names", value);
     }
 
@@ -1030,7 +1030,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformList<string>? HealthProbeNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "health_probe_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("health_probe_names");
         set => SetArgument("health_probe_names", value);
     }
 
@@ -1039,7 +1039,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1061,7 +1061,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformValue<string>? HostName
     {
-        get => new TerraformReference<string>(this, "host_name");
+        get => GetArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
@@ -1070,7 +1070,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformList<string>? NetworkInterfaceNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "network_interface_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("network_interface_names");
         set => SetArgument("network_interface_names", value);
     }
 
@@ -1079,7 +1079,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformValue<string>? OsDiskName
     {
-        get => new TerraformReference<string>(this, "os_disk_name");
+        get => GetArgument<TerraformValue<string>>("os_disk_name");
         set => SetArgument("os_disk_name", value);
     }
 
@@ -1088,7 +1088,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformValue<string>? VirtualMachineName
     {
-        get => new TerraformReference<string>(this, "virtual_machine_name");
+        get => GetArgument<TerraformValue<string>>("virtual_machine_name");
         set => SetArgument("virtual_machine_name", value);
     }
 
@@ -1120,7 +1120,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Names is required")]
     public TerraformList<string>? Names
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("names");
         set => SetArgument("names", value);
     }
 
@@ -1130,7 +1130,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
     public required TerraformValue<string> VolumeName
     {
-        get => new TerraformReference<string>(this, "volume_name");
+        get => GetArgument<TerraformValue<string>>("volume_name");
         set => SetArgument("volume_name", value);
     }
 
@@ -1152,7 +1152,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformValue<string>? AvailabilitySetName
     {
-        get => new TerraformReference<string>(this, "availability_set_name");
+        get => GetArgument<TerraformValue<string>>("availability_set_name");
         set => SetArgument("availability_set_name", value);
     }
 
@@ -1193,7 +1193,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformList<string>? BackendPoolNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "backend_pool_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("backend_pool_names");
         set => SetArgument("backend_pool_names", value);
     }
 
@@ -1202,7 +1202,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformList<string>? FrontendIpConfigurationNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "frontend_ip_configuration_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("frontend_ip_configuration_names");
         set => SetArgument("frontend_ip_configuration_names", value);
     }
 
@@ -1211,7 +1211,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformList<string>? HealthProbeNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "health_probe_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("health_probe_names");
         set => SetArgument("health_probe_names", value);
     }
 
@@ -1220,7 +1220,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1242,7 +1242,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformValue<string>? HostName
     {
-        get => new TerraformReference<string>(this, "host_name");
+        get => GetArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
@@ -1251,7 +1251,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformList<string>? NetworkInterfaceNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "network_interface_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("network_interface_names");
         set => SetArgument("network_interface_names", value);
     }
 
@@ -1260,7 +1260,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformValue<string>? OsDiskName
     {
-        get => new TerraformReference<string>(this, "os_disk_name");
+        get => GetArgument<TerraformValue<string>>("os_disk_name");
         set => SetArgument("os_disk_name", value);
     }
 
@@ -1269,7 +1269,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformValue<string>? VirtualMachineName
     {
-        get => new TerraformReference<string>(this, "virtual_machine_name");
+        get => GetArgument<TerraformValue<string>>("virtual_machine_name");
         set => SetArgument("virtual_machine_name", value);
     }
 
@@ -1301,7 +1301,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Names is required")]
     public TerraformList<string>? Names
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("names");
         set => SetArgument("names", value);
     }
 
@@ -1311,7 +1311,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
     public required TerraformValue<string> VolumeName
     {
-        get => new TerraformReference<string>(this, "volume_name");
+        get => GetArgument<TerraformValue<string>>("volume_name");
         set => SetArgument("volume_name", value);
     }
 
@@ -1333,7 +1333,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformValue<string>? AccountName
     {
-        get => new TerraformReference<string>(this, "account_name");
+        get => GetArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -1342,7 +1342,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformValue<string>? PrivateEndpointName
     {
-        get => new TerraformReference<string>(this, "private_endpoint_name");
+        get => GetArgument<TerraformValue<string>>("private_endpoint_name");
         set => SetArgument("private_endpoint_name", value);
     }
 
@@ -1364,7 +1364,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformValue<string>? ResourceGroupId
     {
-        get => new TerraformReference<string>(this, "resource_group_id");
+        get => GetArgument<TerraformValue<string>>("resource_group_id");
         set => SetArgument("resource_group_id", value);
     }
 
@@ -1373,7 +1373,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBl
     /// </summary>
     public TerraformValue<string>? StorageAccountName
     {
-        get => new TerraformReference<string>(this, "storage_account_name");
+        get => GetArgument<TerraformValue<string>>("storage_account_name");
         set => SetArgument("storage_account_name", value);
     }
 
@@ -1396,7 +1396,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1405,7 +1405,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1414,7 +1414,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -1423,7 +1423,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1442,7 +1442,7 @@ public partial class AzurermWorkloadsSapThreeTierVirtualInstance(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppLocation is required")]
     public required TerraformValue<string> AppLocation
     {
-        get => new TerraformReference<string>(this, "app_location");
+        get => GetArgument<TerraformValue<string>>("app_location");
         set => SetArgument("app_location", value);
     }
 
@@ -1452,16 +1452,16 @@ public partial class AzurermWorkloadsSapThreeTierVirtualInstance(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
     public required TerraformValue<string> Environment
     {
-        get => new TerraformReference<string>(this, "environment");
+        get => GetArgument<TerraformValue<string>>("environment");
         set => SetArgument("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1471,7 +1471,7 @@ public partial class AzurermWorkloadsSapThreeTierVirtualInstance(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1480,7 +1480,7 @@ public partial class AzurermWorkloadsSapThreeTierVirtualInstance(string name) : 
     /// </summary>
     public TerraformValue<string>? ManagedResourceGroupName
     {
-        get => new TerraformReference<string>(this, "managed_resource_group_name");
+        get => GetArgument<TerraformValue<string>>("managed_resource_group_name");
         set => SetArgument("managed_resource_group_name", value);
     }
 
@@ -1489,7 +1489,7 @@ public partial class AzurermWorkloadsSapThreeTierVirtualInstance(string name) : 
     /// </summary>
     public TerraformValue<string>? ManagedResourcesNetworkAccessType
     {
-        get => new TerraformReference<string>(this, "managed_resources_network_access_type");
+        get => GetArgument<TerraformValue<string>>("managed_resources_network_access_type");
         set => SetArgument("managed_resources_network_access_type", value);
     }
 
@@ -1499,7 +1499,7 @@ public partial class AzurermWorkloadsSapThreeTierVirtualInstance(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1509,7 +1509,7 @@ public partial class AzurermWorkloadsSapThreeTierVirtualInstance(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -1519,7 +1519,7 @@ public partial class AzurermWorkloadsSapThreeTierVirtualInstance(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SapFqdn is required")]
     public required TerraformValue<string> SapFqdn
     {
-        get => new TerraformReference<string>(this, "sap_fqdn");
+        get => GetArgument<TerraformValue<string>>("sap_fqdn");
         set => SetArgument("sap_fqdn", value);
     }
 
@@ -1529,7 +1529,7 @@ public partial class AzurermWorkloadsSapThreeTierVirtualInstance(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SapProduct is required")]
     public required TerraformValue<string> SapProduct
     {
-        get => new TerraformReference<string>(this, "sap_product");
+        get => GetArgument<TerraformValue<string>>("sap_product");
         set => SetArgument("sap_product", value);
     }
 
@@ -1538,7 +1538,7 @@ public partial class AzurermWorkloadsSapThreeTierVirtualInstance(string name) : 
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

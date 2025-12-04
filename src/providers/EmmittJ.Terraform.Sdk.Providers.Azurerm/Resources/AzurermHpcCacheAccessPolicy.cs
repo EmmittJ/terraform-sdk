@@ -19,7 +19,7 @@ public class AzurermHpcCacheAccessPolicyAccessRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Access is required")]
     public required TerraformValue<string> Access
     {
-        get => new TerraformReference<string>(this, "access");
+        get => GetArgument<TerraformValue<string>>("access");
         set => SetArgument("access", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermHpcCacheAccessPolicyAccessRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? AnonymousGid
     {
-        get => new TerraformReference<double>(this, "anonymous_gid");
+        get => GetArgument<TerraformValue<double>>("anonymous_gid");
         set => SetArgument("anonymous_gid", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermHpcCacheAccessPolicyAccessRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? AnonymousUid
     {
-        get => new TerraformReference<double>(this, "anonymous_uid");
+        get => GetArgument<TerraformValue<double>>("anonymous_uid");
         set => SetArgument("anonymous_uid", value);
     }
 
@@ -46,7 +46,7 @@ public class AzurermHpcCacheAccessPolicyAccessRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -55,7 +55,7 @@ public class AzurermHpcCacheAccessPolicyAccessRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? RootSquashEnabled
     {
-        get => new TerraformReference<bool>(this, "root_squash_enabled");
+        get => GetArgument<TerraformValue<bool>>("root_squash_enabled");
         set => SetArgument("root_squash_enabled", value);
     }
 
@@ -65,7 +65,7 @@ public class AzurermHpcCacheAccessPolicyAccessRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -74,7 +74,7 @@ public class AzurermHpcCacheAccessPolicyAccessRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SubmountAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "submount_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("submount_access_enabled");
         set => SetArgument("submount_access_enabled", value);
     }
 
@@ -83,7 +83,7 @@ public class AzurermHpcCacheAccessPolicyAccessRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SuidEnabled
     {
-        get => new TerraformReference<bool>(this, "suid_enabled");
+        get => GetArgument<TerraformValue<bool>>("suid_enabled");
         set => SetArgument("suid_enabled", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermHpcCacheAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermHpcCacheAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermHpcCacheAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermHpcCacheAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -153,16 +153,16 @@ public partial class AzurermHpcCacheAccessPolicy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HpcCacheId is required")]
     public required TerraformValue<string> HpcCacheId
     {
-        get => new TerraformReference<string>(this, "hpc_cache_id");
+        get => GetArgument<TerraformValue<string>>("hpc_cache_id");
         set => SetArgument("hpc_cache_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AzurermHpcCacheAccessPolicy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

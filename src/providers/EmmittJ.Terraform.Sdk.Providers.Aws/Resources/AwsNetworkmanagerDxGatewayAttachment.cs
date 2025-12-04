@@ -18,7 +18,7 @@ public class AwsNetworkmanagerDxGatewayAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsNetworkmanagerDxGatewayAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsNetworkmanagerDxGatewayAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsNetworkmanagerDxGatewayAttachment(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
     public required TerraformValue<string> CoreNetworkId
     {
-        get => new TerraformReference<string>(this, "core_network_id");
+        get => GetArgument<TerraformValue<string>>("core_network_id");
         set => SetArgument("core_network_id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsNetworkmanagerDxGatewayAttachment(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectConnectGatewayArn is required")]
     public required TerraformValue<string> DirectConnectGatewayArn
     {
-        get => new TerraformReference<string>(this, "direct_connect_gateway_arn");
+        get => GetArgument<TerraformValue<string>>("direct_connect_gateway_arn");
         set => SetArgument("direct_connect_gateway_arn", value);
     }
 
@@ -75,7 +75,7 @@ public partial class AwsNetworkmanagerDxGatewayAttachment(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EdgeLocations is required")]
     public TerraformList<string>? EdgeLocations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "edge_locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("edge_locations");
         set => SetArgument("edge_locations", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AwsNetworkmanagerDxGatewayAttachment(string name) : Terrafo
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -92,73 +92,55 @@ public partial class AwsNetworkmanagerDxGatewayAttachment(string name) : Terrafo
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The attachment_policy_rule_number attribute.
     /// </summary>
     public TerraformValue<double> AttachmentPolicyRuleNumber
-    {
-        get => new TerraformReference<double>(this, "attachment_policy_rule_number");
-    }
+        => AsReference("attachment_policy_rule_number");
 
     /// <summary>
     /// The attachment_type attribute.
     /// </summary>
     public TerraformValue<string> AttachmentType
-    {
-        get => new TerraformReference<string>(this, "attachment_type");
-    }
+        => AsReference("attachment_type");
 
     /// <summary>
     /// The core_network_arn attribute.
     /// </summary>
     public TerraformValue<string> CoreNetworkArn
-    {
-        get => new TerraformReference<string>(this, "core_network_arn");
-    }
+        => AsReference("core_network_arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-    {
-        get => new TerraformReference<string>(this, "owner_account_id");
-    }
+        => AsReference("owner_account_id");
 
     /// <summary>
     /// The segment_name attribute.
     /// </summary>
     public TerraformValue<string> SegmentName
-    {
-        get => new TerraformReference<string>(this, "segment_name");
-    }
+        => AsReference("segment_name");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

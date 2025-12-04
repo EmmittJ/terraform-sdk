@@ -45,7 +45,7 @@ public class GoogleBigqueryConnectionAwsBlockAccessRoleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleId is required")]
     public required TerraformValue<string> IamRoleId
     {
-        get => new TerraformReference<string>(this, "iam_role_id");
+        get => GetArgument<TerraformValue<string>>("iam_role_id");
         set => SetArgument("iam_role_id", value);
     }
 
@@ -53,9 +53,7 @@ public class GoogleBigqueryConnectionAwsBlockAccessRoleBlock : TerraformBlock
     /// A unique Google-owned and Google-generated identity for the Connection. This identity will be used to access the user&#39;s AWS IAM Role.
     /// </summary>
     public TerraformValue<string> Identity
-    {
-        get => new TerraformReference<string>(this, "identity");
-    }
+        => AsReference("identity");
 
 }
 
@@ -75,17 +73,13 @@ public class GoogleBigqueryConnectionAzureBlock : TerraformBlock
     /// The name of the Azure Active Directory Application.
     /// </summary>
     public TerraformValue<string> Application
-    {
-        get => new TerraformReference<string>(this, "application");
-    }
+        => AsReference("application");
 
     /// <summary>
     /// The client id of the Azure Active Directory Application.
     /// </summary>
     public TerraformValue<string> ClientId
-    {
-        get => new TerraformReference<string>(this, "client_id");
-    }
+        => AsReference("client_id");
 
     /// <summary>
     /// The id of customer&#39;s directory that host the data.
@@ -93,7 +87,7 @@ public class GoogleBigqueryConnectionAzureBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerTenantId is required")]
     public required TerraformValue<string> CustomerTenantId
     {
-        get => new TerraformReference<string>(this, "customer_tenant_id");
+        get => GetArgument<TerraformValue<string>>("customer_tenant_id");
         set => SetArgument("customer_tenant_id", value);
     }
 
@@ -102,7 +96,7 @@ public class GoogleBigqueryConnectionAzureBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FederatedApplicationClientId
     {
-        get => new TerraformReference<string>(this, "federated_application_client_id");
+        get => GetArgument<TerraformValue<string>>("federated_application_client_id");
         set => SetArgument("federated_application_client_id", value);
     }
 
@@ -110,25 +104,19 @@ public class GoogleBigqueryConnectionAzureBlock : TerraformBlock
     /// A unique Google-owned and Google-generated identity for the Connection. This identity will be used to access the user&#39;s Azure Active Directory Application.
     /// </summary>
     public TerraformValue<string> Identity
-    {
-        get => new TerraformReference<string>(this, "identity");
-    }
+        => AsReference("identity");
 
     /// <summary>
     /// The object id of the Azure Active Directory Application.
     /// </summary>
     public TerraformValue<string> ObjectId
-    {
-        get => new TerraformReference<string>(this, "object_id");
-    }
+        => AsReference("object_id");
 
     /// <summary>
     /// The URL user will be redirected to after granting consent during connection setup.
     /// </summary>
     public TerraformValue<string> RedirectUri
-    {
-        get => new TerraformReference<string>(this, "redirect_uri");
-    }
+        => AsReference("redirect_uri");
 
 }
 
@@ -148,9 +136,7 @@ public class GoogleBigqueryConnectionCloudResourceBlock : TerraformBlock
     /// The account ID of the service created for the purpose of this connection.
     /// </summary>
     public TerraformValue<string> ServiceAccountId
-    {
-        get => new TerraformReference<string>(this, "service_account_id");
-    }
+        => AsReference("service_account_id");
 
 }
 
@@ -172,7 +158,7 @@ public class GoogleBigqueryConnectionCloudSpannerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -181,7 +167,7 @@ public class GoogleBigqueryConnectionCloudSpannerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DatabaseRole
     {
-        get => new TerraformReference<string>(this, "database_role");
+        get => GetArgument<TerraformValue<string>>("database_role");
         set => SetArgument("database_role", value);
     }
 
@@ -190,7 +176,7 @@ public class GoogleBigqueryConnectionCloudSpannerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxParallelism
     {
-        get => new TerraformReference<double>(this, "max_parallelism");
+        get => GetArgument<TerraformValue<double>>("max_parallelism");
         set => SetArgument("max_parallelism", value);
     }
 
@@ -199,7 +185,7 @@ public class GoogleBigqueryConnectionCloudSpannerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? UseDataBoost
     {
-        get => new TerraformReference<bool>(this, "use_data_boost");
+        get => GetArgument<TerraformValue<bool>>("use_data_boost");
         set => SetArgument("use_data_boost", value);
     }
 
@@ -208,7 +194,7 @@ public class GoogleBigqueryConnectionCloudSpannerBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? UseParallelism
     {
-        get => new TerraformReference<bool>(this, "use_parallelism");
+        get => GetArgument<TerraformValue<bool>>("use_parallelism");
         set => SetArgument("use_parallelism", value);
     }
 
@@ -218,7 +204,7 @@ public class GoogleBigqueryConnectionCloudSpannerBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool>? UseServerlessAnalytics
     {
-        get => new TerraformReference<bool>(this, "use_serverless_analytics");
+        get => GetArgument<TerraformValue<bool>>("use_serverless_analytics");
         set => SetArgument("use_serverless_analytics", value);
     }
 
@@ -242,7 +228,7 @@ public class GoogleBigqueryConnectionCloudSqlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -252,7 +238,7 @@ public class GoogleBigqueryConnectionCloudSqlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => new TerraformReference<string>(this, "instance_id");
+        get => GetArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
@@ -260,9 +246,7 @@ public class GoogleBigqueryConnectionCloudSqlBlock : TerraformBlock
     /// When the connection is used in the context of an operation in BigQuery, this service account will serve as the identity being used for connecting to the CloudSQL instance specified in this connection.
     /// </summary>
     public TerraformValue<string> ServiceAccountId
-    {
-        get => new TerraformReference<string>(this, "service_account_id");
-    }
+        => AsReference("service_account_id");
 
     /// <summary>
     /// Type of the Cloud SQL database. Possible values: [&amp;quot;DATABASE_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;POSTGRES&amp;quot;, &amp;quot;MYSQL&amp;quot;]
@@ -270,7 +254,7 @@ public class GoogleBigqueryConnectionCloudSqlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -306,7 +290,7 @@ public class GoogleBigqueryConnectionCloudSqlBlockCredentialBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -316,7 +300,7 @@ public class GoogleBigqueryConnectionCloudSqlBlockCredentialBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -338,9 +322,7 @@ public class GoogleBigqueryConnectionSparkBlock : TerraformBlock
     /// The account ID of the service created for the purpose of this connection.
     /// </summary>
     public TerraformValue<string> ServiceAccountId
-    {
-        get => new TerraformReference<string>(this, "service_account_id");
-    }
+        => AsReference("service_account_id");
 
     /// <summary>
     /// MetastoreServiceConfig block (nesting mode: list).
@@ -380,7 +362,7 @@ public class GoogleBigqueryConnectionSparkBlockMetastoreServiceConfigBlock : Ter
     /// </summary>
     public TerraformValue<string>? MetastoreService
     {
-        get => new TerraformReference<string>(this, "metastore_service");
+        get => GetArgument<TerraformValue<string>>("metastore_service");
         set => SetArgument("metastore_service", value);
     }
 
@@ -402,7 +384,7 @@ public class GoogleBigqueryConnectionSparkBlockSparkHistoryServerConfigBlock : T
     /// </summary>
     public TerraformValue<string>? DataprocCluster
     {
-        get => new TerraformReference<string>(this, "dataproc_cluster");
+        get => GetArgument<TerraformValue<string>>("dataproc_cluster");
         set => SetArgument("dataproc_cluster", value);
     }
 
@@ -425,7 +407,7 @@ public class GoogleBigqueryConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -434,7 +416,7 @@ public class GoogleBigqueryConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -443,7 +425,7 @@ public class GoogleBigqueryConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -459,9 +441,9 @@ public partial class GoogleBigqueryConnection(string name) : TerraformResource("
     /// <summary>
     /// Optional connection id that should be assigned to the created connection.
     /// </summary>
-    public TerraformValue<string> ConnectionId
+    public TerraformValue<string>? ConnectionId
     {
-        get => new TerraformReference<string>(this, "connection_id");
+        get => GetArgument<TerraformValue<string>>("connection_id");
         set => SetArgument("connection_id", value);
     }
 
@@ -470,7 +452,7 @@ public partial class GoogleBigqueryConnection(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -479,16 +461,16 @@ public partial class GoogleBigqueryConnection(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? FriendlyName
     {
-        get => new TerraformReference<string>(this, "friendly_name");
+        get => GetArgument<TerraformValue<string>>("friendly_name");
         set => SetArgument("friendly_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -499,7 +481,7 @@ public partial class GoogleBigqueryConnection(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -514,16 +496,16 @@ public partial class GoogleBigqueryConnection(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -531,18 +513,14 @@ public partial class GoogleBigqueryConnection(string name) : TerraformResource("
     /// True if the connection has credential assigned.
     /// </summary>
     public TerraformValue<bool> HasCredential
-    {
-        get => new TerraformReference<bool>(this, "has_credential");
-    }
+        => AsReference("has_credential");
 
     /// <summary>
     /// The resource name of the connection in the form of:
     /// &amp;quot;projects/{project_id}/locations/{location_id}/connections/{connectionId}&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Aws block (nesting mode: list).

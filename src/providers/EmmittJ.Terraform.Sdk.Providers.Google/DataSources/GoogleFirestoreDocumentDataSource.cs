@@ -14,7 +14,7 @@ public partial class GoogleFirestoreDocumentDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
     public required TerraformValue<string> Collection
     {
-        get => new TerraformReference<string>(this, "collection");
+        get => GetArgument<TerraformValue<string>>("collection");
         set => SetArgument("collection", value);
     }
 
@@ -24,7 +24,7 @@ public partial class GoogleFirestoreDocumentDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -34,16 +34,16 @@ public partial class GoogleFirestoreDocumentDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DocumentId is required")]
     public required TerraformValue<string> DocumentId
     {
-        get => new TerraformReference<string>(this, "document_id");
+        get => GetArgument<TerraformValue<string>>("document_id");
         set => SetArgument("document_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -52,7 +52,7 @@ public partial class GoogleFirestoreDocumentDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -60,41 +60,31 @@ public partial class GoogleFirestoreDocumentDataSource(string name) : TerraformD
     /// Creation timestamp in RFC3339 format.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The document&#39;s [fields](https://cloud.google.com/firestore/docs/reference/rest/v1/projects.databases.documents) formated as a json string.
     /// </summary>
     public TerraformValue<string> Fields
-    {
-        get => new TerraformReference<string>(this, "fields");
-    }
+        => AsReference("fields");
 
     /// <summary>
     /// A server defined name for this document. Format:
     /// &#39;projects/{{project_id}}/databases/{{database_id}}/documents/{{path}}/{{document_id}}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// A relative path to the collection this document exists within
     /// </summary>
     public TerraformValue<string> Path
-    {
-        get => new TerraformReference<string>(this, "path");
-    }
+        => AsReference("path");
 
     /// <summary>
     /// Last update timestamp in RFC3339 format.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
 }

@@ -18,7 +18,7 @@ public class AzurermChaosStudioCapabilityTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermChaosStudioCapabilityTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermChaosStudioCapabilityTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermChaosStudioCapability(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapabilityType is required")]
     public required TerraformValue<string> CapabilityType
     {
-        get => new TerraformReference<string>(this, "capability_type");
+        get => GetArgument<TerraformValue<string>>("capability_type");
         set => SetArgument("capability_type", value);
     }
 
@@ -65,16 +65,16 @@ public partial class AzurermChaosStudioCapability(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChaosStudioTargetId is required")]
     public required TerraformValue<string> ChaosStudioTargetId
     {
-        get => new TerraformReference<string>(this, "chaos_studio_target_id");
+        get => GetArgument<TerraformValue<string>>("chaos_studio_target_id");
         set => SetArgument("chaos_studio_target_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -82,9 +82,7 @@ public partial class AzurermChaosStudioCapability(string name) : TerraformResour
     /// The urn attribute.
     /// </summary>
     public TerraformValue<string> Urn
-    {
-        get => new TerraformReference<string>(this, "urn");
-    }
+        => AsReference("urn");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

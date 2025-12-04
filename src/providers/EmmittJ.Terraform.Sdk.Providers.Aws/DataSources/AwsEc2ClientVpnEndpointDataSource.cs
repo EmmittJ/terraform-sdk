@@ -19,7 +19,7 @@ public class AwsEc2ClientVpnEndpointDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsEc2ClientVpnEndpointDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsEc2ClientVpnEndpointDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -68,36 +68,36 @@ public partial class AwsEc2ClientVpnEndpointDataSource(string name) : TerraformD
     /// <summary>
     /// The client_vpn_endpoint_id attribute.
     /// </summary>
-    public TerraformValue<string> ClientVpnEndpointId
+    public TerraformValue<string>? ClientVpnEndpointId
     {
-        get => new TerraformReference<string>(this, "client_vpn_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("client_vpn_endpoint_id");
         set => SetArgument("client_vpn_endpoint_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -105,169 +105,127 @@ public partial class AwsEc2ClientVpnEndpointDataSource(string name) : TerraformD
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The authentication_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AuthenticationOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "authentication_options").ResolveNodes(ctx));
-    }
+        => AsReference("authentication_options");
 
     /// <summary>
     /// The client_cidr_block attribute.
     /// </summary>
     public TerraformValue<string> ClientCidrBlock
-    {
-        get => new TerraformReference<string>(this, "client_cidr_block");
-    }
+        => AsReference("client_cidr_block");
 
     /// <summary>
     /// The client_connect_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ClientConnectOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "client_connect_options").ResolveNodes(ctx));
-    }
+        => AsReference("client_connect_options");
 
     /// <summary>
     /// The client_login_banner_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ClientLoginBannerOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "client_login_banner_options").ResolveNodes(ctx));
-    }
+        => AsReference("client_login_banner_options");
 
     /// <summary>
     /// The client_route_enforcement_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ClientRouteEnforcementOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "client_route_enforcement_options").ResolveNodes(ctx));
-    }
+        => AsReference("client_route_enforcement_options");
 
     /// <summary>
     /// The connection_log_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ConnectionLogOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "connection_log_options").ResolveNodes(ctx));
-    }
+        => AsReference("connection_log_options");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-    {
-        get => new TerraformReference<string>(this, "dns_name");
-    }
+        => AsReference("dns_name");
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
     public TerraformList<string> DnsServers
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dns_servers").ResolveNodes(ctx));
-    }
+        => AsReference("dns_servers");
 
     /// <summary>
     /// The endpoint_ip_address_type attribute.
     /// </summary>
     public TerraformValue<string> EndpointIpAddressType
-    {
-        get => new TerraformReference<string>(this, "endpoint_ip_address_type");
-    }
+        => AsReference("endpoint_ip_address_type");
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     public TerraformList<string> SecurityGroupIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "security_group_ids").ResolveNodes(ctx));
-    }
+        => AsReference("security_group_ids");
 
     /// <summary>
     /// The self_service_portal attribute.
     /// </summary>
     public TerraformValue<string> SelfServicePortal
-    {
-        get => new TerraformReference<string>(this, "self_service_portal");
-    }
+        => AsReference("self_service_portal");
 
     /// <summary>
     /// The self_service_portal_url attribute.
     /// </summary>
     public TerraformValue<string> SelfServicePortalUrl
-    {
-        get => new TerraformReference<string>(this, "self_service_portal_url");
-    }
+        => AsReference("self_service_portal_url");
 
     /// <summary>
     /// The server_certificate_arn attribute.
     /// </summary>
     public TerraformValue<string> ServerCertificateArn
-    {
-        get => new TerraformReference<string>(this, "server_certificate_arn");
-    }
+        => AsReference("server_certificate_arn");
 
     /// <summary>
     /// The session_timeout_hours attribute.
     /// </summary>
     public TerraformValue<double> SessionTimeoutHours
-    {
-        get => new TerraformReference<double>(this, "session_timeout_hours");
-    }
+        => AsReference("session_timeout_hours");
 
     /// <summary>
     /// The split_tunnel attribute.
     /// </summary>
     public TerraformValue<bool> SplitTunnel
-    {
-        get => new TerraformReference<bool>(this, "split_tunnel");
-    }
+        => AsReference("split_tunnel");
 
     /// <summary>
     /// The traffic_ip_address_type attribute.
     /// </summary>
     public TerraformValue<string> TrafficIpAddressType
-    {
-        get => new TerraformReference<string>(this, "traffic_ip_address_type");
-    }
+        => AsReference("traffic_ip_address_type");
 
     /// <summary>
     /// The transport_protocol attribute.
     /// </summary>
     public TerraformValue<string> TransportProtocol
-    {
-        get => new TerraformReference<string>(this, "transport_protocol");
-    }
+        => AsReference("transport_protocol");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-    {
-        get => new TerraformReference<string>(this, "vpc_id");
-    }
+        => AsReference("vpc_id");
 
     /// <summary>
     /// The vpn_port attribute.
     /// </summary>
     public TerraformValue<double> VpnPort
-    {
-        get => new TerraformReference<double>(this, "vpn_port");
-    }
+        => AsReference("vpn_port");
 
     /// <summary>
     /// Filter block (nesting mode: set).

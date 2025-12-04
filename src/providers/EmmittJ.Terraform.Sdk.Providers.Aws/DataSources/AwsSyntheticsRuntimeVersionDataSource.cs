@@ -13,7 +13,7 @@ public partial class AwsSyntheticsRuntimeVersionDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<bool>? Latest
     {
-        get => new TerraformReference<bool>(this, "latest");
+        get => GetArgument<TerraformValue<bool>>("latest");
         set => SetArgument("latest", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsSyntheticsRuntimeVersionDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
     public required TerraformValue<string> Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsSyntheticsRuntimeVersionDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -49,40 +49,30 @@ public partial class AwsSyntheticsRuntimeVersionDataSource(string name) : Terraf
     /// The deprecation_date attribute.
     /// </summary>
     public TerraformValue<string> DeprecationDate
-    {
-        get => new TerraformReference<string>(this, "deprecation_date");
-    }
+        => AsReference("deprecation_date");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The release_date attribute.
     /// </summary>
     public TerraformValue<string> ReleaseDate
-    {
-        get => new TerraformReference<string>(this, "release_date");
-    }
+        => AsReference("release_date");
 
     /// <summary>
     /// The version_name attribute.
     /// </summary>
     public TerraformValue<string> VersionName
-    {
-        get => new TerraformReference<string>(this, "version_name");
-    }
+        => AsReference("version_name");
 
 }

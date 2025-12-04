@@ -13,7 +13,7 @@ public partial class AwsAuditmanagerFrameworkShare(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Comment
     {
-        get => new TerraformReference<string>(this, "comment");
+        get => GetArgument<TerraformValue<string>>("comment");
         set => SetArgument("comment", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsAuditmanagerFrameworkShare(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationAccount is required")]
     public required TerraformValue<string> DestinationAccount
     {
-        get => new TerraformReference<string>(this, "destination_account");
+        get => GetArgument<TerraformValue<string>>("destination_account");
         set => SetArgument("destination_account", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsAuditmanagerFrameworkShare(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationRegion is required")]
     public required TerraformValue<string> DestinationRegion
     {
-        get => new TerraformReference<string>(this, "destination_region");
+        get => GetArgument<TerraformValue<string>>("destination_region");
         set => SetArgument("destination_region", value);
     }
 
@@ -43,16 +43,16 @@ public partial class AwsAuditmanagerFrameworkShare(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrameworkId is required")]
     public required TerraformValue<string> FrameworkId
     {
-        get => new TerraformReference<string>(this, "framework_id");
+        get => GetArgument<TerraformValue<string>>("framework_id");
         set => SetArgument("framework_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -60,16 +60,12 @@ public partial class AwsAuditmanagerFrameworkShare(string name) : TerraformResou
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }

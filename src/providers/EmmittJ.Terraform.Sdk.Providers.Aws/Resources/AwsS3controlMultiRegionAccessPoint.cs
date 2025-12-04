@@ -19,7 +19,7 @@ public class AwsS3controlMultiRegionAccessPointDetailsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -64,7 +64,7 @@ public class AwsS3controlMultiRegionAccessPointDetailsBlockPublicAccessBlockBloc
     /// </summary>
     public TerraformValue<bool>? BlockPublicAcls
     {
-        get => new TerraformReference<bool>(this, "block_public_acls");
+        get => GetArgument<TerraformValue<bool>>("block_public_acls");
         set => SetArgument("block_public_acls", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsS3controlMultiRegionAccessPointDetailsBlockPublicAccessBlockBloc
     /// </summary>
     public TerraformValue<bool>? BlockPublicPolicy
     {
-        get => new TerraformReference<bool>(this, "block_public_policy");
+        get => GetArgument<TerraformValue<bool>>("block_public_policy");
         set => SetArgument("block_public_policy", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsS3controlMultiRegionAccessPointDetailsBlockPublicAccessBlockBloc
     /// </summary>
     public TerraformValue<bool>? IgnorePublicAcls
     {
-        get => new TerraformReference<bool>(this, "ignore_public_acls");
+        get => GetArgument<TerraformValue<bool>>("ignore_public_acls");
         set => SetArgument("ignore_public_acls", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsS3controlMultiRegionAccessPointDetailsBlockPublicAccessBlockBloc
     /// </summary>
     public TerraformValue<bool>? RestrictPublicBuckets
     {
-        get => new TerraformReference<bool>(this, "restrict_public_buckets");
+        get => GetArgument<TerraformValue<bool>>("restrict_public_buckets");
         set => SetArgument("restrict_public_buckets", value);
     }
 
@@ -114,16 +114,16 @@ public class AwsS3controlMultiRegionAccessPointDetailsBlockRegionBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The bucket_account_id attribute.
     /// </summary>
-    public TerraformValue<string> BucketAccountId
+    public TerraformValue<string>? BucketAccountId
     {
-        get => new TerraformReference<string>(this, "bucket_account_id");
+        get => GetArgument<TerraformValue<string>>("bucket_account_id");
         set => SetArgument("bucket_account_id", value);
     }
 
@@ -131,9 +131,7 @@ public class AwsS3controlMultiRegionAccessPointDetailsBlockRegionBlock : Terrafo
     /// The region attribute.
     /// </summary>
     public TerraformValue<string> Region
-    {
-        get => new TerraformReference<string>(this, "region");
-    }
+        => AsReference("region");
 
 }
 
@@ -154,7 +152,7 @@ public class AwsS3controlMultiRegionAccessPointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -163,7 +161,7 @@ public class AwsS3controlMultiRegionAccessPointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -179,27 +177,27 @@ public partial class AwsS3controlMultiRegionAccessPoint(string name) : Terraform
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformValue<string> AccountId
+    public TerraformValue<string>? AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -207,33 +205,25 @@ public partial class AwsS3controlMultiRegionAccessPoint(string name) : Terraform
     /// The alias attribute.
     /// </summary>
     public TerraformValue<string> Alias
-    {
-        get => new TerraformReference<string>(this, "alias");
-    }
+        => AsReference("alias");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     public TerraformValue<string> DomainName
-    {
-        get => new TerraformReference<string>(this, "domain_name");
-    }
+        => AsReference("domain_name");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// Details block (nesting mode: list).

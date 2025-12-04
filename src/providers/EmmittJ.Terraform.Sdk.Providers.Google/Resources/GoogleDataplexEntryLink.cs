@@ -20,7 +20,7 @@ public class GoogleDataplexEntryLinkEntryReferencesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -30,7 +30,7 @@ public class GoogleDataplexEntryLinkEntryReferencesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -39,7 +39,7 @@ public class GoogleDataplexEntryLinkEntryReferencesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleDataplexEntryLinkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleDataplexEntryLinkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -90,7 +90,7 @@ public partial class GoogleDataplexEntryLink(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroupId is required")]
     public required TerraformValue<string> EntryGroupId
     {
-        get => new TerraformReference<string>(this, "entry_group_id");
+        get => GetArgument<TerraformValue<string>>("entry_group_id");
         set => SetArgument("entry_group_id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class GoogleDataplexEntryLink(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryLinkId is required")]
     public required TerraformValue<string> EntryLinkId
     {
-        get => new TerraformReference<string>(this, "entry_link_id");
+        get => GetArgument<TerraformValue<string>>("entry_link_id");
         set => SetArgument("entry_link_id", value);
     }
 
@@ -111,16 +111,16 @@ public partial class GoogleDataplexEntryLink(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryLinkType is required")]
     public required TerraformValue<string> EntryLinkType
     {
-        get => new TerraformReference<string>(this, "entry_link_type");
+        get => GetArgument<TerraformValue<string>>("entry_link_type");
         set => SetArgument("entry_link_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -130,16 +130,16 @@ public partial class GoogleDataplexEntryLink(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -147,26 +147,20 @@ public partial class GoogleDataplexEntryLink(string name) : TerraformResource("g
     /// The time when the Entry Link was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The relative resource name of the Entry Link, of the form:
     /// projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}/entryLinks/{entry_link_id}
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The time when the Entry Link was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// EntryReferences block (nesting mode: list).

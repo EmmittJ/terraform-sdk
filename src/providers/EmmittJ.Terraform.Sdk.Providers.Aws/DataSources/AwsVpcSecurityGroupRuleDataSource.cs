@@ -19,7 +19,7 @@ public class AwsVpcSecurityGroupRuleDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsVpcSecurityGroupRuleDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -45,18 +45,18 @@ public partial class AwsVpcSecurityGroupRuleDataSource(string name) : TerraformD
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The security_group_rule_id attribute.
     /// </summary>
-    public TerraformValue<string> SecurityGroupRuleId
+    public TerraformValue<string>? SecurityGroupRuleId
     {
-        get => new TerraformReference<string>(this, "security_group_rule_id");
+        get => GetArgument<TerraformValue<string>>("security_group_rule_id");
         set => SetArgument("security_group_rule_id", value);
     }
 
@@ -64,105 +64,79 @@ public partial class AwsVpcSecurityGroupRuleDataSource(string name) : TerraformD
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The cidr_ipv4 attribute.
     /// </summary>
     public TerraformValue<string> CidrIpv4
-    {
-        get => new TerraformReference<string>(this, "cidr_ipv4");
-    }
+        => AsReference("cidr_ipv4");
 
     /// <summary>
     /// The cidr_ipv6 attribute.
     /// </summary>
     public TerraformValue<string> CidrIpv6
-    {
-        get => new TerraformReference<string>(this, "cidr_ipv6");
-    }
+        => AsReference("cidr_ipv6");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The from_port attribute.
     /// </summary>
     public TerraformValue<double> FromPort
-    {
-        get => new TerraformReference<double>(this, "from_port");
-    }
+        => AsReference("from_port");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The ip_protocol attribute.
     /// </summary>
     public TerraformValue<string> IpProtocol
-    {
-        get => new TerraformReference<string>(this, "ip_protocol");
-    }
+        => AsReference("ip_protocol");
 
     /// <summary>
     /// The is_egress attribute.
     /// </summary>
     public TerraformValue<bool> IsEgress
-    {
-        get => new TerraformReference<bool>(this, "is_egress");
-    }
+        => AsReference("is_egress");
 
     /// <summary>
     /// The prefix_list_id attribute.
     /// </summary>
     public TerraformValue<string> PrefixListId
-    {
-        get => new TerraformReference<string>(this, "prefix_list_id");
-    }
+        => AsReference("prefix_list_id");
 
     /// <summary>
     /// The referenced_security_group_id attribute.
     /// </summary>
     public TerraformValue<string> ReferencedSecurityGroupId
-    {
-        get => new TerraformReference<string>(this, "referenced_security_group_id");
-    }
+        => AsReference("referenced_security_group_id");
 
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
     public TerraformValue<string> SecurityGroupId
-    {
-        get => new TerraformReference<string>(this, "security_group_id");
-    }
+        => AsReference("security_group_id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The to_port attribute.
     /// </summary>
     public TerraformValue<double> ToPort
-    {
-        get => new TerraformReference<double>(this, "to_port");
-    }
+        => AsReference("to_port");
 
     /// <summary>
     /// Filter block (nesting mode: set).

@@ -18,16 +18,16 @@ public class AwsComprehendDocumentClassifierInputDataConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? DataFormat
     {
-        get => new TerraformReference<string>(this, "data_format");
+        get => GetArgument<TerraformValue<string>>("data_format");
         set => SetArgument("data_format", value);
     }
 
     /// <summary>
     /// The label_delimiter attribute.
     /// </summary>
-    public TerraformValue<string> LabelDelimiter
+    public TerraformValue<string>? LabelDelimiter
     {
-        get => new TerraformReference<string>(this, "label_delimiter");
+        get => GetArgument<TerraformValue<string>>("label_delimiter");
         set => SetArgument("label_delimiter", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsComprehendDocumentClassifierInputDataConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? S3Uri
     {
-        get => new TerraformReference<string>(this, "s3_uri");
+        get => GetArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsComprehendDocumentClassifierInputDataConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? TestS3Uri
     {
-        get => new TerraformReference<string>(this, "test_s3_uri");
+        get => GetArgument<TerraformValue<string>>("test_s3_uri");
         set => SetArgument("test_s3_uri", value);
     }
 
@@ -76,7 +76,7 @@ public class AwsComprehendDocumentClassifierInputDataConfigBlockAugmentedManifes
     /// </summary>
     public TerraformValue<string>? AnnotationDataS3Uri
     {
-        get => new TerraformReference<string>(this, "annotation_data_s3_uri");
+        get => GetArgument<TerraformValue<string>>("annotation_data_s3_uri");
         set => SetArgument("annotation_data_s3_uri", value);
     }
 
@@ -86,7 +86,7 @@ public class AwsComprehendDocumentClassifierInputDataConfigBlockAugmentedManifes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributeNames is required")]
     public TerraformList<string>? AttributeNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "attribute_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("attribute_names");
         set => SetArgument("attribute_names", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsComprehendDocumentClassifierInputDataConfigBlockAugmentedManifes
     /// </summary>
     public TerraformValue<string>? DocumentType
     {
-        get => new TerraformReference<string>(this, "document_type");
+        get => GetArgument<TerraformValue<string>>("document_type");
         set => SetArgument("document_type", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsComprehendDocumentClassifierInputDataConfigBlockAugmentedManifes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformValue<string> S3Uri
     {
-        get => new TerraformReference<string>(this, "s3_uri");
+        get => GetArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -114,7 +114,7 @@ public class AwsComprehendDocumentClassifierInputDataConfigBlockAugmentedManifes
     /// </summary>
     public TerraformValue<string>? SourceDocumentsS3Uri
     {
-        get => new TerraformReference<string>(this, "source_documents_s3_uri");
+        get => GetArgument<TerraformValue<string>>("source_documents_s3_uri");
         set => SetArgument("source_documents_s3_uri", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsComprehendDocumentClassifierInputDataConfigBlockAugmentedManifes
     /// </summary>
     public TerraformValue<string>? Split
     {
-        get => new TerraformReference<string>(this, "split");
+        get => GetArgument<TerraformValue<string>>("split");
         set => SetArgument("split", value);
     }
 
@@ -146,7 +146,7 @@ public class AwsComprehendDocumentClassifierOutputDataConfigBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -154,9 +154,7 @@ public class AwsComprehendDocumentClassifierOutputDataConfigBlock : TerraformBlo
     /// The output_s3_uri attribute.
     /// </summary>
     public TerraformValue<string> OutputS3Uri
-    {
-        get => new TerraformReference<string>(this, "output_s3_uri");
-    }
+        => AsReference("output_s3_uri");
 
     /// <summary>
     /// The s3_uri attribute.
@@ -164,7 +162,7 @@ public class AwsComprehendDocumentClassifierOutputDataConfigBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Uri is required")]
     public required TerraformValue<string> S3Uri
     {
-        get => new TerraformReference<string>(this, "s3_uri");
+        get => GetArgument<TerraformValue<string>>("s3_uri");
         set => SetArgument("s3_uri", value);
     }
 
@@ -187,7 +185,7 @@ public class AwsComprehendDocumentClassifierTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -196,7 +194,7 @@ public class AwsComprehendDocumentClassifierTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -205,7 +203,7 @@ public class AwsComprehendDocumentClassifierTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -229,7 +227,7 @@ public class AwsComprehendDocumentClassifierVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -239,7 +237,7 @@ public class AwsComprehendDocumentClassifierVpcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public required TerraformSet<string> Subnets
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnets").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -258,16 +256,16 @@ public partial class AwsComprehendDocumentClassifier(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataAccessRoleArn is required")]
     public required TerraformValue<string> DataAccessRoleArn
     {
-        get => new TerraformReference<string>(this, "data_access_role_arn");
+        get => GetArgument<TerraformValue<string>>("data_access_role_arn");
         set => SetArgument("data_access_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -277,7 +275,7 @@ public partial class AwsComprehendDocumentClassifier(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformValue<string> LanguageCode
     {
-        get => new TerraformReference<string>(this, "language_code");
+        get => GetArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -286,7 +284,7 @@ public partial class AwsComprehendDocumentClassifier(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -295,7 +293,7 @@ public partial class AwsComprehendDocumentClassifier(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? ModelKmsKeyId
     {
-        get => new TerraformReference<string>(this, "model_kms_key_id");
+        get => GetArgument<TerraformValue<string>>("model_kms_key_id");
         set => SetArgument("model_kms_key_id", value);
     }
 
@@ -305,16 +303,16 @@ public partial class AwsComprehendDocumentClassifier(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -323,34 +321,34 @@ public partial class AwsComprehendDocumentClassifier(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The version_name attribute.
     /// </summary>
-    public TerraformValue<string> VersionName
+    public TerraformValue<string>? VersionName
     {
-        get => new TerraformReference<string>(this, "version_name");
+        get => GetArgument<TerraformValue<string>>("version_name");
         set => SetArgument("version_name", value);
     }
 
     /// <summary>
     /// The version_name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> VersionNamePrefix
+    public TerraformValue<string>? VersionNamePrefix
     {
-        get => new TerraformReference<string>(this, "version_name_prefix");
+        get => GetArgument<TerraformValue<string>>("version_name_prefix");
         set => SetArgument("version_name_prefix", value);
     }
 
@@ -359,7 +357,7 @@ public partial class AwsComprehendDocumentClassifier(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? VolumeKmsKeyId
     {
-        get => new TerraformReference<string>(this, "volume_kms_key_id");
+        get => GetArgument<TerraformValue<string>>("volume_kms_key_id");
         set => SetArgument("volume_kms_key_id", value);
     }
 
@@ -367,9 +365,7 @@ public partial class AwsComprehendDocumentClassifier(string name) : TerraformRes
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// InputDataConfig block (nesting mode: list).

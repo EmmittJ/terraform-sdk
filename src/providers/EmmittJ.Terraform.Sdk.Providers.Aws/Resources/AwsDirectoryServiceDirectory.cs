@@ -17,17 +17,13 @@ public class AwsDirectoryServiceDirectoryConnectSettingsBlock : TerraformBlock
     /// The availability_zones attribute.
     /// </summary>
     public TerraformSet<string> AvailabilityZones
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "availability_zones").ResolveNodes(ctx));
-    }
+        => AsReference("availability_zones");
 
     /// <summary>
     /// The connect_ips attribute.
     /// </summary>
     public TerraformSet<string> ConnectIps
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "connect_ips").ResolveNodes(ctx));
-    }
+        => AsReference("connect_ips");
 
     /// <summary>
     /// The customer_dns_ips attribute.
@@ -35,7 +31,7 @@ public class AwsDirectoryServiceDirectoryConnectSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerDnsIps is required")]
     public required TerraformSet<string> CustomerDnsIps
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "customer_dns_ips").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("customer_dns_ips");
         set => SetArgument("customer_dns_ips", value);
     }
 
@@ -45,7 +41,7 @@ public class AwsDirectoryServiceDirectoryConnectSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerUsername is required")]
     public required TerraformValue<string> CustomerUsername
     {
-        get => new TerraformReference<string>(this, "customer_username");
+        get => GetArgument<TerraformValue<string>>("customer_username");
         set => SetArgument("customer_username", value);
     }
 
@@ -55,7 +51,7 @@ public class AwsDirectoryServiceDirectoryConnectSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -65,7 +61,7 @@ public class AwsDirectoryServiceDirectoryConnectSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -88,7 +84,7 @@ public class AwsDirectoryServiceDirectoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -97,7 +93,7 @@ public class AwsDirectoryServiceDirectoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -106,7 +102,7 @@ public class AwsDirectoryServiceDirectoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -128,9 +124,7 @@ public class AwsDirectoryServiceDirectoryVpcSettingsBlock : TerraformBlock
     /// The availability_zones attribute.
     /// </summary>
     public TerraformSet<string> AvailabilityZones
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "availability_zones").ResolveNodes(ctx));
-    }
+        => AsReference("availability_zones");
 
     /// <summary>
     /// The subnet_ids attribute.
@@ -138,7 +132,7 @@ public class AwsDirectoryServiceDirectoryVpcSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -148,7 +142,7 @@ public class AwsDirectoryServiceDirectoryVpcSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -164,9 +158,9 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     /// <summary>
     /// The alias attribute.
     /// </summary>
-    public TerraformValue<string> Alias
+    public TerraformValue<string>? Alias
     {
-        get => new TerraformReference<string>(this, "alias");
+        get => GetArgument<TerraformValue<string>>("alias");
         set => SetArgument("alias", value);
     }
 
@@ -175,25 +169,25 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The desired_number_of_domain_controllers attribute.
     /// </summary>
-    public TerraformValue<double> DesiredNumberOfDomainControllers
+    public TerraformValue<double>? DesiredNumberOfDomainControllers
     {
-        get => new TerraformReference<double>(this, "desired_number_of_domain_controllers");
+        get => GetArgument<TerraformValue<double>>("desired_number_of_domain_controllers");
         set => SetArgument("desired_number_of_domain_controllers", value);
     }
 
     /// <summary>
     /// The edition attribute.
     /// </summary>
-    public TerraformValue<string> Edition
+    public TerraformValue<string>? Edition
     {
-        get => new TerraformReference<string>(this, "edition");
+        get => GetArgument<TerraformValue<string>>("edition");
         set => SetArgument("edition", value);
     }
 
@@ -202,16 +196,16 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? EnableSso
     {
-        get => new TerraformReference<bool>(this, "enable_sso");
+        get => GetArgument<TerraformValue<bool>>("enable_sso");
         set => SetArgument("enable_sso", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -221,7 +215,7 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -231,34 +225,34 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The short_name attribute.
     /// </summary>
-    public TerraformValue<string> ShortName
+    public TerraformValue<string>? ShortName
     {
-        get => new TerraformReference<string>(this, "short_name");
+        get => GetArgument<TerraformValue<string>>("short_name");
         set => SetArgument("short_name", value);
     }
 
     /// <summary>
     /// The size attribute.
     /// </summary>
-    public TerraformValue<string> Size
+    public TerraformValue<string>? Size
     {
-        get => new TerraformReference<string>(this, "size");
+        get => GetArgument<TerraformValue<string>>("size");
         set => SetArgument("size", value);
     }
 
@@ -267,16 +261,16 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -285,7 +279,7 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -293,25 +287,19 @@ public partial class AwsDirectoryServiceDirectory(string name) : TerraformResour
     /// The access_url attribute.
     /// </summary>
     public TerraformValue<string> AccessUrl
-    {
-        get => new TerraformReference<string>(this, "access_url");
-    }
+        => AsReference("access_url");
 
     /// <summary>
     /// The dns_ip_addresses attribute.
     /// </summary>
     public TerraformSet<string> DnsIpAddresses
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "dns_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("dns_ip_addresses");
 
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
     public TerraformValue<string> SecurityGroupId
-    {
-        get => new TerraformReference<string>(this, "security_group_id");
-    }
+        => AsReference("security_group_id");
 
     /// <summary>
     /// ConnectSettings block (nesting mode: list).

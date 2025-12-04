@@ -11,9 +11,9 @@ public partial class GoogleAccessApprovalProjectServiceAccountDataSource(string 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleAccessApprovalProjectServiceAccountDataSource(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -31,16 +31,12 @@ public partial class GoogleAccessApprovalProjectServiceAccountDataSource(string 
     /// The account_email attribute.
     /// </summary>
     public TerraformValue<string> AccountEmail
-    {
-        get => new TerraformReference<string>(this, "account_email");
-    }
+        => AsReference("account_email");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
 }

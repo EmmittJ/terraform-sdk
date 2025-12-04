@@ -17,9 +17,9 @@ public class GoogleComputeNodeGroupAutoscalingPolicyBlock : TerraformBlock
     /// Maximum size of the node group. Set to a value less than or equal
     /// to 100 and greater than or equal to min-nodes.
     /// </summary>
-    public TerraformValue<double> MaxNodes
+    public TerraformValue<double>? MaxNodes
     {
-        get => new TerraformReference<double>(this, "max_nodes");
+        get => GetArgument<TerraformValue<double>>("max_nodes");
         set => SetArgument("max_nodes", value);
     }
 
@@ -27,9 +27,9 @@ public class GoogleComputeNodeGroupAutoscalingPolicyBlock : TerraformBlock
     /// Minimum size of the node group. Must be less
     /// than or equal to max-nodes. The default value is 0.
     /// </summary>
-    public TerraformValue<double> MinNodes
+    public TerraformValue<double>? MinNodes
     {
-        get => new TerraformReference<double>(this, "min_nodes");
+        get => GetArgument<TerraformValue<double>>("min_nodes");
         set => SetArgument("min_nodes", value);
     }
 
@@ -41,9 +41,9 @@ public class GoogleComputeNodeGroupAutoscalingPolicyBlock : TerraformBlock
     ///   You must use this mode if your node groups are configured to
     ///   restart their hosted VMs on minimal servers. Possible values: [&amp;quot;OFF&amp;quot;, &amp;quot;ON&amp;quot;, &amp;quot;ONLY_SCALE_OUT&amp;quot;]
     /// </summary>
-    public TerraformValue<string> Mode
+    public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -67,7 +67,7 @@ public class GoogleComputeNodeGroupMaintenanceWindowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformValue<string> StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleComputeNodeGroupShareSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareType is required")]
     public required TerraformValue<string> ShareType
     {
-        get => new TerraformReference<string>(this, "share_type");
+        get => GetArgument<TerraformValue<string>>("share_type");
         set => SetArgument("share_type", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleComputeNodeGroupShareSettingsBlockProjectMapBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleComputeNodeGroupShareSettingsBlockProjectMapBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -156,7 +156,7 @@ public class GoogleComputeNodeGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -165,7 +165,7 @@ public class GoogleComputeNodeGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -174,7 +174,7 @@ public class GoogleComputeNodeGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -192,16 +192,16 @@ public partial class GoogleComputeNodeGroup(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -210,7 +210,7 @@ public partial class GoogleComputeNodeGroup(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<double>? InitialSize
     {
-        get => new TerraformReference<double>(this, "initial_size");
+        get => GetArgument<TerraformValue<double>>("initial_size");
         set => SetArgument("initial_size", value);
     }
 
@@ -219,7 +219,7 @@ public partial class GoogleComputeNodeGroup(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? MaintenancePolicy
     {
-        get => new TerraformReference<string>(this, "maintenance_policy");
+        get => GetArgument<TerraformValue<string>>("maintenance_policy");
         set => SetArgument("maintenance_policy", value);
     }
 
@@ -229,7 +229,7 @@ public partial class GoogleComputeNodeGroup(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -239,25 +239,25 @@ public partial class GoogleComputeNodeGroup(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeTemplate is required")]
     public required TerraformValue<string> NodeTemplate
     {
-        get => new TerraformReference<string>(this, "node_template");
+        get => GetArgument<TerraformValue<string>>("node_template");
         set => SetArgument("node_template", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Zone where this node group is located
     /// </summary>
-    public TerraformValue<string> Zone
+    public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -265,25 +265,19 @@ public partial class GoogleComputeNodeGroup(string name) : TerraformResource("go
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// The total number of nodes in the node group.
     /// </summary>
     public TerraformValue<double> Size
-    {
-        get => new TerraformReference<double>(this, "size");
-    }
+        => AsReference("size");
 
     /// <summary>
     /// AutoscalingPolicy block (nesting mode: list).

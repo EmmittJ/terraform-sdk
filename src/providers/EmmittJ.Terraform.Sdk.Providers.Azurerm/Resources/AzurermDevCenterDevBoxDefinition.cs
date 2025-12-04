@@ -18,7 +18,7 @@ public class AzurermDevCenterDevBoxDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermDevCenterDevBoxDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermDevCenterDevBoxDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermDevCenterDevBoxDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermDevCenterDevBoxDefinition(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterId is required")]
     public required TerraformValue<string> DevCenterId
     {
-        get => new TerraformReference<string>(this, "dev_center_id");
+        get => GetArgument<TerraformValue<string>>("dev_center_id");
         set => SetArgument("dev_center_id", value);
     }
 
@@ -73,16 +73,16 @@ public partial class AzurermDevCenterDevBoxDefinition(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? HibernateSupportEnabled
     {
-        get => new TerraformReference<bool>(this, "hibernate_support_enabled");
+        get => GetArgument<TerraformValue<bool>>("hibernate_support_enabled");
         set => SetArgument("hibernate_support_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermDevCenterDevBoxDefinition(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageReferenceId is required")]
     public required TerraformValue<string> ImageReferenceId
     {
-        get => new TerraformReference<string>(this, "image_reference_id");
+        get => GetArgument<TerraformValue<string>>("image_reference_id");
         set => SetArgument("image_reference_id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermDevCenterDevBoxDefinition(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermDevCenterDevBoxDefinition(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermDevCenterDevBoxDefinition(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => new TerraformReference<string>(this, "sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermDevCenterDevBoxDefinition(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

@@ -11,9 +11,9 @@ public partial class AwsEbsDefaultKmsKey(string name) : TerraformResource("aws_e
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsEbsDefaultKmsKey(string name) : TerraformResource("aws_e
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyArn is required")]
     public required TerraformValue<string> KeyArn
     {
-        get => new TerraformReference<string>(this, "key_arn");
+        get => GetArgument<TerraformValue<string>>("key_arn");
         set => SetArgument("key_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

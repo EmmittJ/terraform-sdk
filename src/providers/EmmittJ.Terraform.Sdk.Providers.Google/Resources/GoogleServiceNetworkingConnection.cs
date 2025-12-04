@@ -18,7 +18,7 @@ public class GoogleServiceNetworkingConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleServiceNetworkingConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleServiceNetworkingConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,16 +54,16 @@ public partial class GoogleServiceNetworkingConnection(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? DeletionPolicy
     {
-        get => new TerraformReference<string>(this, "deletion_policy");
+        get => GetArgument<TerraformValue<string>>("deletion_policy");
         set => SetArgument("deletion_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class GoogleServiceNetworkingConnection(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -83,7 +83,7 @@ public partial class GoogleServiceNetworkingConnection(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservedPeeringRanges is required")]
     public TerraformList<string>? ReservedPeeringRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "reserved_peering_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("reserved_peering_ranges");
         set => SetArgument("reserved_peering_ranges", value);
     }
 
@@ -93,7 +93,7 @@ public partial class GoogleServiceNetworkingConnection(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -102,7 +102,7 @@ public partial class GoogleServiceNetworkingConnection(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? UpdateOnCreationFail
     {
-        get => new TerraformReference<bool>(this, "update_on_creation_fail");
+        get => GetArgument<TerraformValue<bool>>("update_on_creation_fail");
         set => SetArgument("update_on_creation_fail", value);
     }
 
@@ -110,9 +110,7 @@ public partial class GoogleServiceNetworkingConnection(string name) : TerraformR
     /// The peering attribute.
     /// </summary>
     public TerraformValue<string> Peering
-    {
-        get => new TerraformReference<string>(this, "peering");
-    }
+        => AsReference("peering");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

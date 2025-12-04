@@ -18,7 +18,7 @@ public class AzurermKubernetesFleetUpdateStrategyStageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? AfterStageWaitInSeconds
     {
-        get => new TerraformReference<double>(this, "after_stage_wait_in_seconds");
+        get => GetArgument<TerraformValue<double>>("after_stage_wait_in_seconds");
         set => SetArgument("after_stage_wait_in_seconds", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermKubernetesFleetUpdateStrategyStageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermKubernetesFleetUpdateStrategyStageBlockGroupBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermKubernetesFleetUpdateStrategyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermKubernetesFleetUpdateStrategyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermKubernetesFleetUpdateStrategyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermKubernetesFleetUpdateStrategyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -129,9 +129,9 @@ public partial class AzurermKubernetesFleetUpdateStrategy(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AzurermKubernetesFleetUpdateStrategy(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesFleetManagerId is required")]
     public required TerraformValue<string> KubernetesFleetManagerId
     {
-        get => new TerraformReference<string>(this, "kubernetes_fleet_manager_id");
+        get => GetArgument<TerraformValue<string>>("kubernetes_fleet_manager_id");
         set => SetArgument("kubernetes_fleet_manager_id", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AzurermKubernetesFleetUpdateStrategy(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

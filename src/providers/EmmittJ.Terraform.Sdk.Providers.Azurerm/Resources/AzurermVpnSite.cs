@@ -18,7 +18,7 @@ public class AzurermVpnSiteLinkBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Fqdn
     {
-        get => new TerraformReference<string>(this, "fqdn");
+        get => GetArgument<TerraformValue<string>>("fqdn");
         set => SetArgument("fqdn", value);
     }
 
@@ -26,16 +26,14 @@ public class AzurermVpnSiteLinkBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     public TerraformValue<string>? IpAddress
     {
-        get => new TerraformReference<string>(this, "ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -45,7 +43,7 @@ public class AzurermVpnSiteLinkBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -54,7 +52,7 @@ public class AzurermVpnSiteLinkBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ProviderName
     {
-        get => new TerraformReference<string>(this, "provider_name");
+        get => GetArgument<TerraformValue<string>>("provider_name");
         set => SetArgument("provider_name", value);
     }
 
@@ -63,7 +61,7 @@ public class AzurermVpnSiteLinkBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SpeedInMbps
     {
-        get => new TerraformReference<double>(this, "speed_in_mbps");
+        get => GetArgument<TerraformValue<double>>("speed_in_mbps");
         set => SetArgument("speed_in_mbps", value);
     }
 
@@ -96,7 +94,7 @@ public class AzurermVpnSiteLinkBlockBgpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asn is required")]
     public required TerraformValue<double> Asn
     {
-        get => new TerraformReference<double>(this, "asn");
+        get => GetArgument<TerraformValue<double>>("asn");
         set => SetArgument("asn", value);
     }
 
@@ -106,7 +104,7 @@ public class AzurermVpnSiteLinkBlockBgpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringAddress is required")]
     public required TerraformValue<string> PeeringAddress
     {
-        get => new TerraformReference<string>(this, "peering_address");
+        get => GetArgument<TerraformValue<string>>("peering_address");
         set => SetArgument("peering_address", value);
     }
 
@@ -152,7 +150,7 @@ public class AzurermVpnSiteO365PolicyBlockTrafficCategoryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowEndpointEnabled
     {
-        get => new TerraformReference<bool>(this, "allow_endpoint_enabled");
+        get => GetArgument<TerraformValue<bool>>("allow_endpoint_enabled");
         set => SetArgument("allow_endpoint_enabled", value);
     }
 
@@ -161,7 +159,7 @@ public class AzurermVpnSiteO365PolicyBlockTrafficCategoryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DefaultEndpointEnabled
     {
-        get => new TerraformReference<bool>(this, "default_endpoint_enabled");
+        get => GetArgument<TerraformValue<bool>>("default_endpoint_enabled");
         set => SetArgument("default_endpoint_enabled", value);
     }
 
@@ -170,7 +168,7 @@ public class AzurermVpnSiteO365PolicyBlockTrafficCategoryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? OptimizeEndpointEnabled
     {
-        get => new TerraformReference<bool>(this, "optimize_endpoint_enabled");
+        get => GetArgument<TerraformValue<bool>>("optimize_endpoint_enabled");
         set => SetArgument("optimize_endpoint_enabled", value);
     }
 
@@ -193,7 +191,7 @@ public class AzurermVpnSiteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -202,7 +200,7 @@ public class AzurermVpnSiteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -211,7 +209,7 @@ public class AzurermVpnSiteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -220,7 +218,7 @@ public class AzurermVpnSiteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -238,7 +236,7 @@ public partial class AzurermVpnSite(string name) : TerraformResource("azurerm_vp
     /// </summary>
     public TerraformSet<string>? AddressCidrs
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "address_cidrs").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("address_cidrs");
         set => SetArgument("address_cidrs", value);
     }
 
@@ -247,7 +245,7 @@ public partial class AzurermVpnSite(string name) : TerraformResource("azurerm_vp
     /// </summary>
     public TerraformValue<string>? DeviceModel
     {
-        get => new TerraformReference<string>(this, "device_model");
+        get => GetArgument<TerraformValue<string>>("device_model");
         set => SetArgument("device_model", value);
     }
 
@@ -256,16 +254,16 @@ public partial class AzurermVpnSite(string name) : TerraformResource("azurerm_vp
     /// </summary>
     public TerraformValue<string>? DeviceVendor
     {
-        get => new TerraformReference<string>(this, "device_vendor");
+        get => GetArgument<TerraformValue<string>>("device_vendor");
         set => SetArgument("device_vendor", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -275,7 +273,7 @@ public partial class AzurermVpnSite(string name) : TerraformResource("azurerm_vp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -285,7 +283,7 @@ public partial class AzurermVpnSite(string name) : TerraformResource("azurerm_vp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -295,7 +293,7 @@ public partial class AzurermVpnSite(string name) : TerraformResource("azurerm_vp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -304,7 +302,7 @@ public partial class AzurermVpnSite(string name) : TerraformResource("azurerm_vp
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -314,7 +312,7 @@ public partial class AzurermVpnSite(string name) : TerraformResource("azurerm_vp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualWanId is required")]
     public required TerraformValue<string> VirtualWanId
     {
-        get => new TerraformReference<string>(this, "virtual_wan_id");
+        get => GetArgument<TerraformValue<string>>("virtual_wan_id");
         set => SetArgument("virtual_wan_id", value);
     }
 

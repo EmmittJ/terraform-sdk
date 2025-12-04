@@ -11,9 +11,9 @@ public partial class GoogleNetblockIpRangesDataSource(string name) : TerraformDa
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleNetblockIpRangesDataSource(string name) : TerraformDa
     /// </summary>
     public TerraformValue<string>? RangeType
     {
-        get => new TerraformReference<string>(this, "range_type");
+        get => GetArgument<TerraformValue<string>>("range_type");
         set => SetArgument("range_type", value);
     }
 
@@ -30,24 +30,18 @@ public partial class GoogleNetblockIpRangesDataSource(string name) : TerraformDa
     /// The cidr_blocks attribute.
     /// </summary>
     public TerraformList<string> CidrBlocks
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "cidr_blocks").ResolveNodes(ctx));
-    }
+        => AsReference("cidr_blocks");
 
     /// <summary>
     /// The cidr_blocks_ipv4 attribute.
     /// </summary>
     public TerraformList<string> CidrBlocksIpv4
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "cidr_blocks_ipv4").ResolveNodes(ctx));
-    }
+        => AsReference("cidr_blocks_ipv4");
 
     /// <summary>
     /// The cidr_blocks_ipv6 attribute.
     /// </summary>
     public TerraformList<string> CidrBlocksIpv6
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "cidr_blocks_ipv6").ResolveNodes(ctx));
-    }
+        => AsReference("cidr_blocks_ipv6");
 
 }

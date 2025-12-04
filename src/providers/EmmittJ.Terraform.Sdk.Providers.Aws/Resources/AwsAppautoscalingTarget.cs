@@ -18,7 +18,7 @@ public class AwsAppautoscalingTargetSuspendedStateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DynamicScalingInSuspended
     {
-        get => new TerraformReference<bool>(this, "dynamic_scaling_in_suspended");
+        get => GetArgument<TerraformValue<bool>>("dynamic_scaling_in_suspended");
         set => SetArgument("dynamic_scaling_in_suspended", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsAppautoscalingTargetSuspendedStateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DynamicScalingOutSuspended
     {
-        get => new TerraformReference<bool>(this, "dynamic_scaling_out_suspended");
+        get => GetArgument<TerraformValue<bool>>("dynamic_scaling_out_suspended");
         set => SetArgument("dynamic_scaling_out_suspended", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsAppautoscalingTargetSuspendedStateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ScheduledScalingSuspended
     {
-        get => new TerraformReference<bool>(this, "scheduled_scaling_suspended");
+        get => GetArgument<TerraformValue<bool>>("scheduled_scaling_suspended");
         set => SetArgument("scheduled_scaling_suspended", value);
     }
 
@@ -52,9 +52,9 @@ public partial class AwsAppautoscalingTarget(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsAppautoscalingTarget(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxCapacity is required")]
     public required TerraformValue<double> MaxCapacity
     {
-        get => new TerraformReference<double>(this, "max_capacity");
+        get => GetArgument<TerraformValue<double>>("max_capacity");
         set => SetArgument("max_capacity", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AwsAppautoscalingTarget(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinCapacity is required")]
     public required TerraformValue<double> MinCapacity
     {
-        get => new TerraformReference<double>(this, "min_capacity");
+        get => GetArgument<TerraformValue<double>>("min_capacity");
         set => SetArgument("min_capacity", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -93,16 +93,16 @@ public partial class AwsAppautoscalingTarget(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformValue<string> ResourceId
     {
-        get => new TerraformReference<string>(this, "resource_id");
+        get => GetArgument<TerraformValue<string>>("resource_id");
         set => SetArgument("resource_id", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformValue<string> RoleArn
+    public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AwsAppautoscalingTarget(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScalableDimension is required")]
     public required TerraformValue<string> ScalableDimension
     {
-        get => new TerraformReference<string>(this, "scalable_dimension");
+        get => GetArgument<TerraformValue<string>>("scalable_dimension");
         set => SetArgument("scalable_dimension", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AwsAppautoscalingTarget(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceNamespace is required")]
     public required TerraformValue<string> ServiceNamespace
     {
-        get => new TerraformReference<string>(this, "service_namespace");
+        get => GetArgument<TerraformValue<string>>("service_namespace");
         set => SetArgument("service_namespace", value);
     }
 
@@ -131,16 +131,16 @@ public partial class AwsAppautoscalingTarget(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -148,9 +148,7 @@ public partial class AwsAppautoscalingTarget(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// SuspendedState block (nesting mode: list).

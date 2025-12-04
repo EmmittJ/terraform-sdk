@@ -18,7 +18,7 @@ public class AzurermSiteRecoveryReplicationPolicyDataSourceTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermSiteRecoveryReplicationPolicyDataSource(string name)
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermSiteRecoveryReplicationPolicyDataSource(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermSiteRecoveryReplicationPolicyDataSource(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     public required TerraformValue<string> RecoveryVaultName
     {
-        get => new TerraformReference<string>(this, "recovery_vault_name");
+        get => GetArgument<TerraformValue<string>>("recovery_vault_name");
         set => SetArgument("recovery_vault_name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermSiteRecoveryReplicationPolicyDataSource(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -74,17 +74,13 @@ public partial class AzurermSiteRecoveryReplicationPolicyDataSource(string name)
     /// The application_consistent_snapshot_frequency_in_minutes attribute.
     /// </summary>
     public TerraformValue<double> ApplicationConsistentSnapshotFrequencyInMinutes
-    {
-        get => new TerraformReference<double>(this, "application_consistent_snapshot_frequency_in_minutes");
-    }
+        => AsReference("application_consistent_snapshot_frequency_in_minutes");
 
     /// <summary>
     /// The recovery_point_retention_in_minutes attribute.
     /// </summary>
     public TerraformValue<double> RecoveryPointRetentionInMinutes
-    {
-        get => new TerraformReference<double>(this, "recovery_point_retention_in_minutes");
-    }
+        => AsReference("recovery_point_retention_in_minutes");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

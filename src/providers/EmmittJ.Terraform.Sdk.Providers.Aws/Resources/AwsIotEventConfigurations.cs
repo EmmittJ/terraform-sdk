@@ -14,25 +14,25 @@ public partial class AwsIotEventConfigurations(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventConfigurations is required")]
     public required TerraformMap<bool> EventConfigurations
     {
-        get => TerraformMap<bool>.Lazy(ctx => new TerraformReference<TerraformMap<bool>>(this, "event_configurations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<bool>>("event_configurations");
         set => SetArgument("event_configurations", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

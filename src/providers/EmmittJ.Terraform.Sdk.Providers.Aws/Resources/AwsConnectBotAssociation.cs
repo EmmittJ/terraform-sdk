@@ -16,9 +16,9 @@ public class AwsConnectBotAssociationLexBotBlock : TerraformBlock
     /// <summary>
     /// The lex_region attribute.
     /// </summary>
-    public TerraformValue<string> LexRegion
+    public TerraformValue<string>? LexRegion
     {
-        get => new TerraformReference<string>(this, "lex_region");
+        get => GetArgument<TerraformValue<string>>("lex_region");
         set => SetArgument("lex_region", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsConnectBotAssociationLexBotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -44,9 +44,9 @@ public partial class AwsConnectBotAssociation(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,16 +56,16 @@ public partial class AwsConnectBotAssociation(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => new TerraformReference<string>(this, "instance_id");
+        get => GetArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

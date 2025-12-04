@@ -19,7 +19,7 @@ public class AwsIamPrincipalPolicySimulationDataSourceContextBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsIamPrincipalPolicySimulationDataSourceContextBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsIamPrincipalPolicySimulationDataSourceContextBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsIamPrincipalPolicySimulationDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionNames is required")]
     public required TerraformSet<string> ActionNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "action_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("action_names");
         set => SetArgument("action_names", value);
     }
 
@@ -67,7 +67,7 @@ public partial class AwsIamPrincipalPolicySimulationDataSource(string name) : Te
     /// </summary>
     public TerraformSet<string>? AdditionalPoliciesJson
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "additional_policies_json").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("additional_policies_json");
         set => SetArgument("additional_policies_json", value);
     }
 
@@ -76,7 +76,7 @@ public partial class AwsIamPrincipalPolicySimulationDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string>? CallerArn
     {
-        get => new TerraformReference<string>(this, "caller_arn");
+        get => GetArgument<TerraformValue<string>>("caller_arn");
         set => SetArgument("caller_arn", value);
     }
 
@@ -85,7 +85,7 @@ public partial class AwsIamPrincipalPolicySimulationDataSource(string name) : Te
     /// </summary>
     public TerraformSet<string>? PermissionsBoundaryPoliciesJson
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "permissions_boundary_policies_json").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("permissions_boundary_policies_json");
         set => SetArgument("permissions_boundary_policies_json", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsIamPrincipalPolicySimulationDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicySourceArn is required")]
     public required TerraformValue<string> PolicySourceArn
     {
-        get => new TerraformReference<string>(this, "policy_source_arn");
+        get => GetArgument<TerraformValue<string>>("policy_source_arn");
         set => SetArgument("policy_source_arn", value);
     }
 
@@ -104,7 +104,7 @@ public partial class AwsIamPrincipalPolicySimulationDataSource(string name) : Te
     /// </summary>
     public TerraformSet<string>? ResourceArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "resource_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("resource_arns");
         set => SetArgument("resource_arns", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AwsIamPrincipalPolicySimulationDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string>? ResourceHandlingOption
     {
-        get => new TerraformReference<string>(this, "resource_handling_option");
+        get => GetArgument<TerraformValue<string>>("resource_handling_option");
         set => SetArgument("resource_handling_option", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AwsIamPrincipalPolicySimulationDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string>? ResourceOwnerAccountId
     {
-        get => new TerraformReference<string>(this, "resource_owner_account_id");
+        get => GetArgument<TerraformValue<string>>("resource_owner_account_id");
         set => SetArgument("resource_owner_account_id", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AwsIamPrincipalPolicySimulationDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string>? ResourcePolicyJson
     {
-        get => new TerraformReference<string>(this, "resource_policy_json");
+        get => GetArgument<TerraformValue<string>>("resource_policy_json");
         set => SetArgument("resource_policy_json", value);
     }
 
@@ -139,25 +139,19 @@ public partial class AwsIamPrincipalPolicySimulationDataSource(string name) : Te
     /// A summary of the results attribute which is true if all of the results have decision &amp;quot;allowed&amp;quot;, and false otherwise.
     /// </summary>
     public TerraformValue<bool> AllAllowed
-    {
-        get => new TerraformReference<bool>(this, "all_allowed");
-    }
+        => AsReference("all_allowed");
 
     /// <summary>
     /// Do not use
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The results attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Results
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "results").ResolveNodes(ctx));
-    }
+        => AsReference("results");
 
     /// <summary>
     /// Context block (nesting mode: set).

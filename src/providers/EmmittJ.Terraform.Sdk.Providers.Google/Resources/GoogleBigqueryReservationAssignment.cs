@@ -18,7 +18,7 @@ public class GoogleBigqueryReservationAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleBigqueryReservationAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,16 +46,16 @@ public partial class GoogleBigqueryReservationAssignment(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Assignee is required")]
     public required TerraformValue<string> Assignee
     {
-        get => new TerraformReference<string>(this, "assignee");
+        get => GetArgument<TerraformValue<string>>("assignee");
         set => SetArgument("assignee", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -65,25 +65,25 @@ public partial class GoogleBigqueryReservationAssignment(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobType is required")]
     public required TerraformValue<string> JobType
     {
-        get => new TerraformReference<string>(this, "job_type");
+        get => GetArgument<TerraformValue<string>>("job_type");
         set => SetArgument("job_type", value);
     }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
-    public TerraformValue<string> Location
+    public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -93,7 +93,7 @@ public partial class GoogleBigqueryReservationAssignment(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Reservation is required")]
     public required TerraformValue<string> Reservation
     {
-        get => new TerraformReference<string>(this, "reservation");
+        get => GetArgument<TerraformValue<string>>("reservation");
         set => SetArgument("reservation", value);
     }
 
@@ -101,18 +101,14 @@ public partial class GoogleBigqueryReservationAssignment(string name) : Terrafor
     /// Output only. The resource name of the assignment.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Assignment will remain in PENDING state if no active capacity commitment is present. It will become ACTIVE when some capacity commitment becomes active.
     /// Possible values: STATE_UNSPECIFIED, PENDING, ACTIVE
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

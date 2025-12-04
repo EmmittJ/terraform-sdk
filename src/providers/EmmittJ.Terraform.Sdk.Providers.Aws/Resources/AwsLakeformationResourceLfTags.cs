@@ -16,9 +16,9 @@ public class AwsLakeformationResourceLfTagsDatabaseBlock : TerraformBlock
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformValue<string> CatalogId
+    public TerraformValue<string>? CatalogId
     {
-        get => new TerraformReference<string>(this, "catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsLakeformationResourceLfTagsDatabaseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -49,9 +49,9 @@ public class AwsLakeformationResourceLfTagsLfTagBlock : TerraformBlock
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformValue<string> CatalogId
+    public TerraformValue<string>? CatalogId
     {
-        get => new TerraformReference<string>(this, "catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsLakeformationResourceLfTagsLfTagBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsLakeformationResourceLfTagsLfTagBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -92,9 +92,9 @@ public class AwsLakeformationResourceLfTagsTableBlock : TerraformBlock
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformValue<string> CatalogId
+    public TerraformValue<string>? CatalogId
     {
-        get => new TerraformReference<string>(this, "catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -104,16 +104,16 @@ public class AwsLakeformationResourceLfTagsTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsLakeformationResourceLfTagsTableBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Wildcard
     {
-        get => new TerraformReference<bool>(this, "wildcard");
+        get => GetArgument<TerraformValue<bool>>("wildcard");
         set => SetArgument("wildcard", value);
     }
 
@@ -143,9 +143,9 @@ public class AwsLakeformationResourceLfTagsTableWithColumnsBlock : TerraformBloc
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformValue<string> CatalogId
+    public TerraformValue<string>? CatalogId
     {
-        get => new TerraformReference<string>(this, "catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -154,7 +154,7 @@ public class AwsLakeformationResourceLfTagsTableWithColumnsBlock : TerraformBloc
     /// </summary>
     public TerraformSet<string>? ColumnNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "column_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("column_names");
         set => SetArgument("column_names", value);
     }
 
@@ -164,7 +164,7 @@ public class AwsLakeformationResourceLfTagsTableWithColumnsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -173,7 +173,7 @@ public class AwsLakeformationResourceLfTagsTableWithColumnsBlock : TerraformBloc
     /// </summary>
     public TerraformSet<string>? ExcludedColumnNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "excluded_column_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("excluded_column_names");
         set => SetArgument("excluded_column_names", value);
     }
 
@@ -183,7 +183,7 @@ public class AwsLakeformationResourceLfTagsTableWithColumnsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -192,7 +192,7 @@ public class AwsLakeformationResourceLfTagsTableWithColumnsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool>? Wildcard
     {
-        get => new TerraformReference<bool>(this, "wildcard");
+        get => GetArgument<TerraformValue<bool>>("wildcard");
         set => SetArgument("wildcard", value);
     }
 
@@ -215,7 +215,7 @@ public class AwsLakeformationResourceLfTagsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -224,7 +224,7 @@ public class AwsLakeformationResourceLfTagsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -240,27 +240,27 @@ public partial class AwsLakeformationResourceLfTags(string name) : TerraformReso
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformValue<string> CatalogId
+    public TerraformValue<string>? CatalogId
     {
-        get => new TerraformReference<string>(this, "catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

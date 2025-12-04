@@ -18,7 +18,7 @@ public class AwsServicecatalogPrincipalPortfolioAssociationTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsServicecatalogPrincipalPortfolioAssociationTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsServicecatalogPrincipalPortfolioAssociationTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -54,16 +54,16 @@ public partial class AwsServicecatalogPrincipalPortfolioAssociation(string name)
     /// </summary>
     public TerraformValue<string>? AcceptLanguage
     {
-        get => new TerraformReference<string>(this, "accept_language");
+        get => GetArgument<TerraformValue<string>>("accept_language");
         set => SetArgument("accept_language", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsServicecatalogPrincipalPortfolioAssociation(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortfolioId is required")]
     public required TerraformValue<string> PortfolioId
     {
-        get => new TerraformReference<string>(this, "portfolio_id");
+        get => GetArgument<TerraformValue<string>>("portfolio_id");
         set => SetArgument("portfolio_id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsServicecatalogPrincipalPortfolioAssociation(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalArn is required")]
     public required TerraformValue<string> PrincipalArn
     {
-        get => new TerraformReference<string>(this, "principal_arn");
+        get => GetArgument<TerraformValue<string>>("principal_arn");
         set => SetArgument("principal_arn", value);
     }
 
@@ -92,16 +92,16 @@ public partial class AwsServicecatalogPrincipalPortfolioAssociation(string name)
     /// </summary>
     public TerraformValue<string>? PrincipalType
     {
-        get => new TerraformReference<string>(this, "principal_type");
+        get => GetArgument<TerraformValue<string>>("principal_type");
         set => SetArgument("principal_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

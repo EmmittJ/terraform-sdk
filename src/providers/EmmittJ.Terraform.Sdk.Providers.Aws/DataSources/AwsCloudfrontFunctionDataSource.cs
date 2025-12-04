@@ -11,9 +11,9 @@ public partial class AwsCloudfrontFunctionDataSource(string name) : TerraformDat
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsCloudfrontFunctionDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsCloudfrontFunctionDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stage is required")]
     public required TerraformValue<string> Stage
     {
-        get => new TerraformReference<string>(this, "stage");
+        get => GetArgument<TerraformValue<string>>("stage");
         set => SetArgument("stage", value);
     }
 
@@ -41,64 +41,48 @@ public partial class AwsCloudfrontFunctionDataSource(string name) : TerraformDat
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The code attribute.
     /// </summary>
     public TerraformValue<string> Code
-    {
-        get => new TerraformReference<string>(this, "code");
-    }
+        => AsReference("code");
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
     public TerraformValue<string> Comment
-    {
-        get => new TerraformReference<string>(this, "comment");
-    }
+        => AsReference("comment");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The key_value_store_associations attribute.
     /// </summary>
     public TerraformSet<string> KeyValueStoreAssociations
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "key_value_store_associations").ResolveNodes(ctx));
-    }
+        => AsReference("key_value_store_associations");
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedTime
-    {
-        get => new TerraformReference<string>(this, "last_modified_time");
-    }
+        => AsReference("last_modified_time");
 
     /// <summary>
     /// The runtime attribute.
     /// </summary>
     public TerraformValue<string> Runtime
-    {
-        get => new TerraformReference<string>(this, "runtime");
-    }
+        => AsReference("runtime");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }

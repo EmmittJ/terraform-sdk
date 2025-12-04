@@ -18,7 +18,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock : Ter
     /// </summary>
     public TerraformValue<string>? AdministratorLogin
     {
-        get => new TerraformReference<string>(this, "administrator_login");
+        get => GetArgument<TerraformValue<string>>("administrator_login");
         set => SetArgument("administrator_login", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock : Ter
     /// </summary>
     public TerraformValue<string>? AdministratorPassword
     {
-        get => new TerraformReference<string>(this, "administrator_password");
+        get => GetArgument<TerraformValue<string>>("administrator_password");
         set => SetArgument("administrator_password", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock : Ter
     /// </summary>
     public TerraformValue<string>? DualStandbyPairName
     {
-        get => new TerraformReference<string>(this, "dual_standby_pair_name");
+        get => GetArgument<TerraformValue<string>>("dual_standby_pair_name");
         set => SetArgument("dual_standby_pair_name", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock : Ter
     /// </summary>
     public TerraformValue<string>? ElasticPoolName
     {
-        get => new TerraformReference<string>(this, "elastic_pool_name");
+        get => GetArgument<TerraformValue<string>>("elastic_pool_name");
         set => SetArgument("elastic_pool_name", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock : Ter
     /// </summary>
     public TerraformValue<string>? PricingTier
     {
-        get => new TerraformReference<string>(this, "pricing_tier");
+        get => GetArgument<TerraformValue<string>>("pricing_tier");
         set => SetArgument("pricing_tier", value);
     }
 
@@ -64,7 +64,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerEndpoint is required")]
     public required TerraformValue<string> ServerEndpoint
     {
-        get => new TerraformReference<string>(this, "server_endpoint");
+        get => GetArgument<TerraformValue<string>>("server_endpoint");
         set => SetArgument("server_endpoint", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock 
     /// </summary>
     public TerraformValue<double>? DataIntegrationUnit
     {
-        get => new TerraformReference<double>(this, "data_integration_unit");
+        get => GetArgument<TerraformValue<double>>("data_integration_unit");
         set => SetArgument("data_integration_unit", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock 
     /// </summary>
     public TerraformValue<double>? TimeToLive
     {
-        get => new TerraformReference<double>(this, "time_to_live");
+        get => GetArgument<TerraformValue<double>>("time_to_live");
         set => SetArgument("time_to_live", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlobContainerUri is required")]
     public required TerraformValue<string> BlobContainerUri
     {
-        get => new TerraformReference<string>(this, "blob_container_uri");
+        get => GetArgument<TerraformValue<string>>("blob_container_uri");
         set => SetArgument("blob_container_uri", value);
     }
 
@@ -130,7 +130,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SasToken is required")]
     public required TerraformValue<string> SasToken
     {
-        get => new TerraformReference<string>(this, "sas_token");
+        get => GetArgument<TerraformValue<string>>("sas_token");
         set => SetArgument("sas_token", value);
     }
 
@@ -153,7 +153,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBloc
     /// </summary>
     public TerraformMap<string>? Environment
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "environment").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("environment");
         set => SetArgument("environment", value);
     }
 
@@ -162,7 +162,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBloc
     /// </summary>
     public TerraformValue<string>? PowershellVersion
     {
-        get => new TerraformReference<string>(this, "powershell_version");
+        get => GetArgument<TerraformValue<string>>("powershell_version");
         set => SetArgument("powershell_version", value);
     }
 
@@ -202,7 +202,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBloc
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -212,7 +212,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetName is required")]
     public required TerraformValue<string> TargetName
     {
-        get => new TerraformReference<string>(this, "target_name");
+        get => GetArgument<TerraformValue<string>>("target_name");
         set => SetArgument("target_name", value);
     }
 
@@ -222,7 +222,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformValue<string> UserName
     {
-        get => new TerraformReference<string>(this, "user_name");
+        get => GetArgument<TerraformValue<string>>("user_name");
         set => SetArgument("user_name", value);
     }
 
@@ -255,7 +255,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformValue<string> LinkedServiceName
     {
-        get => new TerraformReference<string>(this, "linked_service_name");
+        get => GetArgument<TerraformValue<string>>("linked_service_name");
         set => SetArgument("linked_service_name", value);
     }
 
@@ -264,7 +264,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBloc
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -274,7 +274,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => new TerraformReference<string>(this, "secret_name");
+        get => GetArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -283,7 +283,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBloc
     /// </summary>
     public TerraformValue<string>? SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -305,7 +305,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBloc
     /// </summary>
     public TerraformValue<string>? License
     {
-        get => new TerraformReference<string>(this, "license");
+        get => GetArgument<TerraformValue<string>>("license");
         set => SetArgument("license", value);
     }
 
@@ -315,7 +315,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -348,7 +348,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformValue<string> LinkedServiceName
     {
-        get => new TerraformReference<string>(this, "linked_service_name");
+        get => GetArgument<TerraformValue<string>>("linked_service_name");
         set => SetArgument("linked_service_name", value);
     }
 
@@ -357,7 +357,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBloc
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -367,7 +367,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
     public required TerraformValue<string> SecretName
     {
-        get => new TerraformReference<string>(this, "secret_name");
+        get => GetArgument<TerraformValue<string>>("secret_name");
         set => SetArgument("secret_name", value);
     }
 
@@ -376,7 +376,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBloc
     /// </summary>
     public TerraformValue<string>? SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -400,7 +400,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegration
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -424,7 +424,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
     public required TerraformValue<string> LinkedServiceName
     {
-        get => new TerraformReference<string>(this, "linked_service_name");
+        get => GetArgument<TerraformValue<string>>("linked_service_name");
         set => SetArgument("linked_service_name", value);
     }
 
@@ -434,7 +434,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -457,7 +457,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComput
     /// </summary>
     public TerraformValue<double>? NumberOfExternalNodes
     {
-        get => new TerraformReference<double>(this, "number_of_external_nodes");
+        get => GetArgument<TerraformValue<double>>("number_of_external_nodes");
         set => SetArgument("number_of_external_nodes", value);
     }
 
@@ -466,7 +466,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComput
     /// </summary>
     public TerraformValue<double>? NumberOfPipelineNodes
     {
-        get => new TerraformReference<double>(this, "number_of_pipeline_nodes");
+        get => GetArgument<TerraformValue<double>>("number_of_pipeline_nodes");
         set => SetArgument("number_of_pipeline_nodes", value);
     }
 
@@ -475,7 +475,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComput
     /// </summary>
     public TerraformValue<double>? TimeToLive
     {
-        get => new TerraformReference<double>(this, "time_to_live");
+        get => GetArgument<TerraformValue<double>>("time_to_live");
         set => SetArgument("time_to_live", value);
     }
 
@@ -498,7 +498,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -508,7 +508,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SelfHostedIntegrationRuntimeName is required")]
     public required TerraformValue<string> SelfHostedIntegrationRuntimeName
     {
-        get => new TerraformReference<string>(this, "self_hosted_integration_runtime_name");
+        get => GetArgument<TerraformValue<string>>("self_hosted_integration_runtime_name");
         set => SetArgument("self_hosted_integration_runtime_name", value);
     }
 
@@ -518,7 +518,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StagingStorageLinkedServiceName is required")]
     public required TerraformValue<string> StagingStorageLinkedServiceName
     {
-        get => new TerraformReference<string>(this, "staging_storage_linked_service_name");
+        get => GetArgument<TerraformValue<string>>("staging_storage_linked_service_name");
         set => SetArgument("staging_storage_linked_service_name", value);
     }
 
@@ -541,7 +541,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -550,7 +550,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -559,7 +559,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -568,7 +568,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -591,7 +591,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock :
     /// </summary>
     public TerraformList<string>? PublicIps
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "public_ips").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("public_ips");
         set => SetArgument("public_ips", value);
     }
 
@@ -600,7 +600,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock :
     /// </summary>
     public TerraformValue<string>? SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -609,7 +609,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock :
     /// </summary>
     public TerraformValue<string>? SubnetName
     {
-        get => new TerraformReference<string>(this, "subnet_name");
+        get => GetArgument<TerraformValue<string>>("subnet_name");
         set => SetArgument("subnet_name", value);
     }
 
@@ -618,7 +618,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock :
     /// </summary>
     public TerraformValue<string>? VnetId
     {
-        get => new TerraformReference<string>(this, "vnet_id");
+        get => GetArgument<TerraformValue<string>>("vnet_id");
         set => SetArgument("vnet_id", value);
     }
 
@@ -636,7 +636,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis(string name) 
     /// </summary>
     public TerraformValue<string>? CredentialName
     {
-        get => new TerraformReference<string>(this, "credential_name");
+        get => GetArgument<TerraformValue<string>>("credential_name");
         set => SetArgument("credential_name", value);
     }
 
@@ -646,7 +646,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => new TerraformReference<string>(this, "data_factory_id");
+        get => GetArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
@@ -655,7 +655,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis(string name) 
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -664,16 +664,16 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis(string name) 
     /// </summary>
     public TerraformValue<string>? Edition
     {
-        get => new TerraformReference<string>(this, "edition");
+        get => GetArgument<TerraformValue<string>>("edition");
         set => SetArgument("edition", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -682,7 +682,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis(string name) 
     /// </summary>
     public TerraformValue<string>? LicenseType
     {
-        get => new TerraformReference<string>(this, "license_type");
+        get => GetArgument<TerraformValue<string>>("license_type");
         set => SetArgument("license_type", value);
     }
 
@@ -692,7 +692,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -701,7 +701,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis(string name) 
     /// </summary>
     public TerraformValue<double>? MaxParallelExecutionsPerNode
     {
-        get => new TerraformReference<double>(this, "max_parallel_executions_per_node");
+        get => GetArgument<TerraformValue<double>>("max_parallel_executions_per_node");
         set => SetArgument("max_parallel_executions_per_node", value);
     }
 
@@ -711,7 +711,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -721,7 +721,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeSize is required")]
     public required TerraformValue<string> NodeSize
     {
-        get => new TerraformReference<string>(this, "node_size");
+        get => GetArgument<TerraformValue<string>>("node_size");
         set => SetArgument("node_size", value);
     }
 
@@ -730,7 +730,7 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis(string name) 
     /// </summary>
     public TerraformValue<double>? NumberOfNodes
     {
-        get => new TerraformReference<double>(this, "number_of_nodes");
+        get => GetArgument<TerraformValue<double>>("number_of_nodes");
         set => SetArgument("number_of_nodes", value);
     }
 

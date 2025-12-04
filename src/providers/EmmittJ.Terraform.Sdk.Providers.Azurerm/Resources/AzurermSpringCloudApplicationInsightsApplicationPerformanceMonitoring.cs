@@ -18,7 +18,7 @@ public class AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitori
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitori
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitori
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitori
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermSpringCloudApplicationInsightsApplicationPerformance
     /// </summary>
     public TerraformValue<string>? ConnectionString
     {
-        get => new TerraformReference<string>(this, "connection_string");
+        get => GetArgument<TerraformValue<string>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -72,16 +72,16 @@ public partial class AzurermSpringCloudApplicationInsightsApplicationPerformance
     /// </summary>
     public TerraformValue<bool>? GloballyEnabled
     {
-        get => new TerraformReference<bool>(this, "globally_enabled");
+        get => GetArgument<TerraformValue<bool>>("globally_enabled");
         set => SetArgument("globally_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermSpringCloudApplicationInsightsApplicationPerformance
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermSpringCloudApplicationInsightsApplicationPerformance
     /// </summary>
     public TerraformValue<string>? RoleInstance
     {
-        get => new TerraformReference<string>(this, "role_instance");
+        get => GetArgument<TerraformValue<string>>("role_instance");
         set => SetArgument("role_instance", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermSpringCloudApplicationInsightsApplicationPerformance
     /// </summary>
     public TerraformValue<string>? RoleName
     {
-        get => new TerraformReference<string>(this, "role_name");
+        get => GetArgument<TerraformValue<string>>("role_name");
         set => SetArgument("role_name", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermSpringCloudApplicationInsightsApplicationPerformance
     /// </summary>
     public TerraformValue<double>? SamplingPercentage
     {
-        get => new TerraformReference<double>(this, "sampling_percentage");
+        get => GetArgument<TerraformValue<double>>("sampling_percentage");
         set => SetArgument("sampling_percentage", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzurermSpringCloudApplicationInsightsApplicationPerformance
     /// </summary>
     public TerraformValue<double>? SamplingRequestsPerSecond
     {
-        get => new TerraformReference<double>(this, "sampling_requests_per_second");
+        get => GetArgument<TerraformValue<double>>("sampling_requests_per_second");
         set => SetArgument("sampling_requests_per_second", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AzurermSpringCloudApplicationInsightsApplicationPerformance
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
     public required TerraformValue<string> SpringCloudServiceId
     {
-        get => new TerraformReference<string>(this, "spring_cloud_service_id");
+        get => GetArgument<TerraformValue<string>>("spring_cloud_service_id");
         set => SetArgument("spring_cloud_service_id", value);
     }
 

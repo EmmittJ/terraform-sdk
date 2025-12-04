@@ -19,7 +19,7 @@ public class AwsSsmMaintenanceWindowTaskTargetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsSsmMaintenanceWindowTaskTargetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockAutomationP
     /// </summary>
     public TerraformValue<string>? DocumentVersion
     {
-        get => new TerraformReference<string>(this, "document_version");
+        get => GetArgument<TerraformValue<string>>("document_version");
         set => SetArgument("document_version", value);
     }
 
@@ -137,7 +137,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockAutomationP
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -147,7 +147,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockAutomationP
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -169,7 +169,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockLambdaParam
     /// </summary>
     public TerraformValue<string>? ClientContext
     {
-        get => new TerraformReference<string>(this, "client_context");
+        get => GetArgument<TerraformValue<string>>("client_context");
         set => SetArgument("client_context", value);
     }
 
@@ -178,7 +178,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockLambdaParam
     /// </summary>
     public TerraformValue<string>? Payload
     {
-        get => new TerraformReference<string>(this, "payload");
+        get => GetArgument<TerraformValue<string>>("payload");
         set => SetArgument("payload", value);
     }
 
@@ -187,7 +187,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockLambdaParam
     /// </summary>
     public TerraformValue<string>? Qualifier
     {
-        get => new TerraformReference<string>(this, "qualifier");
+        get => GetArgument<TerraformValue<string>>("qualifier");
         set => SetArgument("qualifier", value);
     }
 
@@ -209,7 +209,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockRunCommandP
     /// </summary>
     public TerraformValue<string>? Comment
     {
-        get => new TerraformReference<string>(this, "comment");
+        get => GetArgument<TerraformValue<string>>("comment");
         set => SetArgument("comment", value);
     }
 
@@ -218,7 +218,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockRunCommandP
     /// </summary>
     public TerraformValue<string>? DocumentHash
     {
-        get => new TerraformReference<string>(this, "document_hash");
+        get => GetArgument<TerraformValue<string>>("document_hash");
         set => SetArgument("document_hash", value);
     }
 
@@ -227,7 +227,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockRunCommandP
     /// </summary>
     public TerraformValue<string>? DocumentHashType
     {
-        get => new TerraformReference<string>(this, "document_hash_type");
+        get => GetArgument<TerraformValue<string>>("document_hash_type");
         set => SetArgument("document_hash_type", value);
     }
 
@@ -236,7 +236,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockRunCommandP
     /// </summary>
     public TerraformValue<string>? DocumentVersion
     {
-        get => new TerraformReference<string>(this, "document_version");
+        get => GetArgument<TerraformValue<string>>("document_version");
         set => SetArgument("document_version", value);
     }
 
@@ -245,7 +245,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockRunCommandP
     /// </summary>
     public TerraformValue<string>? OutputS3Bucket
     {
-        get => new TerraformReference<string>(this, "output_s3_bucket");
+        get => GetArgument<TerraformValue<string>>("output_s3_bucket");
         set => SetArgument("output_s3_bucket", value);
     }
 
@@ -254,7 +254,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockRunCommandP
     /// </summary>
     public TerraformValue<string>? OutputS3KeyPrefix
     {
-        get => new TerraformReference<string>(this, "output_s3_key_prefix");
+        get => GetArgument<TerraformValue<string>>("output_s3_key_prefix");
         set => SetArgument("output_s3_key_prefix", value);
     }
 
@@ -263,7 +263,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockRunCommandP
     /// </summary>
     public TerraformValue<string>? ServiceRoleArn
     {
-        get => new TerraformReference<string>(this, "service_role_arn");
+        get => GetArgument<TerraformValue<string>>("service_role_arn");
         set => SetArgument("service_role_arn", value);
     }
 
@@ -272,7 +272,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockRunCommandP
     /// </summary>
     public TerraformValue<double>? TimeoutSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_seconds");
         set => SetArgument("timeout_seconds", value);
     }
 
@@ -321,9 +321,9 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockRunCommandP
     /// <summary>
     /// The cloudwatch_log_group_name attribute.
     /// </summary>
-    public TerraformValue<string> CloudwatchLogGroupName
+    public TerraformValue<string>? CloudwatchLogGroupName
     {
-        get => new TerraformReference<string>(this, "cloudwatch_log_group_name");
+        get => GetArgument<TerraformValue<string>>("cloudwatch_log_group_name");
         set => SetArgument("cloudwatch_log_group_name", value);
     }
 
@@ -332,7 +332,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockRunCommandP
     /// </summary>
     public TerraformValue<bool>? CloudwatchOutputEnabled
     {
-        get => new TerraformReference<bool>(this, "cloudwatch_output_enabled");
+        get => GetArgument<TerraformValue<bool>>("cloudwatch_output_enabled");
         set => SetArgument("cloudwatch_output_enabled", value);
     }
 
@@ -354,7 +354,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockRunCommandP
     /// </summary>
     public TerraformValue<string>? NotificationArn
     {
-        get => new TerraformReference<string>(this, "notification_arn");
+        get => GetArgument<TerraformValue<string>>("notification_arn");
         set => SetArgument("notification_arn", value);
     }
 
@@ -363,7 +363,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockRunCommandP
     /// </summary>
     public TerraformList<string>? NotificationEvents
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "notification_events").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("notification_events");
         set => SetArgument("notification_events", value);
     }
 
@@ -372,7 +372,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockRunCommandP
     /// </summary>
     public TerraformValue<string>? NotificationType
     {
-        get => new TerraformReference<string>(this, "notification_type");
+        get => GetArgument<TerraformValue<string>>("notification_type");
         set => SetArgument("notification_type", value);
     }
 
@@ -395,7 +395,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockRunCommandP
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -405,7 +405,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockRunCommandP
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -427,7 +427,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockStepFunctio
     /// </summary>
     public TerraformValue<string>? Input
     {
-        get => new TerraformReference<string>(this, "input");
+        get => GetArgument<TerraformValue<string>>("input");
         set => SetArgument("input", value);
     }
 
@@ -436,7 +436,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlockStepFunctio
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -454,7 +454,7 @@ public partial class AwsSsmMaintenanceWindowTask(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? CutoffBehavior
     {
-        get => new TerraformReference<string>(this, "cutoff_behavior");
+        get => GetArgument<TerraformValue<string>>("cutoff_behavior");
         set => SetArgument("cutoff_behavior", value);
     }
 
@@ -463,34 +463,34 @@ public partial class AwsSsmMaintenanceWindowTask(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The max_concurrency attribute.
     /// </summary>
-    public TerraformValue<string> MaxConcurrency
+    public TerraformValue<string>? MaxConcurrency
     {
-        get => new TerraformReference<string>(this, "max_concurrency");
+        get => GetArgument<TerraformValue<string>>("max_concurrency");
         set => SetArgument("max_concurrency", value);
     }
 
     /// <summary>
     /// The max_errors attribute.
     /// </summary>
-    public TerraformValue<string> MaxErrors
+    public TerraformValue<string>? MaxErrors
     {
-        get => new TerraformReference<string>(this, "max_errors");
+        get => GetArgument<TerraformValue<string>>("max_errors");
         set => SetArgument("max_errors", value);
     }
 
@@ -499,7 +499,7 @@ public partial class AwsSsmMaintenanceWindowTask(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -508,25 +508,25 @@ public partial class AwsSsmMaintenanceWindowTask(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double>? Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The service_role_arn attribute.
     /// </summary>
-    public TerraformValue<string> ServiceRoleArn
+    public TerraformValue<string>? ServiceRoleArn
     {
-        get => new TerraformReference<string>(this, "service_role_arn");
+        get => GetArgument<TerraformValue<string>>("service_role_arn");
         set => SetArgument("service_role_arn", value);
     }
 
@@ -536,7 +536,7 @@ public partial class AwsSsmMaintenanceWindowTask(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskArn is required")]
     public required TerraformValue<string> TaskArn
     {
-        get => new TerraformReference<string>(this, "task_arn");
+        get => GetArgument<TerraformValue<string>>("task_arn");
         set => SetArgument("task_arn", value);
     }
 
@@ -546,7 +546,7 @@ public partial class AwsSsmMaintenanceWindowTask(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskType is required")]
     public required TerraformValue<string> TaskType
     {
-        get => new TerraformReference<string>(this, "task_type");
+        get => GetArgument<TerraformValue<string>>("task_type");
         set => SetArgument("task_type", value);
     }
 
@@ -556,7 +556,7 @@ public partial class AwsSsmMaintenanceWindowTask(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WindowId is required")]
     public required TerraformValue<string> WindowId
     {
-        get => new TerraformReference<string>(this, "window_id");
+        get => GetArgument<TerraformValue<string>>("window_id");
         set => SetArgument("window_id", value);
     }
 
@@ -564,17 +564,13 @@ public partial class AwsSsmMaintenanceWindowTask(string name) : TerraformResourc
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The window_task_id attribute.
     /// </summary>
     public TerraformValue<string> WindowTaskId
-    {
-        get => new TerraformReference<string>(this, "window_task_id");
-    }
+        => AsReference("window_task_id");
 
     /// <summary>
     /// Targets block (nesting mode: list).

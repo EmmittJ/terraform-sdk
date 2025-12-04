@@ -18,7 +18,7 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock :
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock :
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock :
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock :
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AzurermMssqlManagedInstanceTransparentDataEncryption(string
     /// </summary>
     public TerraformValue<bool>? AutoRotationEnabled
     {
-        get => new TerraformReference<bool>(this, "auto_rotation_enabled");
+        get => GetArgument<TerraformValue<bool>>("auto_rotation_enabled");
         set => SetArgument("auto_rotation_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermMssqlManagedInstanceTransparentDataEncryption(string
     /// </summary>
     public TerraformValue<string>? KeyVaultKeyId
     {
-        get => new TerraformReference<string>(this, "key_vault_key_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_key_id");
         set => SetArgument("key_vault_key_id", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AzurermMssqlManagedInstanceTransparentDataEncryption(string
     /// </summary>
     public TerraformValue<string>? ManagedHsmKeyId
     {
-        get => new TerraformReference<string>(this, "managed_hsm_key_id");
+        get => GetArgument<TerraformValue<string>>("managed_hsm_key_id");
         set => SetArgument("managed_hsm_key_id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermMssqlManagedInstanceTransparentDataEncryption(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     public required TerraformValue<string> ManagedInstanceId
     {
-        get => new TerraformReference<string>(this, "managed_instance_id");
+        get => GetArgument<TerraformValue<string>>("managed_instance_id");
         set => SetArgument("managed_instance_id", value);
     }
 

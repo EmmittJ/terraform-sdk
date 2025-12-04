@@ -18,7 +18,7 @@ public class AzurermNetappPoolDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermNetappPoolDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => new TerraformReference<string>(this, "account_name");
+        get => GetArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermNetappPoolDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermNetappPoolDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -74,49 +74,37 @@ public partial class AzurermNetappPoolDataSource(string name) : TerraformDataSou
     /// The cool_access_enabled attribute.
     /// </summary>
     public TerraformValue<bool> CoolAccessEnabled
-    {
-        get => new TerraformReference<bool>(this, "cool_access_enabled");
-    }
+        => AsReference("cool_access_enabled");
 
     /// <summary>
     /// The custom_throughput_mibps attribute.
     /// </summary>
     public TerraformValue<double> CustomThroughputMibps
-    {
-        get => new TerraformReference<double>(this, "custom_throughput_mibps");
-    }
+        => AsReference("custom_throughput_mibps");
 
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
     public TerraformValue<string> EncryptionType
-    {
-        get => new TerraformReference<string>(this, "encryption_type");
-    }
+        => AsReference("encryption_type");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The service_level attribute.
     /// </summary>
     public TerraformValue<string> ServiceLevel
-    {
-        get => new TerraformReference<string>(this, "service_level");
-    }
+        => AsReference("service_level");
 
     /// <summary>
     /// The size_in_tb attribute.
     /// </summary>
     public TerraformValue<double> SizeInTb
-    {
-        get => new TerraformReference<double>(this, "size_in_tb");
-    }
+        => AsReference("size_in_tb");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

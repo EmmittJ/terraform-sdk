@@ -18,7 +18,7 @@ public class AzurermBatchAccountIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -26,17 +26,13 @@ public class AzurermBatchAccountIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -44,7 +40,7 @@ public class AzurermBatchAccountIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -68,7 +64,7 @@ public class AzurermBatchAccountKeyVaultReferenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -78,7 +74,7 @@ public class AzurermBatchAccountKeyVaultReferenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -134,7 +130,7 @@ public class AzurermBatchAccountNetworkProfileBlockAccountAccessBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? DefaultAction
     {
-        get => new TerraformReference<string>(this, "default_action");
+        get => GetArgument<TerraformValue<string>>("default_action");
         set => SetArgument("default_action", value);
     }
 
@@ -165,7 +161,7 @@ public class AzurermBatchAccountNetworkProfileBlockAccountAccessBlockIpRuleBlock
     /// </summary>
     public TerraformValue<string>? Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -175,7 +171,7 @@ public class AzurermBatchAccountNetworkProfileBlockAccountAccessBlockIpRuleBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpRange is required")]
     public required TerraformValue<string> IpRange
     {
-        get => new TerraformReference<string>(this, "ip_range");
+        get => GetArgument<TerraformValue<string>>("ip_range");
         set => SetArgument("ip_range", value);
     }
 
@@ -197,7 +193,7 @@ public class AzurermBatchAccountNetworkProfileBlockNodeManagementAccessBlock : T
     /// </summary>
     public TerraformValue<string>? DefaultAction
     {
-        get => new TerraformReference<string>(this, "default_action");
+        get => GetArgument<TerraformValue<string>>("default_action");
         set => SetArgument("default_action", value);
     }
 
@@ -228,7 +224,7 @@ public class AzurermBatchAccountNetworkProfileBlockNodeManagementAccessBlockIpRu
     /// </summary>
     public TerraformValue<string>? Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -238,7 +234,7 @@ public class AzurermBatchAccountNetworkProfileBlockNodeManagementAccessBlockIpRu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpRange is required")]
     public required TerraformValue<string> IpRange
     {
-        get => new TerraformReference<string>(this, "ip_range");
+        get => GetArgument<TerraformValue<string>>("ip_range");
         set => SetArgument("ip_range", value);
     }
 
@@ -261,7 +257,7 @@ public class AzurermBatchAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -270,7 +266,7 @@ public class AzurermBatchAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -279,7 +275,7 @@ public class AzurermBatchAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -288,7 +284,7 @@ public class AzurermBatchAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -304,9 +300,9 @@ public partial class AzurermBatchAccount(string name) : TerraformResource("azure
     /// <summary>
     /// The allowed_authentication_modes attribute.
     /// </summary>
-    public TerraformSet<string> AllowedAuthenticationModes
+    public TerraformSet<string>? AllowedAuthenticationModes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_authentication_modes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_authentication_modes");
         set => SetArgument("allowed_authentication_modes", value);
     }
 
@@ -315,16 +311,16 @@ public partial class AzurermBatchAccount(string name) : TerraformResource("azure
     /// </summary>
     public TerraformList<TerraformMap<object>>? Encryption
     {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "encryption").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<TerraformMap<object>>>("encryption");
         set => SetArgument("encryption", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -334,7 +330,7 @@ public partial class AzurermBatchAccount(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -344,7 +340,7 @@ public partial class AzurermBatchAccount(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -353,7 +349,7 @@ public partial class AzurermBatchAccount(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string>? PoolAllocationMode
     {
-        get => new TerraformReference<string>(this, "pool_allocation_mode");
+        get => GetArgument<TerraformValue<string>>("pool_allocation_mode");
         set => SetArgument("pool_allocation_mode", value);
     }
 
@@ -362,7 +358,7 @@ public partial class AzurermBatchAccount(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -372,7 +368,7 @@ public partial class AzurermBatchAccount(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -381,7 +377,7 @@ public partial class AzurermBatchAccount(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string>? StorageAccountAuthenticationMode
     {
-        get => new TerraformReference<string>(this, "storage_account_authentication_mode");
+        get => GetArgument<TerraformValue<string>>("storage_account_authentication_mode");
         set => SetArgument("storage_account_authentication_mode", value);
     }
 
@@ -390,7 +386,7 @@ public partial class AzurermBatchAccount(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string>? StorageAccountId
     {
-        get => new TerraformReference<string>(this, "storage_account_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
@@ -399,7 +395,7 @@ public partial class AzurermBatchAccount(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string>? StorageAccountNodeIdentity
     {
-        get => new TerraformReference<string>(this, "storage_account_node_identity");
+        get => GetArgument<TerraformValue<string>>("storage_account_node_identity");
         set => SetArgument("storage_account_node_identity", value);
     }
 
@@ -408,7 +404,7 @@ public partial class AzurermBatchAccount(string name) : TerraformResource("azure
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -416,25 +412,19 @@ public partial class AzurermBatchAccount(string name) : TerraformResource("azure
     /// The account_endpoint attribute.
     /// </summary>
     public TerraformValue<string> AccountEndpoint
-    {
-        get => new TerraformReference<string>(this, "account_endpoint");
-    }
+        => AsReference("account_endpoint");
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "primary_access_key");
-    }
+        => AsReference("primary_access_key");
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryAccessKey
-    {
-        get => new TerraformReference<string>(this, "secondary_access_key");
-    }
+        => AsReference("secondary_access_key");
 
     /// <summary>
     /// Identity block (nesting mode: list).

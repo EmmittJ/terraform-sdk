@@ -14,16 +14,16 @@ public partial class GoogleKmsCryptoKeyVersionDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
     public required TerraformValue<string> CryptoKey
     {
-        get => new TerraformReference<string>(this, "crypto_key");
+        get => GetArgument<TerraformValue<string>>("crypto_key");
         set => SetArgument("crypto_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleKmsCryptoKeyVersionDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<double>? Version
     {
-        get => new TerraformReference<double>(this, "version");
+        get => GetArgument<TerraformValue<double>>("version");
         set => SetArgument("version", value);
     }
 
@@ -40,40 +40,30 @@ public partial class GoogleKmsCryptoKeyVersionDataSource(string name) : Terrafor
     /// The algorithm attribute.
     /// </summary>
     public TerraformValue<string> Algorithm
-    {
-        get => new TerraformReference<string>(this, "algorithm");
-    }
+        => AsReference("algorithm");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The protection_level attribute.
     /// </summary>
     public TerraformValue<string> ProtectionLevel
-    {
-        get => new TerraformReference<string>(this, "protection_level");
-    }
+        => AsReference("protection_level");
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PublicKey
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "public_key").ResolveNodes(ctx));
-    }
+        => AsReference("public_key");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
 }

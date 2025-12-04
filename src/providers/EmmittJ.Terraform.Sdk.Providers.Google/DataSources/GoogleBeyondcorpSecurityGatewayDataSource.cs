@@ -11,9 +11,9 @@ public partial class GoogleBeyondcorpSecurityGatewayDataSource(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleBeyondcorpSecurityGatewayDataSource(string name) : Te
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -35,7 +35,7 @@ public partial class GoogleBeyondcorpSecurityGatewayDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGatewayId is required")]
     public required TerraformValue<string> SecurityGatewayId
     {
-        get => new TerraformReference<string>(this, "security_gateway_id");
+        get => GetArgument<TerraformValue<string>>("security_gateway_id");
         set => SetArgument("security_gateway_id", value);
     }
 
@@ -43,76 +43,58 @@ public partial class GoogleBeyondcorpSecurityGatewayDataSource(string name) : Te
     /// Output only. Timestamp when the resource was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Service account used for operations that involve resources in consumer projects.
     /// </summary>
     public TerraformValue<string> DelegatingServiceAccount
-    {
-        get => new TerraformReference<string>(this, "delegating_service_account");
-    }
+        => AsReference("delegating_service_account");
 
     /// <summary>
     /// Optional. An arbitrary user-provided name for the SecurityGateway.
     /// Cannot exceed 64 characters.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// Output only. IP addresses that will be used for establishing
     /// connection to the endpoints.
     /// </summary>
     public TerraformList<string> ExternalIps
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "external_ips").ResolveNodes(ctx));
-    }
+        => AsReference("external_ips");
 
     /// <summary>
     /// Optional. Map of Hubs that represents regional data path deployment with GCP region
     /// as a key.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Hubs
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "hubs").ResolveNodes(ctx));
-    }
+        => AsReference("hubs");
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122. Must be omitted or set to &#39;global&#39;.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// Identifier. Name of the resource.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Shared proxy configuration for all apps.
     /// </summary>
     public TerraformList<TerraformMap<object>> ProxyProtocolConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "proxy_protocol_config").ResolveNodes(ctx));
-    }
+        => AsReference("proxy_protocol_config");
 
     /// <summary>
     /// Settings related to the Service Discovery.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServiceDiscovery
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "service_discovery").ResolveNodes(ctx));
-    }
+        => AsReference("service_discovery");
 
     /// <summary>
     /// Output only. The operational state of the SecurityGateway.
@@ -126,16 +108,12 @@ public partial class GoogleBeyondcorpSecurityGatewayDataSource(string name) : Te
     /// ERROR
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Output only. Timestamp when the resource was last modified.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
 }

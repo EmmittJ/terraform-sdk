@@ -13,7 +13,7 @@ public partial class AwsNotificationsEventRule(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? EventPattern
     {
-        get => new TerraformReference<string>(this, "event_pattern");
+        get => GetArgument<TerraformValue<string>>("event_pattern");
         set => SetArgument("event_pattern", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsNotificationsEventRule(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventType is required")]
     public required TerraformValue<string> EventType
     {
-        get => new TerraformReference<string>(this, "event_type");
+        get => GetArgument<TerraformValue<string>>("event_type");
         set => SetArgument("event_type", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsNotificationsEventRule(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationConfigurationArn is required")]
     public required TerraformValue<string> NotificationConfigurationArn
     {
-        get => new TerraformReference<string>(this, "notification_configuration_arn");
+        get => GetArgument<TerraformValue<string>>("notification_configuration_arn");
         set => SetArgument("notification_configuration_arn", value);
     }
 
@@ -43,7 +43,7 @@ public partial class AwsNotificationsEventRule(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Regions is required")]
     public required TerraformSet<string> Regions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("regions");
         set => SetArgument("regions", value);
     }
 
@@ -53,7 +53,7 @@ public partial class AwsNotificationsEventRule(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -61,8 +61,6 @@ public partial class AwsNotificationsEventRule(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

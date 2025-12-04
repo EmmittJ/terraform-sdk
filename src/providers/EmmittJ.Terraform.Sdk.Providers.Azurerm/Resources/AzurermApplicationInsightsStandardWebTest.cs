@@ -18,7 +18,7 @@ public class AzurermApplicationInsightsStandardWebTestRequestBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Body
     {
-        get => new TerraformReference<string>(this, "body");
+        get => GetArgument<TerraformValue<string>>("body");
         set => SetArgument("body", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermApplicationInsightsStandardWebTestRequestBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? FollowRedirectsEnabled
     {
-        get => new TerraformReference<bool>(this, "follow_redirects_enabled");
+        get => GetArgument<TerraformValue<bool>>("follow_redirects_enabled");
         set => SetArgument("follow_redirects_enabled", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermApplicationInsightsStandardWebTestRequestBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? HttpVerb
     {
-        get => new TerraformReference<string>(this, "http_verb");
+        get => GetArgument<TerraformValue<string>>("http_verb");
         set => SetArgument("http_verb", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermApplicationInsightsStandardWebTestRequestBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? ParseDependentRequestsEnabled
     {
-        get => new TerraformReference<bool>(this, "parse_dependent_requests_enabled");
+        get => GetArgument<TerraformValue<bool>>("parse_dependent_requests_enabled");
         set => SetArgument("parse_dependent_requests_enabled", value);
     }
 
@@ -55,7 +55,7 @@ public class AzurermApplicationInsightsStandardWebTestRequestBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermApplicationInsightsStandardWebTestRequestBlockHeaderBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermApplicationInsightsStandardWebTestRequestBlockHeaderBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermApplicationInsightsStandardWebTestTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -129,7 +129,7 @@ public class AzurermApplicationInsightsStandardWebTestTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -138,7 +138,7 @@ public class AzurermApplicationInsightsStandardWebTestTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -147,7 +147,7 @@ public class AzurermApplicationInsightsStandardWebTestTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -170,7 +170,7 @@ public class AzurermApplicationInsightsStandardWebTestValidationRulesBlock : Ter
     /// </summary>
     public TerraformValue<double>? ExpectedStatusCode
     {
-        get => new TerraformReference<double>(this, "expected_status_code");
+        get => GetArgument<TerraformValue<double>>("expected_status_code");
         set => SetArgument("expected_status_code", value);
     }
 
@@ -179,7 +179,7 @@ public class AzurermApplicationInsightsStandardWebTestValidationRulesBlock : Ter
     /// </summary>
     public TerraformValue<double>? SslCertRemainingLifetime
     {
-        get => new TerraformReference<double>(this, "ssl_cert_remaining_lifetime");
+        get => GetArgument<TerraformValue<double>>("ssl_cert_remaining_lifetime");
         set => SetArgument("ssl_cert_remaining_lifetime", value);
     }
 
@@ -188,7 +188,7 @@ public class AzurermApplicationInsightsStandardWebTestValidationRulesBlock : Ter
     /// </summary>
     public TerraformValue<bool>? SslCheckEnabled
     {
-        get => new TerraformReference<bool>(this, "ssl_check_enabled");
+        get => GetArgument<TerraformValue<bool>>("ssl_check_enabled");
         set => SetArgument("ssl_check_enabled", value);
     }
 
@@ -221,7 +221,7 @@ public class AzurermApplicationInsightsStandardWebTestValidationRulesBlockConten
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentMatch is required")]
     public required TerraformValue<string> ContentMatch
     {
-        get => new TerraformReference<string>(this, "content_match");
+        get => GetArgument<TerraformValue<string>>("content_match");
         set => SetArgument("content_match", value);
     }
 
@@ -230,7 +230,7 @@ public class AzurermApplicationInsightsStandardWebTestValidationRulesBlockConten
     /// </summary>
     public TerraformValue<bool>? IgnoreCase
     {
-        get => new TerraformReference<bool>(this, "ignore_case");
+        get => GetArgument<TerraformValue<bool>>("ignore_case");
         set => SetArgument("ignore_case", value);
     }
 
@@ -239,7 +239,7 @@ public class AzurermApplicationInsightsStandardWebTestValidationRulesBlockConten
     /// </summary>
     public TerraformValue<bool>? PassIfTextFound
     {
-        get => new TerraformReference<bool>(this, "pass_if_text_found");
+        get => GetArgument<TerraformValue<bool>>("pass_if_text_found");
         set => SetArgument("pass_if_text_found", value);
     }
 
@@ -258,7 +258,7 @@ public partial class AzurermApplicationInsightsStandardWebTest(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationInsightsId is required")]
     public required TerraformValue<string> ApplicationInsightsId
     {
-        get => new TerraformReference<string>(this, "application_insights_id");
+        get => GetArgument<TerraformValue<string>>("application_insights_id");
         set => SetArgument("application_insights_id", value);
     }
 
@@ -267,7 +267,7 @@ public partial class AzurermApplicationInsightsStandardWebTest(string name) : Te
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -276,7 +276,7 @@ public partial class AzurermApplicationInsightsStandardWebTest(string name) : Te
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -285,7 +285,7 @@ public partial class AzurermApplicationInsightsStandardWebTest(string name) : Te
     /// </summary>
     public TerraformValue<double>? Frequency
     {
-        get => new TerraformReference<double>(this, "frequency");
+        get => GetArgument<TerraformValue<double>>("frequency");
         set => SetArgument("frequency", value);
     }
 
@@ -295,16 +295,16 @@ public partial class AzurermApplicationInsightsStandardWebTest(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GeoLocations is required")]
     public TerraformList<string>? GeoLocations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "geo_locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("geo_locations");
         set => SetArgument("geo_locations", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -314,7 +314,7 @@ public partial class AzurermApplicationInsightsStandardWebTest(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -324,7 +324,7 @@ public partial class AzurermApplicationInsightsStandardWebTest(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -334,7 +334,7 @@ public partial class AzurermApplicationInsightsStandardWebTest(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -343,7 +343,7 @@ public partial class AzurermApplicationInsightsStandardWebTest(string name) : Te
     /// </summary>
     public TerraformValue<bool>? RetryEnabled
     {
-        get => new TerraformReference<bool>(this, "retry_enabled");
+        get => GetArgument<TerraformValue<bool>>("retry_enabled");
         set => SetArgument("retry_enabled", value);
     }
 
@@ -352,7 +352,7 @@ public partial class AzurermApplicationInsightsStandardWebTest(string name) : Te
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -361,7 +361,7 @@ public partial class AzurermApplicationInsightsStandardWebTest(string name) : Te
     /// </summary>
     public TerraformValue<double>? Timeout
     {
-        get => new TerraformReference<double>(this, "timeout");
+        get => GetArgument<TerraformValue<double>>("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -369,9 +369,7 @@ public partial class AzurermApplicationInsightsStandardWebTest(string name) : Te
     /// The synthetic_monitor_id attribute.
     /// </summary>
     public TerraformValue<string> SyntheticMonitorId
-    {
-        get => new TerraformReference<string>(this, "synthetic_monitor_id");
-    }
+        => AsReference("synthetic_monitor_id");
 
     /// <summary>
     /// Request block (nesting mode: list).

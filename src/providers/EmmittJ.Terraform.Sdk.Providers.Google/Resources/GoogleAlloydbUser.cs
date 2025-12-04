@@ -18,7 +18,7 @@ public class GoogleAlloydbUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleAlloydbUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleAlloydbUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -56,7 +56,7 @@ public partial class GoogleAlloydbUser(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => new TerraformReference<string>(this, "cluster");
+        get => GetArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
@@ -65,16 +65,16 @@ public partial class GoogleAlloydbUser(string name) : TerraformResource("google_
     /// </summary>
     public TerraformList<string>? DatabaseRoles
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "database_roles").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("database_roles");
         set => SetArgument("database_roles", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class GoogleAlloydbUser(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -93,7 +93,7 @@ public partial class GoogleAlloydbUser(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
     public required TerraformValue<string> UserId
     {
-        get => new TerraformReference<string>(this, "user_id");
+        get => GetArgument<TerraformValue<string>>("user_id");
         set => SetArgument("user_id", value);
     }
 
@@ -103,7 +103,7 @@ public partial class GoogleAlloydbUser(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserType is required")]
     public required TerraformValue<string> UserType
     {
-        get => new TerraformReference<string>(this, "user_type");
+        get => GetArgument<TerraformValue<string>>("user_type");
         set => SetArgument("user_type", value);
     }
 
@@ -111,9 +111,7 @@ public partial class GoogleAlloydbUser(string name) : TerraformResource("google_
     /// Name of the resource in the form of projects/{project}/locations/{location}/clusters/{cluster}/users/{user}.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

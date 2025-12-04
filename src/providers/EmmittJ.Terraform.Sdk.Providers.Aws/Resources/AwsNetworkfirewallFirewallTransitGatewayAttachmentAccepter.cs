@@ -18,7 +18,7 @@ public class AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepterTimeoutsB
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepterTimeoutsB
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -43,9 +43,9 @@ public partial class AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepter(
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsNetworkfirewallFirewallTransitGatewayAttachmentAccepter(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayAttachmentId is required")]
     public required TerraformValue<string> TransitGatewayAttachmentId
     {
-        get => new TerraformReference<string>(this, "transit_gateway_attachment_id");
+        get => GetArgument<TerraformValue<string>>("transit_gateway_attachment_id");
         set => SetArgument("transit_gateway_attachment_id", value);
     }
 

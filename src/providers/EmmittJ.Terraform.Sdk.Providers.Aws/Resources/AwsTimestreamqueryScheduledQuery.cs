@@ -41,16 +41,16 @@ public class AwsTimestreamqueryScheduledQueryErrorReportConfigurationBlockS3Conf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
     /// <summary>
     /// The encryption_option attribute.
     /// </summary>
-    public TerraformValue<string> EncryptionOption
+    public TerraformValue<string>? EncryptionOption
     {
-        get => new TerraformReference<string>(this, "encryption_option");
+        get => GetArgument<TerraformValue<string>>("encryption_option");
         set => SetArgument("encryption_option", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsTimestreamqueryScheduledQueryErrorReportConfigurationBlockS3Conf
     /// </summary>
     public TerraformValue<string>? ObjectKeyPrefix
     {
-        get => new TerraformReference<string>(this, "object_key_prefix");
+        get => GetArgument<TerraformValue<string>>("object_key_prefix");
         set => SetArgument("object_key_prefix", value);
     }
 
@@ -81,33 +81,25 @@ public class AwsTimestreamqueryScheduledQueryLastRunSummaryBlock : TerraformBloc
     /// The failure_reason attribute.
     /// </summary>
     public TerraformValue<string> FailureReason
-    {
-        get => new TerraformReference<string>(this, "failure_reason");
-    }
+        => AsReference("failure_reason");
 
     /// <summary>
     /// The invocation_time attribute.
     /// </summary>
     public TerraformValue<string> InvocationTime
-    {
-        get => new TerraformReference<string>(this, "invocation_time");
-    }
+        => AsReference("invocation_time");
 
     /// <summary>
     /// The run_status attribute.
     /// </summary>
     public TerraformValue<string> RunStatus
-    {
-        get => new TerraformReference<string>(this, "run_status");
-    }
+        => AsReference("run_status");
 
     /// <summary>
     /// The trigger_time attribute.
     /// </summary>
     public TerraformValue<string> TriggerTime
-    {
-        get => new TerraformReference<string>(this, "trigger_time");
-    }
+        => AsReference("trigger_time");
 
     /// <summary>
     /// ErrorReportLocation block (nesting mode: list).
@@ -175,17 +167,13 @@ public class AwsTimestreamqueryScheduledQueryLastRunSummaryBlockErrorReportLocat
     /// The bucket_name attribute.
     /// </summary>
     public TerraformValue<string> BucketName
-    {
-        get => new TerraformReference<string>(this, "bucket_name");
-    }
+        => AsReference("bucket_name");
 
     /// <summary>
     /// The object_key attribute.
     /// </summary>
     public TerraformValue<string> ObjectKey
-    {
-        get => new TerraformReference<string>(this, "object_key");
-    }
+        => AsReference("object_key");
 
 }
 
@@ -204,49 +192,37 @@ public class AwsTimestreamqueryScheduledQueryLastRunSummaryBlockExecutionStatsBl
     /// The bytes_metered attribute.
     /// </summary>
     public TerraformValue<double> BytesMetered
-    {
-        get => new TerraformReference<double>(this, "bytes_metered");
-    }
+        => AsReference("bytes_metered");
 
     /// <summary>
     /// The cumulative_bytes_scanned attribute.
     /// </summary>
     public TerraformValue<double> CumulativeBytesScanned
-    {
-        get => new TerraformReference<double>(this, "cumulative_bytes_scanned");
-    }
+        => AsReference("cumulative_bytes_scanned");
 
     /// <summary>
     /// The data_writes attribute.
     /// </summary>
     public TerraformValue<double> DataWrites
-    {
-        get => new TerraformReference<double>(this, "data_writes");
-    }
+        => AsReference("data_writes");
 
     /// <summary>
     /// The execution_time_in_millis attribute.
     /// </summary>
     public TerraformValue<double> ExecutionTimeInMillis
-    {
-        get => new TerraformReference<double>(this, "execution_time_in_millis");
-    }
+        => AsReference("execution_time_in_millis");
 
     /// <summary>
     /// The query_result_rows attribute.
     /// </summary>
     public TerraformValue<double> QueryResultRows
-    {
-        get => new TerraformReference<double>(this, "query_result_rows");
-    }
+        => AsReference("query_result_rows");
 
     /// <summary>
     /// The records_ingested attribute.
     /// </summary>
     public TerraformValue<double> RecordsIngested
-    {
-        get => new TerraformReference<double>(this, "records_ingested");
-    }
+        => AsReference("records_ingested");
 
 }
 
@@ -265,25 +241,19 @@ public class AwsTimestreamqueryScheduledQueryLastRunSummaryBlockQueryInsightsRes
     /// The output_bytes attribute.
     /// </summary>
     public TerraformValue<double> OutputBytes
-    {
-        get => new TerraformReference<double>(this, "output_bytes");
-    }
+        => AsReference("output_bytes");
 
     /// <summary>
     /// The output_rows attribute.
     /// </summary>
     public TerraformValue<double> OutputRows
-    {
-        get => new TerraformReference<double>(this, "output_rows");
-    }
+        => AsReference("output_rows");
 
     /// <summary>
     /// The query_table_count attribute.
     /// </summary>
     public TerraformValue<double> QueryTableCount
-    {
-        get => new TerraformReference<double>(this, "query_table_count");
-    }
+        => AsReference("query_table_count");
 
     /// <summary>
     /// QuerySpatialCoverage block (nesting mode: list).
@@ -342,25 +312,19 @@ public class AwsTimestreamqueryScheduledQueryLastRunSummaryBlockQueryInsightsRes
     /// The partition_key attribute.
     /// </summary>
     public TerraformList<string> PartitionKey
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "partition_key").ResolveNodes(ctx));
-    }
+        => AsReference("partition_key");
 
     /// <summary>
     /// The table_arn attribute.
     /// </summary>
     public TerraformValue<string> TableArn
-    {
-        get => new TerraformReference<string>(this, "table_arn");
-    }
+        => AsReference("table_arn");
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     public TerraformValue<double> Value
-    {
-        get => new TerraformReference<double>(this, "value");
-    }
+        => AsReference("value");
 
 }
 
@@ -401,17 +365,13 @@ public class AwsTimestreamqueryScheduledQueryLastRunSummaryBlockQueryInsightsRes
     /// The table_arn attribute.
     /// </summary>
     public TerraformValue<string> TableArn
-    {
-        get => new TerraformReference<string>(this, "table_arn");
-    }
+        => AsReference("table_arn");
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     public TerraformValue<double> Value
-    {
-        get => new TerraformReference<double>(this, "value");
-    }
+        => AsReference("value");
 
 }
 
@@ -455,7 +415,7 @@ public class AwsTimestreamqueryScheduledQueryNotificationConfigurationBlockSnsCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     public required TerraformValue<string> TopicArn
     {
-        get => new TerraformReference<string>(this, "topic_arn");
+        get => GetArgument<TerraformValue<string>>("topic_arn");
         set => SetArgument("topic_arn", value);
     }
 
@@ -477,33 +437,25 @@ public class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlock : Terraform
     /// The failure_reason attribute.
     /// </summary>
     public TerraformValue<string> FailureReason
-    {
-        get => new TerraformReference<string>(this, "failure_reason");
-    }
+        => AsReference("failure_reason");
 
     /// <summary>
     /// The invocation_time attribute.
     /// </summary>
     public TerraformValue<string> InvocationTime
-    {
-        get => new TerraformReference<string>(this, "invocation_time");
-    }
+        => AsReference("invocation_time");
 
     /// <summary>
     /// The run_status attribute.
     /// </summary>
     public TerraformValue<string> RunStatus
-    {
-        get => new TerraformReference<string>(this, "run_status");
-    }
+        => AsReference("run_status");
 
     /// <summary>
     /// The trigger_time attribute.
     /// </summary>
     public TerraformValue<string> TriggerTime
-    {
-        get => new TerraformReference<string>(this, "trigger_time");
-    }
+        => AsReference("trigger_time");
 
     /// <summary>
     /// ErrorReportLocation block (nesting mode: list).
@@ -571,17 +523,13 @@ public class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlockErrorReportL
     /// The bucket_name attribute.
     /// </summary>
     public TerraformValue<string> BucketName
-    {
-        get => new TerraformReference<string>(this, "bucket_name");
-    }
+        => AsReference("bucket_name");
 
     /// <summary>
     /// The object_key attribute.
     /// </summary>
     public TerraformValue<string> ObjectKey
-    {
-        get => new TerraformReference<string>(this, "object_key");
-    }
+        => AsReference("object_key");
 
 }
 
@@ -600,49 +548,37 @@ public class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlockExecutionSta
     /// The bytes_metered attribute.
     /// </summary>
     public TerraformValue<double> BytesMetered
-    {
-        get => new TerraformReference<double>(this, "bytes_metered");
-    }
+        => AsReference("bytes_metered");
 
     /// <summary>
     /// The cumulative_bytes_scanned attribute.
     /// </summary>
     public TerraformValue<double> CumulativeBytesScanned
-    {
-        get => new TerraformReference<double>(this, "cumulative_bytes_scanned");
-    }
+        => AsReference("cumulative_bytes_scanned");
 
     /// <summary>
     /// The data_writes attribute.
     /// </summary>
     public TerraformValue<double> DataWrites
-    {
-        get => new TerraformReference<double>(this, "data_writes");
-    }
+        => AsReference("data_writes");
 
     /// <summary>
     /// The execution_time_in_millis attribute.
     /// </summary>
     public TerraformValue<double> ExecutionTimeInMillis
-    {
-        get => new TerraformReference<double>(this, "execution_time_in_millis");
-    }
+        => AsReference("execution_time_in_millis");
 
     /// <summary>
     /// The query_result_rows attribute.
     /// </summary>
     public TerraformValue<double> QueryResultRows
-    {
-        get => new TerraformReference<double>(this, "query_result_rows");
-    }
+        => AsReference("query_result_rows");
 
     /// <summary>
     /// The records_ingested attribute.
     /// </summary>
     public TerraformValue<double> RecordsIngested
-    {
-        get => new TerraformReference<double>(this, "records_ingested");
-    }
+        => AsReference("records_ingested");
 
 }
 
@@ -661,25 +597,19 @@ public class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlockQueryInsight
     /// The output_bytes attribute.
     /// </summary>
     public TerraformValue<double> OutputBytes
-    {
-        get => new TerraformReference<double>(this, "output_bytes");
-    }
+        => AsReference("output_bytes");
 
     /// <summary>
     /// The output_rows attribute.
     /// </summary>
     public TerraformValue<double> OutputRows
-    {
-        get => new TerraformReference<double>(this, "output_rows");
-    }
+        => AsReference("output_rows");
 
     /// <summary>
     /// The query_table_count attribute.
     /// </summary>
     public TerraformValue<double> QueryTableCount
-    {
-        get => new TerraformReference<double>(this, "query_table_count");
-    }
+        => AsReference("query_table_count");
 
     /// <summary>
     /// QuerySpatialCoverage block (nesting mode: list).
@@ -738,25 +668,19 @@ public class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlockQueryInsight
     /// The partition_key attribute.
     /// </summary>
     public TerraformList<string> PartitionKey
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "partition_key").ResolveNodes(ctx));
-    }
+        => AsReference("partition_key");
 
     /// <summary>
     /// The table_arn attribute.
     /// </summary>
     public TerraformValue<string> TableArn
-    {
-        get => new TerraformReference<string>(this, "table_arn");
-    }
+        => AsReference("table_arn");
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     public TerraformValue<double> Value
-    {
-        get => new TerraformReference<double>(this, "value");
-    }
+        => AsReference("value");
 
 }
 
@@ -797,17 +721,13 @@ public class AwsTimestreamqueryScheduledQueryRecentlyFailedRunsBlockQueryInsight
     /// The table_arn attribute.
     /// </summary>
     public TerraformValue<string> TableArn
-    {
-        get => new TerraformReference<string>(this, "table_arn");
-    }
+        => AsReference("table_arn");
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     public TerraformValue<double> Value
-    {
-        get => new TerraformReference<double>(this, "value");
-    }
+        => AsReference("value");
 
 }
 
@@ -829,7 +749,7 @@ public class AwsTimestreamqueryScheduledQueryScheduleConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
     public required TerraformValue<string> ScheduleExpression
     {
-        get => new TerraformReference<string>(this, "schedule_expression");
+        get => GetArgument<TerraformValue<string>>("schedule_expression");
         set => SetArgument("schedule_expression", value);
     }
 
@@ -875,7 +795,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -884,7 +804,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     /// </summary>
     public TerraformValue<string>? MeasureNameColumn
     {
-        get => new TerraformReference<string>(this, "measure_name_column");
+        get => GetArgument<TerraformValue<string>>("measure_name_column");
         set => SetArgument("measure_name_column", value);
     }
 
@@ -894,7 +814,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -904,7 +824,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeColumn is required")]
     public required TerraformValue<string> TimeColumn
     {
-        get => new TerraformReference<string>(this, "time_column");
+        get => GetArgument<TerraformValue<string>>("time_column");
         set => SetArgument("time_column", value);
     }
 
@@ -954,7 +874,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DimensionValueType is required")]
     public required TerraformValue<string> DimensionValueType
     {
-        get => new TerraformReference<string>(this, "dimension_value_type");
+        get => GetArgument<TerraformValue<string>>("dimension_value_type");
         set => SetArgument("dimension_value_type", value);
     }
 
@@ -964,7 +884,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -986,7 +906,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     /// </summary>
     public TerraformValue<string>? MeasureName
     {
-        get => new TerraformReference<string>(this, "measure_name");
+        get => GetArgument<TerraformValue<string>>("measure_name");
         set => SetArgument("measure_name", value);
     }
 
@@ -996,7 +916,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeasureValueType is required")]
     public required TerraformValue<string> MeasureValueType
     {
-        get => new TerraformReference<string>(this, "measure_value_type");
+        get => GetArgument<TerraformValue<string>>("measure_value_type");
         set => SetArgument("measure_value_type", value);
     }
 
@@ -1005,7 +925,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     /// </summary>
     public TerraformValue<string>? SourceColumn
     {
-        get => new TerraformReference<string>(this, "source_column");
+        get => GetArgument<TerraformValue<string>>("source_column");
         set => SetArgument("source_column", value);
     }
 
@@ -1014,7 +934,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     /// </summary>
     public TerraformValue<string>? TargetMeasureName
     {
-        get => new TerraformReference<string>(this, "target_measure_name");
+        get => GetArgument<TerraformValue<string>>("target_measure_name");
         set => SetArgument("target_measure_name", value);
     }
 
@@ -1046,7 +966,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeasureValueType is required")]
     public required TerraformValue<string> MeasureValueType
     {
-        get => new TerraformReference<string>(this, "measure_value_type");
+        get => GetArgument<TerraformValue<string>>("measure_value_type");
         set => SetArgument("measure_value_type", value);
     }
 
@@ -1056,7 +976,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceColumn is required")]
     public required TerraformValue<string> SourceColumn
     {
-        get => new TerraformReference<string>(this, "source_column");
+        get => GetArgument<TerraformValue<string>>("source_column");
         set => SetArgument("source_column", value);
     }
 
@@ -1065,7 +985,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     /// </summary>
     public TerraformValue<string>? TargetMultiMeasureAttributeName
     {
-        get => new TerraformReference<string>(this, "target_multi_measure_attribute_name");
+        get => GetArgument<TerraformValue<string>>("target_multi_measure_attribute_name");
         set => SetArgument("target_multi_measure_attribute_name", value);
     }
 
@@ -1087,7 +1007,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     /// </summary>
     public TerraformValue<string>? TargetMultiMeasureName
     {
-        get => new TerraformReference<string>(this, "target_multi_measure_name");
+        get => GetArgument<TerraformValue<string>>("target_multi_measure_name");
         set => SetArgument("target_multi_measure_name", value);
     }
 
@@ -1119,7 +1039,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeasureValueType is required")]
     public required TerraformValue<string> MeasureValueType
     {
-        get => new TerraformReference<string>(this, "measure_value_type");
+        get => GetArgument<TerraformValue<string>>("measure_value_type");
         set => SetArgument("measure_value_type", value);
     }
 
@@ -1129,7 +1049,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceColumn is required")]
     public required TerraformValue<string> SourceColumn
     {
-        get => new TerraformReference<string>(this, "source_column");
+        get => GetArgument<TerraformValue<string>>("source_column");
         set => SetArgument("source_column", value);
     }
 
@@ -1138,7 +1058,7 @@ public class AwsTimestreamqueryScheduledQueryTargetConfigurationBlockTimestreamC
     /// </summary>
     public TerraformValue<string>? TargetMultiMeasureAttributeName
     {
-        get => new TerraformReference<string>(this, "target_multi_measure_attribute_name");
+        get => GetArgument<TerraformValue<string>>("target_multi_measure_attribute_name");
         set => SetArgument("target_multi_measure_attribute_name", value);
     }
 
@@ -1161,7 +1081,7 @@ public class AwsTimestreamqueryScheduledQueryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1170,7 +1090,7 @@ public class AwsTimestreamqueryScheduledQueryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1179,7 +1099,7 @@ public class AwsTimestreamqueryScheduledQueryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1198,7 +1118,7 @@ public partial class AwsTimestreamqueryScheduledQuery(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformValue<string> ExecutionRoleArn
     {
-        get => new TerraformReference<string>(this, "execution_role_arn");
+        get => GetArgument<TerraformValue<string>>("execution_role_arn");
         set => SetArgument("execution_role_arn", value);
     }
 
@@ -1207,7 +1127,7 @@ public partial class AwsTimestreamqueryScheduledQuery(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -1217,7 +1137,7 @@ public partial class AwsTimestreamqueryScheduledQuery(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1227,16 +1147,16 @@ public partial class AwsTimestreamqueryScheduledQuery(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryString is required")]
     public required TerraformValue<string> QueryString
     {
-        get => new TerraformReference<string>(this, "query_string");
+        get => GetArgument<TerraformValue<string>>("query_string");
         set => SetArgument("query_string", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -1245,7 +1165,7 @@ public partial class AwsTimestreamqueryScheduledQuery(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -1253,49 +1173,37 @@ public partial class AwsTimestreamqueryScheduledQuery(string name) : TerraformRe
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-    {
-        get => new TerraformReference<string>(this, "creation_time");
-    }
+        => AsReference("creation_time");
 
     /// <summary>
     /// The next_invocation_time attribute.
     /// </summary>
     public TerraformValue<string> NextInvocationTime
-    {
-        get => new TerraformReference<string>(this, "next_invocation_time");
-    }
+        => AsReference("next_invocation_time");
 
     /// <summary>
     /// The previous_invocation_time attribute.
     /// </summary>
     public TerraformValue<string> PreviousInvocationTime
-    {
-        get => new TerraformReference<string>(this, "previous_invocation_time");
-    }
+        => AsReference("previous_invocation_time");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// ErrorReportConfiguration block (nesting mode: list).

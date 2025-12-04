@@ -14,7 +14,7 @@ public partial class AwsDetectiveMember(string name) : TerraformResource("aws_de
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformValue<string> AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsDetectiveMember(string name) : TerraformResource("aws_de
     /// </summary>
     public TerraformValue<bool>? DisableEmailNotification
     {
-        get => new TerraformReference<bool>(this, "disable_email_notification");
+        get => GetArgument<TerraformValue<bool>>("disable_email_notification");
         set => SetArgument("disable_email_notification", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsDetectiveMember(string name) : TerraformResource("aws_de
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     public required TerraformValue<string> EmailAddress
     {
-        get => new TerraformReference<string>(this, "email_address");
+        get => GetArgument<TerraformValue<string>>("email_address");
         set => SetArgument("email_address", value);
     }
 
@@ -43,16 +43,16 @@ public partial class AwsDetectiveMember(string name) : TerraformResource("aws_de
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GraphArn is required")]
     public required TerraformValue<string> GraphArn
     {
-        get => new TerraformReference<string>(this, "graph_arn");
+        get => GetArgument<TerraformValue<string>>("graph_arn");
         set => SetArgument("graph_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -61,16 +61,16 @@ public partial class AwsDetectiveMember(string name) : TerraformResource("aws_de
     /// </summary>
     public TerraformValue<string>? Message
     {
-        get => new TerraformReference<string>(this, "message");
+        get => GetArgument<TerraformValue<string>>("message");
         set => SetArgument("message", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -78,48 +78,36 @@ public partial class AwsDetectiveMember(string name) : TerraformResource("aws_de
     /// The administrator_id attribute.
     /// </summary>
     public TerraformValue<string> AdministratorId
-    {
-        get => new TerraformReference<string>(this, "administrator_id");
-    }
+        => AsReference("administrator_id");
 
     /// <summary>
     /// The disabled_reason attribute.
     /// </summary>
     public TerraformValue<string> DisabledReason
-    {
-        get => new TerraformReference<string>(this, "disabled_reason");
-    }
+        => AsReference("disabled_reason");
 
     /// <summary>
     /// The invited_time attribute.
     /// </summary>
     public TerraformValue<string> InvitedTime
-    {
-        get => new TerraformReference<string>(this, "invited_time");
-    }
+        => AsReference("invited_time");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The updated_time attribute.
     /// </summary>
     public TerraformValue<string> UpdatedTime
-    {
-        get => new TerraformReference<string>(this, "updated_time");
-    }
+        => AsReference("updated_time");
 
     /// <summary>
     /// The volume_usage_in_bytes attribute.
     /// </summary>
     public TerraformValue<string> VolumeUsageInBytes
-    {
-        get => new TerraformReference<string>(this, "volume_usage_in_bytes");
-    }
+        => AsReference("volume_usage_in_bytes");
 
 }

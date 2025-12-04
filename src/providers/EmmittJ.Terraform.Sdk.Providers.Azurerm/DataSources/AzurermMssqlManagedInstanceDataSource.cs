@@ -18,7 +18,7 @@ public class AzurermMssqlManagedInstanceDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermMssqlManagedInstanceDataSource(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermMssqlManagedInstanceDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermMssqlManagedInstanceDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,153 +64,115 @@ public partial class AzurermMssqlManagedInstanceDataSource(string name) : Terraf
     /// The administrator_login attribute.
     /// </summary>
     public TerraformValue<string> AdministratorLogin
-    {
-        get => new TerraformReference<string>(this, "administrator_login");
-    }
+        => AsReference("administrator_login");
 
     /// <summary>
     /// The collation attribute.
     /// </summary>
     public TerraformValue<string> Collation
-    {
-        get => new TerraformReference<string>(this, "collation");
-    }
+        => AsReference("collation");
 
     /// <summary>
     /// The customer_managed_key_id attribute.
     /// </summary>
     public TerraformValue<string> CustomerManagedKeyId
-    {
-        get => new TerraformReference<string>(this, "customer_managed_key_id");
-    }
+        => AsReference("customer_managed_key_id");
 
     /// <summary>
     /// The dns_zone attribute.
     /// </summary>
     public TerraformValue<string> DnsZone
-    {
-        get => new TerraformReference<string>(this, "dns_zone");
-    }
+        => AsReference("dns_zone");
 
     /// <summary>
     /// The dns_zone_partner_id attribute.
     /// </summary>
     public TerraformValue<string> DnsZonePartnerId
-    {
-        get => new TerraformReference<string>(this, "dns_zone_partner_id");
-    }
+        => AsReference("dns_zone_partner_id");
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-    {
-        get => new TerraformReference<string>(this, "fqdn");
-    }
+        => AsReference("fqdn");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
-    }
+        => AsReference("identity");
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
     public TerraformValue<string> LicenseType
-    {
-        get => new TerraformReference<string>(this, "license_type");
-    }
+        => AsReference("license_type");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The minimum_tls_version attribute.
     /// </summary>
     public TerraformValue<string> MinimumTlsVersion
-    {
-        get => new TerraformReference<string>(this, "minimum_tls_version");
-    }
+        => AsReference("minimum_tls_version");
 
     /// <summary>
     /// The proxy_override attribute.
     /// </summary>
     public TerraformValue<string> ProxyOverride
-    {
-        get => new TerraformReference<string>(this, "proxy_override");
-    }
+        => AsReference("proxy_override");
 
     /// <summary>
     /// The public_data_endpoint_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PublicDataEndpointEnabled
-    {
-        get => new TerraformReference<bool>(this, "public_data_endpoint_enabled");
-    }
+        => AsReference("public_data_endpoint_enabled");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     public TerraformValue<string> SkuName
-    {
-        get => new TerraformReference<string>(this, "sku_name");
-    }
+        => AsReference("sku_name");
 
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
     public TerraformValue<string> StorageAccountType
-    {
-        get => new TerraformReference<string>(this, "storage_account_type");
-    }
+        => AsReference("storage_account_type");
 
     /// <summary>
     /// The storage_size_in_gb attribute.
     /// </summary>
     public TerraformValue<double> StorageSizeInGb
-    {
-        get => new TerraformReference<double>(this, "storage_size_in_gb");
-    }
+        => AsReference("storage_size_in_gb");
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     public TerraformValue<string> SubnetId
-    {
-        get => new TerraformReference<string>(this, "subnet_id");
-    }
+        => AsReference("subnet_id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The timezone_id attribute.
     /// </summary>
     public TerraformValue<string> TimezoneId
-    {
-        get => new TerraformReference<string>(this, "timezone_id");
-    }
+        => AsReference("timezone_id");
 
     /// <summary>
     /// The vcores attribute.
     /// </summary>
     public TerraformValue<double> Vcores
-    {
-        get => new TerraformReference<double>(this, "vcores");
-    }
+        => AsReference("vcores");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

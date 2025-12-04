@@ -18,7 +18,7 @@ public class GoogleIamOauthClientCredentialTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleIamOauthClientCredentialTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleIamOauthClientCredentialTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleIamOauthClientCredential(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -66,16 +66,16 @@ public partial class GoogleIamOauthClientCredential(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -85,7 +85,7 @@ public partial class GoogleIamOauthClientCredential(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -98,7 +98,7 @@ public partial class GoogleIamOauthClientCredential(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OauthClientCredentialId is required")]
     public required TerraformValue<string> OauthClientCredentialId
     {
-        get => new TerraformReference<string>(this, "oauth_client_credential_id");
+        get => GetArgument<TerraformValue<string>>("oauth_client_credential_id");
         set => SetArgument("oauth_client_credential_id", value);
     }
 
@@ -108,16 +108,16 @@ public partial class GoogleIamOauthClientCredential(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Oauthclient is required")]
     public required TerraformValue<string> Oauthclient
     {
-        get => new TerraformReference<string>(this, "oauthclient");
+        get => GetArgument<TerraformValue<string>>("oauthclient");
         set => SetArgument("oauthclient", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -130,9 +130,7 @@ public partial class GoogleIamOauthClientCredential(string name) : TerraformReso
     /// mitigations](https://cloud.google.com/iam/docs/workforce-oauth-app#security)
     /// </summary>
     public TerraformValue<string> ClientSecret
-    {
-        get => new TerraformReference<string>(this, "client_secret");
-    }
+        => AsReference("client_secret");
 
     /// <summary>
     /// Immutable. Identifier. The resource name of the OauthClientCredential.
@@ -141,9 +139,7 @@ public partial class GoogleIamOauthClientCredential(string name) : TerraformReso
     /// &#39;projects/{project}/locations/{location}/oauthClients/{oauth_client}/credentials/{credential}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -18,7 +18,7 @@ public class AzurermVirtualMachineScaleSetPacketCaptureFilterBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? LocalIpAddress
     {
-        get => new TerraformReference<string>(this, "local_ip_address");
+        get => GetArgument<TerraformValue<string>>("local_ip_address");
         set => SetArgument("local_ip_address", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermVirtualMachineScaleSetPacketCaptureFilterBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? LocalPort
     {
-        get => new TerraformReference<string>(this, "local_port");
+        get => GetArgument<TerraformValue<string>>("local_port");
         set => SetArgument("local_port", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermVirtualMachineScaleSetPacketCaptureFilterBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -46,7 +46,7 @@ public class AzurermVirtualMachineScaleSetPacketCaptureFilterBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? RemoteIpAddress
     {
-        get => new TerraformReference<string>(this, "remote_ip_address");
+        get => GetArgument<TerraformValue<string>>("remote_ip_address");
         set => SetArgument("remote_ip_address", value);
     }
 
@@ -55,7 +55,7 @@ public class AzurermVirtualMachineScaleSetPacketCaptureFilterBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? RemotePort
     {
-        get => new TerraformReference<string>(this, "remote_port");
+        get => GetArgument<TerraformValue<string>>("remote_port");
         set => SetArgument("remote_port", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermVirtualMachineScaleSetPacketCaptureMachineScopeBlock : Terra
     /// </summary>
     public TerraformList<string>? ExcludeInstanceIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclude_instance_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclude_instance_ids");
         set => SetArgument("exclude_instance_ids", value);
     }
 
@@ -87,7 +87,7 @@ public class AzurermVirtualMachineScaleSetPacketCaptureMachineScopeBlock : Terra
     /// </summary>
     public TerraformList<string>? IncludeInstanceIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "include_instance_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("include_instance_ids");
         set => SetArgument("include_instance_ids", value);
     }
 
@@ -110,7 +110,7 @@ public class AzurermVirtualMachineScaleSetPacketCaptureStorageLocationBlock : Te
     /// </summary>
     public TerraformValue<string>? FilePath
     {
-        get => new TerraformReference<string>(this, "file_path");
+        get => GetArgument<TerraformValue<string>>("file_path");
         set => SetArgument("file_path", value);
     }
 
@@ -119,7 +119,7 @@ public class AzurermVirtualMachineScaleSetPacketCaptureStorageLocationBlock : Te
     /// </summary>
     public TerraformValue<string>? StorageAccountId
     {
-        get => new TerraformReference<string>(this, "storage_account_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 
@@ -127,9 +127,7 @@ public class AzurermVirtualMachineScaleSetPacketCaptureStorageLocationBlock : Te
     /// The storage_path attribute.
     /// </summary>
     public TerraformValue<string> StoragePath
-    {
-        get => new TerraformReference<string>(this, "storage_path");
-    }
+        => AsReference("storage_path");
 
 }
 
@@ -150,7 +148,7 @@ public class AzurermVirtualMachineScaleSetPacketCaptureTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -159,7 +157,7 @@ public class AzurermVirtualMachineScaleSetPacketCaptureTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -168,7 +166,7 @@ public class AzurermVirtualMachineScaleSetPacketCaptureTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -184,9 +182,9 @@ public partial class AzurermVirtualMachineScaleSetPacketCapture(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -195,7 +193,7 @@ public partial class AzurermVirtualMachineScaleSetPacketCapture(string name) : T
     /// </summary>
     public TerraformValue<double>? MaximumBytesPerPacket
     {
-        get => new TerraformReference<double>(this, "maximum_bytes_per_packet");
+        get => GetArgument<TerraformValue<double>>("maximum_bytes_per_packet");
         set => SetArgument("maximum_bytes_per_packet", value);
     }
 
@@ -204,7 +202,7 @@ public partial class AzurermVirtualMachineScaleSetPacketCapture(string name) : T
     /// </summary>
     public TerraformValue<double>? MaximumBytesPerSession
     {
-        get => new TerraformReference<double>(this, "maximum_bytes_per_session");
+        get => GetArgument<TerraformValue<double>>("maximum_bytes_per_session");
         set => SetArgument("maximum_bytes_per_session", value);
     }
 
@@ -213,7 +211,7 @@ public partial class AzurermVirtualMachineScaleSetPacketCapture(string name) : T
     /// </summary>
     public TerraformValue<double>? MaximumCaptureDurationInSeconds
     {
-        get => new TerraformReference<double>(this, "maximum_capture_duration_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_capture_duration_in_seconds");
         set => SetArgument("maximum_capture_duration_in_seconds", value);
     }
 
@@ -223,7 +221,7 @@ public partial class AzurermVirtualMachineScaleSetPacketCapture(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -233,7 +231,7 @@ public partial class AzurermVirtualMachineScaleSetPacketCapture(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkWatcherId is required")]
     public required TerraformValue<string> NetworkWatcherId
     {
-        get => new TerraformReference<string>(this, "network_watcher_id");
+        get => GetArgument<TerraformValue<string>>("network_watcher_id");
         set => SetArgument("network_watcher_id", value);
     }
 
@@ -243,7 +241,7 @@ public partial class AzurermVirtualMachineScaleSetPacketCapture(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineScaleSetId is required")]
     public required TerraformValue<string> VirtualMachineScaleSetId
     {
-        get => new TerraformReference<string>(this, "virtual_machine_scale_set_id");
+        get => GetArgument<TerraformValue<string>>("virtual_machine_scale_set_id");
         set => SetArgument("virtual_machine_scale_set_id", value);
     }
 

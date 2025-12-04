@@ -11,9 +11,9 @@ public partial class GoogleServiceAccountKey(string name) : TerraformResource("g
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleServiceAccountKey(string name) : TerraformResource("g
     /// </summary>
     public TerraformMap<string>? Keepers
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "keepers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("keepers");
         set => SetArgument("keepers", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleServiceAccountKey(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? KeyAlgorithm
     {
-        get => new TerraformReference<string>(this, "key_algorithm");
+        get => GetArgument<TerraformValue<string>>("key_algorithm");
         set => SetArgument("key_algorithm", value);
     }
 
@@ -40,7 +40,7 @@ public partial class GoogleServiceAccountKey(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? PrivateKeyType
     {
-        get => new TerraformReference<string>(this, "private_key_type");
+        get => GetArgument<TerraformValue<string>>("private_key_type");
         set => SetArgument("private_key_type", value);
     }
 
@@ -49,7 +49,7 @@ public partial class GoogleServiceAccountKey(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? PublicKeyData
     {
-        get => new TerraformReference<string>(this, "public_key_data");
+        get => GetArgument<TerraformValue<string>>("public_key_data");
         set => SetArgument("public_key_data", value);
     }
 
@@ -58,7 +58,7 @@ public partial class GoogleServiceAccountKey(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? PublicKeyType
     {
-        get => new TerraformReference<string>(this, "public_key_type");
+        get => GetArgument<TerraformValue<string>>("public_key_type");
         set => SetArgument("public_key_type", value);
     }
 
@@ -68,7 +68,7 @@ public partial class GoogleServiceAccountKey(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountId is required")]
     public required TerraformValue<string> ServiceAccountId
     {
-        get => new TerraformReference<string>(this, "service_account_id");
+        get => GetArgument<TerraformValue<string>>("service_account_id");
         set => SetArgument("service_account_id", value);
     }
 
@@ -76,40 +76,30 @@ public partial class GoogleServiceAccountKey(string name) : TerraformResource("g
     /// The name used for this key pair
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The private key in JSON format, base64 encoded. This is what you normally get as a file when creating service account keys through the CLI or web console. This is only populated when creating a new key.
     /// </summary>
     public TerraformValue<string> PrivateKey
-    {
-        get => new TerraformReference<string>(this, "private_key");
-    }
+        => AsReference("private_key");
 
     /// <summary>
     /// The public key, base64 encoded
     /// </summary>
     public TerraformValue<string> PublicKey
-    {
-        get => new TerraformReference<string>(this, "public_key");
-    }
+        => AsReference("public_key");
 
     /// <summary>
     /// The key can be used after this timestamp. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds. Example: &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> ValidAfter
-    {
-        get => new TerraformReference<string>(this, "valid_after");
-    }
+        => AsReference("valid_after");
 
     /// <summary>
     /// The key can be used before this timestamp. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds. Example: &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> ValidBefore
-    {
-        get => new TerraformReference<string>(this, "valid_before");
-    }
+        => AsReference("valid_before");
 
 }

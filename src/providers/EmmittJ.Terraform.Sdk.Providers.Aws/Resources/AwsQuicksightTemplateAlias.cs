@@ -14,25 +14,25 @@ public partial class AwsQuicksightTemplateAlias(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AliasName is required")]
     public required TerraformValue<string> AliasName
     {
-        get => new TerraformReference<string>(this, "alias_name");
+        get => GetArgument<TerraformValue<string>>("alias_name");
         set => SetArgument("alias_name", value);
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string> AwsAccountId
+    public TerraformValue<string>? AwsAccountId
     {
-        get => new TerraformReference<string>(this, "aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsQuicksightTemplateAlias(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateId is required")]
     public required TerraformValue<string> TemplateId
     {
-        get => new TerraformReference<string>(this, "template_id");
+        get => GetArgument<TerraformValue<string>>("template_id");
         set => SetArgument("template_id", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsQuicksightTemplateAlias(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateVersionNumber is required")]
     public required TerraformValue<double> TemplateVersionNumber
     {
-        get => new TerraformReference<double>(this, "template_version_number");
+        get => GetArgument<TerraformValue<double>>("template_version_number");
         set => SetArgument("template_version_number", value);
     }
 
@@ -60,16 +60,12 @@ public partial class AwsQuicksightTemplateAlias(string name) : TerraformResource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
 }

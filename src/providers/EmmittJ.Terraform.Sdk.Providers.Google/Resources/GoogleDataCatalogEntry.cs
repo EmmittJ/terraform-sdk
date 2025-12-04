@@ -30,7 +30,7 @@ public class GoogleDataCatalogEntryGcsFilesetSpecBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilePatterns is required")]
     public TerraformList<string>? FilePatterns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "file_patterns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("file_patterns");
         set => SetArgument("file_patterns", value);
     }
 
@@ -38,9 +38,7 @@ public class GoogleDataCatalogEntryGcsFilesetSpecBlock : TerraformBlock
     /// Sample files contained in this fileset, not all files contained in this fileset are represented here.
     /// </summary>
     public TerraformList<TerraformMap<object>> SampleGcsFileSpecs
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "sample_gcs_file_specs").ResolveNodes(ctx));
-    }
+        => AsReference("sample_gcs_file_specs");
 
 }
 
@@ -61,7 +59,7 @@ public class GoogleDataCatalogEntryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -70,7 +68,7 @@ public class GoogleDataCatalogEntryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -79,7 +77,7 @@ public class GoogleDataCatalogEntryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -98,7 +96,7 @@ public partial class GoogleDataCatalogEntry(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -108,7 +106,7 @@ public partial class GoogleDataCatalogEntry(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -118,7 +116,7 @@ public partial class GoogleDataCatalogEntry(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroup is required")]
     public required TerraformValue<string> EntryGroup
     {
-        get => new TerraformReference<string>(this, "entry_group");
+        get => GetArgument<TerraformValue<string>>("entry_group");
         set => SetArgument("entry_group", value);
     }
 
@@ -128,16 +126,16 @@ public partial class GoogleDataCatalogEntry(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryId is required")]
     public required TerraformValue<string> EntryId
     {
-        get => new TerraformReference<string>(this, "entry_id");
+        get => GetArgument<TerraformValue<string>>("entry_id");
         set => SetArgument("entry_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -149,9 +147,9 @@ public partial class GoogleDataCatalogEntry(string name) : TerraformResource("go
     /// Output only when Entry is of type in the EntryType enum. For entries with userSpecifiedType,
     /// this field is optional and defaults to an empty string.
     /// </summary>
-    public TerraformValue<string> LinkedResource
+    public TerraformValue<string>? LinkedResource
     {
-        get => new TerraformReference<string>(this, "linked_resource");
+        get => GetArgument<TerraformValue<string>>("linked_resource");
         set => SetArgument("linked_resource", value);
     }
 
@@ -163,7 +161,7 @@ public partial class GoogleDataCatalogEntry(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? Schema
     {
-        get => new TerraformReference<string>(this, "schema");
+        get => GetArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -173,7 +171,7 @@ public partial class GoogleDataCatalogEntry(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -184,7 +182,7 @@ public partial class GoogleDataCatalogEntry(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? UserSpecifiedSystem
     {
-        get => new TerraformReference<string>(this, "user_specified_system");
+        get => GetArgument<TerraformValue<string>>("user_specified_system");
         set => SetArgument("user_specified_system", value);
     }
 
@@ -197,7 +195,7 @@ public partial class GoogleDataCatalogEntry(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? UserSpecifiedType
     {
-        get => new TerraformReference<string>(this, "user_specified_type");
+        get => GetArgument<TerraformValue<string>>("user_specified_type");
         set => SetArgument("user_specified_type", value);
     }
 
@@ -206,25 +204,19 @@ public partial class GoogleDataCatalogEntry(string name) : TerraformResource("go
     /// Context: https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding.
     /// </summary>
     public TerraformList<TerraformMap<object>> BigqueryDateShardedSpec
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "bigquery_date_sharded_spec").ResolveNodes(ctx));
-    }
+        => AsReference("bigquery_date_sharded_spec");
 
     /// <summary>
     /// Specification that applies to a BigQuery table. This is only valid on entries of type TABLE.
     /// </summary>
     public TerraformList<TerraformMap<object>> BigqueryTableSpec
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "bigquery_table_spec").ResolveNodes(ctx));
-    }
+        => AsReference("bigquery_table_spec");
 
     /// <summary>
     /// This field indicates the entry&#39;s source system that Data Catalog integrates with, such as BigQuery or Pub/Sub.
     /// </summary>
     public TerraformValue<string> IntegratedSystem
-    {
-        get => new TerraformReference<string>(this, "integrated_system");
-    }
+        => AsReference("integrated_system");
 
     /// <summary>
     /// The Data Catalog resource name of the entry in URL format.
@@ -232,9 +224,7 @@ public partial class GoogleDataCatalogEntry(string name) : TerraformResource("go
     /// Note that this Entry and its child resources may not actually be stored in the location in this name.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// GcsFilesetSpec block (nesting mode: list).

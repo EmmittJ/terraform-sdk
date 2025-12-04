@@ -18,7 +18,7 @@ public class AzurermBatchJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermBatchJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermBatchJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermBatchJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermBatchJob(string name) : TerraformResource("azurerm_b
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BatchPoolId is required")]
     public required TerraformValue<string> BatchPoolId
     {
-        get => new TerraformReference<string>(this, "batch_pool_id");
+        get => GetArgument<TerraformValue<string>>("batch_pool_id");
         set => SetArgument("batch_pool_id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermBatchJob(string name) : TerraformResource("azurerm_b
     /// </summary>
     public TerraformMap<string>? CommonEnvironmentProperties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "common_environment_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("common_environment_properties");
         set => SetArgument("common_environment_properties", value);
     }
 
@@ -82,16 +82,16 @@ public partial class AzurermBatchJob(string name) : TerraformResource("azurerm_b
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermBatchJob(string name) : TerraformResource("azurerm_b
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermBatchJob(string name) : TerraformResource("azurerm_b
     /// </summary>
     public TerraformValue<double>? Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermBatchJob(string name) : TerraformResource("azurerm_b
     /// </summary>
     public TerraformValue<double>? TaskRetryMaximum
     {
-        get => new TerraformReference<double>(this, "task_retry_maximum");
+        get => GetArgument<TerraformValue<double>>("task_retry_maximum");
         set => SetArgument("task_retry_maximum", value);
     }
 

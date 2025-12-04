@@ -11,9 +11,9 @@ public partial class GoogleKmsKeyHandlesDataSource(string name) : TerraformDataS
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleKmsKeyHandlesDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleKmsKeyHandlesDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -47,7 +47,7 @@ public partial class GoogleKmsKeyHandlesDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeSelector is required")]
     public required TerraformValue<string> ResourceTypeSelector
     {
-        get => new TerraformReference<string>(this, "resource_type_selector");
+        get => GetArgument<TerraformValue<string>>("resource_type_selector");
         set => SetArgument("resource_type_selector", value);
     }
 
@@ -55,8 +55,6 @@ public partial class GoogleKmsKeyHandlesDataSource(string name) : TerraformDataS
     /// A list of all the retrieved key handles
     /// </summary>
     public TerraformList<TerraformMap<object>> KeyHandles
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "key_handles").ResolveNodes(ctx));
-    }
+        => AsReference("key_handles");
 
 }

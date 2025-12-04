@@ -18,7 +18,7 @@ public class GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BreakglassJustification
     {
-        get => new TerraformReference<string>(this, "breakglass_justification");
+        get => GetArgument<TerraformValue<string>>("breakglass_justification");
         set => SetArgument("breakglass_justification", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleCloudRunV2WorkerPoolBinaryAuthorizationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? UseDefault
     {
-        get => new TerraformReference<bool>(this, "use_default");
+        get => GetArgument<TerraformValue<bool>>("use_default");
         set => SetArgument("use_default", value);
     }
 
@@ -57,9 +57,9 @@ public class GoogleCloudRunV2WorkerPoolInstanceSplitsBlock : TerraformBlock
     /// <summary>
     /// Specifies percent of the instance split to this Revision. This defaults to zero if unspecified.
     /// </summary>
-    public TerraformValue<double> Percent
+    public TerraformValue<double>? Percent
     {
-        get => new TerraformReference<double>(this, "percent");
+        get => GetArgument<TerraformValue<double>>("percent");
         set => SetArgument("percent", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleCloudRunV2WorkerPoolInstanceSplitsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Revision
     {
-        get => new TerraformReference<string>(this, "revision");
+        get => GetArgument<TerraformValue<string>>("revision");
         set => SetArgument("revision", value);
     }
 
@@ -77,7 +77,7 @@ public class GoogleCloudRunV2WorkerPoolInstanceSplitsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -100,7 +100,7 @@ public class GoogleCloudRunV2WorkerPoolScalingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ManualInstanceCount
     {
-        get => new TerraformReference<double>(this, "manual_instance_count");
+        get => GetArgument<TerraformValue<double>>("manual_instance_count");
         set => SetArgument("manual_instance_count", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleCloudRunV2WorkerPoolScalingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxInstanceCount
     {
-        get => new TerraformReference<double>(this, "max_instance_count");
+        get => GetArgument<TerraformValue<double>>("max_instance_count");
         set => SetArgument("max_instance_count", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleCloudRunV2WorkerPoolScalingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MinInstanceCount
     {
-        get => new TerraformReference<double>(this, "min_instance_count");
+        get => GetArgument<TerraformValue<double>>("min_instance_count");
         set => SetArgument("min_instance_count", value);
     }
 
@@ -127,7 +127,7 @@ public class GoogleCloudRunV2WorkerPoolScalingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ScalingMode
     {
-        get => new TerraformReference<string>(this, "scaling_mode");
+        get => GetArgument<TerraformValue<string>>("scaling_mode");
         set => SetArgument("scaling_mode", value);
     }
 
@@ -155,7 +155,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -164,7 +164,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EncryptionKey
     {
-        get => new TerraformReference<string>(this, "encryption_key");
+        get => GetArgument<TerraformValue<string>>("encryption_key");
         set => SetArgument("encryption_key", value);
     }
 
@@ -173,7 +173,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EncryptionKeyRevocationAction
     {
-        get => new TerraformReference<string>(this, "encryption_key_revocation_action");
+        get => GetArgument<TerraformValue<string>>("encryption_key_revocation_action");
         set => SetArgument("encryption_key_revocation_action", value);
     }
 
@@ -184,7 +184,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EncryptionKeyShutdownDuration
     {
-        get => new TerraformReference<string>(this, "encryption_key_shutdown_duration");
+        get => GetArgument<TerraformValue<string>>("encryption_key_shutdown_duration");
         set => SetArgument("encryption_key_shutdown_duration", value);
     }
 
@@ -193,7 +193,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? GpuZonalRedundancyDisabled
     {
-        get => new TerraformReference<bool>(this, "gpu_zonal_redundancy_disabled");
+        get => GetArgument<TerraformValue<bool>>("gpu_zonal_redundancy_disabled");
         set => SetArgument("gpu_zonal_redundancy_disabled", value);
     }
 
@@ -206,7 +206,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -215,16 +215,16 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Revision
     {
-        get => new TerraformReference<string>(this, "revision");
+        get => GetArgument<TerraformValue<string>>("revision");
         set => SetArgument("revision", value);
     }
 
     /// <summary>
     /// Email address of the IAM service account associated with the revision of the WorkerPool. The service account represents the identity of the running revision, and determines what permissions the revision has. If not provided, the revision will use the project&#39;s default service account.
     /// </summary>
-    public TerraformValue<string> ServiceAccount
+    public TerraformValue<string>? ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -284,7 +284,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlock : TerraformB
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -293,7 +293,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlock : TerraformB
     /// </summary>
     public TerraformList<string>? Command
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "command").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("command");
         set => SetArgument("command", value);
     }
 
@@ -302,7 +302,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlock : TerraformB
     /// </summary>
     public TerraformList<string>? DependsOnAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "depends_on").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("depends_on");
         set => SetArgument("depends_on", value);
     }
 
@@ -312,7 +312,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -321,7 +321,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -330,7 +330,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? WorkingDir
     {
-        get => new TerraformReference<string>(this, "working_dir");
+        get => GetArgument<TerraformValue<string>>("working_dir");
         set => SetArgument("working_dir", value);
     }
 
@@ -401,7 +401,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockEnvBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -410,7 +410,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockEnvBlock : Te
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -466,7 +466,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockEnvBlockValue
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformValue<string> Secret
     {
-        get => new TerraformReference<string>(this, "secret");
+        get => GetArgument<TerraformValue<string>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -475,7 +475,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockEnvBlockValue
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -497,7 +497,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockLivenessProbe
     /// </summary>
     public TerraformValue<double>? FailureThreshold
     {
-        get => new TerraformReference<double>(this, "failure_threshold");
+        get => GetArgument<TerraformValue<double>>("failure_threshold");
         set => SetArgument("failure_threshold", value);
     }
 
@@ -506,7 +506,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockLivenessProbe
     /// </summary>
     public TerraformValue<double>? InitialDelaySeconds
     {
-        get => new TerraformReference<double>(this, "initial_delay_seconds");
+        get => GetArgument<TerraformValue<double>>("initial_delay_seconds");
         set => SetArgument("initial_delay_seconds", value);
     }
 
@@ -515,7 +515,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockLivenessProbe
     /// </summary>
     public TerraformValue<double>? PeriodSeconds
     {
-        get => new TerraformReference<double>(this, "period_seconds");
+        get => GetArgument<TerraformValue<double>>("period_seconds");
         set => SetArgument("period_seconds", value);
     }
 
@@ -524,7 +524,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockLivenessProbe
     /// </summary>
     public TerraformValue<double>? TimeoutSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_seconds");
         set => SetArgument("timeout_seconds", value);
     }
 
@@ -576,7 +576,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockLivenessProbe
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -585,7 +585,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockLivenessProbe
     /// </summary>
     public TerraformValue<string>? Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -607,7 +607,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockLivenessProbe
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -616,7 +616,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockLivenessProbe
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -649,7 +649,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockLivenessProbe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -658,7 +658,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockLivenessProbe
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -680,7 +680,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockLivenessProbe
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -700,9 +700,9 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockResourcesBloc
     /// <summary>
     /// Only memory, CPU, and nvidia.com/gpu are supported. Use key &#39;cpu&#39; for CPU limit, &#39;memory&#39; for memory limit, &#39;nvidia.com/gpu&#39; for gpu limit. Note: The only supported values for CPU are &#39;1&#39;, &#39;2&#39;, &#39;4&#39;, &#39;6&#39;, and &#39;8&#39;. Setting 4 CPU requires at least 2Gi of memory, setting 6 or more CPU requires at least 4Gi of memory. The values of the map is string form of the &#39;quantity&#39; k8s type: https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go
     /// </summary>
-    public TerraformMap<string> Limits
+    public TerraformMap<string>? Limits
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "limits").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("limits");
         set => SetArgument("limits", value);
     }
 
@@ -724,7 +724,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockStartupProbeB
     /// </summary>
     public TerraformValue<double>? FailureThreshold
     {
-        get => new TerraformReference<double>(this, "failure_threshold");
+        get => GetArgument<TerraformValue<double>>("failure_threshold");
         set => SetArgument("failure_threshold", value);
     }
 
@@ -733,7 +733,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockStartupProbeB
     /// </summary>
     public TerraformValue<double>? InitialDelaySeconds
     {
-        get => new TerraformReference<double>(this, "initial_delay_seconds");
+        get => GetArgument<TerraformValue<double>>("initial_delay_seconds");
         set => SetArgument("initial_delay_seconds", value);
     }
 
@@ -742,7 +742,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockStartupProbeB
     /// </summary>
     public TerraformValue<double>? PeriodSeconds
     {
-        get => new TerraformReference<double>(this, "period_seconds");
+        get => GetArgument<TerraformValue<double>>("period_seconds");
         set => SetArgument("period_seconds", value);
     }
 
@@ -751,7 +751,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockStartupProbeB
     /// </summary>
     public TerraformValue<double>? TimeoutSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_seconds");
         set => SetArgument("timeout_seconds", value);
     }
 
@@ -803,7 +803,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockStartupProbeB
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -812,7 +812,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockStartupProbeB
     /// </summary>
     public TerraformValue<string>? Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -834,7 +834,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockStartupProbeB
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -843,7 +843,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockStartupProbeB
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -876,7 +876,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockStartupProbeB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -885,7 +885,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockStartupProbeB
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -907,7 +907,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockStartupProbeB
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -930,7 +930,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockVolumeMountsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPath is required")]
     public required TerraformValue<string> MountPath
     {
-        get => new TerraformReference<string>(this, "mount_path");
+        get => GetArgument<TerraformValue<string>>("mount_path");
         set => SetArgument("mount_path", value);
     }
 
@@ -940,7 +940,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockVolumeMountsB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -949,7 +949,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockContainersBlockVolumeMountsB
     /// </summary>
     public TerraformValue<string>? SubPath
     {
-        get => new TerraformReference<string>(this, "sub_path");
+        get => GetArgument<TerraformValue<string>>("sub_path");
         set => SetArgument("sub_path", value);
     }
 
@@ -972,7 +972,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockNodeSelectorBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Accelerator is required")]
     public required TerraformValue<string> Accelerator
     {
-        get => new TerraformReference<string>(this, "accelerator");
+        get => GetArgument<TerraformValue<string>>("accelerator");
         set => SetArgument("accelerator", value);
     }
 
@@ -995,7 +995,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockVolumesBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1067,7 +1067,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockVolumesBlockCloudSqlInstance
     /// </summary>
     public TerraformSet<string>? Instances
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "instances").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("instances");
         set => SetArgument("instances", value);
     }
 
@@ -1089,7 +1089,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockVolumesBlockEmptyDirBlock : 
     /// </summary>
     public TerraformValue<string>? Medium
     {
-        get => new TerraformReference<string>(this, "medium");
+        get => GetArgument<TerraformValue<string>>("medium");
         set => SetArgument("medium", value);
     }
 
@@ -1098,7 +1098,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockVolumesBlockEmptyDirBlock : 
     /// </summary>
     public TerraformValue<string>? SizeLimit
     {
-        get => new TerraformReference<string>(this, "size_limit");
+        get => GetArgument<TerraformValue<string>>("size_limit");
         set => SetArgument("size_limit", value);
     }
 
@@ -1121,7 +1121,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockVolumesBlockGcsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -1131,7 +1131,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockVolumesBlockGcsBlock : Terra
     /// </summary>
     public TerraformList<string>? MountOptions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "mount_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("mount_options");
         set => SetArgument("mount_options", value);
     }
 
@@ -1140,7 +1140,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockVolumesBlockGcsBlock : Terra
     /// </summary>
     public TerraformValue<bool>? ReadOnlyAttribute
     {
-        get => new TerraformReference<bool>(this, "read_only");
+        get => GetArgument<TerraformValue<bool>>("read_only");
         set => SetArgument("read_only", value);
     }
 
@@ -1163,7 +1163,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockVolumesBlockNfsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1172,7 +1172,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockVolumesBlockNfsBlock : Terra
     /// </summary>
     public TerraformValue<bool>? ReadOnlyAttribute
     {
-        get => new TerraformReference<bool>(this, "read_only");
+        get => GetArgument<TerraformValue<bool>>("read_only");
         set => SetArgument("read_only", value);
     }
 
@@ -1182,7 +1182,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockVolumesBlockNfsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformValue<string> Server
     {
-        get => new TerraformReference<string>(this, "server");
+        get => GetArgument<TerraformValue<string>>("server");
         set => SetArgument("server", value);
     }
 
@@ -1204,7 +1204,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockVolumesBlockSecretBlock : Te
     /// </summary>
     public TerraformValue<double>? DefaultMode
     {
-        get => new TerraformReference<double>(this, "default_mode");
+        get => GetArgument<TerraformValue<double>>("default_mode");
         set => SetArgument("default_mode", value);
     }
 
@@ -1214,7 +1214,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockVolumesBlockSecretBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     public required TerraformValue<string> Secret
     {
-        get => new TerraformReference<string>(this, "secret");
+        get => GetArgument<TerraformValue<string>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -1245,7 +1245,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockVolumesBlockSecretBlockItems
     /// </summary>
     public TerraformValue<double>? Mode
     {
-        get => new TerraformReference<double>(this, "mode");
+        get => GetArgument<TerraformValue<double>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -1255,7 +1255,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockVolumesBlockSecretBlockItems
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1264,7 +1264,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockVolumesBlockSecretBlockItems
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -1286,16 +1286,16 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockVpcAccessBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Connector
     {
-        get => new TerraformReference<string>(this, "connector");
+        get => GetArgument<TerraformValue<string>>("connector");
         set => SetArgument("connector", value);
     }
 
     /// <summary>
     /// Traffic VPC egress settings. Possible values: [&amp;quot;ALL_TRAFFIC&amp;quot;, &amp;quot;PRIVATE_RANGES_ONLY&amp;quot;]
     /// </summary>
-    public TerraformValue<string> Egress
+    public TerraformValue<string>? Egress
     {
-        get => new TerraformReference<string>(this, "egress");
+        get => GetArgument<TerraformValue<string>>("egress");
         set => SetArgument("egress", value);
     }
 
@@ -1326,9 +1326,9 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockVpcAccessBlockNetworkInterfa
     /// network and subnetwork are specified, the given VPC subnetwork must belong to the given VPC network. If network is not specified, it will be
     /// looked up from the subnetwork.
     /// </summary>
-    public TerraformValue<string> Network
+    public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -1337,9 +1337,9 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockVpcAccessBlockNetworkInterfa
     /// network and subnetwork are specified, the given VPC subnetwork must belong to the given VPC network. If subnetwork is not specified, the
     /// subnetwork with the same name with the network will be used.
     /// </summary>
-    public TerraformValue<string> Subnetwork
+    public TerraformValue<string>? Subnetwork
     {
-        get => new TerraformReference<string>(this, "subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -1348,7 +1348,7 @@ public class GoogleCloudRunV2WorkerPoolTemplateBlockVpcAccessBlockNetworkInterfa
     /// </summary>
     public TerraformList<string>? Tags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -1371,7 +1371,7 @@ public class GoogleCloudRunV2WorkerPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1380,7 +1380,7 @@ public class GoogleCloudRunV2WorkerPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1389,7 +1389,7 @@ public class GoogleCloudRunV2WorkerPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1415,7 +1415,7 @@ public partial class GoogleCloudRunV2WorkerPool(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -1424,7 +1424,7 @@ public partial class GoogleCloudRunV2WorkerPool(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Client
     {
-        get => new TerraformReference<string>(this, "client");
+        get => GetArgument<TerraformValue<string>>("client");
         set => SetArgument("client", value);
     }
 
@@ -1433,7 +1433,7 @@ public partial class GoogleCloudRunV2WorkerPool(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? ClientVersion
     {
-        get => new TerraformReference<string>(this, "client_version");
+        get => GetArgument<TerraformValue<string>>("client_version");
         set => SetArgument("client_version", value);
     }
 
@@ -1443,7 +1443,7 @@ public partial class GoogleCloudRunV2WorkerPool(string name) : TerraformResource
     /// </summary>
     public TerraformList<string>? CustomAudiences
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "custom_audiences").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("custom_audiences");
         set => SetArgument("custom_audiences", value);
     }
 
@@ -1457,7 +1457,7 @@ public partial class GoogleCloudRunV2WorkerPool(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
@@ -1466,16 +1466,16 @@ public partial class GoogleCloudRunV2WorkerPool(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1491,7 +1491,7 @@ public partial class GoogleCloudRunV2WorkerPool(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -1501,9 +1501,9 @@ public partial class GoogleCloudRunV2WorkerPool(string name) : TerraformResource
     /// 
     /// For example, if ALPHA is provided as input, but only BETA and GA-level features are used, this field will be BETA on output. Possible values: [&amp;quot;UNIMPLEMENTED&amp;quot;, &amp;quot;PRELAUNCH&amp;quot;, &amp;quot;EARLY_ACCESS&amp;quot;, &amp;quot;ALPHA&amp;quot;, &amp;quot;BETA&amp;quot;, &amp;quot;GA&amp;quot;, &amp;quot;DEPRECATED&amp;quot;]
     /// </summary>
-    public TerraformValue<string> LaunchStage
+    public TerraformValue<string>? LaunchStage
     {
-        get => new TerraformReference<string>(this, "launch_stage");
+        get => GetArgument<TerraformValue<string>>("launch_stage");
         set => SetArgument("launch_stage", value);
     }
 
@@ -1513,7 +1513,7 @@ public partial class GoogleCloudRunV2WorkerPool(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1523,16 +1523,16 @@ public partial class GoogleCloudRunV2WorkerPool(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -1540,113 +1540,85 @@ public partial class GoogleCloudRunV2WorkerPool(string name) : TerraformResource
     /// The Conditions of all other associated sub-resources. They contain additional diagnostics information in case the WorkerPool does not reach its Serving state. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     public TerraformList<TerraformMap<object>> Conditions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "conditions").ResolveNodes(ctx));
-    }
+        => AsReference("conditions");
 
     /// <summary>
     /// The creation time.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Email address of the authenticated creator.
     /// </summary>
     public TerraformValue<string> Creator
-    {
-        get => new TerraformReference<string>(this, "creator");
-    }
+        => AsReference("creator");
 
     /// <summary>
     /// The deletion time.
     /// </summary>
     public TerraformValue<string> DeleteTime
-    {
-        get => new TerraformReference<string>(this, "delete_time");
-    }
+        => AsReference("delete_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// For a deleted resource, the time after which it will be permanently deleted.
     /// </summary>
     public TerraformValue<string> ExpireTime
-    {
-        get => new TerraformReference<string>(this, "expire_time");
-    }
+        => AsReference("expire_time");
 
     /// <summary>
     /// A number that monotonically increases every time the user modifies the desired state. Please note that unlike v1, this is an int64 value. As with most Google APIs, its JSON representation will be a string instead of an integer.
     /// </summary>
     public TerraformValue<string> Generation
-    {
-        get => new TerraformReference<string>(this, "generation");
-    }
+        => AsReference("generation");
 
     /// <summary>
     /// Detailed status information for corresponding instance splits. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstanceSplitStatuses
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "instance_split_statuses").ResolveNodes(ctx));
-    }
+        => AsReference("instance_split_statuses");
 
     /// <summary>
     /// Email address of the last authenticated modifier.
     /// </summary>
     public TerraformValue<string> LastModifier
-    {
-        get => new TerraformReference<string>(this, "last_modifier");
-    }
+        => AsReference("last_modifier");
 
     /// <summary>
     /// Name of the last created revision. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     public TerraformValue<string> LatestCreatedRevision
-    {
-        get => new TerraformReference<string>(this, "latest_created_revision");
-    }
+        => AsReference("latest_created_revision");
 
     /// <summary>
     /// Name of the latest revision that is serving traffic. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     public TerraformValue<string> LatestReadyRevision
-    {
-        get => new TerraformReference<string>(this, "latest_ready_revision");
-    }
+        => AsReference("latest_ready_revision");
 
     /// <summary>
     /// The generation of this WorkerPool currently serving traffic. See comments in reconciling for additional information on reconciliation process in Cloud Run. Please note that unlike v1, this is an int64 value. As with most Google APIs, its JSON representation will be a string instead of an integer.
     /// </summary>
     public TerraformValue<string> ObservedGeneration
-    {
-        get => new TerraformReference<string>(this, "observed_generation");
-    }
+        => AsReference("observed_generation");
 
     /// <summary>
     /// Returns true if the WorkerPool is currently being acted upon by the system to bring it into the desired state.
@@ -1658,42 +1630,32 @@ public partial class GoogleCloudRunV2WorkerPool(string name) : TerraformResource
     /// If reconciliation failed, trafficStatuses, observedGeneration, and latestReadyRevision will have the state of the last serving revision, or empty for newly created WorkerPools. Additional information on the failure can be found in terminalCondition and conditions.
     /// </summary>
     public TerraformValue<bool> Reconciling
-    {
-        get => new TerraformReference<bool>(this, "reconciling");
-    }
+        => AsReference("reconciling");
 
     /// <summary>
     /// The Condition of this WorkerPool, containing its readiness status, and detailed error information in case it did not reach a serving state. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
     public TerraformList<TerraformMap<object>> TerminalCondition
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "terminal_condition").ResolveNodes(ctx));
-    }
+        => AsReference("terminal_condition");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Server assigned unique identifier for the trigger. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// The last-modified time.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// BinaryAuthorization block (nesting mode: list).

@@ -19,7 +19,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancerId is required")]
     public required TerraformValue<string> LoadBalancerId
     {
-        get => new TerraformReference<string>(this, "load_balancer_id");
+        get => GetArgument<TerraformValue<string>>("load_balancer_id");
         set => SetArgument("load_balancer_id", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateIpAddress is required")]
     public required TerraformValue<string> PrivateIpAddress
     {
-        get => new TerraformReference<string>(this, "private_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_ip_address");
         set => SetArgument("private_ip_address", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProbePort is required")]
     public required TerraformValue<double> ProbePort
     {
-        get => new TerraformReference<double>(this, "probe_port");
+        get => GetArgument<TerraformValue<double>>("probe_port");
         set => SetArgument("probe_port", value);
     }
 
@@ -49,7 +49,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlVirtualMachineIds is required")]
     public required TerraformSet<string> SqlVirtualMachineIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "sql_virtual_machine_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("sql_virtual_machine_ids");
         set => SetArgument("sql_virtual_machine_ids", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -83,7 +83,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSubnetIpCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateIpAddress is required")]
     public required TerraformValue<string> PrivateIpAddress
     {
-        get => new TerraformReference<string>(this, "private_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_ip_address");
         set => SetArgument("private_ip_address", value);
     }
 
@@ -93,7 +93,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSubnetIpCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlVirtualMachineId is required")]
     public required TerraformValue<string> SqlVirtualMachineId
     {
-        get => new TerraformReference<string>(this, "sql_virtual_machine_id");
+        get => GetArgument<TerraformValue<string>>("sql_virtual_machine_id");
         set => SetArgument("sql_virtual_machine_id", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSubnetIpCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -127,7 +127,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Commit is required")]
     public required TerraformValue<string> Commit
     {
-        get => new TerraformReference<string>(this, "commit");
+        get => GetArgument<TerraformValue<string>>("commit");
         set => SetArgument("commit", value);
     }
 
@@ -137,7 +137,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailoverMode is required")]
     public required TerraformValue<string> FailoverMode
     {
-        get => new TerraformReference<string>(this, "failover_mode");
+        get => GetArgument<TerraformValue<string>>("failover_mode");
         set => SetArgument("failover_mode", value);
     }
 
@@ -147,7 +147,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReadableSecondary is required")]
     public required TerraformValue<string> ReadableSecondary
     {
-        get => new TerraformReference<string>(this, "readable_secondary");
+        get => GetArgument<TerraformValue<string>>("readable_secondary");
         set => SetArgument("readable_secondary", value);
     }
 
@@ -157,7 +157,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => new TerraformReference<string>(this, "role");
+        get => GetArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlVirtualMachineId is required")]
     public required TerraformValue<string> SqlVirtualMachineId
     {
-        get => new TerraformReference<string>(this, "sql_virtual_machine_id");
+        get => GetArgument<TerraformValue<string>>("sql_virtual_machine_id");
         set => SetArgument("sql_virtual_machine_id", value);
     }
 
@@ -190,7 +190,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerTimeoutsBlock : 
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -199,7 +199,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerTimeoutsBlock : 
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -208,7 +208,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerTimeoutsBlock : 
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -226,16 +226,16 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListener(string 
     /// </summary>
     public TerraformValue<string>? AvailabilityGroupName
     {
-        get => new TerraformReference<string>(this, "availability_group_name");
+        get => GetArgument<TerraformValue<string>>("availability_group_name");
         set => SetArgument("availability_group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -245,7 +245,7 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListener(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -254,7 +254,7 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListener(string 
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -264,7 +264,7 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListener(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlVirtualMachineGroupId is required")]
     public required TerraformValue<string> SqlVirtualMachineGroupId
     {
-        get => new TerraformReference<string>(this, "sql_virtual_machine_group_id");
+        get => GetArgument<TerraformValue<string>>("sql_virtual_machine_group_id");
         set => SetArgument("sql_virtual_machine_group_id", value);
     }
 

@@ -19,7 +19,7 @@ public class GoogleCertificateManagerTrustConfigAllowlistedCertificatesBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PemCertificate is required")]
     public required TerraformValue<string> PemCertificate
     {
-        get => new TerraformReference<string>(this, "pem_certificate");
+        get => GetArgument<TerraformValue<string>>("pem_certificate");
         set => SetArgument("pem_certificate", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleCertificateManagerTrustConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleCertificateManagerTrustConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleCertificateManagerTrustConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -115,7 +115,7 @@ public class GoogleCertificateManagerTrustConfigTrustStoresBlockIntermediateCasB
     /// </summary>
     public TerraformValue<string>? PemCertificate
     {
-        get => new TerraformReference<string>(this, "pem_certificate");
+        get => GetArgument<TerraformValue<string>>("pem_certificate");
         set => SetArgument("pem_certificate", value);
     }
 
@@ -138,7 +138,7 @@ public class GoogleCertificateManagerTrustConfigTrustStoresBlockTrustAnchorsBloc
     /// </summary>
     public TerraformValue<string>? PemCertificate
     {
-        get => new TerraformReference<string>(this, "pem_certificate");
+        get => GetArgument<TerraformValue<string>>("pem_certificate");
         set => SetArgument("pem_certificate", value);
     }
 
@@ -156,16 +156,16 @@ public partial class GoogleCertificateManagerTrustConfig(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -177,7 +177,7 @@ public partial class GoogleCertificateManagerTrustConfig(string name) : Terrafor
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -187,7 +187,7 @@ public partial class GoogleCertificateManagerTrustConfig(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -197,16 +197,16 @@ public partial class GoogleCertificateManagerTrustConfig(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -217,26 +217,20 @@ public partial class GoogleCertificateManagerTrustConfig(string name) : Terrafor
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The last update timestamp of a TrustConfig.
@@ -245,9 +239,7 @@ public partial class GoogleCertificateManagerTrustConfig(string name) : Terrafor
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// AllowlistedCertificates block (nesting mode: list).

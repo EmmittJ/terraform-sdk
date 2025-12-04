@@ -18,7 +18,7 @@ public class AzurermStackHciVirtualHardDiskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermStackHciVirtualHardDiskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermStackHciVirtualHardDiskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermStackHciVirtualHardDiskTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermStackHciVirtualHardDisk(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double>? BlockSizeInBytes
     {
-        get => new TerraformReference<double>(this, "block_size_in_bytes");
+        get => GetArgument<TerraformValue<double>>("block_size_in_bytes");
         set => SetArgument("block_size_in_bytes", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermStackHciVirtualHardDisk(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomLocationId is required")]
     public required TerraformValue<string> CustomLocationId
     {
-        get => new TerraformReference<string>(this, "custom_location_id");
+        get => GetArgument<TerraformValue<string>>("custom_location_id");
         set => SetArgument("custom_location_id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermStackHciVirtualHardDisk(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? DiskFileFormat
     {
-        get => new TerraformReference<string>(this, "disk_file_format");
+        get => GetArgument<TerraformValue<string>>("disk_file_format");
         set => SetArgument("disk_file_format", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermStackHciVirtualHardDisk(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskSizeInGb is required")]
     public required TerraformValue<double> DiskSizeInGb
     {
-        get => new TerraformReference<double>(this, "disk_size_in_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_in_gb");
         set => SetArgument("disk_size_in_gb", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermStackHciVirtualHardDisk(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? DynamicEnabled
     {
-        get => new TerraformReference<bool>(this, "dynamic_enabled");
+        get => GetArgument<TerraformValue<bool>>("dynamic_enabled");
         set => SetArgument("dynamic_enabled", value);
     }
 
@@ -110,16 +110,16 @@ public partial class AzurermStackHciVirtualHardDisk(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? HypervGeneration
     {
-        get => new TerraformReference<string>(this, "hyperv_generation");
+        get => GetArgument<TerraformValue<string>>("hyperv_generation");
         set => SetArgument("hyperv_generation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermStackHciVirtualHardDisk(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzurermStackHciVirtualHardDisk(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double>? LogicalSectorInBytes
     {
-        get => new TerraformReference<double>(this, "logical_sector_in_bytes");
+        get => GetArgument<TerraformValue<double>>("logical_sector_in_bytes");
         set => SetArgument("logical_sector_in_bytes", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AzurermStackHciVirtualHardDisk(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AzurermStackHciVirtualHardDisk(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double>? PhysicalSectorInBytes
     {
-        get => new TerraformReference<double>(this, "physical_sector_in_bytes");
+        get => GetArgument<TerraformValue<double>>("physical_sector_in_bytes");
         set => SetArgument("physical_sector_in_bytes", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AzurermStackHciVirtualHardDisk(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AzurermStackHciVirtualHardDisk(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? StoragePathId
     {
-        get => new TerraformReference<string>(this, "storage_path_id");
+        get => GetArgument<TerraformValue<string>>("storage_path_id");
         set => SetArgument("storage_path_id", value);
     }
 
@@ -185,7 +185,7 @@ public partial class AzurermStackHciVirtualHardDisk(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

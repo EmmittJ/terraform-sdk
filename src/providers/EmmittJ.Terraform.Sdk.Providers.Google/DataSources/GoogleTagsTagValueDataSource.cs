@@ -14,7 +14,7 @@ public partial class GoogleTagsTagValueDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -24,7 +24,7 @@ public partial class GoogleTagsTagValueDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShortName is required")]
     public required TerraformValue<string> ShortName
     {
-        get => new TerraformReference<string>(this, "short_name");
+        get => GetArgument<TerraformValue<string>>("short_name");
         set => SetArgument("short_name", value);
     }
 
@@ -32,48 +32,36 @@ public partial class GoogleTagsTagValueDataSource(string name) : TerraformDataSo
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The namespaced_name attribute.
     /// </summary>
     public TerraformValue<string> NamespacedName
-    {
-        get => new TerraformReference<string>(this, "namespaced_name");
-    }
+        => AsReference("namespaced_name");
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
 }

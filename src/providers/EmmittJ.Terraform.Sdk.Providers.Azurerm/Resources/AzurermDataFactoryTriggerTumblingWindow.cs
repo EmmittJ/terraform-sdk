@@ -19,7 +19,7 @@ public class AzurermDataFactoryTriggerTumblingWindowPipelineBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermDataFactoryTriggerTumblingWindowPipelineBlock : TerraformBlo
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermDataFactoryTriggerTumblingWindowRetryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
     public required TerraformValue<double> CountAttribute
     {
-        get => new TerraformReference<double>(this, "count");
+        get => GetArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermDataFactoryTriggerTumblingWindowRetryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Interval
     {
-        get => new TerraformReference<double>(this, "interval");
+        get => GetArgument<TerraformValue<double>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -84,7 +84,7 @@ public class AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -93,7 +93,7 @@ public class AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -102,7 +102,7 @@ public class AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -111,7 +111,7 @@ public class AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock : Ter
     /// </summary>
     public TerraformValue<string>? Offset
     {
-        get => new TerraformReference<string>(this, "offset");
+        get => GetArgument<TerraformValue<string>>("offset");
         set => SetArgument("offset", value);
     }
 
@@ -143,7 +143,7 @@ public class AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock : Ter
     /// </summary>
     public TerraformValue<string>? Size
     {
-        get => new TerraformReference<string>(this, "size");
+        get => GetArgument<TerraformValue<string>>("size");
         set => SetArgument("size", value);
     }
 
@@ -152,7 +152,7 @@ public class AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock : Ter
     /// </summary>
     public TerraformValue<string>? TriggerName
     {
-        get => new TerraformReference<string>(this, "trigger_name");
+        get => GetArgument<TerraformValue<string>>("trigger_name");
         set => SetArgument("trigger_name", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AzurermDataFactoryTriggerTumblingWindow(string name) : Terr
     /// </summary>
     public TerraformValue<bool>? Activated
     {
-        get => new TerraformReference<bool>(this, "activated");
+        get => GetArgument<TerraformValue<bool>>("activated");
         set => SetArgument("activated", value);
     }
 
@@ -179,7 +179,7 @@ public partial class AzurermDataFactoryTriggerTumblingWindow(string name) : Terr
     /// </summary>
     public TerraformMap<string>? AdditionalProperties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("additional_properties");
         set => SetArgument("additional_properties", value);
     }
 
@@ -188,7 +188,7 @@ public partial class AzurermDataFactoryTriggerTumblingWindow(string name) : Terr
     /// </summary>
     public TerraformList<string>? Annotations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -198,7 +198,7 @@ public partial class AzurermDataFactoryTriggerTumblingWindow(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
     public required TerraformValue<string> DataFactoryId
     {
-        get => new TerraformReference<string>(this, "data_factory_id");
+        get => GetArgument<TerraformValue<string>>("data_factory_id");
         set => SetArgument("data_factory_id", value);
     }
 
@@ -207,7 +207,7 @@ public partial class AzurermDataFactoryTriggerTumblingWindow(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Delay
     {
-        get => new TerraformReference<string>(this, "delay");
+        get => GetArgument<TerraformValue<string>>("delay");
         set => SetArgument("delay", value);
     }
 
@@ -216,7 +216,7 @@ public partial class AzurermDataFactoryTriggerTumblingWindow(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -225,7 +225,7 @@ public partial class AzurermDataFactoryTriggerTumblingWindow(string name) : Terr
     /// </summary>
     public TerraformValue<string>? EndTime
     {
-        get => new TerraformReference<string>(this, "end_time");
+        get => GetArgument<TerraformValue<string>>("end_time");
         set => SetArgument("end_time", value);
     }
 
@@ -235,16 +235,16 @@ public partial class AzurermDataFactoryTriggerTumblingWindow(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
     public required TerraformValue<string> Frequency
     {
-        get => new TerraformReference<string>(this, "frequency");
+        get => GetArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -254,7 +254,7 @@ public partial class AzurermDataFactoryTriggerTumblingWindow(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformValue<double> Interval
     {
-        get => new TerraformReference<double>(this, "interval");
+        get => GetArgument<TerraformValue<double>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -263,7 +263,7 @@ public partial class AzurermDataFactoryTriggerTumblingWindow(string name) : Terr
     /// </summary>
     public TerraformValue<double>? MaxConcurrency
     {
-        get => new TerraformReference<double>(this, "max_concurrency");
+        get => GetArgument<TerraformValue<double>>("max_concurrency");
         set => SetArgument("max_concurrency", value);
     }
 
@@ -273,7 +273,7 @@ public partial class AzurermDataFactoryTriggerTumblingWindow(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -283,7 +283,7 @@ public partial class AzurermDataFactoryTriggerTumblingWindow(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformValue<string> StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 

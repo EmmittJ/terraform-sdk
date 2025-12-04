@@ -14,7 +14,7 @@ public partial class AwsPinpointSmsChannel(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => new TerraformReference<string>(this, "application_id");
+        get => GetArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
@@ -23,25 +23,25 @@ public partial class AwsPinpointSmsChannel(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsPinpointSmsChannel(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? SenderId
     {
-        get => new TerraformReference<string>(this, "sender_id");
+        get => GetArgument<TerraformValue<string>>("sender_id");
         set => SetArgument("sender_id", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsPinpointSmsChannel(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? ShortCode
     {
-        get => new TerraformReference<string>(this, "short_code");
+        get => GetArgument<TerraformValue<string>>("short_code");
         set => SetArgument("short_code", value);
     }
 
@@ -67,16 +67,12 @@ public partial class AwsPinpointSmsChannel(string name) : TerraformResource("aws
     /// The promotional_messages_per_second attribute.
     /// </summary>
     public TerraformValue<double> PromotionalMessagesPerSecond
-    {
-        get => new TerraformReference<double>(this, "promotional_messages_per_second");
-    }
+        => AsReference("promotional_messages_per_second");
 
     /// <summary>
     /// The transactional_messages_per_second attribute.
     /// </summary>
     public TerraformValue<double> TransactionalMessagesPerSecond
-    {
-        get => new TerraformReference<double>(this, "transactional_messages_per_second");
-    }
+        => AsReference("transactional_messages_per_second");
 
 }

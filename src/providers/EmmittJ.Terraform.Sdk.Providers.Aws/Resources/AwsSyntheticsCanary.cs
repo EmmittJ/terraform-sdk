@@ -41,7 +41,7 @@ public class AwsSyntheticsCanaryArtifactConfigBlockS3EncryptionBlock : Terraform
     /// </summary>
     public TerraformValue<string>? EncryptionMode
     {
-        get => new TerraformReference<string>(this, "encryption_mode");
+        get => GetArgument<TerraformValue<string>>("encryption_mode");
         set => SetArgument("encryption_mode", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsSyntheticsCanaryArtifactConfigBlockS3EncryptionBlock : Terraform
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsSyntheticsCanaryRunConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ActiveTracing
     {
-        get => new TerraformReference<bool>(this, "active_tracing");
+        get => GetArgument<TerraformValue<bool>>("active_tracing");
         set => SetArgument("active_tracing", value);
     }
 
@@ -82,34 +82,34 @@ public class AwsSyntheticsCanaryRunConfigBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? EnvironmentVariables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "environment_variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("environment_variables");
         set => SetArgument("environment_variables", value);
     }
 
     /// <summary>
     /// The ephemeral_storage attribute.
     /// </summary>
-    public TerraformValue<double> EphemeralStorage
+    public TerraformValue<double>? EphemeralStorage
     {
-        get => new TerraformReference<double>(this, "ephemeral_storage");
+        get => GetArgument<TerraformValue<double>>("ephemeral_storage");
         set => SetArgument("ephemeral_storage", value);
     }
 
     /// <summary>
     /// The memory_in_mb attribute.
     /// </summary>
-    public TerraformValue<double> MemoryInMb
+    public TerraformValue<double>? MemoryInMb
     {
-        get => new TerraformReference<double>(this, "memory_in_mb");
+        get => GetArgument<TerraformValue<double>>("memory_in_mb");
         set => SetArgument("memory_in_mb", value);
     }
 
     /// <summary>
     /// The timeout_in_seconds attribute.
     /// </summary>
-    public TerraformValue<double> TimeoutInSeconds
+    public TerraformValue<double>? TimeoutInSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_in_seconds");
         set => SetArgument("timeout_in_seconds", value);
     }
 
@@ -132,7 +132,7 @@ public class AwsSyntheticsCanaryScheduleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? DurationInSeconds
     {
-        get => new TerraformReference<double>(this, "duration_in_seconds");
+        get => GetArgument<TerraformValue<double>>("duration_in_seconds");
         set => SetArgument("duration_in_seconds", value);
     }
 
@@ -142,7 +142,7 @@ public class AwsSyntheticsCanaryScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -175,7 +175,7 @@ public class AwsSyntheticsCanaryScheduleBlockRetryConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRetries is required")]
     public required TerraformValue<double> MaxRetries
     {
-        get => new TerraformReference<double>(this, "max_retries");
+        get => GetArgument<TerraformValue<double>>("max_retries");
         set => SetArgument("max_retries", value);
     }
 
@@ -198,7 +198,7 @@ public class AwsSyntheticsCanaryVpcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Ipv6AllowedForDualStack
     {
-        get => new TerraformReference<bool>(this, "ipv6_allowed_for_dual_stack");
+        get => GetArgument<TerraformValue<bool>>("ipv6_allowed_for_dual_stack");
         set => SetArgument("ipv6_allowed_for_dual_stack", value);
     }
 
@@ -207,7 +207,7 @@ public class AwsSyntheticsCanaryVpcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -216,7 +216,7 @@ public class AwsSyntheticsCanaryVpcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -224,9 +224,7 @@ public class AwsSyntheticsCanaryVpcConfigBlock : TerraformBlock
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-    {
-        get => new TerraformReference<string>(this, "vpc_id");
-    }
+        => AsReference("vpc_id");
 
 }
 
@@ -243,7 +241,7 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactS3Location is required")]
     public required TerraformValue<string> ArtifactS3Location
     {
-        get => new TerraformReference<string>(this, "artifact_s3_location");
+        get => GetArgument<TerraformValue<string>>("artifact_s3_location");
         set => SetArgument("artifact_s3_location", value);
     }
 
@@ -252,7 +250,7 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<bool>? DeleteLambda
     {
-        get => new TerraformReference<bool>(this, "delete_lambda");
+        get => GetArgument<TerraformValue<bool>>("delete_lambda");
         set => SetArgument("delete_lambda", value);
     }
 
@@ -262,7 +260,7 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
     public required TerraformValue<string> ExecutionRoleArn
     {
-        get => new TerraformReference<string>(this, "execution_role_arn");
+        get => GetArgument<TerraformValue<string>>("execution_role_arn");
         set => SetArgument("execution_role_arn", value);
     }
 
@@ -271,7 +269,7 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<double>? FailureRetentionPeriod
     {
-        get => new TerraformReference<double>(this, "failure_retention_period");
+        get => GetArgument<TerraformValue<double>>("failure_retention_period");
         set => SetArgument("failure_retention_period", value);
     }
 
@@ -281,16 +279,16 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Handler is required")]
     public required TerraformValue<string> Handler
     {
-        get => new TerraformReference<string>(this, "handler");
+        get => GetArgument<TerraformValue<string>>("handler");
         set => SetArgument("handler", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -300,16 +298,16 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -319,7 +317,7 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeVersion is required")]
     public required TerraformValue<string> RuntimeVersion
     {
-        get => new TerraformReference<string>(this, "runtime_version");
+        get => GetArgument<TerraformValue<string>>("runtime_version");
         set => SetArgument("runtime_version", value);
     }
 
@@ -328,7 +326,7 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<string>? S3Bucket
     {
-        get => new TerraformReference<string>(this, "s3_bucket");
+        get => GetArgument<TerraformValue<string>>("s3_bucket");
         set => SetArgument("s3_bucket", value);
     }
 
@@ -337,7 +335,7 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<string>? S3Key
     {
-        get => new TerraformReference<string>(this, "s3_key");
+        get => GetArgument<TerraformValue<string>>("s3_key");
         set => SetArgument("s3_key", value);
     }
 
@@ -346,7 +344,7 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<string>? S3Version
     {
-        get => new TerraformReference<string>(this, "s3_version");
+        get => GetArgument<TerraformValue<string>>("s3_version");
         set => SetArgument("s3_version", value);
     }
 
@@ -355,7 +353,7 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<bool>? StartCanary
     {
-        get => new TerraformReference<bool>(this, "start_canary");
+        get => GetArgument<TerraformValue<bool>>("start_canary");
         set => SetArgument("start_canary", value);
     }
 
@@ -364,7 +362,7 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<double>? SuccessRetentionPeriod
     {
-        get => new TerraformReference<double>(this, "success_retention_period");
+        get => GetArgument<TerraformValue<double>>("success_retention_period");
         set => SetArgument("success_retention_period", value);
     }
 
@@ -373,16 +371,16 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -391,7 +389,7 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     /// </summary>
     public TerraformValue<string>? ZipFile
     {
-        get => new TerraformReference<string>(this, "zip_file");
+        get => GetArgument<TerraformValue<string>>("zip_file");
         set => SetArgument("zip_file", value);
     }
 
@@ -399,41 +397,31 @@ public partial class AwsSyntheticsCanary(string name) : TerraformResource("aws_s
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The engine_arn attribute.
     /// </summary>
     public TerraformValue<string> EngineArn
-    {
-        get => new TerraformReference<string>(this, "engine_arn");
-    }
+        => AsReference("engine_arn");
 
     /// <summary>
     /// The source_location_arn attribute.
     /// </summary>
     public TerraformValue<string> SourceLocationArn
-    {
-        get => new TerraformReference<string>(this, "source_location_arn");
-    }
+        => AsReference("source_location_arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The timeline attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Timeline
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "timeline").ResolveNodes(ctx));
-    }
+        => AsReference("timeline");
 
     /// <summary>
     /// ArtifactConfig block (nesting mode: list).

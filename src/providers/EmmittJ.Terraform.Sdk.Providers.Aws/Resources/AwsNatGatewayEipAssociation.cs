@@ -18,7 +18,7 @@ public class AwsNatGatewayEipAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsNatGatewayEipAssociationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AwsNatGatewayEipAssociation(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocationId is required")]
     public required TerraformValue<string> AllocationId
     {
-        get => new TerraformReference<string>(this, "allocation_id");
+        get => GetArgument<TerraformValue<string>>("allocation_id");
         set => SetArgument("allocation_id", value);
     }
 
@@ -56,16 +56,16 @@ public partial class AwsNatGatewayEipAssociation(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatGatewayId is required")]
     public required TerraformValue<string> NatGatewayId
     {
-        get => new TerraformReference<string>(this, "nat_gateway_id");
+        get => GetArgument<TerraformValue<string>>("nat_gateway_id");
         set => SetArgument("nat_gateway_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -73,9 +73,7 @@ public partial class AwsNatGatewayEipAssociation(string name) : TerraformResourc
     /// The association_id attribute.
     /// </summary>
     public TerraformValue<string> AssociationId
-    {
-        get => new TerraformReference<string>(this, "association_id");
-    }
+        => AsReference("association_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

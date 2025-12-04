@@ -18,7 +18,7 @@ public class AwsRoute53VpcAssociationAuthorizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsRoute53VpcAssociationAuthorizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsRoute53VpcAssociationAuthorizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -52,9 +52,9 @@ public partial class AwsRoute53VpcAssociationAuthorization(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AwsRoute53VpcAssociationAuthorization(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
     /// <summary>
     /// The vpc_region attribute.
     /// </summary>
-    public TerraformValue<string> VpcRegion
+    public TerraformValue<string>? VpcRegion
     {
-        get => new TerraformReference<string>(this, "vpc_region");
+        get => GetArgument<TerraformValue<string>>("vpc_region");
         set => SetArgument("vpc_region", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsRoute53VpcAssociationAuthorization(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     public required TerraformValue<string> ZoneId
     {
-        get => new TerraformReference<string>(this, "zone_id");
+        get => GetArgument<TerraformValue<string>>("zone_id");
         set => SetArgument("zone_id", value);
     }
 

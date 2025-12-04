@@ -18,7 +18,7 @@ public class AzurermPolicySetDefinitionDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,18 +34,18 @@ public partial class AzurermPolicySetDefinitionDataSource(string name) : Terrafo
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -54,16 +54,16 @@ public partial class AzurermPolicySetDefinitionDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? ManagementGroupName
     {
-        get => new TerraformReference<string>(this, "management_group_name");
+        get => GetArgument<TerraformValue<string>>("management_group_name");
         set => SetArgument("management_group_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -71,57 +71,43 @@ public partial class AzurermPolicySetDefinitionDataSource(string name) : Terrafo
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     public TerraformValue<string> Metadata
-    {
-        get => new TerraformReference<string>(this, "metadata");
-    }
+        => AsReference("metadata");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     public TerraformValue<string> Parameters
-    {
-        get => new TerraformReference<string>(this, "parameters");
-    }
+        => AsReference("parameters");
 
     /// <summary>
     /// The policy_definition_group attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PolicyDefinitionGroup
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "policy_definition_group").ResolveNodes(ctx));
-    }
+        => AsReference("policy_definition_group");
 
     /// <summary>
     /// The policy_definition_reference attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PolicyDefinitionReference
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "policy_definition_reference").ResolveNodes(ctx));
-    }
+        => AsReference("policy_definition_reference");
 
     /// <summary>
     /// The policy_definitions attribute.
     /// </summary>
     public TerraformValue<string> PolicyDefinitions
-    {
-        get => new TerraformReference<string>(this, "policy_definitions");
-    }
+        => AsReference("policy_definitions");
 
     /// <summary>
     /// The policy_type attribute.
     /// </summary>
     public TerraformValue<string> PolicyType
-    {
-        get => new TerraformReference<string>(this, "policy_type");
-    }
+        => AsReference("policy_type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

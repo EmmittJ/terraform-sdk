@@ -11,9 +11,9 @@ public partial class GoogleSqlDatabaseInstanceLatestRecoveryTimeDataSource(strin
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class GoogleSqlDatabaseInstanceLatestRecoveryTimeDataSource(strin
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleSqlDatabaseInstanceLatestRecoveryTimeDataSource(strin
     /// </summary>
     public TerraformValue<string>? SourceInstanceDeletionTime
     {
-        get => new TerraformReference<string>(this, "source_instance_deletion_time");
+        get => GetArgument<TerraformValue<string>>("source_instance_deletion_time");
         set => SetArgument("source_instance_deletion_time", value);
     }
 
@@ -49,8 +49,6 @@ public partial class GoogleSqlDatabaseInstanceLatestRecoveryTimeDataSource(strin
     /// Timestamp, identifies the latest recovery time of the source instance.
     /// </summary>
     public TerraformValue<string> LatestRecoveryTime
-    {
-        get => new TerraformReference<string>(this, "latest_recovery_time");
-    }
+        => AsReference("latest_recovery_time");
 
 }

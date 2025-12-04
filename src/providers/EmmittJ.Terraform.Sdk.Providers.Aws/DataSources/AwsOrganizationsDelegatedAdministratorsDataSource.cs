@@ -11,9 +11,9 @@ public partial class AwsOrganizationsDelegatedAdministratorsDataSource(string na
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsOrganizationsDelegatedAdministratorsDataSource(string na
     /// </summary>
     public TerraformValue<string>? ServicePrincipal
     {
-        get => new TerraformReference<string>(this, "service_principal");
+        get => GetArgument<TerraformValue<string>>("service_principal");
         set => SetArgument("service_principal", value);
     }
 
@@ -30,8 +30,6 @@ public partial class AwsOrganizationsDelegatedAdministratorsDataSource(string na
     /// The delegated_administrators attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> DelegatedAdministrators
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "delegated_administrators").ResolveNodes(ctx));
-    }
+        => AsReference("delegated_administrators");
 
 }

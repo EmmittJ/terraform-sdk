@@ -18,7 +18,7 @@ public class AwsMemorydbMultiRegionClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsMemorydbMultiRegionClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsMemorydbMultiRegionClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,25 +54,25 @@ public partial class AwsMemorydbMultiRegionCluster(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformValue<string> Engine
+    public TerraformValue<string>? Engine
     {
-        get => new TerraformReference<string>(this, "engine");
+        get => GetArgument<TerraformValue<string>>("engine");
         set => SetArgument("engine", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformValue<string> EngineVersion
+    public TerraformValue<string>? EngineVersion
     {
-        get => new TerraformReference<string>(this, "engine_version");
+        get => GetArgument<TerraformValue<string>>("engine_version");
         set => SetArgument("engine_version", value);
     }
 
@@ -82,16 +82,16 @@ public partial class AwsMemorydbMultiRegionCluster(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MultiRegionClusterNameSuffix is required")]
     public required TerraformValue<string> MultiRegionClusterNameSuffix
     {
-        get => new TerraformReference<string>(this, "multi_region_cluster_name_suffix");
+        get => GetArgument<TerraformValue<string>>("multi_region_cluster_name_suffix");
         set => SetArgument("multi_region_cluster_name_suffix", value);
     }
 
     /// <summary>
     /// The multi_region_parameter_group_name attribute.
     /// </summary>
-    public TerraformValue<string> MultiRegionParameterGroupName
+    public TerraformValue<string>? MultiRegionParameterGroupName
     {
-        get => new TerraformReference<string>(this, "multi_region_parameter_group_name");
+        get => GetArgument<TerraformValue<string>>("multi_region_parameter_group_name");
         set => SetArgument("multi_region_parameter_group_name", value);
     }
 
@@ -101,25 +101,25 @@ public partial class AwsMemorydbMultiRegionCluster(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     public required TerraformValue<string> NodeType
     {
-        get => new TerraformReference<string>(this, "node_type");
+        get => GetArgument<TerraformValue<string>>("node_type");
         set => SetArgument("node_type", value);
     }
 
     /// <summary>
     /// The num_shards attribute.
     /// </summary>
-    public TerraformValue<double> NumShards
+    public TerraformValue<double>? NumShards
     {
-        get => new TerraformReference<double>(this, "num_shards");
+        get => GetArgument<TerraformValue<double>>("num_shards");
         set => SetArgument("num_shards", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -128,16 +128,16 @@ public partial class AwsMemorydbMultiRegionCluster(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tls_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> TlsEnabled
+    public TerraformValue<bool>? TlsEnabled
     {
-        get => new TerraformReference<bool>(this, "tls_enabled");
+        get => GetArgument<TerraformValue<bool>>("tls_enabled");
         set => SetArgument("tls_enabled", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AwsMemorydbMultiRegionCluster(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? UpdateStrategy
     {
-        get => new TerraformReference<string>(this, "update_strategy");
+        get => GetArgument<TerraformValue<string>>("update_strategy");
         set => SetArgument("update_strategy", value);
     }
 
@@ -154,33 +154,25 @@ public partial class AwsMemorydbMultiRegionCluster(string name) : TerraformResou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The multi_region_cluster_name attribute.
     /// </summary>
     public TerraformValue<string> MultiRegionClusterName
-    {
-        get => new TerraformReference<string>(this, "multi_region_cluster_name");
-    }
+        => AsReference("multi_region_cluster_name");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

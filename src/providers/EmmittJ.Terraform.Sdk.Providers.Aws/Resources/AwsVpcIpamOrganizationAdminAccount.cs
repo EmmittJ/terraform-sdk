@@ -14,16 +14,16 @@ public partial class AwsVpcIpamOrganizationAdminAccount(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DelegatedAdminAccountId is required")]
     public required TerraformValue<string> DelegatedAdminAccountId
     {
-        get => new TerraformReference<string>(this, "delegated_admin_account_id");
+        get => GetArgument<TerraformValue<string>>("delegated_admin_account_id");
         set => SetArgument("delegated_admin_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,32 +31,24 @@ public partial class AwsVpcIpamOrganizationAdminAccount(string name) : Terraform
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     public TerraformValue<string> Email
-    {
-        get => new TerraformReference<string>(this, "email");
-    }
+        => AsReference("email");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The service_principal attribute.
     /// </summary>
     public TerraformValue<string> ServicePrincipal
-    {
-        get => new TerraformReference<string>(this, "service_principal");
-    }
+        => AsReference("service_principal");
 
 }

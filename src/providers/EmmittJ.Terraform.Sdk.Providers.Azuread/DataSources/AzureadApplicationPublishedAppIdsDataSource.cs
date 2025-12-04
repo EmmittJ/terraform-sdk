@@ -18,7 +18,7 @@ public class AzureadApplicationPublishedAppIdsDataSourceTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzureadApplicationPublishedAppIdsDataSource(string name) : 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -44,9 +44,7 @@ public partial class AzureadApplicationPublishedAppIdsDataSource(string name) : 
     /// A mapping of application names and application IDs
     /// </summary>
     public TerraformMap<string> Result
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "result").ResolveNodes(ctx));
-    }
+        => AsReference("result");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

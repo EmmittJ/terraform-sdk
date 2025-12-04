@@ -18,7 +18,7 @@ public class AzurermAutomationAccountDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermAutomationAccountDataSource(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermAutomationAccountDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermAutomationAccountDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,49 +64,37 @@ public partial class AzurermAutomationAccountDataSource(string name) : Terraform
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// The hybrid_service_url attribute.
     /// </summary>
     public TerraformValue<string> HybridServiceUrl
-    {
-        get => new TerraformReference<string>(this, "hybrid_service_url");
-    }
+        => AsReference("hybrid_service_url");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
-    }
+        => AsReference("identity");
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryKey
-    {
-        get => new TerraformReference<string>(this, "primary_key");
-    }
+        => AsReference("primary_key");
 
     /// <summary>
     /// The private_endpoint_connection attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrivateEndpointConnection
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "private_endpoint_connection").ResolveNodes(ctx));
-    }
+        => AsReference("private_endpoint_connection");
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryKey
-    {
-        get => new TerraformReference<string>(this, "secondary_key");
-    }
+        => AsReference("secondary_key");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

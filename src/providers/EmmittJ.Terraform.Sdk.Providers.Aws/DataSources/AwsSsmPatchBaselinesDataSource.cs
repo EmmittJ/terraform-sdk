@@ -19,7 +19,7 @@ public class AwsSsmPatchBaselinesDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsSsmPatchBaselinesDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -47,16 +47,16 @@ public partial class AwsSsmPatchBaselinesDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<bool>? DefaultBaselines
     {
-        get => new TerraformReference<bool>(this, "default_baselines");
+        get => GetArgument<TerraformValue<bool>>("default_baselines");
         set => SetArgument("default_baselines", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -64,9 +64,7 @@ public partial class AwsSsmPatchBaselinesDataSource(string name) : TerraformData
     /// The baseline_identities attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> BaselineIdentities
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "baseline_identities").ResolveNodes(ctx));
-    }
+        => AsReference("baseline_identities");
 
     /// <summary>
     /// Filter block (nesting mode: list).

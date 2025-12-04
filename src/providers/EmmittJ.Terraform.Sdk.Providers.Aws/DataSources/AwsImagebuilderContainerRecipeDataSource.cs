@@ -14,34 +14,34 @@ public partial class AwsImagebuilderContainerRecipeDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,120 +49,90 @@ public partial class AwsImagebuilderContainerRecipeDataSource(string name) : Ter
     /// The component attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Component
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "component").ResolveNodes(ctx));
-    }
+        => AsReference("component");
 
     /// <summary>
     /// The container_type attribute.
     /// </summary>
     public TerraformValue<string> ContainerType
-    {
-        get => new TerraformReference<string>(this, "container_type");
-    }
+        => AsReference("container_type");
 
     /// <summary>
     /// The date_created attribute.
     /// </summary>
     public TerraformValue<string> DateCreated
-    {
-        get => new TerraformReference<string>(this, "date_created");
-    }
+        => AsReference("date_created");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The dockerfile_template_data attribute.
     /// </summary>
     public TerraformValue<string> DockerfileTemplateData
-    {
-        get => new TerraformReference<string>(this, "dockerfile_template_data");
-    }
+        => AsReference("dockerfile_template_data");
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     public TerraformValue<bool> Encrypted
-    {
-        get => new TerraformReference<bool>(this, "encrypted");
-    }
+        => AsReference("encrypted");
 
     /// <summary>
     /// The instance_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstanceConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "instance_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("instance_configuration");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-    {
-        get => new TerraformReference<string>(this, "kms_key_id");
-    }
+        => AsReference("kms_key_id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     public TerraformValue<string> Owner
-    {
-        get => new TerraformReference<string>(this, "owner");
-    }
+        => AsReference("owner");
 
     /// <summary>
     /// The parent_image attribute.
     /// </summary>
     public TerraformValue<string> ParentImage
-    {
-        get => new TerraformReference<string>(this, "parent_image");
-    }
+        => AsReference("parent_image");
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
     public TerraformValue<string> Platform
-    {
-        get => new TerraformReference<string>(this, "platform");
-    }
+        => AsReference("platform");
 
     /// <summary>
     /// The target_repository attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TargetRepository
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "target_repository").ResolveNodes(ctx));
-    }
+        => AsReference("target_repository");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
     /// <summary>
     /// The working_directory attribute.
     /// </summary>
     public TerraformValue<string> WorkingDirectory
-    {
-        get => new TerraformReference<string>(this, "working_directory");
-    }
+        => AsReference("working_directory");
 
 }

@@ -19,7 +19,7 @@ public class AwsKinesisStreamStreamModeDetailsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamMode is required")]
     public required TerraformValue<string> StreamMode
     {
-        get => new TerraformReference<string>(this, "stream_mode");
+        get => GetArgument<TerraformValue<string>>("stream_mode");
         set => SetArgument("stream_mode", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsKinesisStreamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsKinesisStreamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsKinesisStreamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -76,9 +76,9 @@ public partial class AwsKinesisStream(string name) : TerraformResource("aws_kine
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformValue<string> Arn
+    public TerraformValue<string>? Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -87,7 +87,7 @@ public partial class AwsKinesisStream(string name) : TerraformResource("aws_kine
     /// </summary>
     public TerraformValue<string>? EncryptionType
     {
-        get => new TerraformReference<string>(this, "encryption_type");
+        get => GetArgument<TerraformValue<string>>("encryption_type");
         set => SetArgument("encryption_type", value);
     }
 
@@ -96,16 +96,16 @@ public partial class AwsKinesisStream(string name) : TerraformResource("aws_kine
     /// </summary>
     public TerraformValue<bool>? EnforceConsumerDeletion
     {
-        get => new TerraformReference<bool>(this, "enforce_consumer_deletion");
+        get => GetArgument<TerraformValue<bool>>("enforce_consumer_deletion");
         set => SetArgument("enforce_consumer_deletion", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AwsKinesisStream(string name) : TerraformResource("aws_kine
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -124,16 +124,16 @@ public partial class AwsKinesisStream(string name) : TerraformResource("aws_kine
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AwsKinesisStream(string name) : TerraformResource("aws_kine
     /// </summary>
     public TerraformValue<double>? RetentionPeriod
     {
-        get => new TerraformReference<double>(this, "retention_period");
+        get => GetArgument<TerraformValue<double>>("retention_period");
         set => SetArgument("retention_period", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AwsKinesisStream(string name) : TerraformResource("aws_kine
     /// </summary>
     public TerraformValue<double>? ShardCount
     {
-        get => new TerraformReference<double>(this, "shard_count");
+        get => GetArgument<TerraformValue<double>>("shard_count");
         set => SetArgument("shard_count", value);
     }
 
@@ -160,7 +160,7 @@ public partial class AwsKinesisStream(string name) : TerraformResource("aws_kine
     /// </summary>
     public TerraformSet<string>? ShardLevelMetrics
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "shard_level_metrics").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("shard_level_metrics");
         set => SetArgument("shard_level_metrics", value);
     }
 
@@ -169,16 +169,16 @@ public partial class AwsKinesisStream(string name) : TerraformResource("aws_kine
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 

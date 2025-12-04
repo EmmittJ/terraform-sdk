@@ -18,7 +18,7 @@ public class AzurermManagementGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermManagementGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermManagementGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermManagementGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,45 +61,45 @@ public partial class AzurermManagementGroup(string name) : TerraformResource("az
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The parent_management_group_id attribute.
     /// </summary>
-    public TerraformValue<string> ParentManagementGroupId
+    public TerraformValue<string>? ParentManagementGroupId
     {
-        get => new TerraformReference<string>(this, "parent_management_group_id");
+        get => GetArgument<TerraformValue<string>>("parent_management_group_id");
         set => SetArgument("parent_management_group_id", value);
     }
 
     /// <summary>
     /// The subscription_ids attribute.
     /// </summary>
-    public TerraformSet<string> SubscriptionIds
+    public TerraformSet<string>? SubscriptionIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subscription_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subscription_ids");
         set => SetArgument("subscription_ids", value);
     }
 
@@ -107,9 +107,7 @@ public partial class AzurermManagementGroup(string name) : TerraformResource("az
     /// The tenant_scoped_id attribute.
     /// </summary>
     public TerraformValue<string> TenantScopedId
-    {
-        get => new TerraformReference<string>(this, "tenant_scoped_id");
-    }
+        => AsReference("tenant_scoped_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

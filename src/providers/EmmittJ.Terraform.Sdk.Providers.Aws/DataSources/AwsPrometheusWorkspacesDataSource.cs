@@ -13,25 +13,25 @@ public partial class AwsPrometheusWorkspacesDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string>? AliasPrefix
     {
-        get => new TerraformReference<string>(this, "alias_prefix");
+        get => GetArgument<TerraformValue<string>>("alias_prefix");
         set => SetArgument("alias_prefix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -39,24 +39,18 @@ public partial class AwsPrometheusWorkspacesDataSource(string name) : TerraformD
     /// The aliases attribute.
     /// </summary>
     public TerraformList<string> Aliases
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "aliases").ResolveNodes(ctx));
-    }
+        => AsReference("aliases");
 
     /// <summary>
     /// The arns attribute.
     /// </summary>
     public TerraformList<string> Arns
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "arns").ResolveNodes(ctx));
-    }
+        => AsReference("arns");
 
     /// <summary>
     /// The workspace_ids attribute.
     /// </summary>
     public TerraformList<string> WorkspaceIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "workspace_ids").ResolveNodes(ctx));
-    }
+        => AsReference("workspace_ids");
 
 }

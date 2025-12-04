@@ -14,7 +14,7 @@ public partial class AwsCloudwatchLogDestinationPolicy(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPolicy is required")]
     public required TerraformValue<string> AccessPolicy
     {
-        get => new TerraformReference<string>(this, "access_policy");
+        get => GetArgument<TerraformValue<string>>("access_policy");
         set => SetArgument("access_policy", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsCloudwatchLogDestinationPolicy(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationName is required")]
     public required TerraformValue<string> DestinationName
     {
-        get => new TerraformReference<string>(this, "destination_name");
+        get => GetArgument<TerraformValue<string>>("destination_name");
         set => SetArgument("destination_name", value);
     }
 
@@ -33,25 +33,25 @@ public partial class AwsCloudwatchLogDestinationPolicy(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? ForceUpdate
     {
-        get => new TerraformReference<bool>(this, "force_update");
+        get => GetArgument<TerraformValue<bool>>("force_update");
         set => SetArgument("force_update", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

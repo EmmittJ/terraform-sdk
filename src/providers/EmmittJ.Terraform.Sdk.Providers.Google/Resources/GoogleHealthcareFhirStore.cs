@@ -25,7 +25,7 @@ public class GoogleHealthcareFhirStoreNotificationConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     public required TerraformValue<string> PubsubTopic
     {
-        get => new TerraformReference<string>(this, "pubsub_topic");
+        get => GetArgument<TerraformValue<string>>("pubsub_topic");
         set => SetArgument("pubsub_topic", value);
     }
 
@@ -54,7 +54,7 @@ public class GoogleHealthcareFhirStoreNotificationConfigsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
     public required TerraformValue<string> PubsubTopic
     {
-        get => new TerraformReference<string>(this, "pubsub_topic");
+        get => GetArgument<TerraformValue<string>>("pubsub_topic");
         set => SetArgument("pubsub_topic", value);
     }
 
@@ -67,7 +67,7 @@ public class GoogleHealthcareFhirStoreNotificationConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SendFullResource
     {
-        get => new TerraformReference<bool>(this, "send_full_resource");
+        get => GetArgument<TerraformValue<bool>>("send_full_resource");
         set => SetArgument("send_full_resource", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleHealthcareFhirStoreNotificationConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SendPreviousResourceOnDelete
     {
-        get => new TerraformReference<bool>(this, "send_previous_resource_on_delete");
+        get => GetArgument<TerraformValue<bool>>("send_previous_resource_on_delete");
         set => SetArgument("send_previous_resource_on_delete", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleHealthcareFhirStoreStreamConfigsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ResourceTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("resource_types");
         set => SetArgument("resource_types", value);
     }
 
@@ -141,7 +141,7 @@ public class GoogleHealthcareFhirStoreStreamConfigsBlockBigqueryDestinationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetUri is required")]
     public required TerraformValue<string> DatasetUri
     {
-        get => new TerraformReference<string>(this, "dataset_uri");
+        get => GetArgument<TerraformValue<string>>("dataset_uri");
         set => SetArgument("dataset_uri", value);
     }
 
@@ -180,7 +180,7 @@ public class GoogleHealthcareFhirStoreStreamConfigsBlockBigqueryDestinationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecursiveStructureDepth is required")]
     public required TerraformValue<double> RecursiveStructureDepth
     {
-        get => new TerraformReference<double>(this, "recursive_structure_depth");
+        get => GetArgument<TerraformValue<double>>("recursive_structure_depth");
         set => SetArgument("recursive_structure_depth", value);
     }
 
@@ -193,7 +193,7 @@ public class GoogleHealthcareFhirStoreStreamConfigsBlockBigqueryDestinationBlock
     /// </summary>
     public TerraformValue<string>? SchemaType
     {
-        get => new TerraformReference<string>(this, "schema_type");
+        get => GetArgument<TerraformValue<string>>("schema_type");
         set => SetArgument("schema_type", value);
     }
 
@@ -225,7 +225,7 @@ public class GoogleHealthcareFhirStoreStreamConfigsBlockBigqueryDestinationBlock
     /// </summary>
     public TerraformValue<string>? ExpirationMs
     {
-        get => new TerraformReference<string>(this, "expiration_ms");
+        get => GetArgument<TerraformValue<string>>("expiration_ms");
         set => SetArgument("expiration_ms", value);
     }
 
@@ -235,7 +235,7 @@ public class GoogleHealthcareFhirStoreStreamConfigsBlockBigqueryDestinationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -258,7 +258,7 @@ public class GoogleHealthcareFhirStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -267,7 +267,7 @@ public class GoogleHealthcareFhirStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -276,7 +276,7 @@ public class GoogleHealthcareFhirStoreTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -299,7 +299,7 @@ public class GoogleHealthcareFhirStoreValidationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DisableFhirpathValidation
     {
-        get => new TerraformReference<bool>(this, "disable_fhirpath_validation");
+        get => GetArgument<TerraformValue<bool>>("disable_fhirpath_validation");
         set => SetArgument("disable_fhirpath_validation", value);
     }
 
@@ -308,7 +308,7 @@ public class GoogleHealthcareFhirStoreValidationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DisableProfileValidation
     {
-        get => new TerraformReference<bool>(this, "disable_profile_validation");
+        get => GetArgument<TerraformValue<bool>>("disable_profile_validation");
         set => SetArgument("disable_profile_validation", value);
     }
 
@@ -317,7 +317,7 @@ public class GoogleHealthcareFhirStoreValidationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DisableReferenceTypeValidation
     {
-        get => new TerraformReference<bool>(this, "disable_reference_type_validation");
+        get => GetArgument<TerraformValue<bool>>("disable_reference_type_validation");
         set => SetArgument("disable_reference_type_validation", value);
     }
 
@@ -326,7 +326,7 @@ public class GoogleHealthcareFhirStoreValidationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DisableRequiredFieldValidation
     {
-        get => new TerraformReference<bool>(this, "disable_required_field_validation");
+        get => GetArgument<TerraformValue<bool>>("disable_required_field_validation");
         set => SetArgument("disable_required_field_validation", value);
     }
 
@@ -345,7 +345,7 @@ public class GoogleHealthcareFhirStoreValidationConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? EnabledImplementationGuides
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "enabled_implementation_guides").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("enabled_implementation_guides");
         set => SetArgument("enabled_implementation_guides", value);
     }
 
@@ -361,9 +361,9 @@ public partial class GoogleHealthcareFhirStore(string name) : TerraformResource(
     /// <summary>
     /// Enable parsing of references within complex FHIR data types such as Extensions. If this value is set to ENABLED, then features like referential integrity and Bundle reference rewriting apply to all references. If this flag has not been specified the behavior of the FHIR store will not change, references in complex data types will not be parsed. New stores will have this value set to ENABLED by default after a notification period. Warning: turning on this flag causes processing existing resources to fail if they contain references to non-existent resources. Possible values: [&amp;quot;COMPLEX_DATA_TYPE_REFERENCE_PARSING_UNSPECIFIED&amp;quot;, &amp;quot;DISABLED&amp;quot;, &amp;quot;ENABLED&amp;quot;]
     /// </summary>
-    public TerraformValue<string> ComplexDataTypeReferenceParsing
+    public TerraformValue<string>? ComplexDataTypeReferenceParsing
     {
-        get => new TerraformReference<string>(this, "complex_data_type_reference_parsing");
+        get => GetArgument<TerraformValue<string>>("complex_data_type_reference_parsing");
         set => SetArgument("complex_data_type_reference_parsing", value);
     }
 
@@ -374,7 +374,7 @@ public partial class GoogleHealthcareFhirStore(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     public required TerraformValue<string> Dataset
     {
-        get => new TerraformReference<string>(this, "dataset");
+        get => GetArgument<TerraformValue<string>>("dataset");
         set => SetArgument("dataset", value);
     }
 
@@ -385,7 +385,7 @@ public partial class GoogleHealthcareFhirStore(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? DefaultSearchHandlingStrict
     {
-        get => new TerraformReference<bool>(this, "default_search_handling_strict");
+        get => GetArgument<TerraformValue<bool>>("default_search_handling_strict");
         set => SetArgument("default_search_handling_strict", value);
     }
 
@@ -400,7 +400,7 @@ public partial class GoogleHealthcareFhirStore(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? DisableReferentialIntegrity
     {
-        get => new TerraformReference<bool>(this, "disable_referential_integrity");
+        get => GetArgument<TerraformValue<bool>>("disable_referential_integrity");
         set => SetArgument("disable_referential_integrity", value);
     }
 
@@ -415,7 +415,7 @@ public partial class GoogleHealthcareFhirStore(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? DisableResourceVersioning
     {
-        get => new TerraformReference<bool>(this, "disable_resource_versioning");
+        get => GetArgument<TerraformValue<bool>>("disable_resource_versioning");
         set => SetArgument("disable_resource_versioning", value);
     }
 
@@ -431,7 +431,7 @@ public partial class GoogleHealthcareFhirStore(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? EnableHistoryImport
     {
-        get => new TerraformReference<bool>(this, "enable_history_import");
+        get => GetArgument<TerraformValue<bool>>("enable_history_import");
         set => SetArgument("enable_history_import", value);
     }
 
@@ -445,16 +445,16 @@ public partial class GoogleHealthcareFhirStore(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? EnableUpdateCreate
     {
-        get => new TerraformReference<bool>(this, "enable_update_create");
+        get => GetArgument<TerraformValue<bool>>("enable_update_create");
         set => SetArgument("enable_update_create", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -478,7 +478,7 @@ public partial class GoogleHealthcareFhirStore(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -490,7 +490,7 @@ public partial class GoogleHealthcareFhirStore(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -500,7 +500,7 @@ public partial class GoogleHealthcareFhirStore(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -508,26 +508,20 @@ public partial class GoogleHealthcareFhirStore(string name) : TerraformResource(
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The fully qualified name of this dataset
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// NotificationConfig block (nesting mode: list).

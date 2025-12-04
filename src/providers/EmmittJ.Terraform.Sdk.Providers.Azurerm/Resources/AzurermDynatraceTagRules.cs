@@ -18,7 +18,7 @@ public class AzurermDynatraceTagRulesLogRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SendActivityLogsEnabled
     {
-        get => new TerraformReference<bool>(this, "send_activity_logs_enabled");
+        get => GetArgument<TerraformValue<bool>>("send_activity_logs_enabled");
         set => SetArgument("send_activity_logs_enabled", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermDynatraceTagRulesLogRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SendAzureActiveDirectoryLogsEnabled
     {
-        get => new TerraformReference<bool>(this, "send_azure_active_directory_logs_enabled");
+        get => GetArgument<TerraformValue<bool>>("send_azure_active_directory_logs_enabled");
         set => SetArgument("send_azure_active_directory_logs_enabled", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermDynatraceTagRulesLogRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SendSubscriptionLogsEnabled
     {
-        get => new TerraformReference<bool>(this, "send_subscription_logs_enabled");
+        get => GetArgument<TerraformValue<bool>>("send_subscription_logs_enabled");
         set => SetArgument("send_subscription_logs_enabled", value);
     }
 
@@ -71,7 +71,7 @@ public class AzurermDynatraceTagRulesLogRuleBlockFilteringTagBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -81,7 +81,7 @@ public class AzurermDynatraceTagRulesLogRuleBlockFilteringTagBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -91,7 +91,7 @@ public class AzurermDynatraceTagRulesLogRuleBlockFilteringTagBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -114,7 +114,7 @@ public class AzurermDynatraceTagRulesMetricRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SendingMetricsEnabled
     {
-        get => new TerraformReference<bool>(this, "sending_metrics_enabled");
+        get => GetArgument<TerraformValue<bool>>("sending_metrics_enabled");
         set => SetArgument("sending_metrics_enabled", value);
     }
 
@@ -149,7 +149,7 @@ public class AzurermDynatraceTagRulesMetricRuleBlockFilteringTagBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -159,7 +159,7 @@ public class AzurermDynatraceTagRulesMetricRuleBlockFilteringTagBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermDynatraceTagRulesMetricRuleBlockFilteringTagBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -192,7 +192,7 @@ public class AzurermDynatraceTagRulesTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -201,7 +201,7 @@ public class AzurermDynatraceTagRulesTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -210,7 +210,7 @@ public class AzurermDynatraceTagRulesTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -219,7 +219,7 @@ public class AzurermDynatraceTagRulesTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -235,9 +235,9 @@ public partial class AzurermDynatraceTagRules(string name) : TerraformResource("
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -247,7 +247,7 @@ public partial class AzurermDynatraceTagRules(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorId is required")]
     public required TerraformValue<string> MonitorId
     {
-        get => new TerraformReference<string>(this, "monitor_id");
+        get => GetArgument<TerraformValue<string>>("monitor_id");
         set => SetArgument("monitor_id", value);
     }
 
@@ -257,7 +257,7 @@ public partial class AzurermDynatraceTagRules(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

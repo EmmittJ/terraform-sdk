@@ -18,7 +18,7 @@ public class AzurermSecurityCenterStorageDefenderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSecurityCenterStorageDefenderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSecurityCenterStorageDefenderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSecurityCenterStorageDefenderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermSecurityCenterStorageDefender(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermSecurityCenterStorageDefender(string name) : Terrafo
     /// </summary>
     public TerraformValue<double>? MalwareScanningOnUploadCapGbPerMonth
     {
-        get => new TerraformReference<double>(this, "malware_scanning_on_upload_cap_gb_per_month");
+        get => GetArgument<TerraformValue<double>>("malware_scanning_on_upload_cap_gb_per_month");
         set => SetArgument("malware_scanning_on_upload_cap_gb_per_month", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermSecurityCenterStorageDefender(string name) : Terrafo
     /// </summary>
     public TerraformValue<bool>? MalwareScanningOnUploadEnabled
     {
-        get => new TerraformReference<bool>(this, "malware_scanning_on_upload_enabled");
+        get => GetArgument<TerraformValue<bool>>("malware_scanning_on_upload_enabled");
         set => SetArgument("malware_scanning_on_upload_enabled", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AzurermSecurityCenterStorageDefender(string name) : Terrafo
     /// </summary>
     public TerraformValue<bool>? OverrideSubscriptionSettingsEnabled
     {
-        get => new TerraformReference<bool>(this, "override_subscription_settings_enabled");
+        get => GetArgument<TerraformValue<bool>>("override_subscription_settings_enabled");
         set => SetArgument("override_subscription_settings_enabled", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AzurermSecurityCenterStorageDefender(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? ScanResultsEventGridTopicId
     {
-        get => new TerraformReference<string>(this, "scan_results_event_grid_topic_id");
+        get => GetArgument<TerraformValue<string>>("scan_results_event_grid_topic_id");
         set => SetArgument("scan_results_event_grid_topic_id", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AzurermSecurityCenterStorageDefender(string name) : Terrafo
     /// </summary>
     public TerraformValue<bool>? SensitiveDataDiscoveryEnabled
     {
-        get => new TerraformReference<bool>(this, "sensitive_data_discovery_enabled");
+        get => GetArgument<TerraformValue<bool>>("sensitive_data_discovery_enabled");
         set => SetArgument("sensitive_data_discovery_enabled", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermSecurityCenterStorageDefender(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => new TerraformReference<string>(this, "storage_account_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 

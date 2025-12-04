@@ -18,7 +18,7 @@ public class AzurermSourceControlTokenDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermSourceControlTokenDataSource(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermSourceControlTokenDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -54,17 +54,13 @@ public partial class AzurermSourceControlTokenDataSource(string name) : Terrafor
     /// The token attribute.
     /// </summary>
     public TerraformValue<string> Token
-    {
-        get => new TerraformReference<string>(this, "token");
-    }
+        => AsReference("token");
 
     /// <summary>
     /// The token_secret attribute.
     /// </summary>
     public TerraformValue<string> TokenSecret
-    {
-        get => new TerraformReference<string>(this, "token_secret");
-    }
+        => AsReference("token_secret");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

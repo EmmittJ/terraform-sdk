@@ -11,9 +11,9 @@ public partial class GoogleSqlCaCertsDataSource(string name) : TerraformDataSour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class GoogleSqlCaCertsDataSource(string name) : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -40,16 +40,12 @@ public partial class GoogleSqlCaCertsDataSource(string name) : TerraformDataSour
     /// The active_version attribute.
     /// </summary>
     public TerraformValue<string> ActiveVersion
-    {
-        get => new TerraformReference<string>(this, "active_version");
-    }
+        => AsReference("active_version");
 
     /// <summary>
     /// The certs attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Certs
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "certs").ResolveNodes(ctx));
-    }
+        => AsReference("certs");
 
 }

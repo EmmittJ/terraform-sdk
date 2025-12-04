@@ -42,7 +42,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopActivationConfigBlockHumanLoopAc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HumanLoopActivationConditions is required")]
     public required TerraformValue<string> HumanLoopActivationConditions
     {
-        get => new TerraformReference<string>(this, "human_loop_activation_conditions");
+        get => GetArgument<TerraformValue<string>>("human_loop_activation_conditions");
         set => SetArgument("human_loop_activation_conditions", value);
     }
 
@@ -66,7 +66,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HumanTaskUiArn is required")]
     public required TerraformValue<string> HumanTaskUiArn
     {
-        get => new TerraformReference<string>(this, "human_task_ui_arn");
+        get => GetArgument<TerraformValue<string>>("human_task_ui_arn");
         set => SetArgument("human_task_ui_arn", value);
     }
 
@@ -75,7 +75,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? TaskAvailabilityLifetimeInSeconds
     {
-        get => new TerraformReference<double>(this, "task_availability_lifetime_in_seconds");
+        get => GetArgument<TerraformValue<double>>("task_availability_lifetime_in_seconds");
         set => SetArgument("task_availability_lifetime_in_seconds", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskCount is required")]
     public required TerraformValue<double> TaskCount
     {
-        get => new TerraformReference<double>(this, "task_count");
+        get => GetArgument<TerraformValue<double>>("task_count");
         set => SetArgument("task_count", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDescription is required")]
     public required TerraformValue<string> TaskDescription
     {
-        get => new TerraformReference<string>(this, "task_description");
+        get => GetArgument<TerraformValue<string>>("task_description");
         set => SetArgument("task_description", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? TaskKeywords
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "task_keywords").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("task_keywords");
         set => SetArgument("task_keywords", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? TaskTimeLimitInSeconds
     {
-        get => new TerraformReference<double>(this, "task_time_limit_in_seconds");
+        get => GetArgument<TerraformValue<double>>("task_time_limit_in_seconds");
         set => SetArgument("task_time_limit_in_seconds", value);
     }
 
@@ -123,7 +123,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskTitle is required")]
     public required TerraformValue<string> TaskTitle
     {
-        get => new TerraformReference<string>(this, "task_title");
+        get => GetArgument<TerraformValue<string>>("task_title");
         set => SetArgument("task_title", value);
     }
 
@@ -133,7 +133,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkteamArn is required")]
     public required TerraformValue<string> WorkteamArn
     {
-        get => new TerraformReference<string>(this, "workteam_arn");
+        get => GetArgument<TerraformValue<string>>("workteam_arn");
         set => SetArgument("workteam_arn", value);
     }
 
@@ -188,7 +188,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlockPublicWorkforceTaskPr
     /// </summary>
     public TerraformValue<double>? Cents
     {
-        get => new TerraformReference<double>(this, "cents");
+        get => GetArgument<TerraformValue<double>>("cents");
         set => SetArgument("cents", value);
     }
 
@@ -197,7 +197,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlockPublicWorkforceTaskPr
     /// </summary>
     public TerraformValue<double>? Dollars
     {
-        get => new TerraformReference<double>(this, "dollars");
+        get => GetArgument<TerraformValue<double>>("dollars");
         set => SetArgument("dollars", value);
     }
 
@@ -206,7 +206,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopConfigBlockPublicWorkforceTaskPr
     /// </summary>
     public TerraformValue<double>? TenthFractionsOfACent
     {
-        get => new TerraformReference<double>(this, "tenth_fractions_of_a_cent");
+        get => GetArgument<TerraformValue<double>>("tenth_fractions_of_a_cent");
         set => SetArgument("tenth_fractions_of_a_cent", value);
     }
 
@@ -230,7 +230,7 @@ public class AwsSagemakerFlowDefinitionHumanLoopRequestSourceBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsManagedHumanLoopRequestSource is required")]
     public required TerraformValue<string> AwsManagedHumanLoopRequestSource
     {
-        get => new TerraformReference<string>(this, "aws_managed_human_loop_request_source");
+        get => GetArgument<TerraformValue<string>>("aws_managed_human_loop_request_source");
         set => SetArgument("aws_managed_human_loop_request_source", value);
     }
 
@@ -253,7 +253,7 @@ public class AwsSagemakerFlowDefinitionOutputConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -263,7 +263,7 @@ public class AwsSagemakerFlowDefinitionOutputConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3OutputPath is required")]
     public required TerraformValue<string> S3OutputPath
     {
-        get => new TerraformReference<string>(this, "s3_output_path");
+        get => GetArgument<TerraformValue<string>>("s3_output_path");
         set => SetArgument("s3_output_path", value);
     }
 
@@ -282,25 +282,25 @@ public partial class AwsSagemakerFlowDefinition(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FlowDefinitionName is required")]
     public required TerraformValue<string> FlowDefinitionName
     {
-        get => new TerraformReference<string>(this, "flow_definition_name");
+        get => GetArgument<TerraformValue<string>>("flow_definition_name");
         set => SetArgument("flow_definition_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -310,7 +310,7 @@ public partial class AwsSagemakerFlowDefinition(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -319,16 +319,16 @@ public partial class AwsSagemakerFlowDefinition(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -336,9 +336,7 @@ public partial class AwsSagemakerFlowDefinition(string name) : TerraformResource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// HumanLoopActivationConfig block (nesting mode: list).

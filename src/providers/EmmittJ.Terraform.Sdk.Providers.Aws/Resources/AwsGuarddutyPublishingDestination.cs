@@ -14,7 +14,7 @@ public partial class AwsGuarddutyPublishingDestination(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformValue<string> DestinationArn
     {
-        get => new TerraformReference<string>(this, "destination_arn");
+        get => GetArgument<TerraformValue<string>>("destination_arn");
         set => SetArgument("destination_arn", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsGuarddutyPublishingDestination(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? DestinationType
     {
-        get => new TerraformReference<string>(this, "destination_type");
+        get => GetArgument<TerraformValue<string>>("destination_type");
         set => SetArgument("destination_type", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsGuarddutyPublishingDestination(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
     public required TerraformValue<string> DetectorId
     {
-        get => new TerraformReference<string>(this, "detector_id");
+        get => GetArgument<TerraformValue<string>>("detector_id");
         set => SetArgument("detector_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -52,16 +52,16 @@ public partial class AwsGuarddutyPublishingDestination(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
     public required TerraformValue<string> KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

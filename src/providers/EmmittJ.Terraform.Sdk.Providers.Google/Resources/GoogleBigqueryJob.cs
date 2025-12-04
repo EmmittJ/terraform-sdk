@@ -21,7 +21,7 @@ public class GoogleBigqueryJobCopyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CreateDisposition
     {
-        get => new TerraformReference<string>(this, "create_disposition");
+        get => GetArgument<TerraformValue<string>>("create_disposition");
         set => SetArgument("create_disposition", value);
     }
 
@@ -35,7 +35,7 @@ public class GoogleBigqueryJobCopyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? WriteDisposition
     {
-        get => new TerraformReference<string>(this, "write_disposition");
+        get => GetArgument<TerraformValue<string>>("write_disposition");
         set => SetArgument("write_disposition", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleBigqueryJobCopyBlockDestinationEncryptionConfigurationBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -99,9 +99,7 @@ public class GoogleBigqueryJobCopyBlockDestinationEncryptionConfigurationBlock :
     /// Describes the Cloud KMS encryption key version used to protect destination BigQuery table.
     /// </summary>
     public TerraformValue<string> KmsKeyVersion
-    {
-        get => new TerraformReference<string>(this, "kms_key_version");
-    }
+        => AsReference("kms_key_version");
 
 }
 
@@ -119,18 +117,18 @@ public class GoogleBigqueryJobCopyBlockDestinationTableBlock : TerraformBlock
     /// <summary>
     /// The ID of the dataset containing this table.
     /// </summary>
-    public TerraformValue<string> DatasetId
+    public TerraformValue<string>? DatasetId
     {
-        get => new TerraformReference<string>(this, "dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
     /// <summary>
     /// The ID of the project containing this table.
     /// </summary>
-    public TerraformValue<string> ProjectId
+    public TerraformValue<string>? ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -141,7 +139,7 @@ public class GoogleBigqueryJobCopyBlockDestinationTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformValue<string> TableId
     {
-        get => new TerraformReference<string>(this, "table_id");
+        get => GetArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -161,18 +159,18 @@ public class GoogleBigqueryJobCopyBlockSourceTablesBlock : TerraformBlock
     /// <summary>
     /// The ID of the dataset containing this table.
     /// </summary>
-    public TerraformValue<string> DatasetId
+    public TerraformValue<string>? DatasetId
     {
-        get => new TerraformReference<string>(this, "dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
     /// <summary>
     /// The ID of the project containing this table.
     /// </summary>
-    public TerraformValue<string> ProjectId
+    public TerraformValue<string>? ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -183,7 +181,7 @@ public class GoogleBigqueryJobCopyBlockSourceTablesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformValue<string> TableId
     {
-        get => new TerraformReference<string>(this, "table_id");
+        get => GetArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -207,7 +205,7 @@ public class GoogleBigqueryJobExtractBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Compression
     {
-        get => new TerraformReference<string>(this, "compression");
+        get => GetArgument<TerraformValue<string>>("compression");
         set => SetArgument("compression", value);
     }
 
@@ -216,9 +214,9 @@ public class GoogleBigqueryJobExtractBlock : TerraformBlock
     /// The default value for tables is CSV. Tables with nested or repeated fields cannot be exported as CSV.
     /// The default value for models is SAVED_MODEL.
     /// </summary>
-    public TerraformValue<string> DestinationFormat
+    public TerraformValue<string>? DestinationFormat
     {
-        get => new TerraformReference<string>(this, "destination_format");
+        get => GetArgument<TerraformValue<string>>("destination_format");
         set => SetArgument("destination_format", value);
     }
 
@@ -228,7 +226,7 @@ public class GoogleBigqueryJobExtractBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationUris is required")]
     public TerraformList<string>? DestinationUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "destination_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("destination_uris");
         set => SetArgument("destination_uris", value);
     }
 
@@ -236,9 +234,9 @@ public class GoogleBigqueryJobExtractBlock : TerraformBlock
     /// When extracting data in CSV format, this defines the delimiter to use between fields in the exported data.
     /// Default is &#39;,&#39;
     /// </summary>
-    public TerraformValue<string> FieldDelimiter
+    public TerraformValue<string>? FieldDelimiter
     {
-        get => new TerraformReference<string>(this, "field_delimiter");
+        get => GetArgument<TerraformValue<string>>("field_delimiter");
         set => SetArgument("field_delimiter", value);
     }
 
@@ -247,7 +245,7 @@ public class GoogleBigqueryJobExtractBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PrintHeader
     {
-        get => new TerraformReference<bool>(this, "print_header");
+        get => GetArgument<TerraformValue<bool>>("print_header");
         set => SetArgument("print_header", value);
     }
 
@@ -256,7 +254,7 @@ public class GoogleBigqueryJobExtractBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? UseAvroLogicalTypes
     {
-        get => new TerraformReference<bool>(this, "use_avro_logical_types");
+        get => GetArgument<TerraformValue<bool>>("use_avro_logical_types");
         set => SetArgument("use_avro_logical_types", value);
     }
 
@@ -299,7 +297,7 @@ public class GoogleBigqueryJobExtractBlockSourceModelBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => new TerraformReference<string>(this, "dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -309,7 +307,7 @@ public class GoogleBigqueryJobExtractBlockSourceModelBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelId is required")]
     public required TerraformValue<string> ModelId
     {
-        get => new TerraformReference<string>(this, "model_id");
+        get => GetArgument<TerraformValue<string>>("model_id");
         set => SetArgument("model_id", value);
     }
 
@@ -319,7 +317,7 @@ public class GoogleBigqueryJobExtractBlockSourceModelBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -339,18 +337,18 @@ public class GoogleBigqueryJobExtractBlockSourceTableBlock : TerraformBlock
     /// <summary>
     /// The ID of the dataset containing this table.
     /// </summary>
-    public TerraformValue<string> DatasetId
+    public TerraformValue<string>? DatasetId
     {
-        get => new TerraformReference<string>(this, "dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
     /// <summary>
     /// The ID of the project containing this table.
     /// </summary>
-    public TerraformValue<string> ProjectId
+    public TerraformValue<string>? ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -361,7 +359,7 @@ public class GoogleBigqueryJobExtractBlockSourceTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformValue<string> TableId
     {
-        get => new TerraformReference<string>(this, "table_id");
+        get => GetArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -386,7 +384,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowJaggedRows
     {
-        get => new TerraformReference<bool>(this, "allow_jagged_rows");
+        get => GetArgument<TerraformValue<bool>>("allow_jagged_rows");
         set => SetArgument("allow_jagged_rows", value);
     }
 
@@ -396,7 +394,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowQuotedNewlines
     {
-        get => new TerraformReference<bool>(this, "allow_quoted_newlines");
+        get => GetArgument<TerraformValue<bool>>("allow_quoted_newlines");
         set => SetArgument("allow_quoted_newlines", value);
     }
 
@@ -405,7 +403,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Autodetect
     {
-        get => new TerraformReference<bool>(this, "autodetect");
+        get => GetArgument<TerraformValue<bool>>("autodetect");
         set => SetArgument("autodetect", value);
     }
 
@@ -417,7 +415,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CreateDisposition
     {
-        get => new TerraformReference<string>(this, "create_disposition");
+        get => GetArgument<TerraformValue<string>>("create_disposition");
         set => SetArgument("create_disposition", value);
     }
 
@@ -428,7 +426,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Encoding
     {
-        get => new TerraformReference<string>(this, "encoding");
+        get => GetArgument<TerraformValue<string>>("encoding");
         set => SetArgument("encoding", value);
     }
 
@@ -439,9 +437,9 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// data in its raw, binary state. BigQuery also supports the escape sequence &amp;quot;\t&amp;quot; to specify a tab separator.
     /// The default value is a comma (&#39;,&#39;).
     /// </summary>
-    public TerraformValue<string> FieldDelimiter
+    public TerraformValue<string>? FieldDelimiter
     {
-        get => new TerraformReference<string>(this, "field_delimiter");
+        get => GetArgument<TerraformValue<string>>("field_delimiter");
         set => SetArgument("field_delimiter", value);
     }
 
@@ -455,7 +453,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IgnoreUnknownValues
     {
-        get => new TerraformReference<bool>(this, "ignore_unknown_values");
+        get => GetArgument<TerraformValue<bool>>("ignore_unknown_values");
         set => SetArgument("ignore_unknown_values", value);
     }
 
@@ -466,7 +464,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? JsonExtension
     {
-        get => new TerraformReference<string>(this, "json_extension");
+        get => GetArgument<TerraformValue<string>>("json_extension");
         set => SetArgument("json_extension", value);
     }
 
@@ -476,7 +474,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxBadRecords
     {
-        get => new TerraformReference<double>(this, "max_bad_records");
+        get => GetArgument<TerraformValue<double>>("max_bad_records");
         set => SetArgument("max_bad_records", value);
     }
 
@@ -488,7 +486,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? NullMarker
     {
-        get => new TerraformReference<string>(this, "null_marker");
+        get => GetArgument<TerraformValue<string>>("null_marker");
         set => SetArgument("null_marker", value);
     }
 
@@ -499,7 +497,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ProjectionFields
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "projection_fields").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("projection_fields");
         set => SetArgument("projection_fields", value);
     }
 
@@ -509,9 +507,9 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// The default value is a double-quote (&#39;&amp;quot;&#39;). If your data does not contain quoted sections, set the property value to an empty string.
     /// If your data contains quoted newline characters, you must also set the allowQuotedNewlines property to true.
     /// </summary>
-    public TerraformValue<string> Quote
+    public TerraformValue<string>? Quote
     {
-        get => new TerraformReference<string>(this, "quote");
+        get => GetArgument<TerraformValue<string>>("quote");
         set => SetArgument("quote", value);
     }
 
@@ -525,7 +523,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? SchemaUpdateOptions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "schema_update_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("schema_update_options");
         set => SetArgument("schema_update_options", value);
     }
 
@@ -541,7 +539,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SkipLeadingRows
     {
-        get => new TerraformReference<double>(this, "skip_leading_rows");
+        get => GetArgument<TerraformValue<double>>("skip_leading_rows");
         set => SetArgument("skip_leading_rows", value);
     }
 
@@ -553,7 +551,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SourceFormat
     {
-        get => new TerraformReference<string>(this, "source_format");
+        get => GetArgument<TerraformValue<string>>("source_format");
         set => SetArgument("source_format", value);
     }
 
@@ -568,7 +566,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceUris is required")]
     public TerraformList<string>? SourceUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "source_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("source_uris");
         set => SetArgument("source_uris", value);
     }
 
@@ -582,7 +580,7 @@ public class GoogleBigqueryJobLoadBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? WriteDisposition
     {
-        get => new TerraformReference<string>(this, "write_disposition");
+        get => GetArgument<TerraformValue<string>>("write_disposition");
         set => SetArgument("write_disposition", value);
     }
 
@@ -649,7 +647,7 @@ public class GoogleBigqueryJobLoadBlockDestinationEncryptionConfigurationBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -657,9 +655,7 @@ public class GoogleBigqueryJobLoadBlockDestinationEncryptionConfigurationBlock :
     /// Describes the Cloud KMS encryption key version used to protect destination BigQuery table.
     /// </summary>
     public TerraformValue<string> KmsKeyVersion
-    {
-        get => new TerraformReference<string>(this, "kms_key_version");
-    }
+        => AsReference("kms_key_version");
 
 }
 
@@ -677,18 +673,18 @@ public class GoogleBigqueryJobLoadBlockDestinationTableBlock : TerraformBlock
     /// <summary>
     /// The ID of the dataset containing this table.
     /// </summary>
-    public TerraformValue<string> DatasetId
+    public TerraformValue<string>? DatasetId
     {
-        get => new TerraformReference<string>(this, "dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
     /// <summary>
     /// The ID of the project containing this table.
     /// </summary>
-    public TerraformValue<string> ProjectId
+    public TerraformValue<string>? ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -699,7 +695,7 @@ public class GoogleBigqueryJobLoadBlockDestinationTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformValue<string> TableId
     {
-        get => new TerraformReference<string>(this, "table_id");
+        get => GetArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -721,7 +717,7 @@ public class GoogleBigqueryJobLoadBlockParquetOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableListInference
     {
-        get => new TerraformReference<bool>(this, "enable_list_inference");
+        get => GetArgument<TerraformValue<bool>>("enable_list_inference");
         set => SetArgument("enable_list_inference", value);
     }
 
@@ -730,7 +726,7 @@ public class GoogleBigqueryJobLoadBlockParquetOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnumAsString
     {
-        get => new TerraformReference<bool>(this, "enum_as_string");
+        get => GetArgument<TerraformValue<bool>>("enum_as_string");
         set => SetArgument("enum_as_string", value);
     }
 
@@ -752,7 +748,7 @@ public class GoogleBigqueryJobLoadBlockTimePartitioningBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ExpirationMs
     {
-        get => new TerraformReference<string>(this, "expiration_ms");
+        get => GetArgument<TerraformValue<string>>("expiration_ms");
         set => SetArgument("expiration_ms", value);
     }
 
@@ -763,7 +759,7 @@ public class GoogleBigqueryJobLoadBlockTimePartitioningBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Field
     {
-        get => new TerraformReference<string>(this, "field");
+        get => GetArgument<TerraformValue<string>>("field");
         set => SetArgument("field", value);
     }
 
@@ -774,7 +770,7 @@ public class GoogleBigqueryJobLoadBlockTimePartitioningBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -799,7 +795,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowLargeResults
     {
-        get => new TerraformReference<bool>(this, "allow_large_results");
+        get => GetArgument<TerraformValue<bool>>("allow_large_results");
         set => SetArgument("allow_large_results", value);
     }
 
@@ -811,7 +807,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CreateDisposition
     {
-        get => new TerraformReference<string>(this, "create_disposition");
+        get => GetArgument<TerraformValue<string>>("create_disposition");
         set => SetArgument("create_disposition", value);
     }
 
@@ -821,7 +817,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? FlattenResults
     {
-        get => new TerraformReference<bool>(this, "flatten_results");
+        get => GetArgument<TerraformValue<bool>>("flatten_results");
         set => SetArgument("flatten_results", value);
     }
 
@@ -831,7 +827,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaximumBillingTier
     {
-        get => new TerraformReference<double>(this, "maximum_billing_tier");
+        get => GetArgument<TerraformValue<double>>("maximum_billing_tier");
         set => SetArgument("maximum_billing_tier", value);
     }
 
@@ -841,7 +837,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaximumBytesBilled
     {
-        get => new TerraformReference<string>(this, "maximum_bytes_billed");
+        get => GetArgument<TerraformValue<string>>("maximum_bytes_billed");
         set => SetArgument("maximum_bytes_billed", value);
     }
 
@@ -850,7 +846,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ParameterMode
     {
-        get => new TerraformReference<string>(this, "parameter_mode");
+        get => GetArgument<TerraformValue<string>>("parameter_mode");
         set => SetArgument("parameter_mode", value);
     }
 
@@ -859,7 +855,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Priority
     {
-        get => new TerraformReference<string>(this, "priority");
+        get => GetArgument<TerraformValue<string>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -871,7 +867,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformValue<string> Query
     {
-        get => new TerraformReference<string>(this, "query");
+        get => GetArgument<TerraformValue<string>>("query");
         set => SetArgument("query", value);
     }
 
@@ -886,7 +882,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? SchemaUpdateOptions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "schema_update_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("schema_update_options");
         set => SetArgument("schema_update_options", value);
     }
 
@@ -896,7 +892,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? UseLegacySql
     {
-        get => new TerraformReference<bool>(this, "use_legacy_sql");
+        get => GetArgument<TerraformValue<bool>>("use_legacy_sql");
         set => SetArgument("use_legacy_sql", value);
     }
 
@@ -907,7 +903,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? UseQueryCache
     {
-        get => new TerraformReference<bool>(this, "use_query_cache");
+        get => GetArgument<TerraformValue<bool>>("use_query_cache");
         set => SetArgument("use_query_cache", value);
     }
 
@@ -921,7 +917,7 @@ public class GoogleBigqueryJobQueryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? WriteDisposition
     {
-        get => new TerraformReference<string>(this, "write_disposition");
+        get => GetArgument<TerraformValue<string>>("write_disposition");
         set => SetArgument("write_disposition", value);
     }
 
@@ -1007,7 +1003,7 @@ public class GoogleBigqueryJobQueryBlockConnectionPropertiesBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1017,7 +1013,7 @@ public class GoogleBigqueryJobQueryBlockConnectionPropertiesBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1041,16 +1037,16 @@ public class GoogleBigqueryJobQueryBlockDefaultDatasetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => new TerraformReference<string>(this, "dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
     /// <summary>
     /// The ID of the project containing this table.
     /// </summary>
-    public TerraformValue<string> ProjectId
+    public TerraformValue<string>? ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -1074,7 +1070,7 @@ public class GoogleBigqueryJobQueryBlockDestinationEncryptionConfigurationBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -1082,9 +1078,7 @@ public class GoogleBigqueryJobQueryBlockDestinationEncryptionConfigurationBlock 
     /// Describes the Cloud KMS encryption key version used to protect destination BigQuery table.
     /// </summary>
     public TerraformValue<string> KmsKeyVersion
-    {
-        get => new TerraformReference<string>(this, "kms_key_version");
-    }
+        => AsReference("kms_key_version");
 
 }
 
@@ -1102,18 +1096,18 @@ public class GoogleBigqueryJobQueryBlockDestinationTableBlock : TerraformBlock
     /// <summary>
     /// The ID of the dataset containing this table.
     /// </summary>
-    public TerraformValue<string> DatasetId
+    public TerraformValue<string>? DatasetId
     {
-        get => new TerraformReference<string>(this, "dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
     /// <summary>
     /// The ID of the project containing this table.
     /// </summary>
-    public TerraformValue<string> ProjectId
+    public TerraformValue<string>? ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -1124,7 +1118,7 @@ public class GoogleBigqueryJobQueryBlockDestinationTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformValue<string> TableId
     {
-        get => new TerraformReference<string>(this, "table_id");
+        get => GetArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -1147,7 +1141,7 @@ public class GoogleBigqueryJobQueryBlockScriptOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KeyResultStatement
     {
-        get => new TerraformReference<string>(this, "key_result_statement");
+        get => GetArgument<TerraformValue<string>>("key_result_statement");
         set => SetArgument("key_result_statement", value);
     }
 
@@ -1156,7 +1150,7 @@ public class GoogleBigqueryJobQueryBlockScriptOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StatementByteBudget
     {
-        get => new TerraformReference<string>(this, "statement_byte_budget");
+        get => GetArgument<TerraformValue<string>>("statement_byte_budget");
         set => SetArgument("statement_byte_budget", value);
     }
 
@@ -1165,7 +1159,7 @@ public class GoogleBigqueryJobQueryBlockScriptOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StatementTimeoutMs
     {
-        get => new TerraformReference<string>(this, "statement_timeout_ms");
+        get => GetArgument<TerraformValue<string>>("statement_timeout_ms");
         set => SetArgument("statement_timeout_ms", value);
     }
 
@@ -1188,7 +1182,7 @@ public class GoogleBigqueryJobQueryBlockUserDefinedFunctionResourcesBlock : Terr
     /// </summary>
     public TerraformValue<string>? InlineCode
     {
-        get => new TerraformReference<string>(this, "inline_code");
+        get => GetArgument<TerraformValue<string>>("inline_code");
         set => SetArgument("inline_code", value);
     }
 
@@ -1197,7 +1191,7 @@ public class GoogleBigqueryJobQueryBlockUserDefinedFunctionResourcesBlock : Terr
     /// </summary>
     public TerraformValue<string>? ResourceUri
     {
-        get => new TerraformReference<string>(this, "resource_uri");
+        get => GetArgument<TerraformValue<string>>("resource_uri");
         set => SetArgument("resource_uri", value);
     }
 
@@ -1220,7 +1214,7 @@ public class GoogleBigqueryJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1229,7 +1223,7 @@ public class GoogleBigqueryJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1238,7 +1232,7 @@ public class GoogleBigqueryJobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1254,9 +1248,9 @@ public partial class GoogleBigqueryJob(string name) : TerraformResource("google_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1266,7 +1260,7 @@ public partial class GoogleBigqueryJob(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobId is required")]
     public required TerraformValue<string> JobId
     {
-        get => new TerraformReference<string>(this, "job_id");
+        get => GetArgument<TerraformValue<string>>("job_id");
         set => SetArgument("job_id", value);
     }
 
@@ -1275,7 +1269,7 @@ public partial class GoogleBigqueryJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? JobTimeoutMs
     {
-        get => new TerraformReference<string>(this, "job_timeout_ms");
+        get => GetArgument<TerraformValue<string>>("job_timeout_ms");
         set => SetArgument("job_timeout_ms", value);
     }
 
@@ -1288,7 +1282,7 @@ public partial class GoogleBigqueryJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -1297,16 +1291,16 @@ public partial class GoogleBigqueryJob(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -1314,42 +1308,32 @@ public partial class GoogleBigqueryJob(string name) : TerraformResource("google_
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The type of the job.
     /// </summary>
     public TerraformValue<string> JobType
-    {
-        get => new TerraformReference<string>(this, "job_type");
-    }
+        => AsReference("job_type");
 
     /// <summary>
     /// The status of this job. Examine this value when polling an asynchronous job to see if the job is complete.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "status").ResolveNodes(ctx));
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Email address of the user who ran the job.
     /// </summary>
     public TerraformValue<string> UserEmail
-    {
-        get => new TerraformReference<string>(this, "user_email");
-    }
+        => AsReference("user_email");
 
     /// <summary>
     /// Copy block (nesting mode: list).

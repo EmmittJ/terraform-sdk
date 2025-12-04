@@ -18,7 +18,7 @@ public class AzurermPrivateDnsZoneDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermPrivateDnsZoneDataSource(string name) : TerraformDat
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,16 +46,16 @@ public partial class AzurermPrivateDnsZoneDataSource(string name) : TerraformDat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformValue<string> ResourceGroupName
+    public TerraformValue<string>? ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermPrivateDnsZoneDataSource(string name) : TerraformDat
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -72,33 +72,25 @@ public partial class AzurermPrivateDnsZoneDataSource(string name) : TerraformDat
     /// The max_number_of_record_sets attribute.
     /// </summary>
     public TerraformValue<double> MaxNumberOfRecordSets
-    {
-        get => new TerraformReference<double>(this, "max_number_of_record_sets");
-    }
+        => AsReference("max_number_of_record_sets");
 
     /// <summary>
     /// The max_number_of_virtual_network_links attribute.
     /// </summary>
     public TerraformValue<double> MaxNumberOfVirtualNetworkLinks
-    {
-        get => new TerraformReference<double>(this, "max_number_of_virtual_network_links");
-    }
+        => AsReference("max_number_of_virtual_network_links");
 
     /// <summary>
     /// The max_number_of_virtual_network_links_with_registration attribute.
     /// </summary>
     public TerraformValue<double> MaxNumberOfVirtualNetworkLinksWithRegistration
-    {
-        get => new TerraformReference<double>(this, "max_number_of_virtual_network_links_with_registration");
-    }
+        => AsReference("max_number_of_virtual_network_links_with_registration");
 
     /// <summary>
     /// The number_of_record_sets attribute.
     /// </summary>
     public TerraformValue<double> NumberOfRecordSets
-    {
-        get => new TerraformReference<double>(this, "number_of_record_sets");
-    }
+        => AsReference("number_of_record_sets");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -14,16 +14,16 @@ public partial class AwsOdbDbServersDataSource(string name) : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
     public required TerraformValue<string> CloudExadataInfrastructureId
     {
-        get => new TerraformReference<string>(this, "cloud_exadata_infrastructure_id");
+        get => GetArgument<TerraformValue<string>>("cloud_exadata_infrastructure_id");
         set => SetArgument("cloud_exadata_infrastructure_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -31,8 +31,6 @@ public partial class AwsOdbDbServersDataSource(string name) : TerraformDataSourc
     /// List of database servers associated with cloud_exadata_infrastructure_id.
     /// </summary>
     public TerraformList<TerraformMap<object>> DbServers
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "db_servers").ResolveNodes(ctx));
-    }
+        => AsReference("db_servers");
 
 }

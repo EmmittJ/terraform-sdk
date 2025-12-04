@@ -18,7 +18,7 @@ public class AwsApprunnerObservabilityConfigurationTraceConfigurationBlock : Ter
     /// </summary>
     public TerraformValue<string>? Vendor
     {
-        get => new TerraformReference<string>(this, "vendor");
+        get => GetArgument<TerraformValue<string>>("vendor");
         set => SetArgument("vendor", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AwsApprunnerObservabilityConfiguration(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,16 +46,16 @@ public partial class AwsApprunnerObservabilityConfiguration(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObservabilityConfigurationName is required")]
     public required TerraformValue<string> ObservabilityConfigurationName
     {
-        get => new TerraformReference<string>(this, "observability_configuration_name");
+        get => GetArgument<TerraformValue<string>>("observability_configuration_name");
         set => SetArgument("observability_configuration_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AwsApprunnerObservabilityConfiguration(string name) : Terra
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -81,33 +81,25 @@ public partial class AwsApprunnerObservabilityConfiguration(string name) : Terra
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The latest attribute.
     /// </summary>
     public TerraformValue<bool> Latest
-    {
-        get => new TerraformReference<bool>(this, "latest");
-    }
+        => AsReference("latest");
 
     /// <summary>
     /// The observability_configuration_revision attribute.
     /// </summary>
     public TerraformValue<double> ObservabilityConfigurationRevision
-    {
-        get => new TerraformReference<double>(this, "observability_configuration_revision");
-    }
+        => AsReference("observability_configuration_revision");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// TraceConfiguration block (nesting mode: list).

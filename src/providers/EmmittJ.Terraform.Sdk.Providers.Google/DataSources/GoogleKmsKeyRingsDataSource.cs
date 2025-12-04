@@ -21,16 +21,16 @@ public partial class GoogleKmsKeyRingsDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string>? Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class GoogleKmsKeyRingsDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -49,7 +49,7 @@ public partial class GoogleKmsKeyRingsDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -57,8 +57,6 @@ public partial class GoogleKmsKeyRingsDataSource(string name) : TerraformDataSou
     /// A list of all the retrieved key rings
     /// </summary>
     public TerraformList<TerraformMap<object>> KeyRings
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "key_rings").ResolveNodes(ctx));
-    }
+        => AsReference("key_rings");
 
 }

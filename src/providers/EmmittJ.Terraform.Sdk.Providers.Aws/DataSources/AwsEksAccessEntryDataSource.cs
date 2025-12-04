@@ -14,16 +14,16 @@ public partial class AwsEksAccessEntryDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => new TerraformReference<string>(this, "cluster_name");
+        get => GetArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsEksAccessEntryDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalArn is required")]
     public required TerraformValue<string> PrincipalArn
     {
-        get => new TerraformReference<string>(this, "principal_arn");
+        get => GetArgument<TerraformValue<string>>("principal_arn");
         set => SetArgument("principal_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -51,16 +51,16 @@ public partial class AwsEksAccessEntryDataSource(string name) : TerraformDataSou
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -68,48 +68,36 @@ public partial class AwsEksAccessEntryDataSource(string name) : TerraformDataSou
     /// The access_entry_arn attribute.
     /// </summary>
     public TerraformValue<string> AccessEntryArn
-    {
-        get => new TerraformReference<string>(this, "access_entry_arn");
-    }
+        => AsReference("access_entry_arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The kubernetes_groups attribute.
     /// </summary>
     public TerraformSet<string> KubernetesGroups
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "kubernetes_groups").ResolveNodes(ctx));
-    }
+        => AsReference("kubernetes_groups");
 
     /// <summary>
     /// The modified_at attribute.
     /// </summary>
     public TerraformValue<string> ModifiedAt
-    {
-        get => new TerraformReference<string>(this, "modified_at");
-    }
+        => AsReference("modified_at");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
     public TerraformValue<string> UserName
-    {
-        get => new TerraformReference<string>(this, "user_name");
-    }
+        => AsReference("user_name");
 
 }

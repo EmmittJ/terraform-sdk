@@ -19,7 +19,7 @@ public class AwsEc2TransitGatewayPeeringAttachmentDataSourceFilterBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsEc2TransitGatewayPeeringAttachmentDataSourceFilterBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsEc2TransitGatewayPeeringAttachmentDataSourceTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -68,27 +68,27 @@ public partial class AwsEc2TransitGatewayPeeringAttachmentDataSource(string name
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -96,49 +96,37 @@ public partial class AwsEc2TransitGatewayPeeringAttachmentDataSource(string name
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The peer_account_id attribute.
     /// </summary>
     public TerraformValue<string> PeerAccountId
-    {
-        get => new TerraformReference<string>(this, "peer_account_id");
-    }
+        => AsReference("peer_account_id");
 
     /// <summary>
     /// The peer_region attribute.
     /// </summary>
     public TerraformValue<string> PeerRegion
-    {
-        get => new TerraformReference<string>(this, "peer_region");
-    }
+        => AsReference("peer_region");
 
     /// <summary>
     /// The peer_transit_gateway_id attribute.
     /// </summary>
     public TerraformValue<string> PeerTransitGatewayId
-    {
-        get => new TerraformReference<string>(this, "peer_transit_gateway_id");
-    }
+        => AsReference("peer_transit_gateway_id");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
     public TerraformValue<string> TransitGatewayId
-    {
-        get => new TerraformReference<string>(this, "transit_gateway_id");
-    }
+        => AsReference("transit_gateway_id");
 
     /// <summary>
     /// Filter block (nesting mode: set).

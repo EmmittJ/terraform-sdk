@@ -18,7 +18,7 @@ public class AwsKmsGrantConstraintsBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? EncryptionContextEquals
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "encryption_context_equals").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("encryption_context_equals");
         set => SetArgument("encryption_context_equals", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsKmsGrantConstraintsBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? EncryptionContextSubset
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "encryption_context_subset").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("encryption_context_subset");
         set => SetArgument("encryption_context_subset", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AwsKmsGrant(string name) : TerraformResource("aws_kms_grant
     /// </summary>
     public TerraformSet<string>? GrantCreationTokens
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "grant_creation_tokens").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("grant_creation_tokens");
         set => SetArgument("grant_creation_tokens", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AwsKmsGrant(string name) : TerraformResource("aws_kms_grant
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GranteePrincipal is required")]
     public required TerraformValue<string> GranteePrincipal
     {
-        get => new TerraformReference<string>(this, "grantee_principal");
+        get => GetArgument<TerraformValue<string>>("grantee_principal");
         set => SetArgument("grantee_principal", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsKmsGrant(string name) : TerraformResource("aws_kms_grant
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformValue<string> KeyId
     {
-        get => new TerraformReference<string>(this, "key_id");
+        get => GetArgument<TerraformValue<string>>("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AwsKmsGrant(string name) : TerraformResource("aws_kms_grant
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,16 +93,16 @@ public partial class AwsKmsGrant(string name) : TerraformResource("aws_kms_grant
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Operations is required")]
     public required TerraformSet<string> Operations
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "operations").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("operations");
         set => SetArgument("operations", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AwsKmsGrant(string name) : TerraformResource("aws_kms_grant
     /// </summary>
     public TerraformValue<bool>? RetireOnDelete
     {
-        get => new TerraformReference<bool>(this, "retire_on_delete");
+        get => GetArgument<TerraformValue<bool>>("retire_on_delete");
         set => SetArgument("retire_on_delete", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AwsKmsGrant(string name) : TerraformResource("aws_kms_grant
     /// </summary>
     public TerraformValue<string>? RetiringPrincipal
     {
-        get => new TerraformReference<string>(this, "retiring_principal");
+        get => GetArgument<TerraformValue<string>>("retiring_principal");
         set => SetArgument("retiring_principal", value);
     }
 
@@ -128,17 +128,13 @@ public partial class AwsKmsGrant(string name) : TerraformResource("aws_kms_grant
     /// The grant_id attribute.
     /// </summary>
     public TerraformValue<string> GrantId
-    {
-        get => new TerraformReference<string>(this, "grant_id");
-    }
+        => AsReference("grant_id");
 
     /// <summary>
     /// The grant_token attribute.
     /// </summary>
     public TerraformValue<string> GrantToken
-    {
-        get => new TerraformReference<string>(this, "grant_token");
-    }
+        => AsReference("grant_token");
 
     /// <summary>
     /// Constraints block (nesting mode: set).

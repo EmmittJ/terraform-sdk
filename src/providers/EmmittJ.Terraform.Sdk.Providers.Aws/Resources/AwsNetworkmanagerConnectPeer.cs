@@ -18,7 +18,7 @@ public class AwsNetworkmanagerConnectPeerBgpOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? PeerAsn
     {
-        get => new TerraformReference<double>(this, "peer_asn");
+        get => GetArgument<TerraformValue<double>>("peer_asn");
         set => SetArgument("peer_asn", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsNetworkmanagerConnectPeerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsNetworkmanagerConnectPeerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -69,7 +69,7 @@ public partial class AwsNetworkmanagerConnectPeer(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectAttachmentId is required")]
     public required TerraformValue<string> ConnectAttachmentId
     {
-        get => new TerraformReference<string>(this, "connect_attachment_id");
+        get => GetArgument<TerraformValue<string>>("connect_attachment_id");
         set => SetArgument("connect_attachment_id", value);
     }
 
@@ -78,16 +78,16 @@ public partial class AwsNetworkmanagerConnectPeer(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? CoreNetworkAddress
     {
-        get => new TerraformReference<string>(this, "core_network_address");
+        get => GetArgument<TerraformValue<string>>("core_network_address");
         set => SetArgument("core_network_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -96,7 +96,7 @@ public partial class AwsNetworkmanagerConnectPeer(string name) : TerraformResour
     /// </summary>
     public TerraformList<string>? InsideCidrBlocks
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "inside_cidr_blocks").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("inside_cidr_blocks");
         set => SetArgument("inside_cidr_blocks", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsNetworkmanagerConnectPeer(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAddress is required")]
     public required TerraformValue<string> PeerAddress
     {
-        get => new TerraformReference<string>(this, "peer_address");
+        get => GetArgument<TerraformValue<string>>("peer_address");
         set => SetArgument("peer_address", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AwsNetworkmanagerConnectPeer(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? SubnetArn
     {
-        get => new TerraformReference<string>(this, "subnet_arn");
+        get => GetArgument<TerraformValue<string>>("subnet_arn");
         set => SetArgument("subnet_arn", value);
     }
 
@@ -124,16 +124,16 @@ public partial class AwsNetworkmanagerConnectPeer(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -141,57 +141,43 @@ public partial class AwsNetworkmanagerConnectPeer(string name) : TerraformResour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Configuration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "configuration").ResolveNodes(ctx));
-    }
+        => AsReference("configuration");
 
     /// <summary>
     /// The connect_peer_id attribute.
     /// </summary>
     public TerraformValue<string> ConnectPeerId
-    {
-        get => new TerraformReference<string>(this, "connect_peer_id");
-    }
+        => AsReference("connect_peer_id");
 
     /// <summary>
     /// The core_network_id attribute.
     /// </summary>
     public TerraformValue<string> CoreNetworkId
-    {
-        get => new TerraformReference<string>(this, "core_network_id");
-    }
+        => AsReference("core_network_id");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The edge_location attribute.
     /// </summary>
     public TerraformValue<string> EdgeLocation
-    {
-        get => new TerraformReference<string>(this, "edge_location");
-    }
+        => AsReference("edge_location");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// BgpOptions block (nesting mode: list).

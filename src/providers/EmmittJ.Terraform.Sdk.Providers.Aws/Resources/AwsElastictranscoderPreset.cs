@@ -18,16 +18,16 @@ public class AwsElastictranscoderPresetAudioBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AudioPackingMode
     {
-        get => new TerraformReference<string>(this, "audio_packing_mode");
+        get => GetArgument<TerraformValue<string>>("audio_packing_mode");
         set => SetArgument("audio_packing_mode", value);
     }
 
     /// <summary>
     /// The bit_rate attribute.
     /// </summary>
-    public TerraformValue<string> BitRate
+    public TerraformValue<string>? BitRate
     {
-        get => new TerraformReference<string>(this, "bit_rate");
+        get => GetArgument<TerraformValue<string>>("bit_rate");
         set => SetArgument("bit_rate", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsElastictranscoderPresetAudioBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Channels
     {
-        get => new TerraformReference<string>(this, "channels");
+        get => GetArgument<TerraformValue<string>>("channels");
         set => SetArgument("channels", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsElastictranscoderPresetAudioBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Codec
     {
-        get => new TerraformReference<string>(this, "codec");
+        get => GetArgument<TerraformValue<string>>("codec");
         set => SetArgument("codec", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsElastictranscoderPresetAudioBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SampleRate
     {
-        get => new TerraformReference<string>(this, "sample_rate");
+        get => GetArgument<TerraformValue<string>>("sample_rate");
         set => SetArgument("sample_rate", value);
     }
 
@@ -75,36 +75,36 @@ public class AwsElastictranscoderPresetAudioCodecOptionsBlock : TerraformBlock
     /// <summary>
     /// The bit_depth attribute.
     /// </summary>
-    public TerraformValue<string> BitDepth
+    public TerraformValue<string>? BitDepth
     {
-        get => new TerraformReference<string>(this, "bit_depth");
+        get => GetArgument<TerraformValue<string>>("bit_depth");
         set => SetArgument("bit_depth", value);
     }
 
     /// <summary>
     /// The bit_order attribute.
     /// </summary>
-    public TerraformValue<string> BitOrder
+    public TerraformValue<string>? BitOrder
     {
-        get => new TerraformReference<string>(this, "bit_order");
+        get => GetArgument<TerraformValue<string>>("bit_order");
         set => SetArgument("bit_order", value);
     }
 
     /// <summary>
     /// The profile attribute.
     /// </summary>
-    public TerraformValue<string> Profile
+    public TerraformValue<string>? Profile
     {
-        get => new TerraformReference<string>(this, "profile");
+        get => GetArgument<TerraformValue<string>>("profile");
         set => SetArgument("profile", value);
     }
 
     /// <summary>
     /// The signed attribute.
     /// </summary>
-    public TerraformValue<string> Signed
+    public TerraformValue<string>? Signed
     {
-        get => new TerraformReference<string>(this, "signed");
+        get => GetArgument<TerraformValue<string>>("signed");
         set => SetArgument("signed", value);
     }
 
@@ -127,7 +127,7 @@ public class AwsElastictranscoderPresetThumbnailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AspectRatio
     {
-        get => new TerraformReference<string>(this, "aspect_ratio");
+        get => GetArgument<TerraformValue<string>>("aspect_ratio");
         set => SetArgument("aspect_ratio", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsElastictranscoderPresetThumbnailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Format
     {
-        get => new TerraformReference<string>(this, "format");
+        get => GetArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
@@ -145,7 +145,7 @@ public class AwsElastictranscoderPresetThumbnailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Interval
     {
-        get => new TerraformReference<string>(this, "interval");
+        get => GetArgument<TerraformValue<string>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -154,7 +154,7 @@ public class AwsElastictranscoderPresetThumbnailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaxHeight
     {
-        get => new TerraformReference<string>(this, "max_height");
+        get => GetArgument<TerraformValue<string>>("max_height");
         set => SetArgument("max_height", value);
     }
 
@@ -163,7 +163,7 @@ public class AwsElastictranscoderPresetThumbnailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaxWidth
     {
-        get => new TerraformReference<string>(this, "max_width");
+        get => GetArgument<TerraformValue<string>>("max_width");
         set => SetArgument("max_width", value);
     }
 
@@ -172,7 +172,7 @@ public class AwsElastictranscoderPresetThumbnailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PaddingPolicy
     {
-        get => new TerraformReference<string>(this, "padding_policy");
+        get => GetArgument<TerraformValue<string>>("padding_policy");
         set => SetArgument("padding_policy", value);
     }
 
@@ -181,7 +181,7 @@ public class AwsElastictranscoderPresetThumbnailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Resolution
     {
-        get => new TerraformReference<string>(this, "resolution");
+        get => GetArgument<TerraformValue<string>>("resolution");
         set => SetArgument("resolution", value);
     }
 
@@ -190,7 +190,7 @@ public class AwsElastictranscoderPresetThumbnailsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SizingPolicy
     {
-        get => new TerraformReference<string>(this, "sizing_policy");
+        get => GetArgument<TerraformValue<string>>("sizing_policy");
         set => SetArgument("sizing_policy", value);
     }
 
@@ -213,16 +213,16 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AspectRatio
     {
-        get => new TerraformReference<string>(this, "aspect_ratio");
+        get => GetArgument<TerraformValue<string>>("aspect_ratio");
         set => SetArgument("aspect_ratio", value);
     }
 
     /// <summary>
     /// The bit_rate attribute.
     /// </summary>
-    public TerraformValue<string> BitRate
+    public TerraformValue<string>? BitRate
     {
-        get => new TerraformReference<string>(this, "bit_rate");
+        get => GetArgument<TerraformValue<string>>("bit_rate");
         set => SetArgument("bit_rate", value);
     }
 
@@ -231,7 +231,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Codec
     {
-        get => new TerraformReference<string>(this, "codec");
+        get => GetArgument<TerraformValue<string>>("codec");
         set => SetArgument("codec", value);
     }
 
@@ -240,7 +240,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DisplayAspectRatio
     {
-        get => new TerraformReference<string>(this, "display_aspect_ratio");
+        get => GetArgument<TerraformValue<string>>("display_aspect_ratio");
         set => SetArgument("display_aspect_ratio", value);
     }
 
@@ -249,7 +249,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FixedGop
     {
-        get => new TerraformReference<string>(this, "fixed_gop");
+        get => GetArgument<TerraformValue<string>>("fixed_gop");
         set => SetArgument("fixed_gop", value);
     }
 
@@ -258,7 +258,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FrameRate
     {
-        get => new TerraformReference<string>(this, "frame_rate");
+        get => GetArgument<TerraformValue<string>>("frame_rate");
         set => SetArgument("frame_rate", value);
     }
 
@@ -267,16 +267,16 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KeyframesMaxDist
     {
-        get => new TerraformReference<string>(this, "keyframes_max_dist");
+        get => GetArgument<TerraformValue<string>>("keyframes_max_dist");
         set => SetArgument("keyframes_max_dist", value);
     }
 
     /// <summary>
     /// The max_frame_rate attribute.
     /// </summary>
-    public TerraformValue<string> MaxFrameRate
+    public TerraformValue<string>? MaxFrameRate
     {
-        get => new TerraformReference<string>(this, "max_frame_rate");
+        get => GetArgument<TerraformValue<string>>("max_frame_rate");
         set => SetArgument("max_frame_rate", value);
     }
 
@@ -285,7 +285,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaxHeight
     {
-        get => new TerraformReference<string>(this, "max_height");
+        get => GetArgument<TerraformValue<string>>("max_height");
         set => SetArgument("max_height", value);
     }
 
@@ -294,7 +294,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaxWidth
     {
-        get => new TerraformReference<string>(this, "max_width");
+        get => GetArgument<TerraformValue<string>>("max_width");
         set => SetArgument("max_width", value);
     }
 
@@ -303,7 +303,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PaddingPolicy
     {
-        get => new TerraformReference<string>(this, "padding_policy");
+        get => GetArgument<TerraformValue<string>>("padding_policy");
         set => SetArgument("padding_policy", value);
     }
 
@@ -312,7 +312,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Resolution
     {
-        get => new TerraformReference<string>(this, "resolution");
+        get => GetArgument<TerraformValue<string>>("resolution");
         set => SetArgument("resolution", value);
     }
 
@@ -321,7 +321,7 @@ public class AwsElastictranscoderPresetVideoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SizingPolicy
     {
-        get => new TerraformReference<string>(this, "sizing_policy");
+        get => GetArgument<TerraformValue<string>>("sizing_policy");
         set => SetArgument("sizing_policy", value);
     }
 
@@ -344,7 +344,7 @@ public class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? HorizontalAlign
     {
-        get => new TerraformReference<string>(this, "horizontal_align");
+        get => GetArgument<TerraformValue<string>>("horizontal_align");
         set => SetArgument("horizontal_align", value);
     }
 
@@ -353,7 +353,7 @@ public class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? HorizontalOffset
     {
-        get => new TerraformReference<string>(this, "horizontal_offset");
+        get => GetArgument<TerraformValue<string>>("horizontal_offset");
         set => SetArgument("horizontal_offset", value);
     }
 
@@ -362,7 +362,7 @@ public class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -371,7 +371,7 @@ public class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaxHeight
     {
-        get => new TerraformReference<string>(this, "max_height");
+        get => GetArgument<TerraformValue<string>>("max_height");
         set => SetArgument("max_height", value);
     }
 
@@ -380,7 +380,7 @@ public class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaxWidth
     {
-        get => new TerraformReference<string>(this, "max_width");
+        get => GetArgument<TerraformValue<string>>("max_width");
         set => SetArgument("max_width", value);
     }
 
@@ -389,7 +389,7 @@ public class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Opacity
     {
-        get => new TerraformReference<string>(this, "opacity");
+        get => GetArgument<TerraformValue<string>>("opacity");
         set => SetArgument("opacity", value);
     }
 
@@ -398,7 +398,7 @@ public class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SizingPolicy
     {
-        get => new TerraformReference<string>(this, "sizing_policy");
+        get => GetArgument<TerraformValue<string>>("sizing_policy");
         set => SetArgument("sizing_policy", value);
     }
 
@@ -407,7 +407,7 @@ public class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Target
     {
-        get => new TerraformReference<string>(this, "target");
+        get => GetArgument<TerraformValue<string>>("target");
         set => SetArgument("target", value);
     }
 
@@ -416,7 +416,7 @@ public class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? VerticalAlign
     {
-        get => new TerraformReference<string>(this, "vertical_align");
+        get => GetArgument<TerraformValue<string>>("vertical_align");
         set => SetArgument("vertical_align", value);
     }
 
@@ -425,7 +425,7 @@ public class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? VerticalOffset
     {
-        get => new TerraformReference<string>(this, "vertical_offset");
+        get => GetArgument<TerraformValue<string>>("vertical_offset");
         set => SetArgument("vertical_offset", value);
     }
 
@@ -445,7 +445,7 @@ public partial class AwsElastictranscoderPreset(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Container is required")]
     public required TerraformValue<string> Container
     {
-        get => new TerraformReference<string>(this, "container");
+        get => GetArgument<TerraformValue<string>>("container");
         set => SetArgument("container", value);
     }
 
@@ -454,43 +454,43 @@ public partial class AwsElastictranscoderPreset(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string> Type
+    public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -499,7 +499,7 @@ public partial class AwsElastictranscoderPreset(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? VideoCodecOptions
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "video_codec_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("video_codec_options");
         set => SetArgument("video_codec_options", value);
     }
 
@@ -507,9 +507,7 @@ public partial class AwsElastictranscoderPreset(string name) : TerraformResource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Audio block (nesting mode: list).

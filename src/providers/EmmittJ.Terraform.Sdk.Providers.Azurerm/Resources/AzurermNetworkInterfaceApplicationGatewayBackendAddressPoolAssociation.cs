@@ -18,7 +18,7 @@ public class AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociat
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociat
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociat
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AzurermNetworkInterfaceApplicationGatewayBackendAddressPool
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendAddressPoolId is required")]
     public required TerraformValue<string> BackendAddressPoolId
     {
-        get => new TerraformReference<string>(this, "backend_address_pool_id");
+        get => GetArgument<TerraformValue<string>>("backend_address_pool_id");
         set => SetArgument("backend_address_pool_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermNetworkInterfaceApplicationGatewayBackendAddressPool
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfigurationName is required")]
     public required TerraformValue<string> IpConfigurationName
     {
-        get => new TerraformReference<string>(this, "ip_configuration_name");
+        get => GetArgument<TerraformValue<string>>("ip_configuration_name");
         set => SetArgument("ip_configuration_name", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermNetworkInterfaceApplicationGatewayBackendAddressPool
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformValue<string> NetworkInterfaceId
     {
-        get => new TerraformReference<string>(this, "network_interface_id");
+        get => GetArgument<TerraformValue<string>>("network_interface_id");
         set => SetArgument("network_interface_id", value);
     }
 

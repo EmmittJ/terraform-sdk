@@ -18,7 +18,7 @@ public class AzurermContainerRegistryTokenPasswordPassword1Block : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Expiry
     {
-        get => new TerraformReference<string>(this, "expiry");
+        get => GetArgument<TerraformValue<string>>("expiry");
         set => SetArgument("expiry", value);
     }
 
@@ -26,9 +26,7 @@ public class AzurermContainerRegistryTokenPasswordPassword1Block : TerraformBloc
     /// The value attribute.
     /// </summary>
     public TerraformValue<string> Value
-    {
-        get => new TerraformReference<string>(this, "value");
-    }
+        => AsReference("value");
 
 }
 
@@ -49,7 +47,7 @@ public class AzurermContainerRegistryTokenPasswordPassword2Block : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Expiry
     {
-        get => new TerraformReference<string>(this, "expiry");
+        get => GetArgument<TerraformValue<string>>("expiry");
         set => SetArgument("expiry", value);
     }
 
@@ -57,9 +55,7 @@ public class AzurermContainerRegistryTokenPasswordPassword2Block : TerraformBloc
     /// The value attribute.
     /// </summary>
     public TerraformValue<string> Value
-    {
-        get => new TerraformReference<string>(this, "value");
-    }
+        => AsReference("value");
 
 }
 
@@ -80,7 +76,7 @@ public class AzurermContainerRegistryTokenPasswordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -89,7 +85,7 @@ public class AzurermContainerRegistryTokenPasswordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -98,7 +94,7 @@ public class AzurermContainerRegistryTokenPasswordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -107,7 +103,7 @@ public class AzurermContainerRegistryTokenPasswordTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -126,16 +122,16 @@ public partial class AzurermContainerRegistryTokenPassword(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryTokenId is required")]
     public required TerraformValue<string> ContainerRegistryTokenId
     {
-        get => new TerraformReference<string>(this, "container_registry_token_id");
+        get => GetArgument<TerraformValue<string>>("container_registry_token_id");
         set => SetArgument("container_registry_token_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 

@@ -14,16 +14,16 @@ public partial class AwsLambdaInvocation(string name) : TerraformResource("aws_l
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformValue<string> FunctionName
     {
-        get => new TerraformReference<string>(this, "function_name");
+        get => GetArgument<TerraformValue<string>>("function_name");
         set => SetArgument("function_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsLambdaInvocation(string name) : TerraformResource("aws_l
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Input is required")]
     public required TerraformValue<string> Input
     {
-        get => new TerraformReference<string>(this, "input");
+        get => GetArgument<TerraformValue<string>>("input");
         set => SetArgument("input", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsLambdaInvocation(string name) : TerraformResource("aws_l
     /// </summary>
     public TerraformValue<string>? LifecycleScope
     {
-        get => new TerraformReference<string>(this, "lifecycle_scope");
+        get => GetArgument<TerraformValue<string>>("lifecycle_scope");
         set => SetArgument("lifecycle_scope", value);
     }
 
@@ -51,16 +51,16 @@ public partial class AwsLambdaInvocation(string name) : TerraformResource("aws_l
     /// </summary>
     public TerraformValue<string>? Qualifier
     {
-        get => new TerraformReference<string>(this, "qualifier");
+        get => GetArgument<TerraformValue<string>>("qualifier");
         set => SetArgument("qualifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -69,7 +69,7 @@ public partial class AwsLambdaInvocation(string name) : TerraformResource("aws_l
     /// </summary>
     public TerraformValue<string>? TerraformKey
     {
-        get => new TerraformReference<string>(this, "terraform_key");
+        get => GetArgument<TerraformValue<string>>("terraform_key");
         set => SetArgument("terraform_key", value);
     }
 
@@ -78,7 +78,7 @@ public partial class AwsLambdaInvocation(string name) : TerraformResource("aws_l
     /// </summary>
     public TerraformMap<string>? Triggers
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "triggers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("triggers");
         set => SetArgument("triggers", value);
     }
 
@@ -86,8 +86,6 @@ public partial class AwsLambdaInvocation(string name) : TerraformResource("aws_l
     /// The result attribute.
     /// </summary>
     public TerraformValue<string> Result
-    {
-        get => new TerraformReference<string>(this, "result");
-    }
+        => AsReference("result");
 
 }

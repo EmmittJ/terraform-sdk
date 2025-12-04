@@ -18,7 +18,7 @@ public class GoogleDiscoveryEngineSitemapTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleDiscoveryEngineSitemapTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,16 +46,16 @@ public partial class GoogleDiscoveryEngineSitemap(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreId is required")]
     public required TerraformValue<string> DataStoreId
     {
-        get => new TerraformReference<string>(this, "data_store_id");
+        get => GetArgument<TerraformValue<string>>("data_store_id");
         set => SetArgument("data_store_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -66,16 +66,16 @@ public partial class GoogleDiscoveryEngineSitemap(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -84,7 +84,7 @@ public partial class GoogleDiscoveryEngineSitemap(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -92,9 +92,7 @@ public partial class GoogleDiscoveryEngineSitemap(string name) : TerraformResour
     /// Timestamp when the sitemap was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The unique full resource name of the sitemap. Values are of the format
@@ -103,17 +101,13 @@ public partial class GoogleDiscoveryEngineSitemap(string name) : TerraformResour
     /// characters.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The unique id of the sitemap.
     /// </summary>
     public TerraformValue<string> SitemapId
-    {
-        get => new TerraformReference<string>(this, "sitemap_id");
-    }
+        => AsReference("sitemap_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

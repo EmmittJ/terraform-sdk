@@ -16,9 +16,9 @@ public class AzurermCosmosdbSqlContainerAutoscaleSettingsBlock : TerraformBlock
     /// <summary>
     /// The max_throughput attribute.
     /// </summary>
-    public TerraformValue<double> MaxThroughput
+    public TerraformValue<double>? MaxThroughput
     {
-        get => new TerraformReference<double>(this, "max_throughput");
+        get => GetArgument<TerraformValue<double>>("max_throughput");
         set => SetArgument("max_throughput", value);
     }
 
@@ -41,7 +41,7 @@ public class AzurermCosmosdbSqlContainerConflictResolutionPolicyBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? ConflictResolutionPath
     {
-        get => new TerraformReference<string>(this, "conflict_resolution_path");
+        get => GetArgument<TerraformValue<string>>("conflict_resolution_path");
         set => SetArgument("conflict_resolution_path", value);
     }
 
@@ -50,7 +50,7 @@ public class AzurermCosmosdbSqlContainerConflictResolutionPolicyBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? ConflictResolutionProcedure
     {
-        get => new TerraformReference<string>(this, "conflict_resolution_procedure");
+        get => GetArgument<TerraformValue<string>>("conflict_resolution_procedure");
         set => SetArgument("conflict_resolution_procedure", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermCosmosdbSqlContainerConflictResolutionPolicyBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -83,7 +83,7 @@ public class AzurermCosmosdbSqlContainerIndexingPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? IndexingMode
     {
-        get => new TerraformReference<string>(this, "indexing_mode");
+        get => GetArgument<TerraformValue<string>>("indexing_mode");
         set => SetArgument("indexing_mode", value);
     }
 
@@ -167,7 +167,7 @@ public class AzurermCosmosdbSqlContainerIndexingPolicyBlockCompositeIndexBlockIn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
     public required TerraformValue<string> Order
     {
-        get => new TerraformReference<string>(this, "order");
+        get => GetArgument<TerraformValue<string>>("order");
         set => SetArgument("order", value);
     }
 
@@ -177,7 +177,7 @@ public class AzurermCosmosdbSqlContainerIndexingPolicyBlockCompositeIndexBlockIn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -200,7 +200,7 @@ public class AzurermCosmosdbSqlContainerIndexingPolicyBlockExcludedPathBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -223,7 +223,7 @@ public class AzurermCosmosdbSqlContainerIndexingPolicyBlockIncludedPathBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -246,7 +246,7 @@ public class AzurermCosmosdbSqlContainerIndexingPolicyBlockSpatialIndexBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -254,9 +254,7 @@ public class AzurermCosmosdbSqlContainerIndexingPolicyBlockSpatialIndexBlock : T
     /// The types attribute.
     /// </summary>
     public TerraformSet<string> Types
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "types").ResolveNodes(ctx));
-    }
+        => AsReference("types");
 
 }
 
@@ -277,7 +275,7 @@ public class AzurermCosmosdbSqlContainerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -286,7 +284,7 @@ public class AzurermCosmosdbSqlContainerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -295,7 +293,7 @@ public class AzurermCosmosdbSqlContainerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -304,7 +302,7 @@ public class AzurermCosmosdbSqlContainerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -328,7 +326,7 @@ public class AzurermCosmosdbSqlContainerUniqueKeyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Paths is required")]
     public required TerraformSet<string> Paths
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "paths").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("paths");
         set => SetArgument("paths", value);
     }
 
@@ -347,7 +345,7 @@ public partial class AzurermCosmosdbSqlContainer(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => new TerraformReference<string>(this, "account_name");
+        get => GetArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -356,7 +354,7 @@ public partial class AzurermCosmosdbSqlContainer(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double>? AnalyticalStorageTtl
     {
-        get => new TerraformReference<double>(this, "analytical_storage_ttl");
+        get => GetArgument<TerraformValue<double>>("analytical_storage_ttl");
         set => SetArgument("analytical_storage_ttl", value);
     }
 
@@ -366,7 +364,7 @@ public partial class AzurermCosmosdbSqlContainer(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -375,16 +373,16 @@ public partial class AzurermCosmosdbSqlContainer(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double>? DefaultTtl
     {
-        get => new TerraformReference<double>(this, "default_ttl");
+        get => GetArgument<TerraformValue<double>>("default_ttl");
         set => SetArgument("default_ttl", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -394,7 +392,7 @@ public partial class AzurermCosmosdbSqlContainer(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -403,7 +401,7 @@ public partial class AzurermCosmosdbSqlContainer(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? PartitionKeyKind
     {
-        get => new TerraformReference<string>(this, "partition_key_kind");
+        get => GetArgument<TerraformValue<string>>("partition_key_kind");
         set => SetArgument("partition_key_kind", value);
     }
 
@@ -413,7 +411,7 @@ public partial class AzurermCosmosdbSqlContainer(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKeyPaths is required")]
     public TerraformList<string>? PartitionKeyPaths
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "partition_key_paths").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("partition_key_paths");
         set => SetArgument("partition_key_paths", value);
     }
 
@@ -422,7 +420,7 @@ public partial class AzurermCosmosdbSqlContainer(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<double>? PartitionKeyVersion
     {
-        get => new TerraformReference<double>(this, "partition_key_version");
+        get => GetArgument<TerraformValue<double>>("partition_key_version");
         set => SetArgument("partition_key_version", value);
     }
 
@@ -432,16 +430,16 @@ public partial class AzurermCosmosdbSqlContainer(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformValue<double> Throughput
+    public TerraformValue<double>? Throughput
     {
-        get => new TerraformReference<double>(this, "throughput");
+        get => GetArgument<TerraformValue<double>>("throughput");
         set => SetArgument("throughput", value);
     }
 

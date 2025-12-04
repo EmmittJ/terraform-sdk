@@ -14,7 +14,7 @@ public partial class AwsCloudfrontFunction(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Code is required")]
     public required TerraformValue<string> Code
     {
-        get => new TerraformReference<string>(this, "code");
+        get => GetArgument<TerraformValue<string>>("code");
         set => SetArgument("code", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsCloudfrontFunction(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? Comment
     {
-        get => new TerraformReference<string>(this, "comment");
+        get => GetArgument<TerraformValue<string>>("comment");
         set => SetArgument("comment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsCloudfrontFunction(string name) : TerraformResource("aws
     /// </summary>
     public TerraformSet<string>? KeyValueStoreAssociations
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "key_value_store_associations").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("key_value_store_associations");
         set => SetArgument("key_value_store_associations", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsCloudfrontFunction(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsCloudfrontFunction(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<bool>? Publish
     {
-        get => new TerraformReference<bool>(this, "publish");
+        get => GetArgument<TerraformValue<bool>>("publish");
         set => SetArgument("publish", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsCloudfrontFunction(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Runtime is required")]
     public required TerraformValue<string> Runtime
     {
-        get => new TerraformReference<string>(this, "runtime");
+        get => GetArgument<TerraformValue<string>>("runtime");
         set => SetArgument("runtime", value);
     }
 
@@ -78,32 +78,24 @@ public partial class AwsCloudfrontFunction(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The live_stage_etag attribute.
     /// </summary>
     public TerraformValue<string> LiveStageEtag
-    {
-        get => new TerraformReference<string>(this, "live_stage_etag");
-    }
+        => AsReference("live_stage_etag");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }

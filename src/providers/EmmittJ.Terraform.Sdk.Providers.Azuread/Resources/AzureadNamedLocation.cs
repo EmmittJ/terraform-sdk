@@ -19,7 +19,7 @@ public class AzureadNamedLocationCountryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountriesAndRegions is required")]
     public TerraformList<string>? CountriesAndRegions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "countries_and_regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("countries_and_regions");
         set => SetArgument("countries_and_regions", value);
     }
 
@@ -28,7 +28,7 @@ public class AzureadNamedLocationCountryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CountryLookupMethod
     {
-        get => new TerraformReference<string>(this, "country_lookup_method");
+        get => GetArgument<TerraformValue<string>>("country_lookup_method");
         set => SetArgument("country_lookup_method", value);
     }
 
@@ -37,7 +37,7 @@ public class AzureadNamedLocationCountryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IncludeUnknownCountriesAndRegions
     {
-        get => new TerraformReference<bool>(this, "include_unknown_countries_and_regions");
+        get => GetArgument<TerraformValue<bool>>("include_unknown_countries_and_regions");
         set => SetArgument("include_unknown_countries_and_regions", value);
     }
 
@@ -61,7 +61,7 @@ public class AzureadNamedLocationIpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpRanges is required")]
     public TerraformList<string>? IpRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ip_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ip_ranges");
         set => SetArgument("ip_ranges", value);
     }
 
@@ -70,7 +70,7 @@ public class AzureadNamedLocationIpBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Trusted
     {
-        get => new TerraformReference<bool>(this, "trusted");
+        get => GetArgument<TerraformValue<bool>>("trusted");
         set => SetArgument("trusted", value);
     }
 
@@ -93,7 +93,7 @@ public class AzureadNamedLocationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -102,7 +102,7 @@ public class AzureadNamedLocationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -111,7 +111,7 @@ public class AzureadNamedLocationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -120,7 +120,7 @@ public class AzureadNamedLocationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -139,16 +139,16 @@ public partial class AzureadNamedLocation(string name) : TerraformResource("azur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -156,9 +156,7 @@ public partial class AzureadNamedLocation(string name) : TerraformResource("azur
     /// The object ID of the named location
     /// </summary>
     public TerraformValue<string> ObjectId
-    {
-        get => new TerraformReference<string>(this, "object_id");
-    }
+        => AsReference("object_id");
 
     /// <summary>
     /// Country block (nesting mode: list).

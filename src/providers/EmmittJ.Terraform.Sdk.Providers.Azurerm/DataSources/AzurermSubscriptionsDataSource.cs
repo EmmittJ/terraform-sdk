@@ -18,7 +18,7 @@ public class AzurermSubscriptionsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -36,7 +36,7 @@ public partial class AzurermSubscriptionsDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string>? DisplayNameContains
     {
-        get => new TerraformReference<string>(this, "display_name_contains");
+        get => GetArgument<TerraformValue<string>>("display_name_contains");
         set => SetArgument("display_name_contains", value);
     }
 
@@ -45,16 +45,16 @@ public partial class AzurermSubscriptionsDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string>? DisplayNamePrefix
     {
-        get => new TerraformReference<string>(this, "display_name_prefix");
+        get => GetArgument<TerraformValue<string>>("display_name_prefix");
         set => SetArgument("display_name_prefix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -62,9 +62,7 @@ public partial class AzurermSubscriptionsDataSource(string name) : TerraformData
     /// The subscriptions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Subscriptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "subscriptions").ResolveNodes(ctx));
-    }
+        => AsReference("subscriptions");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

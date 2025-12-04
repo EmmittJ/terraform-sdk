@@ -21,7 +21,7 @@ public class GoogleDeveloperConnectInsightsConfigArtifactConfigsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -64,7 +64,7 @@ public class GoogleDeveloperConnectInsightsConfigArtifactConfigsBlockGoogleArtif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleDeveloperConnectInsightsConfigArtifactConfigsBlockGoogleArtif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactRegistryPackage is required")]
     public required TerraformValue<string> ArtifactRegistryPackage
     {
-        get => new TerraformReference<string>(this, "artifact_registry_package");
+        get => GetArgument<TerraformValue<string>>("artifact_registry_package");
         set => SetArgument("artifact_registry_package", value);
     }
 
@@ -97,7 +97,7 @@ public class GoogleDeveloperConnectInsightsConfigArtifactConfigsBlockGoogleArtif
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleDeveloperConnectInsightsConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -129,7 +129,7 @@ public class GoogleDeveloperConnectInsightsConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -138,7 +138,7 @@ public class GoogleDeveloperConnectInsightsConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -160,7 +160,7 @@ public partial class GoogleDeveloperConnectInsightsConfig(string name) : Terrafo
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -172,16 +172,16 @@ public partial class GoogleDeveloperConnectInsightsConfig(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppHubApplication is required")]
     public required TerraformValue<string> AppHubApplication
     {
-        get => new TerraformReference<string>(this, "app_hub_application");
+        get => GetArgument<TerraformValue<string>>("app_hub_application");
         set => SetArgument("app_hub_application", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -191,7 +191,7 @@ public partial class GoogleDeveloperConnectInsightsConfig(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InsightsConfigId is required")]
     public required TerraformValue<string> InsightsConfigId
     {
-        get => new TerraformReference<string>(this, "insights_config_id");
+        get => GetArgument<TerraformValue<string>>("insights_config_id");
         set => SetArgument("insights_config_id", value);
     }
 
@@ -203,7 +203,7 @@ public partial class GoogleDeveloperConnectInsightsConfig(string name) : Terrafo
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -213,16 +213,16 @@ public partial class GoogleDeveloperConnectInsightsConfig(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -230,25 +230,19 @@ public partial class GoogleDeveloperConnectInsightsConfig(string name) : Terrafo
     /// [Output only] Create timestamp
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Any errors that occurred while setting up the InsightsConfig.
@@ -257,9 +251,7 @@ public partial class GoogleDeveloperConnectInsightsConfig(string name) : Terrafo
     /// application. Please grant permissions to the P4SA.
     /// </summary>
     public TerraformList<TerraformMap<object>> Errors
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "errors").ResolveNodes(ctx));
-    }
+        => AsReference("errors");
 
     /// <summary>
     /// Identifier. The name of the InsightsConfig.
@@ -267,9 +259,7 @@ public partial class GoogleDeveloperConnectInsightsConfig(string name) : Terrafo
     /// projects/{project}/locations/{location}/insightsConfigs/{insightsConfig}
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Reconciling (https://google.aip.dev/128#reconciliation).
@@ -279,17 +269,13 @@ public partial class GoogleDeveloperConnectInsightsConfig(string name) : Terrafo
     /// system actions like failover or maintenance.
     /// </summary>
     public TerraformValue<bool> Reconciling
-    {
-        get => new TerraformReference<bool>(this, "reconciling");
-    }
+        => AsReference("reconciling");
 
     /// <summary>
     /// The runtime configurations where the application is deployed.
     /// </summary>
     public TerraformList<TerraformMap<object>> RuntimeConfigs
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "runtime_configs").ResolveNodes(ctx));
-    }
+        => AsReference("runtime_configs");
 
     /// <summary>
     /// The state of the InsightsConfig.
@@ -300,26 +286,20 @@ public partial class GoogleDeveloperConnectInsightsConfig(string name) : Terrafo
     /// ERROR
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// [Output only] Update timestamp
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// ArtifactConfigs block (nesting mode: list).

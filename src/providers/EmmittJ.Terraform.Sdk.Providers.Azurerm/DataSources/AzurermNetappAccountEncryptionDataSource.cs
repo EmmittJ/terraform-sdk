@@ -18,7 +18,7 @@ public class AzurermNetappAccountEncryptionDataSourceTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermNetappAccountEncryptionDataSource(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermNetappAccountEncryptionDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetappAccountId is required")]
     public required TerraformValue<string> NetappAccountId
     {
-        get => new TerraformReference<string>(this, "netapp_account_id");
+        get => GetArgument<TerraformValue<string>>("netapp_account_id");
         set => SetArgument("netapp_account_id", value);
     }
 
@@ -54,41 +54,31 @@ public partial class AzurermNetappAccountEncryptionDataSource(string name) : Ter
     /// The cross_tenant_key_vault_resource_id attribute.
     /// </summary>
     public TerraformValue<string> CrossTenantKeyVaultResourceId
-    {
-        get => new TerraformReference<string>(this, "cross_tenant_key_vault_resource_id");
-    }
+        => AsReference("cross_tenant_key_vault_resource_id");
 
     /// <summary>
     /// The encryption_key attribute.
     /// </summary>
     public TerraformValue<string> EncryptionKey
-    {
-        get => new TerraformReference<string>(this, "encryption_key");
-    }
+        => AsReference("encryption_key");
 
     /// <summary>
     /// The federated_client_id attribute.
     /// </summary>
     public TerraformValue<string> FederatedClientId
-    {
-        get => new TerraformReference<string>(this, "federated_client_id");
-    }
+        => AsReference("federated_client_id");
 
     /// <summary>
     /// The system_assigned_identity_principal_id attribute.
     /// </summary>
     public TerraformValue<string> SystemAssignedIdentityPrincipalId
-    {
-        get => new TerraformReference<string>(this, "system_assigned_identity_principal_id");
-    }
+        => AsReference("system_assigned_identity_principal_id");
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
     /// </summary>
     public TerraformValue<string> UserAssignedIdentityId
-    {
-        get => new TerraformReference<string>(this, "user_assigned_identity_id");
-    }
+        => AsReference("user_assigned_identity_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

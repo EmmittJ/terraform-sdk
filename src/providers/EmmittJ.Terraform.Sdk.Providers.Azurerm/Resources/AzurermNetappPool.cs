@@ -18,7 +18,7 @@ public class AzurermNetappPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermNetappPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermNetappPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermNetappPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermNetappPool(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => new TerraformReference<string>(this, "account_name");
+        get => GetArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermNetappPool(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<bool>? CoolAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "cool_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("cool_access_enabled");
         set => SetArgument("cool_access_enabled", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermNetappPool(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<double>? CustomThroughputMibps
     {
-        get => new TerraformReference<double>(this, "custom_throughput_mibps");
+        get => GetArgument<TerraformValue<double>>("custom_throughput_mibps");
         set => SetArgument("custom_throughput_mibps", value);
     }
 
@@ -91,16 +91,16 @@ public partial class AzurermNetappPool(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<string>? EncryptionType
     {
-        get => new TerraformReference<string>(this, "encryption_type");
+        get => GetArgument<TerraformValue<string>>("encryption_type");
         set => SetArgument("encryption_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermNetappPool(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermNetappPool(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermNetappPool(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformValue<string>? QosType
     {
-        get => new TerraformReference<string>(this, "qos_type");
+        get => GetArgument<TerraformValue<string>>("qos_type");
         set => SetArgument("qos_type", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AzurermNetappPool(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -149,7 +149,7 @@ public partial class AzurermNetappPool(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceLevel is required")]
     public required TerraformValue<string> ServiceLevel
     {
-        get => new TerraformReference<string>(this, "service_level");
+        get => GetArgument<TerraformValue<string>>("service_level");
         set => SetArgument("service_level", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AzurermNetappPool(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInTb is required")]
     public required TerraformValue<double> SizeInTb
     {
-        get => new TerraformReference<double>(this, "size_in_tb");
+        get => GetArgument<TerraformValue<double>>("size_in_tb");
         set => SetArgument("size_in_tb", value);
     }
 
@@ -168,7 +168,7 @@ public partial class AzurermNetappPool(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

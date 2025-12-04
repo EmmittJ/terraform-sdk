@@ -14,16 +14,16 @@ public partial class AwsAppconfigExtensionAssociation(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExtensionArn is required")]
     public required TerraformValue<string> ExtensionArn
     {
-        get => new TerraformReference<string>(this, "extension_arn");
+        get => GetArgument<TerraformValue<string>>("extension_arn");
         set => SetArgument("extension_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,16 +32,16 @@ public partial class AwsAppconfigExtensionAssociation(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsAppconfigExtensionAssociation(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => new TerraformReference<string>(this, "resource_arn");
+        get => GetArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -59,16 +59,12 @@ public partial class AwsAppconfigExtensionAssociation(string name) : TerraformRe
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The extension_version attribute.
     /// </summary>
     public TerraformValue<double> ExtensionVersion
-    {
-        get => new TerraformReference<double>(this, "extension_version");
-    }
+        => AsReference("extension_version");
 
 }

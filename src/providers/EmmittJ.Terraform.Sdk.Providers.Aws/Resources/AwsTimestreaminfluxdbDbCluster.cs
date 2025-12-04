@@ -41,7 +41,7 @@ public class AwsTimestreaminfluxdbDbClusterLogDeliveryConfigurationBlockS3Config
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsTimestreaminfluxdbDbClusterLogDeliveryConfigurationBlockS3Config
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -74,7 +74,7 @@ public class AwsTimestreaminfluxdbDbClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsTimestreaminfluxdbDbClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsTimestreaminfluxdbDbClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocatedStorage is required")]
     public required TerraformValue<double> AllocatedStorage
     {
-        get => new TerraformReference<double>(this, "allocated_storage");
+        get => GetArgument<TerraformValue<double>>("allocated_storage");
         set => SetArgument("allocated_storage", value);
     }
 
@@ -123,7 +123,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbInstanceType is required")]
     public required TerraformValue<string> DbInstanceType
     {
-        get => new TerraformReference<string>(this, "db_instance_type");
+        get => GetArgument<TerraformValue<string>>("db_instance_type");
         set => SetArgument("db_instance_type", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? DbParameterGroupIdentifier
     {
-        get => new TerraformReference<string>(this, "db_parameter_group_identifier");
+        get => GetArgument<TerraformValue<string>>("db_parameter_group_identifier");
         set => SetArgument("db_parameter_group_identifier", value);
     }
 
@@ -154,18 +154,18 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     /// 					to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, 
     /// 					Influx IO Included 16000 IOPS.
     /// </summary>
-    public TerraformValue<string> DbStorageType
+    public TerraformValue<string>? DbStorageType
     {
-        get => new TerraformReference<string>(this, "db_storage_type");
+        get => GetArgument<TerraformValue<string>>("db_storage_type");
         set => SetArgument("db_storage_type", value);
     }
 
     /// <summary>
     /// Specifies the type of cluster to create.
     /// </summary>
-    public TerraformValue<string> DeploymentType
+    public TerraformValue<string>? DeploymentType
     {
-        get => new TerraformReference<string>(this, "deployment_type");
+        get => GetArgument<TerraformValue<string>>("deployment_type");
         set => SetArgument("deployment_type", value);
     }
 
@@ -173,9 +173,9 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     /// Specifies the behavior of failure recovery when the primary node of the cluster
     /// 					fails.
     /// </summary>
-    public TerraformValue<string> FailoverMode
+    public TerraformValue<string>? FailoverMode
     {
-        get => new TerraformReference<string>(this, "failover_mode");
+        get => GetArgument<TerraformValue<string>>("failover_mode");
         set => SetArgument("failover_mode", value);
     }
 
@@ -188,7 +188,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -197,9 +197,9 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     /// 					IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate 
     /// 					over both IPv4 and IPv6 protocols.
     /// </summary>
-    public TerraformValue<string> NetworkType
+    public TerraformValue<string>? NetworkType
     {
-        get => new TerraformReference<string>(this, "network_type");
+        get => GetArgument<TerraformValue<string>>("network_type");
         set => SetArgument("network_type", value);
     }
 
@@ -210,7 +210,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
     public required TerraformValue<string> Organization
     {
-        get => new TerraformReference<string>(this, "organization");
+        get => GetArgument<TerraformValue<string>>("organization");
         set => SetArgument("organization", value);
     }
 
@@ -223,34 +223,34 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
     public required TerraformValue<string> Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
     /// <summary>
     /// The port number on which InfluxDB accepts connections.
     /// </summary>
-    public TerraformValue<double> Port
+    public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
     /// <summary>
     /// Configures the Timestream for InfluxDB cluster with a public IP to facilitate access.
     /// </summary>
-    public TerraformValue<bool> PubliclyAccessible
+    public TerraformValue<bool>? PubliclyAccessible
     {
-        get => new TerraformReference<bool>(this, "publicly_accessible");
+        get => GetArgument<TerraformValue<bool>>("publicly_accessible");
         set => SetArgument("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -259,7 +259,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -275,7 +275,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -285,7 +285,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcSecurityGroupIds is required")]
     public required TerraformSet<string> VpcSecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "vpc_security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("vpc_security_group_ids");
         set => SetArgument("vpc_security_group_ids", value);
     }
 
@@ -296,7 +296,7 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcSubnetIds is required")]
     public required TerraformSet<string> VpcSubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "vpc_subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("vpc_subnet_ids");
         set => SetArgument("vpc_subnet_ids", value);
     }
 
@@ -304,25 +304,19 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the 
@@ -331,26 +325,20 @@ public partial class AwsTimestreaminfluxdbDbCluster(string name) : TerraformReso
     /// 					username, and password.
     /// </summary>
     public TerraformValue<string> InfluxAuthParametersSecretArn
-    {
-        get => new TerraformReference<string>(this, "influx_auth_parameters_secret_arn");
-    }
+        => AsReference("influx_auth_parameters_secret_arn");
 
     /// <summary>
     /// The endpoint used to connect to the Timestream for InfluxDB cluster for 
     /// 					read-only operations.
     /// </summary>
     public TerraformValue<string> ReaderEndpoint
-    {
-        get => new TerraformReference<string>(this, "reader_endpoint");
-    }
+        => AsReference("reader_endpoint");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// LogDeliveryConfiguration block (nesting mode: list).

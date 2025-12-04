@@ -19,7 +19,7 @@ public class AzurermFrontdoorBackendPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HealthProbeName is required")]
     public required TerraformValue<string> HealthProbeName
     {
-        get => new TerraformReference<string>(this, "health_probe_name");
+        get => GetArgument<TerraformValue<string>>("health_probe_name");
         set => SetArgument("health_probe_name", value);
     }
 
@@ -27,9 +27,7 @@ public class AzurermFrontdoorBackendPoolBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The load_balancing_name attribute.
@@ -37,7 +35,7 @@ public class AzurermFrontdoorBackendPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancingName is required")]
     public required TerraformValue<string> LoadBalancingName
     {
-        get => new TerraformReference<string>(this, "load_balancing_name");
+        get => GetArgument<TerraformValue<string>>("load_balancing_name");
         set => SetArgument("load_balancing_name", value);
     }
 
@@ -47,7 +45,7 @@ public class AzurermFrontdoorBackendPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -83,7 +81,7 @@ public class AzurermFrontdoorBackendPoolBlockBackendBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
     public required TerraformValue<string> Address
     {
-        get => new TerraformReference<string>(this, "address");
+        get => GetArgument<TerraformValue<string>>("address");
         set => SetArgument("address", value);
     }
 
@@ -92,7 +90,7 @@ public class AzurermFrontdoorBackendPoolBlockBackendBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -102,7 +100,7 @@ public class AzurermFrontdoorBackendPoolBlockBackendBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostHeader is required")]
     public required TerraformValue<string> HostHeader
     {
-        get => new TerraformReference<string>(this, "host_header");
+        get => GetArgument<TerraformValue<string>>("host_header");
         set => SetArgument("host_header", value);
     }
 
@@ -112,7 +110,7 @@ public class AzurermFrontdoorBackendPoolBlockBackendBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpPort is required")]
     public required TerraformValue<double> HttpPort
     {
-        get => new TerraformReference<double>(this, "http_port");
+        get => GetArgument<TerraformValue<double>>("http_port");
         set => SetArgument("http_port", value);
     }
 
@@ -122,7 +120,7 @@ public class AzurermFrontdoorBackendPoolBlockBackendBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpsPort is required")]
     public required TerraformValue<double> HttpsPort
     {
-        get => new TerraformReference<double>(this, "https_port");
+        get => GetArgument<TerraformValue<double>>("https_port");
         set => SetArgument("https_port", value);
     }
 
@@ -131,7 +129,7 @@ public class AzurermFrontdoorBackendPoolBlockBackendBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -140,7 +138,7 @@ public class AzurermFrontdoorBackendPoolBlockBackendBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Weight
     {
-        get => new TerraformReference<double>(this, "weight");
+        get => GetArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -163,7 +161,7 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -171,16 +169,14 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The interval_in_seconds attribute.
     /// </summary>
     public TerraformValue<double>? IntervalInSeconds
     {
-        get => new TerraformReference<double>(this, "interval_in_seconds");
+        get => GetArgument<TerraformValue<double>>("interval_in_seconds");
         set => SetArgument("interval_in_seconds", value);
     }
 
@@ -190,7 +186,7 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -199,7 +195,7 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -208,7 +204,7 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ProbeMethod
     {
-        get => new TerraformReference<string>(this, "probe_method");
+        get => GetArgument<TerraformValue<string>>("probe_method");
         set => SetArgument("probe_method", value);
     }
 
@@ -217,7 +213,7 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -240,7 +236,7 @@ public class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? AdditionalLatencyMilliseconds
     {
-        get => new TerraformReference<double>(this, "additional_latency_milliseconds");
+        get => GetArgument<TerraformValue<double>>("additional_latency_milliseconds");
         set => SetArgument("additional_latency_milliseconds", value);
     }
 
@@ -248,9 +244,7 @@ public class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -258,7 +252,7 @@ public class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -267,7 +261,7 @@ public class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SampleSize
     {
-        get => new TerraformReference<double>(this, "sample_size");
+        get => GetArgument<TerraformValue<double>>("sample_size");
         set => SetArgument("sample_size", value);
     }
 
@@ -276,7 +270,7 @@ public class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SuccessfulSamplesRequired
     {
-        get => new TerraformReference<double>(this, "successful_samples_required");
+        get => GetArgument<TerraformValue<double>>("successful_samples_required");
         set => SetArgument("successful_samples_required", value);
     }
 
@@ -299,7 +293,7 @@ public class AzurermFrontdoorBackendPoolSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? BackendPoolsSendReceiveTimeoutSeconds
     {
-        get => new TerraformReference<double>(this, "backend_pools_send_receive_timeout_seconds");
+        get => GetArgument<TerraformValue<double>>("backend_pools_send_receive_timeout_seconds");
         set => SetArgument("backend_pools_send_receive_timeout_seconds", value);
     }
 
@@ -309,7 +303,7 @@ public class AzurermFrontdoorBackendPoolSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnforceBackendPoolsCertificateNameCheck is required")]
     public required TerraformValue<bool> EnforceBackendPoolsCertificateNameCheck
     {
-        get => new TerraformReference<bool>(this, "enforce_backend_pools_certificate_name_check");
+        get => GetArgument<TerraformValue<bool>>("enforce_backend_pools_certificate_name_check");
         set => SetArgument("enforce_backend_pools_certificate_name_check", value);
     }
 
@@ -333,7 +327,7 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
     public required TerraformValue<string> HostName
     {
-        get => new TerraformReference<string>(this, "host_name");
+        get => GetArgument<TerraformValue<string>>("host_name");
         set => SetArgument("host_name", value);
     }
 
@@ -341,9 +335,7 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -351,7 +343,7 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -360,7 +352,7 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SessionAffinityEnabled
     {
-        get => new TerraformReference<bool>(this, "session_affinity_enabled");
+        get => GetArgument<TerraformValue<bool>>("session_affinity_enabled");
         set => SetArgument("session_affinity_enabled", value);
     }
 
@@ -369,7 +361,7 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SessionAffinityTtlSeconds
     {
-        get => new TerraformReference<double>(this, "session_affinity_ttl_seconds");
+        get => GetArgument<TerraformValue<double>>("session_affinity_ttl_seconds");
         set => SetArgument("session_affinity_ttl_seconds", value);
     }
 
@@ -378,7 +370,7 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? WebApplicationFirewallPolicyLinkId
     {
-        get => new TerraformReference<string>(this, "web_application_firewall_policy_link_id");
+        get => GetArgument<TerraformValue<string>>("web_application_firewall_policy_link_id");
         set => SetArgument("web_application_firewall_policy_link_id", value);
     }
 
@@ -402,7 +394,7 @@ public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceptedProtocols is required")]
     public TerraformList<string>? AcceptedProtocols
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "accepted_protocols").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("accepted_protocols");
         set => SetArgument("accepted_protocols", value);
     }
 
@@ -411,7 +403,7 @@ public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -421,7 +413,7 @@ public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendEndpoints is required")]
     public TerraformList<string>? FrontendEndpoints
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "frontend_endpoints").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("frontend_endpoints");
         set => SetArgument("frontend_endpoints", value);
     }
 
@@ -429,9 +421,7 @@ public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The name attribute.
@@ -439,7 +429,7 @@ public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -449,7 +439,7 @@ public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatternsToMatch is required")]
     public TerraformList<string>? PatternsToMatch
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "patterns_to_match").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("patterns_to_match");
         set => SetArgument("patterns_to_match", value);
     }
 
@@ -492,7 +482,7 @@ public class AzurermFrontdoorRoutingRuleBlockForwardingConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPoolName is required")]
     public required TerraformValue<string> BackendPoolName
     {
-        get => new TerraformReference<string>(this, "backend_pool_name");
+        get => GetArgument<TerraformValue<string>>("backend_pool_name");
         set => SetArgument("backend_pool_name", value);
     }
 
@@ -501,7 +491,7 @@ public class AzurermFrontdoorRoutingRuleBlockForwardingConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<string>? CacheDuration
     {
-        get => new TerraformReference<string>(this, "cache_duration");
+        get => GetArgument<TerraformValue<string>>("cache_duration");
         set => SetArgument("cache_duration", value);
     }
 
@@ -510,7 +500,7 @@ public class AzurermFrontdoorRoutingRuleBlockForwardingConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<bool>? CacheEnabled
     {
-        get => new TerraformReference<bool>(this, "cache_enabled");
+        get => GetArgument<TerraformValue<bool>>("cache_enabled");
         set => SetArgument("cache_enabled", value);
     }
 
@@ -519,7 +509,7 @@ public class AzurermFrontdoorRoutingRuleBlockForwardingConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<string>? CacheQueryParameterStripDirective
     {
-        get => new TerraformReference<string>(this, "cache_query_parameter_strip_directive");
+        get => GetArgument<TerraformValue<string>>("cache_query_parameter_strip_directive");
         set => SetArgument("cache_query_parameter_strip_directive", value);
     }
 
@@ -528,7 +518,7 @@ public class AzurermFrontdoorRoutingRuleBlockForwardingConfigurationBlock : Terr
     /// </summary>
     public TerraformList<string>? CacheQueryParameters
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "cache_query_parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("cache_query_parameters");
         set => SetArgument("cache_query_parameters", value);
     }
 
@@ -537,7 +527,7 @@ public class AzurermFrontdoorRoutingRuleBlockForwardingConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<bool>? CacheUseDynamicCompression
     {
-        get => new TerraformReference<bool>(this, "cache_use_dynamic_compression");
+        get => GetArgument<TerraformValue<bool>>("cache_use_dynamic_compression");
         set => SetArgument("cache_use_dynamic_compression", value);
     }
 
@@ -546,7 +536,7 @@ public class AzurermFrontdoorRoutingRuleBlockForwardingConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<string>? CustomForwardingPath
     {
-        get => new TerraformReference<string>(this, "custom_forwarding_path");
+        get => GetArgument<TerraformValue<string>>("custom_forwarding_path");
         set => SetArgument("custom_forwarding_path", value);
     }
 
@@ -555,7 +545,7 @@ public class AzurermFrontdoorRoutingRuleBlockForwardingConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<string>? ForwardingProtocol
     {
-        get => new TerraformReference<string>(this, "forwarding_protocol");
+        get => GetArgument<TerraformValue<string>>("forwarding_protocol");
         set => SetArgument("forwarding_protocol", value);
     }
 
@@ -577,7 +567,7 @@ public class AzurermFrontdoorRoutingRuleBlockRedirectConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? CustomFragment
     {
-        get => new TerraformReference<string>(this, "custom_fragment");
+        get => GetArgument<TerraformValue<string>>("custom_fragment");
         set => SetArgument("custom_fragment", value);
     }
 
@@ -586,7 +576,7 @@ public class AzurermFrontdoorRoutingRuleBlockRedirectConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? CustomHost
     {
-        get => new TerraformReference<string>(this, "custom_host");
+        get => GetArgument<TerraformValue<string>>("custom_host");
         set => SetArgument("custom_host", value);
     }
 
@@ -595,7 +585,7 @@ public class AzurermFrontdoorRoutingRuleBlockRedirectConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? CustomPath
     {
-        get => new TerraformReference<string>(this, "custom_path");
+        get => GetArgument<TerraformValue<string>>("custom_path");
         set => SetArgument("custom_path", value);
     }
 
@@ -604,7 +594,7 @@ public class AzurermFrontdoorRoutingRuleBlockRedirectConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? CustomQueryString
     {
-        get => new TerraformReference<string>(this, "custom_query_string");
+        get => GetArgument<TerraformValue<string>>("custom_query_string");
         set => SetArgument("custom_query_string", value);
     }
 
@@ -614,7 +604,7 @@ public class AzurermFrontdoorRoutingRuleBlockRedirectConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectProtocol is required")]
     public required TerraformValue<string> RedirectProtocol
     {
-        get => new TerraformReference<string>(this, "redirect_protocol");
+        get => GetArgument<TerraformValue<string>>("redirect_protocol");
         set => SetArgument("redirect_protocol", value);
     }
 
@@ -624,7 +614,7 @@ public class AzurermFrontdoorRoutingRuleBlockRedirectConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectType is required")]
     public required TerraformValue<string> RedirectType
     {
-        get => new TerraformReference<string>(this, "redirect_type");
+        get => GetArgument<TerraformValue<string>>("redirect_type");
         set => SetArgument("redirect_type", value);
     }
 
@@ -647,7 +637,7 @@ public class AzurermFrontdoorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -656,7 +646,7 @@ public class AzurermFrontdoorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -665,7 +655,7 @@ public class AzurermFrontdoorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -674,7 +664,7 @@ public class AzurermFrontdoorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -692,16 +682,16 @@ public partial class AzurermFrontdoor(string name) : TerraformResource("azurerm_
     /// </summary>
     public TerraformValue<string>? FriendlyName
     {
-        get => new TerraformReference<string>(this, "friendly_name");
+        get => GetArgument<TerraformValue<string>>("friendly_name");
         set => SetArgument("friendly_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -710,7 +700,7 @@ public partial class AzurermFrontdoor(string name) : TerraformResource("azurerm_
     /// </summary>
     public TerraformValue<bool>? LoadBalancerEnabled
     {
-        get => new TerraformReference<bool>(this, "load_balancer_enabled");
+        get => GetArgument<TerraformValue<bool>>("load_balancer_enabled");
         set => SetArgument("load_balancer_enabled", value);
     }
 
@@ -720,7 +710,7 @@ public partial class AzurermFrontdoor(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -730,7 +720,7 @@ public partial class AzurermFrontdoor(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -739,7 +729,7 @@ public partial class AzurermFrontdoor(string name) : TerraformResource("azurerm_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -747,65 +737,49 @@ public partial class AzurermFrontdoor(string name) : TerraformResource("azurerm_
     /// The backend_pool_health_probes attribute.
     /// </summary>
     public TerraformMap<string> BackendPoolHealthProbes
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "backend_pool_health_probes").ResolveNodes(ctx));
-    }
+        => AsReference("backend_pool_health_probes");
 
     /// <summary>
     /// The backend_pool_load_balancing_settings attribute.
     /// </summary>
     public TerraformMap<string> BackendPoolLoadBalancingSettings
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "backend_pool_load_balancing_settings").ResolveNodes(ctx));
-    }
+        => AsReference("backend_pool_load_balancing_settings");
 
     /// <summary>
     /// The backend_pools attribute.
     /// </summary>
     public TerraformMap<string> BackendPools
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "backend_pools").ResolveNodes(ctx));
-    }
+        => AsReference("backend_pools");
 
     /// <summary>
     /// The cname attribute.
     /// </summary>
     public TerraformValue<string> Cname
-    {
-        get => new TerraformReference<string>(this, "cname");
-    }
+        => AsReference("cname");
 
     /// <summary>
     /// The explicit_resource_order attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ExplicitResourceOrder
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "explicit_resource_order").ResolveNodes(ctx));
-    }
+        => AsReference("explicit_resource_order");
 
     /// <summary>
     /// The frontend_endpoints attribute.
     /// </summary>
     public TerraformMap<string> FrontendEndpoints
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "frontend_endpoints").ResolveNodes(ctx));
-    }
+        => AsReference("frontend_endpoints");
 
     /// <summary>
     /// The header_frontdoor_id attribute.
     /// </summary>
     public TerraformValue<string> HeaderFrontdoorId
-    {
-        get => new TerraformReference<string>(this, "header_frontdoor_id");
-    }
+        => AsReference("header_frontdoor_id");
 
     /// <summary>
     /// The routing_rules attribute.
     /// </summary>
     public TerraformMap<string> RoutingRules
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "routing_rules").ResolveNodes(ctx));
-    }
+        => AsReference("routing_rules");
 
     /// <summary>
     /// BackendPool block (nesting mode: list).

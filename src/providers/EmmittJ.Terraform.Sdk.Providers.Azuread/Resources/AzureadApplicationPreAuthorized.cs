@@ -18,7 +18,7 @@ public class AzureadApplicationPreAuthorizedTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadApplicationPreAuthorizedTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadApplicationPreAuthorizedTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzureadApplicationPreAuthorizedTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzureadApplicationPreAuthorized(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => new TerraformReference<string>(this, "application_id");
+        get => GetArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzureadApplicationPreAuthorized(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizedClientId is required")]
     public required TerraformValue<string> AuthorizedClientId
     {
-        get => new TerraformReference<string>(this, "authorized_client_id");
+        get => GetArgument<TerraformValue<string>>("authorized_client_id");
         set => SetArgument("authorized_client_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzureadApplicationPreAuthorized(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionIds is required")]
     public required TerraformSet<string> PermissionIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "permission_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("permission_ids");
         set => SetArgument("permission_ids", value);
     }
 

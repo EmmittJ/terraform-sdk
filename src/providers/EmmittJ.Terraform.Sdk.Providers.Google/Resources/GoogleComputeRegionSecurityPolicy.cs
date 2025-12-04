@@ -18,7 +18,7 @@ public class GoogleComputeRegionSecurityPolicyAdvancedOptionsConfigBlock : Terra
     /// </summary>
     public TerraformValue<string>? JsonParsing
     {
-        get => new TerraformReference<string>(this, "json_parsing");
+        get => GetArgument<TerraformValue<string>>("json_parsing");
         set => SetArgument("json_parsing", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeRegionSecurityPolicyAdvancedOptionsConfigBlock : Terra
     /// </summary>
     public TerraformValue<string>? LogLevel
     {
-        get => new TerraformReference<string>(this, "log_level");
+        get => GetArgument<TerraformValue<string>>("log_level");
         set => SetArgument("log_level", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleComputeRegionSecurityPolicyAdvancedOptionsConfigBlock : Terra
     /// </summary>
     public TerraformSet<string>? UserIpRequestHeaders
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "user_ip_request_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("user_ip_request_headers");
         set => SetArgument("user_ip_request_headers", value);
     }
 
@@ -69,7 +69,7 @@ public class GoogleComputeRegionSecurityPolicyAdvancedOptionsConfigBlockJsonCust
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentTypes is required")]
     public required TerraformSet<string> ContentTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "content_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("content_types");
         set => SetArgument("content_types", value);
     }
 
@@ -96,7 +96,7 @@ public class GoogleComputeRegionSecurityPolicyDdosProtectionConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DdosProtection is required")]
     public required TerraformValue<string> DdosProtection
     {
-        get => new TerraformReference<string>(this, "ddos_protection");
+        get => GetArgument<TerraformValue<string>>("ddos_protection");
         set => SetArgument("ddos_protection", value);
     }
 
@@ -130,7 +130,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -139,7 +139,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -148,7 +148,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Preview
     {
-        get => new TerraformReference<bool>(this, "preview");
+        get => GetArgument<TerraformValue<bool>>("preview");
         set => SetArgument("preview", value);
     }
 
@@ -160,7 +160,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -223,7 +223,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockMatchBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? VersionedExpr
     {
-        get => new TerraformReference<string>(this, "versioned_expr");
+        get => GetArgument<TerraformValue<string>>("versioned_expr");
         set => SetArgument("versioned_expr", value);
     }
 
@@ -265,7 +265,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockMatchBlockConfigBlock : 
     /// </summary>
     public TerraformList<string>? SrcIpRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "src_ip_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("src_ip_ranges");
         set => SetArgument("src_ip_ranges", value);
     }
 
@@ -288,7 +288,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockMatchBlockExprBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -310,7 +310,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockNetworkMatchBlock : Terr
     /// </summary>
     public TerraformList<string>? DestIpRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dest_ip_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("dest_ip_ranges");
         set => SetArgument("dest_ip_ranges", value);
     }
 
@@ -319,7 +319,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockNetworkMatchBlock : Terr
     /// </summary>
     public TerraformList<string>? DestPorts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dest_ports").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("dest_ports");
         set => SetArgument("dest_ports", value);
     }
 
@@ -328,7 +328,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockNetworkMatchBlock : Terr
     /// </summary>
     public TerraformList<string>? IpProtocols
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ip_protocols").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ip_protocols");
         set => SetArgument("ip_protocols", value);
     }
 
@@ -337,7 +337,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockNetworkMatchBlock : Terr
     /// </summary>
     public TerraformList<double>? SrcAsns
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "src_asns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("src_asns");
         set => SetArgument("src_asns", value);
     }
 
@@ -346,7 +346,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockNetworkMatchBlock : Terr
     /// </summary>
     public TerraformList<string>? SrcIpRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "src_ip_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("src_ip_ranges");
         set => SetArgument("src_ip_ranges", value);
     }
 
@@ -355,7 +355,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockNetworkMatchBlock : Terr
     /// </summary>
     public TerraformList<string>? SrcPorts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "src_ports").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("src_ports");
         set => SetArgument("src_ports", value);
     }
 
@@ -364,7 +364,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockNetworkMatchBlock : Terr
     /// </summary>
     public TerraformList<string>? SrcRegionCodes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "src_region_codes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("src_region_codes");
         set => SetArgument("src_region_codes", value);
     }
 
@@ -395,7 +395,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockNetworkMatchBlockUserDef
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -404,7 +404,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockNetworkMatchBlockUserDef
     /// </summary>
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -449,7 +449,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockPreconfiguredWafConfigBl
     /// </summary>
     public TerraformList<string>? TargetRuleIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "target_rule_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("target_rule_ids");
         set => SetArgument("target_rule_ids", value);
     }
 
@@ -459,7 +459,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockPreconfiguredWafConfigBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRuleSet is required")]
     public required TerraformValue<string> TargetRuleSet
     {
-        get => new TerraformReference<string>(this, "target_rule_set");
+        get => GetArgument<TerraformValue<string>>("target_rule_set");
         set => SetArgument("target_rule_set", value);
     }
 
@@ -524,7 +524,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockPreconfiguredWafConfigBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -534,7 +534,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockPreconfiguredWafConfigBl
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -563,7 +563,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockPreconfiguredWafConfigBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -573,7 +573,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockPreconfiguredWafConfigBl
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -602,7 +602,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockPreconfiguredWafConfigBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -612,7 +612,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockPreconfiguredWafConfigBl
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -641,7 +641,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockPreconfiguredWafConfigBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -651,7 +651,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockPreconfiguredWafConfigBl
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -674,7 +674,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockRateLimitOptionsBlock : 
     /// </summary>
     public TerraformValue<double>? BanDurationSec
     {
-        get => new TerraformReference<double>(this, "ban_duration_sec");
+        get => GetArgument<TerraformValue<double>>("ban_duration_sec");
         set => SetArgument("ban_duration_sec", value);
     }
 
@@ -684,7 +684,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockRateLimitOptionsBlock : 
     /// </summary>
     public TerraformValue<string>? ConformAction
     {
-        get => new TerraformReference<string>(this, "conform_action");
+        get => GetArgument<TerraformValue<string>>("conform_action");
         set => SetArgument("conform_action", value);
     }
 
@@ -704,7 +704,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockRateLimitOptionsBlock : 
     /// </summary>
     public TerraformValue<string>? EnforceOnKey
     {
-        get => new TerraformReference<string>(this, "enforce_on_key");
+        get => GetArgument<TerraformValue<string>>("enforce_on_key");
         set => SetArgument("enforce_on_key", value);
     }
 
@@ -715,7 +715,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockRateLimitOptionsBlock : 
     /// </summary>
     public TerraformValue<string>? EnforceOnKeyName
     {
-        get => new TerraformReference<string>(this, "enforce_on_key_name");
+        get => GetArgument<TerraformValue<string>>("enforce_on_key_name");
         set => SetArgument("enforce_on_key_name", value);
     }
 
@@ -725,7 +725,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockRateLimitOptionsBlock : 
     /// </summary>
     public TerraformValue<string>? ExceedAction
     {
-        get => new TerraformReference<string>(this, "exceed_action");
+        get => GetArgument<TerraformValue<string>>("exceed_action");
         set => SetArgument("exceed_action", value);
     }
 
@@ -776,7 +776,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockRateLimitOptionsBlockBan
     /// </summary>
     public TerraformValue<double>? CountAttribute
     {
-        get => new TerraformReference<double>(this, "count");
+        get => GetArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -785,7 +785,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockRateLimitOptionsBlockBan
     /// </summary>
     public TerraformValue<double>? IntervalSec
     {
-        get => new TerraformReference<double>(this, "interval_sec");
+        get => GetArgument<TerraformValue<double>>("interval_sec");
         set => SetArgument("interval_sec", value);
     }
 
@@ -809,7 +809,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockRateLimitOptionsBlockEnf
     /// </summary>
     public TerraformValue<string>? EnforceOnKeyName
     {
-        get => new TerraformReference<string>(this, "enforce_on_key_name");
+        get => GetArgument<TerraformValue<string>>("enforce_on_key_name");
         set => SetArgument("enforce_on_key_name", value);
     }
 
@@ -829,7 +829,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockRateLimitOptionsBlockEnf
     /// </summary>
     public TerraformValue<string>? EnforceOnKeyType
     {
-        get => new TerraformReference<string>(this, "enforce_on_key_type");
+        get => GetArgument<TerraformValue<string>>("enforce_on_key_type");
         set => SetArgument("enforce_on_key_type", value);
     }
 
@@ -851,7 +851,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockRateLimitOptionsBlockRat
     /// </summary>
     public TerraformValue<double>? CountAttribute
     {
-        get => new TerraformReference<double>(this, "count");
+        get => GetArgument<TerraformValue<double>>("count");
         set => SetArgument("count", value);
     }
 
@@ -860,7 +860,7 @@ public class GoogleComputeRegionSecurityPolicyRulesBlockRateLimitOptionsBlockRat
     /// </summary>
     public TerraformValue<double>? IntervalSec
     {
-        get => new TerraformReference<double>(this, "interval_sec");
+        get => GetArgument<TerraformValue<double>>("interval_sec");
         set => SetArgument("interval_sec", value);
     }
 
@@ -883,7 +883,7 @@ public class GoogleComputeRegionSecurityPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -892,7 +892,7 @@ public class GoogleComputeRegionSecurityPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -901,7 +901,7 @@ public class GoogleComputeRegionSecurityPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -929,7 +929,7 @@ public class GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseAttribute is required")]
     public required TerraformValue<string> BaseAttribute
     {
-        get => new TerraformReference<string>(this, "base");
+        get => GetArgument<TerraformValue<string>>("base");
         set => SetArgument("base", value);
     }
 
@@ -940,7 +940,7 @@ public class GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Mask
     {
-        get => new TerraformReference<string>(this, "mask");
+        get => GetArgument<TerraformValue<string>>("mask");
         set => SetArgument("mask", value);
     }
 
@@ -949,7 +949,7 @@ public class GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -958,7 +958,7 @@ public class GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock : Terraform
     /// </summary>
     public TerraformValue<double>? Offset
     {
-        get => new TerraformReference<double>(this, "offset");
+        get => GetArgument<TerraformValue<double>>("offset");
         set => SetArgument("offset", value);
     }
 
@@ -967,7 +967,7 @@ public class GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock : Terraform
     /// </summary>
     public TerraformValue<double>? Size
     {
-        get => new TerraformReference<double>(this, "size");
+        get => GetArgument<TerraformValue<double>>("size");
         set => SetArgument("size", value);
     }
 
@@ -985,16 +985,16 @@ public partial class GoogleComputeRegionSecurityPolicy(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1005,16 +1005,16 @@ public partial class GoogleComputeRegionSecurityPolicy(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -1022,9 +1022,9 @@ public partial class GoogleComputeRegionSecurityPolicy(string name) : TerraformR
     /// The Region in which the created Region Security Policy should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -1037,7 +1037,7 @@ public partial class GoogleComputeRegionSecurityPolicy(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1046,33 +1046,25 @@ public partial class GoogleComputeRegionSecurityPolicy(string name) : TerraformR
     /// updates of this resource.
     /// </summary>
     public TerraformValue<string> Fingerprint
-    {
-        get => new TerraformReference<string>(this, "fingerprint");
-    }
+        => AsReference("fingerprint");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<string> PolicyId
-    {
-        get => new TerraformReference<string>(this, "policy_id");
-    }
+        => AsReference("policy_id");
 
     /// <summary>
     /// Server-defined URL for the resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Server-defined URL for this resource with the resource id.
     /// </summary>
     public TerraformValue<string> SelfLinkWithPolicyId
-    {
-        get => new TerraformReference<string>(this, "self_link_with_policy_id");
-    }
+        => AsReference("self_link_with_policy_id");
 
     /// <summary>
     /// AdvancedOptionsConfig block (nesting mode: list).

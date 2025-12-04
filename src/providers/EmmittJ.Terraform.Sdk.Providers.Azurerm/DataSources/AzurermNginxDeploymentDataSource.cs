@@ -18,7 +18,7 @@ public class AzurermNginxDeploymentDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermNginxDeploymentDataSource(string name) : TerraformDa
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermNginxDeploymentDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermNginxDeploymentDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,147 +64,111 @@ public partial class AzurermNginxDeploymentDataSource(string name) : TerraformDa
     /// The auto_scale_profile attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AutoScaleProfile
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "auto_scale_profile").ResolveNodes(ctx));
-    }
+        => AsReference("auto_scale_profile");
 
     /// <summary>
     /// The automatic_upgrade_channel attribute.
     /// </summary>
     public TerraformValue<string> AutomaticUpgradeChannel
-    {
-        get => new TerraformReference<string>(this, "automatic_upgrade_channel");
-    }
+        => AsReference("automatic_upgrade_channel");
 
     /// <summary>
     /// The capacity attribute.
     /// </summary>
     public TerraformValue<double> Capacity
-    {
-        get => new TerraformReference<double>(this, "capacity");
-    }
+        => AsReference("capacity");
 
     /// <summary>
     /// The dataplane_api_endpoint attribute.
     /// </summary>
     public TerraformValue<string> DataplaneApiEndpoint
-    {
-        get => new TerraformReference<string>(this, "dataplane_api_endpoint");
-    }
+        => AsReference("dataplane_api_endpoint");
 
     /// <summary>
     /// The diagnose_support_enabled attribute.
     /// </summary>
     public TerraformValue<bool> DiagnoseSupportEnabled
-    {
-        get => new TerraformReference<bool>(this, "diagnose_support_enabled");
-    }
+        => AsReference("diagnose_support_enabled");
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     public TerraformValue<string> Email
-    {
-        get => new TerraformReference<string>(this, "email");
-    }
+        => AsReference("email");
 
     /// <summary>
     /// The frontend_private attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FrontendPrivate
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "frontend_private").ResolveNodes(ctx));
-    }
+        => AsReference("frontend_private");
 
     /// <summary>
     /// The frontend_public attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FrontendPublic
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "frontend_public").ResolveNodes(ctx));
-    }
+        => AsReference("frontend_public");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
-    }
+        => AsReference("identity");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     public TerraformValue<string> IpAddress
-    {
-        get => new TerraformReference<string>(this, "ip_address");
-    }
+        => AsReference("ip_address");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The logging_storage_account attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformList<TerraformMap<object>> LoggingStorageAccount
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "logging_storage_account").ResolveNodes(ctx));
-    }
+        => AsReference("logging_storage_account");
 
     /// <summary>
     /// The managed_resource_group attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> ManagedResourceGroup
-    {
-        get => new TerraformReference<string>(this, "managed_resource_group");
-    }
+        => AsReference("managed_resource_group");
 
     /// <summary>
     /// The network_interface attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkInterface
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "network_interface").ResolveNodes(ctx));
-    }
+        => AsReference("network_interface");
 
     /// <summary>
     /// The nginx_version attribute.
     /// </summary>
     public TerraformValue<string> NginxVersion
-    {
-        get => new TerraformReference<string>(this, "nginx_version");
-    }
+        => AsReference("nginx_version");
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     public TerraformValue<string> Sku
-    {
-        get => new TerraformReference<string>(this, "sku");
-    }
+        => AsReference("sku");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The web_application_firewall attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> WebApplicationFirewall
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "web_application_firewall").ResolveNodes(ctx));
-    }
+        => AsReference("web_application_firewall");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

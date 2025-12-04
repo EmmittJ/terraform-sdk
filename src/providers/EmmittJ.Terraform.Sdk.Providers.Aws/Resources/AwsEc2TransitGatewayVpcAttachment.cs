@@ -13,7 +13,7 @@ public partial class AwsEc2TransitGatewayVpcAttachment(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? ApplianceModeSupport
     {
-        get => new TerraformReference<string>(this, "appliance_mode_support");
+        get => GetArgument<TerraformValue<string>>("appliance_mode_support");
         set => SetArgument("appliance_mode_support", value);
     }
 
@@ -22,16 +22,16 @@ public partial class AwsEc2TransitGatewayVpcAttachment(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? DnsSupport
     {
-        get => new TerraformReference<string>(this, "dns_support");
+        get => GetArgument<TerraformValue<string>>("dns_support");
         set => SetArgument("dns_support", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -40,25 +40,25 @@ public partial class AwsEc2TransitGatewayVpcAttachment(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Ipv6Support
     {
-        get => new TerraformReference<string>(this, "ipv6_support");
+        get => GetArgument<TerraformValue<string>>("ipv6_support");
         set => SetArgument("ipv6_support", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The security_group_referencing_support attribute.
     /// </summary>
-    public TerraformValue<string> SecurityGroupReferencingSupport
+    public TerraformValue<string>? SecurityGroupReferencingSupport
     {
-        get => new TerraformReference<string>(this, "security_group_referencing_support");
+        get => GetArgument<TerraformValue<string>>("security_group_referencing_support");
         set => SetArgument("security_group_referencing_support", value);
     }
 
@@ -68,7 +68,7 @@ public partial class AwsEc2TransitGatewayVpcAttachment(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -77,34 +77,34 @@ public partial class AwsEc2TransitGatewayVpcAttachment(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The transit_gateway_default_route_table_association attribute.
     /// </summary>
-    public TerraformValue<bool> TransitGatewayDefaultRouteTableAssociation
+    public TerraformValue<bool>? TransitGatewayDefaultRouteTableAssociation
     {
-        get => new TerraformReference<bool>(this, "transit_gateway_default_route_table_association");
+        get => GetArgument<TerraformValue<bool>>("transit_gateway_default_route_table_association");
         set => SetArgument("transit_gateway_default_route_table_association", value);
     }
 
     /// <summary>
     /// The transit_gateway_default_route_table_propagation attribute.
     /// </summary>
-    public TerraformValue<bool> TransitGatewayDefaultRouteTablePropagation
+    public TerraformValue<bool>? TransitGatewayDefaultRouteTablePropagation
     {
-        get => new TerraformReference<bool>(this, "transit_gateway_default_route_table_propagation");
+        get => GetArgument<TerraformValue<bool>>("transit_gateway_default_route_table_propagation");
         set => SetArgument("transit_gateway_default_route_table_propagation", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AwsEc2TransitGatewayVpcAttachment(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayId is required")]
     public required TerraformValue<string> TransitGatewayId
     {
-        get => new TerraformReference<string>(this, "transit_gateway_id");
+        get => GetArgument<TerraformValue<string>>("transit_gateway_id");
         set => SetArgument("transit_gateway_id", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AwsEc2TransitGatewayVpcAttachment(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -132,16 +132,12 @@ public partial class AwsEc2TransitGatewayVpcAttachment(string name) : TerraformR
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The vpc_owner_id attribute.
     /// </summary>
     public TerraformValue<string> VpcOwnerId
-    {
-        get => new TerraformReference<string>(this, "vpc_owner_id");
-    }
+        => AsReference("vpc_owner_id");
 
 }

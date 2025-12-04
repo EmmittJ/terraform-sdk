@@ -19,7 +19,7 @@ public class GoogleIamWorkforcePoolAccessRestrictionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DisableProgrammaticSignin
     {
-        get => new TerraformReference<bool>(this, "disable_programmatic_signin");
+        get => GetArgument<TerraformValue<bool>>("disable_programmatic_signin");
         set => SetArgument("disable_programmatic_signin", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleIamWorkforcePoolAccessRestrictionsBlockAllowedServicesBlock :
     /// </summary>
     public TerraformValue<string>? Domain
     {
-        get => new TerraformReference<string>(this, "domain");
+        get => GetArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
@@ -74,7 +74,7 @@ public class GoogleIamWorkforcePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -83,7 +83,7 @@ public class GoogleIamWorkforcePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -92,7 +92,7 @@ public class GoogleIamWorkforcePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -110,7 +110,7 @@ public partial class GoogleIamWorkforcePool(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -120,7 +120,7 @@ public partial class GoogleIamWorkforcePool(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -129,16 +129,16 @@ public partial class GoogleIamWorkforcePool(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -148,7 +148,7 @@ public partial class GoogleIamWorkforcePool(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -158,7 +158,7 @@ public partial class GoogleIamWorkforcePool(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -171,7 +171,7 @@ public partial class GoogleIamWorkforcePool(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? SessionDuration
     {
-        get => new TerraformReference<string>(this, "session_duration");
+        get => GetArgument<TerraformValue<string>>("session_duration");
         set => SetArgument("session_duration", value);
     }
 
@@ -183,7 +183,7 @@ public partial class GoogleIamWorkforcePool(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
     public required TerraformValue<string> WorkforcePoolId
     {
-        get => new TerraformReference<string>(this, "workforce_pool_id");
+        get => GetArgument<TerraformValue<string>>("workforce_pool_id");
         set => SetArgument("workforce_pool_id", value);
     }
 
@@ -192,9 +192,7 @@ public partial class GoogleIamWorkforcePool(string name) : TerraformResource("go
     /// Format: &#39;locations/{location}/workforcePools/{workforcePoolId}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. The state of the pool.
@@ -209,9 +207,7 @@ public partial class GoogleIamWorkforcePool(string name) : TerraformResource("go
     ///    tokens grant access again.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// AccessRestrictions block (nesting mode: list).

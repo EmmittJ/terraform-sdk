@@ -18,7 +18,7 @@ public class AzurermSentinelDataConnectorOffice365TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSentinelDataConnectorOffice365TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSentinelDataConnectorOffice365TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSentinelDataConnectorOffice365TimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AzurermSentinelDataConnectorOffice365(string name) : Terraf
     /// </summary>
     public TerraformValue<bool>? ExchangeEnabled
     {
-        get => new TerraformReference<bool>(this, "exchange_enabled");
+        get => GetArgument<TerraformValue<bool>>("exchange_enabled");
         set => SetArgument("exchange_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermSentinelDataConnectorOffice365(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
-        get => new TerraformReference<string>(this, "log_analytics_workspace_id");
+        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermSentinelDataConnectorOffice365(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermSentinelDataConnectorOffice365(string name) : Terraf
     /// </summary>
     public TerraformValue<bool>? SharepointEnabled
     {
-        get => new TerraformReference<bool>(this, "sharepoint_enabled");
+        get => GetArgument<TerraformValue<bool>>("sharepoint_enabled");
         set => SetArgument("sharepoint_enabled", value);
     }
 
@@ -110,16 +110,16 @@ public partial class AzurermSentinelDataConnectorOffice365(string name) : Terraf
     /// </summary>
     public TerraformValue<bool>? TeamsEnabled
     {
-        get => new TerraformReference<bool>(this, "teams_enabled");
+        get => GetArgument<TerraformValue<bool>>("teams_enabled");
         set => SetArgument("teams_enabled", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformValue<string> TenantId
+    public TerraformValue<string>? TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 

@@ -17,49 +17,37 @@ public class AwsBedrockagentAgentVersionsDataSourceAgentVersionSummariesBlock : 
     /// The agent_name attribute.
     /// </summary>
     public TerraformValue<string> AgentName
-    {
-        get => new TerraformReference<string>(this, "agent_name");
-    }
+        => AsReference("agent_name");
 
     /// <summary>
     /// The agent_status attribute.
     /// </summary>
     public TerraformValue<string> AgentStatus
-    {
-        get => new TerraformReference<string>(this, "agent_status");
-    }
+        => AsReference("agent_status");
 
     /// <summary>
     /// The agent_version attribute.
     /// </summary>
     public TerraformValue<string> AgentVersion
-    {
-        get => new TerraformReference<string>(this, "agent_version");
-    }
+        => AsReference("agent_version");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-    {
-        get => new TerraformReference<string>(this, "updated_at");
-    }
+        => AsReference("updated_at");
 
     /// <summary>
     /// GuardrailConfiguration block (nesting mode: list).
@@ -87,17 +75,13 @@ public class AwsBedrockagentAgentVersionsDataSourceAgentVersionSummariesBlockGua
     /// The guardrail_identifier attribute.
     /// </summary>
     public TerraformValue<string> GuardrailIdentifier
-    {
-        get => new TerraformReference<string>(this, "guardrail_identifier");
-    }
+        => AsReference("guardrail_identifier");
 
     /// <summary>
     /// The guardrail_version attribute.
     /// </summary>
     public TerraformValue<string> GuardrailVersion
-    {
-        get => new TerraformReference<string>(this, "guardrail_version");
-    }
+        => AsReference("guardrail_version");
 
 }
 
@@ -114,16 +98,16 @@ public partial class AwsBedrockagentAgentVersionsDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentId is required")]
     public required TerraformValue<string> AgentId
     {
-        get => new TerraformReference<string>(this, "agent_id");
+        get => GetArgument<TerraformValue<string>>("agent_id");
         set => SetArgument("agent_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

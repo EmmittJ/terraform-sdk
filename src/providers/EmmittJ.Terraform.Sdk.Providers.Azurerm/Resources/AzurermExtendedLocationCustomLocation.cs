@@ -18,7 +18,7 @@ public class AzurermExtendedLocationCustomLocationAuthenticationBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermExtendedLocationCustomLocationAuthenticationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermExtendedLocationCustomLocationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -60,7 +60,7 @@ public class AzurermExtendedLocationCustomLocationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermExtendedLocationCustomLocationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -78,7 +78,7 @@ public class AzurermExtendedLocationCustomLocationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AzurermExtendedLocationCustomLocation(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterExtensionIds is required")]
     public TerraformList<string>? ClusterExtensionIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "cluster_extension_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("cluster_extension_ids");
         set => SetArgument("cluster_extension_ids", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AzurermExtendedLocationCustomLocation(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AzurermExtendedLocationCustomLocation(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostResourceId is required")]
     public required TerraformValue<string> HostResourceId
     {
-        get => new TerraformReference<string>(this, "host_resource_id");
+        get => GetArgument<TerraformValue<string>>("host_resource_id");
         set => SetArgument("host_resource_id", value);
     }
 
@@ -125,16 +125,16 @@ public partial class AzurermExtendedLocationCustomLocation(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? HostType
     {
-        get => new TerraformReference<string>(this, "host_type");
+        get => GetArgument<TerraformValue<string>>("host_type");
         set => SetArgument("host_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AzurermExtendedLocationCustomLocation(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -154,7 +154,7 @@ public partial class AzurermExtendedLocationCustomLocation(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AzurermExtendedLocationCustomLocation(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceAttribute is required")]
     public required TerraformValue<string> NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -174,7 +174,7 @@ public partial class AzurermExtendedLocationCustomLocation(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 

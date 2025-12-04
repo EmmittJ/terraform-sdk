@@ -11,18 +11,18 @@ public partial class GoogleSqlBackupRunDataSource(string name) : TerraformDataSo
     /// <summary>
     /// The identifier for this backup run. Unique only for a specific Cloud SQL instance. If left empty and multiple backups exist for the instance, most_recent must be set to true.
     /// </summary>
-    public TerraformValue<double> BackupId
+    public TerraformValue<double>? BackupId
     {
-        get => new TerraformReference<double>(this, "backup_id");
+        get => GetArgument<TerraformValue<double>>("backup_id");
         set => SetArgument("backup_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleSqlBackupRunDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -41,16 +41,16 @@ public partial class GoogleSqlBackupRunDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<bool>? MostRecent
     {
-        get => new TerraformReference<bool>(this, "most_recent");
+        get => GetArgument<TerraformValue<bool>>("most_recent");
         set => SetArgument("most_recent", value);
     }
 
     /// <summary>
     /// Project ID of the project that contains the instance.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -58,24 +58,18 @@ public partial class GoogleSqlBackupRunDataSource(string name) : TerraformDataSo
     /// Location of the backups.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The time the backup operation actually started in UTC timezone in RFC 3339 format, for example 2012-11-15T16:19:00.094Z.
     /// </summary>
     public TerraformValue<string> StartTime
-    {
-        get => new TerraformReference<string>(this, "start_time");
-    }
+        => AsReference("start_time");
 
     /// <summary>
     /// The status of this run.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }

@@ -13,16 +13,16 @@ public partial class AwsCloudfrontOriginAccessIdentitiesDataSource(string name) 
     /// </summary>
     public TerraformSet<string>? Comments
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "comments").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("comments");
         set => SetArgument("comments", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -30,24 +30,18 @@ public partial class AwsCloudfrontOriginAccessIdentitiesDataSource(string name) 
     /// The iam_arns attribute.
     /// </summary>
     public TerraformSet<string> IamArns
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "iam_arns").ResolveNodes(ctx));
-    }
+        => AsReference("iam_arns");
 
     /// <summary>
     /// The ids attribute.
     /// </summary>
     public TerraformSet<string> Ids
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ids").ResolveNodes(ctx));
-    }
+        => AsReference("ids");
 
     /// <summary>
     /// The s3_canonical_user_ids attribute.
     /// </summary>
     public TerraformSet<string> S3CanonicalUserIds
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "s3_canonical_user_ids").ResolveNodes(ctx));
-    }
+        => AsReference("s3_canonical_user_ids");
 
 }

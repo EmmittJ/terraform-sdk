@@ -18,7 +18,7 @@ public class AzurermResourceGroupTemplateDeploymentDataSourceTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermResourceGroupTemplateDeploymentDataSource(string nam
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermResourceGroupTemplateDeploymentDataSource(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermResourceGroupTemplateDeploymentDataSource(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,9 +64,7 @@ public partial class AzurermResourceGroupTemplateDeploymentDataSource(string nam
     /// The output_content attribute.
     /// </summary>
     public TerraformValue<string> OutputContent
-    {
-        get => new TerraformReference<string>(this, "output_content");
-    }
+        => AsReference("output_content");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

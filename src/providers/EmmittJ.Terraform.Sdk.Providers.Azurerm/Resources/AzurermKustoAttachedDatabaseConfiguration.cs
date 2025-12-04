@@ -18,7 +18,7 @@ public class AzurermKustoAttachedDatabaseConfigurationSharingBlock : TerraformBl
     /// </summary>
     public TerraformSet<string>? ExternalTablesToExclude
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "external_tables_to_exclude").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("external_tables_to_exclude");
         set => SetArgument("external_tables_to_exclude", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermKustoAttachedDatabaseConfigurationSharingBlock : TerraformBl
     /// </summary>
     public TerraformSet<string>? ExternalTablesToInclude
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "external_tables_to_include").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("external_tables_to_include");
         set => SetArgument("external_tables_to_include", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermKustoAttachedDatabaseConfigurationSharingBlock : TerraformBl
     /// </summary>
     public TerraformSet<string>? MaterializedViewsToExclude
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "materialized_views_to_exclude").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("materialized_views_to_exclude");
         set => SetArgument("materialized_views_to_exclude", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermKustoAttachedDatabaseConfigurationSharingBlock : TerraformBl
     /// </summary>
     public TerraformSet<string>? MaterializedViewsToInclude
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "materialized_views_to_include").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("materialized_views_to_include");
         set => SetArgument("materialized_views_to_include", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermKustoAttachedDatabaseConfigurationSharingBlock : TerraformBl
     /// </summary>
     public TerraformSet<string>? TablesToExclude
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "tables_to_exclude").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("tables_to_exclude");
         set => SetArgument("tables_to_exclude", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermKustoAttachedDatabaseConfigurationSharingBlock : TerraformBl
     /// </summary>
     public TerraformSet<string>? TablesToInclude
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "tables_to_include").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("tables_to_include");
         set => SetArgument("tables_to_include", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermKustoAttachedDatabaseConfigurationTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermKustoAttachedDatabaseConfigurationTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermKustoAttachedDatabaseConfigurationTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermKustoAttachedDatabaseConfigurationTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -129,9 +129,9 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
-    public TerraformValue<string> ClusterId
+    public TerraformValue<string>? ClusterId
     {
-        get => new TerraformReference<string>(this, "cluster_id");
+        get => GetArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
@@ -141,7 +141,7 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => new TerraformReference<string>(this, "cluster_name");
+        get => GetArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -149,9 +149,9 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     /// The cluster_resource_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> ClusterResourceId
+    public TerraformValue<string>? ClusterResourceId
     {
-        get => new TerraformReference<string>(this, "cluster_resource_id");
+        get => GetArgument<TerraformValue<string>>("cluster_resource_id");
         set => SetArgument("cluster_resource_id", value);
     }
 
@@ -161,7 +161,7 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -170,16 +170,16 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     /// </summary>
     public TerraformValue<string>? DefaultPrincipalModificationKind
     {
-        get => new TerraformReference<string>(this, "default_principal_modification_kind");
+        get => GetArgument<TerraformValue<string>>("default_principal_modification_kind");
         set => SetArgument("default_principal_modification_kind", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -189,7 +189,7 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -209,7 +209,7 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -217,9 +217,7 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     /// The attached_database_names attribute.
     /// </summary>
     public TerraformList<string> AttachedDatabaseNames
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "attached_database_names").ResolveNodes(ctx));
-    }
+        => AsReference("attached_database_names");
 
     /// <summary>
     /// Sharing block (nesting mode: list).

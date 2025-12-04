@@ -22,7 +22,7 @@ public class GoogleSpannerBackupScheduleEncryptionConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionType is required")]
     public required TerraformValue<string> EncryptionType
     {
-        get => new TerraformReference<string>(this, "encryption_type");
+        get => GetArgument<TerraformValue<string>>("encryption_type");
         set => SetArgument("encryption_type", value);
     }
 
@@ -32,7 +32,7 @@ public class GoogleSpannerBackupScheduleEncryptionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleSpannerBackupScheduleEncryptionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? KmsKeyNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "kms_key_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("kms_key_names");
         set => SetArgument("kms_key_names", value);
     }
 
@@ -126,7 +126,7 @@ public class GoogleSpannerBackupScheduleSpecBlockCronSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -149,7 +149,7 @@ public class GoogleSpannerBackupScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -158,7 +158,7 @@ public class GoogleSpannerBackupScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -167,7 +167,7 @@ public class GoogleSpannerBackupScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -186,16 +186,16 @@ public partial class GoogleSpannerBackupSchedule(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -205,7 +205,7 @@ public partial class GoogleSpannerBackupSchedule(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -215,16 +215,16 @@ public partial class GoogleSpannerBackupSchedule(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -236,7 +236,7 @@ public partial class GoogleSpannerBackupSchedule(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionDuration is required")]
     public required TerraformValue<string> RetentionDuration
     {
-        get => new TerraformReference<string>(this, "retention_duration");
+        get => GetArgument<TerraformValue<string>>("retention_duration");
         set => SetArgument("retention_duration", value);
     }
 

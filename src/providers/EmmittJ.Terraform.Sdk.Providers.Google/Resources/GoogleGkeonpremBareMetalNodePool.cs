@@ -25,18 +25,18 @@ public class GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlock : TerraformBloc
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs.
     /// For example: { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    public TerraformMap<string> Labels
+    public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// Specifies the nodes operating system (default: LINUX).
     /// </summary>
-    public TerraformValue<string> OperatingSystem
+    public TerraformValue<string>? OperatingSystem
     {
-        get => new TerraformReference<string>(this, "operating_system");
+        get => GetArgument<TerraformValue<string>>("operating_system");
         set => SetArgument("operating_system", value);
     }
 
@@ -88,7 +88,7 @@ public class GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlockNodeConfigsBlock
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -98,7 +98,7 @@ public class GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlockNodeConfigsBlock
     /// </summary>
     public TerraformValue<string>? NodeIp
     {
-        get => new TerraformReference<string>(this, "node_ip");
+        get => GetArgument<TerraformValue<string>>("node_ip");
         set => SetArgument("node_ip", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlockTaintsBlock : Te
     /// </summary>
     public TerraformValue<string>? Effect
     {
-        get => new TerraformReference<string>(this, "effect");
+        get => GetArgument<TerraformValue<string>>("effect");
         set => SetArgument("effect", value);
     }
 
@@ -129,7 +129,7 @@ public class GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlockTaintsBlock : Te
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -138,7 +138,7 @@ public class GoogleGkeonpremBareMetalNodePoolNodePoolConfigBlockTaintsBlock : Te
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -161,7 +161,7 @@ public class GoogleGkeonpremBareMetalNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -170,7 +170,7 @@ public class GoogleGkeonpremBareMetalNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -179,7 +179,7 @@ public class GoogleGkeonpremBareMetalNodePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -208,7 +208,7 @@ public partial class GoogleGkeonpremBareMetalNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -218,7 +218,7 @@ public partial class GoogleGkeonpremBareMetalNodePool(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BareMetalCluster is required")]
     public required TerraformValue<string> BareMetalCluster
     {
-        get => new TerraformReference<string>(this, "bare_metal_cluster");
+        get => GetArgument<TerraformValue<string>>("bare_metal_cluster");
         set => SetArgument("bare_metal_cluster", value);
     }
 
@@ -227,16 +227,16 @@ public partial class GoogleGkeonpremBareMetalNodePool(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -246,7 +246,7 @@ public partial class GoogleGkeonpremBareMetalNodePool(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -256,16 +256,16 @@ public partial class GoogleGkeonpremBareMetalNodePool(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -273,25 +273,19 @@ public partial class GoogleGkeonpremBareMetalNodePool(string name) : TerraformRe
     /// The time the cluster was created, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The time the cluster was deleted, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> DeleteTime
-    {
-        get => new TerraformReference<string>(this, "delete_time");
-    }
+        => AsReference("delete_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other
@@ -301,49 +295,37 @@ public partial class GoogleGkeonpremBareMetalNodePool(string name) : TerraformRe
     /// through optimistic concurrency control.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// If set, there are currently changes in flight to the Bare Metal User Cluster.
     /// </summary>
     public TerraformValue<bool> Reconciling
-    {
-        get => new TerraformReference<bool>(this, "reconciling");
-    }
+        => AsReference("reconciling");
 
     /// <summary>
     /// The current state of this cluster.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Specifies detailed node pool status.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "status").ResolveNodes(ctx));
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The unique identifier of the Bare Metal Node Pool.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// The time the cluster was last updated, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// NodePoolConfig block (nesting mode: list).

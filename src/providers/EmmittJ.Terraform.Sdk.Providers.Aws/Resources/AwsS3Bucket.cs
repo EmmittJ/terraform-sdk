@@ -19,7 +19,7 @@ public class AwsS3BucketCorsRuleBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AllowedHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_headers");
         set => SetArgument("allowed_headers", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsS3BucketCorsRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
     public TerraformList<string>? AllowedMethods
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_methods");
         set => SetArgument("allowed_methods", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsS3BucketCorsRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
     public TerraformList<string>? AllowedOrigins
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_origins").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_origins");
         set => SetArgument("allowed_origins", value);
     }
 
@@ -48,7 +48,7 @@ public class AwsS3BucketCorsRuleBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ExposeHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "expose_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("expose_headers");
         set => SetArgument("expose_headers", value);
     }
 
@@ -57,7 +57,7 @@ public class AwsS3BucketCorsRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxAgeSeconds
     {
-        get => new TerraformReference<double>(this, "max_age_seconds");
+        get => GetArgument<TerraformValue<double>>("max_age_seconds");
         set => SetArgument("max_age_seconds", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsS3BucketGrantBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsS3BucketGrantBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     public required TerraformSet<string> Permissions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "permissions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("permissions");
         set => SetArgument("permissions", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsS3BucketGrantBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -110,7 +110,7 @@ public class AwsS3BucketGrantBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsS3BucketLifecycleRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? AbortIncompleteMultipartUploadDays
     {
-        get => new TerraformReference<double>(this, "abort_incomplete_multipart_upload_days");
+        get => GetArgument<TerraformValue<double>>("abort_incomplete_multipart_upload_days");
         set => SetArgument("abort_incomplete_multipart_upload_days", value);
     }
 
@@ -144,16 +144,16 @@ public class AwsS3BucketLifecycleRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -162,7 +162,7 @@ public class AwsS3BucketLifecycleRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -171,7 +171,7 @@ public class AwsS3BucketLifecycleRuleBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -231,7 +231,7 @@ public class AwsS3BucketLifecycleRuleBlockExpirationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Date
     {
-        get => new TerraformReference<string>(this, "date");
+        get => GetArgument<TerraformValue<string>>("date");
         set => SetArgument("date", value);
     }
 
@@ -240,7 +240,7 @@ public class AwsS3BucketLifecycleRuleBlockExpirationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Days
     {
-        get => new TerraformReference<double>(this, "days");
+        get => GetArgument<TerraformValue<double>>("days");
         set => SetArgument("days", value);
     }
 
@@ -249,7 +249,7 @@ public class AwsS3BucketLifecycleRuleBlockExpirationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ExpiredObjectDeleteMarker
     {
-        get => new TerraformReference<bool>(this, "expired_object_delete_marker");
+        get => GetArgument<TerraformValue<bool>>("expired_object_delete_marker");
         set => SetArgument("expired_object_delete_marker", value);
     }
 
@@ -271,7 +271,7 @@ public class AwsS3BucketLifecycleRuleBlockNoncurrentVersionExpirationBlock : Ter
     /// </summary>
     public TerraformValue<double>? Days
     {
-        get => new TerraformReference<double>(this, "days");
+        get => GetArgument<TerraformValue<double>>("days");
         set => SetArgument("days", value);
     }
 
@@ -293,7 +293,7 @@ public class AwsS3BucketLifecycleRuleBlockNoncurrentVersionTransitionBlock : Ter
     /// </summary>
     public TerraformValue<double>? Days
     {
-        get => new TerraformReference<double>(this, "days");
+        get => GetArgument<TerraformValue<double>>("days");
         set => SetArgument("days", value);
     }
 
@@ -303,7 +303,7 @@ public class AwsS3BucketLifecycleRuleBlockNoncurrentVersionTransitionBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageClass is required")]
     public required TerraformValue<string> StorageClass
     {
-        get => new TerraformReference<string>(this, "storage_class");
+        get => GetArgument<TerraformValue<string>>("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -325,7 +325,7 @@ public class AwsS3BucketLifecycleRuleBlockTransitionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Date
     {
-        get => new TerraformReference<string>(this, "date");
+        get => GetArgument<TerraformValue<string>>("date");
         set => SetArgument("date", value);
     }
 
@@ -334,7 +334,7 @@ public class AwsS3BucketLifecycleRuleBlockTransitionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Days
     {
-        get => new TerraformReference<double>(this, "days");
+        get => GetArgument<TerraformValue<double>>("days");
         set => SetArgument("days", value);
     }
 
@@ -344,7 +344,7 @@ public class AwsS3BucketLifecycleRuleBlockTransitionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageClass is required")]
     public required TerraformValue<string> StorageClass
     {
-        get => new TerraformReference<string>(this, "storage_class");
+        get => GetArgument<TerraformValue<string>>("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -369,7 +369,7 @@ public class AwsS3BucketLoggingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetBucket is required")]
     public required TerraformValue<string> TargetBucket
     {
-        get => new TerraformReference<string>(this, "target_bucket");
+        get => GetArgument<TerraformValue<string>>("target_bucket");
         set => SetArgument("target_bucket", value);
     }
 
@@ -378,7 +378,7 @@ public class AwsS3BucketLoggingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TargetPrefix
     {
-        get => new TerraformReference<string>(this, "target_prefix");
+        get => GetArgument<TerraformValue<string>>("target_prefix");
         set => SetArgument("target_prefix", value);
     }
 
@@ -403,7 +403,7 @@ public class AwsS3BucketObjectLockConfigurationBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? ObjectLockEnabled
     {
-        get => new TerraformReference<string>(this, "object_lock_enabled");
+        get => GetArgument<TerraformValue<string>>("object_lock_enabled");
         set => SetArgument("object_lock_enabled", value);
     }
 
@@ -463,7 +463,7 @@ public class AwsS3BucketObjectLockConfigurationBlockRuleBlockDefaultRetentionBlo
     /// </summary>
     public TerraformValue<double>? Days
     {
-        get => new TerraformReference<double>(this, "days");
+        get => GetArgument<TerraformValue<double>>("days");
         set => SetArgument("days", value);
     }
 
@@ -473,7 +473,7 @@ public class AwsS3BucketObjectLockConfigurationBlockRuleBlockDefaultRetentionBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -482,7 +482,7 @@ public class AwsS3BucketObjectLockConfigurationBlockRuleBlockDefaultRetentionBlo
     /// </summary>
     public TerraformValue<double>? Years
     {
-        get => new TerraformReference<double>(this, "years");
+        get => GetArgument<TerraformValue<double>>("years");
         set => SetArgument("years", value);
     }
 
@@ -507,7 +507,7 @@ public class AwsS3BucketReplicationConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => new TerraformReference<string>(this, "role");
+        get => GetArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 
@@ -541,7 +541,7 @@ public class AwsS3BucketReplicationConfigurationBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DeleteMarkerReplicationStatus
     {
-        get => new TerraformReference<string>(this, "delete_marker_replication_status");
+        get => GetArgument<TerraformValue<string>>("delete_marker_replication_status");
         set => SetArgument("delete_marker_replication_status", value);
     }
 
@@ -550,7 +550,7 @@ public class AwsS3BucketReplicationConfigurationBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -559,7 +559,7 @@ public class AwsS3BucketReplicationConfigurationBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -568,7 +568,7 @@ public class AwsS3BucketReplicationConfigurationBlockRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -578,7 +578,7 @@ public class AwsS3BucketReplicationConfigurationBlockRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     public required TerraformValue<string> Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -633,7 +633,7 @@ public class AwsS3BucketReplicationConfigurationBlockRulesBlockDestinationBlock 
     /// </summary>
     public TerraformValue<string>? AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -643,7 +643,7 @@ public class AwsS3BucketReplicationConfigurationBlockRulesBlockDestinationBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -652,7 +652,7 @@ public class AwsS3BucketReplicationConfigurationBlockRulesBlockDestinationBlock 
     /// </summary>
     public TerraformValue<string>? ReplicaKmsKeyId
     {
-        get => new TerraformReference<string>(this, "replica_kms_key_id");
+        get => GetArgument<TerraformValue<string>>("replica_kms_key_id");
         set => SetArgument("replica_kms_key_id", value);
     }
 
@@ -661,7 +661,7 @@ public class AwsS3BucketReplicationConfigurationBlockRulesBlockDestinationBlock 
     /// </summary>
     public TerraformValue<string>? StorageClass
     {
-        get => new TerraformReference<string>(this, "storage_class");
+        get => GetArgument<TerraformValue<string>>("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -714,7 +714,7 @@ public class AwsS3BucketReplicationConfigurationBlockRulesBlockDestinationBlockA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Owner is required")]
     public required TerraformValue<string> Owner
     {
-        get => new TerraformReference<string>(this, "owner");
+        get => GetArgument<TerraformValue<string>>("owner");
         set => SetArgument("owner", value);
     }
 
@@ -736,7 +736,7 @@ public class AwsS3BucketReplicationConfigurationBlockRulesBlockDestinationBlockM
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -745,7 +745,7 @@ public class AwsS3BucketReplicationConfigurationBlockRulesBlockDestinationBlockM
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -767,7 +767,7 @@ public class AwsS3BucketReplicationConfigurationBlockRulesBlockDestinationBlockR
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -776,7 +776,7 @@ public class AwsS3BucketReplicationConfigurationBlockRulesBlockDestinationBlockR
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -798,7 +798,7 @@ public class AwsS3BucketReplicationConfigurationBlockRulesBlockFilterBlock : Ter
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -807,7 +807,7 @@ public class AwsS3BucketReplicationConfigurationBlockRulesBlockFilterBlock : Ter
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -853,7 +853,7 @@ public class AwsS3BucketReplicationConfigurationBlockRulesBlockSourceSelectionCr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -903,7 +903,7 @@ public class AwsS3BucketServerSideEncryptionConfigurationBlockRuleBlock : Terraf
     /// </summary>
     public TerraformValue<bool>? BucketKeyEnabled
     {
-        get => new TerraformReference<bool>(this, "bucket_key_enabled");
+        get => GetArgument<TerraformValue<bool>>("bucket_key_enabled");
         set => SetArgument("bucket_key_enabled", value);
     }
 
@@ -938,7 +938,7 @@ public class AwsS3BucketServerSideEncryptionConfigurationBlockRuleBlockApplyServ
     /// </summary>
     public TerraformValue<string>? KmsMasterKeyId
     {
-        get => new TerraformReference<string>(this, "kms_master_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_master_key_id");
         set => SetArgument("kms_master_key_id", value);
     }
 
@@ -948,7 +948,7 @@ public class AwsS3BucketServerSideEncryptionConfigurationBlockRuleBlockApplyServ
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SseAlgorithm is required")]
     public required TerraformValue<string> SseAlgorithm
     {
-        get => new TerraformReference<string>(this, "sse_algorithm");
+        get => GetArgument<TerraformValue<string>>("sse_algorithm");
         set => SetArgument("sse_algorithm", value);
     }
 
@@ -971,7 +971,7 @@ public class AwsS3BucketTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -980,7 +980,7 @@ public class AwsS3BucketTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -989,7 +989,7 @@ public class AwsS3BucketTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -998,7 +998,7 @@ public class AwsS3BucketTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1022,7 +1022,7 @@ public class AwsS3BucketVersioningBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1031,7 +1031,7 @@ public class AwsS3BucketVersioningBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? MfaDelete
     {
-        get => new TerraformReference<bool>(this, "mfa_delete");
+        get => GetArgument<TerraformValue<bool>>("mfa_delete");
         set => SetArgument("mfa_delete", value);
     }
 
@@ -1055,7 +1055,7 @@ public class AwsS3BucketWebsiteBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ErrorDocument
     {
-        get => new TerraformReference<string>(this, "error_document");
+        get => GetArgument<TerraformValue<string>>("error_document");
         set => SetArgument("error_document", value);
     }
 
@@ -1064,7 +1064,7 @@ public class AwsS3BucketWebsiteBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? IndexDocument
     {
-        get => new TerraformReference<string>(this, "index_document");
+        get => GetArgument<TerraformValue<string>>("index_document");
         set => SetArgument("index_document", value);
     }
 
@@ -1073,7 +1073,7 @@ public class AwsS3BucketWebsiteBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RedirectAllRequestsTo
     {
-        get => new TerraformReference<string>(this, "redirect_all_requests_to");
+        get => GetArgument<TerraformValue<string>>("redirect_all_requests_to");
         set => SetArgument("redirect_all_requests_to", value);
     }
 
@@ -1082,7 +1082,7 @@ public class AwsS3BucketWebsiteBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RoutingRules
     {
-        get => new TerraformReference<string>(this, "routing_rules");
+        get => GetArgument<TerraformValue<string>>("routing_rules");
         set => SetArgument("routing_rules", value);
     }
 
@@ -1099,9 +1099,9 @@ public partial class AwsS3Bucket(string name) : TerraformResource("aws_s3_bucket
     /// The acceleration_status attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> AccelerationStatus
+    public TerraformValue<string>? AccelerationStatus
     {
-        get => new TerraformReference<string>(this, "acceleration_status");
+        get => GetArgument<TerraformValue<string>>("acceleration_status");
         set => SetArgument("acceleration_status", value);
     }
 
@@ -1109,27 +1109,27 @@ public partial class AwsS3Bucket(string name) : TerraformResource("aws_s3_bucket
     /// The acl attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> Acl
+    public TerraformValue<string>? Acl
     {
-        get => new TerraformReference<string>(this, "acl");
+        get => GetArgument<TerraformValue<string>>("acl");
         set => SetArgument("acl", value);
     }
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformValue<string> Bucket
+    public TerraformValue<string>? Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The bucket_prefix attribute.
     /// </summary>
-    public TerraformValue<string> BucketPrefix
+    public TerraformValue<string>? BucketPrefix
     {
-        get => new TerraformReference<string>(this, "bucket_prefix");
+        get => GetArgument<TerraformValue<string>>("bucket_prefix");
         set => SetArgument("bucket_prefix", value);
     }
 
@@ -1138,25 +1138,25 @@ public partial class AwsS3Bucket(string name) : TerraformResource("aws_s3_bucket
     /// </summary>
     public TerraformValue<bool>? ForceDestroy
     {
-        get => new TerraformReference<bool>(this, "force_destroy");
+        get => GetArgument<TerraformValue<bool>>("force_destroy");
         set => SetArgument("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The object_lock_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> ObjectLockEnabled
+    public TerraformValue<bool>? ObjectLockEnabled
     {
-        get => new TerraformReference<bool>(this, "object_lock_enabled");
+        get => GetArgument<TerraformValue<bool>>("object_lock_enabled");
         set => SetArgument("object_lock_enabled", value);
     }
 
@@ -1164,18 +1164,18 @@ public partial class AwsS3Bucket(string name) : TerraformResource("aws_s3_bucket
     /// The policy attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> Policy
+    public TerraformValue<string>? Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -1183,9 +1183,9 @@ public partial class AwsS3Bucket(string name) : TerraformResource("aws_s3_bucket
     /// The request_payer attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> RequestPayer
+    public TerraformValue<string>? RequestPayer
     {
-        get => new TerraformReference<string>(this, "request_payer");
+        get => GetArgument<TerraformValue<string>>("request_payer");
         set => SetArgument("request_payer", value);
     }
 
@@ -1194,16 +1194,16 @@ public partial class AwsS3Bucket(string name) : TerraformResource("aws_s3_bucket
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -1211,59 +1211,45 @@ public partial class AwsS3Bucket(string name) : TerraformResource("aws_s3_bucket
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The bucket_domain_name attribute.
     /// </summary>
     public TerraformValue<string> BucketDomainName
-    {
-        get => new TerraformReference<string>(this, "bucket_domain_name");
-    }
+        => AsReference("bucket_domain_name");
 
     /// <summary>
     /// The bucket_region attribute.
     /// </summary>
     public TerraformValue<string> BucketRegion
-    {
-        get => new TerraformReference<string>(this, "bucket_region");
-    }
+        => AsReference("bucket_region");
 
     /// <summary>
     /// The bucket_regional_domain_name attribute.
     /// </summary>
     public TerraformValue<string> BucketRegionalDomainName
-    {
-        get => new TerraformReference<string>(this, "bucket_regional_domain_name");
-    }
+        => AsReference("bucket_regional_domain_name");
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
     public TerraformValue<string> HostedZoneId
-    {
-        get => new TerraformReference<string>(this, "hosted_zone_id");
-    }
+        => AsReference("hosted_zone_id");
 
     /// <summary>
     /// The website_domain attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> WebsiteDomain
-    {
-        get => new TerraformReference<string>(this, "website_domain");
-    }
+        => AsReference("website_domain");
 
     /// <summary>
     /// The website_endpoint attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> WebsiteEndpoint
-    {
-        get => new TerraformReference<string>(this, "website_endpoint");
-    }
+        => AsReference("website_endpoint");
 
     /// <summary>
     /// CorsRule block (nesting mode: list).

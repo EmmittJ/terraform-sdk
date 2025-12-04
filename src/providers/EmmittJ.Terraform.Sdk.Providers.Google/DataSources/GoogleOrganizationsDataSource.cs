@@ -13,16 +13,16 @@ public partial class GoogleOrganizationsDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -30,8 +30,6 @@ public partial class GoogleOrganizationsDataSource(string name) : TerraformDataS
     /// The organizations attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Organizations
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "organizations").ResolveNodes(ctx));
-    }
+        => AsReference("organizations");
 
 }

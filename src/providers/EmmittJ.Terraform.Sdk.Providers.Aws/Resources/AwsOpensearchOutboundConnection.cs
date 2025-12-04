@@ -17,9 +17,7 @@ public class AwsOpensearchOutboundConnectionConnectionPropertiesBlock : Terrafor
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// CrossClusterSearch block (nesting mode: list).
@@ -49,7 +47,7 @@ public class AwsOpensearchOutboundConnectionConnectionPropertiesBlockCrossCluste
     /// </summary>
     public TerraformValue<string>? SkipUnavailable
     {
-        get => new TerraformReference<string>(this, "skip_unavailable");
+        get => GetArgument<TerraformValue<string>>("skip_unavailable");
         set => SetArgument("skip_unavailable", value);
     }
 
@@ -73,7 +71,7 @@ public class AwsOpensearchOutboundConnectionLocalDomainInfoBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -83,7 +81,7 @@ public class AwsOpensearchOutboundConnectionLocalDomainInfoBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerId is required")]
     public required TerraformValue<string> OwnerId
     {
-        get => new TerraformReference<string>(this, "owner_id");
+        get => GetArgument<TerraformValue<string>>("owner_id");
         set => SetArgument("owner_id", value);
     }
 
@@ -93,7 +91,7 @@ public class AwsOpensearchOutboundConnectionLocalDomainInfoBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -117,7 +115,7 @@ public class AwsOpensearchOutboundConnectionRemoteDomainInfoBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -127,7 +125,7 @@ public class AwsOpensearchOutboundConnectionRemoteDomainInfoBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerId is required")]
     public required TerraformValue<string> OwnerId
     {
-        get => new TerraformReference<string>(this, "owner_id");
+        get => GetArgument<TerraformValue<string>>("owner_id");
         set => SetArgument("owner_id", value);
     }
 
@@ -137,7 +135,7 @@ public class AwsOpensearchOutboundConnectionRemoteDomainInfoBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -160,7 +158,7 @@ public class AwsOpensearchOutboundConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -169,7 +167,7 @@ public class AwsOpensearchOutboundConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -187,7 +185,7 @@ public partial class AwsOpensearchOutboundConnection(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? AcceptConnection
     {
-        get => new TerraformReference<bool>(this, "accept_connection");
+        get => GetArgument<TerraformValue<bool>>("accept_connection");
         set => SetArgument("accept_connection", value);
     }
 
@@ -197,34 +195,34 @@ public partial class AwsOpensearchOutboundConnection(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionAlias is required")]
     public required TerraformValue<string> ConnectionAlias
     {
-        get => new TerraformReference<string>(this, "connection_alias");
+        get => GetArgument<TerraformValue<string>>("connection_alias");
         set => SetArgument("connection_alias", value);
     }
 
     /// <summary>
     /// The connection_mode attribute.
     /// </summary>
-    public TerraformValue<string> ConnectionMode
+    public TerraformValue<string>? ConnectionMode
     {
-        get => new TerraformReference<string>(this, "connection_mode");
+        get => GetArgument<TerraformValue<string>>("connection_mode");
         set => SetArgument("connection_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -232,9 +230,7 @@ public partial class AwsOpensearchOutboundConnection(string name) : TerraformRes
     /// The connection_status attribute.
     /// </summary>
     public TerraformValue<string> ConnectionStatus
-    {
-        get => new TerraformReference<string>(this, "connection_status");
-    }
+        => AsReference("connection_status");
 
     /// <summary>
     /// ConnectionProperties block (nesting mode: list).

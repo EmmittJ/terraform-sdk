@@ -18,7 +18,7 @@ public class GoogleComputeSharedVpcServiceProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeSharedVpcServiceProjectTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,7 +46,7 @@ public partial class GoogleComputeSharedVpcServiceProject(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? DeletionPolicy
     {
-        get => new TerraformReference<string>(this, "deletion_policy");
+        get => GetArgument<TerraformValue<string>>("deletion_policy");
         set => SetArgument("deletion_policy", value);
     }
 
@@ -56,16 +56,16 @@ public partial class GoogleComputeSharedVpcServiceProject(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostProject is required")]
     public required TerraformValue<string> HostProject
     {
-        get => new TerraformReference<string>(this, "host_project");
+        get => GetArgument<TerraformValue<string>>("host_project");
         set => SetArgument("host_project", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -75,7 +75,7 @@ public partial class GoogleComputeSharedVpcServiceProject(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceProject is required")]
     public required TerraformValue<string> ServiceProject
     {
-        get => new TerraformReference<string>(this, "service_project");
+        get => GetArgument<TerraformValue<string>>("service_project");
         set => SetArgument("service_project", value);
     }
 

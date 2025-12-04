@@ -22,7 +22,7 @@ public class GoogleComputeHealthCheckGrpcHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? GrpcServiceName
     {
-        get => new TerraformReference<string>(this, "grpc_service_name");
+        get => GetArgument<TerraformValue<string>>("grpc_service_name");
         set => SetArgument("grpc_service_name", value);
     }
 
@@ -33,7 +33,7 @@ public class GoogleComputeHealthCheckGrpcHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -43,7 +43,7 @@ public class GoogleComputeHealthCheckGrpcHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PortName
     {
-        get => new TerraformReference<string>(this, "port_name");
+        get => GetArgument<TerraformValue<string>>("port_name");
         set => SetArgument("port_name", value);
     }
 
@@ -65,7 +65,7 @@ public class GoogleComputeHealthCheckGrpcHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PortSpecification
     {
-        get => new TerraformReference<string>(this, "port_specification");
+        get => GetArgument<TerraformValue<string>>("port_specification");
         set => SetArgument("port_specification", value);
     }
 
@@ -92,7 +92,7 @@ public class GoogleComputeHealthCheckGrpcTlsHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? GrpcServiceName
     {
-        get => new TerraformReference<string>(this, "grpc_service_name");
+        get => GetArgument<TerraformValue<string>>("grpc_service_name");
         set => SetArgument("grpc_service_name", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleComputeHealthCheckGrpcTlsHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleComputeHealthCheckGrpcTlsHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PortSpecification
     {
-        get => new TerraformReference<string>(this, "port_specification");
+        get => GetArgument<TerraformValue<string>>("port_specification");
         set => SetArgument("port_specification", value);
     }
 
@@ -148,7 +148,7 @@ public class GoogleComputeHealthCheckHttp2HealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -158,7 +158,7 @@ public class GoogleComputeHealthCheckHttp2HealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -168,7 +168,7 @@ public class GoogleComputeHealthCheckHttp2HealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PortName
     {
-        get => new TerraformReference<string>(this, "port_name");
+        get => GetArgument<TerraformValue<string>>("port_name");
         set => SetArgument("port_name", value);
     }
 
@@ -190,7 +190,7 @@ public class GoogleComputeHealthCheckHttp2HealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PortSpecification
     {
-        get => new TerraformReference<string>(this, "port_specification");
+        get => GetArgument<TerraformValue<string>>("port_specification");
         set => SetArgument("port_specification", value);
     }
 
@@ -200,7 +200,7 @@ public class GoogleComputeHealthCheckHttp2HealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ProxyHeader
     {
-        get => new TerraformReference<string>(this, "proxy_header");
+        get => GetArgument<TerraformValue<string>>("proxy_header");
         set => SetArgument("proxy_header", value);
     }
 
@@ -210,7 +210,7 @@ public class GoogleComputeHealthCheckHttp2HealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RequestPath
     {
-        get => new TerraformReference<string>(this, "request_path");
+        get => GetArgument<TerraformValue<string>>("request_path");
         set => SetArgument("request_path", value);
     }
 
@@ -221,7 +221,7 @@ public class GoogleComputeHealthCheckHttp2HealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Response
     {
-        get => new TerraformReference<string>(this, "response");
+        get => GetArgument<TerraformValue<string>>("response");
         set => SetArgument("response", value);
     }
 
@@ -246,7 +246,7 @@ public class GoogleComputeHealthCheckHttpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -256,7 +256,7 @@ public class GoogleComputeHealthCheckHttpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -266,7 +266,7 @@ public class GoogleComputeHealthCheckHttpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PortName
     {
-        get => new TerraformReference<string>(this, "port_name");
+        get => GetArgument<TerraformValue<string>>("port_name");
         set => SetArgument("port_name", value);
     }
 
@@ -288,7 +288,7 @@ public class GoogleComputeHealthCheckHttpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PortSpecification
     {
-        get => new TerraformReference<string>(this, "port_specification");
+        get => GetArgument<TerraformValue<string>>("port_specification");
         set => SetArgument("port_specification", value);
     }
 
@@ -298,7 +298,7 @@ public class GoogleComputeHealthCheckHttpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ProxyHeader
     {
-        get => new TerraformReference<string>(this, "proxy_header");
+        get => GetArgument<TerraformValue<string>>("proxy_header");
         set => SetArgument("proxy_header", value);
     }
 
@@ -308,7 +308,7 @@ public class GoogleComputeHealthCheckHttpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RequestPath
     {
-        get => new TerraformReference<string>(this, "request_path");
+        get => GetArgument<TerraformValue<string>>("request_path");
         set => SetArgument("request_path", value);
     }
 
@@ -319,7 +319,7 @@ public class GoogleComputeHealthCheckHttpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Response
     {
-        get => new TerraformReference<string>(this, "response");
+        get => GetArgument<TerraformValue<string>>("response");
         set => SetArgument("response", value);
     }
 
@@ -344,7 +344,7 @@ public class GoogleComputeHealthCheckHttpsHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -354,7 +354,7 @@ public class GoogleComputeHealthCheckHttpsHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -364,7 +364,7 @@ public class GoogleComputeHealthCheckHttpsHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PortName
     {
-        get => new TerraformReference<string>(this, "port_name");
+        get => GetArgument<TerraformValue<string>>("port_name");
         set => SetArgument("port_name", value);
     }
 
@@ -386,7 +386,7 @@ public class GoogleComputeHealthCheckHttpsHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PortSpecification
     {
-        get => new TerraformReference<string>(this, "port_specification");
+        get => GetArgument<TerraformValue<string>>("port_specification");
         set => SetArgument("port_specification", value);
     }
 
@@ -396,7 +396,7 @@ public class GoogleComputeHealthCheckHttpsHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ProxyHeader
     {
-        get => new TerraformReference<string>(this, "proxy_header");
+        get => GetArgument<TerraformValue<string>>("proxy_header");
         set => SetArgument("proxy_header", value);
     }
 
@@ -406,7 +406,7 @@ public class GoogleComputeHealthCheckHttpsHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RequestPath
     {
-        get => new TerraformReference<string>(this, "request_path");
+        get => GetArgument<TerraformValue<string>>("request_path");
         set => SetArgument("request_path", value);
     }
 
@@ -417,7 +417,7 @@ public class GoogleComputeHealthCheckHttpsHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Response
     {
-        get => new TerraformReference<string>(this, "response");
+        get => GetArgument<TerraformValue<string>>("response");
         set => SetArgument("response", value);
     }
 
@@ -441,7 +441,7 @@ public class GoogleComputeHealthCheckLogConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enable
     {
-        get => new TerraformReference<bool>(this, "enable");
+        get => GetArgument<TerraformValue<bool>>("enable");
         set => SetArgument("enable", value);
     }
 
@@ -465,7 +465,7 @@ public class GoogleComputeHealthCheckSslHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -475,7 +475,7 @@ public class GoogleComputeHealthCheckSslHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PortName
     {
-        get => new TerraformReference<string>(this, "port_name");
+        get => GetArgument<TerraformValue<string>>("port_name");
         set => SetArgument("port_name", value);
     }
 
@@ -497,7 +497,7 @@ public class GoogleComputeHealthCheckSslHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PortSpecification
     {
-        get => new TerraformReference<string>(this, "port_specification");
+        get => GetArgument<TerraformValue<string>>("port_specification");
         set => SetArgument("port_specification", value);
     }
 
@@ -507,7 +507,7 @@ public class GoogleComputeHealthCheckSslHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ProxyHeader
     {
-        get => new TerraformReference<string>(this, "proxy_header");
+        get => GetArgument<TerraformValue<string>>("proxy_header");
         set => SetArgument("proxy_header", value);
     }
 
@@ -519,7 +519,7 @@ public class GoogleComputeHealthCheckSslHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Request
     {
-        get => new TerraformReference<string>(this, "request");
+        get => GetArgument<TerraformValue<string>>("request");
         set => SetArgument("request", value);
     }
 
@@ -530,7 +530,7 @@ public class GoogleComputeHealthCheckSslHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Response
     {
-        get => new TerraformReference<string>(this, "response");
+        get => GetArgument<TerraformValue<string>>("response");
         set => SetArgument("response", value);
     }
 
@@ -554,7 +554,7 @@ public class GoogleComputeHealthCheckTcpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -564,7 +564,7 @@ public class GoogleComputeHealthCheckTcpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PortName
     {
-        get => new TerraformReference<string>(this, "port_name");
+        get => GetArgument<TerraformValue<string>>("port_name");
         set => SetArgument("port_name", value);
     }
 
@@ -586,7 +586,7 @@ public class GoogleComputeHealthCheckTcpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PortSpecification
     {
-        get => new TerraformReference<string>(this, "port_specification");
+        get => GetArgument<TerraformValue<string>>("port_specification");
         set => SetArgument("port_specification", value);
     }
 
@@ -596,7 +596,7 @@ public class GoogleComputeHealthCheckTcpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ProxyHeader
     {
-        get => new TerraformReference<string>(this, "proxy_header");
+        get => GetArgument<TerraformValue<string>>("proxy_header");
         set => SetArgument("proxy_header", value);
     }
 
@@ -608,7 +608,7 @@ public class GoogleComputeHealthCheckTcpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Request
     {
-        get => new TerraformReference<string>(this, "request");
+        get => GetArgument<TerraformValue<string>>("request");
         set => SetArgument("request", value);
     }
 
@@ -619,7 +619,7 @@ public class GoogleComputeHealthCheckTcpHealthCheckBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Response
     {
-        get => new TerraformReference<string>(this, "response");
+        get => GetArgument<TerraformValue<string>>("response");
         set => SetArgument("response", value);
     }
 
@@ -642,7 +642,7 @@ public class GoogleComputeHealthCheckTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -651,7 +651,7 @@ public class GoogleComputeHealthCheckTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -660,7 +660,7 @@ public class GoogleComputeHealthCheckTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -679,7 +679,7 @@ public partial class GoogleComputeHealthCheck(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double>? CheckIntervalSec
     {
-        get => new TerraformReference<double>(this, "check_interval_sec");
+        get => GetArgument<TerraformValue<double>>("check_interval_sec");
         set => SetArgument("check_interval_sec", value);
     }
 
@@ -689,7 +689,7 @@ public partial class GoogleComputeHealthCheck(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -699,16 +699,16 @@ public partial class GoogleComputeHealthCheck(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double>? HealthyThreshold
     {
-        get => new TerraformReference<double>(this, "healthy_threshold");
+        get => GetArgument<TerraformValue<double>>("healthy_threshold");
         set => SetArgument("healthy_threshold", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -724,16 +724,16 @@ public partial class GoogleComputeHealthCheck(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -758,7 +758,7 @@ public partial class GoogleComputeHealthCheck(string name) : TerraformResource("
     /// </summary>
     public TerraformList<string>? SourceRegions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "source_regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("source_regions");
         set => SetArgument("source_regions", value);
     }
 
@@ -769,7 +769,7 @@ public partial class GoogleComputeHealthCheck(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double>? TimeoutSec
     {
-        get => new TerraformReference<double>(this, "timeout_sec");
+        get => GetArgument<TerraformValue<double>>("timeout_sec");
         set => SetArgument("timeout_sec", value);
     }
 
@@ -779,7 +779,7 @@ public partial class GoogleComputeHealthCheck(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double>? UnhealthyThreshold
     {
-        get => new TerraformReference<double>(this, "unhealthy_threshold");
+        get => GetArgument<TerraformValue<double>>("unhealthy_threshold");
         set => SetArgument("unhealthy_threshold", value);
     }
 
@@ -787,25 +787,19 @@ public partial class GoogleComputeHealthCheck(string name) : TerraformResource("
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// The type of the health check. One of HTTP, HTTPS, TCP, or SSL.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// GrpcHealthCheck block (nesting mode: list).

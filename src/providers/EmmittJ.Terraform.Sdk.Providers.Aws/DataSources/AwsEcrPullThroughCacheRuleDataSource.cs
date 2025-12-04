@@ -14,25 +14,25 @@ public partial class AwsEcrPullThroughCacheRuleDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EcrRepositoryPrefix is required")]
     public required TerraformValue<string> EcrRepositoryPrefix
     {
-        get => new TerraformReference<string>(this, "ecr_repository_prefix");
+        get => GetArgument<TerraformValue<string>>("ecr_repository_prefix");
         set => SetArgument("ecr_repository_prefix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -40,40 +40,30 @@ public partial class AwsEcrPullThroughCacheRuleDataSource(string name) : Terrafo
     /// The credential_arn attribute.
     /// </summary>
     public TerraformValue<string> CredentialArn
-    {
-        get => new TerraformReference<string>(this, "credential_arn");
-    }
+        => AsReference("credential_arn");
 
     /// <summary>
     /// The custom_role_arn attribute.
     /// </summary>
     public TerraformValue<string> CustomRoleArn
-    {
-        get => new TerraformReference<string>(this, "custom_role_arn");
-    }
+        => AsReference("custom_role_arn");
 
     /// <summary>
     /// The registry_id attribute.
     /// </summary>
     public TerraformValue<string> RegistryId
-    {
-        get => new TerraformReference<string>(this, "registry_id");
-    }
+        => AsReference("registry_id");
 
     /// <summary>
     /// The upstream_registry_url attribute.
     /// </summary>
     public TerraformValue<string> UpstreamRegistryUrl
-    {
-        get => new TerraformReference<string>(this, "upstream_registry_url");
-    }
+        => AsReference("upstream_registry_url");
 
     /// <summary>
     /// The upstream_repository_prefix attribute.
     /// </summary>
     public TerraformValue<string> UpstreamRepositoryPrefix
-    {
-        get => new TerraformReference<string>(this, "upstream_repository_prefix");
-    }
+        => AsReference("upstream_repository_prefix");
 
 }

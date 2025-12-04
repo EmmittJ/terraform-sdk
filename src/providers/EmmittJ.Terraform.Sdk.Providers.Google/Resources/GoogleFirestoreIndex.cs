@@ -19,7 +19,7 @@ public class GoogleFirestoreIndexFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ArrayConfig
     {
-        get => new TerraformReference<string>(this, "array_config");
+        get => GetArgument<TerraformValue<string>>("array_config");
         set => SetArgument("array_config", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleFirestoreIndexFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FieldPath
     {
-        get => new TerraformReference<string>(this, "field_path");
+        get => GetArgument<TerraformValue<string>>("field_path");
         set => SetArgument("field_path", value);
     }
 
@@ -38,7 +38,7 @@ public class GoogleFirestoreIndexFieldsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Order
     {
-        get => new TerraformReference<string>(this, "order");
+        get => GetArgument<TerraformValue<string>>("order");
         set => SetArgument("order", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleFirestoreIndexFieldsBlockVectorConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Dimension
     {
-        get => new TerraformReference<double>(this, "dimension");
+        get => GetArgument<TerraformValue<double>>("dimension");
         set => SetArgument("dimension", value);
     }
 
@@ -117,7 +117,7 @@ public class GoogleFirestoreIndexTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -126,7 +126,7 @@ public class GoogleFirestoreIndexTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -144,7 +144,7 @@ public partial class GoogleFirestoreIndex(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? ApiScope
     {
-        get => new TerraformReference<string>(this, "api_scope");
+        get => GetArgument<TerraformValue<string>>("api_scope");
         set => SetArgument("api_scope", value);
     }
 
@@ -154,7 +154,7 @@ public partial class GoogleFirestoreIndex(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
     public required TerraformValue<string> Collection
     {
-        get => new TerraformReference<string>(this, "collection");
+        get => GetArgument<TerraformValue<string>>("collection");
         set => SetArgument("collection", value);
     }
 
@@ -163,25 +163,25 @@ public partial class GoogleFirestoreIndex(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
     /// <summary>
     /// The density configuration for this index. Possible values: [&amp;quot;SPARSE_ALL&amp;quot;, &amp;quot;SPARSE_ANY&amp;quot;, &amp;quot;DENSE&amp;quot;]
     /// </summary>
-    public TerraformValue<string> Density
+    public TerraformValue<string>? Density
     {
-        get => new TerraformReference<string>(this, "density");
+        get => GetArgument<TerraformValue<string>>("density");
         set => SetArgument("density", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -190,16 +190,16 @@ public partial class GoogleFirestoreIndex(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<bool>? Multikey
     {
-        get => new TerraformReference<bool>(this, "multikey");
+        get => GetArgument<TerraformValue<bool>>("multikey");
         set => SetArgument("multikey", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -208,16 +208,16 @@ public partial class GoogleFirestoreIndex(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? QueryScope
     {
-        get => new TerraformReference<string>(this, "query_scope");
+        get => GetArgument<TerraformValue<string>>("query_scope");
         set => SetArgument("query_scope", value);
     }
 
     /// <summary>
     /// Whether it is an unique index. Unique index ensures all values for the indexed field(s) are unique across documents.
     /// </summary>
-    public TerraformValue<bool> Unique
+    public TerraformValue<bool>? Unique
     {
-        get => new TerraformReference<bool>(this, "unique");
+        get => GetArgument<TerraformValue<bool>>("unique");
         set => SetArgument("unique", value);
     }
 
@@ -226,9 +226,7 @@ public partial class GoogleFirestoreIndex(string name) : TerraformResource("goog
     /// &#39;projects/{{project}}/databases/{{database}}/collectionGroups/{{collection}}/indexes/{{server_generated_id}}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Fields block (nesting mode: list).

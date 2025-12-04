@@ -13,7 +13,7 @@ public partial class AwsRedshiftDataShareAuthorization(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? AllowWrites
     {
-        get => new TerraformReference<bool>(this, "allow_writes");
+        get => GetArgument<TerraformValue<bool>>("allow_writes");
         set => SetArgument("allow_writes", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsRedshiftDataShareAuthorization(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerIdentifier is required")]
     public required TerraformValue<string> ConsumerIdentifier
     {
-        get => new TerraformReference<string>(this, "consumer_identifier");
+        get => GetArgument<TerraformValue<string>>("consumer_identifier");
         set => SetArgument("consumer_identifier", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsRedshiftDataShareAuthorization(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataShareArn is required")]
     public required TerraformValue<string> DataShareArn
     {
-        get => new TerraformReference<string>(this, "data_share_arn");
+        get => GetArgument<TerraformValue<string>>("data_share_arn");
         set => SetArgument("data_share_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -50,24 +50,18 @@ public partial class AwsRedshiftDataShareAuthorization(string name) : TerraformR
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The managed_by attribute.
     /// </summary>
     public TerraformValue<string> ManagedBy
-    {
-        get => new TerraformReference<string>(this, "managed_by");
-    }
+        => AsReference("managed_by");
 
     /// <summary>
     /// The producer_arn attribute.
     /// </summary>
     public TerraformValue<string> ProducerArn
-    {
-        get => new TerraformReference<string>(this, "producer_arn");
-    }
+        => AsReference("producer_arn");
 
 }

@@ -13,7 +13,7 @@ public partial class AwsCognitoUserPoolDomain(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? CertificateArn
     {
-        get => new TerraformReference<string>(this, "certificate_arn");
+        get => GetArgument<TerraformValue<string>>("certificate_arn");
         set => SetArgument("certificate_arn", value);
     }
 
@@ -23,34 +23,34 @@ public partial class AwsCognitoUserPoolDomain(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => new TerraformReference<string>(this, "domain");
+        get => GetArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The managed_login_version attribute.
     /// </summary>
-    public TerraformValue<double> ManagedLoginVersion
+    public TerraformValue<double>? ManagedLoginVersion
     {
-        get => new TerraformReference<double>(this, "managed_login_version");
+        get => GetArgument<TerraformValue<double>>("managed_login_version");
         set => SetArgument("managed_login_version", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsCognitoUserPoolDomain(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformValue<string> UserPoolId
     {
-        get => new TerraformReference<string>(this, "user_pool_id");
+        get => GetArgument<TerraformValue<string>>("user_pool_id");
         set => SetArgument("user_pool_id", value);
     }
 
@@ -68,48 +68,36 @@ public partial class AwsCognitoUserPoolDomain(string name) : TerraformResource("
     /// The aws_account_id attribute.
     /// </summary>
     public TerraformValue<string> AwsAccountId
-    {
-        get => new TerraformReference<string>(this, "aws_account_id");
-    }
+        => AsReference("aws_account_id");
 
     /// <summary>
     /// The cloudfront_distribution attribute.
     /// </summary>
     public TerraformValue<string> CloudfrontDistribution
-    {
-        get => new TerraformReference<string>(this, "cloudfront_distribution");
-    }
+        => AsReference("cloudfront_distribution");
 
     /// <summary>
     /// The cloudfront_distribution_arn attribute.
     /// </summary>
     public TerraformValue<string> CloudfrontDistributionArn
-    {
-        get => new TerraformReference<string>(this, "cloudfront_distribution_arn");
-    }
+        => AsReference("cloudfront_distribution_arn");
 
     /// <summary>
     /// The cloudfront_distribution_zone_id attribute.
     /// </summary>
     public TerraformValue<string> CloudfrontDistributionZoneId
-    {
-        get => new TerraformReference<string>(this, "cloudfront_distribution_zone_id");
-    }
+        => AsReference("cloudfront_distribution_zone_id");
 
     /// <summary>
     /// The s3_bucket attribute.
     /// </summary>
     public TerraformValue<string> S3Bucket
-    {
-        get => new TerraformReference<string>(this, "s3_bucket");
-    }
+        => AsReference("s3_bucket");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
 }

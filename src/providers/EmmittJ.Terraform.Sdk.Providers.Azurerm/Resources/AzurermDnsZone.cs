@@ -19,7 +19,7 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ExpireTime
     {
-        get => new TerraformReference<double>(this, "expire_time");
+        get => GetArgument<TerraformValue<double>>("expire_time");
         set => SetArgument("expire_time", value);
     }
 
@@ -36,24 +36,20 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-    {
-        get => new TerraformReference<string>(this, "fqdn");
-    }
+        => AsReference("fqdn");
 
     /// <summary>
     /// The host_name attribute.
     /// </summary>
     public TerraformValue<string> HostName
-    {
-        get => new TerraformReference<string>(this, "host_name");
-    }
+        => AsReference("host_name");
 
     /// <summary>
     /// The minimum_ttl attribute.
     /// </summary>
     public TerraformValue<double>? MinimumTtl
     {
-        get => new TerraformReference<double>(this, "minimum_ttl");
+        get => GetArgument<TerraformValue<double>>("minimum_ttl");
         set => SetArgument("minimum_ttl", value);
     }
 
@@ -62,7 +58,7 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? RefreshTime
     {
-        get => new TerraformReference<double>(this, "refresh_time");
+        get => GetArgument<TerraformValue<double>>("refresh_time");
         set => SetArgument("refresh_time", value);
     }
 
@@ -71,7 +67,7 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? RetryTime
     {
-        get => new TerraformReference<double>(this, "retry_time");
+        get => GetArgument<TerraformValue<double>>("retry_time");
         set => SetArgument("retry_time", value);
     }
 
@@ -80,7 +76,7 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SerialNumber
     {
-        get => new TerraformReference<double>(this, "serial_number");
+        get => GetArgument<TerraformValue<double>>("serial_number");
         set => SetArgument("serial_number", value);
     }
 
@@ -89,7 +85,7 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -98,7 +94,7 @@ public class AzurermDnsZoneSoaRecordBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Ttl
     {
-        get => new TerraformReference<double>(this, "ttl");
+        get => GetArgument<TerraformValue<double>>("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -121,7 +117,7 @@ public class AzurermDnsZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -130,7 +126,7 @@ public class AzurermDnsZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -139,7 +135,7 @@ public class AzurermDnsZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -148,7 +144,7 @@ public class AzurermDnsZoneTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -164,9 +160,9 @@ public partial class AzurermDnsZone(string name) : TerraformResource("azurerm_dn
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -176,7 +172,7 @@ public partial class AzurermDnsZone(string name) : TerraformResource("azurerm_dn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -186,7 +182,7 @@ public partial class AzurermDnsZone(string name) : TerraformResource("azurerm_dn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -195,7 +191,7 @@ public partial class AzurermDnsZone(string name) : TerraformResource("azurerm_dn
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -203,25 +199,19 @@ public partial class AzurermDnsZone(string name) : TerraformResource("azurerm_dn
     /// The max_number_of_record_sets attribute.
     /// </summary>
     public TerraformValue<double> MaxNumberOfRecordSets
-    {
-        get => new TerraformReference<double>(this, "max_number_of_record_sets");
-    }
+        => AsReference("max_number_of_record_sets");
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
     public TerraformSet<string> NameServers
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "name_servers").ResolveNodes(ctx));
-    }
+        => AsReference("name_servers");
 
     /// <summary>
     /// The number_of_record_sets attribute.
     /// </summary>
     public TerraformValue<double> NumberOfRecordSets
-    {
-        get => new TerraformReference<double>(this, "number_of_record_sets");
-    }
+        => AsReference("number_of_record_sets");
 
     /// <summary>
     /// SoaRecord block (nesting mode: list).

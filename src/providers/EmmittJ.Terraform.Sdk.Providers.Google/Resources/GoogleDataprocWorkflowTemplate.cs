@@ -18,7 +18,7 @@ public class GoogleDataprocWorkflowTemplateEncryptionConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -41,7 +41,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? PrerequisiteStepIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "prerequisite_step_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("prerequisite_step_ids");
         set => SetArgument("prerequisite_step_ids", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StepId is required")]
     public required TerraformValue<string> StepId
     {
-        get => new TerraformReference<string>(this, "step_id");
+        get => GetArgument<TerraformValue<string>>("step_id");
         set => SetArgument("step_id", value);
     }
 
@@ -172,7 +172,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockHadoopJobBlock : TerraformBl
     /// </summary>
     public TerraformList<string>? ArchiveUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "archive_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("archive_uris");
         set => SetArgument("archive_uris", value);
     }
 
@@ -181,7 +181,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockHadoopJobBlock : TerraformBl
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -190,7 +190,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockHadoopJobBlock : TerraformBl
     /// </summary>
     public TerraformList<string>? FileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("file_uris");
         set => SetArgument("file_uris", value);
     }
 
@@ -199,7 +199,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockHadoopJobBlock : TerraformBl
     /// </summary>
     public TerraformList<string>? JarFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "jar_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("jar_file_uris");
         set => SetArgument("jar_file_uris", value);
     }
 
@@ -208,7 +208,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockHadoopJobBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? MainClass
     {
-        get => new TerraformReference<string>(this, "main_class");
+        get => GetArgument<TerraformValue<string>>("main_class");
         set => SetArgument("main_class", value);
     }
 
@@ -217,7 +217,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockHadoopJobBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? MainJarFileUri
     {
-        get => new TerraformReference<string>(this, "main_jar_file_uri");
+        get => GetArgument<TerraformValue<string>>("main_jar_file_uri");
         set => SetArgument("main_jar_file_uri", value);
     }
 
@@ -226,7 +226,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockHadoopJobBlock : TerraformBl
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -258,7 +258,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockHadoopJobBlockLoggingConfigB
     /// </summary>
     public TerraformMap<string>? DriverLogLevels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "driver_log_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("driver_log_levels");
         set => SetArgument("driver_log_levels", value);
     }
 
@@ -280,7 +280,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockHiveJobBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool>? ContinueOnFailure
     {
-        get => new TerraformReference<bool>(this, "continue_on_failure");
+        get => GetArgument<TerraformValue<bool>>("continue_on_failure");
         set => SetArgument("continue_on_failure", value);
     }
 
@@ -289,7 +289,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockHiveJobBlock : TerraformBloc
     /// </summary>
     public TerraformList<string>? JarFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "jar_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("jar_file_uris");
         set => SetArgument("jar_file_uris", value);
     }
 
@@ -298,7 +298,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockHiveJobBlock : TerraformBloc
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -307,7 +307,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockHiveJobBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? QueryFileUri
     {
-        get => new TerraformReference<string>(this, "query_file_uri");
+        get => GetArgument<TerraformValue<string>>("query_file_uri");
         set => SetArgument("query_file_uri", value);
     }
 
@@ -316,7 +316,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockHiveJobBlock : TerraformBloc
     /// </summary>
     public TerraformMap<string>? ScriptVariables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "script_variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("script_variables");
         set => SetArgument("script_variables", value);
     }
 
@@ -349,7 +349,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockHiveJobBlockQueryListBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Queries is required")]
     public TerraformList<string>? Queries
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "queries").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("queries");
         set => SetArgument("queries", value);
     }
 
@@ -371,7 +371,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPigJobBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ContinueOnFailure
     {
-        get => new TerraformReference<bool>(this, "continue_on_failure");
+        get => GetArgument<TerraformValue<bool>>("continue_on_failure");
         set => SetArgument("continue_on_failure", value);
     }
 
@@ -380,7 +380,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPigJobBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? JarFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "jar_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("jar_file_uris");
         set => SetArgument("jar_file_uris", value);
     }
 
@@ -389,7 +389,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPigJobBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -398,7 +398,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPigJobBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? QueryFileUri
     {
-        get => new TerraformReference<string>(this, "query_file_uri");
+        get => GetArgument<TerraformValue<string>>("query_file_uri");
         set => SetArgument("query_file_uri", value);
     }
 
@@ -407,7 +407,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPigJobBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? ScriptVariables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "script_variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("script_variables");
         set => SetArgument("script_variables", value);
     }
 
@@ -449,7 +449,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPigJobBlockLoggingConfigBloc
     /// </summary>
     public TerraformMap<string>? DriverLogLevels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "driver_log_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("driver_log_levels");
         set => SetArgument("driver_log_levels", value);
     }
 
@@ -472,7 +472,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPigJobBlockQueryListBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Queries is required")]
     public TerraformList<string>? Queries
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "queries").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("queries");
         set => SetArgument("queries", value);
     }
 
@@ -494,7 +494,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPrestoJobBlock : TerraformBl
     /// </summary>
     public TerraformList<string>? ClientTags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "client_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("client_tags");
         set => SetArgument("client_tags", value);
     }
 
@@ -503,7 +503,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPrestoJobBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? ContinueOnFailure
     {
-        get => new TerraformReference<bool>(this, "continue_on_failure");
+        get => GetArgument<TerraformValue<bool>>("continue_on_failure");
         set => SetArgument("continue_on_failure", value);
     }
 
@@ -512,7 +512,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPrestoJobBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? OutputFormat
     {
-        get => new TerraformReference<string>(this, "output_format");
+        get => GetArgument<TerraformValue<string>>("output_format");
         set => SetArgument("output_format", value);
     }
 
@@ -521,7 +521,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPrestoJobBlock : TerraformBl
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -530,7 +530,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPrestoJobBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? QueryFileUri
     {
-        get => new TerraformReference<string>(this, "query_file_uri");
+        get => GetArgument<TerraformValue<string>>("query_file_uri");
         set => SetArgument("query_file_uri", value);
     }
 
@@ -572,7 +572,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPrestoJobBlockLoggingConfigB
     /// </summary>
     public TerraformMap<string>? DriverLogLevels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "driver_log_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("driver_log_levels");
         set => SetArgument("driver_log_levels", value);
     }
 
@@ -595,7 +595,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPrestoJobBlockQueryListBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Queries is required")]
     public TerraformList<string>? Queries
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "queries").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("queries");
         set => SetArgument("queries", value);
     }
 
@@ -617,7 +617,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPysparkJobBlock : TerraformB
     /// </summary>
     public TerraformList<string>? ArchiveUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "archive_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("archive_uris");
         set => SetArgument("archive_uris", value);
     }
 
@@ -626,7 +626,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPysparkJobBlock : TerraformB
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -635,7 +635,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPysparkJobBlock : TerraformB
     /// </summary>
     public TerraformList<string>? FileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("file_uris");
         set => SetArgument("file_uris", value);
     }
 
@@ -644,7 +644,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPysparkJobBlock : TerraformB
     /// </summary>
     public TerraformList<string>? JarFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "jar_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("jar_file_uris");
         set => SetArgument("jar_file_uris", value);
     }
 
@@ -654,7 +654,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPysparkJobBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainPythonFileUri is required")]
     public required TerraformValue<string> MainPythonFileUri
     {
-        get => new TerraformReference<string>(this, "main_python_file_uri");
+        get => GetArgument<TerraformValue<string>>("main_python_file_uri");
         set => SetArgument("main_python_file_uri", value);
     }
 
@@ -663,7 +663,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPysparkJobBlock : TerraformB
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -672,7 +672,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPysparkJobBlock : TerraformB
     /// </summary>
     public TerraformList<string>? PythonFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "python_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("python_file_uris");
         set => SetArgument("python_file_uris", value);
     }
 
@@ -704,7 +704,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockPysparkJobBlockLoggingConfig
     /// </summary>
     public TerraformMap<string>? DriverLogLevels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "driver_log_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("driver_log_levels");
         set => SetArgument("driver_log_levels", value);
     }
 
@@ -726,7 +726,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSchedulingBlock : TerraformB
     /// </summary>
     public TerraformValue<double>? MaxFailuresPerHour
     {
-        get => new TerraformReference<double>(this, "max_failures_per_hour");
+        get => GetArgument<TerraformValue<double>>("max_failures_per_hour");
         set => SetArgument("max_failures_per_hour", value);
     }
 
@@ -735,7 +735,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSchedulingBlock : TerraformB
     /// </summary>
     public TerraformValue<double>? MaxFailuresTotal
     {
-        get => new TerraformReference<double>(this, "max_failures_total");
+        get => GetArgument<TerraformValue<double>>("max_failures_total");
         set => SetArgument("max_failures_total", value);
     }
 
@@ -757,7 +757,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSparkJobBlock : TerraformBlo
     /// </summary>
     public TerraformList<string>? ArchiveUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "archive_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("archive_uris");
         set => SetArgument("archive_uris", value);
     }
 
@@ -766,7 +766,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSparkJobBlock : TerraformBlo
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -775,7 +775,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSparkJobBlock : TerraformBlo
     /// </summary>
     public TerraformList<string>? FileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("file_uris");
         set => SetArgument("file_uris", value);
     }
 
@@ -784,7 +784,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSparkJobBlock : TerraformBlo
     /// </summary>
     public TerraformList<string>? JarFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "jar_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("jar_file_uris");
         set => SetArgument("jar_file_uris", value);
     }
 
@@ -793,7 +793,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSparkJobBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? MainClass
     {
-        get => new TerraformReference<string>(this, "main_class");
+        get => GetArgument<TerraformValue<string>>("main_class");
         set => SetArgument("main_class", value);
     }
 
@@ -802,7 +802,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSparkJobBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? MainJarFileUri
     {
-        get => new TerraformReference<string>(this, "main_jar_file_uri");
+        get => GetArgument<TerraformValue<string>>("main_jar_file_uri");
         set => SetArgument("main_jar_file_uri", value);
     }
 
@@ -811,7 +811,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSparkJobBlock : TerraformBlo
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -843,7 +843,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSparkJobBlockLoggingConfigBl
     /// </summary>
     public TerraformMap<string>? DriverLogLevels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "driver_log_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("driver_log_levels");
         set => SetArgument("driver_log_levels", value);
     }
 
@@ -865,7 +865,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSparkRJobBlock : TerraformBl
     /// </summary>
     public TerraformList<string>? ArchiveUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "archive_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("archive_uris");
         set => SetArgument("archive_uris", value);
     }
 
@@ -874,7 +874,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSparkRJobBlock : TerraformBl
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -883,7 +883,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSparkRJobBlock : TerraformBl
     /// </summary>
     public TerraformList<string>? FileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("file_uris");
         set => SetArgument("file_uris", value);
     }
 
@@ -893,7 +893,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSparkRJobBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainRFileUri is required")]
     public required TerraformValue<string> MainRFileUri
     {
-        get => new TerraformReference<string>(this, "main_r_file_uri");
+        get => GetArgument<TerraformValue<string>>("main_r_file_uri");
         set => SetArgument("main_r_file_uri", value);
     }
 
@@ -902,7 +902,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSparkRJobBlock : TerraformBl
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -934,7 +934,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSparkRJobBlockLoggingConfigB
     /// </summary>
     public TerraformMap<string>? DriverLogLevels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "driver_log_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("driver_log_levels");
         set => SetArgument("driver_log_levels", value);
     }
 
@@ -956,7 +956,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSparkSqlJobBlock : Terraform
     /// </summary>
     public TerraformList<string>? JarFileUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "jar_file_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("jar_file_uris");
         set => SetArgument("jar_file_uris", value);
     }
 
@@ -965,7 +965,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSparkSqlJobBlock : Terraform
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -974,7 +974,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSparkSqlJobBlock : Terraform
     /// </summary>
     public TerraformValue<string>? QueryFileUri
     {
-        get => new TerraformReference<string>(this, "query_file_uri");
+        get => GetArgument<TerraformValue<string>>("query_file_uri");
         set => SetArgument("query_file_uri", value);
     }
 
@@ -983,7 +983,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSparkSqlJobBlock : Terraform
     /// </summary>
     public TerraformMap<string>? ScriptVariables
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "script_variables").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("script_variables");
         set => SetArgument("script_variables", value);
     }
 
@@ -1025,7 +1025,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSparkSqlJobBlockLoggingConfi
     /// </summary>
     public TerraformMap<string>? DriverLogLevels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "driver_log_levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("driver_log_levels");
         set => SetArgument("driver_log_levels", value);
     }
 
@@ -1048,7 +1048,7 @@ public class GoogleDataprocWorkflowTemplateJobsBlockSparkSqlJobBlockQueryListBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Queries is required")]
     public TerraformList<string>? Queries
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "queries").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("queries");
         set => SetArgument("queries", value);
     }
 
@@ -1071,7 +1071,7 @@ public class GoogleDataprocWorkflowTemplateParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -1081,7 +1081,7 @@ public class GoogleDataprocWorkflowTemplateParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fields is required")]
     public TerraformList<string>? Fields
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "fields").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("fields");
         set => SetArgument("fields", value);
     }
 
@@ -1091,7 +1091,7 @@ public class GoogleDataprocWorkflowTemplateParametersBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1157,7 +1157,7 @@ public class GoogleDataprocWorkflowTemplateParametersBlockValidationBlockRegexBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Regexes is required")]
     public TerraformList<string>? Regexes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "regexes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("regexes");
         set => SetArgument("regexes", value);
     }
 
@@ -1180,7 +1180,7 @@ public class GoogleDataprocWorkflowTemplateParametersBlockValidationBlockValuesA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -1237,16 +1237,16 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockClusterSelectorBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterLabels is required")]
     public required TerraformMap<string> ClusterLabels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "cluster_labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("cluster_labels");
         set => SetArgument("cluster_labels", value);
     }
 
     /// <summary>
     /// Optional. The zone where workflow process executes. This parameter does not affect the selection of the cluster. If unspecified, the zone of the first cluster matching the selector is used.
     /// </summary>
-    public TerraformValue<string> Zone
+    public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -1269,7 +1269,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => new TerraformReference<string>(this, "cluster_name");
+        get => GetArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -1278,7 +1278,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlock : T
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -1313,7 +1313,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? StagingBucket
     {
-        get => new TerraformReference<string>(this, "staging_bucket");
+        get => GetArgument<TerraformValue<string>>("staging_bucket");
         set => SetArgument("staging_bucket", value);
     }
 
@@ -1322,7 +1322,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? TempBucket
     {
-        get => new TerraformReference<string>(this, "temp_bucket");
+        get => GetArgument<TerraformValue<string>>("temp_bucket");
         set => SetArgument("temp_bucket", value);
     }
 
@@ -1453,7 +1453,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
@@ -1475,7 +1475,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? GcePdKmsKeyName
     {
-        get => new TerraformReference<string>(this, "gce_pd_kms_key_name");
+        get => GetArgument<TerraformValue<string>>("gce_pd_kms_key_name");
         set => SetArgument("gce_pd_kms_key_name", value);
     }
 
@@ -1497,7 +1497,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<bool>? EnableHttpPortAccess
     {
-        get => new TerraformReference<bool>(this, "enable_http_port_access");
+        get => GetArgument<TerraformValue<bool>>("enable_http_port_access");
         set => SetArgument("enable_http_port_access", value);
     }
 
@@ -1505,9 +1505,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// Output only. The map of port descriptions to URLs. Will only be populated if enable_http_port_access is true.
     /// </summary>
     public TerraformMap<string> HttpPorts
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "http_ports").ResolveNodes(ctx));
-    }
+        => AsReference("http_ports");
 
 }
 
@@ -1525,9 +1523,9 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// <summary>
     /// Optional. If true, all instances in the cluster will only have internal IP addresses. By default, clusters are not restricted to internal IP addresses, and will have ephemeral external IP addresses assigned to each instance. This `internal_ip_only` restriction can only be enabled for subnetwork enabled networks, and all off-cluster dependencies must be configured to be accessible without external IP addresses.
     /// </summary>
-    public TerraformValue<bool> InternalIpOnly
+    public TerraformValue<bool>? InternalIpOnly
     {
-        get => new TerraformReference<bool>(this, "internal_ip_only");
+        get => GetArgument<TerraformValue<bool>>("internal_ip_only");
         set => SetArgument("internal_ip_only", value);
     }
 
@@ -1536,7 +1534,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformMap<string>? Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -1545,7 +1543,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -1554,7 +1552,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? PrivateIpv6GoogleAccess
     {
-        get => new TerraformReference<string>(this, "private_ipv6_google_access");
+        get => GetArgument<TerraformValue<string>>("private_ipv6_google_access");
         set => SetArgument("private_ipv6_google_access", value);
     }
 
@@ -1563,7 +1561,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -1572,7 +1570,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformList<string>? ServiceAccountScopes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "service_account_scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("service_account_scopes");
         set => SetArgument("service_account_scopes", value);
     }
 
@@ -1581,7 +1579,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? Subnetwork
     {
-        get => new TerraformReference<string>(this, "subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -1590,16 +1588,16 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformSet<string>? Tags
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// Optional. The zone where the Compute Engine cluster will be located. On a create request, it is required in the &amp;quot;global&amp;quot; region. If omitted in a non-global Dataproc region, the service will pick a zone in the corresponding Compute Engine region. On a get request, zone will always be present. A full URL, partial URI, or short name are valid. Examples: * `https://www.googleapis.com/compute/v1/projects/[project_id]/zones/[zone]` * `projects/[project_id]/zones/[zone]` * `us-central1-f`
     /// </summary>
-    public TerraformValue<string> Zone
+    public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -1652,7 +1650,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeGroup is required")]
     public required TerraformValue<string> NodeGroup
     {
-        get => new TerraformReference<string>(this, "node_group");
+        get => GetArgument<TerraformValue<string>>("node_group");
         set => SetArgument("node_group", value);
     }
 
@@ -1674,7 +1672,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? ConsumeReservationType
     {
-        get => new TerraformReference<string>(this, "consume_reservation_type");
+        get => GetArgument<TerraformValue<string>>("consume_reservation_type");
         set => SetArgument("consume_reservation_type", value);
     }
 
@@ -1683,7 +1681,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1692,7 +1690,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -1714,7 +1712,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<bool>? EnableIntegrityMonitoring
     {
-        get => new TerraformReference<bool>(this, "enable_integrity_monitoring");
+        get => GetArgument<TerraformValue<bool>>("enable_integrity_monitoring");
         set => SetArgument("enable_integrity_monitoring", value);
     }
 
@@ -1723,7 +1721,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<bool>? EnableSecureBoot
     {
-        get => new TerraformReference<bool>(this, "enable_secure_boot");
+        get => GetArgument<TerraformValue<bool>>("enable_secure_boot");
         set => SetArgument("enable_secure_boot", value);
     }
 
@@ -1732,7 +1730,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<bool>? EnableVtpm
     {
-        get => new TerraformReference<bool>(this, "enable_vtpm");
+        get => GetArgument<TerraformValue<bool>>("enable_vtpm");
         set => SetArgument("enable_vtpm", value);
     }
 
@@ -1754,7 +1752,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? ExecutableFile
     {
-        get => new TerraformReference<string>(this, "executable_file");
+        get => GetArgument<TerraformValue<string>>("executable_file");
         set => SetArgument("executable_file", value);
     }
 
@@ -1763,7 +1761,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? ExecutionTimeout
     {
-        get => new TerraformReference<string>(this, "execution_timeout");
+        get => GetArgument<TerraformValue<string>>("execution_timeout");
         set => SetArgument("execution_timeout", value);
     }
 
@@ -1785,7 +1783,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? AutoDeleteTime
     {
-        get => new TerraformReference<string>(this, "auto_delete_time");
+        get => GetArgument<TerraformValue<string>>("auto_delete_time");
         set => SetArgument("auto_delete_time", value);
     }
 
@@ -1794,7 +1792,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? AutoDeleteTtl
     {
-        get => new TerraformReference<string>(this, "auto_delete_ttl");
+        get => GetArgument<TerraformValue<string>>("auto_delete_ttl");
         set => SetArgument("auto_delete_ttl", value);
     }
 
@@ -1803,7 +1801,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? IdleDeleteTtl
     {
-        get => new TerraformReference<string>(this, "idle_delete_ttl");
+        get => GetArgument<TerraformValue<string>>("idle_delete_ttl");
         set => SetArgument("idle_delete_ttl", value);
     }
 
@@ -1811,9 +1809,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// Output only. The time when cluster became idle (most recent job finished) and became eligible for deletion due to idleness (see JSON representation of [Timestamp](https://developers.google.com/protocol-buffers/docs/proto3#json)).
     /// </summary>
     public TerraformValue<string> IdleStartTime
-    {
-        get => new TerraformReference<string>(this, "idle_start_time");
-    }
+        => AsReference("idle_start_time");
 
 }
 
@@ -1833,7 +1829,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -1841,24 +1837,20 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// Output only. The list of instance names. Dataproc derives the names from `cluster_name`, `num_instances`, and the instance group.
     /// </summary>
     public TerraformList<string> InstanceNames
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "instance_names").ResolveNodes(ctx));
-    }
+        => AsReference("instance_names");
 
     /// <summary>
     /// Output only. Specifies that this instance group contains preemptible instances.
     /// </summary>
     public TerraformValue<bool> IsPreemptible
-    {
-        get => new TerraformReference<bool>(this, "is_preemptible");
-    }
+        => AsReference("is_preemptible");
 
     /// <summary>
     /// Optional. The Compute Engine machine type used for cluster instances. A full URL, partial URI, or short name are valid. Examples: * `https://www.googleapis.com/compute/v1/projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2` * `projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2` * `n1-standard-2` **Auto Zone Exception**: If you are using the Dataproc [Auto Zone Placement](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement) feature, you must use the short name of the machine type resource, for example, `n1-standard-2`.
     /// </summary>
     public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -1866,16 +1858,14 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// Output only. The config for Compute Engine Instance Group Manager that manages this group. This is only used for preemptible instance groups.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedGroupConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "managed_group_config").ResolveNodes(ctx));
-    }
+        => AsReference("managed_group_config");
 
     /// <summary>
     /// Optional. Specifies the minimum cpu platform for the Instance Group. See [Dataproc -&amp;gt; Minimum CPU Platform](https://cloud.google.com/dataproc/docs/concepts/compute/dataproc-min-cpu).
     /// </summary>
-    public TerraformValue<string> MinCpuPlatform
+    public TerraformValue<string>? MinCpuPlatform
     {
-        get => new TerraformReference<string>(this, "min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -1884,7 +1874,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<double>? NumInstances
     {
-        get => new TerraformReference<double>(this, "num_instances");
+        get => GetArgument<TerraformValue<double>>("num_instances");
         set => SetArgument("num_instances", value);
     }
 
@@ -1893,7 +1883,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? Preemptibility
     {
-        get => new TerraformReference<string>(this, "preemptibility");
+        get => GetArgument<TerraformValue<string>>("preemptibility");
         set => SetArgument("preemptibility", value);
     }
 
@@ -1934,7 +1924,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<double>? AcceleratorCount
     {
-        get => new TerraformReference<double>(this, "accelerator_count");
+        get => GetArgument<TerraformValue<double>>("accelerator_count");
         set => SetArgument("accelerator_count", value);
     }
 
@@ -1943,7 +1933,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? AcceleratorType
     {
-        get => new TerraformReference<string>(this, "accelerator_type");
+        get => GetArgument<TerraformValue<string>>("accelerator_type");
         set => SetArgument("accelerator_type", value);
     }
 
@@ -1965,7 +1955,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<double>? BootDiskSizeGb
     {
-        get => new TerraformReference<double>(this, "boot_disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("boot_disk_size_gb");
         set => SetArgument("boot_disk_size_gb", value);
     }
 
@@ -1974,16 +1964,16 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? BootDiskType
     {
-        get => new TerraformReference<string>(this, "boot_disk_type");
+        get => GetArgument<TerraformValue<string>>("boot_disk_type");
         set => SetArgument("boot_disk_type", value);
     }
 
     /// <summary>
     /// Optional. Number of attached SSDs, from 0 to 4 (default is 0). If SSDs are not attached, the boot disk is used to store runtime logs and [HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_user_guide.html) data. If one or more SSDs are attached, this runtime bulk data is spread across them, and the boot disk contains only basic config and installed binaries.
     /// </summary>
-    public TerraformValue<double> NumLocalSsds
+    public TerraformValue<double>? NumLocalSsds
     {
-        get => new TerraformReference<double>(this, "num_local_ssds");
+        get => GetArgument<TerraformValue<double>>("num_local_ssds");
         set => SetArgument("num_local_ssds", value);
     }
 
@@ -2005,7 +1995,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -2013,24 +2003,20 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// Output only. The list of instance names. Dataproc derives the names from `cluster_name`, `num_instances`, and the instance group.
     /// </summary>
     public TerraformList<string> InstanceNames
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "instance_names").ResolveNodes(ctx));
-    }
+        => AsReference("instance_names");
 
     /// <summary>
     /// Output only. Specifies that this instance group contains preemptible instances.
     /// </summary>
     public TerraformValue<bool> IsPreemptible
-    {
-        get => new TerraformReference<bool>(this, "is_preemptible");
-    }
+        => AsReference("is_preemptible");
 
     /// <summary>
     /// Optional. The Compute Engine machine type used for cluster instances. A full URL, partial URI, or short name are valid. Examples: * `https://www.googleapis.com/compute/v1/projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2` * `projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2` * `n1-standard-2` **Auto Zone Exception**: If you are using the Dataproc [Auto Zone Placement](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement) feature, you must use the short name of the machine type resource, for example, `n1-standard-2`.
     /// </summary>
     public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -2038,16 +2024,14 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// Output only. The config for Compute Engine Instance Group Manager that manages this group. This is only used for preemptible instance groups.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedGroupConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "managed_group_config").ResolveNodes(ctx));
-    }
+        => AsReference("managed_group_config");
 
     /// <summary>
     /// Optional. Specifies the minimum cpu platform for the Instance Group. See [Dataproc -&amp;gt; Minimum CPU Platform](https://cloud.google.com/dataproc/docs/concepts/compute/dataproc-min-cpu).
     /// </summary>
-    public TerraformValue<string> MinCpuPlatform
+    public TerraformValue<string>? MinCpuPlatform
     {
-        get => new TerraformReference<string>(this, "min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -2056,7 +2040,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<double>? NumInstances
     {
-        get => new TerraformReference<double>(this, "num_instances");
+        get => GetArgument<TerraformValue<double>>("num_instances");
         set => SetArgument("num_instances", value);
     }
 
@@ -2065,7 +2049,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? Preemptibility
     {
-        get => new TerraformReference<string>(this, "preemptibility");
+        get => GetArgument<TerraformValue<string>>("preemptibility");
         set => SetArgument("preemptibility", value);
     }
 
@@ -2106,7 +2090,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<double>? AcceleratorCount
     {
-        get => new TerraformReference<double>(this, "accelerator_count");
+        get => GetArgument<TerraformValue<double>>("accelerator_count");
         set => SetArgument("accelerator_count", value);
     }
 
@@ -2115,7 +2099,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? AcceleratorType
     {
-        get => new TerraformReference<string>(this, "accelerator_type");
+        get => GetArgument<TerraformValue<string>>("accelerator_type");
         set => SetArgument("accelerator_type", value);
     }
 
@@ -2137,7 +2121,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<double>? BootDiskSizeGb
     {
-        get => new TerraformReference<double>(this, "boot_disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("boot_disk_size_gb");
         set => SetArgument("boot_disk_size_gb", value);
     }
 
@@ -2146,16 +2130,16 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? BootDiskType
     {
-        get => new TerraformReference<string>(this, "boot_disk_type");
+        get => GetArgument<TerraformValue<string>>("boot_disk_type");
         set => SetArgument("boot_disk_type", value);
     }
 
     /// <summary>
     /// Optional. Number of attached SSDs, from 0 to 4 (default is 0). If SSDs are not attached, the boot disk is used to store runtime logs and [HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_user_guide.html) data. If one or more SSDs are attached, this runtime bulk data is spread across them, and the boot disk contains only basic config and installed binaries.
     /// </summary>
-    public TerraformValue<double> NumLocalSsds
+    public TerraformValue<double>? NumLocalSsds
     {
-        get => new TerraformReference<double>(this, "num_local_ssds");
+        get => GetArgument<TerraformValue<double>>("num_local_ssds");
         set => SetArgument("num_local_ssds", value);
     }
 
@@ -2200,7 +2184,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? CrossRealmTrustAdminServer
     {
-        get => new TerraformReference<string>(this, "cross_realm_trust_admin_server");
+        get => GetArgument<TerraformValue<string>>("cross_realm_trust_admin_server");
         set => SetArgument("cross_realm_trust_admin_server", value);
     }
 
@@ -2209,7 +2193,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? CrossRealmTrustKdc
     {
-        get => new TerraformReference<string>(this, "cross_realm_trust_kdc");
+        get => GetArgument<TerraformValue<string>>("cross_realm_trust_kdc");
         set => SetArgument("cross_realm_trust_kdc", value);
     }
 
@@ -2218,7 +2202,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? CrossRealmTrustRealm
     {
-        get => new TerraformReference<string>(this, "cross_realm_trust_realm");
+        get => GetArgument<TerraformValue<string>>("cross_realm_trust_realm");
         set => SetArgument("cross_realm_trust_realm", value);
     }
 
@@ -2227,7 +2211,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? CrossRealmTrustSharedPassword
     {
-        get => new TerraformReference<string>(this, "cross_realm_trust_shared_password");
+        get => GetArgument<TerraformValue<string>>("cross_realm_trust_shared_password");
         set => SetArgument("cross_realm_trust_shared_password", value);
     }
 
@@ -2236,7 +2220,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<bool>? EnableKerberos
     {
-        get => new TerraformReference<bool>(this, "enable_kerberos");
+        get => GetArgument<TerraformValue<bool>>("enable_kerberos");
         set => SetArgument("enable_kerberos", value);
     }
 
@@ -2245,7 +2229,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? KdcDbKey
     {
-        get => new TerraformReference<string>(this, "kdc_db_key");
+        get => GetArgument<TerraformValue<string>>("kdc_db_key");
         set => SetArgument("kdc_db_key", value);
     }
 
@@ -2254,7 +2238,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? KeyPassword
     {
-        get => new TerraformReference<string>(this, "key_password");
+        get => GetArgument<TerraformValue<string>>("key_password");
         set => SetArgument("key_password", value);
     }
 
@@ -2263,7 +2247,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? Keystore
     {
-        get => new TerraformReference<string>(this, "keystore");
+        get => GetArgument<TerraformValue<string>>("keystore");
         set => SetArgument("keystore", value);
     }
 
@@ -2272,7 +2256,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? KeystorePassword
     {
-        get => new TerraformReference<string>(this, "keystore_password");
+        get => GetArgument<TerraformValue<string>>("keystore_password");
         set => SetArgument("keystore_password", value);
     }
 
@@ -2281,7 +2265,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -2290,7 +2274,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? Realm
     {
-        get => new TerraformReference<string>(this, "realm");
+        get => GetArgument<TerraformValue<string>>("realm");
         set => SetArgument("realm", value);
     }
 
@@ -2299,7 +2283,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? RootPrincipalPassword
     {
-        get => new TerraformReference<string>(this, "root_principal_password");
+        get => GetArgument<TerraformValue<string>>("root_principal_password");
         set => SetArgument("root_principal_password", value);
     }
 
@@ -2308,7 +2292,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<double>? TgtLifetimeHours
     {
-        get => new TerraformReference<double>(this, "tgt_lifetime_hours");
+        get => GetArgument<TerraformValue<double>>("tgt_lifetime_hours");
         set => SetArgument("tgt_lifetime_hours", value);
     }
 
@@ -2317,7 +2301,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? Truststore
     {
-        get => new TerraformReference<string>(this, "truststore");
+        get => GetArgument<TerraformValue<string>>("truststore");
         set => SetArgument("truststore", value);
     }
 
@@ -2326,7 +2310,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? TruststorePassword
     {
-        get => new TerraformReference<string>(this, "truststore_password");
+        get => GetArgument<TerraformValue<string>>("truststore_password");
         set => SetArgument("truststore_password", value);
     }
 
@@ -2348,7 +2332,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? ImageVersion
     {
-        get => new TerraformReference<string>(this, "image_version");
+        get => GetArgument<TerraformValue<string>>("image_version");
         set => SetArgument("image_version", value);
     }
 
@@ -2357,7 +2341,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformList<string>? OptionalComponents
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "optional_components").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("optional_components");
         set => SetArgument("optional_components", value);
     }
 
@@ -2366,7 +2350,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -2388,7 +2372,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -2396,24 +2380,20 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// Output only. The list of instance names. Dataproc derives the names from `cluster_name`, `num_instances`, and the instance group.
     /// </summary>
     public TerraformList<string> InstanceNames
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "instance_names").ResolveNodes(ctx));
-    }
+        => AsReference("instance_names");
 
     /// <summary>
     /// Output only. Specifies that this instance group contains preemptible instances.
     /// </summary>
     public TerraformValue<bool> IsPreemptible
-    {
-        get => new TerraformReference<bool>(this, "is_preemptible");
-    }
+        => AsReference("is_preemptible");
 
     /// <summary>
     /// Optional. The Compute Engine machine type used for cluster instances. A full URL, partial URI, or short name are valid. Examples: * `https://www.googleapis.com/compute/v1/projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2` * `projects/[project_id]/zones/us-east1-a/machineTypes/n1-standard-2` * `n1-standard-2` **Auto Zone Exception**: If you are using the Dataproc [Auto Zone Placement](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement) feature, you must use the short name of the machine type resource, for example, `n1-standard-2`.
     /// </summary>
     public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -2421,16 +2401,14 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// Output only. The config for Compute Engine Instance Group Manager that manages this group. This is only used for preemptible instance groups.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedGroupConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "managed_group_config").ResolveNodes(ctx));
-    }
+        => AsReference("managed_group_config");
 
     /// <summary>
     /// Optional. Specifies the minimum cpu platform for the Instance Group. See [Dataproc -&amp;gt; Minimum CPU Platform](https://cloud.google.com/dataproc/docs/concepts/compute/dataproc-min-cpu).
     /// </summary>
-    public TerraformValue<string> MinCpuPlatform
+    public TerraformValue<string>? MinCpuPlatform
     {
-        get => new TerraformReference<string>(this, "min_cpu_platform");
+        get => GetArgument<TerraformValue<string>>("min_cpu_platform");
         set => SetArgument("min_cpu_platform", value);
     }
 
@@ -2439,7 +2417,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<double>? NumInstances
     {
-        get => new TerraformReference<double>(this, "num_instances");
+        get => GetArgument<TerraformValue<double>>("num_instances");
         set => SetArgument("num_instances", value);
     }
 
@@ -2448,7 +2426,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? Preemptibility
     {
-        get => new TerraformReference<string>(this, "preemptibility");
+        get => GetArgument<TerraformValue<string>>("preemptibility");
         set => SetArgument("preemptibility", value);
     }
 
@@ -2489,7 +2467,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<double>? AcceleratorCount
     {
-        get => new TerraformReference<double>(this, "accelerator_count");
+        get => GetArgument<TerraformValue<double>>("accelerator_count");
         set => SetArgument("accelerator_count", value);
     }
 
@@ -2498,7 +2476,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? AcceleratorType
     {
-        get => new TerraformReference<string>(this, "accelerator_type");
+        get => GetArgument<TerraformValue<string>>("accelerator_type");
         set => SetArgument("accelerator_type", value);
     }
 
@@ -2520,7 +2498,7 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<double>? BootDiskSizeGb
     {
-        get => new TerraformReference<double>(this, "boot_disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("boot_disk_size_gb");
         set => SetArgument("boot_disk_size_gb", value);
     }
 
@@ -2529,16 +2507,16 @@ public class GoogleDataprocWorkflowTemplatePlacementBlockManagedClusterBlockConf
     /// </summary>
     public TerraformValue<string>? BootDiskType
     {
-        get => new TerraformReference<string>(this, "boot_disk_type");
+        get => GetArgument<TerraformValue<string>>("boot_disk_type");
         set => SetArgument("boot_disk_type", value);
     }
 
     /// <summary>
     /// Optional. Number of attached SSDs, from 0 to 4 (default is 0). If SSDs are not attached, the boot disk is used to store runtime logs and [HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_user_guide.html) data. If one or more SSDs are attached, this runtime bulk data is spread across them, and the boot disk contains only basic config and installed binaries.
     /// </summary>
-    public TerraformValue<double> NumLocalSsds
+    public TerraformValue<double>? NumLocalSsds
     {
-        get => new TerraformReference<double>(this, "num_local_ssds");
+        get => GetArgument<TerraformValue<double>>("num_local_ssds");
         set => SetArgument("num_local_ssds", value);
     }
 
@@ -2561,7 +2539,7 @@ public class GoogleDataprocWorkflowTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -2570,7 +2548,7 @@ public class GoogleDataprocWorkflowTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -2579,7 +2557,7 @@ public class GoogleDataprocWorkflowTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -2597,16 +2575,16 @@ public partial class GoogleDataprocWorkflowTemplate(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? DagTimeout
     {
-        get => new TerraformReference<string>(this, "dag_timeout");
+        get => GetArgument<TerraformValue<string>>("dag_timeout");
         set => SetArgument("dag_timeout", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -2618,7 +2596,7 @@ public partial class GoogleDataprocWorkflowTemplate(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -2628,7 +2606,7 @@ public partial class GoogleDataprocWorkflowTemplate(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -2638,16 +2616,16 @@ public partial class GoogleDataprocWorkflowTemplate(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -2655,9 +2633,9 @@ public partial class GoogleDataprocWorkflowTemplate(string name) : TerraformReso
     /// Output only. The current version of this workflow template.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<double> Version
+    public TerraformValue<double>? Version
     {
-        get => new TerraformReference<double>(this, "version");
+        get => GetArgument<TerraformValue<double>>("version");
         set => SetArgument("version", value);
     }
 
@@ -2665,33 +2643,25 @@ public partial class GoogleDataprocWorkflowTemplate(string name) : TerraformReso
     /// Output only. The time template was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Output only. The time template was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// EncryptionConfig block (nesting mode: list).

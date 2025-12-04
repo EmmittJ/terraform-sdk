@@ -18,7 +18,7 @@ public class AwsLbListenerDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,54 +34,54 @@ public partial class AwsLbListenerDataSource(string name) : TerraformDataSource(
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformValue<string> Arn
+    public TerraformValue<string>? Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The load_balancer_arn attribute.
     /// </summary>
-    public TerraformValue<string> LoadBalancerArn
+    public TerraformValue<string>? LoadBalancerArn
     {
-        get => new TerraformReference<string>(this, "load_balancer_arn");
+        get => GetArgument<TerraformValue<string>>("load_balancer_arn");
         set => SetArgument("load_balancer_arn", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformValue<double> Port
+    public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -89,49 +89,37 @@ public partial class AwsLbListenerDataSource(string name) : TerraformDataSource(
     /// The alpn_policy attribute.
     /// </summary>
     public TerraformValue<string> AlpnPolicy
-    {
-        get => new TerraformReference<string>(this, "alpn_policy");
-    }
+        => AsReference("alpn_policy");
 
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
     public TerraformValue<string> CertificateArn
-    {
-        get => new TerraformReference<string>(this, "certificate_arn");
-    }
+        => AsReference("certificate_arn");
 
     /// <summary>
     /// The default_action attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DefaultAction
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "default_action").ResolveNodes(ctx));
-    }
+        => AsReference("default_action");
 
     /// <summary>
     /// The mutual_authentication attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MutualAuthentication
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "mutual_authentication").ResolveNodes(ctx));
-    }
+        => AsReference("mutual_authentication");
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     public TerraformValue<string> Protocol
-    {
-        get => new TerraformReference<string>(this, "protocol");
-    }
+        => AsReference("protocol");
 
     /// <summary>
     /// The ssl_policy attribute.
     /// </summary>
     public TerraformValue<string> SslPolicy
-    {
-        get => new TerraformReference<string>(this, "ssl_policy");
-    }
+        => AsReference("ssl_policy");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

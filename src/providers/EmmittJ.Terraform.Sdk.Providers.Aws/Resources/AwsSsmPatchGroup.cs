@@ -14,16 +14,16 @@ public partial class AwsSsmPatchGroup(string name) : TerraformResource("aws_ssm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaselineId is required")]
     public required TerraformValue<string> BaselineId
     {
-        get => new TerraformReference<string>(this, "baseline_id");
+        get => GetArgument<TerraformValue<string>>("baseline_id");
         set => SetArgument("baseline_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsSsmPatchGroup(string name) : TerraformResource("aws_ssm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatchGroup is required")]
     public required TerraformValue<string> PatchGroup
     {
-        get => new TerraformReference<string>(this, "patch_group");
+        get => GetArgument<TerraformValue<string>>("patch_group");
         set => SetArgument("patch_group", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

@@ -19,7 +19,7 @@ public class AzurermStorageManagementPolicyRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermStorageManagementPolicyRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockBaseBlobBlock : 
     /// </summary>
     public TerraformValue<bool>? AutoTierToHotFromCoolEnabled
     {
-        get => new TerraformReference<bool>(this, "auto_tier_to_hot_from_cool_enabled");
+        get => GetArgument<TerraformValue<bool>>("auto_tier_to_hot_from_cool_enabled");
         set => SetArgument("auto_tier_to_hot_from_cool_enabled", value);
     }
 
@@ -129,7 +129,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockBaseBlobBlock : 
     /// </summary>
     public TerraformValue<double>? DeleteAfterDaysSinceCreationGreaterThan
     {
-        get => new TerraformReference<double>(this, "delete_after_days_since_creation_greater_than");
+        get => GetArgument<TerraformValue<double>>("delete_after_days_since_creation_greater_than");
         set => SetArgument("delete_after_days_since_creation_greater_than", value);
     }
 
@@ -138,7 +138,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockBaseBlobBlock : 
     /// </summary>
     public TerraformValue<double>? DeleteAfterDaysSinceLastAccessTimeGreaterThan
     {
-        get => new TerraformReference<double>(this, "delete_after_days_since_last_access_time_greater_than");
+        get => GetArgument<TerraformValue<double>>("delete_after_days_since_last_access_time_greater_than");
         set => SetArgument("delete_after_days_since_last_access_time_greater_than", value);
     }
 
@@ -147,7 +147,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockBaseBlobBlock : 
     /// </summary>
     public TerraformValue<double>? DeleteAfterDaysSinceModificationGreaterThan
     {
-        get => new TerraformReference<double>(this, "delete_after_days_since_modification_greater_than");
+        get => GetArgument<TerraformValue<double>>("delete_after_days_since_modification_greater_than");
         set => SetArgument("delete_after_days_since_modification_greater_than", value);
     }
 
@@ -156,7 +156,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockBaseBlobBlock : 
     /// </summary>
     public TerraformValue<double>? TierToArchiveAfterDaysSinceCreationGreaterThan
     {
-        get => new TerraformReference<double>(this, "tier_to_archive_after_days_since_creation_greater_than");
+        get => GetArgument<TerraformValue<double>>("tier_to_archive_after_days_since_creation_greater_than");
         set => SetArgument("tier_to_archive_after_days_since_creation_greater_than", value);
     }
 
@@ -165,7 +165,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockBaseBlobBlock : 
     /// </summary>
     public TerraformValue<double>? TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan
     {
-        get => new TerraformReference<double>(this, "tier_to_archive_after_days_since_last_access_time_greater_than");
+        get => GetArgument<TerraformValue<double>>("tier_to_archive_after_days_since_last_access_time_greater_than");
         set => SetArgument("tier_to_archive_after_days_since_last_access_time_greater_than", value);
     }
 
@@ -174,7 +174,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockBaseBlobBlock : 
     /// </summary>
     public TerraformValue<double>? TierToArchiveAfterDaysSinceLastTierChangeGreaterThan
     {
-        get => new TerraformReference<double>(this, "tier_to_archive_after_days_since_last_tier_change_greater_than");
+        get => GetArgument<TerraformValue<double>>("tier_to_archive_after_days_since_last_tier_change_greater_than");
         set => SetArgument("tier_to_archive_after_days_since_last_tier_change_greater_than", value);
     }
 
@@ -183,7 +183,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockBaseBlobBlock : 
     /// </summary>
     public TerraformValue<double>? TierToArchiveAfterDaysSinceModificationGreaterThan
     {
-        get => new TerraformReference<double>(this, "tier_to_archive_after_days_since_modification_greater_than");
+        get => GetArgument<TerraformValue<double>>("tier_to_archive_after_days_since_modification_greater_than");
         set => SetArgument("tier_to_archive_after_days_since_modification_greater_than", value);
     }
 
@@ -192,7 +192,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockBaseBlobBlock : 
     /// </summary>
     public TerraformValue<double>? TierToColdAfterDaysSinceCreationGreaterThan
     {
-        get => new TerraformReference<double>(this, "tier_to_cold_after_days_since_creation_greater_than");
+        get => GetArgument<TerraformValue<double>>("tier_to_cold_after_days_since_creation_greater_than");
         set => SetArgument("tier_to_cold_after_days_since_creation_greater_than", value);
     }
 
@@ -201,7 +201,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockBaseBlobBlock : 
     /// </summary>
     public TerraformValue<double>? TierToColdAfterDaysSinceLastAccessTimeGreaterThan
     {
-        get => new TerraformReference<double>(this, "tier_to_cold_after_days_since_last_access_time_greater_than");
+        get => GetArgument<TerraformValue<double>>("tier_to_cold_after_days_since_last_access_time_greater_than");
         set => SetArgument("tier_to_cold_after_days_since_last_access_time_greater_than", value);
     }
 
@@ -210,7 +210,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockBaseBlobBlock : 
     /// </summary>
     public TerraformValue<double>? TierToColdAfterDaysSinceModificationGreaterThan
     {
-        get => new TerraformReference<double>(this, "tier_to_cold_after_days_since_modification_greater_than");
+        get => GetArgument<TerraformValue<double>>("tier_to_cold_after_days_since_modification_greater_than");
         set => SetArgument("tier_to_cold_after_days_since_modification_greater_than", value);
     }
 
@@ -219,7 +219,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockBaseBlobBlock : 
     /// </summary>
     public TerraformValue<double>? TierToCoolAfterDaysSinceCreationGreaterThan
     {
-        get => new TerraformReference<double>(this, "tier_to_cool_after_days_since_creation_greater_than");
+        get => GetArgument<TerraformValue<double>>("tier_to_cool_after_days_since_creation_greater_than");
         set => SetArgument("tier_to_cool_after_days_since_creation_greater_than", value);
     }
 
@@ -228,7 +228,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockBaseBlobBlock : 
     /// </summary>
     public TerraformValue<double>? TierToCoolAfterDaysSinceLastAccessTimeGreaterThan
     {
-        get => new TerraformReference<double>(this, "tier_to_cool_after_days_since_last_access_time_greater_than");
+        get => GetArgument<TerraformValue<double>>("tier_to_cool_after_days_since_last_access_time_greater_than");
         set => SetArgument("tier_to_cool_after_days_since_last_access_time_greater_than", value);
     }
 
@@ -237,7 +237,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockBaseBlobBlock : 
     /// </summary>
     public TerraformValue<double>? TierToCoolAfterDaysSinceModificationGreaterThan
     {
-        get => new TerraformReference<double>(this, "tier_to_cool_after_days_since_modification_greater_than");
+        get => GetArgument<TerraformValue<double>>("tier_to_cool_after_days_since_modification_greater_than");
         set => SetArgument("tier_to_cool_after_days_since_modification_greater_than", value);
     }
 
@@ -259,7 +259,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockSnapshotBlock : 
     /// </summary>
     public TerraformValue<double>? ChangeTierToArchiveAfterDaysSinceCreation
     {
-        get => new TerraformReference<double>(this, "change_tier_to_archive_after_days_since_creation");
+        get => GetArgument<TerraformValue<double>>("change_tier_to_archive_after_days_since_creation");
         set => SetArgument("change_tier_to_archive_after_days_since_creation", value);
     }
 
@@ -268,7 +268,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockSnapshotBlock : 
     /// </summary>
     public TerraformValue<double>? ChangeTierToCoolAfterDaysSinceCreation
     {
-        get => new TerraformReference<double>(this, "change_tier_to_cool_after_days_since_creation");
+        get => GetArgument<TerraformValue<double>>("change_tier_to_cool_after_days_since_creation");
         set => SetArgument("change_tier_to_cool_after_days_since_creation", value);
     }
 
@@ -277,7 +277,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockSnapshotBlock : 
     /// </summary>
     public TerraformValue<double>? DeleteAfterDaysSinceCreationGreaterThan
     {
-        get => new TerraformReference<double>(this, "delete_after_days_since_creation_greater_than");
+        get => GetArgument<TerraformValue<double>>("delete_after_days_since_creation_greater_than");
         set => SetArgument("delete_after_days_since_creation_greater_than", value);
     }
 
@@ -286,7 +286,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockSnapshotBlock : 
     /// </summary>
     public TerraformValue<double>? TierToArchiveAfterDaysSinceLastTierChangeGreaterThan
     {
-        get => new TerraformReference<double>(this, "tier_to_archive_after_days_since_last_tier_change_greater_than");
+        get => GetArgument<TerraformValue<double>>("tier_to_archive_after_days_since_last_tier_change_greater_than");
         set => SetArgument("tier_to_archive_after_days_since_last_tier_change_greater_than", value);
     }
 
@@ -295,7 +295,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockSnapshotBlock : 
     /// </summary>
     public TerraformValue<double>? TierToColdAfterDaysSinceCreationGreaterThan
     {
-        get => new TerraformReference<double>(this, "tier_to_cold_after_days_since_creation_greater_than");
+        get => GetArgument<TerraformValue<double>>("tier_to_cold_after_days_since_creation_greater_than");
         set => SetArgument("tier_to_cold_after_days_since_creation_greater_than", value);
     }
 
@@ -317,7 +317,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockVersionBlock : T
     /// </summary>
     public TerraformValue<double>? ChangeTierToArchiveAfterDaysSinceCreation
     {
-        get => new TerraformReference<double>(this, "change_tier_to_archive_after_days_since_creation");
+        get => GetArgument<TerraformValue<double>>("change_tier_to_archive_after_days_since_creation");
         set => SetArgument("change_tier_to_archive_after_days_since_creation", value);
     }
 
@@ -326,7 +326,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockVersionBlock : T
     /// </summary>
     public TerraformValue<double>? ChangeTierToCoolAfterDaysSinceCreation
     {
-        get => new TerraformReference<double>(this, "change_tier_to_cool_after_days_since_creation");
+        get => GetArgument<TerraformValue<double>>("change_tier_to_cool_after_days_since_creation");
         set => SetArgument("change_tier_to_cool_after_days_since_creation", value);
     }
 
@@ -335,7 +335,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockVersionBlock : T
     /// </summary>
     public TerraformValue<double>? DeleteAfterDaysSinceCreation
     {
-        get => new TerraformReference<double>(this, "delete_after_days_since_creation");
+        get => GetArgument<TerraformValue<double>>("delete_after_days_since_creation");
         set => SetArgument("delete_after_days_since_creation", value);
     }
 
@@ -344,7 +344,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockVersionBlock : T
     /// </summary>
     public TerraformValue<double>? TierToArchiveAfterDaysSinceLastTierChangeGreaterThan
     {
-        get => new TerraformReference<double>(this, "tier_to_archive_after_days_since_last_tier_change_greater_than");
+        get => GetArgument<TerraformValue<double>>("tier_to_archive_after_days_since_last_tier_change_greater_than");
         set => SetArgument("tier_to_archive_after_days_since_last_tier_change_greater_than", value);
     }
 
@@ -353,7 +353,7 @@ public class AzurermStorageManagementPolicyRuleBlockActionsBlockVersionBlock : T
     /// </summary>
     public TerraformValue<double>? TierToColdAfterDaysSinceCreationGreaterThan
     {
-        get => new TerraformReference<double>(this, "tier_to_cold_after_days_since_creation_greater_than");
+        get => GetArgument<TerraformValue<double>>("tier_to_cold_after_days_since_creation_greater_than");
         set => SetArgument("tier_to_cold_after_days_since_creation_greater_than", value);
     }
 
@@ -376,7 +376,7 @@ public class AzurermStorageManagementPolicyRuleBlockFiltersBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlobTypes is required")]
     public required TerraformSet<string> BlobTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "blob_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("blob_types");
         set => SetArgument("blob_types", value);
     }
 
@@ -385,7 +385,7 @@ public class AzurermStorageManagementPolicyRuleBlockFiltersBlock : TerraformBloc
     /// </summary>
     public TerraformSet<string>? PrefixMatch
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "prefix_match").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("prefix_match");
         set => SetArgument("prefix_match", value);
     }
 
@@ -417,7 +417,7 @@ public class AzurermStorageManagementPolicyRuleBlockFiltersBlockMatchBlobIndexTa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -426,7 +426,7 @@ public class AzurermStorageManagementPolicyRuleBlockFiltersBlockMatchBlobIndexTa
     /// </summary>
     public TerraformValue<string>? Operation
     {
-        get => new TerraformReference<string>(this, "operation");
+        get => GetArgument<TerraformValue<string>>("operation");
         set => SetArgument("operation", value);
     }
 
@@ -436,7 +436,7 @@ public class AzurermStorageManagementPolicyRuleBlockFiltersBlockMatchBlobIndexTa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -459,7 +459,7 @@ public class AzurermStorageManagementPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -468,7 +468,7 @@ public class AzurermStorageManagementPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -477,7 +477,7 @@ public class AzurermStorageManagementPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -486,7 +486,7 @@ public class AzurermStorageManagementPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -502,9 +502,9 @@ public partial class AzurermStorageManagementPolicy(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -514,7 +514,7 @@ public partial class AzurermStorageManagementPolicy(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => new TerraformReference<string>(this, "storage_account_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 

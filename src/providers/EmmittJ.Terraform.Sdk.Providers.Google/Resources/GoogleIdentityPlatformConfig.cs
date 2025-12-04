@@ -53,7 +53,7 @@ public class GoogleIdentityPlatformConfigBlockingFunctionsBlockForwardInboundCre
     /// </summary>
     public TerraformValue<bool>? AccessToken
     {
-        get => new TerraformReference<bool>(this, "access_token");
+        get => GetArgument<TerraformValue<bool>>("access_token");
         set => SetArgument("access_token", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleIdentityPlatformConfigBlockingFunctionsBlockForwardInboundCre
     /// </summary>
     public TerraformValue<bool>? IdToken
     {
-        get => new TerraformReference<bool>(this, "id_token");
+        get => GetArgument<TerraformValue<bool>>("id_token");
         set => SetArgument("id_token", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleIdentityPlatformConfigBlockingFunctionsBlockForwardInboundCre
     /// </summary>
     public TerraformValue<bool>? RefreshToken
     {
-        get => new TerraformReference<bool>(this, "refresh_token");
+        get => GetArgument<TerraformValue<bool>>("refresh_token");
         set => SetArgument("refresh_token", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleIdentityPlatformConfigBlockingFunctionsBlockTriggersBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventType is required")]
     public required TerraformValue<string> EventType
     {
-        get => new TerraformReference<string>(this, "event_type");
+        get => GetArgument<TerraformValue<string>>("event_type");
         set => SetArgument("event_type", value);
     }
 
@@ -104,7 +104,7 @@ public class GoogleIdentityPlatformConfigBlockingFunctionsBlockTriggersBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionUri is required")]
     public required TerraformValue<string> FunctionUri
     {
-        get => new TerraformReference<string>(this, "function_uri");
+        get => GetArgument<TerraformValue<string>>("function_uri");
         set => SetArgument("function_uri", value);
     }
 
@@ -112,9 +112,7 @@ public class GoogleIdentityPlatformConfigBlockingFunctionsBlockTriggersBlock : T
     /// When the trigger was changed.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
 }
 
@@ -134,17 +132,13 @@ public class GoogleIdentityPlatformConfigClientBlock : TerraformBlock
     /// API key that can be used when making requests for this project.
     /// </summary>
     public TerraformValue<string> ApiKey
-    {
-        get => new TerraformReference<string>(this, "api_key");
-    }
+        => AsReference("api_key");
 
     /// <summary>
     /// Firebase subdomain.
     /// </summary>
     public TerraformValue<string> FirebaseSubdomain
-    {
-        get => new TerraformReference<string>(this, "firebase_subdomain");
-    }
+        => AsReference("firebase_subdomain");
 
     /// <summary>
     /// Permissions block (nesting mode: list).
@@ -174,7 +168,7 @@ public class GoogleIdentityPlatformConfigClientBlockPermissionsBlock : Terraform
     /// </summary>
     public TerraformValue<bool>? DisabledUserDeletion
     {
-        get => new TerraformReference<bool>(this, "disabled_user_deletion");
+        get => GetArgument<TerraformValue<bool>>("disabled_user_deletion");
         set => SetArgument("disabled_user_deletion", value);
     }
 
@@ -183,7 +177,7 @@ public class GoogleIdentityPlatformConfigClientBlockPermissionsBlock : Terraform
     /// </summary>
     public TerraformValue<bool>? DisabledUserSignup
     {
-        get => new TerraformReference<bool>(this, "disabled_user_signup");
+        get => GetArgument<TerraformValue<bool>>("disabled_user_signup");
         set => SetArgument("disabled_user_signup", value);
     }
 
@@ -206,16 +200,16 @@ public class GoogleIdentityPlatformConfigMfaBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? EnabledProviders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "enabled_providers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("enabled_providers");
         set => SetArgument("enabled_providers", value);
     }
 
     /// <summary>
     /// Whether MultiFactor Authentication has been enabled for this project. Possible values: [&amp;quot;DISABLED&amp;quot;, &amp;quot;ENABLED&amp;quot;, &amp;quot;MANDATORY&amp;quot;]
     /// </summary>
-    public TerraformValue<string> State
+    public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -244,9 +238,9 @@ public class GoogleIdentityPlatformConfigMfaBlockProviderConfigsBlock : Terrafor
     /// <summary>
     /// Whether MultiFactor Authentication has been enabled for this project. Possible values: [&amp;quot;DISABLED&amp;quot;, &amp;quot;ENABLED&amp;quot;, &amp;quot;MANDATORY&amp;quot;]
     /// </summary>
-    public TerraformValue<string> State
+    public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -278,7 +272,7 @@ public class GoogleIdentityPlatformConfigMfaBlockProviderConfigsBlockTotpProvide
     /// </summary>
     public TerraformValue<double>? AdjacentIntervals
     {
-        get => new TerraformReference<double>(this, "adjacent_intervals");
+        get => GetArgument<TerraformValue<double>>("adjacent_intervals");
         set => SetArgument("adjacent_intervals", value);
     }
 
@@ -324,7 +318,7 @@ public class GoogleIdentityPlatformConfigMonitoringBlockRequestLoggingBlock : Te
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -347,7 +341,7 @@ public class GoogleIdentityPlatformConfigMultiTenantBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowTenants
     {
-        get => new TerraformReference<bool>(this, "allow_tenants");
+        get => GetArgument<TerraformValue<bool>>("allow_tenants");
         set => SetArgument("allow_tenants", value);
     }
 
@@ -358,7 +352,7 @@ public class GoogleIdentityPlatformConfigMultiTenantBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DefaultTenantLocation
     {
-        get => new TerraformReference<string>(this, "default_tenant_location");
+        get => GetArgument<TerraformValue<string>>("default_tenant_location");
         set => SetArgument("default_tenant_location", value);
     }
 
@@ -404,7 +398,7 @@ public class GoogleIdentityPlatformConfigQuotaBlockSignUpQuotaConfigBlock : Terr
     /// </summary>
     public TerraformValue<double>? Quota
     {
-        get => new TerraformReference<double>(this, "quota");
+        get => GetArgument<TerraformValue<double>>("quota");
         set => SetArgument("quota", value);
     }
 
@@ -413,7 +407,7 @@ public class GoogleIdentityPlatformConfigQuotaBlockSignUpQuotaConfigBlock : Terr
     /// </summary>
     public TerraformValue<string>? QuotaDuration
     {
-        get => new TerraformReference<string>(this, "quota_duration");
+        get => GetArgument<TerraformValue<string>>("quota_duration");
         set => SetArgument("quota_duration", value);
     }
 
@@ -422,7 +416,7 @@ public class GoogleIdentityPlatformConfigQuotaBlockSignUpQuotaConfigBlock : Terr
     /// </summary>
     public TerraformValue<string>? StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -445,7 +439,7 @@ public class GoogleIdentityPlatformConfigSignInBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowDuplicateEmails
     {
-        get => new TerraformReference<bool>(this, "allow_duplicate_emails");
+        get => GetArgument<TerraformValue<bool>>("allow_duplicate_emails");
         set => SetArgument("allow_duplicate_emails", value);
     }
 
@@ -453,9 +447,7 @@ public class GoogleIdentityPlatformConfigSignInBlock : TerraformBlock
     /// Output only. Hash config information.
     /// </summary>
     public TerraformList<TerraformMap<object>> HashConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "hash_config").ResolveNodes(ctx));
-    }
+        => AsReference("hash_config");
 
     /// <summary>
     /// Anonymous block (nesting mode: list).
@@ -506,7 +498,7 @@ public class GoogleIdentityPlatformConfigSignInBlockAnonymousBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -529,7 +521,7 @@ public class GoogleIdentityPlatformConfigSignInBlockEmailBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -540,7 +532,7 @@ public class GoogleIdentityPlatformConfigSignInBlockEmailBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PasswordRequired
     {
-        get => new TerraformReference<bool>(this, "password_required");
+        get => GetArgument<TerraformValue<bool>>("password_required");
         set => SetArgument("password_required", value);
     }
 
@@ -563,7 +555,7 @@ public class GoogleIdentityPlatformConfigSignInBlockPhoneNumberBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -572,7 +564,7 @@ public class GoogleIdentityPlatformConfigSignInBlockPhoneNumberBlock : Terraform
     /// </summary>
     public TerraformMap<string>? TestPhoneNumbers
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "test_phone_numbers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("test_phone_numbers");
         set => SetArgument("test_phone_numbers", value);
     }
 
@@ -628,7 +620,7 @@ public class GoogleIdentityPlatformConfigSmsRegionConfigBlockAllowByDefaultBlock
     /// </summary>
     public TerraformList<string>? DisallowedRegions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "disallowed_regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("disallowed_regions");
         set => SetArgument("disallowed_regions", value);
     }
 
@@ -650,7 +642,7 @@ public class GoogleIdentityPlatformConfigSmsRegionConfigBlockAllowlistOnlyBlock 
     /// </summary>
     public TerraformList<string>? AllowedRegions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_regions");
         set => SetArgument("allowed_regions", value);
     }
 
@@ -673,7 +665,7 @@ public class GoogleIdentityPlatformConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -682,7 +674,7 @@ public class GoogleIdentityPlatformConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -691,7 +683,7 @@ public class GoogleIdentityPlatformConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -707,9 +699,9 @@ public partial class GoogleIdentityPlatformConfig(string name) : TerraformResour
     /// <summary>
     /// List of domains authorized for OAuth redirects.
     /// </summary>
-    public TerraformList<string> AuthorizedDomains
+    public TerraformList<string>? AuthorizedDomains
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "authorized_domains").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("authorized_domains");
         set => SetArgument("authorized_domains", value);
     }
 
@@ -718,25 +710,25 @@ public partial class GoogleIdentityPlatformConfig(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? AutodeleteAnonymousUsers
     {
-        get => new TerraformReference<bool>(this, "autodelete_anonymous_users");
+        get => GetArgument<TerraformValue<bool>>("autodelete_anonymous_users");
         set => SetArgument("autodelete_anonymous_users", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -744,9 +736,7 @@ public partial class GoogleIdentityPlatformConfig(string name) : TerraformResour
     /// The name of the Config resource
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// BlockingFunctions block (nesting mode: list).

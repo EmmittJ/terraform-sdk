@@ -18,7 +18,7 @@ public class AwsConnectInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsConnectInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AwsConnectInstance(string name) : TerraformResource("aws_co
     /// </summary>
     public TerraformValue<bool>? AutoResolveBestVoicesEnabled
     {
-        get => new TerraformReference<bool>(this, "auto_resolve_best_voices_enabled");
+        get => GetArgument<TerraformValue<bool>>("auto_resolve_best_voices_enabled");
         set => SetArgument("auto_resolve_best_voices_enabled", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsConnectInstance(string name) : TerraformResource("aws_co
     /// </summary>
     public TerraformValue<bool>? ContactFlowLogsEnabled
     {
-        get => new TerraformReference<bool>(this, "contact_flow_logs_enabled");
+        get => GetArgument<TerraformValue<bool>>("contact_flow_logs_enabled");
         set => SetArgument("contact_flow_logs_enabled", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsConnectInstance(string name) : TerraformResource("aws_co
     /// </summary>
     public TerraformValue<bool>? ContactLensEnabled
     {
-        get => new TerraformReference<bool>(this, "contact_lens_enabled");
+        get => GetArgument<TerraformValue<bool>>("contact_lens_enabled");
         set => SetArgument("contact_lens_enabled", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsConnectInstance(string name) : TerraformResource("aws_co
     /// </summary>
     public TerraformValue<string>? DirectoryId
     {
-        get => new TerraformReference<string>(this, "directory_id");
+        get => GetArgument<TerraformValue<string>>("directory_id");
         set => SetArgument("directory_id", value);
     }
 
@@ -81,16 +81,16 @@ public partial class AwsConnectInstance(string name) : TerraformResource("aws_co
     /// </summary>
     public TerraformValue<bool>? EarlyMediaEnabled
     {
-        get => new TerraformReference<bool>(this, "early_media_enabled");
+        get => GetArgument<TerraformValue<bool>>("early_media_enabled");
         set => SetArgument("early_media_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AwsConnectInstance(string name) : TerraformResource("aws_co
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityManagementType is required")]
     public required TerraformValue<string> IdentityManagementType
     {
-        get => new TerraformReference<string>(this, "identity_management_type");
+        get => GetArgument<TerraformValue<string>>("identity_management_type");
         set => SetArgument("identity_management_type", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AwsConnectInstance(string name) : TerraformResource("aws_co
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InboundCallsEnabled is required")]
     public required TerraformValue<bool> InboundCallsEnabled
     {
-        get => new TerraformReference<bool>(this, "inbound_calls_enabled");
+        get => GetArgument<TerraformValue<bool>>("inbound_calls_enabled");
         set => SetArgument("inbound_calls_enabled", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AwsConnectInstance(string name) : TerraformResource("aws_co
     /// </summary>
     public TerraformValue<string>? InstanceAlias
     {
-        get => new TerraformReference<string>(this, "instance_alias");
+        get => GetArgument<TerraformValue<string>>("instance_alias");
         set => SetArgument("instance_alias", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AwsConnectInstance(string name) : TerraformResource("aws_co
     /// </summary>
     public TerraformValue<bool>? MultiPartyConferenceEnabled
     {
-        get => new TerraformReference<bool>(this, "multi_party_conference_enabled");
+        get => GetArgument<TerraformValue<bool>>("multi_party_conference_enabled");
         set => SetArgument("multi_party_conference_enabled", value);
     }
 
@@ -138,16 +138,16 @@ public partial class AwsConnectInstance(string name) : TerraformResource("aws_co
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutboundCallsEnabled is required")]
     public required TerraformValue<bool> OutboundCallsEnabled
     {
-        get => new TerraformReference<bool>(this, "outbound_calls_enabled");
+        get => GetArgument<TerraformValue<bool>>("outbound_calls_enabled");
         set => SetArgument("outbound_calls_enabled", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -156,16 +156,16 @@ public partial class AwsConnectInstance(string name) : TerraformResource("aws_co
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -173,33 +173,25 @@ public partial class AwsConnectInstance(string name) : TerraformResource("aws_co
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-    {
-        get => new TerraformReference<string>(this, "created_time");
-    }
+        => AsReference("created_time");
 
     /// <summary>
     /// The service_role attribute.
     /// </summary>
     public TerraformValue<string> ServiceRole
-    {
-        get => new TerraformReference<string>(this, "service_role");
-    }
+        => AsReference("service_role");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

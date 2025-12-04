@@ -19,7 +19,7 @@ public class AwsKeyPairDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsKeyPairDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsKeyPairDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -68,9 +68,9 @@ public partial class AwsKeyPairDataSource(string name) : TerraformDataSource("aw
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsKeyPairDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<bool>? IncludePublicKey
     {
-        get => new TerraformReference<bool>(this, "include_public_key");
+        get => GetArgument<TerraformValue<bool>>("include_public_key");
         set => SetArgument("include_public_key", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsKeyPairDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<string>? KeyName
     {
-        get => new TerraformReference<string>(this, "key_name");
+        get => GetArgument<TerraformValue<string>>("key_name");
         set => SetArgument("key_name", value);
     }
 
@@ -97,25 +97,25 @@ public partial class AwsKeyPairDataSource(string name) : TerraformDataSource("aw
     /// </summary>
     public TerraformValue<string>? KeyPairId
     {
-        get => new TerraformReference<string>(this, "key_pair_id");
+        get => GetArgument<TerraformValue<string>>("key_pair_id");
         set => SetArgument("key_pair_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -123,41 +123,31 @@ public partial class AwsKeyPairDataSource(string name) : TerraformDataSource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The fingerprint attribute.
     /// </summary>
     public TerraformValue<string> Fingerprint
-    {
-        get => new TerraformReference<string>(this, "fingerprint");
-    }
+        => AsReference("fingerprint");
 
     /// <summary>
     /// The key_type attribute.
     /// </summary>
     public TerraformValue<string> KeyType
-    {
-        get => new TerraformReference<string>(this, "key_type");
-    }
+        => AsReference("key_type");
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     public TerraformValue<string> PublicKey
-    {
-        get => new TerraformReference<string>(this, "public_key");
-    }
+        => AsReference("public_key");
 
     /// <summary>
     /// Filter block (nesting mode: set).

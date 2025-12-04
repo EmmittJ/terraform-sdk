@@ -14,7 +14,7 @@ public partial class AwsDxHostedConnection(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bandwidth is required")]
     public required TerraformValue<string> Bandwidth
     {
-        get => new TerraformReference<string>(this, "bandwidth");
+        get => GetArgument<TerraformValue<string>>("bandwidth");
         set => SetArgument("bandwidth", value);
     }
 
@@ -24,16 +24,16 @@ public partial class AwsDxHostedConnection(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     public required TerraformValue<string> ConnectionId
     {
-        get => new TerraformReference<string>(this, "connection_id");
+        get => GetArgument<TerraformValue<string>>("connection_id");
         set => SetArgument("connection_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -43,7 +43,7 @@ public partial class AwsDxHostedConnection(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -53,7 +53,7 @@ public partial class AwsDxHostedConnection(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerAccountId is required")]
     public required TerraformValue<string> OwnerAccountId
     {
-        get => new TerraformReference<string>(this, "owner_account_id");
+        get => GetArgument<TerraformValue<string>>("owner_account_id");
         set => SetArgument("owner_account_id", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsDxHostedConnection(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Vlan is required")]
     public required TerraformValue<double> Vlan
     {
-        get => new TerraformReference<double>(this, "vlan");
+        get => GetArgument<TerraformValue<double>>("vlan");
         set => SetArgument("vlan", value);
     }
 
@@ -71,89 +71,67 @@ public partial class AwsDxHostedConnection(string name) : TerraformResource("aws
     /// The aws_device attribute.
     /// </summary>
     public TerraformValue<string> AwsDevice
-    {
-        get => new TerraformReference<string>(this, "aws_device");
-    }
+        => AsReference("aws_device");
 
     /// <summary>
     /// The connection_region attribute.
     /// </summary>
     public TerraformValue<string> ConnectionRegion
-    {
-        get => new TerraformReference<string>(this, "connection_region");
-    }
+        => AsReference("connection_region");
 
     /// <summary>
     /// The has_logical_redundancy attribute.
     /// </summary>
     public TerraformValue<string> HasLogicalRedundancy
-    {
-        get => new TerraformReference<string>(this, "has_logical_redundancy");
-    }
+        => AsReference("has_logical_redundancy");
 
     /// <summary>
     /// The jumbo_frame_capable attribute.
     /// </summary>
     public TerraformValue<bool> JumboFrameCapable
-    {
-        get => new TerraformReference<bool>(this, "jumbo_frame_capable");
-    }
+        => AsReference("jumbo_frame_capable");
 
     /// <summary>
     /// The lag_id attribute.
     /// </summary>
     public TerraformValue<string> LagId
-    {
-        get => new TerraformReference<string>(this, "lag_id");
-    }
+        => AsReference("lag_id");
 
     /// <summary>
     /// The loa_issue_time attribute.
     /// </summary>
     public TerraformValue<string> LoaIssueTime
-    {
-        get => new TerraformReference<string>(this, "loa_issue_time");
-    }
+        => AsReference("loa_issue_time");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The partner_name attribute.
     /// </summary>
     public TerraformValue<string> PartnerName
-    {
-        get => new TerraformReference<string>(this, "partner_name");
-    }
+        => AsReference("partner_name");
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
     public TerraformValue<string> ProviderName
-    {
-        get => new TerraformReference<string>(this, "provider_name");
-    }
+        => AsReference("provider_name");
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Region
-    {
-        get => new TerraformReference<string>(this, "region");
-    }
+        => AsReference("region");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
 }

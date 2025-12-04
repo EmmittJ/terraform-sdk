@@ -24,7 +24,7 @@ public class GoogleDiscoveryEngineChatEngineChatEngineConfigBlock : TerraformBlo
     /// </summary>
     public TerraformValue<bool>? AllowCrossRegion
     {
-        get => new TerraformReference<bool>(this, "allow_cross_region");
+        get => GetArgument<TerraformValue<bool>>("allow_cross_region");
         set => SetArgument("allow_cross_region", value);
     }
 
@@ -34,7 +34,7 @@ public class GoogleDiscoveryEngineChatEngineChatEngineConfigBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? DialogflowAgentToLink
     {
-        get => new TerraformReference<string>(this, "dialogflow_agent_to_link");
+        get => GetArgument<TerraformValue<string>>("dialogflow_agent_to_link");
         set => SetArgument("dialogflow_agent_to_link", value);
     }
 
@@ -66,7 +66,7 @@ public class GoogleDiscoveryEngineChatEngineChatEngineConfigBlockAgentCreationCo
     /// </summary>
     public TerraformValue<string>? Business
     {
-        get => new TerraformReference<string>(this, "business");
+        get => GetArgument<TerraformValue<string>>("business");
         set => SetArgument("business", value);
     }
 
@@ -76,7 +76,7 @@ public class GoogleDiscoveryEngineChatEngineChatEngineConfigBlockAgentCreationCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultLanguageCode is required")]
     public required TerraformValue<string> DefaultLanguageCode
     {
-        get => new TerraformReference<string>(this, "default_language_code");
+        get => GetArgument<TerraformValue<string>>("default_language_code");
         set => SetArgument("default_language_code", value);
     }
 
@@ -85,7 +85,7 @@ public class GoogleDiscoveryEngineChatEngineChatEngineConfigBlockAgentCreationCo
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -95,7 +95,7 @@ public class GoogleDiscoveryEngineChatEngineChatEngineConfigBlockAgentCreationCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformValue<string> TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleDiscoveryEngineChatEngineCommonConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CompanyName
     {
-        get => new TerraformReference<string>(this, "company_name");
+        get => GetArgument<TerraformValue<string>>("company_name");
         set => SetArgument("company_name", value);
     }
 
@@ -141,7 +141,7 @@ public class GoogleDiscoveryEngineChatEngineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -150,7 +150,7 @@ public class GoogleDiscoveryEngineChatEngineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -159,7 +159,7 @@ public class GoogleDiscoveryEngineChatEngineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -178,7 +178,7 @@ public partial class GoogleDiscoveryEngineChatEngine(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformValue<string> CollectionId
     {
-        get => new TerraformReference<string>(this, "collection_id");
+        get => GetArgument<TerraformValue<string>>("collection_id");
         set => SetArgument("collection_id", value);
     }
 
@@ -188,7 +188,7 @@ public partial class GoogleDiscoveryEngineChatEngine(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreIds is required")]
     public TerraformList<string>? DataStoreIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "data_store_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("data_store_ids");
         set => SetArgument("data_store_ids", value);
     }
 
@@ -198,7 +198,7 @@ public partial class GoogleDiscoveryEngineChatEngine(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -208,16 +208,16 @@ public partial class GoogleDiscoveryEngineChatEngine(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineId is required")]
     public required TerraformValue<string> EngineId
     {
-        get => new TerraformReference<string>(this, "engine_id");
+        get => GetArgument<TerraformValue<string>>("engine_id");
         set => SetArgument("engine_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -226,7 +226,7 @@ public partial class GoogleDiscoveryEngineChatEngine(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? IndustryVertical
     {
-        get => new TerraformReference<string>(this, "industry_vertical");
+        get => GetArgument<TerraformValue<string>>("industry_vertical");
         set => SetArgument("industry_vertical", value);
     }
 
@@ -236,16 +236,16 @@ public partial class GoogleDiscoveryEngineChatEngine(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -253,17 +253,13 @@ public partial class GoogleDiscoveryEngineChatEngine(string name) : TerraformRes
     /// Additional information of the Chat Engine.
     /// </summary>
     public TerraformList<TerraformMap<object>> ChatEngineMetadata
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "chat_engine_metadata").ResolveNodes(ctx));
-    }
+        => AsReference("chat_engine_metadata");
 
     /// <summary>
     /// Timestamp the Engine was created at.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The unique full resource name of the chat engine. Values are of the format
@@ -272,17 +268,13 @@ public partial class GoogleDiscoveryEngineChatEngine(string name) : TerraformRes
     /// characters.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Timestamp the Engine was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// ChatEngineConfig block (nesting mode: list).

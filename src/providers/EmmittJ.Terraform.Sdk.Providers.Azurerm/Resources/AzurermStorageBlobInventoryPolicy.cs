@@ -19,7 +19,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => new TerraformReference<string>(this, "format");
+        get => GetArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformValue<string> Schedule
     {
-        get => new TerraformReference<string>(this, "schedule");
+        get => GetArgument<TerraformValue<string>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -49,7 +49,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaFields is required")]
     public TerraformList<string>? SchemaFields
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "schema_fields").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("schema_fields");
         set => SetArgument("schema_fields", value);
     }
 
@@ -59,7 +59,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
     public required TerraformValue<string> StorageContainerName
     {
-        get => new TerraformReference<string>(this, "storage_container_name");
+        get => GetArgument<TerraformValue<string>>("storage_container_name");
         set => SetArgument("storage_container_name", value);
     }
 
@@ -102,7 +102,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlockFilterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlobTypes is required")]
     public required TerraformSet<string> BlobTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "blob_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("blob_types");
         set => SetArgument("blob_types", value);
     }
 
@@ -111,7 +111,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlockFilterBlock : TerraformB
     /// </summary>
     public TerraformSet<string>? ExcludePrefixes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "exclude_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("exclude_prefixes");
         set => SetArgument("exclude_prefixes", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlockFilterBlock : TerraformB
     /// </summary>
     public TerraformValue<bool>? IncludeBlobVersions
     {
-        get => new TerraformReference<bool>(this, "include_blob_versions");
+        get => GetArgument<TerraformValue<bool>>("include_blob_versions");
         set => SetArgument("include_blob_versions", value);
     }
 
@@ -129,7 +129,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlockFilterBlock : TerraformB
     /// </summary>
     public TerraformValue<bool>? IncludeDeleted
     {
-        get => new TerraformReference<bool>(this, "include_deleted");
+        get => GetArgument<TerraformValue<bool>>("include_deleted");
         set => SetArgument("include_deleted", value);
     }
 
@@ -138,7 +138,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlockFilterBlock : TerraformB
     /// </summary>
     public TerraformValue<bool>? IncludeSnapshots
     {
-        get => new TerraformReference<bool>(this, "include_snapshots");
+        get => GetArgument<TerraformValue<bool>>("include_snapshots");
         set => SetArgument("include_snapshots", value);
     }
 
@@ -147,7 +147,7 @@ public class AzurermStorageBlobInventoryPolicyRulesBlockFilterBlock : TerraformB
     /// </summary>
     public TerraformSet<string>? PrefixMatch
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "prefix_match").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("prefix_match");
         set => SetArgument("prefix_match", value);
     }
 
@@ -170,7 +170,7 @@ public class AzurermStorageBlobInventoryPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -179,7 +179,7 @@ public class AzurermStorageBlobInventoryPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -188,7 +188,7 @@ public class AzurermStorageBlobInventoryPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -197,7 +197,7 @@ public class AzurermStorageBlobInventoryPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -213,9 +213,9 @@ public partial class AzurermStorageBlobInventoryPolicy(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -225,7 +225,7 @@ public partial class AzurermStorageBlobInventoryPolicy(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
     public required TerraformValue<string> StorageAccountId
     {
-        get => new TerraformReference<string>(this, "storage_account_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_id");
         set => SetArgument("storage_account_id", value);
     }
 

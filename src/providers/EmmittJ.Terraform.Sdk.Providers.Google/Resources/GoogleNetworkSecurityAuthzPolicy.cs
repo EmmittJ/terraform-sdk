@@ -52,7 +52,7 @@ public class GoogleNetworkSecurityAuthzPolicyCustomProviderBlockAuthzExtensionBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resources is required")]
     public TerraformList<string>? Resources
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resources").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("resources");
         set => SetArgument("resources", value);
     }
 
@@ -75,7 +75,7 @@ public class GoogleNetworkSecurityAuthzPolicyCustomProviderBlockCloudIapBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -98,7 +98,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? WhenAttribute
     {
-        get => new TerraformReference<string>(this, "when");
+        get => GetArgument<TerraformValue<string>>("when");
         set => SetArgument("when", value);
     }
 
@@ -212,7 +212,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockNotSourcesBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Length is required")]
     public required TerraformValue<double> Length
     {
-        get => new TerraformReference<double>(this, "length");
+        get => GetArgument<TerraformValue<double>>("length");
         set => SetArgument("length", value);
     }
 
@@ -222,7 +222,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockNotSourcesBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
     public required TerraformValue<string> Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -247,7 +247,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockNotSourcesBl
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? ContainsAttribute
     {
-        get => new TerraformReference<string>(this, "contains");
+        get => GetArgument<TerraformValue<string>>("contains");
         set => SetArgument("contains", value);
     }
 
@@ -259,7 +259,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockNotSourcesBl
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? Exact
     {
-        get => new TerraformReference<string>(this, "exact");
+        get => GetArgument<TerraformValue<string>>("exact");
         set => SetArgument("exact", value);
     }
 
@@ -269,7 +269,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockNotSourcesBl
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool>? IgnoreCase
     {
-        get => new TerraformReference<bool>(this, "ignore_case");
+        get => GetArgument<TerraformValue<bool>>("ignore_case");
         set => SetArgument("ignore_case", value);
     }
 
@@ -281,7 +281,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockNotSourcesBl
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -290,7 +290,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockNotSourcesBl
     /// </summary>
     public TerraformValue<string>? PrincipalSelector
     {
-        get => new TerraformReference<string>(this, "principal_selector");
+        get => GetArgument<TerraformValue<string>>("principal_selector");
         set => SetArgument("principal_selector", value);
     }
 
@@ -302,7 +302,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockNotSourcesBl
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? Suffix
     {
-        get => new TerraformReference<string>(this, "suffix");
+        get => GetArgument<TerraformValue<string>>("suffix");
         set => SetArgument("suffix", value);
     }
 
@@ -336,7 +336,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockNotSourcesBl
     /// </summary>
     public TerraformValue<string>? ContainsAttribute
     {
-        get => new TerraformReference<string>(this, "contains");
+        get => GetArgument<TerraformValue<string>>("contains");
         set => SetArgument("contains", value);
     }
 
@@ -347,7 +347,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockNotSourcesBl
     /// </summary>
     public TerraformValue<string>? Exact
     {
-        get => new TerraformReference<string>(this, "exact");
+        get => GetArgument<TerraformValue<string>>("exact");
         set => SetArgument("exact", value);
     }
 
@@ -356,7 +356,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockNotSourcesBl
     /// </summary>
     public TerraformValue<bool>? IgnoreCase
     {
-        get => new TerraformReference<bool>(this, "ignore_case");
+        get => GetArgument<TerraformValue<bool>>("ignore_case");
         set => SetArgument("ignore_case", value);
     }
 
@@ -367,7 +367,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockNotSourcesBl
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -378,7 +378,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockNotSourcesBl
     /// </summary>
     public TerraformValue<string>? Suffix
     {
-        get => new TerraformReference<string>(this, "suffix");
+        get => GetArgument<TerraformValue<string>>("suffix");
         set => SetArgument("suffix", value);
     }
 
@@ -435,7 +435,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockNotSourcesBl
     /// </summary>
     public TerraformValue<string>? ContainsAttribute
     {
-        get => new TerraformReference<string>(this, "contains");
+        get => GetArgument<TerraformValue<string>>("contains");
         set => SetArgument("contains", value);
     }
 
@@ -446,7 +446,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockNotSourcesBl
     /// </summary>
     public TerraformValue<string>? Exact
     {
-        get => new TerraformReference<string>(this, "exact");
+        get => GetArgument<TerraformValue<string>>("exact");
         set => SetArgument("exact", value);
     }
 
@@ -455,7 +455,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockNotSourcesBl
     /// </summary>
     public TerraformValue<bool>? IgnoreCase
     {
-        get => new TerraformReference<bool>(this, "ignore_case");
+        get => GetArgument<TerraformValue<bool>>("ignore_case");
         set => SetArgument("ignore_case", value);
     }
 
@@ -466,7 +466,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockNotSourcesBl
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -477,7 +477,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockNotSourcesBl
     /// </summary>
     public TerraformValue<string>? Suffix
     {
-        get => new TerraformReference<string>(this, "suffix");
+        get => GetArgument<TerraformValue<string>>("suffix");
         set => SetArgument("suffix", value);
     }
 
@@ -500,7 +500,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockNotSourcesBl
     /// </summary>
     public TerraformList<string>? Ids
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ids");
         set => SetArgument("ids", value);
     }
 
@@ -563,7 +563,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockSourcesBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Length is required")]
     public required TerraformValue<double> Length
     {
-        get => new TerraformReference<double>(this, "length");
+        get => GetArgument<TerraformValue<double>>("length");
         set => SetArgument("length", value);
     }
 
@@ -573,7 +573,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockSourcesBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
     public required TerraformValue<string> Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -598,7 +598,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockSourcesBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? ContainsAttribute
     {
-        get => new TerraformReference<string>(this, "contains");
+        get => GetArgument<TerraformValue<string>>("contains");
         set => SetArgument("contains", value);
     }
 
@@ -610,7 +610,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockSourcesBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? Exact
     {
-        get => new TerraformReference<string>(this, "exact");
+        get => GetArgument<TerraformValue<string>>("exact");
         set => SetArgument("exact", value);
     }
 
@@ -620,7 +620,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockSourcesBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool>? IgnoreCase
     {
-        get => new TerraformReference<bool>(this, "ignore_case");
+        get => GetArgument<TerraformValue<bool>>("ignore_case");
         set => SetArgument("ignore_case", value);
     }
 
@@ -632,7 +632,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockSourcesBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -641,7 +641,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockSourcesBlock
     /// </summary>
     public TerraformValue<string>? PrincipalSelector
     {
-        get => new TerraformReference<string>(this, "principal_selector");
+        get => GetArgument<TerraformValue<string>>("principal_selector");
         set => SetArgument("principal_selector", value);
     }
 
@@ -653,7 +653,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockSourcesBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? Suffix
     {
-        get => new TerraformReference<string>(this, "suffix");
+        get => GetArgument<TerraformValue<string>>("suffix");
         set => SetArgument("suffix", value);
     }
 
@@ -687,7 +687,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockSourcesBlock
     /// </summary>
     public TerraformValue<string>? ContainsAttribute
     {
-        get => new TerraformReference<string>(this, "contains");
+        get => GetArgument<TerraformValue<string>>("contains");
         set => SetArgument("contains", value);
     }
 
@@ -698,7 +698,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockSourcesBlock
     /// </summary>
     public TerraformValue<string>? Exact
     {
-        get => new TerraformReference<string>(this, "exact");
+        get => GetArgument<TerraformValue<string>>("exact");
         set => SetArgument("exact", value);
     }
 
@@ -707,7 +707,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockSourcesBlock
     /// </summary>
     public TerraformValue<bool>? IgnoreCase
     {
-        get => new TerraformReference<bool>(this, "ignore_case");
+        get => GetArgument<TerraformValue<bool>>("ignore_case");
         set => SetArgument("ignore_case", value);
     }
 
@@ -718,7 +718,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockSourcesBlock
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -729,7 +729,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockSourcesBlock
     /// </summary>
     public TerraformValue<string>? Suffix
     {
-        get => new TerraformReference<string>(this, "suffix");
+        get => GetArgument<TerraformValue<string>>("suffix");
         set => SetArgument("suffix", value);
     }
 
@@ -786,7 +786,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockSourcesBlock
     /// </summary>
     public TerraformValue<string>? ContainsAttribute
     {
-        get => new TerraformReference<string>(this, "contains");
+        get => GetArgument<TerraformValue<string>>("contains");
         set => SetArgument("contains", value);
     }
 
@@ -797,7 +797,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockSourcesBlock
     /// </summary>
     public TerraformValue<string>? Exact
     {
-        get => new TerraformReference<string>(this, "exact");
+        get => GetArgument<TerraformValue<string>>("exact");
         set => SetArgument("exact", value);
     }
 
@@ -806,7 +806,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockSourcesBlock
     /// </summary>
     public TerraformValue<bool>? IgnoreCase
     {
-        get => new TerraformReference<bool>(this, "ignore_case");
+        get => GetArgument<TerraformValue<bool>>("ignore_case");
         set => SetArgument("ignore_case", value);
     }
 
@@ -817,7 +817,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockSourcesBlock
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -828,7 +828,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockSourcesBlock
     /// </summary>
     public TerraformValue<string>? Suffix
     {
-        get => new TerraformReference<string>(this, "suffix");
+        get => GetArgument<TerraformValue<string>>("suffix");
         set => SetArgument("suffix", value);
     }
 
@@ -851,7 +851,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockFromBlockSourcesBlock
     /// </summary>
     public TerraformList<string>? Ids
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ids");
         set => SetArgument("ids", value);
     }
 
@@ -904,7 +904,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockNotOperationsB
     /// </summary>
     public TerraformList<string>? Methods
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("methods");
         set => SetArgument("methods", value);
     }
 
@@ -976,7 +976,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockNotOperationsB
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1010,7 +1010,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockNotOperationsB
     /// </summary>
     public TerraformValue<string>? ContainsAttribute
     {
-        get => new TerraformReference<string>(this, "contains");
+        get => GetArgument<TerraformValue<string>>("contains");
         set => SetArgument("contains", value);
     }
 
@@ -1021,7 +1021,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockNotOperationsB
     /// </summary>
     public TerraformValue<string>? Exact
     {
-        get => new TerraformReference<string>(this, "exact");
+        get => GetArgument<TerraformValue<string>>("exact");
         set => SetArgument("exact", value);
     }
 
@@ -1030,7 +1030,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockNotOperationsB
     /// </summary>
     public TerraformValue<bool>? IgnoreCase
     {
-        get => new TerraformReference<bool>(this, "ignore_case");
+        get => GetArgument<TerraformValue<bool>>("ignore_case");
         set => SetArgument("ignore_case", value);
     }
 
@@ -1041,7 +1041,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockNotOperationsB
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -1052,7 +1052,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockNotOperationsB
     /// </summary>
     public TerraformValue<string>? Suffix
     {
-        get => new TerraformReference<string>(this, "suffix");
+        get => GetArgument<TerraformValue<string>>("suffix");
         set => SetArgument("suffix", value);
     }
 
@@ -1076,7 +1076,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockNotOperationsB
     /// </summary>
     public TerraformValue<string>? ContainsAttribute
     {
-        get => new TerraformReference<string>(this, "contains");
+        get => GetArgument<TerraformValue<string>>("contains");
         set => SetArgument("contains", value);
     }
 
@@ -1087,7 +1087,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockNotOperationsB
     /// </summary>
     public TerraformValue<string>? Exact
     {
-        get => new TerraformReference<string>(this, "exact");
+        get => GetArgument<TerraformValue<string>>("exact");
         set => SetArgument("exact", value);
     }
 
@@ -1096,7 +1096,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockNotOperationsB
     /// </summary>
     public TerraformValue<bool>? IgnoreCase
     {
-        get => new TerraformReference<bool>(this, "ignore_case");
+        get => GetArgument<TerraformValue<bool>>("ignore_case");
         set => SetArgument("ignore_case", value);
     }
 
@@ -1107,7 +1107,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockNotOperationsB
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -1118,7 +1118,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockNotOperationsB
     /// </summary>
     public TerraformValue<string>? Suffix
     {
-        get => new TerraformReference<string>(this, "suffix");
+        get => GetArgument<TerraformValue<string>>("suffix");
         set => SetArgument("suffix", value);
     }
 
@@ -1142,7 +1142,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockNotOperationsB
     /// </summary>
     public TerraformValue<string>? ContainsAttribute
     {
-        get => new TerraformReference<string>(this, "contains");
+        get => GetArgument<TerraformValue<string>>("contains");
         set => SetArgument("contains", value);
     }
 
@@ -1153,7 +1153,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockNotOperationsB
     /// </summary>
     public TerraformValue<string>? Exact
     {
-        get => new TerraformReference<string>(this, "exact");
+        get => GetArgument<TerraformValue<string>>("exact");
         set => SetArgument("exact", value);
     }
 
@@ -1162,7 +1162,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockNotOperationsB
     /// </summary>
     public TerraformValue<bool>? IgnoreCase
     {
-        get => new TerraformReference<bool>(this, "ignore_case");
+        get => GetArgument<TerraformValue<bool>>("ignore_case");
         set => SetArgument("ignore_case", value);
     }
 
@@ -1173,7 +1173,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockNotOperationsB
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -1184,7 +1184,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockNotOperationsB
     /// </summary>
     public TerraformValue<string>? Suffix
     {
-        get => new TerraformReference<string>(this, "suffix");
+        get => GetArgument<TerraformValue<string>>("suffix");
         set => SetArgument("suffix", value);
     }
 
@@ -1206,7 +1206,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockOperationsBloc
     /// </summary>
     public TerraformList<string>? Methods
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("methods");
         set => SetArgument("methods", value);
     }
 
@@ -1278,7 +1278,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockOperationsBloc
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1312,7 +1312,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockOperationsBloc
     /// </summary>
     public TerraformValue<string>? ContainsAttribute
     {
-        get => new TerraformReference<string>(this, "contains");
+        get => GetArgument<TerraformValue<string>>("contains");
         set => SetArgument("contains", value);
     }
 
@@ -1323,7 +1323,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockOperationsBloc
     /// </summary>
     public TerraformValue<string>? Exact
     {
-        get => new TerraformReference<string>(this, "exact");
+        get => GetArgument<TerraformValue<string>>("exact");
         set => SetArgument("exact", value);
     }
 
@@ -1332,7 +1332,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockOperationsBloc
     /// </summary>
     public TerraformValue<bool>? IgnoreCase
     {
-        get => new TerraformReference<bool>(this, "ignore_case");
+        get => GetArgument<TerraformValue<bool>>("ignore_case");
         set => SetArgument("ignore_case", value);
     }
 
@@ -1343,7 +1343,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockOperationsBloc
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -1354,7 +1354,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockOperationsBloc
     /// </summary>
     public TerraformValue<string>? Suffix
     {
-        get => new TerraformReference<string>(this, "suffix");
+        get => GetArgument<TerraformValue<string>>("suffix");
         set => SetArgument("suffix", value);
     }
 
@@ -1378,7 +1378,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockOperationsBloc
     /// </summary>
     public TerraformValue<string>? ContainsAttribute
     {
-        get => new TerraformReference<string>(this, "contains");
+        get => GetArgument<TerraformValue<string>>("contains");
         set => SetArgument("contains", value);
     }
 
@@ -1389,7 +1389,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockOperationsBloc
     /// </summary>
     public TerraformValue<string>? Exact
     {
-        get => new TerraformReference<string>(this, "exact");
+        get => GetArgument<TerraformValue<string>>("exact");
         set => SetArgument("exact", value);
     }
 
@@ -1398,7 +1398,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockOperationsBloc
     /// </summary>
     public TerraformValue<bool>? IgnoreCase
     {
-        get => new TerraformReference<bool>(this, "ignore_case");
+        get => GetArgument<TerraformValue<bool>>("ignore_case");
         set => SetArgument("ignore_case", value);
     }
 
@@ -1409,7 +1409,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockOperationsBloc
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -1420,7 +1420,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockOperationsBloc
     /// </summary>
     public TerraformValue<string>? Suffix
     {
-        get => new TerraformReference<string>(this, "suffix");
+        get => GetArgument<TerraformValue<string>>("suffix");
         set => SetArgument("suffix", value);
     }
 
@@ -1444,7 +1444,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockOperationsBloc
     /// </summary>
     public TerraformValue<string>? ContainsAttribute
     {
-        get => new TerraformReference<string>(this, "contains");
+        get => GetArgument<TerraformValue<string>>("contains");
         set => SetArgument("contains", value);
     }
 
@@ -1455,7 +1455,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockOperationsBloc
     /// </summary>
     public TerraformValue<string>? Exact
     {
-        get => new TerraformReference<string>(this, "exact");
+        get => GetArgument<TerraformValue<string>>("exact");
         set => SetArgument("exact", value);
     }
 
@@ -1464,7 +1464,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockOperationsBloc
     /// </summary>
     public TerraformValue<bool>? IgnoreCase
     {
-        get => new TerraformReference<bool>(this, "ignore_case");
+        get => GetArgument<TerraformValue<bool>>("ignore_case");
         set => SetArgument("ignore_case", value);
     }
 
@@ -1475,7 +1475,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockOperationsBloc
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -1486,7 +1486,7 @@ public class GoogleNetworkSecurityAuthzPolicyHttpRulesBlockToBlockOperationsBloc
     /// </summary>
     public TerraformValue<string>? Suffix
     {
-        get => new TerraformReference<string>(this, "suffix");
+        get => GetArgument<TerraformValue<string>>("suffix");
         set => SetArgument("suffix", value);
     }
 
@@ -1511,7 +1511,7 @@ public class GoogleNetworkSecurityAuthzPolicyTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancingScheme is required")]
     public required TerraformValue<string> LoadBalancingScheme
     {
-        get => new TerraformReference<string>(this, "load_balancing_scheme");
+        get => GetArgument<TerraformValue<string>>("load_balancing_scheme");
         set => SetArgument("load_balancing_scheme", value);
     }
 
@@ -1520,7 +1520,7 @@ public class GoogleNetworkSecurityAuthzPolicyTargetBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Resources
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resources").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("resources");
         set => SetArgument("resources", value);
     }
 
@@ -1543,7 +1543,7 @@ public class GoogleNetworkSecurityAuthzPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1552,7 +1552,7 @@ public class GoogleNetworkSecurityAuthzPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1561,7 +1561,7 @@ public class GoogleNetworkSecurityAuthzPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1588,7 +1588,7 @@ public partial class GoogleNetworkSecurityAuthzPolicy(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -1597,16 +1597,16 @@ public partial class GoogleNetworkSecurityAuthzPolicy(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1619,7 +1619,7 @@ public partial class GoogleNetworkSecurityAuthzPolicy(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -1629,7 +1629,7 @@ public partial class GoogleNetworkSecurityAuthzPolicy(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1639,16 +1639,16 @@ public partial class GoogleNetworkSecurityAuthzPolicy(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -1656,34 +1656,26 @@ public partial class GoogleNetworkSecurityAuthzPolicy(string name) : TerraformRe
     /// The timestamp when the resource was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The timestamp when the resource was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// CustomProvider block (nesting mode: list).

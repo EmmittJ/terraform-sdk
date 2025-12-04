@@ -42,7 +42,7 @@ public class GoogleApigeeEnvironmentClientIpResolutionConfigBlockHeaderIndexAlgo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpHeaderIndex is required")]
     public required TerraformValue<double> IpHeaderIndex
     {
-        get => new TerraformReference<double>(this, "ip_header_index");
+        get => GetArgument<TerraformValue<double>>("ip_header_index");
         set => SetArgument("ip_header_index", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleApigeeEnvironmentClientIpResolutionConfigBlockHeaderIndexAlgo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpHeaderName is required")]
     public required TerraformValue<string> IpHeaderName
     {
-        get => new TerraformReference<string>(this, "ip_header_name");
+        get => GetArgument<TerraformValue<string>>("ip_header_name");
         set => SetArgument("ip_header_name", value);
     }
 
@@ -75,9 +75,7 @@ public class GoogleApigeeEnvironmentNodeConfigBlock : TerraformBlock
     /// all instances.
     /// </summary>
     public TerraformValue<string> CurrentAggregateNodeCount
-    {
-        get => new TerraformReference<string>(this, "current_aggregate_node_count");
-    }
+        => AsReference("current_aggregate_node_count");
 
     /// <summary>
     /// The maximum total number of gateway nodes that the is reserved for all instances that
@@ -86,7 +84,7 @@ public class GoogleApigeeEnvironmentNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaxNodeCount
     {
-        get => new TerraformReference<string>(this, "max_node_count");
+        get => GetArgument<TerraformValue<string>>("max_node_count");
         set => SetArgument("max_node_count", value);
     }
 
@@ -97,7 +95,7 @@ public class GoogleApigeeEnvironmentNodeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MinNodeCount
     {
-        get => new TerraformReference<string>(this, "min_node_count");
+        get => GetArgument<TerraformValue<string>>("min_node_count");
         set => SetArgument("min_node_count", value);
     }
 
@@ -142,7 +140,7 @@ public class GoogleApigeeEnvironmentPropertiesBlockPropertyBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -151,7 +149,7 @@ public class GoogleApigeeEnvironmentPropertiesBlockPropertyBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -174,7 +172,7 @@ public class GoogleApigeeEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -183,7 +181,7 @@ public class GoogleApigeeEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -192,7 +190,7 @@ public class GoogleApigeeEnvironmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -209,9 +207,9 @@ public partial class GoogleApigeeEnvironment(string name) : TerraformResource("g
     /// Optional. API Proxy type supported by the environment. The type can be set when creating
     /// the Environment and cannot be changed. Possible values: [&amp;quot;API_PROXY_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;PROGRAMMABLE&amp;quot;, &amp;quot;CONFIGURABLE&amp;quot;]
     /// </summary>
-    public TerraformValue<string> ApiProxyType
+    public TerraformValue<string>? ApiProxyType
     {
-        get => new TerraformReference<string>(this, "api_proxy_type");
+        get => GetArgument<TerraformValue<string>>("api_proxy_type");
         set => SetArgument("api_proxy_type", value);
     }
 
@@ -224,9 +222,9 @@ public partial class GoogleApigeeEnvironment(string name) : TerraformResource("g
     /// Creating, updating, or deleting resource files;
     /// Creating, updating, or deleting target servers. Possible values: [&amp;quot;DEPLOYMENT_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;PROXY&amp;quot;, &amp;quot;ARCHIVE&amp;quot;]
     /// </summary>
-    public TerraformValue<string> DeploymentType
+    public TerraformValue<string>? DeploymentType
     {
-        get => new TerraformReference<string>(this, "deployment_type");
+        get => GetArgument<TerraformValue<string>>("deployment_type");
         set => SetArgument("deployment_type", value);
     }
 
@@ -235,7 +233,7 @@ public partial class GoogleApigeeEnvironment(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -244,7 +242,7 @@ public partial class GoogleApigeeEnvironment(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -253,16 +251,16 @@ public partial class GoogleApigeeEnvironment(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? ForwardProxyUri
     {
-        get => new TerraformReference<string>(this, "forward_proxy_uri");
+        get => GetArgument<TerraformValue<string>>("forward_proxy_uri");
         set => SetArgument("forward_proxy_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -272,7 +270,7 @@ public partial class GoogleApigeeEnvironment(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -283,7 +281,7 @@ public partial class GoogleApigeeEnvironment(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => new TerraformReference<string>(this, "org_id");
+        get => GetArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -293,9 +291,9 @@ public partial class GoogleApigeeEnvironment(string name) : TerraformResource("g
     /// to understand about each of these types in details.
     /// An Apigee org can support heterogeneous Environments. Possible values: [&amp;quot;ENVIRONMENT_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;BASE&amp;quot;, &amp;quot;INTERMEDIATE&amp;quot;, &amp;quot;COMPREHENSIVE&amp;quot;]
     /// </summary>
-    public TerraformValue<string> Type
+    public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

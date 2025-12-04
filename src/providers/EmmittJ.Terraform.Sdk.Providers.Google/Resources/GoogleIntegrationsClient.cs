@@ -21,7 +21,7 @@ public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -33,7 +33,7 @@ public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KeyVersion
     {
-        get => new TerraformReference<string>(this, "key_version");
+        get => GetArgument<TerraformValue<string>>("key_version");
         set => SetArgument("key_version", value);
     }
 
@@ -43,7 +43,7 @@ public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsLocation is required")]
     public required TerraformValue<string> KmsLocation
     {
-        get => new TerraformReference<string>(this, "kms_location");
+        get => GetArgument<TerraformValue<string>>("kms_location");
         set => SetArgument("kms_location", value);
     }
 
@@ -55,7 +55,7 @@ public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsProjectId
     {
-        get => new TerraformReference<string>(this, "kms_project_id");
+        get => GetArgument<TerraformValue<string>>("kms_project_id");
         set => SetArgument("kms_project_id", value);
     }
 
@@ -67,7 +67,7 @@ public class GoogleIntegrationsClientCloudKmsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsRing is required")]
     public required TerraformValue<string> KmsRing
     {
-        get => new TerraformReference<string>(this, "kms_ring");
+        get => GetArgument<TerraformValue<string>>("kms_ring");
         set => SetArgument("kms_ring", value);
     }
 
@@ -90,7 +90,7 @@ public class GoogleIntegrationsClientTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleIntegrationsClientTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -117,16 +117,16 @@ public partial class GoogleIntegrationsClient(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? CreateSampleIntegrations
     {
-        get => new TerraformReference<bool>(this, "create_sample_integrations");
+        get => GetArgument<TerraformValue<bool>>("create_sample_integrations");
         set => SetArgument("create_sample_integrations", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -136,16 +136,16 @@ public partial class GoogleIntegrationsClient(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -155,7 +155,7 @@ public partial class GoogleIntegrationsClient(string name) : TerraformResource("
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? RunAsServiceAccount
     {
-        get => new TerraformReference<string>(this, "run_as_service_account");
+        get => GetArgument<TerraformValue<string>>("run_as_service_account");
         set => SetArgument("run_as_service_account", value);
     }
 

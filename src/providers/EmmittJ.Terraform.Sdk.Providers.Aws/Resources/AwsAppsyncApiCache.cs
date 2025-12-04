@@ -14,7 +14,7 @@ public partial class AwsAppsyncApiCache(string name) : TerraformResource("aws_ap
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiCachingBehavior is required")]
     public required TerraformValue<string> ApiCachingBehavior
     {
-        get => new TerraformReference<string>(this, "api_caching_behavior");
+        get => GetArgument<TerraformValue<string>>("api_caching_behavior");
         set => SetArgument("api_caching_behavior", value);
     }
 
@@ -24,43 +24,43 @@ public partial class AwsAppsyncApiCache(string name) : TerraformResource("aws_ap
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformValue<string> ApiId
     {
-        get => new TerraformReference<string>(this, "api_id");
+        get => GetArgument<TerraformValue<string>>("api_id");
         set => SetArgument("api_id", value);
     }
 
     /// <summary>
     /// The at_rest_encryption_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> AtRestEncryptionEnabled
+    public TerraformValue<bool>? AtRestEncryptionEnabled
     {
-        get => new TerraformReference<bool>(this, "at_rest_encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("at_rest_encryption_enabled");
         set => SetArgument("at_rest_encryption_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The transit_encryption_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> TransitEncryptionEnabled
+    public TerraformValue<bool>? TransitEncryptionEnabled
     {
-        get => new TerraformReference<bool>(this, "transit_encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("transit_encryption_enabled");
         set => SetArgument("transit_encryption_enabled", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsAppsyncApiCache(string name) : TerraformResource("aws_ap
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
     public required TerraformValue<double> Ttl
     {
-        get => new TerraformReference<double>(this, "ttl");
+        get => GetArgument<TerraformValue<double>>("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -80,7 +80,7 @@ public partial class AwsAppsyncApiCache(string name) : TerraformResource("aws_ap
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 

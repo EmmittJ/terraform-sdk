@@ -13,16 +13,16 @@ public partial class AwsSfnAliasDataSource(string name) : TerraformDataSource("a
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,16 +32,16 @@ public partial class AwsSfnAliasDataSource(string name) : TerraformDataSource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsSfnAliasDataSource(string name) : TerraformDataSource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatemachineArn is required")]
     public required TerraformValue<string> StatemachineArn
     {
-        get => new TerraformReference<string>(this, "statemachine_arn");
+        get => GetArgument<TerraformValue<string>>("statemachine_arn");
         set => SetArgument("statemachine_arn", value);
     }
 
@@ -59,24 +59,18 @@ public partial class AwsSfnAliasDataSource(string name) : TerraformDataSource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
     public TerraformValue<string> CreationDate
-    {
-        get => new TerraformReference<string>(this, "creation_date");
-    }
+        => AsReference("creation_date");
 
     /// <summary>
     /// The routing_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RoutingConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "routing_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("routing_configuration");
 
 }

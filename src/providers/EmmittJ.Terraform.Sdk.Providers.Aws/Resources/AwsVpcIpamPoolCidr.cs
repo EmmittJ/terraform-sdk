@@ -18,7 +18,7 @@ public class AwsVpcIpamPoolCidrCidrAuthorizationContextBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Message
     {
-        get => new TerraformReference<string>(this, "message");
+        get => GetArgument<TerraformValue<string>>("message");
         set => SetArgument("message", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsVpcIpamPoolCidrCidrAuthorizationContextBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Signature
     {
-        get => new TerraformReference<string>(this, "signature");
+        get => GetArgument<TerraformValue<string>>("signature");
         set => SetArgument("signature", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsVpcIpamPoolCidrTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsVpcIpamPoolCidrTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -75,18 +75,18 @@ public partial class AwsVpcIpamPoolCidr(string name) : TerraformResource("aws_vp
     /// <summary>
     /// The cidr attribute.
     /// </summary>
-    public TerraformValue<string> Cidr
+    public TerraformValue<string>? Cidr
     {
-        get => new TerraformReference<string>(this, "cidr");
+        get => GetArgument<TerraformValue<string>>("cidr");
         set => SetArgument("cidr", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -96,25 +96,25 @@ public partial class AwsVpcIpamPoolCidr(string name) : TerraformResource("aws_vp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamPoolId is required")]
     public required TerraformValue<string> IpamPoolId
     {
-        get => new TerraformReference<string>(this, "ipam_pool_id");
+        get => GetArgument<TerraformValue<string>>("ipam_pool_id");
         set => SetArgument("ipam_pool_id", value);
     }
 
     /// <summary>
     /// The netmask_length attribute.
     /// </summary>
-    public TerraformValue<double> NetmaskLength
+    public TerraformValue<double>? NetmaskLength
     {
-        get => new TerraformReference<double>(this, "netmask_length");
+        get => GetArgument<TerraformValue<double>>("netmask_length");
         set => SetArgument("netmask_length", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -122,9 +122,7 @@ public partial class AwsVpcIpamPoolCidr(string name) : TerraformResource("aws_vp
     /// The ipam_pool_cidr_id attribute.
     /// </summary>
     public TerraformValue<string> IpamPoolCidrId
-    {
-        get => new TerraformReference<string>(this, "ipam_pool_cidr_id");
-    }
+        => AsReference("ipam_pool_cidr_id");
 
     /// <summary>
     /// CidrAuthorizationContext block (nesting mode: list).

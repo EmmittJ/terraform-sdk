@@ -19,7 +19,7 @@ public class AzurermMobileNetworkPacketCoreControlPlaneIdentityBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
     public required TerraformSet<string> IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermMobileNetworkPacketCoreControlPlaneIdentityBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermMobileNetworkPacketCoreControlPlaneLocalDiagnosticsAccessBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     public required TerraformValue<string> AuthenticationType
     {
-        get => new TerraformReference<string>(this, "authentication_type");
+        get => GetArgument<TerraformValue<string>>("authentication_type");
         set => SetArgument("authentication_type", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermMobileNetworkPacketCoreControlPlaneLocalDiagnosticsAccessBlo
     /// </summary>
     public TerraformValue<string>? HttpsServerCertificateUrl
     {
-        get => new TerraformReference<string>(this, "https_server_certificate_url");
+        get => GetArgument<TerraformValue<string>>("https_server_certificate_url");
         set => SetArgument("https_server_certificate_url", value);
     }
 
@@ -85,7 +85,7 @@ public class AzurermMobileNetworkPacketCoreControlPlanePlatformBlock : Terraform
     /// </summary>
     public TerraformValue<string>? ArcKubernetesClusterId
     {
-        get => new TerraformReference<string>(this, "arc_kubernetes_cluster_id");
+        get => GetArgument<TerraformValue<string>>("arc_kubernetes_cluster_id");
         set => SetArgument("arc_kubernetes_cluster_id", value);
     }
 
@@ -94,7 +94,7 @@ public class AzurermMobileNetworkPacketCoreControlPlanePlatformBlock : Terraform
     /// </summary>
     public TerraformValue<string>? CustomLocationId
     {
-        get => new TerraformReference<string>(this, "custom_location_id");
+        get => GetArgument<TerraformValue<string>>("custom_location_id");
         set => SetArgument("custom_location_id", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermMobileNetworkPacketCoreControlPlanePlatformBlock : Terraform
     /// </summary>
     public TerraformValue<string>? EdgeDeviceId
     {
-        get => new TerraformReference<string>(this, "edge_device_id");
+        get => GetArgument<TerraformValue<string>>("edge_device_id");
         set => SetArgument("edge_device_id", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermMobileNetworkPacketCoreControlPlanePlatformBlock : Terraform
     /// </summary>
     public TerraformValue<string>? StackHciClusterId
     {
-        get => new TerraformReference<string>(this, "stack_hci_cluster_id");
+        get => GetArgument<TerraformValue<string>>("stack_hci_cluster_id");
         set => SetArgument("stack_hci_cluster_id", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermMobileNetworkPacketCoreControlPlanePlatformBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -145,7 +145,7 @@ public class AzurermMobileNetworkPacketCoreControlPlaneTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -154,7 +154,7 @@ public class AzurermMobileNetworkPacketCoreControlPlaneTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -163,7 +163,7 @@ public class AzurermMobileNetworkPacketCoreControlPlaneTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -172,7 +172,7 @@ public class AzurermMobileNetworkPacketCoreControlPlaneTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -190,7 +190,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane(string name) : T
     /// </summary>
     public TerraformValue<string>? ControlPlaneAccessIpv4Address
     {
-        get => new TerraformReference<string>(this, "control_plane_access_ipv4_address");
+        get => GetArgument<TerraformValue<string>>("control_plane_access_ipv4_address");
         set => SetArgument("control_plane_access_ipv4_address", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane(string name) : T
     /// </summary>
     public TerraformValue<string>? ControlPlaneAccessIpv4Gateway
     {
-        get => new TerraformReference<string>(this, "control_plane_access_ipv4_gateway");
+        get => GetArgument<TerraformValue<string>>("control_plane_access_ipv4_gateway");
         set => SetArgument("control_plane_access_ipv4_gateway", value);
     }
 
@@ -208,7 +208,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane(string name) : T
     /// </summary>
     public TerraformValue<string>? ControlPlaneAccessIpv4Subnet
     {
-        get => new TerraformReference<string>(this, "control_plane_access_ipv4_subnet");
+        get => GetArgument<TerraformValue<string>>("control_plane_access_ipv4_subnet");
         set => SetArgument("control_plane_access_ipv4_subnet", value);
     }
 
@@ -217,7 +217,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane(string name) : T
     /// </summary>
     public TerraformValue<string>? ControlPlaneAccessName
     {
-        get => new TerraformReference<string>(this, "control_plane_access_name");
+        get => GetArgument<TerraformValue<string>>("control_plane_access_name");
         set => SetArgument("control_plane_access_name", value);
     }
 
@@ -226,16 +226,16 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane(string name) : T
     /// </summary>
     public TerraformValue<string>? CoreNetworkTechnology
     {
-        get => new TerraformReference<string>(this, "core_network_technology");
+        get => GetArgument<TerraformValue<string>>("core_network_technology");
         set => SetArgument("core_network_technology", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -244,7 +244,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane(string name) : T
     /// </summary>
     public TerraformValue<string>? InteroperabilitySettingsJson
     {
-        get => new TerraformReference<string>(this, "interoperability_settings_json");
+        get => GetArgument<TerraformValue<string>>("interoperability_settings_json");
         set => SetArgument("interoperability_settings_json", value);
     }
 
@@ -254,7 +254,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -264,7 +264,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -274,7 +274,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -284,7 +284,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteIds is required")]
     public TerraformList<string>? SiteIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "site_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("site_ids");
         set => SetArgument("site_ids", value);
     }
 
@@ -294,7 +294,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     public required TerraformValue<string> Sku
     {
-        get => new TerraformReference<string>(this, "sku");
+        get => GetArgument<TerraformValue<string>>("sku");
         set => SetArgument("sku", value);
     }
 
@@ -303,7 +303,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane(string name) : T
     /// </summary>
     public TerraformValue<string>? SoftwareVersion
     {
-        get => new TerraformReference<string>(this, "software_version");
+        get => GetArgument<TerraformValue<string>>("software_version");
         set => SetArgument("software_version", value);
     }
 
@@ -312,7 +312,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane(string name) : T
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -321,7 +321,7 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane(string name) : T
     /// </summary>
     public TerraformValue<double>? UserEquipmentMtuInBytes
     {
-        get => new TerraformReference<double>(this, "user_equipment_mtu_in_bytes");
+        get => GetArgument<TerraformValue<double>>("user_equipment_mtu_in_bytes");
         set => SetArgument("user_equipment_mtu_in_bytes", value);
     }
 

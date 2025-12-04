@@ -18,7 +18,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKey(string name
     /// </summary>
     public TerraformValue<string>? Curve
     {
-        get => new TerraformReference<string>(this, "curve");
+        get => GetArgument<TerraformValue<string>>("curve");
         set => SetArgument("curve", value);
     }
 
@@ -72,16 +72,16 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKey(string name
     /// </summary>
     public TerraformValue<string>? ExpirationDate
     {
-        get => new TerraformReference<string>(this, "expiration_date");
+        get => GetArgument<TerraformValue<string>>("expiration_date");
         set => SetArgument("expiration_date", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKey(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyOpts is required")]
     public required TerraformSet<string> KeyOpts
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "key_opts").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("key_opts");
         set => SetArgument("key_opts", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKey(string name
     /// </summary>
     public TerraformValue<double>? KeySize
     {
-        get => new TerraformReference<double>(this, "key_size");
+        get => GetArgument<TerraformValue<double>>("key_size");
         set => SetArgument("key_size", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKey(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyType is required")]
     public required TerraformValue<string> KeyType
     {
-        get => new TerraformReference<string>(this, "key_type");
+        get => GetArgument<TerraformValue<string>>("key_type");
         set => SetArgument("key_type", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKey(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmId is required")]
     public required TerraformValue<string> ManagedHsmId
     {
-        get => new TerraformReference<string>(this, "managed_hsm_id");
+        get => GetArgument<TerraformValue<string>>("managed_hsm_id");
         set => SetArgument("managed_hsm_id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKey(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKey(string name
     /// </summary>
     public TerraformValue<string>? NotBeforeDate
     {
-        get => new TerraformReference<string>(this, "not_before_date");
+        get => GetArgument<TerraformValue<string>>("not_before_date");
         set => SetArgument("not_before_date", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKey(string name
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -156,9 +156,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleKey(string name
     /// The versioned_id attribute.
     /// </summary>
     public TerraformValue<string> VersionedId
-    {
-        get => new TerraformReference<string>(this, "versioned_id");
-    }
+        => AsReference("versioned_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

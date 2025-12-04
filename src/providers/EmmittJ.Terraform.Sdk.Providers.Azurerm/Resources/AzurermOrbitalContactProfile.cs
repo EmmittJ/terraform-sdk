@@ -19,7 +19,7 @@ public class AzurermOrbitalContactProfileLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformValue<string> Direction
     {
-        get => new TerraformReference<string>(this, "direction");
+        get => GetArgument<TerraformValue<string>>("direction");
         set => SetArgument("direction", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermOrbitalContactProfileLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermOrbitalContactProfileLinksBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Polarization is required")]
     public required TerraformValue<string> Polarization
     {
-        get => new TerraformReference<string>(this, "polarization");
+        get => GetArgument<TerraformValue<string>>("polarization");
         set => SetArgument("polarization", value);
     }
 
@@ -74,7 +74,7 @@ public class AzurermOrbitalContactProfileLinksBlockChannelsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BandwidthMhz is required")]
     public required TerraformValue<double> BandwidthMhz
     {
-        get => new TerraformReference<double>(this, "bandwidth_mhz");
+        get => GetArgument<TerraformValue<double>>("bandwidth_mhz");
         set => SetArgument("bandwidth_mhz", value);
     }
 
@@ -84,7 +84,7 @@ public class AzurermOrbitalContactProfileLinksBlockChannelsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CenterFrequencyMhz is required")]
     public required TerraformValue<double> CenterFrequencyMhz
     {
-        get => new TerraformReference<double>(this, "center_frequency_mhz");
+        get => GetArgument<TerraformValue<double>>("center_frequency_mhz");
         set => SetArgument("center_frequency_mhz", value);
     }
 
@@ -93,7 +93,7 @@ public class AzurermOrbitalContactProfileLinksBlockChannelsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? DemodulationConfiguration
     {
-        get => new TerraformReference<string>(this, "demodulation_configuration");
+        get => GetArgument<TerraformValue<string>>("demodulation_configuration");
         set => SetArgument("demodulation_configuration", value);
     }
 
@@ -102,7 +102,7 @@ public class AzurermOrbitalContactProfileLinksBlockChannelsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? ModulationConfiguration
     {
-        get => new TerraformReference<string>(this, "modulation_configuration");
+        get => GetArgument<TerraformValue<string>>("modulation_configuration");
         set => SetArgument("modulation_configuration", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermOrbitalContactProfileLinksBlockChannelsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -147,7 +147,7 @@ public class AzurermOrbitalContactProfileLinksBlockChannelsBlockEndPointBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndPointName is required")]
     public required TerraformValue<string> EndPointName
     {
-        get => new TerraformReference<string>(this, "end_point_name");
+        get => GetArgument<TerraformValue<string>>("end_point_name");
         set => SetArgument("end_point_name", value);
     }
 
@@ -156,7 +156,7 @@ public class AzurermOrbitalContactProfileLinksBlockChannelsBlockEndPointBlock : 
     /// </summary>
     public TerraformValue<string>? IpAddress
     {
-        get => new TerraformReference<string>(this, "ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -166,7 +166,7 @@ public class AzurermOrbitalContactProfileLinksBlockChannelsBlockEndPointBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<string> Port
     {
-        get => new TerraformReference<string>(this, "port");
+        get => GetArgument<TerraformValue<string>>("port");
         set => SetArgument("port", value);
     }
 
@@ -176,7 +176,7 @@ public class AzurermOrbitalContactProfileLinksBlockChannelsBlockEndPointBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -199,7 +199,7 @@ public class AzurermOrbitalContactProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -208,7 +208,7 @@ public class AzurermOrbitalContactProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -217,7 +217,7 @@ public class AzurermOrbitalContactProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -226,7 +226,7 @@ public class AzurermOrbitalContactProfileTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -246,7 +246,7 @@ public partial class AzurermOrbitalContactProfile(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoTracking is required")]
     public required TerraformValue<string> AutoTracking
     {
-        get => new TerraformReference<string>(this, "auto_tracking");
+        get => GetArgument<TerraformValue<string>>("auto_tracking");
         set => SetArgument("auto_tracking", value);
     }
 
@@ -255,16 +255,16 @@ public partial class AzurermOrbitalContactProfile(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? EventHubUri
     {
-        get => new TerraformReference<string>(this, "event_hub_uri");
+        get => GetArgument<TerraformValue<string>>("event_hub_uri");
         set => SetArgument("event_hub_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -274,7 +274,7 @@ public partial class AzurermOrbitalContactProfile(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -283,7 +283,7 @@ public partial class AzurermOrbitalContactProfile(string name) : TerraformResour
     /// </summary>
     public TerraformValue<double>? MinimumElevationDegrees
     {
-        get => new TerraformReference<double>(this, "minimum_elevation_degrees");
+        get => GetArgument<TerraformValue<double>>("minimum_elevation_degrees");
         set => SetArgument("minimum_elevation_degrees", value);
     }
 
@@ -293,7 +293,7 @@ public partial class AzurermOrbitalContactProfile(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumVariableContactDuration is required")]
     public required TerraformValue<string> MinimumVariableContactDuration
     {
-        get => new TerraformReference<string>(this, "minimum_variable_contact_duration");
+        get => GetArgument<TerraformValue<string>>("minimum_variable_contact_duration");
         set => SetArgument("minimum_variable_contact_duration", value);
     }
 
@@ -303,7 +303,7 @@ public partial class AzurermOrbitalContactProfile(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -313,7 +313,7 @@ public partial class AzurermOrbitalContactProfile(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkConfigurationSubnetId is required")]
     public required TerraformValue<string> NetworkConfigurationSubnetId
     {
-        get => new TerraformReference<string>(this, "network_configuration_subnet_id");
+        get => GetArgument<TerraformValue<string>>("network_configuration_subnet_id");
         set => SetArgument("network_configuration_subnet_id", value);
     }
 
@@ -323,7 +323,7 @@ public partial class AzurermOrbitalContactProfile(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -332,7 +332,7 @@ public partial class AzurermOrbitalContactProfile(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

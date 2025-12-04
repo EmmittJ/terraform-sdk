@@ -18,7 +18,7 @@ public class AzurermCdnFrontdoorOriginGroupDataSourceTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermCdnFrontdoorOriginGroupDataSource(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermCdnFrontdoorOriginGroupDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermCdnFrontdoorOriginGroupDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileName is required")]
     public required TerraformValue<string> ProfileName
     {
-        get => new TerraformReference<string>(this, "profile_name");
+        get => GetArgument<TerraformValue<string>>("profile_name");
         set => SetArgument("profile_name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermCdnFrontdoorOriginGroupDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -74,41 +74,31 @@ public partial class AzurermCdnFrontdoorOriginGroupDataSource(string name) : Ter
     /// The cdn_frontdoor_profile_id attribute.
     /// </summary>
     public TerraformValue<string> CdnFrontdoorProfileId
-    {
-        get => new TerraformReference<string>(this, "cdn_frontdoor_profile_id");
-    }
+        => AsReference("cdn_frontdoor_profile_id");
 
     /// <summary>
     /// The health_probe attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> HealthProbe
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "health_probe").ResolveNodes(ctx));
-    }
+        => AsReference("health_probe");
 
     /// <summary>
     /// The load_balancing attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> LoadBalancing
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "load_balancing").ResolveNodes(ctx));
-    }
+        => AsReference("load_balancing");
 
     /// <summary>
     /// The restore_traffic_time_to_healed_or_new_endpoint_in_minutes attribute.
     /// </summary>
     public TerraformValue<double> RestoreTrafficTimeToHealedOrNewEndpointInMinutes
-    {
-        get => new TerraformReference<double>(this, "restore_traffic_time_to_healed_or_new_endpoint_in_minutes");
-    }
+        => AsReference("restore_traffic_time_to_healed_or_new_endpoint_in_minutes");
 
     /// <summary>
     /// The session_affinity_enabled attribute.
     /// </summary>
     public TerraformValue<bool> SessionAffinityEnabled
-    {
-        get => new TerraformReference<bool>(this, "session_affinity_enabled");
-    }
+        => AsReference("session_affinity_enabled");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

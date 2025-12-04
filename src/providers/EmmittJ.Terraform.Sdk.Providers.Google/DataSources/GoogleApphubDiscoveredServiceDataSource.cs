@@ -11,9 +11,9 @@ public partial class GoogleApphubDiscoveredServiceDataSource(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleApphubDiscoveredServiceDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleApphubDiscoveredServiceDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleApphubDiscoveredServiceDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceUri is required")]
     public required TerraformValue<string> ServiceUri
     {
-        get => new TerraformReference<string>(this, "service_uri");
+        get => GetArgument<TerraformValue<string>>("service_uri");
         set => SetArgument("service_uri", value);
     }
 
@@ -50,24 +50,18 @@ public partial class GoogleApphubDiscoveredServiceDataSource(string name) : Terr
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The service_properties attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServiceProperties
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "service_properties").ResolveNodes(ctx));
-    }
+        => AsReference("service_properties");
 
     /// <summary>
     /// The service_reference attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServiceReference
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "service_reference").ResolveNodes(ctx));
-    }
+        => AsReference("service_reference");
 
 }

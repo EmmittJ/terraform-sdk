@@ -18,7 +18,7 @@ public class AwsDevicefarmDevicePoolRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Attribute
     {
-        get => new TerraformReference<string>(this, "attribute");
+        get => GetArgument<TerraformValue<string>>("attribute");
         set => SetArgument("attribute", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsDevicefarmDevicePoolRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsDevicefarmDevicePoolRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -54,16 +54,16 @@ public partial class AwsDevicefarmDevicePool(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsDevicefarmDevicePool(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<double>? MaxDevices
     {
-        get => new TerraformReference<double>(this, "max_devices");
+        get => GetArgument<TerraformValue<double>>("max_devices");
         set => SetArgument("max_devices", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsDevicefarmDevicePool(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -92,16 +92,16 @@ public partial class AwsDevicefarmDevicePool(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectArn is required")]
     public required TerraformValue<string> ProjectArn
     {
-        get => new TerraformReference<string>(this, "project_arn");
+        get => GetArgument<TerraformValue<string>>("project_arn");
         set => SetArgument("project_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -110,16 +110,16 @@ public partial class AwsDevicefarmDevicePool(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -127,17 +127,13 @@ public partial class AwsDevicefarmDevicePool(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// Rule block (nesting mode: set).

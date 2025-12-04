@@ -11,9 +11,9 @@ public partial class GoogleSecretManagerRegionalSecretDataSource(string name) : 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleSecretManagerRegionalSecretDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleSecretManagerRegionalSecretDataSource(string name) : 
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleSecretManagerRegionalSecretDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformValue<string> SecretId
     {
-        get => new TerraformReference<string>(this, "secret_id");
+        get => GetArgument<TerraformValue<string>>("secret_id");
         set => SetArgument("secret_id", value);
     }
 
@@ -67,25 +67,19 @@ public partial class GoogleSecretManagerRegionalSecretDataSource(string name) : 
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
     public TerraformMap<string> Annotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
-    }
+        => AsReference("annotations");
 
     /// <summary>
     /// The time at which the regional secret was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The customer-managed encryption configuration of the regional secret.
     /// </summary>
     public TerraformList<TerraformMap<object>> CustomerManagedEncryption
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "customer_managed_encryption").ResolveNodes(ctx));
-    }
+        => AsReference("customer_managed_encryption");
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the regional secret. Defaults to false.
@@ -93,25 +87,19 @@ public partial class GoogleSecretManagerRegionalSecretDataSource(string name) : 
     /// or &#39;terraform destroy&#39; that would delete the federation will fail.
     /// </summary>
     public TerraformValue<bool> DeletionProtection
-    {
-        get => new TerraformReference<bool>(this, "deletion_protection");
-    }
+        => AsReference("deletion_protection");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Timestamp in UTC when the regional secret is scheduled to expire. This is always provided on
@@ -120,9 +108,7 @@ public partial class GoogleSecretManagerRegionalSecretDataSource(string name) : 
     /// &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;. Only one of &#39;expire_time&#39; or &#39;ttl&#39; can be provided.
     /// </summary>
     public TerraformValue<string> ExpireTime
-    {
-        get => new TerraformReference<string>(this, "expire_time");
-    }
+        => AsReference("expire_time");
 
     /// <summary>
     /// The labels assigned to this regional secret.
@@ -143,18 +129,14 @@ public partial class GoogleSecretManagerRegionalSecretDataSource(string name) : 
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
-    }
+        => AsReference("labels");
 
     /// <summary>
     /// The resource name of the regional secret. Format:
     /// &#39;projects/{{project}}/locations/{{location}}/secrets/{{secret_id}}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The rotation time and period for a regional secret. At &#39;next_rotation_time&#39;, Secret Manager
@@ -162,9 +144,7 @@ public partial class GoogleSecretManagerRegionalSecretDataSource(string name) : 
     /// set to configure rotation.
     /// </summary>
     public TerraformList<TerraformMap<object>> Rotation
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "rotation").ResolveNodes(ctx));
-    }
+        => AsReference("rotation");
 
     /// <summary>
     /// A map of resource manager tags.
@@ -172,36 +152,28 @@ public partial class GoogleSecretManagerRegionalSecretDataSource(string name) : 
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// A list of up to 10 Pub/Sub topics to which messages are published when control plane
     /// operations are called on the regional secret or its versions.
     /// </summary>
     public TerraformList<TerraformMap<object>> Topics
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "topics").ResolveNodes(ctx));
-    }
+        => AsReference("topics");
 
     /// <summary>
     /// The TTL for the regional secret. A duration in seconds with up to nine fractional digits,
     /// terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;. Only one of &#39;ttl&#39; or &#39;expire_time&#39; can be provided.
     /// </summary>
     public TerraformValue<string> Ttl
-    {
-        get => new TerraformReference<string>(this, "ttl");
-    }
+        => AsReference("ttl");
 
     /// <summary>
     /// Mapping from version alias to version name.
@@ -215,9 +187,7 @@ public partial class GoogleSecretManagerRegionalSecretDataSource(string name) : 
     /// { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
     public TerraformMap<string> VersionAliases
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "version_aliases").ResolveNodes(ctx));
-    }
+        => AsReference("version_aliases");
 
     /// <summary>
     /// Secret Version TTL after destruction request.
@@ -227,8 +197,6 @@ public partial class GoogleSecretManagerRegionalSecretDataSource(string name) : 
     /// the actual destruction happens after this TTL expires. It must be atleast 24h.
     /// </summary>
     public TerraformValue<string> VersionDestroyTtl
-    {
-        get => new TerraformReference<string>(this, "version_destroy_ttl");
-    }
+        => AsReference("version_destroy_ttl");
 
 }

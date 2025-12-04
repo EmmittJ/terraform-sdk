@@ -19,7 +19,7 @@ public class AzurermSubnetDelegationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermSubnetDelegationBlockServiceDelegationBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Actions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("actions");
         set => SetArgument("actions", value);
     }
 
@@ -64,7 +64,7 @@ public class AzurermSubnetDelegationBlockServiceDelegationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -86,9 +86,7 @@ public class AzurermSubnetIpAddressPoolBlock : TerraformBlock
     /// The allocated_ip_address_prefixes attribute.
     /// </summary>
     public TerraformList<string> AllocatedIpAddressPrefixes
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allocated_ip_address_prefixes").ResolveNodes(ctx));
-    }
+        => AsReference("allocated_ip_address_prefixes");
 
     /// <summary>
     /// The id attribute.
@@ -96,7 +94,7 @@ public class AzurermSubnetIpAddressPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -106,7 +104,7 @@ public class AzurermSubnetIpAddressPoolBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfIpAddresses is required")]
     public required TerraformValue<string> NumberOfIpAddresses
     {
-        get => new TerraformReference<string>(this, "number_of_ip_addresses");
+        get => GetArgument<TerraformValue<string>>("number_of_ip_addresses");
         set => SetArgument("number_of_ip_addresses", value);
     }
 
@@ -129,7 +127,7 @@ public class AzurermSubnetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -138,7 +136,7 @@ public class AzurermSubnetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -147,7 +145,7 @@ public class AzurermSubnetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -156,7 +154,7 @@ public class AzurermSubnetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -174,7 +172,7 @@ public partial class AzurermSubnet(string name) : TerraformResource("azurerm_sub
     /// </summary>
     public TerraformList<string>? AddressPrefixes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "address_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("address_prefixes");
         set => SetArgument("address_prefixes", value);
     }
 
@@ -183,16 +181,16 @@ public partial class AzurermSubnet(string name) : TerraformResource("azurerm_sub
     /// </summary>
     public TerraformValue<bool>? DefaultOutboundAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "default_outbound_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("default_outbound_access_enabled");
         set => SetArgument("default_outbound_access_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -202,7 +200,7 @@ public partial class AzurermSubnet(string name) : TerraformResource("azurerm_sub
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -211,7 +209,7 @@ public partial class AzurermSubnet(string name) : TerraformResource("azurerm_sub
     /// </summary>
     public TerraformValue<string>? PrivateEndpointNetworkPolicies
     {
-        get => new TerraformReference<string>(this, "private_endpoint_network_policies");
+        get => GetArgument<TerraformValue<string>>("private_endpoint_network_policies");
         set => SetArgument("private_endpoint_network_policies", value);
     }
 
@@ -220,7 +218,7 @@ public partial class AzurermSubnet(string name) : TerraformResource("azurerm_sub
     /// </summary>
     public TerraformValue<bool>? PrivateLinkServiceNetworkPoliciesEnabled
     {
-        get => new TerraformReference<bool>(this, "private_link_service_network_policies_enabled");
+        get => GetArgument<TerraformValue<bool>>("private_link_service_network_policies_enabled");
         set => SetArgument("private_link_service_network_policies_enabled", value);
     }
 
@@ -230,7 +228,7 @@ public partial class AzurermSubnet(string name) : TerraformResource("azurerm_sub
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -239,7 +237,7 @@ public partial class AzurermSubnet(string name) : TerraformResource("azurerm_sub
     /// </summary>
     public TerraformSet<string>? ServiceEndpointPolicyIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "service_endpoint_policy_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("service_endpoint_policy_ids");
         set => SetArgument("service_endpoint_policy_ids", value);
     }
 
@@ -248,7 +246,7 @@ public partial class AzurermSubnet(string name) : TerraformResource("azurerm_sub
     /// </summary>
     public TerraformSet<string>? ServiceEndpoints
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "service_endpoints").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("service_endpoints");
         set => SetArgument("service_endpoints", value);
     }
 
@@ -257,7 +255,7 @@ public partial class AzurermSubnet(string name) : TerraformResource("azurerm_sub
     /// </summary>
     public TerraformValue<string>? SharingScope
     {
-        get => new TerraformReference<string>(this, "sharing_scope");
+        get => GetArgument<TerraformValue<string>>("sharing_scope");
         set => SetArgument("sharing_scope", value);
     }
 
@@ -267,7 +265,7 @@ public partial class AzurermSubnet(string name) : TerraformResource("azurerm_sub
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkName is required")]
     public required TerraformValue<string> VirtualNetworkName
     {
-        get => new TerraformReference<string>(this, "virtual_network_name");
+        get => GetArgument<TerraformValue<string>>("virtual_network_name");
         set => SetArgument("virtual_network_name", value);
     }
 

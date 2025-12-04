@@ -18,7 +18,7 @@ public class GoogleGkeBackupBackupPlanBackupConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllNamespaces
     {
-        get => new TerraformReference<bool>(this, "all_namespaces");
+        get => GetArgument<TerraformValue<bool>>("all_namespaces");
         set => SetArgument("all_namespaces", value);
     }
 
@@ -26,9 +26,9 @@ public class GoogleGkeBackupBackupPlanBackupConfigBlock : TerraformBlock
     /// This flag specifies whether Kubernetes Secret resources should be included
     /// when they fall into the scope of Backups.
     /// </summary>
-    public TerraformValue<bool> IncludeSecrets
+    public TerraformValue<bool>? IncludeSecrets
     {
-        get => new TerraformReference<bool>(this, "include_secrets");
+        get => GetArgument<TerraformValue<bool>>("include_secrets");
         set => SetArgument("include_secrets", value);
     }
 
@@ -36,9 +36,9 @@ public class GoogleGkeBackupBackupPlanBackupConfigBlock : TerraformBlock
     /// This flag specifies whether volume data should be backed up when PVCs are
     /// included in the scope of a Backup.
     /// </summary>
-    public TerraformValue<bool> IncludeVolumeData
+    public TerraformValue<bool>? IncludeVolumeData
     {
-        get => new TerraformReference<bool>(this, "include_volume_data");
+        get => GetArgument<TerraformValue<bool>>("include_volume_data");
         set => SetArgument("include_volume_data", value);
     }
 
@@ -49,7 +49,7 @@ public class GoogleGkeBackupBackupPlanBackupConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PermissiveMode
     {
-        get => new TerraformReference<bool>(this, "permissive_mode");
+        get => GetArgument<TerraformValue<bool>>("permissive_mode");
         set => SetArgument("permissive_mode", value);
     }
 
@@ -112,7 +112,7 @@ public class GoogleGkeBackupBackupPlanBackupConfigBlockEncryptionKeyBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GcpKmsEncryptionKey is required")]
     public required TerraformValue<string> GcpKmsEncryptionKey
     {
-        get => new TerraformReference<string>(this, "gcp_kms_encryption_key");
+        get => GetArgument<TerraformValue<string>>("gcp_kms_encryption_key");
         set => SetArgument("gcp_kms_encryption_key", value);
     }
 
@@ -160,7 +160,7 @@ public class GoogleGkeBackupBackupPlanBackupConfigBlockSelectedApplicationsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -170,7 +170,7 @@ public class GoogleGkeBackupBackupPlanBackupConfigBlockSelectedApplicationsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceAttribute is required")]
     public required TerraformValue<string> NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -218,7 +218,7 @@ public class GoogleGkeBackupBackupPlanBackupConfigBlockSelectedNamespaceLabelsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -228,7 +228,7 @@ public class GoogleGkeBackupBackupPlanBackupConfigBlockSelectedNamespaceLabelsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -251,7 +251,7 @@ public class GoogleGkeBackupBackupPlanBackupConfigBlockSelectedNamespacesBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespaces is required")]
     public TerraformList<string>? Namespaces
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "namespaces").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("namespaces");
         set => SetArgument("namespaces", value);
     }
 
@@ -278,16 +278,16 @@ public class GoogleGkeBackupBackupPlanBackupScheduleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CronSchedule
     {
-        get => new TerraformReference<string>(this, "cron_schedule");
+        get => GetArgument<TerraformValue<string>>("cron_schedule");
         set => SetArgument("cron_schedule", value);
     }
 
     /// <summary>
     /// This flag denotes whether automatic Backup creation is paused for this BackupPlan.
     /// </summary>
-    public TerraformValue<bool> Paused
+    public TerraformValue<bool>? Paused
     {
-        get => new TerraformReference<bool>(this, "paused");
+        get => GetArgument<TerraformValue<bool>>("paused");
         set => SetArgument("paused", value);
     }
 
@@ -322,7 +322,7 @@ public class GoogleGkeBackupBackupPlanBackupScheduleBlockRpoConfigBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRpoMinutes is required")]
     public required TerraformValue<double> TargetRpoMinutes
     {
-        get => new TerraformReference<double>(this, "target_rpo_minutes");
+        get => GetArgument<TerraformValue<double>>("target_rpo_minutes");
         set => SetArgument("target_rpo_minutes", value);
     }
 
@@ -355,7 +355,7 @@ public class GoogleGkeBackupBackupPlanBackupScheduleBlockRpoConfigBlockExclusion
     /// </summary>
     public TerraformValue<bool>? Daily
     {
-        get => new TerraformReference<bool>(this, "daily");
+        get => GetArgument<TerraformValue<bool>>("daily");
         set => SetArgument("daily", value);
     }
 
@@ -372,7 +372,7 @@ public class GoogleGkeBackupBackupPlanBackupScheduleBlockRpoConfigBlockExclusion
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<string> Duration
     {
-        get => new TerraformReference<string>(this, "duration");
+        get => GetArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -427,7 +427,7 @@ public class GoogleGkeBackupBackupPlanBackupScheduleBlockRpoConfigBlockExclusion
     /// </summary>
     public TerraformList<string>? DaysOfWeek
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "days_of_week").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("days_of_week");
         set => SetArgument("days_of_week", value);
     }
 
@@ -449,7 +449,7 @@ public class GoogleGkeBackupBackupPlanBackupScheduleBlockRpoConfigBlockExclusion
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -458,7 +458,7 @@ public class GoogleGkeBackupBackupPlanBackupScheduleBlockRpoConfigBlockExclusion
     /// </summary>
     public TerraformValue<double>? Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -467,7 +467,7 @@ public class GoogleGkeBackupBackupPlanBackupScheduleBlockRpoConfigBlockExclusion
     /// </summary>
     public TerraformValue<double>? Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -489,7 +489,7 @@ public class GoogleGkeBackupBackupPlanBackupScheduleBlockRpoConfigBlockExclusion
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -498,7 +498,7 @@ public class GoogleGkeBackupBackupPlanBackupScheduleBlockRpoConfigBlockExclusion
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -507,7 +507,7 @@ public class GoogleGkeBackupBackupPlanBackupScheduleBlockRpoConfigBlockExclusion
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -516,7 +516,7 @@ public class GoogleGkeBackupBackupPlanBackupScheduleBlockRpoConfigBlockExclusion
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -542,9 +542,9 @@ public class GoogleGkeBackupBackupPlanRetentionPolicyBlock : TerraformBlock
     /// Updating this field of a BackupPlan does not affect existing Backups.
     /// Backups created after a successful update will inherit this new value.
     /// </summary>
-    public TerraformValue<double> BackupDeleteLockDays
+    public TerraformValue<double>? BackupDeleteLockDays
     {
-        get => new TerraformReference<double>(this, "backup_delete_lock_days");
+        get => GetArgument<TerraformValue<double>>("backup_delete_lock_days");
         set => SetArgument("backup_delete_lock_days", value);
     }
 
@@ -562,9 +562,9 @@ public class GoogleGkeBackupBackupPlanRetentionPolicyBlock : TerraformBlock
     /// If rpo_config is defined, then this must be
     /// &amp;lt;= 360 * targetRpoMinutes/(1440minutes/day)
     /// </summary>
-    public TerraformValue<double> BackupRetainDays
+    public TerraformValue<double>? BackupRetainDays
     {
-        get => new TerraformReference<double>(this, "backup_retain_days");
+        get => GetArgument<TerraformValue<double>>("backup_retain_days");
         set => SetArgument("backup_retain_days", value);
     }
 
@@ -573,9 +573,9 @@ public class GoogleGkeBackupBackupPlanRetentionPolicyBlock : TerraformBlock
     /// If set to True, no further update is allowed on this policy, including
     /// the locked field itself.
     /// </summary>
-    public TerraformValue<bool> Locked
+    public TerraformValue<bool>? Locked
     {
-        get => new TerraformReference<bool>(this, "locked");
+        get => GetArgument<TerraformValue<bool>>("locked");
         set => SetArgument("locked", value);
     }
 
@@ -598,7 +598,7 @@ public class GoogleGkeBackupBackupPlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -607,7 +607,7 @@ public class GoogleGkeBackupBackupPlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -616,7 +616,7 @@ public class GoogleGkeBackupBackupPlanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -635,7 +635,7 @@ public partial class GoogleGkeBackupBackupPlan(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => new TerraformReference<string>(this, "cluster");
+        get => GetArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
@@ -645,9 +645,9 @@ public partial class GoogleGkeBackupBackupPlan(string name) : TerraformResource(
     /// (except deletes), including the deactivated field itself. It also prevents any new Backups
     /// from being created via this BackupPlan (including scheduled Backups).
     /// </summary>
-    public TerraformValue<bool> Deactivated
+    public TerraformValue<bool>? Deactivated
     {
-        get => new TerraformReference<bool>(this, "deactivated");
+        get => GetArgument<TerraformValue<bool>>("deactivated");
         set => SetArgument("deactivated", value);
     }
 
@@ -656,16 +656,16 @@ public partial class GoogleGkeBackupBackupPlan(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -680,7 +680,7 @@ public partial class GoogleGkeBackupBackupPlan(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -690,7 +690,7 @@ public partial class GoogleGkeBackupBackupPlan(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -700,16 +700,16 @@ public partial class GoogleGkeBackupBackupPlan(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -717,9 +717,7 @@ public partial class GoogleGkeBackupBackupPlan(string name) : TerraformResource(
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// etag is used for optimistic concurrency control as a way to help prevent simultaneous
@@ -730,50 +728,38 @@ public partial class GoogleGkeBackupBackupPlan(string name) : TerraformResource(
     /// backupPlans.delete to ensure that their change will be applied to the same version of the resource.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The number of Kubernetes Pods backed up in the last successful Backup created via this BackupPlan.
     /// </summary>
     public TerraformValue<double> ProtectedPodCount
-    {
-        get => new TerraformReference<double>(this, "protected_pod_count");
-    }
+        => AsReference("protected_pod_count");
 
     /// <summary>
     /// The State of the BackupPlan.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Detailed description of why BackupPlan is in its current state.
     /// </summary>
     public TerraformValue<string> StateReason
-    {
-        get => new TerraformReference<string>(this, "state_reason");
-    }
+        => AsReference("state_reason");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Server generated, unique identifier of UUID format.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// BackupConfig block (nesting mode: list).

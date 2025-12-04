@@ -18,7 +18,7 @@ public class AwsRouteDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,117 +34,117 @@ public partial class AwsRouteDataSource(string name) : TerraformDataSource("aws_
     /// <summary>
     /// The carrier_gateway_id attribute.
     /// </summary>
-    public TerraformValue<string> CarrierGatewayId
+    public TerraformValue<string>? CarrierGatewayId
     {
-        get => new TerraformReference<string>(this, "carrier_gateway_id");
+        get => GetArgument<TerraformValue<string>>("carrier_gateway_id");
         set => SetArgument("carrier_gateway_id", value);
     }
 
     /// <summary>
     /// The core_network_arn attribute.
     /// </summary>
-    public TerraformValue<string> CoreNetworkArn
+    public TerraformValue<string>? CoreNetworkArn
     {
-        get => new TerraformReference<string>(this, "core_network_arn");
+        get => GetArgument<TerraformValue<string>>("core_network_arn");
         set => SetArgument("core_network_arn", value);
     }
 
     /// <summary>
     /// The destination_cidr_block attribute.
     /// </summary>
-    public TerraformValue<string> DestinationCidrBlock
+    public TerraformValue<string>? DestinationCidrBlock
     {
-        get => new TerraformReference<string>(this, "destination_cidr_block");
+        get => GetArgument<TerraformValue<string>>("destination_cidr_block");
         set => SetArgument("destination_cidr_block", value);
     }
 
     /// <summary>
     /// The destination_ipv6_cidr_block attribute.
     /// </summary>
-    public TerraformValue<string> DestinationIpv6CidrBlock
+    public TerraformValue<string>? DestinationIpv6CidrBlock
     {
-        get => new TerraformReference<string>(this, "destination_ipv6_cidr_block");
+        get => GetArgument<TerraformValue<string>>("destination_ipv6_cidr_block");
         set => SetArgument("destination_ipv6_cidr_block", value);
     }
 
     /// <summary>
     /// The destination_prefix_list_id attribute.
     /// </summary>
-    public TerraformValue<string> DestinationPrefixListId
+    public TerraformValue<string>? DestinationPrefixListId
     {
-        get => new TerraformReference<string>(this, "destination_prefix_list_id");
+        get => GetArgument<TerraformValue<string>>("destination_prefix_list_id");
         set => SetArgument("destination_prefix_list_id", value);
     }
 
     /// <summary>
     /// The egress_only_gateway_id attribute.
     /// </summary>
-    public TerraformValue<string> EgressOnlyGatewayId
+    public TerraformValue<string>? EgressOnlyGatewayId
     {
-        get => new TerraformReference<string>(this, "egress_only_gateway_id");
+        get => GetArgument<TerraformValue<string>>("egress_only_gateway_id");
         set => SetArgument("egress_only_gateway_id", value);
     }
 
     /// <summary>
     /// The gateway_id attribute.
     /// </summary>
-    public TerraformValue<string> GatewayId
+    public TerraformValue<string>? GatewayId
     {
-        get => new TerraformReference<string>(this, "gateway_id");
+        get => GetArgument<TerraformValue<string>>("gateway_id");
         set => SetArgument("gateway_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public TerraformValue<string> InstanceId
+    public TerraformValue<string>? InstanceId
     {
-        get => new TerraformReference<string>(this, "instance_id");
+        get => GetArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
     /// <summary>
     /// The local_gateway_id attribute.
     /// </summary>
-    public TerraformValue<string> LocalGatewayId
+    public TerraformValue<string>? LocalGatewayId
     {
-        get => new TerraformReference<string>(this, "local_gateway_id");
+        get => GetArgument<TerraformValue<string>>("local_gateway_id");
         set => SetArgument("local_gateway_id", value);
     }
 
     /// <summary>
     /// The nat_gateway_id attribute.
     /// </summary>
-    public TerraformValue<string> NatGatewayId
+    public TerraformValue<string>? NatGatewayId
     {
-        get => new TerraformReference<string>(this, "nat_gateway_id");
+        get => GetArgument<TerraformValue<string>>("nat_gateway_id");
         set => SetArgument("nat_gateway_id", value);
     }
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
-    public TerraformValue<string> NetworkInterfaceId
+    public TerraformValue<string>? NetworkInterfaceId
     {
-        get => new TerraformReference<string>(this, "network_interface_id");
+        get => GetArgument<TerraformValue<string>>("network_interface_id");
         set => SetArgument("network_interface_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -154,25 +154,25 @@ public partial class AwsRouteDataSource(string name) : TerraformDataSource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteTableId is required")]
     public required TerraformValue<string> RouteTableId
     {
-        get => new TerraformReference<string>(this, "route_table_id");
+        get => GetArgument<TerraformValue<string>>("route_table_id");
         set => SetArgument("route_table_id", value);
     }
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    public TerraformValue<string> TransitGatewayId
+    public TerraformValue<string>? TransitGatewayId
     {
-        get => new TerraformReference<string>(this, "transit_gateway_id");
+        get => GetArgument<TerraformValue<string>>("transit_gateway_id");
         set => SetArgument("transit_gateway_id", value);
     }
 
     /// <summary>
     /// The vpc_peering_connection_id attribute.
     /// </summary>
-    public TerraformValue<string> VpcPeeringConnectionId
+    public TerraformValue<string>? VpcPeeringConnectionId
     {
-        get => new TerraformReference<string>(this, "vpc_peering_connection_id");
+        get => GetArgument<TerraformValue<string>>("vpc_peering_connection_id");
         set => SetArgument("vpc_peering_connection_id", value);
     }
 

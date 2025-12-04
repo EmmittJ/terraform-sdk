@@ -18,7 +18,7 @@ public class GoogleDialogflowCxGeneratorLlmModelSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Model
     {
-        get => new TerraformReference<string>(this, "model");
+        get => GetArgument<TerraformValue<string>>("model");
         set => SetArgument("model", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleDialogflowCxGeneratorLlmModelSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PromptText
     {
-        get => new TerraformReference<string>(this, "prompt_text");
+        get => GetArgument<TerraformValue<string>>("prompt_text");
         set => SetArgument("prompt_text", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleDialogflowCxGeneratorModelParameterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxDecodeSteps
     {
-        get => new TerraformReference<double>(this, "max_decode_steps");
+        get => GetArgument<TerraformValue<double>>("max_decode_steps");
         set => SetArgument("max_decode_steps", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleDialogflowCxGeneratorModelParameterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Temperature
     {
-        get => new TerraformReference<double>(this, "temperature");
+        get => GetArgument<TerraformValue<double>>("temperature");
         set => SetArgument("temperature", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleDialogflowCxGeneratorModelParameterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? TopK
     {
-        get => new TerraformReference<double>(this, "top_k");
+        get => GetArgument<TerraformValue<double>>("top_k");
         set => SetArgument("top_k", value);
     }
 
@@ -81,7 +81,7 @@ public class GoogleDialogflowCxGeneratorModelParameterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? TopP
     {
-        get => new TerraformReference<double>(this, "top_p");
+        get => GetArgument<TerraformValue<double>>("top_p");
         set => SetArgument("top_p", value);
     }
 
@@ -104,7 +104,7 @@ public class GoogleDialogflowCxGeneratorPlaceholdersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -113,7 +113,7 @@ public class GoogleDialogflowCxGeneratorPlaceholdersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -136,7 +136,7 @@ public class GoogleDialogflowCxGeneratorPromptTextBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -159,7 +159,7 @@ public class GoogleDialogflowCxGeneratorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -168,7 +168,7 @@ public class GoogleDialogflowCxGeneratorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -177,7 +177,7 @@ public class GoogleDialogflowCxGeneratorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -196,16 +196,16 @@ public partial class GoogleDialogflowCxGenerator(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -216,7 +216,7 @@ public partial class GoogleDialogflowCxGenerator(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? LanguageCode
     {
-        get => new TerraformReference<string>(this, "language_code");
+        get => GetArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -226,7 +226,7 @@ public partial class GoogleDialogflowCxGenerator(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -235,9 +235,7 @@ public partial class GoogleDialogflowCxGenerator(string name) : TerraformResourc
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/generators/&amp;lt;Generator ID&amp;gt;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// LlmModelSettings block (nesting mode: list).

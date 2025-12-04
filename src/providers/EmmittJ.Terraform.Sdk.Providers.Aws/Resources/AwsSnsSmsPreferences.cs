@@ -13,7 +13,7 @@ public partial class AwsSnsSmsPreferences(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? DefaultSenderId
     {
-        get => new TerraformReference<string>(this, "default_sender_id");
+        get => GetArgument<TerraformValue<string>>("default_sender_id");
         set => SetArgument("default_sender_id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsSnsSmsPreferences(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? DefaultSmsType
     {
-        get => new TerraformReference<string>(this, "default_sms_type");
+        get => GetArgument<TerraformValue<string>>("default_sms_type");
         set => SetArgument("default_sms_type", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsSnsSmsPreferences(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? DeliveryStatusIamRoleArn
     {
-        get => new TerraformReference<string>(this, "delivery_status_iam_role_arn");
+        get => GetArgument<TerraformValue<string>>("delivery_status_iam_role_arn");
         set => SetArgument("delivery_status_iam_role_arn", value);
     }
 
@@ -40,34 +40,34 @@ public partial class AwsSnsSmsPreferences(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? DeliveryStatusSuccessSamplingRate
     {
-        get => new TerraformReference<string>(this, "delivery_status_success_sampling_rate");
+        get => GetArgument<TerraformValue<string>>("delivery_status_success_sampling_rate");
         set => SetArgument("delivery_status_success_sampling_rate", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The monthly_spend_limit attribute.
     /// </summary>
-    public TerraformValue<double> MonthlySpendLimit
+    public TerraformValue<double>? MonthlySpendLimit
     {
-        get => new TerraformReference<double>(this, "monthly_spend_limit");
+        get => GetArgument<TerraformValue<double>>("monthly_spend_limit");
         set => SetArgument("monthly_spend_limit", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -76,7 +76,7 @@ public partial class AwsSnsSmsPreferences(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? UsageReportS3Bucket
     {
-        get => new TerraformReference<string>(this, "usage_report_s3_bucket");
+        get => GetArgument<TerraformValue<string>>("usage_report_s3_bucket");
         set => SetArgument("usage_report_s3_bucket", value);
     }
 

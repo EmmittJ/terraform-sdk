@@ -19,7 +19,7 @@ public class GoogleComputeDiskAsyncReplicationSecondaryDiskBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
     public required TerraformValue<string> Disk
     {
-        get => new TerraformReference<string>(this, "disk");
+        get => GetArgument<TerraformValue<string>>("disk");
         set => SetArgument("disk", value);
     }
 
@@ -27,9 +27,7 @@ public class GoogleComputeDiskAsyncReplicationSecondaryDiskBlock : TerraformBloc
     /// Output-only. Status of replication on the secondary disk.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
 }
 
@@ -50,7 +48,7 @@ public class GoogleComputeDiskAsyncReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -59,7 +57,7 @@ public class GoogleComputeDiskAsyncReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -75,9 +73,9 @@ public partial class GoogleComputeDiskAsyncReplication(string name) : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -87,7 +85,7 @@ public partial class GoogleComputeDiskAsyncReplication(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryDisk is required")]
     public required TerraformValue<string> PrimaryDisk
     {
-        get => new TerraformReference<string>(this, "primary_disk");
+        get => GetArgument<TerraformValue<string>>("primary_disk");
         set => SetArgument("primary_disk", value);
     }
 

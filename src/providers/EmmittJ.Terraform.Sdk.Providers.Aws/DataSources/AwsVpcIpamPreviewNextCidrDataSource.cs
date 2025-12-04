@@ -18,7 +18,7 @@ public class AwsVpcIpamPreviewNextCidrDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -36,16 +36,16 @@ public partial class AwsVpcIpamPreviewNextCidrDataSource(string name) : Terrafor
     /// </summary>
     public TerraformSet<string>? DisallowedCidrs
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "disallowed_cidrs").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("disallowed_cidrs");
         set => SetArgument("disallowed_cidrs", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsVpcIpamPreviewNextCidrDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamPoolId is required")]
     public required TerraformValue<string> IpamPoolId
     {
-        get => new TerraformReference<string>(this, "ipam_pool_id");
+        get => GetArgument<TerraformValue<string>>("ipam_pool_id");
         set => SetArgument("ipam_pool_id", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AwsVpcIpamPreviewNextCidrDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<double>? NetmaskLength
     {
-        get => new TerraformReference<double>(this, "netmask_length");
+        get => GetArgument<TerraformValue<double>>("netmask_length");
         set => SetArgument("netmask_length", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -81,9 +81,7 @@ public partial class AwsVpcIpamPreviewNextCidrDataSource(string name) : Terrafor
     /// The cidr attribute.
     /// </summary>
     public TerraformValue<string> Cidr
-    {
-        get => new TerraformReference<string>(this, "cidr");
-    }
+        => AsReference("cidr");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -19,7 +19,7 @@ public class GoogleGkeonpremBareMetalClusterBinaryAuthorizationBlock : Terraform
     /// </summary>
     public TerraformValue<string>? EvaluationMode
     {
-        get => new TerraformReference<string>(this, "evaluation_mode");
+        get => GetArgument<TerraformValue<string>>("evaluation_mode");
         set => SetArgument("evaluation_mode", value);
     }
 
@@ -42,7 +42,7 @@ public class GoogleGkeonpremBareMetalClusterClusterOperationsBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? EnableApplicationLogs
     {
-        get => new TerraformReference<bool>(this, "enable_application_logs");
+        get => GetArgument<TerraformValue<bool>>("enable_application_logs");
         set => SetArgument("enable_application_logs", value);
     }
 
@@ -101,7 +101,7 @@ public class GoogleGkeonpremBareMetalClusterControlPlaneBlockApiServerArgsBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Argument is required")]
     public required TerraformValue<string> Argument
     {
-        get => new TerraformReference<string>(this, "argument");
+        get => GetArgument<TerraformValue<string>>("argument");
         set => SetArgument("argument", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleGkeonpremBareMetalClusterControlPlaneBlockApiServerArgsBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -166,9 +166,9 @@ public class GoogleGkeonpremBareMetalClusterControlPlaneBlockControlPlaneNodePoo
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs.
     /// For example: { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    public TerraformMap<string> Labels
+    public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -177,7 +177,7 @@ public class GoogleGkeonpremBareMetalClusterControlPlaneBlockControlPlaneNodePoo
     /// </summary>
     public TerraformValue<string>? OperatingSystem
     {
-        get => new TerraformReference<string>(this, "operating_system");
+        get => GetArgument<TerraformValue<string>>("operating_system");
         set => SetArgument("operating_system", value);
     }
 
@@ -226,7 +226,7 @@ public class GoogleGkeonpremBareMetalClusterControlPlaneBlockControlPlaneNodePoo
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -236,7 +236,7 @@ public class GoogleGkeonpremBareMetalClusterControlPlaneBlockControlPlaneNodePoo
     /// </summary>
     public TerraformValue<string>? NodeIp
     {
-        get => new TerraformReference<string>(this, "node_ip");
+        get => GetArgument<TerraformValue<string>>("node_ip");
         set => SetArgument("node_ip", value);
     }
 
@@ -258,7 +258,7 @@ public class GoogleGkeonpremBareMetalClusterControlPlaneBlockControlPlaneNodePoo
     /// </summary>
     public TerraformValue<string>? Effect
     {
-        get => new TerraformReference<string>(this, "effect");
+        get => GetArgument<TerraformValue<string>>("effect");
         set => SetArgument("effect", value);
     }
 
@@ -267,7 +267,7 @@ public class GoogleGkeonpremBareMetalClusterControlPlaneBlockControlPlaneNodePoo
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -276,7 +276,7 @@ public class GoogleGkeonpremBareMetalClusterControlPlaneBlockControlPlaneNodePoo
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -370,7 +370,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockBgpLbConfigBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asn is required")]
     public required TerraformValue<double> Asn
     {
-        get => new TerraformReference<double>(this, "asn");
+        get => GetArgument<TerraformValue<double>>("asn");
         set => SetArgument("asn", value);
     }
 
@@ -427,7 +427,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockBgpLbConfigBlockAdd
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Addresses is required")]
     public TerraformList<string>? Addresses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("addresses");
         set => SetArgument("addresses", value);
     }
 
@@ -437,7 +437,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockBgpLbConfigBlockAdd
     /// </summary>
     public TerraformValue<bool>? AvoidBuggyIps
     {
-        get => new TerraformReference<bool>(this, "avoid_buggy_ips");
+        get => GetArgument<TerraformValue<bool>>("avoid_buggy_ips");
         set => SetArgument("avoid_buggy_ips", value);
     }
 
@@ -446,7 +446,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockBgpLbConfigBlockAdd
     /// </summary>
     public TerraformValue<bool>? ManualAssign
     {
-        get => new TerraformReference<bool>(this, "manual_assign");
+        get => GetArgument<TerraformValue<bool>>("manual_assign");
         set => SetArgument("manual_assign", value);
     }
 
@@ -456,7 +456,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockBgpLbConfigBlockAdd
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pool is required")]
     public required TerraformValue<string> Pool
     {
-        get => new TerraformReference<string>(this, "pool");
+        get => GetArgument<TerraformValue<string>>("pool");
         set => SetArgument("pool", value);
     }
 
@@ -480,7 +480,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockBgpLbConfigBlockBgp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asn is required")]
     public required TerraformValue<double> Asn
     {
-        get => new TerraformReference<double>(this, "asn");
+        get => GetArgument<TerraformValue<double>>("asn");
         set => SetArgument("asn", value);
     }
 
@@ -493,7 +493,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockBgpLbConfigBlockBgp
     /// </summary>
     public TerraformList<string>? ControlPlaneNodes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "control_plane_nodes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("control_plane_nodes");
         set => SetArgument("control_plane_nodes", value);
     }
 
@@ -503,7 +503,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockBgpLbConfigBlockBgp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
     public required TerraformValue<string> IpAddress
     {
-        get => new TerraformReference<string>(this, "ip_address");
+        get => GetArgument<TerraformValue<string>>("ip_address");
         set => SetArgument("ip_address", value);
     }
 
@@ -557,7 +557,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockBgpLbConfigBlockLoa
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -566,7 +566,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockBgpLbConfigBlockLoa
     /// </summary>
     public TerraformValue<string>? OperatingSystem
     {
-        get => new TerraformReference<string>(this, "operating_system");
+        get => GetArgument<TerraformValue<string>>("operating_system");
         set => SetArgument("operating_system", value);
     }
 
@@ -621,7 +621,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockBgpLbConfigBlockLoa
     /// </summary>
     public TerraformValue<double>? RegistryBurst
     {
-        get => new TerraformReference<double>(this, "registry_burst");
+        get => GetArgument<TerraformValue<double>>("registry_burst");
         set => SetArgument("registry_burst", value);
     }
 
@@ -634,7 +634,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockBgpLbConfigBlockLoa
     /// </summary>
     public TerraformValue<double>? RegistryPullQps
     {
-        get => new TerraformReference<double>(this, "registry_pull_qps");
+        get => GetArgument<TerraformValue<double>>("registry_pull_qps");
         set => SetArgument("registry_pull_qps", value);
     }
 
@@ -647,7 +647,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockBgpLbConfigBlockLoa
     /// </summary>
     public TerraformValue<bool>? SerializeImagePullsDisabled
     {
-        get => new TerraformReference<bool>(this, "serialize_image_pulls_disabled");
+        get => GetArgument<TerraformValue<bool>>("serialize_image_pulls_disabled");
         set => SetArgument("serialize_image_pulls_disabled", value);
     }
 
@@ -678,7 +678,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockBgpLbConfigBlockLoa
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -688,7 +688,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockBgpLbConfigBlockLoa
     /// </summary>
     public TerraformValue<string>? NodeIp
     {
-        get => new TerraformReference<string>(this, "node_ip");
+        get => GetArgument<TerraformValue<string>>("node_ip");
         set => SetArgument("node_ip", value);
     }
 
@@ -710,7 +710,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockBgpLbConfigBlockLoa
     /// </summary>
     public TerraformValue<string>? Effect
     {
-        get => new TerraformReference<string>(this, "effect");
+        get => GetArgument<TerraformValue<string>>("effect");
         set => SetArgument("effect", value);
     }
 
@@ -719,7 +719,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockBgpLbConfigBlockLoa
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -728,7 +728,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockBgpLbConfigBlockLoa
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -751,7 +751,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockManualLbConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -809,7 +809,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockMetalLbConfigBlockA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Addresses is required")]
     public TerraformList<string>? Addresses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("addresses");
         set => SetArgument("addresses", value);
     }
 
@@ -819,7 +819,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockMetalLbConfigBlockA
     /// </summary>
     public TerraformValue<bool>? AvoidBuggyIps
     {
-        get => new TerraformReference<bool>(this, "avoid_buggy_ips");
+        get => GetArgument<TerraformValue<bool>>("avoid_buggy_ips");
         set => SetArgument("avoid_buggy_ips", value);
     }
 
@@ -828,7 +828,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockMetalLbConfigBlockA
     /// </summary>
     public TerraformValue<bool>? ManualAssign
     {
-        get => new TerraformReference<bool>(this, "manual_assign");
+        get => GetArgument<TerraformValue<bool>>("manual_assign");
         set => SetArgument("manual_assign", value);
     }
 
@@ -838,7 +838,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockMetalLbConfigBlockA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pool is required")]
     public required TerraformValue<string> Pool
     {
-        get => new TerraformReference<string>(this, "pool");
+        get => GetArgument<TerraformValue<string>>("pool");
         set => SetArgument("pool", value);
     }
 
@@ -890,18 +890,18 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockMetalLbConfigBlockL
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs.
     /// For example: { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    public TerraformMap<string> Labels
+    public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// Specifies the nodes operating system (default: LINUX).
     /// </summary>
-    public TerraformValue<string> OperatingSystem
+    public TerraformValue<string>? OperatingSystem
     {
-        get => new TerraformReference<string>(this, "operating_system");
+        get => GetArgument<TerraformValue<string>>("operating_system");
         set => SetArgument("operating_system", value);
     }
 
@@ -950,7 +950,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockMetalLbConfigBlockL
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -960,7 +960,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockMetalLbConfigBlockL
     /// </summary>
     public TerraformValue<string>? NodeIp
     {
-        get => new TerraformReference<string>(this, "node_ip");
+        get => GetArgument<TerraformValue<string>>("node_ip");
         set => SetArgument("node_ip", value);
     }
 
@@ -982,7 +982,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockMetalLbConfigBlockL
     /// </summary>
     public TerraformValue<string>? Effect
     {
-        get => new TerraformReference<string>(this, "effect");
+        get => GetArgument<TerraformValue<string>>("effect");
         set => SetArgument("effect", value);
     }
 
@@ -991,7 +991,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockMetalLbConfigBlockL
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1000,7 +1000,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockMetalLbConfigBlockL
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1023,7 +1023,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockPortConfigBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlPlaneLoadBalancerPort is required")]
     public required TerraformValue<double> ControlPlaneLoadBalancerPort
     {
-        get => new TerraformReference<double>(this, "control_plane_load_balancer_port");
+        get => GetArgument<TerraformValue<double>>("control_plane_load_balancer_port");
         set => SetArgument("control_plane_load_balancer_port", value);
     }
 
@@ -1046,7 +1046,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockVipConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlPlaneVip is required")]
     public required TerraformValue<string> ControlPlaneVip
     {
-        get => new TerraformReference<string>(this, "control_plane_vip");
+        get => GetArgument<TerraformValue<string>>("control_plane_vip");
         set => SetArgument("control_plane_vip", value);
     }
 
@@ -1056,7 +1056,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlockVipConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngressVip is required")]
     public required TerraformValue<string> IngressVip
     {
-        get => new TerraformReference<string>(this, "ingress_vip");
+        get => GetArgument<TerraformValue<string>>("ingress_vip");
         set => SetArgument("ingress_vip", value);
     }
 
@@ -1083,7 +1083,7 @@ public class GoogleGkeonpremBareMetalClusterMaintenanceConfigBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceAddressCidrBlocks is required")]
     public TerraformList<string>? MaintenanceAddressCidrBlocks
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "maintenance_address_cidr_blocks").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("maintenance_address_cidr_blocks");
         set => SetArgument("maintenance_address_cidr_blocks", value);
     }
 
@@ -1109,7 +1109,7 @@ public class GoogleGkeonpremBareMetalClusterNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AdvancedNetworking
     {
-        get => new TerraformReference<bool>(this, "advanced_networking");
+        get => GetArgument<TerraformValue<bool>>("advanced_networking");
         set => SetArgument("advanced_networking", value);
     }
 
@@ -1162,7 +1162,7 @@ public class GoogleGkeonpremBareMetalClusterNetworkConfigBlockIslandModeCidrBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PodAddressCidrBlocks is required")]
     public TerraformList<string>? PodAddressCidrBlocks
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "pod_address_cidr_blocks").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("pod_address_cidr_blocks");
         set => SetArgument("pod_address_cidr_blocks", value);
     }
 
@@ -1172,7 +1172,7 @@ public class GoogleGkeonpremBareMetalClusterNetworkConfigBlockIslandModeCidrBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAddressCidrBlocks is required")]
     public TerraformList<string>? ServiceAddressCidrBlocks
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "service_address_cidr_blocks").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("service_address_cidr_blocks");
         set => SetArgument("service_address_cidr_blocks", value);
     }
 
@@ -1196,7 +1196,7 @@ public class GoogleGkeonpremBareMetalClusterNetworkConfigBlockMultipleNetworkInt
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1218,7 +1218,7 @@ public class GoogleGkeonpremBareMetalClusterNetworkConfigBlockSrIovConfigBlock :
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -1240,9 +1240,9 @@ public class GoogleGkeonpremBareMetalClusterNodeAccessConfigBlock : TerraformBlo
     /// LoginUser is the user name used to access node machines.
     /// It defaults to &amp;quot;root&amp;quot; if not set.
     /// </summary>
-    public TerraformValue<string> LoginUser
+    public TerraformValue<string>? LoginUser
     {
-        get => new TerraformReference<string>(this, "login_user");
+        get => GetArgument<TerraformValue<string>>("login_user");
         set => SetArgument("login_user", value);
     }
 
@@ -1263,9 +1263,9 @@ public class GoogleGkeonpremBareMetalClusterNodeConfigBlock : TerraformBlock
     /// <summary>
     /// The available runtimes that can be used to run containers in a Bare Metal User Cluster. Possible values: [&amp;quot;CONTAINER_RUNTIME_UNSPECIFIED&amp;quot;, &amp;quot;DOCKER&amp;quot;, &amp;quot;CONTAINERD&amp;quot;]
     /// </summary>
-    public TerraformValue<string> ContainerRuntime
+    public TerraformValue<string>? ContainerRuntime
     {
-        get => new TerraformReference<string>(this, "container_runtime");
+        get => GetArgument<TerraformValue<string>>("container_runtime");
         set => SetArgument("container_runtime", value);
     }
 
@@ -1273,9 +1273,9 @@ public class GoogleGkeonpremBareMetalClusterNodeConfigBlock : TerraformBlock
     /// The maximum number of pods a node can run. The size of the CIDR range
     /// assigned to the node will be derived from this parameter.
     /// </summary>
-    public TerraformValue<double> MaxPodsPerNode
+    public TerraformValue<double>? MaxPodsPerNode
     {
-        get => new TerraformReference<double>(this, "max_pods_per_node");
+        get => GetArgument<TerraformValue<double>>("max_pods_per_node");
         set => SetArgument("max_pods_per_node", value);
     }
 
@@ -1300,7 +1300,7 @@ public class GoogleGkeonpremBareMetalClusterOsEnvironmentConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PackageRepoExcluded is required")]
     public required TerraformValue<bool> PackageRepoExcluded
     {
-        get => new TerraformReference<bool>(this, "package_repo_excluded");
+        get => GetArgument<TerraformValue<bool>>("package_repo_excluded");
         set => SetArgument("package_repo_excluded", value);
     }
 
@@ -1324,7 +1324,7 @@ public class GoogleGkeonpremBareMetalClusterProxyBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? NoProxy
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "no_proxy").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("no_proxy");
         set => SetArgument("no_proxy", value);
     }
 
@@ -1337,7 +1337,7 @@ public class GoogleGkeonpremBareMetalClusterProxyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -1409,7 +1409,7 @@ public class GoogleGkeonpremBareMetalClusterSecurityConfigBlockAuthorizationBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -1472,7 +1472,7 @@ public class GoogleGkeonpremBareMetalClusterStorageBlockLvpNodeMountsConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1482,7 +1482,7 @@ public class GoogleGkeonpremBareMetalClusterStorageBlockLvpNodeMountsConfigBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageClass is required")]
     public required TerraformValue<string> StorageClass
     {
-        get => new TerraformReference<string>(this, "storage_class");
+        get => GetArgument<TerraformValue<string>>("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -1504,7 +1504,7 @@ public class GoogleGkeonpremBareMetalClusterStorageBlockLvpShareConfigBlock : Te
     /// </summary>
     public TerraformValue<double>? SharedPathPvCount
     {
-        get => new TerraformReference<double>(this, "shared_path_pv_count");
+        get => GetArgument<TerraformValue<double>>("shared_path_pv_count");
         set => SetArgument("shared_path_pv_count", value);
     }
 
@@ -1540,7 +1540,7 @@ public class GoogleGkeonpremBareMetalClusterStorageBlockLvpShareConfigBlockLvpCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1550,7 +1550,7 @@ public class GoogleGkeonpremBareMetalClusterStorageBlockLvpShareConfigBlockLvpCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageClass is required")]
     public required TerraformValue<string> StorageClass
     {
-        get => new TerraformReference<string>(this, "storage_class");
+        get => GetArgument<TerraformValue<string>>("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -1573,7 +1573,7 @@ public class GoogleGkeonpremBareMetalClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1582,7 +1582,7 @@ public class GoogleGkeonpremBareMetalClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1591,7 +1591,7 @@ public class GoogleGkeonpremBareMetalClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1614,7 +1614,7 @@ public class GoogleGkeonpremBareMetalClusterUpgradePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
@@ -1634,7 +1634,7 @@ public partial class GoogleGkeonpremBareMetalCluster(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminClusterMembership is required")]
     public required TerraformValue<string> AdminClusterMembership
     {
-        get => new TerraformReference<string>(this, "admin_cluster_membership");
+        get => GetArgument<TerraformValue<string>>("admin_cluster_membership");
         set => SetArgument("admin_cluster_membership", value);
     }
 
@@ -1654,7 +1654,7 @@ public partial class GoogleGkeonpremBareMetalCluster(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -1664,7 +1664,7 @@ public partial class GoogleGkeonpremBareMetalCluster(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BareMetalVersion is required")]
     public required TerraformValue<string> BareMetalVersion
     {
-        get => new TerraformReference<string>(this, "bare_metal_version");
+        get => GetArgument<TerraformValue<string>>("bare_metal_version");
         set => SetArgument("bare_metal_version", value);
     }
 
@@ -1673,16 +1673,16 @@ public partial class GoogleGkeonpremBareMetalCluster(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1692,7 +1692,7 @@ public partial class GoogleGkeonpremBareMetalCluster(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1702,16 +1702,16 @@ public partial class GoogleGkeonpremBareMetalCluster(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -1719,33 +1719,25 @@ public partial class GoogleGkeonpremBareMetalCluster(string name) : TerraformRes
     /// The time the cluster was created, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The time the cluster was deleted, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> DeleteTime
-    {
-        get => new TerraformReference<string>(this, "delete_time");
-    }
+        => AsReference("delete_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// The IP address name of Bare Metal User Cluster&#39;s API server.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other
@@ -1755,9 +1747,7 @@ public partial class GoogleGkeonpremBareMetalCluster(string name) : TerraformRes
     /// through optimistic concurrency control.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Fleet related configuration.
@@ -1768,9 +1758,7 @@ public partial class GoogleGkeonpremBareMetalCluster(string name) : TerraformRes
     /// more details on Anthos multi-cluster capabilities using Fleets.
     /// </summary>
     public TerraformList<TerraformMap<object>> Fleet
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "fleet").ResolveNodes(ctx));
-    }
+        => AsReference("fleet");
 
     /// <summary>
     /// The object name of the Bare Metal Cluster custom resource on the
@@ -1785,57 +1773,43 @@ public partial class GoogleGkeonpremBareMetalCluster(string name) : TerraformRes
     /// cluster controller logs.
     /// </summary>
     public TerraformValue<string> LocalName
-    {
-        get => new TerraformReference<string>(this, "local_name");
-    }
+        => AsReference("local_name");
 
     /// <summary>
     /// If set, there are currently changes in flight to the Bare Metal User Cluster.
     /// </summary>
     public TerraformValue<bool> Reconciling
-    {
-        get => new TerraformReference<bool>(this, "reconciling");
-    }
+        => AsReference("reconciling");
 
     /// <summary>
     /// The current state of this cluster.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Specifies detailed cluster status.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "status").ResolveNodes(ctx));
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The unique identifier of the Bare Metal User Cluster.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// The time the cluster was last updated, in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Specifies the security related settings for the Bare Metal User Cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> ValidationCheck
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "validation_check").ResolveNodes(ctx));
-    }
+        => AsReference("validation_check");
 
     /// <summary>
     /// BinaryAuthorization block (nesting mode: list).

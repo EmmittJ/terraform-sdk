@@ -11,9 +11,9 @@ public partial class GoogleArtifactRegistryRepositoryDataSource(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -28,7 +28,7 @@ public partial class GoogleArtifactRegistryRepositoryDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -37,7 +37,7 @@ public partial class GoogleArtifactRegistryRepositoryDataSource(string name) : T
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -48,7 +48,7 @@ public partial class GoogleArtifactRegistryRepositoryDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformValue<string> RepositoryId
     {
-        get => new TerraformReference<string>(this, "repository_id");
+        get => GetArgument<TerraformValue<string>>("repository_id");
         set => SetArgument("repository_id", value);
     }
 
@@ -59,50 +59,38 @@ public partial class GoogleArtifactRegistryRepositoryDataSource(string name) : T
     /// unique within a repository and be under 128 characters in length.
     /// </summary>
     public TerraformSet<TerraformMap<object>> CleanupPolicies
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "cleanup_policies").ResolveNodes(ctx));
-    }
+        => AsReference("cleanup_policies");
 
     /// <summary>
     /// If true, the cleanup pipeline is prevented from deleting versions in this
     /// repository.
     /// </summary>
     public TerraformValue<bool> CleanupPolicyDryRun
-    {
-        get => new TerraformReference<bool>(this, "cleanup_policy_dry_run");
-    }
+        => AsReference("cleanup_policy_dry_run");
 
     /// <summary>
     /// The time when the repository was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The user-provided description of the repository.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// Docker repository config contains repository level configuration for the repositories of docker type.
     /// </summary>
     public TerraformList<TerraformMap<object>> DockerConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "docker_config").ResolveNodes(ctx));
-    }
+        => AsReference("docker_config");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The format of packages that are stored in the repository. Supported formats
@@ -111,9 +99,7 @@ public partial class GoogleArtifactRegistryRepositoryDataSource(string name) : T
     /// [alpha user group](https://cloud.google.com/artifact-registry/docs/supported-formats#alpha-access).
     /// </summary>
     public TerraformValue<string> Format
-    {
-        get => new TerraformReference<string>(this, "format");
-    }
+        => AsReference("format");
 
     /// <summary>
     /// The Cloud KMS resource name of the customer managed encryption key that’s
@@ -122,9 +108,7 @@ public partial class GoogleArtifactRegistryRepositoryDataSource(string name) : T
     /// This value may not be changed after the Repository has been created.
     /// </summary>
     public TerraformValue<string> KmsKeyName
-    {
-        get => new TerraformReference<string>(this, "kms_key_name");
-    }
+        => AsReference("kms_key_name");
 
     /// <summary>
     /// Labels with user-defined metadata.
@@ -138,9 +122,7 @@ public partial class GoogleArtifactRegistryRepositoryDataSource(string name) : T
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
-    }
+        => AsReference("labels");
 
     /// <summary>
     /// MavenRepositoryConfig is maven related repository details.
@@ -148,74 +130,56 @@ public partial class GoogleArtifactRegistryRepositoryDataSource(string name) : T
     /// format type.
     /// </summary>
     public TerraformList<TerraformMap<object>> MavenConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "maven_config").ResolveNodes(ctx));
-    }
+        => AsReference("maven_config");
 
     /// <summary>
     /// The mode configures the repository to serve artifacts from different sources. Default value: &amp;quot;STANDARD_REPOSITORY&amp;quot; Possible values: [&amp;quot;STANDARD_REPOSITORY&amp;quot;, &amp;quot;VIRTUAL_REPOSITORY&amp;quot;, &amp;quot;REMOTE_REPOSITORY&amp;quot;]
     /// </summary>
     public TerraformValue<string> Mode
-    {
-        get => new TerraformReference<string>(this, "mode");
-    }
+        => AsReference("mode");
 
     /// <summary>
     /// The name of the repository, for example:
     /// &amp;quot;repo1&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The repository endpoint, for example: us-docker.pkg.dev/my-proj/my-repo.
     /// </summary>
     public TerraformValue<string> RegistryUri
-    {
-        get => new TerraformReference<string>(this, "registry_uri");
-    }
+        => AsReference("registry_uri");
 
     /// <summary>
     /// Configuration specific for a Remote Repository.
     /// </summary>
     public TerraformList<TerraformMap<object>> RemoteRepositoryConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "remote_repository_config").ResolveNodes(ctx));
-    }
+        => AsReference("remote_repository_config");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The time when the repository was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Configuration specific for a Virtual Repository.
     /// </summary>
     public TerraformList<TerraformMap<object>> VirtualRepositoryConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "virtual_repository_config").ResolveNodes(ctx));
-    }
+        => AsReference("virtual_repository_config");
 
     /// <summary>
     /// Configuration for vulnerability scanning of artifacts stored in this repository.
     /// </summary>
     public TerraformList<TerraformMap<object>> VulnerabilityScanningConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "vulnerability_scanning_config").ResolveNodes(ctx));
-    }
+        => AsReference("vulnerability_scanning_config");
 
 }

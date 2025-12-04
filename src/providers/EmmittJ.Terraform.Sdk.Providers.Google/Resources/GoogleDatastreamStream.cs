@@ -117,7 +117,7 @@ public class GoogleDatastreamStreamBackfillAllBlockMongodbExcludedObjectsBlockDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -149,7 +149,7 @@ public class GoogleDatastreamStreamBackfillAllBlockMongodbExcludedObjectsBlockDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
     public required TerraformValue<string> Collection
     {
-        get => new TerraformReference<string>(this, "collection");
+        get => GetArgument<TerraformValue<string>>("collection");
         set => SetArgument("collection", value);
     }
 
@@ -180,7 +180,7 @@ public class GoogleDatastreamStreamBackfillAllBlockMongodbExcludedObjectsBlockDa
     /// </summary>
     public TerraformValue<string>? Field
     {
-        get => new TerraformReference<string>(this, "field");
+        get => GetArgument<TerraformValue<string>>("field");
         set => SetArgument("field", value);
     }
 
@@ -228,7 +228,7 @@ public class GoogleDatastreamStreamBackfillAllBlockMysqlExcludedObjectsBlockMysq
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -260,7 +260,7 @@ public class GoogleDatastreamStreamBackfillAllBlockMysqlExcludedObjectsBlockMysq
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -291,7 +291,7 @@ public class GoogleDatastreamStreamBackfillAllBlockMysqlExcludedObjectsBlockMysq
     /// </summary>
     public TerraformValue<string>? Collation
     {
-        get => new TerraformReference<string>(this, "collation");
+        get => GetArgument<TerraformValue<string>>("collation");
         set => SetArgument("collation", value);
     }
 
@@ -300,7 +300,7 @@ public class GoogleDatastreamStreamBackfillAllBlockMysqlExcludedObjectsBlockMysq
     /// </summary>
     public TerraformValue<string>? Column
     {
-        get => new TerraformReference<string>(this, "column");
+        get => GetArgument<TerraformValue<string>>("column");
         set => SetArgument("column", value);
     }
 
@@ -310,7 +310,7 @@ public class GoogleDatastreamStreamBackfillAllBlockMysqlExcludedObjectsBlockMysq
     /// </summary>
     public TerraformValue<string>? DataType
     {
-        get => new TerraformReference<string>(this, "data_type");
+        get => GetArgument<TerraformValue<string>>("data_type");
         set => SetArgument("data_type", value);
     }
 
@@ -318,16 +318,14 @@ public class GoogleDatastreamStreamBackfillAllBlockMysqlExcludedObjectsBlockMysq
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-    {
-        get => new TerraformReference<double>(this, "length");
-    }
+        => AsReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
     /// </summary>
     public TerraformValue<bool>? Nullable
     {
-        get => new TerraformReference<bool>(this, "nullable");
+        get => GetArgument<TerraformValue<bool>>("nullable");
         set => SetArgument("nullable", value);
     }
 
@@ -336,7 +334,7 @@ public class GoogleDatastreamStreamBackfillAllBlockMysqlExcludedObjectsBlockMysq
     /// </summary>
     public TerraformValue<double>? OrdinalPosition
     {
-        get => new TerraformReference<double>(this, "ordinal_position");
+        get => GetArgument<TerraformValue<double>>("ordinal_position");
         set => SetArgument("ordinal_position", value);
     }
 
@@ -345,7 +343,7 @@ public class GoogleDatastreamStreamBackfillAllBlockMysqlExcludedObjectsBlockMysq
     /// </summary>
     public TerraformValue<bool>? PrimaryKey
     {
-        get => new TerraformReference<bool>(this, "primary_key");
+        get => GetArgument<TerraformValue<bool>>("primary_key");
         set => SetArgument("primary_key", value);
     }
 
@@ -393,7 +391,7 @@ public class GoogleDatastreamStreamBackfillAllBlockOracleExcludedObjectsBlockOra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => new TerraformReference<string>(this, "schema");
+        get => GetArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -425,7 +423,7 @@ public class GoogleDatastreamStreamBackfillAllBlockOracleExcludedObjectsBlockOra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -456,7 +454,7 @@ public class GoogleDatastreamStreamBackfillAllBlockOracleExcludedObjectsBlockOra
     /// </summary>
     public TerraformValue<string>? Column
     {
-        get => new TerraformReference<string>(this, "column");
+        get => GetArgument<TerraformValue<string>>("column");
         set => SetArgument("column", value);
     }
 
@@ -466,7 +464,7 @@ public class GoogleDatastreamStreamBackfillAllBlockOracleExcludedObjectsBlockOra
     /// </summary>
     public TerraformValue<string>? DataType
     {
-        get => new TerraformReference<string>(this, "data_type");
+        get => GetArgument<TerraformValue<string>>("data_type");
         set => SetArgument("data_type", value);
     }
 
@@ -474,57 +472,43 @@ public class GoogleDatastreamStreamBackfillAllBlockOracleExcludedObjectsBlockOra
     /// Column encoding.
     /// </summary>
     public TerraformValue<string> Encoding
-    {
-        get => new TerraformReference<string>(this, "encoding");
-    }
+        => AsReference("encoding");
 
     /// <summary>
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-    {
-        get => new TerraformReference<double>(this, "length");
-    }
+        => AsReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
     /// </summary>
     public TerraformValue<bool> Nullable
-    {
-        get => new TerraformReference<bool>(this, "nullable");
-    }
+        => AsReference("nullable");
 
     /// <summary>
     /// The ordinal position of the column in the table.
     /// </summary>
     public TerraformValue<double> OrdinalPosition
-    {
-        get => new TerraformReference<double>(this, "ordinal_position");
-    }
+        => AsReference("ordinal_position");
 
     /// <summary>
     /// Column precision.
     /// </summary>
     public TerraformValue<double> Precision
-    {
-        get => new TerraformReference<double>(this, "precision");
-    }
+        => AsReference("precision");
 
     /// <summary>
     /// Whether or not the column represents a primary key.
     /// </summary>
     public TerraformValue<bool> PrimaryKey
-    {
-        get => new TerraformReference<bool>(this, "primary_key");
-    }
+        => AsReference("primary_key");
 
     /// <summary>
     /// Column scale.
     /// </summary>
     public TerraformValue<double> Scale
-    {
-        get => new TerraformReference<double>(this, "scale");
-    }
+        => AsReference("scale");
 
 }
 
@@ -570,7 +554,7 @@ public class GoogleDatastreamStreamBackfillAllBlockPostgresqlExcludedObjectsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => new TerraformReference<string>(this, "schema");
+        get => GetArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -602,7 +586,7 @@ public class GoogleDatastreamStreamBackfillAllBlockPostgresqlExcludedObjectsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -633,7 +617,7 @@ public class GoogleDatastreamStreamBackfillAllBlockPostgresqlExcludedObjectsBloc
     /// </summary>
     public TerraformValue<string>? Column
     {
-        get => new TerraformReference<string>(this, "column");
+        get => GetArgument<TerraformValue<string>>("column");
         set => SetArgument("column", value);
     }
 
@@ -643,7 +627,7 @@ public class GoogleDatastreamStreamBackfillAllBlockPostgresqlExcludedObjectsBloc
     /// </summary>
     public TerraformValue<string>? DataType
     {
-        get => new TerraformReference<string>(this, "data_type");
+        get => GetArgument<TerraformValue<string>>("data_type");
         set => SetArgument("data_type", value);
     }
 
@@ -651,16 +635,14 @@ public class GoogleDatastreamStreamBackfillAllBlockPostgresqlExcludedObjectsBloc
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-    {
-        get => new TerraformReference<double>(this, "length");
-    }
+        => AsReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
     /// </summary>
     public TerraformValue<bool>? Nullable
     {
-        get => new TerraformReference<bool>(this, "nullable");
+        get => GetArgument<TerraformValue<bool>>("nullable");
         set => SetArgument("nullable", value);
     }
 
@@ -669,7 +651,7 @@ public class GoogleDatastreamStreamBackfillAllBlockPostgresqlExcludedObjectsBloc
     /// </summary>
     public TerraformValue<double>? OrdinalPosition
     {
-        get => new TerraformReference<double>(this, "ordinal_position");
+        get => GetArgument<TerraformValue<double>>("ordinal_position");
         set => SetArgument("ordinal_position", value);
     }
 
@@ -677,16 +659,14 @@ public class GoogleDatastreamStreamBackfillAllBlockPostgresqlExcludedObjectsBloc
     /// Column precision.
     /// </summary>
     public TerraformValue<double> Precision
-    {
-        get => new TerraformReference<double>(this, "precision");
-    }
+        => AsReference("precision");
 
     /// <summary>
     /// Whether or not the column represents a primary key.
     /// </summary>
     public TerraformValue<bool>? PrimaryKey
     {
-        get => new TerraformReference<bool>(this, "primary_key");
+        get => GetArgument<TerraformValue<bool>>("primary_key");
         set => SetArgument("primary_key", value);
     }
 
@@ -694,9 +674,7 @@ public class GoogleDatastreamStreamBackfillAllBlockPostgresqlExcludedObjectsBloc
     /// Column scale.
     /// </summary>
     public TerraformValue<double> Scale
-    {
-        get => new TerraformReference<double>(this, "scale");
-    }
+        => AsReference("scale");
 
 }
 
@@ -741,7 +719,7 @@ public class GoogleDatastreamStreamBackfillAllBlockSalesforceExcludedObjectsBloc
     /// </summary>
     public TerraformValue<string>? ObjectName
     {
-        get => new TerraformReference<string>(this, "object_name");
+        get => GetArgument<TerraformValue<string>>("object_name");
         set => SetArgument("object_name", value);
     }
 
@@ -772,7 +750,7 @@ public class GoogleDatastreamStreamBackfillAllBlockSalesforceExcludedObjectsBloc
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -820,7 +798,7 @@ public class GoogleDatastreamStreamBackfillAllBlockSqlServerExcludedObjectsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => new TerraformReference<string>(this, "schema");
+        get => GetArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -852,7 +830,7 @@ public class GoogleDatastreamStreamBackfillAllBlockSqlServerExcludedObjectsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -883,7 +861,7 @@ public class GoogleDatastreamStreamBackfillAllBlockSqlServerExcludedObjectsBlock
     /// </summary>
     public TerraformValue<string>? Column
     {
-        get => new TerraformReference<string>(this, "column");
+        get => GetArgument<TerraformValue<string>>("column");
         set => SetArgument("column", value);
     }
 
@@ -893,7 +871,7 @@ public class GoogleDatastreamStreamBackfillAllBlockSqlServerExcludedObjectsBlock
     /// </summary>
     public TerraformValue<string>? DataType
     {
-        get => new TerraformReference<string>(this, "data_type");
+        get => GetArgument<TerraformValue<string>>("data_type");
         set => SetArgument("data_type", value);
     }
 
@@ -901,49 +879,37 @@ public class GoogleDatastreamStreamBackfillAllBlockSqlServerExcludedObjectsBlock
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-    {
-        get => new TerraformReference<double>(this, "length");
-    }
+        => AsReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
     /// </summary>
     public TerraformValue<bool> Nullable
-    {
-        get => new TerraformReference<bool>(this, "nullable");
-    }
+        => AsReference("nullable");
 
     /// <summary>
     /// The ordinal position of the column in the table.
     /// </summary>
     public TerraformValue<double> OrdinalPosition
-    {
-        get => new TerraformReference<double>(this, "ordinal_position");
-    }
+        => AsReference("ordinal_position");
 
     /// <summary>
     /// Column precision.
     /// </summary>
     public TerraformValue<double> Precision
-    {
-        get => new TerraformReference<double>(this, "precision");
-    }
+        => AsReference("precision");
 
     /// <summary>
     /// Whether or not the column represents a primary key.
     /// </summary>
     public TerraformValue<bool> PrimaryKey
-    {
-        get => new TerraformReference<bool>(this, "primary_key");
-    }
+        => AsReference("primary_key");
 
     /// <summary>
     /// Column scale.
     /// </summary>
     public TerraformValue<double> Scale
-    {
-        get => new TerraformReference<double>(this, "scale");
-    }
+        => AsReference("scale");
 
 }
 
@@ -979,7 +945,7 @@ public class GoogleDatastreamStreamDestinationConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationConnectionProfile is required")]
     public required TerraformValue<string> DestinationConnectionProfile
     {
-        get => new TerraformReference<string>(this, "destination_connection_profile");
+        get => GetArgument<TerraformValue<string>>("destination_connection_profile");
         set => SetArgument("destination_connection_profile", value);
     }
 
@@ -1024,7 +990,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockBigqueryDestinationConf
     /// </summary>
     public TerraformValue<string>? DataFreshness
     {
-        get => new TerraformReference<string>(this, "data_freshness");
+        get => GetArgument<TerraformValue<string>>("data_freshness");
         set => SetArgument("data_freshness", value);
     }
 
@@ -1110,7 +1076,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockBigqueryDestinationConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -1120,7 +1086,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockBigqueryDestinationConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionName is required")]
     public required TerraformValue<string> ConnectionName
     {
-        get => new TerraformReference<string>(this, "connection_name");
+        get => GetArgument<TerraformValue<string>>("connection_name");
         set => SetArgument("connection_name", value);
     }
 
@@ -1130,7 +1096,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockBigqueryDestinationConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileFormat is required")]
     public required TerraformValue<string> FileFormat
     {
-        get => new TerraformReference<string>(this, "file_format");
+        get => GetArgument<TerraformValue<string>>("file_format");
         set => SetArgument("file_format", value);
     }
 
@@ -1139,7 +1105,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockBigqueryDestinationConf
     /// </summary>
     public TerraformValue<string>? RootPath
     {
-        get => new TerraformReference<string>(this, "root_path");
+        get => GetArgument<TerraformValue<string>>("root_path");
         set => SetArgument("root_path", value);
     }
 
@@ -1149,7 +1115,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockBigqueryDestinationConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableFormat is required")]
     public required TerraformValue<string> TableFormat
     {
-        get => new TerraformReference<string>(this, "table_format");
+        get => GetArgument<TerraformValue<string>>("table_format");
         set => SetArgument("table_format", value);
     }
 
@@ -1186,7 +1152,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockBigqueryDestinationConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => new TerraformReference<string>(this, "dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -1208,7 +1174,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockBigqueryDestinationConf
     /// </summary>
     public TerraformValue<string>? ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -1244,7 +1210,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockBigqueryDestinationConf
     /// </summary>
     public TerraformValue<string>? DatasetIdPrefix
     {
-        get => new TerraformReference<string>(this, "dataset_id_prefix");
+        get => GetArgument<TerraformValue<string>>("dataset_id_prefix");
         set => SetArgument("dataset_id_prefix", value);
     }
 
@@ -1256,7 +1222,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockBigqueryDestinationConf
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -1267,7 +1233,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockBigqueryDestinationConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1288,18 +1254,18 @@ public class GoogleDatastreamStreamDestinationConfigBlockGcsDestinationConfigBlo
     /// The maximum duration for which new events are added before a file is closed and a new file is created.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;. Defaults to 900s.
     /// </summary>
-    public TerraformValue<string> FileRotationInterval
+    public TerraformValue<string>? FileRotationInterval
     {
-        get => new TerraformReference<string>(this, "file_rotation_interval");
+        get => GetArgument<TerraformValue<string>>("file_rotation_interval");
         set => SetArgument("file_rotation_interval", value);
     }
 
     /// <summary>
     /// The maximum file size to be saved in the bucket.
     /// </summary>
-    public TerraformValue<double> FileRotationMb
+    public TerraformValue<double>? FileRotationMb
     {
-        get => new TerraformReference<double>(this, "file_rotation_mb");
+        get => GetArgument<TerraformValue<double>>("file_rotation_mb");
         set => SetArgument("file_rotation_mb", value);
     }
 
@@ -1308,7 +1274,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockGcsDestinationConfigBlo
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1363,7 +1329,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockGcsDestinationConfigBlo
     /// </summary>
     public TerraformValue<string>? Compression
     {
-        get => new TerraformReference<string>(this, "compression");
+        get => GetArgument<TerraformValue<string>>("compression");
         set => SetArgument("compression", value);
     }
 
@@ -1372,7 +1338,7 @@ public class GoogleDatastreamStreamDestinationConfigBlockGcsDestinationConfigBlo
     /// </summary>
     public TerraformValue<string>? SchemaFileFormat
     {
-        get => new TerraformReference<string>(this, "schema_file_format");
+        get => GetArgument<TerraformValue<string>>("schema_file_format");
         set => SetArgument("schema_file_format", value);
     }
 
@@ -1396,7 +1362,7 @@ public class GoogleDatastreamStreamSourceConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceConnectionProfile is required")]
     public required TerraformValue<string> SourceConnectionProfile
     {
-        get => new TerraformReference<string>(this, "source_connection_profile");
+        get => GetArgument<TerraformValue<string>>("source_connection_profile");
         set => SetArgument("source_connection_profile", value);
     }
 
@@ -1480,7 +1446,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMongodbSourceConfigBlock : T
     /// </summary>
     public TerraformValue<double>? MaxConcurrentBackfillTasks
     {
-        get => new TerraformReference<double>(this, "max_concurrent_backfill_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_backfill_tasks");
         set => SetArgument("max_concurrent_backfill_tasks", value);
     }
 
@@ -1544,7 +1510,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMongodbSourceConfigBlockExcl
     /// </summary>
     public TerraformValue<string>? Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -1575,7 +1541,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMongodbSourceConfigBlockExcl
     /// </summary>
     public TerraformValue<string>? Collection
     {
-        get => new TerraformReference<string>(this, "collection");
+        get => GetArgument<TerraformValue<string>>("collection");
         set => SetArgument("collection", value);
     }
 
@@ -1606,7 +1572,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMongodbSourceConfigBlockExcl
     /// </summary>
     public TerraformValue<string>? Field
     {
-        get => new TerraformReference<string>(this, "field");
+        get => GetArgument<TerraformValue<string>>("field");
         set => SetArgument("field", value);
     }
 
@@ -1650,7 +1616,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMongodbSourceConfigBlockIncl
     /// </summary>
     public TerraformValue<string>? Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -1681,7 +1647,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMongodbSourceConfigBlockIncl
     /// </summary>
     public TerraformValue<string>? Collection
     {
-        get => new TerraformReference<string>(this, "collection");
+        get => GetArgument<TerraformValue<string>>("collection");
         set => SetArgument("collection", value);
     }
 
@@ -1712,7 +1678,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMongodbSourceConfigBlockIncl
     /// </summary>
     public TerraformValue<string>? Field
     {
-        get => new TerraformReference<string>(this, "field");
+        get => GetArgument<TerraformValue<string>>("field");
         set => SetArgument("field", value);
     }
 
@@ -1733,9 +1699,9 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlock : Ter
     /// Maximum number of concurrent backfill tasks. The number should be non negative.
     /// If not set (or set to 0), the system&#39;s default value will be used.
     /// </summary>
-    public TerraformValue<double> MaxConcurrentBackfillTasks
+    public TerraformValue<double>? MaxConcurrentBackfillTasks
     {
-        get => new TerraformReference<double>(this, "max_concurrent_backfill_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_backfill_tasks");
         set => SetArgument("max_concurrent_backfill_tasks", value);
     }
 
@@ -1743,9 +1709,9 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlock : Ter
     /// Maximum number of concurrent CDC tasks. The number should be non negative.
     /// If not set (or set to 0), the system&#39;s default value will be used.
     /// </summary>
-    public TerraformValue<double> MaxConcurrentCdcTasks
+    public TerraformValue<double>? MaxConcurrentCdcTasks
     {
-        get => new TerraformReference<double>(this, "max_concurrent_cdc_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_cdc_tasks");
         set => SetArgument("max_concurrent_cdc_tasks", value);
     }
 
@@ -1846,7 +1812,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockExclud
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -1878,7 +1844,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockExclud
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -1909,7 +1875,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockExclud
     /// </summary>
     public TerraformValue<string>? Collation
     {
-        get => new TerraformReference<string>(this, "collation");
+        get => GetArgument<TerraformValue<string>>("collation");
         set => SetArgument("collation", value);
     }
 
@@ -1918,7 +1884,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockExclud
     /// </summary>
     public TerraformValue<string>? Column
     {
-        get => new TerraformReference<string>(this, "column");
+        get => GetArgument<TerraformValue<string>>("column");
         set => SetArgument("column", value);
     }
 
@@ -1928,7 +1894,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockExclud
     /// </summary>
     public TerraformValue<string>? DataType
     {
-        get => new TerraformReference<string>(this, "data_type");
+        get => GetArgument<TerraformValue<string>>("data_type");
         set => SetArgument("data_type", value);
     }
 
@@ -1936,16 +1902,14 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockExclud
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-    {
-        get => new TerraformReference<double>(this, "length");
-    }
+        => AsReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
     /// </summary>
     public TerraformValue<bool>? Nullable
     {
-        get => new TerraformReference<bool>(this, "nullable");
+        get => GetArgument<TerraformValue<bool>>("nullable");
         set => SetArgument("nullable", value);
     }
 
@@ -1954,7 +1918,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockExclud
     /// </summary>
     public TerraformValue<double>? OrdinalPosition
     {
-        get => new TerraformReference<double>(this, "ordinal_position");
+        get => GetArgument<TerraformValue<double>>("ordinal_position");
         set => SetArgument("ordinal_position", value);
     }
 
@@ -1963,7 +1927,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockExclud
     /// </summary>
     public TerraformValue<bool>? PrimaryKey
     {
-        get => new TerraformReference<bool>(this, "primary_key");
+        get => GetArgument<TerraformValue<bool>>("primary_key");
         set => SetArgument("primary_key", value);
     }
 
@@ -2024,7 +1988,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockInclud
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -2056,7 +2020,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockInclud
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -2087,7 +2051,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockInclud
     /// </summary>
     public TerraformValue<string>? Collation
     {
-        get => new TerraformReference<string>(this, "collation");
+        get => GetArgument<TerraformValue<string>>("collation");
         set => SetArgument("collation", value);
     }
 
@@ -2096,7 +2060,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockInclud
     /// </summary>
     public TerraformValue<string>? Column
     {
-        get => new TerraformReference<string>(this, "column");
+        get => GetArgument<TerraformValue<string>>("column");
         set => SetArgument("column", value);
     }
 
@@ -2106,7 +2070,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockInclud
     /// </summary>
     public TerraformValue<string>? DataType
     {
-        get => new TerraformReference<string>(this, "data_type");
+        get => GetArgument<TerraformValue<string>>("data_type");
         set => SetArgument("data_type", value);
     }
 
@@ -2114,16 +2078,14 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockInclud
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-    {
-        get => new TerraformReference<double>(this, "length");
-    }
+        => AsReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
     /// </summary>
     public TerraformValue<bool>? Nullable
     {
-        get => new TerraformReference<bool>(this, "nullable");
+        get => GetArgument<TerraformValue<bool>>("nullable");
         set => SetArgument("nullable", value);
     }
 
@@ -2132,7 +2094,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockInclud
     /// </summary>
     public TerraformValue<double>? OrdinalPosition
     {
-        get => new TerraformReference<double>(this, "ordinal_position");
+        get => GetArgument<TerraformValue<double>>("ordinal_position");
         set => SetArgument("ordinal_position", value);
     }
 
@@ -2141,7 +2103,7 @@ public class GoogleDatastreamStreamSourceConfigBlockMysqlSourceConfigBlockInclud
     /// </summary>
     public TerraformValue<bool>? PrimaryKey
     {
-        get => new TerraformReference<bool>(this, "primary_key");
+        get => GetArgument<TerraformValue<bool>>("primary_key");
         set => SetArgument("primary_key", value);
     }
 
@@ -2162,9 +2124,9 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlock : Te
     /// Maximum number of concurrent backfill tasks. The number should be non negative.
     /// If not set (or set to 0), the system&#39;s default value will be used.
     /// </summary>
-    public TerraformValue<double> MaxConcurrentBackfillTasks
+    public TerraformValue<double>? MaxConcurrentBackfillTasks
     {
-        get => new TerraformReference<double>(this, "max_concurrent_backfill_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_backfill_tasks");
         set => SetArgument("max_concurrent_backfill_tasks", value);
     }
 
@@ -2172,9 +2134,9 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlock : Te
     /// Maximum number of concurrent CDC tasks. The number should be non negative.
     /// If not set (or set to 0), the system&#39;s default value will be used.
     /// </summary>
-    public TerraformValue<double> MaxConcurrentCdcTasks
+    public TerraformValue<double>? MaxConcurrentCdcTasks
     {
-        get => new TerraformReference<double>(this, "max_concurrent_cdc_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_cdc_tasks");
         set => SetArgument("max_concurrent_cdc_tasks", value);
     }
 
@@ -2275,7 +2237,7 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlockExclu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => new TerraformReference<string>(this, "schema");
+        get => GetArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -2307,7 +2269,7 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlockExclu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -2338,7 +2300,7 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlockExclu
     /// </summary>
     public TerraformValue<string>? Column
     {
-        get => new TerraformReference<string>(this, "column");
+        get => GetArgument<TerraformValue<string>>("column");
         set => SetArgument("column", value);
     }
 
@@ -2348,7 +2310,7 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlockExclu
     /// </summary>
     public TerraformValue<string>? DataType
     {
-        get => new TerraformReference<string>(this, "data_type");
+        get => GetArgument<TerraformValue<string>>("data_type");
         set => SetArgument("data_type", value);
     }
 
@@ -2356,57 +2318,43 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlockExclu
     /// Column encoding.
     /// </summary>
     public TerraformValue<string> Encoding
-    {
-        get => new TerraformReference<string>(this, "encoding");
-    }
+        => AsReference("encoding");
 
     /// <summary>
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-    {
-        get => new TerraformReference<double>(this, "length");
-    }
+        => AsReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
     /// </summary>
     public TerraformValue<bool> Nullable
-    {
-        get => new TerraformReference<bool>(this, "nullable");
-    }
+        => AsReference("nullable");
 
     /// <summary>
     /// The ordinal position of the column in the table.
     /// </summary>
     public TerraformValue<double> OrdinalPosition
-    {
-        get => new TerraformReference<double>(this, "ordinal_position");
-    }
+        => AsReference("ordinal_position");
 
     /// <summary>
     /// Column precision.
     /// </summary>
     public TerraformValue<double> Precision
-    {
-        get => new TerraformReference<double>(this, "precision");
-    }
+        => AsReference("precision");
 
     /// <summary>
     /// Whether or not the column represents a primary key.
     /// </summary>
     public TerraformValue<bool> PrimaryKey
-    {
-        get => new TerraformReference<bool>(this, "primary_key");
-    }
+        => AsReference("primary_key");
 
     /// <summary>
     /// Column scale.
     /// </summary>
     public TerraformValue<double> Scale
-    {
-        get => new TerraformReference<double>(this, "scale");
-    }
+        => AsReference("scale");
 
 }
 
@@ -2452,7 +2400,7 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlockInclu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => new TerraformReference<string>(this, "schema");
+        get => GetArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -2484,7 +2432,7 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlockInclu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -2515,7 +2463,7 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlockInclu
     /// </summary>
     public TerraformValue<string>? Column
     {
-        get => new TerraformReference<string>(this, "column");
+        get => GetArgument<TerraformValue<string>>("column");
         set => SetArgument("column", value);
     }
 
@@ -2525,7 +2473,7 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlockInclu
     /// </summary>
     public TerraformValue<string>? DataType
     {
-        get => new TerraformReference<string>(this, "data_type");
+        get => GetArgument<TerraformValue<string>>("data_type");
         set => SetArgument("data_type", value);
     }
 
@@ -2533,57 +2481,43 @@ public class GoogleDatastreamStreamSourceConfigBlockOracleSourceConfigBlockInclu
     /// Column encoding.
     /// </summary>
     public TerraformValue<string> Encoding
-    {
-        get => new TerraformReference<string>(this, "encoding");
-    }
+        => AsReference("encoding");
 
     /// <summary>
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-    {
-        get => new TerraformReference<double>(this, "length");
-    }
+        => AsReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
     /// </summary>
     public TerraformValue<bool> Nullable
-    {
-        get => new TerraformReference<bool>(this, "nullable");
-    }
+        => AsReference("nullable");
 
     /// <summary>
     /// The ordinal position of the column in the table.
     /// </summary>
     public TerraformValue<double> OrdinalPosition
-    {
-        get => new TerraformReference<double>(this, "ordinal_position");
-    }
+        => AsReference("ordinal_position");
 
     /// <summary>
     /// Column precision.
     /// </summary>
     public TerraformValue<double> Precision
-    {
-        get => new TerraformReference<double>(this, "precision");
-    }
+        => AsReference("precision");
 
     /// <summary>
     /// Whether or not the column represents a primary key.
     /// </summary>
     public TerraformValue<bool> PrimaryKey
-    {
-        get => new TerraformReference<bool>(this, "primary_key");
-    }
+        => AsReference("primary_key");
 
     /// <summary>
     /// Column scale.
     /// </summary>
     public TerraformValue<double> Scale
-    {
-        get => new TerraformReference<double>(this, "scale");
-    }
+        => AsReference("scale");
 
 }
 
@@ -2615,9 +2549,9 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlock 
     /// Maximum number of concurrent backfill tasks. The number should be non
     /// negative. If not set (or set to 0), the system&#39;s default value will be used.
     /// </summary>
-    public TerraformValue<double> MaxConcurrentBackfillTasks
+    public TerraformValue<double>? MaxConcurrentBackfillTasks
     {
-        get => new TerraformReference<double>(this, "max_concurrent_backfill_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_backfill_tasks");
         set => SetArgument("max_concurrent_backfill_tasks", value);
     }
 
@@ -2628,7 +2562,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publication is required")]
     public required TerraformValue<string> Publication
     {
-        get => new TerraformReference<string>(this, "publication");
+        get => GetArgument<TerraformValue<string>>("publication");
         set => SetArgument("publication", value);
     }
 
@@ -2639,7 +2573,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationSlot is required")]
     public required TerraformValue<string> ReplicationSlot
     {
-        get => new TerraformReference<string>(this, "replication_slot");
+        get => GetArgument<TerraformValue<string>>("replication_slot");
         set => SetArgument("replication_slot", value);
     }
 
@@ -2707,7 +2641,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockE
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => new TerraformReference<string>(this, "schema");
+        get => GetArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -2739,7 +2673,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockE
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -2770,7 +2704,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockE
     /// </summary>
     public TerraformValue<string>? Column
     {
-        get => new TerraformReference<string>(this, "column");
+        get => GetArgument<TerraformValue<string>>("column");
         set => SetArgument("column", value);
     }
 
@@ -2780,7 +2714,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockE
     /// </summary>
     public TerraformValue<string>? DataType
     {
-        get => new TerraformReference<string>(this, "data_type");
+        get => GetArgument<TerraformValue<string>>("data_type");
         set => SetArgument("data_type", value);
     }
 
@@ -2788,16 +2722,14 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockE
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-    {
-        get => new TerraformReference<double>(this, "length");
-    }
+        => AsReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
     /// </summary>
     public TerraformValue<bool>? Nullable
     {
-        get => new TerraformReference<bool>(this, "nullable");
+        get => GetArgument<TerraformValue<bool>>("nullable");
         set => SetArgument("nullable", value);
     }
 
@@ -2806,7 +2738,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockE
     /// </summary>
     public TerraformValue<double>? OrdinalPosition
     {
-        get => new TerraformReference<double>(this, "ordinal_position");
+        get => GetArgument<TerraformValue<double>>("ordinal_position");
         set => SetArgument("ordinal_position", value);
     }
 
@@ -2814,16 +2746,14 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockE
     /// Column precision.
     /// </summary>
     public TerraformValue<double> Precision
-    {
-        get => new TerraformReference<double>(this, "precision");
-    }
+        => AsReference("precision");
 
     /// <summary>
     /// Whether or not the column represents a primary key.
     /// </summary>
     public TerraformValue<bool>? PrimaryKey
     {
-        get => new TerraformReference<bool>(this, "primary_key");
+        get => GetArgument<TerraformValue<bool>>("primary_key");
         set => SetArgument("primary_key", value);
     }
 
@@ -2831,9 +2761,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockE
     /// Column scale.
     /// </summary>
     public TerraformValue<double> Scale
-    {
-        get => new TerraformReference<double>(this, "scale");
-    }
+        => AsReference("scale");
 
 }
 
@@ -2879,7 +2807,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => new TerraformReference<string>(this, "schema");
+        get => GetArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -2911,7 +2839,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -2942,7 +2870,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockI
     /// </summary>
     public TerraformValue<string>? Column
     {
-        get => new TerraformReference<string>(this, "column");
+        get => GetArgument<TerraformValue<string>>("column");
         set => SetArgument("column", value);
     }
 
@@ -2952,7 +2880,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockI
     /// </summary>
     public TerraformValue<string>? DataType
     {
-        get => new TerraformReference<string>(this, "data_type");
+        get => GetArgument<TerraformValue<string>>("data_type");
         set => SetArgument("data_type", value);
     }
 
@@ -2960,16 +2888,14 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockI
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-    {
-        get => new TerraformReference<double>(this, "length");
-    }
+        => AsReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
     /// </summary>
     public TerraformValue<bool>? Nullable
     {
-        get => new TerraformReference<bool>(this, "nullable");
+        get => GetArgument<TerraformValue<bool>>("nullable");
         set => SetArgument("nullable", value);
     }
 
@@ -2978,7 +2904,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockI
     /// </summary>
     public TerraformValue<double>? OrdinalPosition
     {
-        get => new TerraformReference<double>(this, "ordinal_position");
+        get => GetArgument<TerraformValue<double>>("ordinal_position");
         set => SetArgument("ordinal_position", value);
     }
 
@@ -2986,16 +2912,14 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockI
     /// Column precision.
     /// </summary>
     public TerraformValue<double> Precision
-    {
-        get => new TerraformReference<double>(this, "precision");
-    }
+        => AsReference("precision");
 
     /// <summary>
     /// Whether or not the column represents a primary key.
     /// </summary>
     public TerraformValue<bool>? PrimaryKey
     {
-        get => new TerraformReference<bool>(this, "primary_key");
+        get => GetArgument<TerraformValue<bool>>("primary_key");
         set => SetArgument("primary_key", value);
     }
 
@@ -3003,9 +2927,7 @@ public class GoogleDatastreamStreamSourceConfigBlockPostgresqlSourceConfigBlockI
     /// Column scale.
     /// </summary>
     public TerraformValue<double> Scale
-    {
-        get => new TerraformReference<double>(this, "scale");
-    }
+        => AsReference("scale");
 
 }
 
@@ -3026,7 +2948,7 @@ public class GoogleDatastreamStreamSourceConfigBlockSalesforceSourceConfigBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PollingInterval is required")]
     public required TerraformValue<string> PollingInterval
     {
-        get => new TerraformReference<string>(this, "polling_interval");
+        get => GetArgument<TerraformValue<string>>("polling_interval");
         set => SetArgument("polling_interval", value);
     }
 
@@ -3093,7 +3015,7 @@ public class GoogleDatastreamStreamSourceConfigBlockSalesforceSourceConfigBlockE
     /// </summary>
     public TerraformValue<string>? ObjectName
     {
-        get => new TerraformReference<string>(this, "object_name");
+        get => GetArgument<TerraformValue<string>>("object_name");
         set => SetArgument("object_name", value);
     }
 
@@ -3124,7 +3046,7 @@ public class GoogleDatastreamStreamSourceConfigBlockSalesforceSourceConfigBlockE
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -3171,7 +3093,7 @@ public class GoogleDatastreamStreamSourceConfigBlockSalesforceSourceConfigBlockI
     /// </summary>
     public TerraformValue<string>? ObjectName
     {
-        get => new TerraformReference<string>(this, "object_name");
+        get => GetArgument<TerraformValue<string>>("object_name");
         set => SetArgument("object_name", value);
     }
 
@@ -3202,7 +3124,7 @@ public class GoogleDatastreamStreamSourceConfigBlockSalesforceSourceConfigBlockI
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -3222,18 +3144,18 @@ public class GoogleDatastreamStreamSourceConfigBlockSqlServerSourceConfigBlock :
     /// <summary>
     /// Max concurrent backfill tasks.
     /// </summary>
-    public TerraformValue<double> MaxConcurrentBackfillTasks
+    public TerraformValue<double>? MaxConcurrentBackfillTasks
     {
-        get => new TerraformReference<double>(this, "max_concurrent_backfill_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_backfill_tasks");
         set => SetArgument("max_concurrent_backfill_tasks", value);
     }
 
     /// <summary>
     /// Max concurrent CDC tasks.
     /// </summary>
-    public TerraformValue<double> MaxConcurrentCdcTasks
+    public TerraformValue<double>? MaxConcurrentCdcTasks
     {
-        get => new TerraformReference<double>(this, "max_concurrent_cdc_tasks");
+        get => GetArgument<TerraformValue<double>>("max_concurrent_cdc_tasks");
         set => SetArgument("max_concurrent_cdc_tasks", value);
     }
 
@@ -3334,7 +3256,7 @@ public class GoogleDatastreamStreamSourceConfigBlockSqlServerSourceConfigBlockEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => new TerraformReference<string>(this, "schema");
+        get => GetArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -3366,7 +3288,7 @@ public class GoogleDatastreamStreamSourceConfigBlockSqlServerSourceConfigBlockEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -3397,7 +3319,7 @@ public class GoogleDatastreamStreamSourceConfigBlockSqlServerSourceConfigBlockEx
     /// </summary>
     public TerraformValue<string>? Column
     {
-        get => new TerraformReference<string>(this, "column");
+        get => GetArgument<TerraformValue<string>>("column");
         set => SetArgument("column", value);
     }
 
@@ -3407,7 +3329,7 @@ public class GoogleDatastreamStreamSourceConfigBlockSqlServerSourceConfigBlockEx
     /// </summary>
     public TerraformValue<string>? DataType
     {
-        get => new TerraformReference<string>(this, "data_type");
+        get => GetArgument<TerraformValue<string>>("data_type");
         set => SetArgument("data_type", value);
     }
 
@@ -3415,49 +3337,37 @@ public class GoogleDatastreamStreamSourceConfigBlockSqlServerSourceConfigBlockEx
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-    {
-        get => new TerraformReference<double>(this, "length");
-    }
+        => AsReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
     /// </summary>
     public TerraformValue<bool> Nullable
-    {
-        get => new TerraformReference<bool>(this, "nullable");
-    }
+        => AsReference("nullable");
 
     /// <summary>
     /// The ordinal position of the column in the table.
     /// </summary>
     public TerraformValue<double> OrdinalPosition
-    {
-        get => new TerraformReference<double>(this, "ordinal_position");
-    }
+        => AsReference("ordinal_position");
 
     /// <summary>
     /// Column precision.
     /// </summary>
     public TerraformValue<double> Precision
-    {
-        get => new TerraformReference<double>(this, "precision");
-    }
+        => AsReference("precision");
 
     /// <summary>
     /// Whether or not the column represents a primary key.
     /// </summary>
     public TerraformValue<bool> PrimaryKey
-    {
-        get => new TerraformReference<bool>(this, "primary_key");
-    }
+        => AsReference("primary_key");
 
     /// <summary>
     /// Column scale.
     /// </summary>
     public TerraformValue<double> Scale
-    {
-        get => new TerraformReference<double>(this, "scale");
-    }
+        => AsReference("scale");
 
 }
 
@@ -3503,7 +3413,7 @@ public class GoogleDatastreamStreamSourceConfigBlockSqlServerSourceConfigBlockIn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => new TerraformReference<string>(this, "schema");
+        get => GetArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -3535,7 +3445,7 @@ public class GoogleDatastreamStreamSourceConfigBlockSqlServerSourceConfigBlockIn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -3566,7 +3476,7 @@ public class GoogleDatastreamStreamSourceConfigBlockSqlServerSourceConfigBlockIn
     /// </summary>
     public TerraformValue<string>? Column
     {
-        get => new TerraformReference<string>(this, "column");
+        get => GetArgument<TerraformValue<string>>("column");
         set => SetArgument("column", value);
     }
 
@@ -3576,7 +3486,7 @@ public class GoogleDatastreamStreamSourceConfigBlockSqlServerSourceConfigBlockIn
     /// </summary>
     public TerraformValue<string>? DataType
     {
-        get => new TerraformReference<string>(this, "data_type");
+        get => GetArgument<TerraformValue<string>>("data_type");
         set => SetArgument("data_type", value);
     }
 
@@ -3584,49 +3494,37 @@ public class GoogleDatastreamStreamSourceConfigBlockSqlServerSourceConfigBlockIn
     /// Column length.
     /// </summary>
     public TerraformValue<double> Length
-    {
-        get => new TerraformReference<double>(this, "length");
-    }
+        => AsReference("length");
 
     /// <summary>
     /// Whether or not the column can accept a null value.
     /// </summary>
     public TerraformValue<bool> Nullable
-    {
-        get => new TerraformReference<bool>(this, "nullable");
-    }
+        => AsReference("nullable");
 
     /// <summary>
     /// The ordinal position of the column in the table.
     /// </summary>
     public TerraformValue<double> OrdinalPosition
-    {
-        get => new TerraformReference<double>(this, "ordinal_position");
-    }
+        => AsReference("ordinal_position");
 
     /// <summary>
     /// Column precision.
     /// </summary>
     public TerraformValue<double> Precision
-    {
-        get => new TerraformReference<double>(this, "precision");
-    }
+        => AsReference("precision");
 
     /// <summary>
     /// Whether or not the column represents a primary key.
     /// </summary>
     public TerraformValue<bool> PrimaryKey
-    {
-        get => new TerraformReference<bool>(this, "primary_key");
-    }
+        => AsReference("primary_key");
 
     /// <summary>
     /// Column scale.
     /// </summary>
     public TerraformValue<double> Scale
-    {
-        get => new TerraformReference<double>(this, "scale");
-    }
+        => AsReference("scale");
 
 }
 
@@ -3660,7 +3558,7 @@ public class GoogleDatastreamStreamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -3669,7 +3567,7 @@ public class GoogleDatastreamStreamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -3678,7 +3576,7 @@ public class GoogleDatastreamStreamTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -3696,7 +3594,7 @@ public partial class GoogleDatastreamStream(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool>? CreateWithoutValidation
     {
-        get => new TerraformReference<bool>(this, "create_without_validation");
+        get => GetArgument<TerraformValue<bool>>("create_without_validation");
         set => SetArgument("create_without_validation", value);
     }
 
@@ -3706,7 +3604,7 @@ public partial class GoogleDatastreamStream(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? CustomerManagedEncryptionKey
     {
-        get => new TerraformReference<string>(this, "customer_managed_encryption_key");
+        get => GetArgument<TerraformValue<string>>("customer_managed_encryption_key");
         set => SetArgument("customer_managed_encryption_key", value);
     }
 
@@ -3718,7 +3616,7 @@ public partial class GoogleDatastreamStream(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? DesiredState
     {
-        get => new TerraformReference<string>(this, "desired_state");
+        get => GetArgument<TerraformValue<string>>("desired_state");
         set => SetArgument("desired_state", value);
     }
 
@@ -3728,16 +3626,16 @@ public partial class GoogleDatastreamStream(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -3749,7 +3647,7 @@ public partial class GoogleDatastreamStream(string name) : TerraformResource("go
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -3759,16 +3657,16 @@ public partial class GoogleDatastreamStream(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -3778,7 +3676,7 @@ public partial class GoogleDatastreamStream(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamId is required")]
     public required TerraformValue<string> StreamId
     {
-        get => new TerraformReference<string>(this, "stream_id");
+        get => GetArgument<TerraformValue<string>>("stream_id");
         set => SetArgument("stream_id", value);
     }
 
@@ -3786,34 +3684,26 @@ public partial class GoogleDatastreamStream(string name) : TerraformResource("go
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The stream&#39;s name.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The state of the stream.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// BackfillAll block (nesting mode: list).

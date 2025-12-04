@@ -22,7 +22,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public TerraformList<string>? IssueModels
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "issue_models").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("issue_models");
         set => SetArgument("issue_models", value);
     }
 
@@ -35,7 +35,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public TerraformList<string>? PhraseMatchers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "phrase_matchers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("phrase_matchers");
         set => SetArgument("phrase_matchers", value);
     }
 
@@ -44,7 +44,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public TerraformValue<bool>? RunEntityAnnotator
     {
-        get => new TerraformReference<bool>(this, "run_entity_annotator");
+        get => GetArgument<TerraformValue<bool>>("run_entity_annotator");
         set => SetArgument("run_entity_annotator", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public TerraformValue<bool>? RunIntentAnnotator
     {
-        get => new TerraformReference<bool>(this, "run_intent_annotator");
+        get => GetArgument<TerraformValue<bool>>("run_intent_annotator");
         set => SetArgument("run_intent_annotator", value);
     }
 
@@ -62,7 +62,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public TerraformValue<bool>? RunInterruptionAnnotator
     {
-        get => new TerraformReference<bool>(this, "run_interruption_annotator");
+        get => GetArgument<TerraformValue<bool>>("run_interruption_annotator");
         set => SetArgument("run_interruption_annotator", value);
     }
 
@@ -72,7 +72,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public TerraformValue<bool>? RunIssueModelAnnotator
     {
-        get => new TerraformReference<bool>(this, "run_issue_model_annotator");
+        get => GetArgument<TerraformValue<bool>>("run_issue_model_annotator");
         set => SetArgument("run_issue_model_annotator", value);
     }
 
@@ -81,7 +81,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public TerraformValue<bool>? RunPhraseMatcherAnnotator
     {
-        get => new TerraformReference<bool>(this, "run_phrase_matcher_annotator");
+        get => GetArgument<TerraformValue<bool>>("run_phrase_matcher_annotator");
         set => SetArgument("run_phrase_matcher_annotator", value);
     }
 
@@ -90,7 +90,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public TerraformValue<bool>? RunQaAnnotator
     {
-        get => new TerraformReference<bool>(this, "run_qa_annotator");
+        get => GetArgument<TerraformValue<bool>>("run_qa_annotator");
         set => SetArgument("run_qa_annotator", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public TerraformValue<bool>? RunSentimentAnnotator
     {
-        get => new TerraformReference<bool>(this, "run_sentiment_annotator");
+        get => GetArgument<TerraformValue<bool>>("run_sentiment_annotator");
         set => SetArgument("run_sentiment_annotator", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public TerraformValue<bool>? RunSilenceAnnotator
     {
-        get => new TerraformReference<bool>(this, "run_silence_annotator");
+        get => GetArgument<TerraformValue<bool>>("run_silence_annotator");
         set => SetArgument("run_silence_annotator", value);
     }
 
@@ -117,7 +117,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlock : Ter
     /// </summary>
     public TerraformValue<bool>? RunSummarizationAnnotator
     {
-        get => new TerraformReference<bool>(this, "run_summarization_annotator");
+        get => GetArgument<TerraformValue<bool>>("run_summarization_annotator");
         set => SetArgument("run_summarization_annotator", value);
     }
 
@@ -182,7 +182,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlockQaConf
     /// </summary>
     public TerraformList<string>? QaScorecardRevisions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "qa_scorecard_revisions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("qa_scorecard_revisions");
         set => SetArgument("qa_scorecard_revisions", value);
     }
 
@@ -206,7 +206,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlockSummar
     /// </summary>
     public TerraformValue<string>? ConversationProfile
     {
-        get => new TerraformReference<string>(this, "conversation_profile");
+        get => GetArgument<TerraformValue<string>>("conversation_profile");
         set => SetArgument("conversation_profile", value);
     }
 
@@ -219,7 +219,7 @@ public class GoogleContactCenterInsightsAnalysisRuleAnnotatorSelectorBlockSummar
     /// </summary>
     public TerraformValue<string>? SummarizationModel
     {
-        get => new TerraformReference<string>(this, "summarization_model");
+        get => GetArgument<TerraformValue<string>>("summarization_model");
         set => SetArgument("summarization_model", value);
     }
 
@@ -242,7 +242,7 @@ public class GoogleContactCenterInsightsAnalysisRuleTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -251,7 +251,7 @@ public class GoogleContactCenterInsightsAnalysisRuleTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -260,7 +260,7 @@ public class GoogleContactCenterInsightsAnalysisRuleTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -279,7 +279,7 @@ public partial class GoogleContactCenterInsightsAnalysisRule(string name) : Terr
     /// </summary>
     public TerraformValue<bool>? Active
     {
-        get => new TerraformReference<bool>(this, "active");
+        get => GetArgument<TerraformValue<bool>>("active");
         set => SetArgument("active", value);
     }
 
@@ -291,7 +291,7 @@ public partial class GoogleContactCenterInsightsAnalysisRule(string name) : Terr
     /// </summary>
     public TerraformValue<double>? AnalysisPercentage
     {
-        get => new TerraformReference<double>(this, "analysis_percentage");
+        get => GetArgument<TerraformValue<double>>("analysis_percentage");
         set => SetArgument("analysis_percentage", value);
     }
 
@@ -304,7 +304,7 @@ public partial class GoogleContactCenterInsightsAnalysisRule(string name) : Terr
     /// </summary>
     public TerraformValue<string>? ConversationFilter
     {
-        get => new TerraformReference<string>(this, "conversation_filter");
+        get => GetArgument<TerraformValue<string>>("conversation_filter");
         set => SetArgument("conversation_filter", value);
     }
 
@@ -313,16 +313,16 @@ public partial class GoogleContactCenterInsightsAnalysisRule(string name) : Terr
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -332,16 +332,16 @@ public partial class GoogleContactCenterInsightsAnalysisRule(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -349,25 +349,19 @@ public partial class GoogleContactCenterInsightsAnalysisRule(string name) : Terr
     /// Output only. The time at which this analysis rule was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The resource name of the analysis rule. Randomly generated by Insights.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. The most recent time at which this analysis rule was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// AnnotatorSelector block (nesting mode: list).

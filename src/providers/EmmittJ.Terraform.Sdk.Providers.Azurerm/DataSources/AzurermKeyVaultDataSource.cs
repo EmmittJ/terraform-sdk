@@ -18,7 +18,7 @@ public class AzurermKeyVaultDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermKeyVaultDataSource(string name) : TerraformDataSourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermKeyVaultDataSource(string name) : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermKeyVaultDataSource(string name) : TerraformDataSourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,114 +64,86 @@ public partial class AzurermKeyVaultDataSource(string name) : TerraformDataSourc
     /// The access_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AccessPolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "access_policy").ResolveNodes(ctx));
-    }
+        => AsReference("access_policy");
 
     /// <summary>
     /// The enable_rbac_authorization attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool> EnableRbacAuthorization
-    {
-        get => new TerraformReference<bool>(this, "enable_rbac_authorization");
-    }
+        => AsReference("enable_rbac_authorization");
 
     /// <summary>
     /// The enabled_for_deployment attribute.
     /// </summary>
     public TerraformValue<bool> EnabledForDeployment
-    {
-        get => new TerraformReference<bool>(this, "enabled_for_deployment");
-    }
+        => AsReference("enabled_for_deployment");
 
     /// <summary>
     /// The enabled_for_disk_encryption attribute.
     /// </summary>
     public TerraformValue<bool> EnabledForDiskEncryption
-    {
-        get => new TerraformReference<bool>(this, "enabled_for_disk_encryption");
-    }
+        => AsReference("enabled_for_disk_encryption");
 
     /// <summary>
     /// The enabled_for_template_deployment attribute.
     /// </summary>
     public TerraformValue<bool> EnabledForTemplateDeployment
-    {
-        get => new TerraformReference<bool>(this, "enabled_for_template_deployment");
-    }
+        => AsReference("enabled_for_template_deployment");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The network_acls attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkAcls
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "network_acls").ResolveNodes(ctx));
-    }
+        => AsReference("network_acls");
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PublicNetworkAccessEnabled
-    {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
-    }
+        => AsReference("public_network_access_enabled");
 
     /// <summary>
     /// The purge_protection_enabled attribute.
     /// </summary>
     public TerraformValue<bool> PurgeProtectionEnabled
-    {
-        get => new TerraformReference<bool>(this, "purge_protection_enabled");
-    }
+        => AsReference("purge_protection_enabled");
 
     /// <summary>
     /// The rbac_authorization_enabled attribute.
     /// </summary>
     public TerraformValue<bool> RbacAuthorizationEnabled
-    {
-        get => new TerraformReference<bool>(this, "rbac_authorization_enabled");
-    }
+        => AsReference("rbac_authorization_enabled");
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     public TerraformValue<string> SkuName
-    {
-        get => new TerraformReference<string>(this, "sku_name");
-    }
+        => AsReference("sku_name");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The vault_uri attribute.
     /// </summary>
     public TerraformValue<string> VaultUri
-    {
-        get => new TerraformReference<string>(this, "vault_uri");
-    }
+        => AsReference("vault_uri");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

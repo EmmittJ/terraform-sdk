@@ -52,7 +52,7 @@ public class AwsIdentitystoreUserDataSourceAlternateIdentifierBlockExternalIdBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsIdentitystoreUserDataSourceAlternateIdentifierBlockExternalIdBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformValue<string> Issuer
     {
-        get => new TerraformReference<string>(this, "issuer");
+        get => GetArgument<TerraformValue<string>>("issuer");
         set => SetArgument("issuer", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsIdentitystoreUserDataSourceAlternateIdentifierBlockUniqueAttribu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributePath is required")]
     public required TerraformValue<string> AttributePath
     {
-        get => new TerraformReference<string>(this, "attribute_path");
+        get => GetArgument<TerraformValue<string>>("attribute_path");
         set => SetArgument("attribute_path", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsIdentitystoreUserDataSourceAlternateIdentifierBlockUniqueAttribu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttributeValue is required")]
     public required TerraformValue<string> AttributeValue
     {
-        get => new TerraformReference<string>(this, "attribute_value");
+        get => GetArgument<TerraformValue<string>>("attribute_value");
         set => SetArgument("attribute_value", value);
     }
 
@@ -111,9 +111,9 @@ public partial class AwsIdentitystoreUserDataSource(string name) : TerraformData
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -123,25 +123,25 @@ public partial class AwsIdentitystoreUserDataSource(string name) : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityStoreId is required")]
     public required TerraformValue<string> IdentityStoreId
     {
-        get => new TerraformReference<string>(this, "identity_store_id");
+        get => GetArgument<TerraformValue<string>>("identity_store_id");
         set => SetArgument("identity_store_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
-    public TerraformValue<string> UserId
+    public TerraformValue<string>? UserId
     {
-        get => new TerraformReference<string>(this, "user_id");
+        get => GetArgument<TerraformValue<string>>("user_id");
         set => SetArgument("user_id", value);
     }
 
@@ -149,113 +149,85 @@ public partial class AwsIdentitystoreUserDataSource(string name) : TerraformData
     /// The addresses attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Addresses
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "addresses").ResolveNodes(ctx));
-    }
+        => AsReference("addresses");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The emails attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Emails
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "emails").ResolveNodes(ctx));
-    }
+        => AsReference("emails");
 
     /// <summary>
     /// The external_ids attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ExternalIds
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "external_ids").ResolveNodes(ctx));
-    }
+        => AsReference("external_ids");
 
     /// <summary>
     /// The locale attribute.
     /// </summary>
     public TerraformValue<string> Locale
-    {
-        get => new TerraformReference<string>(this, "locale");
-    }
+        => AsReference("locale");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Name
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "name").ResolveNodes(ctx));
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The nickname attribute.
     /// </summary>
     public TerraformValue<string> Nickname
-    {
-        get => new TerraformReference<string>(this, "nickname");
-    }
+        => AsReference("nickname");
 
     /// <summary>
     /// The phone_numbers attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PhoneNumbers
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "phone_numbers").ResolveNodes(ctx));
-    }
+        => AsReference("phone_numbers");
 
     /// <summary>
     /// The preferred_language attribute.
     /// </summary>
     public TerraformValue<string> PreferredLanguage
-    {
-        get => new TerraformReference<string>(this, "preferred_language");
-    }
+        => AsReference("preferred_language");
 
     /// <summary>
     /// The profile_url attribute.
     /// </summary>
     public TerraformValue<string> ProfileUrl
-    {
-        get => new TerraformReference<string>(this, "profile_url");
-    }
+        => AsReference("profile_url");
 
     /// <summary>
     /// The timezone attribute.
     /// </summary>
     public TerraformValue<string> Timezone
-    {
-        get => new TerraformReference<string>(this, "timezone");
-    }
+        => AsReference("timezone");
 
     /// <summary>
     /// The title attribute.
     /// </summary>
     public TerraformValue<string> Title
-    {
-        get => new TerraformReference<string>(this, "title");
-    }
+        => AsReference("title");
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
     public TerraformValue<string> UserName
-    {
-        get => new TerraformReference<string>(this, "user_name");
-    }
+        => AsReference("user_name");
 
     /// <summary>
     /// The user_type attribute.
     /// </summary>
     public TerraformValue<string> UserType
-    {
-        get => new TerraformReference<string>(this, "user_type");
-    }
+        => AsReference("user_type");
 
     /// <summary>
     /// AlternateIdentifier block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AzurermAutomationVariablesDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermAutomationVariablesDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
     public required TerraformValue<string> AutomationAccountId
     {
-        get => new TerraformReference<string>(this, "automation_account_id");
+        get => GetArgument<TerraformValue<string>>("automation_account_id");
         set => SetArgument("automation_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -54,57 +54,43 @@ public partial class AzurermAutomationVariablesDataSource(string name) : Terrafo
     /// The bool attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> BoolAttribute
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "bool").ResolveNodes(ctx));
-    }
+        => AsReference("bool");
 
     /// <summary>
     /// The datetime attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Datetime
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "datetime").ResolveNodes(ctx));
-    }
+        => AsReference("datetime");
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Encrypted
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "encrypted").ResolveNodes(ctx));
-    }
+        => AsReference("encrypted");
 
     /// <summary>
     /// The int attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IntAttribute
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "int").ResolveNodes(ctx));
-    }
+        => AsReference("int");
 
     /// <summary>
     /// The null attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NullAttribute
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "null").ResolveNodes(ctx));
-    }
+        => AsReference("null");
 
     /// <summary>
     /// The object attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ObjectAttribute
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "object").ResolveNodes(ctx));
-    }
+        => AsReference("object");
 
     /// <summary>
     /// The string attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StringAttribute
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "string").ResolveNodes(ctx));
-    }
+        => AsReference("string");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

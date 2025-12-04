@@ -18,7 +18,7 @@ public class AwsLexSlotTypeEnumerationValueBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Synonyms
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "synonyms").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("synonyms");
         set => SetArgument("synonyms", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsLexSlotTypeEnumerationValueBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsLexSlotTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsLexSlotTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsLexSlotTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -87,7 +87,7 @@ public partial class AwsLexSlotType(string name) : TerraformResource("aws_lex_sl
     /// </summary>
     public TerraformValue<bool>? CreateVersion
     {
-        get => new TerraformReference<bool>(this, "create_version");
+        get => GetArgument<TerraformValue<bool>>("create_version");
         set => SetArgument("create_version", value);
     }
 
@@ -96,16 +96,16 @@ public partial class AwsLexSlotType(string name) : TerraformResource("aws_lex_sl
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -115,16 +115,16 @@ public partial class AwsLexSlotType(string name) : TerraformResource("aws_lex_sl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AwsLexSlotType(string name) : TerraformResource("aws_lex_sl
     /// </summary>
     public TerraformValue<string>? ValueSelectionStrategy
     {
-        get => new TerraformReference<string>(this, "value_selection_strategy");
+        get => GetArgument<TerraformValue<string>>("value_selection_strategy");
         set => SetArgument("value_selection_strategy", value);
     }
 
@@ -141,33 +141,25 @@ public partial class AwsLexSlotType(string name) : TerraformResource("aws_lex_sl
     /// The checksum attribute.
     /// </summary>
     public TerraformValue<string> Checksum
-    {
-        get => new TerraformReference<string>(this, "checksum");
-    }
+        => AsReference("checksum");
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
     public TerraformValue<string> CreatedDate
-    {
-        get => new TerraformReference<string>(this, "created_date");
-    }
+        => AsReference("created_date");
 
     /// <summary>
     /// The last_updated_date attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedDate
-    {
-        get => new TerraformReference<string>(this, "last_updated_date");
-    }
+        => AsReference("last_updated_date");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
     /// <summary>
     /// EnumerationValue block (nesting mode: set).

@@ -11,9 +11,9 @@ public partial class GoogleComputeNetworkDataSource(string name) : TerraformData
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleComputeNetworkDataSource(string name) : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleComputeNetworkDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string>? NetworkProfile
     {
-        get => new TerraformReference<string>(this, "network_profile");
+        get => GetArgument<TerraformValue<string>>("network_profile");
         set => SetArgument("network_profile", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleComputeNetworkDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -49,57 +49,43 @@ public partial class GoogleComputeNetworkDataSource(string name) : TerraformData
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The gateway_ipv4 attribute.
     /// </summary>
     public TerraformValue<string> GatewayIpv4
-    {
-        get => new TerraformReference<string>(this, "gateway_ipv4");
-    }
+        => AsReference("gateway_ipv4");
 
     /// <summary>
     /// The internal_ipv6_range attribute.
     /// </summary>
     public TerraformValue<string> InternalIpv6Range
-    {
-        get => new TerraformReference<string>(this, "internal_ipv6_range");
-    }
+        => AsReference("internal_ipv6_range");
 
     /// <summary>
     /// The network_id attribute.
     /// </summary>
     public TerraformValue<double> NetworkId
-    {
-        get => new TerraformReference<double>(this, "network_id");
-    }
+        => AsReference("network_id");
 
     /// <summary>
     /// The numeric_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> NumericId
-    {
-        get => new TerraformReference<string>(this, "numeric_id");
-    }
+        => AsReference("numeric_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// The subnetworks_self_links attribute.
     /// </summary>
     public TerraformList<string> SubnetworksSelfLinks
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "subnetworks_self_links").ResolveNodes(ctx));
-    }
+        => AsReference("subnetworks_self_links");
 
 }

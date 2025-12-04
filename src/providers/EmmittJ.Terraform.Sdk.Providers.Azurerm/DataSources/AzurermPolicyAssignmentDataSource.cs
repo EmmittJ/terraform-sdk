@@ -18,7 +18,7 @@ public class AzurermPolicyAssignmentDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermPolicyAssignmentDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermPolicyAssignmentDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermPolicyAssignmentDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
     public required TerraformValue<string> ScopeId
     {
-        get => new TerraformReference<string>(this, "scope_id");
+        get => GetArgument<TerraformValue<string>>("scope_id");
         set => SetArgument("scope_id", value);
     }
 
@@ -64,81 +64,61 @@ public partial class AzurermPolicyAssignmentDataSource(string name) : TerraformD
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The enforce attribute.
     /// </summary>
     public TerraformValue<bool> Enforce
-    {
-        get => new TerraformReference<bool>(this, "enforce");
-    }
+        => AsReference("enforce");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
-    }
+        => AsReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     public TerraformValue<string> Metadata
-    {
-        get => new TerraformReference<string>(this, "metadata");
-    }
+        => AsReference("metadata");
 
     /// <summary>
     /// The non_compliance_message attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NonComplianceMessage
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "non_compliance_message").ResolveNodes(ctx));
-    }
+        => AsReference("non_compliance_message");
 
     /// <summary>
     /// The not_scopes attribute.
     /// </summary>
     public TerraformList<string> NotScopes
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "not_scopes").ResolveNodes(ctx));
-    }
+        => AsReference("not_scopes");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     public TerraformValue<string> Parameters
-    {
-        get => new TerraformReference<string>(this, "parameters");
-    }
+        => AsReference("parameters");
 
     /// <summary>
     /// The policy_definition_id attribute.
     /// </summary>
     public TerraformValue<string> PolicyDefinitionId
-    {
-        get => new TerraformReference<string>(this, "policy_definition_id");
-    }
+        => AsReference("policy_definition_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -19,7 +19,7 @@ public class AwsSesEventDestinationCloudwatchDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultValue is required")]
     public required TerraformValue<string> DefaultValue
     {
-        get => new TerraformReference<string>(this, "default_value");
+        get => GetArgument<TerraformValue<string>>("default_value");
         set => SetArgument("default_value", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsSesEventDestinationCloudwatchDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DimensionName is required")]
     public required TerraformValue<string> DimensionName
     {
-        get => new TerraformReference<string>(this, "dimension_name");
+        get => GetArgument<TerraformValue<string>>("dimension_name");
         set => SetArgument("dimension_name", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsSesEventDestinationCloudwatchDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueSource is required")]
     public required TerraformValue<string> ValueSource
     {
-        get => new TerraformReference<string>(this, "value_source");
+        get => GetArgument<TerraformValue<string>>("value_source");
         set => SetArgument("value_source", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsSesEventDestinationKinesisDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -73,7 +73,7 @@ public class AwsSesEventDestinationKinesisDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamArn is required")]
     public required TerraformValue<string> StreamArn
     {
-        get => new TerraformReference<string>(this, "stream_arn");
+        get => GetArgument<TerraformValue<string>>("stream_arn");
         set => SetArgument("stream_arn", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsSesEventDestinationSnsDestinationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicArn is required")]
     public required TerraformValue<string> TopicArn
     {
-        get => new TerraformReference<string>(this, "topic_arn");
+        get => GetArgument<TerraformValue<string>>("topic_arn");
         set => SetArgument("topic_arn", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AwsSesEventDestination(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationSetName is required")]
     public required TerraformValue<string> ConfigurationSetName
     {
-        get => new TerraformReference<string>(this, "configuration_set_name");
+        get => GetArgument<TerraformValue<string>>("configuration_set_name");
         set => SetArgument("configuration_set_name", value);
     }
 
@@ -125,16 +125,16 @@ public partial class AwsSesEventDestination(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AwsSesEventDestination(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchingTypes is required")]
     public required TerraformSet<string> MatchingTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "matching_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("matching_types");
         set => SetArgument("matching_types", value);
     }
 
@@ -154,16 +154,16 @@ public partial class AwsSesEventDestination(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -171,9 +171,7 @@ public partial class AwsSesEventDestination(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// CloudwatchDestination block (nesting mode: set).

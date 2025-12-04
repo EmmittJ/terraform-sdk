@@ -18,7 +18,7 @@ public class AwsCloudwatchMetricAlarmMetricQueryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsCloudwatchMetricAlarmMetricQueryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsCloudwatchMetricAlarmMetricQueryBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsCloudwatchMetricAlarmMetricQueryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Label
     {
-        get => new TerraformReference<string>(this, "label");
+        get => GetArgument<TerraformValue<string>>("label");
         set => SetArgument("label", value);
     }
 
@@ -55,7 +55,7 @@ public class AwsCloudwatchMetricAlarmMetricQueryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Period
     {
-        get => new TerraformReference<double>(this, "period");
+        get => GetArgument<TerraformValue<double>>("period");
         set => SetArgument("period", value);
     }
 
@@ -64,7 +64,7 @@ public class AwsCloudwatchMetricAlarmMetricQueryBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ReturnData
     {
-        get => new TerraformReference<bool>(this, "return_data");
+        get => GetArgument<TerraformValue<bool>>("return_data");
         set => SetArgument("return_data", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsCloudwatchMetricAlarmMetricQueryBlockMetricBlock : TerraformBloc
     /// </summary>
     public TerraformMap<string>? Dimensions
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "dimensions").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("dimensions");
         set => SetArgument("dimensions", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsCloudwatchMetricAlarmMetricQueryBlockMetricBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformValue<string> MetricName
     {
-        get => new TerraformReference<string>(this, "metric_name");
+        get => GetArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsCloudwatchMetricAlarmMetricQueryBlockMetricBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsCloudwatchMetricAlarmMetricQueryBlockMetricBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Period is required")]
     public required TerraformValue<double> Period
     {
-        get => new TerraformReference<double>(this, "period");
+        get => GetArgument<TerraformValue<double>>("period");
         set => SetArgument("period", value);
     }
 
@@ -135,7 +135,7 @@ public class AwsCloudwatchMetricAlarmMetricQueryBlockMetricBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stat is required")]
     public required TerraformValue<string> Stat
     {
-        get => new TerraformReference<string>(this, "stat");
+        get => GetArgument<TerraformValue<string>>("stat");
         set => SetArgument("stat", value);
     }
 
@@ -144,7 +144,7 @@ public class AwsCloudwatchMetricAlarmMetricQueryBlockMetricBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? ActionsEnabled
     {
-        get => new TerraformReference<bool>(this, "actions_enabled");
+        get => GetArgument<TerraformValue<bool>>("actions_enabled");
         set => SetArgument("actions_enabled", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// </summary>
     public TerraformSet<string>? AlarmActions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "alarm_actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("alarm_actions");
         set => SetArgument("alarm_actions", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? AlarmDescription
     {
-        get => new TerraformReference<string>(this, "alarm_description");
+        get => GetArgument<TerraformValue<string>>("alarm_description");
         set => SetArgument("alarm_description", value);
     }
 
@@ -190,7 +190,7 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmName is required")]
     public required TerraformValue<string> AlarmName
     {
-        get => new TerraformReference<string>(this, "alarm_name");
+        get => GetArgument<TerraformValue<string>>("alarm_name");
         set => SetArgument("alarm_name", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComparisonOperator is required")]
     public required TerraformValue<string> ComparisonOperator
     {
-        get => new TerraformReference<string>(this, "comparison_operator");
+        get => GetArgument<TerraformValue<string>>("comparison_operator");
         set => SetArgument("comparison_operator", value);
     }
 
@@ -209,7 +209,7 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double>? DatapointsToAlarm
     {
-        get => new TerraformReference<double>(this, "datapoints_to_alarm");
+        get => GetArgument<TerraformValue<double>>("datapoints_to_alarm");
         set => SetArgument("datapoints_to_alarm", value);
     }
 
@@ -218,16 +218,16 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Dimensions
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "dimensions").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("dimensions");
         set => SetArgument("dimensions", value);
     }
 
     /// <summary>
     /// The evaluate_low_sample_count_percentiles attribute.
     /// </summary>
-    public TerraformValue<string> EvaluateLowSampleCountPercentiles
+    public TerraformValue<string>? EvaluateLowSampleCountPercentiles
     {
-        get => new TerraformReference<string>(this, "evaluate_low_sample_count_percentiles");
+        get => GetArgument<TerraformValue<string>>("evaluate_low_sample_count_percentiles");
         set => SetArgument("evaluate_low_sample_count_percentiles", value);
     }
 
@@ -237,7 +237,7 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EvaluationPeriods is required")]
     public required TerraformValue<double> EvaluationPeriods
     {
-        get => new TerraformReference<double>(this, "evaluation_periods");
+        get => GetArgument<TerraformValue<double>>("evaluation_periods");
         set => SetArgument("evaluation_periods", value);
     }
 
@@ -246,16 +246,16 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? ExtendedStatistic
     {
-        get => new TerraformReference<string>(this, "extended_statistic");
+        get => GetArgument<TerraformValue<string>>("extended_statistic");
         set => SetArgument("extended_statistic", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -264,7 +264,7 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// </summary>
     public TerraformSet<string>? InsufficientDataActions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "insufficient_data_actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("insufficient_data_actions");
         set => SetArgument("insufficient_data_actions", value);
     }
 
@@ -273,7 +273,7 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? MetricName
     {
-        get => new TerraformReference<string>(this, "metric_name");
+        get => GetArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -282,7 +282,7 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -291,7 +291,7 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// </summary>
     public TerraformSet<string>? OkActions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ok_actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("ok_actions");
         set => SetArgument("ok_actions", value);
     }
 
@@ -300,16 +300,16 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double>? Period
     {
-        get => new TerraformReference<double>(this, "period");
+        get => GetArgument<TerraformValue<double>>("period");
         set => SetArgument("period", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -318,7 +318,7 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Statistic
     {
-        get => new TerraformReference<string>(this, "statistic");
+        get => GetArgument<TerraformValue<string>>("statistic");
         set => SetArgument("statistic", value);
     }
 
@@ -327,16 +327,16 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -345,7 +345,7 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<double>? Threshold
     {
-        get => new TerraformReference<double>(this, "threshold");
+        get => GetArgument<TerraformValue<double>>("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -354,7 +354,7 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? ThresholdMetricId
     {
-        get => new TerraformReference<string>(this, "threshold_metric_id");
+        get => GetArgument<TerraformValue<string>>("threshold_metric_id");
         set => SetArgument("threshold_metric_id", value);
     }
 
@@ -363,7 +363,7 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? TreatMissingData
     {
-        get => new TerraformReference<string>(this, "treat_missing_data");
+        get => GetArgument<TerraformValue<string>>("treat_missing_data");
         set => SetArgument("treat_missing_data", value);
     }
 
@@ -372,7 +372,7 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -380,9 +380,7 @@ public partial class AwsCloudwatchMetricAlarm(string name) : TerraformResource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// MetricQuery block (nesting mode: set).

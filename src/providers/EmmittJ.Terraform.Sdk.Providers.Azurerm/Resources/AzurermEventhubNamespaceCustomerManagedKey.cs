@@ -18,7 +18,7 @@ public class AzurermEventhubNamespaceCustomerManagedKeyTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermEventhubNamespaceCustomerManagedKeyTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermEventhubNamespaceCustomerManagedKeyTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermEventhubNamespaceCustomerManagedKeyTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AzurermEventhubNamespaceCustomerManagedKey(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubNamespaceId is required")]
     public required TerraformValue<string> EventhubNamespaceId
     {
-        get => new TerraformReference<string>(this, "eventhub_namespace_id");
+        get => GetArgument<TerraformValue<string>>("eventhub_namespace_id");
         set => SetArgument("eventhub_namespace_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermEventhubNamespaceCustomerManagedKey(string name) : T
     /// </summary>
     public TerraformValue<bool>? InfrastructureEncryptionEnabled
     {
-        get => new TerraformReference<bool>(this, "infrastructure_encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("infrastructure_encryption_enabled");
         set => SetArgument("infrastructure_encryption_enabled", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermEventhubNamespaceCustomerManagedKey(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyIds is required")]
     public required TerraformSet<string> KeyVaultKeyIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "key_vault_key_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("key_vault_key_ids");
         set => SetArgument("key_vault_key_ids", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermEventhubNamespaceCustomerManagedKey(string name) : T
     /// </summary>
     public TerraformValue<string>? UserAssignedIdentityId
     {
-        get => new TerraformReference<string>(this, "user_assigned_identity_id");
+        get => GetArgument<TerraformValue<string>>("user_assigned_identity_id");
         set => SetArgument("user_assigned_identity_id", value);
     }
 

@@ -19,7 +19,7 @@ public class AzurermPrivateLinkServiceNatIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermPrivateLinkServiceNatIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Primary is required")]
     public required TerraformValue<bool> Primary
     {
-        get => new TerraformReference<bool>(this, "primary");
+        get => GetArgument<TerraformValue<bool>>("primary");
         set => SetArgument("primary", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermPrivateLinkServiceNatIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PrivateIpAddress
     {
-        get => new TerraformReference<string>(this, "private_ip_address");
+        get => GetArgument<TerraformValue<string>>("private_ip_address");
         set => SetArgument("private_ip_address", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermPrivateLinkServiceNatIpConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PrivateIpAddressVersion
     {
-        get => new TerraformReference<string>(this, "private_ip_address_version");
+        get => GetArgument<TerraformValue<string>>("private_ip_address_version");
         set => SetArgument("private_ip_address_version", value);
     }
 
@@ -57,7 +57,7 @@ public class AzurermPrivateLinkServiceNatIpConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -80,7 +80,7 @@ public class AzurermPrivateLinkServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -89,7 +89,7 @@ public class AzurermPrivateLinkServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -98,7 +98,7 @@ public class AzurermPrivateLinkServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -107,7 +107,7 @@ public class AzurermPrivateLinkServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AzurermPrivateLinkService(string name) : TerraformResource(
     /// </summary>
     public TerraformSet<string>? AutoApprovalSubscriptionIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "auto_approval_subscription_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("auto_approval_subscription_ids");
         set => SetArgument("auto_approval_subscription_ids", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AzurermPrivateLinkService(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? DestinationIpAddress
     {
-        get => new TerraformReference<string>(this, "destination_ip_address");
+        get => GetArgument<TerraformValue<string>>("destination_ip_address");
         set => SetArgument("destination_ip_address", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AzurermPrivateLinkService(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? EnableProxyProtocol
     {
-        get => new TerraformReference<bool>(this, "enable_proxy_protocol");
+        get => GetArgument<TerraformValue<bool>>("enable_proxy_protocol");
         set => SetArgument("enable_proxy_protocol", value);
     }
 
@@ -152,16 +152,16 @@ public partial class AzurermPrivateLinkService(string name) : TerraformResource(
     /// </summary>
     public TerraformList<string>? Fqdns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "fqdns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("fqdns");
         set => SetArgument("fqdns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AzurermPrivateLinkService(string name) : TerraformResource(
     /// </summary>
     public TerraformSet<string>? LoadBalancerFrontendIpConfigurationIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "load_balancer_frontend_ip_configuration_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("load_balancer_frontend_ip_configuration_ids");
         set => SetArgument("load_balancer_frontend_ip_configuration_ids", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AzurermPrivateLinkService(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -190,7 +190,7 @@ public partial class AzurermPrivateLinkService(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AzurermPrivateLinkService(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -209,7 +209,7 @@ public partial class AzurermPrivateLinkService(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -218,7 +218,7 @@ public partial class AzurermPrivateLinkService(string name) : TerraformResource(
     /// </summary>
     public TerraformSet<string>? VisibilitySubscriptionIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "visibility_subscription_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("visibility_subscription_ids");
         set => SetArgument("visibility_subscription_ids", value);
     }
 
@@ -226,9 +226,7 @@ public partial class AzurermPrivateLinkService(string name) : TerraformResource(
     /// The alias attribute.
     /// </summary>
     public TerraformValue<string> Alias
-    {
-        get => new TerraformReference<string>(this, "alias");
-    }
+        => AsReference("alias");
 
     /// <summary>
     /// NatIpConfiguration block (nesting mode: list).

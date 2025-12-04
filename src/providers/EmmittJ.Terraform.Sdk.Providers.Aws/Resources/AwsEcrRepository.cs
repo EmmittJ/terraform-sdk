@@ -18,16 +18,16 @@ public class AwsEcrRepositoryEncryptionConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EncryptionType
     {
-        get => new TerraformReference<string>(this, "encryption_type");
+        get => GetArgument<TerraformValue<string>>("encryption_type");
         set => SetArgument("encryption_type", value);
     }
 
     /// <summary>
     /// The kms_key attribute.
     /// </summary>
-    public TerraformValue<string> KmsKey
+    public TerraformValue<string>? KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsEcrRepositoryImageScanningConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScanOnPush is required")]
     public required TerraformValue<bool> ScanOnPush
     {
-        get => new TerraformReference<bool>(this, "scan_on_push");
+        get => GetArgument<TerraformValue<bool>>("scan_on_push");
         set => SetArgument("scan_on_push", value);
     }
 
@@ -75,7 +75,7 @@ public class AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsEcrRepositoryImageTagMutabilityExclusionFilterBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterType is required")]
     public required TerraformValue<string> FilterType
     {
-        get => new TerraformReference<string>(this, "filter_type");
+        get => GetArgument<TerraformValue<string>>("filter_type");
         set => SetArgument("filter_type", value);
     }
 
@@ -108,7 +108,7 @@ public class AwsEcrRepositoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -126,16 +126,16 @@ public partial class AwsEcrRepository(string name) : TerraformResource("aws_ecr_
     /// </summary>
     public TerraformValue<bool>? ForceDelete
     {
-        get => new TerraformReference<bool>(this, "force_delete");
+        get => GetArgument<TerraformValue<bool>>("force_delete");
         set => SetArgument("force_delete", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AwsEcrRepository(string name) : TerraformResource("aws_ecr_
     /// </summary>
     public TerraformValue<string>? ImageTagMutability
     {
-        get => new TerraformReference<string>(this, "image_tag_mutability");
+        get => GetArgument<TerraformValue<string>>("image_tag_mutability");
         set => SetArgument("image_tag_mutability", value);
     }
 
@@ -154,16 +154,16 @@ public partial class AwsEcrRepository(string name) : TerraformResource("aws_ecr_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -172,16 +172,16 @@ public partial class AwsEcrRepository(string name) : TerraformResource("aws_ecr_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -189,25 +189,19 @@ public partial class AwsEcrRepository(string name) : TerraformResource("aws_ecr_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The registry_id attribute.
     /// </summary>
     public TerraformValue<string> RegistryId
-    {
-        get => new TerraformReference<string>(this, "registry_id");
-    }
+        => AsReference("registry_id");
 
     /// <summary>
     /// The repository_url attribute.
     /// </summary>
     public TerraformValue<string> RepositoryUrl
-    {
-        get => new TerraformReference<string>(this, "repository_url");
-    }
+        => AsReference("repository_url");
 
     /// <summary>
     /// EncryptionConfiguration block (nesting mode: list).

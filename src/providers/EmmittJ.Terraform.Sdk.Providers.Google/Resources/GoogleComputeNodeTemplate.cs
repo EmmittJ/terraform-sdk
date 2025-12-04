@@ -19,7 +19,7 @@ public class GoogleComputeNodeTemplateAcceleratorsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? AcceleratorCount
     {
-        get => new TerraformReference<double>(this, "accelerator_count");
+        get => GetArgument<TerraformValue<double>>("accelerator_count");
         set => SetArgument("accelerator_count", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleComputeNodeTemplateAcceleratorsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AcceleratorType
     {
-        get => new TerraformReference<string>(this, "accelerator_type");
+        get => GetArgument<TerraformValue<string>>("accelerator_type");
         set => SetArgument("accelerator_type", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleComputeNodeTemplateDisksBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? DiskCount
     {
-        get => new TerraformReference<double>(this, "disk_count");
+        get => GetArgument<TerraformValue<double>>("disk_count");
         set => SetArgument("disk_count", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleComputeNodeTemplateDisksBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? DiskSizeGb
     {
-        get => new TerraformReference<double>(this, "disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleComputeNodeTemplateDisksBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DiskType
     {
-        get => new TerraformReference<string>(this, "disk_type");
+        get => GetArgument<TerraformValue<string>>("disk_type");
         set => SetArgument("disk_type", value);
     }
 
@@ -93,7 +93,7 @@ public class GoogleComputeNodeTemplateNodeTypeFlexibilityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cpus
     {
-        get => new TerraformReference<string>(this, "cpus");
+        get => GetArgument<TerraformValue<string>>("cpus");
         set => SetArgument("cpus", value);
     }
 
@@ -101,16 +101,14 @@ public class GoogleComputeNodeTemplateNodeTypeFlexibilityBlock : TerraformBlock
     /// Use local SSD
     /// </summary>
     public TerraformValue<string> LocalSsd
-    {
-        get => new TerraformReference<string>(this, "local_ssd");
-    }
+        => AsReference("local_ssd");
 
     /// <summary>
     /// Physical memory available to the node, defined in MB.
     /// </summary>
     public TerraformValue<string>? Memory
     {
-        get => new TerraformReference<string>(this, "memory");
+        get => GetArgument<TerraformValue<string>>("memory");
         set => SetArgument("memory", value);
     }
 
@@ -145,7 +143,7 @@ public class GoogleComputeNodeTemplateServerBindingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -168,7 +166,7 @@ public class GoogleComputeNodeTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -177,7 +175,7 @@ public class GoogleComputeNodeTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -195,7 +193,7 @@ public partial class GoogleComputeNodeTemplate(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? CpuOvercommitType
     {
-        get => new TerraformReference<string>(this, "cpu_overcommit_type");
+        get => GetArgument<TerraformValue<string>>("cpu_overcommit_type");
         set => SetArgument("cpu_overcommit_type", value);
     }
 
@@ -204,16 +202,16 @@ public partial class GoogleComputeNodeTemplate(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -223,7 +221,7 @@ public partial class GoogleComputeNodeTemplate(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -233,7 +231,7 @@ public partial class GoogleComputeNodeTemplate(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? NodeAffinityLabels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "node_affinity_labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("node_affinity_labels");
         set => SetArgument("node_affinity_labels", value);
     }
 
@@ -243,16 +241,16 @@ public partial class GoogleComputeNodeTemplate(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? NodeType
     {
-        get => new TerraformReference<string>(this, "node_type");
+        get => GetArgument<TerraformValue<string>>("node_type");
         set => SetArgument("node_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -260,9 +258,9 @@ public partial class GoogleComputeNodeTemplate(string name) : TerraformResource(
     /// Region where nodes using the node template will be created.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -270,17 +268,13 @@ public partial class GoogleComputeNodeTemplate(string name) : TerraformResource(
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Accelerators block (nesting mode: list).

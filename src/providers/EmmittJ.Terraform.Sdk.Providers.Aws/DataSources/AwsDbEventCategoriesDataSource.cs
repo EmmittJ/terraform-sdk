@@ -11,18 +11,18 @@ public partial class AwsDbEventCategoriesDataSource(string name) : TerraformData
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsDbEventCategoriesDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string>? SourceType
     {
-        get => new TerraformReference<string>(this, "source_type");
+        get => GetArgument<TerraformValue<string>>("source_type");
         set => SetArgument("source_type", value);
     }
 
@@ -39,8 +39,6 @@ public partial class AwsDbEventCategoriesDataSource(string name) : TerraformData
     /// The event_categories attribute.
     /// </summary>
     public TerraformList<string> EventCategories
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "event_categories").ResolveNodes(ctx));
-    }
+        => AsReference("event_categories");
 
 }

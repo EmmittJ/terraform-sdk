@@ -23,7 +23,7 @@ public class GoogleContainerAttachedClusterAuthorizationBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AdminGroups
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "admin_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("admin_groups");
         set => SetArgument("admin_groups", value);
     }
 
@@ -37,7 +37,7 @@ public class GoogleContainerAttachedClusterAuthorizationBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AdminUsers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "admin_users").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("admin_users");
         set => SetArgument("admin_users", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleContainerAttachedClusterBinaryAuthorizationBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? EvaluationMode
     {
-        get => new TerraformReference<string>(this, "evaluation_mode");
+        get => GetArgument<TerraformValue<string>>("evaluation_mode");
         set => SetArgument("evaluation_mode", value);
     }
 
@@ -84,9 +84,7 @@ public class GoogleContainerAttachedClusterFleetBlock : TerraformBlock
     /// projects/&amp;lt;project-number&amp;gt;/locations/global/membership/&amp;lt;cluster-id&amp;gt;.
     /// </summary>
     public TerraformValue<string> Membership
-    {
-        get => new TerraformReference<string>(this, "membership");
-    }
+        => AsReference("membership");
 
     /// <summary>
     /// The number of the Fleet host project where this cluster will be registered.
@@ -94,7 +92,7 @@ public class GoogleContainerAttachedClusterFleetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformValue<string> Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -140,7 +138,7 @@ public class GoogleContainerAttachedClusterLoggingConfigBlockComponentConfigBloc
     /// </summary>
     public TerraformList<string>? EnableComponents
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "enable_components").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("enable_components");
         set => SetArgument("enable_components", value);
     }
 
@@ -186,7 +184,7 @@ public class GoogleContainerAttachedClusterMonitoringConfigBlockManagedPrometheu
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -210,7 +208,7 @@ public class GoogleContainerAttachedClusterOidcConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUrl is required")]
     public required TerraformValue<string> IssuerUrl
     {
-        get => new TerraformReference<string>(this, "issuer_url");
+        get => GetArgument<TerraformValue<string>>("issuer_url");
         set => SetArgument("issuer_url", value);
     }
 
@@ -219,7 +217,7 @@ public class GoogleContainerAttachedClusterOidcConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Jwks
     {
-        get => new TerraformReference<string>(this, "jwks");
+        get => GetArgument<TerraformValue<string>>("jwks");
         set => SetArgument("jwks", value);
     }
 
@@ -266,7 +264,7 @@ public class GoogleContainerAttachedClusterProxyConfigBlockKubernetesSecretBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -276,7 +274,7 @@ public class GoogleContainerAttachedClusterProxyConfigBlockKubernetesSecretBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceAttribute is required")]
     public required TerraformValue<string> NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -301,7 +299,7 @@ public class GoogleContainerAttachedClusterSecurityPostureConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VulnerabilityMode is required")]
     public required TerraformValue<string> VulnerabilityMode
     {
-        get => new TerraformReference<string>(this, "vulnerability_mode");
+        get => GetArgument<TerraformValue<string>>("vulnerability_mode");
         set => SetArgument("vulnerability_mode", value);
     }
 
@@ -324,7 +322,7 @@ public class GoogleContainerAttachedClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -333,7 +331,7 @@ public class GoogleContainerAttachedClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -342,7 +340,7 @@ public class GoogleContainerAttachedClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -369,7 +367,7 @@ public partial class GoogleContainerAttachedCluster(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -378,7 +376,7 @@ public partial class GoogleContainerAttachedCluster(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? DeletionPolicy
     {
-        get => new TerraformReference<string>(this, "deletion_policy");
+        get => GetArgument<TerraformValue<string>>("deletion_policy");
         set => SetArgument("deletion_policy", value);
     }
 
@@ -388,7 +386,7 @@ public partial class GoogleContainerAttachedCluster(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -400,16 +398,16 @@ public partial class GoogleContainerAttachedCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Distribution is required")]
     public required TerraformValue<string> Distribution
     {
-        get => new TerraformReference<string>(this, "distribution");
+        get => GetArgument<TerraformValue<string>>("distribution");
         set => SetArgument("distribution", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -419,7 +417,7 @@ public partial class GoogleContainerAttachedCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -429,7 +427,7 @@ public partial class GoogleContainerAttachedCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -439,16 +437,16 @@ public partial class GoogleContainerAttachedCluster(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformVersion is required")]
     public required TerraformValue<string> PlatformVersion
     {
-        get => new TerraformReference<string>(this, "platform_version");
+        get => GetArgument<TerraformValue<string>>("platform_version");
         set => SetArgument("platform_version", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -459,49 +457,37 @@ public partial class GoogleContainerAttachedCluster(string name) : TerraformReso
     /// this is an Azure region.
     /// </summary>
     public TerraformValue<string> ClusterRegion
-    {
-        get => new TerraformReference<string>(this, "cluster_region");
-    }
+        => AsReference("cluster_region");
 
     /// <summary>
     /// Output only. The time at which this cluster was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// A set of errors found in the cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> Errors
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "errors").ResolveNodes(ctx));
-    }
+        => AsReference("errors");
 
     /// <summary>
     /// The Kubernetes version of the cluster.
     /// </summary>
     public TerraformValue<string> KubernetesVersion
-    {
-        get => new TerraformReference<string>(this, "kubernetes_version");
-    }
+        => AsReference("kubernetes_version");
 
     /// <summary>
     /// If set, there are currently changes in flight to the cluster.
     /// </summary>
     public TerraformValue<bool> Reconciling
-    {
-        get => new TerraformReference<bool>(this, "reconciling");
-    }
+        => AsReference("reconciling");
 
     /// <summary>
     /// The current state of the cluster. Possible values:
@@ -509,33 +495,25 @@ public partial class GoogleContainerAttachedCluster(string name) : TerraformReso
     /// DEGRADED
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// A globally unique identifier for the cluster.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// The time at which this cluster was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Workload Identity settings.
     /// </summary>
     public TerraformList<TerraformMap<object>> WorkloadIdentityConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "workload_identity_config").ResolveNodes(ctx));
-    }
+        => AsReference("workload_identity_config");
 
     /// <summary>
     /// Authorization block (nesting mode: list).

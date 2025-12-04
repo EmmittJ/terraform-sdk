@@ -18,7 +18,7 @@ public class AzurermBackupProtectedFileShareTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermBackupProtectedFileShareTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermBackupProtectedFileShareTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermBackupProtectedFileShareTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AzurermBackupProtectedFileShare(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPolicyId is required")]
     public required TerraformValue<string> BackupPolicyId
     {
-        get => new TerraformReference<string>(this, "backup_policy_id");
+        get => GetArgument<TerraformValue<string>>("backup_policy_id");
         set => SetArgument("backup_policy_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermBackupProtectedFileShare(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
     public required TerraformValue<string> RecoveryVaultName
     {
-        get => new TerraformReference<string>(this, "recovery_vault_name");
+        get => GetArgument<TerraformValue<string>>("recovery_vault_name");
         set => SetArgument("recovery_vault_name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermBackupProtectedFileShare(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -103,7 +103,7 @@ public partial class AzurermBackupProtectedFileShare(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceFileShareName is required")]
     public required TerraformValue<string> SourceFileShareName
     {
-        get => new TerraformReference<string>(this, "source_file_share_name");
+        get => GetArgument<TerraformValue<string>>("source_file_share_name");
         set => SetArgument("source_file_share_name", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermBackupProtectedFileShare(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceStorageAccountId is required")]
     public required TerraformValue<string> SourceStorageAccountId
     {
-        get => new TerraformReference<string>(this, "source_storage_account_id");
+        get => GetArgument<TerraformValue<string>>("source_storage_account_id");
         set => SetArgument("source_storage_account_id", value);
     }
 

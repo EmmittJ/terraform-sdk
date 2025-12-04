@@ -18,7 +18,7 @@ public class AwsAppsyncResolverCachingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? CachingKeys
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "caching_keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("caching_keys");
         set => SetArgument("caching_keys", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsAppsyncResolverCachingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Ttl
     {
-        get => new TerraformReference<double>(this, "ttl");
+        get => GetArgument<TerraformValue<double>>("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsAppsyncResolverPipelineConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Functions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "functions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("functions");
         set => SetArgument("functions", value);
     }
 
@@ -74,7 +74,7 @@ public class AwsAppsyncResolverRuntimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -84,7 +84,7 @@ public class AwsAppsyncResolverRuntimeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeVersion is required")]
     public required TerraformValue<string> RuntimeVersion
     {
-        get => new TerraformReference<string>(this, "runtime_version");
+        get => GetArgument<TerraformValue<string>>("runtime_version");
         set => SetArgument("runtime_version", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsAppsyncResolverSyncConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConflictDetection
     {
-        get => new TerraformReference<string>(this, "conflict_detection");
+        get => GetArgument<TerraformValue<string>>("conflict_detection");
         set => SetArgument("conflict_detection", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsAppsyncResolverSyncConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConflictHandler
     {
-        get => new TerraformReference<string>(this, "conflict_handler");
+        get => GetArgument<TerraformValue<string>>("conflict_handler");
         set => SetArgument("conflict_handler", value);
     }
 
@@ -148,7 +148,7 @@ public class AwsAppsyncResolverSyncConfigBlockLambdaConflictHandlerConfigBlock :
     /// </summary>
     public TerraformValue<string>? LambdaConflictHandlerArn
     {
-        get => new TerraformReference<string>(this, "lambda_conflict_handler_arn");
+        get => GetArgument<TerraformValue<string>>("lambda_conflict_handler_arn");
         set => SetArgument("lambda_conflict_handler_arn", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AwsAppsyncResolver(string name) : TerraformResource("aws_ap
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformValue<string> ApiId
     {
-        get => new TerraformReference<string>(this, "api_id");
+        get => GetArgument<TerraformValue<string>>("api_id");
         set => SetArgument("api_id", value);
     }
 
@@ -176,7 +176,7 @@ public partial class AwsAppsyncResolver(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string>? Code
     {
-        get => new TerraformReference<string>(this, "code");
+        get => GetArgument<TerraformValue<string>>("code");
         set => SetArgument("code", value);
     }
 
@@ -185,7 +185,7 @@ public partial class AwsAppsyncResolver(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string>? DataSource
     {
-        get => new TerraformReference<string>(this, "data_source");
+        get => GetArgument<TerraformValue<string>>("data_source");
         set => SetArgument("data_source", value);
     }
 
@@ -195,16 +195,16 @@ public partial class AwsAppsyncResolver(string name) : TerraformResource("aws_ap
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
     public required TerraformValue<string> Field
     {
-        get => new TerraformReference<string>(this, "field");
+        get => GetArgument<TerraformValue<string>>("field");
         set => SetArgument("field", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -213,7 +213,7 @@ public partial class AwsAppsyncResolver(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string>? Kind
     {
-        get => new TerraformReference<string>(this, "kind");
+        get => GetArgument<TerraformValue<string>>("kind");
         set => SetArgument("kind", value);
     }
 
@@ -222,16 +222,16 @@ public partial class AwsAppsyncResolver(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<double>? MaxBatchSize
     {
-        get => new TerraformReference<double>(this, "max_batch_size");
+        get => GetArgument<TerraformValue<double>>("max_batch_size");
         set => SetArgument("max_batch_size", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -240,7 +240,7 @@ public partial class AwsAppsyncResolver(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string>? RequestTemplate
     {
-        get => new TerraformReference<string>(this, "request_template");
+        get => GetArgument<TerraformValue<string>>("request_template");
         set => SetArgument("request_template", value);
     }
 
@@ -249,7 +249,7 @@ public partial class AwsAppsyncResolver(string name) : TerraformResource("aws_ap
     /// </summary>
     public TerraformValue<string>? ResponseTemplate
     {
-        get => new TerraformReference<string>(this, "response_template");
+        get => GetArgument<TerraformValue<string>>("response_template");
         set => SetArgument("response_template", value);
     }
 
@@ -259,7 +259,7 @@ public partial class AwsAppsyncResolver(string name) : TerraformResource("aws_ap
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -267,9 +267,7 @@ public partial class AwsAppsyncResolver(string name) : TerraformResource("aws_ap
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// CachingConfig block (nesting mode: list).

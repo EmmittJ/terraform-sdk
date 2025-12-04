@@ -52,7 +52,7 @@ public class AwsMskconnectConnectorCapacityBlockAutoscalingBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxWorkerCount is required")]
     public required TerraformValue<double> MaxWorkerCount
     {
-        get => new TerraformReference<double>(this, "max_worker_count");
+        get => GetArgument<TerraformValue<double>>("max_worker_count");
         set => SetArgument("max_worker_count", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsMskconnectConnectorCapacityBlockAutoscalingBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double>? McuCount
     {
-        get => new TerraformReference<double>(this, "mcu_count");
+        get => GetArgument<TerraformValue<double>>("mcu_count");
         set => SetArgument("mcu_count", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsMskconnectConnectorCapacityBlockAutoscalingBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinWorkerCount is required")]
     public required TerraformValue<double> MinWorkerCount
     {
-        get => new TerraformReference<double>(this, "min_worker_count");
+        get => GetArgument<TerraformValue<double>>("min_worker_count");
         set => SetArgument("min_worker_count", value);
     }
 
@@ -111,9 +111,9 @@ public class AwsMskconnectConnectorCapacityBlockAutoscalingBlockScaleInPolicyBlo
     /// <summary>
     /// The cpu_utilization_percentage attribute.
     /// </summary>
-    public TerraformValue<double> CpuUtilizationPercentage
+    public TerraformValue<double>? CpuUtilizationPercentage
     {
-        get => new TerraformReference<double>(this, "cpu_utilization_percentage");
+        get => GetArgument<TerraformValue<double>>("cpu_utilization_percentage");
         set => SetArgument("cpu_utilization_percentage", value);
     }
 
@@ -133,9 +133,9 @@ public class AwsMskconnectConnectorCapacityBlockAutoscalingBlockScaleOutPolicyBl
     /// <summary>
     /// The cpu_utilization_percentage attribute.
     /// </summary>
-    public TerraformValue<double> CpuUtilizationPercentage
+    public TerraformValue<double>? CpuUtilizationPercentage
     {
-        get => new TerraformReference<double>(this, "cpu_utilization_percentage");
+        get => GetArgument<TerraformValue<double>>("cpu_utilization_percentage");
         set => SetArgument("cpu_utilization_percentage", value);
     }
 
@@ -157,7 +157,7 @@ public class AwsMskconnectConnectorCapacityBlockProvisionedCapacityBlock : Terra
     /// </summary>
     public TerraformValue<double>? McuCount
     {
-        get => new TerraformReference<double>(this, "mcu_count");
+        get => GetArgument<TerraformValue<double>>("mcu_count");
         set => SetArgument("mcu_count", value);
     }
 
@@ -167,7 +167,7 @@ public class AwsMskconnectConnectorCapacityBlockProvisionedCapacityBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkerCount is required")]
     public required TerraformValue<double> WorkerCount
     {
-        get => new TerraformReference<double>(this, "worker_count");
+        get => GetArgument<TerraformValue<double>>("worker_count");
         set => SetArgument("worker_count", value);
     }
 
@@ -217,7 +217,7 @@ public class AwsMskconnectConnectorKafkaClusterBlockApacheKafkaClusterBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BootstrapServers is required")]
     public required TerraformValue<string> BootstrapServers
     {
-        get => new TerraformReference<string>(this, "bootstrap_servers");
+        get => GetArgument<TerraformValue<string>>("bootstrap_servers");
         set => SetArgument("bootstrap_servers", value);
     }
 
@@ -253,7 +253,7 @@ public class AwsMskconnectConnectorKafkaClusterBlockApacheKafkaClusterBlockVpcBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroups is required")]
     public required TerraformSet<string> SecurityGroups
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_groups");
         set => SetArgument("security_groups", value);
     }
 
@@ -263,7 +263,7 @@ public class AwsMskconnectConnectorKafkaClusterBlockApacheKafkaClusterBlockVpcBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public required TerraformSet<string> Subnets
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnets").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -286,7 +286,7 @@ public class AwsMskconnectConnectorKafkaClusterClientAuthenticationBlock : Terra
     /// </summary>
     public TerraformValue<string>? AuthenticationType
     {
-        get => new TerraformReference<string>(this, "authentication_type");
+        get => GetArgument<TerraformValue<string>>("authentication_type");
         set => SetArgument("authentication_type", value);
     }
 
@@ -309,7 +309,7 @@ public class AwsMskconnectConnectorKafkaClusterEncryptionInTransitBlock : Terraf
     /// </summary>
     public TerraformValue<string>? EncryptionType
     {
-        get => new TerraformReference<string>(this, "encryption_type");
+        get => GetArgument<TerraformValue<string>>("encryption_type");
         set => SetArgument("encryption_type", value);
     }
 
@@ -402,7 +402,7 @@ public class AwsMskconnectConnectorLogDeliveryBlockWorkerLogDeliveryBlockCloudwa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -411,7 +411,7 @@ public class AwsMskconnectConnectorLogDeliveryBlockWorkerLogDeliveryBlockCloudwa
     /// </summary>
     public TerraformValue<string>? LogGroup
     {
-        get => new TerraformReference<string>(this, "log_group");
+        get => GetArgument<TerraformValue<string>>("log_group");
         set => SetArgument("log_group", value);
     }
 
@@ -433,7 +433,7 @@ public class AwsMskconnectConnectorLogDeliveryBlockWorkerLogDeliveryBlockFirehos
     /// </summary>
     public TerraformValue<string>? DeliveryStream
     {
-        get => new TerraformReference<string>(this, "delivery_stream");
+        get => GetArgument<TerraformValue<string>>("delivery_stream");
         set => SetArgument("delivery_stream", value);
     }
 
@@ -443,7 +443,7 @@ public class AwsMskconnectConnectorLogDeliveryBlockWorkerLogDeliveryBlockFirehos
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -465,7 +465,7 @@ public class AwsMskconnectConnectorLogDeliveryBlockWorkerLogDeliveryBlockS3Block
     /// </summary>
     public TerraformValue<string>? Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -475,7 +475,7 @@ public class AwsMskconnectConnectorLogDeliveryBlockWorkerLogDeliveryBlockS3Block
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -484,7 +484,7 @@ public class AwsMskconnectConnectorLogDeliveryBlockWorkerLogDeliveryBlockS3Block
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -534,7 +534,7 @@ public class AwsMskconnectConnectorPluginBlockCustomPluginBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -544,7 +544,7 @@ public class AwsMskconnectConnectorPluginBlockCustomPluginBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     public required TerraformValue<double> Revision
     {
-        get => new TerraformReference<double>(this, "revision");
+        get => GetArgument<TerraformValue<double>>("revision");
         set => SetArgument("revision", value);
     }
 
@@ -567,7 +567,7 @@ public class AwsMskconnectConnectorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -576,7 +576,7 @@ public class AwsMskconnectConnectorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -585,7 +585,7 @@ public class AwsMskconnectConnectorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -609,7 +609,7 @@ public class AwsMskconnectConnectorWorkerConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -619,7 +619,7 @@ public class AwsMskconnectConnectorWorkerConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
     public required TerraformValue<double> Revision
     {
-        get => new TerraformReference<double>(this, "revision");
+        get => GetArgument<TerraformValue<double>>("revision");
         set => SetArgument("revision", value);
     }
 
@@ -638,7 +638,7 @@ public partial class AwsMskconnectConnector(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorConfiguration is required")]
     public required TerraformMap<string> ConnectorConfiguration
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "connector_configuration").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("connector_configuration");
         set => SetArgument("connector_configuration", value);
     }
 
@@ -647,16 +647,16 @@ public partial class AwsMskconnectConnector(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -666,7 +666,7 @@ public partial class AwsMskconnectConnector(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KafkaconnectVersion is required")]
     public required TerraformValue<string> KafkaconnectVersion
     {
-        get => new TerraformReference<string>(this, "kafkaconnect_version");
+        get => GetArgument<TerraformValue<string>>("kafkaconnect_version");
         set => SetArgument("kafkaconnect_version", value);
     }
 
@@ -676,16 +676,16 @@ public partial class AwsMskconnectConnector(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -695,7 +695,7 @@ public partial class AwsMskconnectConnector(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceExecutionRoleArn is required")]
     public required TerraformValue<string> ServiceExecutionRoleArn
     {
-        get => new TerraformReference<string>(this, "service_execution_role_arn");
+        get => GetArgument<TerraformValue<string>>("service_execution_role_arn");
         set => SetArgument("service_execution_role_arn", value);
     }
 
@@ -704,16 +704,16 @@ public partial class AwsMskconnectConnector(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -721,17 +721,13 @@ public partial class AwsMskconnectConnector(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
     /// <summary>
     /// Capacity block (nesting mode: list).

@@ -18,7 +18,7 @@ public class AzurermIotSecurityDeviceGroupAllowRuleBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ConnectionFromIpsNotAllowed
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "connection_from_ips_not_allowed").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("connection_from_ips_not_allowed");
         set => SetArgument("connection_from_ips_not_allowed", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermIotSecurityDeviceGroupAllowRuleBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ConnectionToIpsNotAllowed
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "connection_to_ips_not_allowed").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("connection_to_ips_not_allowed");
         set => SetArgument("connection_to_ips_not_allowed", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermIotSecurityDeviceGroupAllowRuleBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? LocalUsersNotAllowed
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "local_users_not_allowed").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("local_users_not_allowed");
         set => SetArgument("local_users_not_allowed", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermIotSecurityDeviceGroupAllowRuleBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ProcessesNotAllowed
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "processes_not_allowed").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("processes_not_allowed");
         set => SetArgument("processes_not_allowed", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<string> Duration
     {
-        get => new TerraformReference<string>(this, "duration");
+        get => GetArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Max is required")]
     public required TerraformValue<double> Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -89,7 +89,7 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Min is required")]
     public required TerraformValue<double> Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -99,7 +99,7 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermIotSecurityDeviceGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermIotSecurityDeviceGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermIotSecurityDeviceGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -149,7 +149,7 @@ public class AzurermIotSecurityDeviceGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -165,9 +165,9 @@ public partial class AzurermIotSecurityDeviceGroup(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AzurermIotSecurityDeviceGroup(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     public required TerraformValue<string> IothubId
     {
-        get => new TerraformReference<string>(this, "iothub_id");
+        get => GetArgument<TerraformValue<string>>("iothub_id");
         set => SetArgument("iothub_id", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AzurermIotSecurityDeviceGroup(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

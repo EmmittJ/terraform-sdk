@@ -19,7 +19,7 @@ public class GooglePrivatecaCertificateTemplateIdentityConstraintsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowSubjectAltNamesPassthrough is required")]
     public required TerraformValue<bool> AllowSubjectAltNamesPassthrough
     {
-        get => new TerraformReference<bool>(this, "allow_subject_alt_names_passthrough");
+        get => GetArgument<TerraformValue<bool>>("allow_subject_alt_names_passthrough");
         set => SetArgument("allow_subject_alt_names_passthrough", value);
     }
 
@@ -29,7 +29,7 @@ public class GooglePrivatecaCertificateTemplateIdentityConstraintsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowSubjectPassthrough is required")]
     public required TerraformValue<bool> AllowSubjectPassthrough
     {
-        get => new TerraformReference<bool>(this, "allow_subject_passthrough");
+        get => GetArgument<TerraformValue<bool>>("allow_subject_passthrough");
         set => SetArgument("allow_subject_passthrough", value);
     }
 
@@ -61,7 +61,7 @@ public class GooglePrivatecaCertificateTemplateIdentityConstraintsBlockCelExpres
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -70,7 +70,7 @@ public class GooglePrivatecaCertificateTemplateIdentityConstraintsBlockCelExpres
     /// </summary>
     public TerraformValue<string>? Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -79,7 +79,7 @@ public class GooglePrivatecaCertificateTemplateIdentityConstraintsBlockCelExpres
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -88,7 +88,7 @@ public class GooglePrivatecaCertificateTemplateIdentityConstraintsBlockCelExpres
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -111,7 +111,7 @@ public class GooglePrivatecaCertificateTemplatePassthroughExtensionsBlock : Terr
     /// </summary>
     public TerraformList<string>? KnownExtensions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "known_extensions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("known_extensions");
         set => SetArgument("known_extensions", value);
     }
 
@@ -143,7 +143,7 @@ public class GooglePrivatecaCertificateTemplatePassthroughExtensionsBlockAdditio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectIdPath is required")]
     public TerraformList<double>? ObjectIdPath
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "object_id_path").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("object_id_path");
         set => SetArgument("object_id_path", value);
     }
 
@@ -166,7 +166,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlock : Terraform
     /// </summary>
     public TerraformList<string>? AiaOcspServers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "aia_ocsp_servers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("aia_ocsp_servers");
         set => SetArgument("aia_ocsp_servers", value);
     }
 
@@ -236,7 +236,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockAdditionalEx
     /// </summary>
     public TerraformValue<bool>? Critical
     {
-        get => new TerraformReference<bool>(this, "critical");
+        get => GetArgument<TerraformValue<bool>>("critical");
         set => SetArgument("critical", value);
     }
 
@@ -246,7 +246,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockAdditionalEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -282,7 +282,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockAdditionalEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectIdPath is required")]
     public TerraformList<double>? ObjectIdPath
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "object_id_path").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("object_id_path");
         set => SetArgument("object_id_path", value);
     }
 
@@ -304,7 +304,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockCaOptionsBlo
     /// </summary>
     public TerraformValue<bool>? IsCa
     {
-        get => new TerraformReference<bool>(this, "is_ca");
+        get => GetArgument<TerraformValue<bool>>("is_ca");
         set => SetArgument("is_ca", value);
     }
 
@@ -314,7 +314,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockCaOptionsBlo
     /// </summary>
     public TerraformValue<double>? MaxIssuerPathLength
     {
-        get => new TerraformReference<double>(this, "max_issuer_path_length");
+        get => GetArgument<TerraformValue<double>>("max_issuer_path_length");
         set => SetArgument("max_issuer_path_length", value);
     }
 
@@ -325,7 +325,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockCaOptionsBlo
     /// </summary>
     public TerraformValue<bool>? NullCa
     {
-        get => new TerraformReference<bool>(this, "null_ca");
+        get => GetArgument<TerraformValue<bool>>("null_ca");
         set => SetArgument("null_ca", value);
     }
 
@@ -336,7 +336,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockCaOptionsBlo
     /// </summary>
     public TerraformValue<bool>? ZeroMaxIssuerPathLength
     {
-        get => new TerraformReference<bool>(this, "zero_max_issuer_path_length");
+        get => GetArgument<TerraformValue<bool>>("zero_max_issuer_path_length");
         set => SetArgument("zero_max_issuer_path_length", value);
     }
 
@@ -400,7 +400,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockKeyUsageBloc
     /// </summary>
     public TerraformValue<bool>? CertSign
     {
-        get => new TerraformReference<bool>(this, "cert_sign");
+        get => GetArgument<TerraformValue<bool>>("cert_sign");
         set => SetArgument("cert_sign", value);
     }
 
@@ -409,7 +409,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockKeyUsageBloc
     /// </summary>
     public TerraformValue<bool>? ContentCommitment
     {
-        get => new TerraformReference<bool>(this, "content_commitment");
+        get => GetArgument<TerraformValue<bool>>("content_commitment");
         set => SetArgument("content_commitment", value);
     }
 
@@ -418,7 +418,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockKeyUsageBloc
     /// </summary>
     public TerraformValue<bool>? CrlSign
     {
-        get => new TerraformReference<bool>(this, "crl_sign");
+        get => GetArgument<TerraformValue<bool>>("crl_sign");
         set => SetArgument("crl_sign", value);
     }
 
@@ -427,7 +427,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockKeyUsageBloc
     /// </summary>
     public TerraformValue<bool>? DataEncipherment
     {
-        get => new TerraformReference<bool>(this, "data_encipherment");
+        get => GetArgument<TerraformValue<bool>>("data_encipherment");
         set => SetArgument("data_encipherment", value);
     }
 
@@ -436,7 +436,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockKeyUsageBloc
     /// </summary>
     public TerraformValue<bool>? DecipherOnly
     {
-        get => new TerraformReference<bool>(this, "decipher_only");
+        get => GetArgument<TerraformValue<bool>>("decipher_only");
         set => SetArgument("decipher_only", value);
     }
 
@@ -445,7 +445,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockKeyUsageBloc
     /// </summary>
     public TerraformValue<bool>? DigitalSignature
     {
-        get => new TerraformReference<bool>(this, "digital_signature");
+        get => GetArgument<TerraformValue<bool>>("digital_signature");
         set => SetArgument("digital_signature", value);
     }
 
@@ -454,7 +454,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockKeyUsageBloc
     /// </summary>
     public TerraformValue<bool>? EncipherOnly
     {
-        get => new TerraformReference<bool>(this, "encipher_only");
+        get => GetArgument<TerraformValue<bool>>("encipher_only");
         set => SetArgument("encipher_only", value);
     }
 
@@ -463,7 +463,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockKeyUsageBloc
     /// </summary>
     public TerraformValue<bool>? KeyAgreement
     {
-        get => new TerraformReference<bool>(this, "key_agreement");
+        get => GetArgument<TerraformValue<bool>>("key_agreement");
         set => SetArgument("key_agreement", value);
     }
 
@@ -472,7 +472,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockKeyUsageBloc
     /// </summary>
     public TerraformValue<bool>? KeyEncipherment
     {
-        get => new TerraformReference<bool>(this, "key_encipherment");
+        get => GetArgument<TerraformValue<bool>>("key_encipherment");
         set => SetArgument("key_encipherment", value);
     }
 
@@ -494,7 +494,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockKeyUsageBloc
     /// </summary>
     public TerraformValue<bool>? ClientAuth
     {
-        get => new TerraformReference<bool>(this, "client_auth");
+        get => GetArgument<TerraformValue<bool>>("client_auth");
         set => SetArgument("client_auth", value);
     }
 
@@ -503,7 +503,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockKeyUsageBloc
     /// </summary>
     public TerraformValue<bool>? CodeSigning
     {
-        get => new TerraformReference<bool>(this, "code_signing");
+        get => GetArgument<TerraformValue<bool>>("code_signing");
         set => SetArgument("code_signing", value);
     }
 
@@ -512,7 +512,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockKeyUsageBloc
     /// </summary>
     public TerraformValue<bool>? EmailProtection
     {
-        get => new TerraformReference<bool>(this, "email_protection");
+        get => GetArgument<TerraformValue<bool>>("email_protection");
         set => SetArgument("email_protection", value);
     }
 
@@ -521,7 +521,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockKeyUsageBloc
     /// </summary>
     public TerraformValue<bool>? OcspSigning
     {
-        get => new TerraformReference<bool>(this, "ocsp_signing");
+        get => GetArgument<TerraformValue<bool>>("ocsp_signing");
         set => SetArgument("ocsp_signing", value);
     }
 
@@ -530,7 +530,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockKeyUsageBloc
     /// </summary>
     public TerraformValue<bool>? ServerAuth
     {
-        get => new TerraformReference<bool>(this, "server_auth");
+        get => GetArgument<TerraformValue<bool>>("server_auth");
         set => SetArgument("server_auth", value);
     }
 
@@ -539,7 +539,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockKeyUsageBloc
     /// </summary>
     public TerraformValue<bool>? TimeStamping
     {
-        get => new TerraformReference<bool>(this, "time_stamping");
+        get => GetArgument<TerraformValue<bool>>("time_stamping");
         set => SetArgument("time_stamping", value);
     }
 
@@ -562,7 +562,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockKeyUsageBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectIdPath is required")]
     public TerraformList<double>? ObjectIdPath
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "object_id_path").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("object_id_path");
         set => SetArgument("object_id_path", value);
     }
 
@@ -585,7 +585,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockNameConstrai
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Critical is required")]
     public required TerraformValue<bool> Critical
     {
-        get => new TerraformReference<bool>(this, "critical");
+        get => GetArgument<TerraformValue<bool>>("critical");
         set => SetArgument("critical", value);
     }
 
@@ -598,7 +598,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockNameConstrai
     /// </summary>
     public TerraformList<string>? ExcludedDnsNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_dns_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excluded_dns_names");
         set => SetArgument("excluded_dns_names", value);
     }
 
@@ -610,7 +610,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockNameConstrai
     /// </summary>
     public TerraformList<string>? ExcludedEmailAddresses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_email_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excluded_email_addresses");
         set => SetArgument("excluded_email_addresses", value);
     }
 
@@ -622,7 +622,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockNameConstrai
     /// </summary>
     public TerraformList<string>? ExcludedIpRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_ip_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excluded_ip_ranges");
         set => SetArgument("excluded_ip_ranges", value);
     }
 
@@ -633,7 +633,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockNameConstrai
     /// </summary>
     public TerraformList<string>? ExcludedUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excluded_uris");
         set => SetArgument("excluded_uris", value);
     }
 
@@ -646,7 +646,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockNameConstrai
     /// </summary>
     public TerraformList<string>? PermittedDnsNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "permitted_dns_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("permitted_dns_names");
         set => SetArgument("permitted_dns_names", value);
     }
 
@@ -658,7 +658,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockNameConstrai
     /// </summary>
     public TerraformList<string>? PermittedEmailAddresses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "permitted_email_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("permitted_email_addresses");
         set => SetArgument("permitted_email_addresses", value);
     }
 
@@ -670,7 +670,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockNameConstrai
     /// </summary>
     public TerraformList<string>? PermittedIpRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "permitted_ip_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("permitted_ip_ranges");
         set => SetArgument("permitted_ip_ranges", value);
     }
 
@@ -681,7 +681,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockNameConstrai
     /// </summary>
     public TerraformList<string>? PermittedUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "permitted_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("permitted_uris");
         set => SetArgument("permitted_uris", value);
     }
 
@@ -704,7 +704,7 @@ public class GooglePrivatecaCertificateTemplatePredefinedValuesBlockPolicyIdsBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectIdPath is required")]
     public TerraformList<double>? ObjectIdPath
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "object_id_path").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("object_id_path");
         set => SetArgument("object_id_path", value);
     }
 
@@ -727,7 +727,7 @@ public class GooglePrivatecaCertificateTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -736,7 +736,7 @@ public class GooglePrivatecaCertificateTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -745,7 +745,7 @@ public class GooglePrivatecaCertificateTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -763,16 +763,16 @@ public partial class GooglePrivatecaCertificateTemplate(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -784,7 +784,7 @@ public partial class GooglePrivatecaCertificateTemplate(string name) : Terraform
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -794,7 +794,7 @@ public partial class GooglePrivatecaCertificateTemplate(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -803,7 +803,7 @@ public partial class GooglePrivatecaCertificateTemplate(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? MaximumLifetime
     {
-        get => new TerraformReference<string>(this, "maximum_lifetime");
+        get => GetArgument<TerraformValue<string>>("maximum_lifetime");
         set => SetArgument("maximum_lifetime", value);
     }
 
@@ -813,16 +813,16 @@ public partial class GooglePrivatecaCertificateTemplate(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -830,34 +830,26 @@ public partial class GooglePrivatecaCertificateTemplate(string name) : Terraform
     /// Output only. The time at which this CertificateTemplate was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Output only. The time at which this CertificateTemplate was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// IdentityConstraints block (nesting mode: list).

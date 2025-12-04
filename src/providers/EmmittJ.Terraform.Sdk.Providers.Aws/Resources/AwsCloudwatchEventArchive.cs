@@ -13,7 +13,7 @@ public partial class AwsCloudwatchEventArchive(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsCloudwatchEventArchive(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? EventPattern
     {
-        get => new TerraformReference<string>(this, "event_pattern");
+        get => GetArgument<TerraformValue<string>>("event_pattern");
         set => SetArgument("event_pattern", value);
     }
 
@@ -32,16 +32,16 @@ public partial class AwsCloudwatchEventArchive(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventSourceArn is required")]
     public required TerraformValue<string> EventSourceArn
     {
-        get => new TerraformReference<string>(this, "event_source_arn");
+        get => GetArgument<TerraformValue<string>>("event_source_arn");
         set => SetArgument("event_source_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsCloudwatchEventArchive(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? KmsKeyIdentifier
     {
-        get => new TerraformReference<string>(this, "kms_key_identifier");
+        get => GetArgument<TerraformValue<string>>("kms_key_identifier");
         set => SetArgument("kms_key_identifier", value);
     }
 
@@ -60,16 +60,16 @@ public partial class AwsCloudwatchEventArchive(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -78,7 +78,7 @@ public partial class AwsCloudwatchEventArchive(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<double>? RetentionDays
     {
-        get => new TerraformReference<double>(this, "retention_days");
+        get => GetArgument<TerraformValue<double>>("retention_days");
         set => SetArgument("retention_days", value);
     }
 
@@ -86,8 +86,6 @@ public partial class AwsCloudwatchEventArchive(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

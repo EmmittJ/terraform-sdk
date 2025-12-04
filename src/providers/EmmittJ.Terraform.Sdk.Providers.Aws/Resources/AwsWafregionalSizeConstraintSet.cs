@@ -19,7 +19,7 @@ public class AwsWafregionalSizeConstraintSetSizeConstraintsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComparisonOperator is required")]
     public required TerraformValue<string> ComparisonOperator
     {
-        get => new TerraformReference<string>(this, "comparison_operator");
+        get => GetArgument<TerraformValue<string>>("comparison_operator");
         set => SetArgument("comparison_operator", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsWafregionalSizeConstraintSetSizeConstraintsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     public required TerraformValue<double> Size
     {
-        get => new TerraformReference<double>(this, "size");
+        get => GetArgument<TerraformValue<double>>("size");
         set => SetArgument("size", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsWafregionalSizeConstraintSetSizeConstraintsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
     public required TerraformValue<string> TextTransformation
     {
-        get => new TerraformReference<string>(this, "text_transformation");
+        get => GetArgument<TerraformValue<string>>("text_transformation");
         set => SetArgument("text_transformation", value);
     }
 
@@ -74,7 +74,7 @@ public class AwsWafregionalSizeConstraintSetSizeConstraintsBlockFieldToMatchBloc
     /// </summary>
     public TerraformValue<string>? Data
     {
-        get => new TerraformReference<string>(this, "data");
+        get => GetArgument<TerraformValue<string>>("data");
         set => SetArgument("data", value);
     }
 
@@ -84,7 +84,7 @@ public class AwsWafregionalSizeConstraintSetSizeConstraintsBlockFieldToMatchBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -100,9 +100,9 @@ public partial class AwsWafregionalSizeConstraintSet(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -112,16 +112,16 @@ public partial class AwsWafregionalSizeConstraintSet(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -129,9 +129,7 @@ public partial class AwsWafregionalSizeConstraintSet(string name) : TerraformRes
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// SizeConstraints block (nesting mode: set).

@@ -11,9 +11,9 @@ public partial class AwsOrganizationsOrganizationalUnitDataSource(string name) :
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsOrganizationsOrganizationalUnitDataSource(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsOrganizationsOrganizationalUnitDataSource(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentId is required")]
     public required TerraformValue<string> ParentId
     {
-        get => new TerraformReference<string>(this, "parent_id");
+        get => GetArgument<TerraformValue<string>>("parent_id");
         set => SetArgument("parent_id", value);
     }
 
@@ -41,8 +41,6 @@ public partial class AwsOrganizationsOrganizationalUnitDataSource(string name) :
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

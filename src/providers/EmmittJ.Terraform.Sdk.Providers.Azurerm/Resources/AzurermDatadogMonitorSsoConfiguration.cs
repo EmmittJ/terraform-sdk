@@ -18,7 +18,7 @@ public class AzurermDatadogMonitorSsoConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermDatadogMonitorSsoConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermDatadogMonitorSsoConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermDatadogMonitorSsoConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermDatadogMonitorSsoConfiguration(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatadogMonitorId is required")]
     public required TerraformValue<string> DatadogMonitorId
     {
-        get => new TerraformReference<string>(this, "datadog_monitor_id");
+        get => GetArgument<TerraformValue<string>>("datadog_monitor_id");
         set => SetArgument("datadog_monitor_id", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzurermDatadogMonitorSsoConfiguration(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnterpriseApplicationId is required")]
     public required TerraformValue<string> EnterpriseApplicationId
     {
-        get => new TerraformReference<string>(this, "enterprise_application_id");
+        get => GetArgument<TerraformValue<string>>("enterprise_application_id");
         set => SetArgument("enterprise_application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -92,16 +92,16 @@ public partial class AzurermDatadogMonitorSsoConfiguration(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The single_sign_on attribute.
     /// </summary>
-    public TerraformValue<string> SingleSignOn
+    public TerraformValue<string>? SingleSignOn
     {
-        get => new TerraformReference<string>(this, "single_sign_on");
+        get => GetArgument<TerraformValue<string>>("single_sign_on");
         set => SetArgument("single_sign_on", value);
     }
 
@@ -109,9 +109,9 @@ public partial class AzurermDatadogMonitorSsoConfiguration(string name) : Terraf
     /// The single_sign_on_enabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> SingleSignOnEnabled
+    public TerraformValue<string>? SingleSignOnEnabled
     {
-        get => new TerraformReference<string>(this, "single_sign_on_enabled");
+        get => GetArgument<TerraformValue<string>>("single_sign_on_enabled");
         set => SetArgument("single_sign_on_enabled", value);
     }
 
@@ -119,9 +119,7 @@ public partial class AzurermDatadogMonitorSsoConfiguration(string name) : Terraf
     /// The login_url attribute.
     /// </summary>
     public TerraformValue<string> LoginUrl
-    {
-        get => new TerraformReference<string>(this, "login_url");
-    }
+        => AsReference("login_url");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -19,16 +19,16 @@ public class GoogleBigtableInstanceClusterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => new TerraformReference<string>(this, "cluster_id");
+        get => GetArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
     /// <summary>
     /// Describes the Cloud KMS encryption key that will be used to protect the destination Bigtable cluster. The requirements for this key are: 1) The Cloud Bigtable service account associated with the project that contains this cluster must be granted the cloudkms.cryptoKeyEncrypterDecrypter role on the CMEK key. 2) Only regional keys can be used and the region of the CMEK key must match the region of the cluster. 3) All clusters within an instance must use the same CMEK key. Values are of the form projects/{project}/locations/{location}/keyRings/{keyring}/cryptoKeys/{key}
     /// </summary>
-    public TerraformValue<string> KmsKeyName
+    public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -37,16 +37,16 @@ public class GoogleBigtableInstanceClusterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? NodeScalingFactor
     {
-        get => new TerraformReference<string>(this, "node_scaling_factor");
+        get => GetArgument<TerraformValue<string>>("node_scaling_factor");
         set => SetArgument("node_scaling_factor", value);
     }
 
     /// <summary>
     /// The number of nodes in the cluster. If no value is set, Cloud Bigtable automatically allocates nodes based on your data footprint and optimized for 50% storage utilization.
     /// </summary>
-    public TerraformValue<double> NumNodes
+    public TerraformValue<double>? NumNodes
     {
-        get => new TerraformReference<double>(this, "num_nodes");
+        get => GetArgument<TerraformValue<double>>("num_nodes");
         set => SetArgument("num_nodes", value);
     }
 
@@ -54,25 +54,23 @@ public class GoogleBigtableInstanceClusterBlock : TerraformBlock
     /// The state of the cluster
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The storage type to use. One of &amp;quot;SSD&amp;quot; or &amp;quot;HDD&amp;quot;. Defaults to &amp;quot;SSD&amp;quot;.
     /// </summary>
     public TerraformValue<string>? StorageType
     {
-        get => new TerraformReference<string>(this, "storage_type");
+        get => GetArgument<TerraformValue<string>>("storage_type");
         set => SetArgument("storage_type", value);
     }
 
     /// <summary>
     /// The zone to create the Cloud Bigtable cluster in. Each cluster must have a different zone in the same region. Zones that support Bigtable instances are noted on the Cloud Bigtable locations page.
     /// </summary>
-    public TerraformValue<string> Zone
+    public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -105,7 +103,7 @@ public class GoogleBigtableInstanceClusterBlockAutoscalingConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuTarget is required")]
     public required TerraformValue<double> CpuTarget
     {
-        get => new TerraformReference<double>(this, "cpu_target");
+        get => GetArgument<TerraformValue<double>>("cpu_target");
         set => SetArgument("cpu_target", value);
     }
 
@@ -115,7 +113,7 @@ public class GoogleBigtableInstanceClusterBlockAutoscalingConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodes is required")]
     public required TerraformValue<double> MaxNodes
     {
-        get => new TerraformReference<double>(this, "max_nodes");
+        get => GetArgument<TerraformValue<double>>("max_nodes");
         set => SetArgument("max_nodes", value);
     }
 
@@ -125,16 +123,16 @@ public class GoogleBigtableInstanceClusterBlockAutoscalingConfigBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodes is required")]
     public required TerraformValue<double> MinNodes
     {
-        get => new TerraformReference<double>(this, "min_nodes");
+        get => GetArgument<TerraformValue<double>>("min_nodes");
         set => SetArgument("min_nodes", value);
     }
 
     /// <summary>
     /// The target storage utilization for autoscaling, in GB, for each node in a cluster. This number is limited between 2560 (2.5TiB) and 5120 (5TiB) for a SSD cluster and between 8192 (8TiB) and 16384 (16 TiB) for an HDD cluster. If not set, whatever is already set for the cluster will not change, or if the cluster is just being created, it will use the default value of 2560 for SSD clusters and 8192 for HDD clusters.
     /// </summary>
-    public TerraformValue<double> StorageTarget
+    public TerraformValue<double>? StorageTarget
     {
-        get => new TerraformReference<double>(this, "storage_target");
+        get => GetArgument<TerraformValue<double>>("storage_target");
         set => SetArgument("storage_target", value);
     }
 
@@ -157,7 +155,7 @@ public class GoogleBigtableInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -166,7 +164,7 @@ public class GoogleBigtableInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -175,7 +173,7 @@ public class GoogleBigtableInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -193,16 +191,16 @@ public partial class GoogleBigtableInstance(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
     /// <summary>
     /// The human-readable display name of the Bigtable instance. Defaults to the instance name.
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -211,16 +209,16 @@ public partial class GoogleBigtableInstance(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool>? ForceDestroy
     {
-        get => new TerraformReference<bool>(this, "force_destroy");
+        get => GetArgument<TerraformValue<bool>>("force_destroy");
         set => SetArgument("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -230,7 +228,7 @@ public partial class GoogleBigtableInstance(string name) : TerraformResource("go
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string>? InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -242,7 +240,7 @@ public partial class GoogleBigtableInstance(string name) : TerraformResource("go
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -252,16 +250,16 @@ public partial class GoogleBigtableInstance(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -269,17 +267,13 @@ public partial class GoogleBigtableInstance(string name) : TerraformResource("go
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Cluster block (nesting mode: list).

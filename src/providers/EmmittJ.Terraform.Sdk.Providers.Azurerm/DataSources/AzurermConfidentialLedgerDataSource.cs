@@ -18,7 +18,7 @@ public class AzurermConfidentialLedgerDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermConfidentialLedgerDataSource(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermConfidentialLedgerDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermConfidentialLedgerDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,57 +64,43 @@ public partial class AzurermConfidentialLedgerDataSource(string name) : Terrafor
     /// The azuread_based_service_principal attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AzureadBasedServicePrincipal
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "azuread_based_service_principal").ResolveNodes(ctx));
-    }
+        => AsReference("azuread_based_service_principal");
 
     /// <summary>
     /// The certificate_based_security_principal attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CertificateBasedSecurityPrincipal
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "certificate_based_security_principal").ResolveNodes(ctx));
-    }
+        => AsReference("certificate_based_security_principal");
 
     /// <summary>
     /// The identity_service_endpoint attribute.
     /// </summary>
     public TerraformValue<string> IdentityServiceEndpoint
-    {
-        get => new TerraformReference<string>(this, "identity_service_endpoint");
-    }
+        => AsReference("identity_service_endpoint");
 
     /// <summary>
     /// The ledger_endpoint attribute.
     /// </summary>
     public TerraformValue<string> LedgerEndpoint
-    {
-        get => new TerraformReference<string>(this, "ledger_endpoint");
-    }
+        => AsReference("ledger_endpoint");
 
     /// <summary>
     /// The ledger_type attribute.
     /// </summary>
     public TerraformValue<string> LedgerType
-    {
-        get => new TerraformReference<string>(this, "ledger_type");
-    }
+        => AsReference("ledger_type");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

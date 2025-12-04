@@ -40,7 +40,7 @@ public class GoogleApigeeOrganizationPropertiesBlockPropertyBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -49,7 +49,7 @@ public class GoogleApigeeOrganizationPropertiesBlockPropertyBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -72,7 +72,7 @@ public class GoogleApigeeOrganizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -81,7 +81,7 @@ public class GoogleApigeeOrganizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -90,7 +90,7 @@ public class GoogleApigeeOrganizationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -108,7 +108,7 @@ public partial class GoogleApigeeOrganization(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? AnalyticsRegion
     {
-        get => new TerraformReference<string>(this, "analytics_region");
+        get => GetArgument<TerraformValue<string>>("analytics_region");
         set => SetArgument("analytics_region", value);
     }
 
@@ -117,7 +117,7 @@ public partial class GoogleApigeeOrganization(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? ApiConsumerDataEncryptionKeyName
     {
-        get => new TerraformReference<string>(this, "api_consumer_data_encryption_key_name");
+        get => GetArgument<TerraformValue<string>>("api_consumer_data_encryption_key_name");
         set => SetArgument("api_consumer_data_encryption_key_name", value);
     }
 
@@ -128,7 +128,7 @@ public partial class GoogleApigeeOrganization(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? ApiConsumerDataLocation
     {
-        get => new TerraformReference<string>(this, "api_consumer_data_location");
+        get => GetArgument<TerraformValue<string>>("api_consumer_data_location");
         set => SetArgument("api_consumer_data_location", value);
     }
 
@@ -139,16 +139,16 @@ public partial class GoogleApigeeOrganization(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? AuthorizedNetwork
     {
-        get => new TerraformReference<string>(this, "authorized_network");
+        get => GetArgument<TerraformValue<string>>("authorized_network");
         set => SetArgument("authorized_network", value);
     }
 
     /// <summary>
     /// Billing type of the Apigee organization. See [Apigee pricing](https://cloud.google.com/apigee/pricing).
     /// </summary>
-    public TerraformValue<string> BillingType
+    public TerraformValue<string>? BillingType
     {
-        get => new TerraformReference<string>(this, "billing_type");
+        get => GetArgument<TerraformValue<string>>("billing_type");
         set => SetArgument("billing_type", value);
     }
 
@@ -158,7 +158,7 @@ public partial class GoogleApigeeOrganization(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? ControlPlaneEncryptionKeyName
     {
-        get => new TerraformReference<string>(this, "control_plane_encryption_key_name");
+        get => GetArgument<TerraformValue<string>>("control_plane_encryption_key_name");
         set => SetArgument("control_plane_encryption_key_name", value);
     }
 
@@ -167,7 +167,7 @@ public partial class GoogleApigeeOrganization(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -180,7 +180,7 @@ public partial class GoogleApigeeOrganization(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? DisableVpcPeering
     {
-        get => new TerraformReference<bool>(this, "disable_vpc_peering");
+        get => GetArgument<TerraformValue<bool>>("disable_vpc_peering");
         set => SetArgument("disable_vpc_peering", value);
     }
 
@@ -189,16 +189,16 @@ public partial class GoogleApigeeOrganization(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -208,7 +208,7 @@ public partial class GoogleApigeeOrganization(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -220,7 +220,7 @@ public partial class GoogleApigeeOrganization(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Retention
     {
-        get => new TerraformReference<string>(this, "retention");
+        get => GetArgument<TerraformValue<string>>("retention");
         set => SetArgument("retention", value);
     }
 
@@ -232,7 +232,7 @@ public partial class GoogleApigeeOrganization(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? RuntimeDatabaseEncryptionKeyName
     {
-        get => new TerraformReference<string>(this, "runtime_database_encryption_key_name");
+        get => GetArgument<TerraformValue<string>>("runtime_database_encryption_key_name");
         set => SetArgument("runtime_database_encryption_key_name", value);
     }
 
@@ -241,7 +241,7 @@ public partial class GoogleApigeeOrganization(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? RuntimeType
     {
-        get => new TerraformReference<string>(this, "runtime_type");
+        get => GetArgument<TerraformValue<string>>("runtime_type");
         set => SetArgument("runtime_type", value);
     }
 
@@ -249,35 +249,27 @@ public partial class GoogleApigeeOrganization(string name) : TerraformResource("
     /// Output only. Project ID of the Apigee Tenant Project.
     /// </summary>
     public TerraformValue<string> ApigeeProjectId
-    {
-        get => new TerraformReference<string>(this, "apigee_project_id");
-    }
+        => AsReference("apigee_project_id");
 
     /// <summary>
     /// Output only. Base64-encoded public certificate for the root CA of the Apigee organization.
     /// Valid only when &#39;RuntimeType&#39; is CLOUD. A base64-encoded string.
     /// </summary>
     public TerraformValue<string> CaCertificate
-    {
-        get => new TerraformReference<string>(this, "ca_certificate");
-    }
+        => AsReference("ca_certificate");
 
     /// <summary>
     /// Output only. Name of the Apigee organization.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. Subscription type of the Apigee organization.
     /// Valid values include trial (free, limited, and for evaluation purposes only) or paid (full subscription has been purchased).
     /// </summary>
     public TerraformValue<string> SubscriptionType
-    {
-        get => new TerraformReference<string>(this, "subscription_type");
-    }
+        => AsReference("subscription_type");
 
     /// <summary>
     /// Properties block (nesting mode: list).

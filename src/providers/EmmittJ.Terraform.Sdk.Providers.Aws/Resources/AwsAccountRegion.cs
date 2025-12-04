@@ -18,7 +18,7 @@ public class AwsAccountRegionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsAccountRegionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AwsAccountRegion(string name) : TerraformResource("aws_acco
     /// </summary>
     public TerraformValue<string>? AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AwsAccountRegion(string name) : TerraformResource("aws_acco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsAccountRegion(string name) : TerraformResource("aws_acco
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionName is required")]
     public required TerraformValue<string> RegionName
     {
-        get => new TerraformReference<string>(this, "region_name");
+        get => GetArgument<TerraformValue<string>>("region_name");
         set => SetArgument("region_name", value);
     }
 
@@ -82,9 +82,7 @@ public partial class AwsAccountRegion(string name) : TerraformResource("aws_acco
     /// The opt_status attribute.
     /// </summary>
     public TerraformValue<string> OptStatus
-    {
-        get => new TerraformReference<string>(this, "opt_status");
-    }
+        => AsReference("opt_status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

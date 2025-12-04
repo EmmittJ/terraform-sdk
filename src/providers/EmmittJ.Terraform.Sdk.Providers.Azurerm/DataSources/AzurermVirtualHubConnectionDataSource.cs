@@ -18,7 +18,7 @@ public class AzurermVirtualHubConnectionDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermVirtualHubConnectionDataSource(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermVirtualHubConnectionDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermVirtualHubConnectionDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermVirtualHubConnectionDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubName is required")]
     public required TerraformValue<string> VirtualHubName
     {
-        get => new TerraformReference<string>(this, "virtual_hub_name");
+        get => GetArgument<TerraformValue<string>>("virtual_hub_name");
         set => SetArgument("virtual_hub_name", value);
     }
 
@@ -74,33 +74,25 @@ public partial class AzurermVirtualHubConnectionDataSource(string name) : Terraf
     /// The internet_security_enabled attribute.
     /// </summary>
     public TerraformValue<bool> InternetSecurityEnabled
-    {
-        get => new TerraformReference<bool>(this, "internet_security_enabled");
-    }
+        => AsReference("internet_security_enabled");
 
     /// <summary>
     /// The remote_virtual_network_id attribute.
     /// </summary>
     public TerraformValue<string> RemoteVirtualNetworkId
-    {
-        get => new TerraformReference<string>(this, "remote_virtual_network_id");
-    }
+        => AsReference("remote_virtual_network_id");
 
     /// <summary>
     /// The routing attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Routing
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "routing").ResolveNodes(ctx));
-    }
+        => AsReference("routing");
 
     /// <summary>
     /// The virtual_hub_id attribute.
     /// </summary>
     public TerraformValue<string> VirtualHubId
-    {
-        get => new TerraformReference<string>(this, "virtual_hub_id");
-    }
+        => AsReference("virtual_hub_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

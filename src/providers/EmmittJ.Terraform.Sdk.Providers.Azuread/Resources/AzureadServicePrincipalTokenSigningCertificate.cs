@@ -18,7 +18,7 @@ public class AzureadServicePrincipalTokenSigningCertificateTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadServicePrincipalTokenSigningCertificateTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadServicePrincipalTokenSigningCertificateTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -52,27 +52,27 @@ public partial class AzureadServicePrincipalTokenSigningCertificate(string name)
     /// <summary>
     /// A friendly name for the certificate
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The end date until which the certificate is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). Default is 3 years from current date.
     /// </summary>
-    public TerraformValue<string> EndDate
+    public TerraformValue<string>? EndDate
     {
-        get => new TerraformReference<string>(this, "end_date");
+        get => GetArgument<TerraformValue<string>>("end_date");
         set => SetArgument("end_date", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzureadServicePrincipalTokenSigningCertificate(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
     public required TerraformValue<string> ServicePrincipalId
     {
-        get => new TerraformReference<string>(this, "service_principal_id");
+        get => GetArgument<TerraformValue<string>>("service_principal_id");
         set => SetArgument("service_principal_id", value);
     }
 
@@ -90,33 +90,25 @@ public partial class AzureadServicePrincipalTokenSigningCertificate(string name)
     /// A UUID used to uniquely identify the verify certificate.
     /// </summary>
     public TerraformValue<string> KeyId
-    {
-        get => new TerraformReference<string>(this, "key_id");
-    }
+        => AsReference("key_id");
 
     /// <summary>
     /// The start date from which the certificate is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
     /// </summary>
     public TerraformValue<string> StartDate
-    {
-        get => new TerraformReference<string>(this, "start_date");
-    }
+        => AsReference("start_date");
 
     /// <summary>
     /// The thumbprint of the certificate.
     /// </summary>
     public TerraformValue<string> Thumbprint
-    {
-        get => new TerraformReference<string>(this, "thumbprint");
-    }
+        => AsReference("thumbprint");
 
     /// <summary>
     /// The certificate data, which is PEM encoded but does not include the header/footer
     /// </summary>
     public TerraformValue<string> Value
-    {
-        get => new TerraformReference<string>(this, "value");
-    }
+        => AsReference("value");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -16,9 +16,9 @@ public class GoogleWorkbenchInstanceGceSetupBlock : TerraformBlock
     /// <summary>
     /// Optional. If true, no external IP will be assigned to this VM instance.
     /// </summary>
-    public TerraformValue<bool> DisablePublicIp
+    public TerraformValue<bool>? DisablePublicIp
     {
-        get => new TerraformReference<bool>(this, "disable_public_ip");
+        get => GetArgument<TerraformValue<bool>>("disable_public_ip");
         set => SetArgument("disable_public_ip", value);
     }
 
@@ -28,25 +28,25 @@ public class GoogleWorkbenchInstanceGceSetupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableIpForwarding
     {
-        get => new TerraformReference<bool>(this, "enable_ip_forwarding");
+        get => GetArgument<TerraformValue<bool>>("enable_ip_forwarding");
         set => SetArgument("enable_ip_forwarding", value);
     }
 
     /// <summary>
     /// Optional. The machine type of the VM instance. https://cloud.google.com/compute/docs/machine-resource
     /// </summary>
-    public TerraformValue<string> MachineType
+    public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
     /// <summary>
     /// Optional. Custom metadata to apply to this instance.
     /// </summary>
-    public TerraformMap<string> Metadata
+    public TerraformMap<string>? Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -54,9 +54,9 @@ public class GoogleWorkbenchInstanceGceSetupBlock : TerraformBlock
     /// Optional. The Compute Engine tags to add to instance (see [Tagging
     /// instances](https://cloud.google.com/compute/docs/label-or-tag-resources#tags)).
     /// </summary>
-    public TerraformList<string> Tags
+    public TerraformList<string>? Tags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -175,7 +175,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockAcceleratorConfigsBlock : Terra
     /// </summary>
     public TerraformValue<string>? CoreCount
     {
-        get => new TerraformReference<string>(this, "core_count");
+        get => GetArgument<TerraformValue<string>>("core_count");
         set => SetArgument("core_count", value);
     }
 
@@ -184,7 +184,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockAcceleratorConfigsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -205,9 +205,9 @@ public class GoogleWorkbenchInstanceGceSetupBlockBootDiskBlock : TerraformBlock
     /// Optional. Input only. Disk encryption method used on the boot and
     /// data disks, defaults to GMEK. Possible values: [&amp;quot;GMEK&amp;quot;, &amp;quot;CMEK&amp;quot;]
     /// </summary>
-    public TerraformValue<string> DiskEncryption
+    public TerraformValue<string>? DiskEncryption
     {
-        get => new TerraformReference<string>(this, "disk_encryption");
+        get => GetArgument<TerraformValue<string>>("disk_encryption");
         set => SetArgument("disk_encryption", value);
     }
 
@@ -216,18 +216,18 @@ public class GoogleWorkbenchInstanceGceSetupBlockBootDiskBlock : TerraformBlock
     /// up to a maximum of 64000 GB (64 TB). If not specified, this defaults to the
     /// recommended value of 150GB.
     /// </summary>
-    public TerraformValue<string> DiskSizeGb
+    public TerraformValue<string>? DiskSizeGb
     {
-        get => new TerraformReference<string>(this, "disk_size_gb");
+        get => GetArgument<TerraformValue<string>>("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
     /// <summary>
     /// Optional. Indicates the type of the disk. Possible values: [&amp;quot;PD_STANDARD&amp;quot;, &amp;quot;PD_SSD&amp;quot;, &amp;quot;PD_BALANCED&amp;quot;, &amp;quot;PD_EXTREME&amp;quot;]
     /// </summary>
-    public TerraformValue<string> DiskType
+    public TerraformValue<string>? DiskType
     {
-        get => new TerraformReference<string>(this, "disk_type");
+        get => GetArgument<TerraformValue<string>>("disk_type");
         set => SetArgument("disk_type", value);
     }
 
@@ -238,7 +238,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockBootDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -260,7 +260,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockConfidentialInstanceConfigBlock
     /// </summary>
     public TerraformValue<string>? ConfidentialInstanceType
     {
-        get => new TerraformReference<string>(this, "confidential_instance_type");
+        get => GetArgument<TerraformValue<string>>("confidential_instance_type");
         set => SetArgument("confidential_instance_type", value);
     }
 
@@ -284,7 +284,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockContainerImageBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Repository is required")]
     public required TerraformValue<string> Repository
     {
-        get => new TerraformReference<string>(this, "repository");
+        get => GetArgument<TerraformValue<string>>("repository");
         set => SetArgument("repository", value);
     }
 
@@ -293,7 +293,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockContainerImageBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Tag
     {
-        get => new TerraformReference<string>(this, "tag");
+        get => GetArgument<TerraformValue<string>>("tag");
         set => SetArgument("tag", value);
     }
 
@@ -314,9 +314,9 @@ public class GoogleWorkbenchInstanceGceSetupBlockDataDisksBlock : TerraformBlock
     /// Optional. Input only. Disk encryption method used on the boot
     /// and data disks, defaults to GMEK. Possible values: [&amp;quot;GMEK&amp;quot;, &amp;quot;CMEK&amp;quot;]
     /// </summary>
-    public TerraformValue<string> DiskEncryption
+    public TerraformValue<string>? DiskEncryption
     {
-        get => new TerraformReference<string>(this, "disk_encryption");
+        get => GetArgument<TerraformValue<string>>("disk_encryption");
         set => SetArgument("disk_encryption", value);
     }
 
@@ -325,9 +325,9 @@ public class GoogleWorkbenchInstanceGceSetupBlockDataDisksBlock : TerraformBlock
     /// up to a maximum of 64000 GB (64 TB). If not specified, this defaults to
     /// 100.
     /// </summary>
-    public TerraformValue<string> DiskSizeGb
+    public TerraformValue<string>? DiskSizeGb
     {
-        get => new TerraformReference<string>(this, "disk_size_gb");
+        get => GetArgument<TerraformValue<string>>("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -336,7 +336,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockDataDisksBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DiskType
     {
-        get => new TerraformReference<string>(this, "disk_type");
+        get => GetArgument<TerraformValue<string>>("disk_type");
         set => SetArgument("disk_type", value);
     }
 
@@ -347,7 +347,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockDataDisksBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -367,9 +367,9 @@ public class GoogleWorkbenchInstanceGceSetupBlockNetworkInterfacesBlock : Terraf
     /// <summary>
     /// Optional. The name of the VPC that this VM instance is in.
     /// </summary>
-    public TerraformValue<string> Network
+    public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -379,16 +379,16 @@ public class GoogleWorkbenchInstanceGceSetupBlockNetworkInterfacesBlock : Terraf
     /// </summary>
     public TerraformValue<string>? NicType
     {
-        get => new TerraformReference<string>(this, "nic_type");
+        get => GetArgument<TerraformValue<string>>("nic_type");
         set => SetArgument("nic_type", value);
     }
 
     /// <summary>
     /// Optional. The name of the subnet that this VM instance is in.
     /// </summary>
-    public TerraformValue<string> Subnet
+    public TerraformValue<string>? Subnet
     {
-        get => new TerraformReference<string>(this, "subnet");
+        get => GetArgument<TerraformValue<string>>("subnet");
         set => SetArgument("subnet", value);
     }
 
@@ -424,7 +424,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockNetworkInterfacesBlockAccessCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalIp is required")]
     public required TerraformValue<string> ExternalIp
     {
-        get => new TerraformReference<string>(this, "external_ip");
+        get => GetArgument<TerraformValue<string>>("external_ip");
         set => SetArgument("external_ip", value);
     }
 
@@ -445,9 +445,9 @@ public class GoogleWorkbenchInstanceGceSetupBlockReservationAffinityBlock : Terr
     /// Specifies the type of reservation from which this instance can consume resources:
     /// RESERVATION_ANY (default), RESERVATION_SPECIFIC, or RESERVATION_NONE. Possible values: [&amp;quot;RESERVATION_NONE&amp;quot;, &amp;quot;RESERVATION_ANY&amp;quot;, &amp;quot;RESERVATION_SPECIFIC&amp;quot;]
     /// </summary>
-    public TerraformValue<string> ConsumeReservationType
+    public TerraformValue<string>? ConsumeReservationType
     {
-        get => new TerraformReference<string>(this, "consume_reservation_type");
+        get => GetArgument<TerraformValue<string>>("consume_reservation_type");
         set => SetArgument("consume_reservation_type", value);
     }
 
@@ -458,7 +458,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockReservationAffinityBlock : Terr
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -470,7 +470,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockReservationAffinityBlock : Terr
     /// </summary>
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -490,9 +490,9 @@ public class GoogleWorkbenchInstanceGceSetupBlockServiceAccountsBlock : Terrafor
     /// <summary>
     /// Optional. Email address of the service account.
     /// </summary>
-    public TerraformValue<string> Email
+    public TerraformValue<string>? Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -501,9 +501,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockServiceAccountsBlock : Terrafor
     /// service account. Set by the CLH to https://www.googleapis.com/auth/cloud-platform
     /// </summary>
     public TerraformList<string> Scopes
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scopes").ResolveNodes(ctx));
-    }
+        => AsReference("scopes");
 
 }
 
@@ -527,7 +525,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockShieldedInstanceConfigBlock : T
     /// </summary>
     public TerraformValue<bool>? EnableIntegrityMonitoring
     {
-        get => new TerraformReference<bool>(this, "enable_integrity_monitoring");
+        get => GetArgument<TerraformValue<bool>>("enable_integrity_monitoring");
         set => SetArgument("enable_integrity_monitoring", value);
     }
 
@@ -539,7 +537,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockShieldedInstanceConfigBlock : T
     /// </summary>
     public TerraformValue<bool>? EnableSecureBoot
     {
-        get => new TerraformReference<bool>(this, "enable_secure_boot");
+        get => GetArgument<TerraformValue<bool>>("enable_secure_boot");
         set => SetArgument("enable_secure_boot", value);
     }
 
@@ -549,7 +547,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockShieldedInstanceConfigBlock : T
     /// </summary>
     public TerraformValue<bool>? EnableVtpm
     {
-        get => new TerraformReference<bool>(this, "enable_vtpm");
+        get => GetArgument<TerraformValue<bool>>("enable_vtpm");
         set => SetArgument("enable_vtpm", value);
     }
 
@@ -572,7 +570,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockVmImageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Family
     {
-        get => new TerraformReference<string>(this, "family");
+        get => GetArgument<TerraformValue<string>>("family");
         set => SetArgument("family", value);
     }
 
@@ -581,7 +579,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockVmImageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -591,7 +589,7 @@ public class GoogleWorkbenchInstanceGceSetupBlockVmImageBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -614,7 +612,7 @@ public class GoogleWorkbenchInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -623,7 +621,7 @@ public class GoogleWorkbenchInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -632,7 +630,7 @@ public class GoogleWorkbenchInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -650,7 +648,7 @@ public partial class GoogleWorkbenchInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? DesiredState
     {
-        get => new TerraformReference<string>(this, "desired_state");
+        get => GetArgument<TerraformValue<string>>("desired_state");
         set => SetArgument("desired_state", value);
     }
 
@@ -659,7 +657,7 @@ public partial class GoogleWorkbenchInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? DisableProxyAccess
     {
-        get => new TerraformReference<bool>(this, "disable_proxy_access");
+        get => GetArgument<TerraformValue<bool>>("disable_proxy_access");
         set => SetArgument("disable_proxy_access", value);
     }
 
@@ -668,7 +666,7 @@ public partial class GoogleWorkbenchInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? EnableManagedEuc
     {
-        get => new TerraformReference<bool>(this, "enable_managed_euc");
+        get => GetArgument<TerraformValue<bool>>("enable_managed_euc");
         set => SetArgument("enable_managed_euc", value);
     }
 
@@ -678,16 +676,16 @@ public partial class GoogleWorkbenchInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? EnableThirdPartyIdentity
     {
-        get => new TerraformReference<bool>(this, "enable_third_party_identity");
+        get => GetArgument<TerraformValue<bool>>("enable_third_party_identity");
         set => SetArgument("enable_third_party_identity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -696,7 +694,7 @@ public partial class GoogleWorkbenchInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? InstanceId
     {
-        get => new TerraformReference<string>(this, "instance_id");
+        get => GetArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
@@ -709,7 +707,7 @@ public partial class GoogleWorkbenchInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformList<string>? InstanceOwners
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "instance_owners").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("instance_owners");
         set => SetArgument("instance_owners", value);
     }
 
@@ -723,7 +721,7 @@ public partial class GoogleWorkbenchInstance(string name) : TerraformResource("g
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -733,7 +731,7 @@ public partial class GoogleWorkbenchInstance(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -743,16 +741,16 @@ public partial class GoogleWorkbenchInstance(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -761,25 +759,19 @@ public partial class GoogleWorkbenchInstance(string name) : TerraformResource("g
     /// The milliseconds portion (&amp;quot;.SSS&amp;quot;) is optional.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Output only. Email address of entity that sent original CreateInstance request.
     /// </summary>
     public TerraformValue<string> Creator
-    {
-        get => new TerraformReference<string>(this, "creator");
-    }
+        => AsReference("creator");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// &#39;Output only. Additional information about instance health. Example:
@@ -787,59 +779,45 @@ public partial class GoogleWorkbenchInstance(string name) : TerraformResource("g
     /// &amp;quot;-1&amp;quot;, &amp;quot;jupyterlab_status&amp;quot;: &amp;quot;-1&amp;quot;, &amp;quot;updated&amp;quot;: &amp;quot;2020-10-18 09:40:03.573409&amp;quot; }&#39;
     /// </summary>
     public TerraformList<TerraformMap<object>> HealthInfo
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "health_info").ResolveNodes(ctx));
-    }
+        => AsReference("health_info");
 
     /// <summary>
     /// Output only. Instance health_state.
     /// </summary>
     public TerraformValue<string> HealthState
-    {
-        get => new TerraformReference<string>(this, "health_state");
-    }
+        => AsReference("health_state");
 
     /// <summary>
     /// Output only. The proxy endpoint that is used to access the Jupyter notebook.
     /// </summary>
     public TerraformValue<string> ProxyUri
-    {
-        get => new TerraformReference<string>(this, "proxy_uri");
-    }
+        => AsReference("proxy_uri");
 
     /// <summary>
     /// Output only. The state of this instance.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// An RFC3339 timestamp in UTC time. This in the format of yyyy-MM-ddTHH:mm:ss.SSSZ.
     /// The milliseconds portion (&amp;quot;.SSS&amp;quot;) is optional.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Output only. The upgrade history of this instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> UpgradeHistory
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "upgrade_history").ResolveNodes(ctx));
-    }
+        => AsReference("upgrade_history");
 
     /// <summary>
     /// GceSetup block (nesting mode: list).

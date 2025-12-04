@@ -14,7 +14,7 @@ public partial class AwsApprunnerCustomDomainAssociation(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -23,25 +23,25 @@ public partial class AwsApprunnerCustomDomainAssociation(string name) : Terrafor
     /// </summary>
     public TerraformValue<bool>? EnableWwwSubdomain
     {
-        get => new TerraformReference<bool>(this, "enable_www_subdomain");
+        get => GetArgument<TerraformValue<bool>>("enable_www_subdomain");
         set => SetArgument("enable_www_subdomain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsApprunnerCustomDomainAssociation(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceArn is required")]
     public required TerraformValue<string> ServiceArn
     {
-        get => new TerraformReference<string>(this, "service_arn");
+        get => GetArgument<TerraformValue<string>>("service_arn");
         set => SetArgument("service_arn", value);
     }
 
@@ -59,24 +59,18 @@ public partial class AwsApprunnerCustomDomainAssociation(string name) : Terrafor
     /// The certificate_validation_records attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> CertificateValidationRecords
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "certificate_validation_records").ResolveNodes(ctx));
-    }
+        => AsReference("certificate_validation_records");
 
     /// <summary>
     /// The dns_target attribute.
     /// </summary>
     public TerraformValue<string> DnsTarget
-    {
-        get => new TerraformReference<string>(this, "dns_target");
-    }
+        => AsReference("dns_target");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }

@@ -18,7 +18,7 @@ public class GoogleNetworkServicesWasmPluginLogConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enable
     {
-        get => new TerraformReference<bool>(this, "enable");
+        get => GetArgument<TerraformValue<bool>>("enable");
         set => SetArgument("enable", value);
     }
 
@@ -27,9 +27,9 @@ public class GoogleNetworkServicesWasmPluginLogConfigBlock : TerraformBlock
     /// This field is can be set only if logging is enabled for the plugin.
     /// If the field is not provided when logging is enabled, it is set to INFO by default. Possible values: [&amp;quot;LOG_LEVEL_UNSPECIFIED&amp;quot;, &amp;quot;TRACE&amp;quot;, &amp;quot;DEBUG&amp;quot;, &amp;quot;INFO&amp;quot;, &amp;quot;WARN&amp;quot;, &amp;quot;ERROR&amp;quot;, &amp;quot;CRITICAL&amp;quot;]
     /// </summary>
-    public TerraformValue<string> MinLogLevel
+    public TerraformValue<string>? MinLogLevel
     {
-        get => new TerraformReference<string>(this, "min_log_level");
+        get => GetArgument<TerraformValue<string>>("min_log_level");
         set => SetArgument("min_log_level", value);
     }
 
@@ -39,9 +39,9 @@ public class GoogleNetworkServicesWasmPluginLogConfigBlock : TerraformBlock
     /// The default value when logging is enabled is 1.0. The value of the field must be between 0 and 1 (inclusive).
     /// This field can be specified only if logging is enabled for this plugin.
     /// </summary>
-    public TerraformValue<double> SampleRate
+    public TerraformValue<double>? SampleRate
     {
-        get => new TerraformReference<double>(this, "sample_rate");
+        get => GetArgument<TerraformValue<double>>("sample_rate");
         set => SetArgument("sample_rate", value);
     }
 
@@ -64,7 +64,7 @@ public class GoogleNetworkServicesWasmPluginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleNetworkServicesWasmPluginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -82,7 +82,7 @@ public class GoogleNetworkServicesWasmPluginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -104,16 +104,14 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
     /// Output only. The timestamp when the resource was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Optional. A human-readable description of the resource.
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -122,9 +120,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
     /// This field holds the digest value, regardless of whether a tag or digest was originally specified in the image field.
     /// </summary>
     public TerraformValue<string> ImageDigest
-    {
-        get => new TerraformReference<string>(this, "image_digest");
-    }
+        => AsReference("image_digest");
 
     /// <summary>
     /// Optional. URI of the container image containing the plugin, stored in the Artifact Registry. When a new WasmPluginVersion resource is created, the digest of the container image is saved in the imageDigest field.
@@ -132,7 +128,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ImageUri
     {
-        get => new TerraformReference<string>(this, "image_uri");
+        get => GetArgument<TerraformValue<string>>("image_uri");
         set => SetArgument("image_uri", value);
     }
 
@@ -141,7 +137,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -152,7 +148,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PluginConfigData
     {
-        get => new TerraformReference<string>(this, "plugin_config_data");
+        get => GetArgument<TerraformValue<string>>("plugin_config_data");
         set => SetArgument("plugin_config_data", value);
     }
 
@@ -161,9 +157,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
     /// The value is calculated based on the contents of pluginConfigData or the container image defined by the pluginConfigUri field.
     /// </summary>
     public TerraformValue<string> PluginConfigDigest
-    {
-        get => new TerraformReference<string>(this, "plugin_config_digest");
-    }
+        => AsReference("plugin_config_digest");
 
     /// <summary>
     /// URI of the plugin configuration stored in the Artifact Registry. The configuration is provided to the plugin at runtime through the ON_CONFIGURE callback.
@@ -173,7 +167,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PluginConfigUri
     {
-        get => new TerraformReference<string>(this, "plugin_config_uri");
+        get => GetArgument<TerraformValue<string>>("plugin_config_uri");
         set => SetArgument("plugin_config_uri", value);
     }
 
@@ -181,9 +175,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
     /// Output only. The timestamp when the resource was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// The version_name attribute.
@@ -191,7 +183,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionName is required")]
     public required TerraformValue<string> VersionName
     {
-        get => new TerraformReference<string>(this, "version_name");
+        get => GetArgument<TerraformValue<string>>("version_name");
         set => SetArgument("version_name", value);
     }
 
@@ -209,16 +201,16 @@ public partial class GoogleNetworkServicesWasmPlugin(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -230,7 +222,7 @@ public partial class GoogleNetworkServicesWasmPlugin(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -239,7 +231,7 @@ public partial class GoogleNetworkServicesWasmPlugin(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -249,7 +241,7 @@ public partial class GoogleNetworkServicesWasmPlugin(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainVersionId is required")]
     public required TerraformValue<string> MainVersionId
     {
-        get => new TerraformReference<string>(this, "main_version_id");
+        get => GetArgument<TerraformValue<string>>("main_version_id");
         set => SetArgument("main_version_id", value);
     }
 
@@ -259,16 +251,16 @@ public partial class GoogleNetworkServicesWasmPlugin(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -276,42 +268,32 @@ public partial class GoogleNetworkServicesWasmPlugin(string name) : TerraformRes
     /// Output only. The timestamp when the resource was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Output only. The timestamp when the resource was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Output only. List of all extensions that use this WasmPlugin resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> UsedBy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "used_by").ResolveNodes(ctx));
-    }
+        => AsReference("used_by");
 
     /// <summary>
     /// LogConfig block (nesting mode: list).

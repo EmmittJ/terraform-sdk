@@ -18,7 +18,7 @@ public class AzureadApplicationFederatedIdentityCredentialTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadApplicationFederatedIdentityCredentialTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadApplicationFederatedIdentityCredentialTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzureadApplicationFederatedIdentityCredentialTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzureadApplicationFederatedIdentityCredential(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
     public required TerraformValue<string> ApplicationId
     {
-        get => new TerraformReference<string>(this, "application_id");
+        get => GetArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzureadApplicationFederatedIdentityCredential(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Audiences is required")]
     public TerraformList<string>? Audiences
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "audiences").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("audiences");
         set => SetArgument("audiences", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzureadApplicationFederatedIdentityCredential(string name) 
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -93,16 +93,16 @@ public partial class AzureadApplicationFederatedIdentityCredential(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzureadApplicationFederatedIdentityCredential(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformValue<string> Issuer
     {
-        get => new TerraformReference<string>(this, "issuer");
+        get => GetArgument<TerraformValue<string>>("issuer");
         set => SetArgument("issuer", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzureadApplicationFederatedIdentityCredential(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
     public required TerraformValue<string> Subject
     {
-        get => new TerraformReference<string>(this, "subject");
+        get => GetArgument<TerraformValue<string>>("subject");
         set => SetArgument("subject", value);
     }
 
@@ -130,9 +130,7 @@ public partial class AzureadApplicationFederatedIdentityCredential(string name) 
     /// A UUID used to uniquely identify this federated identity credential
     /// </summary>
     public TerraformValue<string> CredentialId
-    {
-        get => new TerraformReference<string>(this, "credential_id");
-    }
+        => AsReference("credential_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

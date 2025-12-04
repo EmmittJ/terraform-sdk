@@ -11,9 +11,9 @@ public partial class AwsSignerSigningProfileDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,25 +23,25 @@ public partial class AwsSignerSigningProfileDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,80 +49,60 @@ public partial class AwsSignerSigningProfileDataSource(string name) : TerraformD
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The platform_display_name attribute.
     /// </summary>
     public TerraformValue<string> PlatformDisplayName
-    {
-        get => new TerraformReference<string>(this, "platform_display_name");
-    }
+        => AsReference("platform_display_name");
 
     /// <summary>
     /// The platform_id attribute.
     /// </summary>
     public TerraformValue<string> PlatformId
-    {
-        get => new TerraformReference<string>(this, "platform_id");
-    }
+        => AsReference("platform_id");
 
     /// <summary>
     /// The revocation_record attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RevocationRecord
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "revocation_record").ResolveNodes(ctx));
-    }
+        => AsReference("revocation_record");
 
     /// <summary>
     /// The signature_validity_period attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SignatureValidityPeriod
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "signature_validity_period").ResolveNodes(ctx));
-    }
+        => AsReference("signature_validity_period");
 
     /// <summary>
     /// The signing_material attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SigningMaterial
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "signing_material").ResolveNodes(ctx));
-    }
+        => AsReference("signing_material");
 
     /// <summary>
     /// The signing_parameters attribute.
     /// </summary>
     public TerraformMap<string> SigningParameters
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "signing_parameters").ResolveNodes(ctx));
-    }
+        => AsReference("signing_parameters");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
     /// <summary>
     /// The version_arn attribute.
     /// </summary>
     public TerraformValue<string> VersionArn
-    {
-        get => new TerraformReference<string>(this, "version_arn");
-    }
+        => AsReference("version_arn");
 
 }

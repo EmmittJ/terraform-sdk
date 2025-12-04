@@ -19,7 +19,7 @@ public class AwsAppfabricAppAuthorizationConnectionAuthRequestBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Code is required")]
     public required TerraformValue<string> Code
     {
-        get => new TerraformReference<string>(this, "code");
+        get => GetArgument<TerraformValue<string>>("code");
         set => SetArgument("code", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsAppfabricAppAuthorizationConnectionAuthRequestBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectUri is required")]
     public required TerraformValue<string> RedirectUri
     {
-        get => new TerraformReference<string>(this, "redirect_uri");
+        get => GetArgument<TerraformValue<string>>("redirect_uri");
         set => SetArgument("redirect_uri", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsAppfabricAppAuthorizationConnectionTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -71,7 +71,7 @@ public partial class AwsAppfabricAppAuthorizationConnection(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppAuthorizationArn is required")]
     public required TerraformValue<string> AppAuthorizationArn
     {
-        get => new TerraformReference<string>(this, "app_authorization_arn");
+        get => GetArgument<TerraformValue<string>>("app_authorization_arn");
         set => SetArgument("app_authorization_arn", value);
     }
 
@@ -81,16 +81,16 @@ public partial class AwsAppfabricAppAuthorizationConnection(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBundleArn is required")]
     public required TerraformValue<string> AppBundleArn
     {
-        get => new TerraformReference<string>(this, "app_bundle_arn");
+        get => GetArgument<TerraformValue<string>>("app_bundle_arn");
         set => SetArgument("app_bundle_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -98,25 +98,19 @@ public partial class AwsAppfabricAppAuthorizationConnection(string name) : Terra
     /// The app attribute.
     /// </summary>
     public TerraformValue<string> App
-    {
-        get => new TerraformReference<string>(this, "app");
-    }
+        => AsReference("app");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The tenant attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Tenant
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "tenant").ResolveNodes(ctx));
-    }
+        => AsReference("tenant");
 
     /// <summary>
     /// AuthRequest block (nesting mode: list).

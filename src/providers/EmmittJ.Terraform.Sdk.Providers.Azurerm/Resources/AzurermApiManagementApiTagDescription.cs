@@ -18,7 +18,7 @@ public class AzurermApiManagementApiTagDescriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermApiManagementApiTagDescriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermApiManagementApiTagDescriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermApiManagementApiTagDescriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermApiManagementApiTagDescription(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiTagId is required")]
     public required TerraformValue<string> ApiTagId
     {
-        get => new TerraformReference<string>(this, "api_tag_id");
+        get => GetArgument<TerraformValue<string>>("api_tag_id");
         set => SetArgument("api_tag_id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermApiManagementApiTagDescription(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermApiManagementApiTagDescription(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? ExternalDocumentationDescription
     {
-        get => new TerraformReference<string>(this, "external_documentation_description");
+        get => GetArgument<TerraformValue<string>>("external_documentation_description");
         set => SetArgument("external_documentation_description", value);
     }
 
@@ -91,16 +91,16 @@ public partial class AzurermApiManagementApiTagDescription(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? ExternalDocumentationUrl
     {
-        get => new TerraformReference<string>(this, "external_documentation_url");
+        get => GetArgument<TerraformValue<string>>("external_documentation_url");
         set => SetArgument("external_documentation_url", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 

@@ -18,7 +18,7 @@ public class AwsCloudwatchEventTargetAppsyncTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? GraphqlOperation
     {
-        get => new TerraformReference<string>(this, "graphql_operation");
+        get => GetArgument<TerraformValue<string>>("graphql_operation");
         set => SetArgument("graphql_operation", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsCloudwatchEventTargetBatchTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ArraySize
     {
-        get => new TerraformReference<double>(this, "array_size");
+        get => GetArgument<TerraformValue<double>>("array_size");
         set => SetArgument("array_size", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsCloudwatchEventTargetBatchTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? JobAttempts
     {
-        get => new TerraformReference<double>(this, "job_attempts");
+        get => GetArgument<TerraformValue<double>>("job_attempts");
         set => SetArgument("job_attempts", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsCloudwatchEventTargetBatchTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobDefinition is required")]
     public required TerraformValue<string> JobDefinition
     {
-        get => new TerraformReference<string>(this, "job_definition");
+        get => GetArgument<TerraformValue<string>>("job_definition");
         set => SetArgument("job_definition", value);
     }
 
@@ -70,7 +70,7 @@ public class AwsCloudwatchEventTargetBatchTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobName is required")]
     public required TerraformValue<string> JobName
     {
-        get => new TerraformReference<string>(this, "job_name");
+        get => GetArgument<TerraformValue<string>>("job_name");
         set => SetArgument("job_name", value);
     }
 
@@ -93,7 +93,7 @@ public class AwsCloudwatchEventTargetDeadLetterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableEcsManagedTags
     {
-        get => new TerraformReference<bool>(this, "enable_ecs_managed_tags");
+        get => GetArgument<TerraformValue<bool>>("enable_ecs_managed_tags");
         set => SetArgument("enable_ecs_managed_tags", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableExecuteCommand
     {
-        get => new TerraformReference<bool>(this, "enable_execute_command");
+        get => GetArgument<TerraformValue<bool>>("enable_execute_command");
         set => SetArgument("enable_execute_command", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Group
     {
-        get => new TerraformReference<string>(this, "group");
+        get => GetArgument<TerraformValue<string>>("group");
         set => SetArgument("group", value);
     }
 
@@ -143,7 +143,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LaunchType
     {
-        get => new TerraformReference<string>(this, "launch_type");
+        get => GetArgument<TerraformValue<string>>("launch_type");
         set => SetArgument("launch_type", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PlatformVersion
     {
-        get => new TerraformReference<string>(this, "platform_version");
+        get => GetArgument<TerraformValue<string>>("platform_version");
         set => SetArgument("platform_version", value);
     }
 
@@ -161,7 +161,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PropagateTags
     {
-        get => new TerraformReference<string>(this, "propagate_tags");
+        get => GetArgument<TerraformValue<string>>("propagate_tags");
         set => SetArgument("propagate_tags", value);
     }
 
@@ -170,7 +170,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -179,7 +179,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? TaskCount
     {
-        get => new TerraformReference<double>(this, "task_count");
+        get => GetArgument<TerraformValue<double>>("task_count");
         set => SetArgument("task_count", value);
     }
 
@@ -189,7 +189,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinitionArn is required")]
     public required TerraformValue<string> TaskDefinitionArn
     {
-        get => new TerraformReference<string>(this, "task_definition_arn");
+        get => GetArgument<TerraformValue<string>>("task_definition_arn");
         set => SetArgument("task_definition_arn", value);
     }
 
@@ -250,7 +250,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlockCapacityProviderStrategyBlock
     /// </summary>
     public TerraformValue<double>? BaseAttribute
     {
-        get => new TerraformReference<double>(this, "base");
+        get => GetArgument<TerraformValue<double>>("base");
         set => SetArgument("base", value);
     }
 
@@ -260,7 +260,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlockCapacityProviderStrategyBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityProvider is required")]
     public required TerraformValue<string> CapacityProvider
     {
-        get => new TerraformReference<string>(this, "capacity_provider");
+        get => GetArgument<TerraformValue<string>>("capacity_provider");
         set => SetArgument("capacity_provider", value);
     }
 
@@ -269,7 +269,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlockCapacityProviderStrategyBlock
     /// </summary>
     public TerraformValue<double>? Weight
     {
-        get => new TerraformReference<double>(this, "weight");
+        get => GetArgument<TerraformValue<double>>("weight");
         set => SetArgument("weight", value);
     }
 
@@ -291,7 +291,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlockNetworkConfigurationBlock : T
     /// </summary>
     public TerraformValue<bool>? AssignPublicIp
     {
-        get => new TerraformReference<bool>(this, "assign_public_ip");
+        get => GetArgument<TerraformValue<bool>>("assign_public_ip");
         set => SetArgument("assign_public_ip", value);
     }
 
@@ -300,7 +300,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlockNetworkConfigurationBlock : T
     /// </summary>
     public TerraformSet<string>? SecurityGroups
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_groups");
         set => SetArgument("security_groups", value);
     }
 
@@ -310,7 +310,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlockNetworkConfigurationBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
     public required TerraformSet<string> Subnets
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnets").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnets");
         set => SetArgument("subnets", value);
     }
 
@@ -332,7 +332,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlockOrderedPlacementStrategyBlock
     /// </summary>
     public TerraformValue<string>? Field
     {
-        get => new TerraformReference<string>(this, "field");
+        get => GetArgument<TerraformValue<string>>("field");
         set => SetArgument("field", value);
     }
 
@@ -342,7 +342,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlockOrderedPlacementStrategyBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -364,7 +364,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlockPlacementConstraintBlock : Te
     /// </summary>
     public TerraformValue<string>? Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -374,7 +374,7 @@ public class AwsCloudwatchEventTargetEcsTargetBlockPlacementConstraintBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -397,7 +397,7 @@ public class AwsCloudwatchEventTargetHttpTargetBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? HeaderParameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "header_parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("header_parameters");
         set => SetArgument("header_parameters", value);
     }
 
@@ -406,7 +406,7 @@ public class AwsCloudwatchEventTargetHttpTargetBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? PathParameterValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "path_parameter_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("path_parameter_values");
         set => SetArgument("path_parameter_values", value);
     }
 
@@ -415,7 +415,7 @@ public class AwsCloudwatchEventTargetHttpTargetBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? QueryStringParameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "query_string_parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("query_string_parameters");
         set => SetArgument("query_string_parameters", value);
     }
 
@@ -438,7 +438,7 @@ public class AwsCloudwatchEventTargetInputTransformerBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? InputPaths
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "input_paths").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("input_paths");
         set => SetArgument("input_paths", value);
     }
 
@@ -448,7 +448,7 @@ public class AwsCloudwatchEventTargetInputTransformerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputTemplate is required")]
     public required TerraformValue<string> InputTemplate
     {
-        get => new TerraformReference<string>(this, "input_template");
+        get => GetArgument<TerraformValue<string>>("input_template");
         set => SetArgument("input_template", value);
     }
 
@@ -471,7 +471,7 @@ public class AwsCloudwatchEventTargetKinesisTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PartitionKeyPath
     {
-        get => new TerraformReference<string>(this, "partition_key_path");
+        get => GetArgument<TerraformValue<string>>("partition_key_path");
         set => SetArgument("partition_key_path", value);
     }
 
@@ -495,7 +495,7 @@ public class AwsCloudwatchEventTargetRedshiftTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
@@ -504,7 +504,7 @@ public class AwsCloudwatchEventTargetRedshiftTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DbUser
     {
-        get => new TerraformReference<string>(this, "db_user");
+        get => GetArgument<TerraformValue<string>>("db_user");
         set => SetArgument("db_user", value);
     }
 
@@ -513,7 +513,7 @@ public class AwsCloudwatchEventTargetRedshiftTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SecretsManagerArn
     {
-        get => new TerraformReference<string>(this, "secrets_manager_arn");
+        get => GetArgument<TerraformValue<string>>("secrets_manager_arn");
         set => SetArgument("secrets_manager_arn", value);
     }
 
@@ -522,7 +522,7 @@ public class AwsCloudwatchEventTargetRedshiftTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Sql
     {
-        get => new TerraformReference<string>(this, "sql");
+        get => GetArgument<TerraformValue<string>>("sql");
         set => SetArgument("sql", value);
     }
 
@@ -531,7 +531,7 @@ public class AwsCloudwatchEventTargetRedshiftTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? StatementName
     {
-        get => new TerraformReference<string>(this, "statement_name");
+        get => GetArgument<TerraformValue<string>>("statement_name");
         set => SetArgument("statement_name", value);
     }
 
@@ -540,7 +540,7 @@ public class AwsCloudwatchEventTargetRedshiftTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? WithEvent
     {
-        get => new TerraformReference<bool>(this, "with_event");
+        get => GetArgument<TerraformValue<bool>>("with_event");
         set => SetArgument("with_event", value);
     }
 
@@ -563,7 +563,7 @@ public class AwsCloudwatchEventTargetRetryPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaximumEventAgeInSeconds
     {
-        get => new TerraformReference<double>(this, "maximum_event_age_in_seconds");
+        get => GetArgument<TerraformValue<double>>("maximum_event_age_in_seconds");
         set => SetArgument("maximum_event_age_in_seconds", value);
     }
 
@@ -572,7 +572,7 @@ public class AwsCloudwatchEventTargetRetryPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaximumRetryAttempts
     {
-        get => new TerraformReference<double>(this, "maximum_retry_attempts");
+        get => GetArgument<TerraformValue<double>>("maximum_retry_attempts");
         set => SetArgument("maximum_retry_attempts", value);
     }
 
@@ -596,7 +596,7 @@ public class AwsCloudwatchEventTargetRunCommandTargetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -606,7 +606,7 @@ public class AwsCloudwatchEventTargetRunCommandTargetsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -653,7 +653,7 @@ public class AwsCloudwatchEventTargetSagemakerPipelineTargetBlockPipelineParamet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -663,7 +663,7 @@ public class AwsCloudwatchEventTargetSagemakerPipelineTargetBlockPipelineParamet
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -686,7 +686,7 @@ public class AwsCloudwatchEventTargetSqsTargetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MessageGroupId
     {
-        get => new TerraformReference<string>(this, "message_group_id");
+        get => GetArgument<TerraformValue<string>>("message_group_id");
         set => SetArgument("message_group_id", value);
     }
 
@@ -705,7 +705,7 @@ public partial class AwsCloudwatchEventTarget(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -714,7 +714,7 @@ public partial class AwsCloudwatchEventTarget(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? EventBusName
     {
-        get => new TerraformReference<string>(this, "event_bus_name");
+        get => GetArgument<TerraformValue<string>>("event_bus_name");
         set => SetArgument("event_bus_name", value);
     }
 
@@ -723,16 +723,16 @@ public partial class AwsCloudwatchEventTarget(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? ForceDestroy
     {
-        get => new TerraformReference<bool>(this, "force_destroy");
+        get => GetArgument<TerraformValue<bool>>("force_destroy");
         set => SetArgument("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -741,7 +741,7 @@ public partial class AwsCloudwatchEventTarget(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Input
     {
-        get => new TerraformReference<string>(this, "input");
+        get => GetArgument<TerraformValue<string>>("input");
         set => SetArgument("input", value);
     }
 
@@ -750,16 +750,16 @@ public partial class AwsCloudwatchEventTarget(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? InputPath
     {
-        get => new TerraformReference<string>(this, "input_path");
+        get => GetArgument<TerraformValue<string>>("input_path");
         set => SetArgument("input_path", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -768,7 +768,7 @@ public partial class AwsCloudwatchEventTarget(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -778,16 +778,16 @@ public partial class AwsCloudwatchEventTarget(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     public required TerraformValue<string> Rule
     {
-        get => new TerraformReference<string>(this, "rule");
+        get => GetArgument<TerraformValue<string>>("rule");
         set => SetArgument("rule", value);
     }
 
     /// <summary>
     /// The target_id attribute.
     /// </summary>
-    public TerraformValue<string> TargetId
+    public TerraformValue<string>? TargetId
     {
-        get => new TerraformReference<string>(this, "target_id");
+        get => GetArgument<TerraformValue<string>>("target_id");
         set => SetArgument("target_id", value);
     }
 

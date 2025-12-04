@@ -94,7 +94,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockAwsKinesisBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsRoleArn is required")]
     public required TerraformValue<string> AwsRoleArn
     {
-        get => new TerraformReference<string>(this, "aws_role_arn");
+        get => GetArgument<TerraformValue<string>>("aws_role_arn");
         set => SetArgument("aws_role_arn", value);
     }
 
@@ -106,7 +106,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockAwsKinesisBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerArn is required")]
     public required TerraformValue<string> ConsumerArn
     {
-        get => new TerraformReference<string>(this, "consumer_arn");
+        get => GetArgument<TerraformValue<string>>("consumer_arn");
         set => SetArgument("consumer_arn", value);
     }
 
@@ -119,7 +119,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockAwsKinesisBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GcpServiceAccount is required")]
     public required TerraformValue<string> GcpServiceAccount
     {
-        get => new TerraformReference<string>(this, "gcp_service_account");
+        get => GetArgument<TerraformValue<string>>("gcp_service_account");
         set => SetArgument("gcp_service_account", value);
     }
 
@@ -129,7 +129,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockAwsKinesisBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamArn is required")]
     public required TerraformValue<string> StreamArn
     {
-        get => new TerraformReference<string>(this, "stream_arn");
+        get => GetArgument<TerraformValue<string>>("stream_arn");
         set => SetArgument("stream_arn", value);
     }
 
@@ -154,7 +154,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockAwsMskBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsRoleArn is required")]
     public required TerraformValue<string> AwsRoleArn
     {
-        get => new TerraformReference<string>(this, "aws_role_arn");
+        get => GetArgument<TerraformValue<string>>("aws_role_arn");
         set => SetArgument("aws_role_arn", value);
     }
 
@@ -164,7 +164,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockAwsMskBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterArn is required")]
     public required TerraformValue<string> ClusterArn
     {
-        get => new TerraformReference<string>(this, "cluster_arn");
+        get => GetArgument<TerraformValue<string>>("cluster_arn");
         set => SetArgument("cluster_arn", value);
     }
 
@@ -177,7 +177,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockAwsMskBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GcpServiceAccount is required")]
     public required TerraformValue<string> GcpServiceAccount
     {
-        get => new TerraformReference<string>(this, "gcp_service_account");
+        get => GetArgument<TerraformValue<string>>("gcp_service_account");
         set => SetArgument("gcp_service_account", value);
     }
 
@@ -187,7 +187,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockAwsMskBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformValue<string> Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -209,7 +209,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockAzureEventHubsBloc
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -218,7 +218,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockAzureEventHubsBloc
     /// </summary>
     public TerraformValue<string>? EventHub
     {
-        get => new TerraformReference<string>(this, "event_hub");
+        get => GetArgument<TerraformValue<string>>("event_hub");
         set => SetArgument("event_hub", value);
     }
 
@@ -229,7 +229,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockAzureEventHubsBloc
     /// </summary>
     public TerraformValue<string>? GcpServiceAccount
     {
-        get => new TerraformReference<string>(this, "gcp_service_account");
+        get => GetArgument<TerraformValue<string>>("gcp_service_account");
         set => SetArgument("gcp_service_account", value);
     }
 
@@ -238,7 +238,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockAzureEventHubsBloc
     /// </summary>
     public TerraformValue<string>? NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -247,7 +247,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockAzureEventHubsBloc
     /// </summary>
     public TerraformValue<string>? ResourceGroup
     {
-        get => new TerraformReference<string>(this, "resource_group");
+        get => GetArgument<TerraformValue<string>>("resource_group");
         set => SetArgument("resource_group", value);
     }
 
@@ -256,7 +256,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockAzureEventHubsBloc
     /// </summary>
     public TerraformValue<string>? SubscriptionId
     {
-        get => new TerraformReference<string>(this, "subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 
@@ -265,7 +265,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockAzureEventHubsBloc
     /// </summary>
     public TerraformValue<string>? TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -290,7 +290,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockCloudStorageBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -301,7 +301,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockCloudStorageBlock 
     /// </summary>
     public TerraformValue<string>? MatchGlob
     {
-        get => new TerraformReference<string>(this, "match_glob");
+        get => GetArgument<TerraformValue<string>>("match_glob");
         set => SetArgument("match_glob", value);
     }
 
@@ -312,7 +312,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockCloudStorageBlock 
     /// </summary>
     public TerraformValue<string>? MinimumObjectCreateTime
     {
-        get => new TerraformReference<string>(this, "minimum_object_create_time");
+        get => GetArgument<TerraformValue<string>>("minimum_object_create_time");
         set => SetArgument("minimum_object_create_time", value);
     }
 
@@ -392,7 +392,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockCloudStorageBlockT
     /// </summary>
     public TerraformValue<string>? Delimiter
     {
-        get => new TerraformReference<string>(this, "delimiter");
+        get => GetArgument<TerraformValue<string>>("delimiter");
         set => SetArgument("delimiter", value);
     }
 
@@ -415,7 +415,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockConfluentCloudBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BootstrapServer is required")]
     public required TerraformValue<string> BootstrapServer
     {
-        get => new TerraformReference<string>(this, "bootstrap_server");
+        get => GetArgument<TerraformValue<string>>("bootstrap_server");
         set => SetArgument("bootstrap_server", value);
     }
 
@@ -424,7 +424,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockConfluentCloudBloc
     /// </summary>
     public TerraformValue<string>? ClusterId
     {
-        get => new TerraformReference<string>(this, "cluster_id");
+        get => GetArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
@@ -435,7 +435,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockConfluentCloudBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GcpServiceAccount is required")]
     public required TerraformValue<string> GcpServiceAccount
     {
-        get => new TerraformReference<string>(this, "gcp_service_account");
+        get => GetArgument<TerraformValue<string>>("gcp_service_account");
         set => SetArgument("gcp_service_account", value);
     }
 
@@ -445,7 +445,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockConfluentCloudBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolId is required")]
     public required TerraformValue<string> IdentityPoolId
     {
-        get => new TerraformReference<string>(this, "identity_pool_id");
+        get => GetArgument<TerraformValue<string>>("identity_pool_id");
         set => SetArgument("identity_pool_id", value);
     }
 
@@ -455,7 +455,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockConfluentCloudBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformValue<string> Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -478,7 +478,7 @@ public class GooglePubsubTopicIngestionDataSourceSettingsBlockPlatformLogsSettin
     /// </summary>
     public TerraformValue<string>? Severity
     {
-        get => new TerraformReference<string>(this, "severity");
+        get => GetArgument<TerraformValue<string>>("severity");
         set => SetArgument("severity", value);
     }
 
@@ -507,7 +507,7 @@ public class GooglePubsubTopicMessageStoragePolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedPersistenceRegions is required")]
     public required TerraformSet<string> AllowedPersistenceRegions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_persistence_regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_persistence_regions");
         set => SetArgument("allowed_persistence_regions", value);
     }
 
@@ -519,7 +519,7 @@ public class GooglePubsubTopicMessageStoragePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnforceInTransit
     {
-        get => new TerraformReference<bool>(this, "enforce_in_transit");
+        get => GetArgument<TerraformValue<bool>>("enforce_in_transit");
         set => SetArgument("enforce_in_transit", value);
     }
 
@@ -543,7 +543,7 @@ public class GooglePubsubTopicMessageTransformsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -603,7 +603,7 @@ public class GooglePubsubTopicMessageTransformsBlockJavascriptUdfBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Code is required")]
     public required TerraformValue<string> Code
     {
-        get => new TerraformReference<string>(this, "code");
+        get => GetArgument<TerraformValue<string>>("code");
         set => SetArgument("code", value);
     }
 
@@ -613,7 +613,7 @@ public class GooglePubsubTopicMessageTransformsBlockJavascriptUdfBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
     public required TerraformValue<string> FunctionName
     {
-        get => new TerraformReference<string>(this, "function_name");
+        get => GetArgument<TerraformValue<string>>("function_name");
         set => SetArgument("function_name", value);
     }
 
@@ -636,7 +636,7 @@ public class GooglePubsubTopicSchemaSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Encoding
     {
-        get => new TerraformReference<string>(this, "encoding");
+        get => GetArgument<TerraformValue<string>>("encoding");
         set => SetArgument("encoding", value);
     }
 
@@ -649,7 +649,7 @@ public class GooglePubsubTopicSchemaSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     public required TerraformValue<string> Schema
     {
-        get => new TerraformReference<string>(this, "schema");
+        get => GetArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -672,7 +672,7 @@ public class GooglePubsubTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -681,7 +681,7 @@ public class GooglePubsubTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -690,7 +690,7 @@ public class GooglePubsubTopicTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -706,9 +706,9 @@ public partial class GooglePubsubTopic(string name) : TerraformResource("google_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -721,7 +721,7 @@ public partial class GooglePubsubTopic(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -734,7 +734,7 @@ public partial class GooglePubsubTopic(string name) : TerraformResource("google_
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -750,7 +750,7 @@ public partial class GooglePubsubTopic(string name) : TerraformResource("google_
     /// </summary>
     public TerraformValue<string>? MessageRetentionDuration
     {
-        get => new TerraformReference<string>(this, "message_retention_duration");
+        get => GetArgument<TerraformValue<string>>("message_retention_duration");
         set => SetArgument("message_retention_duration", value);
     }
 
@@ -760,16 +760,16 @@ public partial class GooglePubsubTopic(string name) : TerraformResource("google_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -785,7 +785,7 @@ public partial class GooglePubsubTopic(string name) : TerraformResource("google_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -793,18 +793,14 @@ public partial class GooglePubsubTopic(string name) : TerraformResource("google_
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// IngestionDataSourceSettings block (nesting mode: list).

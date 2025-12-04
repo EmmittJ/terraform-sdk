@@ -18,7 +18,7 @@ public class AwsChimeVoiceConnectorStreamingMediaInsightsConfigurationBlock : Te
     /// </summary>
     public TerraformValue<string>? ConfigurationArn
     {
-        get => new TerraformReference<string>(this, "configuration_arn");
+        get => GetArgument<TerraformValue<string>>("configuration_arn");
         set => SetArgument("configuration_arn", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsChimeVoiceConnectorStreamingMediaInsightsConfigurationBlock : Te
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AwsChimeVoiceConnectorStreaming(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataRetention is required")]
     public required TerraformValue<double> DataRetention
     {
-        get => new TerraformReference<double>(this, "data_retention");
+        get => GetArgument<TerraformValue<double>>("data_retention");
         set => SetArgument("data_retention", value);
     }
 
@@ -55,25 +55,25 @@ public partial class AwsChimeVoiceConnectorStreaming(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsChimeVoiceConnectorStreaming(string name) : TerraformRes
     /// </summary>
     public TerraformSet<string>? StreamingNotificationTargets
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "streaming_notification_targets").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("streaming_notification_targets");
         set => SetArgument("streaming_notification_targets", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AwsChimeVoiceConnectorStreaming(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VoiceConnectorId is required")]
     public required TerraformValue<string> VoiceConnectorId
     {
-        get => new TerraformReference<string>(this, "voice_connector_id");
+        get => GetArgument<TerraformValue<string>>("voice_connector_id");
         set => SetArgument("voice_connector_id", value);
     }
 

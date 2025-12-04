@@ -18,7 +18,7 @@ public class GoogleBiglakeDatabaseHiveOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? LocationUri
     {
-        get => new TerraformReference<string>(this, "location_uri");
+        get => GetArgument<TerraformValue<string>>("location_uri");
         set => SetArgument("location_uri", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleBiglakeDatabaseHiveOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleBiglakeDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleBiglakeDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleBiglakeDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -89,16 +89,16 @@ public partial class GoogleBiglakeDatabase(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Catalog is required")]
     public required TerraformValue<string> Catalog
     {
-        get => new TerraformReference<string>(this, "catalog");
+        get => GetArgument<TerraformValue<string>>("catalog");
         set => SetArgument("catalog", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -108,7 +108,7 @@ public partial class GoogleBiglakeDatabase(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -118,7 +118,7 @@ public partial class GoogleBiglakeDatabase(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -129,9 +129,7 @@ public partial class GoogleBiglakeDatabase(string name) : TerraformResource("goo
     /// &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Output only. The deletion time of the database. Only set after the
@@ -140,9 +138,7 @@ public partial class GoogleBiglakeDatabase(string name) : TerraformResource("goo
     /// &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> DeleteTime
-    {
-        get => new TerraformReference<string>(this, "delete_time");
-    }
+        => AsReference("delete_time");
 
     /// <summary>
     /// Output only. The time when this database is considered expired. Only set
@@ -151,9 +147,7 @@ public partial class GoogleBiglakeDatabase(string name) : TerraformResource("goo
     /// &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> ExpireTime
-    {
-        get => new TerraformReference<string>(this, "expire_time");
-    }
+        => AsReference("expire_time");
 
     /// <summary>
     /// Output only. The last modification time of the database. A timestamp in
@@ -162,9 +156,7 @@ public partial class GoogleBiglakeDatabase(string name) : TerraformResource("goo
     /// &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// HiveOptions block (nesting mode: list).

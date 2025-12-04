@@ -19,7 +19,7 @@ public class AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     public required TerraformValue<string> AuthenticationType
     {
-        get => new TerraformReference<string>(this, "authentication_type");
+        get => GetArgument<TerraformValue<string>>("authentication_type");
         set => SetArgument("authentication_type", value);
     }
 
@@ -71,7 +71,7 @@ public class AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlockLambdaAuth
     /// </summary>
     public TerraformValue<double>? AuthorizerResultTtlInSeconds
     {
-        get => new TerraformReference<double>(this, "authorizer_result_ttl_in_seconds");
+        get => GetArgument<TerraformValue<double>>("authorizer_result_ttl_in_seconds");
         set => SetArgument("authorizer_result_ttl_in_seconds", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlockLambdaAuth
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerUri is required")]
     public required TerraformValue<string> AuthorizerUri
     {
-        get => new TerraformReference<string>(this, "authorizer_uri");
+        get => GetArgument<TerraformValue<string>>("authorizer_uri");
         set => SetArgument("authorizer_uri", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlockLambdaAuth
     /// </summary>
     public TerraformValue<string>? IdentityValidationExpression
     {
-        get => new TerraformReference<string>(this, "identity_validation_expression");
+        get => GetArgument<TerraformValue<string>>("identity_validation_expression");
         set => SetArgument("identity_validation_expression", value);
     }
 
@@ -112,7 +112,7 @@ public class AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlockOpenidConn
     /// </summary>
     public TerraformValue<double>? AuthTtl
     {
-        get => new TerraformReference<double>(this, "auth_ttl");
+        get => GetArgument<TerraformValue<double>>("auth_ttl");
         set => SetArgument("auth_ttl", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlockOpenidConn
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlockOpenidConn
     /// </summary>
     public TerraformValue<double>? IatTtl
     {
-        get => new TerraformReference<double>(this, "iat_ttl");
+        get => GetArgument<TerraformValue<double>>("iat_ttl");
         set => SetArgument("iat_ttl", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlockOpenidConn
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformValue<string> Issuer
     {
-        get => new TerraformReference<string>(this, "issuer");
+        get => GetArgument<TerraformValue<string>>("issuer");
         set => SetArgument("issuer", value);
     }
 
@@ -162,16 +162,16 @@ public class AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlockUserPoolCo
     /// </summary>
     public TerraformValue<string>? AppIdClientRegex
     {
-        get => new TerraformReference<string>(this, "app_id_client_regex");
+        get => GetArgument<TerraformValue<string>>("app_id_client_regex");
         set => SetArgument("app_id_client_regex", value);
     }
 
     /// <summary>
     /// The aws_region attribute.
     /// </summary>
-    public TerraformValue<string> AwsRegion
+    public TerraformValue<string>? AwsRegion
     {
-        get => new TerraformReference<string>(this, "aws_region");
+        get => GetArgument<TerraformValue<string>>("aws_region");
         set => SetArgument("aws_region", value);
     }
 
@@ -181,7 +181,7 @@ public class AwsAppsyncGraphqlApiAdditionalAuthenticationProviderBlockUserPoolCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformValue<string> UserPoolId
     {
-        get => new TerraformReference<string>(this, "user_pool_id");
+        get => GetArgument<TerraformValue<string>>("user_pool_id");
         set => SetArgument("user_pool_id", value);
     }
 
@@ -205,7 +205,7 @@ public class AwsAppsyncGraphqlApiEnhancedMetricsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceLevelMetricsBehavior is required")]
     public required TerraformValue<string> DataSourceLevelMetricsBehavior
     {
-        get => new TerraformReference<string>(this, "data_source_level_metrics_behavior");
+        get => GetArgument<TerraformValue<string>>("data_source_level_metrics_behavior");
         set => SetArgument("data_source_level_metrics_behavior", value);
     }
 
@@ -215,7 +215,7 @@ public class AwsAppsyncGraphqlApiEnhancedMetricsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperationLevelMetricsConfig is required")]
     public required TerraformValue<string> OperationLevelMetricsConfig
     {
-        get => new TerraformReference<string>(this, "operation_level_metrics_config");
+        get => GetArgument<TerraformValue<string>>("operation_level_metrics_config");
         set => SetArgument("operation_level_metrics_config", value);
     }
 
@@ -225,7 +225,7 @@ public class AwsAppsyncGraphqlApiEnhancedMetricsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResolverLevelMetricsBehavior is required")]
     public required TerraformValue<string> ResolverLevelMetricsBehavior
     {
-        get => new TerraformReference<string>(this, "resolver_level_metrics_behavior");
+        get => GetArgument<TerraformValue<string>>("resolver_level_metrics_behavior");
         set => SetArgument("resolver_level_metrics_behavior", value);
     }
 
@@ -248,7 +248,7 @@ public class AwsAppsyncGraphqlApiLambdaAuthorizerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? AuthorizerResultTtlInSeconds
     {
-        get => new TerraformReference<double>(this, "authorizer_result_ttl_in_seconds");
+        get => GetArgument<TerraformValue<double>>("authorizer_result_ttl_in_seconds");
         set => SetArgument("authorizer_result_ttl_in_seconds", value);
     }
 
@@ -258,7 +258,7 @@ public class AwsAppsyncGraphqlApiLambdaAuthorizerConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerUri is required")]
     public required TerraformValue<string> AuthorizerUri
     {
-        get => new TerraformReference<string>(this, "authorizer_uri");
+        get => GetArgument<TerraformValue<string>>("authorizer_uri");
         set => SetArgument("authorizer_uri", value);
     }
 
@@ -267,7 +267,7 @@ public class AwsAppsyncGraphqlApiLambdaAuthorizerConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? IdentityValidationExpression
     {
-        get => new TerraformReference<string>(this, "identity_validation_expression");
+        get => GetArgument<TerraformValue<string>>("identity_validation_expression");
         set => SetArgument("identity_validation_expression", value);
     }
 
@@ -291,7 +291,7 @@ public class AwsAppsyncGraphqlApiLogConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudwatchLogsRoleArn is required")]
     public required TerraformValue<string> CloudwatchLogsRoleArn
     {
-        get => new TerraformReference<string>(this, "cloudwatch_logs_role_arn");
+        get => GetArgument<TerraformValue<string>>("cloudwatch_logs_role_arn");
         set => SetArgument("cloudwatch_logs_role_arn", value);
     }
 
@@ -300,7 +300,7 @@ public class AwsAppsyncGraphqlApiLogConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ExcludeVerboseContent
     {
-        get => new TerraformReference<bool>(this, "exclude_verbose_content");
+        get => GetArgument<TerraformValue<bool>>("exclude_verbose_content");
         set => SetArgument("exclude_verbose_content", value);
     }
 
@@ -310,7 +310,7 @@ public class AwsAppsyncGraphqlApiLogConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldLogLevel is required")]
     public required TerraformValue<string> FieldLogLevel
     {
-        get => new TerraformReference<string>(this, "field_log_level");
+        get => GetArgument<TerraformValue<string>>("field_log_level");
         set => SetArgument("field_log_level", value);
     }
 
@@ -333,7 +333,7 @@ public class AwsAppsyncGraphqlApiOpenidConnectConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? AuthTtl
     {
-        get => new TerraformReference<double>(this, "auth_ttl");
+        get => GetArgument<TerraformValue<double>>("auth_ttl");
         set => SetArgument("auth_ttl", value);
     }
 
@@ -342,7 +342,7 @@ public class AwsAppsyncGraphqlApiOpenidConnectConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -351,7 +351,7 @@ public class AwsAppsyncGraphqlApiOpenidConnectConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? IatTtl
     {
-        get => new TerraformReference<double>(this, "iat_ttl");
+        get => GetArgument<TerraformValue<double>>("iat_ttl");
         set => SetArgument("iat_ttl", value);
     }
 
@@ -361,7 +361,7 @@ public class AwsAppsyncGraphqlApiOpenidConnectConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
     public required TerraformValue<string> Issuer
     {
-        get => new TerraformReference<string>(this, "issuer");
+        get => GetArgument<TerraformValue<string>>("issuer");
         set => SetArgument("issuer", value);
     }
 
@@ -384,16 +384,16 @@ public class AwsAppsyncGraphqlApiUserPoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AppIdClientRegex
     {
-        get => new TerraformReference<string>(this, "app_id_client_regex");
+        get => GetArgument<TerraformValue<string>>("app_id_client_regex");
         set => SetArgument("app_id_client_regex", value);
     }
 
     /// <summary>
     /// The aws_region attribute.
     /// </summary>
-    public TerraformValue<string> AwsRegion
+    public TerraformValue<string>? AwsRegion
     {
-        get => new TerraformReference<string>(this, "aws_region");
+        get => GetArgument<TerraformValue<string>>("aws_region");
         set => SetArgument("aws_region", value);
     }
 
@@ -403,7 +403,7 @@ public class AwsAppsyncGraphqlApiUserPoolConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
     public required TerraformValue<string> DefaultAction
     {
-        get => new TerraformReference<string>(this, "default_action");
+        get => GetArgument<TerraformValue<string>>("default_action");
         set => SetArgument("default_action", value);
     }
 
@@ -413,7 +413,7 @@ public class AwsAppsyncGraphqlApiUserPoolConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformValue<string> UserPoolId
     {
-        get => new TerraformReference<string>(this, "user_pool_id");
+        get => GetArgument<TerraformValue<string>>("user_pool_id");
         set => SetArgument("user_pool_id", value);
     }
 
@@ -431,7 +431,7 @@ public partial class AwsAppsyncGraphqlApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? ApiType
     {
-        get => new TerraformReference<string>(this, "api_type");
+        get => GetArgument<TerraformValue<string>>("api_type");
         set => SetArgument("api_type", value);
     }
 
@@ -441,16 +441,16 @@ public partial class AwsAppsyncGraphqlApi(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     public required TerraformValue<string> AuthenticationType
     {
-        get => new TerraformReference<string>(this, "authentication_type");
+        get => GetArgument<TerraformValue<string>>("authentication_type");
         set => SetArgument("authentication_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -459,7 +459,7 @@ public partial class AwsAppsyncGraphqlApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? IntrospectionConfig
     {
-        get => new TerraformReference<string>(this, "introspection_config");
+        get => GetArgument<TerraformValue<string>>("introspection_config");
         set => SetArgument("introspection_config", value);
     }
 
@@ -468,7 +468,7 @@ public partial class AwsAppsyncGraphqlApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? MergedApiExecutionRoleArn
     {
-        get => new TerraformReference<string>(this, "merged_api_execution_role_arn");
+        get => GetArgument<TerraformValue<string>>("merged_api_execution_role_arn");
         set => SetArgument("merged_api_execution_role_arn", value);
     }
 
@@ -478,7 +478,7 @@ public partial class AwsAppsyncGraphqlApi(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -487,16 +487,16 @@ public partial class AwsAppsyncGraphqlApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<double>? QueryDepthLimit
     {
-        get => new TerraformReference<double>(this, "query_depth_limit");
+        get => GetArgument<TerraformValue<double>>("query_depth_limit");
         set => SetArgument("query_depth_limit", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -505,7 +505,7 @@ public partial class AwsAppsyncGraphqlApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<double>? ResolverCountLimit
     {
-        get => new TerraformReference<double>(this, "resolver_count_limit");
+        get => GetArgument<TerraformValue<double>>("resolver_count_limit");
         set => SetArgument("resolver_count_limit", value);
     }
 
@@ -514,7 +514,7 @@ public partial class AwsAppsyncGraphqlApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Schema
     {
-        get => new TerraformReference<string>(this, "schema");
+        get => GetArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -523,16 +523,16 @@ public partial class AwsAppsyncGraphqlApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -541,7 +541,7 @@ public partial class AwsAppsyncGraphqlApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Visibility
     {
-        get => new TerraformReference<string>(this, "visibility");
+        get => GetArgument<TerraformValue<string>>("visibility");
         set => SetArgument("visibility", value);
     }
 
@@ -550,7 +550,7 @@ public partial class AwsAppsyncGraphqlApi(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<bool>? XrayEnabled
     {
-        get => new TerraformReference<bool>(this, "xray_enabled");
+        get => GetArgument<TerraformValue<bool>>("xray_enabled");
         set => SetArgument("xray_enabled", value);
     }
 
@@ -558,17 +558,13 @@ public partial class AwsAppsyncGraphqlApi(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The uris attribute.
     /// </summary>
     public TerraformMap<string> Uris
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "uris").ResolveNodes(ctx));
-    }
+        => AsReference("uris");
 
     /// <summary>
     /// AdditionalAuthenticationProvider block (nesting mode: list).

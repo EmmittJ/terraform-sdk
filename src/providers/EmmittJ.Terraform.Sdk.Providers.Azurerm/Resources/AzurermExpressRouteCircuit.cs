@@ -19,7 +19,7 @@ public class AzurermExpressRouteCircuitSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
     public required TerraformValue<string> Family
     {
-        get => new TerraformReference<string>(this, "family");
+        get => GetArgument<TerraformValue<string>>("family");
         set => SetArgument("family", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermExpressRouteCircuitSkuBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
     public required TerraformValue<string> Tier
     {
-        get => new TerraformReference<string>(this, "tier");
+        get => GetArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermExpressRouteCircuitTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermExpressRouteCircuitTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermExpressRouteCircuitTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermExpressRouteCircuitTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AzurermExpressRouteCircuit(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? AllowClassicOperations
     {
-        get => new TerraformReference<bool>(this, "allow_classic_operations");
+        get => GetArgument<TerraformValue<bool>>("allow_classic_operations");
         set => SetArgument("allow_classic_operations", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AzurermExpressRouteCircuit(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? AuthorizationKey
     {
-        get => new TerraformReference<string>(this, "authorization_key");
+        get => GetArgument<TerraformValue<string>>("authorization_key");
         set => SetArgument("authorization_key", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AzurermExpressRouteCircuit(string name) : TerraformResource
     /// </summary>
     public TerraformValue<double>? BandwidthInGbps
     {
-        get => new TerraformReference<double>(this, "bandwidth_in_gbps");
+        get => GetArgument<TerraformValue<double>>("bandwidth_in_gbps");
         set => SetArgument("bandwidth_in_gbps", value);
     }
 
@@ -124,7 +124,7 @@ public partial class AzurermExpressRouteCircuit(string name) : TerraformResource
     /// </summary>
     public TerraformValue<double>? BandwidthInMbps
     {
-        get => new TerraformReference<double>(this, "bandwidth_in_mbps");
+        get => GetArgument<TerraformValue<double>>("bandwidth_in_mbps");
         set => SetArgument("bandwidth_in_mbps", value);
     }
 
@@ -133,16 +133,16 @@ public partial class AzurermExpressRouteCircuit(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? ExpressRoutePortId
     {
-        get => new TerraformReference<string>(this, "express_route_port_id");
+        get => GetArgument<TerraformValue<string>>("express_route_port_id");
         set => SetArgument("express_route_port_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AzurermExpressRouteCircuit(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AzurermExpressRouteCircuit(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AzurermExpressRouteCircuit(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? PeeringLocation
     {
-        get => new TerraformReference<string>(this, "peering_location");
+        get => GetArgument<TerraformValue<string>>("peering_location");
         set => SetArgument("peering_location", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AzurermExpressRouteCircuit(string name) : TerraformResource
     /// </summary>
     public TerraformValue<bool>? RateLimitingEnabled
     {
-        get => new TerraformReference<bool>(this, "rate_limiting_enabled");
+        get => GetArgument<TerraformValue<bool>>("rate_limiting_enabled");
         set => SetArgument("rate_limiting_enabled", value);
     }
 
@@ -190,7 +190,7 @@ public partial class AzurermExpressRouteCircuit(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AzurermExpressRouteCircuit(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? ServiceProviderName
     {
-        get => new TerraformReference<string>(this, "service_provider_name");
+        get => GetArgument<TerraformValue<string>>("service_provider_name");
         set => SetArgument("service_provider_name", value);
     }
 
@@ -208,7 +208,7 @@ public partial class AzurermExpressRouteCircuit(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -216,17 +216,13 @@ public partial class AzurermExpressRouteCircuit(string name) : TerraformResource
     /// The service_key attribute.
     /// </summary>
     public TerraformValue<string> ServiceKey
-    {
-        get => new TerraformReference<string>(this, "service_key");
-    }
+        => AsReference("service_key");
 
     /// <summary>
     /// The service_provider_provisioning_state attribute.
     /// </summary>
     public TerraformValue<string> ServiceProviderProvisioningState
-    {
-        get => new TerraformReference<string>(this, "service_provider_provisioning_state");
-    }
+        => AsReference("service_provider_provisioning_state");
 
     /// <summary>
     /// Sku block (nesting mode: list).

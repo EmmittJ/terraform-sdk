@@ -11,9 +11,9 @@ public partial class AwsCurReportDefinitionDataSource(string name) : TerraformDa
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsCurReportDefinitionDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportName is required")]
     public required TerraformValue<string> ReportName
     {
-        get => new TerraformReference<string>(this, "report_name");
+        get => GetArgument<TerraformValue<string>>("report_name");
         set => SetArgument("report_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -40,80 +40,60 @@ public partial class AwsCurReportDefinitionDataSource(string name) : TerraformDa
     /// The additional_artifacts attribute.
     /// </summary>
     public TerraformSet<string> AdditionalArtifacts
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "additional_artifacts").ResolveNodes(ctx));
-    }
+        => AsReference("additional_artifacts");
 
     /// <summary>
     /// The additional_schema_elements attribute.
     /// </summary>
     public TerraformSet<string> AdditionalSchemaElements
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "additional_schema_elements").ResolveNodes(ctx));
-    }
+        => AsReference("additional_schema_elements");
 
     /// <summary>
     /// The compression attribute.
     /// </summary>
     public TerraformValue<string> Compression
-    {
-        get => new TerraformReference<string>(this, "compression");
-    }
+        => AsReference("compression");
 
     /// <summary>
     /// The format attribute.
     /// </summary>
     public TerraformValue<string> Format
-    {
-        get => new TerraformReference<string>(this, "format");
-    }
+        => AsReference("format");
 
     /// <summary>
     /// The refresh_closed_reports attribute.
     /// </summary>
     public TerraformValue<bool> RefreshClosedReports
-    {
-        get => new TerraformReference<bool>(this, "refresh_closed_reports");
-    }
+        => AsReference("refresh_closed_reports");
 
     /// <summary>
     /// The report_versioning attribute.
     /// </summary>
     public TerraformValue<string> ReportVersioning
-    {
-        get => new TerraformReference<string>(this, "report_versioning");
-    }
+        => AsReference("report_versioning");
 
     /// <summary>
     /// The s3_bucket attribute.
     /// </summary>
     public TerraformValue<string> S3Bucket
-    {
-        get => new TerraformReference<string>(this, "s3_bucket");
-    }
+        => AsReference("s3_bucket");
 
     /// <summary>
     /// The s3_prefix attribute.
     /// </summary>
     public TerraformValue<string> S3Prefix
-    {
-        get => new TerraformReference<string>(this, "s3_prefix");
-    }
+        => AsReference("s3_prefix");
 
     /// <summary>
     /// The s3_region attribute.
     /// </summary>
     public TerraformValue<string> S3Region
-    {
-        get => new TerraformReference<string>(this, "s3_region");
-    }
+        => AsReference("s3_region");
 
     /// <summary>
     /// The time_unit attribute.
     /// </summary>
     public TerraformValue<string> TimeUnit
-    {
-        get => new TerraformReference<string>(this, "time_unit");
-    }
+        => AsReference("time_unit");
 
 }

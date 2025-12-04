@@ -18,7 +18,7 @@ public class GoogleComputeInterconnectAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeInterconnectAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleComputeInterconnectAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// </summary>
     public TerraformValue<bool>? AdminEnabled
     {
-        get => new TerraformReference<bool>(this, "admin_enabled");
+        get => GetArgument<TerraformValue<bool>>("admin_enabled");
         set => SetArgument("admin_enabled", value);
     }
 
@@ -66,9 +66,9 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// Output only for PARTNER type, mutable for PARTNER_PROVIDER and DEDICATED,
     /// Defaults to BPS_10G Possible values: [&amp;quot;BPS_50M&amp;quot;, &amp;quot;BPS_100M&amp;quot;, &amp;quot;BPS_200M&amp;quot;, &amp;quot;BPS_300M&amp;quot;, &amp;quot;BPS_400M&amp;quot;, &amp;quot;BPS_500M&amp;quot;, &amp;quot;BPS_1G&amp;quot;, &amp;quot;BPS_2G&amp;quot;, &amp;quot;BPS_5G&amp;quot;, &amp;quot;BPS_10G&amp;quot;, &amp;quot;BPS_20G&amp;quot;, &amp;quot;BPS_50G&amp;quot;, &amp;quot;BPS_100G&amp;quot;]
     /// </summary>
-    public TerraformValue<string> Bandwidth
+    public TerraformValue<string>? Bandwidth
     {
-        get => new TerraformReference<string>(this, "bandwidth");
+        get => GetArgument<TerraformValue<string>>("bandwidth");
         set => SetArgument("bandwidth", value);
     }
 
@@ -83,7 +83,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// </summary>
     public TerraformList<string>? CandidateSubnets
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "candidate_subnets").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("candidate_subnets");
         set => SetArgument("candidate_subnets", value);
     }
 
@@ -92,7 +92,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -104,9 +104,9 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// pairing key so that the provisioned circuit will lie in the specified
     /// domain. If not specified, the value will default to AVAILABILITY_DOMAIN_ANY.
     /// </summary>
-    public TerraformValue<string> EdgeAvailabilityDomain
+    public TerraformValue<string>? EdgeAvailabilityDomain
     {
-        get => new TerraformReference<string>(this, "edge_availability_domain");
+        get => GetArgument<TerraformValue<string>>("edge_availability_domain");
         set => SetArgument("edge_availability_domain", value);
     }
 
@@ -125,16 +125,16 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Encryption
     {
-        get => new TerraformReference<string>(this, "encryption");
+        get => GetArgument<TerraformValue<string>>("encryption");
         set => SetArgument("encryption", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -145,7 +145,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Interconnect
     {
-        get => new TerraformReference<string>(this, "interconnect");
+        get => GetArgument<TerraformValue<string>>("interconnect");
         set => SetArgument("interconnect", value);
     }
 
@@ -168,7 +168,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// </summary>
     public TerraformList<string>? IpsecInternalAddresses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ipsec_internal_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ipsec_internal_addresses");
         set => SetArgument("ipsec_internal_addresses", value);
     }
 
@@ -182,7 +182,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -190,9 +190,9 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// Maximum Transmission Unit (MTU), in bytes, of packets passing through this interconnect attachment.
     /// Valid values are 1440, 1460, 1500, and 8896. If not specified, the value will default to 1440.
     /// </summary>
-    public TerraformValue<string> Mtu
+    public TerraformValue<string>? Mtu
     {
-        get => new TerraformReference<string>(this, "mtu");
+        get => GetArgument<TerraformValue<string>>("mtu");
         set => SetArgument("mtu", value);
     }
 
@@ -207,25 +207,25 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Region where the regional interconnect attachment resides.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -238,7 +238,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
     public required TerraformValue<string> Router
     {
-        get => new TerraformReference<string>(this, "router");
+        get => GetArgument<TerraformValue<string>>("router");
         set => SetArgument("router", value);
     }
 
@@ -248,9 +248,9 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// This field can be both set at interconnect attachments creation and update
     /// interconnect attachment operations. Possible values: [&amp;quot;IPV4_IPV6&amp;quot;, &amp;quot;IPV4_ONLY&amp;quot;]
     /// </summary>
-    public TerraformValue<string> StackType
+    public TerraformValue<string>? StackType
     {
-        get => new TerraformReference<string>(this, "stack_type");
+        get => GetArgument<TerraformValue<string>>("stack_type");
         set => SetArgument("stack_type", value);
     }
 
@@ -264,7 +264,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// </summary>
     public TerraformValue<double>? SubnetLength
     {
-        get => new TerraformReference<double>(this, "subnet_length");
+        get => GetArgument<TerraformValue<double>>("subnet_length");
         set => SetArgument("subnet_length", value);
     }
 
@@ -272,9 +272,9 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// The type of InterconnectAttachment you wish to create. Defaults to
     /// DEDICATED. Possible values: [&amp;quot;DEDICATED&amp;quot;, &amp;quot;PARTNER&amp;quot;, &amp;quot;PARTNER_PROVIDER&amp;quot;]
     /// </summary>
-    public TerraformValue<string> Type
+    public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -282,9 +282,9 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// The IEEE 802.1Q VLAN tag for this attachment, in the range 2-4094. When
     /// using PARTNER type this will be managed upstream.
     /// </summary>
-    public TerraformValue<double> VlanTag8021q
+    public TerraformValue<double>? VlanTag8021q
     {
-        get => new TerraformReference<double>(this, "vlan_tag8021q");
+        get => GetArgument<TerraformValue<double>>("vlan_tag8021q");
         set => SetArgument("vlan_tag8021q", value);
     }
 
@@ -292,70 +292,54 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// URL of the AttachmentGroup that includes this Attachment.
     /// </summary>
     public TerraformValue<string> AttachmentGroup
-    {
-        get => new TerraformReference<string>(this, "attachment_group");
-    }
+        => AsReference("attachment_group");
 
     /// <summary>
     /// IPv4 address + prefix length to be configured on Cloud Router
     /// Interface for this interconnect attachment.
     /// </summary>
     public TerraformValue<string> CloudRouterIpAddress
-    {
-        get => new TerraformReference<string>(this, "cloud_router_ip_address");
-    }
+        => AsReference("cloud_router_ip_address");
 
     /// <summary>
     /// IPv6 address + prefix length to be configured on Cloud Router
     /// Interface for this interconnect attachment.
     /// </summary>
     public TerraformValue<string> CloudRouterIpv6Address
-    {
-        get => new TerraformReference<string>(this, "cloud_router_ipv6_address");
-    }
+        => AsReference("cloud_router_ipv6_address");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// IPv4 address + prefix length to be configured on the customer
     /// router subinterface for this interconnect attachment.
     /// </summary>
     public TerraformValue<string> CustomerRouterIpAddress
-    {
-        get => new TerraformReference<string>(this, "customer_router_ip_address");
-    }
+        => AsReference("customer_router_ip_address");
 
     /// <summary>
     /// IPv6 address + prefix length to be configured on the customer
     /// router subinterface for this interconnect attachment.
     /// </summary>
     public TerraformValue<string> CustomerRouterIpv6Address
-    {
-        get => new TerraformReference<string>(this, "customer_router_ipv6_address");
-    }
+        => AsReference("customer_router_ipv6_address");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Google reference ID, to be used when raising support tickets with
     /// Google or otherwise to debug backend connectivity issues.
     /// </summary>
     public TerraformValue<string> GoogleReferenceId
-    {
-        get => new TerraformReference<string>(this, "google_reference_id");
-    }
+        => AsReference("google_reference_id");
 
     /// <summary>
     /// A fingerprint for the labels being applied to this Interconnect, which is essentially a hash
@@ -365,9 +349,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// otherwise the request will fail with error 412 conditionNotMet.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-    {
-        get => new TerraformReference<string>(this, "label_fingerprint");
-    }
+        => AsReference("label_fingerprint");
 
     /// <summary>
     /// [Output only for type PARTNER. Not present for DEDICATED]. The opaque
@@ -375,9 +357,7 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// a selected partner. Of the form &amp;quot;XXXXX/region/domain&amp;quot;
     /// </summary>
     public TerraformValue<string> PairingKey
-    {
-        get => new TerraformReference<string>(this, "pairing_key");
-    }
+        => AsReference("pairing_key");
 
     /// <summary>
     /// [Output only for type PARTNER. Not present for DEDICATED]. Optional
@@ -385,43 +365,33 @@ public partial class GoogleComputeInterconnectAttachment(string name) : Terrafor
     /// they configured BGP on behalf of the customer.
     /// </summary>
     public TerraformValue<string> PartnerAsn
-    {
-        get => new TerraformReference<string>(this, "partner_asn");
-    }
+        => AsReference("partner_asn");
 
     /// <summary>
     /// Information specific to an InterconnectAttachment. This property
     /// is populated if the interconnect that this is attached to is of type DEDICATED.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrivateInterconnectInfo
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "private_interconnect_info").ResolveNodes(ctx));
-    }
+        => AsReference("private_interconnect_info");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// [Output Only] The current state of this attachment&#39;s functionality.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

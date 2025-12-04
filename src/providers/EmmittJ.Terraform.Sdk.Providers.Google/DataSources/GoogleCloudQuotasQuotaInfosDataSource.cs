@@ -11,9 +11,9 @@ public partial class GoogleCloudQuotasQuotaInfosDataSource(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleCloudQuotasQuotaInfosDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleCloudQuotasQuotaInfosDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -41,8 +41,6 @@ public partial class GoogleCloudQuotasQuotaInfosDataSource(string name) : Terraf
     /// The quota_infos attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> QuotaInfos
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "quota_infos").ResolveNodes(ctx));
-    }
+        => AsReference("quota_infos");
 
 }

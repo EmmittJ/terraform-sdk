@@ -13,7 +13,7 @@ public partial class AwsDbSnapshotDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string>? DbInstanceIdentifier
     {
-        get => new TerraformReference<string>(this, "db_instance_identifier");
+        get => GetArgument<TerraformValue<string>>("db_instance_identifier");
         set => SetArgument("db_instance_identifier", value);
     }
 
@@ -22,16 +22,16 @@ public partial class AwsDbSnapshotDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string>? DbSnapshotIdentifier
     {
-        get => new TerraformReference<string>(this, "db_snapshot_identifier");
+        get => GetArgument<TerraformValue<string>>("db_snapshot_identifier");
         set => SetArgument("db_snapshot_identifier", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsDbSnapshotDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<bool>? IncludePublic
     {
-        get => new TerraformReference<bool>(this, "include_public");
+        get => GetArgument<TerraformValue<bool>>("include_public");
         set => SetArgument("include_public", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsDbSnapshotDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<bool>? IncludeShared
     {
-        get => new TerraformReference<bool>(this, "include_shared");
+        get => GetArgument<TerraformValue<bool>>("include_shared");
         set => SetArgument("include_shared", value);
     }
 
@@ -58,16 +58,16 @@ public partial class AwsDbSnapshotDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<bool>? MostRecent
     {
-        get => new TerraformReference<bool>(this, "most_recent");
+        get => GetArgument<TerraformValue<bool>>("most_recent");
         set => SetArgument("most_recent", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -76,16 +76,16 @@ public partial class AwsDbSnapshotDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<string>? SnapshotType
     {
-        get => new TerraformReference<string>(this, "snapshot_type");
+        get => GetArgument<TerraformValue<string>>("snapshot_type");
         set => SetArgument("snapshot_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -93,144 +93,108 @@ public partial class AwsDbSnapshotDataSource(string name) : TerraformDataSource(
     /// The allocated_storage attribute.
     /// </summary>
     public TerraformValue<double> AllocatedStorage
-    {
-        get => new TerraformReference<double>(this, "allocated_storage");
-    }
+        => AsReference("allocated_storage");
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
     public TerraformValue<string> AvailabilityZone
-    {
-        get => new TerraformReference<string>(this, "availability_zone");
-    }
+        => AsReference("availability_zone");
 
     /// <summary>
     /// The db_snapshot_arn attribute.
     /// </summary>
     public TerraformValue<string> DbSnapshotArn
-    {
-        get => new TerraformReference<string>(this, "db_snapshot_arn");
-    }
+        => AsReference("db_snapshot_arn");
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
     public TerraformValue<bool> Encrypted
-    {
-        get => new TerraformReference<bool>(this, "encrypted");
-    }
+        => AsReference("encrypted");
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
     public TerraformValue<string> Engine
-    {
-        get => new TerraformReference<string>(this, "engine");
-    }
+        => AsReference("engine");
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
     public TerraformValue<string> EngineVersion
-    {
-        get => new TerraformReference<string>(this, "engine_version");
-    }
+        => AsReference("engine_version");
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
     public TerraformValue<double> Iops
-    {
-        get => new TerraformReference<double>(this, "iops");
-    }
+        => AsReference("iops");
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
     public TerraformValue<string> KmsKeyId
-    {
-        get => new TerraformReference<string>(this, "kms_key_id");
-    }
+        => AsReference("kms_key_id");
 
     /// <summary>
     /// The license_model attribute.
     /// </summary>
     public TerraformValue<string> LicenseModel
-    {
-        get => new TerraformReference<string>(this, "license_model");
-    }
+        => AsReference("license_model");
 
     /// <summary>
     /// The option_group_name attribute.
     /// </summary>
     public TerraformValue<string> OptionGroupName
-    {
-        get => new TerraformReference<string>(this, "option_group_name");
-    }
+        => AsReference("option_group_name");
 
     /// <summary>
     /// The original_snapshot_create_time attribute.
     /// </summary>
     public TerraformValue<string> OriginalSnapshotCreateTime
-    {
-        get => new TerraformReference<string>(this, "original_snapshot_create_time");
-    }
+        => AsReference("original_snapshot_create_time");
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     public TerraformValue<double> Port
-    {
-        get => new TerraformReference<double>(this, "port");
-    }
+        => AsReference("port");
 
     /// <summary>
     /// The snapshot_create_time attribute.
     /// </summary>
     public TerraformValue<string> SnapshotCreateTime
-    {
-        get => new TerraformReference<string>(this, "snapshot_create_time");
-    }
+        => AsReference("snapshot_create_time");
 
     /// <summary>
     /// The source_db_snapshot_identifier attribute.
     /// </summary>
     public TerraformValue<string> SourceDbSnapshotIdentifier
-    {
-        get => new TerraformReference<string>(this, "source_db_snapshot_identifier");
-    }
+        => AsReference("source_db_snapshot_identifier");
 
     /// <summary>
     /// The source_region attribute.
     /// </summary>
     public TerraformValue<string> SourceRegion
-    {
-        get => new TerraformReference<string>(this, "source_region");
-    }
+        => AsReference("source_region");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
     public TerraformValue<string> StorageType
-    {
-        get => new TerraformReference<string>(this, "storage_type");
-    }
+        => AsReference("storage_type");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-    {
-        get => new TerraformReference<string>(this, "vpc_id");
-    }
+        => AsReference("vpc_id");
 
 }

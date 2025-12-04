@@ -16,9 +16,9 @@ public class AwsApiGatewayDomainNameEndpointConfigurationBlock : TerraformBlock
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformValue<string> IpAddressType
+    public TerraformValue<string>? IpAddressType
     {
-        get => new TerraformReference<string>(this, "ip_address_type");
+        get => GetArgument<TerraformValue<string>>("ip_address_type");
         set => SetArgument("ip_address_type", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsApiGatewayDomainNameEndpointConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Types is required")]
     public TerraformList<string>? Types
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("types");
         set => SetArgument("types", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsApiGatewayDomainNameMutualTlsAuthenticationBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TruststoreUri is required")]
     public required TerraformValue<string> TruststoreUri
     {
-        get => new TerraformReference<string>(this, "truststore_uri");
+        get => GetArgument<TerraformValue<string>>("truststore_uri");
         set => SetArgument("truststore_uri", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsApiGatewayDomainNameMutualTlsAuthenticationBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? TruststoreVersion
     {
-        get => new TerraformReference<string>(this, "truststore_version");
+        get => GetArgument<TerraformValue<string>>("truststore_version");
         set => SetArgument("truststore_version", value);
     }
 
@@ -79,7 +79,7 @@ public partial class AwsApiGatewayDomainName(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? CertificateArn
     {
-        get => new TerraformReference<string>(this, "certificate_arn");
+        get => GetArgument<TerraformValue<string>>("certificate_arn");
         set => SetArgument("certificate_arn", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsApiGatewayDomainName(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? CertificateBody
     {
-        get => new TerraformReference<string>(this, "certificate_body");
+        get => GetArgument<TerraformValue<string>>("certificate_body");
         set => SetArgument("certificate_body", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AwsApiGatewayDomainName(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? CertificateChain
     {
-        get => new TerraformReference<string>(this, "certificate_chain");
+        get => GetArgument<TerraformValue<string>>("certificate_chain");
         set => SetArgument("certificate_chain", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsApiGatewayDomainName(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? CertificateName
     {
-        get => new TerraformReference<string>(this, "certificate_name");
+        get => GetArgument<TerraformValue<string>>("certificate_name");
         set => SetArgument("certificate_name", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AwsApiGatewayDomainName(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? CertificatePrivateKey
     {
-        get => new TerraformReference<string>(this, "certificate_private_key");
+        get => GetArgument<TerraformValue<string>>("certificate_private_key");
         set => SetArgument("certificate_private_key", value);
     }
 
@@ -125,25 +125,25 @@ public partial class AwsApiGatewayDomainName(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The ownership_verification_certificate_arn attribute.
     /// </summary>
-    public TerraformValue<string> OwnershipVerificationCertificateArn
+    public TerraformValue<string>? OwnershipVerificationCertificateArn
     {
-        get => new TerraformReference<string>(this, "ownership_verification_certificate_arn");
+        get => GetArgument<TerraformValue<string>>("ownership_verification_certificate_arn");
         set => SetArgument("ownership_verification_certificate_arn", value);
     }
 
@@ -152,16 +152,16 @@ public partial class AwsApiGatewayDomainName(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AwsApiGatewayDomainName(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? RegionalCertificateArn
     {
-        get => new TerraformReference<string>(this, "regional_certificate_arn");
+        get => GetArgument<TerraformValue<string>>("regional_certificate_arn");
         set => SetArgument("regional_certificate_arn", value);
     }
 
@@ -179,16 +179,16 @@ public partial class AwsApiGatewayDomainName(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? RegionalCertificateName
     {
-        get => new TerraformReference<string>(this, "regional_certificate_name");
+        get => GetArgument<TerraformValue<string>>("regional_certificate_name");
         set => SetArgument("regional_certificate_name", value);
     }
 
     /// <summary>
     /// The security_policy attribute.
     /// </summary>
-    public TerraformValue<string> SecurityPolicy
+    public TerraformValue<string>? SecurityPolicy
     {
-        get => new TerraformReference<string>(this, "security_policy");
+        get => GetArgument<TerraformValue<string>>("security_policy");
         set => SetArgument("security_policy", value);
     }
 
@@ -197,16 +197,16 @@ public partial class AwsApiGatewayDomainName(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -214,57 +214,43 @@ public partial class AwsApiGatewayDomainName(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The certificate_upload_date attribute.
     /// </summary>
     public TerraformValue<string> CertificateUploadDate
-    {
-        get => new TerraformReference<string>(this, "certificate_upload_date");
-    }
+        => AsReference("certificate_upload_date");
 
     /// <summary>
     /// The cloudfront_domain_name attribute.
     /// </summary>
     public TerraformValue<string> CloudfrontDomainName
-    {
-        get => new TerraformReference<string>(this, "cloudfront_domain_name");
-    }
+        => AsReference("cloudfront_domain_name");
 
     /// <summary>
     /// The cloudfront_zone_id attribute.
     /// </summary>
     public TerraformValue<string> CloudfrontZoneId
-    {
-        get => new TerraformReference<string>(this, "cloudfront_zone_id");
-    }
+        => AsReference("cloudfront_zone_id");
 
     /// <summary>
     /// The domain_name_id attribute.
     /// </summary>
     public TerraformValue<string> DomainNameId
-    {
-        get => new TerraformReference<string>(this, "domain_name_id");
-    }
+        => AsReference("domain_name_id");
 
     /// <summary>
     /// The regional_domain_name attribute.
     /// </summary>
     public TerraformValue<string> RegionalDomainName
-    {
-        get => new TerraformReference<string>(this, "regional_domain_name");
-    }
+        => AsReference("regional_domain_name");
 
     /// <summary>
     /// The regional_zone_id attribute.
     /// </summary>
     public TerraformValue<string> RegionalZoneId
-    {
-        get => new TerraformReference<string>(this, "regional_zone_id");
-    }
+        => AsReference("regional_zone_id");
 
     /// <summary>
     /// EndpointConfiguration block (nesting mode: list).

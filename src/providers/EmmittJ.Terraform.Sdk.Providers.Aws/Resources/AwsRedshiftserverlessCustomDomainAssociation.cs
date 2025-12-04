@@ -14,7 +14,7 @@ public partial class AwsRedshiftserverlessCustomDomainAssociation(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomDomainCertificateArn is required")]
     public required TerraformValue<string> CustomDomainCertificateArn
     {
-        get => new TerraformReference<string>(this, "custom_domain_certificate_arn");
+        get => GetArgument<TerraformValue<string>>("custom_domain_certificate_arn");
         set => SetArgument("custom_domain_certificate_arn", value);
     }
 
@@ -24,16 +24,16 @@ public partial class AwsRedshiftserverlessCustomDomainAssociation(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomDomainName is required")]
     public required TerraformValue<string> CustomDomainName
     {
-        get => new TerraformReference<string>(this, "custom_domain_name");
+        get => GetArgument<TerraformValue<string>>("custom_domain_name");
         set => SetArgument("custom_domain_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -43,7 +43,7 @@ public partial class AwsRedshiftserverlessCustomDomainAssociation(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkgroupName is required")]
     public required TerraformValue<string> WorkgroupName
     {
-        get => new TerraformReference<string>(this, "workgroup_name");
+        get => GetArgument<TerraformValue<string>>("workgroup_name");
         set => SetArgument("workgroup_name", value);
     }
 
@@ -51,16 +51,12 @@ public partial class AwsRedshiftserverlessCustomDomainAssociation(string name) :
     /// The custom_domain_certificate_expiry_time attribute.
     /// </summary>
     public TerraformValue<string> CustomDomainCertificateExpiryTime
-    {
-        get => new TerraformReference<string>(this, "custom_domain_certificate_expiry_time");
-    }
+        => AsReference("custom_domain_certificate_expiry_time");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
 }

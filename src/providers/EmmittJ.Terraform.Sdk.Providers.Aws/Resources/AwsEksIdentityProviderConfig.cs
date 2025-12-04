@@ -19,7 +19,7 @@ public class AwsEksIdentityProviderConfigOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsEksIdentityProviderConfigOidcBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? GroupsClaim
     {
-        get => new TerraformReference<string>(this, "groups_claim");
+        get => GetArgument<TerraformValue<string>>("groups_claim");
         set => SetArgument("groups_claim", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsEksIdentityProviderConfigOidcBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? GroupsPrefix
     {
-        get => new TerraformReference<string>(this, "groups_prefix");
+        get => GetArgument<TerraformValue<string>>("groups_prefix");
         set => SetArgument("groups_prefix", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsEksIdentityProviderConfigOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityProviderConfigName is required")]
     public required TerraformValue<string> IdentityProviderConfigName
     {
-        get => new TerraformReference<string>(this, "identity_provider_config_name");
+        get => GetArgument<TerraformValue<string>>("identity_provider_config_name");
         set => SetArgument("identity_provider_config_name", value);
     }
 
@@ -57,7 +57,7 @@ public class AwsEksIdentityProviderConfigOidcBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerUrl is required")]
     public required TerraformValue<string> IssuerUrl
     {
-        get => new TerraformReference<string>(this, "issuer_url");
+        get => GetArgument<TerraformValue<string>>("issuer_url");
         set => SetArgument("issuer_url", value);
     }
 
@@ -66,7 +66,7 @@ public class AwsEksIdentityProviderConfigOidcBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? RequiredClaims
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "required_claims").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("required_claims");
         set => SetArgument("required_claims", value);
     }
 
@@ -75,7 +75,7 @@ public class AwsEksIdentityProviderConfigOidcBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? UsernameClaim
     {
-        get => new TerraformReference<string>(this, "username_claim");
+        get => GetArgument<TerraformValue<string>>("username_claim");
         set => SetArgument("username_claim", value);
     }
 
@@ -84,7 +84,7 @@ public class AwsEksIdentityProviderConfigOidcBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? UsernamePrefix
     {
-        get => new TerraformReference<string>(this, "username_prefix");
+        get => GetArgument<TerraformValue<string>>("username_prefix");
         set => SetArgument("username_prefix", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsEksIdentityProviderConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsEksIdentityProviderConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -135,25 +135,25 @@ public partial class AwsEksIdentityProviderConfig(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => new TerraformReference<string>(this, "cluster_name");
+        get => GetArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -162,16 +162,16 @@ public partial class AwsEksIdentityProviderConfig(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -179,17 +179,13 @@ public partial class AwsEksIdentityProviderConfig(string name) : TerraformResour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// Oidc block (nesting mode: list).

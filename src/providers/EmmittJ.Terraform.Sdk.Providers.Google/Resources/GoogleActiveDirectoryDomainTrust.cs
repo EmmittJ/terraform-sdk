@@ -18,7 +18,7 @@ public class GoogleActiveDirectoryDomainTrustTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleActiveDirectoryDomainTrustTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleActiveDirectoryDomainTrustTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -56,25 +56,25 @@ public partial class GoogleActiveDirectoryDomainTrust(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => new TerraformReference<string>(this, "domain");
+        get => GetArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -83,7 +83,7 @@ public partial class GoogleActiveDirectoryDomainTrust(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? SelectiveAuthentication
     {
-        get => new TerraformReference<bool>(this, "selective_authentication");
+        get => GetArgument<TerraformValue<bool>>("selective_authentication");
         set => SetArgument("selective_authentication", value);
     }
 
@@ -93,7 +93,7 @@ public partial class GoogleActiveDirectoryDomainTrust(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDnsIpAddresses is required")]
     public required TerraformSet<string> TargetDnsIpAddresses
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "target_dns_ip_addresses").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("target_dns_ip_addresses");
         set => SetArgument("target_dns_ip_addresses", value);
     }
 
@@ -103,7 +103,7 @@ public partial class GoogleActiveDirectoryDomainTrust(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDomainName is required")]
     public required TerraformValue<string> TargetDomainName
     {
-        get => new TerraformReference<string>(this, "target_domain_name");
+        get => GetArgument<TerraformValue<string>>("target_domain_name");
         set => SetArgument("target_domain_name", value);
     }
 
@@ -113,7 +113,7 @@ public partial class GoogleActiveDirectoryDomainTrust(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustDirection is required")]
     public required TerraformValue<string> TrustDirection
     {
-        get => new TerraformReference<string>(this, "trust_direction");
+        get => GetArgument<TerraformValue<string>>("trust_direction");
         set => SetArgument("trust_direction", value);
     }
 
@@ -123,7 +123,7 @@ public partial class GoogleActiveDirectoryDomainTrust(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustHandshakeSecret is required")]
     public required TerraformValue<string> TrustHandshakeSecret
     {
-        get => new TerraformReference<string>(this, "trust_handshake_secret");
+        get => GetArgument<TerraformValue<string>>("trust_handshake_secret");
         set => SetArgument("trust_handshake_secret", value);
     }
 
@@ -133,7 +133,7 @@ public partial class GoogleActiveDirectoryDomainTrust(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrustType is required")]
     public required TerraformValue<string> TrustType
     {
-        get => new TerraformReference<string>(this, "trust_type");
+        get => GetArgument<TerraformValue<string>>("trust_type");
         set => SetArgument("trust_type", value);
     }
 

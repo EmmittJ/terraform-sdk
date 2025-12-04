@@ -18,7 +18,7 @@ public class GoogleComputeTargetTcpProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeTargetTcpProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleComputeTargetTcpProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleComputeTargetTcpProxy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
     public required TerraformValue<string> BackendService
     {
-        get => new TerraformReference<string>(this, "backend_service");
+        get => GetArgument<TerraformValue<string>>("backend_service");
         set => SetArgument("backend_service", value);
     }
 
@@ -64,16 +64,16 @@ public partial class GoogleComputeTargetTcpProxy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -89,16 +89,16 @@ public partial class GoogleComputeTargetTcpProxy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -106,9 +106,9 @@ public partial class GoogleComputeTargetTcpProxy(string name) : TerraformResourc
     /// This field only applies when the forwarding rule that references
     /// this target proxy has a loadBalancingScheme set to INTERNAL_SELF_MANAGED.
     /// </summary>
-    public TerraformValue<bool> ProxyBind
+    public TerraformValue<bool>? ProxyBind
     {
-        get => new TerraformReference<bool>(this, "proxy_bind");
+        get => GetArgument<TerraformValue<bool>>("proxy_bind");
         set => SetArgument("proxy_bind", value);
     }
 
@@ -118,7 +118,7 @@ public partial class GoogleComputeTargetTcpProxy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? ProxyHeader
     {
-        get => new TerraformReference<string>(this, "proxy_header");
+        get => GetArgument<TerraformValue<string>>("proxy_header");
         set => SetArgument("proxy_header", value);
     }
 
@@ -126,25 +126,19 @@ public partial class GoogleComputeTargetTcpProxy(string name) : TerraformResourc
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// The unique identifier for the resource.
     /// </summary>
     public TerraformValue<double> ProxyId
-    {
-        get => new TerraformReference<double>(this, "proxy_id");
-    }
+        => AsReference("proxy_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

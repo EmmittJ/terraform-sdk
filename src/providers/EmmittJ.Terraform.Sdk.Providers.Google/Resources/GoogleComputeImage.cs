@@ -19,7 +19,7 @@ public class GoogleComputeImageGuestOsFeaturesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -43,7 +43,7 @@ public class GoogleComputeImageImageEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeySelfLink
     {
-        get => new TerraformReference<string>(this, "kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
@@ -54,7 +54,7 @@ public class GoogleComputeImageImageEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyServiceAccount
     {
-        get => new TerraformReference<string>(this, "kms_key_service_account");
+        get => GetArgument<TerraformValue<string>>("kms_key_service_account");
         set => SetArgument("kms_key_service_account", value);
     }
 
@@ -64,7 +64,7 @@ public class GoogleComputeImageImageEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RawKey
     {
-        get => new TerraformReference<string>(this, "raw_key");
+        get => GetArgument<TerraformValue<string>>("raw_key");
         set => SetArgument("raw_key", value);
     }
 
@@ -74,7 +74,7 @@ public class GoogleComputeImageImageEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RsaEncryptedKey
     {
-        get => new TerraformReference<string>(this, "rsa_encrypted_key");
+        get => GetArgument<TerraformValue<string>>("rsa_encrypted_key");
         set => SetArgument("rsa_encrypted_key", value);
     }
 
@@ -100,7 +100,7 @@ public class GoogleComputeImageRawDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ContainerType
     {
-        get => new TerraformReference<string>(this, "container_type");
+        get => GetArgument<TerraformValue<string>>("container_type");
         set => SetArgument("container_type", value);
     }
 
@@ -110,7 +110,7 @@ public class GoogleComputeImageRawDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Sha1
     {
-        get => new TerraformReference<string>(this, "sha1");
+        get => GetArgument<TerraformValue<string>>("sha1");
         set => SetArgument("sha1", value);
     }
 
@@ -122,7 +122,7 @@ public class GoogleComputeImageRawDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -198,7 +198,7 @@ public class GoogleComputeImageShieldedInstanceInitialStateBlockDbsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => new TerraformReference<string>(this, "content");
+        get => GetArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -207,7 +207,7 @@ public class GoogleComputeImageShieldedInstanceInitialStateBlockDbsBlock : Terra
     /// </summary>
     public TerraformValue<string>? FileType
     {
-        get => new TerraformReference<string>(this, "file_type");
+        get => GetArgument<TerraformValue<string>>("file_type");
         set => SetArgument("file_type", value);
     }
 
@@ -232,7 +232,7 @@ public class GoogleComputeImageShieldedInstanceInitialStateBlockDbxsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => new TerraformReference<string>(this, "content");
+        get => GetArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -241,7 +241,7 @@ public class GoogleComputeImageShieldedInstanceInitialStateBlockDbxsBlock : Terr
     /// </summary>
     public TerraformValue<string>? FileType
     {
-        get => new TerraformReference<string>(this, "file_type");
+        get => GetArgument<TerraformValue<string>>("file_type");
         set => SetArgument("file_type", value);
     }
 
@@ -266,7 +266,7 @@ public class GoogleComputeImageShieldedInstanceInitialStateBlockKeksBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => new TerraformReference<string>(this, "content");
+        get => GetArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -275,7 +275,7 @@ public class GoogleComputeImageShieldedInstanceInitialStateBlockKeksBlock : Terr
     /// </summary>
     public TerraformValue<string>? FileType
     {
-        get => new TerraformReference<string>(this, "file_type");
+        get => GetArgument<TerraformValue<string>>("file_type");
         set => SetArgument("file_type", value);
     }
 
@@ -300,7 +300,7 @@ public class GoogleComputeImageShieldedInstanceInitialStateBlockPkBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => new TerraformReference<string>(this, "content");
+        get => GetArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -309,7 +309,7 @@ public class GoogleComputeImageShieldedInstanceInitialStateBlockPkBlock : Terraf
     /// </summary>
     public TerraformValue<string>? FileType
     {
-        get => new TerraformReference<string>(this, "file_type");
+        get => GetArgument<TerraformValue<string>>("file_type");
         set => SetArgument("file_type", value);
     }
 
@@ -336,7 +336,7 @@ public class GoogleComputeImageSourceDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeySelfLink
     {
-        get => new TerraformReference<string>(this, "kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
@@ -347,7 +347,7 @@ public class GoogleComputeImageSourceDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyServiceAccount
     {
-        get => new TerraformReference<string>(this, "kms_key_service_account");
+        get => GetArgument<TerraformValue<string>>("kms_key_service_account");
         set => SetArgument("kms_key_service_account", value);
     }
 
@@ -357,7 +357,7 @@ public class GoogleComputeImageSourceDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RawKey
     {
-        get => new TerraformReference<string>(this, "raw_key");
+        get => GetArgument<TerraformValue<string>>("raw_key");
         set => SetArgument("raw_key", value);
     }
 
@@ -368,7 +368,7 @@ public class GoogleComputeImageSourceDiskEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RsaEncryptedKey
     {
-        get => new TerraformReference<string>(this, "rsa_encrypted_key");
+        get => GetArgument<TerraformValue<string>>("rsa_encrypted_key");
         set => SetArgument("rsa_encrypted_key", value);
     }
 
@@ -395,7 +395,7 @@ public class GoogleComputeImageSourceImageEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeySelfLink
     {
-        get => new TerraformReference<string>(this, "kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
@@ -406,7 +406,7 @@ public class GoogleComputeImageSourceImageEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyServiceAccount
     {
-        get => new TerraformReference<string>(this, "kms_key_service_account");
+        get => GetArgument<TerraformValue<string>>("kms_key_service_account");
         set => SetArgument("kms_key_service_account", value);
     }
 
@@ -416,7 +416,7 @@ public class GoogleComputeImageSourceImageEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RawKey
     {
-        get => new TerraformReference<string>(this, "raw_key");
+        get => GetArgument<TerraformValue<string>>("raw_key");
         set => SetArgument("raw_key", value);
     }
 
@@ -427,7 +427,7 @@ public class GoogleComputeImageSourceImageEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RsaEncryptedKey
     {
-        get => new TerraformReference<string>(this, "rsa_encrypted_key");
+        get => GetArgument<TerraformValue<string>>("rsa_encrypted_key");
         set => SetArgument("rsa_encrypted_key", value);
     }
 
@@ -454,7 +454,7 @@ public class GoogleComputeImageSourceSnapshotEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeySelfLink
     {
-        get => new TerraformReference<string>(this, "kms_key_self_link");
+        get => GetArgument<TerraformValue<string>>("kms_key_self_link");
         set => SetArgument("kms_key_self_link", value);
     }
 
@@ -465,7 +465,7 @@ public class GoogleComputeImageSourceSnapshotEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyServiceAccount
     {
-        get => new TerraformReference<string>(this, "kms_key_service_account");
+        get => GetArgument<TerraformValue<string>>("kms_key_service_account");
         set => SetArgument("kms_key_service_account", value);
     }
 
@@ -475,7 +475,7 @@ public class GoogleComputeImageSourceSnapshotEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RawKey
     {
-        get => new TerraformReference<string>(this, "raw_key");
+        get => GetArgument<TerraformValue<string>>("raw_key");
         set => SetArgument("raw_key", value);
     }
 
@@ -486,7 +486,7 @@ public class GoogleComputeImageSourceSnapshotEncryptionKeyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RsaEncryptedKey
     {
-        get => new TerraformReference<string>(this, "rsa_encrypted_key");
+        get => GetArgument<TerraformValue<string>>("rsa_encrypted_key");
         set => SetArgument("rsa_encrypted_key", value);
     }
 
@@ -509,7 +509,7 @@ public class GoogleComputeImageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -518,7 +518,7 @@ public class GoogleComputeImageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -527,7 +527,7 @@ public class GoogleComputeImageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -546,16 +546,16 @@ public partial class GoogleComputeImage(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// Size of the image when restored onto a persistent disk (in GB).
     /// </summary>
-    public TerraformValue<double> DiskSizeGb
+    public TerraformValue<double>? DiskSizeGb
     {
-        get => new TerraformReference<double>(this, "disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -568,16 +568,16 @@ public partial class GoogleComputeImage(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? Family
     {
-        get => new TerraformReference<string>(this, "family");
+        get => GetArgument<TerraformValue<string>>("family");
         set => SetArgument("family", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -589,16 +589,16 @@ public partial class GoogleComputeImage(string name) : TerraformResource("google
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// Any applicable license URI.
     /// </summary>
-    public TerraformList<string> Licenses
+    public TerraformList<string>? Licenses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "licenses").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("licenses");
         set => SetArgument("licenses", value);
     }
 
@@ -614,16 +614,16 @@ public partial class GoogleComputeImage(string name) : TerraformResource("google
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -634,7 +634,7 @@ public partial class GoogleComputeImage(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? SourceDisk
     {
-        get => new TerraformReference<string>(this, "source_disk");
+        get => GetArgument<TerraformValue<string>>("source_disk");
         set => SetArgument("source_disk", value);
     }
 
@@ -649,7 +649,7 @@ public partial class GoogleComputeImage(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? SourceImage
     {
-        get => new TerraformReference<string>(this, "source_image");
+        get => GetArgument<TerraformValue<string>>("source_image");
         set => SetArgument("source_image", value);
     }
 
@@ -666,7 +666,7 @@ public partial class GoogleComputeImage(string name) : TerraformResource("google
     /// </summary>
     public TerraformValue<string>? SourceSnapshot
     {
-        get => new TerraformReference<string>(this, "source_snapshot");
+        get => GetArgument<TerraformValue<string>>("source_snapshot");
         set => SetArgument("source_snapshot", value);
     }
 
@@ -675,9 +675,9 @@ public partial class GoogleComputeImage(string name) : TerraformResource("google
     /// (regional or multi-regional).
     /// Reference link: https://cloud.google.com/compute/docs/reference/rest/v1/images
     /// </summary>
-    public TerraformList<string> StorageLocations
+    public TerraformList<string>? StorageLocations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "storage_locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("storage_locations");
         set => SetArgument("storage_locations", value);
     }
 
@@ -686,51 +686,39 @@ public partial class GoogleComputeImage(string name) : TerraformResource("google
     /// bytes).
     /// </summary>
     public TerraformValue<double> ArchiveSizeBytes
-    {
-        get => new TerraformReference<double>(this, "archive_size_bytes");
-    }
+        => AsReference("archive_size_bytes");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource. Used
     /// internally during updates.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-    {
-        get => new TerraformReference<string>(this, "label_fingerprint");
-    }
+        => AsReference("label_fingerprint");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// GuestOsFeatures block (nesting mode: set).

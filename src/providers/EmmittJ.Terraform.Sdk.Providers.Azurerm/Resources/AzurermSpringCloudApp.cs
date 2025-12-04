@@ -18,7 +18,7 @@ public class AzurermSpringCloudAppCustomPersistentDiskBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? MountOptions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "mount_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("mount_options");
         set => SetArgument("mount_options", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermSpringCloudAppCustomPersistentDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPath is required")]
     public required TerraformValue<string> MountPath
     {
-        get => new TerraformReference<string>(this, "mount_path");
+        get => GetArgument<TerraformValue<string>>("mount_path");
         set => SetArgument("mount_path", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermSpringCloudAppCustomPersistentDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ReadOnlyEnabled
     {
-        get => new TerraformReference<bool>(this, "read_only_enabled");
+        get => GetArgument<TerraformValue<bool>>("read_only_enabled");
         set => SetArgument("read_only_enabled", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermSpringCloudAppCustomPersistentDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareName is required")]
     public required TerraformValue<string> ShareName
     {
-        get => new TerraformReference<string>(this, "share_name");
+        get => GetArgument<TerraformValue<string>>("share_name");
         set => SetArgument("share_name", value);
     }
 
@@ -57,7 +57,7 @@ public class AzurermSpringCloudAppCustomPersistentDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageName is required")]
     public required TerraformValue<string> StorageName
     {
-        get => new TerraformReference<string>(this, "storage_name");
+        get => GetArgument<TerraformValue<string>>("storage_name");
         set => SetArgument("storage_name", value);
     }
 
@@ -80,7 +80,7 @@ public class AzurermSpringCloudAppIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -88,17 +88,13 @@ public class AzurermSpringCloudAppIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -106,7 +102,7 @@ public class AzurermSpringCloudAppIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -129,7 +125,7 @@ public class AzurermSpringCloudAppIngressSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BackendProtocol
     {
-        get => new TerraformReference<string>(this, "backend_protocol");
+        get => GetArgument<TerraformValue<string>>("backend_protocol");
         set => SetArgument("backend_protocol", value);
     }
 
@@ -138,7 +134,7 @@ public class AzurermSpringCloudAppIngressSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ReadTimeoutInSeconds
     {
-        get => new TerraformReference<double>(this, "read_timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("read_timeout_in_seconds");
         set => SetArgument("read_timeout_in_seconds", value);
     }
 
@@ -147,7 +143,7 @@ public class AzurermSpringCloudAppIngressSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SendTimeoutInSeconds
     {
-        get => new TerraformReference<double>(this, "send_timeout_in_seconds");
+        get => GetArgument<TerraformValue<double>>("send_timeout_in_seconds");
         set => SetArgument("send_timeout_in_seconds", value);
     }
 
@@ -156,7 +152,7 @@ public class AzurermSpringCloudAppIngressSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SessionAffinity
     {
-        get => new TerraformReference<string>(this, "session_affinity");
+        get => GetArgument<TerraformValue<string>>("session_affinity");
         set => SetArgument("session_affinity", value);
     }
 
@@ -165,7 +161,7 @@ public class AzurermSpringCloudAppIngressSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SessionCookieMaxAge
     {
-        get => new TerraformReference<double>(this, "session_cookie_max_age");
+        get => GetArgument<TerraformValue<double>>("session_cookie_max_age");
         set => SetArgument("session_cookie_max_age", value);
     }
 
@@ -188,7 +184,7 @@ public class AzurermSpringCloudAppPersistentDiskBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MountPath
     {
-        get => new TerraformReference<string>(this, "mount_path");
+        get => GetArgument<TerraformValue<string>>("mount_path");
         set => SetArgument("mount_path", value);
     }
 
@@ -198,7 +194,7 @@ public class AzurermSpringCloudAppPersistentDiskBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGb is required")]
     public required TerraformValue<double> SizeInGb
     {
-        get => new TerraformReference<double>(this, "size_in_gb");
+        get => GetArgument<TerraformValue<double>>("size_in_gb");
         set => SetArgument("size_in_gb", value);
     }
 
@@ -221,7 +217,7 @@ public class AzurermSpringCloudAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -230,7 +226,7 @@ public class AzurermSpringCloudAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -239,7 +235,7 @@ public class AzurermSpringCloudAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -248,7 +244,7 @@ public class AzurermSpringCloudAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -264,9 +260,9 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     /// <summary>
     /// The addon_json attribute.
     /// </summary>
-    public TerraformValue<string> AddonJson
+    public TerraformValue<string>? AddonJson
     {
-        get => new TerraformReference<string>(this, "addon_json");
+        get => GetArgument<TerraformValue<string>>("addon_json");
         set => SetArgument("addon_json", value);
     }
 
@@ -275,16 +271,16 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? HttpsOnly
     {
-        get => new TerraformReference<bool>(this, "https_only");
+        get => GetArgument<TerraformValue<bool>>("https_only");
         set => SetArgument("https_only", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -293,7 +289,7 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? IsPublic
     {
-        get => new TerraformReference<bool>(this, "is_public");
+        get => GetArgument<TerraformValue<bool>>("is_public");
         set => SetArgument("is_public", value);
     }
 
@@ -303,7 +299,7 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -312,7 +308,7 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? PublicEndpointEnabled
     {
-        get => new TerraformReference<bool>(this, "public_endpoint_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_endpoint_enabled");
         set => SetArgument("public_endpoint_enabled", value);
     }
 
@@ -322,7 +318,7 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -332,7 +328,7 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => new TerraformReference<string>(this, "service_name");
+        get => GetArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -341,7 +337,7 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? TlsEnabled
     {
-        get => new TerraformReference<bool>(this, "tls_enabled");
+        get => GetArgument<TerraformValue<bool>>("tls_enabled");
         set => SetArgument("tls_enabled", value);
     }
 
@@ -349,17 +345,13 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-    {
-        get => new TerraformReference<string>(this, "fqdn");
-    }
+        => AsReference("fqdn");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-    {
-        get => new TerraformReference<string>(this, "url");
-    }
+        => AsReference("url");
 
     /// <summary>
     /// CustomPersistentDisk block (nesting mode: list).

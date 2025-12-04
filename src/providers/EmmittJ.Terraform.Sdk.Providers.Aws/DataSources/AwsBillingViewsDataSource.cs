@@ -13,7 +13,7 @@ public partial class AwsBillingViewsDataSource(string name) : TerraformDataSourc
     /// </summary>
     public TerraformList<string>? BillingViewTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "billing_view_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("billing_view_types");
         set => SetArgument("billing_view_types", value);
     }
 
@@ -21,8 +21,6 @@ public partial class AwsBillingViewsDataSource(string name) : TerraformDataSourc
     /// The billing_view attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> BillingView
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "billing_view").ResolveNodes(ctx));
-    }
+        => AsReference("billing_view");
 
 }

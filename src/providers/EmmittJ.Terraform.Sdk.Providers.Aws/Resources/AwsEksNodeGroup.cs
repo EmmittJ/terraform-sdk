@@ -16,18 +16,18 @@ public class AwsEksNodeGroupLaunchTemplateBlock : TerraformBlock
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsEksNodeGroupLaunchTemplateBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsEksNodeGroupNodeRepairConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsEksNodeGroupRemoteAccessBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ec2SshKey
     {
-        get => new TerraformReference<string>(this, "ec2_ssh_key");
+        get => GetArgument<TerraformValue<string>>("ec2_ssh_key");
         set => SetArgument("ec2_ssh_key", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsEksNodeGroupRemoteAccessBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? SourceSecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "source_security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("source_security_group_ids");
         set => SetArgument("source_security_group_ids", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsEksNodeGroupScalingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredSize is required")]
     public required TerraformValue<double> DesiredSize
     {
-        get => new TerraformReference<double>(this, "desired_size");
+        get => GetArgument<TerraformValue<double>>("desired_size");
         set => SetArgument("desired_size", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsEksNodeGroupScalingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSize is required")]
     public required TerraformValue<double> MaxSize
     {
-        get => new TerraformReference<double>(this, "max_size");
+        get => GetArgument<TerraformValue<double>>("max_size");
         set => SetArgument("max_size", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsEksNodeGroupScalingConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinSize is required")]
     public required TerraformValue<double> MinSize
     {
-        get => new TerraformReference<double>(this, "min_size");
+        get => GetArgument<TerraformValue<double>>("min_size");
         set => SetArgument("min_size", value);
     }
 
@@ -160,7 +160,7 @@ public class AwsEksNodeGroupTaintBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Effect is required")]
     public required TerraformValue<string> Effect
     {
-        get => new TerraformReference<string>(this, "effect");
+        get => GetArgument<TerraformValue<string>>("effect");
         set => SetArgument("effect", value);
     }
 
@@ -170,7 +170,7 @@ public class AwsEksNodeGroupTaintBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -179,7 +179,7 @@ public class AwsEksNodeGroupTaintBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -202,7 +202,7 @@ public class AwsEksNodeGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -211,7 +211,7 @@ public class AwsEksNodeGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -220,7 +220,7 @@ public class AwsEksNodeGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -243,7 +243,7 @@ public class AwsEksNodeGroupUpdateConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxUnavailable
     {
-        get => new TerraformReference<double>(this, "max_unavailable");
+        get => GetArgument<TerraformValue<double>>("max_unavailable");
         set => SetArgument("max_unavailable", value);
     }
 
@@ -252,7 +252,7 @@ public class AwsEksNodeGroupUpdateConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxUnavailablePercentage
     {
-        get => new TerraformReference<double>(this, "max_unavailable_percentage");
+        get => GetArgument<TerraformValue<double>>("max_unavailable_percentage");
         set => SetArgument("max_unavailable_percentage", value);
     }
 
@@ -268,18 +268,18 @@ public partial class AwsEksNodeGroup(string name) : TerraformResource("aws_eks_n
     /// <summary>
     /// The ami_type attribute.
     /// </summary>
-    public TerraformValue<string> AmiType
+    public TerraformValue<string>? AmiType
     {
-        get => new TerraformReference<string>(this, "ami_type");
+        get => GetArgument<TerraformValue<string>>("ami_type");
         set => SetArgument("ami_type", value);
     }
 
     /// <summary>
     /// The capacity_type attribute.
     /// </summary>
-    public TerraformValue<string> CapacityType
+    public TerraformValue<string>? CapacityType
     {
-        get => new TerraformReference<string>(this, "capacity_type");
+        get => GetArgument<TerraformValue<string>>("capacity_type");
         set => SetArgument("capacity_type", value);
     }
 
@@ -289,16 +289,16 @@ public partial class AwsEksNodeGroup(string name) : TerraformResource("aws_eks_n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => new TerraformReference<string>(this, "cluster_name");
+        get => GetArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
     /// <summary>
     /// The disk_size attribute.
     /// </summary>
-    public TerraformValue<double> DiskSize
+    public TerraformValue<double>? DiskSize
     {
-        get => new TerraformReference<double>(this, "disk_size");
+        get => GetArgument<TerraformValue<double>>("disk_size");
         set => SetArgument("disk_size", value);
     }
 
@@ -307,25 +307,25 @@ public partial class AwsEksNodeGroup(string name) : TerraformResource("aws_eks_n
     /// </summary>
     public TerraformValue<bool>? ForceUpdateVersion
     {
-        get => new TerraformReference<bool>(this, "force_update_version");
+        get => GetArgument<TerraformValue<bool>>("force_update_version");
         set => SetArgument("force_update_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The instance_types attribute.
     /// </summary>
-    public TerraformList<string> InstanceTypes
+    public TerraformList<string>? InstanceTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "instance_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("instance_types");
         set => SetArgument("instance_types", value);
     }
 
@@ -334,25 +334,25 @@ public partial class AwsEksNodeGroup(string name) : TerraformResource("aws_eks_n
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// The node_group_name attribute.
     /// </summary>
-    public TerraformValue<string> NodeGroupName
+    public TerraformValue<string>? NodeGroupName
     {
-        get => new TerraformReference<string>(this, "node_group_name");
+        get => GetArgument<TerraformValue<string>>("node_group_name");
         set => SetArgument("node_group_name", value);
     }
 
     /// <summary>
     /// The node_group_name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NodeGroupNamePrefix
+    public TerraformValue<string>? NodeGroupNamePrefix
     {
-        get => new TerraformReference<string>(this, "node_group_name_prefix");
+        get => GetArgument<TerraformValue<string>>("node_group_name_prefix");
         set => SetArgument("node_group_name_prefix", value);
     }
 
@@ -362,25 +362,25 @@ public partial class AwsEksNodeGroup(string name) : TerraformResource("aws_eks_n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeRoleArn is required")]
     public required TerraformValue<string> NodeRoleArn
     {
-        get => new TerraformReference<string>(this, "node_role_arn");
+        get => GetArgument<TerraformValue<string>>("node_role_arn");
         set => SetArgument("node_role_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The release_version attribute.
     /// </summary>
-    public TerraformValue<string> ReleaseVersion
+    public TerraformValue<string>? ReleaseVersion
     {
-        get => new TerraformReference<string>(this, "release_version");
+        get => GetArgument<TerraformValue<string>>("release_version");
         set => SetArgument("release_version", value);
     }
 
@@ -390,7 +390,7 @@ public partial class AwsEksNodeGroup(string name) : TerraformResource("aws_eks_n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -399,25 +399,25 @@ public partial class AwsEksNodeGroup(string name) : TerraformResource("aws_eks_n
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformValue<string> Version
+    public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -425,25 +425,19 @@ public partial class AwsEksNodeGroup(string name) : TerraformResource("aws_eks_n
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The resources attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Resources
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "resources").ResolveNodes(ctx));
-    }
+        => AsReference("resources");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// LaunchTemplate block (nesting mode: list).

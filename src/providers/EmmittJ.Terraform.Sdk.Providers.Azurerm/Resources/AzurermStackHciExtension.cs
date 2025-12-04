@@ -18,7 +18,7 @@ public class AzurermStackHciExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermStackHciExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermStackHciExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermStackHciExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermStackHciExtension(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArcSettingId is required")]
     public required TerraformValue<string> ArcSettingId
     {
-        get => new TerraformReference<string>(this, "arc_setting_id");
+        get => GetArgument<TerraformValue<string>>("arc_setting_id");
         set => SetArgument("arc_setting_id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermStackHciExtension(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? AutoUpgradeMinorVersionEnabled
     {
-        get => new TerraformReference<bool>(this, "auto_upgrade_minor_version_enabled");
+        get => GetArgument<TerraformValue<bool>>("auto_upgrade_minor_version_enabled");
         set => SetArgument("auto_upgrade_minor_version_enabled", value);
     }
 
@@ -82,16 +82,16 @@ public partial class AzurermStackHciExtension(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? AutomaticUpgradeEnabled
     {
-        get => new TerraformReference<bool>(this, "automatic_upgrade_enabled");
+        get => GetArgument<TerraformValue<bool>>("automatic_upgrade_enabled");
         set => SetArgument("automatic_upgrade_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermStackHciExtension(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermStackHciExtension(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? ProtectedSettings
     {
-        get => new TerraformReference<string>(this, "protected_settings");
+        get => GetArgument<TerraformValue<string>>("protected_settings");
         set => SetArgument("protected_settings", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermStackHciExtension(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
     public required TerraformValue<string> Publisher
     {
-        get => new TerraformReference<string>(this, "publisher");
+        get => GetArgument<TerraformValue<string>>("publisher");
         set => SetArgument("publisher", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermStackHciExtension(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Settings
     {
-        get => new TerraformReference<string>(this, "settings");
+        get => GetArgument<TerraformValue<string>>("settings");
         set => SetArgument("settings", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AzurermStackHciExtension(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AzurermStackHciExtension(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? TypeHandlerVersion
     {
-        get => new TerraformReference<string>(this, "type_handler_version");
+        get => GetArgument<TerraformValue<string>>("type_handler_version");
         set => SetArgument("type_handler_version", value);
     }
 

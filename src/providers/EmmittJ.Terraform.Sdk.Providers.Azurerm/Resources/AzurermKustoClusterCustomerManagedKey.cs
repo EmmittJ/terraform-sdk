@@ -18,7 +18,7 @@ public class AzurermKustoClusterCustomerManagedKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermKustoClusterCustomerManagedKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermKustoClusterCustomerManagedKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermKustoClusterCustomerManagedKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AzurermKustoClusterCustomerManagedKey(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => new TerraformReference<string>(this, "cluster_id");
+        get => GetArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermKustoClusterCustomerManagedKey(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? KeyName
     {
-        get => new TerraformReference<string>(this, "key_name");
+        get => GetArgument<TerraformValue<string>>("key_name");
         set => SetArgument("key_name", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermKustoClusterCustomerManagedKey(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? KeyVaultId
     {
-        get => new TerraformReference<string>(this, "key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermKustoClusterCustomerManagedKey(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? KeyVersion
     {
-        get => new TerraformReference<string>(this, "key_version");
+        get => GetArgument<TerraformValue<string>>("key_version");
         set => SetArgument("key_version", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermKustoClusterCustomerManagedKey(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? ManagedHsmKeyId
     {
-        get => new TerraformReference<string>(this, "managed_hsm_key_id");
+        get => GetArgument<TerraformValue<string>>("managed_hsm_key_id");
         set => SetArgument("managed_hsm_key_id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermKustoClusterCustomerManagedKey(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? UserIdentity
     {
-        get => new TerraformReference<string>(this, "user_identity");
+        get => GetArgument<TerraformValue<string>>("user_identity");
         set => SetArgument("user_identity", value);
     }
 

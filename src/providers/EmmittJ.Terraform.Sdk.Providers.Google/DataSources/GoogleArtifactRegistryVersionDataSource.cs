@@ -11,9 +11,9 @@ public partial class GoogleArtifactRegistryVersionDataSource(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleArtifactRegistryVersionDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleArtifactRegistryVersionDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PackageName is required")]
     public required TerraformValue<string> PackageName
     {
-        get => new TerraformReference<string>(this, "package_name");
+        get => GetArgument<TerraformValue<string>>("package_name");
         set => SetArgument("package_name", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleArtifactRegistryVersionDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -52,7 +52,7 @@ public partial class GoogleArtifactRegistryVersionDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformValue<string> RepositoryId
     {
-        get => new TerraformReference<string>(this, "repository_id");
+        get => GetArgument<TerraformValue<string>>("repository_id");
         set => SetArgument("repository_id", value);
     }
 
@@ -62,7 +62,7 @@ public partial class GoogleArtifactRegistryVersionDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionName is required")]
     public required TerraformValue<string> VersionName
     {
-        get => new TerraformReference<string>(this, "version_name");
+        get => GetArgument<TerraformValue<string>>("version_name");
         set => SetArgument("version_name", value);
     }
 
@@ -71,7 +71,7 @@ public partial class GoogleArtifactRegistryVersionDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string>? View
     {
-        get => new TerraformReference<string>(this, "view");
+        get => GetArgument<TerraformValue<string>>("view");
         set => SetArgument("view", value);
     }
 
@@ -79,48 +79,36 @@ public partial class GoogleArtifactRegistryVersionDataSource(string name) : Terr
     /// The annotations attribute.
     /// </summary>
     public TerraformMap<string> Annotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
-    }
+        => AsReference("annotations");
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The related_tags attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RelatedTags
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "related_tags").ResolveNodes(ctx));
-    }
+        => AsReference("related_tags");
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
 }

@@ -18,7 +18,7 @@ public class AwsDatazoneEnvironmentProfileUserParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsDatazoneEnvironmentProfileUserParametersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -43,9 +43,9 @@ public partial class AwsDatazoneEnvironmentProfile(string name) : TerraformResou
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string> AwsAccountId
+    public TerraformValue<string>? AwsAccountId
     {
-        get => new TerraformReference<string>(this, "aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AwsDatazoneEnvironmentProfile(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsAccountRegion is required")]
     public required TerraformValue<string> AwsAccountRegion
     {
-        get => new TerraformReference<string>(this, "aws_account_region");
+        get => GetArgument<TerraformValue<string>>("aws_account_region");
         set => SetArgument("aws_account_region", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string> Description
+    public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AwsDatazoneEnvironmentProfile(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainIdentifier is required")]
     public required TerraformValue<string> DomainIdentifier
     {
-        get => new TerraformReference<string>(this, "domain_identifier");
+        get => GetArgument<TerraformValue<string>>("domain_identifier");
         set => SetArgument("domain_identifier", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AwsDatazoneEnvironmentProfile(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentBlueprintIdentifier is required")]
     public required TerraformValue<string> EnvironmentBlueprintIdentifier
     {
-        get => new TerraformReference<string>(this, "environment_blueprint_identifier");
+        get => GetArgument<TerraformValue<string>>("environment_blueprint_identifier");
         set => SetArgument("environment_blueprint_identifier", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AwsDatazoneEnvironmentProfile(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -104,16 +104,16 @@ public partial class AwsDatazoneEnvironmentProfile(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectIdentifier is required")]
     public required TerraformValue<string> ProjectIdentifier
     {
-        get => new TerraformReference<string>(this, "project_identifier");
+        get => GetArgument<TerraformValue<string>>("project_identifier");
         set => SetArgument("project_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -121,33 +121,25 @@ public partial class AwsDatazoneEnvironmentProfile(string name) : TerraformResou
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
     public TerraformValue<string> CreatedBy
-    {
-        get => new TerraformReference<string>(this, "created_by");
-    }
+        => AsReference("created_by");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
     public TerraformValue<string> UpdatedAt
-    {
-        get => new TerraformReference<string>(this, "updated_at");
-    }
+        => AsReference("updated_at");
 
     /// <summary>
     /// UserParameters block (nesting mode: list).

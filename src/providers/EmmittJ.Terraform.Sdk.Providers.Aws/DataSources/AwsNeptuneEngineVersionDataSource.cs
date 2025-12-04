@@ -13,7 +13,7 @@ public partial class AwsNeptuneEngineVersionDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<bool>? DefaultOnly
     {
-        get => new TerraformReference<bool>(this, "default_only");
+        get => GetArgument<TerraformValue<bool>>("default_only");
         set => SetArgument("default_only", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsNeptuneEngineVersionDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string>? Engine
     {
-        get => new TerraformReference<string>(this, "engine");
+        get => GetArgument<TerraformValue<string>>("engine");
         set => SetArgument("engine", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsNeptuneEngineVersionDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<bool>? HasMajorTarget
     {
-        get => new TerraformReference<bool>(this, "has_major_target");
+        get => GetArgument<TerraformValue<bool>>("has_major_target");
         set => SetArgument("has_major_target", value);
     }
 
@@ -40,16 +40,16 @@ public partial class AwsNeptuneEngineVersionDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<bool>? HasMinorTarget
     {
-        get => new TerraformReference<bool>(this, "has_minor_target");
+        get => GetArgument<TerraformValue<bool>>("has_minor_target");
         set => SetArgument("has_minor_target", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -58,16 +58,16 @@ public partial class AwsNeptuneEngineVersionDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<bool>? Latest
     {
-        get => new TerraformReference<bool>(this, "latest");
+        get => GetArgument<TerraformValue<bool>>("latest");
         set => SetArgument("latest", value);
     }
 
     /// <summary>
     /// The parameter_group_family attribute.
     /// </summary>
-    public TerraformValue<string> ParameterGroupFamily
+    public TerraformValue<string>? ParameterGroupFamily
     {
-        get => new TerraformReference<string>(this, "parameter_group_family");
+        get => GetArgument<TerraformValue<string>>("parameter_group_family");
         set => SetArgument("parameter_group_family", value);
     }
 
@@ -76,7 +76,7 @@ public partial class AwsNeptuneEngineVersionDataSource(string name) : TerraformD
     /// </summary>
     public TerraformList<string>? PreferredMajorTargets
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "preferred_major_targets").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("preferred_major_targets");
         set => SetArgument("preferred_major_targets", value);
     }
 
@@ -85,7 +85,7 @@ public partial class AwsNeptuneEngineVersionDataSource(string name) : TerraformD
     /// </summary>
     public TerraformList<string>? PreferredUpgradeTargets
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "preferred_upgrade_targets").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("preferred_upgrade_targets");
         set => SetArgument("preferred_upgrade_targets", value);
     }
 
@@ -94,25 +94,25 @@ public partial class AwsNeptuneEngineVersionDataSource(string name) : TerraformD
     /// </summary>
     public TerraformList<string>? PreferredVersions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "preferred_versions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("preferred_versions");
         set => SetArgument("preferred_versions", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformValue<string> Version
+    public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -120,104 +120,78 @@ public partial class AwsNeptuneEngineVersionDataSource(string name) : TerraformD
     /// The default_character_set attribute.
     /// </summary>
     public TerraformValue<string> DefaultCharacterSet
-    {
-        get => new TerraformReference<string>(this, "default_character_set");
-    }
+        => AsReference("default_character_set");
 
     /// <summary>
     /// The engine_description attribute.
     /// </summary>
     public TerraformValue<string> EngineDescription
-    {
-        get => new TerraformReference<string>(this, "engine_description");
-    }
+        => AsReference("engine_description");
 
     /// <summary>
     /// The exportable_log_types attribute.
     /// </summary>
     public TerraformSet<string> ExportableLogTypes
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "exportable_log_types").ResolveNodes(ctx));
-    }
+        => AsReference("exportable_log_types");
 
     /// <summary>
     /// The supported_character_sets attribute.
     /// </summary>
     public TerraformSet<string> SupportedCharacterSets
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "supported_character_sets").ResolveNodes(ctx));
-    }
+        => AsReference("supported_character_sets");
 
     /// <summary>
     /// The supported_timezones attribute.
     /// </summary>
     public TerraformSet<string> SupportedTimezones
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "supported_timezones").ResolveNodes(ctx));
-    }
+        => AsReference("supported_timezones");
 
     /// <summary>
     /// The supports_global_databases attribute.
     /// </summary>
     public TerraformValue<bool> SupportsGlobalDatabases
-    {
-        get => new TerraformReference<bool>(this, "supports_global_databases");
-    }
+        => AsReference("supports_global_databases");
 
     /// <summary>
     /// The supports_log_exports_to_cloudwatch attribute.
     /// </summary>
     public TerraformValue<bool> SupportsLogExportsToCloudwatch
-    {
-        get => new TerraformReference<bool>(this, "supports_log_exports_to_cloudwatch");
-    }
+        => AsReference("supports_log_exports_to_cloudwatch");
 
     /// <summary>
     /// The supports_read_replica attribute.
     /// </summary>
     public TerraformValue<bool> SupportsReadReplica
-    {
-        get => new TerraformReference<bool>(this, "supports_read_replica");
-    }
+        => AsReference("supports_read_replica");
 
     /// <summary>
     /// The valid_major_targets attribute.
     /// </summary>
     public TerraformSet<string> ValidMajorTargets
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "valid_major_targets").ResolveNodes(ctx));
-    }
+        => AsReference("valid_major_targets");
 
     /// <summary>
     /// The valid_minor_targets attribute.
     /// </summary>
     public TerraformSet<string> ValidMinorTargets
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "valid_minor_targets").ResolveNodes(ctx));
-    }
+        => AsReference("valid_minor_targets");
 
     /// <summary>
     /// The valid_upgrade_targets attribute.
     /// </summary>
     public TerraformSet<string> ValidUpgradeTargets
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "valid_upgrade_targets").ResolveNodes(ctx));
-    }
+        => AsReference("valid_upgrade_targets");
 
     /// <summary>
     /// The version_actual attribute.
     /// </summary>
     public TerraformValue<string> VersionActual
-    {
-        get => new TerraformReference<string>(this, "version_actual");
-    }
+        => AsReference("version_actual");
 
     /// <summary>
     /// The version_description attribute.
     /// </summary>
     public TerraformValue<string> VersionDescription
-    {
-        get => new TerraformReference<string>(this, "version_description");
-    }
+        => AsReference("version_description");
 
 }

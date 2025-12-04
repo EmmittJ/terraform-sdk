@@ -18,7 +18,7 @@ public class AzurermCdnFrontdoorCustomDomainDataSourceTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermCdnFrontdoorCustomDomainDataSource(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermCdnFrontdoorCustomDomainDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermCdnFrontdoorCustomDomainDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileName is required")]
     public required TerraformValue<string> ProfileName
     {
-        get => new TerraformReference<string>(this, "profile_name");
+        get => GetArgument<TerraformValue<string>>("profile_name");
         set => SetArgument("profile_name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermCdnFrontdoorCustomDomainDataSource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -74,49 +74,37 @@ public partial class AzurermCdnFrontdoorCustomDomainDataSource(string name) : Te
     /// The cdn_frontdoor_profile_id attribute.
     /// </summary>
     public TerraformValue<string> CdnFrontdoorProfileId
-    {
-        get => new TerraformReference<string>(this, "cdn_frontdoor_profile_id");
-    }
+        => AsReference("cdn_frontdoor_profile_id");
 
     /// <summary>
     /// The dns_zone_id attribute.
     /// </summary>
     public TerraformValue<string> DnsZoneId
-    {
-        get => new TerraformReference<string>(this, "dns_zone_id");
-    }
+        => AsReference("dns_zone_id");
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
     public TerraformValue<string> ExpirationDate
-    {
-        get => new TerraformReference<string>(this, "expiration_date");
-    }
+        => AsReference("expiration_date");
 
     /// <summary>
     /// The host_name attribute.
     /// </summary>
     public TerraformValue<string> HostName
-    {
-        get => new TerraformReference<string>(this, "host_name");
-    }
+        => AsReference("host_name");
 
     /// <summary>
     /// The tls attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Tls
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "tls").ResolveNodes(ctx));
-    }
+        => AsReference("tls");
 
     /// <summary>
     /// The validation_token attribute.
     /// </summary>
     public TerraformValue<string> ValidationToken
-    {
-        get => new TerraformReference<string>(this, "validation_token");
-    }
+        => AsReference("validation_token");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

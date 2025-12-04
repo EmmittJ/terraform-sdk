@@ -14,7 +14,7 @@ public partial class AwsRedshiftserverlessUsageLimit(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Amount is required")]
     public required TerraformValue<double> Amount
     {
-        get => new TerraformReference<double>(this, "amount");
+        get => GetArgument<TerraformValue<double>>("amount");
         set => SetArgument("amount", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsRedshiftserverlessUsageLimit(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? BreachAction
     {
-        get => new TerraformReference<string>(this, "breach_action");
+        get => GetArgument<TerraformValue<string>>("breach_action");
         set => SetArgument("breach_action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -41,16 +41,16 @@ public partial class AwsRedshiftserverlessUsageLimit(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? Period
     {
-        get => new TerraformReference<string>(this, "period");
+        get => GetArgument<TerraformValue<string>>("period");
         set => SetArgument("period", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsRedshiftserverlessUsageLimit(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => new TerraformReference<string>(this, "resource_arn");
+        get => GetArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsRedshiftserverlessUsageLimit(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsageType is required")]
     public required TerraformValue<string> UsageType
     {
-        get => new TerraformReference<string>(this, "usage_type");
+        get => GetArgument<TerraformValue<string>>("usage_type");
         set => SetArgument("usage_type", value);
     }
 
@@ -78,8 +78,6 @@ public partial class AwsRedshiftserverlessUsageLimit(string name) : TerraformRes
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

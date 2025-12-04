@@ -18,7 +18,7 @@ public class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlo
     /// </summary>
     public TerraformValue<string>? AzureKeyVaultCertificateSecretName
     {
-        get => new TerraformReference<string>(this, "azure_key_vault_certificate_secret_name");
+        get => GetArgument<TerraformValue<string>>("azure_key_vault_certificate_secret_name");
         set => SetArgument("azure_key_vault_certificate_secret_name", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlo
     /// </summary>
     public TerraformValue<string>? AzureKeyVaultCertificateSecretVersion
     {
-        get => new TerraformReference<string>(this, "azure_key_vault_certificate_secret_version");
+        get => GetArgument<TerraformValue<string>>("azure_key_vault_certificate_secret_version");
         set => SetArgument("azure_key_vault_certificate_secret_version", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlo
     /// </summary>
     public TerraformValue<string>? AzureKeyVaultCertificateVaultId
     {
-        get => new TerraformReference<string>(this, "azure_key_vault_certificate_vault_id");
+        get => GetArgument<TerraformValue<string>>("azure_key_vault_certificate_vault_id");
         set => SetArgument("azure_key_vault_certificate_vault_id", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlo
     /// </summary>
     public TerraformValue<string>? CertificateSource
     {
-        get => new TerraformReference<string>(this, "certificate_source");
+        get => GetArgument<TerraformValue<string>>("certificate_source");
         set => SetArgument("certificate_source", value);
     }
 
@@ -53,25 +53,19 @@ public class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlo
     /// The minimum_tls_version attribute.
     /// </summary>
     public TerraformValue<string> MinimumTlsVersion
-    {
-        get => new TerraformReference<string>(this, "minimum_tls_version");
-    }
+        => AsReference("minimum_tls_version");
 
     /// <summary>
     /// The provisioning_state attribute.
     /// </summary>
     public TerraformValue<string> ProvisioningState
-    {
-        get => new TerraformReference<string>(this, "provisioning_state");
-    }
+        => AsReference("provisioning_state");
 
     /// <summary>
     /// The provisioning_substate attribute.
     /// </summary>
     public TerraformValue<string> ProvisioningSubstate
-    {
-        get => new TerraformReference<string>(this, "provisioning_substate");
-    }
+        => AsReference("provisioning_substate");
 
 }
 
@@ -92,7 +86,7 @@ public class AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -101,7 +95,7 @@ public class AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -110,7 +104,7 @@ public class AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -119,7 +113,7 @@ public class AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -138,7 +132,7 @@ public partial class AzurermFrontdoorCustomHttpsConfiguration(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomHttpsProvisioningEnabled is required")]
     public required TerraformValue<bool> CustomHttpsProvisioningEnabled
     {
-        get => new TerraformReference<bool>(this, "custom_https_provisioning_enabled");
+        get => GetArgument<TerraformValue<bool>>("custom_https_provisioning_enabled");
         set => SetArgument("custom_https_provisioning_enabled", value);
     }
 
@@ -148,16 +142,16 @@ public partial class AzurermFrontdoorCustomHttpsConfiguration(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendEndpointId is required")]
     public required TerraformValue<string> FrontendEndpointId
     {
-        get => new TerraformReference<string>(this, "frontend_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("frontend_endpoint_id");
         set => SetArgument("frontend_endpoint_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 

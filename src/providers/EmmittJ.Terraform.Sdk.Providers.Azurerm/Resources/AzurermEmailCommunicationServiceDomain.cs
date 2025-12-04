@@ -18,7 +18,7 @@ public class AzurermEmailCommunicationServiceDomainTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermEmailCommunicationServiceDomainTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermEmailCommunicationServiceDomainTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermEmailCommunicationServiceDomainTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermEmailCommunicationServiceDomain(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainManagement is required")]
     public required TerraformValue<string> DomainManagement
     {
-        get => new TerraformReference<string>(this, "domain_management");
+        get => GetArgument<TerraformValue<string>>("domain_management");
         set => SetArgument("domain_management", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AzurermEmailCommunicationServiceDomain(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailServiceId is required")]
     public required TerraformValue<string> EmailServiceId
     {
-        get => new TerraformReference<string>(this, "email_service_id");
+        get => GetArgument<TerraformValue<string>>("email_service_id");
         set => SetArgument("email_service_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermEmailCommunicationServiceDomain(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermEmailCommunicationServiceDomain(string name) : Terra
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermEmailCommunicationServiceDomain(string name) : Terra
     /// </summary>
     public TerraformValue<bool>? UserEngagementTrackingEnabled
     {
-        get => new TerraformReference<bool>(this, "user_engagement_tracking_enabled");
+        get => GetArgument<TerraformValue<bool>>("user_engagement_tracking_enabled");
         set => SetArgument("user_engagement_tracking_enabled", value);
     }
 
@@ -119,25 +119,19 @@ public partial class AzurermEmailCommunicationServiceDomain(string name) : Terra
     /// The from_sender_domain attribute.
     /// </summary>
     public TerraformValue<string> FromSenderDomain
-    {
-        get => new TerraformReference<string>(this, "from_sender_domain");
-    }
+        => AsReference("from_sender_domain");
 
     /// <summary>
     /// The mail_from_sender_domain attribute.
     /// </summary>
     public TerraformValue<string> MailFromSenderDomain
-    {
-        get => new TerraformReference<string>(this, "mail_from_sender_domain");
-    }
+        => AsReference("mail_from_sender_domain");
 
     /// <summary>
     /// The verification_records attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> VerificationRecords
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "verification_records").ResolveNodes(ctx));
-    }
+        => AsReference("verification_records");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

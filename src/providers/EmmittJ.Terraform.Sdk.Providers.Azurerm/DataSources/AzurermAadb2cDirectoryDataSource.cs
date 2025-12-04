@@ -18,7 +18,7 @@ public class AzurermAadb2cDirectoryDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermAadb2cDirectoryDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermAadb2cDirectoryDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,49 +64,37 @@ public partial class AzurermAadb2cDirectoryDataSource(string name) : TerraformDa
     /// The type of billing for the B2C tenant. Possible values include: `MAU` or `Auths`.
     /// </summary>
     public TerraformValue<string> BillingType
-    {
-        get => new TerraformReference<string>(this, "billing_type");
-    }
+        => AsReference("billing_type");
 
     /// <summary>
     /// Location in which the B2C tenant is hosted and data resides.
     /// </summary>
     public TerraformValue<string> DataResidencyLocation
-    {
-        get => new TerraformReference<string>(this, "data_residency_location");
-    }
+        => AsReference("data_residency_location");
 
     /// <summary>
     /// The date from which the billing type took effect. May not be populated until after the first billing cycle.
     /// </summary>
     public TerraformValue<string> EffectiveStartDate
-    {
-        get => new TerraformReference<string>(this, "effective_start_date");
-    }
+        => AsReference("effective_start_date");
 
     /// <summary>
     /// Billing SKU for the B2C tenant.
     /// </summary>
     public TerraformValue<string> SkuName
-    {
-        get => new TerraformReference<string>(this, "sku_name");
-    }
+        => AsReference("sku_name");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The Tenant ID for the B2C tenant.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

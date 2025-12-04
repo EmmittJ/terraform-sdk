@@ -45,7 +45,7 @@ public class AwsFsxOpenzfsVolumeNfsExportsBlockClientConfigurationsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Clients is required")]
     public required TerraformValue<string> Clients
     {
-        get => new TerraformReference<string>(this, "clients");
+        get => GetArgument<TerraformValue<string>>("clients");
         set => SetArgument("clients", value);
     }
 
@@ -55,7 +55,7 @@ public class AwsFsxOpenzfsVolumeNfsExportsBlockClientConfigurationsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Options is required")]
     public TerraformList<string>? Options
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "options").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("options");
         set => SetArgument("options", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsFsxOpenzfsVolumeOriginSnapshotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CopyStrategy is required")]
     public required TerraformValue<string> CopyStrategy
     {
-        get => new TerraformReference<string>(this, "copy_strategy");
+        get => GetArgument<TerraformValue<string>>("copy_strategy");
         set => SetArgument("copy_strategy", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsFsxOpenzfsVolumeOriginSnapshotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotArn is required")]
     public required TerraformValue<string> SnapshotArn
     {
-        get => new TerraformReference<string>(this, "snapshot_arn");
+        get => GetArgument<TerraformValue<string>>("snapshot_arn");
         set => SetArgument("snapshot_arn", value);
     }
 
@@ -112,7 +112,7 @@ public class AwsFsxOpenzfsVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsFsxOpenzfsVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsFsxOpenzfsVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -154,7 +154,7 @@ public class AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<double> Id
     {
-        get => new TerraformReference<double>(this, "id");
+        get => GetArgument<TerraformValue<double>>("id");
         set => SetArgument("id", value);
     }
 
@@ -164,7 +164,7 @@ public class AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacityQuotaGib is required")]
     public required TerraformValue<double> StorageCapacityQuotaGib
     {
-        get => new TerraformReference<double>(this, "storage_capacity_quota_gib");
+        get => GetArgument<TerraformValue<double>>("storage_capacity_quota_gib");
         set => SetArgument("storage_capacity_quota_gib", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsFsxOpenzfsVolumeUserAndGroupQuotasBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -192,7 +192,7 @@ public partial class AwsFsxOpenzfsVolume(string name) : TerraformResource("aws_f
     /// </summary>
     public TerraformValue<bool>? CopyTagsToSnapshots
     {
-        get => new TerraformReference<bool>(this, "copy_tags_to_snapshots");
+        get => GetArgument<TerraformValue<bool>>("copy_tags_to_snapshots");
         set => SetArgument("copy_tags_to_snapshots", value);
     }
 
@@ -201,7 +201,7 @@ public partial class AwsFsxOpenzfsVolume(string name) : TerraformResource("aws_f
     /// </summary>
     public TerraformValue<string>? DataCompressionType
     {
-        get => new TerraformReference<string>(this, "data_compression_type");
+        get => GetArgument<TerraformValue<string>>("data_compression_type");
         set => SetArgument("data_compression_type", value);
     }
 
@@ -210,16 +210,16 @@ public partial class AwsFsxOpenzfsVolume(string name) : TerraformResource("aws_f
     /// </summary>
     public TerraformList<string>? DeleteVolumeOptions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "delete_volume_options").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("delete_volume_options");
         set => SetArgument("delete_volume_options", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -229,7 +229,7 @@ public partial class AwsFsxOpenzfsVolume(string name) : TerraformResource("aws_f
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -239,16 +239,16 @@ public partial class AwsFsxOpenzfsVolume(string name) : TerraformResource("aws_f
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentVolumeId is required")]
     public required TerraformValue<string> ParentVolumeId
     {
-        get => new TerraformReference<string>(this, "parent_volume_id");
+        get => GetArgument<TerraformValue<string>>("parent_volume_id");
         set => SetArgument("parent_volume_id", value);
     }
 
     /// <summary>
     /// The read_only attribute.
     /// </summary>
-    public TerraformValue<bool> ReadOnlyAttribute
+    public TerraformValue<bool>? ReadOnlyAttribute
     {
-        get => new TerraformReference<bool>(this, "read_only");
+        get => GetArgument<TerraformValue<bool>>("read_only");
         set => SetArgument("read_only", value);
     }
 
@@ -257,34 +257,34 @@ public partial class AwsFsxOpenzfsVolume(string name) : TerraformResource("aws_f
     /// </summary>
     public TerraformValue<double>? RecordSizeKib
     {
-        get => new TerraformReference<double>(this, "record_size_kib");
+        get => GetArgument<TerraformValue<double>>("record_size_kib");
         set => SetArgument("record_size_kib", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The storage_capacity_quota_gib attribute.
     /// </summary>
-    public TerraformValue<double> StorageCapacityQuotaGib
+    public TerraformValue<double>? StorageCapacityQuotaGib
     {
-        get => new TerraformReference<double>(this, "storage_capacity_quota_gib");
+        get => GetArgument<TerraformValue<double>>("storage_capacity_quota_gib");
         set => SetArgument("storage_capacity_quota_gib", value);
     }
 
     /// <summary>
     /// The storage_capacity_reservation_gib attribute.
     /// </summary>
-    public TerraformValue<double> StorageCapacityReservationGib
+    public TerraformValue<double>? StorageCapacityReservationGib
     {
-        get => new TerraformReference<double>(this, "storage_capacity_reservation_gib");
+        get => GetArgument<TerraformValue<double>>("storage_capacity_reservation_gib");
         set => SetArgument("storage_capacity_reservation_gib", value);
     }
 
@@ -293,16 +293,16 @@ public partial class AwsFsxOpenzfsVolume(string name) : TerraformResource("aws_f
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -311,7 +311,7 @@ public partial class AwsFsxOpenzfsVolume(string name) : TerraformResource("aws_f
     /// </summary>
     public TerraformValue<string>? VolumeType
     {
-        get => new TerraformReference<string>(this, "volume_type");
+        get => GetArgument<TerraformValue<string>>("volume_type");
         set => SetArgument("volume_type", value);
     }
 
@@ -319,9 +319,7 @@ public partial class AwsFsxOpenzfsVolume(string name) : TerraformResource("aws_f
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// NfsExports block (nesting mode: list).

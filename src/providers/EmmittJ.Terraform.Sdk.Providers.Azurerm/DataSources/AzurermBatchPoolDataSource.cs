@@ -18,7 +18,7 @@ public class AzurermBatchPoolDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermBatchPoolDataSource(string name) : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => new TerraformReference<string>(this, "account_name");
+        get => GetArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermBatchPoolDataSource(string name) : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermBatchPoolDataSource(string name) : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -74,185 +74,139 @@ public partial class AzurermBatchPoolDataSource(string name) : TerraformDataSour
     /// The auto_scale attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> AutoScale
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "auto_scale").ResolveNodes(ctx));
-    }
+        => AsReference("auto_scale");
 
     /// <summary>
     /// The certificate attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Certificate
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "certificate").ResolveNodes(ctx));
-    }
+        => AsReference("certificate");
 
     /// <summary>
     /// The container_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ContainerConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "container_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("container_configuration");
 
     /// <summary>
     /// The data_disks attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DataDisks
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "data_disks").ResolveNodes(ctx));
-    }
+        => AsReference("data_disks");
 
     /// <summary>
     /// The disk_encryption attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DiskEncryption
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "disk_encryption").ResolveNodes(ctx));
-    }
+        => AsReference("disk_encryption");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The extensions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Extensions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "extensions").ResolveNodes(ctx));
-    }
+        => AsReference("extensions");
 
     /// <summary>
     /// The fixed_scale attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FixedScale
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "fixed_scale").ResolveNodes(ctx));
-    }
+        => AsReference("fixed_scale");
 
     /// <summary>
     /// The inter_node_communication attribute.
     /// </summary>
     public TerraformValue<string> InterNodeCommunication
-    {
-        get => new TerraformReference<string>(this, "inter_node_communication");
-    }
+        => AsReference("inter_node_communication");
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
     public TerraformValue<string> LicenseType
-    {
-        get => new TerraformReference<string>(this, "license_type");
-    }
+        => AsReference("license_type");
 
     /// <summary>
     /// The max_tasks_per_node attribute.
     /// </summary>
     public TerraformValue<double> MaxTasksPerNode
-    {
-        get => new TerraformReference<double>(this, "max_tasks_per_node");
-    }
+        => AsReference("max_tasks_per_node");
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
     public TerraformMap<string> Metadata
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
-    }
+        => AsReference("metadata");
 
     /// <summary>
     /// The mount attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Mount
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "mount").ResolveNodes(ctx));
-    }
+        => AsReference("mount");
 
     /// <summary>
     /// The network_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "network_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("network_configuration");
 
     /// <summary>
     /// The node_agent_sku_id attribute.
     /// </summary>
     public TerraformValue<string> NodeAgentSkuId
-    {
-        get => new TerraformReference<string>(this, "node_agent_sku_id");
-    }
+        => AsReference("node_agent_sku_id");
 
     /// <summary>
     /// The node_placement attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NodePlacement
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "node_placement").ResolveNodes(ctx));
-    }
+        => AsReference("node_placement");
 
     /// <summary>
     /// The os_disk_placement attribute.
     /// </summary>
     public TerraformValue<string> OsDiskPlacement
-    {
-        get => new TerraformReference<string>(this, "os_disk_placement");
-    }
+        => AsReference("os_disk_placement");
 
     /// <summary>
     /// The start_task attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StartTask
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "start_task").ResolveNodes(ctx));
-    }
+        => AsReference("start_task");
 
     /// <summary>
     /// The storage_image_reference attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StorageImageReference
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "storage_image_reference").ResolveNodes(ctx));
-    }
+        => AsReference("storage_image_reference");
 
     /// <summary>
     /// The task_scheduling_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TaskSchedulingPolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "task_scheduling_policy").ResolveNodes(ctx));
-    }
+        => AsReference("task_scheduling_policy");
 
     /// <summary>
     /// The user_accounts attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> UserAccounts
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "user_accounts").ResolveNodes(ctx));
-    }
+        => AsReference("user_accounts");
 
     /// <summary>
     /// The vm_size attribute.
     /// </summary>
     public TerraformValue<string> VmSize
-    {
-        get => new TerraformReference<string>(this, "vm_size");
-    }
+        => AsReference("vm_size");
 
     /// <summary>
     /// The windows attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Windows
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "windows").ResolveNodes(ctx));
-    }
+        => AsReference("windows");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

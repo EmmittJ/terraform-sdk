@@ -18,7 +18,7 @@ public class AzureadUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzureadUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<bool>? AccountEnabled
     {
-        get => new TerraformReference<bool>(this, "account_enabled");
+        get => GetArgument<TerraformValue<bool>>("account_enabled");
         set => SetArgument("account_enabled", value);
     }
 
@@ -72,16 +72,16 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? AgeGroup
     {
-        get => new TerraformReference<string>(this, "age_group");
+        get => GetArgument<TerraformValue<string>>("age_group");
         set => SetArgument("age_group", value);
     }
 
     /// <summary>
     /// The telephone numbers for the user. Only one number can be set for this property. Read-only for users synced with Azure AD Connect
     /// </summary>
-    public TerraformList<string> BusinessPhones
+    public TerraformList<string>? BusinessPhones
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "business_phones").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("business_phones");
         set => SetArgument("business_phones", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? City
     {
-        get => new TerraformReference<string>(this, "city");
+        get => GetArgument<TerraformValue<string>>("city");
         set => SetArgument("city", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? CompanyName
     {
-        get => new TerraformReference<string>(this, "company_name");
+        get => GetArgument<TerraformValue<string>>("company_name");
         set => SetArgument("company_name", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? ConsentProvidedForMinor
     {
-        get => new TerraformReference<string>(this, "consent_provided_for_minor");
+        get => GetArgument<TerraformValue<string>>("consent_provided_for_minor");
         set => SetArgument("consent_provided_for_minor", value);
     }
 
@@ -117,7 +117,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? CostCenter
     {
-        get => new TerraformReference<string>(this, "cost_center");
+        get => GetArgument<TerraformValue<string>>("cost_center");
         set => SetArgument("cost_center", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? Country
     {
-        get => new TerraformReference<string>(this, "country");
+        get => GetArgument<TerraformValue<string>>("country");
         set => SetArgument("country", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? Department
     {
-        get => new TerraformReference<string>(this, "department");
+        get => GetArgument<TerraformValue<string>>("department");
         set => SetArgument("department", value);
     }
 
@@ -144,7 +144,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<bool>? DisablePasswordExpiration
     {
-        get => new TerraformReference<bool>(this, "disable_password_expiration");
+        get => GetArgument<TerraformValue<bool>>("disable_password_expiration");
         set => SetArgument("disable_password_expiration", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<bool>? DisableStrongPassword
     {
-        get => new TerraformReference<bool>(this, "disable_strong_password");
+        get => GetArgument<TerraformValue<bool>>("disable_strong_password");
         set => SetArgument("disable_strong_password", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? Division
     {
-        get => new TerraformReference<string>(this, "division");
+        get => GetArgument<TerraformValue<string>>("division");
         set => SetArgument("division", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? EmployeeHireDate
     {
-        get => new TerraformReference<string>(this, "employee_hire_date");
+        get => GetArgument<TerraformValue<string>>("employee_hire_date");
         set => SetArgument("employee_hire_date", value);
     }
 
@@ -190,7 +190,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? EmployeeId
     {
-        get => new TerraformReference<string>(this, "employee_id");
+        get => GetArgument<TerraformValue<string>>("employee_id");
         set => SetArgument("employee_id", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? EmployeeType
     {
-        get => new TerraformReference<string>(this, "employee_type");
+        get => GetArgument<TerraformValue<string>>("employee_type");
         set => SetArgument("employee_type", value);
     }
 
@@ -208,7 +208,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? FaxNumber
     {
-        get => new TerraformReference<string>(this, "fax_number");
+        get => GetArgument<TerraformValue<string>>("fax_number");
         set => SetArgument("fax_number", value);
     }
 
@@ -217,7 +217,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<bool>? ForcePasswordChange
     {
-        get => new TerraformReference<bool>(this, "force_password_change");
+        get => GetArgument<TerraformValue<bool>>("force_password_change");
         set => SetArgument("force_password_change", value);
     }
 
@@ -226,16 +226,16 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? GivenName
     {
-        get => new TerraformReference<string>(this, "given_name");
+        get => GetArgument<TerraformValue<string>>("given_name");
         set => SetArgument("given_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -244,25 +244,25 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? JobTitle
     {
-        get => new TerraformReference<string>(this, "job_title");
+        get => GetArgument<TerraformValue<string>>("job_title");
         set => SetArgument("job_title", value);
     }
 
     /// <summary>
     /// The SMTP address for the user. Cannot be unset.
     /// </summary>
-    public TerraformValue<string> Mail
+    public TerraformValue<string>? Mail
     {
-        get => new TerraformReference<string>(this, "mail");
+        get => GetArgument<TerraformValue<string>>("mail");
         set => SetArgument("mail", value);
     }
 
     /// <summary>
     /// The mail alias for the user. Defaults to the user name part of the user principal name (UPN)
     /// </summary>
-    public TerraformValue<string> MailNickname
+    public TerraformValue<string>? MailNickname
     {
-        get => new TerraformReference<string>(this, "mail_nickname");
+        get => GetArgument<TerraformValue<string>>("mail_nickname");
         set => SetArgument("mail_nickname", value);
     }
 
@@ -271,7 +271,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? ManagerId
     {
-        get => new TerraformReference<string>(this, "manager_id");
+        get => GetArgument<TerraformValue<string>>("manager_id");
         set => SetArgument("manager_id", value);
     }
 
@@ -280,7 +280,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? MobilePhone
     {
-        get => new TerraformReference<string>(this, "mobile_phone");
+        get => GetArgument<TerraformValue<string>>("mobile_phone");
         set => SetArgument("mobile_phone", value);
     }
 
@@ -289,16 +289,16 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? OfficeLocation
     {
-        get => new TerraformReference<string>(this, "office_location");
+        get => GetArgument<TerraformValue<string>>("office_location");
         set => SetArgument("office_location", value);
     }
 
     /// <summary>
     /// The value used to associate an on-premise Active Directory user account with their Azure AD user object. This must be specified if you are using a federated domain for the user&#39;s `user_principal_name` property when creating a new user account
     /// </summary>
-    public TerraformValue<string> OnpremisesImmutableId
+    public TerraformValue<string>? OnpremisesImmutableId
     {
-        get => new TerraformReference<string>(this, "onpremises_immutable_id");
+        get => GetArgument<TerraformValue<string>>("onpremises_immutable_id");
         set => SetArgument("onpremises_immutable_id", value);
     }
 
@@ -307,16 +307,16 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformSet<string>? OtherMails
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "other_mails").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("other_mails");
         set => SetArgument("other_mails", value);
     }
 
     /// <summary>
     /// The password for the user. The password must satisfy minimum requirements as specified by the password policy. The maximum length is 256 characters. This property is required when creating a new user
     /// </summary>
-    public TerraformValue<string> Password
+    public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -325,7 +325,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? PostalCode
     {
-        get => new TerraformReference<string>(this, "postal_code");
+        get => GetArgument<TerraformValue<string>>("postal_code");
         set => SetArgument("postal_code", value);
     }
 
@@ -334,7 +334,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? PreferredLanguage
     {
-        get => new TerraformReference<string>(this, "preferred_language");
+        get => GetArgument<TerraformValue<string>>("preferred_language");
         set => SetArgument("preferred_language", value);
     }
 
@@ -343,7 +343,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<bool>? ShowInAddressList
     {
-        get => new TerraformReference<bool>(this, "show_in_address_list");
+        get => GetArgument<TerraformValue<bool>>("show_in_address_list");
         set => SetArgument("show_in_address_list", value);
     }
 
@@ -352,7 +352,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -361,7 +361,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? StreetAddress
     {
-        get => new TerraformReference<string>(this, "street_address");
+        get => GetArgument<TerraformValue<string>>("street_address");
         set => SetArgument("street_address", value);
     }
 
@@ -370,7 +370,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? Surname
     {
-        get => new TerraformReference<string>(this, "surname");
+        get => GetArgument<TerraformValue<string>>("surname");
         set => SetArgument("surname", value);
     }
 
@@ -379,7 +379,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// </summary>
     public TerraformValue<string>? UsageLocation
     {
-        get => new TerraformReference<string>(this, "usage_location");
+        get => GetArgument<TerraformValue<string>>("usage_location");
         set => SetArgument("usage_location", value);
     }
 
@@ -389,7 +389,7 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPrincipalName is required")]
     public required TerraformValue<string> UserPrincipalName
     {
-        get => new TerraformReference<string>(this, "user_principal_name");
+        get => GetArgument<TerraformValue<string>>("user_principal_name");
         set => SetArgument("user_principal_name", value);
     }
 
@@ -397,105 +397,79 @@ public partial class AzureadUser(string name) : TerraformResource("azuread_user"
     /// A freeform field for the user to describe themselves
     /// </summary>
     public TerraformValue<string> AboutMe
-    {
-        get => new TerraformReference<string>(this, "about_me");
-    }
+        => AsReference("about_me");
 
     /// <summary>
     /// Indicates whether the user account was created as a regular school or work account (`null`), an external account (`Invitation`), a local account for an Azure Active Directory B2C tenant (`LocalAccount`) or self-service sign-up using email verification (`EmailVerified`)
     /// </summary>
     public TerraformValue<string> CreationType
-    {
-        get => new TerraformReference<string>(this, "creation_type");
-    }
+        => AsReference("creation_type");
 
     /// <summary>
     /// For an external user invited to the tenant, this property represents the invited user&#39;s invitation status
     /// </summary>
     public TerraformValue<string> ExternalUserState
-    {
-        get => new TerraformReference<string>(this, "external_user_state");
-    }
+        => AsReference("external_user_state");
 
     /// <summary>
     /// The instant message voice over IP (VOIP) session initiation protocol (SIP) addresses for the user
     /// </summary>
     public TerraformList<string> ImAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "im_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("im_addresses");
 
     /// <summary>
     /// The object ID of the user
     /// </summary>
     public TerraformValue<string> ObjectId
-    {
-        get => new TerraformReference<string>(this, "object_id");
-    }
+        => AsReference("object_id");
 
     /// <summary>
     /// The on-premise Active Directory distinguished name (DN) of the user
     /// </summary>
     public TerraformValue<string> OnpremisesDistinguishedName
-    {
-        get => new TerraformReference<string>(this, "onpremises_distinguished_name");
-    }
+        => AsReference("onpremises_distinguished_name");
 
     /// <summary>
     /// The on-premise FQDN (i.e. dnsDomainName) of the user
     /// </summary>
     public TerraformValue<string> OnpremisesDomainName
-    {
-        get => new TerraformReference<string>(this, "onpremises_domain_name");
-    }
+        => AsReference("onpremises_domain_name");
 
     /// <summary>
     /// The on-premise SAM account name of the user
     /// </summary>
     public TerraformValue<string> OnpremisesSamAccountName
-    {
-        get => new TerraformReference<string>(this, "onpremises_sam_account_name");
-    }
+        => AsReference("onpremises_sam_account_name");
 
     /// <summary>
     /// The on-premise security identifier (SID) of the user
     /// </summary>
     public TerraformValue<string> OnpremisesSecurityIdentifier
-    {
-        get => new TerraformReference<string>(this, "onpremises_security_identifier");
-    }
+        => AsReference("onpremises_security_identifier");
 
     /// <summary>
     /// Whether this user is synchronized from an on-premises directory (true), no longer synchronized (false), or has never been synchronized (null)
     /// </summary>
     public TerraformValue<bool> OnpremisesSyncEnabled
-    {
-        get => new TerraformReference<bool>(this, "onpremises_sync_enabled");
-    }
+        => AsReference("onpremises_sync_enabled");
 
     /// <summary>
     /// The on-premise user principal name of the user
     /// </summary>
     public TerraformValue<string> OnpremisesUserPrincipalName
-    {
-        get => new TerraformReference<string>(this, "onpremises_user_principal_name");
-    }
+        => AsReference("onpremises_user_principal_name");
 
     /// <summary>
     /// Email addresses for the user that direct to the same mailbox
     /// </summary>
     public TerraformList<string> ProxyAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "proxy_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("proxy_addresses");
 
     /// <summary>
     /// The user type in the directory. Possible values are `Guest` or `Member`
     /// </summary>
     public TerraformValue<string> UserType
-    {
-        get => new TerraformReference<string>(this, "user_type");
-    }
+        => AsReference("user_type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

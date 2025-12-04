@@ -18,7 +18,7 @@ public class GoogleDocumentAiWarehouseLocationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleDocumentAiWarehouseLocationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,7 +46,7 @@ public partial class GoogleDocumentAiWarehouseLocation(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessControlMode is required")]
     public required TerraformValue<string> AccessControlMode
     {
-        get => new TerraformReference<string>(this, "access_control_mode");
+        get => GetArgument<TerraformValue<string>>("access_control_mode");
         set => SetArgument("access_control_mode", value);
     }
 
@@ -56,7 +56,7 @@ public partial class GoogleDocumentAiWarehouseLocation(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseType is required")]
     public required TerraformValue<string> DatabaseType
     {
-        get => new TerraformReference<string>(this, "database_type");
+        get => GetArgument<TerraformValue<string>>("database_type");
         set => SetArgument("database_type", value);
     }
 
@@ -65,16 +65,16 @@ public partial class GoogleDocumentAiWarehouseLocation(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? DocumentCreatorDefaultRole
     {
-        get => new TerraformReference<string>(this, "document_creator_default_role");
+        get => GetArgument<TerraformValue<string>>("document_creator_default_role");
         set => SetArgument("document_creator_default_role", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -87,7 +87,7 @@ public partial class GoogleDocumentAiWarehouseLocation(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -97,7 +97,7 @@ public partial class GoogleDocumentAiWarehouseLocation(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -107,7 +107,7 @@ public partial class GoogleDocumentAiWarehouseLocation(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectNumber is required")]
     public required TerraformValue<string> ProjectNumber
     {
-        get => new TerraformReference<string>(this, "project_number");
+        get => GetArgument<TerraformValue<string>>("project_number");
         set => SetArgument("project_number", value);
     }
 

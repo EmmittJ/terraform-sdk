@@ -18,7 +18,7 @@ public class AzurermImagesDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermImagesDataSource(string name) : TerraformDataSource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermImagesDataSource(string name) : TerraformDataSource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermImagesDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformMap<string>? TagsFilter
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_filter").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_filter");
         set => SetArgument("tags_filter", value);
     }
 
@@ -63,9 +63,7 @@ public partial class AzurermImagesDataSource(string name) : TerraformDataSource(
     /// The images attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Images
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "images").ResolveNodes(ctx));
-    }
+        => AsReference("images");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

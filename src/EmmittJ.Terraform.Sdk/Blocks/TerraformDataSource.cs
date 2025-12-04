@@ -63,7 +63,7 @@ public class TerraformDataSource :
     /// </summary>
     /// <param name="name">The name of the data output.</param>
     /// <returns>A reference to the data output.</returns>
-    public TerraformExpression AsReference(string name)
+    public override TerraformExpression AsReference(string name)
         => TerraformExpression.Identifier($"data.{DataSourceType}.{DataSourceName}.{name}");
 
     /// <summary>

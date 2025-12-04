@@ -18,7 +18,7 @@ public class GoogleOsConfigPatchDeploymentInstanceFilterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? All
     {
-        get => new TerraformReference<bool>(this, "all");
+        get => GetArgument<TerraformValue<bool>>("all");
         set => SetArgument("all", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleOsConfigPatchDeploymentInstanceFilterBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? InstanceNamePrefixes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "instance_name_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("instance_name_prefixes");
         set => SetArgument("instance_name_prefixes", value);
     }
 
@@ -39,7 +39,7 @@ public class GoogleOsConfigPatchDeploymentInstanceFilterBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Instances
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "instances").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("instances");
         set => SetArgument("instances", value);
     }
 
@@ -48,7 +48,7 @@ public class GoogleOsConfigPatchDeploymentInstanceFilterBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Zones
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "zones").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("zones");
         set => SetArgument("zones", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleOsConfigPatchDeploymentInstanceFilterBlockGroupLabelsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Labels is required")]
     public required TerraformMap<string> Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleOsConfigPatchDeploymentOneTimeScheduleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecuteTime is required")]
     public required TerraformValue<string> ExecuteTime
     {
-        get => new TerraformReference<string>(this, "execute_time");
+        get => GetArgument<TerraformValue<string>>("execute_time");
         set => SetArgument("execute_time", value);
     }
 
@@ -128,7 +128,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? MigInstancesAllowed
     {
-        get => new TerraformReference<bool>(this, "mig_instances_allowed");
+        get => GetArgument<TerraformValue<bool>>("mig_instances_allowed");
         set => SetArgument("mig_instances_allowed", value);
     }
 
@@ -137,7 +137,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RebootConfig
     {
-        get => new TerraformReference<string>(this, "reboot_config");
+        get => GetArgument<TerraformValue<string>>("reboot_config");
         set => SetArgument("reboot_config", value);
     }
 
@@ -229,7 +229,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockAptBlock : TerraformBl
     /// </summary>
     public TerraformList<string>? Excludes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excludes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excludes");
         set => SetArgument("excludes", value);
     }
 
@@ -240,7 +240,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockAptBlock : TerraformBl
     /// </summary>
     public TerraformList<string>? ExclusivePackages
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclusive_packages").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclusive_packages");
         set => SetArgument("exclusive_packages", value);
     }
 
@@ -249,7 +249,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockAptBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -272,7 +272,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockGooBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -327,7 +327,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPostStepBlockLinuxExec
     /// </summary>
     public TerraformList<double>? AllowedSuccessCodes
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "allowed_success_codes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("allowed_success_codes");
         set => SetArgument("allowed_success_codes", value);
     }
 
@@ -337,7 +337,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPostStepBlockLinuxExec
     /// </summary>
     public TerraformValue<string>? Interpreter
     {
-        get => new TerraformReference<string>(this, "interpreter");
+        get => GetArgument<TerraformValue<string>>("interpreter");
         set => SetArgument("interpreter", value);
     }
 
@@ -346,7 +346,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPostStepBlockLinuxExec
     /// </summary>
     public TerraformValue<string>? LocalPath
     {
-        get => new TerraformReference<string>(this, "local_path");
+        get => GetArgument<TerraformValue<string>>("local_path");
         set => SetArgument("local_path", value);
     }
 
@@ -379,7 +379,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPostStepBlockLinuxExec
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -389,7 +389,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPostStepBlockLinuxExec
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GenerationNumber is required")]
     public required TerraformValue<string> GenerationNumber
     {
-        get => new TerraformReference<string>(this, "generation_number");
+        get => GetArgument<TerraformValue<string>>("generation_number");
         set => SetArgument("generation_number", value);
     }
 
@@ -399,7 +399,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPostStepBlockLinuxExec
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -421,7 +421,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPostStepBlockWindowsEx
     /// </summary>
     public TerraformList<double>? AllowedSuccessCodes
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "allowed_success_codes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("allowed_success_codes");
         set => SetArgument("allowed_success_codes", value);
     }
 
@@ -431,7 +431,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPostStepBlockWindowsEx
     /// </summary>
     public TerraformValue<string>? Interpreter
     {
-        get => new TerraformReference<string>(this, "interpreter");
+        get => GetArgument<TerraformValue<string>>("interpreter");
         set => SetArgument("interpreter", value);
     }
 
@@ -440,7 +440,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPostStepBlockWindowsEx
     /// </summary>
     public TerraformValue<string>? LocalPath
     {
-        get => new TerraformReference<string>(this, "local_path");
+        get => GetArgument<TerraformValue<string>>("local_path");
         set => SetArgument("local_path", value);
     }
 
@@ -473,7 +473,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPostStepBlockWindowsEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -483,7 +483,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPostStepBlockWindowsEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GenerationNumber is required")]
     public required TerraformValue<string> GenerationNumber
     {
-        get => new TerraformReference<string>(this, "generation_number");
+        get => GetArgument<TerraformValue<string>>("generation_number");
         set => SetArgument("generation_number", value);
     }
 
@@ -493,7 +493,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPostStepBlockWindowsEx
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -548,7 +548,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPreStepBlockLinuxExecS
     /// </summary>
     public TerraformList<double>? AllowedSuccessCodes
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "allowed_success_codes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("allowed_success_codes");
         set => SetArgument("allowed_success_codes", value);
     }
 
@@ -558,7 +558,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPreStepBlockLinuxExecS
     /// </summary>
     public TerraformValue<string>? Interpreter
     {
-        get => new TerraformReference<string>(this, "interpreter");
+        get => GetArgument<TerraformValue<string>>("interpreter");
         set => SetArgument("interpreter", value);
     }
 
@@ -567,7 +567,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPreStepBlockLinuxExecS
     /// </summary>
     public TerraformValue<string>? LocalPath
     {
-        get => new TerraformReference<string>(this, "local_path");
+        get => GetArgument<TerraformValue<string>>("local_path");
         set => SetArgument("local_path", value);
     }
 
@@ -600,7 +600,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPreStepBlockLinuxExecS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -610,7 +610,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPreStepBlockLinuxExecS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GenerationNumber is required")]
     public required TerraformValue<string> GenerationNumber
     {
-        get => new TerraformReference<string>(this, "generation_number");
+        get => GetArgument<TerraformValue<string>>("generation_number");
         set => SetArgument("generation_number", value);
     }
 
@@ -620,7 +620,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPreStepBlockLinuxExecS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -642,7 +642,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPreStepBlockWindowsExe
     /// </summary>
     public TerraformList<double>? AllowedSuccessCodes
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "allowed_success_codes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("allowed_success_codes");
         set => SetArgument("allowed_success_codes", value);
     }
 
@@ -652,7 +652,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPreStepBlockWindowsExe
     /// </summary>
     public TerraformValue<string>? Interpreter
     {
-        get => new TerraformReference<string>(this, "interpreter");
+        get => GetArgument<TerraformValue<string>>("interpreter");
         set => SetArgument("interpreter", value);
     }
 
@@ -661,7 +661,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPreStepBlockWindowsExe
     /// </summary>
     public TerraformValue<string>? LocalPath
     {
-        get => new TerraformReference<string>(this, "local_path");
+        get => GetArgument<TerraformValue<string>>("local_path");
         set => SetArgument("local_path", value);
     }
 
@@ -694,7 +694,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPreStepBlockWindowsExe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -704,7 +704,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPreStepBlockWindowsExe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GenerationNumber is required")]
     public required TerraformValue<string> GenerationNumber
     {
-        get => new TerraformReference<string>(this, "generation_number");
+        get => GetArgument<TerraformValue<string>>("generation_number");
         set => SetArgument("generation_number", value);
     }
 
@@ -714,7 +714,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockPreStepBlockWindowsExe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -736,7 +736,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockWindowsUpdateBlock : T
     /// </summary>
     public TerraformList<string>? Classifications
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "classifications").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("classifications");
         set => SetArgument("classifications", value);
     }
 
@@ -745,7 +745,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockWindowsUpdateBlock : T
     /// </summary>
     public TerraformList<string>? Excludes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excludes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excludes");
         set => SetArgument("excludes", value);
     }
 
@@ -755,7 +755,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockWindowsUpdateBlock : T
     /// </summary>
     public TerraformList<string>? ExclusivePatches
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclusive_patches").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclusive_patches");
         set => SetArgument("exclusive_patches", value);
     }
 
@@ -777,7 +777,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockYumBlock : TerraformBl
     /// </summary>
     public TerraformList<string>? Excludes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excludes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excludes");
         set => SetArgument("excludes", value);
     }
 
@@ -788,7 +788,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockYumBlock : TerraformBl
     /// </summary>
     public TerraformList<string>? ExclusivePackages
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclusive_packages").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclusive_packages");
         set => SetArgument("exclusive_packages", value);
     }
 
@@ -797,7 +797,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockYumBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? Minimal
     {
-        get => new TerraformReference<bool>(this, "minimal");
+        get => GetArgument<TerraformValue<bool>>("minimal");
         set => SetArgument("minimal", value);
     }
 
@@ -806,7 +806,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockYumBlock : TerraformBl
     /// </summary>
     public TerraformValue<bool>? Security
     {
-        get => new TerraformReference<bool>(this, "security");
+        get => GetArgument<TerraformValue<bool>>("security");
         set => SetArgument("security", value);
     }
 
@@ -828,7 +828,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockZypperBlock : Terrafor
     /// </summary>
     public TerraformList<string>? Categories
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "categories").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("categories");
         set => SetArgument("categories", value);
     }
 
@@ -837,7 +837,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockZypperBlock : Terrafor
     /// </summary>
     public TerraformList<string>? Excludes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excludes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("excludes");
         set => SetArgument("excludes", value);
     }
 
@@ -847,7 +847,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockZypperBlock : Terrafor
     /// </summary>
     public TerraformList<string>? ExclusivePatches
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclusive_patches").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclusive_patches");
         set => SetArgument("exclusive_patches", value);
     }
 
@@ -856,7 +856,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockZypperBlock : Terrafor
     /// </summary>
     public TerraformList<string>? Severities
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "severities").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("severities");
         set => SetArgument("severities", value);
     }
 
@@ -865,7 +865,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockZypperBlock : Terrafor
     /// </summary>
     public TerraformValue<bool>? WithOptional
     {
-        get => new TerraformReference<bool>(this, "with_optional");
+        get => GetArgument<TerraformValue<bool>>("with_optional");
         set => SetArgument("with_optional", value);
     }
 
@@ -874,7 +874,7 @@ public class GoogleOsConfigPatchDeploymentPatchConfigBlockZypperBlock : Terrafor
     /// </summary>
     public TerraformValue<bool>? WithUpdate
     {
-        get => new TerraformReference<bool>(this, "with_update");
+        get => GetArgument<TerraformValue<bool>>("with_update");
         set => SetArgument("with_update", value);
     }
 
@@ -898,7 +898,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? EndTime
     {
-        get => new TerraformReference<string>(this, "end_time");
+        get => GetArgument<TerraformValue<string>>("end_time");
         set => SetArgument("end_time", value);
     }
 
@@ -907,18 +907,14 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlock : TerraformBloc
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds. Example: &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> LastExecuteTime
-    {
-        get => new TerraformReference<string>(this, "last_execute_time");
-    }
+        => AsReference("last_execute_time");
 
     /// <summary>
     /// The time the next patch job is scheduled to run.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds. Example: &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> NextExecuteTime
-    {
-        get => new TerraformReference<string>(this, "next_execute_time");
-    }
+        => AsReference("next_execute_time");
 
     /// <summary>
     /// The time that the recurring schedule becomes effective. Defaults to createTime of the patch deployment.
@@ -926,7 +922,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -996,7 +992,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlockMonthlyBlock : T
     /// </summary>
     public TerraformValue<double>? MonthDay
     {
-        get => new TerraformReference<double>(this, "month_day");
+        get => GetArgument<TerraformValue<double>>("month_day");
         set => SetArgument("month_day", value);
     }
 
@@ -1029,7 +1025,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlockMonthlyBlockWeek
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformValue<string> DayOfWeek
     {
-        get => new TerraformReference<string>(this, "day_of_week");
+        get => GetArgument<TerraformValue<string>>("day_of_week");
         set => SetArgument("day_of_week", value);
     }
 
@@ -1038,7 +1034,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlockMonthlyBlockWeek
     /// </summary>
     public TerraformValue<double>? DayOffset
     {
-        get => new TerraformReference<double>(this, "day_offset");
+        get => GetArgument<TerraformValue<double>>("day_offset");
         set => SetArgument("day_offset", value);
     }
 
@@ -1048,7 +1044,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlockMonthlyBlockWeek
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WeekOrdinal is required")]
     public required TerraformValue<double> WeekOrdinal
     {
-        get => new TerraformReference<double>(this, "week_ordinal");
+        get => GetArgument<TerraformValue<double>>("week_ordinal");
         set => SetArgument("week_ordinal", value);
     }
 
@@ -1071,7 +1067,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlockTimeOfDayBlock :
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -1080,7 +1076,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlockTimeOfDayBlock :
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -1089,7 +1085,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlockTimeOfDayBlock :
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -1098,7 +1094,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlockTimeOfDayBlock :
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -1121,7 +1117,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlockTimeZoneBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1130,7 +1126,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlockTimeZoneBlock : 
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -1153,7 +1149,7 @@ public class GoogleOsConfigPatchDeploymentRecurringScheduleBlockWeeklyBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformValue<string> DayOfWeek
     {
-        get => new TerraformReference<string>(this, "day_of_week");
+        get => GetArgument<TerraformValue<string>>("day_of_week");
         set => SetArgument("day_of_week", value);
     }
 
@@ -1177,7 +1173,7 @@ public class GoogleOsConfigPatchDeploymentRolloutBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -1212,7 +1208,7 @@ public class GoogleOsConfigPatchDeploymentRolloutBlockDisruptionBudgetBlock : Te
     /// </summary>
     public TerraformValue<double>? FixedAttribute
     {
-        get => new TerraformReference<double>(this, "fixed");
+        get => GetArgument<TerraformValue<double>>("fixed");
         set => SetArgument("fixed", value);
     }
 
@@ -1221,7 +1217,7 @@ public class GoogleOsConfigPatchDeploymentRolloutBlockDisruptionBudgetBlock : Te
     /// </summary>
     public TerraformValue<double>? Percentage
     {
-        get => new TerraformReference<double>(this, "percentage");
+        get => GetArgument<TerraformValue<double>>("percentage");
         set => SetArgument("percentage", value);
     }
 
@@ -1244,7 +1240,7 @@ public class GoogleOsConfigPatchDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1253,7 +1249,7 @@ public class GoogleOsConfigPatchDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1271,7 +1267,7 @@ public partial class GoogleOsConfigPatchDeployment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -1281,16 +1277,16 @@ public partial class GoogleOsConfigPatchDeployment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Duration
     {
-        get => new TerraformReference<string>(this, "duration");
+        get => GetArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1305,16 +1301,16 @@ public partial class GoogleOsConfigPatchDeployment(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatchDeploymentId is required")]
     public required TerraformValue<string> PatchDeploymentId
     {
-        get => new TerraformReference<string>(this, "patch_deployment_id");
+        get => GetArgument<TerraformValue<string>>("patch_deployment_id");
         set => SetArgument("patch_deployment_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -1323,36 +1319,28 @@ public partial class GoogleOsConfigPatchDeployment(string name) : TerraformResou
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds. Example: &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The last time a patch job was started by this deployment. Timestamp is in RFC3339 text format.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds. Example: &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> LastExecuteTime
-    {
-        get => new TerraformReference<string>(this, "last_execute_time");
-    }
+        => AsReference("last_execute_time");
 
     /// <summary>
     /// Unique name for the patch deployment resource in a project.
     /// The patch deployment name is in the form: projects/{project_id}/patchDeployments/{patchDeploymentId}.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Time the patch deployment was last updated. Timestamp is in RFC3339 text format.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds. Example: &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// InstanceFilter block (nesting mode: list).

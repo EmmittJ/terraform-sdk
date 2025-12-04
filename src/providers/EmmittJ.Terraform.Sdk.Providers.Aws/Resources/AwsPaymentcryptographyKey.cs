@@ -19,7 +19,7 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyAlgorithm is required")]
     public required TerraformValue<string> KeyAlgorithm
     {
-        get => new TerraformReference<string>(this, "key_algorithm");
+        get => GetArgument<TerraformValue<string>>("key_algorithm");
         set => SetArgument("key_algorithm", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyClass is required")]
     public required TerraformValue<string> KeyClass
     {
-        get => new TerraformReference<string>(this, "key_class");
+        get => GetArgument<TerraformValue<string>>("key_class");
         set => SetArgument("key_class", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyUsage is required")]
     public required TerraformValue<string> KeyUsage
     {
-        get => new TerraformReference<string>(this, "key_usage");
+        get => GetArgument<TerraformValue<string>>("key_usage");
         set => SetArgument("key_usage", value);
     }
 
@@ -68,81 +68,81 @@ public class AwsPaymentcryptographyKeyKeyAttributesBlockKeyModesOfUseBlock : Ter
     /// <summary>
     /// The decrypt attribute.
     /// </summary>
-    public TerraformValue<bool> Decrypt
+    public TerraformValue<bool>? Decrypt
     {
-        get => new TerraformReference<bool>(this, "decrypt");
+        get => GetArgument<TerraformValue<bool>>("decrypt");
         set => SetArgument("decrypt", value);
     }
 
     /// <summary>
     /// The derive_key attribute.
     /// </summary>
-    public TerraformValue<bool> DeriveKey
+    public TerraformValue<bool>? DeriveKey
     {
-        get => new TerraformReference<bool>(this, "derive_key");
+        get => GetArgument<TerraformValue<bool>>("derive_key");
         set => SetArgument("derive_key", value);
     }
 
     /// <summary>
     /// The encrypt attribute.
     /// </summary>
-    public TerraformValue<bool> Encrypt
+    public TerraformValue<bool>? Encrypt
     {
-        get => new TerraformReference<bool>(this, "encrypt");
+        get => GetArgument<TerraformValue<bool>>("encrypt");
         set => SetArgument("encrypt", value);
     }
 
     /// <summary>
     /// The generate attribute.
     /// </summary>
-    public TerraformValue<bool> Generate
+    public TerraformValue<bool>? Generate
     {
-        get => new TerraformReference<bool>(this, "generate");
+        get => GetArgument<TerraformValue<bool>>("generate");
         set => SetArgument("generate", value);
     }
 
     /// <summary>
     /// The no_restrictions attribute.
     /// </summary>
-    public TerraformValue<bool> NoRestrictions
+    public TerraformValue<bool>? NoRestrictions
     {
-        get => new TerraformReference<bool>(this, "no_restrictions");
+        get => GetArgument<TerraformValue<bool>>("no_restrictions");
         set => SetArgument("no_restrictions", value);
     }
 
     /// <summary>
     /// The sign attribute.
     /// </summary>
-    public TerraformValue<bool> Sign
+    public TerraformValue<bool>? Sign
     {
-        get => new TerraformReference<bool>(this, "sign");
+        get => GetArgument<TerraformValue<bool>>("sign");
         set => SetArgument("sign", value);
     }
 
     /// <summary>
     /// The unwrap attribute.
     /// </summary>
-    public TerraformValue<bool> Unwrap
+    public TerraformValue<bool>? Unwrap
     {
-        get => new TerraformReference<bool>(this, "unwrap");
+        get => GetArgument<TerraformValue<bool>>("unwrap");
         set => SetArgument("unwrap", value);
     }
 
     /// <summary>
     /// The verify attribute.
     /// </summary>
-    public TerraformValue<bool> Verify
+    public TerraformValue<bool>? Verify
     {
-        get => new TerraformReference<bool>(this, "verify");
+        get => GetArgument<TerraformValue<bool>>("verify");
         set => SetArgument("verify", value);
     }
 
     /// <summary>
     /// The wrap attribute.
     /// </summary>
-    public TerraformValue<bool> Wrap
+    public TerraformValue<bool>? Wrap
     {
-        get => new TerraformReference<bool>(this, "wrap");
+        get => GetArgument<TerraformValue<bool>>("wrap");
         set => SetArgument("wrap", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsPaymentcryptographyKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -174,7 +174,7 @@ public class AwsPaymentcryptographyKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -183,7 +183,7 @@ public class AwsPaymentcryptographyKeyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -199,18 +199,18 @@ public partial class AwsPaymentcryptographyKey(string name) : TerraformResource(
     /// <summary>
     /// The deletion_window_in_days attribute.
     /// </summary>
-    public TerraformValue<double> DeletionWindowInDays
+    public TerraformValue<double>? DeletionWindowInDays
     {
-        get => new TerraformReference<double>(this, "deletion_window_in_days");
+        get => GetArgument<TerraformValue<double>>("deletion_window_in_days");
         set => SetArgument("deletion_window_in_days", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformValue<bool> Enabled
+    public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -220,25 +220,25 @@ public partial class AwsPaymentcryptographyKey(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Exportable is required")]
     public required TerraformValue<bool> Exportable
     {
-        get => new TerraformReference<bool>(this, "exportable");
+        get => GetArgument<TerraformValue<bool>>("exportable");
         set => SetArgument("exportable", value);
     }
 
     /// <summary>
     /// The key_check_value_algorithm attribute.
     /// </summary>
-    public TerraformValue<string> KeyCheckValueAlgorithm
+    public TerraformValue<string>? KeyCheckValueAlgorithm
     {
-        get => new TerraformReference<string>(this, "key_check_value_algorithm");
+        get => GetArgument<TerraformValue<string>>("key_check_value_algorithm");
         set => SetArgument("key_check_value_algorithm", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -247,7 +247,7 @@ public partial class AwsPaymentcryptographyKey(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -255,49 +255,37 @@ public partial class AwsPaymentcryptographyKey(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The key_check_value attribute.
     /// </summary>
     public TerraformValue<string> KeyCheckValue
-    {
-        get => new TerraformReference<string>(this, "key_check_value");
-    }
+        => AsReference("key_check_value");
 
     /// <summary>
     /// The key_origin attribute.
     /// </summary>
     public TerraformValue<string> KeyOrigin
-    {
-        get => new TerraformReference<string>(this, "key_origin");
-    }
+        => AsReference("key_origin");
 
     /// <summary>
     /// The key_state attribute.
     /// </summary>
     public TerraformValue<string> KeyState
-    {
-        get => new TerraformReference<string>(this, "key_state");
-    }
+        => AsReference("key_state");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// KeyAttributes block (nesting mode: list).

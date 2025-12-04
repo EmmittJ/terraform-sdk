@@ -19,7 +19,7 @@ public class AzurermOracleAutonomousDatabaseLongTermBackupScheduleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermOracleAutonomousDatabaseLongTermBackupScheduleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepeatCadence is required")]
     public required TerraformValue<string> RepeatCadence
     {
-        get => new TerraformReference<string>(this, "repeat_cadence");
+        get => GetArgument<TerraformValue<string>>("repeat_cadence");
         set => SetArgument("repeat_cadence", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermOracleAutonomousDatabaseLongTermBackupScheduleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodInDays is required")]
     public required TerraformValue<double> RetentionPeriodInDays
     {
-        get => new TerraformReference<double>(this, "retention_period_in_days");
+        get => GetArgument<TerraformValue<double>>("retention_period_in_days");
         set => SetArgument("retention_period_in_days", value);
     }
 
@@ -49,7 +49,7 @@ public class AzurermOracleAutonomousDatabaseLongTermBackupScheduleBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeOfBackup is required")]
     public required TerraformValue<string> TimeOfBackup
     {
-        get => new TerraformReference<string>(this, "time_of_backup");
+        get => GetArgument<TerraformValue<string>>("time_of_backup");
         set => SetArgument("time_of_backup", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermOracleAutonomousDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -81,7 +81,7 @@ public class AzurermOracleAutonomousDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -90,7 +90,7 @@ public class AzurermOracleAutonomousDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -99,7 +99,7 @@ public class AzurermOracleAutonomousDatabaseTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminPassword is required")]
     public required TerraformValue<string> AdminPassword
     {
-        get => new TerraformReference<string>(this, "admin_password");
+        get => GetArgument<TerraformValue<string>>("admin_password");
         set => SetArgument("admin_password", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     /// </summary>
     public TerraformSet<string>? AllowedIps
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_ips").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_ips");
         set => SetArgument("allowed_ips", value);
     }
 
@@ -137,7 +137,7 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingEnabled is required")]
     public required TerraformValue<bool> AutoScalingEnabled
     {
-        get => new TerraformReference<bool>(this, "auto_scaling_enabled");
+        get => GetArgument<TerraformValue<bool>>("auto_scaling_enabled");
         set => SetArgument("auto_scaling_enabled", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingForStorageEnabled is required")]
     public required TerraformValue<bool> AutoScalingForStorageEnabled
     {
-        get => new TerraformReference<bool>(this, "auto_scaling_for_storage_enabled");
+        get => GetArgument<TerraformValue<bool>>("auto_scaling_for_storage_enabled");
         set => SetArgument("auto_scaling_for_storage_enabled", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRetentionPeriodInDays is required")]
     public required TerraformValue<double> BackupRetentionPeriodInDays
     {
-        get => new TerraformReference<double>(this, "backup_retention_period_in_days");
+        get => GetArgument<TerraformValue<double>>("backup_retention_period_in_days");
         set => SetArgument("backup_retention_period_in_days", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CharacterSet is required")]
     public required TerraformValue<string> CharacterSet
     {
-        get => new TerraformReference<string>(this, "character_set");
+        get => GetArgument<TerraformValue<string>>("character_set");
         set => SetArgument("character_set", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeCount is required")]
     public required TerraformValue<double> ComputeCount
     {
-        get => new TerraformReference<double>(this, "compute_count");
+        get => GetArgument<TerraformValue<double>>("compute_count");
         set => SetArgument("compute_count", value);
     }
 
@@ -187,16 +187,16 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeModel is required")]
     public required TerraformValue<string> ComputeModel
     {
-        get => new TerraformReference<string>(this, "compute_model");
+        get => GetArgument<TerraformValue<string>>("compute_model");
         set => SetArgument("compute_model", value);
     }
 
     /// <summary>
     /// The customer_contacts attribute.
     /// </summary>
-    public TerraformList<string> CustomerContacts
+    public TerraformList<string>? CustomerContacts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "customer_contacts").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("customer_contacts");
         set => SetArgument("customer_contacts", value);
     }
 
@@ -206,7 +206,7 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStorageSizeInTbs is required")]
     public required TerraformValue<double> DataStorageSizeInTbs
     {
-        get => new TerraformReference<double>(this, "data_storage_size_in_tbs");
+        get => GetArgument<TerraformValue<double>>("data_storage_size_in_tbs");
         set => SetArgument("data_storage_size_in_tbs", value);
     }
 
@@ -216,7 +216,7 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbVersion is required")]
     public required TerraformValue<string> DbVersion
     {
-        get => new TerraformReference<string>(this, "db_version");
+        get => GetArgument<TerraformValue<string>>("db_version");
         set => SetArgument("db_version", value);
     }
 
@@ -226,7 +226,7 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbWorkload is required")]
     public required TerraformValue<string> DbWorkload
     {
-        get => new TerraformReference<string>(this, "db_workload");
+        get => GetArgument<TerraformValue<string>>("db_workload");
         set => SetArgument("db_workload", value);
     }
 
@@ -236,16 +236,16 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -255,7 +255,7 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseModel is required")]
     public required TerraformValue<string> LicenseModel
     {
-        get => new TerraformReference<string>(this, "license_model");
+        get => GetArgument<TerraformValue<string>>("license_model");
         set => SetArgument("license_model", value);
     }
 
@@ -265,7 +265,7 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -275,7 +275,7 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MtlsConnectionRequired is required")]
     public required TerraformValue<bool> MtlsConnectionRequired
     {
-        get => new TerraformReference<bool>(this, "mtls_connection_required");
+        get => GetArgument<TerraformValue<bool>>("mtls_connection_required");
         set => SetArgument("mtls_connection_required", value);
     }
 
@@ -285,7 +285,7 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -295,7 +295,7 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NationalCharacterSet is required")]
     public required TerraformValue<string> NationalCharacterSet
     {
-        get => new TerraformReference<string>(this, "national_character_set");
+        get => GetArgument<TerraformValue<string>>("national_character_set");
         set => SetArgument("national_character_set", value);
     }
 
@@ -305,7 +305,7 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -314,7 +314,7 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -323,7 +323,7 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -332,7 +332,7 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? VirtualNetworkId
     {
-        get => new TerraformReference<string>(this, "virtual_network_id");
+        get => GetArgument<TerraformValue<string>>("virtual_network_id");
         set => SetArgument("virtual_network_id", value);
     }
 

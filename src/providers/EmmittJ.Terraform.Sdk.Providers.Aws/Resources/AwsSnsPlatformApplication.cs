@@ -13,7 +13,7 @@ public partial class AwsSnsPlatformApplication(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? ApplePlatformBundleId
     {
-        get => new TerraformReference<string>(this, "apple_platform_bundle_id");
+        get => GetArgument<TerraformValue<string>>("apple_platform_bundle_id");
         set => SetArgument("apple_platform_bundle_id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsSnsPlatformApplication(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? ApplePlatformTeamId
     {
-        get => new TerraformReference<string>(this, "apple_platform_team_id");
+        get => GetArgument<TerraformValue<string>>("apple_platform_team_id");
         set => SetArgument("apple_platform_team_id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsSnsPlatformApplication(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? EventDeliveryFailureTopicArn
     {
-        get => new TerraformReference<string>(this, "event_delivery_failure_topic_arn");
+        get => GetArgument<TerraformValue<string>>("event_delivery_failure_topic_arn");
         set => SetArgument("event_delivery_failure_topic_arn", value);
     }
 
@@ -40,7 +40,7 @@ public partial class AwsSnsPlatformApplication(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? EventEndpointCreatedTopicArn
     {
-        get => new TerraformReference<string>(this, "event_endpoint_created_topic_arn");
+        get => GetArgument<TerraformValue<string>>("event_endpoint_created_topic_arn");
         set => SetArgument("event_endpoint_created_topic_arn", value);
     }
 
@@ -49,7 +49,7 @@ public partial class AwsSnsPlatformApplication(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? EventEndpointDeletedTopicArn
     {
-        get => new TerraformReference<string>(this, "event_endpoint_deleted_topic_arn");
+        get => GetArgument<TerraformValue<string>>("event_endpoint_deleted_topic_arn");
         set => SetArgument("event_endpoint_deleted_topic_arn", value);
     }
 
@@ -58,7 +58,7 @@ public partial class AwsSnsPlatformApplication(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? EventEndpointUpdatedTopicArn
     {
-        get => new TerraformReference<string>(this, "event_endpoint_updated_topic_arn");
+        get => GetArgument<TerraformValue<string>>("event_endpoint_updated_topic_arn");
         set => SetArgument("event_endpoint_updated_topic_arn", value);
     }
 
@@ -67,16 +67,16 @@ public partial class AwsSnsPlatformApplication(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? FailureFeedbackRoleArn
     {
-        get => new TerraformReference<string>(this, "failure_feedback_role_arn");
+        get => GetArgument<TerraformValue<string>>("failure_feedback_role_arn");
         set => SetArgument("failure_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -86,7 +86,7 @@ public partial class AwsSnsPlatformApplication(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -96,7 +96,7 @@ public partial class AwsSnsPlatformApplication(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Platform is required")]
     public required TerraformValue<string> Platform
     {
-        get => new TerraformReference<string>(this, "platform");
+        get => GetArgument<TerraformValue<string>>("platform");
         set => SetArgument("platform", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsSnsPlatformApplication(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformCredential is required")]
     public required TerraformValue<string> PlatformCredential
     {
-        get => new TerraformReference<string>(this, "platform_credential");
+        get => GetArgument<TerraformValue<string>>("platform_credential");
         set => SetArgument("platform_credential", value);
     }
 
@@ -115,16 +115,16 @@ public partial class AwsSnsPlatformApplication(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? PlatformPrincipal
     {
-        get => new TerraformReference<string>(this, "platform_principal");
+        get => GetArgument<TerraformValue<string>>("platform_principal");
         set => SetArgument("platform_principal", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AwsSnsPlatformApplication(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? SuccessFeedbackRoleArn
     {
-        get => new TerraformReference<string>(this, "success_feedback_role_arn");
+        get => GetArgument<TerraformValue<string>>("success_feedback_role_arn");
         set => SetArgument("success_feedback_role_arn", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AwsSnsPlatformApplication(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? SuccessFeedbackSampleRate
     {
-        get => new TerraformReference<string>(this, "success_feedback_sample_rate");
+        get => GetArgument<TerraformValue<string>>("success_feedback_sample_rate");
         set => SetArgument("success_feedback_sample_rate", value);
     }
 
@@ -150,8 +150,6 @@ public partial class AwsSnsPlatformApplication(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

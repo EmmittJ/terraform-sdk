@@ -18,7 +18,7 @@ public class AzurermMonitorDiagnosticCategoriesDataSourceTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermMonitorDiagnosticCategoriesDataSource(string name) :
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermMonitorDiagnosticCategoriesDataSource(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
     public required TerraformValue<string> ResourceId
     {
-        get => new TerraformReference<string>(this, "resource_id");
+        get => GetArgument<TerraformValue<string>>("resource_id");
         set => SetArgument("resource_id", value);
     }
 
@@ -54,25 +54,19 @@ public partial class AzurermMonitorDiagnosticCategoriesDataSource(string name) :
     /// The log_category_groups attribute.
     /// </summary>
     public TerraformSet<string> LogCategoryGroups
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "log_category_groups").ResolveNodes(ctx));
-    }
+        => AsReference("log_category_groups");
 
     /// <summary>
     /// The log_category_types attribute.
     /// </summary>
     public TerraformSet<string> LogCategoryTypes
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "log_category_types").ResolveNodes(ctx));
-    }
+        => AsReference("log_category_types");
 
     /// <summary>
     /// The metrics attribute.
     /// </summary>
     public TerraformSet<string> Metrics
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "metrics").ResolveNodes(ctx));
-    }
+        => AsReference("metrics");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

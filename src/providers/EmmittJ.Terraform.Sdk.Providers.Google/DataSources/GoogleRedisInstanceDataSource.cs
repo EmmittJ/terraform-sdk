@@ -11,9 +11,9 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -52,9 +52,7 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     /// [locationId].
     /// </summary>
     public TerraformValue<string> AlternativeLocationId
-    {
-        get => new TerraformReference<string>(this, "alternative_location_id");
-    }
+        => AsReference("alternative_location_id");
 
     /// <summary>
     /// Optional. Indicates whether OSS Redis AUTH is enabled for the
@@ -62,17 +60,13 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     /// Default value is &amp;quot;false&amp;quot; meaning AUTH is disabled.
     /// </summary>
     public TerraformValue<bool> AuthEnabled
-    {
-        get => new TerraformReference<bool>(this, "auth_enabled");
-    }
+        => AsReference("auth_enabled");
 
     /// <summary>
     /// AUTH String set on the instance. This field will only be populated if auth_enabled is true.
     /// </summary>
     public TerraformValue<string> AuthString
-    {
-        get => new TerraformReference<string>(this, "auth_string");
-    }
+        => AsReference("auth_string");
 
     /// <summary>
     /// The full name of the Google Compute Engine network to which the
@@ -80,26 +74,20 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     /// will be used.
     /// </summary>
     public TerraformValue<string> AuthorizedNetwork
-    {
-        get => new TerraformReference<string>(this, "authorized_network");
-    }
+        => AsReference("authorized_network");
 
     /// <summary>
     /// The connection mode of the Redis instance. Default value: &amp;quot;DIRECT_PEERING&amp;quot; Possible values: [&amp;quot;DIRECT_PEERING&amp;quot;, &amp;quot;PRIVATE_SERVICE_ACCESS&amp;quot;]
     /// </summary>
     public TerraformValue<string> ConnectMode
-    {
-        get => new TerraformReference<string>(this, "connect_mode");
-    }
+        => AsReference("connect_mode");
 
     /// <summary>
     /// The time the instance was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
     /// accurate to nanoseconds.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The current zone where the Redis endpoint is placed.
@@ -109,18 +97,14 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     /// and can change after a failover event.
     /// </summary>
     public TerraformValue<string> CurrentLocationId
-    {
-        get => new TerraformReference<string>(this, "current_location_id");
-    }
+        => AsReference("current_location_id");
 
     /// <summary>
     /// Optional. The KMS key reference that you want to use to encrypt the data at rest for this Redis
     /// instance. If this is provided, CMEK is enabled.
     /// </summary>
     public TerraformValue<string> CustomerManagedKey
-    {
-        get => new TerraformReference<string>(this, "customer_managed_key");
-    }
+        => AsReference("customer_managed_key");
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the instance.
@@ -131,25 +115,19 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     /// When the field is set to false, deleting the instance is allowed.
     /// </summary>
     public TerraformValue<bool> DeletionProtection
-    {
-        get => new TerraformReference<bool>(this, "deletion_protection");
-    }
+        => AsReference("deletion_protection");
 
     /// <summary>
     /// An arbitrary and optional user-provided name for the instance.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The CIDR range of internal addresses that are reserved for this
@@ -159,18 +137,14 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     /// network.
     /// </summary>
     public TerraformValue<string> EffectiveReservedIpRange
-    {
-        get => new TerraformReference<string>(this, "effective_reserved_ip_range");
-    }
+        => AsReference("effective_reserved_ip_range");
 
     /// <summary>
     /// Hostname or IP address of the exposed Redis endpoint used by clients
     /// to connect to the service.
     /// </summary>
     public TerraformValue<string> Host
-    {
-        get => new TerraformReference<string>(this, "host");
-    }
+        => AsReference("host");
 
     /// <summary>
     /// Resource labels to represent user provided metadata.
@@ -179,9 +153,7 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
-    }
+        => AsReference("labels");
 
     /// <summary>
     /// The zone where the instance will be provisioned. If not provided,
@@ -191,57 +163,43 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     /// be different from [locationId].
     /// </summary>
     public TerraformValue<string> LocationId
-    {
-        get => new TerraformReference<string>(this, "location_id");
-    }
+        => AsReference("location_id");
 
     /// <summary>
     /// Maintenance policy for an instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenancePolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "maintenance_policy").ResolveNodes(ctx));
-    }
+        => AsReference("maintenance_policy");
 
     /// <summary>
     /// Upcoming maintenance schedule.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenanceSchedule
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "maintenance_schedule").ResolveNodes(ctx));
-    }
+        => AsReference("maintenance_schedule");
 
     /// <summary>
     /// The self service update maintenance version.
     /// </summary>
     public TerraformValue<string> MaintenanceVersion
-    {
-        get => new TerraformReference<string>(this, "maintenance_version");
-    }
+        => AsReference("maintenance_version");
 
     /// <summary>
     /// Redis memory size in GiB.
     /// </summary>
     public TerraformValue<double> MemorySizeGb
-    {
-        get => new TerraformReference<double>(this, "memory_size_gb");
-    }
+        => AsReference("memory_size_gb");
 
     /// <summary>
     /// Output only. Info per node.
     /// </summary>
     public TerraformList<TerraformMap<object>> Nodes
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "nodes").ResolveNodes(ctx));
-    }
+        => AsReference("nodes");
 
     /// <summary>
     /// Persistence configuration for an instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> PersistenceConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "persistence_config").ResolveNodes(ctx));
-    }
+        => AsReference("persistence_config");
 
     /// <summary>
     /// Output only. Cloud IAM identity used by import / export operations
@@ -250,17 +208,13 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     /// checked before each import/export operation.
     /// </summary>
     public TerraformValue<string> PersistenceIamIdentity
-    {
-        get => new TerraformReference<string>(this, "persistence_iam_identity");
-    }
+        => AsReference("persistence_iam_identity");
 
     /// <summary>
     /// The port number of the exposed Redis endpoint.
     /// </summary>
     public TerraformValue<double> Port
-    {
-        get => new TerraformReference<double>(this, "port");
-    }
+        => AsReference("port");
 
     /// <summary>
     /// Output only. Hostname or IP address of the exposed readonly Redis endpoint. Standard tier only.
@@ -268,18 +222,14 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     /// will exhibit some lag behind the primary. Write requests must target &#39;host&#39;.
     /// </summary>
     public TerraformValue<string> ReadEndpoint
-    {
-        get => new TerraformReference<string>(this, "read_endpoint");
-    }
+        => AsReference("read_endpoint");
 
     /// <summary>
     /// Output only. The port number of the exposed readonly redis endpoint. Standard tier only.
     /// Write requests should target &#39;port&#39;.
     /// </summary>
     public TerraformValue<double> ReadEndpointPort
-    {
-        get => new TerraformReference<double>(this, "read_endpoint_port");
-    }
+        => AsReference("read_endpoint_port");
 
     /// <summary>
     /// Optional. Read replica mode. Can only be specified when trying to create the instance.
@@ -290,9 +240,7 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     /// can scale up and down the number of replicas. Possible values: [&amp;quot;READ_REPLICAS_DISABLED&amp;quot;, &amp;quot;READ_REPLICAS_ENABLED&amp;quot;]
     /// </summary>
     public TerraformValue<string> ReadReplicasMode
-    {
-        get => new TerraformReference<string>(this, "read_replicas_mode");
-    }
+        => AsReference("read_replicas_mode");
 
     /// <summary>
     /// Redis configuration parameters, according to http://redis.io/topics/config.
@@ -300,9 +248,7 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     /// https://cloud.google.com/memorystore/docs/redis/reference/rest/v1/projects.locations.instances#Instance.FIELDS.redis_configs
     /// </summary>
     public TerraformMap<string> RedisConfigs
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "redis_configs").ResolveNodes(ctx));
-    }
+        => AsReference("redis_configs");
 
     /// <summary>
     /// The version of Redis software. If not provided, latest supported
@@ -310,9 +256,7 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     /// at the top for the latest valid values.
     /// </summary>
     public TerraformValue<string> RedisVersion
-    {
-        get => new TerraformReference<string>(this, "redis_version");
-    }
+        => AsReference("redis_version");
 
     /// <summary>
     /// Optional. The number of replica nodes. The valid range for the Standard Tier with
@@ -321,9 +265,7 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     /// The valid value for basic tier is 0 and the default is also 0.
     /// </summary>
     public TerraformValue<double> ReplicaCount
-    {
-        get => new TerraformReference<double>(this, "replica_count");
-    }
+        => AsReference("replica_count");
 
     /// <summary>
     /// The CIDR range of internal addresses that are reserved for this
@@ -333,9 +275,7 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     /// network.
     /// </summary>
     public TerraformValue<string> ReservedIpRange
-    {
-        get => new TerraformReference<string>(this, "reserved_ip_range");
-    }
+        => AsReference("reserved_ip_range");
 
     /// <summary>
     /// Optional. Additional IP range for node placement. Required when enabling read replicas on
@@ -344,26 +284,20 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     /// range associated with the private service access connection, or &amp;quot;auto&amp;quot;.
     /// </summary>
     public TerraformValue<string> SecondaryIpRange
-    {
-        get => new TerraformReference<string>(this, "secondary_ip_range");
-    }
+        => AsReference("secondary_ip_range");
 
     /// <summary>
     /// List of server CA certificates for the instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServerCaCerts
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "server_ca_certs").ResolveNodes(ctx));
-    }
+        => AsReference("server_ca_certs");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The service tier of the instance. Must be one of these values:
@@ -372,9 +306,7 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     /// - STANDARD_HA: highly available primary/replica instances Default value: &amp;quot;BASIC&amp;quot; Possible values: [&amp;quot;BASIC&amp;quot;, &amp;quot;STANDARD_HA&amp;quot;]
     /// </summary>
     public TerraformValue<string> Tier
-    {
-        get => new TerraformReference<string>(this, "tier");
-    }
+        => AsReference("tier");
 
     /// <summary>
     /// The TLS mode of the Redis instance, If not provided, TLS is disabled for the instance.
@@ -382,8 +314,6 @@ public partial class GoogleRedisInstanceDataSource(string name) : TerraformDataS
     /// - SERVER_AUTHENTICATION: Client to Server traffic encryption enabled with server authentication Default value: &amp;quot;DISABLED&amp;quot; Possible values: [&amp;quot;SERVER_AUTHENTICATION&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
     public TerraformValue<string> TransitEncryptionMode
-    {
-        get => new TerraformReference<string>(this, "transit_encryption_mode");
-    }
+        => AsReference("transit_encryption_mode");
 
 }

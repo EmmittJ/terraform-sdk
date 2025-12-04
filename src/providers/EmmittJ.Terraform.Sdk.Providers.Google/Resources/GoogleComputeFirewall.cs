@@ -24,7 +24,7 @@ public class GoogleComputeFirewallAllowBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Ports
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ports").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ports");
         set => SetArgument("ports", value);
     }
 
@@ -37,7 +37,7 @@ public class GoogleComputeFirewallAllowBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -66,7 +66,7 @@ public class GoogleComputeFirewallDenyBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Ports
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ports").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ports");
         set => SetArgument("ports", value);
     }
 
@@ -79,7 +79,7 @@ public class GoogleComputeFirewallDenyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     public required TerraformValue<string> Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -103,7 +103,7 @@ public class GoogleComputeFirewallLogConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Metadata is required")]
     public required TerraformValue<string> Metadata
     {
-        get => new TerraformReference<string>(this, "metadata");
+        get => GetArgument<TerraformValue<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -131,7 +131,7 @@ public class GoogleComputeFirewallParamsAttributeBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? ResourceManagerTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "resource_manager_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("resource_manager_tags");
         set => SetArgument("resource_manager_tags", value);
     }
 
@@ -154,7 +154,7 @@ public class GoogleComputeFirewallTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -163,7 +163,7 @@ public class GoogleComputeFirewallTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -172,7 +172,7 @@ public class GoogleComputeFirewallTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -191,7 +191,7 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -200,9 +200,9 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     /// traffic that has destination IP address in these ranges. These ranges
     /// must be expressed in CIDR format. IPv4 or IPv6 ranges are supported.
     /// </summary>
-    public TerraformSet<string> DestinationRanges
+    public TerraformSet<string>? DestinationRanges
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "destination_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("destination_ranges");
         set => SetArgument("destination_ranges", value);
     }
 
@@ -211,9 +211,9 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     /// INGRESS. Note: For INGRESS traffic, one of &#39;source_ranges&#39;,
     /// &#39;source_tags&#39; or &#39;source_service_accounts&#39; is required. Possible values: [&amp;quot;INGRESS&amp;quot;, &amp;quot;EGRESS&amp;quot;]
     /// </summary>
-    public TerraformValue<string> Direction
+    public TerraformValue<string>? Direction
     {
-        get => new TerraformReference<string>(this, "direction");
+        get => GetArgument<TerraformValue<string>>("direction");
         set => SetArgument("direction", value);
     }
 
@@ -225,7 +225,7 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -233,18 +233,18 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     /// This field denotes whether to enable logging for a particular firewall rule. If logging is enabled, logs will be exported to Stackdriver.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<bool> EnableLogging
+    public TerraformValue<bool>? EnableLogging
     {
-        get => new TerraformReference<bool>(this, "enable_logging");
+        get => GetArgument<TerraformValue<bool>>("enable_logging");
         set => SetArgument("enable_logging", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -260,7 +260,7 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -270,7 +270,7 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -284,16 +284,16 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<double>? Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -310,7 +310,7 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     /// </summary>
     public TerraformSet<string>? SourceRanges
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "source_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("source_ranges");
         set => SetArgument("source_ranges", value);
     }
 
@@ -330,7 +330,7 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     /// </summary>
     public TerraformSet<string>? SourceServiceAccounts
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "source_service_accounts").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("source_service_accounts");
         set => SetArgument("source_service_accounts", value);
     }
 
@@ -348,7 +348,7 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     /// </summary>
     public TerraformSet<string>? SourceTags
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "source_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("source_tags");
         set => SetArgument("source_tags", value);
     }
 
@@ -362,7 +362,7 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     /// </summary>
     public TerraformSet<string>? TargetServiceAccounts
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "target_service_accounts").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("target_service_accounts");
         set => SetArgument("target_service_accounts", value);
     }
 
@@ -374,7 +374,7 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     /// </summary>
     public TerraformSet<string>? TargetTags
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "target_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("target_tags");
         set => SetArgument("target_tags", value);
     }
 
@@ -382,17 +382,13 @@ public partial class GoogleComputeFirewall(string name) : TerraformResource("goo
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Allow block (nesting mode: set).

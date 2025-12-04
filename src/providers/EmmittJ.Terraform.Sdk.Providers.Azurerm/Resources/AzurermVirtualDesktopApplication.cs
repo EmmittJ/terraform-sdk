@@ -18,7 +18,7 @@ public class AzurermVirtualDesktopApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermVirtualDesktopApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermVirtualDesktopApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermVirtualDesktopApplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermVirtualDesktopApplication(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationGroupId is required")]
     public required TerraformValue<string> ApplicationGroupId
     {
-        get => new TerraformReference<string>(this, "application_group_id");
+        get => GetArgument<TerraformValue<string>>("application_group_id");
         set => SetArgument("application_group_id", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermVirtualDesktopApplication(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommandLineArgumentPolicy is required")]
     public required TerraformValue<string> CommandLineArgumentPolicy
     {
-        get => new TerraformReference<string>(this, "command_line_argument_policy");
+        get => GetArgument<TerraformValue<string>>("command_line_argument_policy");
         set => SetArgument("command_line_argument_policy", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermVirtualDesktopApplication(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? CommandLineArguments
     {
-        get => new TerraformReference<string>(this, "command_line_arguments");
+        get => GetArgument<TerraformValue<string>>("command_line_arguments");
         set => SetArgument("command_line_arguments", value);
     }
 
@@ -92,16 +92,16 @@ public partial class AzurermVirtualDesktopApplication(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
-    public TerraformValue<string> FriendlyName
+    public TerraformValue<string>? FriendlyName
     {
-        get => new TerraformReference<string>(this, "friendly_name");
+        get => GetArgument<TerraformValue<string>>("friendly_name");
         set => SetArgument("friendly_name", value);
     }
 
@@ -110,25 +110,25 @@ public partial class AzurermVirtualDesktopApplication(string name) : TerraformRe
     /// </summary>
     public TerraformValue<double>? IconIndex
     {
-        get => new TerraformReference<double>(this, "icon_index");
+        get => GetArgument<TerraformValue<double>>("icon_index");
         set => SetArgument("icon_index", value);
     }
 
     /// <summary>
     /// The icon_path attribute.
     /// </summary>
-    public TerraformValue<string> IconPath
+    public TerraformValue<string>? IconPath
     {
-        get => new TerraformReference<string>(this, "icon_path");
+        get => GetArgument<TerraformValue<string>>("icon_path");
         set => SetArgument("icon_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzurermVirtualDesktopApplication(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AzurermVirtualDesktopApplication(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AzurermVirtualDesktopApplication(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? ShowInPortal
     {
-        get => new TerraformReference<bool>(this, "show_in_portal");
+        get => GetArgument<TerraformValue<bool>>("show_in_portal");
         set => SetArgument("show_in_portal", value);
     }
 

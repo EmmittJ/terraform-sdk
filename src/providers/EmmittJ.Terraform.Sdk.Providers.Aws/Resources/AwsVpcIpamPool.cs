@@ -18,7 +18,7 @@ public class AwsVpcIpamPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsVpcIpamPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsVpcIpamPoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsVpcIpamPool(string name) : TerraformResource("aws_vpc_ip
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressFamily is required")]
     public required TerraformValue<string> AddressFamily
     {
-        get => new TerraformReference<string>(this, "address_family");
+        get => GetArgument<TerraformValue<string>>("address_family");
         set => SetArgument("address_family", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AwsVpcIpamPool(string name) : TerraformResource("aws_vpc_ip
     /// </summary>
     public TerraformValue<double>? AllocationDefaultNetmaskLength
     {
-        get => new TerraformReference<double>(this, "allocation_default_netmask_length");
+        get => GetArgument<TerraformValue<double>>("allocation_default_netmask_length");
         set => SetArgument("allocation_default_netmask_length", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AwsVpcIpamPool(string name) : TerraformResource("aws_vpc_ip
     /// </summary>
     public TerraformValue<double>? AllocationMaxNetmaskLength
     {
-        get => new TerraformReference<double>(this, "allocation_max_netmask_length");
+        get => GetArgument<TerraformValue<double>>("allocation_max_netmask_length");
         set => SetArgument("allocation_max_netmask_length", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AwsVpcIpamPool(string name) : TerraformResource("aws_vpc_ip
     /// </summary>
     public TerraformValue<double>? AllocationMinNetmaskLength
     {
-        get => new TerraformReference<double>(this, "allocation_min_netmask_length");
+        get => GetArgument<TerraformValue<double>>("allocation_min_netmask_length");
         set => SetArgument("allocation_min_netmask_length", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AwsVpcIpamPool(string name) : TerraformResource("aws_vpc_ip
     /// </summary>
     public TerraformMap<string>? AllocationResourceTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "allocation_resource_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("allocation_resource_tags");
         set => SetArgument("allocation_resource_tags", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AwsVpcIpamPool(string name) : TerraformResource("aws_vpc_ip
     /// </summary>
     public TerraformValue<bool>? AutoImport
     {
-        get => new TerraformReference<bool>(this, "auto_import");
+        get => GetArgument<TerraformValue<bool>>("auto_import");
         set => SetArgument("auto_import", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AwsVpcIpamPool(string name) : TerraformResource("aws_vpc_ip
     /// </summary>
     public TerraformValue<string>? AwsService
     {
-        get => new TerraformReference<string>(this, "aws_service");
+        get => GetArgument<TerraformValue<string>>("aws_service");
         set => SetArgument("aws_service", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AwsVpcIpamPool(string name) : TerraformResource("aws_vpc_ip
     /// </summary>
     public TerraformValue<bool>? Cascade
     {
-        get => new TerraformReference<bool>(this, "cascade");
+        get => GetArgument<TerraformValue<bool>>("cascade");
         set => SetArgument("cascade", value);
     }
 
@@ -127,16 +127,16 @@ public partial class AwsVpcIpamPool(string name) : TerraformResource("aws_vpc_ip
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AwsVpcIpamPool(string name) : TerraformResource("aws_vpc_ip
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamScopeId is required")]
     public required TerraformValue<string> IpamScopeId
     {
-        get => new TerraformReference<string>(this, "ipam_scope_id");
+        get => GetArgument<TerraformValue<string>>("ipam_scope_id");
         set => SetArgument("ipam_scope_id", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AwsVpcIpamPool(string name) : TerraformResource("aws_vpc_ip
     /// </summary>
     public TerraformValue<string>? Locale
     {
-        get => new TerraformReference<string>(this, "locale");
+        get => GetArgument<TerraformValue<string>>("locale");
         set => SetArgument("locale", value);
     }
 
@@ -164,7 +164,7 @@ public partial class AwsVpcIpamPool(string name) : TerraformResource("aws_vpc_ip
     /// </summary>
     public TerraformValue<string>? PublicIpSource
     {
-        get => new TerraformReference<string>(this, "public_ip_source");
+        get => GetArgument<TerraformValue<string>>("public_ip_source");
         set => SetArgument("public_ip_source", value);
     }
 
@@ -173,16 +173,16 @@ public partial class AwsVpcIpamPool(string name) : TerraformResource("aws_vpc_ip
     /// </summary>
     public TerraformValue<bool>? PubliclyAdvertisable
     {
-        get => new TerraformReference<bool>(this, "publicly_advertisable");
+        get => GetArgument<TerraformValue<bool>>("publicly_advertisable");
         set => SetArgument("publicly_advertisable", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AwsVpcIpamPool(string name) : TerraformResource("aws_vpc_ip
     /// </summary>
     public TerraformValue<string>? SourceIpamPoolId
     {
-        get => new TerraformReference<string>(this, "source_ipam_pool_id");
+        get => GetArgument<TerraformValue<string>>("source_ipam_pool_id");
         set => SetArgument("source_ipam_pool_id", value);
     }
 
@@ -200,16 +200,16 @@ public partial class AwsVpcIpamPool(string name) : TerraformResource("aws_vpc_ip
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -217,33 +217,25 @@ public partial class AwsVpcIpamPool(string name) : TerraformResource("aws_vpc_ip
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The ipam_scope_type attribute.
     /// </summary>
     public TerraformValue<string> IpamScopeType
-    {
-        get => new TerraformReference<string>(this, "ipam_scope_type");
-    }
+        => AsReference("ipam_scope_type");
 
     /// <summary>
     /// The pool_depth attribute.
     /// </summary>
     public TerraformValue<double> PoolDepth
-    {
-        get => new TerraformReference<double>(this, "pool_depth");
-    }
+        => AsReference("pool_depth");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

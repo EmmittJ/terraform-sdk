@@ -19,7 +19,7 @@ public class AwsIamRoleInlinePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsIamRoleInlinePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
@@ -47,7 +47,7 @@ public partial class AwsIamRole(string name) : TerraformResource("aws_iam_role",
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssumeRolePolicy is required")]
     public required TerraformValue<string> AssumeRolePolicy
     {
-        get => new TerraformReference<string>(this, "assume_role_policy");
+        get => GetArgument<TerraformValue<string>>("assume_role_policy");
         set => SetArgument("assume_role_policy", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsIamRole(string name) : TerraformResource("aws_iam_role",
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -65,16 +65,16 @@ public partial class AwsIamRole(string name) : TerraformResource("aws_iam_role",
     /// </summary>
     public TerraformValue<bool>? ForceDetachPolicies
     {
-        get => new TerraformReference<bool>(this, "force_detach_policies");
+        get => GetArgument<TerraformValue<bool>>("force_detach_policies");
         set => SetArgument("force_detach_policies", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -82,9 +82,9 @@ public partial class AwsIamRole(string name) : TerraformResource("aws_iam_role",
     /// The managed_policy_arns attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformSet<string> ManagedPolicyArns
+    public TerraformSet<string>? ManagedPolicyArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "managed_policy_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("managed_policy_arns");
         set => SetArgument("managed_policy_arns", value);
     }
 
@@ -93,25 +93,25 @@ public partial class AwsIamRole(string name) : TerraformResource("aws_iam_role",
     /// </summary>
     public TerraformValue<double>? MaxSessionDuration
     {
-        get => new TerraformReference<double>(this, "max_session_duration");
+        get => GetArgument<TerraformValue<double>>("max_session_duration");
         set => SetArgument("max_session_duration", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AwsIamRole(string name) : TerraformResource("aws_iam_role",
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AwsIamRole(string name) : TerraformResource("aws_iam_role",
     /// </summary>
     public TerraformValue<string>? PermissionsBoundary
     {
-        get => new TerraformReference<string>(this, "permissions_boundary");
+        get => GetArgument<TerraformValue<string>>("permissions_boundary");
         set => SetArgument("permissions_boundary", value);
     }
 
@@ -138,16 +138,16 @@ public partial class AwsIamRole(string name) : TerraformResource("aws_iam_role",
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -155,25 +155,19 @@ public partial class AwsIamRole(string name) : TerraformResource("aws_iam_role",
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The create_date attribute.
     /// </summary>
     public TerraformValue<string> CreateDate
-    {
-        get => new TerraformReference<string>(this, "create_date");
-    }
+        => AsReference("create_date");
 
     /// <summary>
     /// The unique_id attribute.
     /// </summary>
     public TerraformValue<string> UniqueId
-    {
-        get => new TerraformReference<string>(this, "unique_id");
-    }
+        => AsReference("unique_id");
 
     /// <summary>
     /// InlinePolicy block (nesting mode: set).

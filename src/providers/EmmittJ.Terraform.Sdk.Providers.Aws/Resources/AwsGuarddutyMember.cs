@@ -18,7 +18,7 @@ public class AwsGuarddutyMemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsGuarddutyMemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AwsGuarddutyMember(string name) : TerraformResource("aws_gu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
     public required TerraformValue<string> AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsGuarddutyMember(string name) : TerraformResource("aws_gu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
     public required TerraformValue<string> DetectorId
     {
-        get => new TerraformReference<string>(this, "detector_id");
+        get => GetArgument<TerraformValue<string>>("detector_id");
         set => SetArgument("detector_id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AwsGuarddutyMember(string name) : TerraformResource("aws_gu
     /// </summary>
     public TerraformValue<bool>? DisableEmailNotification
     {
-        get => new TerraformReference<bool>(this, "disable_email_notification");
+        get => GetArgument<TerraformValue<bool>>("disable_email_notification");
         set => SetArgument("disable_email_notification", value);
     }
 
@@ -75,16 +75,16 @@ public partial class AwsGuarddutyMember(string name) : TerraformResource("aws_gu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AwsGuarddutyMember(string name) : TerraformResource("aws_gu
     /// </summary>
     public TerraformValue<string>? InvitationMessage
     {
-        get => new TerraformReference<string>(this, "invitation_message");
+        get => GetArgument<TerraformValue<string>>("invitation_message");
         set => SetArgument("invitation_message", value);
     }
 
@@ -102,16 +102,16 @@ public partial class AwsGuarddutyMember(string name) : TerraformResource("aws_gu
     /// </summary>
     public TerraformValue<bool>? Invite
     {
-        get => new TerraformReference<bool>(this, "invite");
+        get => GetArgument<TerraformValue<bool>>("invite");
         set => SetArgument("invite", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -119,9 +119,7 @@ public partial class AwsGuarddutyMember(string name) : TerraformResource("aws_gu
     /// The relationship_status attribute.
     /// </summary>
     public TerraformValue<string> RelationshipStatus
-    {
-        get => new TerraformReference<string>(this, "relationship_status");
-    }
+        => AsReference("relationship_status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

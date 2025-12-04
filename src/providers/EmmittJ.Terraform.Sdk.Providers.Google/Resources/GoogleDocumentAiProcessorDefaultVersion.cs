@@ -18,7 +18,7 @@ public class GoogleDocumentAiProcessorDefaultVersionTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleDocumentAiProcessorDefaultVersionTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -43,9 +43,9 @@ public partial class GoogleDocumentAiProcessorDefaultVersion(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleDocumentAiProcessorDefaultVersion(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Processor is required")]
     public required TerraformValue<string> Processor
     {
-        get => new TerraformReference<string>(this, "processor");
+        get => GetArgument<TerraformValue<string>>("processor");
         set => SetArgument("processor", value);
     }
 
@@ -66,7 +66,7 @@ public partial class GoogleDocumentAiProcessorDefaultVersion(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 

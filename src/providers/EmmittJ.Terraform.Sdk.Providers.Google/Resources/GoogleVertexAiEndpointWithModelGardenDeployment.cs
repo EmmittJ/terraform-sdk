@@ -18,7 +18,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlock : 
     /// </summary>
     public TerraformValue<bool>? FastTryoutEnabled
     {
-        get => new TerraformReference<bool>(this, "fast_tryout_enabled");
+        get => GetArgument<TerraformValue<bool>>("fast_tryout_enabled");
         set => SetArgument("fast_tryout_enabled", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlock : 
     /// </summary>
     public TerraformMap<string>? SystemLabels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "system_labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("system_labels");
         set => SetArgument("system_labels", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlockDed
     /// </summary>
     public TerraformValue<double>? MaxReplicaCount
     {
-        get => new TerraformReference<double>(this, "max_replica_count");
+        get => GetArgument<TerraformValue<double>>("max_replica_count");
         set => SetArgument("max_replica_count", value);
     }
 
@@ -85,7 +85,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlockDed
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinReplicaCount is required")]
     public required TerraformValue<double> MinReplicaCount
     {
-        get => new TerraformReference<double>(this, "min_replica_count");
+        get => GetArgument<TerraformValue<double>>("min_replica_count");
         set => SetArgument("min_replica_count", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlockDed
     /// </summary>
     public TerraformValue<double>? RequiredReplicaCount
     {
-        get => new TerraformReference<double>(this, "required_replica_count");
+        get => GetArgument<TerraformValue<double>>("required_replica_count");
         set => SetArgument("required_replica_count", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlockDed
     /// </summary>
     public TerraformValue<bool>? Spot
     {
-        get => new TerraformReference<bool>(this, "spot");
+        get => GetArgument<TerraformValue<bool>>("spot");
         set => SetArgument("spot", value);
     }
 
@@ -159,7 +159,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlockDed
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformValue<string> MetricName
     {
-        get => new TerraformReference<string>(this, "metric_name");
+        get => GetArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -171,7 +171,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlockDed
     /// </summary>
     public TerraformValue<double>? Target
     {
-        get => new TerraformReference<double>(this, "target");
+        get => GetArgument<TerraformValue<double>>("target");
         set => SetArgument("target", value);
     }
 
@@ -193,7 +193,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlockDed
     /// </summary>
     public TerraformValue<double>? AcceleratorCount
     {
-        get => new TerraformReference<double>(this, "accelerator_count");
+        get => GetArgument<TerraformValue<double>>("accelerator_count");
         set => SetArgument("accelerator_count", value);
     }
 
@@ -219,7 +219,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlockDed
     /// </summary>
     public TerraformValue<string>? AcceleratorType
     {
-        get => new TerraformReference<string>(this, "accelerator_type");
+        get => GetArgument<TerraformValue<string>>("accelerator_type");
         set => SetArgument("accelerator_type", value);
     }
 
@@ -238,7 +238,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlockDed
     /// </summary>
     public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -247,7 +247,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlockDed
     /// </summary>
     public TerraformValue<double>? MultihostGpuNodeCount
     {
-        get => new TerraformReference<double>(this, "multihost_gpu_node_count");
+        get => GetArgument<TerraformValue<double>>("multihost_gpu_node_count");
         set => SetArgument("multihost_gpu_node_count", value);
     }
 
@@ -257,7 +257,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlockDed
     /// </summary>
     public TerraformValue<string>? TpuTopology
     {
-        get => new TerraformReference<string>(this, "tpu_topology");
+        get => GetArgument<TerraformValue<string>>("tpu_topology");
         set => SetArgument("tpu_topology", value);
     }
 
@@ -291,7 +291,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlockDed
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -306,7 +306,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlockDed
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservationAffinityType is required")]
     public required TerraformValue<string> ReservationAffinityType
     {
-        get => new TerraformReference<string>(this, "reservation_affinity_type");
+        get => GetArgument<TerraformValue<string>>("reservation_affinity_type");
         set => SetArgument("reservation_affinity_type", value);
     }
 
@@ -316,7 +316,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentDeployConfigBlockDed
     /// </summary>
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -344,7 +344,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlock 
     /// </summary>
     public TerraformValue<bool>? DedicatedEndpointEnabled
     {
-        get => new TerraformReference<bool>(this, "dedicated_endpoint_enabled");
+        get => GetArgument<TerraformValue<bool>>("dedicated_endpoint_enabled");
         set => SetArgument("dedicated_endpoint_enabled", value);
     }
 
@@ -354,7 +354,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlock 
     /// </summary>
     public TerraformValue<string>? EndpointDisplayName
     {
-        get => new TerraformReference<string>(this, "endpoint_display_name");
+        get => GetArgument<TerraformValue<string>>("endpoint_display_name");
         set => SetArgument("endpoint_display_name", value);
     }
 
@@ -387,7 +387,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlockP
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnablePrivateServiceConnect is required")]
     public required TerraformValue<bool> EnablePrivateServiceConnect
     {
-        get => new TerraformReference<bool>(this, "enable_private_service_connect");
+        get => GetArgument<TerraformValue<bool>>("enable_private_service_connect");
         set => SetArgument("enable_private_service_connect", value);
     }
 
@@ -396,7 +396,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlockP
     /// </summary>
     public TerraformList<string>? ProjectAllowlist
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "project_allowlist").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("project_allowlist");
         set => SetArgument("project_allowlist", value);
     }
 
@@ -405,9 +405,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlockP
     /// This is only populated if the endpoint is deployed with PrivateServiceConnect.
     /// </summary>
     public TerraformValue<string> ServiceAttachment
-    {
-        get => new TerraformReference<string>(this, "service_attachment");
-    }
+        => AsReference("service_attachment");
 
     /// <summary>
     /// PscAutomationConfigs block (nesting mode: list).
@@ -436,25 +434,19 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlockP
     /// Output only. Error message if the PSC service automation failed.
     /// </summary>
     public TerraformValue<string> ErrorMessage
-    {
-        get => new TerraformReference<string>(this, "error_message");
-    }
+        => AsReference("error_message");
 
     /// <summary>
     /// Output only. Forwarding rule created by the PSC service automation.
     /// </summary>
     public TerraformValue<string> ForwardingRule
-    {
-        get => new TerraformReference<string>(this, "forwarding_rule");
-    }
+        => AsReference("forwarding_rule");
 
     /// <summary>
     /// Output only. IP address rule created by the PSC service automation.
     /// </summary>
     public TerraformValue<string> IpAddress
-    {
-        get => new TerraformReference<string>(this, "ip_address");
-    }
+        => AsReference("ip_address");
 
     /// <summary>
     /// Required. The full name of the Google Compute Engine network.
@@ -463,7 +455,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlockP
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -473,7 +465,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlockP
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -481,9 +473,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentEndpointConfigBlockP
     /// Output only. The state of the PSC service automation.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
 }
 
@@ -505,7 +495,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlock : T
     /// </summary>
     public TerraformValue<bool>? AcceptEula
     {
-        get => new TerraformReference<bool>(this, "accept_eula");
+        get => GetArgument<TerraformValue<bool>>("accept_eula");
         set => SetArgument("accept_eula", value);
     }
 
@@ -515,7 +505,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlock : T
     /// </summary>
     public TerraformValue<string>? HuggingFaceAccessToken
     {
-        get => new TerraformReference<string>(this, "hugging_face_access_token");
+        get => GetArgument<TerraformValue<string>>("hugging_face_access_token");
         set => SetArgument("hugging_face_access_token", value);
     }
 
@@ -526,7 +516,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlock : T
     /// </summary>
     public TerraformValue<bool>? HuggingFaceCacheEnabled
     {
-        get => new TerraformReference<bool>(this, "hugging_face_cache_enabled");
+        get => GetArgument<TerraformValue<bool>>("hugging_face_cache_enabled");
         set => SetArgument("hugging_face_cache_enabled", value);
     }
 
@@ -536,7 +526,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlock : T
     /// </summary>
     public TerraformValue<string>? ModelDisplayName
     {
-        get => new TerraformReference<string>(this, "model_display_name");
+        get => GetArgument<TerraformValue<string>>("model_display_name");
         set => SetArgument("model_display_name", value);
     }
 
@@ -601,7 +591,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -643,7 +633,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformList<string>? Command
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "command").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("command");
         set => SetArgument("command", value);
     }
 
@@ -653,7 +643,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? DeploymentTimeout
     {
-        get => new TerraformReference<string>(this, "deployment_timeout");
+        get => GetArgument<TerraformValue<string>>("deployment_timeout");
         set => SetArgument("deployment_timeout", value);
     }
 
@@ -686,7 +676,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? HealthRoute
     {
-        get => new TerraformReference<string>(this, "health_route");
+        get => GetArgument<TerraformValue<string>>("health_route");
         set => SetArgument("health_route", value);
     }
 
@@ -711,7 +701,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageUri is required")]
     public required TerraformValue<string> ImageUri
     {
-        get => new TerraformReference<string>(this, "image_uri");
+        get => GetArgument<TerraformValue<string>>("image_uri");
         set => SetArgument("image_uri", value);
     }
 
@@ -745,7 +735,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? PredictRoute
     {
-        get => new TerraformReference<string>(this, "predict_route");
+        get => GetArgument<TerraformValue<string>>("predict_route");
         set => SetArgument("predict_route", value);
     }
 
@@ -755,7 +745,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? SharedMemorySizeMb
     {
-        get => new TerraformReference<string>(this, "shared_memory_size_mb");
+        get => GetArgument<TerraformValue<string>>("shared_memory_size_mb");
         set => SetArgument("shared_memory_size_mb", value);
     }
 
@@ -835,7 +825,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -851,7 +841,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -874,7 +864,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? ContainerPort
     {
-        get => new TerraformReference<double>(this, "container_port");
+        get => GetArgument<TerraformValue<double>>("container_port");
         set => SetArgument("container_port", value);
     }
 
@@ -899,7 +889,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? FailureThreshold
     {
-        get => new TerraformReference<double>(this, "failure_threshold");
+        get => GetArgument<TerraformValue<double>>("failure_threshold");
         set => SetArgument("failure_threshold", value);
     }
 
@@ -911,7 +901,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? InitialDelaySeconds
     {
-        get => new TerraformReference<double>(this, "initial_delay_seconds");
+        get => GetArgument<TerraformValue<double>>("initial_delay_seconds");
         set => SetArgument("initial_delay_seconds", value);
     }
 
@@ -923,7 +913,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? PeriodSeconds
     {
-        get => new TerraformReference<double>(this, "period_seconds");
+        get => GetArgument<TerraformValue<double>>("period_seconds");
         set => SetArgument("period_seconds", value);
     }
 
@@ -935,7 +925,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? SuccessThreshold
     {
-        get => new TerraformReference<double>(this, "success_threshold");
+        get => GetArgument<TerraformValue<double>>("success_threshold");
         set => SetArgument("success_threshold", value);
     }
 
@@ -947,7 +937,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? TimeoutSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_seconds");
         set => SetArgument("timeout_seconds", value);
     }
 
@@ -1014,7 +1004,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformList<string>? Command
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "command").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("command");
         set => SetArgument("command", value);
     }
 
@@ -1036,7 +1026,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -1049,7 +1039,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -1072,7 +1062,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -1081,7 +1071,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1091,7 +1081,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -1101,7 +1091,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? Scheme
     {
-        get => new TerraformReference<string>(this, "scheme");
+        get => GetArgument<TerraformValue<string>>("scheme");
         set => SetArgument("scheme", value);
     }
 
@@ -1134,7 +1124,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1143,7 +1133,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1166,7 +1156,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -1176,7 +1166,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -1201,7 +1191,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? FailureThreshold
     {
-        get => new TerraformReference<double>(this, "failure_threshold");
+        get => GetArgument<TerraformValue<double>>("failure_threshold");
         set => SetArgument("failure_threshold", value);
     }
 
@@ -1213,7 +1203,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? InitialDelaySeconds
     {
-        get => new TerraformReference<double>(this, "initial_delay_seconds");
+        get => GetArgument<TerraformValue<double>>("initial_delay_seconds");
         set => SetArgument("initial_delay_seconds", value);
     }
 
@@ -1225,7 +1215,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? PeriodSeconds
     {
-        get => new TerraformReference<double>(this, "period_seconds");
+        get => GetArgument<TerraformValue<double>>("period_seconds");
         set => SetArgument("period_seconds", value);
     }
 
@@ -1237,7 +1227,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? SuccessThreshold
     {
-        get => new TerraformReference<double>(this, "success_threshold");
+        get => GetArgument<TerraformValue<double>>("success_threshold");
         set => SetArgument("success_threshold", value);
     }
 
@@ -1249,7 +1239,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? TimeoutSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_seconds");
         set => SetArgument("timeout_seconds", value);
     }
 
@@ -1316,7 +1306,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformList<string>? Command
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "command").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("command");
         set => SetArgument("command", value);
     }
 
@@ -1338,7 +1328,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -1351,7 +1341,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -1374,7 +1364,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -1383,7 +1373,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1393,7 +1383,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -1403,7 +1393,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? Scheme
     {
-        get => new TerraformReference<string>(this, "scheme");
+        get => GetArgument<TerraformValue<string>>("scheme");
         set => SetArgument("scheme", value);
     }
 
@@ -1436,7 +1426,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1445,7 +1435,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1468,7 +1458,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -1478,7 +1468,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -1501,7 +1491,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? ContainerPort
     {
-        get => new TerraformReference<double>(this, "container_port");
+        get => GetArgument<TerraformValue<double>>("container_port");
         set => SetArgument("container_port", value);
     }
 
@@ -1526,7 +1516,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? FailureThreshold
     {
-        get => new TerraformReference<double>(this, "failure_threshold");
+        get => GetArgument<TerraformValue<double>>("failure_threshold");
         set => SetArgument("failure_threshold", value);
     }
 
@@ -1538,7 +1528,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? InitialDelaySeconds
     {
-        get => new TerraformReference<double>(this, "initial_delay_seconds");
+        get => GetArgument<TerraformValue<double>>("initial_delay_seconds");
         set => SetArgument("initial_delay_seconds", value);
     }
 
@@ -1550,7 +1540,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? PeriodSeconds
     {
-        get => new TerraformReference<double>(this, "period_seconds");
+        get => GetArgument<TerraformValue<double>>("period_seconds");
         set => SetArgument("period_seconds", value);
     }
 
@@ -1562,7 +1552,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? SuccessThreshold
     {
-        get => new TerraformReference<double>(this, "success_threshold");
+        get => GetArgument<TerraformValue<double>>("success_threshold");
         set => SetArgument("success_threshold", value);
     }
 
@@ -1574,7 +1564,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? TimeoutSeconds
     {
-        get => new TerraformReference<double>(this, "timeout_seconds");
+        get => GetArgument<TerraformValue<double>>("timeout_seconds");
         set => SetArgument("timeout_seconds", value);
     }
 
@@ -1641,7 +1631,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformList<string>? Command
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "command").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("command");
         set => SetArgument("command", value);
     }
 
@@ -1663,7 +1653,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -1676,7 +1666,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -1699,7 +1689,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -1708,7 +1698,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1718,7 +1708,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -1728,7 +1718,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? Scheme
     {
-        get => new TerraformReference<string>(this, "scheme");
+        get => GetArgument<TerraformValue<string>>("scheme");
         set => SetArgument("scheme", value);
     }
 
@@ -1761,7 +1751,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1770,7 +1760,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1793,7 +1783,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<string>? Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
@@ -1803,7 +1793,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentModelConfigBlockCont
     /// </summary>
     public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -1826,7 +1816,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1835,7 +1825,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1854,16 +1844,16 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment(string name
     /// </summary>
     public TerraformValue<string>? HuggingFaceModelId
     {
-        get => new TerraformReference<string>(this, "hugging_face_model_id");
+        get => GetArgument<TerraformValue<string>>("hugging_face_model_id");
         set => SetArgument("hugging_face_model_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1873,16 +1863,16 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -1894,7 +1884,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment(string name
     /// </summary>
     public TerraformValue<string>? PublisherModelName
     {
-        get => new TerraformReference<string>(this, "publisher_model_name");
+        get => GetArgument<TerraformValue<string>>("publisher_model_name");
         set => SetArgument("publisher_model_name", value);
     }
 
@@ -1903,9 +1893,7 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment(string name
     /// This is not required to delete the resource but is used for debug logging.
     /// </summary>
     public TerraformValue<string> DeployedModelDisplayName
-    {
-        get => new TerraformReference<string>(this, "deployed_model_display_name");
-    }
+        => AsReference("deployed_model_display_name");
 
     /// <summary>
     /// Output only. The unique numeric ID that Vertex AI assigns to the model at the time it is deployed to the endpoint.
@@ -1913,17 +1901,13 @@ public partial class GoogleVertexAiEndpointWithModelGardenDeployment(string name
     /// https://cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.endpoints/undeployModel.
     /// </summary>
     public TerraformValue<string> DeployedModelId
-    {
-        get => new TerraformReference<string>(this, "deployed_model_id");
-    }
+        => AsReference("deployed_model_id");
 
     /// <summary>
     /// Resource ID segment making up resource &#39;endpoint&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// DeployConfig block (nesting mode: list).

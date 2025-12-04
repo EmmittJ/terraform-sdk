@@ -11,9 +11,9 @@ public partial class GoogleStorageControlFolderIntelligenceConfigDataSource(stri
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleStorageControlFolderIntelligenceConfigDataSource(stri
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -31,40 +31,30 @@ public partial class GoogleStorageControlFolderIntelligenceConfigDataSource(stri
     /// Edition configuration of the Storage Intelligence resource. Valid values are INHERIT, TRIAL, DISABLED and STANDARD.
     /// </summary>
     public TerraformValue<string> EditionConfig
-    {
-        get => new TerraformReference<string>(this, "edition_config");
-    }
+        => AsReference("edition_config");
 
     /// <summary>
     /// The Intelligence config that is effective for the resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> EffectiveIntelligenceConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "effective_intelligence_config").ResolveNodes(ctx));
-    }
+        => AsReference("effective_intelligence_config");
 
     /// <summary>
     /// Filter over location and bucket using include or exclude semantics. Resources that match the include or exclude filter are exclusively included or excluded from the Storage Intelligence plan.
     /// </summary>
     public TerraformList<TerraformMap<object>> Filter
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "filter").ResolveNodes(ctx));
-    }
+        => AsReference("filter");
 
     /// <summary>
     /// The trial configuration of the Storage Intelligence resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> TrialConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "trial_config").ResolveNodes(ctx));
-    }
+        => AsReference("trial_config");
 
     /// <summary>
     /// The time at which the Storage Intelligence Config resource is last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
 }

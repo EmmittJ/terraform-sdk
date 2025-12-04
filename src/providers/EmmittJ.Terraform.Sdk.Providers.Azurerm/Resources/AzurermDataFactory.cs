@@ -19,7 +19,7 @@ public class AzurermDataFactoryGithubConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => new TerraformReference<string>(this, "account_name");
+        get => GetArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermDataFactoryGithubConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
     public required TerraformValue<string> BranchName
     {
-        get => new TerraformReference<string>(this, "branch_name");
+        get => GetArgument<TerraformValue<string>>("branch_name");
         set => SetArgument("branch_name", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermDataFactoryGithubConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? GitUrl
     {
-        get => new TerraformReference<string>(this, "git_url");
+        get => GetArgument<TerraformValue<string>>("git_url");
         set => SetArgument("git_url", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermDataFactoryGithubConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PublishingEnabled
     {
-        get => new TerraformReference<bool>(this, "publishing_enabled");
+        get => GetArgument<TerraformValue<bool>>("publishing_enabled");
         set => SetArgument("publishing_enabled", value);
     }
 
@@ -57,7 +57,7 @@ public class AzurermDataFactoryGithubConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformValue<string> RepositoryName
     {
-        get => new TerraformReference<string>(this, "repository_name");
+        get => GetArgument<TerraformValue<string>>("repository_name");
         set => SetArgument("repository_name", value);
     }
 
@@ -67,7 +67,7 @@ public class AzurermDataFactoryGithubConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFolder is required")]
     public required TerraformValue<string> RootFolder
     {
-        get => new TerraformReference<string>(this, "root_folder");
+        get => GetArgument<TerraformValue<string>>("root_folder");
         set => SetArgument("root_folder", value);
     }
 
@@ -91,7 +91,7 @@ public class AzurermDataFactoryGlobalParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -101,7 +101,7 @@ public class AzurermDataFactoryGlobalParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -111,7 +111,7 @@ public class AzurermDataFactoryGlobalParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -134,7 +134,7 @@ public class AzurermDataFactoryIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -142,17 +142,13 @@ public class AzurermDataFactoryIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -160,7 +156,7 @@ public class AzurermDataFactoryIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -183,7 +179,7 @@ public class AzurermDataFactoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -192,7 +188,7 @@ public class AzurermDataFactoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -201,7 +197,7 @@ public class AzurermDataFactoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -210,7 +206,7 @@ public class AzurermDataFactoryTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -234,7 +230,7 @@ public class AzurermDataFactoryVstsConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => new TerraformReference<string>(this, "account_name");
+        get => GetArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -244,7 +240,7 @@ public class AzurermDataFactoryVstsConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
     public required TerraformValue<string> BranchName
     {
-        get => new TerraformReference<string>(this, "branch_name");
+        get => GetArgument<TerraformValue<string>>("branch_name");
         set => SetArgument("branch_name", value);
     }
 
@@ -254,7 +250,7 @@ public class AzurermDataFactoryVstsConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
     public required TerraformValue<string> ProjectName
     {
-        get => new TerraformReference<string>(this, "project_name");
+        get => GetArgument<TerraformValue<string>>("project_name");
         set => SetArgument("project_name", value);
     }
 
@@ -263,7 +259,7 @@ public class AzurermDataFactoryVstsConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PublishingEnabled
     {
-        get => new TerraformReference<bool>(this, "publishing_enabled");
+        get => GetArgument<TerraformValue<bool>>("publishing_enabled");
         set => SetArgument("publishing_enabled", value);
     }
 
@@ -273,7 +269,7 @@ public class AzurermDataFactoryVstsConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
     public required TerraformValue<string> RepositoryName
     {
-        get => new TerraformReference<string>(this, "repository_name");
+        get => GetArgument<TerraformValue<string>>("repository_name");
         set => SetArgument("repository_name", value);
     }
 
@@ -283,7 +279,7 @@ public class AzurermDataFactoryVstsConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFolder is required")]
     public required TerraformValue<string> RootFolder
     {
-        get => new TerraformReference<string>(this, "root_folder");
+        get => GetArgument<TerraformValue<string>>("root_folder");
         set => SetArgument("root_folder", value);
     }
 
@@ -293,7 +289,7 @@ public class AzurermDataFactoryVstsConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -309,27 +305,27 @@ public partial class AzurermDataFactory(string name) : TerraformResource("azurer
     /// <summary>
     /// The customer_managed_key_id attribute.
     /// </summary>
-    public TerraformValue<string> CustomerManagedKeyId
+    public TerraformValue<string>? CustomerManagedKeyId
     {
-        get => new TerraformReference<string>(this, "customer_managed_key_id");
+        get => GetArgument<TerraformValue<string>>("customer_managed_key_id");
         set => SetArgument("customer_managed_key_id", value);
     }
 
     /// <summary>
     /// The customer_managed_key_identity_id attribute.
     /// </summary>
-    public TerraformValue<string> CustomerManagedKeyIdentityId
+    public TerraformValue<string>? CustomerManagedKeyIdentityId
     {
-        get => new TerraformReference<string>(this, "customer_managed_key_identity_id");
+        get => GetArgument<TerraformValue<string>>("customer_managed_key_identity_id");
         set => SetArgument("customer_managed_key_identity_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -339,7 +335,7 @@ public partial class AzurermDataFactory(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -348,7 +344,7 @@ public partial class AzurermDataFactory(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<bool>? ManagedVirtualNetworkEnabled
     {
-        get => new TerraformReference<bool>(this, "managed_virtual_network_enabled");
+        get => GetArgument<TerraformValue<bool>>("managed_virtual_network_enabled");
         set => SetArgument("managed_virtual_network_enabled", value);
     }
 
@@ -358,7 +354,7 @@ public partial class AzurermDataFactory(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -367,7 +363,7 @@ public partial class AzurermDataFactory(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<bool>? PublicNetworkEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_enabled");
         set => SetArgument("public_network_enabled", value);
     }
 
@@ -376,7 +372,7 @@ public partial class AzurermDataFactory(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string>? PurviewId
     {
-        get => new TerraformReference<string>(this, "purview_id");
+        get => GetArgument<TerraformValue<string>>("purview_id");
         set => SetArgument("purview_id", value);
     }
 
@@ -386,7 +382,7 @@ public partial class AzurermDataFactory(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -395,7 +391,7 @@ public partial class AzurermDataFactory(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

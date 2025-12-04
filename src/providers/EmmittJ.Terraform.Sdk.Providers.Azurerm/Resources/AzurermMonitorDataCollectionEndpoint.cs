@@ -18,7 +18,7 @@ public class AzurermMonitorDataCollectionEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermMonitorDataCollectionEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermMonitorDataCollectionEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermMonitorDataCollectionEndpointTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AzurermMonitorDataCollectionEndpoint(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermMonitorDataCollectionEndpoint(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Kind
     {
-        get => new TerraformReference<string>(this, "kind");
+        get => GetArgument<TerraformValue<string>>("kind");
         set => SetArgument("kind", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermMonitorDataCollectionEndpoint(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermMonitorDataCollectionEndpoint(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermMonitorDataCollectionEndpoint(string name) : Terrafo
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermMonitorDataCollectionEndpoint(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermMonitorDataCollectionEndpoint(string name) : Terrafo
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -137,33 +137,25 @@ public partial class AzurermMonitorDataCollectionEndpoint(string name) : Terrafo
     /// The configuration_access_endpoint attribute.
     /// </summary>
     public TerraformValue<string> ConfigurationAccessEndpoint
-    {
-        get => new TerraformReference<string>(this, "configuration_access_endpoint");
-    }
+        => AsReference("configuration_access_endpoint");
 
     /// <summary>
     /// The immutable_id attribute.
     /// </summary>
     public TerraformValue<string> ImmutableId
-    {
-        get => new TerraformReference<string>(this, "immutable_id");
-    }
+        => AsReference("immutable_id");
 
     /// <summary>
     /// The logs_ingestion_endpoint attribute.
     /// </summary>
     public TerraformValue<string> LogsIngestionEndpoint
-    {
-        get => new TerraformReference<string>(this, "logs_ingestion_endpoint");
-    }
+        => AsReference("logs_ingestion_endpoint");
 
     /// <summary>
     /// The metrics_ingestion_endpoint attribute.
     /// </summary>
     public TerraformValue<string> MetricsIngestionEndpoint
-    {
-        get => new TerraformReference<string>(this, "metrics_ingestion_endpoint");
-    }
+        => AsReference("metrics_ingestion_endpoint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

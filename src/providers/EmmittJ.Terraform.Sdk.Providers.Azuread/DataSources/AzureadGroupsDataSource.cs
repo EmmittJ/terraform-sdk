@@ -18,7 +18,7 @@ public class AzureadGroupsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,27 +34,27 @@ public partial class AzureadGroupsDataSource(string name) : TerraformDataSource(
     /// <summary>
     /// Common display name prefix of the groups
     /// </summary>
-    public TerraformValue<string> DisplayNamePrefix
+    public TerraformValue<string>? DisplayNamePrefix
     {
-        get => new TerraformReference<string>(this, "display_name_prefix");
+        get => GetArgument<TerraformValue<string>>("display_name_prefix");
         set => SetArgument("display_name_prefix", value);
     }
 
     /// <summary>
     /// The display names of the groups
     /// </summary>
-    public TerraformList<string> DisplayNames
+    public TerraformList<string>? DisplayNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "display_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("display_names");
         set => SetArgument("display_names", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -63,25 +63,25 @@ public partial class AzureadGroupsDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<bool>? IgnoreMissing
     {
-        get => new TerraformReference<bool>(this, "ignore_missing");
+        get => GetArgument<TerraformValue<bool>>("ignore_missing");
         set => SetArgument("ignore_missing", value);
     }
 
     /// <summary>
     /// Whether the groups are mail-enabled
     /// </summary>
-    public TerraformValue<bool> MailEnabled
+    public TerraformValue<bool>? MailEnabled
     {
-        get => new TerraformReference<bool>(this, "mail_enabled");
+        get => GetArgument<TerraformValue<bool>>("mail_enabled");
         set => SetArgument("mail_enabled", value);
     }
 
     /// <summary>
     /// The object IDs of the groups
     /// </summary>
-    public TerraformList<string> ObjectIds
+    public TerraformList<string>? ObjectIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "object_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("object_ids");
         set => SetArgument("object_ids", value);
     }
 
@@ -90,16 +90,16 @@ public partial class AzureadGroupsDataSource(string name) : TerraformDataSource(
     /// </summary>
     public TerraformValue<bool>? ReturnAll
     {
-        get => new TerraformReference<bool>(this, "return_all");
+        get => GetArgument<TerraformValue<bool>>("return_all");
         set => SetArgument("return_all", value);
     }
 
     /// <summary>
     /// Whether the groups are security-enabled
     /// </summary>
-    public TerraformValue<bool> SecurityEnabled
+    public TerraformValue<bool>? SecurityEnabled
     {
-        get => new TerraformReference<bool>(this, "security_enabled");
+        get => GetArgument<TerraformValue<bool>>("security_enabled");
         set => SetArgument("security_enabled", value);
     }
 

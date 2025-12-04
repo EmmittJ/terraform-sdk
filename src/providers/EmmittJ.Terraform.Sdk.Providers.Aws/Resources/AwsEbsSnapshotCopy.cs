@@ -18,7 +18,7 @@ public class AwsEbsSnapshotCopyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsEbsSnapshotCopyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AwsEbsSnapshotCopy(string name) : TerraformResource("aws_eb
     /// </summary>
     public TerraformValue<double>? CompletionDurationMinutes
     {
-        get => new TerraformReference<double>(this, "completion_duration_minutes");
+        get => GetArgument<TerraformValue<double>>("completion_duration_minutes");
         set => SetArgument("completion_duration_minutes", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsEbsSnapshotCopy(string name) : TerraformResource("aws_eb
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AwsEbsSnapshotCopy(string name) : TerraformResource("aws_eb
     /// </summary>
     public TerraformValue<bool>? Encrypted
     {
-        get => new TerraformReference<bool>(this, "encrypted");
+        get => GetArgument<TerraformValue<bool>>("encrypted");
         set => SetArgument("encrypted", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsEbsSnapshotCopy(string name) : TerraformResource("aws_eb
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -90,16 +90,16 @@ public partial class AwsEbsSnapshotCopy(string name) : TerraformResource("aws_eb
     /// </summary>
     public TerraformValue<bool>? PermanentRestore
     {
-        get => new TerraformReference<bool>(this, "permanent_restore");
+        get => GetArgument<TerraformValue<bool>>("permanent_restore");
         set => SetArgument("permanent_restore", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AwsEbsSnapshotCopy(string name) : TerraformResource("aws_eb
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRegion is required")]
     public required TerraformValue<string> SourceRegion
     {
-        get => new TerraformReference<string>(this, "source_region");
+        get => GetArgument<TerraformValue<string>>("source_region");
         set => SetArgument("source_region", value);
     }
 
@@ -119,16 +119,16 @@ public partial class AwsEbsSnapshotCopy(string name) : TerraformResource("aws_eb
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceSnapshotId is required")]
     public required TerraformValue<string> SourceSnapshotId
     {
-        get => new TerraformReference<string>(this, "source_snapshot_id");
+        get => GetArgument<TerraformValue<string>>("source_snapshot_id");
         set => SetArgument("source_snapshot_id", value);
     }
 
     /// <summary>
     /// The storage_tier attribute.
     /// </summary>
-    public TerraformValue<string> StorageTier
+    public TerraformValue<string>? StorageTier
     {
-        get => new TerraformReference<string>(this, "storage_tier");
+        get => GetArgument<TerraformValue<string>>("storage_tier");
         set => SetArgument("storage_tier", value);
     }
 
@@ -137,16 +137,16 @@ public partial class AwsEbsSnapshotCopy(string name) : TerraformResource("aws_eb
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AwsEbsSnapshotCopy(string name) : TerraformResource("aws_eb
     /// </summary>
     public TerraformValue<double>? TemporaryRestoreDays
     {
-        get => new TerraformReference<double>(this, "temporary_restore_days");
+        get => GetArgument<TerraformValue<double>>("temporary_restore_days");
         set => SetArgument("temporary_restore_days", value);
     }
 
@@ -163,57 +163,43 @@ public partial class AwsEbsSnapshotCopy(string name) : TerraformResource("aws_eb
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The data_encryption_key_id attribute.
     /// </summary>
     public TerraformValue<string> DataEncryptionKeyId
-    {
-        get => new TerraformReference<string>(this, "data_encryption_key_id");
-    }
+        => AsReference("data_encryption_key_id");
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
     public TerraformValue<string> OutpostArn
-    {
-        get => new TerraformReference<string>(this, "outpost_arn");
-    }
+        => AsReference("outpost_arn");
 
     /// <summary>
     /// The owner_alias attribute.
     /// </summary>
     public TerraformValue<string> OwnerAlias
-    {
-        get => new TerraformReference<string>(this, "owner_alias");
-    }
+        => AsReference("owner_alias");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// The volume_id attribute.
     /// </summary>
     public TerraformValue<string> VolumeId
-    {
-        get => new TerraformReference<string>(this, "volume_id");
-    }
+        => AsReference("volume_id");
 
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
     public TerraformValue<double> VolumeSize
-    {
-        get => new TerraformReference<double>(this, "volume_size");
-    }
+        => AsReference("volume_size");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

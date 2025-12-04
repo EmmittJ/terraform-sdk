@@ -18,7 +18,7 @@ public class AzurermNginxCertificateDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermNginxCertificateDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermNginxCertificateDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermNginxCertificateDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
     public required TerraformValue<string> NginxDeploymentId
     {
-        get => new TerraformReference<string>(this, "nginx_deployment_id");
+        get => GetArgument<TerraformValue<string>>("nginx_deployment_id");
         set => SetArgument("nginx_deployment_id", value);
     }
 
@@ -64,65 +64,49 @@ public partial class AzurermNginxCertificateDataSource(string name) : TerraformD
     /// The certificate_virtual_path attribute.
     /// </summary>
     public TerraformValue<string> CertificateVirtualPath
-    {
-        get => new TerraformReference<string>(this, "certificate_virtual_path");
-    }
+        => AsReference("certificate_virtual_path");
 
     /// <summary>
     /// The error_code attribute.
     /// </summary>
     public TerraformValue<string> ErrorCode
-    {
-        get => new TerraformReference<string>(this, "error_code");
-    }
+        => AsReference("error_code");
 
     /// <summary>
     /// The error_message attribute.
     /// </summary>
     public TerraformValue<string> ErrorMessage
-    {
-        get => new TerraformReference<string>(this, "error_message");
-    }
+        => AsReference("error_message");
 
     /// <summary>
     /// The key_vault_secret_creation_date attribute.
     /// </summary>
     public TerraformValue<string> KeyVaultSecretCreationDate
-    {
-        get => new TerraformReference<string>(this, "key_vault_secret_creation_date");
-    }
+        => AsReference("key_vault_secret_creation_date");
 
     /// <summary>
     /// The key_vault_secret_id attribute.
     /// </summary>
     public TerraformValue<string> KeyVaultSecretId
-    {
-        get => new TerraformReference<string>(this, "key_vault_secret_id");
-    }
+        => AsReference("key_vault_secret_id");
 
     /// <summary>
     /// The key_vault_secret_version attribute.
     /// </summary>
     public TerraformValue<string> KeyVaultSecretVersion
-    {
-        get => new TerraformReference<string>(this, "key_vault_secret_version");
-    }
+        => AsReference("key_vault_secret_version");
 
     /// <summary>
     /// The key_virtual_path attribute.
     /// </summary>
     public TerraformValue<string> KeyVirtualPath
-    {
-        get => new TerraformReference<string>(this, "key_virtual_path");
-    }
+        => AsReference("key_virtual_path");
 
     /// <summary>
     /// The sha1_thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Sha1Thumbprint
-    {
-        get => new TerraformReference<string>(this, "sha1_thumbprint");
-    }
+        => AsReference("sha1_thumbprint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -31,7 +31,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -66,17 +66,13 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// of &#39;true&#39; for this field.
     /// </summary>
     public TerraformValue<bool> Baseline
-    {
-        get => new TerraformReference<bool>(this, "baseline");
-    }
+        => AsReference("baseline");
 
     /// <summary>
     /// Output only. Indicates that this revision deletes the OS policy assignment.
     /// </summary>
     public TerraformValue<bool> Deleted
-    {
-        get => new TerraformReference<bool>(this, "deleted");
-    }
+        => AsReference("deleted");
 
     /// <summary>
     /// OS policy assignment description.
@@ -84,7 +80,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -94,7 +90,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? Etag
     {
-        get => new TerraformReference<string>(this, "etag");
+        get => GetArgument<TerraformValue<string>>("etag");
         set => SetArgument("etag", value);
     }
 
@@ -108,7 +104,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -119,17 +115,13 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// * CANCELLING
     /// </summary>
     public TerraformValue<bool> Reconciling
-    {
-        get => new TerraformReference<bool>(this, "reconciling");
-    }
+        => AsReference("reconciling");
 
     /// <summary>
     /// Output only. The timestamp that the revision was created.
     /// </summary>
     public TerraformValue<string> RevisionCreateTime
-    {
-        get => new TerraformReference<string>(this, "revision_create_time");
-    }
+        => AsReference("revision_create_time");
 
     /// <summary>
     /// Output only. The assignment revision ID
@@ -137,9 +129,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// assignment
     /// </summary>
     public TerraformValue<string> RevisionId
-    {
-        get => new TerraformReference<string>(this, "revision_id");
-    }
+        => AsReference("revision_id");
 
     /// <summary>
     /// Output only. OS policy assignment rollout state
@@ -151,17 +141,13 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// SUCCEEDED
     /// </summary>
     public TerraformValue<string> RolloutState
-    {
-        get => new TerraformReference<string>(this, "rollout_state");
-    }
+        => AsReference("rollout_state");
 
     /// <summary>
     /// Output only. Server generated unique id for the OS policy assignment resource.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// InstanceFilter block (nesting mode: list).
@@ -220,7 +206,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<bool>? All
     {
-        get => new TerraformReference<bool>(this, "all");
+        get => GetArgument<TerraformValue<bool>>("all");
         set => SetArgument("all", value);
     }
 
@@ -271,7 +257,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -295,7 +281,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -318,7 +304,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsShortName is required")]
     public required TerraformValue<string> OsShortName
     {
-        get => new TerraformReference<string>(this, "os_short_name");
+        get => GetArgument<TerraformValue<string>>("os_short_name");
         set => SetArgument("os_short_name", value);
     }
 
@@ -333,7 +319,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? OsVersion
     {
-        get => new TerraformReference<string>(this, "os_version");
+        get => GetArgument<TerraformValue<string>>("os_version");
         set => SetArgument("os_version", value);
     }
 
@@ -358,7 +344,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<bool>? AllowNoResourceGroupMatch
     {
-        get => new TerraformReference<bool>(this, "allow_no_resource_group_match");
+        get => GetArgument<TerraformValue<bool>>("allow_no_resource_group_match");
         set => SetArgument("allow_no_resource_group_match", value);
     }
 
@@ -368,7 +354,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -384,7 +370,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -398,7 +384,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -467,7 +453,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsShortName is required")]
     public required TerraformValue<string> OsShortName
     {
-        get => new TerraformReference<string>(this, "os_short_name");
+        get => GetArgument<TerraformValue<string>>("os_short_name");
         set => SetArgument("os_short_name", value);
     }
 
@@ -482,7 +468,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? OsVersion
     {
-        get => new TerraformReference<string>(this, "os_version");
+        get => GetArgument<TerraformValue<string>>("os_version");
         set => SetArgument("os_version", value);
     }
 
@@ -511,7 +497,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -609,7 +595,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -624,7 +610,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interpreter is required")]
     public required TerraformValue<string> Interpreter
     {
-        get => new TerraformReference<string>(this, "interpreter");
+        get => GetArgument<TerraformValue<string>>("interpreter");
         set => SetArgument("interpreter", value);
     }
 
@@ -638,7 +624,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? OutputFilePath
     {
-        get => new TerraformReference<string>(this, "output_file_path");
+        get => GetArgument<TerraformValue<string>>("output_file_path");
         set => SetArgument("output_file_path", value);
     }
 
@@ -648,7 +634,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? Script
     {
-        get => new TerraformReference<string>(this, "script");
+        get => GetArgument<TerraformValue<string>>("script");
         set => SetArgument("script", value);
     }
 
@@ -684,7 +670,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<bool>? AllowInsecure
     {
-        get => new TerraformReference<bool>(this, "allow_insecure");
+        get => GetArgument<TerraformValue<bool>>("allow_insecure");
         set => SetArgument("allow_insecure", value);
     }
 
@@ -693,7 +679,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? LocalPath
     {
-        get => new TerraformReference<string>(this, "local_path");
+        get => GetArgument<TerraformValue<string>>("local_path");
         set => SetArgument("local_path", value);
     }
 
@@ -736,7 +722,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -745,7 +731,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? Generation
     {
-        get => new TerraformReference<string>(this, "generation");
+        get => GetArgument<TerraformValue<string>>("generation");
         set => SetArgument("generation", value);
     }
 
@@ -755,7 +741,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -777,7 +763,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? Sha256Checksum
     {
-        get => new TerraformReference<string>(this, "sha256_checksum");
+        get => GetArgument<TerraformValue<string>>("sha256_checksum");
         set => SetArgument("sha256_checksum", value);
     }
 
@@ -788,7 +774,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -810,7 +796,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -825,7 +811,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interpreter is required")]
     public required TerraformValue<string> Interpreter
     {
-        get => new TerraformReference<string>(this, "interpreter");
+        get => GetArgument<TerraformValue<string>>("interpreter");
         set => SetArgument("interpreter", value);
     }
 
@@ -839,7 +825,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? OutputFilePath
     {
-        get => new TerraformReference<string>(this, "output_file_path");
+        get => GetArgument<TerraformValue<string>>("output_file_path");
         set => SetArgument("output_file_path", value);
     }
 
@@ -849,7 +835,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? Script
     {
-        get => new TerraformReference<string>(this, "script");
+        get => GetArgument<TerraformValue<string>>("script");
         set => SetArgument("script", value);
     }
 
@@ -885,7 +871,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<bool>? AllowInsecure
     {
-        get => new TerraformReference<bool>(this, "allow_insecure");
+        get => GetArgument<TerraformValue<bool>>("allow_insecure");
         set => SetArgument("allow_insecure", value);
     }
 
@@ -894,7 +880,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? LocalPath
     {
-        get => new TerraformReference<string>(this, "local_path");
+        get => GetArgument<TerraformValue<string>>("local_path");
         set => SetArgument("local_path", value);
     }
 
@@ -937,7 +923,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -946,7 +932,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? Generation
     {
-        get => new TerraformReference<string>(this, "generation");
+        get => GetArgument<TerraformValue<string>>("generation");
         set => SetArgument("generation", value);
     }
 
@@ -956,7 +942,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -978,7 +964,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? Sha256Checksum
     {
-        get => new TerraformReference<string>(this, "sha256_checksum");
+        get => GetArgument<TerraformValue<string>>("sha256_checksum");
         set => SetArgument("sha256_checksum", value);
     }
 
@@ -989,7 +975,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -1012,7 +998,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? Content
     {
-        get => new TerraformReference<string>(this, "content");
+        get => GetArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -1022,7 +1008,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -1043,7 +1029,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? Permissions
     {
-        get => new TerraformReference<string>(this, "permissions");
+        get => GetArgument<TerraformValue<string>>("permissions");
         set => SetArgument("permissions", value);
     }
 
@@ -1058,7 +1044,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformValue<string> State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -1094,7 +1080,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<bool>? AllowInsecure
     {
-        get => new TerraformReference<bool>(this, "allow_insecure");
+        get => GetArgument<TerraformValue<bool>>("allow_insecure");
         set => SetArgument("allow_insecure", value);
     }
 
@@ -1103,7 +1089,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? LocalPath
     {
-        get => new TerraformReference<string>(this, "local_path");
+        get => GetArgument<TerraformValue<string>>("local_path");
         set => SetArgument("local_path", value);
     }
 
@@ -1146,7 +1132,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -1155,7 +1141,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? Generation
     {
-        get => new TerraformReference<string>(this, "generation");
+        get => GetArgument<TerraformValue<string>>("generation");
         set => SetArgument("generation", value);
     }
 
@@ -1165,7 +1151,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -1187,7 +1173,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? Sha256Checksum
     {
-        get => new TerraformReference<string>(this, "sha256_checksum");
+        get => GetArgument<TerraformValue<string>>("sha256_checksum");
         set => SetArgument("sha256_checksum", value);
     }
 
@@ -1198,7 +1184,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -1225,7 +1211,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredState is required")]
     public required TerraformValue<string> DesiredState
     {
-        get => new TerraformReference<string>(this, "desired_state");
+        get => GetArgument<TerraformValue<string>>("desired_state");
         set => SetArgument("desired_state", value);
     }
 
@@ -1318,7 +1304,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1343,7 +1329,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<bool>? PullDeps
     {
-        get => new TerraformReference<bool>(this, "pull_deps");
+        get => GetArgument<TerraformValue<bool>>("pull_deps");
         set => SetArgument("pull_deps", value);
     }
 
@@ -1382,7 +1368,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<bool>? AllowInsecure
     {
-        get => new TerraformReference<bool>(this, "allow_insecure");
+        get => GetArgument<TerraformValue<bool>>("allow_insecure");
         set => SetArgument("allow_insecure", value);
     }
 
@@ -1391,7 +1377,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? LocalPath
     {
-        get => new TerraformReference<string>(this, "local_path");
+        get => GetArgument<TerraformValue<string>>("local_path");
         set => SetArgument("local_path", value);
     }
 
@@ -1434,7 +1420,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -1443,7 +1429,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? Generation
     {
-        get => new TerraformReference<string>(this, "generation");
+        get => GetArgument<TerraformValue<string>>("generation");
         set => SetArgument("generation", value);
     }
 
@@ -1453,7 +1439,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -1475,7 +1461,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? Sha256Checksum
     {
-        get => new TerraformReference<string>(this, "sha256_checksum");
+        get => GetArgument<TerraformValue<string>>("sha256_checksum");
         set => SetArgument("sha256_checksum", value);
     }
 
@@ -1486,7 +1472,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -1509,7 +1495,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1534,7 +1520,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformList<string>? Properties
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -1573,7 +1559,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<bool>? AllowInsecure
     {
-        get => new TerraformReference<bool>(this, "allow_insecure");
+        get => GetArgument<TerraformValue<bool>>("allow_insecure");
         set => SetArgument("allow_insecure", value);
     }
 
@@ -1582,7 +1568,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? LocalPath
     {
-        get => new TerraformReference<string>(this, "local_path");
+        get => GetArgument<TerraformValue<string>>("local_path");
         set => SetArgument("local_path", value);
     }
 
@@ -1625,7 +1611,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -1634,7 +1620,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? Generation
     {
-        get => new TerraformReference<string>(this, "generation");
+        get => GetArgument<TerraformValue<string>>("generation");
         set => SetArgument("generation", value);
     }
 
@@ -1644,7 +1630,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -1666,7 +1652,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? Sha256Checksum
     {
-        get => new TerraformReference<string>(this, "sha256_checksum");
+        get => GetArgument<TerraformValue<string>>("sha256_checksum");
         set => SetArgument("sha256_checksum", value);
     }
 
@@ -1677,7 +1663,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -1702,7 +1688,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<bool>? PullDeps
     {
-        get => new TerraformReference<bool>(this, "pull_deps");
+        get => GetArgument<TerraformValue<bool>>("pull_deps");
         set => SetArgument("pull_deps", value);
     }
 
@@ -1741,7 +1727,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<bool>? AllowInsecure
     {
-        get => new TerraformReference<bool>(this, "allow_insecure");
+        get => GetArgument<TerraformValue<bool>>("allow_insecure");
         set => SetArgument("allow_insecure", value);
     }
 
@@ -1750,7 +1736,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? LocalPath
     {
-        get => new TerraformReference<string>(this, "local_path");
+        get => GetArgument<TerraformValue<string>>("local_path");
         set => SetArgument("local_path", value);
     }
 
@@ -1793,7 +1779,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -1802,7 +1788,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? Generation
     {
-        get => new TerraformReference<string>(this, "generation");
+        get => GetArgument<TerraformValue<string>>("generation");
         set => SetArgument("generation", value);
     }
 
@@ -1812,7 +1798,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectAttribute is required")]
     public required TerraformValue<string> ObjectAttribute
     {
-        get => new TerraformReference<string>(this, "object");
+        get => GetArgument<TerraformValue<string>>("object");
         set => SetArgument("object", value);
     }
 
@@ -1834,7 +1820,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? Sha256Checksum
     {
-        get => new TerraformReference<string>(this, "sha256_checksum");
+        get => GetArgument<TerraformValue<string>>("sha256_checksum");
         set => SetArgument("sha256_checksum", value);
     }
 
@@ -1845,7 +1831,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -1868,7 +1854,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1891,7 +1877,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1971,7 +1957,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArchiveType is required")]
     public required TerraformValue<string> ArchiveType
     {
-        get => new TerraformReference<string>(this, "archive_type");
+        get => GetArgument<TerraformValue<string>>("archive_type");
         set => SetArgument("archive_type", value);
     }
 
@@ -1982,7 +1968,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Components is required")]
     public TerraformList<string>? Components
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "components").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("components");
         set => SetArgument("components", value);
     }
 
@@ -1992,7 +1978,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Distribution is required")]
     public required TerraformValue<string> Distribution
     {
-        get => new TerraformReference<string>(this, "distribution");
+        get => GetArgument<TerraformValue<string>>("distribution");
         set => SetArgument("distribution", value);
     }
 
@@ -2002,7 +1988,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? GpgKey
     {
-        get => new TerraformReference<string>(this, "gpg_key");
+        get => GetArgument<TerraformValue<string>>("gpg_key");
         set => SetArgument("gpg_key", value);
     }
 
@@ -2012,7 +1998,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -2035,7 +2021,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2045,7 +2031,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -2068,7 +2054,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseUrl is required")]
     public required TerraformValue<string> BaseUrl
     {
-        get => new TerraformReference<string>(this, "base_url");
+        get => GetArgument<TerraformValue<string>>("base_url");
         set => SetArgument("base_url", value);
     }
 
@@ -2077,7 +2063,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -2086,7 +2072,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformList<string>? GpgKeys
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "gpg_keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("gpg_keys");
         set => SetArgument("gpg_keys", value);
     }
 
@@ -2099,7 +2085,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -2122,7 +2108,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseUrl is required")]
     public required TerraformValue<string> BaseUrl
     {
-        get => new TerraformReference<string>(this, "base_url");
+        get => GetArgument<TerraformValue<string>>("base_url");
         set => SetArgument("base_url", value);
     }
 
@@ -2131,7 +2117,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -2140,7 +2126,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformList<string>? GpgKeys
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "gpg_keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("gpg_keys");
         set => SetArgument("gpg_keys", value);
     }
 
@@ -2153,7 +2139,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -2180,7 +2166,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinWaitDuration is required")]
     public required TerraformValue<string> MinWaitDuration
     {
-        get => new TerraformReference<string>(this, "min_wait_duration");
+        get => GetArgument<TerraformValue<string>>("min_wait_duration");
         set => SetArgument("min_wait_duration", value);
     }
 
@@ -2215,7 +2201,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<double>? FixedAttribute
     {
-        get => new TerraformReference<double>(this, "fixed");
+        get => GetArgument<TerraformValue<double>>("fixed");
         set => SetArgument("fixed", value);
     }
 
@@ -2225,7 +2211,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestratedResour
     /// </summary>
     public TerraformValue<double>? Percent
     {
-        get => new TerraformReference<double>(this, "percent");
+        get => GetArgument<TerraformValue<double>>("percent");
         set => SetArgument("percent", value);
     }
 
@@ -2304,7 +2290,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestrationScope
     /// </summary>
     public TerraformList<string>? IncludedLocations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("included_locations");
         set => SetArgument("included_locations", value);
     }
 
@@ -2327,7 +2313,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestrationScope
     /// </summary>
     public TerraformList<string>? IncludedFolders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_folders").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("included_folders");
         set => SetArgument("included_folders", value);
     }
 
@@ -2337,7 +2323,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationOrchestrationScope
     /// </summary>
     public TerraformList<string>? IncludedProjects
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_projects").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("included_projects");
         set => SetArgument("included_projects", value);
     }
 
@@ -2360,7 +2346,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationTimeoutsBlock : Te
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -2369,7 +2355,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationTimeoutsBlock : Te
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -2378,7 +2364,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationTimeoutsBlock : Te
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -2401,7 +2387,7 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForOrganization(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -2410,16 +2396,16 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForOrganization(string na
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -2431,7 +2417,7 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForOrganization(string na
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -2444,7 +2430,7 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForOrganization(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrganizationId is required")]
     public required TerraformValue<string> OrganizationId
     {
-        get => new TerraformReference<string>(this, "organization_id");
+        get => GetArgument<TerraformValue<string>>("organization_id");
         set => SetArgument("organization_id", value);
     }
 
@@ -2461,7 +2447,7 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForOrganization(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyOrchestratorId is required")]
     public required TerraformValue<string> PolicyOrchestratorId
     {
-        get => new TerraformReference<string>(this, "policy_orchestrator_id");
+        get => GetArgument<TerraformValue<string>>("policy_orchestrator_id");
         set => SetArgument("policy_orchestrator_id", value);
     }
 
@@ -2477,7 +2463,7 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForOrganization(string na
     /// </summary>
     public TerraformValue<string>? State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -2485,17 +2471,13 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForOrganization(string na
     /// Output only. Timestamp when the policy orchestrator resource was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Output only. This checksum is computed by the server based on the value of other
@@ -2503,9 +2485,7 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForOrganization(string na
     /// client has an up-to-date value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Immutable. Identifier. In form of
@@ -2514,43 +2494,33 @@ public partial class GoogleOsConfigV2PolicyOrchestratorForOrganization(string na
     /// * &#39;projects/{project_id_or_number}/locations/global/policyOrchestrators/{orchestrator_id}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Describes the state of the orchestration process.
     /// </summary>
     public TerraformList<TerraformMap<object>> OrchestrationState
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "orchestration_state").ResolveNodes(ctx));
-    }
+        => AsReference("orchestration_state");
 
     /// <summary>
     /// Output only. Set to true, if the there are ongoing changes being applied by the
     /// orchestrator.
     /// </summary>
     public TerraformValue<bool> Reconciling
-    {
-        get => new TerraformReference<bool>(this, "reconciling");
-    }
+        => AsReference("reconciling");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Output only. Timestamp when the policy orchestrator resource was last modified.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// OrchestratedResource block (nesting mode: list).

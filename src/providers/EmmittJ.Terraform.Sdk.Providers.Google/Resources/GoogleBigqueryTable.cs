@@ -19,7 +19,7 @@ public class GoogleBigqueryTableBiglakeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
     public required TerraformValue<string> ConnectionId
     {
-        get => new TerraformReference<string>(this, "connection_id");
+        get => GetArgument<TerraformValue<string>>("connection_id");
         set => SetArgument("connection_id", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleBigqueryTableBiglakeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileFormat is required")]
     public required TerraformValue<string> FileFormat
     {
-        get => new TerraformReference<string>(this, "file_format");
+        get => GetArgument<TerraformValue<string>>("file_format");
         set => SetArgument("file_format", value);
     }
 
@@ -39,7 +39,7 @@ public class GoogleBigqueryTableBiglakeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageUri is required")]
     public required TerraformValue<string> StorageUri
     {
-        get => new TerraformReference<string>(this, "storage_uri");
+        get => GetArgument<TerraformValue<string>>("storage_uri");
         set => SetArgument("storage_uri", value);
     }
 
@@ -49,7 +49,7 @@ public class GoogleBigqueryTableBiglakeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableFormat is required")]
     public required TerraformValue<string> TableFormat
     {
-        get => new TerraformReference<string>(this, "table_format");
+        get => GetArgument<TerraformValue<string>>("table_format");
         set => SetArgument("table_format", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleBigqueryTableEncryptionConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -81,9 +81,7 @@ public class GoogleBigqueryTableEncryptionConfigurationBlock : TerraformBlock
     /// The self link or full name of the kms key version used to encrypt this table.
     /// </summary>
     public TerraformValue<string> KmsKeyVersion
-    {
-        get => new TerraformReference<string>(this, "kms_key_version");
-    }
+        => AsReference("kms_key_version");
 
 }
 
@@ -104,7 +102,7 @@ public class GoogleBigqueryTableExternalCatalogTableOptionsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? ConnectionId
     {
-        get => new TerraformReference<string>(this, "connection_id");
+        get => GetArgument<TerraformValue<string>>("connection_id");
         set => SetArgument("connection_id", value);
     }
 
@@ -113,7 +111,7 @@ public class GoogleBigqueryTableExternalCatalogTableOptionsBlock : TerraformBloc
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -145,7 +143,7 @@ public class GoogleBigqueryTableExternalCatalogTableOptionsBlockStorageDescripto
     /// </summary>
     public TerraformValue<string>? InputFormat
     {
-        get => new TerraformReference<string>(this, "input_format");
+        get => GetArgument<TerraformValue<string>>("input_format");
         set => SetArgument("input_format", value);
     }
 
@@ -154,7 +152,7 @@ public class GoogleBigqueryTableExternalCatalogTableOptionsBlockStorageDescripto
     /// </summary>
     public TerraformValue<string>? LocationUri
     {
-        get => new TerraformReference<string>(this, "location_uri");
+        get => GetArgument<TerraformValue<string>>("location_uri");
         set => SetArgument("location_uri", value);
     }
 
@@ -163,7 +161,7 @@ public class GoogleBigqueryTableExternalCatalogTableOptionsBlockStorageDescripto
     /// </summary>
     public TerraformValue<string>? OutputFormat
     {
-        get => new TerraformReference<string>(this, "output_format");
+        get => GetArgument<TerraformValue<string>>("output_format");
         set => SetArgument("output_format", value);
     }
 
@@ -195,7 +193,7 @@ public class GoogleBigqueryTableExternalCatalogTableOptionsBlockStorageDescripto
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -204,7 +202,7 @@ public class GoogleBigqueryTableExternalCatalogTableOptionsBlockStorageDescripto
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -214,7 +212,7 @@ public class GoogleBigqueryTableExternalCatalogTableOptionsBlockStorageDescripto
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SerializationLibrary is required")]
     public required TerraformValue<string> SerializationLibrary
     {
-        get => new TerraformReference<string>(this, "serialization_library");
+        get => GetArgument<TerraformValue<string>>("serialization_library");
         set => SetArgument("serialization_library", value);
     }
 
@@ -238,7 +236,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Autodetect is required")]
     public required TerraformValue<bool> Autodetect
     {
-        get => new TerraformReference<bool>(this, "autodetect");
+        get => GetArgument<TerraformValue<bool>>("autodetect");
         set => SetArgument("autodetect", value);
     }
 
@@ -247,7 +245,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Compression
     {
-        get => new TerraformReference<string>(this, "compression");
+        get => GetArgument<TerraformValue<string>>("compression");
         set => SetArgument("compression", value);
     }
 
@@ -256,7 +254,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConnectionId
     {
-        get => new TerraformReference<string>(this, "connection_id");
+        get => GetArgument<TerraformValue<string>>("connection_id");
         set => SetArgument("connection_id", value);
     }
 
@@ -265,7 +263,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FileSetSpecType
     {
-        get => new TerraformReference<string>(this, "file_set_spec_type");
+        get => GetArgument<TerraformValue<string>>("file_set_spec_type");
         set => SetArgument("file_set_spec_type", value);
     }
 
@@ -274,7 +272,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IgnoreUnknownValues
     {
-        get => new TerraformReference<bool>(this, "ignore_unknown_values");
+        get => GetArgument<TerraformValue<bool>>("ignore_unknown_values");
         set => SetArgument("ignore_unknown_values", value);
     }
 
@@ -283,7 +281,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? JsonExtension
     {
-        get => new TerraformReference<string>(this, "json_extension");
+        get => GetArgument<TerraformValue<string>>("json_extension");
         set => SetArgument("json_extension", value);
     }
 
@@ -292,7 +290,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxBadRecords
     {
-        get => new TerraformReference<double>(this, "max_bad_records");
+        get => GetArgument<TerraformValue<double>>("max_bad_records");
         set => SetArgument("max_bad_records", value);
     }
 
@@ -301,7 +299,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MetadataCacheMode
     {
-        get => new TerraformReference<string>(this, "metadata_cache_mode");
+        get => GetArgument<TerraformValue<string>>("metadata_cache_mode");
         set => SetArgument("metadata_cache_mode", value);
     }
 
@@ -310,7 +308,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ObjectMetadata
     {
-        get => new TerraformReference<string>(this, "object_metadata");
+        get => GetArgument<TerraformValue<string>>("object_metadata");
         set => SetArgument("object_metadata", value);
     }
 
@@ -319,16 +317,16 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ReferenceFileSchemaUri
     {
-        get => new TerraformReference<string>(this, "reference_file_schema_uri");
+        get => GetArgument<TerraformValue<string>>("reference_file_schema_uri");
         set => SetArgument("reference_file_schema_uri", value);
     }
 
     /// <summary>
     /// A JSON schema for the external table. Schema is required for CSV and JSON formats and is disallowed for Google Cloud Bigtable, Cloud Datastore backups, and Avro formats when using external tables.
     /// </summary>
-    public TerraformValue<string> Schema
+    public TerraformValue<string>? Schema
     {
-        get => new TerraformReference<string>(this, "schema");
+        get => GetArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -337,7 +335,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SourceFormat
     {
-        get => new TerraformReference<string>(this, "source_format");
+        get => GetArgument<TerraformValue<string>>("source_format");
         set => SetArgument("source_format", value);
     }
 
@@ -347,7 +345,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceUris is required")]
     public TerraformList<string>? SourceUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "source_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("source_uris");
         set => SetArgument("source_uris", value);
     }
 
@@ -440,7 +438,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockAvroOptionsBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UseAvroLogicalTypes is required")]
     public required TerraformValue<bool> UseAvroLogicalTypes
     {
-        get => new TerraformReference<bool>(this, "use_avro_logical_types");
+        get => GetArgument<TerraformValue<bool>>("use_avro_logical_types");
         set => SetArgument("use_avro_logical_types", value);
     }
 
@@ -462,7 +460,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockBigtableOptionsBlo
     /// </summary>
     public TerraformValue<bool>? IgnoreUnspecifiedColumnFamilies
     {
-        get => new TerraformReference<bool>(this, "ignore_unspecified_column_families");
+        get => GetArgument<TerraformValue<bool>>("ignore_unspecified_column_families");
         set => SetArgument("ignore_unspecified_column_families", value);
     }
 
@@ -471,7 +469,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockBigtableOptionsBlo
     /// </summary>
     public TerraformValue<bool>? OutputColumnFamiliesAsJson
     {
-        get => new TerraformReference<bool>(this, "output_column_families_as_json");
+        get => GetArgument<TerraformValue<bool>>("output_column_families_as_json");
         set => SetArgument("output_column_families_as_json", value);
     }
 
@@ -480,7 +478,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockBigtableOptionsBlo
     /// </summary>
     public TerraformValue<bool>? ReadRowkeyAsString
     {
-        get => new TerraformReference<bool>(this, "read_rowkey_as_string");
+        get => GetArgument<TerraformValue<bool>>("read_rowkey_as_string");
         set => SetArgument("read_rowkey_as_string", value);
     }
 
@@ -511,7 +509,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockBigtableOptionsBlo
     /// </summary>
     public TerraformValue<string>? Encoding
     {
-        get => new TerraformReference<string>(this, "encoding");
+        get => GetArgument<TerraformValue<string>>("encoding");
         set => SetArgument("encoding", value);
     }
 
@@ -520,7 +518,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockBigtableOptionsBlo
     /// </summary>
     public TerraformValue<string>? FamilyId
     {
-        get => new TerraformReference<string>(this, "family_id");
+        get => GetArgument<TerraformValue<string>>("family_id");
         set => SetArgument("family_id", value);
     }
 
@@ -529,7 +527,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockBigtableOptionsBlo
     /// </summary>
     public TerraformValue<bool>? OnlyReadLatest
     {
-        get => new TerraformReference<bool>(this, "only_read_latest");
+        get => GetArgument<TerraformValue<bool>>("only_read_latest");
         set => SetArgument("only_read_latest", value);
     }
 
@@ -538,7 +536,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockBigtableOptionsBlo
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -569,7 +567,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockBigtableOptionsBlo
     /// </summary>
     public TerraformValue<string>? Encoding
     {
-        get => new TerraformReference<string>(this, "encoding");
+        get => GetArgument<TerraformValue<string>>("encoding");
         set => SetArgument("encoding", value);
     }
 
@@ -578,7 +576,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockBigtableOptionsBlo
     /// </summary>
     public TerraformValue<string>? FieldName
     {
-        get => new TerraformReference<string>(this, "field_name");
+        get => GetArgument<TerraformValue<string>>("field_name");
         set => SetArgument("field_name", value);
     }
 
@@ -587,7 +585,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockBigtableOptionsBlo
     /// </summary>
     public TerraformValue<bool>? OnlyReadLatest
     {
-        get => new TerraformReference<bool>(this, "only_read_latest");
+        get => GetArgument<TerraformValue<bool>>("only_read_latest");
         set => SetArgument("only_read_latest", value);
     }
 
@@ -596,7 +594,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockBigtableOptionsBlo
     /// </summary>
     public TerraformValue<string>? QualifierEncoded
     {
-        get => new TerraformReference<string>(this, "qualifier_encoded");
+        get => GetArgument<TerraformValue<string>>("qualifier_encoded");
         set => SetArgument("qualifier_encoded", value);
     }
 
@@ -605,7 +603,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockBigtableOptionsBlo
     /// </summary>
     public TerraformValue<string>? QualifierString
     {
-        get => new TerraformReference<string>(this, "qualifier_string");
+        get => GetArgument<TerraformValue<string>>("qualifier_string");
         set => SetArgument("qualifier_string", value);
     }
 
@@ -614,7 +612,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockBigtableOptionsBlo
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -636,7 +634,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockCsvOptionsBlock : 
     /// </summary>
     public TerraformValue<bool>? AllowJaggedRows
     {
-        get => new TerraformReference<bool>(this, "allow_jagged_rows");
+        get => GetArgument<TerraformValue<bool>>("allow_jagged_rows");
         set => SetArgument("allow_jagged_rows", value);
     }
 
@@ -645,7 +643,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockCsvOptionsBlock : 
     /// </summary>
     public TerraformValue<bool>? AllowQuotedNewlines
     {
-        get => new TerraformReference<bool>(this, "allow_quoted_newlines");
+        get => GetArgument<TerraformValue<bool>>("allow_quoted_newlines");
         set => SetArgument("allow_quoted_newlines", value);
     }
 
@@ -654,7 +652,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockCsvOptionsBlock : 
     /// </summary>
     public TerraformValue<string>? Encoding
     {
-        get => new TerraformReference<string>(this, "encoding");
+        get => GetArgument<TerraformValue<string>>("encoding");
         set => SetArgument("encoding", value);
     }
 
@@ -663,7 +661,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockCsvOptionsBlock : 
     /// </summary>
     public TerraformValue<string>? FieldDelimiter
     {
-        get => new TerraformReference<string>(this, "field_delimiter");
+        get => GetArgument<TerraformValue<string>>("field_delimiter");
         set => SetArgument("field_delimiter", value);
     }
 
@@ -673,7 +671,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockCsvOptionsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Quote is required")]
     public required TerraformValue<string> Quote
     {
-        get => new TerraformReference<string>(this, "quote");
+        get => GetArgument<TerraformValue<string>>("quote");
         set => SetArgument("quote", value);
     }
 
@@ -682,7 +680,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockCsvOptionsBlock : 
     /// </summary>
     public TerraformValue<double>? SkipLeadingRows
     {
-        get => new TerraformReference<double>(this, "skip_leading_rows");
+        get => GetArgument<TerraformValue<double>>("skip_leading_rows");
         set => SetArgument("skip_leading_rows", value);
     }
 
@@ -704,7 +702,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockGoogleSheetsOption
     /// </summary>
     public TerraformValue<string>? Range
     {
-        get => new TerraformReference<string>(this, "range");
+        get => GetArgument<TerraformValue<string>>("range");
         set => SetArgument("range", value);
     }
 
@@ -713,7 +711,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockGoogleSheetsOption
     /// </summary>
     public TerraformValue<double>? SkipLeadingRows
     {
-        get => new TerraformReference<double>(this, "skip_leading_rows");
+        get => GetArgument<TerraformValue<double>>("skip_leading_rows");
         set => SetArgument("skip_leading_rows", value);
     }
 
@@ -735,7 +733,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockHivePartitioningOp
     /// </summary>
     public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -744,7 +742,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockHivePartitioningOp
     /// </summary>
     public TerraformValue<bool>? RequirePartitionFilter
     {
-        get => new TerraformReference<bool>(this, "require_partition_filter");
+        get => GetArgument<TerraformValue<bool>>("require_partition_filter");
         set => SetArgument("require_partition_filter", value);
     }
 
@@ -753,7 +751,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockHivePartitioningOp
     /// </summary>
     public TerraformValue<string>? SourceUriPrefix
     {
-        get => new TerraformReference<string>(this, "source_uri_prefix");
+        get => GetArgument<TerraformValue<string>>("source_uri_prefix");
         set => SetArgument("source_uri_prefix", value);
     }
 
@@ -775,7 +773,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockJsonOptionsBlock :
     /// </summary>
     public TerraformValue<string>? Encoding
     {
-        get => new TerraformReference<string>(this, "encoding");
+        get => GetArgument<TerraformValue<string>>("encoding");
         set => SetArgument("encoding", value);
     }
 
@@ -797,7 +795,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockParquetOptionsBloc
     /// </summary>
     public TerraformValue<bool>? EnableListInference
     {
-        get => new TerraformReference<bool>(this, "enable_list_inference");
+        get => GetArgument<TerraformValue<bool>>("enable_list_inference");
         set => SetArgument("enable_list_inference", value);
     }
 
@@ -806,7 +804,7 @@ public class GoogleBigqueryTableExternalDataConfigurationBlockParquetOptionsBloc
     /// </summary>
     public TerraformValue<bool>? EnumAsString
     {
-        get => new TerraformReference<bool>(this, "enum_as_string");
+        get => GetArgument<TerraformValue<bool>>("enum_as_string");
         set => SetArgument("enum_as_string", value);
     }
 
@@ -829,7 +827,7 @@ public class GoogleBigqueryTableMaterializedViewBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowNonIncrementalDefinition
     {
-        get => new TerraformReference<bool>(this, "allow_non_incremental_definition");
+        get => GetArgument<TerraformValue<bool>>("allow_non_incremental_definition");
         set => SetArgument("allow_non_incremental_definition", value);
     }
 
@@ -838,7 +836,7 @@ public class GoogleBigqueryTableMaterializedViewBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableRefresh
     {
-        get => new TerraformReference<bool>(this, "enable_refresh");
+        get => GetArgument<TerraformValue<bool>>("enable_refresh");
         set => SetArgument("enable_refresh", value);
     }
 
@@ -848,7 +846,7 @@ public class GoogleBigqueryTableMaterializedViewBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformValue<string> Query
     {
-        get => new TerraformReference<string>(this, "query");
+        get => GetArgument<TerraformValue<string>>("query");
         set => SetArgument("query", value);
     }
 
@@ -857,7 +855,7 @@ public class GoogleBigqueryTableMaterializedViewBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? RefreshIntervalMs
     {
-        get => new TerraformReference<double>(this, "refresh_interval_ms");
+        get => GetArgument<TerraformValue<double>>("refresh_interval_ms");
         set => SetArgument("refresh_interval_ms", value);
     }
 
@@ -881,7 +879,7 @@ public class GoogleBigqueryTableRangePartitioningBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
     public required TerraformValue<string> Field
     {
-        get => new TerraformReference<string>(this, "field");
+        get => GetArgument<TerraformValue<string>>("field");
         set => SetArgument("field", value);
     }
 
@@ -917,7 +915,7 @@ public class GoogleBigqueryTableRangePartitioningBlockRangeBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
     public required TerraformValue<double> End
     {
-        get => new TerraformReference<double>(this, "end");
+        get => GetArgument<TerraformValue<double>>("end");
         set => SetArgument("end", value);
     }
 
@@ -927,7 +925,7 @@ public class GoogleBigqueryTableRangePartitioningBlockRangeBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
     public required TerraformValue<double> Interval
     {
-        get => new TerraformReference<double>(this, "interval");
+        get => GetArgument<TerraformValue<double>>("interval");
         set => SetArgument("interval", value);
     }
 
@@ -937,7 +935,7 @@ public class GoogleBigqueryTableRangePartitioningBlockRangeBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformValue<double> Start
     {
-        get => new TerraformReference<double>(this, "start");
+        get => GetArgument<TerraformValue<double>>("start");
         set => SetArgument("start", value);
     }
 
@@ -961,7 +959,7 @@ public class GoogleBigqueryTableSchemaForeignTypeInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeSystem is required")]
     public required TerraformValue<string> TypeSystem
     {
-        get => new TerraformReference<string>(this, "type_system");
+        get => GetArgument<TerraformValue<string>>("type_system");
         set => SetArgument("type_system", value);
     }
 
@@ -1016,7 +1014,7 @@ public class GoogleBigqueryTableTableConstraintsBlockForeignKeysBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1065,7 +1063,7 @@ public class GoogleBigqueryTableTableConstraintsBlockForeignKeysBlockColumnRefer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReferencedColumn is required")]
     public required TerraformValue<string> ReferencedColumn
     {
-        get => new TerraformReference<string>(this, "referenced_column");
+        get => GetArgument<TerraformValue<string>>("referenced_column");
         set => SetArgument("referenced_column", value);
     }
 
@@ -1075,7 +1073,7 @@ public class GoogleBigqueryTableTableConstraintsBlockForeignKeysBlockColumnRefer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReferencingColumn is required")]
     public required TerraformValue<string> ReferencingColumn
     {
-        get => new TerraformReference<string>(this, "referencing_column");
+        get => GetArgument<TerraformValue<string>>("referencing_column");
         set => SetArgument("referencing_column", value);
     }
 
@@ -1098,7 +1096,7 @@ public class GoogleBigqueryTableTableConstraintsBlockForeignKeysBlockReferencedT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => new TerraformReference<string>(this, "dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -1108,7 +1106,7 @@ public class GoogleBigqueryTableTableConstraintsBlockForeignKeysBlockReferencedT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
     public required TerraformValue<string> ProjectId
     {
-        get => new TerraformReference<string>(this, "project_id");
+        get => GetArgument<TerraformValue<string>>("project_id");
         set => SetArgument("project_id", value);
     }
 
@@ -1118,7 +1116,7 @@ public class GoogleBigqueryTableTableConstraintsBlockForeignKeysBlockReferencedT
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformValue<string> TableId
     {
-        get => new TerraformReference<string>(this, "table_id");
+        get => GetArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -1141,7 +1139,7 @@ public class GoogleBigqueryTableTableConstraintsBlockPrimaryKeyBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Columns is required")]
     public TerraformList<string>? Columns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "columns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("columns");
         set => SetArgument("columns", value);
     }
 
@@ -1164,7 +1162,7 @@ public class GoogleBigqueryTableTableReplicationInfoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ReplicationIntervalMs
     {
-        get => new TerraformReference<double>(this, "replication_interval_ms");
+        get => GetArgument<TerraformValue<double>>("replication_interval_ms");
         set => SetArgument("replication_interval_ms", value);
     }
 
@@ -1174,7 +1172,7 @@ public class GoogleBigqueryTableTableReplicationInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDatasetId is required")]
     public required TerraformValue<string> SourceDatasetId
     {
-        get => new TerraformReference<string>(this, "source_dataset_id");
+        get => GetArgument<TerraformValue<string>>("source_dataset_id");
         set => SetArgument("source_dataset_id", value);
     }
 
@@ -1184,7 +1182,7 @@ public class GoogleBigqueryTableTableReplicationInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceProjectId is required")]
     public required TerraformValue<string> SourceProjectId
     {
-        get => new TerraformReference<string>(this, "source_project_id");
+        get => GetArgument<TerraformValue<string>>("source_project_id");
         set => SetArgument("source_project_id", value);
     }
 
@@ -1194,7 +1192,7 @@ public class GoogleBigqueryTableTableReplicationInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceTableId is required")]
     public required TerraformValue<string> SourceTableId
     {
-        get => new TerraformReference<string>(this, "source_table_id");
+        get => GetArgument<TerraformValue<string>>("source_table_id");
         set => SetArgument("source_table_id", value);
     }
 
@@ -1215,9 +1213,9 @@ public class GoogleBigqueryTableTimePartitioningBlock : TerraformBlock
     /// <summary>
     /// Number of milliseconds for which to keep the storage for a partition.
     /// </summary>
-    public TerraformValue<double> ExpirationMs
+    public TerraformValue<double>? ExpirationMs
     {
-        get => new TerraformReference<double>(this, "expiration_ms");
+        get => GetArgument<TerraformValue<double>>("expiration_ms");
         set => SetArgument("expiration_ms", value);
     }
 
@@ -1226,7 +1224,7 @@ public class GoogleBigqueryTableTimePartitioningBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Field
     {
-        get => new TerraformReference<string>(this, "field");
+        get => GetArgument<TerraformValue<string>>("field");
         set => SetArgument("field", value);
     }
 
@@ -1236,7 +1234,7 @@ public class GoogleBigqueryTableTimePartitioningBlock : TerraformBlock
     [Obsolete("This property is deprecated.")]
     public TerraformValue<bool>? RequirePartitionFilter
     {
-        get => new TerraformReference<bool>(this, "require_partition_filter");
+        get => GetArgument<TerraformValue<bool>>("require_partition_filter");
         set => SetArgument("require_partition_filter", value);
     }
 
@@ -1246,7 +1244,7 @@ public class GoogleBigqueryTableTimePartitioningBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1270,16 +1268,16 @@ public class GoogleBigqueryTableViewBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
     public required TerraformValue<string> Query
     {
-        get => new TerraformReference<string>(this, "query");
+        get => GetArgument<TerraformValue<string>>("query");
         set => SetArgument("query", value);
     }
 
     /// <summary>
     /// Specifies whether to use BigQuery&#39;s legacy SQL for this view. If set to false, the view will use BigQuery&#39;s standard SQL
     /// </summary>
-    public TerraformValue<bool> UseLegacySql
+    public TerraformValue<bool>? UseLegacySql
     {
-        get => new TerraformReference<bool>(this, "use_legacy_sql");
+        get => GetArgument<TerraformValue<bool>>("use_legacy_sql");
         set => SetArgument("use_legacy_sql", value);
     }
 
@@ -1297,7 +1295,7 @@ public partial class GoogleBigqueryTable(string name) : TerraformResource("googl
     /// </summary>
     public TerraformList<string>? Clustering
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "clustering").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("clustering");
         set => SetArgument("clustering", value);
     }
 
@@ -1307,7 +1305,7 @@ public partial class GoogleBigqueryTable(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatasetId is required")]
     public required TerraformValue<string> DatasetId
     {
-        get => new TerraformReference<string>(this, "dataset_id");
+        get => GetArgument<TerraformValue<string>>("dataset_id");
         set => SetArgument("dataset_id", value);
     }
 
@@ -1316,7 +1314,7 @@ public partial class GoogleBigqueryTable(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
@@ -1325,16 +1323,16 @@ public partial class GoogleBigqueryTable(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The time when this table expires, in milliseconds since the epoch. If not present, the table will persist indefinitely. Expired tables will be deleted and their storage reclaimed.
     /// </summary>
-    public TerraformValue<double> ExpirationTime
+    public TerraformValue<double>? ExpirationTime
     {
-        get => new TerraformReference<double>(this, "expiration_time");
+        get => GetArgument<TerraformValue<double>>("expiration_time");
         set => SetArgument("expiration_time", value);
     }
 
@@ -1343,16 +1341,16 @@ public partial class GoogleBigqueryTable(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? FriendlyName
     {
-        get => new TerraformReference<string>(this, "friendly_name");
+        get => GetArgument<TerraformValue<string>>("friendly_name");
         set => SetArgument("friendly_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1361,7 +1359,7 @@ public partial class GoogleBigqueryTable(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<bool>? IgnoreAutoGeneratedSchema
     {
-        get => new TerraformReference<bool>(this, "ignore_auto_generated_schema");
+        get => GetArgument<TerraformValue<bool>>("ignore_auto_generated_schema");
         set => SetArgument("ignore_auto_generated_schema", value);
     }
 
@@ -1370,7 +1368,7 @@ public partial class GoogleBigqueryTable(string name) : TerraformResource("googl
     /// </summary>
     public TerraformList<string>? IgnoreSchemaChanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ignore_schema_changes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ignore_schema_changes");
         set => SetArgument("ignore_schema_changes", value);
     }
 
@@ -1382,25 +1380,25 @@ public partial class GoogleBigqueryTable(string name) : TerraformResource("googl
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// The maximum staleness of data that could be returned when the table (or stale MV) is queried. Staleness encoded as a string encoding of [SQL IntervalValue type](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#interval_type).
     /// </summary>
-    public TerraformValue<string> MaxStaleness
+    public TerraformValue<string>? MaxStaleness
     {
-        get => new TerraformReference<string>(this, "max_staleness");
+        get => GetArgument<TerraformValue<string>>("max_staleness");
         set => SetArgument("max_staleness", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -1409,7 +1407,7 @@ public partial class GoogleBigqueryTable(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<bool>? RequirePartitionFilter
     {
-        get => new TerraformReference<bool>(this, "require_partition_filter");
+        get => GetArgument<TerraformValue<bool>>("require_partition_filter");
         set => SetArgument("require_partition_filter", value);
     }
 
@@ -1418,16 +1416,16 @@ public partial class GoogleBigqueryTable(string name) : TerraformResource("googl
     /// </summary>
     public TerraformMap<string>? ResourceTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "resource_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("resource_tags");
         set => SetArgument("resource_tags", value);
     }
 
     /// <summary>
     /// A JSON schema for the table.
     /// </summary>
-    public TerraformValue<string> Schema
+    public TerraformValue<string>? Schema
     {
-        get => new TerraformReference<string>(this, "schema");
+        get => GetArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -1437,7 +1435,7 @@ public partial class GoogleBigqueryTable(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableId is required")]
     public required TerraformValue<string> TableId
     {
-        get => new TerraformReference<string>(this, "table_id");
+        get => GetArgument<TerraformValue<string>>("table_id");
         set => SetArgument("table_id", value);
     }
 
@@ -1446,7 +1444,7 @@ public partial class GoogleBigqueryTable(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? TableMetadataView
     {
-        get => new TerraformReference<string>(this, "table_metadata_view");
+        get => GetArgument<TerraformValue<string>>("table_metadata_view");
         set => SetArgument("table_metadata_view", value);
     }
 
@@ -1454,97 +1452,73 @@ public partial class GoogleBigqueryTable(string name) : TerraformResource("googl
     /// The time when this table was created, in milliseconds since the epoch.
     /// </summary>
     public TerraformValue<double> CreationTime
-    {
-        get => new TerraformReference<double>(this, "creation_time");
-    }
+        => AsReference("creation_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// A hash of the resource.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// (Output-only) A list of autogenerated schema fields.
     /// </summary>
     public TerraformValue<string> GeneratedSchemaColumns
-    {
-        get => new TerraformReference<string>(this, "generated_schema_columns");
-    }
+        => AsReference("generated_schema_columns");
 
     /// <summary>
     /// The time when this table was last modified, in milliseconds since the epoch.
     /// </summary>
     public TerraformValue<double> LastModifiedTime
-    {
-        get => new TerraformReference<double>(this, "last_modified_time");
-    }
+        => AsReference("last_modified_time");
 
     /// <summary>
     /// The geographic location where the table resides. This value is inherited from the dataset.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The geographic location where the table resides. This value is inherited from the dataset.
     /// </summary>
     public TerraformValue<double> NumBytes
-    {
-        get => new TerraformReference<double>(this, "num_bytes");
-    }
+        => AsReference("num_bytes");
 
     /// <summary>
     /// The number of bytes in the table that are considered &amp;quot;long-term storage&amp;quot;.
     /// </summary>
     public TerraformValue<double> NumLongTermBytes
-    {
-        get => new TerraformReference<double>(this, "num_long_term_bytes");
-    }
+        => AsReference("num_long_term_bytes");
 
     /// <summary>
     /// The number of rows of data in this table, excluding any data in the streaming buffer.
     /// </summary>
     public TerraformValue<double> NumRows
-    {
-        get => new TerraformReference<double>(this, "num_rows");
-    }
+        => AsReference("num_rows");
 
     /// <summary>
     /// The URI of the created resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Describes the table type.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// BiglakeConfiguration block (nesting mode: list).

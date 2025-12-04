@@ -13,16 +13,16 @@ public partial class AwsRdsClusterActivityStream(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool>? EngineNativeAuditFieldsIncluded
     {
-        get => new TerraformReference<bool>(this, "engine_native_audit_fields_included");
+        get => GetArgument<TerraformValue<bool>>("engine_native_audit_fields_included");
         set => SetArgument("engine_native_audit_fields_included", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsRdsClusterActivityStream(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyId is required")]
     public required TerraformValue<string> KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -42,16 +42,16 @@ public partial class AwsRdsClusterActivityStream(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsRdsClusterActivityStream(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
     public required TerraformValue<string> ResourceArn
     {
-        get => new TerraformReference<string>(this, "resource_arn");
+        get => GetArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -69,8 +69,6 @@ public partial class AwsRdsClusterActivityStream(string name) : TerraformResourc
     /// The kinesis_stream_name attribute.
     /// </summary>
     public TerraformValue<string> KinesisStreamName
-    {
-        get => new TerraformReference<string>(this, "kinesis_stream_name");
-    }
+        => AsReference("kinesis_stream_name");
 
 }

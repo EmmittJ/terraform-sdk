@@ -11,9 +11,9 @@ public partial class AwsBatchJobQueueDataSource(string name) : TerraformDataSour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,25 +23,25 @@ public partial class AwsBatchJobQueueDataSource(string name) : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,64 +49,48 @@ public partial class AwsBatchJobQueueDataSource(string name) : TerraformDataSour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The compute_environment_order attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ComputeEnvironmentOrder
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "compute_environment_order").ResolveNodes(ctx));
-    }
+        => AsReference("compute_environment_order");
 
     /// <summary>
     /// The job_state_time_limit_action attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> JobStateTimeLimitAction
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "job_state_time_limit_action").ResolveNodes(ctx));
-    }
+        => AsReference("job_state_time_limit_action");
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     public TerraformValue<double> Priority
-    {
-        get => new TerraformReference<double>(this, "priority");
-    }
+        => AsReference("priority");
 
     /// <summary>
     /// The scheduling_policy_arn attribute.
     /// </summary>
     public TerraformValue<string> SchedulingPolicyArn
-    {
-        get => new TerraformReference<string>(this, "scheduling_policy_arn");
-    }
+        => AsReference("scheduling_policy_arn");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The status_reason attribute.
     /// </summary>
     public TerraformValue<string> StatusReason
-    {
-        get => new TerraformReference<string>(this, "status_reason");
-    }
+        => AsReference("status_reason");
 
 }

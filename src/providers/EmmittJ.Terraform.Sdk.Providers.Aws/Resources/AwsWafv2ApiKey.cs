@@ -11,9 +11,9 @@ public partial class AwsWafv2ApiKey(string name) : TerraformResource("aws_wafv2_
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsWafv2ApiKey(string name) : TerraformResource("aws_wafv2_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsWafv2ApiKey(string name) : TerraformResource("aws_wafv2_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenDomains is required")]
     public required TerraformSet<string> TokenDomains
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "token_domains").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("token_domains");
         set => SetArgument("token_domains", value);
     }
 
@@ -41,8 +41,6 @@ public partial class AwsWafv2ApiKey(string name) : TerraformResource("aws_wafv2_
     /// The API key value. This is sensitive and not included in responses.
     /// </summary>
     public TerraformValue<string> ApiKey
-    {
-        get => new TerraformReference<string>(this, "api_key");
-    }
+        => AsReference("api_key");
 
 }

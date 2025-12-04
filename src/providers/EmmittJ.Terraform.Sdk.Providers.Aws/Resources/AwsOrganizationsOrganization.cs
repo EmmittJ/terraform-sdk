@@ -13,7 +13,7 @@ public partial class AwsOrganizationsOrganization(string name) : TerraformResour
     /// </summary>
     public TerraformSet<string>? AwsServiceAccessPrincipals
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "aws_service_access_principals").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("aws_service_access_principals");
         set => SetArgument("aws_service_access_principals", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsOrganizationsOrganization(string name) : TerraformResour
     /// </summary>
     public TerraformSet<string>? EnabledPolicyTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "enabled_policy_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("enabled_policy_types");
         set => SetArgument("enabled_policy_types", value);
     }
 
@@ -31,16 +31,16 @@ public partial class AwsOrganizationsOrganization(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? FeatureSet
     {
-        get => new TerraformReference<string>(this, "feature_set");
+        get => GetArgument<TerraformValue<string>>("feature_set");
         set => SetArgument("feature_set", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -48,64 +48,48 @@ public partial class AwsOrganizationsOrganization(string name) : TerraformResour
     /// The accounts attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Accounts
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "accounts").ResolveNodes(ctx));
-    }
+        => AsReference("accounts");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The master_account_arn attribute.
     /// </summary>
     public TerraformValue<string> MasterAccountArn
-    {
-        get => new TerraformReference<string>(this, "master_account_arn");
-    }
+        => AsReference("master_account_arn");
 
     /// <summary>
     /// The master_account_email attribute.
     /// </summary>
     public TerraformValue<string> MasterAccountEmail
-    {
-        get => new TerraformReference<string>(this, "master_account_email");
-    }
+        => AsReference("master_account_email");
 
     /// <summary>
     /// The master_account_id attribute.
     /// </summary>
     public TerraformValue<string> MasterAccountId
-    {
-        get => new TerraformReference<string>(this, "master_account_id");
-    }
+        => AsReference("master_account_id");
 
     /// <summary>
     /// The master_account_name attribute.
     /// </summary>
     public TerraformValue<string> MasterAccountName
-    {
-        get => new TerraformReference<string>(this, "master_account_name");
-    }
+        => AsReference("master_account_name");
 
     /// <summary>
     /// The non_master_accounts attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NonMasterAccounts
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "non_master_accounts").ResolveNodes(ctx));
-    }
+        => AsReference("non_master_accounts");
 
     /// <summary>
     /// The roots attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Roots
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "roots").ResolveNodes(ctx));
-    }
+        => AsReference("roots");
 
 }

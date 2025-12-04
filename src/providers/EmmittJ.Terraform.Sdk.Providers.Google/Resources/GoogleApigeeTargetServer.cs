@@ -18,7 +18,7 @@ public class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Ciphers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ciphers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ciphers");
         set => SetArgument("ciphers", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ClientAuthEnabled
     {
-        get => new TerraformReference<bool>(this, "client_auth_enabled");
+        get => GetArgument<TerraformValue<bool>>("client_auth_enabled");
         set => SetArgument("client_auth_enabled", value);
     }
 
@@ -37,7 +37,7 @@ public class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -46,7 +46,7 @@ public class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enforce
     {
-        get => new TerraformReference<bool>(this, "enforce");
+        get => GetArgument<TerraformValue<bool>>("enforce");
         set => SetArgument("enforce", value);
     }
 
@@ -55,7 +55,7 @@ public class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IgnoreValidationErrors
     {
-        get => new TerraformReference<bool>(this, "ignore_validation_errors");
+        get => GetArgument<TerraformValue<bool>>("ignore_validation_errors");
         set => SetArgument("ignore_validation_errors", value);
     }
 
@@ -64,7 +64,7 @@ public class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KeyAlias
     {
-        get => new TerraformReference<string>(this, "key_alias");
+        get => GetArgument<TerraformValue<string>>("key_alias");
         set => SetArgument("key_alias", value);
     }
 
@@ -73,7 +73,7 @@ public class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KeyStore
     {
-        get => new TerraformReference<string>(this, "key_store");
+        get => GetArgument<TerraformValue<string>>("key_store");
         set => SetArgument("key_store", value);
     }
 
@@ -82,7 +82,7 @@ public class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Protocols
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "protocols").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("protocols");
         set => SetArgument("protocols", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleApigeeTargetServerSSlInfoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TrustStore
     {
-        get => new TerraformReference<string>(this, "trust_store");
+        get => GetArgument<TerraformValue<string>>("trust_store");
         set => SetArgument("trust_store", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleApigeeTargetServerSSlInfoBlockCommonNameBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -132,7 +132,7 @@ public class GoogleApigeeTargetServerSSlInfoBlockCommonNameBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool>? WildcardMatch
     {
-        get => new TerraformReference<bool>(this, "wildcard_match");
+        get => GetArgument<TerraformValue<bool>>("wildcard_match");
         set => SetArgument("wildcard_match", value);
     }
 
@@ -155,7 +155,7 @@ public class GoogleApigeeTargetServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -164,7 +164,7 @@ public class GoogleApigeeTargetServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -173,7 +173,7 @@ public class GoogleApigeeTargetServerTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -191,7 +191,7 @@ public partial class GoogleApigeeTargetServer(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -202,7 +202,7 @@ public partial class GoogleApigeeTargetServer(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
     public required TerraformValue<string> EnvId
     {
-        get => new TerraformReference<string>(this, "env_id");
+        get => GetArgument<TerraformValue<string>>("env_id");
         set => SetArgument("env_id", value);
     }
 
@@ -212,16 +212,16 @@ public partial class GoogleApigeeTargetServer(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
     public required TerraformValue<string> Host
     {
-        get => new TerraformReference<string>(this, "host");
+        get => GetArgument<TerraformValue<string>>("host");
         set => SetArgument("host", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -230,7 +230,7 @@ public partial class GoogleApigeeTargetServer(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? IsEnabled
     {
-        get => new TerraformReference<bool>(this, "is_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_enabled");
         set => SetArgument("is_enabled", value);
     }
 
@@ -240,7 +240,7 @@ public partial class GoogleApigeeTargetServer(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -250,16 +250,16 @@ public partial class GoogleApigeeTargetServer(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
     /// <summary>
     /// Immutable. The protocol used by this TargetServer. Possible values: [&amp;quot;HTTP&amp;quot;, &amp;quot;HTTP2&amp;quot;, &amp;quot;GRPC_TARGET&amp;quot;, &amp;quot;GRPC&amp;quot;, &amp;quot;EXTERNAL_CALLOUT&amp;quot;]
     /// </summary>
-    public TerraformValue<string> Protocol
+    public TerraformValue<string>? Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 

@@ -15,7 +15,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? AdoPipelineServiceConnectionId
     {
-        get => new TerraformReference<string>(this, "ado_pipeline_service_connection_id");
+        get => GetArgument<TerraformValue<string>>("ado_pipeline_service_connection_id");
         set => SetArgument("ado_pipeline_service_connection_id", value);
     }
 
@@ -25,7 +25,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? ClientCertificate
     {
-        get => new TerraformReference<string>(this, "client_certificate");
+        get => GetArgument<TerraformValue<string>>("client_certificate");
         set => SetArgument("client_certificate", value);
     }
 
@@ -35,7 +35,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? ClientCertificatePassword
     {
-        get => new TerraformReference<string>(this, "client_certificate_password");
+        get => GetArgument<TerraformValue<string>>("client_certificate_password");
         set => SetArgument("client_certificate_password", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? ClientCertificatePath
     {
-        get => new TerraformReference<string>(this, "client_certificate_path");
+        get => GetArgument<TerraformValue<string>>("client_certificate_path");
         set => SetArgument("client_certificate_path", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? ClientIdFilePath
     {
-        get => new TerraformReference<string>(this, "client_id_file_path");
+        get => GetArgument<TerraformValue<string>>("client_id_file_path");
         set => SetArgument("client_id_file_path", value);
     }
 
@@ -75,7 +75,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -85,7 +85,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? ClientSecretFilePath
     {
-        get => new TerraformReference<string>(this, "client_secret_file_path");
+        get => GetArgument<TerraformValue<string>>("client_secret_file_path");
         set => SetArgument("client_secret_file_path", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<bool>? DisableTerraformPartnerId
     {
-        get => new TerraformReference<bool>(this, "disable_terraform_partner_id");
+        get => GetArgument<TerraformValue<bool>>("disable_terraform_partner_id");
         set => SetArgument("disable_terraform_partner_id", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? Environment
     {
-        get => new TerraformReference<string>(this, "environment");
+        get => GetArgument<TerraformValue<string>>("environment");
         set => SetArgument("environment", value);
     }
 
@@ -115,7 +115,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? MetadataHost
     {
-        get => new TerraformReference<string>(this, "metadata_host");
+        get => GetArgument<TerraformValue<string>>("metadata_host");
         set => SetArgument("metadata_host", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? MsiEndpoint
     {
-        get => new TerraformReference<string>(this, "msi_endpoint");
+        get => GetArgument<TerraformValue<string>>("msi_endpoint");
         set => SetArgument("msi_endpoint", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? OidcRequestToken
     {
-        get => new TerraformReference<string>(this, "oidc_request_token");
+        get => GetArgument<TerraformValue<string>>("oidc_request_token");
         set => SetArgument("oidc_request_token", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? OidcRequestUrl
     {
-        get => new TerraformReference<string>(this, "oidc_request_url");
+        get => GetArgument<TerraformValue<string>>("oidc_request_url");
         set => SetArgument("oidc_request_url", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? OidcToken
     {
-        get => new TerraformReference<string>(this, "oidc_token");
+        get => GetArgument<TerraformValue<string>>("oidc_token");
         set => SetArgument("oidc_token", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? OidcTokenFilePath
     {
-        get => new TerraformReference<string>(this, "oidc_token_file_path");
+        get => GetArgument<TerraformValue<string>>("oidc_token_file_path");
         set => SetArgument("oidc_token_file_path", value);
     }
 
@@ -175,7 +175,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? PartnerId
     {
-        get => new TerraformReference<string>(this, "partner_id");
+        get => GetArgument<TerraformValue<string>>("partner_id");
         set => SetArgument("partner_id", value);
     }
 
@@ -185,7 +185,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<string>? TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 
@@ -195,7 +195,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<bool>? UseAksWorkloadIdentity
     {
-        get => new TerraformReference<bool>(this, "use_aks_workload_identity");
+        get => GetArgument<TerraformValue<bool>>("use_aks_workload_identity");
         set => SetArgument("use_aks_workload_identity", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<bool>? UseCli
     {
-        get => new TerraformReference<bool>(this, "use_cli");
+        get => GetArgument<TerraformValue<bool>>("use_cli");
         set => SetArgument("use_cli", value);
     }
 
@@ -215,7 +215,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<bool>? UseMsi
     {
-        get => new TerraformReference<bool>(this, "use_msi");
+        get => GetArgument<TerraformValue<bool>>("use_msi");
         set => SetArgument("use_msi", value);
     }
 
@@ -225,7 +225,7 @@ public partial class AzureadProvider(string name = "azuread") : TerraformProvide
     /// </summary>
     public TerraformValue<bool>? UseOidc
     {
-        get => new TerraformReference<bool>(this, "use_oidc");
+        get => GetArgument<TerraformValue<bool>>("use_oidc");
         set => SetArgument("use_oidc", value);
     }
 

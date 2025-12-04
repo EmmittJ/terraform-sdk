@@ -19,7 +19,7 @@ public class AzurermContainerRegistryCredentialSetAuthenticationCredentialsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PasswordSecretId is required")]
     public required TerraformValue<string> PasswordSecretId
     {
-        get => new TerraformReference<string>(this, "password_secret_id");
+        get => GetArgument<TerraformValue<string>>("password_secret_id");
         set => SetArgument("password_secret_id", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermContainerRegistryCredentialSetAuthenticationCredentialsBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsernameSecretId is required")]
     public required TerraformValue<string> UsernameSecretId
     {
-        get => new TerraformReference<string>(this, "username_secret_id");
+        get => GetArgument<TerraformValue<string>>("username_secret_id");
         set => SetArgument("username_secret_id", value);
     }
 
@@ -51,17 +51,13 @@ public class AzurermContainerRegistryCredentialSetIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -69,7 +65,7 @@ public class AzurermContainerRegistryCredentialSetIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -92,7 +88,7 @@ public class AzurermContainerRegistryCredentialSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -101,7 +97,7 @@ public class AzurermContainerRegistryCredentialSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -110,7 +106,7 @@ public class AzurermContainerRegistryCredentialSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -119,7 +115,7 @@ public class AzurermContainerRegistryCredentialSetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -138,16 +134,16 @@ public partial class AzurermContainerRegistryCredentialSet(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
     public required TerraformValue<string> ContainerRegistryId
     {
-        get => new TerraformReference<string>(this, "container_registry_id");
+        get => GetArgument<TerraformValue<string>>("container_registry_id");
         set => SetArgument("container_registry_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -157,7 +153,7 @@ public partial class AzurermContainerRegistryCredentialSet(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginServer is required")]
     public required TerraformValue<string> LoginServer
     {
-        get => new TerraformReference<string>(this, "login_server");
+        get => GetArgument<TerraformValue<string>>("login_server");
         set => SetArgument("login_server", value);
     }
 
@@ -167,7 +163,7 @@ public partial class AzurermContainerRegistryCredentialSet(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

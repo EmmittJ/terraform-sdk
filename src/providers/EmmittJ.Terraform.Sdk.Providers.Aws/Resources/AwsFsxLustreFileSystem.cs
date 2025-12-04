@@ -18,7 +18,7 @@ public class AwsFsxLustreFileSystemDataReadCacheConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformValue<double>? Size
     {
-        get => new TerraformReference<double>(this, "size");
+        get => GetArgument<TerraformValue<double>>("size");
         set => SetArgument("size", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsFsxLustreFileSystemDataReadCacheConfigurationBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizingMode is required")]
     public required TerraformValue<string> SizingMode
     {
-        get => new TerraformReference<string>(this, "sizing_mode");
+        get => GetArgument<TerraformValue<string>>("sizing_mode");
         set => SetArgument("sizing_mode", value);
     }
 
@@ -49,9 +49,9 @@ public class AwsFsxLustreFileSystemLogConfigurationBlock : TerraformBlock
     /// <summary>
     /// The destination attribute.
     /// </summary>
-    public TerraformValue<string> Destination
+    public TerraformValue<string>? Destination
     {
-        get => new TerraformReference<string>(this, "destination");
+        get => GetArgument<TerraformValue<string>>("destination");
         set => SetArgument("destination", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsFsxLustreFileSystemLogConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Level
     {
-        get => new TerraformReference<string>(this, "level");
+        get => GetArgument<TerraformValue<string>>("level");
         set => SetArgument("level", value);
     }
 
@@ -81,18 +81,18 @@ public class AwsFsxLustreFileSystemMetadataConfigurationBlock : TerraformBlock
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    public TerraformValue<double> Iops
+    public TerraformValue<double>? Iops
     {
-        get => new TerraformReference<double>(this, "iops");
+        get => GetArgument<TerraformValue<double>>("iops");
         set => SetArgument("iops", value);
     }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformValue<string> Mode
+    public TerraformValue<string>? Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
@@ -115,7 +115,7 @@ public class AwsFsxLustreFileSystemRootSquashConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? NoSquashNids
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "no_squash_nids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("no_squash_nids");
         set => SetArgument("no_squash_nids", value);
     }
 
@@ -124,7 +124,7 @@ public class AwsFsxLustreFileSystemRootSquashConfigurationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RootSquash
     {
-        get => new TerraformReference<string>(this, "root_squash");
+        get => GetArgument<TerraformValue<string>>("root_squash");
         set => SetArgument("root_squash", value);
     }
 
@@ -147,7 +147,7 @@ public class AwsFsxLustreFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -156,7 +156,7 @@ public class AwsFsxLustreFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsFsxLustreFileSystemTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -181,18 +181,18 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// <summary>
     /// The auto_import_policy attribute.
     /// </summary>
-    public TerraformValue<string> AutoImportPolicy
+    public TerraformValue<string>? AutoImportPolicy
     {
-        get => new TerraformReference<string>(this, "auto_import_policy");
+        get => GetArgument<TerraformValue<string>>("auto_import_policy");
         set => SetArgument("auto_import_policy", value);
     }
 
     /// <summary>
     /// The automatic_backup_retention_days attribute.
     /// </summary>
-    public TerraformValue<double> AutomaticBackupRetentionDays
+    public TerraformValue<double>? AutomaticBackupRetentionDays
     {
-        get => new TerraformReference<double>(this, "automatic_backup_retention_days");
+        get => GetArgument<TerraformValue<double>>("automatic_backup_retention_days");
         set => SetArgument("automatic_backup_retention_days", value);
     }
 
@@ -201,7 +201,7 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? BackupId
     {
-        get => new TerraformReference<string>(this, "backup_id");
+        get => GetArgument<TerraformValue<string>>("backup_id");
         set => SetArgument("backup_id", value);
     }
 
@@ -210,16 +210,16 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<bool>? CopyTagsToBackups
     {
-        get => new TerraformReference<bool>(this, "copy_tags_to_backups");
+        get => GetArgument<TerraformValue<bool>>("copy_tags_to_backups");
         set => SetArgument("copy_tags_to_backups", value);
     }
 
     /// <summary>
     /// The daily_automatic_backup_start_time attribute.
     /// </summary>
-    public TerraformValue<string> DailyAutomaticBackupStartTime
+    public TerraformValue<string>? DailyAutomaticBackupStartTime
     {
-        get => new TerraformReference<string>(this, "daily_automatic_backup_start_time");
+        get => GetArgument<TerraformValue<string>>("daily_automatic_backup_start_time");
         set => SetArgument("daily_automatic_backup_start_time", value);
     }
 
@@ -228,7 +228,7 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? DataCompressionType
     {
-        get => new TerraformReference<string>(this, "data_compression_type");
+        get => GetArgument<TerraformValue<string>>("data_compression_type");
         set => SetArgument("data_compression_type", value);
     }
 
@@ -237,7 +237,7 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? DeploymentType
     {
-        get => new TerraformReference<string>(this, "deployment_type");
+        get => GetArgument<TerraformValue<string>>("deployment_type");
         set => SetArgument("deployment_type", value);
     }
 
@@ -246,34 +246,34 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? DriveCacheType
     {
-        get => new TerraformReference<string>(this, "drive_cache_type");
+        get => GetArgument<TerraformValue<string>>("drive_cache_type");
         set => SetArgument("drive_cache_type", value);
     }
 
     /// <summary>
     /// The efa_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> EfaEnabled
+    public TerraformValue<bool>? EfaEnabled
     {
-        get => new TerraformReference<bool>(this, "efa_enabled");
+        get => GetArgument<TerraformValue<bool>>("efa_enabled");
         set => SetArgument("efa_enabled", value);
     }
 
     /// <summary>
     /// The export_path attribute.
     /// </summary>
-    public TerraformValue<string> ExportPath
+    public TerraformValue<string>? ExportPath
     {
-        get => new TerraformReference<string>(this, "export_path");
+        get => GetArgument<TerraformValue<string>>("export_path");
         set => SetArgument("export_path", value);
     }
 
     /// <summary>
     /// The file_system_type_version attribute.
     /// </summary>
-    public TerraformValue<string> FileSystemTypeVersion
+    public TerraformValue<string>? FileSystemTypeVersion
     {
-        get => new TerraformReference<string>(this, "file_system_type_version");
+        get => GetArgument<TerraformValue<string>>("file_system_type_version");
         set => SetArgument("file_system_type_version", value);
     }
 
@@ -282,16 +282,16 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? FinalBackupTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "final_backup_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("final_backup_tags");
         set => SetArgument("final_backup_tags", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -300,25 +300,25 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? ImportPath
     {
-        get => new TerraformReference<string>(this, "import_path");
+        get => GetArgument<TerraformValue<string>>("import_path");
         set => SetArgument("import_path", value);
     }
 
     /// <summary>
     /// The imported_file_chunk_size attribute.
     /// </summary>
-    public TerraformValue<double> ImportedFileChunkSize
+    public TerraformValue<double>? ImportedFileChunkSize
     {
-        get => new TerraformReference<double>(this, "imported_file_chunk_size");
+        get => GetArgument<TerraformValue<double>>("imported_file_chunk_size");
         set => SetArgument("imported_file_chunk_size", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string> KmsKeyId
+    public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -327,16 +327,16 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<double>? PerUnitStorageThroughput
     {
-        get => new TerraformReference<double>(this, "per_unit_storage_throughput");
+        get => GetArgument<TerraformValue<double>>("per_unit_storage_throughput");
         set => SetArgument("per_unit_storage_throughput", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -345,7 +345,7 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformSet<string>? SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -354,7 +354,7 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<bool>? SkipFinalBackup
     {
-        get => new TerraformReference<bool>(this, "skip_final_backup");
+        get => GetArgument<TerraformValue<bool>>("skip_final_backup");
         set => SetArgument("skip_final_backup", value);
     }
 
@@ -363,7 +363,7 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<double>? StorageCapacity
     {
-        get => new TerraformReference<double>(this, "storage_capacity");
+        get => GetArgument<TerraformValue<double>>("storage_capacity");
         set => SetArgument("storage_capacity", value);
     }
 
@@ -372,7 +372,7 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? StorageType
     {
-        get => new TerraformReference<string>(this, "storage_type");
+        get => GetArgument<TerraformValue<string>>("storage_type");
         set => SetArgument("storage_type", value);
     }
 
@@ -382,7 +382,7 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public TerraformList<string>? SubnetIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -391,16 +391,16 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -409,16 +409,16 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<double>? ThroughputCapacity
     {
-        get => new TerraformReference<double>(this, "throughput_capacity");
+        get => GetArgument<TerraformValue<double>>("throughput_capacity");
         set => SetArgument("throughput_capacity", value);
     }
 
     /// <summary>
     /// The weekly_maintenance_start_time attribute.
     /// </summary>
-    public TerraformValue<string> WeeklyMaintenanceStartTime
+    public TerraformValue<string>? WeeklyMaintenanceStartTime
     {
-        get => new TerraformReference<string>(this, "weekly_maintenance_start_time");
+        get => GetArgument<TerraformValue<string>>("weekly_maintenance_start_time");
         set => SetArgument("weekly_maintenance_start_time", value);
     }
 
@@ -426,49 +426,37 @@ public partial class AwsFsxLustreFileSystem(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
     public TerraformValue<string> DnsName
-    {
-        get => new TerraformReference<string>(this, "dns_name");
-    }
+        => AsReference("dns_name");
 
     /// <summary>
     /// The mount_name attribute.
     /// </summary>
     public TerraformValue<string> MountName
-    {
-        get => new TerraformReference<string>(this, "mount_name");
-    }
+        => AsReference("mount_name");
 
     /// <summary>
     /// The network_interface_ids attribute.
     /// </summary>
     public TerraformList<string> NetworkInterfaceIds
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "network_interface_ids").ResolveNodes(ctx));
-    }
+        => AsReference("network_interface_ids");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     public TerraformValue<string> VpcId
-    {
-        get => new TerraformReference<string>(this, "vpc_id");
-    }
+        => AsReference("vpc_id");
 
     /// <summary>
     /// DataReadCacheConfiguration block (nesting mode: list).

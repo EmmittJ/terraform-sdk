@@ -24,7 +24,7 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => new TerraformReference<string>(this, "cluster_id");
+        get => GetArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
@@ -79,7 +79,7 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlockAutoscalingSett
     /// </summary>
     public TerraformValue<string>? CoolDownPeriod
     {
-        get => new TerraformReference<string>(this, "cool_down_period");
+        get => GetArgument<TerraformValue<string>>("cool_down_period");
         set => SetArgument("cool_down_period", value);
     }
 
@@ -89,7 +89,7 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlockAutoscalingSett
     /// </summary>
     public TerraformValue<double>? MaxClusterNodeCount
     {
-        get => new TerraformReference<double>(this, "max_cluster_node_count");
+        get => GetArgument<TerraformValue<double>>("max_cluster_node_count");
         set => SetArgument("max_cluster_node_count", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlockAutoscalingSett
     /// </summary>
     public TerraformValue<double>? MinClusterNodeCount
     {
-        get => new TerraformReference<double>(this, "min_cluster_node_count");
+        get => GetArgument<TerraformValue<double>>("min_cluster_node_count");
         set => SetArgument("min_cluster_node_count", value);
     }
 
@@ -134,7 +134,7 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlockAutoscalingSett
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalePolicyId is required")]
     public required TerraformValue<string> AutoscalePolicyId
     {
-        get => new TerraformReference<string>(this, "autoscale_policy_id");
+        get => GetArgument<TerraformValue<string>>("autoscale_policy_id");
         set => SetArgument("autoscale_policy_id", value);
     }
 
@@ -144,7 +144,7 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlockAutoscalingSett
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeTypeId is required")]
     public required TerraformValue<string> NodeTypeId
     {
-        get => new TerraformReference<string>(this, "node_type_id");
+        get => GetArgument<TerraformValue<string>>("node_type_id");
         set => SetArgument("node_type_id", value);
     }
 
@@ -155,7 +155,7 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlockAutoscalingSett
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleOutSize is required")]
     public required TerraformValue<double> ScaleOutSize
     {
-        get => new TerraformReference<double>(this, "scale_out_size");
+        get => GetArgument<TerraformValue<double>>("scale_out_size");
         set => SetArgument("scale_out_size", value);
     }
 
@@ -208,7 +208,7 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlockAutoscalingSett
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleIn is required")]
     public required TerraformValue<double> ScaleIn
     {
-        get => new TerraformReference<double>(this, "scale_in");
+        get => GetArgument<TerraformValue<double>>("scale_in");
         set => SetArgument("scale_in", value);
     }
 
@@ -218,7 +218,7 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlockAutoscalingSett
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleOut is required")]
     public required TerraformValue<double> ScaleOut
     {
-        get => new TerraformReference<double>(this, "scale_out");
+        get => GetArgument<TerraformValue<double>>("scale_out");
         set => SetArgument("scale_out", value);
     }
 
@@ -241,7 +241,7 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlockAutoscalingSett
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleIn is required")]
     public required TerraformValue<double> ScaleIn
     {
-        get => new TerraformReference<double>(this, "scale_in");
+        get => GetArgument<TerraformValue<double>>("scale_in");
         set => SetArgument("scale_in", value);
     }
 
@@ -251,7 +251,7 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlockAutoscalingSett
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleOut is required")]
     public required TerraformValue<double> ScaleOut
     {
-        get => new TerraformReference<double>(this, "scale_out");
+        get => GetArgument<TerraformValue<double>>("scale_out");
         set => SetArgument("scale_out", value);
     }
 
@@ -274,7 +274,7 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlockAutoscalingSett
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleIn is required")]
     public required TerraformValue<double> ScaleIn
     {
-        get => new TerraformReference<double>(this, "scale_in");
+        get => GetArgument<TerraformValue<double>>("scale_in");
         set => SetArgument("scale_in", value);
     }
 
@@ -284,7 +284,7 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlockAutoscalingSett
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleOut is required")]
     public required TerraformValue<double> ScaleOut
     {
-        get => new TerraformReference<double>(this, "scale_out");
+        get => GetArgument<TerraformValue<double>>("scale_out");
         set => SetArgument("scale_out", value);
     }
 
@@ -309,7 +309,7 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlockNodeTypeConfigs
     /// </summary>
     public TerraformValue<double>? CustomCoreCount
     {
-        get => new TerraformReference<double>(this, "custom_core_count");
+        get => GetArgument<TerraformValue<double>>("custom_core_count");
         set => SetArgument("custom_core_count", value);
     }
 
@@ -319,7 +319,7 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlockNodeTypeConfigs
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformValue<double> NodeCount
     {
-        get => new TerraformReference<double>(this, "node_count");
+        get => GetArgument<TerraformValue<double>>("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -329,7 +329,7 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlockNodeTypeConfigs
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeTypeId is required")]
     public required TerraformValue<string> NodeTypeId
     {
-        get => new TerraformReference<string>(this, "node_type_id");
+        get => GetArgument<TerraformValue<string>>("node_type_id");
         set => SetArgument("node_type_id", value);
     }
 
@@ -352,7 +352,7 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlockStretchedCluste
     /// </summary>
     public TerraformValue<string>? PreferredLocation
     {
-        get => new TerraformReference<string>(this, "preferred_location");
+        get => GetArgument<TerraformValue<string>>("preferred_location");
         set => SetArgument("preferred_location", value);
     }
 
@@ -362,7 +362,7 @@ public class GoogleVmwareenginePrivateCloudManagementClusterBlockStretchedCluste
     /// </summary>
     public TerraformValue<string>? SecondaryLocation
     {
-        get => new TerraformReference<string>(this, "secondary_location");
+        get => GetArgument<TerraformValue<string>>("secondary_location");
         set => SetArgument("secondary_location", value);
     }
 
@@ -384,9 +384,7 @@ public class GoogleVmwareenginePrivateCloudNetworkConfigBlock : TerraformBlock
     /// DNS Server IP of the Private Cloud.
     /// </summary>
     public TerraformValue<string> DnsServerIp
-    {
-        get => new TerraformReference<string>(this, "dns_server_ip");
-    }
+        => AsReference("dns_server_ip");
 
     /// <summary>
     /// Management CIDR used by VMware management appliances.
@@ -394,7 +392,7 @@ public class GoogleVmwareenginePrivateCloudNetworkConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementCidr is required")]
     public required TerraformValue<string> ManagementCidr
     {
-        get => new TerraformReference<string>(this, "management_cidr");
+        get => GetArgument<TerraformValue<string>>("management_cidr");
         set => SetArgument("management_cidr", value);
     }
 
@@ -407,9 +405,7 @@ public class GoogleVmwareenginePrivateCloudNetworkConfigBlock : TerraformBlock
     /// used by all newly created private clouds. This version supports all current features.
     /// </summary>
     public TerraformValue<double> ManagementIpAddressLayoutVersion
-    {
-        get => new TerraformReference<double>(this, "management_ip_address_layout_version");
-    }
+        => AsReference("management_ip_address_layout_version");
 
     /// <summary>
     /// The relative resource name of the VMware Engine network attached to the private cloud.
@@ -418,7 +414,7 @@ public class GoogleVmwareenginePrivateCloudNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? VmwareEngineNetwork
     {
-        get => new TerraformReference<string>(this, "vmware_engine_network");
+        get => GetArgument<TerraformValue<string>>("vmware_engine_network");
         set => SetArgument("vmware_engine_network", value);
     }
 
@@ -427,9 +423,7 @@ public class GoogleVmwareenginePrivateCloudNetworkConfigBlock : TerraformBlock
     /// the form: projects/{project_number}/locations/{location}/vmwareEngineNetworks/{vmwareEngineNetworkId}
     /// </summary>
     public TerraformValue<string> VmwareEngineNetworkCanonical
-    {
-        get => new TerraformReference<string>(this, "vmware_engine_network_canonical");
-    }
+        => AsReference("vmware_engine_network_canonical");
 
 }
 
@@ -450,7 +444,7 @@ public class GoogleVmwareenginePrivateCloudTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -459,7 +453,7 @@ public class GoogleVmwareenginePrivateCloudTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -468,7 +462,7 @@ public class GoogleVmwareenginePrivateCloudTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -486,7 +480,7 @@ public partial class GoogleVmwareenginePrivateCloud(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double>? DeletionDelayHours
     {
-        get => new TerraformReference<double>(this, "deletion_delay_hours");
+        get => GetArgument<TerraformValue<double>>("deletion_delay_hours");
         set => SetArgument("deletion_delay_hours", value);
     }
 
@@ -495,16 +489,16 @@ public partial class GoogleVmwareenginePrivateCloud(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -514,7 +508,7 @@ public partial class GoogleVmwareenginePrivateCloud(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -524,16 +518,16 @@ public partial class GoogleVmwareenginePrivateCloud(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -542,7 +536,7 @@ public partial class GoogleVmwareenginePrivateCloud(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? SendDeletionDelayHoursIfZero
     {
-        get => new TerraformReference<bool>(this, "send_deletion_delay_hours_if_zero");
+        get => GetArgument<TerraformValue<bool>>("send_deletion_delay_hours_if_zero");
         set => SetArgument("send_deletion_delay_hours_if_zero", value);
     }
 
@@ -551,7 +545,7 @@ public partial class GoogleVmwareenginePrivateCloud(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -561,9 +555,7 @@ public partial class GoogleVmwareenginePrivateCloud(string name) : TerraformReso
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Time when the resource was scheduled for deletion.
@@ -571,9 +563,7 @@ public partial class GoogleVmwareenginePrivateCloud(string name) : TerraformReso
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> DeleteTime
-    {
-        get => new TerraformReference<string>(this, "delete_time");
-    }
+        => AsReference("delete_time");
 
     /// <summary>
     /// Time when the resource will be irreversibly deleted.
@@ -581,41 +571,31 @@ public partial class GoogleVmwareenginePrivateCloud(string name) : TerraformReso
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> ExpireTime
-    {
-        get => new TerraformReference<string>(this, "expire_time");
-    }
+        => AsReference("expire_time");
 
     /// <summary>
     /// Details about a HCX Cloud Manager appliance.
     /// </summary>
     public TerraformList<TerraformMap<object>> Hcx
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "hcx").ResolveNodes(ctx));
-    }
+        => AsReference("hcx");
 
     /// <summary>
     /// Details about a NSX Manager appliance.
     /// </summary>
     public TerraformList<TerraformMap<object>> Nsx
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "nsx").ResolveNodes(ctx));
-    }
+        => AsReference("nsx");
 
     /// <summary>
     /// State of the resource. New values may be added to this enum when appropriate.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Last update time of this resource.
@@ -623,17 +603,13 @@ public partial class GoogleVmwareenginePrivateCloud(string name) : TerraformReso
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Details about a vCenter Server management appliance.
     /// </summary>
     public TerraformList<TerraformMap<object>> Vcenter
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "vcenter").ResolveNodes(ctx));
-    }
+        => AsReference("vcenter");
 
     /// <summary>
     /// ManagementCluster block (nesting mode: list).

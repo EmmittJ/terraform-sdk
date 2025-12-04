@@ -18,7 +18,7 @@ public class AzurermOracleGiVersionsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermOracleGiVersionsDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermOracleGiVersionsDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermOracleGiVersionsDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string>? Shape
     {
-        get => new TerraformReference<string>(this, "shape");
+        get => GetArgument<TerraformValue<string>>("shape");
         set => SetArgument("shape", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermOracleGiVersionsDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -72,9 +72,7 @@ public partial class AzurermOracleGiVersionsDataSource(string name) : TerraformD
     /// The versions attribute.
     /// </summary>
     public TerraformList<string> Versions
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "versions").ResolveNodes(ctx));
-    }
+        => AsReference("versions");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

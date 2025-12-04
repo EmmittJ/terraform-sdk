@@ -18,7 +18,7 @@ public class AwsVolumeAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsVolumeAttachmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AwsVolumeAttachment(string name) : TerraformResource("aws_v
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceName is required")]
     public required TerraformValue<string> DeviceName
     {
-        get => new TerraformReference<string>(this, "device_name");
+        get => GetArgument<TerraformValue<string>>("device_name");
         set => SetArgument("device_name", value);
     }
 
@@ -55,16 +55,16 @@ public partial class AwsVolumeAttachment(string name) : TerraformResource("aws_v
     /// </summary>
     public TerraformValue<bool>? ForceDetach
     {
-        get => new TerraformReference<bool>(this, "force_detach");
+        get => GetArgument<TerraformValue<bool>>("force_detach");
         set => SetArgument("force_detach", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -74,16 +74,16 @@ public partial class AwsVolumeAttachment(string name) : TerraformResource("aws_v
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => new TerraformReference<string>(this, "instance_id");
+        get => GetArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AwsVolumeAttachment(string name) : TerraformResource("aws_v
     /// </summary>
     public TerraformValue<bool>? SkipDestroy
     {
-        get => new TerraformReference<bool>(this, "skip_destroy");
+        get => GetArgument<TerraformValue<bool>>("skip_destroy");
         set => SetArgument("skip_destroy", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AwsVolumeAttachment(string name) : TerraformResource("aws_v
     /// </summary>
     public TerraformValue<bool>? StopInstanceBeforeDetaching
     {
-        get => new TerraformReference<bool>(this, "stop_instance_before_detaching");
+        get => GetArgument<TerraformValue<bool>>("stop_instance_before_detaching");
         set => SetArgument("stop_instance_before_detaching", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AwsVolumeAttachment(string name) : TerraformResource("aws_v
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeId is required")]
     public required TerraformValue<string> VolumeId
     {
-        get => new TerraformReference<string>(this, "volume_id");
+        get => GetArgument<TerraformValue<string>>("volume_id");
         set => SetArgument("volume_id", value);
     }
 

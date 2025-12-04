@@ -18,7 +18,7 @@ public class AzurermNotificationHubNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermNotificationHubNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermNotificationHubNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermNotificationHubNamespaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AzurermNotificationHubNamespace(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermNotificationHubNamespace(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermNotificationHubNamespace(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermNotificationHubNamespace(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceType is required")]
     public required TerraformValue<string> NamespaceType
     {
-        get => new TerraformReference<string>(this, "namespace_type");
+        get => GetArgument<TerraformValue<string>>("namespace_type");
         set => SetArgument("namespace_type", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermNotificationHubNamespace(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? ReplicationRegion
     {
-        get => new TerraformReference<string>(this, "replication_region");
+        get => GetArgument<TerraformValue<string>>("replication_region");
         set => SetArgument("replication_region", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermNotificationHubNamespace(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermNotificationHubNamespace(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
     public required TerraformValue<string> SkuName
     {
-        get => new TerraformReference<string>(this, "sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AzurermNotificationHubNamespace(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -149,7 +149,7 @@ public partial class AzurermNotificationHubNamespace(string name) : TerraformRes
     /// </summary>
     public TerraformValue<bool>? ZoneRedundancyEnabled
     {
-        get => new TerraformReference<bool>(this, "zone_redundancy_enabled");
+        get => GetArgument<TerraformValue<bool>>("zone_redundancy_enabled");
         set => SetArgument("zone_redundancy_enabled", value);
     }
 
@@ -157,9 +157,7 @@ public partial class AzurermNotificationHubNamespace(string name) : TerraformRes
     /// The servicebus_endpoint attribute.
     /// </summary>
     public TerraformValue<string> ServicebusEndpoint
-    {
-        get => new TerraformReference<string>(this, "servicebus_endpoint");
-    }
+        => AsReference("servicebus_endpoint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

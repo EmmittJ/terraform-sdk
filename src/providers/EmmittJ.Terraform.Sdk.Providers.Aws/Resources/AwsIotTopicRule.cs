@@ -19,7 +19,7 @@ public class AwsIotTopicRuleCloudwatchAlarmBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmName is required")]
     public required TerraformValue<string> AlarmName
     {
-        get => new TerraformReference<string>(this, "alarm_name");
+        get => GetArgument<TerraformValue<string>>("alarm_name");
         set => SetArgument("alarm_name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsIotTopicRuleCloudwatchAlarmBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsIotTopicRuleCloudwatchAlarmBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StateReason is required")]
     public required TerraformValue<string> StateReason
     {
-        get => new TerraformReference<string>(this, "state_reason");
+        get => GetArgument<TerraformValue<string>>("state_reason");
         set => SetArgument("state_reason", value);
     }
 
@@ -49,7 +49,7 @@ public class AwsIotTopicRuleCloudwatchAlarmBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StateValue is required")]
     public required TerraformValue<string> StateValue
     {
-        get => new TerraformReference<string>(this, "state_value");
+        get => GetArgument<TerraformValue<string>>("state_value");
         set => SetArgument("state_value", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsIotTopicRuleCloudwatchLogsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? BatchMode
     {
-        get => new TerraformReference<bool>(this, "batch_mode");
+        get => GetArgument<TerraformValue<bool>>("batch_mode");
         set => SetArgument("batch_mode", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsIotTopicRuleCloudwatchLogsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformValue<string> LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -92,7 +92,7 @@ public class AwsIotTopicRuleCloudwatchLogsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsIotTopicRuleCloudwatchMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformValue<string> MetricName
     {
-        get => new TerraformReference<string>(this, "metric_name");
+        get => GetArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsIotTopicRuleCloudwatchMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricNamespace is required")]
     public required TerraformValue<string> MetricNamespace
     {
-        get => new TerraformReference<string>(this, "metric_namespace");
+        get => GetArgument<TerraformValue<string>>("metric_namespace");
         set => SetArgument("metric_namespace", value);
     }
 
@@ -135,7 +135,7 @@ public class AwsIotTopicRuleCloudwatchMetricBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MetricTimestamp
     {
-        get => new TerraformReference<string>(this, "metric_timestamp");
+        get => GetArgument<TerraformValue<string>>("metric_timestamp");
         set => SetArgument("metric_timestamp", value);
     }
 
@@ -145,7 +145,7 @@ public class AwsIotTopicRuleCloudwatchMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricUnit is required")]
     public required TerraformValue<string> MetricUnit
     {
-        get => new TerraformReference<string>(this, "metric_unit");
+        get => GetArgument<TerraformValue<string>>("metric_unit");
         set => SetArgument("metric_unit", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsIotTopicRuleCloudwatchMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricValue is required")]
     public required TerraformValue<string> MetricValue
     {
-        get => new TerraformReference<string>(this, "metric_value");
+        get => GetArgument<TerraformValue<string>>("metric_value");
         set => SetArgument("metric_value", value);
     }
 
@@ -165,7 +165,7 @@ public class AwsIotTopicRuleCloudwatchMetricBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -189,7 +189,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HashKeyField is required")]
     public required TerraformValue<string> HashKeyField
     {
-        get => new TerraformReference<string>(this, "hash_key_field");
+        get => GetArgument<TerraformValue<string>>("hash_key_field");
         set => SetArgument("hash_key_field", value);
     }
 
@@ -198,7 +198,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? HashKeyType
     {
-        get => new TerraformReference<string>(this, "hash_key_type");
+        get => GetArgument<TerraformValue<string>>("hash_key_type");
         set => SetArgument("hash_key_type", value);
     }
 
@@ -208,7 +208,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HashKeyValue is required")]
     public required TerraformValue<string> HashKeyValue
     {
-        get => new TerraformReference<string>(this, "hash_key_value");
+        get => GetArgument<TerraformValue<string>>("hash_key_value");
         set => SetArgument("hash_key_value", value);
     }
 
@@ -217,7 +217,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Operation
     {
-        get => new TerraformReference<string>(this, "operation");
+        get => GetArgument<TerraformValue<string>>("operation");
         set => SetArgument("operation", value);
     }
 
@@ -226,7 +226,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PayloadField
     {
-        get => new TerraformReference<string>(this, "payload_field");
+        get => GetArgument<TerraformValue<string>>("payload_field");
         set => SetArgument("payload_field", value);
     }
 
@@ -235,7 +235,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RangeKeyField
     {
-        get => new TerraformReference<string>(this, "range_key_field");
+        get => GetArgument<TerraformValue<string>>("range_key_field");
         set => SetArgument("range_key_field", value);
     }
 
@@ -244,7 +244,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RangeKeyType
     {
-        get => new TerraformReference<string>(this, "range_key_type");
+        get => GetArgument<TerraformValue<string>>("range_key_type");
         set => SetArgument("range_key_type", value);
     }
 
@@ -253,7 +253,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RangeKeyValue
     {
-        get => new TerraformReference<string>(this, "range_key_value");
+        get => GetArgument<TerraformValue<string>>("range_key_value");
         set => SetArgument("range_key_value", value);
     }
 
@@ -263,7 +263,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -273,7 +273,7 @@ public class AwsIotTopicRuleDynamodbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -297,7 +297,7 @@ public class AwsIotTopicRuleDynamodbv2Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -330,7 +330,7 @@ public class AwsIotTopicRuleDynamodbv2BlockPutItemBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -354,7 +354,7 @@ public class AwsIotTopicRuleElasticsearchBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformValue<string> Endpoint
     {
-        get => new TerraformReference<string>(this, "endpoint");
+        get => GetArgument<TerraformValue<string>>("endpoint");
         set => SetArgument("endpoint", value);
     }
 
@@ -364,7 +364,7 @@ public class AwsIotTopicRuleElasticsearchBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -374,7 +374,7 @@ public class AwsIotTopicRuleElasticsearchBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Index is required")]
     public required TerraformValue<string> Index
     {
-        get => new TerraformReference<string>(this, "index");
+        get => GetArgument<TerraformValue<string>>("index");
         set => SetArgument("index", value);
     }
 
@@ -384,7 +384,7 @@ public class AwsIotTopicRuleElasticsearchBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -394,7 +394,7 @@ public class AwsIotTopicRuleElasticsearchBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -621,7 +621,7 @@ public class AwsIotTopicRuleErrorActionBlockCloudwatchAlarmBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmName is required")]
     public required TerraformValue<string> AlarmName
     {
-        get => new TerraformReference<string>(this, "alarm_name");
+        get => GetArgument<TerraformValue<string>>("alarm_name");
         set => SetArgument("alarm_name", value);
     }
 
@@ -631,7 +631,7 @@ public class AwsIotTopicRuleErrorActionBlockCloudwatchAlarmBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -641,7 +641,7 @@ public class AwsIotTopicRuleErrorActionBlockCloudwatchAlarmBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StateReason is required")]
     public required TerraformValue<string> StateReason
     {
-        get => new TerraformReference<string>(this, "state_reason");
+        get => GetArgument<TerraformValue<string>>("state_reason");
         set => SetArgument("state_reason", value);
     }
 
@@ -651,7 +651,7 @@ public class AwsIotTopicRuleErrorActionBlockCloudwatchAlarmBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StateValue is required")]
     public required TerraformValue<string> StateValue
     {
-        get => new TerraformReference<string>(this, "state_value");
+        get => GetArgument<TerraformValue<string>>("state_value");
         set => SetArgument("state_value", value);
     }
 
@@ -673,7 +673,7 @@ public class AwsIotTopicRuleErrorActionBlockCloudwatchLogsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? BatchMode
     {
-        get => new TerraformReference<bool>(this, "batch_mode");
+        get => GetArgument<TerraformValue<bool>>("batch_mode");
         set => SetArgument("batch_mode", value);
     }
 
@@ -683,7 +683,7 @@ public class AwsIotTopicRuleErrorActionBlockCloudwatchLogsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
     public required TerraformValue<string> LogGroupName
     {
-        get => new TerraformReference<string>(this, "log_group_name");
+        get => GetArgument<TerraformValue<string>>("log_group_name");
         set => SetArgument("log_group_name", value);
     }
 
@@ -693,7 +693,7 @@ public class AwsIotTopicRuleErrorActionBlockCloudwatchLogsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -716,7 +716,7 @@ public class AwsIotTopicRuleErrorActionBlockCloudwatchMetricBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformValue<string> MetricName
     {
-        get => new TerraformReference<string>(this, "metric_name");
+        get => GetArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -726,7 +726,7 @@ public class AwsIotTopicRuleErrorActionBlockCloudwatchMetricBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricNamespace is required")]
     public required TerraformValue<string> MetricNamespace
     {
-        get => new TerraformReference<string>(this, "metric_namespace");
+        get => GetArgument<TerraformValue<string>>("metric_namespace");
         set => SetArgument("metric_namespace", value);
     }
 
@@ -735,7 +735,7 @@ public class AwsIotTopicRuleErrorActionBlockCloudwatchMetricBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? MetricTimestamp
     {
-        get => new TerraformReference<string>(this, "metric_timestamp");
+        get => GetArgument<TerraformValue<string>>("metric_timestamp");
         set => SetArgument("metric_timestamp", value);
     }
 
@@ -745,7 +745,7 @@ public class AwsIotTopicRuleErrorActionBlockCloudwatchMetricBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricUnit is required")]
     public required TerraformValue<string> MetricUnit
     {
-        get => new TerraformReference<string>(this, "metric_unit");
+        get => GetArgument<TerraformValue<string>>("metric_unit");
         set => SetArgument("metric_unit", value);
     }
 
@@ -755,7 +755,7 @@ public class AwsIotTopicRuleErrorActionBlockCloudwatchMetricBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricValue is required")]
     public required TerraformValue<string> MetricValue
     {
-        get => new TerraformReference<string>(this, "metric_value");
+        get => GetArgument<TerraformValue<string>>("metric_value");
         set => SetArgument("metric_value", value);
     }
 
@@ -765,7 +765,7 @@ public class AwsIotTopicRuleErrorActionBlockCloudwatchMetricBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -788,7 +788,7 @@ public class AwsIotTopicRuleErrorActionBlockDynamodbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HashKeyField is required")]
     public required TerraformValue<string> HashKeyField
     {
-        get => new TerraformReference<string>(this, "hash_key_field");
+        get => GetArgument<TerraformValue<string>>("hash_key_field");
         set => SetArgument("hash_key_field", value);
     }
 
@@ -797,7 +797,7 @@ public class AwsIotTopicRuleErrorActionBlockDynamodbBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? HashKeyType
     {
-        get => new TerraformReference<string>(this, "hash_key_type");
+        get => GetArgument<TerraformValue<string>>("hash_key_type");
         set => SetArgument("hash_key_type", value);
     }
 
@@ -807,7 +807,7 @@ public class AwsIotTopicRuleErrorActionBlockDynamodbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HashKeyValue is required")]
     public required TerraformValue<string> HashKeyValue
     {
-        get => new TerraformReference<string>(this, "hash_key_value");
+        get => GetArgument<TerraformValue<string>>("hash_key_value");
         set => SetArgument("hash_key_value", value);
     }
 
@@ -816,7 +816,7 @@ public class AwsIotTopicRuleErrorActionBlockDynamodbBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Operation
     {
-        get => new TerraformReference<string>(this, "operation");
+        get => GetArgument<TerraformValue<string>>("operation");
         set => SetArgument("operation", value);
     }
 
@@ -825,7 +825,7 @@ public class AwsIotTopicRuleErrorActionBlockDynamodbBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PayloadField
     {
-        get => new TerraformReference<string>(this, "payload_field");
+        get => GetArgument<TerraformValue<string>>("payload_field");
         set => SetArgument("payload_field", value);
     }
 
@@ -834,7 +834,7 @@ public class AwsIotTopicRuleErrorActionBlockDynamodbBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RangeKeyField
     {
-        get => new TerraformReference<string>(this, "range_key_field");
+        get => GetArgument<TerraformValue<string>>("range_key_field");
         set => SetArgument("range_key_field", value);
     }
 
@@ -843,7 +843,7 @@ public class AwsIotTopicRuleErrorActionBlockDynamodbBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RangeKeyType
     {
-        get => new TerraformReference<string>(this, "range_key_type");
+        get => GetArgument<TerraformValue<string>>("range_key_type");
         set => SetArgument("range_key_type", value);
     }
 
@@ -852,7 +852,7 @@ public class AwsIotTopicRuleErrorActionBlockDynamodbBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RangeKeyValue
     {
-        get => new TerraformReference<string>(this, "range_key_value");
+        get => GetArgument<TerraformValue<string>>("range_key_value");
         set => SetArgument("range_key_value", value);
     }
 
@@ -862,7 +862,7 @@ public class AwsIotTopicRuleErrorActionBlockDynamodbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -872,7 +872,7 @@ public class AwsIotTopicRuleErrorActionBlockDynamodbBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -895,7 +895,7 @@ public class AwsIotTopicRuleErrorActionBlockDynamodbv2Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -928,7 +928,7 @@ public class AwsIotTopicRuleErrorActionBlockDynamodbv2BlockPutItemBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -951,7 +951,7 @@ public class AwsIotTopicRuleErrorActionBlockElasticsearchBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformValue<string> Endpoint
     {
-        get => new TerraformReference<string>(this, "endpoint");
+        get => GetArgument<TerraformValue<string>>("endpoint");
         set => SetArgument("endpoint", value);
     }
 
@@ -961,7 +961,7 @@ public class AwsIotTopicRuleErrorActionBlockElasticsearchBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -971,7 +971,7 @@ public class AwsIotTopicRuleErrorActionBlockElasticsearchBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Index is required")]
     public required TerraformValue<string> Index
     {
-        get => new TerraformReference<string>(this, "index");
+        get => GetArgument<TerraformValue<string>>("index");
         set => SetArgument("index", value);
     }
 
@@ -981,7 +981,7 @@ public class AwsIotTopicRuleErrorActionBlockElasticsearchBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -991,7 +991,7 @@ public class AwsIotTopicRuleErrorActionBlockElasticsearchBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1013,7 +1013,7 @@ public class AwsIotTopicRuleErrorActionBlockFirehoseBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? BatchMode
     {
-        get => new TerraformReference<bool>(this, "batch_mode");
+        get => GetArgument<TerraformValue<bool>>("batch_mode");
         set => SetArgument("batch_mode", value);
     }
 
@@ -1023,7 +1023,7 @@ public class AwsIotTopicRuleErrorActionBlockFirehoseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryStreamName is required")]
     public required TerraformValue<string> DeliveryStreamName
     {
-        get => new TerraformReference<string>(this, "delivery_stream_name");
+        get => GetArgument<TerraformValue<string>>("delivery_stream_name");
         set => SetArgument("delivery_stream_name", value);
     }
 
@@ -1033,7 +1033,7 @@ public class AwsIotTopicRuleErrorActionBlockFirehoseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1042,7 +1042,7 @@ public class AwsIotTopicRuleErrorActionBlockFirehoseBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Separator
     {
-        get => new TerraformReference<string>(this, "separator");
+        get => GetArgument<TerraformValue<string>>("separator");
         set => SetArgument("separator", value);
     }
 
@@ -1064,7 +1064,7 @@ public class AwsIotTopicRuleErrorActionBlockHttpBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConfirmationUrl
     {
-        get => new TerraformReference<string>(this, "confirmation_url");
+        get => GetArgument<TerraformValue<string>>("confirmation_url");
         set => SetArgument("confirmation_url", value);
     }
 
@@ -1074,7 +1074,7 @@ public class AwsIotTopicRuleErrorActionBlockHttpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -1106,7 +1106,7 @@ public class AwsIotTopicRuleErrorActionBlockHttpBlockHttpHeaderBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1116,7 +1116,7 @@ public class AwsIotTopicRuleErrorActionBlockHttpBlockHttpHeaderBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1138,7 +1138,7 @@ public class AwsIotTopicRuleErrorActionBlockIotAnalyticsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? BatchMode
     {
-        get => new TerraformReference<bool>(this, "batch_mode");
+        get => GetArgument<TerraformValue<bool>>("batch_mode");
         set => SetArgument("batch_mode", value);
     }
 
@@ -1148,7 +1148,7 @@ public class AwsIotTopicRuleErrorActionBlockIotAnalyticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChannelName is required")]
     public required TerraformValue<string> ChannelName
     {
-        get => new TerraformReference<string>(this, "channel_name");
+        get => GetArgument<TerraformValue<string>>("channel_name");
         set => SetArgument("channel_name", value);
     }
 
@@ -1158,7 +1158,7 @@ public class AwsIotTopicRuleErrorActionBlockIotAnalyticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1180,7 +1180,7 @@ public class AwsIotTopicRuleErrorActionBlockIotEventsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? BatchMode
     {
-        get => new TerraformReference<bool>(this, "batch_mode");
+        get => GetArgument<TerraformValue<bool>>("batch_mode");
         set => SetArgument("batch_mode", value);
     }
 
@@ -1190,7 +1190,7 @@ public class AwsIotTopicRuleErrorActionBlockIotEventsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputName is required")]
     public required TerraformValue<string> InputName
     {
-        get => new TerraformReference<string>(this, "input_name");
+        get => GetArgument<TerraformValue<string>>("input_name");
         set => SetArgument("input_name", value);
     }
 
@@ -1199,7 +1199,7 @@ public class AwsIotTopicRuleErrorActionBlockIotEventsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MessageId
     {
-        get => new TerraformReference<string>(this, "message_id");
+        get => GetArgument<TerraformValue<string>>("message_id");
         set => SetArgument("message_id", value);
     }
 
@@ -1209,7 +1209,7 @@ public class AwsIotTopicRuleErrorActionBlockIotEventsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1232,7 +1232,7 @@ public class AwsIotTopicRuleErrorActionBlockKafkaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientProperties is required")]
     public required TerraformMap<string> ClientProperties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "client_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("client_properties");
         set => SetArgument("client_properties", value);
     }
 
@@ -1242,7 +1242,7 @@ public class AwsIotTopicRuleErrorActionBlockKafkaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformValue<string> DestinationArn
     {
-        get => new TerraformReference<string>(this, "destination_arn");
+        get => GetArgument<TerraformValue<string>>("destination_arn");
         set => SetArgument("destination_arn", value);
     }
 
@@ -1251,7 +1251,7 @@ public class AwsIotTopicRuleErrorActionBlockKafkaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1260,7 +1260,7 @@ public class AwsIotTopicRuleErrorActionBlockKafkaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Partition
     {
-        get => new TerraformReference<string>(this, "partition");
+        get => GetArgument<TerraformValue<string>>("partition");
         set => SetArgument("partition", value);
     }
 
@@ -1270,7 +1270,7 @@ public class AwsIotTopicRuleErrorActionBlockKafkaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformValue<string> Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -1302,7 +1302,7 @@ public class AwsIotTopicRuleErrorActionBlockKafkaBlockHeaderBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1312,7 +1312,7 @@ public class AwsIotTopicRuleErrorActionBlockKafkaBlockHeaderBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1334,7 +1334,7 @@ public class AwsIotTopicRuleErrorActionBlockKinesisBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PartitionKey
     {
-        get => new TerraformReference<string>(this, "partition_key");
+        get => GetArgument<TerraformValue<string>>("partition_key");
         set => SetArgument("partition_key", value);
     }
 
@@ -1344,7 +1344,7 @@ public class AwsIotTopicRuleErrorActionBlockKinesisBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1354,7 +1354,7 @@ public class AwsIotTopicRuleErrorActionBlockKinesisBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamName is required")]
     public required TerraformValue<string> StreamName
     {
-        get => new TerraformReference<string>(this, "stream_name");
+        get => GetArgument<TerraformValue<string>>("stream_name");
         set => SetArgument("stream_name", value);
     }
 
@@ -1377,7 +1377,7 @@ public class AwsIotTopicRuleErrorActionBlockLambdaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionArn is required")]
     public required TerraformValue<string> FunctionArn
     {
-        get => new TerraformReference<string>(this, "function_arn");
+        get => GetArgument<TerraformValue<string>>("function_arn");
         set => SetArgument("function_arn", value);
     }
 
@@ -1399,7 +1399,7 @@ public class AwsIotTopicRuleErrorActionBlockRepublishBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Qos
     {
-        get => new TerraformReference<double>(this, "qos");
+        get => GetArgument<TerraformValue<double>>("qos");
         set => SetArgument("qos", value);
     }
 
@@ -1409,7 +1409,7 @@ public class AwsIotTopicRuleErrorActionBlockRepublishBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1419,7 +1419,7 @@ public class AwsIotTopicRuleErrorActionBlockRepublishBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformValue<string> Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -1442,7 +1442,7 @@ public class AwsIotTopicRuleErrorActionBlockS3Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -1451,7 +1451,7 @@ public class AwsIotTopicRuleErrorActionBlockS3Block : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CannedAcl
     {
-        get => new TerraformReference<string>(this, "canned_acl");
+        get => GetArgument<TerraformValue<string>>("canned_acl");
         set => SetArgument("canned_acl", value);
     }
 
@@ -1461,7 +1461,7 @@ public class AwsIotTopicRuleErrorActionBlockS3Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1471,7 +1471,7 @@ public class AwsIotTopicRuleErrorActionBlockS3Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1493,7 +1493,7 @@ public class AwsIotTopicRuleErrorActionBlockSnsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MessageFormat
     {
-        get => new TerraformReference<string>(this, "message_format");
+        get => GetArgument<TerraformValue<string>>("message_format");
         set => SetArgument("message_format", value);
     }
 
@@ -1503,7 +1503,7 @@ public class AwsIotTopicRuleErrorActionBlockSnsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1513,7 +1513,7 @@ public class AwsIotTopicRuleErrorActionBlockSnsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
     public required TerraformValue<string> TargetArn
     {
-        get => new TerraformReference<string>(this, "target_arn");
+        get => GetArgument<TerraformValue<string>>("target_arn");
         set => SetArgument("target_arn", value);
     }
 
@@ -1536,7 +1536,7 @@ public class AwsIotTopicRuleErrorActionBlockSqsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueUrl is required")]
     public required TerraformValue<string> QueueUrl
     {
-        get => new TerraformReference<string>(this, "queue_url");
+        get => GetArgument<TerraformValue<string>>("queue_url");
         set => SetArgument("queue_url", value);
     }
 
@@ -1546,7 +1546,7 @@ public class AwsIotTopicRuleErrorActionBlockSqsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1556,7 +1556,7 @@ public class AwsIotTopicRuleErrorActionBlockSqsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UseBase64 is required")]
     public required TerraformValue<bool> UseBase64
     {
-        get => new TerraformReference<bool>(this, "use_base64");
+        get => GetArgument<TerraformValue<bool>>("use_base64");
         set => SetArgument("use_base64", value);
     }
 
@@ -1578,7 +1578,7 @@ public class AwsIotTopicRuleErrorActionBlockStepFunctionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ExecutionNamePrefix
     {
-        get => new TerraformReference<string>(this, "execution_name_prefix");
+        get => GetArgument<TerraformValue<string>>("execution_name_prefix");
         set => SetArgument("execution_name_prefix", value);
     }
 
@@ -1588,7 +1588,7 @@ public class AwsIotTopicRuleErrorActionBlockStepFunctionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1598,7 +1598,7 @@ public class AwsIotTopicRuleErrorActionBlockStepFunctionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StateMachineName is required")]
     public required TerraformValue<string> StateMachineName
     {
-        get => new TerraformReference<string>(this, "state_machine_name");
+        get => GetArgument<TerraformValue<string>>("state_machine_name");
         set => SetArgument("state_machine_name", value);
     }
 
@@ -1621,7 +1621,7 @@ public class AwsIotTopicRuleErrorActionBlockTimestreamBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -1631,7 +1631,7 @@ public class AwsIotTopicRuleErrorActionBlockTimestreamBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1641,7 +1641,7 @@ public class AwsIotTopicRuleErrorActionBlockTimestreamBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -1686,7 +1686,7 @@ public class AwsIotTopicRuleErrorActionBlockTimestreamBlockDimensionBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1696,7 +1696,7 @@ public class AwsIotTopicRuleErrorActionBlockTimestreamBlockDimensionBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1719,7 +1719,7 @@ public class AwsIotTopicRuleErrorActionBlockTimestreamBlockTimestampBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -1729,7 +1729,7 @@ public class AwsIotTopicRuleErrorActionBlockTimestreamBlockTimestampBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1752,7 +1752,7 @@ public class AwsIotTopicRuleFirehoseBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? BatchMode
     {
-        get => new TerraformReference<bool>(this, "batch_mode");
+        get => GetArgument<TerraformValue<bool>>("batch_mode");
         set => SetArgument("batch_mode", value);
     }
 
@@ -1762,7 +1762,7 @@ public class AwsIotTopicRuleFirehoseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryStreamName is required")]
     public required TerraformValue<string> DeliveryStreamName
     {
-        get => new TerraformReference<string>(this, "delivery_stream_name");
+        get => GetArgument<TerraformValue<string>>("delivery_stream_name");
         set => SetArgument("delivery_stream_name", value);
     }
 
@@ -1772,7 +1772,7 @@ public class AwsIotTopicRuleFirehoseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1781,7 +1781,7 @@ public class AwsIotTopicRuleFirehoseBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Separator
     {
-        get => new TerraformReference<string>(this, "separator");
+        get => GetArgument<TerraformValue<string>>("separator");
         set => SetArgument("separator", value);
     }
 
@@ -1804,7 +1804,7 @@ public class AwsIotTopicRuleHttpBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConfirmationUrl
     {
-        get => new TerraformReference<string>(this, "confirmation_url");
+        get => GetArgument<TerraformValue<string>>("confirmation_url");
         set => SetArgument("confirmation_url", value);
     }
 
@@ -1814,7 +1814,7 @@ public class AwsIotTopicRuleHttpBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -1846,7 +1846,7 @@ public class AwsIotTopicRuleHttpBlockHttpHeaderBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -1856,7 +1856,7 @@ public class AwsIotTopicRuleHttpBlockHttpHeaderBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -1879,7 +1879,7 @@ public class AwsIotTopicRuleIotAnalyticsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? BatchMode
     {
-        get => new TerraformReference<bool>(this, "batch_mode");
+        get => GetArgument<TerraformValue<bool>>("batch_mode");
         set => SetArgument("batch_mode", value);
     }
 
@@ -1889,7 +1889,7 @@ public class AwsIotTopicRuleIotAnalyticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChannelName is required")]
     public required TerraformValue<string> ChannelName
     {
-        get => new TerraformReference<string>(this, "channel_name");
+        get => GetArgument<TerraformValue<string>>("channel_name");
         set => SetArgument("channel_name", value);
     }
 
@@ -1899,7 +1899,7 @@ public class AwsIotTopicRuleIotAnalyticsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1922,7 +1922,7 @@ public class AwsIotTopicRuleIotEventsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? BatchMode
     {
-        get => new TerraformReference<bool>(this, "batch_mode");
+        get => GetArgument<TerraformValue<bool>>("batch_mode");
         set => SetArgument("batch_mode", value);
     }
 
@@ -1932,7 +1932,7 @@ public class AwsIotTopicRuleIotEventsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputName is required")]
     public required TerraformValue<string> InputName
     {
-        get => new TerraformReference<string>(this, "input_name");
+        get => GetArgument<TerraformValue<string>>("input_name");
         set => SetArgument("input_name", value);
     }
 
@@ -1941,7 +1941,7 @@ public class AwsIotTopicRuleIotEventsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MessageId
     {
-        get => new TerraformReference<string>(this, "message_id");
+        get => GetArgument<TerraformValue<string>>("message_id");
         set => SetArgument("message_id", value);
     }
 
@@ -1951,7 +1951,7 @@ public class AwsIotTopicRuleIotEventsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -1975,7 +1975,7 @@ public class AwsIotTopicRuleKafkaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientProperties is required")]
     public required TerraformMap<string> ClientProperties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "client_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("client_properties");
         set => SetArgument("client_properties", value);
     }
 
@@ -1985,7 +1985,7 @@ public class AwsIotTopicRuleKafkaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
     public required TerraformValue<string> DestinationArn
     {
-        get => new TerraformReference<string>(this, "destination_arn");
+        get => GetArgument<TerraformValue<string>>("destination_arn");
         set => SetArgument("destination_arn", value);
     }
 
@@ -1994,7 +1994,7 @@ public class AwsIotTopicRuleKafkaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -2003,7 +2003,7 @@ public class AwsIotTopicRuleKafkaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Partition
     {
-        get => new TerraformReference<string>(this, "partition");
+        get => GetArgument<TerraformValue<string>>("partition");
         set => SetArgument("partition", value);
     }
 
@@ -2013,7 +2013,7 @@ public class AwsIotTopicRuleKafkaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformValue<string> Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -2045,7 +2045,7 @@ public class AwsIotTopicRuleKafkaBlockHeaderBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -2055,7 +2055,7 @@ public class AwsIotTopicRuleKafkaBlockHeaderBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2078,7 +2078,7 @@ public class AwsIotTopicRuleKinesisBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PartitionKey
     {
-        get => new TerraformReference<string>(this, "partition_key");
+        get => GetArgument<TerraformValue<string>>("partition_key");
         set => SetArgument("partition_key", value);
     }
 
@@ -2088,7 +2088,7 @@ public class AwsIotTopicRuleKinesisBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2098,7 +2098,7 @@ public class AwsIotTopicRuleKinesisBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamName is required")]
     public required TerraformValue<string> StreamName
     {
-        get => new TerraformReference<string>(this, "stream_name");
+        get => GetArgument<TerraformValue<string>>("stream_name");
         set => SetArgument("stream_name", value);
     }
 
@@ -2122,7 +2122,7 @@ public class AwsIotTopicRuleLambdaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionArn is required")]
     public required TerraformValue<string> FunctionArn
     {
-        get => new TerraformReference<string>(this, "function_arn");
+        get => GetArgument<TerraformValue<string>>("function_arn");
         set => SetArgument("function_arn", value);
     }
 
@@ -2145,7 +2145,7 @@ public class AwsIotTopicRuleRepublishBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Qos
     {
-        get => new TerraformReference<double>(this, "qos");
+        get => GetArgument<TerraformValue<double>>("qos");
         set => SetArgument("qos", value);
     }
 
@@ -2155,7 +2155,7 @@ public class AwsIotTopicRuleRepublishBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2165,7 +2165,7 @@ public class AwsIotTopicRuleRepublishBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformValue<string> Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -2189,7 +2189,7 @@ public class AwsIotTopicRuleS3Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -2198,7 +2198,7 @@ public class AwsIotTopicRuleS3Block : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CannedAcl
     {
-        get => new TerraformReference<string>(this, "canned_acl");
+        get => GetArgument<TerraformValue<string>>("canned_acl");
         set => SetArgument("canned_acl", value);
     }
 
@@ -2208,7 +2208,7 @@ public class AwsIotTopicRuleS3Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -2218,7 +2218,7 @@ public class AwsIotTopicRuleS3Block : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2241,7 +2241,7 @@ public class AwsIotTopicRuleSnsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MessageFormat
     {
-        get => new TerraformReference<string>(this, "message_format");
+        get => GetArgument<TerraformValue<string>>("message_format");
         set => SetArgument("message_format", value);
     }
 
@@ -2251,7 +2251,7 @@ public class AwsIotTopicRuleSnsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2261,7 +2261,7 @@ public class AwsIotTopicRuleSnsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
     public required TerraformValue<string> TargetArn
     {
-        get => new TerraformReference<string>(this, "target_arn");
+        get => GetArgument<TerraformValue<string>>("target_arn");
         set => SetArgument("target_arn", value);
     }
 
@@ -2285,7 +2285,7 @@ public class AwsIotTopicRuleSqsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueUrl is required")]
     public required TerraformValue<string> QueueUrl
     {
-        get => new TerraformReference<string>(this, "queue_url");
+        get => GetArgument<TerraformValue<string>>("queue_url");
         set => SetArgument("queue_url", value);
     }
 
@@ -2295,7 +2295,7 @@ public class AwsIotTopicRuleSqsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2305,7 +2305,7 @@ public class AwsIotTopicRuleSqsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UseBase64 is required")]
     public required TerraformValue<bool> UseBase64
     {
-        get => new TerraformReference<bool>(this, "use_base64");
+        get => GetArgument<TerraformValue<bool>>("use_base64");
         set => SetArgument("use_base64", value);
     }
 
@@ -2328,7 +2328,7 @@ public class AwsIotTopicRuleStepFunctionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ExecutionNamePrefix
     {
-        get => new TerraformReference<string>(this, "execution_name_prefix");
+        get => GetArgument<TerraformValue<string>>("execution_name_prefix");
         set => SetArgument("execution_name_prefix", value);
     }
 
@@ -2338,7 +2338,7 @@ public class AwsIotTopicRuleStepFunctionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2348,7 +2348,7 @@ public class AwsIotTopicRuleStepFunctionsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StateMachineName is required")]
     public required TerraformValue<string> StateMachineName
     {
-        get => new TerraformReference<string>(this, "state_machine_name");
+        get => GetArgument<TerraformValue<string>>("state_machine_name");
         set => SetArgument("state_machine_name", value);
     }
 
@@ -2372,7 +2372,7 @@ public class AwsIotTopicRuleTimestreamBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -2382,7 +2382,7 @@ public class AwsIotTopicRuleTimestreamBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -2392,7 +2392,7 @@ public class AwsIotTopicRuleTimestreamBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -2437,7 +2437,7 @@ public class AwsIotTopicRuleTimestreamBlockDimensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -2447,7 +2447,7 @@ public class AwsIotTopicRuleTimestreamBlockDimensionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2470,7 +2470,7 @@ public class AwsIotTopicRuleTimestreamBlockTimestampBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
     public required TerraformValue<string> Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -2480,7 +2480,7 @@ public class AwsIotTopicRuleTimestreamBlockTimestampBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -2498,7 +2498,7 @@ public partial class AwsIotTopicRule(string name) : TerraformResource("aws_iot_t
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -2508,16 +2508,16 @@ public partial class AwsIotTopicRule(string name) : TerraformResource("aws_iot_t
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -2527,16 +2527,16 @@ public partial class AwsIotTopicRule(string name) : TerraformResource("aws_iot_t
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -2546,7 +2546,7 @@ public partial class AwsIotTopicRule(string name) : TerraformResource("aws_iot_t
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sql is required")]
     public required TerraformValue<string> Sql
     {
-        get => new TerraformReference<string>(this, "sql");
+        get => GetArgument<TerraformValue<string>>("sql");
         set => SetArgument("sql", value);
     }
 
@@ -2556,7 +2556,7 @@ public partial class AwsIotTopicRule(string name) : TerraformResource("aws_iot_t
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlVersion is required")]
     public required TerraformValue<string> SqlVersion
     {
-        get => new TerraformReference<string>(this, "sql_version");
+        get => GetArgument<TerraformValue<string>>("sql_version");
         set => SetArgument("sql_version", value);
     }
 
@@ -2565,16 +2565,16 @@ public partial class AwsIotTopicRule(string name) : TerraformResource("aws_iot_t
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -2582,9 +2582,7 @@ public partial class AwsIotTopicRule(string name) : TerraformResource("aws_iot_t
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// CloudwatchAlarm block (nesting mode: set).

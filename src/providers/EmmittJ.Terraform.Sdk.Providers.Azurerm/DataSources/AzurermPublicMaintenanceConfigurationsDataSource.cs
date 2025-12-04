@@ -18,7 +18,7 @@ public class AzurermPublicMaintenanceConfigurationsDataSourceTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermPublicMaintenanceConfigurationsDataSource(string nam
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -45,7 +45,7 @@ public partial class AzurermPublicMaintenanceConfigurationsDataSource(string nam
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AzurermPublicMaintenanceConfigurationsDataSource(string nam
     /// </summary>
     public TerraformValue<string>? RecurEvery
     {
-        get => new TerraformReference<string>(this, "recur_every");
+        get => GetArgument<TerraformValue<string>>("recur_every");
         set => SetArgument("recur_every", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermPublicMaintenanceConfigurationsDataSource(string nam
     /// </summary>
     public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -71,9 +71,7 @@ public partial class AzurermPublicMaintenanceConfigurationsDataSource(string nam
     /// The configs attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Configs
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "configs").ResolveNodes(ctx));
-    }
+        => AsReference("configs");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

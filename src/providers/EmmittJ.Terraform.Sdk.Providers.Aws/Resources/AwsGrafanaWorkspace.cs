@@ -19,7 +19,7 @@ public class AwsGrafanaWorkspaceNetworkAccessControlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrefixListIds is required")]
     public required TerraformSet<string> PrefixListIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "prefix_list_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("prefix_list_ids");
         set => SetArgument("prefix_list_ids", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsGrafanaWorkspaceNetworkAccessControlBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpceIds is required")]
     public required TerraformSet<string> VpceIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "vpce_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("vpce_ids");
         set => SetArgument("vpce_ids", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsGrafanaWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsGrafanaWorkspaceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -85,7 +85,7 @@ public class AwsGrafanaWorkspaceVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
     public required TerraformSet<string> SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsGrafanaWorkspaceVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
     public required TerraformSet<string> SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -114,7 +114,7 @@ public partial class AwsGrafanaWorkspace(string name) : TerraformResource("aws_g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountAccessType is required")]
     public required TerraformValue<string> AccountAccessType
     {
-        get => new TerraformReference<string>(this, "account_access_type");
+        get => GetArgument<TerraformValue<string>>("account_access_type");
         set => SetArgument("account_access_type", value);
     }
 
@@ -124,16 +124,16 @@ public partial class AwsGrafanaWorkspace(string name) : TerraformResource("aws_g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationProviders is required")]
     public TerraformList<string>? AuthenticationProviders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "authentication_providers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("authentication_providers");
         set => SetArgument("authentication_providers", value);
     }
 
     /// <summary>
     /// The configuration attribute.
     /// </summary>
-    public TerraformValue<string> Configuration
+    public TerraformValue<string>? Configuration
     {
-        get => new TerraformReference<string>(this, "configuration");
+        get => GetArgument<TerraformValue<string>>("configuration");
         set => SetArgument("configuration", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AwsGrafanaWorkspace(string name) : TerraformResource("aws_g
     /// </summary>
     public TerraformList<string>? DataSources
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "data_sources").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("data_sources");
         set => SetArgument("data_sources", value);
     }
 
@@ -151,34 +151,34 @@ public partial class AwsGrafanaWorkspace(string name) : TerraformResource("aws_g
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The grafana_version attribute.
     /// </summary>
-    public TerraformValue<string> GrafanaVersion
+    public TerraformValue<string>? GrafanaVersion
     {
-        get => new TerraformReference<string>(this, "grafana_version");
+        get => GetArgument<TerraformValue<string>>("grafana_version");
         set => SetArgument("grafana_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AwsGrafanaWorkspace(string name) : TerraformResource("aws_g
     /// </summary>
     public TerraformList<string>? NotificationDestinations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "notification_destinations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("notification_destinations");
         set => SetArgument("notification_destinations", value);
     }
 
@@ -196,7 +196,7 @@ public partial class AwsGrafanaWorkspace(string name) : TerraformResource("aws_g
     /// </summary>
     public TerraformValue<string>? OrganizationRoleName
     {
-        get => new TerraformReference<string>(this, "organization_role_name");
+        get => GetArgument<TerraformValue<string>>("organization_role_name");
         set => SetArgument("organization_role_name", value);
     }
 
@@ -205,7 +205,7 @@ public partial class AwsGrafanaWorkspace(string name) : TerraformResource("aws_g
     /// </summary>
     public TerraformList<string>? OrganizationalUnits
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "organizational_units").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("organizational_units");
         set => SetArgument("organizational_units", value);
     }
 
@@ -215,16 +215,16 @@ public partial class AwsGrafanaWorkspace(string name) : TerraformResource("aws_g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionType is required")]
     public required TerraformValue<string> PermissionType
     {
-        get => new TerraformReference<string>(this, "permission_type");
+        get => GetArgument<TerraformValue<string>>("permission_type");
         set => SetArgument("permission_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -233,7 +233,7 @@ public partial class AwsGrafanaWorkspace(string name) : TerraformResource("aws_g
     /// </summary>
     public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -242,7 +242,7 @@ public partial class AwsGrafanaWorkspace(string name) : TerraformResource("aws_g
     /// </summary>
     public TerraformValue<string>? StackSetName
     {
-        get => new TerraformReference<string>(this, "stack_set_name");
+        get => GetArgument<TerraformValue<string>>("stack_set_name");
         set => SetArgument("stack_set_name", value);
     }
 
@@ -251,16 +251,16 @@ public partial class AwsGrafanaWorkspace(string name) : TerraformResource("aws_g
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -268,25 +268,19 @@ public partial class AwsGrafanaWorkspace(string name) : TerraformResource("aws_g
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// The saml_configuration_status attribute.
     /// </summary>
     public TerraformValue<string> SamlConfigurationStatus
-    {
-        get => new TerraformReference<string>(this, "saml_configuration_status");
-    }
+        => AsReference("saml_configuration_status");
 
     /// <summary>
     /// NetworkAccessControl block (nesting mode: list).

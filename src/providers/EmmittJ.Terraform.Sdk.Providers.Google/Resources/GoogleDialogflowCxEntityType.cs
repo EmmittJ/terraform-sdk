@@ -19,7 +19,7 @@ public class GoogleDialogflowCxEntityTypeEntitiesBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Synonyms
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "synonyms").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("synonyms");
         set => SetArgument("synonyms", value);
     }
 
@@ -30,7 +30,7 @@ public class GoogleDialogflowCxEntityTypeEntitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleDialogflowCxEntityTypeExcludedPhrasesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -76,7 +76,7 @@ public class GoogleDialogflowCxEntityTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -85,7 +85,7 @@ public class GoogleDialogflowCxEntityTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -94,7 +94,7 @@ public class GoogleDialogflowCxEntityTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -114,7 +114,7 @@ public partial class GoogleDialogflowCxEntityType(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? AutoExpansionMode
     {
-        get => new TerraformReference<string>(this, "auto_expansion_mode");
+        get => GetArgument<TerraformValue<string>>("auto_expansion_mode");
         set => SetArgument("auto_expansion_mode", value);
     }
 
@@ -124,7 +124,7 @@ public partial class GoogleDialogflowCxEntityType(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -133,16 +133,16 @@ public partial class GoogleDialogflowCxEntityType(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? EnableFuzzyExtraction
     {
-        get => new TerraformReference<bool>(this, "enable_fuzzy_extraction");
+        get => GetArgument<TerraformValue<bool>>("enable_fuzzy_extraction");
         set => SetArgument("enable_fuzzy_extraction", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -155,7 +155,7 @@ public partial class GoogleDialogflowCxEntityType(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
     public required TerraformValue<string> Kind
     {
-        get => new TerraformReference<string>(this, "kind");
+        get => GetArgument<TerraformValue<string>>("kind");
         set => SetArgument("kind", value);
     }
 
@@ -168,7 +168,7 @@ public partial class GoogleDialogflowCxEntityType(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? LanguageCode
     {
-        get => new TerraformReference<string>(this, "language_code");
+        get => GetArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -178,7 +178,7 @@ public partial class GoogleDialogflowCxEntityType(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -187,7 +187,7 @@ public partial class GoogleDialogflowCxEntityType(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? Redact
     {
-        get => new TerraformReference<bool>(this, "redact");
+        get => GetArgument<TerraformValue<bool>>("redact");
         set => SetArgument("redact", value);
     }
 
@@ -196,9 +196,7 @@ public partial class GoogleDialogflowCxEntityType(string name) : TerraformResour
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/entityTypes/&amp;lt;Entity Type ID&amp;gt;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Entities block (nesting mode: list).

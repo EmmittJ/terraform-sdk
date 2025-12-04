@@ -18,7 +18,7 @@ public class GoogleComputeBackendServiceSignedUrlKeyTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeBackendServiceSignedUrlKeyTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,16 +46,16 @@ public partial class GoogleComputeBackendServiceSignedUrlKey(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
     public required TerraformValue<string> BackendService
     {
-        get => new TerraformReference<string>(this, "backend_service");
+        get => GetArgument<TerraformValue<string>>("backend_service");
         set => SetArgument("backend_service", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -66,7 +66,7 @@ public partial class GoogleComputeBackendServiceSignedUrlKey(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyValue is required")]
     public required TerraformValue<string> KeyValue
     {
-        get => new TerraformReference<string>(this, "key_value");
+        get => GetArgument<TerraformValue<string>>("key_value");
         set => SetArgument("key_value", value);
     }
 
@@ -76,16 +76,16 @@ public partial class GoogleComputeBackendServiceSignedUrlKey(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 

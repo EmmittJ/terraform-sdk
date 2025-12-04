@@ -23,7 +23,7 @@ public class GoogleMonitoringSloBasicSliBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Location
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "location").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -37,7 +37,7 @@ public class GoogleMonitoringSloBasicSliBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Method
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "method").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("method");
         set => SetArgument("method", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleMonitoringSloBasicSliBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Version
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "version").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -93,7 +93,7 @@ public class GoogleMonitoringSloBasicSliBlockAvailabilityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleMonitoringSloBasicSliBlockLatencyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformValue<string> Threshold
     {
-        get => new TerraformReference<string>(this, "threshold");
+        get => GetArgument<TerraformValue<string>>("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -179,7 +179,7 @@ public class GoogleMonitoringSloRequestBasedSliBlockDistributionCutBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DistributionFilter is required")]
     public required TerraformValue<string> DistributionFilter
     {
-        get => new TerraformReference<string>(this, "distribution_filter");
+        get => GetArgument<TerraformValue<string>>("distribution_filter");
         set => SetArgument("distribution_filter", value);
     }
 
@@ -215,7 +215,7 @@ public class GoogleMonitoringSloRequestBasedSliBlockDistributionCutBlockRangeBlo
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -225,7 +225,7 @@ public class GoogleMonitoringSloRequestBasedSliBlockDistributionCutBlockRangeBlo
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -256,7 +256,7 @@ public class GoogleMonitoringSloRequestBasedSliBlockGoodTotalRatioBlock : Terraf
     /// </summary>
     public TerraformValue<string>? BadServiceFilter
     {
-        get => new TerraformReference<string>(this, "bad_service_filter");
+        get => GetArgument<TerraformValue<string>>("bad_service_filter");
         set => SetArgument("bad_service_filter", value);
     }
 
@@ -271,7 +271,7 @@ public class GoogleMonitoringSloRequestBasedSliBlockGoodTotalRatioBlock : Terraf
     /// </summary>
     public TerraformValue<string>? GoodServiceFilter
     {
-        get => new TerraformReference<string>(this, "good_service_filter");
+        get => GetArgument<TerraformValue<string>>("good_service_filter");
         set => SetArgument("good_service_filter", value);
     }
 
@@ -287,7 +287,7 @@ public class GoogleMonitoringSloRequestBasedSliBlockGoodTotalRatioBlock : Terraf
     /// </summary>
     public TerraformValue<string>? TotalServiceFilter
     {
-        get => new TerraformReference<string>(this, "total_service_filter");
+        get => GetArgument<TerraformValue<string>>("total_service_filter");
         set => SetArgument("total_service_filter", value);
     }
 
@@ -310,7 +310,7 @@ public class GoogleMonitoringSloTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -319,7 +319,7 @@ public class GoogleMonitoringSloTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -328,7 +328,7 @@ public class GoogleMonitoringSloTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -355,7 +355,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? GoodBadMetricFilter
     {
-        get => new TerraformReference<string>(this, "good_bad_metric_filter");
+        get => GetArgument<TerraformValue<string>>("good_bad_metric_filter");
         set => SetArgument("good_bad_metric_filter", value);
     }
 
@@ -366,7 +366,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? WindowPeriod
     {
-        get => new TerraformReference<string>(this, "window_period");
+        get => GetArgument<TerraformValue<string>>("window_period");
         set => SetArgument("window_period", value);
     }
 
@@ -419,7 +419,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockGoodTotalRatioThresholdBlock
     /// </summary>
     public TerraformValue<double>? Threshold
     {
-        get => new TerraformReference<double>(this, "threshold");
+        get => GetArgument<TerraformValue<double>>("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -466,7 +466,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockGoodTotalRatioThresholdBlock
     /// </summary>
     public TerraformSet<string>? Location
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "location").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -480,7 +480,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockGoodTotalRatioThresholdBlock
     /// </summary>
     public TerraformSet<string>? Method
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "method").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("method");
         set => SetArgument("method", value);
     }
 
@@ -494,7 +494,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockGoodTotalRatioThresholdBlock
     /// </summary>
     public TerraformSet<string>? Version
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "version").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -536,7 +536,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockGoodTotalRatioThresholdBlock
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -561,7 +561,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockGoodTotalRatioThresholdBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformValue<string> Threshold
     {
-        get => new TerraformReference<string>(this, "threshold");
+        get => GetArgument<TerraformValue<string>>("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -621,7 +621,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockGoodTotalRatioThresholdBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DistributionFilter is required")]
     public required TerraformValue<string> DistributionFilter
     {
-        get => new TerraformReference<string>(this, "distribution_filter");
+        get => GetArgument<TerraformValue<string>>("distribution_filter");
         set => SetArgument("distribution_filter", value);
     }
 
@@ -657,7 +657,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockGoodTotalRatioThresholdBlock
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -667,7 +667,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockGoodTotalRatioThresholdBlock
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -697,7 +697,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockGoodTotalRatioThresholdBlock
     /// </summary>
     public TerraformValue<string>? BadServiceFilter
     {
-        get => new TerraformReference<string>(this, "bad_service_filter");
+        get => GetArgument<TerraformValue<string>>("bad_service_filter");
         set => SetArgument("bad_service_filter", value);
     }
 
@@ -712,7 +712,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockGoodTotalRatioThresholdBlock
     /// </summary>
     public TerraformValue<string>? GoodServiceFilter
     {
-        get => new TerraformReference<string>(this, "good_service_filter");
+        get => GetArgument<TerraformValue<string>>("good_service_filter");
         set => SetArgument("good_service_filter", value);
     }
 
@@ -727,7 +727,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockGoodTotalRatioThresholdBlock
     /// </summary>
     public TerraformValue<string>? TotalServiceFilter
     {
-        get => new TerraformReference<string>(this, "total_service_filter");
+        get => GetArgument<TerraformValue<string>>("total_service_filter");
         set => SetArgument("total_service_filter", value);
     }
 
@@ -755,7 +755,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockMetricMeanInRangeBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeSeries is required")]
     public required TerraformValue<string> TimeSeries
     {
-        get => new TerraformReference<string>(this, "time_series");
+        get => GetArgument<TerraformValue<string>>("time_series");
         set => SetArgument("time_series", value);
     }
 
@@ -792,7 +792,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockMetricMeanInRangeBlockRangeB
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -803,7 +803,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockMetricMeanInRangeBlockRangeB
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -833,7 +833,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockMetricSumInRangeBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeSeries is required")]
     public required TerraformValue<string> TimeSeries
     {
-        get => new TerraformReference<string>(this, "time_series");
+        get => GetArgument<TerraformValue<string>>("time_series");
         set => SetArgument("time_series", value);
     }
 
@@ -870,7 +870,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockMetricSumInRangeBlockRangeBl
     /// </summary>
     public TerraformValue<double>? Max
     {
-        get => new TerraformReference<double>(this, "max");
+        get => GetArgument<TerraformValue<double>>("max");
         set => SetArgument("max", value);
     }
 
@@ -881,7 +881,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlockMetricSumInRangeBlockRangeBl
     /// </summary>
     public TerraformValue<double>? Min
     {
-        get => new TerraformReference<double>(this, "min");
+        get => GetArgument<TerraformValue<double>>("min");
         set => SetArgument("min", value);
     }
 
@@ -900,7 +900,7 @@ public partial class GoogleMonitoringSlo(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? CalendarPeriod
     {
-        get => new TerraformReference<string>(this, "calendar_period");
+        get => GetArgument<TerraformValue<string>>("calendar_period");
         set => SetArgument("calendar_period", value);
     }
 
@@ -909,7 +909,7 @@ public partial class GoogleMonitoringSlo(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -920,25 +920,25 @@ public partial class GoogleMonitoringSlo(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Goal is required")]
     public required TerraformValue<double> Goal
     {
-        get => new TerraformReference<double>(this, "goal");
+        get => GetArgument<TerraformValue<double>>("goal");
         set => SetArgument("goal", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -948,7 +948,7 @@ public partial class GoogleMonitoringSlo(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<double>? RollingPeriodDays
     {
-        get => new TerraformReference<double>(this, "rolling_period_days");
+        get => GetArgument<TerraformValue<double>>("rolling_period_days");
         set => SetArgument("rolling_period_days", value);
     }
 
@@ -958,16 +958,16 @@ public partial class GoogleMonitoringSlo(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
     /// <summary>
     /// The id to use for this ServiceLevelObjective. If omitted, an id will be generated instead.
     /// </summary>
-    public TerraformValue<string> SloId
+    public TerraformValue<string>? SloId
     {
-        get => new TerraformReference<string>(this, "slo_id");
+        get => GetArgument<TerraformValue<string>>("slo_id");
         set => SetArgument("slo_id", value);
     }
 
@@ -980,7 +980,7 @@ public partial class GoogleMonitoringSlo(string name) : TerraformResource("googl
     /// </summary>
     public TerraformMap<string>? UserLabels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "user_labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("user_labels");
         set => SetArgument("user_labels", value);
     }
 
@@ -989,9 +989,7 @@ public partial class GoogleMonitoringSlo(string name) : TerraformResource("googl
     /// projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// BasicSli block (nesting mode: list).

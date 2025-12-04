@@ -19,7 +19,7 @@ public class AzurermResourceGroupCostManagementViewDatasetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Granularity is required")]
     public required TerraformValue<string> Granularity
     {
-        get => new TerraformReference<string>(this, "granularity");
+        get => GetArgument<TerraformValue<string>>("granularity");
         set => SetArgument("granularity", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermResourceGroupCostManagementViewDatasetBlockAggregationBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnName is required")]
     public required TerraformValue<string> ColumnName
     {
-        get => new TerraformReference<string>(this, "column_name");
+        get => GetArgument<TerraformValue<string>>("column_name");
         set => SetArgument("column_name", value);
     }
 
@@ -82,7 +82,7 @@ public class AzurermResourceGroupCostManagementViewDatasetBlockAggregationBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermResourceGroupCostManagementViewDatasetBlockGroupingBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermResourceGroupCostManagementViewDatasetBlockGroupingBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -138,7 +138,7 @@ public class AzurermResourceGroupCostManagementViewDatasetBlockSortingBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
     public required TerraformValue<string> Direction
     {
-        get => new TerraformReference<string>(this, "direction");
+        get => GetArgument<TerraformValue<string>>("direction");
         set => SetArgument("direction", value);
     }
 
@@ -148,7 +148,7 @@ public class AzurermResourceGroupCostManagementViewDatasetBlockSortingBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -172,7 +172,7 @@ public class AzurermResourceGroupCostManagementViewKpiBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -196,7 +196,7 @@ public class AzurermResourceGroupCostManagementViewPivotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -206,7 +206,7 @@ public class AzurermResourceGroupCostManagementViewPivotBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -229,7 +229,7 @@ public class AzurermResourceGroupCostManagementViewTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -238,7 +238,7 @@ public class AzurermResourceGroupCostManagementViewTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -247,7 +247,7 @@ public class AzurermResourceGroupCostManagementViewTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -256,7 +256,7 @@ public class AzurermResourceGroupCostManagementViewTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -275,7 +275,7 @@ public partial class AzurermResourceGroupCostManagementView(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Accumulated is required")]
     public required TerraformValue<bool> Accumulated
     {
-        get => new TerraformReference<bool>(this, "accumulated");
+        get => GetArgument<TerraformValue<bool>>("accumulated");
         set => SetArgument("accumulated", value);
     }
 
@@ -285,7 +285,7 @@ public partial class AzurermResourceGroupCostManagementView(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChartType is required")]
     public required TerraformValue<string> ChartType
     {
-        get => new TerraformReference<string>(this, "chart_type");
+        get => GetArgument<TerraformValue<string>>("chart_type");
         set => SetArgument("chart_type", value);
     }
 
@@ -295,16 +295,16 @@ public partial class AzurermResourceGroupCostManagementView(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -314,7 +314,7 @@ public partial class AzurermResourceGroupCostManagementView(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -324,7 +324,7 @@ public partial class AzurermResourceGroupCostManagementView(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportType is required")]
     public required TerraformValue<string> ReportType
     {
-        get => new TerraformReference<string>(this, "report_type");
+        get => GetArgument<TerraformValue<string>>("report_type");
         set => SetArgument("report_type", value);
     }
 
@@ -334,7 +334,7 @@ public partial class AzurermResourceGroupCostManagementView(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
     public required TerraformValue<string> ResourceGroupId
     {
-        get => new TerraformReference<string>(this, "resource_group_id");
+        get => GetArgument<TerraformValue<string>>("resource_group_id");
         set => SetArgument("resource_group_id", value);
     }
 
@@ -344,7 +344,7 @@ public partial class AzurermResourceGroupCostManagementView(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timeframe is required")]
     public required TerraformValue<string> Timeframe
     {
-        get => new TerraformReference<string>(this, "timeframe");
+        get => GetArgument<TerraformValue<string>>("timeframe");
         set => SetArgument("timeframe", value);
     }
 

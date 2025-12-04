@@ -11,9 +11,9 @@ public partial class GoogleProjectIamCustomRolesDataSource(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class GoogleProjectIamCustomRolesDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleProjectIamCustomRolesDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<bool>? ShowDeleted
     {
-        get => new TerraformReference<bool>(this, "show_deleted");
+        get => GetArgument<TerraformValue<bool>>("show_deleted");
         set => SetArgument("show_deleted", value);
     }
 
@@ -40,7 +40,7 @@ public partial class GoogleProjectIamCustomRolesDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? View
     {
-        get => new TerraformReference<string>(this, "view");
+        get => GetArgument<TerraformValue<string>>("view");
         set => SetArgument("view", value);
     }
 
@@ -48,8 +48,6 @@ public partial class GoogleProjectIamCustomRolesDataSource(string name) : Terraf
     /// The roles attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Roles
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "roles").ResolveNodes(ctx));
-    }
+        => AsReference("roles");
 
 }

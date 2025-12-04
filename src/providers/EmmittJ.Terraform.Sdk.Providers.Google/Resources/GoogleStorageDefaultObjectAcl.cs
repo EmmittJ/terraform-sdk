@@ -14,25 +14,25 @@ public partial class GoogleStorageDefaultObjectAcl(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The role_entity attribute.
     /// </summary>
-    public TerraformSet<string> RoleEntity
+    public TerraformSet<string>? RoleEntity
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "role_entity").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("role_entity");
         set => SetArgument("role_entity", value);
     }
 

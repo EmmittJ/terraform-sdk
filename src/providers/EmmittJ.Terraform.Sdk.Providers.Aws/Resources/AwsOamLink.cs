@@ -52,7 +52,7 @@ public class AwsOamLinkLinkConfigurationBlockLogGroupConfigurationBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -75,7 +75,7 @@ public class AwsOamLinkLinkConfigurationBlockMetricConfigurationBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsOamLinkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -107,7 +107,7 @@ public class AwsOamLinkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -116,7 +116,7 @@ public class AwsOamLinkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -132,9 +132,9 @@ public partial class AwsOamLink(string name) : TerraformResource("aws_oam_link",
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -144,16 +144,16 @@ public partial class AwsOamLink(string name) : TerraformResource("aws_oam_link",
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabelTemplate is required")]
     public required TerraformValue<string> LabelTemplate
     {
-        get => new TerraformReference<string>(this, "label_template");
+        get => GetArgument<TerraformValue<string>>("label_template");
         set => SetArgument("label_template", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AwsOamLink(string name) : TerraformResource("aws_oam_link",
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypes is required")]
     public required TerraformSet<string> ResourceTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "resource_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("resource_types");
         set => SetArgument("resource_types", value);
     }
 
@@ -173,7 +173,7 @@ public partial class AwsOamLink(string name) : TerraformResource("aws_oam_link",
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SinkIdentifier is required")]
     public required TerraformValue<string> SinkIdentifier
     {
-        get => new TerraformReference<string>(this, "sink_identifier");
+        get => GetArgument<TerraformValue<string>>("sink_identifier");
         set => SetArgument("sink_identifier", value);
     }
 
@@ -182,16 +182,16 @@ public partial class AwsOamLink(string name) : TerraformResource("aws_oam_link",
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -199,33 +199,25 @@ public partial class AwsOamLink(string name) : TerraformResource("aws_oam_link",
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The label attribute.
     /// </summary>
     public TerraformValue<string> Label
-    {
-        get => new TerraformReference<string>(this, "label");
-    }
+        => AsReference("label");
 
     /// <summary>
     /// The link_id attribute.
     /// </summary>
     public TerraformValue<string> LinkId
-    {
-        get => new TerraformReference<string>(this, "link_id");
-    }
+        => AsReference("link_id");
 
     /// <summary>
     /// The sink_arn attribute.
     /// </summary>
     public TerraformValue<string> SinkArn
-    {
-        get => new TerraformReference<string>(this, "sink_arn");
-    }
+        => AsReference("sink_arn");
 
     /// <summary>
     /// LinkConfiguration block (nesting mode: list).

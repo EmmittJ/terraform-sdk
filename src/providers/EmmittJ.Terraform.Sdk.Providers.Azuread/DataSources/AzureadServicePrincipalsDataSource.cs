@@ -18,7 +18,7 @@ public class AzureadServicePrincipalsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,27 +34,27 @@ public partial class AzureadServicePrincipalsDataSource(string name) : Terraform
     /// <summary>
     /// The client IDs of the applications associated with the service principals
     /// </summary>
-    public TerraformList<string> ClientIds
+    public TerraformList<string>? ClientIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "client_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("client_ids");
         set => SetArgument("client_ids", value);
     }
 
     /// <summary>
     /// The display names of the applications associated with the service principals
     /// </summary>
-    public TerraformList<string> DisplayNames
+    public TerraformList<string>? DisplayNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "display_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("display_names");
         set => SetArgument("display_names", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AzureadServicePrincipalsDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<bool>? IgnoreMissing
     {
-        get => new TerraformReference<bool>(this, "ignore_missing");
+        get => GetArgument<TerraformValue<bool>>("ignore_missing");
         set => SetArgument("ignore_missing", value);
     }
 
     /// <summary>
     /// The object IDs of the service principals
     /// </summary>
-    public TerraformList<string> ObjectIds
+    public TerraformList<string>? ObjectIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "object_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("object_ids");
         set => SetArgument("object_ids", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzureadServicePrincipalsDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<bool>? ReturnAll
     {
-        get => new TerraformReference<bool>(this, "return_all");
+        get => GetArgument<TerraformValue<bool>>("return_all");
         set => SetArgument("return_all", value);
     }
 
@@ -89,9 +89,7 @@ public partial class AzureadServicePrincipalsDataSource(string name) : Terraform
     /// A list of service_principals
     /// </summary>
     public TerraformList<TerraformMap<object>> ServicePrincipals
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "service_principals").ResolveNodes(ctx));
-    }
+        => AsReference("service_principals");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

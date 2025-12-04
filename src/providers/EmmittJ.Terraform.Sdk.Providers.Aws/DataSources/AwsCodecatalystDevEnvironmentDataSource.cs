@@ -17,17 +17,13 @@ public class AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock : Terrafor
     /// The branch_name attribute.
     /// </summary>
     public TerraformValue<string> BranchName
-    {
-        get => new TerraformReference<string>(this, "branch_name");
-    }
+        => AsReference("branch_name");
 
     /// <summary>
     /// The repository_name attribute.
     /// </summary>
     public TerraformValue<string> RepositoryName
-    {
-        get => new TerraformReference<string>(this, "repository_name");
-    }
+        => AsReference("repository_name");
 
 }
 
@@ -43,7 +39,7 @@ public partial class AwsCodecatalystDevEnvironmentDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Alias
     {
-        get => new TerraformReference<string>(this, "alias");
+        get => GetArgument<TerraformValue<string>>("alias");
         set => SetArgument("alias", value);
     }
 
@@ -52,7 +48,7 @@ public partial class AwsCodecatalystDevEnvironmentDataSource(string name) : Terr
     /// </summary>
     public TerraformValue<string>? CreatorId
     {
-        get => new TerraformReference<string>(this, "creator_id");
+        get => GetArgument<TerraformValue<string>>("creator_id");
         set => SetArgument("creator_id", value);
     }
 
@@ -62,16 +58,16 @@ public partial class AwsCodecatalystDevEnvironmentDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
     public required TerraformValue<string> EnvId
     {
-        get => new TerraformReference<string>(this, "env_id");
+        get => GetArgument<TerraformValue<string>>("env_id");
         set => SetArgument("env_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -81,16 +77,16 @@ public partial class AwsCodecatalystDevEnvironmentDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
     public required TerraformValue<string> ProjectName
     {
-        get => new TerraformReference<string>(this, "project_name");
+        get => GetArgument<TerraformValue<string>>("project_name");
         set => SetArgument("project_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -100,16 +96,16 @@ public partial class AwsCodecatalystDevEnvironmentDataSource(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpaceName is required")]
     public required TerraformValue<string> SpaceName
     {
-        get => new TerraformReference<string>(this, "space_name");
+        get => GetArgument<TerraformValue<string>>("space_name");
         set => SetArgument("space_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -117,57 +113,43 @@ public partial class AwsCodecatalystDevEnvironmentDataSource(string name) : Terr
     /// The ides attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Ides
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "ides").ResolveNodes(ctx));
-    }
+        => AsReference("ides");
 
     /// <summary>
     /// The inactivity_timeout_minutes attribute.
     /// </summary>
     public TerraformValue<double> InactivityTimeoutMinutes
-    {
-        get => new TerraformReference<double>(this, "inactivity_timeout_minutes");
-    }
+        => AsReference("inactivity_timeout_minutes");
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     public TerraformValue<string> InstanceType
-    {
-        get => new TerraformReference<string>(this, "instance_type");
-    }
+        => AsReference("instance_type");
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
     public TerraformValue<string> LastUpdatedTime
-    {
-        get => new TerraformReference<string>(this, "last_updated_time");
-    }
+        => AsReference("last_updated_time");
 
     /// <summary>
     /// The persistent_storage attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PersistentStorage
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "persistent_storage").ResolveNodes(ctx));
-    }
+        => AsReference("persistent_storage");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The status_reason attribute.
     /// </summary>
     public TerraformValue<string> StatusReason
-    {
-        get => new TerraformReference<string>(this, "status_reason");
-    }
+        => AsReference("status_reason");
 
     /// <summary>
     /// Repositories block (nesting mode: list).

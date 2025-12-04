@@ -14,7 +14,7 @@ public partial class GoogleStorageNotification(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleStorageNotification(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? CustomAttributes
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "custom_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("custom_attributes");
         set => SetArgument("custom_attributes", value);
     }
 
@@ -32,7 +32,7 @@ public partial class GoogleStorageNotification(string name) : TerraformResource(
     /// </summary>
     public TerraformSet<string>? EventTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "event_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("event_types");
         set => SetArgument("event_types", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleStorageNotification(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? ObjectNamePrefix
     {
-        get => new TerraformReference<string>(this, "object_name_prefix");
+        get => GetArgument<TerraformValue<string>>("object_name_prefix");
         set => SetArgument("object_name_prefix", value);
     }
 
@@ -51,7 +51,7 @@ public partial class GoogleStorageNotification(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PayloadFormat is required")]
     public required TerraformValue<string> PayloadFormat
     {
-        get => new TerraformReference<string>(this, "payload_format");
+        get => GetArgument<TerraformValue<string>>("payload_format");
         set => SetArgument("payload_format", value);
     }
 
@@ -61,7 +61,7 @@ public partial class GoogleStorageNotification(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformValue<string> Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -69,24 +69,18 @@ public partial class GoogleStorageNotification(string name) : TerraformResource(
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The ID of the created notification.
     /// </summary>
     public TerraformValue<string> NotificationId
-    {
-        get => new TerraformReference<string>(this, "notification_id");
-    }
+        => AsReference("notification_id");
 
     /// <summary>
     /// The URI of the created resource.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
 }

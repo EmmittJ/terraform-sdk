@@ -19,7 +19,7 @@ public class AwsSsmcontactsRotationRecurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfOnCalls is required")]
     public required TerraformValue<double> NumberOfOnCalls
     {
-        get => new TerraformReference<double>(this, "number_of_on_calls");
+        get => GetArgument<TerraformValue<double>>("number_of_on_calls");
         set => SetArgument("number_of_on_calls", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsSsmcontactsRotationRecurrenceBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecurrenceMultiplier is required")]
     public required TerraformValue<double> RecurrenceMultiplier
     {
-        get => new TerraformReference<double>(this, "recurrence_multiplier");
+        get => GetArgument<TerraformValue<double>>("recurrence_multiplier");
         set => SetArgument("recurrence_multiplier", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsSsmcontactsRotationRecurrenceBlockDailySettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HourOfDay is required")]
     public required TerraformValue<double> HourOfDay
     {
-        get => new TerraformReference<double>(this, "hour_of_day");
+        get => GetArgument<TerraformValue<double>>("hour_of_day");
         set => SetArgument("hour_of_day", value);
     }
 
@@ -98,7 +98,7 @@ public class AwsSsmcontactsRotationRecurrenceBlockDailySettingsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinuteOfHour is required")]
     public required TerraformValue<double> MinuteOfHour
     {
-        get => new TerraformReference<double>(this, "minute_of_hour");
+        get => GetArgument<TerraformValue<double>>("minute_of_hour");
         set => SetArgument("minute_of_hour", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsSsmcontactsRotationRecurrenceBlockMonthlySettingsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfMonth is required")]
     public required TerraformValue<double> DayOfMonth
     {
-        get => new TerraformReference<double>(this, "day_of_month");
+        get => GetArgument<TerraformValue<double>>("day_of_month");
         set => SetArgument("day_of_month", value);
     }
 
@@ -153,7 +153,7 @@ public class AwsSsmcontactsRotationRecurrenceBlockMonthlySettingsBlockHandOffTim
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HourOfDay is required")]
     public required TerraformValue<double> HourOfDay
     {
-        get => new TerraformReference<double>(this, "hour_of_day");
+        get => GetArgument<TerraformValue<double>>("hour_of_day");
         set => SetArgument("hour_of_day", value);
     }
 
@@ -163,7 +163,7 @@ public class AwsSsmcontactsRotationRecurrenceBlockMonthlySettingsBlockHandOffTim
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinuteOfHour is required")]
     public required TerraformValue<double> MinuteOfHour
     {
-        get => new TerraformReference<double>(this, "minute_of_hour");
+        get => GetArgument<TerraformValue<double>>("minute_of_hour");
         set => SetArgument("minute_of_hour", value);
     }
 
@@ -186,7 +186,7 @@ public class AwsSsmcontactsRotationRecurrenceBlockShiftCoveragesBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MapBlockKey is required")]
     public required TerraformValue<string> MapBlockKey
     {
-        get => new TerraformReference<string>(this, "map_block_key");
+        get => GetArgument<TerraformValue<string>>("map_block_key");
         set => SetArgument("map_block_key", value);
     }
 
@@ -249,7 +249,7 @@ public class AwsSsmcontactsRotationRecurrenceBlockShiftCoveragesBlockCoverageTim
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HourOfDay is required")]
     public required TerraformValue<double> HourOfDay
     {
-        get => new TerraformReference<double>(this, "hour_of_day");
+        get => GetArgument<TerraformValue<double>>("hour_of_day");
         set => SetArgument("hour_of_day", value);
     }
 
@@ -259,7 +259,7 @@ public class AwsSsmcontactsRotationRecurrenceBlockShiftCoveragesBlockCoverageTim
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinuteOfHour is required")]
     public required TerraformValue<double> MinuteOfHour
     {
-        get => new TerraformReference<double>(this, "minute_of_hour");
+        get => GetArgument<TerraformValue<double>>("minute_of_hour");
         set => SetArgument("minute_of_hour", value);
     }
 
@@ -282,7 +282,7 @@ public class AwsSsmcontactsRotationRecurrenceBlockShiftCoveragesBlockCoverageTim
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HourOfDay is required")]
     public required TerraformValue<double> HourOfDay
     {
-        get => new TerraformReference<double>(this, "hour_of_day");
+        get => GetArgument<TerraformValue<double>>("hour_of_day");
         set => SetArgument("hour_of_day", value);
     }
 
@@ -292,7 +292,7 @@ public class AwsSsmcontactsRotationRecurrenceBlockShiftCoveragesBlockCoverageTim
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinuteOfHour is required")]
     public required TerraformValue<double> MinuteOfHour
     {
-        get => new TerraformReference<double>(this, "minute_of_hour");
+        get => GetArgument<TerraformValue<double>>("minute_of_hour");
         set => SetArgument("minute_of_hour", value);
     }
 
@@ -315,7 +315,7 @@ public class AwsSsmcontactsRotationRecurrenceBlockWeeklySettingsBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
     public required TerraformValue<string> DayOfWeek
     {
-        get => new TerraformReference<string>(this, "day_of_week");
+        get => GetArgument<TerraformValue<string>>("day_of_week");
         set => SetArgument("day_of_week", value);
     }
 
@@ -347,7 +347,7 @@ public class AwsSsmcontactsRotationRecurrenceBlockWeeklySettingsBlockHandOffTime
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HourOfDay is required")]
     public required TerraformValue<double> HourOfDay
     {
-        get => new TerraformReference<double>(this, "hour_of_day");
+        get => GetArgument<TerraformValue<double>>("hour_of_day");
         set => SetArgument("hour_of_day", value);
     }
 
@@ -357,7 +357,7 @@ public class AwsSsmcontactsRotationRecurrenceBlockWeeklySettingsBlockHandOffTime
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinuteOfHour is required")]
     public required TerraformValue<double> MinuteOfHour
     {
-        get => new TerraformReference<double>(this, "minute_of_hour");
+        get => GetArgument<TerraformValue<double>>("minute_of_hour");
         set => SetArgument("minute_of_hour", value);
     }
 
@@ -376,7 +376,7 @@ public partial class AwsSsmcontactsRotation(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContactIds is required")]
     public TerraformList<string>? ContactIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "contact_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("contact_ids");
         set => SetArgument("contact_ids", value);
     }
 
@@ -386,16 +386,16 @@ public partial class AwsSsmcontactsRotation(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -404,7 +404,7 @@ public partial class AwsSsmcontactsRotation(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -413,7 +413,7 @@ public partial class AwsSsmcontactsRotation(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -423,7 +423,7 @@ public partial class AwsSsmcontactsRotation(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZoneId is required")]
     public required TerraformValue<string> TimeZoneId
     {
-        get => new TerraformReference<string>(this, "time_zone_id");
+        get => GetArgument<TerraformValue<string>>("time_zone_id");
         set => SetArgument("time_zone_id", value);
     }
 
@@ -431,25 +431,19 @@ public partial class AwsSsmcontactsRotation(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Recurrence block (nesting mode: list).

@@ -18,7 +18,7 @@ public class GoogleResourceManagerLienTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleResourceManagerLienTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -43,9 +43,9 @@ public partial class GoogleResourceManagerLien(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -57,7 +57,7 @@ public partial class GoogleResourceManagerLien(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Origin is required")]
     public required TerraformValue<string> Origin
     {
-        get => new TerraformReference<string>(this, "origin");
+        get => GetArgument<TerraformValue<string>>("origin");
         set => SetArgument("origin", value);
     }
 
@@ -70,7 +70,7 @@ public partial class GoogleResourceManagerLien(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -81,7 +81,7 @@ public partial class GoogleResourceManagerLien(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Reason is required")]
     public required TerraformValue<string> Reason
     {
-        get => new TerraformReference<string>(this, "reason");
+        get => GetArgument<TerraformValue<string>>("reason");
         set => SetArgument("reason", value);
     }
 
@@ -95,7 +95,7 @@ public partial class GoogleResourceManagerLien(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Restrictions is required")]
     public TerraformList<string>? Restrictions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "restrictions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("restrictions");
         set => SetArgument("restrictions", value);
     }
 
@@ -103,17 +103,13 @@ public partial class GoogleResourceManagerLien(string name) : TerraformResource(
     /// Time of creation
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// A system-generated unique identifier for this Lien.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

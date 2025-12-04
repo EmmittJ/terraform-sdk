@@ -18,7 +18,7 @@ public class GoogleBigtableAuthorizedViewSubsetViewBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? RowPrefixes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "row_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("row_prefixes");
         set => SetArgument("row_prefixes", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleBigtableAuthorizedViewSubsetViewBlockFamilySubsetsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FamilyName is required")]
     public required TerraformValue<string> FamilyName
     {
-        get => new TerraformReference<string>(this, "family_name");
+        get => GetArgument<TerraformValue<string>>("family_name");
         set => SetArgument("family_name", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleBigtableAuthorizedViewSubsetViewBlockFamilySubsetsBlock : Ter
     /// </summary>
     public TerraformSet<string>? QualifierPrefixes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "qualifier_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("qualifier_prefixes");
         set => SetArgument("qualifier_prefixes", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleBigtableAuthorizedViewSubsetViewBlockFamilySubsetsBlock : Ter
     /// </summary>
     public TerraformSet<string>? Qualifiers
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "qualifiers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("qualifiers");
         set => SetArgument("qualifiers", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleBigtableAuthorizedViewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -100,7 +100,7 @@ public class GoogleBigtableAuthorizedViewTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -117,18 +117,18 @@ public partial class GoogleBigtableAuthorizedView(string name) : TerraformResour
     /// A field to make the authorized view protected against data loss i.e. when set to PROTECTED, deleting the authorized view, the table containing the authorized view, and the instance containing the authorized view would be prohibited.
     /// If not provided, currently deletion protection will be set to UNPROTECTED as it is the API default value. Note this field configs the deletion protection provided by the API in the backend, and should not be confused with Terraform-side deletion protection.
     /// </summary>
-    public TerraformValue<string> DeletionProtection
+    public TerraformValue<string>? DeletionProtection
     {
-        get => new TerraformReference<string>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<string>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -138,7 +138,7 @@ public partial class GoogleBigtableAuthorizedView(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformValue<string> InstanceName
     {
-        get => new TerraformReference<string>(this, "instance_name");
+        get => GetArgument<TerraformValue<string>>("instance_name");
         set => SetArgument("instance_name", value);
     }
 
@@ -148,16 +148,16 @@ public partial class GoogleBigtableAuthorizedView(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -167,7 +167,7 @@ public partial class GoogleBigtableAuthorizedView(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 

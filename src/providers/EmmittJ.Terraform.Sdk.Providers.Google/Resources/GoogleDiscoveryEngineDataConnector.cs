@@ -21,9 +21,7 @@ public class GoogleDiscoveryEngineDataConnectorEntitiesBlock : TerraformBlock
     /// method, a DataStore is automatically created for each source entity.
     /// </summary>
     public TerraformValue<string> DataStore
-    {
-        get => new TerraformReference<string>(this, "data_store");
-    }
+        => AsReference("data_store");
 
     /// <summary>
     /// The name of the entity. Supported values by data source:
@@ -33,7 +31,7 @@ public class GoogleDiscoveryEngineDataConnectorEntitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EntityName
     {
-        get => new TerraformReference<string>(this, "entity_name");
+        get => GetArgument<TerraformValue<string>>("entity_name");
         set => SetArgument("entity_name", value);
     }
 
@@ -49,7 +47,7 @@ public class GoogleDiscoveryEngineDataConnectorEntitiesBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? KeyPropertyMappings
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "key_property_mappings").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("key_property_mappings");
         set => SetArgument("key_property_mappings", value);
     }
 
@@ -58,7 +56,7 @@ public class GoogleDiscoveryEngineDataConnectorEntitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ParamsAttribute
     {
-        get => new TerraformReference<string>(this, "params");
+        get => GetArgument<TerraformValue<string>>("params");
         set => SetArgument("params", value);
     }
 
@@ -81,7 +79,7 @@ public class GoogleDiscoveryEngineDataConnectorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -90,7 +88,7 @@ public class GoogleDiscoveryEngineDataConnectorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -99,7 +97,7 @@ public class GoogleDiscoveryEngineDataConnectorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -117,7 +115,7 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// </summary>
     public TerraformValue<bool>? AutoRunDisabled
     {
-        get => new TerraformReference<bool>(this, "auto_run_disabled");
+        get => GetArgument<TerraformValue<bool>>("auto_run_disabled");
         set => SetArgument("auto_run_disabled", value);
     }
 
@@ -129,7 +127,7 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionDisplayName is required")]
     public required TerraformValue<string> CollectionDisplayName
     {
-        get => new TerraformReference<string>(this, "collection_display_name");
+        get => GetArgument<TerraformValue<string>>("collection_display_name");
         set => SetArgument("collection_display_name", value);
     }
 
@@ -145,7 +143,7 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionId is required")]
     public required TerraformValue<string> CollectionId
     {
-        get => new TerraformReference<string>(this, "collection_id");
+        get => GetArgument<TerraformValue<string>>("collection_id");
         set => SetArgument("collection_id", value);
     }
 
@@ -156,7 +154,7 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// </summary>
     public TerraformList<string>? ConnectorModes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "connector_modes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("connector_modes");
         set => SetArgument("connector_modes", value);
     }
 
@@ -167,16 +165,16 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSource is required")]
     public required TerraformValue<string> DataSource
     {
-        get => new TerraformReference<string>(this, "data_source");
+        get => GetArgument<TerraformValue<string>>("data_source");
         set => SetArgument("data_source", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -190,7 +188,7 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? IncrementalRefreshInterval
     {
-        get => new TerraformReference<string>(this, "incremental_refresh_interval");
+        get => GetArgument<TerraformValue<string>>("incremental_refresh_interval");
         set => SetArgument("incremental_refresh_interval", value);
     }
 
@@ -199,7 +197,7 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// </summary>
     public TerraformValue<bool>? IncrementalSyncDisabled
     {
-        get => new TerraformReference<bool>(this, "incremental_sync_disabled");
+        get => GetArgument<TerraformValue<bool>>("incremental_sync_disabled");
         set => SetArgument("incremental_sync_disabled", value);
     }
 
@@ -208,7 +206,7 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? JsonParams
     {
-        get => new TerraformReference<string>(this, "json_params");
+        get => GetArgument<TerraformValue<string>>("json_params");
         set => SetArgument("json_params", value);
     }
 
@@ -221,7 +219,7 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -232,7 +230,7 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -241,16 +239,16 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// </summary>
     public TerraformMap<string>? ParamsAttribute
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "params").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("params");
         set => SetArgument("params", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -264,7 +262,7 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RefreshInterval is required")]
     public required TerraformValue<string> RefreshInterval
     {
-        get => new TerraformReference<string>(this, "refresh_interval");
+        get => GetArgument<TerraformValue<string>>("refresh_interval");
         set => SetArgument("refresh_interval", value);
     }
 
@@ -273,7 +271,7 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// </summary>
     public TerraformValue<bool>? StaticIpEnabled
     {
-        get => new TerraformReference<bool>(this, "static_ip_enabled");
+        get => GetArgument<TerraformValue<bool>>("static_ip_enabled");
         set => SetArgument("static_ip_enabled", value);
     }
 
@@ -283,7 +281,7 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? SyncMode
     {
-        get => new TerraformReference<string>(this, "sync_mode");
+        get => GetArgument<TerraformValue<string>>("sync_mode");
         set => SetArgument("sync_mode", value);
     }
 
@@ -294,18 +292,14 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// &#39;INITIALIZATION_FAILED&#39;, &#39;UPDATING&#39;.
     /// </summary>
     public TerraformValue<string> ActionState
-    {
-        get => new TerraformReference<string>(this, "action_state");
-    }
+        => AsReference("action_state");
 
     /// <summary>
     /// User actions that must be completed before the connector can start syncing data.
     /// The possible values can be: &#39;ALLOWLIST_STATIC_IP&#39;, &#39;ALLOWLIST_IN_SERVICE_ATTACHMENT&#39;.
     /// </summary>
     public TerraformList<string> BlockingReasons
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "blocking_reasons").ResolveNodes(ctx));
-    }
+        => AsReference("blocking_reasons");
 
     /// <summary>
     /// The type of connector. Each source can only map to one type.
@@ -316,33 +310,25 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// &#39;NATIVE_CLOUD_IDENTITY&#39;, &#39;THIRD_PARTY_FEDERATED&#39;, &#39;THIRD_PARTY_EUA&#39;, &#39;GCNV&#39;.
     /// </summary>
     public TerraformValue<string> ConnectorType
-    {
-        get => new TerraformReference<string>(this, "connector_type");
-    }
+        => AsReference("connector_type");
 
     /// <summary>
     /// Timestamp when the DataConnector was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The errors from initialization or from the latest connector run.
     /// </summary>
     public TerraformList<TerraformMap<object>> Errors
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "errors").ResolveNodes(ctx));
-    }
+        => AsReference("errors");
 
     /// <summary>
     /// For periodic connectors only, the last time a data sync was completed.
     /// </summary>
     public TerraformValue<string> LastSyncTime
-    {
-        get => new TerraformReference<string>(this, "last_sync_time");
-    }
+        => AsReference("last_sync_time");
 
     /// <summary>
     /// The most recent timestamp when this [DataConnector][] was paused,
@@ -354,27 +340,21 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// triggered.
     /// </summary>
     public TerraformValue<string> LatestPauseTime
-    {
-        get => new TerraformReference<string>(this, "latest_pause_time");
-    }
+        => AsReference("latest_pause_time");
 
     /// <summary>
     /// The full resource name of the Data Connector.
     /// Format: &#39;projects/*/locations/*/collections/*/dataConnector&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The tenant project ID associated with private connectivity connectors.
     /// This project must be allowlisted by in order for the connector to function.
     /// </summary>
     public TerraformValue<string> PrivateConnectivityProjectId
-    {
-        get => new TerraformReference<string>(this, "private_connectivity_project_id");
-    }
+        => AsReference("private_connectivity_project_id");
 
     /// <summary>
     /// The real-time sync state. The possible values can be:
@@ -382,9 +362,7 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// &#39;INITIALIZATION_FAILED&#39;, &#39;UPDATING&#39;.
     /// </summary>
     public TerraformValue<string> RealtimeState
-    {
-        get => new TerraformReference<string>(this, "realtime_state");
-    }
+        => AsReference("realtime_state");
 
     /// <summary>
     /// The state of connector. The possible value can be:
@@ -392,25 +370,19 @@ public partial class GoogleDiscoveryEngineDataConnector(string name) : Terraform
     /// &#39;INITIALIZATION_FAILED&#39;, &#39;UPDATING&#39;.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The static IP addresses used by this connector.
     /// </summary>
     public TerraformList<string> StaticIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "static_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("static_ip_addresses");
 
     /// <summary>
     /// Timestamp when the DataConnector was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Entities block (nesting mode: list).

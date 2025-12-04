@@ -18,7 +18,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AddOrRunAnomalyDetectionForAnalyses
     {
-        get => new TerraformReference<string>(this, "add_or_run_anomaly_detection_for_analyses");
+        get => GetArgument<TerraformValue<string>>("add_or_run_anomaly_detection_for_analyses");
         set => SetArgument("add_or_run_anomaly_detection_for_analyses", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CreateAndUpdateDashboardEmailReports
     {
-        get => new TerraformReference<string>(this, "create_and_update_dashboard_email_reports");
+        get => GetArgument<TerraformValue<string>>("create_and_update_dashboard_email_reports");
         set => SetArgument("create_and_update_dashboard_email_reports", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CreateAndUpdateDataSources
     {
-        get => new TerraformReference<string>(this, "create_and_update_data_sources");
+        get => GetArgument<TerraformValue<string>>("create_and_update_data_sources");
         set => SetArgument("create_and_update_data_sources", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CreateAndUpdateDatasets
     {
-        get => new TerraformReference<string>(this, "create_and_update_datasets");
+        get => GetArgument<TerraformValue<string>>("create_and_update_datasets");
         set => SetArgument("create_and_update_datasets", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CreateAndUpdateThemes
     {
-        get => new TerraformReference<string>(this, "create_and_update_themes");
+        get => GetArgument<TerraformValue<string>>("create_and_update_themes");
         set => SetArgument("create_and_update_themes", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CreateAndUpdateThresholdAlerts
     {
-        get => new TerraformReference<string>(this, "create_and_update_threshold_alerts");
+        get => GetArgument<TerraformValue<string>>("create_and_update_threshold_alerts");
         set => SetArgument("create_and_update_threshold_alerts", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CreateSharedFolders
     {
-        get => new TerraformReference<string>(this, "create_shared_folders");
+        get => GetArgument<TerraformValue<string>>("create_shared_folders");
         set => SetArgument("create_shared_folders", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CreateSpiceDataset
     {
-        get => new TerraformReference<string>(this, "create_spice_dataset");
+        get => GetArgument<TerraformValue<string>>("create_spice_dataset");
         set => SetArgument("create_spice_dataset", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ExportToCsv
     {
-        get => new TerraformReference<string>(this, "export_to_csv");
+        get => GetArgument<TerraformValue<string>>("export_to_csv");
         set => SetArgument("export_to_csv", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ExportToCsvInScheduledReports
     {
-        get => new TerraformReference<string>(this, "export_to_csv_in_scheduled_reports");
+        get => GetArgument<TerraformValue<string>>("export_to_csv_in_scheduled_reports");
         set => SetArgument("export_to_csv_in_scheduled_reports", value);
     }
 
@@ -108,7 +108,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ExportToExcel
     {
-        get => new TerraformReference<string>(this, "export_to_excel");
+        get => GetArgument<TerraformValue<string>>("export_to_excel");
         set => SetArgument("export_to_excel", value);
     }
 
@@ -117,7 +117,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ExportToExcelInScheduledReports
     {
-        get => new TerraformReference<string>(this, "export_to_excel_in_scheduled_reports");
+        get => GetArgument<TerraformValue<string>>("export_to_excel_in_scheduled_reports");
         set => SetArgument("export_to_excel_in_scheduled_reports", value);
     }
 
@@ -126,7 +126,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ExportToPdf
     {
-        get => new TerraformReference<string>(this, "export_to_pdf");
+        get => GetArgument<TerraformValue<string>>("export_to_pdf");
         set => SetArgument("export_to_pdf", value);
     }
 
@@ -135,7 +135,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ExportToPdfInScheduledReports
     {
-        get => new TerraformReference<string>(this, "export_to_pdf_in_scheduled_reports");
+        get => GetArgument<TerraformValue<string>>("export_to_pdf_in_scheduled_reports");
         set => SetArgument("export_to_pdf_in_scheduled_reports", value);
     }
 
@@ -144,7 +144,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? IncludeContentInScheduledReportsEmail
     {
-        get => new TerraformReference<string>(this, "include_content_in_scheduled_reports_email");
+        get => GetArgument<TerraformValue<string>>("include_content_in_scheduled_reports_email");
         set => SetArgument("include_content_in_scheduled_reports_email", value);
     }
 
@@ -153,7 +153,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PrintReports
     {
-        get => new TerraformReference<string>(this, "print_reports");
+        get => GetArgument<TerraformValue<string>>("print_reports");
         set => SetArgument("print_reports", value);
     }
 
@@ -162,7 +162,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RenameSharedFolders
     {
-        get => new TerraformReference<string>(this, "rename_shared_folders");
+        get => GetArgument<TerraformValue<string>>("rename_shared_folders");
         set => SetArgument("rename_shared_folders", value);
     }
 
@@ -171,7 +171,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ShareAnalyses
     {
-        get => new TerraformReference<string>(this, "share_analyses");
+        get => GetArgument<TerraformValue<string>>("share_analyses");
         set => SetArgument("share_analyses", value);
     }
 
@@ -180,7 +180,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ShareDashboards
     {
-        get => new TerraformReference<string>(this, "share_dashboards");
+        get => GetArgument<TerraformValue<string>>("share_dashboards");
         set => SetArgument("share_dashboards", value);
     }
 
@@ -189,7 +189,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ShareDataSources
     {
-        get => new TerraformReference<string>(this, "share_data_sources");
+        get => GetArgument<TerraformValue<string>>("share_data_sources");
         set => SetArgument("share_data_sources", value);
     }
 
@@ -198,7 +198,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ShareDatasets
     {
-        get => new TerraformReference<string>(this, "share_datasets");
+        get => GetArgument<TerraformValue<string>>("share_datasets");
         set => SetArgument("share_datasets", value);
     }
 
@@ -207,7 +207,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SubscribeDashboardEmailReports
     {
-        get => new TerraformReference<string>(this, "subscribe_dashboard_email_reports");
+        get => GetArgument<TerraformValue<string>>("subscribe_dashboard_email_reports");
         set => SetArgument("subscribe_dashboard_email_reports", value);
     }
 
@@ -216,7 +216,7 @@ public class AwsQuicksightCustomPermissionsCapabilitiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ViewAccountSpiceCapacity
     {
-        get => new TerraformReference<string>(this, "view_account_spice_capacity");
+        get => GetArgument<TerraformValue<string>>("view_account_spice_capacity");
         set => SetArgument("view_account_spice_capacity", value);
     }
 
@@ -232,9 +232,9 @@ public partial class AwsQuicksightCustomPermissions(string name) : TerraformReso
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformValue<string> AwsAccountId
+    public TerraformValue<string>? AwsAccountId
     {
-        get => new TerraformReference<string>(this, "aws_account_id");
+        get => GetArgument<TerraformValue<string>>("aws_account_id");
         set => SetArgument("aws_account_id", value);
     }
 
@@ -244,16 +244,16 @@ public partial class AwsQuicksightCustomPermissions(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomPermissionsName is required")]
     public required TerraformValue<string> CustomPermissionsName
     {
-        get => new TerraformReference<string>(this, "custom_permissions_name");
+        get => GetArgument<TerraformValue<string>>("custom_permissions_name");
         set => SetArgument("custom_permissions_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -262,7 +262,7 @@ public partial class AwsQuicksightCustomPermissions(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -270,17 +270,13 @@ public partial class AwsQuicksightCustomPermissions(string name) : TerraformReso
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Capabilities block (nesting mode: list).

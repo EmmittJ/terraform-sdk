@@ -19,7 +19,7 @@ public class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessKeyId is required")]
     public required TerraformValue<string> AccessKeyId
     {
-        get => new TerraformReference<string>(this, "access_key_id");
+        get => GetArgument<TerraformValue<string>>("access_key_id");
         set => SetArgument("access_key_id", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginRegion is required")]
     public required TerraformValue<string> OriginRegion
     {
-        get => new TerraformReference<string>(this, "origin_region");
+        get => GetArgument<TerraformValue<string>>("origin_region");
         set => SetArgument("origin_region", value);
     }
 
@@ -41,7 +41,7 @@ public class GoogleNetworkServicesEdgeCacheOriginAwsV4AuthenticationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretAccessKeyVersion is required")]
     public required TerraformValue<string> SecretAccessKeyVersion
     {
-        get => new TerraformReference<string>(this, "secret_access_key_version");
+        get => GetArgument<TerraformValue<string>>("secret_access_key_version");
         set => SetArgument("secret_access_key_version", value);
     }
 
@@ -67,7 +67,7 @@ public class GoogleNetworkServicesEdgeCacheOriginFlexShieldingBlock : TerraformB
     /// </summary>
     public TerraformList<string>? FlexShieldingRegions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "flex_shielding_regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("flex_shielding_regions");
         set => SetArgument("flex_shielding_regions", value);
     }
 
@@ -147,7 +147,7 @@ public class GoogleNetworkServicesEdgeCacheOriginOriginOverrideActionBlockHeader
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
     public required TerraformValue<string> HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -157,7 +157,7 @@ public class GoogleNetworkServicesEdgeCacheOriginOriginOverrideActionBlockHeader
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
     public required TerraformValue<string> HeaderValue
     {
-        get => new TerraformReference<string>(this, "header_value");
+        get => GetArgument<TerraformValue<string>>("header_value");
         set => SetArgument("header_value", value);
     }
 
@@ -173,7 +173,7 @@ public class GoogleNetworkServicesEdgeCacheOriginOriginOverrideActionBlockHeader
     /// </summary>
     public TerraformValue<bool>? Replace
     {
-        get => new TerraformReference<bool>(this, "replace");
+        get => GetArgument<TerraformValue<bool>>("replace");
         set => SetArgument("replace", value);
     }
 
@@ -199,7 +199,7 @@ public class GoogleNetworkServicesEdgeCacheOriginOriginOverrideActionBlockUrlRew
     /// </summary>
     public TerraformValue<string>? HostRewrite
     {
-        get => new TerraformReference<string>(this, "host_rewrite");
+        get => GetArgument<TerraformValue<string>>("host_rewrite");
         set => SetArgument("host_rewrite", value);
     }
 
@@ -225,7 +225,7 @@ public class GoogleNetworkServicesEdgeCacheOriginOriginRedirectBlock : Terraform
     /// </summary>
     public TerraformList<string>? RedirectConditions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "redirect_conditions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("redirect_conditions");
         set => SetArgument("redirect_conditions", value);
     }
 
@@ -252,7 +252,7 @@ public class GoogleNetworkServicesEdgeCacheOriginTimeoutBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConnectTimeout
     {
-        get => new TerraformReference<string>(this, "connect_timeout");
+        get => GetArgument<TerraformValue<string>>("connect_timeout");
         set => SetArgument("connect_timeout", value);
     }
 
@@ -265,7 +265,7 @@ public class GoogleNetworkServicesEdgeCacheOriginTimeoutBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaxAttemptsTimeout
     {
-        get => new TerraformReference<string>(this, "max_attempts_timeout");
+        get => GetArgument<TerraformValue<string>>("max_attempts_timeout");
         set => SetArgument("max_attempts_timeout", value);
     }
 
@@ -280,7 +280,7 @@ public class GoogleNetworkServicesEdgeCacheOriginTimeoutBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ReadTimeout
     {
-        get => new TerraformReference<string>(this, "read_timeout");
+        get => GetArgument<TerraformValue<string>>("read_timeout");
         set => SetArgument("read_timeout", value);
     }
 
@@ -297,7 +297,7 @@ public class GoogleNetworkServicesEdgeCacheOriginTimeoutBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ResponseTimeout
     {
-        get => new TerraformReference<string>(this, "response_timeout");
+        get => GetArgument<TerraformValue<string>>("response_timeout");
         set => SetArgument("response_timeout", value);
     }
 
@@ -320,7 +320,7 @@ public class GoogleNetworkServicesEdgeCacheOriginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -329,7 +329,7 @@ public class GoogleNetworkServicesEdgeCacheOriginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -338,7 +338,7 @@ public class GoogleNetworkServicesEdgeCacheOriginTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -356,7 +356,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -369,16 +369,16 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? FailoverOrigin
     {
-        get => new TerraformReference<string>(this, "failover_origin");
+        get => GetArgument<TerraformValue<string>>("failover_origin");
         set => SetArgument("failover_origin", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -390,7 +390,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -410,7 +410,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     /// </summary>
     public TerraformValue<double>? MaxAttempts
     {
-        get => new TerraformReference<double>(this, "max_attempts");
+        get => GetArgument<TerraformValue<double>>("max_attempts");
         set => SetArgument("max_attempts", value);
     }
 
@@ -422,7 +422,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -437,7 +437,7 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OriginAddress is required")]
     public required TerraformValue<string> OriginAddress
     {
-        get => new TerraformReference<string>(this, "origin_address");
+        get => GetArgument<TerraformValue<string>>("origin_address");
         set => SetArgument("origin_address", value);
     }
 
@@ -445,18 +445,18 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     /// The port to connect to the origin on.
     /// Defaults to port 443 for HTTP2 and HTTPS protocols, and port 80 for HTTP.
     /// </summary>
-    public TerraformValue<double> Port
+    public TerraformValue<double>? Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -465,9 +465,9 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     /// 
     /// When using HTTP2 or HTTPS as the protocol, a valid, publicly-signed, unexpired TLS (SSL) certificate must be presented by the origin server. Possible values: [&amp;quot;HTTP2&amp;quot;, &amp;quot;HTTPS&amp;quot;, &amp;quot;HTTP&amp;quot;]
     /// </summary>
-    public TerraformValue<string> Protocol
+    public TerraformValue<string>? Protocol
     {
-        get => new TerraformReference<string>(this, "protocol");
+        get => GetArgument<TerraformValue<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -491,9 +491,9 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     /// - NOT_FOUND: Retry if the origin returns a HTTP 404 (Not Found). This can be useful when generating video content, and the segment is not available yet.
     /// - FORBIDDEN: Retry if the origin returns a HTTP 403 (Forbidden). Possible values: [&amp;quot;CONNECT_FAILURE&amp;quot;, &amp;quot;HTTP_5XX&amp;quot;, &amp;quot;GATEWAY_ERROR&amp;quot;, &amp;quot;RETRIABLE_4XX&amp;quot;, &amp;quot;NOT_FOUND&amp;quot;, &amp;quot;FORBIDDEN&amp;quot;]
     /// </summary>
-    public TerraformList<string> RetryConditions
+    public TerraformList<string>? RetryConditions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "retry_conditions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("retry_conditions");
         set => SetArgument("retry_conditions", value);
     }
 
@@ -501,18 +501,14 @@ public partial class GoogleNetworkServicesEdgeCacheOrigin(string name) : Terrafo
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// AwsV4Authentication block (nesting mode: list).

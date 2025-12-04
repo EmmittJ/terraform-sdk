@@ -19,7 +19,7 @@ public class AwsApigatewayv2RouteRequestParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequestParameterKey is required")]
     public required TerraformValue<string> RequestParameterKey
     {
-        get => new TerraformReference<string>(this, "request_parameter_key");
+        get => GetArgument<TerraformValue<string>>("request_parameter_key");
         set => SetArgument("request_parameter_key", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsApigatewayv2RouteRequestParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Required is required")]
     public required TerraformValue<bool> Required
     {
-        get => new TerraformReference<bool>(this, "required");
+        get => GetArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -48,7 +48,7 @@ public partial class AwsApigatewayv2Route(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformValue<string> ApiId
     {
-        get => new TerraformReference<string>(this, "api_id");
+        get => GetArgument<TerraformValue<string>>("api_id");
         set => SetArgument("api_id", value);
     }
 
@@ -57,7 +57,7 @@ public partial class AwsApigatewayv2Route(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<bool>? ApiKeyRequired
     {
-        get => new TerraformReference<bool>(this, "api_key_required");
+        get => GetArgument<TerraformValue<bool>>("api_key_required");
         set => SetArgument("api_key_required", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AwsApigatewayv2Route(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformSet<string>? AuthorizationScopes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "authorization_scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("authorization_scopes");
         set => SetArgument("authorization_scopes", value);
     }
 
@@ -75,7 +75,7 @@ public partial class AwsApigatewayv2Route(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? AuthorizationType
     {
-        get => new TerraformReference<string>(this, "authorization_type");
+        get => GetArgument<TerraformValue<string>>("authorization_type");
         set => SetArgument("authorization_type", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AwsApigatewayv2Route(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? AuthorizerId
     {
-        get => new TerraformReference<string>(this, "authorizer_id");
+        get => GetArgument<TerraformValue<string>>("authorizer_id");
         set => SetArgument("authorizer_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AwsApigatewayv2Route(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? ModelSelectionExpression
     {
-        get => new TerraformReference<string>(this, "model_selection_expression");
+        get => GetArgument<TerraformValue<string>>("model_selection_expression");
         set => SetArgument("model_selection_expression", value);
     }
 
@@ -111,16 +111,16 @@ public partial class AwsApigatewayv2Route(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? OperationName
     {
-        get => new TerraformReference<string>(this, "operation_name");
+        get => GetArgument<TerraformValue<string>>("operation_name");
         set => SetArgument("operation_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AwsApigatewayv2Route(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string>? RequestModels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "request_models").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("request_models");
         set => SetArgument("request_models", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AwsApigatewayv2Route(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteKey is required")]
     public required TerraformValue<string> RouteKey
     {
-        get => new TerraformReference<string>(this, "route_key");
+        get => GetArgument<TerraformValue<string>>("route_key");
         set => SetArgument("route_key", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AwsApigatewayv2Route(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? RouteResponseSelectionExpression
     {
-        get => new TerraformReference<string>(this, "route_response_selection_expression");
+        get => GetArgument<TerraformValue<string>>("route_response_selection_expression");
         set => SetArgument("route_response_selection_expression", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AwsApigatewayv2Route(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Target
     {
-        get => new TerraformReference<string>(this, "target");
+        get => GetArgument<TerraformValue<string>>("target");
         set => SetArgument("target", value);
     }
 

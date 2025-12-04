@@ -18,7 +18,7 @@ public class AwsAuditmanagerControlControlMappingSourcesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SourceDescription
     {
-        get => new TerraformReference<string>(this, "source_description");
+        get => GetArgument<TerraformValue<string>>("source_description");
         set => SetArgument("source_description", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsAuditmanagerControlControlMappingSourcesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SourceFrequency
     {
-        get => new TerraformReference<string>(this, "source_frequency");
+        get => GetArgument<TerraformValue<string>>("source_frequency");
         set => SetArgument("source_frequency", value);
     }
 
@@ -35,16 +35,14 @@ public class AwsAuditmanagerControlControlMappingSourcesBlock : TerraformBlock
     /// The source_id attribute.
     /// </summary>
     public TerraformValue<string> SourceId
-    {
-        get => new TerraformReference<string>(this, "source_id");
-    }
+        => AsReference("source_id");
 
     /// <summary>
     /// The source_keyword attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>> SourceKeyword
+    public TerraformList<TerraformMap<object>>? SourceKeyword
     {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "source_keyword").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<TerraformMap<object>>>("source_keyword");
         set => SetArgument("source_keyword", value);
     }
 
@@ -54,7 +52,7 @@ public class AwsAuditmanagerControlControlMappingSourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceName is required")]
     public required TerraformValue<string> SourceName
     {
-        get => new TerraformReference<string>(this, "source_name");
+        get => GetArgument<TerraformValue<string>>("source_name");
         set => SetArgument("source_name", value);
     }
 
@@ -64,7 +62,7 @@ public class AwsAuditmanagerControlControlMappingSourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceSetUpOption is required")]
     public required TerraformValue<string> SourceSetUpOption
     {
-        get => new TerraformReference<string>(this, "source_set_up_option");
+        get => GetArgument<TerraformValue<string>>("source_set_up_option");
         set => SetArgument("source_set_up_option", value);
     }
 
@@ -74,7 +72,7 @@ public class AwsAuditmanagerControlControlMappingSourcesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceType is required")]
     public required TerraformValue<string> SourceType
     {
-        get => new TerraformReference<string>(this, "source_type");
+        get => GetArgument<TerraformValue<string>>("source_type");
         set => SetArgument("source_type", value);
     }
 
@@ -83,7 +81,7 @@ public class AwsAuditmanagerControlControlMappingSourcesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TroubleshootingText
     {
-        get => new TerraformReference<string>(this, "troubleshooting_text");
+        get => GetArgument<TerraformValue<string>>("troubleshooting_text");
         set => SetArgument("troubleshooting_text", value);
     }
 
@@ -101,7 +99,7 @@ public partial class AwsAuditmanagerControl(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? ActionPlanInstructions
     {
-        get => new TerraformReference<string>(this, "action_plan_instructions");
+        get => GetArgument<TerraformValue<string>>("action_plan_instructions");
         set => SetArgument("action_plan_instructions", value);
     }
 
@@ -110,7 +108,7 @@ public partial class AwsAuditmanagerControl(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? ActionPlanTitle
     {
-        get => new TerraformReference<string>(this, "action_plan_title");
+        get => GetArgument<TerraformValue<string>>("action_plan_title");
         set => SetArgument("action_plan_title", value);
     }
 
@@ -119,7 +117,7 @@ public partial class AwsAuditmanagerControl(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -129,16 +127,16 @@ public partial class AwsAuditmanagerControl(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -147,7 +145,7 @@ public partial class AwsAuditmanagerControl(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -156,7 +154,7 @@ public partial class AwsAuditmanagerControl(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? TestingInformation
     {
-        get => new TerraformReference<string>(this, "testing_information");
+        get => GetArgument<TerraformValue<string>>("testing_information");
         set => SetArgument("testing_information", value);
     }
 
@@ -164,33 +162,25 @@ public partial class AwsAuditmanagerControl(string name) : TerraformResource("aw
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// ControlMappingSources block (nesting mode: set).

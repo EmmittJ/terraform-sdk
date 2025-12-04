@@ -18,7 +18,7 @@ public class AzurermCdnFrontdoorRouteCacheBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? CompressionEnabled
     {
-        get => new TerraformReference<bool>(this, "compression_enabled");
+        get => GetArgument<TerraformValue<bool>>("compression_enabled");
         set => SetArgument("compression_enabled", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermCdnFrontdoorRouteCacheBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ContentTypesToCompress
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "content_types_to_compress").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("content_types_to_compress");
         set => SetArgument("content_types_to_compress", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermCdnFrontdoorRouteCacheBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? QueryStringCachingBehavior
     {
-        get => new TerraformReference<string>(this, "query_string_caching_behavior");
+        get => GetArgument<TerraformValue<string>>("query_string_caching_behavior");
         set => SetArgument("query_string_caching_behavior", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermCdnFrontdoorRouteCacheBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? QueryStrings
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "query_strings").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("query_strings");
         set => SetArgument("query_strings", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermCdnFrontdoorRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermCdnFrontdoorRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermCdnFrontdoorRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermCdnFrontdoorRouteTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AzurermCdnFrontdoorRoute(string name) : TerraformResource("
     /// </summary>
     public TerraformSet<string>? CdnFrontdoorCustomDomainIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "cdn_frontdoor_custom_domain_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("cdn_frontdoor_custom_domain_ids");
         set => SetArgument("cdn_frontdoor_custom_domain_ids", value);
     }
 
@@ -123,7 +123,7 @@ public partial class AzurermCdnFrontdoorRoute(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorEndpointId is required")]
     public required TerraformValue<string> CdnFrontdoorEndpointId
     {
-        get => new TerraformReference<string>(this, "cdn_frontdoor_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_endpoint_id");
         set => SetArgument("cdn_frontdoor_endpoint_id", value);
     }
 
@@ -133,7 +133,7 @@ public partial class AzurermCdnFrontdoorRoute(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorOriginGroupId is required")]
     public required TerraformValue<string> CdnFrontdoorOriginGroupId
     {
-        get => new TerraformReference<string>(this, "cdn_frontdoor_origin_group_id");
+        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_origin_group_id");
         set => SetArgument("cdn_frontdoor_origin_group_id", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AzurermCdnFrontdoorRoute(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorOriginIds is required")]
     public TerraformList<string>? CdnFrontdoorOriginIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "cdn_frontdoor_origin_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("cdn_frontdoor_origin_ids");
         set => SetArgument("cdn_frontdoor_origin_ids", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AzurermCdnFrontdoorRoute(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? CdnFrontdoorOriginPath
     {
-        get => new TerraformReference<string>(this, "cdn_frontdoor_origin_path");
+        get => GetArgument<TerraformValue<string>>("cdn_frontdoor_origin_path");
         set => SetArgument("cdn_frontdoor_origin_path", value);
     }
 
@@ -161,7 +161,7 @@ public partial class AzurermCdnFrontdoorRoute(string name) : TerraformResource("
     /// </summary>
     public TerraformSet<string>? CdnFrontdoorRuleSetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "cdn_frontdoor_rule_set_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("cdn_frontdoor_rule_set_ids");
         set => SetArgument("cdn_frontdoor_rule_set_ids", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AzurermCdnFrontdoorRoute(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -179,7 +179,7 @@ public partial class AzurermCdnFrontdoorRoute(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? ForwardingProtocol
     {
-        get => new TerraformReference<string>(this, "forwarding_protocol");
+        get => GetArgument<TerraformValue<string>>("forwarding_protocol");
         set => SetArgument("forwarding_protocol", value);
     }
 
@@ -188,16 +188,16 @@ public partial class AzurermCdnFrontdoorRoute(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? HttpsRedirectEnabled
     {
-        get => new TerraformReference<bool>(this, "https_redirect_enabled");
+        get => GetArgument<TerraformValue<bool>>("https_redirect_enabled");
         set => SetArgument("https_redirect_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -206,7 +206,7 @@ public partial class AzurermCdnFrontdoorRoute(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? LinkToDefaultDomain
     {
-        get => new TerraformReference<bool>(this, "link_to_default_domain");
+        get => GetArgument<TerraformValue<bool>>("link_to_default_domain");
         set => SetArgument("link_to_default_domain", value);
     }
 
@@ -216,7 +216,7 @@ public partial class AzurermCdnFrontdoorRoute(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -226,7 +226,7 @@ public partial class AzurermCdnFrontdoorRoute(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatternsToMatch is required")]
     public TerraformList<string>? PatternsToMatch
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "patterns_to_match").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("patterns_to_match");
         set => SetArgument("patterns_to_match", value);
     }
 
@@ -236,7 +236,7 @@ public partial class AzurermCdnFrontdoorRoute(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SupportedProtocols is required")]
     public required TerraformSet<string> SupportedProtocols
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "supported_protocols").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("supported_protocols");
         set => SetArgument("supported_protocols", value);
     }
 

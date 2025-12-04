@@ -50,7 +50,7 @@ public class AwsAppsyncChannelNamespaceHandlerConfigsBlockOnPublishBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Behavior is required")]
     public required TerraformValue<string> Behavior
     {
-        get => new TerraformReference<string>(this, "behavior");
+        get => GetArgument<TerraformValue<string>>("behavior");
         set => SetArgument("behavior", value);
     }
 
@@ -82,7 +82,7 @@ public class AwsAppsyncChannelNamespaceHandlerConfigsBlockOnPublishBlockIntegrat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceName is required")]
     public required TerraformValue<string> DataSourceName
     {
-        get => new TerraformReference<string>(this, "data_source_name");
+        get => GetArgument<TerraformValue<string>>("data_source_name");
         set => SetArgument("data_source_name", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsAppsyncChannelNamespaceHandlerConfigsBlockOnPublishBlockIntegrat
     /// </summary>
     public TerraformValue<string>? InvokeType
     {
-        get => new TerraformReference<string>(this, "invoke_type");
+        get => GetArgument<TerraformValue<string>>("invoke_type");
         set => SetArgument("invoke_type", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsAppsyncChannelNamespaceHandlerConfigsBlockOnSubscribeBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Behavior is required")]
     public required TerraformValue<string> Behavior
     {
-        get => new TerraformReference<string>(this, "behavior");
+        get => GetArgument<TerraformValue<string>>("behavior");
         set => SetArgument("behavior", value);
     }
 
@@ -168,7 +168,7 @@ public class AwsAppsyncChannelNamespaceHandlerConfigsBlockOnSubscribeBlockIntegr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceName is required")]
     public required TerraformValue<string> DataSourceName
     {
-        get => new TerraformReference<string>(this, "data_source_name");
+        get => GetArgument<TerraformValue<string>>("data_source_name");
         set => SetArgument("data_source_name", value);
     }
 
@@ -199,7 +199,7 @@ public class AwsAppsyncChannelNamespaceHandlerConfigsBlockOnSubscribeBlockIntegr
     /// </summary>
     public TerraformValue<string>? InvokeType
     {
-        get => new TerraformReference<string>(this, "invoke_type");
+        get => GetArgument<TerraformValue<string>>("invoke_type");
         set => SetArgument("invoke_type", value);
     }
 
@@ -223,7 +223,7 @@ public class AwsAppsyncChannelNamespacePublishAuthModeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformValue<string> AuthType
     {
-        get => new TerraformReference<string>(this, "auth_type");
+        get => GetArgument<TerraformValue<string>>("auth_type");
         set => SetArgument("auth_type", value);
     }
 
@@ -247,7 +247,7 @@ public class AwsAppsyncChannelNamespaceSubscribeAuthModeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
     public required TerraformValue<string> AuthType
     {
-        get => new TerraformReference<string>(this, "auth_type");
+        get => GetArgument<TerraformValue<string>>("auth_type");
         set => SetArgument("auth_type", value);
     }
 
@@ -266,7 +266,7 @@ public partial class AwsAppsyncChannelNamespace(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformValue<string> ApiId
     {
-        get => new TerraformReference<string>(this, "api_id");
+        get => GetArgument<TerraformValue<string>>("api_id");
         set => SetArgument("api_id", value);
     }
 
@@ -275,7 +275,7 @@ public partial class AwsAppsyncChannelNamespace(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? CodeHandlers
     {
-        get => new TerraformReference<string>(this, "code_handlers");
+        get => GetArgument<TerraformValue<string>>("code_handlers");
         set => SetArgument("code_handlers", value);
     }
 
@@ -285,16 +285,16 @@ public partial class AwsAppsyncChannelNamespace(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -303,7 +303,7 @@ public partial class AwsAppsyncChannelNamespace(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -311,17 +311,13 @@ public partial class AwsAppsyncChannelNamespace(string name) : TerraformResource
     /// The channel_namespace_arn attribute.
     /// </summary>
     public TerraformValue<string> ChannelNamespaceArn
-    {
-        get => new TerraformReference<string>(this, "channel_namespace_arn");
-    }
+        => AsReference("channel_namespace_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// HandlerConfigs block (nesting mode: list).

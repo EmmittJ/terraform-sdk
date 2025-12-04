@@ -16,9 +16,9 @@ public class AwsSsoadminApplicationPortalOptionsBlock : TerraformBlock
     /// <summary>
     /// The visibility attribute.
     /// </summary>
-    public TerraformValue<string> Visibility
+    public TerraformValue<string>? Visibility
     {
-        get => new TerraformReference<string>(this, "visibility");
+        get => GetArgument<TerraformValue<string>>("visibility");
         set => SetArgument("visibility", value);
     }
 
@@ -49,7 +49,7 @@ public class AwsSsoadminApplicationPortalOptionsBlockSignInOptionsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? ApplicationUrl
     {
-        get => new TerraformReference<string>(this, "application_url");
+        get => GetArgument<TerraformValue<string>>("application_url");
         set => SetArgument("application_url", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsSsoadminApplicationPortalOptionsBlockSignInOptionsBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Origin is required")]
     public required TerraformValue<string> Origin
     {
-        get => new TerraformReference<string>(this, "origin");
+        get => GetArgument<TerraformValue<string>>("origin");
         set => SetArgument("origin", value);
     }
 
@@ -78,7 +78,7 @@ public partial class AwsSsoadminApplication(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationProviderArn is required")]
     public required TerraformValue<string> ApplicationProviderArn
     {
-        get => new TerraformReference<string>(this, "application_provider_arn");
+        get => GetArgument<TerraformValue<string>>("application_provider_arn");
         set => SetArgument("application_provider_arn", value);
     }
 
@@ -87,7 +87,7 @@ public partial class AwsSsoadminApplication(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? ClientToken
     {
-        get => new TerraformReference<string>(this, "client_token");
+        get => GetArgument<TerraformValue<string>>("client_token");
         set => SetArgument("client_token", value);
     }
 
@@ -96,7 +96,7 @@ public partial class AwsSsoadminApplication(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -106,7 +106,7 @@ public partial class AwsSsoadminApplication(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     public required TerraformValue<string> InstanceArn
     {
-        get => new TerraformReference<string>(this, "instance_arn");
+        get => GetArgument<TerraformValue<string>>("instance_arn");
         set => SetArgument("instance_arn", value);
     }
 
@@ -116,25 +116,25 @@ public partial class AwsSsoadminApplication(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformValue<string> Status
+    public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AwsSsoadminApplication(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -151,43 +151,33 @@ public partial class AwsSsoadminApplication(string name) : TerraformResource("aw
     /// The application_account attribute.
     /// </summary>
     public TerraformValue<string> ApplicationAccount
-    {
-        get => new TerraformReference<string>(this, "application_account");
-    }
+        => AsReference("application_account");
 
     /// <summary>
     /// The application_arn attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> ApplicationArn
-    {
-        get => new TerraformReference<string>(this, "application_arn");
-    }
+        => AsReference("application_arn");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// PortalOptions block (nesting mode: list).

@@ -19,7 +19,7 @@ public class AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionString is required")]
     public required TerraformValue<string> ConnectionString
     {
-        get => new TerraformReference<string>(this, "connection_string");
+        get => GetArgument<TerraformValue<string>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermIothubDeviceUpdateInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermIothubDeviceUpdateInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermIothubDeviceUpdateInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermIothubDeviceUpdateInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -98,7 +98,7 @@ public partial class AzurermIothubDeviceUpdateInstance(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceUpdateAccountId is required")]
     public required TerraformValue<string> DeviceUpdateAccountId
     {
-        get => new TerraformReference<string>(this, "device_update_account_id");
+        get => GetArgument<TerraformValue<string>>("device_update_account_id");
         set => SetArgument("device_update_account_id", value);
     }
 
@@ -107,16 +107,16 @@ public partial class AzurermIothubDeviceUpdateInstance(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? DiagnosticEnabled
     {
-        get => new TerraformReference<bool>(this, "diagnostic_enabled");
+        get => GetArgument<TerraformValue<bool>>("diagnostic_enabled");
         set => SetArgument("diagnostic_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -126,7 +126,7 @@ public partial class AzurermIothubDeviceUpdateInstance(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     public required TerraformValue<string> IothubId
     {
-        get => new TerraformReference<string>(this, "iothub_id");
+        get => GetArgument<TerraformValue<string>>("iothub_id");
         set => SetArgument("iothub_id", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AzurermIothubDeviceUpdateInstance(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermIothubDeviceUpdateInstance(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

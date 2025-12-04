@@ -19,7 +19,7 @@ public class GoogleMonitoringServiceBasicServiceBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? ServiceLabels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "service_labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("service_labels");
         set => SetArgument("service_labels", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleMonitoringServiceBasicServiceBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ServiceType
     {
-        get => new TerraformReference<string>(this, "service_type");
+        get => GetArgument<TerraformValue<string>>("service_type");
         set => SetArgument("service_type", value);
     }
 
@@ -52,7 +52,7 @@ public class GoogleMonitoringServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -61,7 +61,7 @@ public class GoogleMonitoringServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleMonitoringServiceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -88,25 +88,25 @@ public partial class GoogleMonitoringService(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -117,7 +117,7 @@ public partial class GoogleMonitoringService(string name) : TerraformResource("g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformValue<string> ServiceId
     {
-        get => new TerraformReference<string>(this, "service_id");
+        get => GetArgument<TerraformValue<string>>("service_id");
         set => SetArgument("service_id", value);
     }
 
@@ -131,7 +131,7 @@ public partial class GoogleMonitoringService(string name) : TerraformResource("g
     /// </summary>
     public TerraformMap<string>? UserLabels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "user_labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("user_labels");
         set => SetArgument("user_labels", value);
     }
 
@@ -140,17 +140,13 @@ public partial class GoogleMonitoringService(string name) : TerraformResource("g
     /// projects/[PROJECT_ID]/services/[SERVICE_ID].
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Configuration for how to query telemetry on a Service.
     /// </summary>
     public TerraformList<TerraformMap<object>> Telemetry
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "telemetry").ResolveNodes(ctx));
-    }
+        => AsReference("telemetry");
 
     /// <summary>
     /// BasicService block (nesting mode: list).

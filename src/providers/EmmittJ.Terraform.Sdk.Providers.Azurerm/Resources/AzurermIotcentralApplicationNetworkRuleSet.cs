@@ -19,7 +19,7 @@ public class AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpMask is required")]
     public required TerraformValue<string> IpMask
     {
-        get => new TerraformReference<string>(this, "ip_mask");
+        get => GetArgument<TerraformValue<string>>("ip_mask");
         set => SetArgument("ip_mask", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -97,7 +97,7 @@ public partial class AzurermIotcentralApplicationNetworkRuleSet(string name) : T
     /// </summary>
     public TerraformValue<bool>? ApplyToDevice
     {
-        get => new TerraformReference<bool>(this, "apply_to_device");
+        get => GetArgument<TerraformValue<bool>>("apply_to_device");
         set => SetArgument("apply_to_device", value);
     }
 
@@ -106,16 +106,16 @@ public partial class AzurermIotcentralApplicationNetworkRuleSet(string name) : T
     /// </summary>
     public TerraformValue<string>? DefaultAction
     {
-        get => new TerraformReference<string>(this, "default_action");
+        get => GetArgument<TerraformValue<string>>("default_action");
         set => SetArgument("default_action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AzurermIotcentralApplicationNetworkRuleSet(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IotcentralApplicationId is required")]
     public required TerraformValue<string> IotcentralApplicationId
     {
-        get => new TerraformReference<string>(this, "iotcentral_application_id");
+        get => GetArgument<TerraformValue<string>>("iotcentral_application_id");
         set => SetArgument("iotcentral_application_id", value);
     }
 

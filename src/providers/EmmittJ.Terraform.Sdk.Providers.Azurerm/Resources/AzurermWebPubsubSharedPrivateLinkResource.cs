@@ -18,7 +18,7 @@ public class AzurermWebPubsubSharedPrivateLinkResourceTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermWebPubsubSharedPrivateLinkResourceTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermWebPubsubSharedPrivateLinkResourceTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermWebPubsubSharedPrivateLinkResourceTimeoutsBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermWebPubsubSharedPrivateLinkResource(string name) : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermWebPubsubSharedPrivateLinkResource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermWebPubsubSharedPrivateLinkResource(string name) : Te
     /// </summary>
     public TerraformValue<string>? RequestMessage
     {
-        get => new TerraformReference<string>(this, "request_message");
+        get => GetArgument<TerraformValue<string>>("request_message");
         set => SetArgument("request_message", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermWebPubsubSharedPrivateLinkResource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubresourceName is required")]
     public required TerraformValue<string> SubresourceName
     {
-        get => new TerraformReference<string>(this, "subresource_name");
+        get => GetArgument<TerraformValue<string>>("subresource_name");
         set => SetArgument("subresource_name", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermWebPubsubSharedPrivateLinkResource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformValue<string> TargetResourceId
     {
-        get => new TerraformReference<string>(this, "target_resource_id");
+        get => GetArgument<TerraformValue<string>>("target_resource_id");
         set => SetArgument("target_resource_id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermWebPubsubSharedPrivateLinkResource(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebPubsubId is required")]
     public required TerraformValue<string> WebPubsubId
     {
-        get => new TerraformReference<string>(this, "web_pubsub_id");
+        get => GetArgument<TerraformValue<string>>("web_pubsub_id");
         set => SetArgument("web_pubsub_id", value);
     }
 
@@ -120,9 +120,7 @@ public partial class AzurermWebPubsubSharedPrivateLinkResource(string name) : Te
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

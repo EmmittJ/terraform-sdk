@@ -32,7 +32,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AccessTokens
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "access_tokens").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("access_tokens");
         set => SetArgument("access_tokens", value);
     }
 
@@ -41,7 +41,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ApiKeys
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "api_keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("api_keys");
         set => SetArgument("api_keys", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ApiProducts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "api_products").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("api_products");
         set => SetArgument("api_products", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Asns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "asns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("asns");
         set => SetArgument("asns", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? BotReasons
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "bot_reasons").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("bot_reasons");
         set => SetArgument("bot_reasons", value);
     }
 
@@ -80,7 +80,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? DeveloperApps
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "developer_apps").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("developer_apps");
         set => SetArgument("developer_apps", value);
     }
 
@@ -89,7 +89,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Developers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "developers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("developers");
         set => SetArgument("developers", value);
     }
 
@@ -99,7 +99,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? HttpMethods
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "http_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("http_methods");
         set => SetArgument("http_methods", value);
     }
 
@@ -108,7 +108,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? IpAddressRanges
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ip_address_ranges").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ip_address_ranges");
         set => SetArgument("ip_address_ranges", value);
     }
 
@@ -117,7 +117,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? RegionCodes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "region_codes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("region_codes");
         set => SetArgument("region_codes", value);
     }
 
@@ -126,7 +126,7 @@ public class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? UserAgents
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "user_agents").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("user_agents");
         set => SetArgument("user_agents", value);
     }
 
@@ -149,7 +149,7 @@ public class GoogleApigeeSecurityActionDenyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? ResponseCode
     {
-        get => new TerraformReference<double>(this, "response_code");
+        get => GetArgument<TerraformValue<double>>("response_code");
         set => SetArgument("response_code", value);
     }
 
@@ -194,7 +194,7 @@ public class GoogleApigeeSecurityActionFlagBlockHeadersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -203,7 +203,7 @@ public class GoogleApigeeSecurityActionFlagBlockHeadersBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -226,7 +226,7 @@ public class GoogleApigeeSecurityActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -235,7 +235,7 @@ public class GoogleApigeeSecurityActionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -257,7 +257,7 @@ public partial class GoogleApigeeSecurityAction(string name) : TerraformResource
     /// </summary>
     public TerraformList<string>? ApiProxies
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "api_proxies").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("api_proxies");
         set => SetArgument("api_proxies", value);
     }
 
@@ -266,7 +266,7 @@ public partial class GoogleApigeeSecurityAction(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -276,7 +276,7 @@ public partial class GoogleApigeeSecurityAction(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
     public required TerraformValue<string> EnvId
     {
-        get => new TerraformReference<string>(this, "env_id");
+        get => GetArgument<TerraformValue<string>>("env_id");
         set => SetArgument("env_id", value);
     }
 
@@ -288,16 +288,16 @@ public partial class GoogleApigeeSecurityAction(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? ExpireTime
     {
-        get => new TerraformReference<string>(this, "expire_time");
+        get => GetArgument<TerraformValue<string>>("expire_time");
         set => SetArgument("expire_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -307,7 +307,7 @@ public partial class GoogleApigeeSecurityAction(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => new TerraformReference<string>(this, "org_id");
+        get => GetArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -318,7 +318,7 @@ public partial class GoogleApigeeSecurityAction(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityActionId is required")]
     public required TerraformValue<string> SecurityActionId
     {
-        get => new TerraformReference<string>(this, "security_action_id");
+        get => GetArgument<TerraformValue<string>>("security_action_id");
         set => SetArgument("security_action_id", value);
     }
 
@@ -328,7 +328,7 @@ public partial class GoogleApigeeSecurityAction(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformValue<string> State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -338,7 +338,7 @@ public partial class GoogleApigeeSecurityAction(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Ttl
     {
-        get => new TerraformReference<string>(this, "ttl");
+        get => GetArgument<TerraformValue<string>>("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -348,9 +348,7 @@ public partial class GoogleApigeeSecurityAction(string name) : TerraformResource
     /// Offsets other than &amp;quot;Z&amp;quot; are also accepted. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot;, &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot; or &amp;quot;2014-10-02T15:01:23+05:30&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The update time for this SecurityAction. This reflects when this SecurityAction changed states.
@@ -358,9 +356,7 @@ public partial class GoogleApigeeSecurityAction(string name) : TerraformResource
     /// Offsets other than &amp;quot;Z&amp;quot; are also accepted. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot;, &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot; or &amp;quot;2014-10-02T15:01:23+05:30&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Allow block (nesting mode: list).

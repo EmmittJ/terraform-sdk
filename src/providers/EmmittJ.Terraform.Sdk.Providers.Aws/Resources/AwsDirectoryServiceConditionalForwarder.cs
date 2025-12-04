@@ -14,7 +14,7 @@ public partial class AwsDirectoryServiceConditionalForwarder(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
     public required TerraformValue<string> DirectoryId
     {
-        get => new TerraformReference<string>(this, "directory_id");
+        get => GetArgument<TerraformValue<string>>("directory_id");
         set => SetArgument("directory_id", value);
     }
 
@@ -24,25 +24,25 @@ public partial class AwsDirectoryServiceConditionalForwarder(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsIps is required")]
     public TerraformList<string>? DnsIps
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dns_ips").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("dns_ips");
         set => SetArgument("dns_ips", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsDirectoryServiceConditionalForwarder(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteDomainName is required")]
     public required TerraformValue<string> RemoteDomainName
     {
-        get => new TerraformReference<string>(this, "remote_domain_name");
+        get => GetArgument<TerraformValue<string>>("remote_domain_name");
         set => SetArgument("remote_domain_name", value);
     }
 

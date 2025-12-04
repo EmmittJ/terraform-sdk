@@ -18,7 +18,7 @@ public class AzurermCustomIpPrefixTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermCustomIpPrefixTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermCustomIpPrefixTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermCustomIpPrefixTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermCustomIpPrefix(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidr is required")]
     public required TerraformValue<string> Cidr
     {
-        get => new TerraformReference<string>(this, "cidr");
+        get => GetArgument<TerraformValue<string>>("cidr");
         set => SetArgument("cidr", value);
     }
 
@@ -73,16 +73,16 @@ public partial class AzurermCustomIpPrefix(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? CommissioningEnabled
     {
-        get => new TerraformReference<bool>(this, "commissioning_enabled");
+        get => GetArgument<TerraformValue<bool>>("commissioning_enabled");
         set => SetArgument("commissioning_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermCustomIpPrefix(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<bool>? InternetAdvertisingDisabled
     {
-        get => new TerraformReference<bool>(this, "internet_advertising_disabled");
+        get => GetArgument<TerraformValue<bool>>("internet_advertising_disabled");
         set => SetArgument("internet_advertising_disabled", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermCustomIpPrefix(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermCustomIpPrefix(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermCustomIpPrefix(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? ParentCustomIpPrefixId
     {
-        get => new TerraformReference<string>(this, "parent_custom_ip_prefix_id");
+        get => GetArgument<TerraformValue<string>>("parent_custom_ip_prefix_id");
         set => SetArgument("parent_custom_ip_prefix_id", value);
     }
 
@@ -130,7 +130,7 @@ public partial class AzurermCustomIpPrefix(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AzurermCustomIpPrefix(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? RoaValidityEndDate
     {
-        get => new TerraformReference<string>(this, "roa_validity_end_date");
+        get => GetArgument<TerraformValue<string>>("roa_validity_end_date");
         set => SetArgument("roa_validity_end_date", value);
     }
 
@@ -148,7 +148,7 @@ public partial class AzurermCustomIpPrefix(string name) : TerraformResource("azu
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AzurermCustomIpPrefix(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? WanValidationSignedMessage
     {
-        get => new TerraformReference<string>(this, "wan_validation_signed_message");
+        get => GetArgument<TerraformValue<string>>("wan_validation_signed_message");
         set => SetArgument("wan_validation_signed_message", value);
     }
 
@@ -166,7 +166,7 @@ public partial class AzurermCustomIpPrefix(string name) : TerraformResource("azu
     /// </summary>
     public TerraformSet<string>? Zones
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "zones").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("zones");
         set => SetArgument("zones", value);
     }
 

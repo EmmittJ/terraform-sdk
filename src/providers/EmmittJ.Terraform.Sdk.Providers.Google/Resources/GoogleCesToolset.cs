@@ -19,7 +19,7 @@ public class GoogleCesToolsetOpenApiToolsetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IgnoreUnknownFields
     {
-        get => new TerraformReference<bool>(this, "ignore_unknown_fields");
+        get => GetArgument<TerraformValue<bool>>("ignore_unknown_fields");
         set => SetArgument("ignore_unknown_fields", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleCesToolsetOpenApiToolsetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OpenApiSchema is required")]
     public required TerraformValue<string> OpenApiSchema
     {
-        get => new TerraformReference<string>(this, "open_api_schema");
+        get => GetArgument<TerraformValue<string>>("open_api_schema");
         set => SetArgument("open_api_schema", value);
     }
 
@@ -42,9 +42,7 @@ public class GoogleCesToolsetOpenApiToolsetBlock : TerraformBlock
     /// it will replace the placeholder in the schema.
     /// </summary>
     public TerraformValue<string> Url
-    {
-        get => new TerraformReference<string>(this, "url");
-    }
+        => AsReference("url");
 
     /// <summary>
     /// ApiAuthentication block (nesting mode: list).
@@ -152,7 +150,7 @@ public class GoogleCesToolsetOpenApiToolsetBlockApiAuthenticationBlockApiKeyConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiKeySecretVersion is required")]
     public required TerraformValue<string> ApiKeySecretVersion
     {
-        get => new TerraformReference<string>(this, "api_key_secret_version");
+        get => GetArgument<TerraformValue<string>>("api_key_secret_version");
         set => SetArgument("api_key_secret_version", value);
     }
 
@@ -163,7 +161,7 @@ public class GoogleCesToolsetOpenApiToolsetBlockApiAuthenticationBlockApiKeyConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyName is required")]
     public required TerraformValue<string> KeyName
     {
-        get => new TerraformReference<string>(this, "key_name");
+        get => GetArgument<TerraformValue<string>>("key_name");
         set => SetArgument("key_name", value);
     }
 
@@ -176,7 +174,7 @@ public class GoogleCesToolsetOpenApiToolsetBlockApiAuthenticationBlockApiKeyConf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequestLocation is required")]
     public required TerraformValue<string> RequestLocation
     {
-        get => new TerraformReference<string>(this, "request_location");
+        get => GetArgument<TerraformValue<string>>("request_location");
         set => SetArgument("request_location", value);
     }
 
@@ -199,7 +197,7 @@ public class GoogleCesToolsetOpenApiToolsetBlockApiAuthenticationBlockOauthConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -215,7 +213,7 @@ public class GoogleCesToolsetOpenApiToolsetBlockApiAuthenticationBlockOauthConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecretVersion is required")]
     public required TerraformValue<string> ClientSecretVersion
     {
-        get => new TerraformReference<string>(this, "client_secret_version");
+        get => GetArgument<TerraformValue<string>>("client_secret_version");
         set => SetArgument("client_secret_version", value);
     }
 
@@ -227,7 +225,7 @@ public class GoogleCesToolsetOpenApiToolsetBlockApiAuthenticationBlockOauthConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OauthGrantType is required")]
     public required TerraformValue<string> OauthGrantType
     {
-        get => new TerraformReference<string>(this, "oauth_grant_type");
+        get => GetArgument<TerraformValue<string>>("oauth_grant_type");
         set => SetArgument("oauth_grant_type", value);
     }
 
@@ -236,7 +234,7 @@ public class GoogleCesToolsetOpenApiToolsetBlockApiAuthenticationBlockOauthConfi
     /// </summary>
     public TerraformList<string>? Scopes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("scopes");
         set => SetArgument("scopes", value);
     }
 
@@ -246,7 +244,7 @@ public class GoogleCesToolsetOpenApiToolsetBlockApiAuthenticationBlockOauthConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenEndpoint is required")]
     public required TerraformValue<string> TokenEndpoint
     {
-        get => new TerraformReference<string>(this, "token_endpoint");
+        get => GetArgument<TerraformValue<string>>("token_endpoint");
         set => SetArgument("token_endpoint", value);
     }
 
@@ -276,7 +274,7 @@ public class GoogleCesToolsetOpenApiToolsetBlockApiAuthenticationBlockServiceAcc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
     public required TerraformValue<string> ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -317,7 +315,7 @@ public class GoogleCesToolsetOpenApiToolsetBlockServiceDirectoryConfigBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -374,7 +372,7 @@ public class GoogleCesToolsetOpenApiToolsetBlockTlsConfigBlockCaCertsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cert is required")]
     public required TerraformValue<string> Cert
     {
-        get => new TerraformReference<string>(this, "cert");
+        get => GetArgument<TerraformValue<string>>("cert");
         set => SetArgument("cert", value);
     }
 
@@ -385,7 +383,7 @@ public class GoogleCesToolsetOpenApiToolsetBlockTlsConfigBlockCaCertsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -408,7 +406,7 @@ public class GoogleCesToolsetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -417,7 +415,7 @@ public class GoogleCesToolsetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -426,7 +424,7 @@ public class GoogleCesToolsetTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -445,7 +443,7 @@ public partial class GoogleCesToolset(string name) : TerraformResource("google_c
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "App is required")]
     public required TerraformValue<string> App
     {
-        get => new TerraformReference<string>(this, "app");
+        get => GetArgument<TerraformValue<string>>("app");
         set => SetArgument("app", value);
     }
 
@@ -454,7 +452,7 @@ public partial class GoogleCesToolset(string name) : TerraformResource("google_c
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -463,7 +461,7 @@ public partial class GoogleCesToolset(string name) : TerraformResource("google_c
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -474,16 +472,16 @@ public partial class GoogleCesToolset(string name) : TerraformResource("google_c
     /// </summary>
     public TerraformValue<string>? ExecutionType
     {
-        get => new TerraformReference<string>(this, "execution_type");
+        get => GetArgument<TerraformValue<string>>("execution_type");
         set => SetArgument("execution_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -493,16 +491,16 @@ public partial class GoogleCesToolset(string name) : TerraformResource("google_c
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -514,7 +512,7 @@ public partial class GoogleCesToolset(string name) : TerraformResource("google_c
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToolsetId is required")]
     public required TerraformValue<string> ToolsetId
     {
-        get => new TerraformReference<string>(this, "toolset_id");
+        get => GetArgument<TerraformValue<string>>("toolset_id");
         set => SetArgument("toolset_id", value);
     }
 
@@ -522,9 +520,7 @@ public partial class GoogleCesToolset(string name) : TerraformResource("google_c
     /// Timestamp when the toolset was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// ETag used to ensure the object hasn&#39;t changed during a read-modify-write
@@ -532,9 +528,7 @@ public partial class GoogleCesToolset(string name) : TerraformResource("google_c
     /// changes.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Identifier. The unique identifier of the toolset.
@@ -542,17 +536,13 @@ public partial class GoogleCesToolset(string name) : TerraformResource("google_c
     /// &#39;projects/{project}/locations/{location}/apps/{app}/toolsets/{toolset}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Timestamp when the toolset was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// OpenApiToolset block (nesting mode: list).

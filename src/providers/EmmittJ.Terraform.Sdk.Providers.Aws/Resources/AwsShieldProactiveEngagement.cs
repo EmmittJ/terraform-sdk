@@ -18,7 +18,7 @@ public class AwsShieldProactiveEngagementEmergencyContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ContactNotes
     {
-        get => new TerraformReference<string>(this, "contact_notes");
+        get => GetArgument<TerraformValue<string>>("contact_notes");
         set => SetArgument("contact_notes", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsShieldProactiveEngagementEmergencyContactBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailAddress is required")]
     public required TerraformValue<string> EmailAddress
     {
-        get => new TerraformReference<string>(this, "email_address");
+        get => GetArgument<TerraformValue<string>>("email_address");
         set => SetArgument("email_address", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsShieldProactiveEngagementEmergencyContactBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PhoneNumber
     {
-        get => new TerraformReference<string>(this, "phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AwsShieldProactiveEngagement(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -64,9 +64,7 @@ public partial class AwsShieldProactiveEngagement(string name) : TerraformResour
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// EmergencyContact block (nesting mode: list).

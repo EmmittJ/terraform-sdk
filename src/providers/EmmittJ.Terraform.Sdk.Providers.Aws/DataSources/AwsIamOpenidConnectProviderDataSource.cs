@@ -11,36 +11,36 @@ public partial class AwsIamOpenidConnectProviderDataSource(string name) : Terraf
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformValue<string> Arn
+    public TerraformValue<string>? Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public TerraformValue<string> Url
+    public TerraformValue<string>? Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -48,16 +48,12 @@ public partial class AwsIamOpenidConnectProviderDataSource(string name) : Terraf
     /// The client_id_list attribute.
     /// </summary>
     public TerraformList<string> ClientIdList
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "client_id_list").ResolveNodes(ctx));
-    }
+        => AsReference("client_id_list");
 
     /// <summary>
     /// The thumbprint_list attribute.
     /// </summary>
     public TerraformList<string> ThumbprintList
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "thumbprint_list").ResolveNodes(ctx));
-    }
+        => AsReference("thumbprint_list");
 
 }

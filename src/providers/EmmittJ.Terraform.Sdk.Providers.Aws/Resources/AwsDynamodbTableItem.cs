@@ -14,16 +14,16 @@ public partial class AwsDynamodbTableItem(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HashKey is required")]
     public required TerraformValue<string> HashKey
     {
-        get => new TerraformReference<string>(this, "hash_key");
+        get => GetArgument<TerraformValue<string>>("hash_key");
         set => SetArgument("hash_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsDynamodbTableItem(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Item is required")]
     public required TerraformValue<string> Item
     {
-        get => new TerraformReference<string>(this, "item");
+        get => GetArgument<TerraformValue<string>>("item");
         set => SetArgument("item", value);
     }
 
@@ -42,16 +42,16 @@ public partial class AwsDynamodbTableItem(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? RangeKey
     {
-        get => new TerraformReference<string>(this, "range_key");
+        get => GetArgument<TerraformValue<string>>("range_key");
         set => SetArgument("range_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -61,7 +61,7 @@ public partial class AwsDynamodbTableItem(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 

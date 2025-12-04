@@ -18,7 +18,7 @@ public class GoogleDiscoveryEngineLicenseConfigEndDateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleDiscoveryEngineLicenseConfigEndDateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleDiscoveryEngineLicenseConfigEndDateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleDiscoveryEngineLicenseConfigStartDateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Day
     {
-        get => new TerraformReference<double>(this, "day");
+        get => GetArgument<TerraformValue<double>>("day");
         set => SetArgument("day", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleDiscoveryEngineLicenseConfigStartDateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Month
     {
-        get => new TerraformReference<double>(this, "month");
+        get => GetArgument<TerraformValue<double>>("month");
         set => SetArgument("month", value);
     }
 
@@ -77,7 +77,7 @@ public class GoogleDiscoveryEngineLicenseConfigStartDateBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Year
     {
-        get => new TerraformReference<double>(this, "year");
+        get => GetArgument<TerraformValue<double>>("year");
         set => SetArgument("year", value);
     }
 
@@ -100,7 +100,7 @@ public class GoogleDiscoveryEngineLicenseConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleDiscoveryEngineLicenseConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleDiscoveryEngineLicenseConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -136,7 +136,7 @@ public partial class GoogleDiscoveryEngineLicenseConfig(string name) : Terraform
     /// </summary>
     public TerraformValue<bool>? AutoRenew
     {
-        get => new TerraformReference<bool>(this, "auto_renew");
+        get => GetArgument<TerraformValue<bool>>("auto_renew");
         set => SetArgument("auto_renew", value);
     }
 
@@ -145,16 +145,16 @@ public partial class GoogleDiscoveryEngineLicenseConfig(string name) : Terraform
     /// </summary>
     public TerraformValue<bool>? FreeTrial
     {
-        get => new TerraformReference<bool>(this, "free_trial");
+        get => GetArgument<TerraformValue<bool>>("free_trial");
         set => SetArgument("free_trial", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -164,7 +164,7 @@ public partial class GoogleDiscoveryEngineLicenseConfig(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseConfigId is required")]
     public required TerraformValue<string> LicenseConfigId
     {
-        get => new TerraformReference<string>(this, "license_config_id");
+        get => GetArgument<TerraformValue<string>>("license_config_id");
         set => SetArgument("license_config_id", value);
     }
 
@@ -174,7 +174,7 @@ public partial class GoogleDiscoveryEngineLicenseConfig(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseCount is required")]
     public required TerraformValue<double> LicenseCount
     {
-        get => new TerraformReference<double>(this, "license_count");
+        get => GetArgument<TerraformValue<double>>("license_count");
         set => SetArgument("license_count", value);
     }
 
@@ -185,16 +185,16 @@ public partial class GoogleDiscoveryEngineLicenseConfig(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -204,7 +204,7 @@ public partial class GoogleDiscoveryEngineLicenseConfig(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionTerm is required")]
     public required TerraformValue<string> SubscriptionTerm
     {
-        get => new TerraformReference<string>(this, "subscription_term");
+        get => GetArgument<TerraformValue<string>>("subscription_term");
         set => SetArgument("subscription_term", value);
     }
 
@@ -214,7 +214,7 @@ public partial class GoogleDiscoveryEngineLicenseConfig(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionTier is required")]
     public required TerraformValue<string> SubscriptionTier
     {
-        get => new TerraformReference<string>(this, "subscription_tier");
+        get => GetArgument<TerraformValue<string>>("subscription_tier");
         set => SetArgument("subscription_tier", value);
     }
 
@@ -223,9 +223,7 @@ public partial class GoogleDiscoveryEngineLicenseConfig(string name) : Terraform
     /// &#39;projects/{project}/locations/{location}/licenseConfigs/{license_config}&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// EndDate block (nesting mode: list).

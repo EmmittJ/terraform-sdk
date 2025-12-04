@@ -18,7 +18,7 @@ public class AzurermDevCenterProjectEnvironmentTypeIdentityBlock : TerraformBloc
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -26,17 +26,13 @@ public class AzurermDevCenterProjectEnvironmentTypeIdentityBlock : TerraformBloc
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -44,7 +40,7 @@ public class AzurermDevCenterProjectEnvironmentTypeIdentityBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -67,7 +63,7 @@ public class AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -76,7 +72,7 @@ public class AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -85,7 +81,7 @@ public class AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -94,7 +90,7 @@ public class AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -118,7 +114,7 @@ public class AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
     public required TerraformSet<string> Roles
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "roles").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("roles");
         set => SetArgument("roles", value);
     }
 
@@ -128,7 +124,7 @@ public class AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
     public required TerraformValue<string> UserId
     {
-        get => new TerraformReference<string>(this, "user_id");
+        get => GetArgument<TerraformValue<string>>("user_id");
         set => SetArgument("user_id", value);
     }
 
@@ -146,7 +142,7 @@ public partial class AzurermDevCenterProjectEnvironmentType(string name) : Terra
     /// </summary>
     public TerraformSet<string>? CreatorRoleAssignmentRoles
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "creator_role_assignment_roles").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("creator_role_assignment_roles");
         set => SetArgument("creator_role_assignment_roles", value);
     }
 
@@ -156,7 +152,7 @@ public partial class AzurermDevCenterProjectEnvironmentType(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentTargetId is required")]
     public required TerraformValue<string> DeploymentTargetId
     {
-        get => new TerraformReference<string>(this, "deployment_target_id");
+        get => GetArgument<TerraformValue<string>>("deployment_target_id");
         set => SetArgument("deployment_target_id", value);
     }
 
@@ -166,16 +162,16 @@ public partial class AzurermDevCenterProjectEnvironmentType(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterProjectId is required")]
     public required TerraformValue<string> DevCenterProjectId
     {
-        get => new TerraformReference<string>(this, "dev_center_project_id");
+        get => GetArgument<TerraformValue<string>>("dev_center_project_id");
         set => SetArgument("dev_center_project_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -185,7 +181,7 @@ public partial class AzurermDevCenterProjectEnvironmentType(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -195,7 +191,7 @@ public partial class AzurermDevCenterProjectEnvironmentType(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -204,7 +200,7 @@ public partial class AzurermDevCenterProjectEnvironmentType(string name) : Terra
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

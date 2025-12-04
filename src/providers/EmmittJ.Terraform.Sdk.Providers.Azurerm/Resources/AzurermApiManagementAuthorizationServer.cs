@@ -18,7 +18,7 @@ public class AzurermApiManagementAuthorizationServerTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermApiManagementAuthorizationServerTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermApiManagementAuthorizationServerTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermApiManagementAuthorizationServerTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermApiManagementAuthorizationServerTokenBodyParameterBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermApiManagementAuthorizationServerTokenBodyParameterBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -98,7 +98,7 @@ public partial class AzurermApiManagementAuthorizationServer(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
     public required TerraformValue<string> ApiManagementName
     {
-        get => new TerraformReference<string>(this, "api_management_name");
+        get => GetArgument<TerraformValue<string>>("api_management_name");
         set => SetArgument("api_management_name", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AzurermApiManagementAuthorizationServer(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationEndpoint is required")]
     public required TerraformValue<string> AuthorizationEndpoint
     {
-        get => new TerraformReference<string>(this, "authorization_endpoint");
+        get => GetArgument<TerraformValue<string>>("authorization_endpoint");
         set => SetArgument("authorization_endpoint", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermApiManagementAuthorizationServer(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationMethods is required")]
     public required TerraformSet<string> AuthorizationMethods
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "authorization_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("authorization_methods");
         set => SetArgument("authorization_methods", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzurermApiManagementAuthorizationServer(string name) : Terr
     /// </summary>
     public TerraformSet<string>? BearerTokenSendingMethods
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "bearer_token_sending_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("bearer_token_sending_methods");
         set => SetArgument("bearer_token_sending_methods", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AzurermApiManagementAuthorizationServer(string name) : Terr
     /// </summary>
     public TerraformSet<string>? ClientAuthenticationMethod
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "client_authentication_method").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("client_authentication_method");
         set => SetArgument("client_authentication_method", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AzurermApiManagementAuthorizationServer(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AzurermApiManagementAuthorizationServer(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientRegistrationEndpoint is required")]
     public required TerraformValue<string> ClientRegistrationEndpoint
     {
-        get => new TerraformReference<string>(this, "client_registration_endpoint");
+        get => GetArgument<TerraformValue<string>>("client_registration_endpoint");
         set => SetArgument("client_registration_endpoint", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AzurermApiManagementAuthorizationServer(string name) : Terr
     /// </summary>
     public TerraformValue<string>? ClientSecret
     {
-        get => new TerraformReference<string>(this, "client_secret");
+        get => GetArgument<TerraformValue<string>>("client_secret");
         set => SetArgument("client_secret", value);
     }
 
@@ -174,7 +174,7 @@ public partial class AzurermApiManagementAuthorizationServer(string name) : Terr
     /// </summary>
     public TerraformValue<string>? DefaultScope
     {
-        get => new TerraformReference<string>(this, "default_scope");
+        get => GetArgument<TerraformValue<string>>("default_scope");
         set => SetArgument("default_scope", value);
     }
 
@@ -183,7 +183,7 @@ public partial class AzurermApiManagementAuthorizationServer(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -193,7 +193,7 @@ public partial class AzurermApiManagementAuthorizationServer(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -203,16 +203,16 @@ public partial class AzurermApiManagementAuthorizationServer(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrantTypes is required")]
     public required TerraformSet<string> GrantTypes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "grant_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("grant_types");
         set => SetArgument("grant_types", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -222,7 +222,7 @@ public partial class AzurermApiManagementAuthorizationServer(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -232,7 +232,7 @@ public partial class AzurermApiManagementAuthorizationServer(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -241,7 +241,7 @@ public partial class AzurermApiManagementAuthorizationServer(string name) : Terr
     /// </summary>
     public TerraformValue<string>? ResourceOwnerPassword
     {
-        get => new TerraformReference<string>(this, "resource_owner_password");
+        get => GetArgument<TerraformValue<string>>("resource_owner_password");
         set => SetArgument("resource_owner_password", value);
     }
 
@@ -250,7 +250,7 @@ public partial class AzurermApiManagementAuthorizationServer(string name) : Terr
     /// </summary>
     public TerraformValue<string>? ResourceOwnerUsername
     {
-        get => new TerraformReference<string>(this, "resource_owner_username");
+        get => GetArgument<TerraformValue<string>>("resource_owner_username");
         set => SetArgument("resource_owner_username", value);
     }
 
@@ -259,7 +259,7 @@ public partial class AzurermApiManagementAuthorizationServer(string name) : Terr
     /// </summary>
     public TerraformValue<bool>? SupportState
     {
-        get => new TerraformReference<bool>(this, "support_state");
+        get => GetArgument<TerraformValue<bool>>("support_state");
         set => SetArgument("support_state", value);
     }
 
@@ -268,7 +268,7 @@ public partial class AzurermApiManagementAuthorizationServer(string name) : Terr
     /// </summary>
     public TerraformValue<string>? TokenEndpoint
     {
-        get => new TerraformReference<string>(this, "token_endpoint");
+        get => GetArgument<TerraformValue<string>>("token_endpoint");
         set => SetArgument("token_endpoint", value);
     }
 

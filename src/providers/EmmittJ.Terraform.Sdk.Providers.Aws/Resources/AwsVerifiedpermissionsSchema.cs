@@ -19,7 +19,7 @@ public class AwsVerifiedpermissionsSchemaDefinitionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -38,16 +38,16 @@ public partial class AwsVerifiedpermissionsSchema(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyStoreId is required")]
     public required TerraformValue<string> PolicyStoreId
     {
-        get => new TerraformReference<string>(this, "policy_store_id");
+        get => GetArgument<TerraformValue<string>>("policy_store_id");
         set => SetArgument("policy_store_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -55,17 +55,13 @@ public partial class AwsVerifiedpermissionsSchema(string name) : TerraformResour
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The namespaces attribute.
     /// </summary>
     public TerraformSet<string> Namespaces
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "namespaces").ResolveNodes(ctx));
-    }
+        => AsReference("namespaces");
 
     /// <summary>
     /// Definition block (nesting mode: list).

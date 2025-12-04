@@ -20,7 +20,7 @@ public class GoogleCesAppAudioProcessingConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? InactivityTimeout
     {
-        get => new TerraformReference<string>(this, "inactivity_timeout");
+        get => GetArgument<TerraformValue<string>>("inactivity_timeout");
         set => SetArgument("inactivity_timeout", value);
     }
 
@@ -75,7 +75,7 @@ public class GoogleCesAppAudioProcessingConfigBlockAmbientSoundConfigBlock : Ter
     /// </summary>
     public TerraformValue<string>? GcsUri
     {
-        get => new TerraformReference<string>(this, "gcs_uri");
+        get => GetArgument<TerraformValue<string>>("gcs_uri");
         set => SetArgument("gcs_uri", value);
     }
 
@@ -88,7 +88,7 @@ public class GoogleCesAppAudioProcessingConfigBlockAmbientSoundConfigBlock : Ter
     /// </summary>
     public TerraformValue<string>? PrebuiltAmbientSound
     {
-        get => new TerraformReference<string>(this, "prebuilt_ambient_sound");
+        get => GetArgument<TerraformValue<string>>("prebuilt_ambient_sound");
         set => SetArgument("prebuilt_ambient_sound", value);
     }
 
@@ -104,7 +104,7 @@ public class GoogleCesAppAudioProcessingConfigBlockAmbientSoundConfigBlock : Ter
     /// </summary>
     public TerraformValue<double>? VolumeGainDb
     {
-        get => new TerraformReference<double>(this, "volume_gain_db");
+        get => GetArgument<TerraformValue<double>>("volume_gain_db");
         set => SetArgument("volume_gain_db", value);
     }
 
@@ -129,7 +129,7 @@ public class GoogleCesAppAudioProcessingConfigBlockBargeInConfigBlock : Terrafor
     /// </summary>
     public TerraformValue<bool>? BargeInAwareness
     {
-        get => new TerraformReference<bool>(this, "barge_in_awareness");
+        get => GetArgument<TerraformValue<bool>>("barge_in_awareness");
         set => SetArgument("barge_in_awareness", value);
     }
 
@@ -152,7 +152,7 @@ public class GoogleCesAppAudioProcessingConfigBlockSynthesizeSpeechConfigsBlock 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformValue<string> LanguageCode
     {
-        get => new TerraformReference<string>(this, "language_code");
+        get => GetArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -163,7 +163,7 @@ public class GoogleCesAppAudioProcessingConfigBlockSynthesizeSpeechConfigsBlock 
     /// </summary>
     public TerraformValue<double>? SpeakingRate
     {
-        get => new TerraformReference<double>(this, "speaking_rate");
+        get => GetArgument<TerraformValue<double>>("speaking_rate");
         set => SetArgument("speaking_rate", value);
     }
 
@@ -175,7 +175,7 @@ public class GoogleCesAppAudioProcessingConfigBlockSynthesizeSpeechConfigsBlock 
     /// </summary>
     public TerraformValue<string>? Voice
     {
-        get => new TerraformReference<string>(this, "voice");
+        get => GetArgument<TerraformValue<string>>("voice");
         set => SetArgument("voice", value);
     }
 
@@ -197,9 +197,7 @@ public class GoogleCesAppDataStoreSettingsBlock : TerraformBlock
     /// The engines for the app.
     /// </summary>
     public TerraformList<TerraformMap<object>> Engines
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "engines").ResolveNodes(ctx));
-    }
+        => AsReference("engines");
 
 }
 
@@ -227,7 +225,7 @@ public class GoogleCesAppDefaultChannelProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ChannelType
     {
-        get => new TerraformReference<string>(this, "channel_type");
+        get => GetArgument<TerraformValue<string>>("channel_type");
         set => SetArgument("channel_type", value);
     }
 
@@ -238,7 +236,7 @@ public class GoogleCesAppDefaultChannelProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DisableBargeInControl
     {
-        get => new TerraformReference<bool>(this, "disable_barge_in_control");
+        get => GetArgument<TerraformValue<bool>>("disable_barge_in_control");
         set => SetArgument("disable_barge_in_control", value);
     }
 
@@ -247,7 +245,7 @@ public class GoogleCesAppDefaultChannelProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? DisableDtmf
     {
-        get => new TerraformReference<bool>(this, "disable_dtmf");
+        get => GetArgument<TerraformValue<bool>>("disable_dtmf");
         set => SetArgument("disable_dtmf", value);
     }
 
@@ -256,7 +254,7 @@ public class GoogleCesAppDefaultChannelProfileBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ProfileId
     {
-        get => new TerraformReference<string>(this, "profile_id");
+        get => GetArgument<TerraformValue<string>>("profile_id");
         set => SetArgument("profile_id", value);
     }
 
@@ -302,7 +300,7 @@ public class GoogleCesAppDefaultChannelProfileBlockPersonaPropertyBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Persona
     {
-        get => new TerraformReference<string>(this, "persona");
+        get => GetArgument<TerraformValue<string>>("persona");
         set => SetArgument("persona", value);
     }
 
@@ -329,7 +327,7 @@ public class GoogleCesAppDefaultChannelProfileBlockWebWidgetConfigBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Modality
     {
-        get => new TerraformReference<string>(this, "modality");
+        get => GetArgument<TerraformValue<string>>("modality");
         set => SetArgument("modality", value);
     }
 
@@ -342,7 +340,7 @@ public class GoogleCesAppDefaultChannelProfileBlockWebWidgetConfigBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Theme
     {
-        get => new TerraformReference<string>(this, "theme");
+        get => GetArgument<TerraformValue<string>>("theme");
         set => SetArgument("theme", value);
     }
 
@@ -351,7 +349,7 @@ public class GoogleCesAppDefaultChannelProfileBlockWebWidgetConfigBlock : Terraf
     /// </summary>
     public TerraformValue<string>? WebWidgetTitle
     {
-        get => new TerraformReference<string>(this, "web_widget_title");
+        get => GetArgument<TerraformValue<string>>("web_widget_title");
         set => SetArgument("web_widget_title", value);
     }
 
@@ -431,7 +429,7 @@ public class GoogleCesAppEvaluationMetricsThresholdsBlockGoldenEvaluationMetrics
     /// </summary>
     public TerraformValue<double>? ToolInvocationParameterCorrectnessThreshold
     {
-        get => new TerraformReference<double>(this, "tool_invocation_parameter_correctness_threshold");
+        get => GetArgument<TerraformValue<double>>("tool_invocation_parameter_correctness_threshold");
         set => SetArgument("tool_invocation_parameter_correctness_threshold", value);
     }
 
@@ -454,7 +452,7 @@ public class GoogleCesAppEvaluationMetricsThresholdsBlockGoldenEvaluationMetrics
     /// </summary>
     public TerraformValue<double>? OverallToolInvocationCorrectnessThreshold
     {
-        get => new TerraformReference<double>(this, "overall_tool_invocation_correctness_threshold");
+        get => GetArgument<TerraformValue<double>>("overall_tool_invocation_correctness_threshold");
         set => SetArgument("overall_tool_invocation_correctness_threshold", value);
     }
 
@@ -464,7 +462,7 @@ public class GoogleCesAppEvaluationMetricsThresholdsBlockGoldenEvaluationMetrics
     /// </summary>
     public TerraformValue<double>? SemanticSimilaritySuccessThreshold
     {
-        get => new TerraformReference<double>(this, "semantic_similarity_success_threshold");
+        get => GetArgument<TerraformValue<double>>("semantic_similarity_success_threshold");
         set => SetArgument("semantic_similarity_success_threshold", value);
     }
 
@@ -487,7 +485,7 @@ public class GoogleCesAppLanguageSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DefaultLanguageCode
     {
-        get => new TerraformReference<string>(this, "default_language_code");
+        get => GetArgument<TerraformValue<string>>("default_language_code");
         set => SetArgument("default_language_code", value);
     }
 
@@ -497,7 +495,7 @@ public class GoogleCesAppLanguageSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableMultilingualSupport
     {
-        get => new TerraformReference<bool>(this, "enable_multilingual_support");
+        get => GetArgument<TerraformValue<bool>>("enable_multilingual_support");
         set => SetArgument("enable_multilingual_support", value);
     }
 
@@ -513,7 +511,7 @@ public class GoogleCesAppLanguageSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FallbackAction
     {
-        get => new TerraformReference<string>(this, "fallback_action");
+        get => GetArgument<TerraformValue<string>>("fallback_action");
         set => SetArgument("fallback_action", value);
     }
 
@@ -523,7 +521,7 @@ public class GoogleCesAppLanguageSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? SupportedLanguageCodes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supported_language_codes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("supported_language_codes");
         set => SetArgument("supported_language_codes", value);
     }
 
@@ -613,7 +611,7 @@ public class GoogleCesAppLoggingSettingsBlockAudioRecordingConfigBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? GcsBucket
     {
-        get => new TerraformReference<string>(this, "gcs_bucket");
+        get => GetArgument<TerraformValue<string>>("gcs_bucket");
         set => SetArgument("gcs_bucket", value);
     }
 
@@ -631,7 +629,7 @@ public class GoogleCesAppLoggingSettingsBlockAudioRecordingConfigBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? GcsPathPrefix
     {
-        get => new TerraformReference<string>(this, "gcs_path_prefix");
+        get => GetArgument<TerraformValue<string>>("gcs_path_prefix");
         set => SetArgument("gcs_path_prefix", value);
     }
 
@@ -653,7 +651,7 @@ public class GoogleCesAppLoggingSettingsBlockBigqueryExportSettingsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Dataset
     {
-        get => new TerraformReference<string>(this, "dataset");
+        get => GetArgument<TerraformValue<string>>("dataset");
         set => SetArgument("dataset", value);
     }
 
@@ -662,7 +660,7 @@ public class GoogleCesAppLoggingSettingsBlockBigqueryExportSettingsBlock : Terra
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -674,7 +672,7 @@ public class GoogleCesAppLoggingSettingsBlockBigqueryExportSettingsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -696,7 +694,7 @@ public class GoogleCesAppLoggingSettingsBlockCloudLoggingSettingsBlock : Terrafo
     /// </summary>
     public TerraformValue<bool>? EnableCloudLogging
     {
-        get => new TerraformReference<bool>(this, "enable_cloud_logging");
+        get => GetArgument<TerraformValue<bool>>("enable_cloud_logging");
         set => SetArgument("enable_cloud_logging", value);
     }
 
@@ -718,7 +716,7 @@ public class GoogleCesAppLoggingSettingsBlockConversationLoggingSettingsBlock : 
     /// </summary>
     public TerraformValue<bool>? DisableConversationLogging
     {
-        get => new TerraformReference<bool>(this, "disable_conversation_logging");
+        get => GetArgument<TerraformValue<bool>>("disable_conversation_logging");
         set => SetArgument("disable_conversation_logging", value);
     }
 
@@ -743,7 +741,7 @@ public class GoogleCesAppLoggingSettingsBlockRedactionConfigBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? DeidentifyTemplate
     {
-        get => new TerraformReference<string>(this, "deidentify_template");
+        get => GetArgument<TerraformValue<string>>("deidentify_template");
         set => SetArgument("deidentify_template", value);
     }
 
@@ -753,7 +751,7 @@ public class GoogleCesAppLoggingSettingsBlockRedactionConfigBlock : TerraformBlo
     /// </summary>
     public TerraformValue<bool>? EnableRedaction
     {
-        get => new TerraformReference<bool>(this, "enable_redaction");
+        get => GetArgument<TerraformValue<bool>>("enable_redaction");
         set => SetArgument("enable_redaction", value);
     }
 
@@ -765,7 +763,7 @@ public class GoogleCesAppLoggingSettingsBlockRedactionConfigBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? InspectTemplate
     {
-        get => new TerraformReference<string>(this, "inspect_template");
+        get => GetArgument<TerraformValue<string>>("inspect_template");
         set => SetArgument("inspect_template", value);
     }
 
@@ -789,7 +787,7 @@ public class GoogleCesAppModelSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Model
     {
-        get => new TerraformReference<string>(this, "model");
+        get => GetArgument<TerraformValue<string>>("model");
         set => SetArgument("model", value);
     }
 
@@ -801,7 +799,7 @@ public class GoogleCesAppModelSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Temperature
     {
-        get => new TerraformReference<double>(this, "temperature");
+        get => GetArgument<TerraformValue<double>>("temperature");
         set => SetArgument("temperature", value);
     }
 
@@ -824,7 +822,7 @@ public class GoogleCesAppTimeZoneSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -847,7 +845,7 @@ public class GoogleCesAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -856,7 +854,7 @@ public class GoogleCesAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -865,7 +863,7 @@ public class GoogleCesAppTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -889,7 +887,7 @@ public class GoogleCesAppVariableDeclarationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -900,7 +898,7 @@ public class GoogleCesAppVariableDeclarationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -937,7 +935,7 @@ public class GoogleCesAppVariableDeclarationsBlockSchemaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AdditionalProperties
     {
-        get => new TerraformReference<string>(this, "additional_properties");
+        get => GetArgument<TerraformValue<string>>("additional_properties");
         set => SetArgument("additional_properties", value);
     }
 
@@ -946,7 +944,7 @@ public class GoogleCesAppVariableDeclarationsBlockSchemaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AnyOf
     {
-        get => new TerraformReference<string>(this, "any_of");
+        get => GetArgument<TerraformValue<string>>("any_of");
         set => SetArgument("any_of", value);
     }
 
@@ -958,7 +956,7 @@ public class GoogleCesAppVariableDeclarationsBlockSchemaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DefaultAttribute
     {
-        get => new TerraformReference<string>(this, "default");
+        get => GetArgument<TerraformValue<string>>("default");
         set => SetArgument("default", value);
     }
 
@@ -967,7 +965,7 @@ public class GoogleCesAppVariableDeclarationsBlockSchemaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Defs
     {
-        get => new TerraformReference<string>(this, "defs");
+        get => GetArgument<TerraformValue<string>>("defs");
         set => SetArgument("defs", value);
     }
 
@@ -976,7 +974,7 @@ public class GoogleCesAppVariableDeclarationsBlockSchemaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -990,7 +988,7 @@ public class GoogleCesAppVariableDeclarationsBlockSchemaBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? EnumAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "enum").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("enum");
         set => SetArgument("enum", value);
     }
 
@@ -999,7 +997,7 @@ public class GoogleCesAppVariableDeclarationsBlockSchemaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Items
     {
-        get => new TerraformReference<string>(this, "items");
+        get => GetArgument<TerraformValue<string>>("items");
         set => SetArgument("items", value);
     }
 
@@ -1008,7 +1006,7 @@ public class GoogleCesAppVariableDeclarationsBlockSchemaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Nullable
     {
-        get => new TerraformReference<bool>(this, "nullable");
+        get => GetArgument<TerraformValue<bool>>("nullable");
         set => SetArgument("nullable", value);
     }
 
@@ -1017,7 +1015,7 @@ public class GoogleCesAppVariableDeclarationsBlockSchemaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PrefixItems
     {
-        get => new TerraformReference<string>(this, "prefix_items");
+        get => GetArgument<TerraformValue<string>>("prefix_items");
         set => SetArgument("prefix_items", value);
     }
 
@@ -1026,7 +1024,7 @@ public class GoogleCesAppVariableDeclarationsBlockSchemaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Properties
     {
-        get => new TerraformReference<string>(this, "properties");
+        get => GetArgument<TerraformValue<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -1052,7 +1050,7 @@ public class GoogleCesAppVariableDeclarationsBlockSchemaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RefAttribute
     {
-        get => new TerraformReference<string>(this, "ref");
+        get => GetArgument<TerraformValue<string>>("ref");
         set => SetArgument("ref", value);
     }
 
@@ -1061,7 +1059,7 @@ public class GoogleCesAppVariableDeclarationsBlockSchemaBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Required
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "required").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("required");
         set => SetArgument("required", value);
     }
 
@@ -1078,7 +1076,7 @@ public class GoogleCesAppVariableDeclarationsBlockSchemaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1087,7 +1085,7 @@ public class GoogleCesAppVariableDeclarationsBlockSchemaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? UniqueItems
     {
-        get => new TerraformReference<bool>(this, "unique_items");
+        get => GetArgument<TerraformValue<bool>>("unique_items");
         set => SetArgument("unique_items", value);
     }
 
@@ -1108,7 +1106,7 @@ public partial class GoogleCesApp(string name) : TerraformResource("google_ces_a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformValue<string> AppId
     {
-        get => new TerraformReference<string>(this, "app_id");
+        get => GetArgument<TerraformValue<string>>("app_id");
         set => SetArgument("app_id", value);
     }
 
@@ -1117,7 +1115,7 @@ public partial class GoogleCesApp(string name) : TerraformResource("google_ces_a
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -1127,7 +1125,7 @@ public partial class GoogleCesApp(string name) : TerraformResource("google_ces_a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -1138,7 +1136,7 @@ public partial class GoogleCesApp(string name) : TerraformResource("google_ces_a
     /// </summary>
     public TerraformValue<string>? GlobalInstruction
     {
-        get => new TerraformReference<string>(this, "global_instruction");
+        get => GetArgument<TerraformValue<string>>("global_instruction");
         set => SetArgument("global_instruction", value);
     }
 
@@ -1149,16 +1147,16 @@ public partial class GoogleCesApp(string name) : TerraformResource("google_ces_a
     /// </summary>
     public TerraformList<string>? Guardrails
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "guardrails").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("guardrails");
         set => SetArgument("guardrails", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1168,7 +1166,7 @@ public partial class GoogleCesApp(string name) : TerraformResource("google_ces_a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1178,16 +1176,16 @@ public partial class GoogleCesApp(string name) : TerraformResource("google_ces_a
     /// </summary>
     public TerraformMap<string>? Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -1197,7 +1195,7 @@ public partial class GoogleCesApp(string name) : TerraformResource("google_ces_a
     /// </summary>
     public TerraformValue<string>? RootAgent
     {
-        get => new TerraformReference<string>(this, "root_agent");
+        get => GetArgument<TerraformValue<string>>("root_agent");
         set => SetArgument("root_agent", value);
     }
 
@@ -1205,17 +1203,13 @@ public partial class GoogleCesApp(string name) : TerraformResource("google_ces_a
     /// Timestamp when the app was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Number of deployments in the app.
     /// </summary>
     public TerraformValue<double> DeploymentCount
-    {
-        get => new TerraformReference<double>(this, "deployment_count");
-    }
+        => AsReference("deployment_count");
 
     /// <summary>
     /// Etag used to ensure the object hasn&#39;t changed during a read-modify-write
@@ -1223,26 +1217,20 @@ public partial class GoogleCesApp(string name) : TerraformResource("google_ces_a
     /// changes.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Identifier. The unique identifier of the app.
     /// Format: &#39;projects/{project}/locations/{location}/apps/{app}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Timestamp when the app was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// AudioProcessingConfig block (nesting mode: list).

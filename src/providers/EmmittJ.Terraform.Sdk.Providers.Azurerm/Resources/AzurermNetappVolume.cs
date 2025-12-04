@@ -19,7 +19,7 @@ public class AzurermNetappVolumeCoolAccessBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoolnessPeriodInDays is required")]
     public required TerraformValue<double> CoolnessPeriodInDays
     {
-        get => new TerraformReference<double>(this, "coolness_period_in_days");
+        get => GetArgument<TerraformValue<double>>("coolness_period_in_days");
         set => SetArgument("coolness_period_in_days", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermNetappVolumeCoolAccessBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetrievalPolicy is required")]
     public required TerraformValue<string> RetrievalPolicy
     {
-        get => new TerraformReference<string>(this, "retrieval_policy");
+        get => GetArgument<TerraformValue<string>>("retrieval_policy");
         set => SetArgument("retrieval_policy", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermNetappVolumeCoolAccessBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TieringPolicy is required")]
     public required TerraformValue<string> TieringPolicy
     {
-        get => new TerraformReference<string>(this, "tiering_policy");
+        get => GetArgument<TerraformValue<string>>("tiering_policy");
         set => SetArgument("tiering_policy", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermNetappVolumeDataProtectionBackupPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPolicyId is required")]
     public required TerraformValue<string> BackupPolicyId
     {
-        get => new TerraformReference<string>(this, "backup_policy_id");
+        get => GetArgument<TerraformValue<string>>("backup_policy_id");
         set => SetArgument("backup_policy_id", value);
     }
 
@@ -73,7 +73,7 @@ public class AzurermNetappVolumeDataProtectionBackupPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultId is required")]
     public required TerraformValue<string> BackupVaultId
     {
-        get => new TerraformReference<string>(this, "backup_vault_id");
+        get => GetArgument<TerraformValue<string>>("backup_vault_id");
         set => SetArgument("backup_vault_id", value);
     }
 
@@ -82,7 +82,7 @@ public class AzurermNetappVolumeDataProtectionBackupPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PolicyEnabled
     {
-        get => new TerraformReference<bool>(this, "policy_enabled");
+        get => GetArgument<TerraformValue<bool>>("policy_enabled");
         set => SetArgument("policy_enabled", value);
     }
 
@@ -105,7 +105,7 @@ public class AzurermNetappVolumeDataProtectionReplicationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EndpointType
     {
-        get => new TerraformReference<string>(this, "endpoint_type");
+        get => GetArgument<TerraformValue<string>>("endpoint_type");
         set => SetArgument("endpoint_type", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermNetappVolumeDataProtectionReplicationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVolumeLocation is required")]
     public required TerraformValue<string> RemoteVolumeLocation
     {
-        get => new TerraformReference<string>(this, "remote_volume_location");
+        get => GetArgument<TerraformValue<string>>("remote_volume_location");
         set => SetArgument("remote_volume_location", value);
     }
 
@@ -125,7 +125,7 @@ public class AzurermNetappVolumeDataProtectionReplicationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVolumeResourceId is required")]
     public required TerraformValue<string> RemoteVolumeResourceId
     {
-        get => new TerraformReference<string>(this, "remote_volume_resource_id");
+        get => GetArgument<TerraformValue<string>>("remote_volume_resource_id");
         set => SetArgument("remote_volume_resource_id", value);
     }
 
@@ -135,7 +135,7 @@ public class AzurermNetappVolumeDataProtectionReplicationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationFrequency is required")]
     public required TerraformValue<string> ReplicationFrequency
     {
-        get => new TerraformReference<string>(this, "replication_frequency");
+        get => GetArgument<TerraformValue<string>>("replication_frequency");
         set => SetArgument("replication_frequency", value);
     }
 
@@ -159,7 +159,7 @@ public class AzurermNetappVolumeDataProtectionSnapshotPolicyBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotPolicyId is required")]
     public required TerraformValue<string> SnapshotPolicyId
     {
-        get => new TerraformReference<string>(this, "snapshot_policy_id");
+        get => GetArgument<TerraformValue<string>>("snapshot_policy_id");
         set => SetArgument("snapshot_policy_id", value);
     }
 
@@ -183,7 +183,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedClients is required")]
     public required TerraformSet<string> AllowedClients
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_clients").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_clients");
         set => SetArgument("allowed_clients", value);
     }
 
@@ -192,7 +192,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Kerberos5ReadOnlyEnabled
     {
-        get => new TerraformReference<bool>(this, "kerberos_5_read_only_enabled");
+        get => GetArgument<TerraformValue<bool>>("kerberos_5_read_only_enabled");
         set => SetArgument("kerberos_5_read_only_enabled", value);
     }
 
@@ -201,7 +201,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Kerberos5ReadWriteEnabled
     {
-        get => new TerraformReference<bool>(this, "kerberos_5_read_write_enabled");
+        get => GetArgument<TerraformValue<bool>>("kerberos_5_read_write_enabled");
         set => SetArgument("kerberos_5_read_write_enabled", value);
     }
 
@@ -210,7 +210,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Kerberos5iReadOnlyEnabled
     {
-        get => new TerraformReference<bool>(this, "kerberos_5i_read_only_enabled");
+        get => GetArgument<TerraformValue<bool>>("kerberos_5i_read_only_enabled");
         set => SetArgument("kerberos_5i_read_only_enabled", value);
     }
 
@@ -219,7 +219,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Kerberos5iReadWriteEnabled
     {
-        get => new TerraformReference<bool>(this, "kerberos_5i_read_write_enabled");
+        get => GetArgument<TerraformValue<bool>>("kerberos_5i_read_write_enabled");
         set => SetArgument("kerberos_5i_read_write_enabled", value);
     }
 
@@ -228,7 +228,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Kerberos5pReadOnlyEnabled
     {
-        get => new TerraformReference<bool>(this, "kerberos_5p_read_only_enabled");
+        get => GetArgument<TerraformValue<bool>>("kerberos_5p_read_only_enabled");
         set => SetArgument("kerberos_5p_read_only_enabled", value);
     }
 
@@ -237,16 +237,16 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Kerberos5pReadWriteEnabled
     {
-        get => new TerraformReference<bool>(this, "kerberos_5p_read_write_enabled");
+        get => GetArgument<TerraformValue<bool>>("kerberos_5p_read_write_enabled");
         set => SetArgument("kerberos_5p_read_write_enabled", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformList<string> Protocol
+    public TerraformList<string>? Protocol
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "protocol").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("protocol");
         set => SetArgument("protocol", value);
     }
 
@@ -254,9 +254,9 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     /// The protocols_enabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformList<string> ProtocolsEnabled
+    public TerraformList<string>? ProtocolsEnabled
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "protocols_enabled").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("protocols_enabled");
         set => SetArgument("protocols_enabled", value);
     }
 
@@ -265,7 +265,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? RootAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "root_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("root_access_enabled");
         set => SetArgument("root_access_enabled", value);
     }
 
@@ -275,7 +275,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleIndex is required")]
     public required TerraformValue<double> RuleIndex
     {
-        get => new TerraformReference<double>(this, "rule_index");
+        get => GetArgument<TerraformValue<double>>("rule_index");
         set => SetArgument("rule_index", value);
     }
 
@@ -284,7 +284,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? UnixReadOnly
     {
-        get => new TerraformReference<bool>(this, "unix_read_only");
+        get => GetArgument<TerraformValue<bool>>("unix_read_only");
         set => SetArgument("unix_read_only", value);
     }
 
@@ -293,7 +293,7 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? UnixReadWrite
     {
-        get => new TerraformReference<bool>(this, "unix_read_write");
+        get => GetArgument<TerraformValue<bool>>("unix_read_write");
         set => SetArgument("unix_read_write", value);
     }
 
@@ -316,7 +316,7 @@ public class AzurermNetappVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -325,7 +325,7 @@ public class AzurermNetappVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -334,7 +334,7 @@ public class AzurermNetappVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -343,7 +343,7 @@ public class AzurermNetappVolumeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -361,7 +361,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string>? AcceptGrowCapacityPoolForShortTermCloneSplit
     {
-        get => new TerraformReference<string>(this, "accept_grow_capacity_pool_for_short_term_clone_split");
+        get => GetArgument<TerraformValue<string>>("accept_grow_capacity_pool_for_short_term_clone_split");
         set => SetArgument("accept_grow_capacity_pool_for_short_term_clone_split", value);
     }
 
@@ -371,7 +371,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => new TerraformReference<string>(this, "account_name");
+        get => GetArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -380,7 +380,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<bool>? AzureVmwareDataStoreEnabled
     {
-        get => new TerraformReference<bool>(this, "azure_vmware_data_store_enabled");
+        get => GetArgument<TerraformValue<bool>>("azure_vmware_data_store_enabled");
         set => SetArgument("azure_vmware_data_store_enabled", value);
     }
 
@@ -389,25 +389,25 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string>? CreateFromSnapshotResourceId
     {
-        get => new TerraformReference<string>(this, "create_from_snapshot_resource_id");
+        get => GetArgument<TerraformValue<string>>("create_from_snapshot_resource_id");
         set => SetArgument("create_from_snapshot_resource_id", value);
     }
 
     /// <summary>
     /// The encryption_key_source attribute.
     /// </summary>
-    public TerraformValue<string> EncryptionKeySource
+    public TerraformValue<string>? EncryptionKeySource
     {
-        get => new TerraformReference<string>(this, "encryption_key_source");
+        get => GetArgument<TerraformValue<string>>("encryption_key_source");
         set => SetArgument("encryption_key_source", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -416,16 +416,16 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<bool>? KerberosEnabled
     {
-        get => new TerraformReference<bool>(this, "kerberos_enabled");
+        get => GetArgument<TerraformValue<bool>>("kerberos_enabled");
         set => SetArgument("kerberos_enabled", value);
     }
 
     /// <summary>
     /// The key_vault_private_endpoint_id attribute.
     /// </summary>
-    public TerraformValue<string> KeyVaultPrivateEndpointId
+    public TerraformValue<string>? KeyVaultPrivateEndpointId
     {
-        get => new TerraformReference<string>(this, "key_vault_private_endpoint_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_private_endpoint_id");
         set => SetArgument("key_vault_private_endpoint_id", value);
     }
 
@@ -434,7 +434,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<bool>? LargeVolumeEnabled
     {
-        get => new TerraformReference<bool>(this, "large_volume_enabled");
+        get => GetArgument<TerraformValue<bool>>("large_volume_enabled");
         set => SetArgument("large_volume_enabled", value);
     }
 
@@ -444,7 +444,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -454,16 +454,16 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The network_features attribute.
     /// </summary>
-    public TerraformValue<string> NetworkFeatures
+    public TerraformValue<string>? NetworkFeatures
     {
-        get => new TerraformReference<string>(this, "network_features");
+        get => GetArgument<TerraformValue<string>>("network_features");
         set => SetArgument("network_features", value);
     }
 
@@ -473,16 +473,16 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolName is required")]
     public required TerraformValue<string> PoolName
     {
-        get => new TerraformReference<string>(this, "pool_name");
+        get => GetArgument<TerraformValue<string>>("pool_name");
         set => SetArgument("pool_name", value);
     }
 
     /// <summary>
     /// The protocols attribute.
     /// </summary>
-    public TerraformSet<string> Protocols
+    public TerraformSet<string>? Protocols
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "protocols").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("protocols");
         set => SetArgument("protocols", value);
     }
 
@@ -492,16 +492,16 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
     /// <summary>
     /// The security_style attribute.
     /// </summary>
-    public TerraformValue<string> SecurityStyle
+    public TerraformValue<string>? SecurityStyle
     {
-        get => new TerraformReference<string>(this, "security_style");
+        get => GetArgument<TerraformValue<string>>("security_style");
         set => SetArgument("security_style", value);
     }
 
@@ -511,7 +511,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceLevel is required")]
     public required TerraformValue<string> ServiceLevel
     {
-        get => new TerraformReference<string>(this, "service_level");
+        get => GetArgument<TerraformValue<string>>("service_level");
         set => SetArgument("service_level", value);
     }
 
@@ -520,7 +520,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<bool>? Smb3ProtocolEncryptionEnabled
     {
-        get => new TerraformReference<bool>(this, "smb3_protocol_encryption_enabled");
+        get => GetArgument<TerraformValue<bool>>("smb3_protocol_encryption_enabled");
         set => SetArgument("smb3_protocol_encryption_enabled", value);
     }
 
@@ -529,7 +529,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<bool>? SmbAccessBasedEnumerationEnabled
     {
-        get => new TerraformReference<bool>(this, "smb_access_based_enumeration_enabled");
+        get => GetArgument<TerraformValue<bool>>("smb_access_based_enumeration_enabled");
         set => SetArgument("smb_access_based_enumeration_enabled", value);
     }
 
@@ -538,7 +538,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<bool>? SmbContinuousAvailabilityEnabled
     {
-        get => new TerraformReference<bool>(this, "smb_continuous_availability_enabled");
+        get => GetArgument<TerraformValue<bool>>("smb_continuous_availability_enabled");
         set => SetArgument("smb_continuous_availability_enabled", value);
     }
 
@@ -547,7 +547,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<bool>? SmbNonBrowsableEnabled
     {
-        get => new TerraformReference<bool>(this, "smb_non_browsable_enabled");
+        get => GetArgument<TerraformValue<bool>>("smb_non_browsable_enabled");
         set => SetArgument("smb_non_browsable_enabled", value);
     }
 
@@ -556,7 +556,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<bool>? SnapshotDirectoryVisible
     {
-        get => new TerraformReference<bool>(this, "snapshot_directory_visible");
+        get => GetArgument<TerraformValue<bool>>("snapshot_directory_visible");
         set => SetArgument("snapshot_directory_visible", value);
     }
 
@@ -566,7 +566,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageQuotaInGb is required")]
     public required TerraformValue<double> StorageQuotaInGb
     {
-        get => new TerraformReference<double>(this, "storage_quota_in_gb");
+        get => GetArgument<TerraformValue<double>>("storage_quota_in_gb");
         set => SetArgument("storage_quota_in_gb", value);
     }
 
@@ -576,7 +576,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
     public required TerraformValue<string> SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -585,16 +585,16 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The throughput_in_mibps attribute.
     /// </summary>
-    public TerraformValue<double> ThroughputInMibps
+    public TerraformValue<double>? ThroughputInMibps
     {
-        get => new TerraformReference<double>(this, "throughput_in_mibps");
+        get => GetArgument<TerraformValue<double>>("throughput_in_mibps");
         set => SetArgument("throughput_in_mibps", value);
     }
 
@@ -604,7 +604,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumePath is required")]
     public required TerraformValue<string> VolumePath
     {
-        get => new TerraformReference<string>(this, "volume_path");
+        get => GetArgument<TerraformValue<string>>("volume_path");
         set => SetArgument("volume_path", value);
     }
 
@@ -613,7 +613,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -621,9 +621,7 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// The mount_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> MountIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "mount_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("mount_ip_addresses");
 
     /// <summary>
     /// CoolAccess block (nesting mode: list).

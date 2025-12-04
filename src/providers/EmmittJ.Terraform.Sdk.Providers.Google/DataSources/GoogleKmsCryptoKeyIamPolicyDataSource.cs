@@ -14,16 +14,16 @@ public partial class GoogleKmsCryptoKeyIamPolicyDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKeyId is required")]
     public required TerraformValue<string> CryptoKeyId
     {
-        get => new TerraformReference<string>(this, "crypto_key_id");
+        get => GetArgument<TerraformValue<string>>("crypto_key_id");
         set => SetArgument("crypto_key_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,16 +31,12 @@ public partial class GoogleKmsCryptoKeyIamPolicyDataSource(string name) : Terraf
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     public TerraformValue<string> PolicyData
-    {
-        get => new TerraformReference<string>(this, "policy_data");
-    }
+        => AsReference("policy_data");
 
 }

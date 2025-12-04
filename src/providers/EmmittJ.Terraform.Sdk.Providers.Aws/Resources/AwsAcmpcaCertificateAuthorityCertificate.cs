@@ -14,7 +14,7 @@ public partial class AwsAcmpcaCertificateAuthorityCertificate(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Certificate is required")]
     public required TerraformValue<string> Certificate
     {
-        get => new TerraformReference<string>(this, "certificate");
+        get => GetArgument<TerraformValue<string>>("certificate");
         set => SetArgument("certificate", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsAcmpcaCertificateAuthorityCertificate(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityArn is required")]
     public required TerraformValue<string> CertificateAuthorityArn
     {
-        get => new TerraformReference<string>(this, "certificate_authority_arn");
+        get => GetArgument<TerraformValue<string>>("certificate_authority_arn");
         set => SetArgument("certificate_authority_arn", value);
     }
 
@@ -33,25 +33,25 @@ public partial class AwsAcmpcaCertificateAuthorityCertificate(string name) : Ter
     /// </summary>
     public TerraformValue<string>? CertificateChain
     {
-        get => new TerraformReference<string>(this, "certificate_chain");
+        get => GetArgument<TerraformValue<string>>("certificate_chain");
         set => SetArgument("certificate_chain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

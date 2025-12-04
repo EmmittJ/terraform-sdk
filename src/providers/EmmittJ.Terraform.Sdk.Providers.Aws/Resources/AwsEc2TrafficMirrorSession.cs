@@ -13,16 +13,16 @@ public partial class AwsEc2TrafficMirrorSession(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,25 +32,25 @@ public partial class AwsEc2TrafficMirrorSession(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
     public required TerraformValue<string> NetworkInterfaceId
     {
-        get => new TerraformReference<string>(this, "network_interface_id");
+        get => GetArgument<TerraformValue<string>>("network_interface_id");
         set => SetArgument("network_interface_id", value);
     }
 
     /// <summary>
     /// The packet_length attribute.
     /// </summary>
-    public TerraformValue<double> PacketLength
+    public TerraformValue<double>? PacketLength
     {
-        get => new TerraformReference<double>(this, "packet_length");
+        get => GetArgument<TerraformValue<double>>("packet_length");
         set => SetArgument("packet_length", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsEc2TrafficMirrorSession(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SessionNumber is required")]
     public required TerraformValue<double> SessionNumber
     {
-        get => new TerraformReference<double>(this, "session_number");
+        get => GetArgument<TerraformValue<double>>("session_number");
         set => SetArgument("session_number", value);
     }
 
@@ -69,16 +69,16 @@ public partial class AwsEc2TrafficMirrorSession(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsEc2TrafficMirrorSession(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficMirrorFilterId is required")]
     public required TerraformValue<string> TrafficMirrorFilterId
     {
-        get => new TerraformReference<string>(this, "traffic_mirror_filter_id");
+        get => GetArgument<TerraformValue<string>>("traffic_mirror_filter_id");
         set => SetArgument("traffic_mirror_filter_id", value);
     }
 
@@ -98,16 +98,16 @@ public partial class AwsEc2TrafficMirrorSession(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficMirrorTargetId is required")]
     public required TerraformValue<string> TrafficMirrorTargetId
     {
-        get => new TerraformReference<string>(this, "traffic_mirror_target_id");
+        get => GetArgument<TerraformValue<string>>("traffic_mirror_target_id");
         set => SetArgument("traffic_mirror_target_id", value);
     }
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
-    public TerraformValue<double> VirtualNetworkId
+    public TerraformValue<double>? VirtualNetworkId
     {
-        get => new TerraformReference<double>(this, "virtual_network_id");
+        get => GetArgument<TerraformValue<double>>("virtual_network_id");
         set => SetArgument("virtual_network_id", value);
     }
 
@@ -115,16 +115,12 @@ public partial class AwsEc2TrafficMirrorSession(string name) : TerraformResource
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
 }

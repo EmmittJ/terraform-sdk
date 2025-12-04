@@ -11,9 +11,9 @@ public partial class AwsConfigRetentionConfiguration(string name) : TerraformRes
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsConfigRetentionConfiguration(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPeriodInDays is required")]
     public required TerraformValue<double> RetentionPeriodInDays
     {
-        get => new TerraformReference<double>(this, "retention_period_in_days");
+        get => GetArgument<TerraformValue<double>>("retention_period_in_days");
         set => SetArgument("retention_period_in_days", value);
     }
 
@@ -31,16 +31,12 @@ public partial class AwsConfigRetentionConfiguration(string name) : TerraformRes
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
 }

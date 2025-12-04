@@ -22,7 +22,7 @@ public class GoogleNetworkServicesLbTrafficExtensionExtensionChainsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -69,7 +69,7 @@ public class GoogleNetworkServicesLbTrafficExtensionExtensionChainsBlockExtensio
     /// </summary>
     public TerraformValue<string>? Authority
     {
-        get => new TerraformReference<string>(this, "authority");
+        get => GetArgument<TerraformValue<string>>("authority");
         set => SetArgument("authority", value);
     }
 
@@ -83,7 +83,7 @@ public class GoogleNetworkServicesLbTrafficExtensionExtensionChainsBlockExtensio
     /// </summary>
     public TerraformValue<bool>? FailOpen
     {
-        get => new TerraformReference<bool>(this, "fail_open");
+        get => GetArgument<TerraformValue<bool>>("fail_open");
         set => SetArgument("fail_open", value);
     }
 
@@ -93,7 +93,7 @@ public class GoogleNetworkServicesLbTrafficExtensionExtensionChainsBlockExtensio
     /// </summary>
     public TerraformList<string>? ForwardHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "forward_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("forward_headers");
         set => SetArgument("forward_headers", value);
     }
 
@@ -104,7 +104,7 @@ public class GoogleNetworkServicesLbTrafficExtensionExtensionChainsBlockExtensio
     /// </summary>
     public TerraformMap<string>? Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -117,7 +117,7 @@ public class GoogleNetworkServicesLbTrafficExtensionExtensionChainsBlockExtensio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -130,7 +130,7 @@ public class GoogleNetworkServicesLbTrafficExtensionExtensionChainsBlockExtensio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
     public required TerraformValue<string> Service
     {
-        get => new TerraformReference<string>(this, "service");
+        get => GetArgument<TerraformValue<string>>("service");
         set => SetArgument("service", value);
     }
 
@@ -142,7 +142,7 @@ public class GoogleNetworkServicesLbTrafficExtensionExtensionChainsBlockExtensio
     /// </summary>
     public TerraformList<string>? SupportedEvents
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "supported_events").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("supported_events");
         set => SetArgument("supported_events", value);
     }
 
@@ -152,7 +152,7 @@ public class GoogleNetworkServicesLbTrafficExtensionExtensionChainsBlockExtensio
     /// </summary>
     public TerraformValue<string>? Timeout
     {
-        get => new TerraformReference<string>(this, "timeout");
+        get => GetArgument<TerraformValue<string>>("timeout");
         set => SetArgument("timeout", value);
     }
 
@@ -175,7 +175,7 @@ public class GoogleNetworkServicesLbTrafficExtensionExtensionChainsBlockMatchCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CelExpression is required")]
     public required TerraformValue<string> CelExpression
     {
-        get => new TerraformReference<string>(this, "cel_expression");
+        get => GetArgument<TerraformValue<string>>("cel_expression");
         set => SetArgument("cel_expression", value);
     }
 
@@ -198,7 +198,7 @@ public class GoogleNetworkServicesLbTrafficExtensionTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -207,7 +207,7 @@ public class GoogleNetworkServicesLbTrafficExtensionTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -216,7 +216,7 @@ public class GoogleNetworkServicesLbTrafficExtensionTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -234,7 +234,7 @@ public partial class GoogleNetworkServicesLbTrafficExtension(string name) : Terr
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -245,16 +245,16 @@ public partial class GoogleNetworkServicesLbTrafficExtension(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardingRules is required")]
     public TerraformList<string>? ForwardingRules
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "forwarding_rules").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("forwarding_rules");
         set => SetArgument("forwarding_rules", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -266,7 +266,7 @@ public partial class GoogleNetworkServicesLbTrafficExtension(string name) : Terr
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -278,7 +278,7 @@ public partial class GoogleNetworkServicesLbTrafficExtension(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancingScheme is required")]
     public required TerraformValue<string> LoadBalancingScheme
     {
-        get => new TerraformReference<string>(this, "load_balancing_scheme");
+        get => GetArgument<TerraformValue<string>>("load_balancing_scheme");
         set => SetArgument("load_balancing_scheme", value);
     }
 
@@ -288,7 +288,7 @@ public partial class GoogleNetworkServicesLbTrafficExtension(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -298,16 +298,16 @@ public partial class GoogleNetworkServicesLbTrafficExtension(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -315,18 +315,14 @@ public partial class GoogleNetworkServicesLbTrafficExtension(string name) : Terr
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// ExtensionChains block (nesting mode: list).

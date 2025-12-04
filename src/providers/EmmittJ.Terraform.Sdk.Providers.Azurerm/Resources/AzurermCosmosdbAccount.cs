@@ -19,7 +19,7 @@ public class AzurermCosmosdbAccountAnalyticalStorageBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaType is required")]
     public required TerraformValue<string> SchemaType
     {
-        get => new TerraformReference<string>(this, "schema_type");
+        get => GetArgument<TerraformValue<string>>("schema_type");
         set => SetArgument("schema_type", value);
     }
 
@@ -40,36 +40,36 @@ public class AzurermCosmosdbAccountBackupBlock : TerraformBlock
     /// <summary>
     /// The interval_in_minutes attribute.
     /// </summary>
-    public TerraformValue<double> IntervalInMinutes
+    public TerraformValue<double>? IntervalInMinutes
     {
-        get => new TerraformReference<double>(this, "interval_in_minutes");
+        get => GetArgument<TerraformValue<double>>("interval_in_minutes");
         set => SetArgument("interval_in_minutes", value);
     }
 
     /// <summary>
     /// The retention_in_hours attribute.
     /// </summary>
-    public TerraformValue<double> RetentionInHours
+    public TerraformValue<double>? RetentionInHours
     {
-        get => new TerraformReference<double>(this, "retention_in_hours");
+        get => GetArgument<TerraformValue<double>>("retention_in_hours");
         set => SetArgument("retention_in_hours", value);
     }
 
     /// <summary>
     /// The storage_redundancy attribute.
     /// </summary>
-    public TerraformValue<string> StorageRedundancy
+    public TerraformValue<string>? StorageRedundancy
     {
-        get => new TerraformReference<string>(this, "storage_redundancy");
+        get => GetArgument<TerraformValue<string>>("storage_redundancy");
         set => SetArgument("storage_redundancy", value);
     }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    public TerraformValue<string> Tier
+    public TerraformValue<string>? Tier
     {
-        get => new TerraformReference<string>(this, "tier");
+        get => GetArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermCosmosdbAccountBackupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -103,7 +103,7 @@ public class AzurermCosmosdbAccountCapabilitiesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -127,7 +127,7 @@ public class AzurermCosmosdbAccountCapacityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TotalThroughputLimit is required")]
     public required TerraformValue<double> TotalThroughputLimit
     {
-        get => new TerraformReference<double>(this, "total_throughput_limit");
+        get => GetArgument<TerraformValue<double>>("total_throughput_limit");
         set => SetArgument("total_throughput_limit", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermCosmosdbAccountConsistencyPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsistencyLevel is required")]
     public required TerraformValue<string> ConsistencyLevel
     {
-        get => new TerraformReference<string>(this, "consistency_level");
+        get => GetArgument<TerraformValue<string>>("consistency_level");
         set => SetArgument("consistency_level", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermCosmosdbAccountConsistencyPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxIntervalInSeconds
     {
-        get => new TerraformReference<double>(this, "max_interval_in_seconds");
+        get => GetArgument<TerraformValue<double>>("max_interval_in_seconds");
         set => SetArgument("max_interval_in_seconds", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermCosmosdbAccountConsistencyPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxStalenessPrefix
     {
-        get => new TerraformReference<double>(this, "max_staleness_prefix");
+        get => GetArgument<TerraformValue<double>>("max_staleness_prefix");
         set => SetArgument("max_staleness_prefix", value);
     }
 
@@ -193,7 +193,7 @@ public class AzurermCosmosdbAccountCorsRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedHeaders is required")]
     public TerraformList<string>? AllowedHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_headers");
         set => SetArgument("allowed_headers", value);
     }
 
@@ -203,7 +203,7 @@ public class AzurermCosmosdbAccountCorsRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
     public TerraformList<string>? AllowedMethods
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_methods").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_methods");
         set => SetArgument("allowed_methods", value);
     }
 
@@ -213,7 +213,7 @@ public class AzurermCosmosdbAccountCorsRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
     public TerraformList<string>? AllowedOrigins
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_origins").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_origins");
         set => SetArgument("allowed_origins", value);
     }
 
@@ -223,7 +223,7 @@ public class AzurermCosmosdbAccountCorsRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExposedHeaders is required")]
     public TerraformList<string>? ExposedHeaders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exposed_headers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exposed_headers");
         set => SetArgument("exposed_headers", value);
     }
 
@@ -232,7 +232,7 @@ public class AzurermCosmosdbAccountCorsRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxAgeInSeconds
     {
-        get => new TerraformReference<double>(this, "max_age_in_seconds");
+        get => GetArgument<TerraformValue<double>>("max_age_in_seconds");
         set => SetArgument("max_age_in_seconds", value);
     }
 
@@ -256,7 +256,7 @@ public class AzurermCosmosdbAccountGeoLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailoverPriority is required")]
     public required TerraformValue<double> FailoverPriority
     {
-        get => new TerraformReference<double>(this, "failover_priority");
+        get => GetArgument<TerraformValue<double>>("failover_priority");
         set => SetArgument("failover_priority", value);
     }
 
@@ -264,9 +264,7 @@ public class AzurermCosmosdbAccountGeoLocationBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The location attribute.
@@ -274,7 +272,7 @@ public class AzurermCosmosdbAccountGeoLocationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -283,7 +281,7 @@ public class AzurermCosmosdbAccountGeoLocationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ZoneRedundant
     {
-        get => new TerraformReference<bool>(this, "zone_redundant");
+        get => GetArgument<TerraformValue<bool>>("zone_redundant");
         set => SetArgument("zone_redundant", value);
     }
 
@@ -306,7 +304,7 @@ public class AzurermCosmosdbAccountIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? IdentityIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "identity_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("identity_ids");
         set => SetArgument("identity_ids", value);
     }
 
@@ -314,17 +312,13 @@ public class AzurermCosmosdbAccountIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -332,7 +326,7 @@ public class AzurermCosmosdbAccountIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -356,7 +350,7 @@ public class AzurermCosmosdbAccountRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestoreTimestampInUtc is required")]
     public required TerraformValue<string> RestoreTimestampInUtc
     {
-        get => new TerraformReference<string>(this, "restore_timestamp_in_utc");
+        get => GetArgument<TerraformValue<string>>("restore_timestamp_in_utc");
         set => SetArgument("restore_timestamp_in_utc", value);
     }
 
@@ -366,7 +360,7 @@ public class AzurermCosmosdbAccountRestoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceCosmosdbAccountId is required")]
     public required TerraformValue<string> SourceCosmosdbAccountId
     {
-        get => new TerraformReference<string>(this, "source_cosmosdb_account_id");
+        get => GetArgument<TerraformValue<string>>("source_cosmosdb_account_id");
         set => SetArgument("source_cosmosdb_account_id", value);
     }
 
@@ -375,7 +369,7 @@ public class AzurermCosmosdbAccountRestoreBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? TablesToRestore
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tables_to_restore").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("tables_to_restore");
         set => SetArgument("tables_to_restore", value);
     }
 
@@ -415,7 +409,7 @@ public class AzurermCosmosdbAccountRestoreBlockDatabaseBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? CollectionNames
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "collection_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("collection_names");
         set => SetArgument("collection_names", value);
     }
 
@@ -425,7 +419,7 @@ public class AzurermCosmosdbAccountRestoreBlockDatabaseBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -447,7 +441,7 @@ public class AzurermCosmosdbAccountRestoreBlockGremlinDatabaseBlock : TerraformB
     /// </summary>
     public TerraformList<string>? GraphNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "graph_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("graph_names");
         set => SetArgument("graph_names", value);
     }
 
@@ -457,7 +451,7 @@ public class AzurermCosmosdbAccountRestoreBlockGremlinDatabaseBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -480,7 +474,7 @@ public class AzurermCosmosdbAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -489,7 +483,7 @@ public class AzurermCosmosdbAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -498,7 +492,7 @@ public class AzurermCosmosdbAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -507,7 +501,7 @@ public class AzurermCosmosdbAccountTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -531,7 +525,7 @@ public class AzurermCosmosdbAccountVirtualNetworkRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -540,7 +534,7 @@ public class AzurermCosmosdbAccountVirtualNetworkRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IgnoreMissingVnetServiceEndpoint
     {
-        get => new TerraformReference<bool>(this, "ignore_missing_vnet_service_endpoint");
+        get => GetArgument<TerraformValue<bool>>("ignore_missing_vnet_service_endpoint");
         set => SetArgument("ignore_missing_vnet_service_endpoint", value);
     }
 
@@ -558,7 +552,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? AccessKeyMetadataWritesEnabled
     {
-        get => new TerraformReference<bool>(this, "access_key_metadata_writes_enabled");
+        get => GetArgument<TerraformValue<bool>>("access_key_metadata_writes_enabled");
         set => SetArgument("access_key_metadata_writes_enabled", value);
     }
 
@@ -567,7 +561,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? AnalyticalStorageEnabled
     {
-        get => new TerraformReference<bool>(this, "analytical_storage_enabled");
+        get => GetArgument<TerraformValue<bool>>("analytical_storage_enabled");
         set => SetArgument("analytical_storage_enabled", value);
     }
 
@@ -576,7 +570,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? AutomaticFailoverEnabled
     {
-        get => new TerraformReference<bool>(this, "automatic_failover_enabled");
+        get => GetArgument<TerraformValue<bool>>("automatic_failover_enabled");
         set => SetArgument("automatic_failover_enabled", value);
     }
 
@@ -585,16 +579,16 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? BurstCapacityEnabled
     {
-        get => new TerraformReference<bool>(this, "burst_capacity_enabled");
+        get => GetArgument<TerraformValue<bool>>("burst_capacity_enabled");
         set => SetArgument("burst_capacity_enabled", value);
     }
 
     /// <summary>
     /// The create_mode attribute.
     /// </summary>
-    public TerraformValue<string> CreateMode
+    public TerraformValue<string>? CreateMode
     {
-        get => new TerraformReference<string>(this, "create_mode");
+        get => GetArgument<TerraformValue<string>>("create_mode");
         set => SetArgument("create_mode", value);
     }
 
@@ -603,7 +597,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? DefaultIdentityType
     {
-        get => new TerraformReference<string>(this, "default_identity_type");
+        get => GetArgument<TerraformValue<string>>("default_identity_type");
         set => SetArgument("default_identity_type", value);
     }
 
@@ -612,16 +606,16 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? FreeTierEnabled
     {
-        get => new TerraformReference<bool>(this, "free_tier_enabled");
+        get => GetArgument<TerraformValue<bool>>("free_tier_enabled");
         set => SetArgument("free_tier_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -630,7 +624,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformSet<string>? IpRangeFilter
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ip_range_filter").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("ip_range_filter");
         set => SetArgument("ip_range_filter", value);
     }
 
@@ -639,7 +633,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? IsVirtualNetworkFilterEnabled
     {
-        get => new TerraformReference<bool>(this, "is_virtual_network_filter_enabled");
+        get => GetArgument<TerraformValue<bool>>("is_virtual_network_filter_enabled");
         set => SetArgument("is_virtual_network_filter_enabled", value);
     }
 
@@ -648,7 +642,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? KeyVaultKeyId
     {
-        get => new TerraformReference<string>(this, "key_vault_key_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_key_id");
         set => SetArgument("key_vault_key_id", value);
     }
 
@@ -657,7 +651,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? Kind
     {
-        get => new TerraformReference<string>(this, "kind");
+        get => GetArgument<TerraformValue<string>>("kind");
         set => SetArgument("kind", value);
     }
 
@@ -666,7 +660,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? LocalAuthenticationDisabled
     {
-        get => new TerraformReference<bool>(this, "local_authentication_disabled");
+        get => GetArgument<TerraformValue<bool>>("local_authentication_disabled");
         set => SetArgument("local_authentication_disabled", value);
     }
 
@@ -676,7 +670,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -685,7 +679,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? ManagedHsmKeyId
     {
-        get => new TerraformReference<string>(this, "managed_hsm_key_id");
+        get => GetArgument<TerraformValue<string>>("managed_hsm_key_id");
         set => SetArgument("managed_hsm_key_id", value);
     }
 
@@ -694,16 +688,16 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? MinimalTlsVersion
     {
-        get => new TerraformReference<string>(this, "minimal_tls_version");
+        get => GetArgument<TerraformValue<string>>("minimal_tls_version");
         set => SetArgument("minimal_tls_version", value);
     }
 
     /// <summary>
     /// The mongo_server_version attribute.
     /// </summary>
-    public TerraformValue<string> MongoServerVersion
+    public TerraformValue<string>? MongoServerVersion
     {
-        get => new TerraformReference<string>(this, "mongo_server_version");
+        get => GetArgument<TerraformValue<string>>("mongo_server_version");
         set => SetArgument("mongo_server_version", value);
     }
 
@@ -712,7 +706,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? MultipleWriteLocationsEnabled
     {
-        get => new TerraformReference<bool>(this, "multiple_write_locations_enabled");
+        get => GetArgument<TerraformValue<bool>>("multiple_write_locations_enabled");
         set => SetArgument("multiple_write_locations_enabled", value);
     }
 
@@ -722,7 +716,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -731,7 +725,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? NetworkAclBypassForAzureServices
     {
-        get => new TerraformReference<bool>(this, "network_acl_bypass_for_azure_services");
+        get => GetArgument<TerraformValue<bool>>("network_acl_bypass_for_azure_services");
         set => SetArgument("network_acl_bypass_for_azure_services", value);
     }
 
@@ -740,7 +734,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformList<string>? NetworkAclBypassIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "network_acl_bypass_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("network_acl_bypass_ids");
         set => SetArgument("network_acl_bypass_ids", value);
     }
 
@@ -750,7 +744,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OfferType is required")]
     public required TerraformValue<string> OfferType
     {
-        get => new TerraformReference<string>(this, "offer_type");
+        get => GetArgument<TerraformValue<string>>("offer_type");
         set => SetArgument("offer_type", value);
     }
 
@@ -759,7 +753,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? PartitionMergeEnabled
     {
-        get => new TerraformReference<bool>(this, "partition_merge_enabled");
+        get => GetArgument<TerraformValue<bool>>("partition_merge_enabled");
         set => SetArgument("partition_merge_enabled", value);
     }
 
@@ -768,7 +762,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? PublicNetworkAccessEnabled
     {
-        get => new TerraformReference<bool>(this, "public_network_access_enabled");
+        get => GetArgument<TerraformValue<bool>>("public_network_access_enabled");
         set => SetArgument("public_network_access_enabled", value);
     }
 
@@ -778,7 +772,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -787,7 +781,7 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -795,121 +789,91 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryKey
-    {
-        get => new TerraformReference<string>(this, "primary_key");
-    }
+        => AsReference("primary_key");
 
     /// <summary>
     /// The primary_mongodb_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimaryMongodbConnectionString
-    {
-        get => new TerraformReference<string>(this, "primary_mongodb_connection_string");
-    }
+        => AsReference("primary_mongodb_connection_string");
 
     /// <summary>
     /// The primary_readonly_key attribute.
     /// </summary>
     public TerraformValue<string> PrimaryReadonlyKey
-    {
-        get => new TerraformReference<string>(this, "primary_readonly_key");
-    }
+        => AsReference("primary_readonly_key");
 
     /// <summary>
     /// The primary_readonly_mongodb_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimaryReadonlyMongodbConnectionString
-    {
-        get => new TerraformReference<string>(this, "primary_readonly_mongodb_connection_string");
-    }
+        => AsReference("primary_readonly_mongodb_connection_string");
 
     /// <summary>
     /// The primary_readonly_sql_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimaryReadonlySqlConnectionString
-    {
-        get => new TerraformReference<string>(this, "primary_readonly_sql_connection_string");
-    }
+        => AsReference("primary_readonly_sql_connection_string");
 
     /// <summary>
     /// The primary_sql_connection_string attribute.
     /// </summary>
     public TerraformValue<string> PrimarySqlConnectionString
-    {
-        get => new TerraformReference<string>(this, "primary_sql_connection_string");
-    }
+        => AsReference("primary_sql_connection_string");
 
     /// <summary>
     /// The read_endpoints attribute.
     /// </summary>
     public TerraformList<string> ReadEndpoints
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "read_endpoints").ResolveNodes(ctx));
-    }
+        => AsReference("read_endpoints");
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryKey
-    {
-        get => new TerraformReference<string>(this, "secondary_key");
-    }
+        => AsReference("secondary_key");
 
     /// <summary>
     /// The secondary_mongodb_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondaryMongodbConnectionString
-    {
-        get => new TerraformReference<string>(this, "secondary_mongodb_connection_string");
-    }
+        => AsReference("secondary_mongodb_connection_string");
 
     /// <summary>
     /// The secondary_readonly_key attribute.
     /// </summary>
     public TerraformValue<string> SecondaryReadonlyKey
-    {
-        get => new TerraformReference<string>(this, "secondary_readonly_key");
-    }
+        => AsReference("secondary_readonly_key");
 
     /// <summary>
     /// The secondary_readonly_mongodb_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondaryReadonlyMongodbConnectionString
-    {
-        get => new TerraformReference<string>(this, "secondary_readonly_mongodb_connection_string");
-    }
+        => AsReference("secondary_readonly_mongodb_connection_string");
 
     /// <summary>
     /// The secondary_readonly_sql_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondaryReadonlySqlConnectionString
-    {
-        get => new TerraformReference<string>(this, "secondary_readonly_sql_connection_string");
-    }
+        => AsReference("secondary_readonly_sql_connection_string");
 
     /// <summary>
     /// The secondary_sql_connection_string attribute.
     /// </summary>
     public TerraformValue<string> SecondarySqlConnectionString
-    {
-        get => new TerraformReference<string>(this, "secondary_sql_connection_string");
-    }
+        => AsReference("secondary_sql_connection_string");
 
     /// <summary>
     /// The write_endpoints attribute.
     /// </summary>
     public TerraformList<string> WriteEndpoints
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "write_endpoints").ResolveNodes(ctx));
-    }
+        => AsReference("write_endpoints");
 
     /// <summary>
     /// AnalyticalStorage block (nesting mode: list).

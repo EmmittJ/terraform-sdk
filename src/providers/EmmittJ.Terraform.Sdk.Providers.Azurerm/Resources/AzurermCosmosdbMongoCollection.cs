@@ -16,9 +16,9 @@ public class AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock : TerraformBlo
     /// <summary>
     /// The max_throughput attribute.
     /// </summary>
-    public TerraformValue<double> MaxThroughput
+    public TerraformValue<double>? MaxThroughput
     {
-        get => new TerraformReference<double>(this, "max_throughput");
+        get => GetArgument<TerraformValue<double>>("max_throughput");
         set => SetArgument("max_throughput", value);
     }
 
@@ -42,7 +42,7 @@ public class AzurermCosmosdbMongoCollectionIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeysAttribute is required")]
     public TerraformList<string>? KeysAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("keys");
         set => SetArgument("keys", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermCosmosdbMongoCollectionIndexBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Unique
     {
-        get => new TerraformReference<bool>(this, "unique");
+        get => GetArgument<TerraformValue<bool>>("unique");
         set => SetArgument("unique", value);
     }
 
@@ -74,7 +74,7 @@ public class AzurermCosmosdbMongoCollectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -83,7 +83,7 @@ public class AzurermCosmosdbMongoCollectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -92,7 +92,7 @@ public class AzurermCosmosdbMongoCollectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -101,7 +101,7 @@ public class AzurermCosmosdbMongoCollectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermCosmosdbMongoCollection(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
     public required TerraformValue<string> AccountName
     {
-        get => new TerraformReference<string>(this, "account_name");
+        get => GetArgument<TerraformValue<string>>("account_name");
         set => SetArgument("account_name", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermCosmosdbMongoCollection(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double>? AnalyticalStorageTtl
     {
-        get => new TerraformReference<double>(this, "analytical_storage_ttl");
+        get => GetArgument<TerraformValue<double>>("analytical_storage_ttl");
         set => SetArgument("analytical_storage_ttl", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AzurermCosmosdbMongoCollection(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -148,16 +148,16 @@ public partial class AzurermCosmosdbMongoCollection(string name) : TerraformReso
     /// </summary>
     public TerraformValue<double>? DefaultTtlSeconds
     {
-        get => new TerraformReference<double>(this, "default_ttl_seconds");
+        get => GetArgument<TerraformValue<double>>("default_ttl_seconds");
         set => SetArgument("default_ttl_seconds", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AzurermCosmosdbMongoCollection(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AzurermCosmosdbMongoCollection(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -186,16 +186,16 @@ public partial class AzurermCosmosdbMongoCollection(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? ShardKey
     {
-        get => new TerraformReference<string>(this, "shard_key");
+        get => GetArgument<TerraformValue<string>>("shard_key");
         set => SetArgument("shard_key", value);
     }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformValue<double> Throughput
+    public TerraformValue<double>? Throughput
     {
-        get => new TerraformReference<double>(this, "throughput");
+        get => GetArgument<TerraformValue<double>>("throughput");
         set => SetArgument("throughput", value);
     }
 
@@ -203,9 +203,7 @@ public partial class AzurermCosmosdbMongoCollection(string name) : TerraformReso
     /// The system_indexes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SystemIndexes
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "system_indexes").ResolveNodes(ctx));
-    }
+        => AsReference("system_indexes");
 
     /// <summary>
     /// AutoscaleSettings block (nesting mode: list).

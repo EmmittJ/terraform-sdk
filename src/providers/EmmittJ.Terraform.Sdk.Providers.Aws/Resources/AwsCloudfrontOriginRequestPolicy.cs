@@ -19,7 +19,7 @@ public class AwsCloudfrontOriginRequestPolicyCookiesConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CookieBehavior is required")]
     public required TerraformValue<string> CookieBehavior
     {
-        get => new TerraformReference<string>(this, "cookie_behavior");
+        get => GetArgument<TerraformValue<string>>("cookie_behavior");
         set => SetArgument("cookie_behavior", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsCloudfrontOriginRequestPolicyCookiesConfigBlockCookiesBlock : Te
     /// </summary>
     public TerraformSet<string>? Items
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "items").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("items");
         set => SetArgument("items", value);
     }
 
@@ -74,7 +74,7 @@ public class AwsCloudfrontOriginRequestPolicyHeadersConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? HeaderBehavior
     {
-        get => new TerraformReference<string>(this, "header_behavior");
+        get => GetArgument<TerraformValue<string>>("header_behavior");
         set => SetArgument("header_behavior", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsCloudfrontOriginRequestPolicyHeadersConfigBlockHeadersBlock : Te
     /// </summary>
     public TerraformSet<string>? Items
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "items").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("items");
         set => SetArgument("items", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsCloudfrontOriginRequestPolicyQueryStringsConfigBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryStringBehavior is required")]
     public required TerraformValue<string> QueryStringBehavior
     {
-        get => new TerraformReference<string>(this, "query_string_behavior");
+        get => GetArgument<TerraformValue<string>>("query_string_behavior");
         set => SetArgument("query_string_behavior", value);
     }
 
@@ -162,7 +162,7 @@ public class AwsCloudfrontOriginRequestPolicyQueryStringsConfigBlockQueryStrings
     /// </summary>
     public TerraformSet<string>? Items
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "items").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("items");
         set => SetArgument("items", value);
     }
 
@@ -180,16 +180,16 @@ public partial class AwsCloudfrontOriginRequestPolicy(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Comment
     {
-        get => new TerraformReference<string>(this, "comment");
+        get => GetArgument<TerraformValue<string>>("comment");
         set => SetArgument("comment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -199,7 +199,7 @@ public partial class AwsCloudfrontOriginRequestPolicy(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -207,17 +207,13 @@ public partial class AwsCloudfrontOriginRequestPolicy(string name) : TerraformRe
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// CookiesConfig block (nesting mode: list).

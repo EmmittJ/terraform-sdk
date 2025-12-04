@@ -18,7 +18,7 @@ public class AzurermStreamAnalyticsOutputMssqlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermStreamAnalyticsOutputMssqlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermStreamAnalyticsOutputMssqlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermStreamAnalyticsOutputMssqlTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermStreamAnalyticsOutputMssql(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? AuthenticationMode
     {
-        get => new TerraformReference<string>(this, "authentication_mode");
+        get => GetArgument<TerraformValue<string>>("authentication_mode");
         set => SetArgument("authentication_mode", value);
     }
 
@@ -73,16 +73,16 @@ public partial class AzurermStreamAnalyticsOutputMssql(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
     public required TerraformValue<string> Database
     {
-        get => new TerraformReference<string>(this, "database");
+        get => GetArgument<TerraformValue<string>>("database");
         set => SetArgument("database", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermStreamAnalyticsOutputMssql(string name) : TerraformR
     /// </summary>
     public TerraformValue<double>? MaxBatchCount
     {
-        get => new TerraformReference<double>(this, "max_batch_count");
+        get => GetArgument<TerraformValue<double>>("max_batch_count");
         set => SetArgument("max_batch_count", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermStreamAnalyticsOutputMssql(string name) : TerraformR
     /// </summary>
     public TerraformValue<double>? MaxWriterCount
     {
-        get => new TerraformReference<double>(this, "max_writer_count");
+        get => GetArgument<TerraformValue<double>>("max_writer_count");
         set => SetArgument("max_writer_count", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermStreamAnalyticsOutputMssql(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermStreamAnalyticsOutputMssql(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Password
     {
-        get => new TerraformReference<string>(this, "password");
+        get => GetArgument<TerraformValue<string>>("password");
         set => SetArgument("password", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermStreamAnalyticsOutputMssql(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -139,7 +139,7 @@ public partial class AzurermStreamAnalyticsOutputMssql(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
     public required TerraformValue<string> Server
     {
-        get => new TerraformReference<string>(this, "server");
+        get => GetArgument<TerraformValue<string>>("server");
         set => SetArgument("server", value);
     }
 
@@ -149,7 +149,7 @@ public partial class AzurermStreamAnalyticsOutputMssql(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobName is required")]
     public required TerraformValue<string> StreamAnalyticsJobName
     {
-        get => new TerraformReference<string>(this, "stream_analytics_job_name");
+        get => GetArgument<TerraformValue<string>>("stream_analytics_job_name");
         set => SetArgument("stream_analytics_job_name", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AzurermStreamAnalyticsOutputMssql(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
     public required TerraformValue<string> Table
     {
-        get => new TerraformReference<string>(this, "table");
+        get => GetArgument<TerraformValue<string>>("table");
         set => SetArgument("table", value);
     }
 
@@ -168,7 +168,7 @@ public partial class AzurermStreamAnalyticsOutputMssql(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? User
     {
-        get => new TerraformReference<string>(this, "user");
+        get => GetArgument<TerraformValue<string>>("user");
         set => SetArgument("user", value);
     }
 

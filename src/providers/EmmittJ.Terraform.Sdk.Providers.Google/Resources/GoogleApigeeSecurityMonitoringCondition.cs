@@ -32,7 +32,7 @@ public class GoogleApigeeSecurityMonitoringConditionTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -41,7 +41,7 @@ public class GoogleApigeeSecurityMonitoringConditionTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleApigeeSecurityMonitoringConditionTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -69,16 +69,16 @@ public partial class GoogleApigeeSecurityMonitoringCondition(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConditionId is required")]
     public required TerraformValue<string> ConditionId
     {
-        get => new TerraformReference<string>(this, "condition_id");
+        get => GetArgument<TerraformValue<string>>("condition_id");
         set => SetArgument("condition_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -89,7 +89,7 @@ public partial class GoogleApigeeSecurityMonitoringCondition(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => new TerraformReference<string>(this, "org_id");
+        get => GetArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -99,7 +99,7 @@ public partial class GoogleApigeeSecurityMonitoringCondition(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Profile is required")]
     public required TerraformValue<string> Profile
     {
-        get => new TerraformReference<string>(this, "profile");
+        get => GetArgument<TerraformValue<string>>("profile");
         set => SetArgument("profile", value);
     }
 
@@ -109,7 +109,7 @@ public partial class GoogleApigeeSecurityMonitoringCondition(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -117,42 +117,32 @@ public partial class GoogleApigeeSecurityMonitoringCondition(string name) : Terr
     /// The timestamp at which this profile was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Name of the security monitoring condition resource,
     /// in the format &#39;organizations/{{org_name}}/securityMonitoringConditions/{{condition_id}}&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Total number of deployed resources within scope.
     /// </summary>
     public TerraformValue<double> TotalDeployedResources
-    {
-        get => new TerraformReference<double>(this, "total_deployed_resources");
-    }
+        => AsReference("total_deployed_resources");
 
     /// <summary>
     /// Total number of monitored resources within this condition.
     /// </summary>
     public TerraformValue<double> TotalMonitoredResources
-    {
-        get => new TerraformReference<double>(this, "total_monitored_resources");
-    }
+        => AsReference("total_monitored_resources");
 
     /// <summary>
     /// The timestamp at which this profile was most recently updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// IncludeAllResources block (nesting mode: list).

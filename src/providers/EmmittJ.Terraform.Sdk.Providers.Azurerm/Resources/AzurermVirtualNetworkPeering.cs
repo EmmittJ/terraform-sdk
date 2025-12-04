@@ -18,7 +18,7 @@ public class AzurermVirtualNetworkPeeringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermVirtualNetworkPeeringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermVirtualNetworkPeeringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermVirtualNetworkPeeringTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermVirtualNetworkPeering(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? AllowForwardedTraffic
     {
-        get => new TerraformReference<bool>(this, "allow_forwarded_traffic");
+        get => GetArgument<TerraformValue<bool>>("allow_forwarded_traffic");
         set => SetArgument("allow_forwarded_traffic", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermVirtualNetworkPeering(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? AllowGatewayTransit
     {
-        get => new TerraformReference<bool>(this, "allow_gateway_transit");
+        get => GetArgument<TerraformValue<bool>>("allow_gateway_transit");
         set => SetArgument("allow_gateway_transit", value);
     }
 
@@ -81,16 +81,16 @@ public partial class AzurermVirtualNetworkPeering(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? AllowVirtualNetworkAccess
     {
-        get => new TerraformReference<bool>(this, "allow_virtual_network_access");
+        get => GetArgument<TerraformValue<bool>>("allow_virtual_network_access");
         set => SetArgument("allow_virtual_network_access", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AzurermVirtualNetworkPeering(string name) : TerraformResour
     /// </summary>
     public TerraformList<string>? LocalSubnetNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "local_subnet_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("local_subnet_names");
         set => SetArgument("local_subnet_names", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermVirtualNetworkPeering(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermVirtualNetworkPeering(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? OnlyIpv6PeeringEnabled
     {
-        get => new TerraformReference<bool>(this, "only_ipv6_peering_enabled");
+        get => GetArgument<TerraformValue<bool>>("only_ipv6_peering_enabled");
         set => SetArgument("only_ipv6_peering_enabled", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzurermVirtualNetworkPeering(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? PeerCompleteVirtualNetworksEnabled
     {
-        get => new TerraformReference<bool>(this, "peer_complete_virtual_networks_enabled");
+        get => GetArgument<TerraformValue<bool>>("peer_complete_virtual_networks_enabled");
         set => SetArgument("peer_complete_virtual_networks_enabled", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AzurermVirtualNetworkPeering(string name) : TerraformResour
     /// </summary>
     public TerraformList<string>? RemoteSubnetNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "remote_subnet_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("remote_subnet_names");
         set => SetArgument("remote_subnet_names", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AzurermVirtualNetworkPeering(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVirtualNetworkId is required")]
     public required TerraformValue<string> RemoteVirtualNetworkId
     {
-        get => new TerraformReference<string>(this, "remote_virtual_network_id");
+        get => GetArgument<TerraformValue<string>>("remote_virtual_network_id");
         set => SetArgument("remote_virtual_network_id", value);
     }
 
@@ -156,7 +156,7 @@ public partial class AzurermVirtualNetworkPeering(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AzurermVirtualNetworkPeering(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Triggers
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "triggers").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("triggers");
         set => SetArgument("triggers", value);
     }
 
@@ -174,7 +174,7 @@ public partial class AzurermVirtualNetworkPeering(string name) : TerraformResour
     /// </summary>
     public TerraformValue<bool>? UseRemoteGateways
     {
-        get => new TerraformReference<bool>(this, "use_remote_gateways");
+        get => GetArgument<TerraformValue<bool>>("use_remote_gateways");
         set => SetArgument("use_remote_gateways", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AzurermVirtualNetworkPeering(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkName is required")]
     public required TerraformValue<string> VirtualNetworkName
     {
-        get => new TerraformReference<string>(this, "virtual_network_name");
+        get => GetArgument<TerraformValue<string>>("virtual_network_name");
         set => SetArgument("virtual_network_name", value);
     }
 

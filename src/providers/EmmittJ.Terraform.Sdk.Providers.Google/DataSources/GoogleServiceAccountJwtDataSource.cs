@@ -13,7 +13,7 @@ public partial class GoogleServiceAccountJwtDataSource(string name) : TerraformD
     /// </summary>
     public TerraformSet<string>? Delegates
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "delegates").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("delegates");
         set => SetArgument("delegates", value);
     }
 
@@ -22,16 +22,16 @@ public partial class GoogleServiceAccountJwtDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<double>? ExpiresIn
     {
-        get => new TerraformReference<double>(this, "expires_in");
+        get => GetArgument<TerraformValue<double>>("expires_in");
         set => SetArgument("expires_in", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleServiceAccountJwtDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Payload is required")]
     public required TerraformValue<string> Payload
     {
-        get => new TerraformReference<string>(this, "payload");
+        get => GetArgument<TerraformValue<string>>("payload");
         set => SetArgument("payload", value);
     }
 
@@ -51,7 +51,7 @@ public partial class GoogleServiceAccountJwtDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetServiceAccount is required")]
     public required TerraformValue<string> TargetServiceAccount
     {
-        get => new TerraformReference<string>(this, "target_service_account");
+        get => GetArgument<TerraformValue<string>>("target_service_account");
         set => SetArgument("target_service_account", value);
     }
 
@@ -59,8 +59,6 @@ public partial class GoogleServiceAccountJwtDataSource(string name) : TerraformD
     /// The jwt attribute.
     /// </summary>
     public TerraformValue<string> Jwt
-    {
-        get => new TerraformReference<string>(this, "jwt");
-    }
+        => AsReference("jwt");
 
 }

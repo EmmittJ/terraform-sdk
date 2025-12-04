@@ -18,7 +18,7 @@ public class GoogleChronicleRuleDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleChronicleRuleDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleChronicleRuleDeploymentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleChronicleRuleDeployment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? Alerting
     {
-        get => new TerraformReference<bool>(this, "alerting");
+        get => GetArgument<TerraformValue<bool>>("alerting");
         set => SetArgument("alerting", value);
     }
 
@@ -70,7 +70,7 @@ public partial class GoogleChronicleRuleDeployment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? Archived
     {
-        get => new TerraformReference<bool>(this, "archived");
+        get => GetArgument<TerraformValue<bool>>("archived");
         set => SetArgument("archived", value);
     }
 
@@ -79,16 +79,16 @@ public partial class GoogleChronicleRuleDeployment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -98,7 +98,7 @@ public partial class GoogleChronicleRuleDeployment(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
     public required TerraformValue<string> Instance
     {
-        get => new TerraformReference<string>(this, "instance");
+        get => GetArgument<TerraformValue<string>>("instance");
         set => SetArgument("instance", value);
     }
 
@@ -108,16 +108,16 @@ public partial class GoogleChronicleRuleDeployment(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -127,7 +127,7 @@ public partial class GoogleChronicleRuleDeployment(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     public required TerraformValue<string> Rule
     {
-        get => new TerraformReference<string>(this, "rule");
+        get => GetArgument<TerraformValue<string>>("rule");
         set => SetArgument("rule", value);
     }
 
@@ -140,7 +140,7 @@ public partial class GoogleChronicleRuleDeployment(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? RunFrequency
     {
-        get => new TerraformReference<string>(this, "run_frequency");
+        get => GetArgument<TerraformValue<string>>("run_frequency");
         set => SetArgument("run_frequency", value);
     }
 
@@ -148,9 +148,7 @@ public partial class GoogleChronicleRuleDeployment(string name) : TerraformResou
     /// Output only. The timestamp when the rule deployment archive state was last set to true. If the rule deployment&#39;s current archive state is not set to true, the field will be empty.
     /// </summary>
     public TerraformValue<string> ArchiveTime
-    {
-        get => new TerraformReference<string>(this, "archive_time");
-    }
+        => AsReference("archive_time");
 
     /// <summary>
     /// Output only. The names of the associated/chained consumer rules. Rules are considered
@@ -159,9 +157,7 @@ public partial class GoogleChronicleRuleDeployment(string name) : TerraformResou
     /// projects/{project}/locations/{location}/instances/{instance}/rules/{rule}
     /// </summary>
     public TerraformList<string> ConsumerRules
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "consumer_rules").ResolveNodes(ctx));
-    }
+        => AsReference("consumer_rules");
 
     /// <summary>
     /// The execution state of the rule deployment.
@@ -171,17 +167,13 @@ public partial class GoogleChronicleRuleDeployment(string name) : TerraformResou
     /// PAUSED
     /// </summary>
     public TerraformValue<string> ExecutionState
-    {
-        get => new TerraformReference<string>(this, "execution_state");
-    }
+        => AsReference("execution_state");
 
     /// <summary>
     /// Output only. The timestamp when the rule deployment alert state was lastly changed. This is filled regardless of the current alert state.E.g. if the current alert status is false, this timestamp will be the timestamp when the alert status was changed to false.
     /// </summary>
     public TerraformValue<string> LastAlertStatusChangeTime
-    {
-        get => new TerraformReference<string>(this, "last_alert_status_change_time");
-    }
+        => AsReference("last_alert_status_change_time");
 
     /// <summary>
     /// The resource name of the rule deployment.
@@ -192,9 +184,7 @@ public partial class GoogleChronicleRuleDeployment(string name) : TerraformResou
     /// projects/{project}/locations/{location}/instances/{instance}/rules/{rule}/deployment
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Output only. The names of the associated/chained producer rules. Rules are considered
@@ -203,9 +193,7 @@ public partial class GoogleChronicleRuleDeployment(string name) : TerraformResou
     /// projects/{project}/locations/{location}/instances/{instance}/rules/{rule}
     /// </summary>
     public TerraformList<string> ProducerRules
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "producer_rules").ResolveNodes(ctx));
-    }
+        => AsReference("producer_rules");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

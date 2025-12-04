@@ -18,7 +18,7 @@ public class AzurermMssqlDatabaseExtendedAuditingPolicyTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermMssqlDatabaseExtendedAuditingPolicyTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermMssqlDatabaseExtendedAuditingPolicyTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermMssqlDatabaseExtendedAuditingPolicyTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermMssqlDatabaseExtendedAuditingPolicy(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseId is required")]
     public required TerraformValue<string> DatabaseId
     {
-        get => new TerraformReference<string>(this, "database_id");
+        get => GetArgument<TerraformValue<string>>("database_id");
         set => SetArgument("database_id", value);
     }
 
@@ -73,16 +73,16 @@ public partial class AzurermMssqlDatabaseExtendedAuditingPolicy(string name) : T
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermMssqlDatabaseExtendedAuditingPolicy(string name) : T
     /// </summary>
     public TerraformValue<bool>? LogMonitoringEnabled
     {
-        get => new TerraformReference<bool>(this, "log_monitoring_enabled");
+        get => GetArgument<TerraformValue<bool>>("log_monitoring_enabled");
         set => SetArgument("log_monitoring_enabled", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermMssqlDatabaseExtendedAuditingPolicy(string name) : T
     /// </summary>
     public TerraformValue<double>? RetentionInDays
     {
-        get => new TerraformReference<double>(this, "retention_in_days");
+        get => GetArgument<TerraformValue<double>>("retention_in_days");
         set => SetArgument("retention_in_days", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermMssqlDatabaseExtendedAuditingPolicy(string name) : T
     /// </summary>
     public TerraformValue<string>? StorageAccountAccessKey
     {
-        get => new TerraformReference<string>(this, "storage_account_access_key");
+        get => GetArgument<TerraformValue<string>>("storage_account_access_key");
         set => SetArgument("storage_account_access_key", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermMssqlDatabaseExtendedAuditingPolicy(string name) : T
     /// </summary>
     public TerraformValue<bool>? StorageAccountAccessKeyIsSecondary
     {
-        get => new TerraformReference<bool>(this, "storage_account_access_key_is_secondary");
+        get => GetArgument<TerraformValue<bool>>("storage_account_access_key_is_secondary");
         set => SetArgument("storage_account_access_key_is_secondary", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzurermMssqlDatabaseExtendedAuditingPolicy(string name) : T
     /// </summary>
     public TerraformValue<string>? StorageEndpoint
     {
-        get => new TerraformReference<string>(this, "storage_endpoint");
+        get => GetArgument<TerraformValue<string>>("storage_endpoint");
         set => SetArgument("storage_endpoint", value);
     }
 

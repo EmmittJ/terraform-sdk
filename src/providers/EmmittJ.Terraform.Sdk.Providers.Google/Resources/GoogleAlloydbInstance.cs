@@ -18,7 +18,7 @@ public class GoogleAlloydbInstanceClientConnectionConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? RequireConnectors
     {
-        get => new TerraformReference<bool>(this, "require_connectors");
+        get => GetArgument<TerraformValue<bool>>("require_connectors");
         set => SetArgument("require_connectors", value);
     }
 
@@ -48,9 +48,9 @@ public class GoogleAlloydbInstanceClientConnectionConfigBlockSslConfigBlock : Te
     /// <summary>
     /// SSL mode. Specifies client-server SSL/TLS connection behavior. Possible values: [&amp;quot;ENCRYPTED_ONLY&amp;quot;, &amp;quot;ALLOW_UNENCRYPTED_AND_ENCRYPTED&amp;quot;]
     /// </summary>
-    public TerraformValue<string> SslMode
+    public TerraformValue<string>? SslMode
     {
-        get => new TerraformReference<string>(this, "ssl_mode");
+        get => GetArgument<TerraformValue<string>>("ssl_mode");
         set => SetArgument("ssl_mode", value);
     }
 
@@ -71,9 +71,9 @@ public class GoogleAlloydbInstanceMachineConfigBlock : TerraformBlock
     /// <summary>
     /// The number of CPU&#39;s in the VM instance.
     /// </summary>
-    public TerraformValue<double> CpuCount
+    public TerraformValue<double>? CpuCount
     {
-        get => new TerraformReference<double>(this, "cpu_count");
+        get => GetArgument<TerraformValue<double>>("cpu_count");
         set => SetArgument("cpu_count", value);
     }
 
@@ -82,9 +82,9 @@ public class GoogleAlloydbInstanceMachineConfigBlock : TerraformBlock
     /// E.g. &amp;quot;n2-highmem-4&amp;quot;, &amp;quot;n2-highmem-8&amp;quot;, &amp;quot;c4a-highmem-4-lssd&amp;quot;.
     /// &#39;cpu_count&#39; must match the number of vCPUs in the machine type.
     /// </summary>
-    public TerraformValue<string> MachineType
+    public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -109,7 +109,7 @@ public class GoogleAlloydbInstanceNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AllocatedIpRangeOverride
     {
-        get => new TerraformReference<string>(this, "allocated_ip_range_override");
+        get => GetArgument<TerraformValue<string>>("allocated_ip_range_override");
         set => SetArgument("allocated_ip_range_override", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleAlloydbInstanceNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableOutboundPublicIp
     {
-        get => new TerraformReference<bool>(this, "enable_outbound_public_ip");
+        get => GetArgument<TerraformValue<bool>>("enable_outbound_public_ip");
         set => SetArgument("enable_outbound_public_ip", value);
     }
 
@@ -129,7 +129,7 @@ public class GoogleAlloydbInstanceNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnablePublicIp
     {
-        get => new TerraformReference<bool>(this, "enable_public_ip");
+        get => GetArgument<TerraformValue<bool>>("enable_public_ip");
         set => SetArgument("enable_public_ip", value);
     }
 
@@ -160,7 +160,7 @@ public class GoogleAlloydbInstanceNetworkConfigBlockAuthorizedExternalNetworksBl
     /// </summary>
     public TerraformValue<string>? CidrRange
     {
-        get => new TerraformReference<string>(this, "cidr_range");
+        get => GetArgument<TerraformValue<string>>("cidr_range");
         set => SetArgument("cidr_range", value);
     }
 
@@ -184,7 +184,7 @@ public class GoogleAlloydbInstancePscInstanceConfigBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AllowedConsumerProjects
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_consumer_projects").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_consumer_projects");
         set => SetArgument("allowed_consumer_projects", value);
     }
 
@@ -193,9 +193,7 @@ public class GoogleAlloydbInstancePscInstanceConfigBlock : TerraformBlock
     /// Name convention: &amp;lt;uid&amp;gt;.&amp;lt;uid&amp;gt;.&amp;lt;region&amp;gt;.alloydb-psc.goog
     /// </summary>
     public TerraformValue<string> PscDnsName
-    {
-        get => new TerraformReference<string>(this, "psc_dns_name");
-    }
+        => AsReference("psc_dns_name");
 
     /// <summary>
     /// The service attachment created when Private Service Connect (PSC) is enabled for the instance.
@@ -203,9 +201,7 @@ public class GoogleAlloydbInstancePscInstanceConfigBlock : TerraformBlock
     /// &#39;projects/&amp;lt;alloydb-tenant-project-number&amp;gt;/regions/&amp;lt;region-name&amp;gt;/serviceAttachments/&amp;lt;service-attachment-name&amp;gt;&#39;
     /// </summary>
     public TerraformValue<string> ServiceAttachmentLink
-    {
-        get => new TerraformReference<string>(this, "service_attachment_link");
-    }
+        => AsReference("service_attachment_link");
 
     /// <summary>
     /// PscAutoConnections block (nesting mode: list).
@@ -247,7 +243,7 @@ public class GoogleAlloydbInstancePscInstanceConfigBlockPscAutoConnectionsBlock 
     /// </summary>
     public TerraformValue<string>? ConsumerNetwork
     {
-        get => new TerraformReference<string>(this, "consumer_network");
+        get => GetArgument<TerraformValue<string>>("consumer_network");
         set => SetArgument("consumer_network", value);
     }
 
@@ -255,9 +251,7 @@ public class GoogleAlloydbInstancePscInstanceConfigBlockPscAutoConnectionsBlock 
     /// The status of the service connection policy.
     /// </summary>
     public TerraformValue<string> ConsumerNetworkStatus
-    {
-        get => new TerraformReference<string>(this, "consumer_network_status");
-    }
+        => AsReference("consumer_network_status");
 
     /// <summary>
     /// The consumer project to which the PSC service automation endpoint will
@@ -266,7 +260,7 @@ public class GoogleAlloydbInstancePscInstanceConfigBlockPscAutoConnectionsBlock 
     /// </summary>
     public TerraformValue<string>? ConsumerProject
     {
-        get => new TerraformReference<string>(this, "consumer_project");
+        get => GetArgument<TerraformValue<string>>("consumer_project");
         set => SetArgument("consumer_project", value);
     }
 
@@ -274,17 +268,13 @@ public class GoogleAlloydbInstancePscInstanceConfigBlockPscAutoConnectionsBlock 
     /// The IP address of the PSC service automation endpoint.
     /// </summary>
     public TerraformValue<string> IpAddress
-    {
-        get => new TerraformReference<string>(this, "ip_address");
-    }
+        => AsReference("ip_address");
 
     /// <summary>
     /// The status of the PSC service automation connection.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }
 
@@ -306,7 +296,7 @@ public class GoogleAlloydbInstancePscInstanceConfigBlockPscInterfaceConfigsBlock
     /// </summary>
     public TerraformValue<string>? NetworkAttachmentResource
     {
-        get => new TerraformReference<string>(this, "network_attachment_resource");
+        get => GetArgument<TerraformValue<string>>("network_attachment_resource");
         set => SetArgument("network_attachment_resource", value);
     }
 
@@ -329,7 +319,7 @@ public class GoogleAlloydbInstanceQueryInsightsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? QueryPlansPerMinute
     {
-        get => new TerraformReference<double>(this, "query_plans_per_minute");
+        get => GetArgument<TerraformValue<double>>("query_plans_per_minute");
         set => SetArgument("query_plans_per_minute", value);
     }
 
@@ -338,7 +328,7 @@ public class GoogleAlloydbInstanceQueryInsightsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? QueryStringLength
     {
-        get => new TerraformReference<double>(this, "query_string_length");
+        get => GetArgument<TerraformValue<double>>("query_string_length");
         set => SetArgument("query_string_length", value);
     }
 
@@ -347,7 +337,7 @@ public class GoogleAlloydbInstanceQueryInsightsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? RecordApplicationTags
     {
-        get => new TerraformReference<bool>(this, "record_application_tags");
+        get => GetArgument<TerraformValue<bool>>("record_application_tags");
         set => SetArgument("record_application_tags", value);
     }
 
@@ -356,7 +346,7 @@ public class GoogleAlloydbInstanceQueryInsightsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? RecordClientAddress
     {
-        get => new TerraformReference<bool>(this, "record_client_address");
+        get => GetArgument<TerraformValue<bool>>("record_client_address");
         set => SetArgument("record_client_address", value);
     }
 
@@ -379,7 +369,7 @@ public class GoogleAlloydbInstanceReadPoolConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? NodeCount
     {
-        get => new TerraformReference<double>(this, "node_count");
+        get => GetArgument<TerraformValue<double>>("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -402,7 +392,7 @@ public class GoogleAlloydbInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -411,7 +401,7 @@ public class GoogleAlloydbInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -420,7 +410,7 @@ public class GoogleAlloydbInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -443,9 +433,9 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     /// etc.). Please refer to the API documentation for more details.
     /// Possible values are: &#39;ACTIVATION_POLICY_UNSPECIFIED&#39;, &#39;ALWAYS&#39;, &#39;NEVER&#39;.&#39; Possible values: [&amp;quot;ACTIVATION_POLICY_UNSPECIFIED&amp;quot;, &amp;quot;ALWAYS&amp;quot;, &amp;quot;NEVER&amp;quot;]
     /// </summary>
-    public TerraformValue<string> ActivationPolicy
+    public TerraformValue<string>? ActivationPolicy
     {
-        get => new TerraformReference<string>(this, "activation_policy");
+        get => GetArgument<TerraformValue<string>>("activation_policy");
         set => SetArgument("activation_policy", value);
     }
 
@@ -457,7 +447,7 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -469,9 +459,9 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     /// can have regional availability (nodes are present in 2 or more zones in a region).
     /// Possible values are: &#39;AVAILABILITY_TYPE_UNSPECIFIED&#39;, &#39;ZONAL&#39;, &#39;REGIONAL&#39;.&#39; Possible values: [&amp;quot;AVAILABILITY_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;ZONAL&amp;quot;, &amp;quot;REGIONAL&amp;quot;]
     /// </summary>
-    public TerraformValue<string> AvailabilityType
+    public TerraformValue<string>? AvailabilityType
     {
-        get => new TerraformReference<string>(this, "availability_type");
+        get => GetArgument<TerraformValue<string>>("availability_type");
         set => SetArgument("availability_type", value);
     }
 
@@ -482,16 +472,16 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
     public required TerraformValue<string> Cluster
     {
-        get => new TerraformReference<string>(this, "cluster");
+        get => GetArgument<TerraformValue<string>>("cluster");
         set => SetArgument("cluster", value);
     }
 
     /// <summary>
     /// Database flags. Set at instance level. * They are copied from primary instance on read instance creation. * Read instances can set new or override existing flags that are relevant for reads, e.g. for enabling columnar cache on a read instance. Flags set on read instance may or may not be present on primary.
     /// </summary>
-    public TerraformMap<string> DatabaseFlags
+    public TerraformMap<string>? DatabaseFlags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "database_flags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("database_flags");
         set => SetArgument("database_flags", value);
     }
 
@@ -500,7 +490,7 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -509,16 +499,16 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<string>? GceZone
     {
-        get => new TerraformReference<string>(this, "gce_zone");
+        get => GetArgument<TerraformValue<string>>("gce_zone");
         set => SetArgument("gce_zone", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -528,7 +518,7 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
     public required TerraformValue<string> InstanceId
     {
-        get => new TerraformReference<string>(this, "instance_id");
+        get => GetArgument<TerraformValue<string>>("instance_id");
         set => SetArgument("instance_id", value);
     }
 
@@ -544,7 +534,7 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -556,7 +546,7 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -564,41 +554,31 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     /// Time the Instance was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The IP address for the Instance. This is the connection endpoint for an end-user application.
     /// </summary>
     public TerraformValue<string> IpAddress
-    {
-        get => new TerraformReference<string>(this, "ip_address");
-    }
+        => AsReference("ip_address");
 
     /// <summary>
     /// The name of the instance resource.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The outbound public IP addresses for the instance. This is available ONLY when
@@ -606,9 +586,7 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     /// for outbound connections.
     /// </summary>
     public TerraformList<string> OutboundPublicIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "outbound_public_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("outbound_public_ip_addresses");
 
     /// <summary>
     /// The public IP addresses for the Instance. This is available ONLY when
@@ -616,50 +594,38 @@ public partial class GoogleAlloydbInstance(string name) : TerraformResource("goo
     /// endpoint for an end-user application.
     /// </summary>
     public TerraformValue<string> PublicIpAddress
-    {
-        get => new TerraformReference<string>(this, "public_ip_address");
-    }
+        => AsReference("public_ip_address");
 
     /// <summary>
     /// Set to true if the current state of Instance does not match the user&#39;s intended state, and the service is actively updating the resource to reconcile them. This can happen due to user-triggered updates or system actions like failover or maintenance.
     /// </summary>
     public TerraformValue<bool> Reconciling
-    {
-        get => new TerraformReference<bool>(this, "reconciling");
-    }
+        => AsReference("reconciling");
 
     /// <summary>
     /// The current state of the alloydb instance.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The system-generated UID of the resource.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Time the Instance was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// ClientConnectionConfig block (nesting mode: list).

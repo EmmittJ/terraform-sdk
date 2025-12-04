@@ -11,9 +11,9 @@ public partial class AwsCloudwatchLogAnomalyDetector(string name) : TerraformRes
     /// <summary>
     /// The anomaly_visibility_time attribute.
     /// </summary>
-    public TerraformValue<double> AnomalyVisibilityTime
+    public TerraformValue<double>? AnomalyVisibilityTime
     {
-        get => new TerraformReference<double>(this, "anomaly_visibility_time");
+        get => GetArgument<TerraformValue<double>>("anomaly_visibility_time");
         set => SetArgument("anomaly_visibility_time", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsCloudwatchLogAnomalyDetector(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? DetectorName
     {
-        get => new TerraformReference<string>(this, "detector_name");
+        get => GetArgument<TerraformValue<string>>("detector_name");
         set => SetArgument("detector_name", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsCloudwatchLogAnomalyDetector(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsCloudwatchLogAnomalyDetector(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? EvaluationFrequency
     {
-        get => new TerraformReference<string>(this, "evaluation_frequency");
+        get => GetArgument<TerraformValue<string>>("evaluation_frequency");
         set => SetArgument("evaluation_frequency", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsCloudwatchLogAnomalyDetector(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? FilterPattern
     {
-        get => new TerraformReference<string>(this, "filter_pattern");
+        get => GetArgument<TerraformValue<string>>("filter_pattern");
         set => SetArgument("filter_pattern", value);
     }
 
@@ -59,7 +59,7 @@ public partial class AwsCloudwatchLogAnomalyDetector(string name) : TerraformRes
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -69,16 +69,16 @@ public partial class AwsCloudwatchLogAnomalyDetector(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupArnList is required")]
     public TerraformList<string>? LogGroupArnList
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "log_group_arn_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("log_group_arn_list");
         set => SetArgument("log_group_arn_list", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -87,7 +87,7 @@ public partial class AwsCloudwatchLogAnomalyDetector(string name) : TerraformRes
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -95,16 +95,12 @@ public partial class AwsCloudwatchLogAnomalyDetector(string name) : TerraformRes
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
 }

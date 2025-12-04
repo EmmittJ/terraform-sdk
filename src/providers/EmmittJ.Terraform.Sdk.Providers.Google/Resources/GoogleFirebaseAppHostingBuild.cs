@@ -51,16 +51,14 @@ public class GoogleFirebaseAppHostingBuildSourceBlockCodebaseBlock : TerraformBl
     /// Currently assumes a Git user.
     /// </summary>
     public TerraformList<TerraformMap<object>> Author
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "author").ResolveNodes(ctx));
-    }
+        => AsReference("author");
 
     /// <summary>
     /// The branch in the codebase to build from, using the latest commit.
     /// </summary>
     public TerraformValue<string>? Branch
     {
-        get => new TerraformReference<string>(this, "branch");
+        get => GetArgument<TerraformValue<string>>("branch");
         set => SetArgument("branch", value);
     }
 
@@ -69,7 +67,7 @@ public class GoogleFirebaseAppHostingBuildSourceBlockCodebaseBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Commit
     {
-        get => new TerraformReference<string>(this, "commit");
+        get => GetArgument<TerraformValue<string>>("commit");
         set => SetArgument("commit", value);
     }
 
@@ -77,34 +75,26 @@ public class GoogleFirebaseAppHostingBuildSourceBlockCodebaseBlock : TerraformBl
     /// The message of a codebase change.
     /// </summary>
     public TerraformValue<string> CommitMessage
-    {
-        get => new TerraformReference<string>(this, "commit_message");
-    }
+        => AsReference("commit_message");
 
     /// <summary>
     /// The time the change was made.
     /// </summary>
     public TerraformValue<string> CommitTime
-    {
-        get => new TerraformReference<string>(this, "commit_time");
-    }
+        => AsReference("commit_time");
 
     /// <summary>
     /// The human-friendly name to use for this Codebase when displaying a build.
     /// We use the first eight characters of the SHA-1 hash for GitHub.com.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The full SHA-1 hash of a Git commit, if available.
     /// </summary>
     public TerraformValue<string> Hash
-    {
-        get => new TerraformReference<string>(this, "hash");
-    }
+        => AsReference("hash");
 
     /// <summary>
     /// A URI linking to the codebase on an hosting provider&#39;s website. May
@@ -112,9 +102,7 @@ public class GoogleFirebaseAppHostingBuildSourceBlockCodebaseBlock : TerraformBl
     /// existence in the linked repository.
     /// </summary>
     public TerraformValue<string> Uri
-    {
-        get => new TerraformReference<string>(this, "uri");
-    }
+        => AsReference("uri");
 
 }
 
@@ -135,7 +123,7 @@ public class GoogleFirebaseAppHostingBuildSourceBlockContainerBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
     public required TerraformValue<string> Image
     {
-        get => new TerraformReference<string>(this, "image");
+        get => GetArgument<TerraformValue<string>>("image");
         set => SetArgument("image", value);
     }
 
@@ -158,7 +146,7 @@ public class GoogleFirebaseAppHostingBuildTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -167,7 +155,7 @@ public class GoogleFirebaseAppHostingBuildTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -176,7 +164,7 @@ public class GoogleFirebaseAppHostingBuildTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -199,7 +187,7 @@ public partial class GoogleFirebaseAppHostingBuild(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -209,7 +197,7 @@ public partial class GoogleFirebaseAppHostingBuild(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backend is required")]
     public required TerraformValue<string> Backend
     {
-        get => new TerraformReference<string>(this, "backend");
+        get => GetArgument<TerraformValue<string>>("backend");
         set => SetArgument("backend", value);
     }
 
@@ -219,7 +207,7 @@ public partial class GoogleFirebaseAppHostingBuild(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BuildId is required")]
     public required TerraformValue<string> BuildId
     {
-        get => new TerraformReference<string>(this, "build_id");
+        get => GetArgument<TerraformValue<string>>("build_id");
         set => SetArgument("build_id", value);
     }
 
@@ -228,16 +216,16 @@ public partial class GoogleFirebaseAppHostingBuild(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -250,7 +238,7 @@ public partial class GoogleFirebaseAppHostingBuild(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -260,16 +248,16 @@ public partial class GoogleFirebaseAppHostingBuild(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -279,41 +267,31 @@ public partial class GoogleFirebaseAppHostingBuild(string name) : TerraformResou
     /// process.
     /// </summary>
     public TerraformValue<string> BuildLogsUri
-    {
-        get => new TerraformReference<string>(this, "build_logs_uri");
-    }
+        => AsReference("build_logs_uri");
 
     /// <summary>
     /// Time at which the build was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The environment name of the backend when this build was created.
     /// </summary>
     public TerraformValue<string> Environment
-    {
-        get => new TerraformReference<string>(this, "environment");
-    }
+        => AsReference("environment");
 
     /// <summary>
     /// The &#39;Status&#39; type defines a logical error model that is suitable for
@@ -325,9 +303,7 @@ public partial class GoogleFirebaseAppHostingBuild(string name) : TerraformResou
     /// [API Design Guide](https://cloud.google.com/apis/design/errors).
     /// </summary>
     public TerraformList<TerraformMap<object>> Error
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "error").ResolveNodes(ctx));
-    }
+        => AsReference("error");
 
     /// <summary>
     /// The source of the error for the build, if in a &#39;FAILED&#39; state.
@@ -336,18 +312,14 @@ public partial class GoogleFirebaseAppHostingBuild(string name) : TerraformResou
     /// CLOUD_RUN
     /// </summary>
     public TerraformValue<string> ErrorSource
-    {
-        get => new TerraformReference<string>(this, "error_source");
-    }
+        => AsReference("error_source");
 
     /// <summary>
     /// Server-computed checksum based on other values; may be sent
     /// on update or delete to ensure operation is done on expected resource.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The Artifact Registry
@@ -358,9 +330,7 @@ public partial class GoogleFirebaseAppHostingBuild(string name) : TerraformResou
     /// for this build.
     /// </summary>
     public TerraformValue<string> Image
-    {
-        get => new TerraformReference<string>(this, "image");
-    }
+        => AsReference("image");
 
     /// <summary>
     /// Identifier. The resource name of the build.
@@ -370,9 +340,7 @@ public partial class GoogleFirebaseAppHostingBuild(string name) : TerraformResou
     /// &#39;projects/{project}/locations/{locationId}/backends/{backendId}/builds/{buildId}&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The state of the build.
@@ -384,34 +352,26 @@ public partial class GoogleFirebaseAppHostingBuild(string name) : TerraformResou
     /// FAILED
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// System-assigned, unique identifier.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Time at which the build was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Source block (nesting mode: list).

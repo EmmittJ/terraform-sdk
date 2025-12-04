@@ -18,7 +18,7 @@ public class AwsEc2TransitGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsEc2TransitGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsEc2TransitGatewayTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsEc2TransitGateway(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<double>? AmazonSideAsn
     {
-        get => new TerraformReference<double>(this, "amazon_side_asn");
+        get => GetArgument<TerraformValue<double>>("amazon_side_asn");
         set => SetArgument("amazon_side_asn", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsEc2TransitGateway(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? AutoAcceptSharedAttachments
     {
-        get => new TerraformReference<string>(this, "auto_accept_shared_attachments");
+        get => GetArgument<TerraformValue<string>>("auto_accept_shared_attachments");
         set => SetArgument("auto_accept_shared_attachments", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AwsEc2TransitGateway(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? DefaultRouteTableAssociation
     {
-        get => new TerraformReference<string>(this, "default_route_table_association");
+        get => GetArgument<TerraformValue<string>>("default_route_table_association");
         set => SetArgument("default_route_table_association", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AwsEc2TransitGateway(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? DefaultRouteTablePropagation
     {
-        get => new TerraformReference<string>(this, "default_route_table_propagation");
+        get => GetArgument<TerraformValue<string>>("default_route_table_propagation");
         set => SetArgument("default_route_table_propagation", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AwsEc2TransitGateway(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -99,16 +99,16 @@ public partial class AwsEc2TransitGateway(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? DnsSupport
     {
-        get => new TerraformReference<string>(this, "dns_support");
+        get => GetArgument<TerraformValue<string>>("dns_support");
         set => SetArgument("dns_support", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -117,16 +117,16 @@ public partial class AwsEc2TransitGateway(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? MulticastSupport
     {
-        get => new TerraformReference<string>(this, "multicast_support");
+        get => GetArgument<TerraformValue<string>>("multicast_support");
         set => SetArgument("multicast_support", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AwsEc2TransitGateway(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? SecurityGroupReferencingSupport
     {
-        get => new TerraformReference<string>(this, "security_group_referencing_support");
+        get => GetArgument<TerraformValue<string>>("security_group_referencing_support");
         set => SetArgument("security_group_referencing_support", value);
     }
 
@@ -144,16 +144,16 @@ public partial class AwsEc2TransitGateway(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AwsEc2TransitGateway(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformSet<string>? TransitGatewayCidrBlocks
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "transit_gateway_cidr_blocks").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("transit_gateway_cidr_blocks");
         set => SetArgument("transit_gateway_cidr_blocks", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AwsEc2TransitGateway(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? VpnEcmpSupport
     {
-        get => new TerraformReference<string>(this, "vpn_ecmp_support");
+        get => GetArgument<TerraformValue<string>>("vpn_ecmp_support");
         set => SetArgument("vpn_ecmp_support", value);
     }
 
@@ -179,33 +179,25 @@ public partial class AwsEc2TransitGateway(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The association_default_route_table_id attribute.
     /// </summary>
     public TerraformValue<string> AssociationDefaultRouteTableId
-    {
-        get => new TerraformReference<string>(this, "association_default_route_table_id");
-    }
+        => AsReference("association_default_route_table_id");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// The propagation_default_route_table_id attribute.
     /// </summary>
     public TerraformValue<string> PropagationDefaultRouteTableId
-    {
-        get => new TerraformReference<string>(this, "propagation_default_route_table_id");
-    }
+        => AsReference("propagation_default_route_table_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

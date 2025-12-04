@@ -19,7 +19,7 @@ public class GoogleManagedKafkaConnectClusterCapacityConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryBytes is required")]
     public required TerraformValue<string> MemoryBytes
     {
-        get => new TerraformReference<string>(this, "memory_bytes");
+        get => GetArgument<TerraformValue<string>>("memory_bytes");
         set => SetArgument("memory_bytes", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleManagedKafkaConnectClusterCapacityConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VcpuCount is required")]
     public required TerraformValue<string> VcpuCount
     {
-        get => new TerraformReference<string>(this, "vcpu_count");
+        get => GetArgument<TerraformValue<string>>("vcpu_count");
         set => SetArgument("vcpu_count", value);
     }
 
@@ -103,7 +103,7 @@ public class GoogleManagedKafkaConnectClusterGcpConfigBlockAccessConfigBlockNetw
     /// </summary>
     public TerraformList<string>? AdditionalSubnets
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "additional_subnets").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("additional_subnets");
         set => SetArgument("additional_subnets", value);
     }
 
@@ -112,7 +112,7 @@ public class GoogleManagedKafkaConnectClusterGcpConfigBlockAccessConfigBlockNetw
     /// </summary>
     public TerraformList<string>? DnsDomainNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dns_domain_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("dns_domain_names");
         set => SetArgument("dns_domain_names", value);
     }
 
@@ -122,7 +122,7 @@ public class GoogleManagedKafkaConnectClusterGcpConfigBlockAccessConfigBlockNetw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimarySubnet is required")]
     public required TerraformValue<string> PrimarySubnet
     {
-        get => new TerraformReference<string>(this, "primary_subnet");
+        get => GetArgument<TerraformValue<string>>("primary_subnet");
         set => SetArgument("primary_subnet", value);
     }
 
@@ -145,7 +145,7 @@ public class GoogleManagedKafkaConnectClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -154,7 +154,7 @@ public class GoogleManagedKafkaConnectClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -163,7 +163,7 @@ public class GoogleManagedKafkaConnectClusterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -182,16 +182,16 @@ public partial class GoogleManagedKafkaConnectCluster(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectClusterId is required")]
     public required TerraformValue<string> ConnectClusterId
     {
-        get => new TerraformReference<string>(this, "connect_cluster_id");
+        get => GetArgument<TerraformValue<string>>("connect_cluster_id");
         set => SetArgument("connect_cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -201,7 +201,7 @@ public partial class GoogleManagedKafkaConnectCluster(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KafkaCluster is required")]
     public required TerraformValue<string> KafkaCluster
     {
-        get => new TerraformReference<string>(this, "kafka_cluster");
+        get => GetArgument<TerraformValue<string>>("kafka_cluster");
         set => SetArgument("kafka_cluster", value);
     }
 
@@ -213,7 +213,7 @@ public partial class GoogleManagedKafkaConnectCluster(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -223,16 +223,16 @@ public partial class GoogleManagedKafkaConnectCluster(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -240,50 +240,38 @@ public partial class GoogleManagedKafkaConnectCluster(string name) : TerraformRe
     /// The time when the cluster was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The name of the connect cluster. Structured like: &#39;projects/PROJECT_ID/locations/LOCATION/connectClusters/CONNECT_CLUSTER_ID&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The current state of the connect cluster. Possible values: &#39;STATE_UNSPECIFIED&#39;, &#39;CREATING&#39;, &#39;ACTIVE&#39;, &#39;DELETING&#39;.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The time when the cluster was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// CapacityConfig block (nesting mode: list).

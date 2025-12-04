@@ -18,7 +18,7 @@ public class AzurermRouteServerBgpConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermRouteServerBgpConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermRouteServerBgpConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -52,9 +52,9 @@ public partial class AzurermRouteServerBgpConnection(string name) : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermRouteServerBgpConnection(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermRouteServerBgpConnection(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAsn is required")]
     public required TerraformValue<double> PeerAsn
     {
-        get => new TerraformReference<double>(this, "peer_asn");
+        get => GetArgument<TerraformValue<double>>("peer_asn");
         set => SetArgument("peer_asn", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermRouteServerBgpConnection(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerIp is required")]
     public required TerraformValue<string> PeerIp
     {
-        get => new TerraformReference<string>(this, "peer_ip");
+        get => GetArgument<TerraformValue<string>>("peer_ip");
         set => SetArgument("peer_ip", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermRouteServerBgpConnection(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteServerId is required")]
     public required TerraformValue<string> RouteServerId
     {
-        get => new TerraformReference<string>(this, "route_server_id");
+        get => GetArgument<TerraformValue<string>>("route_server_id");
         set => SetArgument("route_server_id", value);
     }
 

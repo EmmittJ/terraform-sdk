@@ -18,7 +18,7 @@ public class AzurermVmwareExpressRouteAuthorizationTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermVmwareExpressRouteAuthorizationTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermVmwareExpressRouteAuthorizationTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -52,9 +52,9 @@ public partial class AzurermVmwareExpressRouteAuthorization(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermVmwareExpressRouteAuthorization(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermVmwareExpressRouteAuthorization(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateCloudId is required")]
     public required TerraformValue<string> PrivateCloudId
     {
-        get => new TerraformReference<string>(this, "private_cloud_id");
+        get => GetArgument<TerraformValue<string>>("private_cloud_id");
         set => SetArgument("private_cloud_id", value);
     }
 
@@ -82,17 +82,13 @@ public partial class AzurermVmwareExpressRouteAuthorization(string name) : Terra
     /// The express_route_authorization_id attribute.
     /// </summary>
     public TerraformValue<string> ExpressRouteAuthorizationId
-    {
-        get => new TerraformReference<string>(this, "express_route_authorization_id");
-    }
+        => AsReference("express_route_authorization_id");
 
     /// <summary>
     /// The express_route_authorization_key attribute.
     /// </summary>
     public TerraformValue<string> ExpressRouteAuthorizationKey
-    {
-        get => new TerraformReference<string>(this, "express_route_authorization_key");
-    }
+        => AsReference("express_route_authorization_key");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

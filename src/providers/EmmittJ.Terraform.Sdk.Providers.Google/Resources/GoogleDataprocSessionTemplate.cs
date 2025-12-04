@@ -55,7 +55,7 @@ public class GoogleDataprocSessionTemplateEnvironmentConfigBlockExecutionConfigB
     /// </summary>
     public TerraformValue<string>? IdleTtl
     {
-        get => new TerraformReference<string>(this, "idle_ttl");
+        get => GetArgument<TerraformValue<string>>("idle_ttl");
         set => SetArgument("idle_ttl", value);
     }
 
@@ -64,7 +64,7 @@ public class GoogleDataprocSessionTemplateEnvironmentConfigBlockExecutionConfigB
     /// </summary>
     public TerraformValue<string>? KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -73,16 +73,16 @@ public class GoogleDataprocSessionTemplateEnvironmentConfigBlockExecutionConfigB
     /// </summary>
     public TerraformList<string>? NetworkTags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "network_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("network_tags");
         set => SetArgument("network_tags", value);
     }
 
     /// <summary>
     /// Service account that used to execute workload.
     /// </summary>
-    public TerraformValue<string> ServiceAccount
+    public TerraformValue<string>? ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -95,7 +95,7 @@ public class GoogleDataprocSessionTemplateEnvironmentConfigBlockExecutionConfigB
     /// </summary>
     public TerraformValue<string>? StagingBucket
     {
-        get => new TerraformReference<string>(this, "staging_bucket");
+        get => GetArgument<TerraformValue<string>>("staging_bucket");
         set => SetArgument("staging_bucket", value);
     }
 
@@ -104,7 +104,7 @@ public class GoogleDataprocSessionTemplateEnvironmentConfigBlockExecutionConfigB
     /// </summary>
     public TerraformValue<string>? SubnetworkUri
     {
-        get => new TerraformReference<string>(this, "subnetwork_uri");
+        get => GetArgument<TerraformValue<string>>("subnetwork_uri");
         set => SetArgument("subnetwork_uri", value);
     }
 
@@ -118,9 +118,9 @@ public class GoogleDataprocSessionTemplateEnvironmentConfigBlockExecutionConfigB
     /// the conditions are treated as OR conditions: the workload will be terminated when it has been idle for idleTtl or
     /// when ttl has been exceeded, whichever occurs first.
     /// </summary>
-    public TerraformValue<string> Ttl
+    public TerraformValue<string>? Ttl
     {
-        get => new TerraformReference<string>(this, "ttl");
+        get => GetArgument<TerraformValue<string>>("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -152,7 +152,7 @@ public class GoogleDataprocSessionTemplateEnvironmentConfigBlockExecutionConfigB
     /// </summary>
     public TerraformValue<string>? UserWorkloadAuthenticationType
     {
-        get => new TerraformReference<string>(this, "user_workload_authentication_type");
+        get => GetArgument<TerraformValue<string>>("user_workload_authentication_type");
         set => SetArgument("user_workload_authentication_type", value);
     }
 
@@ -174,7 +174,7 @@ public class GoogleDataprocSessionTemplateEnvironmentConfigBlockPeripheralsConfi
     /// </summary>
     public TerraformValue<string>? MetastoreService
     {
-        get => new TerraformReference<string>(this, "metastore_service");
+        get => GetArgument<TerraformValue<string>>("metastore_service");
         set => SetArgument("metastore_service", value);
     }
 
@@ -206,7 +206,7 @@ public class GoogleDataprocSessionTemplateEnvironmentConfigBlockPeripheralsConfi
     /// </summary>
     public TerraformValue<string>? DataprocCluster
     {
-        get => new TerraformReference<string>(this, "dataproc_cluster");
+        get => GetArgument<TerraformValue<string>>("dataproc_cluster");
         set => SetArgument("dataproc_cluster", value);
     }
 
@@ -229,7 +229,7 @@ public class GoogleDataprocSessionTemplateJupyterSessionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -238,7 +238,7 @@ public class GoogleDataprocSessionTemplateJupyterSessionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Kernel
     {
-        get => new TerraformReference<string>(this, "kernel");
+        get => GetArgument<TerraformValue<string>>("kernel");
         set => SetArgument("kernel", value);
     }
 
@@ -261,7 +261,7 @@ public class GoogleDataprocSessionTemplateRuntimeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ContainerImage
     {
-        get => new TerraformReference<string>(this, "container_image");
+        get => GetArgument<TerraformValue<string>>("container_image");
         set => SetArgument("container_image", value);
     }
 
@@ -269,16 +269,14 @@ public class GoogleDataprocSessionTemplateRuntimeConfigBlock : TerraformBlock
     /// A mapping of property names to values, which are used to configure workload execution.
     /// </summary>
     public TerraformMap<string> EffectiveProperties
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_properties").ResolveNodes(ctx));
-    }
+        => AsReference("effective_properties");
 
     /// <summary>
     /// A mapping of property names to values, which are used to configure workload execution.
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -287,7 +285,7 @@ public class GoogleDataprocSessionTemplateRuntimeConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -324,7 +322,7 @@ public class GoogleDataprocSessionTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -333,7 +331,7 @@ public class GoogleDataprocSessionTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -342,7 +340,7 @@ public class GoogleDataprocSessionTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -358,9 +356,9 @@ public partial class GoogleDataprocSessionTemplate(string name) : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -373,7 +371,7 @@ public partial class GoogleDataprocSessionTemplate(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -382,7 +380,7 @@ public partial class GoogleDataprocSessionTemplate(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -393,16 +391,16 @@ public partial class GoogleDataprocSessionTemplate(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -410,50 +408,38 @@ public partial class GoogleDataprocSessionTemplate(string name) : TerraformResou
     /// The time when the session template was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The email address of the user who created the session template.
     /// </summary>
     public TerraformValue<string> Creator
-    {
-        get => new TerraformReference<string>(this, "creator");
-    }
+        => AsReference("creator");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The time when the session template was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// A session template UUID (Unique Universal Identifier). The service generates this value when it creates the session template.
     /// </summary>
     public TerraformValue<string> Uuid
-    {
-        get => new TerraformReference<string>(this, "uuid");
-    }
+        => AsReference("uuid");
 
     /// <summary>
     /// EnvironmentConfig block (nesting mode: list).

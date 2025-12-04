@@ -18,7 +18,7 @@ public class AzurermAttestationProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermAttestationProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermAttestationProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermAttestationProviderTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermAttestationProvider(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermAttestationProvider(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermAttestationProvider(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermAttestationProvider(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? OpenEnclavePolicyBase64
     {
-        get => new TerraformReference<string>(this, "open_enclave_policy_base64");
+        get => GetArgument<TerraformValue<string>>("open_enclave_policy_base64");
         set => SetArgument("open_enclave_policy_base64", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermAttestationProvider(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? PolicySigningCertificateData
     {
-        get => new TerraformReference<string>(this, "policy_signing_certificate_data");
+        get => GetArgument<TerraformValue<string>>("policy_signing_certificate_data");
         set => SetArgument("policy_signing_certificate_data", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermAttestationProvider(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AzurermAttestationProvider(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? SevSnpPolicyBase64
     {
-        get => new TerraformReference<string>(this, "sev_snp_policy_base64");
+        get => GetArgument<TerraformValue<string>>("sev_snp_policy_base64");
         set => SetArgument("sev_snp_policy_base64", value);
     }
 
@@ -129,7 +129,7 @@ public partial class AzurermAttestationProvider(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? SgxEnclavePolicyBase64
     {
-        get => new TerraformReference<string>(this, "sgx_enclave_policy_base64");
+        get => GetArgument<TerraformValue<string>>("sgx_enclave_policy_base64");
         set => SetArgument("sgx_enclave_policy_base64", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzurermAttestationProvider(string name) : TerraformResource
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AzurermAttestationProvider(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? TpmPolicyBase64
     {
-        get => new TerraformReference<string>(this, "tpm_policy_base64");
+        get => GetArgument<TerraformValue<string>>("tpm_policy_base64");
         set => SetArgument("tpm_policy_base64", value);
     }
 
@@ -155,17 +155,13 @@ public partial class AzurermAttestationProvider(string name) : TerraformResource
     /// The attestation_uri attribute.
     /// </summary>
     public TerraformValue<string> AttestationUri
-    {
-        get => new TerraformReference<string>(this, "attestation_uri");
-    }
+        => AsReference("attestation_uri");
 
     /// <summary>
     /// The trust_model attribute.
     /// </summary>
     public TerraformValue<string> TrustModel
-    {
-        get => new TerraformReference<string>(this, "trust_model");
-    }
+        => AsReference("trust_model");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

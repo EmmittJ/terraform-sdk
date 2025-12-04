@@ -18,7 +18,7 @@ public class AzurermPublicIpTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermPublicIpTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermPublicIpTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermPublicIpTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzurermPublicIp(string name) : TerraformResource("azurerm_p
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocationMethod is required")]
     public required TerraformValue<string> AllocationMethod
     {
-        get => new TerraformReference<string>(this, "allocation_method");
+        get => GetArgument<TerraformValue<string>>("allocation_method");
         set => SetArgument("allocation_method", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermPublicIp(string name) : TerraformResource("azurerm_p
     /// </summary>
     public TerraformValue<string>? DdosProtectionMode
     {
-        get => new TerraformReference<string>(this, "ddos_protection_mode");
+        get => GetArgument<TerraformValue<string>>("ddos_protection_mode");
         set => SetArgument("ddos_protection_mode", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermPublicIp(string name) : TerraformResource("azurerm_p
     /// </summary>
     public TerraformValue<string>? DdosProtectionPlanId
     {
-        get => new TerraformReference<string>(this, "ddos_protection_plan_id");
+        get => GetArgument<TerraformValue<string>>("ddos_protection_plan_id");
         set => SetArgument("ddos_protection_plan_id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermPublicIp(string name) : TerraformResource("azurerm_p
     /// </summary>
     public TerraformValue<string>? DomainNameLabel
     {
-        get => new TerraformReference<string>(this, "domain_name_label");
+        get => GetArgument<TerraformValue<string>>("domain_name_label");
         set => SetArgument("domain_name_label", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermPublicIp(string name) : TerraformResource("azurerm_p
     /// </summary>
     public TerraformValue<string>? DomainNameLabelScope
     {
-        get => new TerraformReference<string>(this, "domain_name_label_scope");
+        get => GetArgument<TerraformValue<string>>("domain_name_label_scope");
         set => SetArgument("domain_name_label_scope", value);
     }
 
@@ -109,16 +109,16 @@ public partial class AzurermPublicIp(string name) : TerraformResource("azurerm_p
     /// </summary>
     public TerraformValue<string>? EdgeZone
     {
-        get => new TerraformReference<string>(this, "edge_zone");
+        get => GetArgument<TerraformValue<string>>("edge_zone");
         set => SetArgument("edge_zone", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzurermPublicIp(string name) : TerraformResource("azurerm_p
     /// </summary>
     public TerraformValue<double>? IdleTimeoutInMinutes
     {
-        get => new TerraformReference<double>(this, "idle_timeout_in_minutes");
+        get => GetArgument<TerraformValue<double>>("idle_timeout_in_minutes");
         set => SetArgument("idle_timeout_in_minutes", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AzurermPublicIp(string name) : TerraformResource("azurerm_p
     /// </summary>
     public TerraformMap<string>? IpTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "ip_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("ip_tags");
         set => SetArgument("ip_tags", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermPublicIp(string name) : TerraformResource("azurerm_p
     /// </summary>
     public TerraformValue<string>? IpVersion
     {
-        get => new TerraformReference<string>(this, "ip_version");
+        get => GetArgument<TerraformValue<string>>("ip_version");
         set => SetArgument("ip_version", value);
     }
 
@@ -155,7 +155,7 @@ public partial class AzurermPublicIp(string name) : TerraformResource("azurerm_p
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AzurermPublicIp(string name) : TerraformResource("azurerm_p
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -174,7 +174,7 @@ public partial class AzurermPublicIp(string name) : TerraformResource("azurerm_p
     /// </summary>
     public TerraformValue<string>? PublicIpPrefixId
     {
-        get => new TerraformReference<string>(this, "public_ip_prefix_id");
+        get => GetArgument<TerraformValue<string>>("public_ip_prefix_id");
         set => SetArgument("public_ip_prefix_id", value);
     }
 
@@ -184,7 +184,7 @@ public partial class AzurermPublicIp(string name) : TerraformResource("azurerm_p
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -193,7 +193,7 @@ public partial class AzurermPublicIp(string name) : TerraformResource("azurerm_p
     /// </summary>
     public TerraformValue<string>? ReverseFqdn
     {
-        get => new TerraformReference<string>(this, "reverse_fqdn");
+        get => GetArgument<TerraformValue<string>>("reverse_fqdn");
         set => SetArgument("reverse_fqdn", value);
     }
 
@@ -202,7 +202,7 @@ public partial class AzurermPublicIp(string name) : TerraformResource("azurerm_p
     /// </summary>
     public TerraformValue<string>? Sku
     {
-        get => new TerraformReference<string>(this, "sku");
+        get => GetArgument<TerraformValue<string>>("sku");
         set => SetArgument("sku", value);
     }
 
@@ -211,7 +211,7 @@ public partial class AzurermPublicIp(string name) : TerraformResource("azurerm_p
     /// </summary>
     public TerraformValue<string>? SkuTier
     {
-        get => new TerraformReference<string>(this, "sku_tier");
+        get => GetArgument<TerraformValue<string>>("sku_tier");
         set => SetArgument("sku_tier", value);
     }
 
@@ -220,7 +220,7 @@ public partial class AzurermPublicIp(string name) : TerraformResource("azurerm_p
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -229,7 +229,7 @@ public partial class AzurermPublicIp(string name) : TerraformResource("azurerm_p
     /// </summary>
     public TerraformSet<string>? Zones
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "zones").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("zones");
         set => SetArgument("zones", value);
     }
 
@@ -237,17 +237,13 @@ public partial class AzurermPublicIp(string name) : TerraformResource("azurerm_p
     /// The fqdn attribute.
     /// </summary>
     public TerraformValue<string> Fqdn
-    {
-        get => new TerraformReference<string>(this, "fqdn");
-    }
+        => AsReference("fqdn");
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
     public TerraformValue<string> IpAddress
-    {
-        get => new TerraformReference<string>(this, "ip_address");
-    }
+        => AsReference("ip_address");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

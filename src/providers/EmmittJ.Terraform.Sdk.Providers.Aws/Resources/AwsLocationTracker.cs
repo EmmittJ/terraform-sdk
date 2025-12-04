@@ -13,16 +13,16 @@ public partial class AwsLocationTracker(string name) : TerraformResource("aws_lo
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class AwsLocationTracker(string name) : TerraformResource("aws_lo
     /// </summary>
     public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
@@ -40,16 +40,16 @@ public partial class AwsLocationTracker(string name) : TerraformResource("aws_lo
     /// </summary>
     public TerraformValue<string>? PositionFiltering
     {
-        get => new TerraformReference<string>(this, "position_filtering");
+        get => GetArgument<TerraformValue<string>>("position_filtering");
         set => SetArgument("position_filtering", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -58,16 +58,16 @@ public partial class AwsLocationTracker(string name) : TerraformResource("aws_lo
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -77,7 +77,7 @@ public partial class AwsLocationTracker(string name) : TerraformResource("aws_lo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrackerName is required")]
     public required TerraformValue<string> TrackerName
     {
-        get => new TerraformReference<string>(this, "tracker_name");
+        get => GetArgument<TerraformValue<string>>("tracker_name");
         set => SetArgument("tracker_name", value);
     }
 
@@ -85,24 +85,18 @@ public partial class AwsLocationTracker(string name) : TerraformResource("aws_lo
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The tracker_arn attribute.
     /// </summary>
     public TerraformValue<string> TrackerArn
-    {
-        get => new TerraformReference<string>(this, "tracker_arn");
-    }
+        => AsReference("tracker_arn");
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
 }

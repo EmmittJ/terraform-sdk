@@ -14,7 +14,7 @@ public partial class GoogleBackupDrBackupDataSource(string name) : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultId is required")]
     public required TerraformValue<string> BackupVaultId
     {
-        get => new TerraformReference<string>(this, "backup_vault_id");
+        get => GetArgument<TerraformValue<string>>("backup_vault_id");
         set => SetArgument("backup_vault_id", value);
     }
 
@@ -24,16 +24,16 @@ public partial class GoogleBackupDrBackupDataSource(string name) : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceId is required")]
     public required TerraformValue<string> DataSourceId
     {
-        get => new TerraformReference<string>(this, "data_source_id");
+        get => GetArgument<TerraformValue<string>>("data_source_id");
         set => SetArgument("data_source_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -43,7 +43,7 @@ public partial class GoogleBackupDrBackupDataSource(string name) : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -53,7 +53,7 @@ public partial class GoogleBackupDrBackupDataSource(string name) : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformValue<string> Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -61,24 +61,18 @@ public partial class GoogleBackupDrBackupDataSource(string name) : TerraformData
     /// List of all backups under data source.
     /// </summary>
     public TerraformList<TerraformMap<object>> Backups
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "backups").ResolveNodes(ctx));
-    }
+        => AsReference("backups");
 
     /// <summary>
     /// The time when the backup was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Name of resource
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
 }

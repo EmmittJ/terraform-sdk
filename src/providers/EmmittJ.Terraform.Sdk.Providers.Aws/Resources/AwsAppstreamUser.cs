@@ -14,7 +14,7 @@ public partial class AwsAppstreamUser(string name) : TerraformResource("aws_apps
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
     public required TerraformValue<string> AuthenticationType
     {
-        get => new TerraformReference<string>(this, "authentication_type");
+        get => GetArgument<TerraformValue<string>>("authentication_type");
         set => SetArgument("authentication_type", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsAppstreamUser(string name) : TerraformResource("aws_apps
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -32,16 +32,16 @@ public partial class AwsAppstreamUser(string name) : TerraformResource("aws_apps
     /// </summary>
     public TerraformValue<string>? FirstName
     {
-        get => new TerraformReference<string>(this, "first_name");
+        get => GetArgument<TerraformValue<string>>("first_name");
         set => SetArgument("first_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -50,16 +50,16 @@ public partial class AwsAppstreamUser(string name) : TerraformResource("aws_apps
     /// </summary>
     public TerraformValue<string>? LastName
     {
-        get => new TerraformReference<string>(this, "last_name");
+        get => GetArgument<TerraformValue<string>>("last_name");
         set => SetArgument("last_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -68,7 +68,7 @@ public partial class AwsAppstreamUser(string name) : TerraformResource("aws_apps
     /// </summary>
     public TerraformValue<bool>? SendEmailNotification
     {
-        get => new TerraformReference<bool>(this, "send_email_notification");
+        get => GetArgument<TerraformValue<bool>>("send_email_notification");
         set => SetArgument("send_email_notification", value);
     }
 
@@ -78,7 +78,7 @@ public partial class AwsAppstreamUser(string name) : TerraformResource("aws_apps
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformValue<string> UserName
     {
-        get => new TerraformReference<string>(this, "user_name");
+        get => GetArgument<TerraformValue<string>>("user_name");
         set => SetArgument("user_name", value);
     }
 
@@ -86,16 +86,12 @@ public partial class AwsAppstreamUser(string name) : TerraformResource("aws_apps
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-    {
-        get => new TerraformReference<string>(this, "created_time");
-    }
+        => AsReference("created_time");
 
 }

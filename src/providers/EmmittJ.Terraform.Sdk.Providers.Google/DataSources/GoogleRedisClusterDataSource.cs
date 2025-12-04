@@ -11,9 +11,9 @@ public partial class GoogleRedisClusterDataSource(string name) : TerraformDataSo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -24,7 +24,7 @@ public partial class GoogleRedisClusterDataSource(string name) : TerraformDataSo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleRedisClusterDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleRedisClusterDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -50,34 +50,26 @@ public partial class GoogleRedisClusterDataSource(string name) : TerraformDataSo
     /// Optional. The authorization mode of the Redis cluster. If not provided, auth feature is disabled for the cluster. Default value: &amp;quot;AUTH_MODE_DISABLED&amp;quot; Possible values: [&amp;quot;AUTH_MODE_UNSPECIFIED&amp;quot;, &amp;quot;AUTH_MODE_IAM_AUTH&amp;quot;, &amp;quot;AUTH_MODE_DISABLED&amp;quot;]
     /// </summary>
     public TerraformValue<string> AuthorizationMode
-    {
-        get => new TerraformReference<string>(this, "authorization_mode");
-    }
+        => AsReference("authorization_mode");
 
     /// <summary>
     /// The automated backup config for a instance.
     /// </summary>
     public TerraformList<TerraformMap<object>> AutomatedBackupConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "automated_backup_config").ResolveNodes(ctx));
-    }
+        => AsReference("automated_backup_config");
 
     /// <summary>
     /// This field is used to determine the available maintenance versions for the self service update.
     /// </summary>
     public TerraformList<string> AvailableMaintenanceVersions
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "available_maintenance_versions").ResolveNodes(ctx));
-    }
+        => AsReference("available_maintenance_versions");
 
     /// <summary>
     /// The backup collection full resource name.
     /// Example: projects/{project}/locations/{location}/backupCollections/{collection}
     /// </summary>
     public TerraformValue<string> BackupCollection
-    {
-        get => new TerraformReference<string>(this, "backup_collection");
-    }
+        => AsReference("backup_collection");
 
     /// <summary>
     /// The timestamp associated with the cluster creation request. A timestamp in
@@ -85,17 +77,13 @@ public partial class GoogleRedisClusterDataSource(string name) : TerraformDataSo
     /// digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Cross cluster replication config
     /// </summary>
     public TerraformList<TerraformMap<object>> CrossClusterReplicationConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cross_cluster_replication_config").ResolveNodes(ctx));
-    }
+        => AsReference("cross_cluster_replication_config");
 
     /// <summary>
     /// Optional. Indicates if the cluster is deletion protected or not.
@@ -103,9 +91,7 @@ public partial class GoogleRedisClusterDataSource(string name) : TerraformDataSo
     /// Default value is true.
     /// </summary>
     public TerraformValue<bool> DeletionProtectionEnabled
-    {
-        get => new TerraformReference<bool>(this, "deletion_protection_enabled");
-    }
+        => AsReference("deletion_protection_enabled");
 
     /// <summary>
     /// Output only. Endpoints created on each given network,
@@ -113,99 +99,75 @@ public partial class GoogleRedisClusterDataSource(string name) : TerraformDataSo
     /// Currently only one endpoint is supported.
     /// </summary>
     public TerraformList<TerraformMap<object>> DiscoveryEndpoints
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "discovery_endpoints").ResolveNodes(ctx));
-    }
+        => AsReference("discovery_endpoints");
 
     /// <summary>
     /// This field represents the actual maintenance version of the cluster.
     /// </summary>
     public TerraformValue<string> EffectiveMaintenanceVersion
-    {
-        get => new TerraformReference<string>(this, "effective_maintenance_version");
-    }
+        => AsReference("effective_maintenance_version");
 
     /// <summary>
     /// Backups stored in Cloud Storage buckets. The Cloud Storage buckets need to be the same region as the clusters.
     /// </summary>
     public TerraformList<TerraformMap<object>> GcsSource
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "gcs_source").ResolveNodes(ctx));
-    }
+        => AsReference("gcs_source");
 
     /// <summary>
     /// The KMS key used to encrypt the at-rest data of the cluster.
     /// </summary>
     public TerraformValue<string> KmsKey
-    {
-        get => new TerraformReference<string>(this, "kms_key");
-    }
+        => AsReference("kms_key");
 
     /// <summary>
     /// Maintenance policy for a cluster
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenancePolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "maintenance_policy").ResolveNodes(ctx));
-    }
+        => AsReference("maintenance_policy");
 
     /// <summary>
     /// Upcoming maintenance schedule.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenanceSchedule
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "maintenance_schedule").ResolveNodes(ctx));
-    }
+        => AsReference("maintenance_schedule");
 
     /// <summary>
     /// This field can be used to trigger self service update to indicate the desired maintenance version. The input to this field can be determined by the available_maintenance_versions field.
     /// *Note*: This field can only be specified when updating an existing cluster to a newer version. Downgrades are currently not supported!
     /// </summary>
     public TerraformValue<string> MaintenanceVersion
-    {
-        get => new TerraformReference<string>(this, "maintenance_version");
-    }
+        => AsReference("maintenance_version");
 
     /// <summary>
     /// Backups that generated and managed by memorystore.
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedBackupSource
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "managed_backup_source").ResolveNodes(ctx));
-    }
+        => AsReference("managed_backup_source");
 
     /// <summary>
     /// Cluster&#39;s Certificate Authority. This field will only be populated if Redis Cluster&#39;s transit_encryption_mode is TRANSIT_ENCRYPTION_MODE_SERVER_AUTHENTICATION
     /// </summary>
     public TerraformList<TerraformMap<object>> ManagedServerCa
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "managed_server_ca").ResolveNodes(ctx));
-    }
+        => AsReference("managed_server_ca");
 
     /// <summary>
     /// The nodeType for the Redis cluster.
     /// If not provided, REDIS_HIGHMEM_MEDIUM will be used as default Possible values: [&amp;quot;REDIS_SHARED_CORE_NANO&amp;quot;, &amp;quot;REDIS_HIGHMEM_MEDIUM&amp;quot;, &amp;quot;REDIS_HIGHMEM_XLARGE&amp;quot;, &amp;quot;REDIS_STANDARD_SMALL&amp;quot;]
     /// </summary>
     public TerraformValue<string> NodeType
-    {
-        get => new TerraformReference<string>(this, "node_type");
-    }
+        => AsReference("node_type");
 
     /// <summary>
     /// Persistence config (RDB, AOF) for the cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> PersistenceConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "persistence_config").ResolveNodes(ctx));
-    }
+        => AsReference("persistence_config");
 
     /// <summary>
     /// Output only. Redis memory precise size in GB for the entire cluster.
     /// </summary>
     public TerraformValue<double> PreciseSizeGb
-    {
-        get => new TerraformReference<double>(this, "precise_size_gb");
-    }
+        => AsReference("precise_size_gb");
 
     /// <summary>
     /// Required. Each PscConfig configures the consumer network where two
@@ -213,25 +175,19 @@ public partial class GoogleRedisClusterDataSource(string name) : TerraformDataSo
     /// Currently, only one PscConfig is supported.
     /// </summary>
     public TerraformList<TerraformMap<object>> PscConfigs
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "psc_configs").ResolveNodes(ctx));
-    }
+        => AsReference("psc_configs");
 
     /// <summary>
     /// Output only. PSC connections for discovery of the cluster topology and accessing the cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> PscConnections
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "psc_connections").ResolveNodes(ctx));
-    }
+        => AsReference("psc_connections");
 
     /// <summary>
     /// Service attachment details to configure Psc connections.
     /// </summary>
     public TerraformList<TerraformMap<object>> PscServiceAttachments
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "psc_service_attachments").ResolveNodes(ctx));
-    }
+        => AsReference("psc_service_attachments");
 
     /// <summary>
     /// Configure Redis Cluster behavior using a subset of native Redis configuration parameters.
@@ -239,73 +195,55 @@ public partial class GoogleRedisClusterDataSource(string name) : TerraformDataSo
     /// https://cloud.google.com/memorystore/docs/cluster/supported-instance-configurations
     /// </summary>
     public TerraformMap<string> RedisConfigs
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "redis_configs").ResolveNodes(ctx));
-    }
+        => AsReference("redis_configs");
 
     /// <summary>
     /// Optional. The number of replica nodes per shard.
     /// </summary>
     public TerraformValue<double> ReplicaCount
-    {
-        get => new TerraformReference<double>(this, "replica_count");
-    }
+        => AsReference("replica_count");
 
     /// <summary>
     /// Required. Number of shards for the Redis cluster.
     /// </summary>
     public TerraformValue<double> ShardCount
-    {
-        get => new TerraformReference<double>(this, "shard_count");
-    }
+        => AsReference("shard_count");
 
     /// <summary>
     /// Output only. Redis memory size in GB for the entire cluster.
     /// </summary>
     public TerraformValue<double> SizeGb
-    {
-        get => new TerraformReference<double>(this, "size_gb");
-    }
+        => AsReference("size_gb");
 
     /// <summary>
     /// The current state of this cluster. Can be CREATING, READY, UPDATING, DELETING and SUSPENDED
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Output only. Additional information about the current state of the cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> StateInfo
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "state_info").ResolveNodes(ctx));
-    }
+        => AsReference("state_info");
 
     /// <summary>
     /// Optional. The in-transit encryption for the Redis cluster.
     /// If not provided, encryption is disabled for the cluster. Default value: &amp;quot;TRANSIT_ENCRYPTION_MODE_DISABLED&amp;quot; Possible values: [&amp;quot;TRANSIT_ENCRYPTION_MODE_UNSPECIFIED&amp;quot;, &amp;quot;TRANSIT_ENCRYPTION_MODE_DISABLED&amp;quot;, &amp;quot;TRANSIT_ENCRYPTION_MODE_SERVER_AUTHENTICATION&amp;quot;]
     /// </summary>
     public TerraformValue<string> TransitEncryptionMode
-    {
-        get => new TerraformReference<string>(this, "transit_encryption_mode");
-    }
+        => AsReference("transit_encryption_mode");
 
     /// <summary>
     /// System assigned, unique identifier for the cluster.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Immutable. Zone distribution config for Memorystore Redis cluster.
     /// </summary>
     public TerraformList<TerraformMap<object>> ZoneDistributionConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "zone_distribution_config").ResolveNodes(ctx));
-    }
+        => AsReference("zone_distribution_config");
 
 }

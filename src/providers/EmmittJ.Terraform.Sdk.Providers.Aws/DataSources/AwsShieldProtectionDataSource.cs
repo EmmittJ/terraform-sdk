@@ -11,18 +11,18 @@ public partial class AwsShieldProtectionDataSource(string name) : TerraformDataS
     /// <summary>
     /// The protection_id attribute.
     /// </summary>
-    public TerraformValue<string> ProtectionId
+    public TerraformValue<string>? ProtectionId
     {
-        get => new TerraformReference<string>(this, "protection_id");
+        get => GetArgument<TerraformValue<string>>("protection_id");
         set => SetArgument("protection_id", value);
     }
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
-    public TerraformValue<string> ResourceArn
+    public TerraformValue<string>? ResourceArn
     {
-        get => new TerraformReference<string>(this, "resource_arn");
+        get => GetArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -30,24 +30,18 @@ public partial class AwsShieldProtectionDataSource(string name) : TerraformDataS
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The protection_arn attribute.
     /// </summary>
     public TerraformValue<string> ProtectionArn
-    {
-        get => new TerraformReference<string>(this, "protection_arn");
-    }
+        => AsReference("protection_arn");
 
 }

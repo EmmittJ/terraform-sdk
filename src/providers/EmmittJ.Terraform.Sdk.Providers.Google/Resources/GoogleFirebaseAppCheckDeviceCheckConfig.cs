@@ -18,7 +18,7 @@ public class GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -56,16 +56,16 @@ public partial class GoogleFirebaseAppCheckDeviceCheckConfig(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
     public required TerraformValue<string> AppId
     {
-        get => new TerraformReference<string>(this, "app_id");
+        get => GetArgument<TerraformValue<string>>("app_id");
         set => SetArgument("app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -75,7 +75,7 @@ public partial class GoogleFirebaseAppCheckDeviceCheckConfig(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
     public required TerraformValue<string> KeyId
     {
-        get => new TerraformReference<string>(this, "key_id");
+        get => GetArgument<TerraformValue<string>>("key_id");
         set => SetArgument("key_id", value);
     }
 
@@ -85,16 +85,16 @@ public partial class GoogleFirebaseAppCheckDeviceCheckConfig(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
     public required TerraformValue<string> PrivateKey
     {
-        get => new TerraformReference<string>(this, "private_key");
+        get => GetArgument<TerraformValue<string>>("private_key");
         set => SetArgument("private_key", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -104,9 +104,9 @@ public partial class GoogleFirebaseAppCheckDeviceCheckConfig(string name) : Terr
     /// 
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformValue<string> TokenTtl
+    public TerraformValue<string>? TokenTtl
     {
-        get => new TerraformReference<string>(this, "token_ttl");
+        get => GetArgument<TerraformValue<string>>("token_ttl");
         set => SetArgument("token_ttl", value);
     }
 
@@ -114,18 +114,14 @@ public partial class GoogleFirebaseAppCheckDeviceCheckConfig(string name) : Terr
     /// The relative resource name of the DeviceCheck configuration object
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Whether the privateKey field was previously set. Since App Check will never return the
     /// privateKey field, this field is the only way to find out whether it was previously set.
     /// </summary>
     public TerraformValue<bool> PrivateKeySet
-    {
-        get => new TerraformReference<bool>(this, "private_key_set");
-    }
+        => AsReference("private_key_set");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

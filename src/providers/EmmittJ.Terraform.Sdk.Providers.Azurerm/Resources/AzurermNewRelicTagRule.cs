@@ -19,7 +19,7 @@ public class AzurermNewRelicTagRuleLogTagFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermNewRelicTagRuleLogTagFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermNewRelicTagRuleLogTagFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermNewRelicTagRuleMetricTagFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
@@ -73,7 +73,7 @@ public class AzurermNewRelicTagRuleMetricTagFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -83,7 +83,7 @@ public class AzurermNewRelicTagRuleMetricTagFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermNewRelicTagRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermNewRelicTagRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermNewRelicTagRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermNewRelicTagRuleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AzurermNewRelicTagRule(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? ActivityLogEnabled
     {
-        get => new TerraformReference<bool>(this, "activity_log_enabled");
+        get => GetArgument<TerraformValue<bool>>("activity_log_enabled");
         set => SetArgument("activity_log_enabled", value);
     }
 
@@ -160,16 +160,16 @@ public partial class AzurermNewRelicTagRule(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? AzureActiveDirectoryLogEnabled
     {
-        get => new TerraformReference<bool>(this, "azure_active_directory_log_enabled");
+        get => GetArgument<TerraformValue<bool>>("azure_active_directory_log_enabled");
         set => SetArgument("azure_active_directory_log_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -178,7 +178,7 @@ public partial class AzurermNewRelicTagRule(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? MetricEnabled
     {
-        get => new TerraformReference<bool>(this, "metric_enabled");
+        get => GetArgument<TerraformValue<bool>>("metric_enabled");
         set => SetArgument("metric_enabled", value);
     }
 
@@ -188,7 +188,7 @@ public partial class AzurermNewRelicTagRule(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorId is required")]
     public required TerraformValue<string> MonitorId
     {
-        get => new TerraformReference<string>(this, "monitor_id");
+        get => GetArgument<TerraformValue<string>>("monitor_id");
         set => SetArgument("monitor_id", value);
     }
 
@@ -197,7 +197,7 @@ public partial class AzurermNewRelicTagRule(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<bool>? SubscriptionLogEnabled
     {
-        get => new TerraformReference<bool>(this, "subscription_log_enabled");
+        get => GetArgument<TerraformValue<bool>>("subscription_log_enabled");
         set => SetArgument("subscription_log_enabled", value);
     }
 

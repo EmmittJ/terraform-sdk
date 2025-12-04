@@ -18,7 +18,7 @@ public class GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? AudioExportPattern
     {
-        get => new TerraformReference<string>(this, "audio_export_pattern");
+        get => GetArgument<TerraformValue<string>>("audio_export_pattern");
         set => SetArgument("audio_export_pattern", value);
     }
 
@@ -30,7 +30,7 @@ public class GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? AudioFormat
     {
-        get => new TerraformReference<string>(this, "audio_format");
+        get => GetArgument<TerraformValue<string>>("audio_format");
         set => SetArgument("audio_format", value);
     }
 
@@ -39,7 +39,7 @@ public class GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock : Terraf
     /// </summary>
     public TerraformValue<bool>? EnableAudioRedaction
     {
-        get => new TerraformReference<bool>(this, "enable_audio_redaction");
+        get => GetArgument<TerraformValue<bool>>("enable_audio_redaction");
         set => SetArgument("enable_audio_redaction", value);
     }
 
@@ -48,7 +48,7 @@ public class GoogleDialogflowCxSecuritySettingsAudioExportSettingsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? GcsBucket
     {
-        get => new TerraformReference<string>(this, "gcs_bucket");
+        get => GetArgument<TerraformValue<string>>("gcs_bucket");
         set => SetArgument("gcs_bucket", value);
     }
 
@@ -72,7 +72,7 @@ public class GoogleDialogflowCxSecuritySettingsInsightsExportSettingsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableInsightsExport is required")]
     public required TerraformValue<bool> EnableInsightsExport
     {
-        get => new TerraformReference<bool>(this, "enable_insights_export");
+        get => GetArgument<TerraformValue<bool>>("enable_insights_export");
         set => SetArgument("enable_insights_export", value);
     }
 
@@ -95,7 +95,7 @@ public class GoogleDialogflowCxSecuritySettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -104,7 +104,7 @@ public class GoogleDialogflowCxSecuritySettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -113,7 +113,7 @@ public class GoogleDialogflowCxSecuritySettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -133,7 +133,7 @@ public partial class GoogleDialogflowCxSecuritySettings(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? DeidentifyTemplate
     {
-        get => new TerraformReference<string>(this, "deidentify_template");
+        get => GetArgument<TerraformValue<string>>("deidentify_template");
         set => SetArgument("deidentify_template", value);
     }
 
@@ -143,16 +143,16 @@ public partial class GoogleDialogflowCxSecuritySettings(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -163,7 +163,7 @@ public partial class GoogleDialogflowCxSecuritySettings(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? InspectTemplate
     {
-        get => new TerraformReference<string>(this, "inspect_template");
+        get => GetArgument<TerraformValue<string>>("inspect_template");
         set => SetArgument("inspect_template", value);
     }
 
@@ -174,16 +174,16 @@ public partial class GoogleDialogflowCxSecuritySettings(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -192,7 +192,7 @@ public partial class GoogleDialogflowCxSecuritySettings(string name) : Terraform
     /// </summary>
     public TerraformList<string>? PurgeDataTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "purge_data_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("purge_data_types");
         set => SetArgument("purge_data_types", value);
     }
 
@@ -202,7 +202,7 @@ public partial class GoogleDialogflowCxSecuritySettings(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? RedactionScope
     {
-        get => new TerraformReference<string>(this, "redaction_scope");
+        get => GetArgument<TerraformValue<string>>("redaction_scope");
         set => SetArgument("redaction_scope", value);
     }
 
@@ -212,7 +212,7 @@ public partial class GoogleDialogflowCxSecuritySettings(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? RedactionStrategy
     {
-        get => new TerraformReference<string>(this, "redaction_strategy");
+        get => GetArgument<TerraformValue<string>>("redaction_strategy");
         set => SetArgument("redaction_strategy", value);
     }
 
@@ -222,7 +222,7 @@ public partial class GoogleDialogflowCxSecuritySettings(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? RetentionStrategy
     {
-        get => new TerraformReference<string>(this, "retention_strategy");
+        get => GetArgument<TerraformValue<string>>("retention_strategy");
         set => SetArgument("retention_strategy", value);
     }
 
@@ -232,7 +232,7 @@ public partial class GoogleDialogflowCxSecuritySettings(string name) : Terraform
     /// </summary>
     public TerraformValue<double>? RetentionWindowDays
     {
-        get => new TerraformReference<double>(this, "retention_window_days");
+        get => GetArgument<TerraformValue<double>>("retention_window_days");
         set => SetArgument("retention_window_days", value);
     }
 
@@ -241,9 +241,7 @@ public partial class GoogleDialogflowCxSecuritySettings(string name) : Terraform
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/securitySettings/&amp;lt;Security Settings ID&amp;gt;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// AudioExportSettings block (nesting mode: list).

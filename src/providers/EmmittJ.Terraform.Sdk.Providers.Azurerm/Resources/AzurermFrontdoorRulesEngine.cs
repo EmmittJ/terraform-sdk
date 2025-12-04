@@ -19,7 +19,7 @@ public class AzurermFrontdoorRulesEngineRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermFrontdoorRulesEngineRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermFrontdoorRulesEngineRuleBlockActionBlockRequestHeaderBlock :
     /// </summary>
     public TerraformValue<string>? HeaderActionType
     {
-        get => new TerraformReference<string>(this, "header_action_type");
+        get => GetArgument<TerraformValue<string>>("header_action_type");
         set => SetArgument("header_action_type", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermFrontdoorRulesEngineRuleBlockActionBlockRequestHeaderBlock :
     /// </summary>
     public TerraformValue<string>? HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -122,7 +122,7 @@ public class AzurermFrontdoorRulesEngineRuleBlockActionBlockRequestHeaderBlock :
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -144,7 +144,7 @@ public class AzurermFrontdoorRulesEngineRuleBlockActionBlockResponseHeaderBlock 
     /// </summary>
     public TerraformValue<string>? HeaderActionType
     {
-        get => new TerraformReference<string>(this, "header_action_type");
+        get => GetArgument<TerraformValue<string>>("header_action_type");
         set => SetArgument("header_action_type", value);
     }
 
@@ -153,7 +153,7 @@ public class AzurermFrontdoorRulesEngineRuleBlockActionBlockResponseHeaderBlock 
     /// </summary>
     public TerraformValue<string>? HeaderName
     {
-        get => new TerraformReference<string>(this, "header_name");
+        get => GetArgument<TerraformValue<string>>("header_name");
         set => SetArgument("header_name", value);
     }
 
@@ -162,7 +162,7 @@ public class AzurermFrontdoorRulesEngineRuleBlockActionBlockResponseHeaderBlock 
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -184,7 +184,7 @@ public class AzurermFrontdoorRulesEngineRuleBlockMatchConditionBlock : Terraform
     /// </summary>
     public TerraformValue<bool>? NegateCondition
     {
-        get => new TerraformReference<bool>(this, "negate_condition");
+        get => GetArgument<TerraformValue<bool>>("negate_condition");
         set => SetArgument("negate_condition", value);
     }
 
@@ -194,7 +194,7 @@ public class AzurermFrontdoorRulesEngineRuleBlockMatchConditionBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -203,7 +203,7 @@ public class AzurermFrontdoorRulesEngineRuleBlockMatchConditionBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Selector
     {
-        get => new TerraformReference<string>(this, "selector");
+        get => GetArgument<TerraformValue<string>>("selector");
         set => SetArgument("selector", value);
     }
 
@@ -212,7 +212,7 @@ public class AzurermFrontdoorRulesEngineRuleBlockMatchConditionBlock : Terraform
     /// </summary>
     public TerraformList<string>? Transform
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "transform").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("transform");
         set => SetArgument("transform", value);
     }
 
@@ -221,7 +221,7 @@ public class AzurermFrontdoorRulesEngineRuleBlockMatchConditionBlock : Terraform
     /// </summary>
     public TerraformList<string>? Value
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "value").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -230,7 +230,7 @@ public class AzurermFrontdoorRulesEngineRuleBlockMatchConditionBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Variable
     {
-        get => new TerraformReference<string>(this, "variable");
+        get => GetArgument<TerraformValue<string>>("variable");
         set => SetArgument("variable", value);
     }
 
@@ -253,7 +253,7 @@ public class AzurermFrontdoorRulesEngineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -262,7 +262,7 @@ public class AzurermFrontdoorRulesEngineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -271,7 +271,7 @@ public class AzurermFrontdoorRulesEngineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -280,7 +280,7 @@ public class AzurermFrontdoorRulesEngineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -298,7 +298,7 @@ public partial class AzurermFrontdoorRulesEngine(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -308,16 +308,16 @@ public partial class AzurermFrontdoorRulesEngine(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontdoorName is required")]
     public required TerraformValue<string> FrontdoorName
     {
-        get => new TerraformReference<string>(this, "frontdoor_name");
+        get => GetArgument<TerraformValue<string>>("frontdoor_name");
         set => SetArgument("frontdoor_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -327,7 +327,7 @@ public partial class AzurermFrontdoorRulesEngine(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -337,7 +337,7 @@ public partial class AzurermFrontdoorRulesEngine(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -345,9 +345,7 @@ public partial class AzurermFrontdoorRulesEngine(string name) : TerraformResourc
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// Rule block (nesting mode: list).

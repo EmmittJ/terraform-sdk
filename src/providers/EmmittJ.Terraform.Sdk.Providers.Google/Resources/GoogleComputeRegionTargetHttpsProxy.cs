@@ -18,7 +18,7 @@ public class GoogleComputeRegionTargetHttpsProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeRegionTargetHttpsProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleComputeRegionTargetHttpsProxyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -56,7 +56,7 @@ public partial class GoogleComputeRegionTargetHttpsProxy(string name) : Terrafor
     /// </summary>
     public TerraformList<string>? CertificateManagerCertificates
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "certificate_manager_certificates").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("certificate_manager_certificates");
         set => SetArgument("certificate_manager_certificates", value);
     }
 
@@ -65,7 +65,7 @@ public partial class GoogleComputeRegionTargetHttpsProxy(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -78,16 +78,16 @@ public partial class GoogleComputeRegionTargetHttpsProxy(string name) : Terrafor
     /// </summary>
     public TerraformValue<double>? HttpKeepAliveTimeoutSec
     {
-        get => new TerraformReference<double>(this, "http_keep_alive_timeout_sec");
+        get => GetArgument<TerraformValue<double>>("http_keep_alive_timeout_sec");
         set => SetArgument("http_keep_alive_timeout_sec", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -103,16 +103,16 @@ public partial class GoogleComputeRegionTargetHttpsProxy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -120,9 +120,9 @@ public partial class GoogleComputeRegionTargetHttpsProxy(string name) : Terrafor
     /// The Region in which the created target https proxy should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -144,7 +144,7 @@ public partial class GoogleComputeRegionTargetHttpsProxy(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? ServerTlsPolicy
     {
-        get => new TerraformReference<string>(this, "server_tls_policy");
+        get => GetArgument<TerraformValue<string>>("server_tls_policy");
         set => SetArgument("server_tls_policy", value);
     }
 
@@ -155,7 +155,7 @@ public partial class GoogleComputeRegionTargetHttpsProxy(string name) : Terrafor
     /// </summary>
     public TerraformList<string>? SslCertificates
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ssl_certificates").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("ssl_certificates");
         set => SetArgument("ssl_certificates", value);
     }
 
@@ -166,7 +166,7 @@ public partial class GoogleComputeRegionTargetHttpsProxy(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? SslPolicy
     {
-        get => new TerraformReference<string>(this, "ssl_policy");
+        get => GetArgument<TerraformValue<string>>("ssl_policy");
         set => SetArgument("ssl_policy", value);
     }
 
@@ -177,7 +177,7 @@ public partial class GoogleComputeRegionTargetHttpsProxy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlMap is required")]
     public required TerraformValue<string> UrlMap
     {
-        get => new TerraformReference<string>(this, "url_map");
+        get => GetArgument<TerraformValue<string>>("url_map");
         set => SetArgument("url_map", value);
     }
 
@@ -185,25 +185,19 @@ public partial class GoogleComputeRegionTargetHttpsProxy(string name) : Terrafor
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// The unique identifier for the resource.
     /// </summary>
     public TerraformValue<double> ProxyId
-    {
-        get => new TerraformReference<double>(this, "proxy_id");
-    }
+        => AsReference("proxy_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

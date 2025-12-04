@@ -18,7 +18,7 @@ public class AzurermKustoIothubDataConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermKustoIothubDataConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermKustoIothubDataConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
     public required TerraformValue<string> ClusterName
     {
-        get => new TerraformReference<string>(this, "cluster_name");
+        get => GetArgument<TerraformValue<string>>("cluster_name");
         set => SetArgument("cluster_name", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerGroup is required")]
     public required TerraformValue<string> ConsumerGroup
     {
-        get => new TerraformReference<string>(this, "consumer_group");
+        get => GetArgument<TerraformValue<string>>("consumer_group");
         set => SetArgument("consumer_group", value);
     }
 
@@ -74,7 +74,7 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? DataFormat
     {
-        get => new TerraformReference<string>(this, "data_format");
+        get => GetArgument<TerraformValue<string>>("data_format");
         set => SetArgument("data_format", value);
     }
 
@@ -84,7 +84,7 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? DatabaseRoutingType
     {
-        get => new TerraformReference<string>(this, "database_routing_type");
+        get => GetArgument<TerraformValue<string>>("database_routing_type");
         set => SetArgument("database_routing_type", value);
     }
 
@@ -102,16 +102,16 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     /// </summary>
     public TerraformSet<string>? EventSystemProperties
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "event_system_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("event_system_properties");
         set => SetArgument("event_system_properties", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
     public required TerraformValue<string> IothubId
     {
-        get => new TerraformReference<string>(this, "iothub_id");
+        get => GetArgument<TerraformValue<string>>("iothub_id");
         set => SetArgument("iothub_id", value);
     }
 
@@ -131,7 +131,7 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -140,7 +140,7 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? MappingRuleName
     {
-        get => new TerraformReference<string>(this, "mapping_rule_name");
+        get => GetArgument<TerraformValue<string>>("mapping_rule_name");
         set => SetArgument("mapping_rule_name", value);
     }
 
@@ -150,7 +150,7 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -160,7 +160,7 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -170,7 +170,7 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedAccessPolicyName is required")]
     public required TerraformValue<string> SharedAccessPolicyName
     {
-        get => new TerraformReference<string>(this, "shared_access_policy_name");
+        get => GetArgument<TerraformValue<string>>("shared_access_policy_name");
         set => SetArgument("shared_access_policy_name", value);
     }
 
@@ -179,7 +179,7 @@ public partial class AzurermKustoIothubDataConnection(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 

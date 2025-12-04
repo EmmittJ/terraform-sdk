@@ -18,7 +18,7 @@ public class AwsVpcEndpointServicePrivateDnsVerificationTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AwsVpcEndpointServicePrivateDnsVerification(string name) : 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AwsVpcEndpointServicePrivateDnsVerification(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
     public required TerraformValue<string> ServiceId
     {
-        get => new TerraformReference<string>(this, "service_id");
+        get => GetArgument<TerraformValue<string>>("service_id");
         set => SetArgument("service_id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AwsVpcEndpointServicePrivateDnsVerification(string name) : 
     /// </summary>
     public TerraformValue<bool>? WaitForVerification
     {
-        get => new TerraformReference<bool>(this, "wait_for_verification");
+        get => GetArgument<TerraformValue<bool>>("wait_for_verification");
         set => SetArgument("wait_for_verification", value);
     }
 

@@ -18,7 +18,7 @@ public class AzurermSharedImageVersionDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermSharedImageVersionDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryName is required")]
     public required TerraformValue<string> GalleryName
     {
-        get => new TerraformReference<string>(this, "gallery_name");
+        get => GetArgument<TerraformValue<string>>("gallery_name");
         set => SetArgument("gallery_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermSharedImageVersionDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformValue<string> ImageName
     {
-        get => new TerraformReference<string>(this, "image_name");
+        get => GetArgument<TerraformValue<string>>("image_name");
         set => SetArgument("image_name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermSharedImageVersionDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -76,7 +76,7 @@ public partial class AzurermSharedImageVersionDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -85,7 +85,7 @@ public partial class AzurermSharedImageVersionDataSource(string name) : Terrafor
     /// </summary>
     public TerraformValue<bool>? SortVersionsBySemver
     {
-        get => new TerraformReference<bool>(this, "sort_versions_by_semver");
+        get => GetArgument<TerraformValue<bool>>("sort_versions_by_semver");
         set => SetArgument("sort_versions_by_semver", value);
     }
 
@@ -94,7 +94,7 @@ public partial class AzurermSharedImageVersionDataSource(string name) : Terrafor
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -102,49 +102,37 @@ public partial class AzurermSharedImageVersionDataSource(string name) : Terrafor
     /// The exclude_from_latest attribute.
     /// </summary>
     public TerraformValue<bool> ExcludeFromLatest
-    {
-        get => new TerraformReference<bool>(this, "exclude_from_latest");
-    }
+        => AsReference("exclude_from_latest");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The managed_image_id attribute.
     /// </summary>
     public TerraformValue<string> ManagedImageId
-    {
-        get => new TerraformReference<string>(this, "managed_image_id");
-    }
+        => AsReference("managed_image_id");
 
     /// <summary>
     /// The os_disk_image_size_gb attribute.
     /// </summary>
     public TerraformValue<double> OsDiskImageSizeGb
-    {
-        get => new TerraformReference<double>(this, "os_disk_image_size_gb");
-    }
+        => AsReference("os_disk_image_size_gb");
 
     /// <summary>
     /// The os_disk_snapshot_id attribute.
     /// </summary>
     public TerraformValue<string> OsDiskSnapshotId
-    {
-        get => new TerraformReference<string>(this, "os_disk_snapshot_id");
-    }
+        => AsReference("os_disk_snapshot_id");
 
     /// <summary>
     /// The target_region attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TargetRegion
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "target_region").ResolveNodes(ctx));
-    }
+        => AsReference("target_region");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

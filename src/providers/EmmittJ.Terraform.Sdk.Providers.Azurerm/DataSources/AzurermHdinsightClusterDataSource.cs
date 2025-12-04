@@ -18,7 +18,7 @@ public class AzurermHdinsightClusterDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermHdinsightClusterDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermHdinsightClusterDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermHdinsightClusterDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,105 +64,79 @@ public partial class AzurermHdinsightClusterDataSource(string name) : TerraformD
     /// The cluster_id attribute.
     /// </summary>
     public TerraformValue<string> ClusterId
-    {
-        get => new TerraformReference<string>(this, "cluster_id");
-    }
+        => AsReference("cluster_id");
 
     /// <summary>
     /// The cluster_version attribute.
     /// </summary>
     public TerraformValue<string> ClusterVersion
-    {
-        get => new TerraformReference<string>(this, "cluster_version");
-    }
+        => AsReference("cluster_version");
 
     /// <summary>
     /// The component_versions attribute.
     /// </summary>
     public TerraformMap<string> ComponentVersions
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "component_versions").ResolveNodes(ctx));
-    }
+        => AsReference("component_versions");
 
     /// <summary>
     /// The edge_ssh_endpoint attribute.
     /// </summary>
     public TerraformValue<string> EdgeSshEndpoint
-    {
-        get => new TerraformReference<string>(this, "edge_ssh_endpoint");
-    }
+        => AsReference("edge_ssh_endpoint");
 
     /// <summary>
     /// The gateway attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Gateway
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "gateway").ResolveNodes(ctx));
-    }
+        => AsReference("gateway");
 
     /// <summary>
     /// The https_endpoint attribute.
     /// </summary>
     public TerraformValue<string> HttpsEndpoint
-    {
-        get => new TerraformReference<string>(this, "https_endpoint");
-    }
+        => AsReference("https_endpoint");
 
     /// <summary>
     /// The kafka_rest_proxy_endpoint attribute.
     /// </summary>
     public TerraformValue<string> KafkaRestProxyEndpoint
-    {
-        get => new TerraformReference<string>(this, "kafka_rest_proxy_endpoint");
-    }
+        => AsReference("kafka_rest_proxy_endpoint");
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
     public TerraformValue<string> Kind
-    {
-        get => new TerraformReference<string>(this, "kind");
-    }
+        => AsReference("kind");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The ssh_endpoint attribute.
     /// </summary>
     public TerraformValue<string> SshEndpoint
-    {
-        get => new TerraformReference<string>(this, "ssh_endpoint");
-    }
+        => AsReference("ssh_endpoint");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
     public TerraformValue<string> Tier
-    {
-        get => new TerraformReference<string>(this, "tier");
-    }
+        => AsReference("tier");
 
     /// <summary>
     /// The tls_min_version attribute.
     /// </summary>
     public TerraformValue<string> TlsMinVersion
-    {
-        get => new TerraformReference<string>(this, "tls_min_version");
-    }
+        => AsReference("tls_min_version");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

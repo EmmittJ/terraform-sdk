@@ -19,16 +19,16 @@ public class AwsXrayGroupInsightsConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InsightsEnabled is required")]
     public required TerraformValue<bool> InsightsEnabled
     {
-        get => new TerraformReference<bool>(this, "insights_enabled");
+        get => GetArgument<TerraformValue<bool>>("insights_enabled");
         set => SetArgument("insights_enabled", value);
     }
 
     /// <summary>
     /// The notifications_enabled attribute.
     /// </summary>
-    public TerraformValue<bool> NotificationsEnabled
+    public TerraformValue<bool>? NotificationsEnabled
     {
-        get => new TerraformReference<bool>(this, "notifications_enabled");
+        get => GetArgument<TerraformValue<bool>>("notifications_enabled");
         set => SetArgument("notifications_enabled", value);
     }
 
@@ -47,7 +47,7 @@ public partial class AwsXrayGroup(string name) : TerraformResource("aws_xray_gro
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterExpression is required")]
     public required TerraformValue<string> FilterExpression
     {
-        get => new TerraformReference<string>(this, "filter_expression");
+        get => GetArgument<TerraformValue<string>>("filter_expression");
         set => SetArgument("filter_expression", value);
     }
 
@@ -57,25 +57,25 @@ public partial class AwsXrayGroup(string name) : TerraformResource("aws_xray_gro
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     public required TerraformValue<string> GroupName
     {
-        get => new TerraformReference<string>(this, "group_name");
+        get => GetArgument<TerraformValue<string>>("group_name");
         set => SetArgument("group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -84,16 +84,16 @@ public partial class AwsXrayGroup(string name) : TerraformResource("aws_xray_gro
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -101,9 +101,7 @@ public partial class AwsXrayGroup(string name) : TerraformResource("aws_xray_gro
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// InsightsConfiguration block (nesting mode: list).

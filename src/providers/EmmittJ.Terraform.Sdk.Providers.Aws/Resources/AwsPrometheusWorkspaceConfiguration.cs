@@ -19,7 +19,7 @@ public class AwsPrometheusWorkspaceConfigurationLimitsPerLabelSetBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabelSet is required")]
     public required TerraformMap<string> LabelSet
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "label_set").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("label_set");
         set => SetArgument("label_set", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsPrometheusWorkspaceConfigurationLimitsPerLabelSetBlockLimitsBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSeries is required")]
     public required TerraformValue<double> MaxSeries
     {
-        get => new TerraformReference<double>(this, "max_series");
+        get => GetArgument<TerraformValue<double>>("max_series");
         set => SetArgument("max_series", value);
     }
 
@@ -74,7 +74,7 @@ public class AwsPrometheusWorkspaceConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -83,7 +83,7 @@ public class AwsPrometheusWorkspaceConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -99,18 +99,18 @@ public partial class AwsPrometheusWorkspaceConfiguration(string name) : Terrafor
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The retention_period_in_days attribute.
     /// </summary>
-    public TerraformValue<double> RetentionPeriodInDays
+    public TerraformValue<double>? RetentionPeriodInDays
     {
-        get => new TerraformReference<double>(this, "retention_period_in_days");
+        get => GetArgument<TerraformValue<double>>("retention_period_in_days");
         set => SetArgument("retention_period_in_days", value);
     }
 
@@ -120,7 +120,7 @@ public partial class AwsPrometheusWorkspaceConfiguration(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
     public required TerraformValue<string> WorkspaceId
     {
-        get => new TerraformReference<string>(this, "workspace_id");
+        get => GetArgument<TerraformValue<string>>("workspace_id");
         set => SetArgument("workspace_id", value);
     }
 

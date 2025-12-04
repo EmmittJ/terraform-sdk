@@ -39,7 +39,7 @@ public class TerraformExpressionPublicTests
 
         var output = new TerraformOutput("vpc_id")
         {
-            Value = resource["id"]
+            Value = resource.AsReference("id")
         };
         stack.Add(output);
 

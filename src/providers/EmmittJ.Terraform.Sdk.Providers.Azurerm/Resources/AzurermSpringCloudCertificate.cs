@@ -18,7 +18,7 @@ public class AzurermSpringCloudCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSpringCloudCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSpringCloudCertificateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AzurermSpringCloudCertificate(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? CertificateContent
     {
-        get => new TerraformReference<string>(this, "certificate_content");
+        get => GetArgument<TerraformValue<string>>("certificate_content");
         set => SetArgument("certificate_content", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AzurermSpringCloudCertificate(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? ExcludePrivateKey
     {
-        get => new TerraformReference<bool>(this, "exclude_private_key");
+        get => GetArgument<TerraformValue<bool>>("exclude_private_key");
         set => SetArgument("exclude_private_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermSpringCloudCertificate(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? KeyVaultCertificateId
     {
-        get => new TerraformReference<string>(this, "key_vault_certificate_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_certificate_id");
         set => SetArgument("key_vault_certificate_id", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermSpringCloudCertificate(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermSpringCloudCertificate(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermSpringCloudCertificate(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => new TerraformReference<string>(this, "service_name");
+        get => GetArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -119,9 +119,7 @@ public partial class AzurermSpringCloudCertificate(string name) : TerraformResou
     /// The thumbprint attribute.
     /// </summary>
     public TerraformValue<string> Thumbprint
-    {
-        get => new TerraformReference<string>(this, "thumbprint");
-    }
+        => AsReference("thumbprint");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

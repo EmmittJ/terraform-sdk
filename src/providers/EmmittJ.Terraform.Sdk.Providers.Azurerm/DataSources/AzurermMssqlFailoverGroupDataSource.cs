@@ -18,7 +18,7 @@ public class AzurermMssqlFailoverGroupDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermMssqlFailoverGroupDataSource(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermMssqlFailoverGroupDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermMssqlFailoverGroupDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformValue<string> ServerId
     {
-        get => new TerraformReference<string>(this, "server_id");
+        get => GetArgument<TerraformValue<string>>("server_id");
         set => SetArgument("server_id", value);
     }
 
@@ -64,41 +64,31 @@ public partial class AzurermMssqlFailoverGroupDataSource(string name) : Terrafor
     /// The databases attribute.
     /// </summary>
     public TerraformSet<string> Databases
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "databases").ResolveNodes(ctx));
-    }
+        => AsReference("databases");
 
     /// <summary>
     /// The partner_server attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PartnerServer
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "partner_server").ResolveNodes(ctx));
-    }
+        => AsReference("partner_server");
 
     /// <summary>
     /// The read_write_endpoint_failover_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ReadWriteEndpointFailoverPolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "read_write_endpoint_failover_policy").ResolveNodes(ctx));
-    }
+        => AsReference("read_write_endpoint_failover_policy");
 
     /// <summary>
     /// The readonly_endpoint_failover_policy_enabled attribute.
     /// </summary>
     public TerraformValue<bool> ReadonlyEndpointFailoverPolicyEnabled
-    {
-        get => new TerraformReference<bool>(this, "readonly_endpoint_failover_policy_enabled");
-    }
+        => AsReference("readonly_endpoint_failover_policy_enabled");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

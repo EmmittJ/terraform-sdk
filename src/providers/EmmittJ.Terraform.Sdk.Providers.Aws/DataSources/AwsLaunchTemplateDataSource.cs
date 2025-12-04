@@ -19,7 +19,7 @@ public class AwsLaunchTemplateDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsLaunchTemplateDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -52,7 +52,7 @@ public class AwsLaunchTemplateDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -68,36 +68,36 @@ public partial class AwsLaunchTemplateDataSource(string name) : TerraformDataSou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -105,265 +105,199 @@ public partial class AwsLaunchTemplateDataSource(string name) : TerraformDataSou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The block_device_mappings attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> BlockDeviceMappings
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "block_device_mappings").ResolveNodes(ctx));
-    }
+        => AsReference("block_device_mappings");
 
     /// <summary>
     /// The capacity_reservation_specification attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CapacityReservationSpecification
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "capacity_reservation_specification").ResolveNodes(ctx));
-    }
+        => AsReference("capacity_reservation_specification");
 
     /// <summary>
     /// The cpu_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CpuOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "cpu_options").ResolveNodes(ctx));
-    }
+        => AsReference("cpu_options");
 
     /// <summary>
     /// The credit_specification attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CreditSpecification
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "credit_specification").ResolveNodes(ctx));
-    }
+        => AsReference("credit_specification");
 
     /// <summary>
     /// The default_version attribute.
     /// </summary>
     public TerraformValue<double> DefaultVersion
-    {
-        get => new TerraformReference<double>(this, "default_version");
-    }
+        => AsReference("default_version");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The disable_api_stop attribute.
     /// </summary>
     public TerraformValue<bool> DisableApiStop
-    {
-        get => new TerraformReference<bool>(this, "disable_api_stop");
-    }
+        => AsReference("disable_api_stop");
 
     /// <summary>
     /// The disable_api_termination attribute.
     /// </summary>
     public TerraformValue<bool> DisableApiTermination
-    {
-        get => new TerraformReference<bool>(this, "disable_api_termination");
-    }
+        => AsReference("disable_api_termination");
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
     public TerraformValue<string> EbsOptimized
-    {
-        get => new TerraformReference<string>(this, "ebs_optimized");
-    }
+        => AsReference("ebs_optimized");
 
     /// <summary>
     /// The enclave_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EnclaveOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "enclave_options").ResolveNodes(ctx));
-    }
+        => AsReference("enclave_options");
 
     /// <summary>
     /// The hibernation_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> HibernationOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "hibernation_options").ResolveNodes(ctx));
-    }
+        => AsReference("hibernation_options");
 
     /// <summary>
     /// The iam_instance_profile attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> IamInstanceProfile
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "iam_instance_profile").ResolveNodes(ctx));
-    }
+        => AsReference("iam_instance_profile");
 
     /// <summary>
     /// The image_id attribute.
     /// </summary>
     public TerraformValue<string> ImageId
-    {
-        get => new TerraformReference<string>(this, "image_id");
-    }
+        => AsReference("image_id");
 
     /// <summary>
     /// The instance_initiated_shutdown_behavior attribute.
     /// </summary>
     public TerraformValue<string> InstanceInitiatedShutdownBehavior
-    {
-        get => new TerraformReference<string>(this, "instance_initiated_shutdown_behavior");
-    }
+        => AsReference("instance_initiated_shutdown_behavior");
 
     /// <summary>
     /// The instance_market_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstanceMarketOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "instance_market_options").ResolveNodes(ctx));
-    }
+        => AsReference("instance_market_options");
 
     /// <summary>
     /// The instance_requirements attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> InstanceRequirements
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "instance_requirements").ResolveNodes(ctx));
-    }
+        => AsReference("instance_requirements");
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     public TerraformValue<string> InstanceType
-    {
-        get => new TerraformReference<string>(this, "instance_type");
-    }
+        => AsReference("instance_type");
 
     /// <summary>
     /// The kernel_id attribute.
     /// </summary>
     public TerraformValue<string> KernelId
-    {
-        get => new TerraformReference<string>(this, "kernel_id");
-    }
+        => AsReference("kernel_id");
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
     public TerraformValue<string> KeyName
-    {
-        get => new TerraformReference<string>(this, "key_name");
-    }
+        => AsReference("key_name");
 
     /// <summary>
     /// The latest_version attribute.
     /// </summary>
     public TerraformValue<double> LatestVersion
-    {
-        get => new TerraformReference<double>(this, "latest_version");
-    }
+        => AsReference("latest_version");
 
     /// <summary>
     /// The license_specification attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> LicenseSpecification
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "license_specification").ResolveNodes(ctx));
-    }
+        => AsReference("license_specification");
 
     /// <summary>
     /// The maintenance_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenanceOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "maintenance_options").ResolveNodes(ctx));
-    }
+        => AsReference("maintenance_options");
 
     /// <summary>
     /// The metadata_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MetadataOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "metadata_options").ResolveNodes(ctx));
-    }
+        => AsReference("metadata_options");
 
     /// <summary>
     /// The monitoring attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Monitoring
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "monitoring").ResolveNodes(ctx));
-    }
+        => AsReference("monitoring");
 
     /// <summary>
     /// The network_interfaces attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> NetworkInterfaces
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "network_interfaces").ResolveNodes(ctx));
-    }
+        => AsReference("network_interfaces");
 
     /// <summary>
     /// The placement attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Placement
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "placement").ResolveNodes(ctx));
-    }
+        => AsReference("placement");
 
     /// <summary>
     /// The private_dns_name_options attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrivateDnsNameOptions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "private_dns_name_options").ResolveNodes(ctx));
-    }
+        => AsReference("private_dns_name_options");
 
     /// <summary>
     /// The ram_disk_id attribute.
     /// </summary>
     public TerraformValue<string> RamDiskId
-    {
-        get => new TerraformReference<string>(this, "ram_disk_id");
-    }
+        => AsReference("ram_disk_id");
 
     /// <summary>
     /// The security_group_names attribute.
     /// </summary>
     public TerraformSet<string> SecurityGroupNames
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_names").ResolveNodes(ctx));
-    }
+        => AsReference("security_group_names");
 
     /// <summary>
     /// The tag_specifications attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TagSpecifications
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "tag_specifications").ResolveNodes(ctx));
-    }
+        => AsReference("tag_specifications");
 
     /// <summary>
     /// The user_data attribute.
     /// </summary>
     public TerraformValue<string> UserData
-    {
-        get => new TerraformReference<string>(this, "user_data");
-    }
+        => AsReference("user_data");
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
     public TerraformSet<string> VpcSecurityGroupIds
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "vpc_security_group_ids").ResolveNodes(ctx));
-    }
+        => AsReference("vpc_security_group_ids");
 
     /// <summary>
     /// Filter block (nesting mode: set).

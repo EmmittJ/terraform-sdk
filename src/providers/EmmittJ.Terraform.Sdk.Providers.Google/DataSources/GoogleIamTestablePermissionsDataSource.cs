@@ -13,7 +13,7 @@ public partial class GoogleIamTestablePermissionsDataSource(string name) : Terra
     /// </summary>
     public TerraformValue<string>? CustomSupportLevel
     {
-        get => new TerraformReference<string>(this, "custom_support_level");
+        get => GetArgument<TerraformValue<string>>("custom_support_level");
         set => SetArgument("custom_support_level", value);
     }
 
@@ -23,16 +23,16 @@ public partial class GoogleIamTestablePermissionsDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullResourceName is required")]
     public required TerraformValue<string> FullResourceName
     {
-        get => new TerraformReference<string>(this, "full_resource_name");
+        get => GetArgument<TerraformValue<string>>("full_resource_name");
         set => SetArgument("full_resource_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class GoogleIamTestablePermissionsDataSource(string name) : Terra
     /// </summary>
     public TerraformList<string>? Stages
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "stages").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("stages");
         set => SetArgument("stages", value);
     }
 
@@ -49,8 +49,6 @@ public partial class GoogleIamTestablePermissionsDataSource(string name) : Terra
     /// The permissions attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Permissions
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "permissions").ResolveNodes(ctx));
-    }
+        => AsReference("permissions");
 
 }

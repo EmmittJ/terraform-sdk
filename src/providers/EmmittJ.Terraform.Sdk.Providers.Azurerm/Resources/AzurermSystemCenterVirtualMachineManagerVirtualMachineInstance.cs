@@ -18,7 +18,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceHardw
     /// </summary>
     public TerraformValue<double>? CpuCount
     {
-        get => new TerraformReference<double>(this, "cpu_count");
+        get => GetArgument<TerraformValue<double>>("cpu_count");
         set => SetArgument("cpu_count", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceHardw
     /// </summary>
     public TerraformValue<double>? DynamicMemoryMaxInMb
     {
-        get => new TerraformReference<double>(this, "dynamic_memory_max_in_mb");
+        get => GetArgument<TerraformValue<double>>("dynamic_memory_max_in_mb");
         set => SetArgument("dynamic_memory_max_in_mb", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceHardw
     /// </summary>
     public TerraformValue<double>? DynamicMemoryMinInMb
     {
-        get => new TerraformReference<double>(this, "dynamic_memory_min_in_mb");
+        get => GetArgument<TerraformValue<double>>("dynamic_memory_min_in_mb");
         set => SetArgument("dynamic_memory_min_in_mb", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceHardw
     /// </summary>
     public TerraformValue<bool>? LimitCpuForMigrationEnabled
     {
-        get => new TerraformReference<bool>(this, "limit_cpu_for_migration_enabled");
+        get => GetArgument<TerraformValue<bool>>("limit_cpu_for_migration_enabled");
         set => SetArgument("limit_cpu_for_migration_enabled", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceHardw
     /// </summary>
     public TerraformValue<double>? MemoryInMb
     {
-        get => new TerraformReference<double>(this, "memory_in_mb");
+        get => GetArgument<TerraformValue<double>>("memory_in_mb");
         set => SetArgument("memory_in_mb", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceInfra
     /// </summary>
     public TerraformValue<string>? CheckpointType
     {
-        get => new TerraformReference<string>(this, "checkpoint_type");
+        get => GetArgument<TerraformValue<string>>("checkpoint_type");
         set => SetArgument("checkpoint_type", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceInfra
     /// </summary>
     public TerraformValue<string>? SystemCenterVirtualMachineManagerCloudId
     {
-        get => new TerraformReference<string>(this, "system_center_virtual_machine_manager_cloud_id");
+        get => GetArgument<TerraformValue<string>>("system_center_virtual_machine_manager_cloud_id");
         set => SetArgument("system_center_virtual_machine_manager_cloud_id", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceInfra
     /// </summary>
     public TerraformValue<string>? SystemCenterVirtualMachineManagerInventoryItemId
     {
-        get => new TerraformReference<string>(this, "system_center_virtual_machine_manager_inventory_item_id");
+        get => GetArgument<TerraformValue<string>>("system_center_virtual_machine_manager_inventory_item_id");
         set => SetArgument("system_center_virtual_machine_manager_inventory_item_id", value);
     }
 
@@ -104,7 +104,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceInfra
     /// </summary>
     public TerraformValue<string>? SystemCenterVirtualMachineManagerTemplateId
     {
-        get => new TerraformReference<string>(this, "system_center_virtual_machine_manager_template_id");
+        get => GetArgument<TerraformValue<string>>("system_center_virtual_machine_manager_template_id");
         set => SetArgument("system_center_virtual_machine_manager_template_id", value);
     }
 
@@ -113,7 +113,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceInfra
     /// </summary>
     public TerraformValue<string>? SystemCenterVirtualMachineManagerVirtualMachineServerId
     {
-        get => new TerraformReference<string>(this, "system_center_virtual_machine_manager_virtual_machine_server_id");
+        get => GetArgument<TerraformValue<string>>("system_center_virtual_machine_manager_virtual_machine_server_id");
         set => SetArgument("system_center_virtual_machine_manager_virtual_machine_server_id", value);
     }
 
@@ -136,7 +136,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetwo
     /// </summary>
     public TerraformValue<string>? Ipv4AddressType
     {
-        get => new TerraformReference<string>(this, "ipv4_address_type");
+        get => GetArgument<TerraformValue<string>>("ipv4_address_type");
         set => SetArgument("ipv4_address_type", value);
     }
 
@@ -145,7 +145,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetwo
     /// </summary>
     public TerraformValue<string>? Ipv6AddressType
     {
-        get => new TerraformReference<string>(this, "ipv6_address_type");
+        get => GetArgument<TerraformValue<string>>("ipv6_address_type");
         set => SetArgument("ipv6_address_type", value);
     }
 
@@ -154,7 +154,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetwo
     /// </summary>
     public TerraformValue<string>? MacAddressType
     {
-        get => new TerraformReference<string>(this, "mac_address_type");
+        get => GetArgument<TerraformValue<string>>("mac_address_type");
         set => SetArgument("mac_address_type", value);
     }
 
@@ -164,7 +164,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetwo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -173,7 +173,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetwo
     /// </summary>
     public TerraformValue<string>? VirtualNetworkId
     {
-        get => new TerraformReference<string>(this, "virtual_network_id");
+        get => GetArgument<TerraformValue<string>>("virtual_network_id");
         set => SetArgument("virtual_network_id", value);
     }
 
@@ -196,7 +196,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceOpera
     /// </summary>
     public TerraformValue<string>? AdminPassword
     {
-        get => new TerraformReference<string>(this, "admin_password");
+        get => GetArgument<TerraformValue<string>>("admin_password");
         set => SetArgument("admin_password", value);
     }
 
@@ -205,7 +205,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceOpera
     /// </summary>
     public TerraformValue<string>? ComputerName
     {
-        get => new TerraformReference<string>(this, "computer_name");
+        get => GetArgument<TerraformValue<string>>("computer_name");
         set => SetArgument("computer_name", value);
     }
 
@@ -228,7 +228,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStora
     /// </summary>
     public TerraformValue<double>? Bus
     {
-        get => new TerraformReference<double>(this, "bus");
+        get => GetArgument<TerraformValue<double>>("bus");
         set => SetArgument("bus", value);
     }
 
@@ -237,7 +237,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStora
     /// </summary>
     public TerraformValue<string>? BusType
     {
-        get => new TerraformReference<string>(this, "bus_type");
+        get => GetArgument<TerraformValue<string>>("bus_type");
         set => SetArgument("bus_type", value);
     }
 
@@ -246,7 +246,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStora
     /// </summary>
     public TerraformValue<double>? DiskSizeGb
     {
-        get => new TerraformReference<double>(this, "disk_size_gb");
+        get => GetArgument<TerraformValue<double>>("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
@@ -255,7 +255,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStora
     /// </summary>
     public TerraformValue<double>? Lun
     {
-        get => new TerraformReference<double>(this, "lun");
+        get => GetArgument<TerraformValue<double>>("lun");
         set => SetArgument("lun", value);
     }
 
@@ -264,7 +264,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStora
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -273,7 +273,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStora
     /// </summary>
     public TerraformValue<string>? StorageQosPolicyName
     {
-        get => new TerraformReference<string>(this, "storage_qos_policy_name");
+        get => GetArgument<TerraformValue<string>>("storage_qos_policy_name");
         set => SetArgument("storage_qos_policy_name", value);
     }
 
@@ -282,7 +282,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStora
     /// </summary>
     public TerraformValue<string>? TemplateDiskId
     {
-        get => new TerraformReference<string>(this, "template_disk_id");
+        get => GetArgument<TerraformValue<string>>("template_disk_id");
         set => SetArgument("template_disk_id", value);
     }
 
@@ -291,7 +291,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStora
     /// </summary>
     public TerraformValue<string>? VhdType
     {
-        get => new TerraformReference<string>(this, "vhd_type");
+        get => GetArgument<TerraformValue<string>>("vhd_type");
         set => SetArgument("vhd_type", value);
     }
 
@@ -314,7 +314,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceTimeo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -323,7 +323,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceTimeo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -332,7 +332,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceTimeo
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -341,7 +341,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceTimeo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -360,16 +360,16 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomLocationId is required")]
     public required TerraformValue<string> CustomLocationId
     {
-        get => new TerraformReference<string>(this, "custom_location_id");
+        get => GetArgument<TerraformValue<string>>("custom_location_id");
         set => SetArgument("custom_location_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -379,7 +379,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopedResourceId is required")]
     public required TerraformValue<string> ScopedResourceId
     {
-        get => new TerraformReference<string>(this, "scoped_resource_id");
+        get => GetArgument<TerraformValue<string>>("scoped_resource_id");
         set => SetArgument("scoped_resource_id", value);
     }
 
@@ -388,7 +388,7 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
     /// </summary>
     public TerraformList<string>? SystemCenterVirtualMachineManagerAvailabilitySetIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "system_center_virtual_machine_manager_availability_set_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("system_center_virtual_machine_manager_availability_set_ids");
         set => SetArgument("system_center_virtual_machine_manager_availability_set_ids", value);
     }
 

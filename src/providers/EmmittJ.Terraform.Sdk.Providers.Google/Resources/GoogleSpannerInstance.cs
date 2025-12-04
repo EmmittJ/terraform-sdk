@@ -126,7 +126,7 @@ public class GoogleSpannerInstanceAutoscalingConfigBlockAsymmetricAutoscalingOpt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodes is required")]
     public required TerraformValue<double> MaxNodes
     {
-        get => new TerraformReference<double>(this, "max_nodes");
+        get => GetArgument<TerraformValue<double>>("max_nodes");
         set => SetArgument("max_nodes", value);
     }
 
@@ -136,7 +136,7 @@ public class GoogleSpannerInstanceAutoscalingConfigBlockAsymmetricAutoscalingOpt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodes is required")]
     public required TerraformValue<double> MinNodes
     {
-        get => new TerraformReference<double>(this, "min_nodes");
+        get => GetArgument<TerraformValue<double>>("min_nodes");
         set => SetArgument("min_nodes", value);
     }
 
@@ -159,7 +159,7 @@ public class GoogleSpannerInstanceAutoscalingConfigBlockAsymmetricAutoscalingOpt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -182,7 +182,7 @@ public class GoogleSpannerInstanceAutoscalingConfigBlockAutoscalingLimitsBlock :
     /// </summary>
     public TerraformValue<double>? MaxNodes
     {
-        get => new TerraformReference<double>(this, "max_nodes");
+        get => GetArgument<TerraformValue<double>>("max_nodes");
         set => SetArgument("max_nodes", value);
     }
 
@@ -193,7 +193,7 @@ public class GoogleSpannerInstanceAutoscalingConfigBlockAutoscalingLimitsBlock :
     /// </summary>
     public TerraformValue<double>? MaxProcessingUnits
     {
-        get => new TerraformReference<double>(this, "max_processing_units");
+        get => GetArgument<TerraformValue<double>>("max_processing_units");
         set => SetArgument("max_processing_units", value);
     }
 
@@ -203,7 +203,7 @@ public class GoogleSpannerInstanceAutoscalingConfigBlockAutoscalingLimitsBlock :
     /// </summary>
     public TerraformValue<double>? MinNodes
     {
-        get => new TerraformReference<double>(this, "min_nodes");
+        get => GetArgument<TerraformValue<double>>("min_nodes");
         set => SetArgument("min_nodes", value);
     }
 
@@ -213,7 +213,7 @@ public class GoogleSpannerInstanceAutoscalingConfigBlockAutoscalingLimitsBlock :
     /// </summary>
     public TerraformValue<double>? MinProcessingUnits
     {
-        get => new TerraformReference<double>(this, "min_processing_units");
+        get => GetArgument<TerraformValue<double>>("min_processing_units");
         set => SetArgument("min_processing_units", value);
     }
 
@@ -237,7 +237,7 @@ public class GoogleSpannerInstanceAutoscalingConfigBlockAutoscalingTargetsBlock 
     /// </summary>
     public TerraformValue<double>? HighPriorityCpuUtilizationPercent
     {
-        get => new TerraformReference<double>(this, "high_priority_cpu_utilization_percent");
+        get => GetArgument<TerraformValue<double>>("high_priority_cpu_utilization_percent");
         set => SetArgument("high_priority_cpu_utilization_percent", value);
     }
 
@@ -248,7 +248,7 @@ public class GoogleSpannerInstanceAutoscalingConfigBlockAutoscalingTargetsBlock 
     /// </summary>
     public TerraformValue<double>? StorageUtilizationPercent
     {
-        get => new TerraformReference<double>(this, "storage_utilization_percent");
+        get => GetArgument<TerraformValue<double>>("storage_utilization_percent");
         set => SetArgument("storage_utilization_percent", value);
     }
 
@@ -271,7 +271,7 @@ public class GoogleSpannerInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -280,7 +280,7 @@ public class GoogleSpannerInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -289,7 +289,7 @@ public class GoogleSpannerInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -313,7 +313,7 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
     public required TerraformValue<string> Config
     {
-        get => new TerraformReference<string>(this, "config");
+        get => GetArgument<TerraformValue<string>>("config");
         set => SetArgument("config", value);
     }
 
@@ -322,9 +322,9 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// Note that &#39;AUTOMATIC&#39; is not permitted for free instances, as backups and backup schedules are not allowed for free instances.
     /// if unset or NONE, no default backup schedule will be created for new databases within the instance. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;AUTOMATIC&amp;quot;]
     /// </summary>
-    public TerraformValue<string> DefaultBackupScheduleType
+    public TerraformValue<string>? DefaultBackupScheduleType
     {
-        get => new TerraformReference<string>(this, "default_backup_schedule_type");
+        get => GetArgument<TerraformValue<string>>("default_backup_schedule_type");
         set => SetArgument("default_backup_schedule_type", value);
     }
 
@@ -335,16 +335,16 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The edition selected for this instance. Different editions provide different capabilities at different price points. Possible values: [&amp;quot;EDITION_UNSPECIFIED&amp;quot;, &amp;quot;STANDARD&amp;quot;, &amp;quot;ENTERPRISE&amp;quot;, &amp;quot;ENTERPRISE_PLUS&amp;quot;]
     /// </summary>
-    public TerraformValue<string> Edition
+    public TerraformValue<string>? Edition
     {
-        get => new TerraformReference<string>(this, "edition");
+        get => GetArgument<TerraformValue<string>>("edition");
         set => SetArgument("edition", value);
     }
 
@@ -354,16 +354,16 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// </summary>
     public TerraformValue<bool>? ForceDestroy
     {
-        get => new TerraformReference<bool>(this, "force_destroy");
+        get => GetArgument<TerraformValue<bool>>("force_destroy");
         set => SetArgument("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -372,9 +372,9 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// usage restrictions, quotas and billing. Currently this is used to distinguish FREE_INSTANCE vs PROVISIONED instances.
     /// When configured as FREE_INSTANCE, the field &#39;edition&#39; should not be configured. Possible values: [&amp;quot;PROVISIONED&amp;quot;, &amp;quot;FREE_INSTANCE&amp;quot;]
     /// </summary>
-    public TerraformValue<string> InstanceType
+    public TerraformValue<string>? InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -388,7 +388,7 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -398,9 +398,9 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// in length.
     /// If not provided, a random string starting with &#39;tf-&#39; will be selected.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -408,9 +408,9 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// The number of nodes allocated to this instance. Exactly one of either num_nodes, processing_units or
     /// autoscaling_config must be present in terraform except when instance_type = FREE_INSTANCE.
     /// </summary>
-    public TerraformValue<double> NumNodes
+    public TerraformValue<double>? NumNodes
     {
-        get => new TerraformReference<double>(this, "num_nodes");
+        get => GetArgument<TerraformValue<double>>("num_nodes");
         set => SetArgument("num_nodes", value);
     }
 
@@ -418,18 +418,18 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// The number of processing units allocated to this instance. Exactly one of either num_nodes,
     /// processing_units or autoscaling_config must be present in terraform except when instance_type = FREE_INSTANCE.
     /// </summary>
-    public TerraformValue<double> ProcessingUnits
+    public TerraformValue<double>? ProcessingUnits
     {
-        get => new TerraformReference<double>(this, "processing_units");
+        get => GetArgument<TerraformValue<double>>("processing_units");
         set => SetArgument("processing_units", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -437,26 +437,20 @@ public partial class GoogleSpannerInstance(string name) : TerraformResource("goo
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Instance status: &#39;CREATING&#39; or &#39;READY&#39;.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// AutoscalingConfig block (nesting mode: list).

@@ -11,9 +11,9 @@ public partial class AwsStoragegatewayTapePool(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsStoragegatewayTapePool(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolName is required")]
     public required TerraformValue<string> PoolName
     {
-        get => new TerraformReference<string>(this, "pool_name");
+        get => GetArgument<TerraformValue<string>>("pool_name");
         set => SetArgument("pool_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsStoragegatewayTapePool(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<double>? RetentionLockTimeInDays
     {
-        get => new TerraformReference<double>(this, "retention_lock_time_in_days");
+        get => GetArgument<TerraformValue<double>>("retention_lock_time_in_days");
         set => SetArgument("retention_lock_time_in_days", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsStoragegatewayTapePool(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? RetentionLockType
     {
-        get => new TerraformReference<string>(this, "retention_lock_type");
+        get => GetArgument<TerraformValue<string>>("retention_lock_type");
         set => SetArgument("retention_lock_type", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsStoragegatewayTapePool(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageClass is required")]
     public required TerraformValue<string> StorageClass
     {
-        get => new TerraformReference<string>(this, "storage_class");
+        get => GetArgument<TerraformValue<string>>("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -69,16 +69,16 @@ public partial class AwsStoragegatewayTapePool(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -86,8 +86,6 @@ public partial class AwsStoragegatewayTapePool(string name) : TerraformResource(
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

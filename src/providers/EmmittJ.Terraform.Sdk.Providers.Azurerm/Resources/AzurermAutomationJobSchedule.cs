@@ -18,7 +18,7 @@ public class AzurermAutomationJobScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermAutomationJobScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermAutomationJobScheduleTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -55,25 +55,25 @@ public partial class AzurermAutomationJobSchedule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     public required TerraformValue<string> AutomationAccountName
     {
-        get => new TerraformReference<string>(this, "automation_account_name");
+        get => GetArgument<TerraformValue<string>>("automation_account_name");
         set => SetArgument("automation_account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The job_schedule_id attribute.
     /// </summary>
-    public TerraformValue<string> JobScheduleId
+    public TerraformValue<string>? JobScheduleId
     {
-        get => new TerraformReference<string>(this, "job_schedule_id");
+        get => GetArgument<TerraformValue<string>>("job_schedule_id");
         set => SetArgument("job_schedule_id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermAutomationJobSchedule(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermAutomationJobSchedule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermAutomationJobSchedule(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? RunOn
     {
-        get => new TerraformReference<string>(this, "run_on");
+        get => GetArgument<TerraformValue<string>>("run_on");
         set => SetArgument("run_on", value);
     }
 
@@ -111,7 +111,7 @@ public partial class AzurermAutomationJobSchedule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RunbookName is required")]
     public required TerraformValue<string> RunbookName
     {
-        get => new TerraformReference<string>(this, "runbook_name");
+        get => GetArgument<TerraformValue<string>>("runbook_name");
         set => SetArgument("runbook_name", value);
     }
 
@@ -121,7 +121,7 @@ public partial class AzurermAutomationJobSchedule(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleName is required")]
     public required TerraformValue<string> ScheduleName
     {
-        get => new TerraformReference<string>(this, "schedule_name");
+        get => GetArgument<TerraformValue<string>>("schedule_name");
         set => SetArgument("schedule_name", value);
     }
 
@@ -129,9 +129,7 @@ public partial class AzurermAutomationJobSchedule(string name) : TerraformResour
     /// The resource_manager_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceManagerId
-    {
-        get => new TerraformReference<string>(this, "resource_manager_id");
-    }
+        => AsReference("resource_manager_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

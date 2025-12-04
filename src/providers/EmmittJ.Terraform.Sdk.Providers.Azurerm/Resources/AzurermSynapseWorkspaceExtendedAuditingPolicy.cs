@@ -18,7 +18,7 @@ public class AzurermSynapseWorkspaceExtendedAuditingPolicyTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSynapseWorkspaceExtendedAuditingPolicyTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSynapseWorkspaceExtendedAuditingPolicyTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSynapseWorkspaceExtendedAuditingPolicyTimeoutsBlock : Terraf
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermSynapseWorkspaceExtendedAuditingPolicy(string name) 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermSynapseWorkspaceExtendedAuditingPolicy(string name) 
     /// </summary>
     public TerraformValue<bool>? LogMonitoringEnabled
     {
-        get => new TerraformReference<bool>(this, "log_monitoring_enabled");
+        get => GetArgument<TerraformValue<bool>>("log_monitoring_enabled");
         set => SetArgument("log_monitoring_enabled", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermSynapseWorkspaceExtendedAuditingPolicy(string name) 
     /// </summary>
     public TerraformValue<double>? RetentionInDays
     {
-        get => new TerraformReference<double>(this, "retention_in_days");
+        get => GetArgument<TerraformValue<double>>("retention_in_days");
         set => SetArgument("retention_in_days", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AzurermSynapseWorkspaceExtendedAuditingPolicy(string name) 
     /// </summary>
     public TerraformValue<string>? StorageAccountAccessKey
     {
-        get => new TerraformReference<string>(this, "storage_account_access_key");
+        get => GetArgument<TerraformValue<string>>("storage_account_access_key");
         set => SetArgument("storage_account_access_key", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AzurermSynapseWorkspaceExtendedAuditingPolicy(string name) 
     /// </summary>
     public TerraformValue<bool>? StorageAccountAccessKeyIsSecondary
     {
-        get => new TerraformReference<bool>(this, "storage_account_access_key_is_secondary");
+        get => GetArgument<TerraformValue<bool>>("storage_account_access_key_is_secondary");
         set => SetArgument("storage_account_access_key_is_secondary", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AzurermSynapseWorkspaceExtendedAuditingPolicy(string name) 
     /// </summary>
     public TerraformValue<string>? StorageEndpoint
     {
-        get => new TerraformReference<string>(this, "storage_endpoint");
+        get => GetArgument<TerraformValue<string>>("storage_endpoint");
         set => SetArgument("storage_endpoint", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermSynapseWorkspaceExtendedAuditingPolicy(string name) 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
     public required TerraformValue<string> SynapseWorkspaceId
     {
-        get => new TerraformReference<string>(this, "synapse_workspace_id");
+        get => GetArgument<TerraformValue<string>>("synapse_workspace_id");
         set => SetArgument("synapse_workspace_id", value);
     }
 

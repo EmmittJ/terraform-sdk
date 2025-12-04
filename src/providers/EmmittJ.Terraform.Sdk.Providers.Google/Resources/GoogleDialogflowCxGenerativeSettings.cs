@@ -18,7 +18,7 @@ public class GoogleDialogflowCxGenerativeSettingsFallbackSettingsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? SelectedPrompt
     {
-        get => new TerraformReference<string>(this, "selected_prompt");
+        get => GetArgument<TerraformValue<string>>("selected_prompt");
         set => SetArgument("selected_prompt", value);
     }
 
@@ -49,7 +49,7 @@ public class GoogleDialogflowCxGenerativeSettingsFallbackSettingsBlockPromptTemp
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -58,7 +58,7 @@ public class GoogleDialogflowCxGenerativeSettingsFallbackSettingsBlockPromptTemp
     /// </summary>
     public TerraformValue<bool>? Frozen
     {
-        get => new TerraformReference<bool>(this, "frozen");
+        get => GetArgument<TerraformValue<bool>>("frozen");
         set => SetArgument("frozen", value);
     }
 
@@ -67,7 +67,7 @@ public class GoogleDialogflowCxGenerativeSettingsFallbackSettingsBlockPromptTemp
     /// </summary>
     public TerraformValue<string>? PromptText
     {
-        get => new TerraformReference<string>(this, "prompt_text");
+        get => GetArgument<TerraformValue<string>>("prompt_text");
         set => SetArgument("prompt_text", value);
     }
 
@@ -91,7 +91,7 @@ public class GoogleDialogflowCxGenerativeSettingsGenerativeSafetySettingsBlock :
     /// </summary>
     public TerraformValue<string>? DefaultBannedPhraseMatchStrategy
     {
-        get => new TerraformReference<string>(this, "default_banned_phrase_match_strategy");
+        get => GetArgument<TerraformValue<string>>("default_banned_phrase_match_strategy");
         set => SetArgument("default_banned_phrase_match_strategy", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleDialogflowCxGenerativeSettingsGenerativeSafetySettingsBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformValue<string> LanguageCode
     {
-        get => new TerraformReference<string>(this, "language_code");
+        get => GetArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleDialogflowCxGenerativeSettingsGenerativeSafetySettingsBlockBa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Text is required")]
     public required TerraformValue<string> Text
     {
-        get => new TerraformReference<string>(this, "text");
+        get => GetArgument<TerraformValue<string>>("text");
         set => SetArgument("text", value);
     }
 
@@ -156,7 +156,7 @@ public class GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock
     /// </summary>
     public TerraformValue<string>? Agent
     {
-        get => new TerraformReference<string>(this, "agent");
+        get => GetArgument<TerraformValue<string>>("agent");
         set => SetArgument("agent", value);
     }
 
@@ -165,7 +165,7 @@ public class GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock
     /// </summary>
     public TerraformValue<string>? AgentIdentity
     {
-        get => new TerraformReference<string>(this, "agent_identity");
+        get => GetArgument<TerraformValue<string>>("agent_identity");
         set => SetArgument("agent_identity", value);
     }
 
@@ -174,7 +174,7 @@ public class GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock
     /// </summary>
     public TerraformValue<string>? AgentScope
     {
-        get => new TerraformReference<string>(this, "agent_scope");
+        get => GetArgument<TerraformValue<string>>("agent_scope");
         set => SetArgument("agent_scope", value);
     }
 
@@ -183,7 +183,7 @@ public class GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock
     /// </summary>
     public TerraformValue<string>? Business
     {
-        get => new TerraformReference<string>(this, "business");
+        get => GetArgument<TerraformValue<string>>("business");
         set => SetArgument("business", value);
     }
 
@@ -192,7 +192,7 @@ public class GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock
     /// </summary>
     public TerraformValue<string>? BusinessDescription
     {
-        get => new TerraformReference<string>(this, "business_description");
+        get => GetArgument<TerraformValue<string>>("business_description");
         set => SetArgument("business_description", value);
     }
 
@@ -201,7 +201,7 @@ public class GoogleDialogflowCxGenerativeSettingsKnowledgeConnectorSettingsBlock
     /// </summary>
     public TerraformValue<bool>? DisableDataStoreFallback
     {
-        get => new TerraformReference<bool>(this, "disable_data_store_fallback");
+        get => GetArgument<TerraformValue<bool>>("disable_data_store_fallback");
         set => SetArgument("disable_data_store_fallback", value);
     }
 
@@ -224,7 +224,7 @@ public class GoogleDialogflowCxGenerativeSettingsLlmModelSettingsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Model
     {
-        get => new TerraformReference<string>(this, "model");
+        get => GetArgument<TerraformValue<string>>("model");
         set => SetArgument("model", value);
     }
 
@@ -233,7 +233,7 @@ public class GoogleDialogflowCxGenerativeSettingsLlmModelSettingsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? PromptText
     {
-        get => new TerraformReference<string>(this, "prompt_text");
+        get => GetArgument<TerraformValue<string>>("prompt_text");
         set => SetArgument("prompt_text", value);
     }
 
@@ -256,7 +256,7 @@ public class GoogleDialogflowCxGenerativeSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -265,7 +265,7 @@ public class GoogleDialogflowCxGenerativeSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -274,7 +274,7 @@ public class GoogleDialogflowCxGenerativeSettingsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -290,9 +290,9 @@ public partial class GoogleDialogflowCxGenerativeSettings(string name) : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -302,7 +302,7 @@ public partial class GoogleDialogflowCxGenerativeSettings(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
     public required TerraformValue<string> LanguageCode
     {
-        get => new TerraformReference<string>(this, "language_code");
+        get => GetArgument<TerraformValue<string>>("language_code");
         set => SetArgument("language_code", value);
     }
 
@@ -312,7 +312,7 @@ public partial class GoogleDialogflowCxGenerativeSettings(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -321,9 +321,7 @@ public partial class GoogleDialogflowCxGenerativeSettings(string name) : Terrafo
     /// Format: projects/&amp;lt;ProjectID&amp;gt;/locations/&amp;lt;LocationID&amp;gt;/agents/&amp;lt;AgentID&amp;gt;/generativeSettings.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// FallbackSettings block (nesting mode: list).

@@ -19,7 +19,7 @@ public class AzurermNginxConfigurationConfigFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => new TerraformReference<string>(this, "content");
+        get => GetArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermNginxConfigurationConfigFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualPath is required")]
     public required TerraformValue<string> VirtualPath
     {
-        get => new TerraformReference<string>(this, "virtual_path");
+        get => GetArgument<TerraformValue<string>>("virtual_path");
         set => SetArgument("virtual_path", value);
     }
 
@@ -53,7 +53,7 @@ public class AzurermNginxConfigurationProtectedFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
     public required TerraformValue<string> Content
     {
-        get => new TerraformReference<string>(this, "content");
+        get => GetArgument<TerraformValue<string>>("content");
         set => SetArgument("content", value);
     }
 
@@ -61,9 +61,7 @@ public class AzurermNginxConfigurationProtectedFileBlock : TerraformBlock
     /// The content_hash attribute.
     /// </summary>
     public TerraformValue<string> ContentHash
-    {
-        get => new TerraformReference<string>(this, "content_hash");
-    }
+        => AsReference("content_hash");
 
     /// <summary>
     /// The virtual_path attribute.
@@ -71,7 +69,7 @@ public class AzurermNginxConfigurationProtectedFileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualPath is required")]
     public required TerraformValue<string> VirtualPath
     {
-        get => new TerraformReference<string>(this, "virtual_path");
+        get => GetArgument<TerraformValue<string>>("virtual_path");
         set => SetArgument("virtual_path", value);
     }
 
@@ -94,7 +92,7 @@ public class AzurermNginxConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -103,7 +101,7 @@ public class AzurermNginxConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -112,7 +110,7 @@ public class AzurermNginxConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -121,7 +119,7 @@ public class AzurermNginxConfigurationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -137,9 +135,9 @@ public partial class AzurermNginxConfiguration(string name) : TerraformResource(
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -149,7 +147,7 @@ public partial class AzurermNginxConfiguration(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
     public required TerraformValue<string> NginxDeploymentId
     {
-        get => new TerraformReference<string>(this, "nginx_deployment_id");
+        get => GetArgument<TerraformValue<string>>("nginx_deployment_id");
         set => SetArgument("nginx_deployment_id", value);
     }
 
@@ -158,7 +156,7 @@ public partial class AzurermNginxConfiguration(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? PackageData
     {
-        get => new TerraformReference<string>(this, "package_data");
+        get => GetArgument<TerraformValue<string>>("package_data");
         set => SetArgument("package_data", value);
     }
 
@@ -168,7 +166,7 @@ public partial class AzurermNginxConfiguration(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFile is required")]
     public required TerraformValue<string> RootFile
     {
-        get => new TerraformReference<string>(this, "root_file");
+        get => GetArgument<TerraformValue<string>>("root_file");
         set => SetArgument("root_file", value);
     }
 

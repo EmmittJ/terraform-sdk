@@ -11,18 +11,18 @@ public partial class AwsSecretsmanagerSecretVersionDataSource(string name) : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -32,16 +32,16 @@ public partial class AwsSecretsmanagerSecretVersionDataSource(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformValue<string> SecretId
     {
-        get => new TerraformReference<string>(this, "secret_id");
+        get => GetArgument<TerraformValue<string>>("secret_id");
         set => SetArgument("secret_id", value);
     }
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
-    public TerraformValue<string> VersionId
+    public TerraformValue<string>? VersionId
     {
-        get => new TerraformReference<string>(this, "version_id");
+        get => GetArgument<TerraformValue<string>>("version_id");
         set => SetArgument("version_id", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsSecretsmanagerSecretVersionDataSource(string name) : Ter
     /// </summary>
     public TerraformValue<string>? VersionStage
     {
-        get => new TerraformReference<string>(this, "version_stage");
+        get => GetArgument<TerraformValue<string>>("version_stage");
         set => SetArgument("version_stage", value);
     }
 
@@ -58,40 +58,30 @@ public partial class AwsSecretsmanagerSecretVersionDataSource(string name) : Ter
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
     public TerraformValue<string> CreatedDate
-    {
-        get => new TerraformReference<string>(this, "created_date");
-    }
+        => AsReference("created_date");
 
     /// <summary>
     /// The secret_binary attribute.
     /// </summary>
     public TerraformValue<string> SecretBinary
-    {
-        get => new TerraformReference<string>(this, "secret_binary");
-    }
+        => AsReference("secret_binary");
 
     /// <summary>
     /// The secret_string attribute.
     /// </summary>
     public TerraformValue<string> SecretString
-    {
-        get => new TerraformReference<string>(this, "secret_string");
-    }
+        => AsReference("secret_string");
 
     /// <summary>
     /// The version_stages attribute.
     /// </summary>
     public TerraformSet<string> VersionStages
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "version_stages").ResolveNodes(ctx));
-    }
+        => AsReference("version_stages");
 
 }

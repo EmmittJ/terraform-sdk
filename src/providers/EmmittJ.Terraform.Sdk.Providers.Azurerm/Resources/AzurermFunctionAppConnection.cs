@@ -18,7 +18,7 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Certificate
     {
-        get => new TerraformReference<string>(this, "certificate");
+        get => GetArgument<TerraformValue<string>>("certificate");
         set => SetArgument("certificate", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PrincipalId
     {
-        get => new TerraformReference<string>(this, "principal_id");
+        get => GetArgument<TerraformValue<string>>("principal_id");
         set => SetArgument("principal_id", value);
     }
 
@@ -54,7 +54,7 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Secret
     {
-        get => new TerraformReference<string>(this, "secret");
+        get => GetArgument<TerraformValue<string>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -63,7 +63,7 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SubscriptionId
     {
-        get => new TerraformReference<string>(this, "subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 
@@ -73,7 +73,7 @@ public class AzurermFunctionAppConnectionAuthenticationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermFunctionAppConnectionSecretStoreBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformValue<string> KeyVaultId
     {
-        get => new TerraformReference<string>(this, "key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -120,7 +120,7 @@ public class AzurermFunctionAppConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -129,7 +129,7 @@ public class AzurermFunctionAppConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -138,7 +138,7 @@ public class AzurermFunctionAppConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -147,7 +147,7 @@ public class AzurermFunctionAppConnectionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -165,7 +165,7 @@ public partial class AzurermFunctionAppConnection(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? ClientType
     {
-        get => new TerraformReference<string>(this, "client_type");
+        get => GetArgument<TerraformValue<string>>("client_type");
         set => SetArgument("client_type", value);
     }
 
@@ -175,16 +175,16 @@ public partial class AzurermFunctionAppConnection(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppId is required")]
     public required TerraformValue<string> FunctionAppId
     {
-        get => new TerraformReference<string>(this, "function_app_id");
+        get => GetArgument<TerraformValue<string>>("function_app_id");
         set => SetArgument("function_app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -194,7 +194,7 @@ public partial class AzurermFunctionAppConnection(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -204,7 +204,7 @@ public partial class AzurermFunctionAppConnection(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
     public required TerraformValue<string> TargetResourceId
     {
-        get => new TerraformReference<string>(this, "target_resource_id");
+        get => GetArgument<TerraformValue<string>>("target_resource_id");
         set => SetArgument("target_resource_id", value);
     }
 
@@ -213,7 +213,7 @@ public partial class AzurermFunctionAppConnection(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? VnetSolution
     {
-        get => new TerraformReference<string>(this, "vnet_solution");
+        get => GetArgument<TerraformValue<string>>("vnet_solution");
         set => SetArgument("vnet_solution", value);
     }
 

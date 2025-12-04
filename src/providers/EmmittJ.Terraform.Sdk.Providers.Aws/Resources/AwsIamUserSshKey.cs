@@ -14,16 +14,16 @@ public partial class AwsIamUserSshKey(string name) : TerraformResource("aws_iam_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Encoding is required")]
     public required TerraformValue<string> Encoding
     {
-        get => new TerraformReference<string>(this, "encoding");
+        get => GetArgument<TerraformValue<string>>("encoding");
         set => SetArgument("encoding", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,16 +33,16 @@ public partial class AwsIamUserSshKey(string name) : TerraformResource("aws_iam_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKey is required")]
     public required TerraformValue<string> PublicKey
     {
-        get => new TerraformReference<string>(this, "public_key");
+        get => GetArgument<TerraformValue<string>>("public_key");
         set => SetArgument("public_key", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformValue<string> Status
+    public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -52,7 +52,7 @@ public partial class AwsIamUserSshKey(string name) : TerraformResource("aws_iam_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
     public required TerraformValue<string> Username
     {
-        get => new TerraformReference<string>(this, "username");
+        get => GetArgument<TerraformValue<string>>("username");
         set => SetArgument("username", value);
     }
 
@@ -60,16 +60,12 @@ public partial class AwsIamUserSshKey(string name) : TerraformResource("aws_iam_
     /// The fingerprint attribute.
     /// </summary>
     public TerraformValue<string> Fingerprint
-    {
-        get => new TerraformReference<string>(this, "fingerprint");
-    }
+        => AsReference("fingerprint");
 
     /// <summary>
     /// The ssh_public_key_id attribute.
     /// </summary>
     public TerraformValue<string> SshPublicKeyId
-    {
-        get => new TerraformReference<string>(this, "ssh_public_key_id");
-    }
+        => AsReference("ssh_public_key_id");
 
 }

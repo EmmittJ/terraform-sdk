@@ -18,7 +18,7 @@ public class GoogleIamDenyPolicyRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleIamDenyPolicyRulesBlockDenyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? DeniedPermissions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "denied_permissions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("denied_permissions");
         set => SetArgument("denied_permissions", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleIamDenyPolicyRulesBlockDenyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? DeniedPrincipals
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "denied_principals").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("denied_principals");
         set => SetArgument("denied_principals", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleIamDenyPolicyRulesBlockDenyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ExceptionPermissions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exception_permissions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exception_permissions");
         set => SetArgument("exception_permissions", value);
     }
 
@@ -81,7 +81,7 @@ public class GoogleIamDenyPolicyRulesBlockDenyRuleBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ExceptionPrincipals
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exception_principals").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exception_principals");
         set => SetArgument("exception_principals", value);
     }
 
@@ -114,7 +114,7 @@ public class GoogleIamDenyPolicyRulesBlockDenyRuleBlockDenialConditionBlock : Te
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -124,7 +124,7 @@ public class GoogleIamDenyPolicyRulesBlockDenyRuleBlockDenialConditionBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
     public required TerraformValue<string> Expression
     {
-        get => new TerraformReference<string>(this, "expression");
+        get => GetArgument<TerraformValue<string>>("expression");
         set => SetArgument("expression", value);
     }
 
@@ -134,7 +134,7 @@ public class GoogleIamDenyPolicyRulesBlockDenyRuleBlockDenialConditionBlock : Te
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -144,7 +144,7 @@ public class GoogleIamDenyPolicyRulesBlockDenyRuleBlockDenialConditionBlock : Te
     /// </summary>
     public TerraformValue<string>? Title
     {
-        get => new TerraformReference<string>(this, "title");
+        get => GetArgument<TerraformValue<string>>("title");
         set => SetArgument("title", value);
     }
 
@@ -167,7 +167,7 @@ public class GoogleIamDenyPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -176,7 +176,7 @@ public class GoogleIamDenyPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -185,7 +185,7 @@ public class GoogleIamDenyPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -203,16 +203,16 @@ public partial class GoogleIamDenyPolicy(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -222,7 +222,7 @@ public partial class GoogleIamDenyPolicy(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -232,7 +232,7 @@ public partial class GoogleIamDenyPolicy(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -240,9 +240,7 @@ public partial class GoogleIamDenyPolicy(string name) : TerraformResource("googl
     /// The hash of the resource. Used internally during updates.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Rules block (nesting mode: list).

@@ -19,7 +19,7 @@ public class AwsConfigConformancePackInputParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterName is required")]
     public required TerraformValue<string> ParameterName
     {
-        get => new TerraformReference<string>(this, "parameter_name");
+        get => GetArgument<TerraformValue<string>>("parameter_name");
         set => SetArgument("parameter_name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsConfigConformancePackInputParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterValue is required")]
     public required TerraformValue<string> ParameterValue
     {
-        get => new TerraformReference<string>(this, "parameter_value");
+        get => GetArgument<TerraformValue<string>>("parameter_value");
         set => SetArgument("parameter_value", value);
     }
 
@@ -47,7 +47,7 @@ public partial class AwsConfigConformancePack(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? DeliveryS3Bucket
     {
-        get => new TerraformReference<string>(this, "delivery_s3_bucket");
+        get => GetArgument<TerraformValue<string>>("delivery_s3_bucket");
         set => SetArgument("delivery_s3_bucket", value);
     }
 
@@ -56,16 +56,16 @@ public partial class AwsConfigConformancePack(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? DeliveryS3KeyPrefix
     {
-        get => new TerraformReference<string>(this, "delivery_s3_key_prefix");
+        get => GetArgument<TerraformValue<string>>("delivery_s3_key_prefix");
         set => SetArgument("delivery_s3_key_prefix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -75,16 +75,16 @@ public partial class AwsConfigConformancePack(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AwsConfigConformancePack(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? TemplateBody
     {
-        get => new TerraformReference<string>(this, "template_body");
+        get => GetArgument<TerraformValue<string>>("template_body");
         set => SetArgument("template_body", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AwsConfigConformancePack(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? TemplateS3Uri
     {
-        get => new TerraformReference<string>(this, "template_s3_uri");
+        get => GetArgument<TerraformValue<string>>("template_s3_uri");
         set => SetArgument("template_s3_uri", value);
     }
 
@@ -110,9 +110,7 @@ public partial class AwsConfigConformancePack(string name) : TerraformResource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// InputParameter block (nesting mode: set).

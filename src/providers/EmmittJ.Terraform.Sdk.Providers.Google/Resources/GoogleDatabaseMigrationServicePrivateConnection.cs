@@ -18,7 +18,7 @@ public class GoogleDatabaseMigrationServicePrivateConnectionTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleDatabaseMigrationServicePrivateConnectionTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleDatabaseMigrationServicePrivateConnectionTimeoutsBlock : Terr
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleDatabaseMigrationServicePrivateConnectionVpcPeeringConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnet is required")]
     public required TerraformValue<string> Subnet
     {
-        get => new TerraformReference<string>(this, "subnet");
+        get => GetArgument<TerraformValue<string>>("subnet");
         set => SetArgument("subnet", value);
     }
 
@@ -71,7 +71,7 @@ public class GoogleDatabaseMigrationServicePrivateConnectionVpcPeeringConfigBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcName is required")]
     public required TerraformValue<string> VpcName
     {
-        get => new TerraformReference<string>(this, "vpc_name");
+        get => GetArgument<TerraformValue<string>>("vpc_name");
         set => SetArgument("vpc_name", value);
     }
 
@@ -89,25 +89,25 @@ public partial class GoogleDatabaseMigrationServicePrivateConnection(string name
     /// </summary>
     public TerraformValue<bool>? CreateWithoutValidation
     {
-        get => new TerraformReference<bool>(this, "create_without_validation");
+        get => GetArgument<TerraformValue<bool>>("create_without_validation");
         set => SetArgument("create_without_validation", value);
     }
 
     /// <summary>
     /// Display name.
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -119,7 +119,7 @@ public partial class GoogleDatabaseMigrationServicePrivateConnection(string name
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -129,7 +129,7 @@ public partial class GoogleDatabaseMigrationServicePrivateConnection(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -139,16 +139,16 @@ public partial class GoogleDatabaseMigrationServicePrivateConnection(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateConnectionId is required")]
     public required TerraformValue<string> PrivateConnectionId
     {
-        get => new TerraformReference<string>(this, "private_connection_id");
+        get => GetArgument<TerraformValue<string>>("private_connection_id");
         set => SetArgument("private_connection_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -156,42 +156,32 @@ public partial class GoogleDatabaseMigrationServicePrivateConnection(string name
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The PrivateConnection error in case of failure.
     /// </summary>
     public TerraformList<TerraformMap<object>> Error
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "error").ResolveNodes(ctx));
-    }
+        => AsReference("error");
 
     /// <summary>
     /// The resource&#39;s name.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// State of the PrivateConnection.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

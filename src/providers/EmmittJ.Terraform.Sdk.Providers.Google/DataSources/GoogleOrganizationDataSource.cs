@@ -11,18 +11,18 @@ public partial class GoogleOrganizationDataSource(string name) : TerraformDataSo
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformValue<string> Domain
+    public TerraformValue<string>? Domain
     {
-        get => new TerraformReference<string>(this, "domain");
+        get => GetArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,7 +31,7 @@ public partial class GoogleOrganizationDataSource(string name) : TerraformDataSo
     /// </summary>
     public TerraformValue<string>? Organization
     {
-        get => new TerraformReference<string>(this, "organization");
+        get => GetArgument<TerraformValue<string>>("organization");
         set => SetArgument("organization", value);
     }
 
@@ -39,40 +39,30 @@ public partial class GoogleOrganizationDataSource(string name) : TerraformDataSo
     /// The create_time attribute.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The directory_customer_id attribute.
     /// </summary>
     public TerraformValue<string> DirectoryCustomerId
-    {
-        get => new TerraformReference<string>(this, "directory_customer_id");
-    }
+        => AsReference("directory_customer_id");
 
     /// <summary>
     /// The lifecycle_state attribute.
     /// </summary>
     public TerraformValue<string> LifecycleState
-    {
-        get => new TerraformReference<string>(this, "lifecycle_state");
-    }
+        => AsReference("lifecycle_state");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The org_id attribute.
     /// </summary>
     public TerraformValue<string> OrgId
-    {
-        get => new TerraformReference<string>(this, "org_id");
-    }
+        => AsReference("org_id");
 
 }

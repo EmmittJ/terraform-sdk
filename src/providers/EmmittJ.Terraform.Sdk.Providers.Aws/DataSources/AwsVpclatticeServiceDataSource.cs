@@ -11,45 +11,45 @@ public partial class AwsVpclatticeServiceDataSource(string name) : TerraformData
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The service_identifier attribute.
     /// </summary>
-    public TerraformValue<string> ServiceIdentifier
+    public TerraformValue<string>? ServiceIdentifier
     {
-        get => new TerraformReference<string>(this, "service_identifier");
+        get => GetArgument<TerraformValue<string>>("service_identifier");
         set => SetArgument("service_identifier", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -57,48 +57,36 @@ public partial class AwsVpclatticeServiceDataSource(string name) : TerraformData
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The auth_type attribute.
     /// </summary>
     public TerraformValue<string> AuthType
-    {
-        get => new TerraformReference<string>(this, "auth_type");
-    }
+        => AsReference("auth_type");
 
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
     public TerraformValue<string> CertificateArn
-    {
-        get => new TerraformReference<string>(this, "certificate_arn");
-    }
+        => AsReference("certificate_arn");
 
     /// <summary>
     /// The custom_domain_name attribute.
     /// </summary>
     public TerraformValue<string> CustomDomainName
-    {
-        get => new TerraformReference<string>(this, "custom_domain_name");
-    }
+        => AsReference("custom_domain_name");
 
     /// <summary>
     /// The dns_entry attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DnsEntry
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "dns_entry").ResolveNodes(ctx));
-    }
+        => AsReference("dns_entry");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }

@@ -62,7 +62,7 @@ public class GoogleLoggingMetricBucketOptionsBlockExplicitBucketsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bounds is required")]
     public TerraformList<double>? Bounds
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "bounds").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("bounds");
         set => SetArgument("bounds", value);
     }
 
@@ -85,7 +85,7 @@ public class GoogleLoggingMetricBucketOptionsBlockExponentialBucketsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GrowthFactor is required")]
     public required TerraformValue<double> GrowthFactor
     {
-        get => new TerraformReference<double>(this, "growth_factor");
+        get => GetArgument<TerraformValue<double>>("growth_factor");
         set => SetArgument("growth_factor", value);
     }
 
@@ -95,7 +95,7 @@ public class GoogleLoggingMetricBucketOptionsBlockExponentialBucketsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumFiniteBuckets is required")]
     public required TerraformValue<double> NumFiniteBuckets
     {
-        get => new TerraformReference<double>(this, "num_finite_buckets");
+        get => GetArgument<TerraformValue<double>>("num_finite_buckets");
         set => SetArgument("num_finite_buckets", value);
     }
 
@@ -105,7 +105,7 @@ public class GoogleLoggingMetricBucketOptionsBlockExponentialBucketsBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scale is required")]
     public required TerraformValue<double> Scale
     {
-        get => new TerraformReference<double>(this, "scale");
+        get => GetArgument<TerraformValue<double>>("scale");
         set => SetArgument("scale", value);
     }
 
@@ -128,7 +128,7 @@ public class GoogleLoggingMetricBucketOptionsBlockLinearBucketsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumFiniteBuckets is required")]
     public required TerraformValue<double> NumFiniteBuckets
     {
-        get => new TerraformReference<double>(this, "num_finite_buckets");
+        get => GetArgument<TerraformValue<double>>("num_finite_buckets");
         set => SetArgument("num_finite_buckets", value);
     }
 
@@ -138,7 +138,7 @@ public class GoogleLoggingMetricBucketOptionsBlockLinearBucketsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offset is required")]
     public required TerraformValue<double> Offset
     {
-        get => new TerraformReference<double>(this, "offset");
+        get => GetArgument<TerraformValue<double>>("offset");
         set => SetArgument("offset", value);
     }
 
@@ -148,7 +148,7 @@ public class GoogleLoggingMetricBucketOptionsBlockLinearBucketsBlock : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Width is required")]
     public required TerraformValue<double> Width
     {
-        get => new TerraformReference<double>(this, "width");
+        get => GetArgument<TerraformValue<double>>("width");
         set => SetArgument("width", value);
     }
 
@@ -173,7 +173,7 @@ public class GoogleLoggingMetricMetricDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -185,7 +185,7 @@ public class GoogleLoggingMetricMetricDescriptorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricKind is required")]
     public required TerraformValue<string> MetricKind
     {
-        get => new TerraformReference<string>(this, "metric_kind");
+        get => GetArgument<TerraformValue<string>>("metric_kind");
         set => SetArgument("metric_kind", value);
     }
 
@@ -196,7 +196,7 @@ public class GoogleLoggingMetricMetricDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Unit
     {
-        get => new TerraformReference<string>(this, "unit");
+        get => GetArgument<TerraformValue<string>>("unit");
         set => SetArgument("unit", value);
     }
 
@@ -208,7 +208,7 @@ public class GoogleLoggingMetricMetricDescriptorBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueType is required")]
     public required TerraformValue<string> ValueType
     {
-        get => new TerraformReference<string>(this, "value_type");
+        get => GetArgument<TerraformValue<string>>("value_type");
         set => SetArgument("value_type", value);
     }
 
@@ -239,7 +239,7 @@ public class GoogleLoggingMetricMetricDescriptorBlockLabelsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -249,7 +249,7 @@ public class GoogleLoggingMetricMetricDescriptorBlockLabelsBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -258,7 +258,7 @@ public class GoogleLoggingMetricMetricDescriptorBlockLabelsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? ValueType
     {
-        get => new TerraformReference<string>(this, "value_type");
+        get => GetArgument<TerraformValue<string>>("value_type");
         set => SetArgument("value_type", value);
     }
 
@@ -281,7 +281,7 @@ public class GoogleLoggingMetricTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -290,7 +290,7 @@ public class GoogleLoggingMetricTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -299,7 +299,7 @@ public class GoogleLoggingMetricTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -318,7 +318,7 @@ public partial class GoogleLoggingMetric(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -328,7 +328,7 @@ public partial class GoogleLoggingMetric(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -337,7 +337,7 @@ public partial class GoogleLoggingMetric(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -348,16 +348,16 @@ public partial class GoogleLoggingMetric(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -369,7 +369,7 @@ public partial class GoogleLoggingMetric(string name) : TerraformResource("googl
     /// </summary>
     public TerraformMap<string>? LabelExtractors
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "label_extractors").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("label_extractors");
         set => SetArgument("label_extractors", value);
     }
 
@@ -383,16 +383,16 @@ public partial class GoogleLoggingMetric(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -407,7 +407,7 @@ public partial class GoogleLoggingMetric(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? ValueExtractor
     {
-        get => new TerraformReference<string>(this, "value_extractor");
+        get => GetArgument<TerraformValue<string>>("value_extractor");
         set => SetArgument("value_extractor", value);
     }
 

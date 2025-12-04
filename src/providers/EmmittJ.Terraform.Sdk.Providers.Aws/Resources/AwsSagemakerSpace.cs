@@ -19,7 +19,7 @@ public class AwsSagemakerSpaceOwnershipSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OwnerUserProfileName is required")]
     public required TerraformValue<string> OwnerUserProfileName
     {
-        get => new TerraformReference<string>(this, "owner_user_profile_name");
+        get => GetArgument<TerraformValue<string>>("owner_user_profile_name");
         set => SetArgument("owner_user_profile_name", value);
     }
 
@@ -42,7 +42,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AppType
     {
-        get => new TerraformReference<string>(this, "app_type");
+        get => GetArgument<TerraformValue<string>>("app_type");
         set => SetArgument("app_type", value);
     }
 
@@ -182,7 +182,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockCodeEditorAppSettingsBlockAppLif
     /// </summary>
     public TerraformValue<double>? IdleTimeoutInMinutes
     {
-        get => new TerraformReference<double>(this, "idle_timeout_in_minutes");
+        get => GetArgument<TerraformValue<double>>("idle_timeout_in_minutes");
         set => SetArgument("idle_timeout_in_minutes", value);
     }
 
@@ -204,7 +204,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockCodeEditorAppSettingsBlockDefaul
     /// </summary>
     public TerraformValue<string>? InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -213,7 +213,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockCodeEditorAppSettingsBlockDefaul
     /// </summary>
     public TerraformValue<string>? LifecycleConfigArn
     {
-        get => new TerraformReference<string>(this, "lifecycle_config_arn");
+        get => GetArgument<TerraformValue<string>>("lifecycle_config_arn");
         set => SetArgument("lifecycle_config_arn", value);
     }
 
@@ -222,7 +222,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockCodeEditorAppSettingsBlockDefaul
     /// </summary>
     public TerraformValue<string>? SagemakerImageArn
     {
-        get => new TerraformReference<string>(this, "sagemaker_image_arn");
+        get => GetArgument<TerraformValue<string>>("sagemaker_image_arn");
         set => SetArgument("sagemaker_image_arn", value);
     }
 
@@ -231,7 +231,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockCodeEditorAppSettingsBlockDefaul
     /// </summary>
     public TerraformValue<string>? SagemakerImageVersionAlias
     {
-        get => new TerraformReference<string>(this, "sagemaker_image_version_alias");
+        get => GetArgument<TerraformValue<string>>("sagemaker_image_version_alias");
         set => SetArgument("sagemaker_image_version_alias", value);
     }
 
@@ -240,7 +240,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockCodeEditorAppSettingsBlockDefaul
     /// </summary>
     public TerraformValue<string>? SagemakerImageVersionArn
     {
-        get => new TerraformReference<string>(this, "sagemaker_image_version_arn");
+        get => GetArgument<TerraformValue<string>>("sagemaker_image_version_arn");
         set => SetArgument("sagemaker_image_version_arn", value);
     }
 
@@ -289,7 +289,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockCustomFileSystemBlockEfsFileSyst
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
     public required TerraformValue<string> FileSystemId
     {
-        get => new TerraformReference<string>(this, "file_system_id");
+        get => GetArgument<TerraformValue<string>>("file_system_id");
         set => SetArgument("file_system_id", value);
     }
 
@@ -380,7 +380,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockJupyterLabAppSettingsBlockAppLif
     /// </summary>
     public TerraformValue<double>? IdleTimeoutInMinutes
     {
-        get => new TerraformReference<double>(this, "idle_timeout_in_minutes");
+        get => GetArgument<TerraformValue<double>>("idle_timeout_in_minutes");
         set => SetArgument("idle_timeout_in_minutes", value);
     }
 
@@ -403,7 +403,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockJupyterLabAppSettingsBlockCodeRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
     public required TerraformValue<string> RepositoryUrl
     {
-        get => new TerraformReference<string>(this, "repository_url");
+        get => GetArgument<TerraformValue<string>>("repository_url");
         set => SetArgument("repository_url", value);
     }
 
@@ -425,7 +425,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockJupyterLabAppSettingsBlockDefaul
     /// </summary>
     public TerraformValue<string>? InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -434,7 +434,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockJupyterLabAppSettingsBlockDefaul
     /// </summary>
     public TerraformValue<string>? LifecycleConfigArn
     {
-        get => new TerraformReference<string>(this, "lifecycle_config_arn");
+        get => GetArgument<TerraformValue<string>>("lifecycle_config_arn");
         set => SetArgument("lifecycle_config_arn", value);
     }
 
@@ -443,7 +443,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockJupyterLabAppSettingsBlockDefaul
     /// </summary>
     public TerraformValue<string>? SagemakerImageArn
     {
-        get => new TerraformReference<string>(this, "sagemaker_image_arn");
+        get => GetArgument<TerraformValue<string>>("sagemaker_image_arn");
         set => SetArgument("sagemaker_image_arn", value);
     }
 
@@ -452,7 +452,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockJupyterLabAppSettingsBlockDefaul
     /// </summary>
     public TerraformValue<string>? SagemakerImageVersionAlias
     {
-        get => new TerraformReference<string>(this, "sagemaker_image_version_alias");
+        get => GetArgument<TerraformValue<string>>("sagemaker_image_version_alias");
         set => SetArgument("sagemaker_image_version_alias", value);
     }
 
@@ -461,7 +461,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockJupyterLabAppSettingsBlockDefaul
     /// </summary>
     public TerraformValue<string>? SagemakerImageVersionArn
     {
-        get => new TerraformReference<string>(this, "sagemaker_image_version_arn");
+        get => GetArgument<TerraformValue<string>>("sagemaker_image_version_arn");
         set => SetArgument("sagemaker_image_version_arn", value);
     }
 
@@ -483,7 +483,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockJupyterServerAppSettingsBlock : 
     /// </summary>
     public TerraformSet<string>? LifecycleConfigArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "lifecycle_config_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("lifecycle_config_arns");
         set => SetArgument("lifecycle_config_arns", value);
     }
 
@@ -529,7 +529,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockJupyterServerAppSettingsBlockCod
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryUrl is required")]
     public required TerraformValue<string> RepositoryUrl
     {
-        get => new TerraformReference<string>(this, "repository_url");
+        get => GetArgument<TerraformValue<string>>("repository_url");
         set => SetArgument("repository_url", value);
     }
 
@@ -551,7 +551,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockJupyterServerAppSettingsBlockDef
     /// </summary>
     public TerraformValue<string>? InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -560,7 +560,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockJupyterServerAppSettingsBlockDef
     /// </summary>
     public TerraformValue<string>? LifecycleConfigArn
     {
-        get => new TerraformReference<string>(this, "lifecycle_config_arn");
+        get => GetArgument<TerraformValue<string>>("lifecycle_config_arn");
         set => SetArgument("lifecycle_config_arn", value);
     }
 
@@ -569,7 +569,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockJupyterServerAppSettingsBlockDef
     /// </summary>
     public TerraformValue<string>? SagemakerImageArn
     {
-        get => new TerraformReference<string>(this, "sagemaker_image_arn");
+        get => GetArgument<TerraformValue<string>>("sagemaker_image_arn");
         set => SetArgument("sagemaker_image_arn", value);
     }
 
@@ -578,7 +578,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockJupyterServerAppSettingsBlockDef
     /// </summary>
     public TerraformValue<string>? SagemakerImageVersionAlias
     {
-        get => new TerraformReference<string>(this, "sagemaker_image_version_alias");
+        get => GetArgument<TerraformValue<string>>("sagemaker_image_version_alias");
         set => SetArgument("sagemaker_image_version_alias", value);
     }
 
@@ -587,7 +587,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockJupyterServerAppSettingsBlockDef
     /// </summary>
     public TerraformValue<string>? SagemakerImageVersionArn
     {
-        get => new TerraformReference<string>(this, "sagemaker_image_version_arn");
+        get => GetArgument<TerraformValue<string>>("sagemaker_image_version_arn");
         set => SetArgument("sagemaker_image_version_arn", value);
     }
 
@@ -609,7 +609,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockKernelGatewayAppSettingsBlock : 
     /// </summary>
     public TerraformSet<string>? LifecycleConfigArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "lifecycle_config_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("lifecycle_config_arns");
         set => SetArgument("lifecycle_config_arns", value);
     }
 
@@ -655,7 +655,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockKernelGatewayAppSettingsBlockCus
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppImageConfigName is required")]
     public required TerraformValue<string> AppImageConfigName
     {
-        get => new TerraformReference<string>(this, "app_image_config_name");
+        get => GetArgument<TerraformValue<string>>("app_image_config_name");
         set => SetArgument("app_image_config_name", value);
     }
 
@@ -665,7 +665,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockKernelGatewayAppSettingsBlockCus
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformValue<string> ImageName
     {
-        get => new TerraformReference<string>(this, "image_name");
+        get => GetArgument<TerraformValue<string>>("image_name");
         set => SetArgument("image_name", value);
     }
 
@@ -674,7 +674,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockKernelGatewayAppSettingsBlockCus
     /// </summary>
     public TerraformValue<double>? ImageVersionNumber
     {
-        get => new TerraformReference<double>(this, "image_version_number");
+        get => GetArgument<TerraformValue<double>>("image_version_number");
         set => SetArgument("image_version_number", value);
     }
 
@@ -696,7 +696,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockKernelGatewayAppSettingsBlockDef
     /// </summary>
     public TerraformValue<string>? InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -705,7 +705,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockKernelGatewayAppSettingsBlockDef
     /// </summary>
     public TerraformValue<string>? LifecycleConfigArn
     {
-        get => new TerraformReference<string>(this, "lifecycle_config_arn");
+        get => GetArgument<TerraformValue<string>>("lifecycle_config_arn");
         set => SetArgument("lifecycle_config_arn", value);
     }
 
@@ -714,7 +714,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockKernelGatewayAppSettingsBlockDef
     /// </summary>
     public TerraformValue<string>? SagemakerImageArn
     {
-        get => new TerraformReference<string>(this, "sagemaker_image_arn");
+        get => GetArgument<TerraformValue<string>>("sagemaker_image_arn");
         set => SetArgument("sagemaker_image_arn", value);
     }
 
@@ -723,7 +723,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockKernelGatewayAppSettingsBlockDef
     /// </summary>
     public TerraformValue<string>? SagemakerImageVersionAlias
     {
-        get => new TerraformReference<string>(this, "sagemaker_image_version_alias");
+        get => GetArgument<TerraformValue<string>>("sagemaker_image_version_alias");
         set => SetArgument("sagemaker_image_version_alias", value);
     }
 
@@ -732,7 +732,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockKernelGatewayAppSettingsBlockDef
     /// </summary>
     public TerraformValue<string>? SagemakerImageVersionArn
     {
-        get => new TerraformReference<string>(this, "sagemaker_image_version_arn");
+        get => GetArgument<TerraformValue<string>>("sagemaker_image_version_arn");
         set => SetArgument("sagemaker_image_version_arn", value);
     }
 
@@ -781,7 +781,7 @@ public class AwsSagemakerSpaceSpaceSettingsBlockSpaceStorageSettingsBlockEbsStor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EbsVolumeSizeInGb is required")]
     public required TerraformValue<double> EbsVolumeSizeInGb
     {
-        get => new TerraformReference<double>(this, "ebs_volume_size_in_gb");
+        get => GetArgument<TerraformValue<double>>("ebs_volume_size_in_gb");
         set => SetArgument("ebs_volume_size_in_gb", value);
     }
 
@@ -805,7 +805,7 @@ public class AwsSagemakerSpaceSpaceSharingSettingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharingType is required")]
     public required TerraformValue<string> SharingType
     {
-        get => new TerraformReference<string>(this, "sharing_type");
+        get => GetArgument<TerraformValue<string>>("sharing_type");
         set => SetArgument("sharing_type", value);
     }
 
@@ -824,25 +824,25 @@ public partial class AwsSagemakerSpace(string name) : TerraformResource("aws_sag
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
     public required TerraformValue<string> DomainId
     {
-        get => new TerraformReference<string>(this, "domain_id");
+        get => GetArgument<TerraformValue<string>>("domain_id");
         set => SetArgument("domain_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -851,7 +851,7 @@ public partial class AwsSagemakerSpace(string name) : TerraformResource("aws_sag
     /// </summary>
     public TerraformValue<string>? SpaceDisplayName
     {
-        get => new TerraformReference<string>(this, "space_display_name");
+        get => GetArgument<TerraformValue<string>>("space_display_name");
         set => SetArgument("space_display_name", value);
     }
 
@@ -861,7 +861,7 @@ public partial class AwsSagemakerSpace(string name) : TerraformResource("aws_sag
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpaceName is required")]
     public required TerraformValue<string> SpaceName
     {
-        get => new TerraformReference<string>(this, "space_name");
+        get => GetArgument<TerraformValue<string>>("space_name");
         set => SetArgument("space_name", value);
     }
 
@@ -870,16 +870,16 @@ public partial class AwsSagemakerSpace(string name) : TerraformResource("aws_sag
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -887,25 +887,19 @@ public partial class AwsSagemakerSpace(string name) : TerraformResource("aws_sag
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The home_efs_file_system_uid attribute.
     /// </summary>
     public TerraformValue<string> HomeEfsFileSystemUid
-    {
-        get => new TerraformReference<string>(this, "home_efs_file_system_uid");
-    }
+        => AsReference("home_efs_file_system_uid");
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-    {
-        get => new TerraformReference<string>(this, "url");
-    }
+        => AsReference("url");
 
     /// <summary>
     /// OwnershipSettings block (nesting mode: list).

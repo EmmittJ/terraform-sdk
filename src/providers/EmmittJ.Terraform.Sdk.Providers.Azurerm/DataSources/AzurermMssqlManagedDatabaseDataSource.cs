@@ -18,7 +18,7 @@ public class AzurermMssqlManagedDatabaseDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermMssqlManagedDatabaseDataSource(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermMssqlManagedDatabaseDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     public required TerraformValue<string> ManagedInstanceId
     {
-        get => new TerraformReference<string>(this, "managed_instance_id");
+        get => GetArgument<TerraformValue<string>>("managed_instance_id");
         set => SetArgument("managed_instance_id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermMssqlManagedDatabaseDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -64,41 +64,31 @@ public partial class AzurermMssqlManagedDatabaseDataSource(string name) : Terraf
     /// The long_term_retention_policy attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> LongTermRetentionPolicy
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "long_term_retention_policy").ResolveNodes(ctx));
-    }
+        => AsReference("long_term_retention_policy");
 
     /// <summary>
     /// The managed_instance_name attribute.
     /// </summary>
     public TerraformValue<string> ManagedInstanceName
-    {
-        get => new TerraformReference<string>(this, "managed_instance_name");
-    }
+        => AsReference("managed_instance_name");
 
     /// <summary>
     /// The point_in_time_restore attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PointInTimeRestore
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "point_in_time_restore").ResolveNodes(ctx));
-    }
+        => AsReference("point_in_time_restore");
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     public TerraformValue<string> ResourceGroupName
-    {
-        get => new TerraformReference<string>(this, "resource_group_name");
-    }
+        => AsReference("resource_group_name");
 
     /// <summary>
     /// The short_term_retention_days attribute.
     /// </summary>
     public TerraformValue<double> ShortTermRetentionDays
-    {
-        get => new TerraformReference<double>(this, "short_term_retention_days");
-    }
+        => AsReference("short_term_retention_days");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

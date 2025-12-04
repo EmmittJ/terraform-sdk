@@ -19,7 +19,7 @@ public class AwsTransferUserHomeDirectoryMappingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entry is required")]
     public required TerraformValue<string> Entry
     {
-        get => new TerraformReference<string>(this, "entry");
+        get => GetArgument<TerraformValue<string>>("entry");
         set => SetArgument("entry", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsTransferUserHomeDirectoryMappingsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     public required TerraformValue<string> Target
     {
-        get => new TerraformReference<string>(this, "target");
+        get => GetArgument<TerraformValue<string>>("target");
         set => SetArgument("target", value);
     }
 
@@ -53,7 +53,7 @@ public class AwsTransferUserPosixProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gid is required")]
     public required TerraformValue<double> Gid
     {
-        get => new TerraformReference<double>(this, "gid");
+        get => GetArgument<TerraformValue<double>>("gid");
         set => SetArgument("gid", value);
     }
 
@@ -62,7 +62,7 @@ public class AwsTransferUserPosixProfileBlock : TerraformBlock
     /// </summary>
     public TerraformSet<double>? SecondaryGids
     {
-        get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "secondary_gids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<double>>("secondary_gids");
         set => SetArgument("secondary_gids", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsTransferUserPosixProfileBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uid is required")]
     public required TerraformValue<double> Uid
     {
-        get => new TerraformReference<double>(this, "uid");
+        get => GetArgument<TerraformValue<double>>("uid");
         set => SetArgument("uid", value);
     }
 
@@ -95,7 +95,7 @@ public class AwsTransferUserTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AwsTransferUser(string name) : TerraformResource("aws_trans
     /// </summary>
     public TerraformValue<string>? HomeDirectory
     {
-        get => new TerraformReference<string>(this, "home_directory");
+        get => GetArgument<TerraformValue<string>>("home_directory");
         set => SetArgument("home_directory", value);
     }
 
@@ -122,16 +122,16 @@ public partial class AwsTransferUser(string name) : TerraformResource("aws_trans
     /// </summary>
     public TerraformValue<string>? HomeDirectoryType
     {
-        get => new TerraformReference<string>(this, "home_directory_type");
+        get => GetArgument<TerraformValue<string>>("home_directory_type");
         set => SetArgument("home_directory_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -140,16 +140,16 @@ public partial class AwsTransferUser(string name) : TerraformResource("aws_trans
     /// </summary>
     public TerraformValue<string>? Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -159,7 +159,7 @@ public partial class AwsTransferUser(string name) : TerraformResource("aws_trans
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     public required TerraformValue<string> Role
     {
-        get => new TerraformReference<string>(this, "role");
+        get => GetArgument<TerraformValue<string>>("role");
         set => SetArgument("role", value);
     }
 
@@ -169,7 +169,7 @@ public partial class AwsTransferUser(string name) : TerraformResource("aws_trans
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformValue<string> ServerId
     {
-        get => new TerraformReference<string>(this, "server_id");
+        get => GetArgument<TerraformValue<string>>("server_id");
         set => SetArgument("server_id", value);
     }
 
@@ -178,16 +178,16 @@ public partial class AwsTransferUser(string name) : TerraformResource("aws_trans
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -197,7 +197,7 @@ public partial class AwsTransferUser(string name) : TerraformResource("aws_trans
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
     public required TerraformValue<string> UserName
     {
-        get => new TerraformReference<string>(this, "user_name");
+        get => GetArgument<TerraformValue<string>>("user_name");
         set => SetArgument("user_name", value);
     }
 
@@ -205,9 +205,7 @@ public partial class AwsTransferUser(string name) : TerraformResource("aws_trans
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// HomeDirectoryMappings block (nesting mode: list).

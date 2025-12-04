@@ -85,16 +85,16 @@ public class AwsS3tablesTableMetadataBlockIcebergBlockSchemaBlockFieldBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// A Boolean value that specifies whether values are required for each row in this field. Default: false.
     /// </summary>
-    public TerraformValue<bool> Required
+    public TerraformValue<bool>? Required
     {
-        get => new TerraformReference<bool>(this, "required");
+        get => GetArgument<TerraformValue<bool>>("required");
         set => SetArgument("required", value);
     }
 
@@ -104,7 +104,7 @@ public class AwsS3tablesTableMetadataBlockIcebergBlockSchemaBlockFieldBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -120,9 +120,9 @@ public partial class AwsS3tablesTable(string name) : TerraformResource("aws_s3ta
     /// <summary>
     /// The encryption_configuration attribute.
     /// </summary>
-    public TerraformMap<object> EncryptionConfiguration
+    public TerraformMap<object>? EncryptionConfiguration
     {
-        get => TerraformMap<object>.Lazy(ctx => new TerraformReference<TerraformMap<object>>(this, "encryption_configuration").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<object>>("encryption_configuration");
         set => SetArgument("encryption_configuration", value);
     }
 
@@ -132,16 +132,16 @@ public partial class AwsS3tablesTable(string name) : TerraformResource("aws_s3ta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
     public required TerraformValue<string> Format
     {
-        get => new TerraformReference<string>(this, "format");
+        get => GetArgument<TerraformValue<string>>("format");
         set => SetArgument("format", value);
     }
 
     /// <summary>
     /// The maintenance_configuration attribute.
     /// </summary>
-    public TerraformMap<object> MaintenanceConfiguration
+    public TerraformMap<object>? MaintenanceConfiguration
     {
-        get => TerraformMap<object>.Lazy(ctx => new TerraformReference<TerraformMap<object>>(this, "maintenance_configuration").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<object>>("maintenance_configuration");
         set => SetArgument("maintenance_configuration", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AwsS3tablesTable(string name) : TerraformResource("aws_s3ta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -161,16 +161,16 @@ public partial class AwsS3tablesTable(string name) : TerraformResource("aws_s3ta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceAttribute is required")]
     public required TerraformValue<string> NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AwsS3tablesTable(string name) : TerraformResource("aws_s3ta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableBucketArn is required")]
     public required TerraformValue<string> TableBucketArn
     {
-        get => new TerraformReference<string>(this, "table_bucket_arn");
+        get => GetArgument<TerraformValue<string>>("table_bucket_arn");
         set => SetArgument("table_bucket_arn", value);
     }
 
@@ -188,81 +188,61 @@ public partial class AwsS3tablesTable(string name) : TerraformResource("aws_s3ta
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
     public TerraformValue<string> CreatedBy
-    {
-        get => new TerraformReference<string>(this, "created_by");
-    }
+        => AsReference("created_by");
 
     /// <summary>
     /// The metadata_location attribute.
     /// </summary>
     public TerraformValue<string> MetadataLocation
-    {
-        get => new TerraformReference<string>(this, "metadata_location");
-    }
+        => AsReference("metadata_location");
 
     /// <summary>
     /// The modified_at attribute.
     /// </summary>
     public TerraformValue<string> ModifiedAt
-    {
-        get => new TerraformReference<string>(this, "modified_at");
-    }
+        => AsReference("modified_at");
 
     /// <summary>
     /// The modified_by attribute.
     /// </summary>
     public TerraformValue<string> ModifiedBy
-    {
-        get => new TerraformReference<string>(this, "modified_by");
-    }
+        => AsReference("modified_by");
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerAccountId
-    {
-        get => new TerraformReference<string>(this, "owner_account_id");
-    }
+        => AsReference("owner_account_id");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// The version_token attribute.
     /// </summary>
     public TerraformValue<string> VersionToken
-    {
-        get => new TerraformReference<string>(this, "version_token");
-    }
+        => AsReference("version_token");
 
     /// <summary>
     /// The warehouse_location attribute.
     /// </summary>
     public TerraformValue<string> WarehouseLocation
-    {
-        get => new TerraformReference<string>(this, "warehouse_location");
-    }
+        => AsReference("warehouse_location");
 
     /// <summary>
     /// Metadata block (nesting mode: list).

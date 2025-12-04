@@ -18,7 +18,7 @@ public class AwsVpcPeeringConnectionOptionsAccepterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowRemoteVpcDnsResolution
     {
-        get => new TerraformReference<bool>(this, "allow_remote_vpc_dns_resolution");
+        get => GetArgument<TerraformValue<bool>>("allow_remote_vpc_dns_resolution");
         set => SetArgument("allow_remote_vpc_dns_resolution", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsVpcPeeringConnectionOptionsRequesterBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? AllowRemoteVpcDnsResolution
     {
-        get => new TerraformReference<bool>(this, "allow_remote_vpc_dns_resolution");
+        get => GetArgument<TerraformValue<bool>>("allow_remote_vpc_dns_resolution");
         set => SetArgument("allow_remote_vpc_dns_resolution", value);
     }
 
@@ -57,18 +57,18 @@ public partial class AwsVpcPeeringConnectionOptions(string name) : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -78,7 +78,7 @@ public partial class AwsVpcPeeringConnectionOptions(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcPeeringConnectionId is required")]
     public required TerraformValue<string> VpcPeeringConnectionId
     {
-        get => new TerraformReference<string>(this, "vpc_peering_connection_id");
+        get => GetArgument<TerraformValue<string>>("vpc_peering_connection_id");
         set => SetArgument("vpc_peering_connection_id", value);
     }
 

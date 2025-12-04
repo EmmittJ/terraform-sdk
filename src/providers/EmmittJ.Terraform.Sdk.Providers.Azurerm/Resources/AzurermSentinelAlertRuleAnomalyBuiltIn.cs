@@ -18,7 +18,7 @@ public class AzurermSentinelAlertRuleAnomalyBuiltInTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSentinelAlertRuleAnomalyBuiltInTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSentinelAlertRuleAnomalyBuiltInTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSentinelAlertRuleAnomalyBuiltInTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermSentinelAlertRuleAnomalyBuiltIn(string name) : Terra
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -73,16 +73,16 @@ public partial class AzurermSentinelAlertRuleAnomalyBuiltIn(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermSentinelAlertRuleAnomalyBuiltIn(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
     public required TerraformValue<string> LogAnalyticsWorkspaceId
     {
-        get => new TerraformReference<string>(this, "log_analytics_workspace_id");
+        get => GetArgument<TerraformValue<string>>("log_analytics_workspace_id");
         set => SetArgument("log_analytics_workspace_id", value);
     }
 
@@ -102,16 +102,16 @@ public partial class AzurermSentinelAlertRuleAnomalyBuiltIn(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
     public required TerraformValue<string> Mode
     {
-        get => new TerraformReference<string>(this, "mode");
+        get => GetArgument<TerraformValue<string>>("mode");
         set => SetArgument("mode", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -119,97 +119,73 @@ public partial class AzurermSentinelAlertRuleAnomalyBuiltIn(string name) : Terra
     /// The anomaly_settings_version attribute.
     /// </summary>
     public TerraformValue<double> AnomalySettingsVersion
-    {
-        get => new TerraformReference<double>(this, "anomaly_settings_version");
-    }
+        => AsReference("anomaly_settings_version");
 
     /// <summary>
     /// The anomaly_version attribute.
     /// </summary>
     public TerraformValue<string> AnomalyVersion
-    {
-        get => new TerraformReference<string>(this, "anomaly_version");
-    }
+        => AsReference("anomaly_version");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
     public TerraformValue<string> Frequency
-    {
-        get => new TerraformReference<string>(this, "frequency");
-    }
+        => AsReference("frequency");
 
     /// <summary>
     /// The multi_select_observation attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> MultiSelectObservation
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "multi_select_observation").ResolveNodes(ctx));
-    }
+        => AsReference("multi_select_observation");
 
     /// <summary>
     /// The prioritized_exclude_observation attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PrioritizedExcludeObservation
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "prioritized_exclude_observation").ResolveNodes(ctx));
-    }
+        => AsReference("prioritized_exclude_observation");
 
     /// <summary>
     /// The required_data_connector attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RequiredDataConnector
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "required_data_connector").ResolveNodes(ctx));
-    }
+        => AsReference("required_data_connector");
 
     /// <summary>
     /// The settings_definition_id attribute.
     /// </summary>
     public TerraformValue<string> SettingsDefinitionId
-    {
-        get => new TerraformReference<string>(this, "settings_definition_id");
-    }
+        => AsReference("settings_definition_id");
 
     /// <summary>
     /// The single_select_observation attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> SingleSelectObservation
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "single_select_observation").ResolveNodes(ctx));
-    }
+        => AsReference("single_select_observation");
 
     /// <summary>
     /// The tactics attribute.
     /// </summary>
     public TerraformList<string> Tactics
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tactics").ResolveNodes(ctx));
-    }
+        => AsReference("tactics");
 
     /// <summary>
     /// The techniques attribute.
     /// </summary>
     public TerraformList<string> Techniques
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "techniques").ResolveNodes(ctx));
-    }
+        => AsReference("techniques");
 
     /// <summary>
     /// The threshold_observation attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ThresholdObservation
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "threshold_observation").ResolveNodes(ctx));
-    }
+        => AsReference("threshold_observation");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

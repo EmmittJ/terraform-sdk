@@ -11,27 +11,27 @@ public partial class AwsDynamodbKinesisStreamingDestination(string name) : Terra
     /// <summary>
     /// The approximate_creation_date_time_precision attribute.
     /// </summary>
-    public TerraformValue<string> ApproximateCreationDateTimePrecision
+    public TerraformValue<string>? ApproximateCreationDateTimePrecision
     {
-        get => new TerraformReference<string>(this, "approximate_creation_date_time_precision");
+        get => GetArgument<TerraformValue<string>>("approximate_creation_date_time_precision");
         set => SetArgument("approximate_creation_date_time_precision", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsDynamodbKinesisStreamingDestination(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamArn is required")]
     public required TerraformValue<string> StreamArn
     {
-        get => new TerraformReference<string>(this, "stream_arn");
+        get => GetArgument<TerraformValue<string>>("stream_arn");
         set => SetArgument("stream_arn", value);
     }
 
@@ -51,7 +51,7 @@ public partial class AwsDynamodbKinesisStreamingDestination(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 

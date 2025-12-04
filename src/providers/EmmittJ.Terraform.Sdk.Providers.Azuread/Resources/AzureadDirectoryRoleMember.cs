@@ -18,7 +18,7 @@ public class AzureadDirectoryRoleMemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadDirectoryRoleMemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadDirectoryRoleMemberTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -53,9 +53,9 @@ public partial class AzureadDirectoryRoleMember(string name) : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -64,7 +64,7 @@ public partial class AzureadDirectoryRoleMember(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? MemberObjectId
     {
-        get => new TerraformReference<string>(this, "member_object_id");
+        get => GetArgument<TerraformValue<string>>("member_object_id");
         set => SetArgument("member_object_id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzureadDirectoryRoleMember(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? RoleObjectId
     {
-        get => new TerraformReference<string>(this, "role_object_id");
+        get => GetArgument<TerraformValue<string>>("role_object_id");
         set => SetArgument("role_object_id", value);
     }
 

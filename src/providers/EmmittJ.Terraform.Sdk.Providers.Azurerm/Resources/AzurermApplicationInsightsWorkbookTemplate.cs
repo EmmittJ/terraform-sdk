@@ -19,7 +19,7 @@ public class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformValue<string> Category
     {
-        get => new TerraformReference<string>(this, "category");
+        get => GetArgument<TerraformValue<string>>("category");
         set => SetArgument("category", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -38,7 +38,7 @@ public class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : Terrafor
     /// </summary>
     public TerraformValue<double>? Order
     {
-        get => new TerraformReference<double>(this, "order");
+        get => GetArgument<TerraformValue<double>>("order");
         set => SetArgument("order", value);
     }
 
@@ -47,7 +47,7 @@ public class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? ResourceTypeAttribute
     {
-        get => new TerraformReference<string>(this, "resource_type");
+        get => GetArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -56,7 +56,7 @@ public class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -124,16 +124,16 @@ public partial class AzurermApplicationInsightsWorkbookTemplate(string name) : T
     /// </summary>
     public TerraformValue<string>? Author
     {
-        get => new TerraformReference<string>(this, "author");
+        get => GetArgument<TerraformValue<string>>("author");
         set => SetArgument("author", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AzurermApplicationInsightsWorkbookTemplate(string name) : T
     /// </summary>
     public TerraformValue<string>? Localized
     {
-        get => new TerraformReference<string>(this, "localized");
+        get => GetArgument<TerraformValue<string>>("localized");
         set => SetArgument("localized", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AzurermApplicationInsightsWorkbookTemplate(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AzurermApplicationInsightsWorkbookTemplate(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AzurermApplicationInsightsWorkbookTemplate(string name) : T
     /// </summary>
     public TerraformValue<double>? Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -181,7 +181,7 @@ public partial class AzurermApplicationInsightsWorkbookTemplate(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -190,7 +190,7 @@ public partial class AzurermApplicationInsightsWorkbookTemplate(string name) : T
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AzurermApplicationInsightsWorkbookTemplate(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateData is required")]
     public required TerraformValue<string> TemplateData
     {
-        get => new TerraformReference<string>(this, "template_data");
+        get => GetArgument<TerraformValue<string>>("template_data");
         set => SetArgument("template_data", value);
     }
 

@@ -11,18 +11,18 @@ public partial class AwsSsmServiceSetting(string name) : TerraformResource("aws_
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsSsmServiceSetting(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SettingId is required")]
     public required TerraformValue<string> SettingId
     {
-        get => new TerraformReference<string>(this, "setting_id");
+        get => GetArgument<TerraformValue<string>>("setting_id");
         set => SetArgument("setting_id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsSsmServiceSetting(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SettingValue is required")]
     public required TerraformValue<string> SettingValue
     {
-        get => new TerraformReference<string>(this, "setting_value");
+        get => GetArgument<TerraformValue<string>>("setting_value");
         set => SetArgument("setting_value", value);
     }
 
@@ -50,16 +50,12 @@ public partial class AwsSsmServiceSetting(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }

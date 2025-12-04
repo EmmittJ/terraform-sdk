@@ -21,7 +21,7 @@ public class GoogleEventarcPipelineDestinationsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MessageBus
     {
-        get => new TerraformReference<string>(this, "message_bus");
+        get => GetArgument<TerraformValue<string>>("message_bus");
         set => SetArgument("message_bus", value);
     }
 
@@ -32,7 +32,7 @@ public class GoogleEventarcPipelineDestinationsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -44,7 +44,7 @@ public class GoogleEventarcPipelineDestinationsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Workflow
     {
-        get => new TerraformReference<string>(this, "workflow");
+        get => GetArgument<TerraformValue<string>>("workflow");
         set => SetArgument("workflow", value);
     }
 
@@ -141,7 +141,7 @@ public class GoogleEventarcPipelineDestinationsBlockAuthenticationConfigBlockGoo
     /// </summary>
     public TerraformValue<string>? Audience
     {
-        get => new TerraformReference<string>(this, "audience");
+        get => GetArgument<TerraformValue<string>>("audience");
         set => SetArgument("audience", value);
     }
 
@@ -157,7 +157,7 @@ public class GoogleEventarcPipelineDestinationsBlockAuthenticationConfigBlockGoo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
     public required TerraformValue<string> ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -181,7 +181,7 @@ public class GoogleEventarcPipelineDestinationsBlockAuthenticationConfigBlockOau
     /// </summary>
     public TerraformValue<string>? Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -198,7 +198,7 @@ public class GoogleEventarcPipelineDestinationsBlockAuthenticationConfigBlockOau
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
     public required TerraformValue<string> ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -385,7 +385,7 @@ public class GoogleEventarcPipelineDestinationsBlockHttpEndpointBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? MessageBindingTemplate
     {
-        get => new TerraformReference<string>(this, "message_binding_template");
+        get => GetArgument<TerraformValue<string>>("message_binding_template");
         set => SetArgument("message_binding_template", value);
     }
 
@@ -399,7 +399,7 @@ public class GoogleEventarcPipelineDestinationsBlockHttpEndpointBlock : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -427,7 +427,7 @@ public class GoogleEventarcPipelineDestinationsBlockNetworkConfigBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? NetworkAttachment
     {
-        get => new TerraformReference<string>(this, "network_attachment");
+        get => GetArgument<TerraformValue<string>>("network_attachment");
         set => SetArgument("network_attachment", value);
     }
 
@@ -492,7 +492,7 @@ public class GoogleEventarcPipelineDestinationsBlockOutputPayloadFormatBlockAvro
     /// </summary>
     public TerraformValue<string>? SchemaDefinition
     {
-        get => new TerraformReference<string>(this, "schema_definition");
+        get => GetArgument<TerraformValue<string>>("schema_definition");
         set => SetArgument("schema_definition", value);
     }
 
@@ -527,7 +527,7 @@ public class GoogleEventarcPipelineDestinationsBlockOutputPayloadFormatBlockProt
     /// </summary>
     public TerraformValue<string>? SchemaDefinition
     {
-        get => new TerraformReference<string>(this, "schema_definition");
+        get => GetArgument<TerraformValue<string>>("schema_definition");
         set => SetArgument("schema_definition", value);
     }
 
@@ -593,7 +593,7 @@ public class GoogleEventarcPipelineInputPayloadFormatBlockAvroBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? SchemaDefinition
     {
-        get => new TerraformReference<string>(this, "schema_definition");
+        get => GetArgument<TerraformValue<string>>("schema_definition");
         set => SetArgument("schema_definition", value);
     }
 
@@ -628,7 +628,7 @@ public class GoogleEventarcPipelineInputPayloadFormatBlockProtobufBlock : Terraf
     /// </summary>
     public TerraformValue<string>? SchemaDefinition
     {
-        get => new TerraformReference<string>(this, "schema_definition");
+        get => GetArgument<TerraformValue<string>>("schema_definition");
         set => SetArgument("schema_definition", value);
     }
 
@@ -650,9 +650,9 @@ public class GoogleEventarcPipelineLoggingConfigBlock : TerraformBlock
     /// The minimum severity of logs that will be sent to Stackdriver/Platform
     /// Telemetry. Logs at severitiy ≥ this value will be sent, unless it is NONE. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;DEBUG&amp;quot;, &amp;quot;INFO&amp;quot;, &amp;quot;NOTICE&amp;quot;, &amp;quot;WARNING&amp;quot;, &amp;quot;ERROR&amp;quot;, &amp;quot;CRITICAL&amp;quot;, &amp;quot;ALERT&amp;quot;, &amp;quot;EMERGENCY&amp;quot;]
     /// </summary>
-    public TerraformValue<string> LogSeverity
+    public TerraformValue<string>? LogSeverity
     {
-        get => new TerraformReference<string>(this, "log_severity");
+        get => GetArgument<TerraformValue<string>>("log_severity");
         set => SetArgument("log_severity", value);
     }
 
@@ -773,7 +773,7 @@ public class GoogleEventarcPipelineMediationsBlockTransformationBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? TransformationTemplate
     {
-        get => new TerraformReference<string>(this, "transformation_template");
+        get => GetArgument<TerraformValue<string>>("transformation_template");
         set => SetArgument("transformation_template", value);
     }
 
@@ -798,7 +798,7 @@ public class GoogleEventarcPipelineRetryPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? MaxAttempts
     {
-        get => new TerraformReference<double>(this, "max_attempts");
+        get => GetArgument<TerraformValue<double>>("max_attempts");
         set => SetArgument("max_attempts", value);
     }
 
@@ -809,7 +809,7 @@ public class GoogleEventarcPipelineRetryPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaxRetryDelay
     {
-        get => new TerraformReference<string>(this, "max_retry_delay");
+        get => GetArgument<TerraformValue<string>>("max_retry_delay");
         set => SetArgument("max_retry_delay", value);
     }
 
@@ -820,7 +820,7 @@ public class GoogleEventarcPipelineRetryPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MinRetryDelay
     {
-        get => new TerraformReference<string>(this, "min_retry_delay");
+        get => GetArgument<TerraformValue<string>>("min_retry_delay");
         set => SetArgument("min_retry_delay", value);
     }
 
@@ -843,7 +843,7 @@ public class GoogleEventarcPipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -852,7 +852,7 @@ public class GoogleEventarcPipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -861,7 +861,7 @@ public class GoogleEventarcPipelineTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -882,7 +882,7 @@ public partial class GoogleEventarcPipeline(string name) : TerraformResource("go
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -894,7 +894,7 @@ public partial class GoogleEventarcPipeline(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? CryptoKeyName
     {
-        get => new TerraformReference<string>(this, "crypto_key_name");
+        get => GetArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -903,16 +903,16 @@ public partial class GoogleEventarcPipeline(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -926,7 +926,7 @@ public partial class GoogleEventarcPipeline(string name) : TerraformResource("go
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -936,7 +936,7 @@ public partial class GoogleEventarcPipeline(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -947,16 +947,16 @@ public partial class GoogleEventarcPipeline(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineId is required")]
     public required TerraformValue<string> PipelineId
     {
-        get => new TerraformReference<string>(this, "pipeline_id");
+        get => GetArgument<TerraformValue<string>>("pipeline_id");
         set => SetArgument("pipeline_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -967,25 +967,19 @@ public partial class GoogleEventarcPipeline(string name) : TerraformResource("go
     /// &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// This checksum is computed by the server based on the value of
@@ -993,9 +987,7 @@ public partial class GoogleEventarcPipeline(string name) : TerraformResource("go
     /// client has an up-to-date value before proceeding.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The resource name of the Pipeline. Must be unique within the
@@ -1003,18 +995,14 @@ public partial class GoogleEventarcPipeline(string name) : TerraformResource("go
     /// &#39;projects/{project}/locations/{location}/pipelines/{pipeline}&#39; format.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Server-assigned unique identifier for the Pipeline. The value
@@ -1022,9 +1010,7 @@ public partial class GoogleEventarcPipeline(string name) : TerraformResource("go
     /// deleted.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// The last-modified time.
@@ -1033,9 +1019,7 @@ public partial class GoogleEventarcPipeline(string name) : TerraformResource("go
     /// &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Destinations block (nesting mode: list).

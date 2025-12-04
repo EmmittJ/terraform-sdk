@@ -19,7 +19,7 @@ public class AzurermMonitorMetricAlertActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionGroupId is required")]
     public required TerraformValue<string> ActionGroupId
     {
-        get => new TerraformReference<string>(this, "action_group_id");
+        get => GetArgument<TerraformValue<string>>("action_group_id");
         set => SetArgument("action_group_id", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermMonitorMetricAlertActionBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? WebhookProperties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "webhook_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("webhook_properties");
         set => SetArgument("webhook_properties", value);
     }
 
@@ -52,7 +52,7 @@ public class AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentId is required")]
     public required TerraformValue<string> ComponentId
     {
-        get => new TerraformReference<string>(this, "component_id");
+        get => GetArgument<TerraformValue<string>>("component_id");
         set => SetArgument("component_id", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailedLocationCount is required")]
     public required TerraformValue<double> FailedLocationCount
     {
-        get => new TerraformReference<double>(this, "failed_location_count");
+        get => GetArgument<TerraformValue<double>>("failed_location_count");
         set => SetArgument("failed_location_count", value);
     }
 
@@ -72,7 +72,7 @@ public class AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebTestId is required")]
     public required TerraformValue<string> WebTestId
     {
-        get => new TerraformReference<string>(this, "web_test_id");
+        get => GetArgument<TerraformValue<string>>("web_test_id");
         set => SetArgument("web_test_id", value);
     }
 
@@ -96,7 +96,7 @@ public class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Aggregation is required")]
     public required TerraformValue<string> Aggregation
     {
-        get => new TerraformReference<string>(this, "aggregation");
+        get => GetArgument<TerraformValue<string>>("aggregation");
         set => SetArgument("aggregation", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformValue<string> MetricName
     {
-        get => new TerraformReference<string>(this, "metric_name");
+        get => GetArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -116,7 +116,7 @@ public class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricNamespace is required")]
     public required TerraformValue<string> MetricNamespace
     {
-        get => new TerraformReference<string>(this, "metric_namespace");
+        get => GetArgument<TerraformValue<string>>("metric_namespace");
         set => SetArgument("metric_namespace", value);
     }
 
@@ -126,7 +126,7 @@ public class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -135,7 +135,7 @@ public class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SkipMetricValidation
     {
-        get => new TerraformReference<bool>(this, "skip_metric_validation");
+        get => GetArgument<TerraformValue<bool>>("skip_metric_validation");
         set => SetArgument("skip_metric_validation", value);
     }
 
@@ -145,7 +145,7 @@ public class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
     public required TerraformValue<double> Threshold
     {
-        get => new TerraformReference<double>(this, "threshold");
+        get => GetArgument<TerraformValue<double>>("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -177,7 +177,7 @@ public class AzurermMonitorMetricAlertCriteriaBlockDimensionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -187,7 +187,7 @@ public class AzurermMonitorMetricAlertCriteriaBlockDimensionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -197,7 +197,7 @@ public class AzurermMonitorMetricAlertCriteriaBlockDimensionBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -221,7 +221,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Aggregation is required")]
     public required TerraformValue<string> Aggregation
     {
-        get => new TerraformReference<string>(this, "aggregation");
+        get => GetArgument<TerraformValue<string>>("aggregation");
         set => SetArgument("aggregation", value);
     }
 
@@ -231,7 +231,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlertSensitivity is required")]
     public required TerraformValue<string> AlertSensitivity
     {
-        get => new TerraformReference<string>(this, "alert_sensitivity");
+        get => GetArgument<TerraformValue<string>>("alert_sensitivity");
         set => SetArgument("alert_sensitivity", value);
     }
 
@@ -240,7 +240,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? EvaluationFailureCount
     {
-        get => new TerraformReference<double>(this, "evaluation_failure_count");
+        get => GetArgument<TerraformValue<double>>("evaluation_failure_count");
         set => SetArgument("evaluation_failure_count", value);
     }
 
@@ -249,7 +249,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? EvaluationTotalCount
     {
-        get => new TerraformReference<double>(this, "evaluation_total_count");
+        get => GetArgument<TerraformValue<double>>("evaluation_total_count");
         set => SetArgument("evaluation_total_count", value);
     }
 
@@ -258,7 +258,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? IgnoreDataBefore
     {
-        get => new TerraformReference<string>(this, "ignore_data_before");
+        get => GetArgument<TerraformValue<string>>("ignore_data_before");
         set => SetArgument("ignore_data_before", value);
     }
 
@@ -268,7 +268,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
     public required TerraformValue<string> MetricName
     {
-        get => new TerraformReference<string>(this, "metric_name");
+        get => GetArgument<TerraformValue<string>>("metric_name");
         set => SetArgument("metric_name", value);
     }
 
@@ -278,7 +278,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricNamespace is required")]
     public required TerraformValue<string> MetricNamespace
     {
-        get => new TerraformReference<string>(this, "metric_namespace");
+        get => GetArgument<TerraformValue<string>>("metric_namespace");
         set => SetArgument("metric_namespace", value);
     }
 
@@ -288,7 +288,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -297,7 +297,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SkipMetricValidation
     {
-        get => new TerraformReference<bool>(this, "skip_metric_validation");
+        get => GetArgument<TerraformValue<bool>>("skip_metric_validation");
         set => SetArgument("skip_metric_validation", value);
     }
 
@@ -329,7 +329,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlockDimensionBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -339,7 +339,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlockDimensionBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
     public required TerraformValue<string> OperatorAttribute
     {
-        get => new TerraformReference<string>(this, "operator");
+        get => GetArgument<TerraformValue<string>>("operator");
         set => SetArgument("operator", value);
     }
 
@@ -349,7 +349,7 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlockDimensionBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -372,7 +372,7 @@ public class AzurermMonitorMetricAlertTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -381,7 +381,7 @@ public class AzurermMonitorMetricAlertTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -390,7 +390,7 @@ public class AzurermMonitorMetricAlertTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -399,7 +399,7 @@ public class AzurermMonitorMetricAlertTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -417,7 +417,7 @@ public partial class AzurermMonitorMetricAlert(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? AutoMitigate
     {
-        get => new TerraformReference<bool>(this, "auto_mitigate");
+        get => GetArgument<TerraformValue<bool>>("auto_mitigate");
         set => SetArgument("auto_mitigate", value);
     }
 
@@ -426,7 +426,7 @@ public partial class AzurermMonitorMetricAlert(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -435,7 +435,7 @@ public partial class AzurermMonitorMetricAlert(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -444,16 +444,16 @@ public partial class AzurermMonitorMetricAlert(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? Frequency
     {
-        get => new TerraformReference<string>(this, "frequency");
+        get => GetArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -463,7 +463,7 @@ public partial class AzurermMonitorMetricAlert(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -473,7 +473,7 @@ public partial class AzurermMonitorMetricAlert(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -483,7 +483,7 @@ public partial class AzurermMonitorMetricAlert(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
     public required TerraformSet<string> Scopes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("scopes");
         set => SetArgument("scopes", value);
     }
 
@@ -492,7 +492,7 @@ public partial class AzurermMonitorMetricAlert(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<double>? Severity
     {
-        get => new TerraformReference<double>(this, "severity");
+        get => GetArgument<TerraformValue<double>>("severity");
         set => SetArgument("severity", value);
     }
 
@@ -501,25 +501,25 @@ public partial class AzurermMonitorMetricAlert(string name) : TerraformResource(
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The location of the target pluginsdk. Required when using subscription, resource group scope or multiple scopes.
     /// </summary>
-    public TerraformValue<string> TargetResourceLocation
+    public TerraformValue<string>? TargetResourceLocation
     {
-        get => new TerraformReference<string>(this, "target_resource_location");
+        get => GetArgument<TerraformValue<string>>("target_resource_location");
         set => SetArgument("target_resource_location", value);
     }
 
     /// <summary>
     /// The resource type (e.g. Microsoft.Compute/virtualMachines) of the target pluginsdk. Required when using subscription, resource group scope or multiple scopes.
     /// </summary>
-    public TerraformValue<string> TargetResourceType
+    public TerraformValue<string>? TargetResourceType
     {
-        get => new TerraformReference<string>(this, "target_resource_type");
+        get => GetArgument<TerraformValue<string>>("target_resource_type");
         set => SetArgument("target_resource_type", value);
     }
 
@@ -528,7 +528,7 @@ public partial class AzurermMonitorMetricAlert(string name) : TerraformResource(
     /// </summary>
     public TerraformValue<string>? WindowSize
     {
-        get => new TerraformReference<string>(this, "window_size");
+        get => GetArgument<TerraformValue<string>>("window_size");
         set => SetArgument("window_size", value);
     }
 

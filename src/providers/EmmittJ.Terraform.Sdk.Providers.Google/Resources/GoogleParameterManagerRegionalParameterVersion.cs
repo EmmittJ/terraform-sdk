@@ -18,7 +18,7 @@ public class GoogleParameterManagerRegionalParameterVersionTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleParameterManagerRegionalParameterVersionTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleParameterManagerRegionalParameterVersionTimeoutsBlock : Terra
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -54,16 +54,16 @@ public partial class GoogleParameterManagerRegionalParameterVersion(string name)
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class GoogleParameterManagerRegionalParameterVersion(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameter is required")]
     public required TerraformValue<string> Parameter
     {
-        get => new TerraformReference<string>(this, "parameter");
+        get => GetArgument<TerraformValue<string>>("parameter");
         set => SetArgument("parameter", value);
     }
 
@@ -83,7 +83,7 @@ public partial class GoogleParameterManagerRegionalParameterVersion(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterData is required")]
     public required TerraformValue<string> ParameterData
     {
-        get => new TerraformReference<string>(this, "parameter_data");
+        get => GetArgument<TerraformValue<string>>("parameter_data");
         set => SetArgument("parameter_data", value);
     }
 
@@ -93,7 +93,7 @@ public partial class GoogleParameterManagerRegionalParameterVersion(string name)
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterVersionId is required")]
     public required TerraformValue<string> ParameterVersionId
     {
-        get => new TerraformReference<string>(this, "parameter_version_id");
+        get => GetArgument<TerraformValue<string>>("parameter_version_id");
         set => SetArgument("parameter_version_id", value);
     }
 
@@ -101,43 +101,33 @@ public partial class GoogleParameterManagerRegionalParameterVersion(string name)
     /// The time at which the Regional Parameter Version was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The resource name of the Cloud KMS CryptoKeyVersion used to decrypt regional parameter version payload. Format
     /// &#39;projects/{{project}}/locations/{{location}}/keyRings/{{key_ring}}/cryptoKeys/{{crypto_key}}/cryptoKeyVersions/{{crypto_key_version}}&#39;
     /// </summary>
     public TerraformValue<string> KmsKeyVersion
-    {
-        get => new TerraformReference<string>(this, "kms_key_version");
-    }
+        => AsReference("kms_key_version");
 
     /// <summary>
     /// Location of Parameter Manager Regional parameter resource.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The resource name of the Regional Parameter Version. Format:
     /// &#39;projects/{{project}}/locations/{{location}}/parameters/{{parameter_id}}/versions/{{parameter_version_id}}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The time at which the Regional Parameter Version was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

@@ -14,25 +14,25 @@ public partial class AwsLakeformationResourceDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
     public required TerraformValue<string> Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -40,40 +40,30 @@ public partial class AwsLakeformationResourceDataSource(string name) : Terraform
     /// The hybrid_access_enabled attribute.
     /// </summary>
     public TerraformValue<bool> HybridAccessEnabled
-    {
-        get => new TerraformReference<bool>(this, "hybrid_access_enabled");
-    }
+        => AsReference("hybrid_access_enabled");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
     public TerraformValue<string> LastModified
-    {
-        get => new TerraformReference<string>(this, "last_modified");
-    }
+        => AsReference("last_modified");
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     public TerraformValue<string> RoleArn
-    {
-        get => new TerraformReference<string>(this, "role_arn");
-    }
+        => AsReference("role_arn");
 
     /// <summary>
     /// The with_federation attribute.
     /// </summary>
     public TerraformValue<bool> WithFederation
-    {
-        get => new TerraformReference<bool>(this, "with_federation");
-    }
+        => AsReference("with_federation");
 
     /// <summary>
     /// The with_privileged_access attribute.
     /// </summary>
     public TerraformValue<bool> WithPrivilegedAccess
-    {
-        get => new TerraformReference<bool>(this, "with_privileged_access");
-    }
+        => AsReference("with_privileged_access");
 
 }

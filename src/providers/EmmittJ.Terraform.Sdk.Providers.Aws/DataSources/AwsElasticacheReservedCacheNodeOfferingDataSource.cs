@@ -14,7 +14,7 @@ public partial class AwsElasticacheReservedCacheNodeOfferingDataSource(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheNodeType is required")]
     public required TerraformValue<string> CacheNodeType
     {
-        get => new TerraformReference<string>(this, "cache_node_type");
+        get => GetArgument<TerraformValue<string>>("cache_node_type");
         set => SetArgument("cache_node_type", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsElasticacheReservedCacheNodeOfferingDataSource(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<string> Duration
     {
-        get => new TerraformReference<string>(this, "duration");
+        get => GetArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -34,7 +34,7 @@ public partial class AwsElasticacheReservedCacheNodeOfferingDataSource(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OfferingType is required")]
     public required TerraformValue<string> OfferingType
     {
-        get => new TerraformReference<string>(this, "offering_type");
+        get => GetArgument<TerraformValue<string>>("offering_type");
         set => SetArgument("offering_type", value);
     }
 
@@ -44,16 +44,16 @@ public partial class AwsElasticacheReservedCacheNodeOfferingDataSource(string na
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductDescription is required")]
     public required TerraformValue<string> ProductDescription
     {
-        get => new TerraformReference<string>(this, "product_description");
+        get => GetArgument<TerraformValue<string>>("product_description");
         set => SetArgument("product_description", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -61,16 +61,12 @@ public partial class AwsElasticacheReservedCacheNodeOfferingDataSource(string na
     /// The fixed_price attribute.
     /// </summary>
     public TerraformValue<double> FixedPrice
-    {
-        get => new TerraformReference<double>(this, "fixed_price");
-    }
+        => AsReference("fixed_price");
 
     /// <summary>
     /// The offering_id attribute.
     /// </summary>
     public TerraformValue<string> OfferingId
-    {
-        get => new TerraformReference<string>(this, "offering_id");
-    }
+        => AsReference("offering_id");
 
 }

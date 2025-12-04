@@ -11,9 +11,9 @@ public partial class AwsGlueCatalogTableDataSource(string name) : TerraformDataS
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformValue<string> CatalogId
+    public TerraformValue<string>? CatalogId
     {
-        get => new TerraformReference<string>(this, "catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsGlueCatalogTableDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -42,7 +42,7 @@ public partial class AwsGlueCatalogTableDataSource(string name) : TerraformDataS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -51,16 +51,16 @@ public partial class AwsGlueCatalogTableDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<string>? QueryAsOfTime
     {
-        get => new TerraformReference<string>(this, "query_as_of_time");
+        get => GetArgument<TerraformValue<string>>("query_as_of_time");
         set => SetArgument("query_as_of_time", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -69,7 +69,7 @@ public partial class AwsGlueCatalogTableDataSource(string name) : TerraformDataS
     /// </summary>
     public TerraformValue<double>? TransactionId
     {
-        get => new TerraformReference<double>(this, "transaction_id");
+        get => GetArgument<TerraformValue<double>>("transaction_id");
         set => SetArgument("transaction_id", value);
     }
 
@@ -77,96 +77,72 @@ public partial class AwsGlueCatalogTableDataSource(string name) : TerraformDataS
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     public TerraformValue<string> Owner
-    {
-        get => new TerraformReference<string>(this, "owner");
-    }
+        => AsReference("owner");
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
     public TerraformMap<string> Parameters
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
-    }
+        => AsReference("parameters");
 
     /// <summary>
     /// The partition_index attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PartitionIndex
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "partition_index").ResolveNodes(ctx));
-    }
+        => AsReference("partition_index");
 
     /// <summary>
     /// The partition_keys attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PartitionKeys
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "partition_keys").ResolveNodes(ctx));
-    }
+        => AsReference("partition_keys");
 
     /// <summary>
     /// The retention attribute.
     /// </summary>
     public TerraformValue<double> Retention
-    {
-        get => new TerraformReference<double>(this, "retention");
-    }
+        => AsReference("retention");
 
     /// <summary>
     /// The storage_descriptor attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> StorageDescriptor
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "storage_descriptor").ResolveNodes(ctx));
-    }
+        => AsReference("storage_descriptor");
 
     /// <summary>
     /// The table_type attribute.
     /// </summary>
     public TerraformValue<string> TableType
-    {
-        get => new TerraformReference<string>(this, "table_type");
-    }
+        => AsReference("table_type");
 
     /// <summary>
     /// The target_table attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> TargetTable
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "target_table").ResolveNodes(ctx));
-    }
+        => AsReference("target_table");
 
     /// <summary>
     /// The view_expanded_text attribute.
     /// </summary>
     public TerraformValue<string> ViewExpandedText
-    {
-        get => new TerraformReference<string>(this, "view_expanded_text");
-    }
+        => AsReference("view_expanded_text");
 
     /// <summary>
     /// The view_original_text attribute.
     /// </summary>
     public TerraformValue<string> ViewOriginalText
-    {
-        get => new TerraformReference<string>(this, "view_original_text");
-    }
+        => AsReference("view_original_text");
 
 }

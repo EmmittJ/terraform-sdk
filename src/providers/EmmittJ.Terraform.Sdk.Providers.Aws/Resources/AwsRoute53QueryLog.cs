@@ -14,16 +14,16 @@ public partial class AwsRoute53QueryLog(string name) : TerraformResource("aws_ro
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudwatchLogGroupArn is required")]
     public required TerraformValue<string> CloudwatchLogGroupArn
     {
-        get => new TerraformReference<string>(this, "cloudwatch_log_group_arn");
+        get => GetArgument<TerraformValue<string>>("cloudwatch_log_group_arn");
         set => SetArgument("cloudwatch_log_group_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsRoute53QueryLog(string name) : TerraformResource("aws_ro
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
     public required TerraformValue<string> ZoneId
     {
-        get => new TerraformReference<string>(this, "zone_id");
+        get => GetArgument<TerraformValue<string>>("zone_id");
         set => SetArgument("zone_id", value);
     }
 
@@ -41,8 +41,6 @@ public partial class AwsRoute53QueryLog(string name) : TerraformResource("aws_ro
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
 }

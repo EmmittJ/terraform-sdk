@@ -14,16 +14,16 @@ public partial class AwsLicensemanagerGrant(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOperations is required")]
     public required TerraformSet<string> AllowedOperations
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_operations").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_operations");
         set => SetArgument("allowed_operations", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsLicensemanagerGrant(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseArn is required")]
     public required TerraformValue<string> LicenseArn
     {
-        get => new TerraformReference<string>(this, "license_arn");
+        get => GetArgument<TerraformValue<string>>("license_arn");
         set => SetArgument("license_arn", value);
     }
 
@@ -43,7 +43,7 @@ public partial class AwsLicensemanagerGrant(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -53,16 +53,16 @@ public partial class AwsLicensemanagerGrant(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
     public required TerraformValue<string> Principal
     {
-        get => new TerraformReference<string>(this, "principal");
+        get => GetArgument<TerraformValue<string>>("principal");
         set => SetArgument("principal", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -70,40 +70,30 @@ public partial class AwsLicensemanagerGrant(string name) : TerraformResource("aw
     /// Amazon Resource Name (ARN) of the grant.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// Home Region of the grant.
     /// </summary>
     public TerraformValue<string> HomeRegion
-    {
-        get => new TerraformReference<string>(this, "home_region");
-    }
+        => AsReference("home_region");
 
     /// <summary>
     /// Parent ARN.
     /// </summary>
     public TerraformValue<string> ParentArn
-    {
-        get => new TerraformReference<string>(this, "parent_arn");
-    }
+        => AsReference("parent_arn");
 
     /// <summary>
     /// Grant status.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// Grant version.
     /// </summary>
     public TerraformValue<string> Version
-    {
-        get => new TerraformReference<string>(this, "version");
-    }
+        => AsReference("version");
 
 }

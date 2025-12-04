@@ -19,7 +19,7 @@ public class GoogleSecretManagerRegionalSecretCustomerManagedEncryptionBlock : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -44,7 +44,7 @@ public class GoogleSecretManagerRegionalSecretRotationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? NextRotationTime
     {
-        get => new TerraformReference<string>(this, "next_rotation_time");
+        get => GetArgument<TerraformValue<string>>("next_rotation_time");
         set => SetArgument("next_rotation_time", value);
     }
 
@@ -56,7 +56,7 @@ public class GoogleSecretManagerRegionalSecretRotationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RotationPeriod
     {
-        get => new TerraformReference<string>(this, "rotation_period");
+        get => GetArgument<TerraformValue<string>>("rotation_period");
         set => SetArgument("rotation_period", value);
     }
 
@@ -79,7 +79,7 @@ public class GoogleSecretManagerRegionalSecretTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -88,7 +88,7 @@ public class GoogleSecretManagerRegionalSecretTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -97,7 +97,7 @@ public class GoogleSecretManagerRegionalSecretTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -123,7 +123,7 @@ public class GoogleSecretManagerRegionalSecretTopicsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -158,7 +158,7 @@ public partial class GoogleSecretManagerRegionalSecret(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? Annotations
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "annotations").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("annotations");
         set => SetArgument("annotations", value);
     }
 
@@ -169,7 +169,7 @@ public partial class GoogleSecretManagerRegionalSecret(string name) : TerraformR
     /// </summary>
     public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
@@ -179,18 +179,18 @@ public partial class GoogleSecretManagerRegionalSecret(string name) : TerraformR
     /// nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and
     /// &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;. Only one of &#39;expire_time&#39; or &#39;ttl&#39; can be provided.
     /// </summary>
-    public TerraformValue<string> ExpireTime
+    public TerraformValue<string>? ExpireTime
     {
-        get => new TerraformReference<string>(this, "expire_time");
+        get => GetArgument<TerraformValue<string>>("expire_time");
         set => SetArgument("expire_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -214,7 +214,7 @@ public partial class GoogleSecretManagerRegionalSecret(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -224,16 +224,16 @@ public partial class GoogleSecretManagerRegionalSecret(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -243,7 +243,7 @@ public partial class GoogleSecretManagerRegionalSecret(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
     public required TerraformValue<string> SecretId
     {
-        get => new TerraformReference<string>(this, "secret_id");
+        get => GetArgument<TerraformValue<string>>("secret_id");
         set => SetArgument("secret_id", value);
     }
 
@@ -254,7 +254,7 @@ public partial class GoogleSecretManagerRegionalSecret(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -264,7 +264,7 @@ public partial class GoogleSecretManagerRegionalSecret(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Ttl
     {
-        get => new TerraformReference<string>(this, "ttl");
+        get => GetArgument<TerraformValue<string>>("ttl");
         set => SetArgument("ttl", value);
     }
 
@@ -281,7 +281,7 @@ public partial class GoogleSecretManagerRegionalSecret(string name) : TerraformR
     /// </summary>
     public TerraformMap<string>? VersionAliases
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "version_aliases").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("version_aliases");
         set => SetArgument("version_aliases", value);
     }
 
@@ -294,7 +294,7 @@ public partial class GoogleSecretManagerRegionalSecret(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? VersionDestroyTtl
     {
-        get => new TerraformReference<string>(this, "version_destroy_ttl");
+        get => GetArgument<TerraformValue<string>>("version_destroy_ttl");
         set => SetArgument("version_destroy_ttl", value);
     }
 
@@ -302,43 +302,33 @@ public partial class GoogleSecretManagerRegionalSecret(string name) : TerraformR
     /// The time at which the regional secret was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveAnnotations
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_annotations").ResolveNodes(ctx));
-    }
+        => AsReference("effective_annotations");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The resource name of the regional secret. Format:
     /// &#39;projects/{{project}}/locations/{{location}}/secrets/{{secret_id}}&#39;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// CustomerManagedEncryption block (nesting mode: list).

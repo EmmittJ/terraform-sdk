@@ -19,16 +19,16 @@ public class AwsAppstreamImageBuilderAccessEndpointBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
     public required TerraformValue<string> EndpointType
     {
-        get => new TerraformReference<string>(this, "endpoint_type");
+        get => GetArgument<TerraformValue<string>>("endpoint_type");
         set => SetArgument("endpoint_type", value);
     }
 
     /// <summary>
     /// The vpce_id attribute.
     /// </summary>
-    public TerraformValue<string> VpceId
+    public TerraformValue<string>? VpceId
     {
-        get => new TerraformReference<string>(this, "vpce_id");
+        get => GetArgument<TerraformValue<string>>("vpce_id");
         set => SetArgument("vpce_id", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsAppstreamImageBuilderDomainJoinInfoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? DirectoryName
     {
-        get => new TerraformReference<string>(this, "directory_name");
+        get => GetArgument<TerraformValue<string>>("directory_name");
         set => SetArgument("directory_name", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsAppstreamImageBuilderDomainJoinInfoBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OrganizationalUnitDistinguishedName
     {
-        get => new TerraformReference<string>(this, "organizational_unit_distinguished_name");
+        get => GetArgument<TerraformValue<string>>("organizational_unit_distinguished_name");
         set => SetArgument("organizational_unit_distinguished_name", value);
     }
 
@@ -81,18 +81,18 @@ public class AwsAppstreamImageBuilderVpcConfigBlock : TerraformBlock
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformSet<string> SecurityGroupIds
+    public TerraformSet<string>? SecurityGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("security_group_ids");
         set => SetArgument("security_group_ids", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformSet<string> SubnetIds
+    public TerraformSet<string>? SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -108,72 +108,72 @@ public partial class AwsAppstreamImageBuilder(string name) : TerraformResource("
     /// <summary>
     /// The appstream_agent_version attribute.
     /// </summary>
-    public TerraformValue<string> AppstreamAgentVersion
+    public TerraformValue<string>? AppstreamAgentVersion
     {
-        get => new TerraformReference<string>(this, "appstream_agent_version");
+        get => GetArgument<TerraformValue<string>>("appstream_agent_version");
         set => SetArgument("appstream_agent_version", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformValue<string> Description
+    public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The enable_default_internet_access attribute.
     /// </summary>
-    public TerraformValue<bool> EnableDefaultInternetAccess
+    public TerraformValue<bool>? EnableDefaultInternetAccess
     {
-        get => new TerraformReference<bool>(this, "enable_default_internet_access");
+        get => GetArgument<TerraformValue<bool>>("enable_default_internet_access");
         set => SetArgument("enable_default_internet_access", value);
     }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public TerraformValue<string> IamRoleArn
+    public TerraformValue<string>? IamRoleArn
     {
-        get => new TerraformReference<string>(this, "iam_role_arn");
+        get => GetArgument<TerraformValue<string>>("iam_role_arn");
         set => SetArgument("iam_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The image_arn attribute.
     /// </summary>
-    public TerraformValue<string> ImageArn
+    public TerraformValue<string>? ImageArn
     {
-        get => new TerraformReference<string>(this, "image_arn");
+        get => GetArgument<TerraformValue<string>>("image_arn");
         set => SetArgument("image_arn", value);
     }
 
     /// <summary>
     /// The image_name attribute.
     /// </summary>
-    public TerraformValue<string> ImageName
+    public TerraformValue<string>? ImageName
     {
-        get => new TerraformReference<string>(this, "image_name");
+        get => GetArgument<TerraformValue<string>>("image_name");
         set => SetArgument("image_name", value);
     }
 
@@ -183,7 +183,7 @@ public partial class AwsAppstreamImageBuilder(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -193,16 +193,16 @@ public partial class AwsAppstreamImageBuilder(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -211,16 +211,16 @@ public partial class AwsAppstreamImageBuilder(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -228,25 +228,19 @@ public partial class AwsAppstreamImageBuilder(string name) : TerraformResource("
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-    {
-        get => new TerraformReference<string>(this, "created_time");
-    }
+        => AsReference("created_time");
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// AccessEndpoint block (nesting mode: set).

@@ -19,7 +19,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Compression is required")]
     public required TerraformValue<string> Compression
     {
-        get => new TerraformReference<string>(this, "compression");
+        get => GetArgument<TerraformValue<string>>("compression");
         set => SetArgument("compression", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionAlgorithm is required")]
     public required TerraformValue<string> EncryptionAlgorithm
     {
-        get => new TerraformReference<string>(this, "encryption_algorithm");
+        get => GetArgument<TerraformValue<string>>("encryption_algorithm");
         set => SetArgument("encryption_algorithm", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalProfileId is required")]
     public required TerraformValue<string> LocalProfileId
     {
-        get => new TerraformReference<string>(this, "local_profile_id");
+        get => GetArgument<TerraformValue<string>>("local_profile_id");
         set => SetArgument("local_profile_id", value);
     }
 
@@ -49,7 +49,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MdnResponse is required")]
     public required TerraformValue<string> MdnResponse
     {
-        get => new TerraformReference<string>(this, "mdn_response");
+        get => GetArgument<TerraformValue<string>>("mdn_response");
         set => SetArgument("mdn_response", value);
     }
 
@@ -58,7 +58,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MdnSigningAlgorithm
     {
-        get => new TerraformReference<string>(this, "mdn_signing_algorithm");
+        get => GetArgument<TerraformValue<string>>("mdn_signing_algorithm");
         set => SetArgument("mdn_signing_algorithm", value);
     }
 
@@ -67,7 +67,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MessageSubject
     {
-        get => new TerraformReference<string>(this, "message_subject");
+        get => GetArgument<TerraformValue<string>>("message_subject");
         set => SetArgument("message_subject", value);
     }
 
@@ -77,7 +77,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerProfileId is required")]
     public required TerraformValue<string> PartnerProfileId
     {
-        get => new TerraformReference<string>(this, "partner_profile_id");
+        get => GetArgument<TerraformValue<string>>("partner_profile_id");
         set => SetArgument("partner_profile_id", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsTransferConnectorAs2ConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningAlgorithm is required")]
     public required TerraformValue<string> SigningAlgorithm
     {
-        get => new TerraformReference<string>(this, "signing_algorithm");
+        get => GetArgument<TerraformValue<string>>("signing_algorithm");
         set => SetArgument("signing_algorithm", value);
     }
 
@@ -110,7 +110,7 @@ public class AwsTransferConnectorSftpConfigBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? TrustedHostKeys
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "trusted_host_keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("trusted_host_keys");
         set => SetArgument("trusted_host_keys", value);
     }
 
@@ -119,7 +119,7 @@ public class AwsTransferConnectorSftpConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? UserSecretId
     {
-        get => new TerraformReference<string>(this, "user_secret_id");
+        get => GetArgument<TerraformValue<string>>("user_secret_id");
         set => SetArgument("user_secret_id", value);
     }
 
@@ -138,16 +138,16 @@ public partial class AwsTransferConnector(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessRole is required")]
     public required TerraformValue<string> AccessRole
     {
-        get => new TerraformReference<string>(this, "access_role");
+        get => GetArgument<TerraformValue<string>>("access_role");
         set => SetArgument("access_role", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -156,25 +156,25 @@ public partial class AwsTransferConnector(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? LoggingRole
     {
-        get => new TerraformReference<string>(this, "logging_role");
+        get => GetArgument<TerraformValue<string>>("logging_role");
         set => SetArgument("logging_role", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The security_policy_name attribute.
     /// </summary>
-    public TerraformValue<string> SecurityPolicyName
+    public TerraformValue<string>? SecurityPolicyName
     {
-        get => new TerraformReference<string>(this, "security_policy_name");
+        get => GetArgument<TerraformValue<string>>("security_policy_name");
         set => SetArgument("security_policy_name", value);
     }
 
@@ -183,16 +183,16 @@ public partial class AwsTransferConnector(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -202,7 +202,7 @@ public partial class AwsTransferConnector(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
     public required TerraformValue<string> Url
     {
-        get => new TerraformReference<string>(this, "url");
+        get => GetArgument<TerraformValue<string>>("url");
         set => SetArgument("url", value);
     }
 
@@ -210,17 +210,13 @@ public partial class AwsTransferConnector(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The connector_id attribute.
     /// </summary>
     public TerraformValue<string> ConnectorId
-    {
-        get => new TerraformReference<string>(this, "connector_id");
-    }
+        => AsReference("connector_id");
 
     /// <summary>
     /// As2Config block (nesting mode: list).

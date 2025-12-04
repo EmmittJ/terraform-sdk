@@ -13,7 +13,7 @@ public partial class AwsBedrockagentcoreWorkloadIdentity(string name) : Terrafor
     /// </summary>
     public TerraformSet<string>? AllowedResourceOauth2ReturnUrls
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_resource_oauth2_return_urls").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_resource_oauth2_return_urls");
         set => SetArgument("allowed_resource_oauth2_return_urls", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsBedrockagentcoreWorkloadIdentity(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -40,8 +40,6 @@ public partial class AwsBedrockagentcoreWorkloadIdentity(string name) : Terrafor
     /// The workload_identity_arn attribute.
     /// </summary>
     public TerraformValue<string> WorkloadIdentityArn
-    {
-        get => new TerraformReference<string>(this, "workload_identity_arn");
-    }
+        => AsReference("workload_identity_arn");
 
 }

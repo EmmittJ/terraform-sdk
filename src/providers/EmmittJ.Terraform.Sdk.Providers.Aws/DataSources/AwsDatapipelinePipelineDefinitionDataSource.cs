@@ -17,17 +17,13 @@ public class AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock : Te
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The string_value attribute.
     /// </summary>
     public TerraformValue<string> StringValue
-    {
-        get => new TerraformReference<string>(this, "string_value");
-    }
+        => AsReference("string_value");
 
 }
 
@@ -41,9 +37,9 @@ public partial class AwsDatapipelinePipelineDefinitionDataSource(string name) : 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -53,16 +49,16 @@ public partial class AwsDatapipelinePipelineDefinitionDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineId is required")]
     public required TerraformValue<string> PipelineId
     {
-        get => new TerraformReference<string>(this, "pipeline_id");
+        get => GetArgument<TerraformValue<string>>("pipeline_id");
         set => SetArgument("pipeline_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -70,17 +66,13 @@ public partial class AwsDatapipelinePipelineDefinitionDataSource(string name) : 
     /// The parameter_object attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> ParameterObject
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "parameter_object").ResolveNodes(ctx));
-    }
+        => AsReference("parameter_object");
 
     /// <summary>
     /// The pipeline_object attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> PipelineObject
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "pipeline_object").ResolveNodes(ctx));
-    }
+        => AsReference("pipeline_object");
 
     /// <summary>
     /// ParameterValue block (nesting mode: set).

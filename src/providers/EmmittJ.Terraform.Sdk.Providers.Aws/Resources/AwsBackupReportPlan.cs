@@ -18,7 +18,7 @@ public class AwsBackupReportPlanReportDeliveryChannelBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Formats
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "formats").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("formats");
         set => SetArgument("formats", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsBackupReportPlanReportDeliveryChannelBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformValue<string> S3BucketName
     {
-        get => new TerraformReference<string>(this, "s3_bucket_name");
+        get => GetArgument<TerraformValue<string>>("s3_bucket_name");
         set => SetArgument("s3_bucket_name", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsBackupReportPlanReportDeliveryChannelBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? S3KeyPrefix
     {
-        get => new TerraformReference<string>(this, "s3_key_prefix");
+        get => GetArgument<TerraformValue<string>>("s3_key_prefix");
         set => SetArgument("s3_key_prefix", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsBackupReportPlanReportSettingBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Accounts
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "accounts").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("accounts");
         set => SetArgument("accounts", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsBackupReportPlanReportSettingBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? FrameworkArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "framework_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("framework_arns");
         set => SetArgument("framework_arns", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsBackupReportPlanReportSettingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? NumberOfFrameworks
     {
-        get => new TerraformReference<double>(this, "number_of_frameworks");
+        get => GetArgument<TerraformValue<double>>("number_of_frameworks");
         set => SetArgument("number_of_frameworks", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsBackupReportPlanReportSettingBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? OrganizationUnits
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "organization_units").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("organization_units");
         set => SetArgument("organization_units", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsBackupReportPlanReportSettingBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? Regions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("regions");
         set => SetArgument("regions", value);
     }
 
@@ -106,7 +106,7 @@ public class AwsBackupReportPlanReportSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportTemplate is required")]
     public required TerraformValue<string> ReportTemplate
     {
-        get => new TerraformReference<string>(this, "report_template");
+        get => GetArgument<TerraformValue<string>>("report_template");
         set => SetArgument("report_template", value);
     }
 
@@ -124,16 +124,16 @@ public partial class AwsBackupReportPlan(string name) : TerraformResource("aws_b
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -143,16 +143,16 @@ public partial class AwsBackupReportPlan(string name) : TerraformResource("aws_b
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -161,16 +161,16 @@ public partial class AwsBackupReportPlan(string name) : TerraformResource("aws_b
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -178,25 +178,19 @@ public partial class AwsBackupReportPlan(string name) : TerraformResource("aws_b
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-    {
-        get => new TerraformReference<string>(this, "creation_time");
-    }
+        => AsReference("creation_time");
 
     /// <summary>
     /// The deployment_status attribute.
     /// </summary>
     public TerraformValue<string> DeploymentStatus
-    {
-        get => new TerraformReference<string>(this, "deployment_status");
-    }
+        => AsReference("deployment_status");
 
     /// <summary>
     /// ReportDeliveryChannel block (nesting mode: list).

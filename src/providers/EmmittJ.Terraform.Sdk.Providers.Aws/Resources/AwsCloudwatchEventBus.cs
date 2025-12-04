@@ -18,7 +18,7 @@ public class AwsCloudwatchEventBusDeadLetterConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Arn
     {
-        get => new TerraformReference<string>(this, "arn");
+        get => GetArgument<TerraformValue<string>>("arn");
         set => SetArgument("arn", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsCloudwatchEventBusLogConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? IncludeDetail
     {
-        get => new TerraformReference<string>(this, "include_detail");
+        get => GetArgument<TerraformValue<string>>("include_detail");
         set => SetArgument("include_detail", value);
     }
 
@@ -50,7 +50,7 @@ public class AwsCloudwatchEventBusLogConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Level
     {
-        get => new TerraformReference<string>(this, "level");
+        get => GetArgument<TerraformValue<string>>("level");
         set => SetArgument("level", value);
     }
 
@@ -68,7 +68,7 @@ public partial class AwsCloudwatchEventBus(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -77,16 +77,16 @@ public partial class AwsCloudwatchEventBus(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? EventSourceName
     {
-        get => new TerraformReference<string>(this, "event_source_name");
+        get => GetArgument<TerraformValue<string>>("event_source_name");
         set => SetArgument("event_source_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsCloudwatchEventBus(string name) : TerraformResource("aws
     /// </summary>
     public TerraformValue<string>? KmsKeyIdentifier
     {
-        get => new TerraformReference<string>(this, "kms_key_identifier");
+        get => GetArgument<TerraformValue<string>>("kms_key_identifier");
         set => SetArgument("kms_key_identifier", value);
     }
 
@@ -105,16 +105,16 @@ public partial class AwsCloudwatchEventBus(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -123,16 +123,16 @@ public partial class AwsCloudwatchEventBus(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -140,9 +140,7 @@ public partial class AwsCloudwatchEventBus(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// DeadLetterConfig block (nesting mode: list).

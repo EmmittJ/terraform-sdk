@@ -54,7 +54,7 @@ public class AwsS3BucketAclAccessControlPolicyBlockGrantBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permission is required")]
     public required TerraformValue<string> Permission
     {
-        get => new TerraformReference<string>(this, "permission");
+        get => GetArgument<TerraformValue<string>>("permission");
         set => SetArgument("permission", value);
     }
 
@@ -86,16 +86,14 @@ public class AwsS3BucketAclAccessControlPolicyBlockGrantBlockGranteeBlock : Terr
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The email_address attribute.
     /// </summary>
     public TerraformValue<string>? EmailAddress
     {
-        get => new TerraformReference<string>(this, "email_address");
+        get => GetArgument<TerraformValue<string>>("email_address");
         set => SetArgument("email_address", value);
     }
 
@@ -104,7 +102,7 @@ public class AwsS3BucketAclAccessControlPolicyBlockGrantBlockGranteeBlock : Terr
     /// </summary>
     public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -114,7 +112,7 @@ public class AwsS3BucketAclAccessControlPolicyBlockGrantBlockGranteeBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -123,7 +121,7 @@ public class AwsS3BucketAclAccessControlPolicyBlockGrantBlockGranteeBlock : Terr
     /// </summary>
     public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -144,9 +142,9 @@ public class AwsS3BucketAclAccessControlPolicyBlockOwnerBlock : TerraformBlock
     /// The display_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -156,7 +154,7 @@ public class AwsS3BucketAclAccessControlPolicyBlockOwnerBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -174,7 +172,7 @@ public partial class AwsS3BucketAcl(string name) : TerraformResource("aws_s3_buc
     /// </summary>
     public TerraformValue<string>? Acl
     {
-        get => new TerraformReference<string>(this, "acl");
+        get => GetArgument<TerraformValue<string>>("acl");
         set => SetArgument("acl", value);
     }
 
@@ -184,7 +182,7 @@ public partial class AwsS3BucketAcl(string name) : TerraformResource("aws_s3_buc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -193,25 +191,25 @@ public partial class AwsS3BucketAcl(string name) : TerraformResource("aws_s3_buc
     /// </summary>
     public TerraformValue<string>? ExpectedBucketOwner
     {
-        get => new TerraformReference<string>(this, "expected_bucket_owner");
+        get => GetArgument<TerraformValue<string>>("expected_bucket_owner");
         set => SetArgument("expected_bucket_owner", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

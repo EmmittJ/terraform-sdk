@@ -18,7 +18,7 @@ public class AzurermDevTestLabTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermDevTestLabTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermDevTestLabTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermDevTestLabTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermDevTestLab(string name) : TerraformResource("azurerm
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermDevTestLab(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermDevTestLab(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermDevTestLab(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermDevTestLab(string name) : TerraformResource("azurerm
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -110,49 +110,37 @@ public partial class AzurermDevTestLab(string name) : TerraformResource("azurerm
     /// The artifacts_storage_account_id attribute.
     /// </summary>
     public TerraformValue<string> ArtifactsStorageAccountId
-    {
-        get => new TerraformReference<string>(this, "artifacts_storage_account_id");
-    }
+        => AsReference("artifacts_storage_account_id");
 
     /// <summary>
     /// The default_premium_storage_account_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultPremiumStorageAccountId
-    {
-        get => new TerraformReference<string>(this, "default_premium_storage_account_id");
-    }
+        => AsReference("default_premium_storage_account_id");
 
     /// <summary>
     /// The default_storage_account_id attribute.
     /// </summary>
     public TerraformValue<string> DefaultStorageAccountId
-    {
-        get => new TerraformReference<string>(this, "default_storage_account_id");
-    }
+        => AsReference("default_storage_account_id");
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
     public TerraformValue<string> KeyVaultId
-    {
-        get => new TerraformReference<string>(this, "key_vault_id");
-    }
+        => AsReference("key_vault_id");
 
     /// <summary>
     /// The premium_data_disk_storage_account_id attribute.
     /// </summary>
     public TerraformValue<string> PremiumDataDiskStorageAccountId
-    {
-        get => new TerraformReference<string>(this, "premium_data_disk_storage_account_id");
-    }
+        => AsReference("premium_data_disk_storage_account_id");
 
     /// <summary>
     /// The unique_identifier attribute.
     /// </summary>
     public TerraformValue<string> UniqueIdentifier
-    {
-        get => new TerraformReference<string>(this, "unique_identifier");
-    }
+        => AsReference("unique_identifier");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

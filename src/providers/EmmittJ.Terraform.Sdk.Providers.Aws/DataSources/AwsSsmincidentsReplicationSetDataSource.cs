@@ -11,18 +11,18 @@ public partial class AwsSsmincidentsReplicationSetDataSource(string name) : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -30,57 +30,43 @@ public partial class AwsSsmincidentsReplicationSetDataSource(string name) : Terr
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
     public TerraformValue<string> CreatedBy
-    {
-        get => new TerraformReference<string>(this, "created_by");
-    }
+        => AsReference("created_by");
 
     /// <summary>
     /// The deletion_protected attribute.
     /// </summary>
     public TerraformValue<bool> DeletionProtected
-    {
-        get => new TerraformReference<bool>(this, "deletion_protected");
-    }
+        => AsReference("deletion_protected");
 
     /// <summary>
     /// The last_modified_by attribute.
     /// </summary>
     public TerraformValue<string> LastModifiedBy
-    {
-        get => new TerraformReference<string>(this, "last_modified_by");
-    }
+        => AsReference("last_modified_by");
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformSet<TerraformMap<object>> Region
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "region").ResolveNodes(ctx));
-    }
+        => AsReference("region");
 
     /// <summary>
     /// The regions attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Regions
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "regions").ResolveNodes(ctx));
-    }
+        => AsReference("regions");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
 }

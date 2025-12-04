@@ -19,7 +19,7 @@ public class AwsFisExperimentTemplateActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionId is required")]
     public required TerraformValue<string> ActionId
     {
-        get => new TerraformReference<string>(this, "action_id");
+        get => GetArgument<TerraformValue<string>>("action_id");
         set => SetArgument("action_id", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsFisExperimentTemplateActionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsFisExperimentTemplateActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -47,7 +47,7 @@ public class AwsFisExperimentTemplateActionBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? StartAfter
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "start_after").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("start_after");
         set => SetArgument("start_after", value);
     }
 
@@ -89,7 +89,7 @@ public class AwsFisExperimentTemplateActionBlockParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsFisExperimentTemplateActionBlockParameterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsFisExperimentTemplateActionBlockTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -132,7 +132,7 @@ public class AwsFisExperimentTemplateActionBlockTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsFisExperimentTemplateExperimentOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AccountTargeting
     {
-        get => new TerraformReference<string>(this, "account_targeting");
+        get => GetArgument<TerraformValue<string>>("account_targeting");
         set => SetArgument("account_targeting", value);
     }
 
@@ -164,7 +164,7 @@ public class AwsFisExperimentTemplateExperimentOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? EmptyTargetResolutionMode
     {
-        get => new TerraformReference<string>(this, "empty_target_resolution_mode");
+        get => GetArgument<TerraformValue<string>>("empty_target_resolution_mode");
         set => SetArgument("empty_target_resolution_mode", value);
     }
 
@@ -187,7 +187,7 @@ public class AwsFisExperimentTemplateExperimentReportConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? PostExperimentDuration
     {
-        get => new TerraformReference<string>(this, "post_experiment_duration");
+        get => GetArgument<TerraformValue<string>>("post_experiment_duration");
         set => SetArgument("post_experiment_duration", value);
     }
 
@@ -196,7 +196,7 @@ public class AwsFisExperimentTemplateExperimentReportConfigurationBlock : Terraf
     /// </summary>
     public TerraformValue<string>? PreExperimentDuration
     {
-        get => new TerraformReference<string>(this, "pre_experiment_duration");
+        get => GetArgument<TerraformValue<string>>("pre_experiment_duration");
         set => SetArgument("pre_experiment_duration", value);
     }
 
@@ -260,7 +260,7 @@ public class AwsFisExperimentTemplateExperimentReportConfigurationBlockDataSourc
     /// </summary>
     public TerraformValue<string>? DashboardArn
     {
-        get => new TerraformReference<string>(this, "dashboard_arn");
+        get => GetArgument<TerraformValue<string>>("dashboard_arn");
         set => SetArgument("dashboard_arn", value);
     }
 
@@ -306,7 +306,7 @@ public class AwsFisExperimentTemplateExperimentReportConfigurationBlockOutputsBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -315,7 +315,7 @@ public class AwsFisExperimentTemplateExperimentReportConfigurationBlockOutputsBl
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -339,7 +339,7 @@ public class AwsFisExperimentTemplateLogConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogSchemaVersion is required")]
     public required TerraformValue<double> LogSchemaVersion
     {
-        get => new TerraformReference<double>(this, "log_schema_version");
+        get => GetArgument<TerraformValue<double>>("log_schema_version");
         set => SetArgument("log_schema_version", value);
     }
 
@@ -382,7 +382,7 @@ public class AwsFisExperimentTemplateLogConfigurationBlockCloudwatchLogsConfigur
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupArn is required")]
     public required TerraformValue<string> LogGroupArn
     {
-        get => new TerraformReference<string>(this, "log_group_arn");
+        get => GetArgument<TerraformValue<string>>("log_group_arn");
         set => SetArgument("log_group_arn", value);
     }
 
@@ -405,7 +405,7 @@ public class AwsFisExperimentTemplateLogConfigurationBlockS3ConfigurationBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
     public required TerraformValue<string> BucketName
     {
-        get => new TerraformReference<string>(this, "bucket_name");
+        get => GetArgument<TerraformValue<string>>("bucket_name");
         set => SetArgument("bucket_name", value);
     }
 
@@ -414,7 +414,7 @@ public class AwsFisExperimentTemplateLogConfigurationBlockS3ConfigurationBlock :
     /// </summary>
     public TerraformValue<string>? Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
@@ -438,7 +438,7 @@ public class AwsFisExperimentTemplateStopConditionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     public required TerraformValue<string> Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -447,7 +447,7 @@ public class AwsFisExperimentTemplateStopConditionBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -471,7 +471,7 @@ public class AwsFisExperimentTemplateTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -480,7 +480,7 @@ public class AwsFisExperimentTemplateTargetBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -489,7 +489,7 @@ public class AwsFisExperimentTemplateTargetBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? ResourceArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "resource_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("resource_arns");
         set => SetArgument("resource_arns", value);
     }
 
@@ -499,7 +499,7 @@ public class AwsFisExperimentTemplateTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeAttribute is required")]
     public required TerraformValue<string> ResourceTypeAttribute
     {
-        get => new TerraformReference<string>(this, "resource_type");
+        get => GetArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -509,7 +509,7 @@ public class AwsFisExperimentTemplateTargetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SelectionMode is required")]
     public required TerraformValue<string> SelectionMode
     {
-        get => new TerraformReference<string>(this, "selection_mode");
+        get => GetArgument<TerraformValue<string>>("selection_mode");
         set => SetArgument("selection_mode", value);
     }
 
@@ -551,7 +551,7 @@ public class AwsFisExperimentTemplateTargetBlockFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -561,7 +561,7 @@ public class AwsFisExperimentTemplateTargetBlockFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -584,7 +584,7 @@ public class AwsFisExperimentTemplateTargetBlockResourceTagBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -594,7 +594,7 @@ public class AwsFisExperimentTemplateTargetBlockResourceTagBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -617,7 +617,7 @@ public class AwsFisExperimentTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -626,7 +626,7 @@ public class AwsFisExperimentTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -635,7 +635,7 @@ public class AwsFisExperimentTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -654,25 +654,25 @@ public partial class AwsFisExperimentTemplate(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
     public required TerraformValue<string> Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -682,7 +682,7 @@ public partial class AwsFisExperimentTemplate(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
     public required TerraformValue<string> RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -691,16 +691,16 @@ public partial class AwsFisExperimentTemplate(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 

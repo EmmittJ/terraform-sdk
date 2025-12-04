@@ -18,7 +18,7 @@ public class GoogleComputeFirewallPolicyAssociationTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeFirewallPolicyAssociationTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleComputeFirewallPolicyAssociationTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleComputeFirewallPolicyAssociation(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentTarget is required")]
     public required TerraformValue<string> AttachmentTarget
     {
-        get => new TerraformReference<string>(this, "attachment_target");
+        get => GetArgument<TerraformValue<string>>("attachment_target");
         set => SetArgument("attachment_target", value);
     }
 
@@ -71,16 +71,16 @@ public partial class GoogleComputeFirewallPolicyAssociation(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallPolicy is required")]
     public required TerraformValue<string> FirewallPolicy
     {
-        get => new TerraformReference<string>(this, "firewall_policy");
+        get => GetArgument<TerraformValue<string>>("firewall_policy");
         set => SetArgument("firewall_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -90,7 +90,7 @@ public partial class GoogleComputeFirewallPolicyAssociation(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -98,9 +98,7 @@ public partial class GoogleComputeFirewallPolicyAssociation(string name) : Terra
     /// The short name of the firewall policy of the association.
     /// </summary>
     public TerraformValue<string> ShortName
-    {
-        get => new TerraformReference<string>(this, "short_name");
-    }
+        => AsReference("short_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

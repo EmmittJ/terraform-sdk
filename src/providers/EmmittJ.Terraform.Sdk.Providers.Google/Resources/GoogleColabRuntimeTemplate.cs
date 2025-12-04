@@ -16,18 +16,18 @@ public class GoogleColabRuntimeTemplateDataPersistentDiskSpecBlock : TerraformBl
     /// <summary>
     /// The disk size of the runtime in GB. If specified, the diskType must also be specified. The minimum size is 10GB and the maximum is 65536GB.
     /// </summary>
-    public TerraformValue<string> DiskSizeGb
+    public TerraformValue<string>? DiskSizeGb
     {
-        get => new TerraformReference<string>(this, "disk_size_gb");
+        get => GetArgument<TerraformValue<string>>("disk_size_gb");
         set => SetArgument("disk_size_gb", value);
     }
 
     /// <summary>
     /// The type of the persistent disk.
     /// </summary>
-    public TerraformValue<string> DiskType
+    public TerraformValue<string>? DiskType
     {
-        get => new TerraformReference<string>(this, "disk_type");
+        get => GetArgument<TerraformValue<string>>("disk_type");
         set => SetArgument("disk_type", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleColabRuntimeTemplateEncryptionSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -71,9 +71,9 @@ public class GoogleColabRuntimeTemplateEucConfigBlock : TerraformBlock
     /// <summary>
     /// Disable end user credential access for the runtime.
     /// </summary>
-    public TerraformValue<bool> EucDisabled
+    public TerraformValue<bool>? EucDisabled
     {
-        get => new TerraformReference<bool>(this, "euc_disabled");
+        get => GetArgument<TerraformValue<bool>>("euc_disabled");
         set => SetArgument("euc_disabled", value);
     }
 
@@ -94,9 +94,9 @@ public class GoogleColabRuntimeTemplateIdleShutdownConfigBlock : TerraformBlock
     /// <summary>
     /// The duration after which the runtime is automatically shut down. An input of 0s disables the idle shutdown feature, and a valid range is [10m, 24h].
     /// </summary>
-    public TerraformValue<string> IdleTimeout
+    public TerraformValue<string>? IdleTimeout
     {
-        get => new TerraformReference<string>(this, "idle_timeout");
+        get => GetArgument<TerraformValue<string>>("idle_timeout");
         set => SetArgument("idle_timeout", value);
     }
 
@@ -117,9 +117,9 @@ public class GoogleColabRuntimeTemplateMachineSpecBlock : TerraformBlock
     /// <summary>
     /// The number of accelerators used by the runtime.
     /// </summary>
-    public TerraformValue<double> AcceleratorCount
+    public TerraformValue<double>? AcceleratorCount
     {
-        get => new TerraformReference<double>(this, "accelerator_count");
+        get => GetArgument<TerraformValue<double>>("accelerator_count");
         set => SetArgument("accelerator_count", value);
     }
 
@@ -128,16 +128,16 @@ public class GoogleColabRuntimeTemplateMachineSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AcceleratorType
     {
-        get => new TerraformReference<string>(this, "accelerator_type");
+        get => GetArgument<TerraformValue<string>>("accelerator_type");
         set => SetArgument("accelerator_type", value);
     }
 
     /// <summary>
     /// The Compute Engine machine type selected for the runtime.
     /// </summary>
-    public TerraformValue<string> MachineType
+    public TerraformValue<string>? MachineType
     {
-        get => new TerraformReference<string>(this, "machine_type");
+        get => GetArgument<TerraformValue<string>>("machine_type");
         set => SetArgument("machine_type", value);
     }
 
@@ -160,16 +160,16 @@ public class GoogleColabRuntimeTemplateNetworkSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? EnableInternetAccess
     {
-        get => new TerraformReference<bool>(this, "enable_internet_access");
+        get => GetArgument<TerraformValue<bool>>("enable_internet_access");
         set => SetArgument("enable_internet_access", value);
     }
 
     /// <summary>
     /// The name of the VPC that this runtime is in.
     /// </summary>
-    public TerraformValue<string> Network
+    public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -178,7 +178,7 @@ public class GoogleColabRuntimeTemplateNetworkSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Subnetwork
     {
-        get => new TerraformReference<string>(this, "subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
@@ -199,9 +199,9 @@ public class GoogleColabRuntimeTemplateShieldedVmConfigBlock : TerraformBlock
     /// <summary>
     /// Enables secure boot for the runtime.
     /// </summary>
-    public TerraformValue<bool> EnableSecureBoot
+    public TerraformValue<bool>? EnableSecureBoot
     {
-        get => new TerraformReference<bool>(this, "enable_secure_boot");
+        get => GetArgument<TerraformValue<bool>>("enable_secure_boot");
         set => SetArgument("enable_secure_boot", value);
     }
 
@@ -246,7 +246,7 @@ public class GoogleColabRuntimeTemplateSoftwareConfigBlockEnvBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -255,7 +255,7 @@ public class GoogleColabRuntimeTemplateSoftwareConfigBlockEnvBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -278,7 +278,7 @@ public class GoogleColabRuntimeTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -287,7 +287,7 @@ public class GoogleColabRuntimeTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -296,7 +296,7 @@ public class GoogleColabRuntimeTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -314,7 +314,7 @@ public partial class GoogleColabRuntimeTemplate(string name) : TerraformResource
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -324,16 +324,16 @@ public partial class GoogleColabRuntimeTemplate(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -343,9 +343,9 @@ public partial class GoogleColabRuntimeTemplate(string name) : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformMap<string> Labels
+    public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -355,16 +355,16 @@ public partial class GoogleColabRuntimeTemplate(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The resource name of the Runtime Template
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -373,16 +373,16 @@ public partial class GoogleColabRuntimeTemplate(string name) : TerraformResource
     /// </summary>
     public TerraformList<string>? NetworkTags
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "network_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("network_tags");
         set => SetArgument("network_tags", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -390,18 +390,14 @@ public partial class GoogleColabRuntimeTemplate(string name) : TerraformResource
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// DataPersistentDiskSpec block (nesting mode: list).

@@ -19,7 +19,7 @@ public class GoogleDataFusionInstanceAcceleratorsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AcceleratorType is required")]
     public required TerraformValue<string> AcceleratorType
     {
-        get => new TerraformReference<string>(this, "accelerator_type");
+        get => GetArgument<TerraformValue<string>>("accelerator_type");
         set => SetArgument("accelerator_type", value);
     }
 
@@ -29,7 +29,7 @@ public class GoogleDataFusionInstanceAcceleratorsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
     public required TerraformValue<string> State
     {
-        get => new TerraformReference<string>(this, "state");
+        get => GetArgument<TerraformValue<string>>("state");
         set => SetArgument("state", value);
     }
 
@@ -53,7 +53,7 @@ public class GoogleDataFusionInstanceCryptoKeyConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyReference is required")]
     public required TerraformValue<string> KeyReference
     {
-        get => new TerraformReference<string>(this, "key_reference");
+        get => GetArgument<TerraformValue<string>>("key_reference");
         set => SetArgument("key_reference", value);
     }
 
@@ -77,7 +77,7 @@ public class GoogleDataFusionInstanceEventPublishConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleDataFusionInstanceEventPublishConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
     public required TerraformValue<string> Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -112,7 +112,7 @@ public class GoogleDataFusionInstanceNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ConnectionType
     {
-        get => new TerraformReference<string>(this, "connection_type");
+        get => GetArgument<TerraformValue<string>>("connection_type");
         set => SetArgument("connection_type", value);
     }
 
@@ -122,7 +122,7 @@ public class GoogleDataFusionInstanceNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? IpAllocation
     {
-        get => new TerraformReference<string>(this, "ip_allocation");
+        get => GetArgument<TerraformValue<string>>("ip_allocation");
         set => SetArgument("ip_allocation", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleDataFusionInstanceNetworkConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -165,9 +165,7 @@ public class GoogleDataFusionInstanceNetworkConfigBlockPrivateServiceConnectConf
     /// The size of this block is /25. The format of this field is governed by RFC 4632.
     /// </summary>
     public TerraformValue<string> EffectiveUnreachableCidrBlock
-    {
-        get => new TerraformReference<string>(this, "effective_unreachable_cidr_block");
-    }
+        => AsReference("effective_unreachable_cidr_block");
 
     /// <summary>
     /// Optional. The reference to the network attachment used to establish private connectivity.
@@ -176,7 +174,7 @@ public class GoogleDataFusionInstanceNetworkConfigBlockPrivateServiceConnectConf
     /// </summary>
     public TerraformValue<string>? NetworkAttachment
     {
-        get => new TerraformReference<string>(this, "network_attachment");
+        get => GetArgument<TerraformValue<string>>("network_attachment");
         set => SetArgument("network_attachment", value);
     }
 
@@ -188,7 +186,7 @@ public class GoogleDataFusionInstanceNetworkConfigBlockPrivateServiceConnectConf
     /// </summary>
     public TerraformValue<string>? UnreachableCidrBlock
     {
-        get => new TerraformReference<string>(this, "unreachable_cidr_block");
+        get => GetArgument<TerraformValue<string>>("unreachable_cidr_block");
         set => SetArgument("unreachable_cidr_block", value);
     }
 
@@ -211,7 +209,7 @@ public class GoogleDataFusionInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -220,7 +218,7 @@ public class GoogleDataFusionInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -229,7 +227,7 @@ public class GoogleDataFusionInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -247,7 +245,7 @@ public partial class GoogleDataFusionInstance(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? DataprocServiceAccount
     {
-        get => new TerraformReference<string>(this, "dataproc_service_account");
+        get => GetArgument<TerraformValue<string>>("dataproc_service_account");
         set => SetArgument("dataproc_service_account", value);
     }
 
@@ -256,7 +254,7 @@ public partial class GoogleDataFusionInstance(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -265,7 +263,7 @@ public partial class GoogleDataFusionInstance(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -274,7 +272,7 @@ public partial class GoogleDataFusionInstance(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? EnableRbac
     {
-        get => new TerraformReference<bool>(this, "enable_rbac");
+        get => GetArgument<TerraformValue<bool>>("enable_rbac");
         set => SetArgument("enable_rbac", value);
     }
 
@@ -283,7 +281,7 @@ public partial class GoogleDataFusionInstance(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? EnableStackdriverLogging
     {
-        get => new TerraformReference<bool>(this, "enable_stackdriver_logging");
+        get => GetArgument<TerraformValue<bool>>("enable_stackdriver_logging");
         set => SetArgument("enable_stackdriver_logging", value);
     }
 
@@ -292,16 +290,16 @@ public partial class GoogleDataFusionInstance(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? EnableStackdriverMonitoring
     {
-        get => new TerraformReference<bool>(this, "enable_stackdriver_monitoring");
+        get => GetArgument<TerraformValue<bool>>("enable_stackdriver_monitoring");
         set => SetArgument("enable_stackdriver_monitoring", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -315,7 +313,7 @@ public partial class GoogleDataFusionInstance(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -325,16 +323,16 @@ public partial class GoogleDataFusionInstance(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Map of additional options used to configure the behavior of Data Fusion instance.
     /// </summary>
-    public TerraformMap<string> Options
+    public TerraformMap<string>? Options
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "options").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("options");
         set => SetArgument("options", value);
     }
 
@@ -345,25 +343,25 @@ public partial class GoogleDataFusionInstance(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? PrivateInstance
     {
-        get => new TerraformReference<bool>(this, "private_instance");
+        get => GetArgument<TerraformValue<bool>>("private_instance");
         set => SetArgument("private_instance", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The region of the Data Fusion instance.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -375,7 +373,7 @@ public partial class GoogleDataFusionInstance(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -394,25 +392,25 @@ public partial class GoogleDataFusionInstance(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
     /// <summary>
     /// Current version of the Data Fusion.
     /// </summary>
-    public TerraformValue<string> Version
+    public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
     /// <summary>
     /// Name of the zone in which the Data Fusion instance will be created. Only DEVELOPER instances use this field.
     /// </summary>
-    public TerraformValue<string> Zone
+    public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -420,49 +418,37 @@ public partial class GoogleDataFusionInstance(string name) : TerraformResource("
     /// Endpoint on which the REST APIs is accessible.
     /// </summary>
     public TerraformValue<string> ApiEndpoint
-    {
-        get => new TerraformReference<string>(this, "api_endpoint");
-    }
+        => AsReference("api_endpoint");
 
     /// <summary>
     /// The time the instance was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Cloud Storage bucket generated by Data Fusion in the customer project.
     /// </summary>
     public TerraformValue<string> GcsBucket
-    {
-        get => new TerraformReference<string>(this, "gcs_bucket");
-    }
+        => AsReference("gcs_bucket");
 
     /// <summary>
     /// P4 service account for the customer project.
     /// </summary>
     public TerraformValue<string> P4ServiceAccount
-    {
-        get => new TerraformReference<string>(this, "p4_service_account");
-    }
+        => AsReference("p4_service_account");
 
     /// <summary>
     /// Endpoint on which the Data Fusion UI and REST APIs are accessible.
     /// </summary>
     public TerraformValue<string> ServiceEndpoint
-    {
-        get => new TerraformReference<string>(this, "service_endpoint");
-    }
+        => AsReference("service_endpoint");
 
     /// <summary>
     /// The current state of this Data Fusion instance.
@@ -474,42 +460,32 @@ public partial class GoogleDataFusionInstance(string name) : TerraformResource("
     /// - RESTARTING: Instance is being restarted
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Additional information about the current state of this Data Fusion instance if available.
     /// </summary>
     public TerraformValue<string> StateMessage
-    {
-        get => new TerraformReference<string>(this, "state_message");
-    }
+        => AsReference("state_message");
 
     /// <summary>
     /// The name of the tenant project.
     /// </summary>
     public TerraformValue<string> TenantProjectId
-    {
-        get => new TerraformReference<string>(this, "tenant_project_id");
-    }
+        => AsReference("tenant_project_id");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The time the instance was last updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Accelerators block (nesting mode: list).

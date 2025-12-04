@@ -18,7 +18,7 @@ public class AzurermDevCenterCatalogDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermDevCenterCatalogDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterId is required")]
     public required TerraformValue<string> DevCenterId
     {
-        get => new TerraformReference<string>(this, "dev_center_id");
+        get => GetArgument<TerraformValue<string>>("dev_center_id");
         set => SetArgument("dev_center_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermDevCenterCatalogDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -64,17 +64,13 @@ public partial class AzurermDevCenterCatalogDataSource(string name) : TerraformD
     /// The catalog_adogit attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CatalogAdogit
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "catalog_adogit").ResolveNodes(ctx));
-    }
+        => AsReference("catalog_adogit");
 
     /// <summary>
     /// The catalog_github attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CatalogGithub
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "catalog_github").ResolveNodes(ctx));
-    }
+        => AsReference("catalog_github");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

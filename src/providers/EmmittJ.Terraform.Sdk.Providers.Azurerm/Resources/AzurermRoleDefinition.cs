@@ -18,7 +18,7 @@ public class AzurermRoleDefinitionPermissionsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Actions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("actions");
         set => SetArgument("actions", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermRoleDefinitionPermissionsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? DataActions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "data_actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("data_actions");
         set => SetArgument("data_actions", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermRoleDefinitionPermissionsBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? NotActions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "not_actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("not_actions");
         set => SetArgument("not_actions", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermRoleDefinitionPermissionsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? NotDataActions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "not_data_actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("not_data_actions");
         set => SetArgument("not_data_actions", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermRoleDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermRoleDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermRoleDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermRoleDefinitionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -111,9 +111,9 @@ public partial class AzurermRoleDefinition(string name) : TerraformResource("azu
     /// <summary>
     /// The assignable_scopes attribute.
     /// </summary>
-    public TerraformList<string> AssignableScopes
+    public TerraformList<string>? AssignableScopes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "assignable_scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("assignable_scopes");
         set => SetArgument("assignable_scopes", value);
     }
 
@@ -122,16 +122,16 @@ public partial class AzurermRoleDefinition(string name) : TerraformResource("azu
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -141,16 +141,16 @@ public partial class AzurermRoleDefinition(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
-    public TerraformValue<string> RoleDefinitionId
+    public TerraformValue<string>? RoleDefinitionId
     {
-        get => new TerraformReference<string>(this, "role_definition_id");
+        get => GetArgument<TerraformValue<string>>("role_definition_id");
         set => SetArgument("role_definition_id", value);
     }
 
@@ -160,7 +160,7 @@ public partial class AzurermRoleDefinition(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     public required TerraformValue<string> Scope
     {
-        get => new TerraformReference<string>(this, "scope");
+        get => GetArgument<TerraformValue<string>>("scope");
         set => SetArgument("scope", value);
     }
 
@@ -168,9 +168,7 @@ public partial class AzurermRoleDefinition(string name) : TerraformResource("azu
     /// The role_definition_resource_id attribute.
     /// </summary>
     public TerraformValue<string> RoleDefinitionResourceId
-    {
-        get => new TerraformReference<string>(this, "role_definition_resource_id");
-    }
+        => AsReference("role_definition_resource_id");
 
     /// <summary>
     /// Permissions block (nesting mode: list).

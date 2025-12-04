@@ -18,7 +18,7 @@ public class AzurermMssqlServerExtendedAuditingPolicyTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermMssqlServerExtendedAuditingPolicyTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermMssqlServerExtendedAuditingPolicyTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermMssqlServerExtendedAuditingPolicyTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermMssqlServerExtendedAuditingPolicy(string name) : Ter
     /// <summary>
     /// The audit_actions_and_groups attribute.
     /// </summary>
-    public TerraformList<string> AuditActionsAndGroups
+    public TerraformList<string>? AuditActionsAndGroups
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "audit_actions_and_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("audit_actions_and_groups");
         set => SetArgument("audit_actions_and_groups", value);
     }
 
@@ -72,16 +72,16 @@ public partial class AzurermMssqlServerExtendedAuditingPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AzurermMssqlServerExtendedAuditingPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<bool>? LogMonitoringEnabled
     {
-        get => new TerraformReference<bool>(this, "log_monitoring_enabled");
+        get => GetArgument<TerraformValue<bool>>("log_monitoring_enabled");
         set => SetArgument("log_monitoring_enabled", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AzurermMssqlServerExtendedAuditingPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<string>? PredicateExpression
     {
-        get => new TerraformReference<string>(this, "predicate_expression");
+        get => GetArgument<TerraformValue<string>>("predicate_expression");
         set => SetArgument("predicate_expression", value);
     }
 
@@ -108,7 +108,7 @@ public partial class AzurermMssqlServerExtendedAuditingPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<double>? RetentionInDays
     {
-        get => new TerraformReference<double>(this, "retention_in_days");
+        get => GetArgument<TerraformValue<double>>("retention_in_days");
         set => SetArgument("retention_in_days", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermMssqlServerExtendedAuditingPolicy(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
     public required TerraformValue<string> ServerId
     {
-        get => new TerraformReference<string>(this, "server_id");
+        get => GetArgument<TerraformValue<string>>("server_id");
         set => SetArgument("server_id", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzurermMssqlServerExtendedAuditingPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<string>? StorageAccountAccessKey
     {
-        get => new TerraformReference<string>(this, "storage_account_access_key");
+        get => GetArgument<TerraformValue<string>>("storage_account_access_key");
         set => SetArgument("storage_account_access_key", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AzurermMssqlServerExtendedAuditingPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<bool>? StorageAccountAccessKeyIsSecondary
     {
-        get => new TerraformReference<bool>(this, "storage_account_access_key_is_secondary");
+        get => GetArgument<TerraformValue<bool>>("storage_account_access_key_is_secondary");
         set => SetArgument("storage_account_access_key_is_secondary", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermMssqlServerExtendedAuditingPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<string>? StorageAccountSubscriptionId
     {
-        get => new TerraformReference<string>(this, "storage_account_subscription_id");
+        get => GetArgument<TerraformValue<string>>("storage_account_subscription_id");
         set => SetArgument("storage_account_subscription_id", value);
     }
 
@@ -154,7 +154,7 @@ public partial class AzurermMssqlServerExtendedAuditingPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<string>? StorageEndpoint
     {
-        get => new TerraformReference<string>(this, "storage_endpoint");
+        get => GetArgument<TerraformValue<string>>("storage_endpoint");
         set => SetArgument("storage_endpoint", value);
     }
 

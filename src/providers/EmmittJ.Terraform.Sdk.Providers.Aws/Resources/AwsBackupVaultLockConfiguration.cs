@@ -14,7 +14,7 @@ public partial class AwsBackupVaultLockConfiguration(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultName is required")]
     public required TerraformValue<string> BackupVaultName
     {
-        get => new TerraformReference<string>(this, "backup_vault_name");
+        get => GetArgument<TerraformValue<string>>("backup_vault_name");
         set => SetArgument("backup_vault_name", value);
     }
 
@@ -23,16 +23,16 @@ public partial class AwsBackupVaultLockConfiguration(string name) : TerraformRes
     /// </summary>
     public TerraformValue<double>? ChangeableForDays
     {
-        get => new TerraformReference<double>(this, "changeable_for_days");
+        get => GetArgument<TerraformValue<double>>("changeable_for_days");
         set => SetArgument("changeable_for_days", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsBackupVaultLockConfiguration(string name) : TerraformRes
     /// </summary>
     public TerraformValue<double>? MaxRetentionDays
     {
-        get => new TerraformReference<double>(this, "max_retention_days");
+        get => GetArgument<TerraformValue<double>>("max_retention_days");
         set => SetArgument("max_retention_days", value);
     }
 
@@ -50,16 +50,16 @@ public partial class AwsBackupVaultLockConfiguration(string name) : TerraformRes
     /// </summary>
     public TerraformValue<double>? MinRetentionDays
     {
-        get => new TerraformReference<double>(this, "min_retention_days");
+        get => GetArgument<TerraformValue<double>>("min_retention_days");
         set => SetArgument("min_retention_days", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -67,8 +67,6 @@ public partial class AwsBackupVaultLockConfiguration(string name) : TerraformRes
     /// The backup_vault_arn attribute.
     /// </summary>
     public TerraformValue<string> BackupVaultArn
-    {
-        get => new TerraformReference<string>(this, "backup_vault_arn");
-    }
+        => AsReference("backup_vault_arn");
 
 }

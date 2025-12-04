@@ -16,9 +16,9 @@ public class AwsSecuritylakeDataLakeConfigurationBlock : TerraformBlock
     /// <summary>
     /// The encryption_configuration attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>> EncryptionConfiguration
+    public TerraformList<TerraformMap<object>>? EncryptionConfiguration
     {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "encryption_configuration").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<TerraformMap<object>>>("encryption_configuration");
         set => SetArgument("encryption_configuration", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsSecuritylakeDataLakeConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
     public required TerraformValue<string> Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -99,7 +99,7 @@ public class AwsSecuritylakeDataLakeConfigurationBlockLifecycleConfigurationBloc
     /// </summary>
     public TerraformValue<double>? Days
     {
-        get => new TerraformReference<double>(this, "days");
+        get => GetArgument<TerraformValue<double>>("days");
         set => SetArgument("days", value);
     }
 
@@ -121,7 +121,7 @@ public class AwsSecuritylakeDataLakeConfigurationBlockLifecycleConfigurationBloc
     /// </summary>
     public TerraformValue<double>? Days
     {
-        get => new TerraformReference<double>(this, "days");
+        get => GetArgument<TerraformValue<double>>("days");
         set => SetArgument("days", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsSecuritylakeDataLakeConfigurationBlockLifecycleConfigurationBloc
     /// </summary>
     public TerraformValue<string>? StorageClass
     {
-        get => new TerraformReference<string>(this, "storage_class");
+        get => GetArgument<TerraformValue<string>>("storage_class");
         set => SetArgument("storage_class", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsSecuritylakeDataLakeConfigurationBlockReplicationConfigurationBl
     /// </summary>
     public TerraformSet<string>? Regions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("regions");
         set => SetArgument("regions", value);
     }
 
@@ -161,7 +161,7 @@ public class AwsSecuritylakeDataLakeConfigurationBlockReplicationConfigurationBl
     /// </summary>
     public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -184,7 +184,7 @@ public class AwsSecuritylakeDataLakeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -193,7 +193,7 @@ public class AwsSecuritylakeDataLakeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -202,7 +202,7 @@ public class AwsSecuritylakeDataLakeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -221,16 +221,16 @@ public partial class AwsSecuritylakeDataLake(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetaStoreManagerRoleArn is required")]
     public required TerraformValue<string> MetaStoreManagerRoleArn
     {
-        get => new TerraformReference<string>(this, "meta_store_manager_role_arn");
+        get => GetArgument<TerraformValue<string>>("meta_store_manager_role_arn");
         set => SetArgument("meta_store_manager_role_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -239,7 +239,7 @@ public partial class AwsSecuritylakeDataLake(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -247,33 +247,25 @@ public partial class AwsSecuritylakeDataLake(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The s3_bucket_arn attribute.
     /// </summary>
     public TerraformValue<string> S3BucketArn
-    {
-        get => new TerraformReference<string>(this, "s3_bucket_arn");
-    }
+        => AsReference("s3_bucket_arn");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// Configuration block (nesting mode: list).

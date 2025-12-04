@@ -18,7 +18,7 @@ public class AzureadDirectoryRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzureadDirectoryRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzureadDirectoryRoleAssignmentTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -52,27 +52,27 @@ public partial class AzureadDirectoryRoleAssignment(string name) : TerraformReso
     /// <summary>
     /// Identifier of the app-specific scope when the assignment scope is app-specific
     /// </summary>
-    public TerraformValue<string> AppScopeId
+    public TerraformValue<string>? AppScopeId
     {
-        get => new TerraformReference<string>(this, "app_scope_id");
+        get => GetArgument<TerraformValue<string>>("app_scope_id");
         set => SetArgument("app_scope_id", value);
     }
 
     /// <summary>
     /// Identifier of the directory object representing the scope of the assignment
     /// </summary>
-    public TerraformValue<string> DirectoryScopeId
+    public TerraformValue<string>? DirectoryScopeId
     {
-        get => new TerraformReference<string>(this, "directory_scope_id");
+        get => GetArgument<TerraformValue<string>>("directory_scope_id");
         set => SetArgument("directory_scope_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzureadDirectoryRoleAssignment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalObjectId is required")]
     public required TerraformValue<string> PrincipalObjectId
     {
-        get => new TerraformReference<string>(this, "principal_object_id");
+        get => GetArgument<TerraformValue<string>>("principal_object_id");
         set => SetArgument("principal_object_id", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzureadDirectoryRoleAssignment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
     public required TerraformValue<string> RoleId
     {
-        get => new TerraformReference<string>(this, "role_id");
+        get => GetArgument<TerraformValue<string>>("role_id");
         set => SetArgument("role_id", value);
     }
 

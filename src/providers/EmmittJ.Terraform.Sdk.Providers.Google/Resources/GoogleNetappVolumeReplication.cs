@@ -18,16 +18,16 @@ public class GoogleNetappVolumeReplicationDestinationVolumeParametersBlock : Ter
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// Share name for destination volume. If not specified, name of source volume&#39;s share name will be used.
     /// </summary>
-    public TerraformValue<string> ShareName
+    public TerraformValue<string>? ShareName
     {
-        get => new TerraformReference<string>(this, "share_name");
+        get => GetArgument<TerraformValue<string>>("share_name");
         set => SetArgument("share_name", value);
     }
 
@@ -37,16 +37,16 @@ public class GoogleNetappVolumeReplicationDestinationVolumeParametersBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePool is required")]
     public required TerraformValue<string> StoragePool
     {
-        get => new TerraformReference<string>(this, "storage_pool");
+        get => GetArgument<TerraformValue<string>>("storage_pool");
         set => SetArgument("storage_pool", value);
     }
 
     /// <summary>
     /// Name for the destination volume to be created. If not specified, the name of the source volume will be used.
     /// </summary>
-    public TerraformValue<string> VolumeId
+    public TerraformValue<string>? VolumeId
     {
-        get => new TerraformReference<string>(this, "volume_id");
+        get => GetArgument<TerraformValue<string>>("volume_id");
         set => SetArgument("volume_id", value);
     }
 
@@ -79,7 +79,7 @@ public class GoogleNetappVolumeReplicationDestinationVolumeParametersBlockTierin
     /// </summary>
     public TerraformValue<double>? CoolingThresholdDays
     {
-        get => new TerraformReference<double>(this, "cooling_threshold_days");
+        get => GetArgument<TerraformValue<double>>("cooling_threshold_days");
         set => SetArgument("cooling_threshold_days", value);
     }
 
@@ -88,7 +88,7 @@ public class GoogleNetappVolumeReplicationDestinationVolumeParametersBlockTierin
     /// </summary>
     public TerraformValue<string>? TierAction
     {
-        get => new TerraformReference<string>(this, "tier_action");
+        get => GetArgument<TerraformValue<string>>("tier_action");
         set => SetArgument("tier_action", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleNetappVolumeReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -120,7 +120,7 @@ public class GoogleNetappVolumeReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -129,7 +129,7 @@ public class GoogleNetappVolumeReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -153,7 +153,7 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? DeleteDestinationVolume
     {
-        get => new TerraformReference<bool>(this, "delete_destination_volume");
+        get => GetArgument<TerraformValue<bool>>("delete_destination_volume");
         set => SetArgument("delete_destination_volume", value);
     }
 
@@ -162,7 +162,7 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -174,16 +174,16 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? ForceStopping
     {
-        get => new TerraformReference<bool>(this, "force_stopping");
+        get => GetArgument<TerraformValue<bool>>("force_stopping");
         set => SetArgument("force_stopping", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -196,7 +196,7 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -206,7 +206,7 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -216,16 +216,16 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -237,7 +237,7 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? ReplicationEnabled
     {
-        get => new TerraformReference<bool>(this, "replication_enabled");
+        get => GetArgument<TerraformValue<bool>>("replication_enabled");
         set => SetArgument("replication_enabled", value);
     }
 
@@ -247,7 +247,7 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationSchedule is required")]
     public required TerraformValue<string> ReplicationSchedule
     {
-        get => new TerraformReference<string>(this, "replication_schedule");
+        get => GetArgument<TerraformValue<string>>("replication_schedule");
         set => SetArgument("replication_schedule", value);
     }
 
@@ -257,7 +257,7 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeName is required")]
     public required TerraformValue<string> VolumeName
     {
-        get => new TerraformReference<string>(this, "volume_name");
+        get => GetArgument<TerraformValue<string>>("volume_name");
         set => SetArgument("volume_name", value);
     }
 
@@ -268,7 +268,7 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     /// </summary>
     public TerraformValue<bool>? WaitForMirror
     {
-        get => new TerraformReference<bool>(this, "wait_for_mirror");
+        get => GetArgument<TerraformValue<bool>>("wait_for_mirror");
         set => SetArgument("wait_for_mirror", value);
     }
 
@@ -276,25 +276,19 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     /// Create time of the active directory. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format. Examples: &amp;quot;2023-06-22T09:13:01.617Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Full resource name of destination volume with format: &#39;projects/{{project}}/locations/{{location}}/volumes/{{volumeId}}&#39;
     /// </summary>
     public TerraformValue<string> DestinationVolume
-    {
-        get => new TerraformReference<string>(this, "destination_volume");
-    }
+        => AsReference("destination_volume");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Condition of the relationship. Can be one of the following:
@@ -302,33 +296,25 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     ///   - false: The replication relationship is not healthy. It has missed the most recent scheduled transfer.
     /// </summary>
     public TerraformValue<bool> Healthy
-    {
-        get => new TerraformReference<bool>(this, "healthy");
-    }
+        => AsReference("healthy");
 
     /// <summary>
     /// HybridPeeringDetails contains details about the hybrid peering.
     /// </summary>
     public TerraformList<TerraformMap<object>> HybridPeeringDetails
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "hybrid_peering_details").ResolveNodes(ctx));
-    }
+        => AsReference("hybrid_peering_details");
 
     /// <summary>
     /// Hybrid replication type.
     /// </summary>
     public TerraformValue<string> HybridReplicationType
-    {
-        get => new TerraformReference<string>(this, "hybrid_replication_type");
-    }
+        => AsReference("hybrid_replication_type");
 
     /// <summary>
     /// Copy pastable snapmirror commands to be executed on onprem cluster by the customer.
     /// </summary>
     public TerraformList<TerraformMap<object>> HybridReplicationUserCommands
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "hybrid_replication_user_commands").ResolveNodes(ctx));
-    }
+        => AsReference("hybrid_replication_user_commands");
 
     /// <summary>
     /// Indicates the state of the mirror between source and destination volumes. Depending on the amount of data
@@ -337,9 +323,7 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     /// currently receives an update. Updated every 5 minutes.
     /// </summary>
     public TerraformValue<string> MirrorState
-    {
-        get => new TerraformReference<string>(this, "mirror_state");
-    }
+        => AsReference("mirror_state");
 
     /// <summary>
     /// Reverting a replication can swap source and destination volume roles. This field indicates if the &#39;location&#39; hosts
@@ -347,50 +331,38 @@ public partial class GoogleNetappVolumeReplication(string name) : TerraformResou
     /// which volume is the source volume, since it will overwrite changes done to the destination volume.
     /// </summary>
     public TerraformValue<string> Role
-    {
-        get => new TerraformReference<string>(this, "role");
-    }
+        => AsReference("role");
 
     /// <summary>
     /// Full resource name of source volume with format: &#39;projects/{{project}}/locations/{{location}}/volumes/{{volumeId}}&#39;
     /// </summary>
     public TerraformValue<string> SourceVolume
-    {
-        get => new TerraformReference<string>(this, "source_volume");
-    }
+        => AsReference("source_volume");
 
     /// <summary>
     /// Indicates the state of replication resource. State of the mirror itself is indicated in mirrorState.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// State details of the replication resource.
     /// </summary>
     public TerraformValue<string> StateDetails
-    {
-        get => new TerraformReference<string>(this, "state_details");
-    }
+        => AsReference("state_details");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Replication transfer statistics. All statistics are updated every 5 minutes.
     /// </summary>
     public TerraformList<TerraformMap<object>> TransferStats
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "transfer_stats").ResolveNodes(ctx));
-    }
+        => AsReference("transfer_stats");
 
     /// <summary>
     /// DestinationVolumeParameters block (nesting mode: list).

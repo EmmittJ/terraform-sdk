@@ -18,7 +18,7 @@ public class AwsS3AccessPointPublicAccessBlockConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool>? BlockPublicAcls
     {
-        get => new TerraformReference<bool>(this, "block_public_acls");
+        get => GetArgument<TerraformValue<bool>>("block_public_acls");
         set => SetArgument("block_public_acls", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsS3AccessPointPublicAccessBlockConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool>? BlockPublicPolicy
     {
-        get => new TerraformReference<bool>(this, "block_public_policy");
+        get => GetArgument<TerraformValue<bool>>("block_public_policy");
         set => SetArgument("block_public_policy", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsS3AccessPointPublicAccessBlockConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool>? IgnorePublicAcls
     {
-        get => new TerraformReference<bool>(this, "ignore_public_acls");
+        get => GetArgument<TerraformValue<bool>>("ignore_public_acls");
         set => SetArgument("ignore_public_acls", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsS3AccessPointPublicAccessBlockConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformValue<bool>? RestrictPublicBuckets
     {
-        get => new TerraformReference<bool>(this, "restrict_public_buckets");
+        get => GetArgument<TerraformValue<bool>>("restrict_public_buckets");
         set => SetArgument("restrict_public_buckets", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsS3AccessPointVpcConfigurationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
     public required TerraformValue<string> VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -85,9 +85,9 @@ public partial class AwsS3AccessPoint(string name) : TerraformResource("aws_s3_a
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformValue<string> AccountId
+    public TerraformValue<string>? AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
@@ -97,25 +97,25 @@ public partial class AwsS3AccessPoint(string name) : TerraformResource("aws_s3_a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
     public required TerraformValue<string> Bucket
     {
-        get => new TerraformReference<string>(this, "bucket");
+        get => GetArgument<TerraformValue<string>>("bucket");
         set => SetArgument("bucket", value);
     }
 
     /// <summary>
     /// The bucket_account_id attribute.
     /// </summary>
-    public TerraformValue<string> BucketAccountId
+    public TerraformValue<string>? BucketAccountId
     {
-        get => new TerraformReference<string>(this, "bucket_account_id");
+        get => GetArgument<TerraformValue<string>>("bucket_account_id");
         set => SetArgument("bucket_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -125,25 +125,25 @@ public partial class AwsS3AccessPoint(string name) : TerraformResource("aws_s3_a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformValue<string> Policy
+    public TerraformValue<string>? Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -152,16 +152,16 @@ public partial class AwsS3AccessPoint(string name) : TerraformResource("aws_s3_a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -169,49 +169,37 @@ public partial class AwsS3AccessPoint(string name) : TerraformResource("aws_s3_a
     /// The alias attribute.
     /// </summary>
     public TerraformValue<string> Alias
-    {
-        get => new TerraformReference<string>(this, "alias");
-    }
+        => AsReference("alias");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     public TerraformValue<string> DomainName
-    {
-        get => new TerraformReference<string>(this, "domain_name");
-    }
+        => AsReference("domain_name");
 
     /// <summary>
     /// The endpoints attribute.
     /// </summary>
     public TerraformMap<string> Endpoints
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "endpoints").ResolveNodes(ctx));
-    }
+        => AsReference("endpoints");
 
     /// <summary>
     /// The has_public_access_policy attribute.
     /// </summary>
     public TerraformValue<bool> HasPublicAccessPolicy
-    {
-        get => new TerraformReference<bool>(this, "has_public_access_policy");
-    }
+        => AsReference("has_public_access_policy");
 
     /// <summary>
     /// The network_origin attribute.
     /// </summary>
     public TerraformValue<string> NetworkOrigin
-    {
-        get => new TerraformReference<string>(this, "network_origin");
-    }
+        => AsReference("network_origin");
 
     /// <summary>
     /// PublicAccessBlockConfiguration block (nesting mode: list).

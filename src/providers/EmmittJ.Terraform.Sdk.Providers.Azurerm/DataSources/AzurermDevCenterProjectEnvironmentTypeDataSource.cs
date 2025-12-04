@@ -18,7 +18,7 @@ public class AzurermDevCenterProjectEnvironmentTypeDataSourceTimeoutsBlock : Ter
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermDevCenterProjectEnvironmentTypeDataSource(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterProjectId is required")]
     public required TerraformValue<string> DevCenterProjectId
     {
-        get => new TerraformReference<string>(this, "dev_center_project_id");
+        get => GetArgument<TerraformValue<string>>("dev_center_project_id");
         set => SetArgument("dev_center_project_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermDevCenterProjectEnvironmentTypeDataSource(string nam
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -64,49 +64,37 @@ public partial class AzurermDevCenterProjectEnvironmentTypeDataSource(string nam
     /// The creator_role_assignment_roles attribute.
     /// </summary>
     public TerraformSet<string> CreatorRoleAssignmentRoles
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "creator_role_assignment_roles").ResolveNodes(ctx));
-    }
+        => AsReference("creator_role_assignment_roles");
 
     /// <summary>
     /// The deployment_target_id attribute.
     /// </summary>
     public TerraformValue<string> DeploymentTargetId
-    {
-        get => new TerraformReference<string>(this, "deployment_target_id");
-    }
+        => AsReference("deployment_target_id");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
-    }
+        => AsReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The user_role_assignment attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> UserRoleAssignment
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "user_role_assignment").ResolveNodes(ctx));
-    }
+        => AsReference("user_role_assignment");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

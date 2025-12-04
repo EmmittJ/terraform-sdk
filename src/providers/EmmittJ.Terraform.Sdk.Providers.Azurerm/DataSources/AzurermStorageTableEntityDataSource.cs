@@ -18,7 +18,7 @@ public class AzurermStorageTableEntityDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermStorageTableEntityDataSource(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermStorageTableEntityDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKey is required")]
     public required TerraformValue<string> PartitionKey
     {
-        get => new TerraformReference<string>(this, "partition_key");
+        get => GetArgument<TerraformValue<string>>("partition_key");
         set => SetArgument("partition_key", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermStorageTableEntityDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RowKey is required")]
     public required TerraformValue<string> RowKey
     {
-        get => new TerraformReference<string>(this, "row_key");
+        get => GetArgument<TerraformValue<string>>("row_key");
         set => SetArgument("row_key", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermStorageTableEntityDataSource(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageTableId is required")]
     public required TerraformValue<string> StorageTableId
     {
-        get => new TerraformReference<string>(this, "storage_table_id");
+        get => GetArgument<TerraformValue<string>>("storage_table_id");
         set => SetArgument("storage_table_id", value);
     }
 
@@ -74,9 +74,7 @@ public partial class AzurermStorageTableEntityDataSource(string name) : Terrafor
     /// The entity attribute.
     /// </summary>
     public TerraformMap<string> Entity
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "entity").ResolveNodes(ctx));
-    }
+        => AsReference("entity");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

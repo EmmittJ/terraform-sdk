@@ -18,7 +18,7 @@ public class GoogleApigeeAppGroupAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleApigeeAppGroupAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -50,7 +50,7 @@ public class GoogleApigeeAppGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -59,7 +59,7 @@ public class GoogleApigeeAppGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -68,7 +68,7 @@ public class GoogleApigeeAppGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -86,7 +86,7 @@ public partial class GoogleApigeeAppGroup(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? ChannelId
     {
-        get => new TerraformReference<string>(this, "channel_id");
+        get => GetArgument<TerraformValue<string>>("channel_id");
         set => SetArgument("channel_id", value);
     }
 
@@ -95,7 +95,7 @@ public partial class GoogleApigeeAppGroup(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? ChannelUri
     {
-        get => new TerraformReference<string>(this, "channel_uri");
+        get => GetArgument<TerraformValue<string>>("channel_uri");
         set => SetArgument("channel_uri", value);
     }
 
@@ -104,16 +104,16 @@ public partial class GoogleApigeeAppGroup(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -123,7 +123,7 @@ public partial class GoogleApigeeAppGroup(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -134,7 +134,7 @@ public partial class GoogleApigeeAppGroup(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
     public required TerraformValue<string> OrgId
     {
-        get => new TerraformReference<string>(this, "org_id");
+        get => GetArgument<TerraformValue<string>>("org_id");
         set => SetArgument("org_id", value);
     }
 
@@ -143,7 +143,7 @@ public partial class GoogleApigeeAppGroup(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -151,33 +151,25 @@ public partial class GoogleApigeeAppGroup(string name) : TerraformResource("goog
     /// Internal identifier that cannot be edited
     /// </summary>
     public TerraformValue<string> AppGroupId
-    {
-        get => new TerraformReference<string>(this, "app_group_id");
-    }
+        => AsReference("app_group_id");
 
     /// <summary>
     /// Created time as milliseconds since epoch.
     /// </summary>
     public TerraformValue<string> CreatedAt
-    {
-        get => new TerraformReference<string>(this, "created_at");
-    }
+        => AsReference("created_at");
 
     /// <summary>
     /// Modified time as milliseconds since epoch.
     /// </summary>
     public TerraformValue<string> LastModifiedAt
-    {
-        get => new TerraformReference<string>(this, "last_modified_at");
-    }
+        => AsReference("last_modified_at");
 
     /// <summary>
     /// App group name displayed in the UI
     /// </summary>
     public TerraformValue<string> Organization
-    {
-        get => new TerraformReference<string>(this, "organization");
-    }
+        => AsReference("organization");
 
     /// <summary>
     /// Attributes block (nesting mode: list).

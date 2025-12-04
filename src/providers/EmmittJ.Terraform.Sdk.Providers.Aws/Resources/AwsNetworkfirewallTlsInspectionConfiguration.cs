@@ -18,7 +18,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurat
     /// </summary>
     public TerraformValue<string>? CertificateAuthorityArn
     {
-        get => new TerraformReference<string>(this, "certificate_authority_arn");
+        get => GetArgument<TerraformValue<string>>("certificate_authority_arn");
         set => SetArgument("certificate_authority_arn", value);
     }
 
@@ -130,7 +130,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurat
     /// </summary>
     public TerraformValue<string>? RevokedStatusAction
     {
-        get => new TerraformReference<string>(this, "revoked_status_action");
+        get => GetArgument<TerraformValue<string>>("revoked_status_action");
         set => SetArgument("revoked_status_action", value);
     }
 
@@ -139,7 +139,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurat
     /// </summary>
     public TerraformValue<string>? UnknownStatusAction
     {
-        get => new TerraformReference<string>(this, "unknown_status_action");
+        get => GetArgument<TerraformValue<string>>("unknown_status_action");
         set => SetArgument("unknown_status_action", value);
     }
 
@@ -162,7 +162,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocols is required")]
     public required TerraformSet<double> Protocols
     {
-        get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "protocols").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<double>>("protocols");
         set => SetArgument("protocols", value);
     }
 
@@ -221,7 +221,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressDefinition is required")]
     public required TerraformValue<string> AddressDefinition
     {
-        get => new TerraformReference<string>(this, "address_definition");
+        get => GetArgument<TerraformValue<string>>("address_definition");
         set => SetArgument("address_definition", value);
     }
 
@@ -244,7 +244,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformValue<double> FromPort
     {
-        get => new TerraformReference<double>(this, "from_port");
+        get => GetArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -254,7 +254,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformValue<double> ToPort
     {
-        get => new TerraformReference<double>(this, "to_port");
+        get => GetArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -277,7 +277,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressDefinition is required")]
     public required TerraformValue<string> AddressDefinition
     {
-        get => new TerraformReference<string>(this, "address_definition");
+        get => GetArgument<TerraformValue<string>>("address_definition");
         set => SetArgument("address_definition", value);
     }
 
@@ -300,7 +300,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
     public required TerraformValue<double> FromPort
     {
-        get => new TerraformReference<double>(this, "from_port");
+        get => GetArgument<TerraformValue<double>>("from_port");
         set => SetArgument("from_port", value);
     }
 
@@ -310,7 +310,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurat
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
     public required TerraformValue<double> ToPort
     {
-        get => new TerraformReference<double>(this, "to_port");
+        get => GetArgument<TerraformValue<double>>("to_port");
         set => SetArgument("to_port", value);
     }
 
@@ -332,7 +332,7 @@ public class AwsNetworkfirewallTlsInspectionConfigurationTlsInspectionConfigurat
     /// </summary>
     public TerraformValue<string>? ResourceArn
     {
-        get => new TerraformReference<string>(this, "resource_arn");
+        get => GetArgument<TerraformValue<string>>("resource_arn");
         set => SetArgument("resource_arn", value);
     }
 
@@ -350,16 +350,16 @@ public partial class AwsNetworkfirewallTlsInspectionConfiguration(string name) :
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The encryption_configuration attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>> EncryptionConfiguration
+    public TerraformList<TerraformMap<object>>? EncryptionConfiguration
     {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "encryption_configuration").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<TerraformMap<object>>>("encryption_configuration");
         set => SetArgument("encryption_configuration", value);
     }
 
@@ -369,16 +369,16 @@ public partial class AwsNetworkfirewallTlsInspectionConfiguration(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -387,7 +387,7 @@ public partial class AwsNetworkfirewallTlsInspectionConfiguration(string name) :
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -395,65 +395,49 @@ public partial class AwsNetworkfirewallTlsInspectionConfiguration(string name) :
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The certificate_authority attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> CertificateAuthority
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "certificate_authority").ResolveNodes(ctx));
-    }
+        => AsReference("certificate_authority");
 
     /// <summary>
     /// The certificates attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Certificates
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "certificates").ResolveNodes(ctx));
-    }
+        => AsReference("certificates");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The number_of_associations attribute.
     /// </summary>
     public TerraformValue<double> NumberOfAssociations
-    {
-        get => new TerraformReference<double>(this, "number_of_associations");
-    }
+        => AsReference("number_of_associations");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// The tls_inspection_configuration_id attribute.
     /// </summary>
     public TerraformValue<string> TlsInspectionConfigurationId
-    {
-        get => new TerraformReference<string>(this, "tls_inspection_configuration_id");
-    }
+        => AsReference("tls_inspection_configuration_id");
 
     /// <summary>
     /// The update_token attribute.
     /// </summary>
     public TerraformValue<string> UpdateToken
-    {
-        get => new TerraformReference<string>(this, "update_token");
-    }
+        => AsReference("update_token");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

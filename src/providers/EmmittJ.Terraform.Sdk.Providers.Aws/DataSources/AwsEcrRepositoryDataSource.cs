@@ -11,9 +11,9 @@ public partial class AwsEcrRepositoryDataSource(string name) : TerraformDataSour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,34 +23,34 @@ public partial class AwsEcrRepositoryDataSource(string name) : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The registry_id attribute.
     /// </summary>
-    public TerraformValue<string> RegistryId
+    public TerraformValue<string>? RegistryId
     {
-        get => new TerraformReference<string>(this, "registry_id");
+        get => GetArgument<TerraformValue<string>>("registry_id");
         set => SetArgument("registry_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -58,56 +58,42 @@ public partial class AwsEcrRepositoryDataSource(string name) : TerraformDataSour
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The encryption_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EncryptionConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "encryption_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("encryption_configuration");
 
     /// <summary>
     /// The image_scanning_configuration attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ImageScanningConfiguration
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "image_scanning_configuration").ResolveNodes(ctx));
-    }
+        => AsReference("image_scanning_configuration");
 
     /// <summary>
     /// The image_tag_mutability attribute.
     /// </summary>
     public TerraformValue<string> ImageTagMutability
-    {
-        get => new TerraformReference<string>(this, "image_tag_mutability");
-    }
+        => AsReference("image_tag_mutability");
 
     /// <summary>
     /// The image_tag_mutability_exclusion_filter attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ImageTagMutabilityExclusionFilter
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "image_tag_mutability_exclusion_filter").ResolveNodes(ctx));
-    }
+        => AsReference("image_tag_mutability_exclusion_filter");
 
     /// <summary>
     /// The most_recent_image_tags attribute.
     /// </summary>
     public TerraformList<string> MostRecentImageTags
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "most_recent_image_tags").ResolveNodes(ctx));
-    }
+        => AsReference("most_recent_image_tags");
 
     /// <summary>
     /// The repository_url attribute.
     /// </summary>
     public TerraformValue<string> RepositoryUrl
-    {
-        get => new TerraformReference<string>(this, "repository_url");
-    }
+        => AsReference("repository_url");
 
 }

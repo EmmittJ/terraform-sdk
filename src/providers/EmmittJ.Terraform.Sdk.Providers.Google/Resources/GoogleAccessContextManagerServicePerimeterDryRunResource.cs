@@ -18,7 +18,7 @@ public class GoogleAccessContextManagerServicePerimeterDryRunResourceTimeoutsBlo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleAccessContextManagerServicePerimeterDryRunResourceTimeoutsBlo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -43,9 +43,9 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunResource(st
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunResource(st
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerimeterName is required")]
     public required TerraformValue<string> PerimeterName
     {
-        get => new TerraformReference<string>(this, "perimeter_name");
+        get => GetArgument<TerraformValue<string>>("perimeter_name");
         set => SetArgument("perimeter_name", value);
     }
 
@@ -67,7 +67,7 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunResource(st
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
     public required TerraformValue<string> Resource
     {
-        get => new TerraformReference<string>(this, "resource");
+        get => GetArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -75,17 +75,13 @@ public partial class GoogleAccessContextManagerServicePerimeterDryRunResource(st
     /// The name of the Access Policy this resource belongs to.
     /// </summary>
     public TerraformValue<string> AccessPolicyId
-    {
-        get => new TerraformReference<string>(this, "access_policy_id");
-    }
+        => AsReference("access_policy_id");
 
     /// <summary>
     /// The perimeter etag is internally used to prevent overwriting the list of perimeter resources on PATCH calls. It is retrieved from the same GET perimeter API call that&#39;s used to get the current list of resources. The resource to add or remove is merged into that list and then this etag is sent with the PATCH call along with the updated resource list.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

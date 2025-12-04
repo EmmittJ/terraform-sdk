@@ -18,7 +18,7 @@ public class AzurermBlueprintPublishedVersionDataSourceTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermBlueprintPublishedVersionDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlueprintName is required")]
     public required TerraformValue<string> BlueprintName
     {
-        get => new TerraformReference<string>(this, "blueprint_name");
+        get => GetArgument<TerraformValue<string>>("blueprint_name");
         set => SetArgument("blueprint_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermBlueprintPublishedVersionDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
     public required TerraformValue<string> ScopeId
     {
-        get => new TerraformReference<string>(this, "scope_id");
+        get => GetArgument<TerraformValue<string>>("scope_id");
         set => SetArgument("scope_id", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermBlueprintPublishedVersionDataSource(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
     public required TerraformValue<string> Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -74,49 +74,37 @@ public partial class AzurermBlueprintPublishedVersionDataSource(string name) : T
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
     public TerraformValue<string> LastModified
-    {
-        get => new TerraformReference<string>(this, "last_modified");
-    }
+        => AsReference("last_modified");
 
     /// <summary>
     /// The target_scope attribute.
     /// </summary>
     public TerraformValue<string> TargetScope
-    {
-        get => new TerraformReference<string>(this, "target_scope");
-    }
+        => AsReference("target_scope");
 
     /// <summary>
     /// The time_created attribute.
     /// </summary>
     public TerraformValue<string> TimeCreated
-    {
-        get => new TerraformReference<string>(this, "time_created");
-    }
+        => AsReference("time_created");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

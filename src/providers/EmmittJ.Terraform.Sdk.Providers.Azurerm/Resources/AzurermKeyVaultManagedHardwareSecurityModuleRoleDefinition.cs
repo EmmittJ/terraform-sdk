@@ -18,7 +18,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissio
     /// </summary>
     public TerraformList<string>? Actions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("actions");
         set => SetArgument("actions", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissio
     /// </summary>
     public TerraformSet<string>? DataActions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "data_actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("data_actions");
         set => SetArgument("data_actions", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissio
     /// </summary>
     public TerraformList<string>? NotActions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "not_actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("not_actions");
         set => SetArgument("not_actions", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissio
     /// </summary>
     public TerraformSet<string>? NotDataActions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "not_data_actions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("not_data_actions");
         set => SetArgument("not_data_actions", value);
     }
 
@@ -68,7 +68,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsB
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -77,7 +77,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsB
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -86,7 +86,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsB
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -95,7 +95,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionTimeoutsB
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -113,16 +113,16 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition(
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -132,7 +132,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmId is required")]
     public required TerraformValue<string> ManagedHsmId
     {
-        get => new TerraformReference<string>(this, "managed_hsm_id");
+        get => GetArgument<TerraformValue<string>>("managed_hsm_id");
         set => SetArgument("managed_hsm_id", value);
     }
 
@@ -142,7 +142,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -151,7 +151,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition(
     /// </summary>
     public TerraformValue<string>? RoleName
     {
-        get => new TerraformReference<string>(this, "role_name");
+        get => GetArgument<TerraformValue<string>>("role_name");
         set => SetArgument("role_name", value);
     }
 
@@ -159,17 +159,13 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition(
     /// The resource_manager_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceManagerId
-    {
-        get => new TerraformReference<string>(this, "resource_manager_id");
-    }
+        => AsReference("resource_manager_id");
 
     /// <summary>
     /// The role_type attribute.
     /// </summary>
     public TerraformValue<string> RoleType
-    {
-        get => new TerraformReference<string>(this, "role_type");
-    }
+        => AsReference("role_type");
 
     /// <summary>
     /// Permission block (nesting mode: list).

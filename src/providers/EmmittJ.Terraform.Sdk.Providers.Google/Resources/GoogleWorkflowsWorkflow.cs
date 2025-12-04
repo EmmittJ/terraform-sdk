@@ -18,7 +18,7 @@ public class GoogleWorkflowsWorkflowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleWorkflowsWorkflowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleWorkflowsWorkflowTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -56,7 +56,7 @@ public partial class GoogleWorkflowsWorkflow(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? CallLogLevel
     {
-        get => new TerraformReference<string>(this, "call_log_level");
+        get => GetArgument<TerraformValue<string>>("call_log_level");
         set => SetArgument("call_log_level", value);
     }
 
@@ -67,7 +67,7 @@ public partial class GoogleWorkflowsWorkflow(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? CryptoKeyName
     {
-        get => new TerraformReference<string>(this, "crypto_key_name");
+        get => GetArgument<TerraformValue<string>>("crypto_key_name");
         set => SetArgument("crypto_key_name", value);
     }
 
@@ -81,16 +81,16 @@ public partial class GoogleWorkflowsWorkflow(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
     /// <summary>
     /// Description of the workflow provided by the user. Must be at most 1000 unicode characters long.
     /// </summary>
-    public TerraformValue<string> Description
+    public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -101,16 +101,16 @@ public partial class GoogleWorkflowsWorkflow(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? ExecutionHistoryLevel
     {
-        get => new TerraformReference<string>(this, "execution_history_level");
+        get => GetArgument<TerraformValue<string>>("execution_history_level");
         set => SetArgument("execution_history_level", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -123,34 +123,34 @@ public partial class GoogleWorkflowsWorkflow(string name) : TerraformResource("g
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
     /// <summary>
     /// Name of the Workflow.
     /// </summary>
-    public TerraformValue<string> Name
+    public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformValue<string> NamePrefix
+    public TerraformValue<string>? NamePrefix
     {
-        get => new TerraformReference<string>(this, "name_prefix");
+        get => GetArgument<TerraformValue<string>>("name_prefix");
         set => SetArgument("name_prefix", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -159,7 +159,7 @@ public partial class GoogleWorkflowsWorkflow(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -172,9 +172,9 @@ public partial class GoogleWorkflowsWorkflow(string name) : TerraformResource("g
     /// If not provided, workflow will use the project&#39;s default service account.
     /// Modifying this field for an existing workflow results in a new workflow revision.
     /// </summary>
-    public TerraformValue<string> ServiceAccount
+    public TerraformValue<string>? ServiceAccount
     {
-        get => new TerraformReference<string>(this, "service_account");
+        get => GetArgument<TerraformValue<string>>("service_account");
         set => SetArgument("service_account", value);
     }
 
@@ -183,7 +183,7 @@ public partial class GoogleWorkflowsWorkflow(string name) : TerraformResource("g
     /// </summary>
     public TerraformValue<string>? SourceContents
     {
-        get => new TerraformReference<string>(this, "source_contents");
+        get => GetArgument<TerraformValue<string>>("source_contents");
         set => SetArgument("source_contents", value);
     }
 
@@ -194,7 +194,7 @@ public partial class GoogleWorkflowsWorkflow(string name) : TerraformResource("g
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -203,7 +203,7 @@ public partial class GoogleWorkflowsWorkflow(string name) : TerraformResource("g
     /// </summary>
     public TerraformMap<string>? UserEnvVars
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "user_env_vars").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("user_env_vars");
         set => SetArgument("user_env_vars", value);
     }
 
@@ -211,50 +211,38 @@ public partial class GoogleWorkflowsWorkflow(string name) : TerraformResource("g
     /// The timestamp of when the workflow was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The revision of the workflow. A new one is generated if the service account or source contents is changed.
     /// </summary>
     public TerraformValue<string> RevisionId
-    {
-        get => new TerraformReference<string>(this, "revision_id");
-    }
+        => AsReference("revision_id");
 
     /// <summary>
     /// State of the workflow deployment.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The timestamp of when the workflow was last updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

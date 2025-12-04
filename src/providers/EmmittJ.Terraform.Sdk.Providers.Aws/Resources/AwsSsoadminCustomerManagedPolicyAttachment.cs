@@ -19,7 +19,7 @@ public class AwsSsoadminCustomerManagedPolicyAttachmentCustomerManagedPolicyRefe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsSsoadminCustomerManagedPolicyAttachmentCustomerManagedPolicyRefe
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsSsoadminCustomerManagedPolicyAttachmentTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsSsoadminCustomerManagedPolicyAttachmentTimeoutsBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -76,9 +76,9 @@ public partial class AwsSsoadminCustomerManagedPolicyAttachment(string name) : T
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -88,7 +88,7 @@ public partial class AwsSsoadminCustomerManagedPolicyAttachment(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
     public required TerraformValue<string> InstanceArn
     {
-        get => new TerraformReference<string>(this, "instance_arn");
+        get => GetArgument<TerraformValue<string>>("instance_arn");
         set => SetArgument("instance_arn", value);
     }
 
@@ -98,16 +98,16 @@ public partial class AwsSsoadminCustomerManagedPolicyAttachment(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionSetArn is required")]
     public required TerraformValue<string> PermissionSetArn
     {
-        get => new TerraformReference<string>(this, "permission_set_arn");
+        get => GetArgument<TerraformValue<string>>("permission_set_arn");
         set => SetArgument("permission_set_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

@@ -18,7 +18,7 @@ public class AzurermDevCenterProjectPoolDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermDevCenterProjectPoolDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterProjectId is required")]
     public required TerraformValue<string> DevCenterProjectId
     {
-        get => new TerraformReference<string>(this, "dev_center_project_id");
+        get => GetArgument<TerraformValue<string>>("dev_center_project_id");
         set => SetArgument("dev_center_project_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermDevCenterProjectPoolDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -64,57 +64,43 @@ public partial class AzurermDevCenterProjectPoolDataSource(string name) : Terraf
     /// The dev_box_definition_name attribute.
     /// </summary>
     public TerraformValue<string> DevBoxDefinitionName
-    {
-        get => new TerraformReference<string>(this, "dev_box_definition_name");
-    }
+        => AsReference("dev_box_definition_name");
 
     /// <summary>
     /// The dev_center_attached_network_name attribute.
     /// </summary>
     public TerraformValue<string> DevCenterAttachedNetworkName
-    {
-        get => new TerraformReference<string>(this, "dev_center_attached_network_name");
-    }
+        => AsReference("dev_center_attached_network_name");
 
     /// <summary>
     /// The local_administrator_enabled attribute.
     /// </summary>
     public TerraformValue<bool> LocalAdministratorEnabled
-    {
-        get => new TerraformReference<bool>(this, "local_administrator_enabled");
-    }
+        => AsReference("local_administrator_enabled");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The single_sign_on_enabled attribute.
     /// </summary>
     public TerraformValue<bool> SingleSignOnEnabled
-    {
-        get => new TerraformReference<bool>(this, "single_sign_on_enabled");
-    }
+        => AsReference("single_sign_on_enabled");
 
     /// <summary>
     /// The stop_on_disconnect_grace_period_minutes attribute.
     /// </summary>
     public TerraformValue<double> StopOnDisconnectGracePeriodMinutes
-    {
-        get => new TerraformReference<double>(this, "stop_on_disconnect_grace_period_minutes");
-    }
+        => AsReference("stop_on_disconnect_grace_period_minutes");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

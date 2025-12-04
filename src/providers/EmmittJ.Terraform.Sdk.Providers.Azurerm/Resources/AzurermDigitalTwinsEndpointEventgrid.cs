@@ -18,7 +18,7 @@ public class AzurermDigitalTwinsEndpointEventgridTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermDigitalTwinsEndpointEventgridTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermDigitalTwinsEndpointEventgridTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermDigitalTwinsEndpointEventgridTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermDigitalTwinsEndpointEventgrid(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? DeadLetterStorageSecret
     {
-        get => new TerraformReference<string>(this, "dead_letter_storage_secret");
+        get => GetArgument<TerraformValue<string>>("dead_letter_storage_secret");
         set => SetArgument("dead_letter_storage_secret", value);
     }
 
@@ -73,7 +73,7 @@ public partial class AzurermDigitalTwinsEndpointEventgrid(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DigitalTwinsId is required")]
     public required TerraformValue<string> DigitalTwinsId
     {
-        get => new TerraformReference<string>(this, "digital_twins_id");
+        get => GetArgument<TerraformValue<string>>("digital_twins_id");
         set => SetArgument("digital_twins_id", value);
     }
 
@@ -83,7 +83,7 @@ public partial class AzurermDigitalTwinsEndpointEventgrid(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventgridTopicEndpoint is required")]
     public required TerraformValue<string> EventgridTopicEndpoint
     {
-        get => new TerraformReference<string>(this, "eventgrid_topic_endpoint");
+        get => GetArgument<TerraformValue<string>>("eventgrid_topic_endpoint");
         set => SetArgument("eventgrid_topic_endpoint", value);
     }
 
@@ -93,7 +93,7 @@ public partial class AzurermDigitalTwinsEndpointEventgrid(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventgridTopicPrimaryAccessKey is required")]
     public required TerraformValue<string> EventgridTopicPrimaryAccessKey
     {
-        get => new TerraformReference<string>(this, "eventgrid_topic_primary_access_key");
+        get => GetArgument<TerraformValue<string>>("eventgrid_topic_primary_access_key");
         set => SetArgument("eventgrid_topic_primary_access_key", value);
     }
 
@@ -103,16 +103,16 @@ public partial class AzurermDigitalTwinsEndpointEventgrid(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventgridTopicSecondaryAccessKey is required")]
     public required TerraformValue<string> EventgridTopicSecondaryAccessKey
     {
-        get => new TerraformReference<string>(this, "eventgrid_topic_secondary_access_key");
+        get => GetArgument<TerraformValue<string>>("eventgrid_topic_secondary_access_key");
         set => SetArgument("eventgrid_topic_secondary_access_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -122,7 +122,7 @@ public partial class AzurermDigitalTwinsEndpointEventgrid(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 

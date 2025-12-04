@@ -18,7 +18,7 @@ public class AzurermOracleDbSystemShapesDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermOracleDbSystemShapesDataSource(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermOracleDbSystemShapesDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -55,7 +55,7 @@ public partial class AzurermOracleDbSystemShapesDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -63,9 +63,7 @@ public partial class AzurermOracleDbSystemShapesDataSource(string name) : Terraf
     /// The db_system_shapes attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DbSystemShapes
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "db_system_shapes").ResolveNodes(ctx));
-    }
+        => AsReference("db_system_shapes");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

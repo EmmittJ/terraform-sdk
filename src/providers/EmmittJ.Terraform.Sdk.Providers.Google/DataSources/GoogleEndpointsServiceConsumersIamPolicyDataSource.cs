@@ -14,16 +14,16 @@ public partial class GoogleEndpointsServiceConsumersIamPolicyDataSource(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerProject is required")]
     public required TerraformValue<string> ConsumerProject
     {
-        get => new TerraformReference<string>(this, "consumer_project");
+        get => GetArgument<TerraformValue<string>>("consumer_project");
         set => SetArgument("consumer_project", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleEndpointsServiceConsumersIamPolicyDataSource(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
     public required TerraformValue<string> ServiceName
     {
-        get => new TerraformReference<string>(this, "service_name");
+        get => GetArgument<TerraformValue<string>>("service_name");
         set => SetArgument("service_name", value);
     }
 
@@ -41,16 +41,12 @@ public partial class GoogleEndpointsServiceConsumersIamPolicyDataSource(string n
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     public TerraformValue<string> PolicyData
-    {
-        get => new TerraformReference<string>(this, "policy_data");
-    }
+        => AsReference("policy_data");
 
 }

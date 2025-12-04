@@ -18,7 +18,7 @@ public class GoogleNetworkSecurityMirroringEndpointGroupTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleNetworkSecurityMirroringEndpointGroupTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleNetworkSecurityMirroringEndpointGroupTimeoutsBlock : Terrafor
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,16 +55,16 @@ public partial class GoogleNetworkSecurityMirroringEndpointGroup(string name) : 
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -76,7 +76,7 @@ public partial class GoogleNetworkSecurityMirroringEndpointGroup(string name) : 
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -86,7 +86,7 @@ public partial class GoogleNetworkSecurityMirroringEndpointGroup(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -97,7 +97,7 @@ public partial class GoogleNetworkSecurityMirroringEndpointGroup(string name) : 
     /// </summary>
     public TerraformValue<string>? MirroringDeploymentGroup
     {
-        get => new TerraformReference<string>(this, "mirroring_deployment_group");
+        get => GetArgument<TerraformValue<string>>("mirroring_deployment_group");
         set => SetArgument("mirroring_deployment_group", value);
     }
 
@@ -108,16 +108,16 @@ public partial class GoogleNetworkSecurityMirroringEndpointGroup(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MirroringEndpointGroupId is required")]
     public required TerraformValue<string> MirroringEndpointGroupId
     {
-        get => new TerraformReference<string>(this, "mirroring_endpoint_group_id");
+        get => GetArgument<TerraformValue<string>>("mirroring_endpoint_group_id");
         set => SetArgument("mirroring_endpoint_group_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -125,35 +125,27 @@ public partial class GoogleNetworkSecurityMirroringEndpointGroup(string name) : 
     /// List of associations to this endpoint group.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Associations
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "associations").ResolveNodes(ctx));
-    }
+        => AsReference("associations");
 
     /// <summary>
     /// List of details about the connected deployment groups to this endpoint
     /// group.
     /// </summary>
     public TerraformSet<TerraformMap<object>> ConnectedDeploymentGroups
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "connected_deployment_groups").ResolveNodes(ctx));
-    }
+        => AsReference("connected_deployment_groups");
 
     /// <summary>
     /// The timestamp when the resource was created.
     /// See https://google.aip.dev/148#timestamps.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The resource name of this endpoint group, for example:
@@ -161,9 +153,7 @@ public partial class GoogleNetworkSecurityMirroringEndpointGroup(string name) : 
     /// See https://google.aip.dev/122 for more details.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The current state of the resource does not match the user&#39;s intended state,
@@ -172,9 +162,7 @@ public partial class GoogleNetworkSecurityMirroringEndpointGroup(string name) : 
     /// See https://google.aip.dev/128.
     /// </summary>
     public TerraformValue<bool> Reconciling
-    {
-        get => new TerraformReference<bool>(this, "reconciling");
-    }
+        => AsReference("reconciling");
 
     /// <summary>
     /// The current state of the endpoint group.
@@ -189,27 +177,21 @@ public partial class GoogleNetworkSecurityMirroringEndpointGroup(string name) : 
     /// DELETE_FAILED
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The timestamp when the resource was most recently updated.
     /// See https://google.aip.dev/148#timestamps.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

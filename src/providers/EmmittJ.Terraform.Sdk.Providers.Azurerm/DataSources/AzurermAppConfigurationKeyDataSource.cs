@@ -18,7 +18,7 @@ public class AzurermAppConfigurationKeyDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermAppConfigurationKeyDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationStoreId is required")]
     public required TerraformValue<string> ConfigurationStoreId
     {
-        get => new TerraformReference<string>(this, "configuration_store_id");
+        get => GetArgument<TerraformValue<string>>("configuration_store_id");
         set => SetArgument("configuration_store_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermAppConfigurationKeyDataSource(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzurermAppConfigurationKeyDataSource(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Label
     {
-        get => new TerraformReference<string>(this, "label");
+        get => GetArgument<TerraformValue<string>>("label");
         set => SetArgument("label", value);
     }
 
@@ -73,57 +73,43 @@ public partial class AzurermAppConfigurationKeyDataSource(string name) : Terrafo
     /// The content_type attribute.
     /// </summary>
     public TerraformValue<string> ContentType
-    {
-        get => new TerraformReference<string>(this, "content_type");
-    }
+        => AsReference("content_type");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The locked attribute.
     /// </summary>
     public TerraformValue<bool> Locked
-    {
-        get => new TerraformReference<bool>(this, "locked");
-    }
+        => AsReference("locked");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     public TerraformValue<string> Value
-    {
-        get => new TerraformReference<string>(this, "value");
-    }
+        => AsReference("value");
 
     /// <summary>
     /// The vault_key_reference attribute.
     /// </summary>
     public TerraformValue<string> VaultKeyReference
-    {
-        get => new TerraformReference<string>(this, "vault_key_reference");
-    }
+        => AsReference("vault_key_reference");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

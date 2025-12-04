@@ -18,7 +18,7 @@ public class GoogleIamOauthClientTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleIamOauthClientTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleIamOauthClientTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleIamOauthClient(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedGrantTypes is required")]
     public TerraformList<string>? AllowedGrantTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_grant_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_grant_types");
         set => SetArgument("allowed_grant_types", value);
     }
 
@@ -66,7 +66,7 @@ public partial class GoogleIamOauthClient(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedRedirectUris is required")]
     public TerraformList<string>? AllowedRedirectUris
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_redirect_uris").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_redirect_uris");
         set => SetArgument("allowed_redirect_uris", value);
     }
 
@@ -87,7 +87,7 @@ public partial class GoogleIamOauthClient(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedScopes is required")]
     public TerraformList<string>? AllowedScopes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("allowed_scopes");
         set => SetArgument("allowed_scopes", value);
     }
 
@@ -102,7 +102,7 @@ public partial class GoogleIamOauthClient(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? ClientType
     {
-        get => new TerraformReference<string>(this, "client_type");
+        get => GetArgument<TerraformValue<string>>("client_type");
         set => SetArgument("client_type", value);
     }
 
@@ -113,7 +113,7 @@ public partial class GoogleIamOauthClient(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -123,7 +123,7 @@ public partial class GoogleIamOauthClient(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -134,16 +134,16 @@ public partial class GoogleIamOauthClient(string name) : TerraformResource("goog
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -153,7 +153,7 @@ public partial class GoogleIamOauthClient(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -167,16 +167,16 @@ public partial class GoogleIamOauthClient(string name) : TerraformResource("goog
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OauthClientId is required")]
     public required TerraformValue<string> OauthClientId
     {
-        get => new TerraformReference<string>(this, "oauth_client_id");
+        get => GetArgument<TerraformValue<string>>("oauth_client_id");
         set => SetArgument("oauth_client_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -184,18 +184,14 @@ public partial class GoogleIamOauthClient(string name) : TerraformResource("goog
     /// Output only. The system-generated OauthClient id.
     /// </summary>
     public TerraformValue<string> ClientId
-    {
-        get => new TerraformReference<string>(this, "client_id");
-    }
+        => AsReference("client_id");
 
     /// <summary>
     /// Time after which the OauthClient will be permanently purged and cannot
     /// be recovered.
     /// </summary>
     public TerraformValue<string> ExpireTime
-    {
-        get => new TerraformReference<string>(this, "expire_time");
-    }
+        => AsReference("expire_time");
 
     /// <summary>
     /// Immutable. Identifier. The resource name of the OauthClient.
@@ -203,9 +199,7 @@ public partial class GoogleIamOauthClient(string name) : TerraformResource("goog
     /// Format:&#39;projects/{project}/locations/{location}/oauthClients/{oauth_client}&#39;.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The state of the OauthClient.
@@ -215,9 +209,7 @@ public partial class GoogleIamOauthClient(string name) : TerraformResource("goog
     /// DELETED
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

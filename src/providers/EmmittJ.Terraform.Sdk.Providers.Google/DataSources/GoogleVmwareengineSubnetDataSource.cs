@@ -11,9 +11,9 @@ public partial class GoogleVmwareengineSubnetDataSource(string name) : Terraform
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -24,7 +24,7 @@ public partial class GoogleVmwareengineSubnetDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -36,7 +36,7 @@ public partial class GoogleVmwareengineSubnetDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -46,74 +46,56 @@ public partial class GoogleVmwareengineSubnetDataSource(string name) : Terraform
     /// up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// DHCP address ranges.
     /// </summary>
     public TerraformList<TerraformMap<object>> DhcpAddressRanges
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "dhcp_address_ranges").ResolveNodes(ctx));
-    }
+        => AsReference("dhcp_address_ranges");
 
     /// <summary>
     /// The canonical identifier of the logical router that this subnet is attached to.
     /// </summary>
     public TerraformValue<string> GatewayId
-    {
-        get => new TerraformReference<string>(this, "gateway_id");
-    }
+        => AsReference("gateway_id");
 
     /// <summary>
     /// The IP address of the gateway of this subnet. Must fall within the IP prefix defined above.
     /// </summary>
     public TerraformValue<string> GatewayIp
-    {
-        get => new TerraformReference<string>(this, "gateway_ip");
-    }
+        => AsReference("gateway_ip");
 
     /// <summary>
     /// The IP address range of the subnet in CIDR format.
     /// </summary>
     public TerraformValue<string> IpCidrRange
-    {
-        get => new TerraformReference<string>(this, "ip_cidr_range");
-    }
+        => AsReference("ip_cidr_range");
 
     /// <summary>
     /// Whether the NSX-T configuration in the backend follows the standard configuration supported by Google Cloud.
     /// If false, the subnet cannot be modified through Google Cloud, only through NSX-T directly.
     /// </summary>
     public TerraformValue<bool> StandardConfig
-    {
-        get => new TerraformReference<bool>(this, "standard_config");
-    }
+        => AsReference("standard_config");
 
     /// <summary>
     /// State of the subnet.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The type of the subnet.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// Last updated time of this resource.
@@ -121,16 +103,12 @@ public partial class GoogleVmwareengineSubnetDataSource(string name) : Terraform
     /// fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// VLAN ID of the VLAN on which the subnet is configured.
     /// </summary>
     public TerraformValue<double> VlanId
-    {
-        get => new TerraformReference<double>(this, "vlan_id");
-    }
+        => AsReference("vlan_id");
 
 }

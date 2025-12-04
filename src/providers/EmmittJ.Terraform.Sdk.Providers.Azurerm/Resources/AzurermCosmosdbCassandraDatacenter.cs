@@ -18,7 +18,7 @@ public class AzurermCosmosdbCassandraDatacenterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermCosmosdbCassandraDatacenterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermCosmosdbCassandraDatacenterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermCosmosdbCassandraDatacenterTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermCosmosdbCassandraDatacenter(string name) : Terraform
     /// </summary>
     public TerraformValue<bool>? AvailabilityZonesEnabled
     {
-        get => new TerraformReference<bool>(this, "availability_zones_enabled");
+        get => GetArgument<TerraformValue<bool>>("availability_zones_enabled");
         set => SetArgument("availability_zones_enabled", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermCosmosdbCassandraDatacenter(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? BackupStorageCustomerKeyUri
     {
-        get => new TerraformReference<string>(this, "backup_storage_customer_key_uri");
+        get => GetArgument<TerraformValue<string>>("backup_storage_customer_key_uri");
         set => SetArgument("backup_storage_customer_key_uri", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermCosmosdbCassandraDatacenter(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Base64EncodedYamlFragment
     {
-        get => new TerraformReference<string>(this, "base64_encoded_yaml_fragment");
+        get => GetArgument<TerraformValue<string>>("base64_encoded_yaml_fragment");
         set => SetArgument("base64_encoded_yaml_fragment", value);
     }
 
@@ -91,7 +91,7 @@ public partial class AzurermCosmosdbCassandraDatacenter(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CassandraClusterId is required")]
     public required TerraformValue<string> CassandraClusterId
     {
-        get => new TerraformReference<string>(this, "cassandra_cluster_id");
+        get => GetArgument<TerraformValue<string>>("cassandra_cluster_id");
         set => SetArgument("cassandra_cluster_id", value);
     }
 
@@ -101,7 +101,7 @@ public partial class AzurermCosmosdbCassandraDatacenter(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DelegatedManagementSubnetId is required")]
     public required TerraformValue<string> DelegatedManagementSubnetId
     {
-        get => new TerraformReference<string>(this, "delegated_management_subnet_id");
+        get => GetArgument<TerraformValue<string>>("delegated_management_subnet_id");
         set => SetArgument("delegated_management_subnet_id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermCosmosdbCassandraDatacenter(string name) : Terraform
     /// </summary>
     public TerraformValue<double>? DiskCount
     {
-        get => new TerraformReference<double>(this, "disk_count");
+        get => GetArgument<TerraformValue<double>>("disk_count");
         set => SetArgument("disk_count", value);
     }
 
@@ -119,16 +119,16 @@ public partial class AzurermCosmosdbCassandraDatacenter(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? DiskSku
     {
-        get => new TerraformReference<string>(this, "disk_sku");
+        get => GetArgument<TerraformValue<string>>("disk_sku");
         set => SetArgument("disk_sku", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzurermCosmosdbCassandraDatacenter(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -147,7 +147,7 @@ public partial class AzurermCosmosdbCassandraDatacenter(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? ManagedDiskCustomerKeyUri
     {
-        get => new TerraformReference<string>(this, "managed_disk_customer_key_uri");
+        get => GetArgument<TerraformValue<string>>("managed_disk_customer_key_uri");
         set => SetArgument("managed_disk_customer_key_uri", value);
     }
 
@@ -157,7 +157,7 @@ public partial class AzurermCosmosdbCassandraDatacenter(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -166,7 +166,7 @@ public partial class AzurermCosmosdbCassandraDatacenter(string name) : Terraform
     /// </summary>
     public TerraformValue<double>? NodeCount
     {
-        get => new TerraformReference<double>(this, "node_count");
+        get => GetArgument<TerraformValue<double>>("node_count");
         set => SetArgument("node_count", value);
     }
 
@@ -175,7 +175,7 @@ public partial class AzurermCosmosdbCassandraDatacenter(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? SkuName
     {
-        get => new TerraformReference<string>(this, "sku_name");
+        get => GetArgument<TerraformValue<string>>("sku_name");
         set => SetArgument("sku_name", value);
     }
 
@@ -183,9 +183,7 @@ public partial class AzurermCosmosdbCassandraDatacenter(string name) : Terraform
     /// The seed_node_ip_addresses attribute.
     /// </summary>
     public TerraformList<string> SeedNodeIpAddresses
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "seed_node_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("seed_node_ip_addresses");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

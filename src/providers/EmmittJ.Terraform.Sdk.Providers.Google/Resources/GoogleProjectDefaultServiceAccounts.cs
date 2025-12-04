@@ -18,7 +18,7 @@ public class GoogleProjectDefaultServiceAccountsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleProjectDefaultServiceAccountsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleProjectDefaultServiceAccountsTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -56,16 +56,16 @@ public partial class GoogleProjectDefaultServiceAccounts(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     public required TerraformValue<string> Action
     {
-        get => new TerraformReference<string>(this, "action");
+        get => GetArgument<TerraformValue<string>>("action");
         set => SetArgument("action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -75,7 +75,7 @@ public partial class GoogleProjectDefaultServiceAccounts(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
     public required TerraformValue<string> Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -85,7 +85,7 @@ public partial class GoogleProjectDefaultServiceAccounts(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? RestorePolicy
     {
-        get => new TerraformReference<string>(this, "restore_policy");
+        get => GetArgument<TerraformValue<string>>("restore_policy");
         set => SetArgument("restore_policy", value);
     }
 
@@ -93,9 +93,7 @@ public partial class GoogleProjectDefaultServiceAccounts(string name) : Terrafor
     /// The Service Accounts changed by this resource. It is used for revert the action on the destroy.
     /// </summary>
     public TerraformMap<string> ServiceAccounts
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "service_accounts").ResolveNodes(ctx));
-    }
+        => AsReference("service_accounts");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

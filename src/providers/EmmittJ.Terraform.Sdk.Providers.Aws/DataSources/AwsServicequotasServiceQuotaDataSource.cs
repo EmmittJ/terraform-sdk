@@ -11,36 +11,36 @@ public partial class AwsServicequotasServiceQuotaDataSource(string name) : Terra
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The quota_code attribute.
     /// </summary>
-    public TerraformValue<string> QuotaCode
+    public TerraformValue<string>? QuotaCode
     {
-        get => new TerraformReference<string>(this, "quota_code");
+        get => GetArgument<TerraformValue<string>>("quota_code");
         set => SetArgument("quota_code", value);
     }
 
     /// <summary>
     /// The quota_name attribute.
     /// </summary>
-    public TerraformValue<string> QuotaName
+    public TerraformValue<string>? QuotaName
     {
-        get => new TerraformReference<string>(this, "quota_name");
+        get => GetArgument<TerraformValue<string>>("quota_name");
         set => SetArgument("quota_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -50,7 +50,7 @@ public partial class AwsServicequotasServiceQuotaDataSource(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCode is required")]
     public required TerraformValue<string> ServiceCode
     {
-        get => new TerraformReference<string>(this, "service_code");
+        get => GetArgument<TerraformValue<string>>("service_code");
         set => SetArgument("service_code", value);
     }
 
@@ -58,56 +58,42 @@ public partial class AwsServicequotasServiceQuotaDataSource(string name) : Terra
     /// The adjustable attribute.
     /// </summary>
     public TerraformValue<bool> Adjustable
-    {
-        get => new TerraformReference<bool>(this, "adjustable");
-    }
+        => AsReference("adjustable");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The default_value attribute.
     /// </summary>
     public TerraformValue<double> DefaultValue
-    {
-        get => new TerraformReference<double>(this, "default_value");
-    }
+        => AsReference("default_value");
 
     /// <summary>
     /// The global_quota attribute.
     /// </summary>
     public TerraformValue<bool> GlobalQuota
-    {
-        get => new TerraformReference<bool>(this, "global_quota");
-    }
+        => AsReference("global_quota");
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
     public TerraformValue<string> ServiceName
-    {
-        get => new TerraformReference<string>(this, "service_name");
-    }
+        => AsReference("service_name");
 
     /// <summary>
     /// The usage_metric attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> UsageMetric
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "usage_metric").ResolveNodes(ctx));
-    }
+        => AsReference("usage_metric");
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     public TerraformValue<double> Value
-    {
-        get => new TerraformReference<double>(this, "value");
-    }
+        => AsReference("value");
 
 }

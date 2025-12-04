@@ -14,16 +14,16 @@ public partial class AwsIamAccountAlias(string name) : TerraformResource("aws_ia
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountAlias is required")]
     public required TerraformValue<string> AccountAlias
     {
-        get => new TerraformReference<string>(this, "account_alias");
+        get => GetArgument<TerraformValue<string>>("account_alias");
         set => SetArgument("account_alias", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 

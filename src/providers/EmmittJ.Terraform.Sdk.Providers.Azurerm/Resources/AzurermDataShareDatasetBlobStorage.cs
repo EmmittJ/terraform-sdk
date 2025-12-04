@@ -19,7 +19,7 @@ public class AzurermDataShareDatasetBlobStorageStorageAccountBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AzurermDataShareDatasetBlobStorageStorageAccountBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -39,7 +39,7 @@ public class AzurermDataShareDatasetBlobStorageStorageAccountBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
     public required TerraformValue<string> SubscriptionId
     {
-        get => new TerraformReference<string>(this, "subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 
@@ -62,7 +62,7 @@ public class AzurermDataShareDatasetBlobStorageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -71,7 +71,7 @@ public class AzurermDataShareDatasetBlobStorageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -80,7 +80,7 @@ public class AzurermDataShareDatasetBlobStorageTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -99,7 +99,7 @@ public partial class AzurermDataShareDatasetBlobStorage(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
     public required TerraformValue<string> ContainerName
     {
-        get => new TerraformReference<string>(this, "container_name");
+        get => GetArgument<TerraformValue<string>>("container_name");
         set => SetArgument("container_name", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermDataShareDatasetBlobStorage(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataShareId is required")]
     public required TerraformValue<string> DataShareId
     {
-        get => new TerraformReference<string>(this, "data_share_id");
+        get => GetArgument<TerraformValue<string>>("data_share_id");
         set => SetArgument("data_share_id", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermDataShareDatasetBlobStorage(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? FilePath
     {
-        get => new TerraformReference<string>(this, "file_path");
+        get => GetArgument<TerraformValue<string>>("file_path");
         set => SetArgument("file_path", value);
     }
 
@@ -127,16 +127,16 @@ public partial class AzurermDataShareDatasetBlobStorage(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? FolderPath
     {
-        get => new TerraformReference<string>(this, "folder_path");
+        get => GetArgument<TerraformValue<string>>("folder_path");
         set => SetArgument("folder_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -146,7 +146,7 @@ public partial class AzurermDataShareDatasetBlobStorage(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -154,9 +154,7 @@ public partial class AzurermDataShareDatasetBlobStorage(string name) : Terraform
     /// The display_name attribute.
     /// </summary>
     public TerraformValue<string> DisplayName
-    {
-        get => new TerraformReference<string>(this, "display_name");
-    }
+        => AsReference("display_name");
 
     /// <summary>
     /// StorageAccount block (nesting mode: list).

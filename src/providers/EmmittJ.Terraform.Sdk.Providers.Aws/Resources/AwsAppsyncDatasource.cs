@@ -16,9 +16,9 @@ public class AwsAppsyncDatasourceDynamodbConfigBlock : TerraformBlock
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsAppsyncDatasourceDynamodbConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsAppsyncDatasourceDynamodbConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? UseCallerCredentials
     {
-        get => new TerraformReference<bool>(this, "use_caller_credentials");
+        get => GetArgument<TerraformValue<bool>>("use_caller_credentials");
         set => SetArgument("use_caller_credentials", value);
     }
 
@@ -46,7 +46,7 @@ public class AwsAppsyncDatasourceDynamodbConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Versioned
     {
-        get => new TerraformReference<bool>(this, "versioned");
+        get => GetArgument<TerraformValue<bool>>("versioned");
         set => SetArgument("versioned", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsAppsyncDatasourceDynamodbConfigBlockDeltaSyncConfigBlock : Terra
     /// </summary>
     public TerraformValue<double>? BaseTableTtl
     {
-        get => new TerraformReference<double>(this, "base_table_ttl");
+        get => GetArgument<TerraformValue<double>>("base_table_ttl");
         set => SetArgument("base_table_ttl", value);
     }
 
@@ -88,7 +88,7 @@ public class AwsAppsyncDatasourceDynamodbConfigBlockDeltaSyncConfigBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeltaSyncTableName is required")]
     public required TerraformValue<string> DeltaSyncTableName
     {
-        get => new TerraformReference<string>(this, "delta_sync_table_name");
+        get => GetArgument<TerraformValue<string>>("delta_sync_table_name");
         set => SetArgument("delta_sync_table_name", value);
     }
 
@@ -97,7 +97,7 @@ public class AwsAppsyncDatasourceDynamodbConfigBlockDeltaSyncConfigBlock : Terra
     /// </summary>
     public TerraformValue<double>? DeltaSyncTableTtl
     {
-        get => new TerraformReference<double>(this, "delta_sync_table_ttl");
+        get => GetArgument<TerraformValue<double>>("delta_sync_table_ttl");
         set => SetArgument("delta_sync_table_ttl", value);
     }
 
@@ -121,16 +121,16 @@ public class AwsAppsyncDatasourceElasticsearchConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformValue<string> Endpoint
     {
-        get => new TerraformReference<string>(this, "endpoint");
+        get => GetArgument<TerraformValue<string>>("endpoint");
         set => SetArgument("endpoint", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -154,7 +154,7 @@ public class AwsAppsyncDatasourceEventBridgeConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventBusArn is required")]
     public required TerraformValue<string> EventBusArn
     {
-        get => new TerraformReference<string>(this, "event_bus_arn");
+        get => GetArgument<TerraformValue<string>>("event_bus_arn");
         set => SetArgument("event_bus_arn", value);
     }
 
@@ -178,7 +178,7 @@ public class AwsAppsyncDatasourceHttpConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformValue<string> Endpoint
     {
-        get => new TerraformReference<string>(this, "endpoint");
+        get => GetArgument<TerraformValue<string>>("endpoint");
         set => SetArgument("endpoint", value);
     }
 
@@ -210,7 +210,7 @@ public class AwsAppsyncDatasourceHttpConfigBlockAuthorizationConfigBlock : Terra
     /// </summary>
     public TerraformValue<string>? AuthorizationType
     {
-        get => new TerraformReference<string>(this, "authorization_type");
+        get => GetArgument<TerraformValue<string>>("authorization_type");
         set => SetArgument("authorization_type", value);
     }
 
@@ -242,7 +242,7 @@ public class AwsAppsyncDatasourceHttpConfigBlockAuthorizationConfigBlockAwsIamCo
     /// </summary>
     public TerraformValue<string>? SigningRegion
     {
-        get => new TerraformReference<string>(this, "signing_region");
+        get => GetArgument<TerraformValue<string>>("signing_region");
         set => SetArgument("signing_region", value);
     }
 
@@ -251,7 +251,7 @@ public class AwsAppsyncDatasourceHttpConfigBlockAuthorizationConfigBlockAwsIamCo
     /// </summary>
     public TerraformValue<string>? SigningServiceName
     {
-        get => new TerraformReference<string>(this, "signing_service_name");
+        get => GetArgument<TerraformValue<string>>("signing_service_name");
         set => SetArgument("signing_service_name", value);
     }
 
@@ -275,7 +275,7 @@ public class AwsAppsyncDatasourceLambdaConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionArn is required")]
     public required TerraformValue<string> FunctionArn
     {
-        get => new TerraformReference<string>(this, "function_arn");
+        get => GetArgument<TerraformValue<string>>("function_arn");
         set => SetArgument("function_arn", value);
     }
 
@@ -299,16 +299,16 @@ public class AwsAppsyncDatasourceOpensearchserviceConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     public required TerraformValue<string> Endpoint
     {
-        get => new TerraformReference<string>(this, "endpoint");
+        get => GetArgument<TerraformValue<string>>("endpoint");
         set => SetArgument("endpoint", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -331,7 +331,7 @@ public class AwsAppsyncDatasourceRelationalDatabaseConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SourceType
     {
-        get => new TerraformReference<string>(this, "source_type");
+        get => GetArgument<TerraformValue<string>>("source_type");
         set => SetArgument("source_type", value);
     }
 
@@ -364,7 +364,7 @@ public class AwsAppsyncDatasourceRelationalDatabaseConfigBlockHttpEndpointConfig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsSecretStoreArn is required")]
     public required TerraformValue<string> AwsSecretStoreArn
     {
-        get => new TerraformReference<string>(this, "aws_secret_store_arn");
+        get => GetArgument<TerraformValue<string>>("aws_secret_store_arn");
         set => SetArgument("aws_secret_store_arn", value);
     }
 
@@ -373,7 +373,7 @@ public class AwsAppsyncDatasourceRelationalDatabaseConfigBlockHttpEndpointConfig
     /// </summary>
     public TerraformValue<string>? DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -383,16 +383,16 @@ public class AwsAppsyncDatasourceRelationalDatabaseConfigBlockHttpEndpointConfig
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbClusterIdentifier is required")]
     public required TerraformValue<string> DbClusterIdentifier
     {
-        get => new TerraformReference<string>(this, "db_cluster_identifier");
+        get => GetArgument<TerraformValue<string>>("db_cluster_identifier");
         set => SetArgument("db_cluster_identifier", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -401,7 +401,7 @@ public class AwsAppsyncDatasourceRelationalDatabaseConfigBlockHttpEndpointConfig
     /// </summary>
     public TerraformValue<string>? Schema
     {
-        get => new TerraformReference<string>(this, "schema");
+        get => GetArgument<TerraformValue<string>>("schema");
         set => SetArgument("schema", value);
     }
 
@@ -420,7 +420,7 @@ public partial class AwsAppsyncDatasource(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformValue<string> ApiId
     {
-        get => new TerraformReference<string>(this, "api_id");
+        get => GetArgument<TerraformValue<string>>("api_id");
         set => SetArgument("api_id", value);
     }
 
@@ -429,16 +429,16 @@ public partial class AwsAppsyncDatasource(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -448,16 +448,16 @@ public partial class AwsAppsyncDatasource(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -466,7 +466,7 @@ public partial class AwsAppsyncDatasource(string name) : TerraformResource("aws_
     /// </summary>
     public TerraformValue<string>? ServiceRoleArn
     {
-        get => new TerraformReference<string>(this, "service_role_arn");
+        get => GetArgument<TerraformValue<string>>("service_role_arn");
         set => SetArgument("service_role_arn", value);
     }
 
@@ -476,7 +476,7 @@ public partial class AwsAppsyncDatasource(string name) : TerraformResource("aws_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -484,9 +484,7 @@ public partial class AwsAppsyncDatasource(string name) : TerraformResource("aws_
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// DynamodbConfig block (nesting mode: list).

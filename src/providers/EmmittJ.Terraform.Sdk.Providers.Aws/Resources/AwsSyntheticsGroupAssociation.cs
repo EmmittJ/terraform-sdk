@@ -14,7 +14,7 @@ public partial class AwsSyntheticsGroupAssociation(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CanaryArn is required")]
     public required TerraformValue<string> CanaryArn
     {
-        get => new TerraformReference<string>(this, "canary_arn");
+        get => GetArgument<TerraformValue<string>>("canary_arn");
         set => SetArgument("canary_arn", value);
     }
 
@@ -24,25 +24,25 @@ public partial class AwsSyntheticsGroupAssociation(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     public required TerraformValue<string> GroupName
     {
-        get => new TerraformReference<string>(this, "group_name");
+        get => GetArgument<TerraformValue<string>>("group_name");
         set => SetArgument("group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -50,16 +50,12 @@ public partial class AwsSyntheticsGroupAssociation(string name) : TerraformResou
     /// The group_arn attribute.
     /// </summary>
     public TerraformValue<string> GroupArn
-    {
-        get => new TerraformReference<string>(this, "group_arn");
-    }
+        => AsReference("group_arn");
 
     /// <summary>
     /// The group_id attribute.
     /// </summary>
     public TerraformValue<string> GroupId
-    {
-        get => new TerraformReference<string>(this, "group_id");
-    }
+        => AsReference("group_id");
 
 }

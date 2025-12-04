@@ -18,7 +18,7 @@ public class GoogleAccessContextManagerAuthorizedOrgsDescTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleAccessContextManagerAuthorizedOrgsDescTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleAccessContextManagerAuthorizedOrgsDescTimeoutsBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -56,7 +56,7 @@ public partial class GoogleAccessContextManagerAuthorizedOrgsDesc(string name) :
     /// </summary>
     public TerraformValue<string>? AssetType
     {
-        get => new TerraformReference<string>(this, "asset_type");
+        get => GetArgument<TerraformValue<string>>("asset_type");
         set => SetArgument("asset_type", value);
     }
 
@@ -81,7 +81,7 @@ public partial class GoogleAccessContextManagerAuthorizedOrgsDesc(string name) :
     /// </summary>
     public TerraformValue<string>? AuthorizationDirection
     {
-        get => new TerraformReference<string>(this, "authorization_direction");
+        get => GetArgument<TerraformValue<string>>("authorization_direction");
         set => SetArgument("authorization_direction", value);
     }
 
@@ -90,16 +90,16 @@ public partial class GoogleAccessContextManagerAuthorizedOrgsDesc(string name) :
     /// </summary>
     public TerraformValue<string>? AuthorizationType
     {
-        get => new TerraformReference<string>(this, "authorization_type");
+        get => GetArgument<TerraformValue<string>>("authorization_type");
         set => SetArgument("authorization_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -113,7 +113,7 @@ public partial class GoogleAccessContextManagerAuthorizedOrgsDesc(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -124,7 +124,7 @@ public partial class GoogleAccessContextManagerAuthorizedOrgsDesc(string name) :
     /// </summary>
     public TerraformList<string>? Orgs
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "orgs").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("orgs");
         set => SetArgument("orgs", value);
     }
 
@@ -134,7 +134,7 @@ public partial class GoogleAccessContextManagerAuthorizedOrgsDesc(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
     public required TerraformValue<string> Parent
     {
-        get => new TerraformReference<string>(this, "parent");
+        get => GetArgument<TerraformValue<string>>("parent");
         set => SetArgument("parent", value);
     }
 
@@ -142,17 +142,13 @@ public partial class GoogleAccessContextManagerAuthorizedOrgsDesc(string name) :
     /// Time the AuthorizedOrgsDesc was created in UTC.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Time the AuthorizedOrgsDesc was updated in UTC.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

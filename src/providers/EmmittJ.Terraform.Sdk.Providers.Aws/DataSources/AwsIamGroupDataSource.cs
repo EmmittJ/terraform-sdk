@@ -14,16 +14,16 @@ public partial class AwsIamGroupDataSource(string name) : TerraformDataSource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupName is required")]
     public required TerraformValue<string> GroupName
     {
-        get => new TerraformReference<string>(this, "group_name");
+        get => GetArgument<TerraformValue<string>>("group_name");
         set => SetArgument("group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -31,32 +31,24 @@ public partial class AwsIamGroupDataSource(string name) : TerraformDataSource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The group_id attribute.
     /// </summary>
     public TerraformValue<string> GroupId
-    {
-        get => new TerraformReference<string>(this, "group_id");
-    }
+        => AsReference("group_id");
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     public TerraformValue<string> Path
-    {
-        get => new TerraformReference<string>(this, "path");
-    }
+        => AsReference("path");
 
     /// <summary>
     /// The users attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Users
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "users").ResolveNodes(ctx));
-    }
+        => AsReference("users");
 
 }

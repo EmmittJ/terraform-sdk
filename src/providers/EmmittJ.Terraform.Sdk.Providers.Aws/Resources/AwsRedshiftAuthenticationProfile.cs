@@ -14,7 +14,7 @@ public partial class AwsRedshiftAuthenticationProfile(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationProfileContent is required")]
     public required TerraformValue<string> AuthenticationProfileContent
     {
-        get => new TerraformReference<string>(this, "authentication_profile_content");
+        get => GetArgument<TerraformValue<string>>("authentication_profile_content");
         set => SetArgument("authentication_profile_content", value);
     }
 
@@ -24,25 +24,25 @@ public partial class AwsRedshiftAuthenticationProfile(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationProfileName is required")]
     public required TerraformValue<string> AuthenticationProfileName
     {
-        get => new TerraformReference<string>(this, "authentication_profile_name");
+        get => GetArgument<TerraformValue<string>>("authentication_profile_name");
         set => SetArgument("authentication_profile_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

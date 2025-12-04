@@ -18,7 +18,7 @@ public class GoogleComputeStoragePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeStoragePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleComputeStoragePoolTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -52,9 +52,9 @@ public partial class GoogleComputeStoragePool(string name) : TerraformResource("
     /// <summary>
     /// Provisioning type of the byte capacity of the pool. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;ADVANCED&amp;quot;]
     /// </summary>
-    public TerraformValue<string> CapacityProvisioningType
+    public TerraformValue<string>? CapacityProvisioningType
     {
-        get => new TerraformReference<string>(this, "capacity_provisioning_type");
+        get => GetArgument<TerraformValue<string>>("capacity_provisioning_type");
         set => SetArgument("capacity_provisioning_type", value);
     }
 
@@ -66,7 +66,7 @@ public partial class GoogleComputeStoragePool(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
@@ -75,7 +75,7 @@ public partial class GoogleComputeStoragePool(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -88,7 +88,7 @@ public partial class GoogleComputeStoragePool(string name) : TerraformResource("
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -104,16 +104,16 @@ public partial class GoogleComputeStoragePool(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Provisioning type of the performance-related parameters of the pool, such as throughput and IOPS. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;ADVANCED&amp;quot;]
     /// </summary>
-    public TerraformValue<string> PerformanceProvisioningType
+    public TerraformValue<string>? PerformanceProvisioningType
     {
-        get => new TerraformReference<string>(this, "performance_provisioning_type");
+        get => GetArgument<TerraformValue<string>>("performance_provisioning_type");
         set => SetArgument("performance_provisioning_type", value);
     }
 
@@ -124,7 +124,7 @@ public partial class GoogleComputeStoragePool(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolProvisionedCapacityGb is required")]
     public required TerraformValue<string> PoolProvisionedCapacityGb
     {
-        get => new TerraformReference<string>(this, "pool_provisioned_capacity_gb");
+        get => GetArgument<TerraformValue<string>>("pool_provisioned_capacity_gb");
         set => SetArgument("pool_provisioned_capacity_gb", value);
     }
 
@@ -134,7 +134,7 @@ public partial class GoogleComputeStoragePool(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<string>? PoolProvisionedIops
     {
-        get => new TerraformReference<string>(this, "pool_provisioned_iops");
+        get => GetArgument<TerraformValue<string>>("pool_provisioned_iops");
         set => SetArgument("pool_provisioned_iops", value);
     }
 
@@ -145,16 +145,16 @@ public partial class GoogleComputeStoragePool(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolProvisionedThroughput is required")]
     public required TerraformValue<string> PoolProvisionedThroughput
     {
-        get => new TerraformReference<string>(this, "pool_provisioned_throughput");
+        get => GetArgument<TerraformValue<string>>("pool_provisioned_throughput");
         set => SetArgument("pool_provisioned_throughput", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -168,16 +168,16 @@ public partial class GoogleComputeStoragePool(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePoolType is required")]
     public required TerraformValue<string> StoragePoolType
     {
-        get => new TerraformReference<string>(this, "storage_pool_type");
+        get => GetArgument<TerraformValue<string>>("storage_pool_type");
         set => SetArgument("storage_pool_type", value);
     }
 
     /// <summary>
     /// A reference to the zone where the storage pool resides.
     /// </summary>
-    public TerraformValue<string> Zone
+    public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -185,67 +185,51 @@ public partial class GoogleComputeStoragePool(string name) : TerraformResource("
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// Type of the resource.
     /// </summary>
     public TerraformValue<string> Kind
-    {
-        get => new TerraformReference<string>(this, "kind");
-    }
+        => AsReference("kind");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.
     /// Used internally during updates.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-    {
-        get => new TerraformReference<string>(this, "label_fingerprint");
-    }
+        => AsReference("label_fingerprint");
 
     /// <summary>
     /// Status information for the storage pool resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> ResourceStatus
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "resource_status").ResolveNodes(ctx));
-    }
+        => AsReference("resource_status");
 
     /// <summary>
     /// Status information for the storage pool resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> Status
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "status").ResolveNodes(ctx));
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

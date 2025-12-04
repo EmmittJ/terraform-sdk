@@ -18,7 +18,7 @@ public class AwsCognitoUserPoolClientAnalyticsConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? ApplicationArn
     {
-        get => new TerraformReference<string>(this, "application_arn");
+        get => GetArgument<TerraformValue<string>>("application_arn");
         set => SetArgument("application_arn", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsCognitoUserPoolClientAnalyticsConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? ApplicationId
     {
-        get => new TerraformReference<string>(this, "application_id");
+        get => GetArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
@@ -36,25 +36,25 @@ public class AwsCognitoUserPoolClientAnalyticsConfigurationBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? ExternalId
     {
-        get => new TerraformReference<string>(this, "external_id");
+        get => GetArgument<TerraformValue<string>>("external_id");
         set => SetArgument("external_id", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformValue<string> RoleArn
+    public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
     /// <summary>
     /// The user_data_shared attribute.
     /// </summary>
-    public TerraformValue<bool> UserDataShared
+    public TerraformValue<bool>? UserDataShared
     {
-        get => new TerraformReference<bool>(this, "user_data_shared");
+        get => GetArgument<TerraformValue<bool>>("user_data_shared");
         set => SetArgument("user_data_shared", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsCognitoUserPoolClientRefreshTokenRotationBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Feature is required")]
     public required TerraformValue<string> Feature
     {
-        get => new TerraformReference<string>(this, "feature");
+        get => GetArgument<TerraformValue<string>>("feature");
         set => SetArgument("feature", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsCognitoUserPoolClientRefreshTokenRotationBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? RetryGracePeriodSeconds
     {
-        get => new TerraformReference<double>(this, "retry_grace_period_seconds");
+        get => GetArgument<TerraformValue<double>>("retry_grace_period_seconds");
         set => SetArgument("retry_grace_period_seconds", value);
     }
 
@@ -108,27 +108,27 @@ public class AwsCognitoUserPoolClientTokenValidityUnitsBlock : TerraformBlock
     /// <summary>
     /// The access_token attribute.
     /// </summary>
-    public TerraformValue<string> AccessToken
+    public TerraformValue<string>? AccessToken
     {
-        get => new TerraformReference<string>(this, "access_token");
+        get => GetArgument<TerraformValue<string>>("access_token");
         set => SetArgument("access_token", value);
     }
 
     /// <summary>
     /// The id_token attribute.
     /// </summary>
-    public TerraformValue<string> IdToken
+    public TerraformValue<string>? IdToken
     {
-        get => new TerraformReference<string>(this, "id_token");
+        get => GetArgument<TerraformValue<string>>("id_token");
         set => SetArgument("id_token", value);
     }
 
     /// <summary>
     /// The refresh_token attribute.
     /// </summary>
-    public TerraformValue<string> RefreshToken
+    public TerraformValue<string>? RefreshToken
     {
-        get => new TerraformReference<string>(this, "refresh_token");
+        get => GetArgument<TerraformValue<string>>("refresh_token");
         set => SetArgument("refresh_token", value);
     }
 
@@ -144,90 +144,90 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// <summary>
     /// The access_token_validity attribute.
     /// </summary>
-    public TerraformValue<double> AccessTokenValidity
+    public TerraformValue<double>? AccessTokenValidity
     {
-        get => new TerraformReference<double>(this, "access_token_validity");
+        get => GetArgument<TerraformValue<double>>("access_token_validity");
         set => SetArgument("access_token_validity", value);
     }
 
     /// <summary>
     /// The allowed_oauth_flows attribute.
     /// </summary>
-    public TerraformSet<string> AllowedOauthFlows
+    public TerraformSet<string>? AllowedOauthFlows
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_oauth_flows").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_oauth_flows");
         set => SetArgument("allowed_oauth_flows", value);
     }
 
     /// <summary>
     /// The allowed_oauth_flows_user_pool_client attribute.
     /// </summary>
-    public TerraformValue<bool> AllowedOauthFlowsUserPoolClient
+    public TerraformValue<bool>? AllowedOauthFlowsUserPoolClient
     {
-        get => new TerraformReference<bool>(this, "allowed_oauth_flows_user_pool_client");
+        get => GetArgument<TerraformValue<bool>>("allowed_oauth_flows_user_pool_client");
         set => SetArgument("allowed_oauth_flows_user_pool_client", value);
     }
 
     /// <summary>
     /// The allowed_oauth_scopes attribute.
     /// </summary>
-    public TerraformSet<string> AllowedOauthScopes
+    public TerraformSet<string>? AllowedOauthScopes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_oauth_scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_oauth_scopes");
         set => SetArgument("allowed_oauth_scopes", value);
     }
 
     /// <summary>
     /// The auth_session_validity attribute.
     /// </summary>
-    public TerraformValue<double> AuthSessionValidity
+    public TerraformValue<double>? AuthSessionValidity
     {
-        get => new TerraformReference<double>(this, "auth_session_validity");
+        get => GetArgument<TerraformValue<double>>("auth_session_validity");
         set => SetArgument("auth_session_validity", value);
     }
 
     /// <summary>
     /// The callback_urls attribute.
     /// </summary>
-    public TerraformSet<string> CallbackUrls
+    public TerraformSet<string>? CallbackUrls
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "callback_urls").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("callback_urls");
         set => SetArgument("callback_urls", value);
     }
 
     /// <summary>
     /// The default_redirect_uri attribute.
     /// </summary>
-    public TerraformValue<string> DefaultRedirectUri
+    public TerraformValue<string>? DefaultRedirectUri
     {
-        get => new TerraformReference<string>(this, "default_redirect_uri");
+        get => GetArgument<TerraformValue<string>>("default_redirect_uri");
         set => SetArgument("default_redirect_uri", value);
     }
 
     /// <summary>
     /// The enable_propagate_additional_user_context_data attribute.
     /// </summary>
-    public TerraformValue<bool> EnablePropagateAdditionalUserContextData
+    public TerraformValue<bool>? EnablePropagateAdditionalUserContextData
     {
-        get => new TerraformReference<bool>(this, "enable_propagate_additional_user_context_data");
+        get => GetArgument<TerraformValue<bool>>("enable_propagate_additional_user_context_data");
         set => SetArgument("enable_propagate_additional_user_context_data", value);
     }
 
     /// <summary>
     /// The enable_token_revocation attribute.
     /// </summary>
-    public TerraformValue<bool> EnableTokenRevocation
+    public TerraformValue<bool>? EnableTokenRevocation
     {
-        get => new TerraformReference<bool>(this, "enable_token_revocation");
+        get => GetArgument<TerraformValue<bool>>("enable_token_revocation");
         set => SetArgument("enable_token_revocation", value);
     }
 
     /// <summary>
     /// The explicit_auth_flows attribute.
     /// </summary>
-    public TerraformSet<string> ExplicitAuthFlows
+    public TerraformSet<string>? ExplicitAuthFlows
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "explicit_auth_flows").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("explicit_auth_flows");
         set => SetArgument("explicit_auth_flows", value);
     }
 
@@ -236,25 +236,25 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// </summary>
     public TerraformValue<bool>? GenerateSecret
     {
-        get => new TerraformReference<bool>(this, "generate_secret");
+        get => GetArgument<TerraformValue<bool>>("generate_secret");
         set => SetArgument("generate_secret", value);
     }
 
     /// <summary>
     /// The id_token_validity attribute.
     /// </summary>
-    public TerraformValue<double> IdTokenValidity
+    public TerraformValue<double>? IdTokenValidity
     {
-        get => new TerraformReference<double>(this, "id_token_validity");
+        get => GetArgument<TerraformValue<double>>("id_token_validity");
         set => SetArgument("id_token_validity", value);
     }
 
     /// <summary>
     /// The logout_urls attribute.
     /// </summary>
-    public TerraformSet<string> LogoutUrls
+    public TerraformSet<string>? LogoutUrls
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "logout_urls").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("logout_urls");
         set => SetArgument("logout_urls", value);
     }
 
@@ -264,52 +264,52 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The prevent_user_existence_errors attribute.
     /// </summary>
-    public TerraformValue<string> PreventUserExistenceErrors
+    public TerraformValue<string>? PreventUserExistenceErrors
     {
-        get => new TerraformReference<string>(this, "prevent_user_existence_errors");
+        get => GetArgument<TerraformValue<string>>("prevent_user_existence_errors");
         set => SetArgument("prevent_user_existence_errors", value);
     }
 
     /// <summary>
     /// The read_attributes attribute.
     /// </summary>
-    public TerraformSet<string> ReadAttributes
+    public TerraformSet<string>? ReadAttributes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "read_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("read_attributes");
         set => SetArgument("read_attributes", value);
     }
 
     /// <summary>
     /// The refresh_token_validity attribute.
     /// </summary>
-    public TerraformValue<double> RefreshTokenValidity
+    public TerraformValue<double>? RefreshTokenValidity
     {
-        get => new TerraformReference<double>(this, "refresh_token_validity");
+        get => GetArgument<TerraformValue<double>>("refresh_token_validity");
         set => SetArgument("refresh_token_validity", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The supported_identity_providers attribute.
     /// </summary>
-    public TerraformSet<string> SupportedIdentityProviders
+    public TerraformSet<string>? SupportedIdentityProviders
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "supported_identity_providers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("supported_identity_providers");
         set => SetArgument("supported_identity_providers", value);
     }
 
@@ -319,16 +319,16 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformValue<string> UserPoolId
     {
-        get => new TerraformReference<string>(this, "user_pool_id");
+        get => GetArgument<TerraformValue<string>>("user_pool_id");
         set => SetArgument("user_pool_id", value);
     }
 
     /// <summary>
     /// The write_attributes attribute.
     /// </summary>
-    public TerraformSet<string> WriteAttributes
+    public TerraformSet<string>? WriteAttributes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "write_attributes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("write_attributes");
         set => SetArgument("write_attributes", value);
     }
 
@@ -336,17 +336,13 @@ public partial class AwsCognitoUserPoolClient(string name) : TerraformResource("
     /// The client_secret attribute.
     /// </summary>
     public TerraformValue<string> ClientSecret
-    {
-        get => new TerraformReference<string>(this, "client_secret");
-    }
+        => AsReference("client_secret");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// AnalyticsConfiguration block (nesting mode: list).

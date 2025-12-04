@@ -19,7 +19,7 @@ public class AwsEc2NetworkInsightsPathDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsEc2NetworkInsightsPathDataSourceFilterBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public required TerraformSet<string> ValuesAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -45,36 +45,36 @@ public partial class AwsEc2NetworkInsightsPathDataSource(string name) : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The network_insights_path_id attribute.
     /// </summary>
-    public TerraformValue<string> NetworkInsightsPathId
+    public TerraformValue<string>? NetworkInsightsPathId
     {
-        get => new TerraformReference<string>(this, "network_insights_path_id");
+        get => GetArgument<TerraformValue<string>>("network_insights_path_id");
         set => SetArgument("network_insights_path_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -82,89 +82,67 @@ public partial class AwsEc2NetworkInsightsPathDataSource(string name) : Terrafor
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The destination attribute.
     /// </summary>
     public TerraformValue<string> Destination
-    {
-        get => new TerraformReference<string>(this, "destination");
-    }
+        => AsReference("destination");
 
     /// <summary>
     /// The destination_arn attribute.
     /// </summary>
     public TerraformValue<string> DestinationArn
-    {
-        get => new TerraformReference<string>(this, "destination_arn");
-    }
+        => AsReference("destination_arn");
 
     /// <summary>
     /// The destination_ip attribute.
     /// </summary>
     public TerraformValue<string> DestinationIp
-    {
-        get => new TerraformReference<string>(this, "destination_ip");
-    }
+        => AsReference("destination_ip");
 
     /// <summary>
     /// The destination_port attribute.
     /// </summary>
     public TerraformValue<double> DestinationPort
-    {
-        get => new TerraformReference<double>(this, "destination_port");
-    }
+        => AsReference("destination_port");
 
     /// <summary>
     /// The filter_at_destination attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FilterAtDestination
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "filter_at_destination").ResolveNodes(ctx));
-    }
+        => AsReference("filter_at_destination");
 
     /// <summary>
     /// The filter_at_source attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> FilterAtSource
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "filter_at_source").ResolveNodes(ctx));
-    }
+        => AsReference("filter_at_source");
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     public TerraformValue<string> Protocol
-    {
-        get => new TerraformReference<string>(this, "protocol");
-    }
+        => AsReference("protocol");
 
     /// <summary>
     /// The source attribute.
     /// </summary>
     public TerraformValue<string> Source
-    {
-        get => new TerraformReference<string>(this, "source");
-    }
+        => AsReference("source");
 
     /// <summary>
     /// The source_arn attribute.
     /// </summary>
     public TerraformValue<string> SourceArn
-    {
-        get => new TerraformReference<string>(this, "source_arn");
-    }
+        => AsReference("source_arn");
 
     /// <summary>
     /// The source_ip attribute.
     /// </summary>
     public TerraformValue<string> SourceIp
-    {
-        get => new TerraformReference<string>(this, "source_ip");
-    }
+        => AsReference("source_ip");
 
     /// <summary>
     /// Filter block (nesting mode: set).

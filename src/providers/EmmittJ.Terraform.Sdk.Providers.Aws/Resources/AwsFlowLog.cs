@@ -18,7 +18,7 @@ public class AwsFlowLogDestinationOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? FileFormat
     {
-        get => new TerraformReference<string>(this, "file_format");
+        get => GetArgument<TerraformValue<string>>("file_format");
         set => SetArgument("file_format", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsFlowLogDestinationOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? HiveCompatiblePartitions
     {
-        get => new TerraformReference<bool>(this, "hive_compatible_partitions");
+        get => GetArgument<TerraformValue<bool>>("hive_compatible_partitions");
         set => SetArgument("hive_compatible_partitions", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsFlowLogDestinationOptionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? PerHourPartition
     {
-        get => new TerraformReference<bool>(this, "per_hour_partition");
+        get => GetArgument<TerraformValue<bool>>("per_hour_partition");
         set => SetArgument("per_hour_partition", value);
     }
 
@@ -54,7 +54,7 @@ public partial class AwsFlowLog(string name) : TerraformResource("aws_flow_log",
     /// </summary>
     public TerraformValue<string>? DeliverCrossAccountRole
     {
-        get => new TerraformReference<string>(this, "deliver_cross_account_role");
+        get => GetArgument<TerraformValue<string>>("deliver_cross_account_role");
         set => SetArgument("deliver_cross_account_role", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AwsFlowLog(string name) : TerraformResource("aws_flow_log",
     /// </summary>
     public TerraformValue<string>? EniId
     {
-        get => new TerraformReference<string>(this, "eni_id");
+        get => GetArgument<TerraformValue<string>>("eni_id");
         set => SetArgument("eni_id", value);
     }
 
@@ -72,25 +72,25 @@ public partial class AwsFlowLog(string name) : TerraformResource("aws_flow_log",
     /// </summary>
     public TerraformValue<string>? IamRoleArn
     {
-        get => new TerraformReference<string>(this, "iam_role_arn");
+        get => GetArgument<TerraformValue<string>>("iam_role_arn");
         set => SetArgument("iam_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The log_destination attribute.
     /// </summary>
-    public TerraformValue<string> LogDestination
+    public TerraformValue<string>? LogDestination
     {
-        get => new TerraformReference<string>(this, "log_destination");
+        get => GetArgument<TerraformValue<string>>("log_destination");
         set => SetArgument("log_destination", value);
     }
 
@@ -99,16 +99,16 @@ public partial class AwsFlowLog(string name) : TerraformResource("aws_flow_log",
     /// </summary>
     public TerraformValue<string>? LogDestinationType
     {
-        get => new TerraformReference<string>(this, "log_destination_type");
+        get => GetArgument<TerraformValue<string>>("log_destination_type");
         set => SetArgument("log_destination_type", value);
     }
 
     /// <summary>
     /// The log_format attribute.
     /// </summary>
-    public TerraformValue<string> LogFormat
+    public TerraformValue<string>? LogFormat
     {
-        get => new TerraformReference<string>(this, "log_format");
+        get => GetArgument<TerraformValue<string>>("log_format");
         set => SetArgument("log_format", value);
     }
 
@@ -117,16 +117,16 @@ public partial class AwsFlowLog(string name) : TerraformResource("aws_flow_log",
     /// </summary>
     public TerraformValue<double>? MaxAggregationInterval
     {
-        get => new TerraformReference<double>(this, "max_aggregation_interval");
+        get => GetArgument<TerraformValue<double>>("max_aggregation_interval");
         set => SetArgument("max_aggregation_interval", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -135,7 +135,7 @@ public partial class AwsFlowLog(string name) : TerraformResource("aws_flow_log",
     /// </summary>
     public TerraformValue<string>? SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
@@ -144,16 +144,16 @@ public partial class AwsFlowLog(string name) : TerraformResource("aws_flow_log",
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AwsFlowLog(string name) : TerraformResource("aws_flow_log",
     /// </summary>
     public TerraformValue<string>? TrafficType
     {
-        get => new TerraformReference<string>(this, "traffic_type");
+        get => GetArgument<TerraformValue<string>>("traffic_type");
         set => SetArgument("traffic_type", value);
     }
 
@@ -171,7 +171,7 @@ public partial class AwsFlowLog(string name) : TerraformResource("aws_flow_log",
     /// </summary>
     public TerraformValue<string>? TransitGatewayAttachmentId
     {
-        get => new TerraformReference<string>(this, "transit_gateway_attachment_id");
+        get => GetArgument<TerraformValue<string>>("transit_gateway_attachment_id");
         set => SetArgument("transit_gateway_attachment_id", value);
     }
 
@@ -180,7 +180,7 @@ public partial class AwsFlowLog(string name) : TerraformResource("aws_flow_log",
     /// </summary>
     public TerraformValue<string>? TransitGatewayId
     {
-        get => new TerraformReference<string>(this, "transit_gateway_id");
+        get => GetArgument<TerraformValue<string>>("transit_gateway_id");
         set => SetArgument("transit_gateway_id", value);
     }
 
@@ -189,7 +189,7 @@ public partial class AwsFlowLog(string name) : TerraformResource("aws_flow_log",
     /// </summary>
     public TerraformValue<string>? VpcId
     {
-        get => new TerraformReference<string>(this, "vpc_id");
+        get => GetArgument<TerraformValue<string>>("vpc_id");
         set => SetArgument("vpc_id", value);
     }
 
@@ -197,9 +197,7 @@ public partial class AwsFlowLog(string name) : TerraformResource("aws_flow_log",
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// DestinationOptions block (nesting mode: list).

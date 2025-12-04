@@ -19,7 +19,7 @@ public class AzurermMonitorActivityLogAlertActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionGroupId is required")]
     public required TerraformValue<string> ActionGroupId
     {
-        get => new TerraformReference<string>(this, "action_group_id");
+        get => GetArgument<TerraformValue<string>>("action_group_id");
         set => SetArgument("action_group_id", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermMonitorActivityLogAlertActionBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? WebhookProperties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "webhook_properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("webhook_properties");
         set => SetArgument("webhook_properties", value);
     }
 
@@ -51,7 +51,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Caller
     {
-        get => new TerraformReference<string>(this, "caller");
+        get => GetArgument<TerraformValue<string>>("caller");
         set => SetArgument("caller", value);
     }
 
@@ -61,7 +61,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformValue<string> Category
     {
-        get => new TerraformReference<string>(this, "category");
+        get => GetArgument<TerraformValue<string>>("category");
         set => SetArgument("category", value);
     }
 
@@ -70,7 +70,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Level
     {
-        get => new TerraformReference<string>(this, "level");
+        get => GetArgument<TerraformValue<string>>("level");
         set => SetArgument("level", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Levels
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "levels").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("levels");
         set => SetArgument("levels", value);
     }
 
@@ -88,7 +88,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OperationName
     {
-        get => new TerraformReference<string>(this, "operation_name");
+        get => GetArgument<TerraformValue<string>>("operation_name");
         set => SetArgument("operation_name", value);
     }
 
@@ -97,7 +97,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RecommendationCategory
     {
-        get => new TerraformReference<string>(this, "recommendation_category");
+        get => GetArgument<TerraformValue<string>>("recommendation_category");
         set => SetArgument("recommendation_category", value);
     }
 
@@ -106,7 +106,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RecommendationImpact
     {
-        get => new TerraformReference<string>(this, "recommendation_impact");
+        get => GetArgument<TerraformValue<string>>("recommendation_impact");
         set => SetArgument("recommendation_impact", value);
     }
 
@@ -115,7 +115,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RecommendationType
     {
-        get => new TerraformReference<string>(this, "recommendation_type");
+        get => GetArgument<TerraformValue<string>>("recommendation_type");
         set => SetArgument("recommendation_type", value);
     }
 
@@ -124,7 +124,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ResourceGroup
     {
-        get => new TerraformReference<string>(this, "resource_group");
+        get => GetArgument<TerraformValue<string>>("resource_group");
         set => SetArgument("resource_group", value);
     }
 
@@ -133,7 +133,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ResourceGroups
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_groups").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("resource_groups");
         set => SetArgument("resource_groups", value);
     }
 
@@ -142,7 +142,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ResourceId
     {
-        get => new TerraformReference<string>(this, "resource_id");
+        get => GetArgument<TerraformValue<string>>("resource_id");
         set => SetArgument("resource_id", value);
     }
 
@@ -151,7 +151,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ResourceIds
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("resource_ids");
         set => SetArgument("resource_ids", value);
     }
 
@@ -160,7 +160,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ResourceProvider
     {
-        get => new TerraformReference<string>(this, "resource_provider");
+        get => GetArgument<TerraformValue<string>>("resource_provider");
         set => SetArgument("resource_provider", value);
     }
 
@@ -169,7 +169,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ResourceProviders
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_providers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("resource_providers");
         set => SetArgument("resource_providers", value);
     }
 
@@ -178,7 +178,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ResourceTypeAttribute
     {
-        get => new TerraformReference<string>(this, "resource_type");
+        get => GetArgument<TerraformValue<string>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -187,7 +187,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? ResourceTypes
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "resource_types").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("resource_types");
         set => SetArgument("resource_types", value);
     }
 
@@ -196,7 +196,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -205,7 +205,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Statuses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "statuses").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("statuses");
         set => SetArgument("statuses", value);
     }
 
@@ -214,7 +214,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SubStatus
     {
-        get => new TerraformReference<string>(this, "sub_status");
+        get => GetArgument<TerraformValue<string>>("sub_status");
         set => SetArgument("sub_status", value);
     }
 
@@ -223,7 +223,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? SubStatuses
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "sub_statuses").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("sub_statuses");
         set => SetArgument("sub_statuses", value);
     }
 
@@ -265,7 +265,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlockResourceHealthBlock : Te
     /// </summary>
     public TerraformSet<string>? Current
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "current").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("current");
         set => SetArgument("current", value);
     }
 
@@ -274,7 +274,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlockResourceHealthBlock : Te
     /// </summary>
     public TerraformSet<string>? Previous
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "previous").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("previous");
         set => SetArgument("previous", value);
     }
 
@@ -283,7 +283,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlockResourceHealthBlock : Te
     /// </summary>
     public TerraformSet<string>? Reason
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "reason").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("reason");
         set => SetArgument("reason", value);
     }
 
@@ -305,7 +305,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlockServiceHealthBlock : Ter
     /// </summary>
     public TerraformSet<string>? Events
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "events").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("events");
         set => SetArgument("events", value);
     }
 
@@ -314,7 +314,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlockServiceHealthBlock : Ter
     /// </summary>
     public TerraformSet<string>? Locations
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("locations");
         set => SetArgument("locations", value);
     }
 
@@ -323,7 +323,7 @@ public class AzurermMonitorActivityLogAlertCriteriaBlockServiceHealthBlock : Ter
     /// </summary>
     public TerraformSet<string>? Services
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "services").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("services");
         set => SetArgument("services", value);
     }
 
@@ -346,7 +346,7 @@ public class AzurermMonitorActivityLogAlertTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -355,7 +355,7 @@ public class AzurermMonitorActivityLogAlertTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -364,7 +364,7 @@ public class AzurermMonitorActivityLogAlertTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -373,7 +373,7 @@ public class AzurermMonitorActivityLogAlertTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -391,7 +391,7 @@ public partial class AzurermMonitorActivityLogAlert(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -400,16 +400,16 @@ public partial class AzurermMonitorActivityLogAlert(string name) : TerraformReso
     /// </summary>
     public TerraformValue<bool>? Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -419,7 +419,7 @@ public partial class AzurermMonitorActivityLogAlert(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -429,7 +429,7 @@ public partial class AzurermMonitorActivityLogAlert(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -439,7 +439,7 @@ public partial class AzurermMonitorActivityLogAlert(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -449,7 +449,7 @@ public partial class AzurermMonitorActivityLogAlert(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
     public required TerraformSet<string> Scopes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "scopes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("scopes");
         set => SetArgument("scopes", value);
     }
 
@@ -458,7 +458,7 @@ public partial class AzurermMonitorActivityLogAlert(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 

@@ -13,16 +13,16 @@ public partial class AwsDynamodbTableItemDataSource(string name) : TerraformData
     /// </summary>
     public TerraformMap<string>? ExpressionAttributeNames
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "expression_attribute_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("expression_attribute_names");
         set => SetArgument("expression_attribute_names", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -32,7 +32,7 @@ public partial class AwsDynamodbTableItemDataSource(string name) : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -41,16 +41,16 @@ public partial class AwsDynamodbTableItemDataSource(string name) : TerraformData
     /// </summary>
     public TerraformValue<string>? ProjectionExpression
     {
-        get => new TerraformReference<string>(this, "projection_expression");
+        get => GetArgument<TerraformValue<string>>("projection_expression");
         set => SetArgument("projection_expression", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -60,7 +60,7 @@ public partial class AwsDynamodbTableItemDataSource(string name) : TerraformData
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -68,8 +68,6 @@ public partial class AwsDynamodbTableItemDataSource(string name) : TerraformData
     /// The item attribute.
     /// </summary>
     public TerraformValue<string> Item
-    {
-        get => new TerraformReference<string>(this, "item");
-    }
+        => AsReference("item");
 
 }

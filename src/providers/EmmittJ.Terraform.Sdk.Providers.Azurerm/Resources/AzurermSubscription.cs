@@ -18,7 +18,7 @@ public class AzurermSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermSubscriptionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermSubscription(string name) : TerraformResource("azure
     /// <summary>
     /// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
     /// </summary>
-    public TerraformValue<string> Alias
+    public TerraformValue<string>? Alias
     {
-        get => new TerraformReference<string>(this, "alias");
+        get => GetArgument<TerraformValue<string>>("alias");
         set => SetArgument("alias", value);
     }
 
@@ -72,25 +72,25 @@ public partial class AzurermSubscription(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string>? BillingScopeId
     {
-        get => new TerraformReference<string>(this, "billing_scope_id");
+        get => GetArgument<TerraformValue<string>>("billing_scope_id");
         set => SetArgument("billing_scope_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The GUID of the Subscription.
     /// </summary>
-    public TerraformValue<string> SubscriptionId
+    public TerraformValue<string>? SubscriptionId
     {
-        get => new TerraformReference<string>(this, "subscription_id");
+        get => GetArgument<TerraformValue<string>>("subscription_id");
         set => SetArgument("subscription_id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermSubscription(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionName is required")]
     public required TerraformValue<string> SubscriptionName
     {
-        get => new TerraformReference<string>(this, "subscription_name");
+        get => GetArgument<TerraformValue<string>>("subscription_name");
         set => SetArgument("subscription_name", value);
     }
 
@@ -109,7 +109,7 @@ public partial class AzurermSubscription(string name) : TerraformResource("azure
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -118,7 +118,7 @@ public partial class AzurermSubscription(string name) : TerraformResource("azure
     /// </summary>
     public TerraformValue<string>? Workload
     {
-        get => new TerraformReference<string>(this, "workload");
+        get => GetArgument<TerraformValue<string>>("workload");
         set => SetArgument("workload", value);
     }
 
@@ -126,9 +126,7 @@ public partial class AzurermSubscription(string name) : TerraformResource("azure
     /// The Tenant ID to which the subscription belongs
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

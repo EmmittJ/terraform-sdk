@@ -121,9 +121,9 @@ public class GoogleTranscoderJobTemplateConfigBlockAdBreaksBlock : TerraformBloc
     /// <summary>
     /// Start time in seconds for the ad break, relative to the output file timeline
     /// </summary>
-    public TerraformValue<string> StartTimeOffset
+    public TerraformValue<string>? StartTimeOffset
     {
-        get => new TerraformReference<string>(this, "start_time_offset");
+        get => GetArgument<TerraformValue<string>>("start_time_offset");
         set => SetArgument("start_time_offset", value);
     }
 
@@ -143,27 +143,27 @@ public class GoogleTranscoderJobTemplateConfigBlockEditListBlock : TerraformBloc
     /// <summary>
     /// List of values identifying files that should be used in this atom.
     /// </summary>
-    public TerraformList<string> Inputs
+    public TerraformList<string>? Inputs
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "inputs").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("inputs");
         set => SetArgument("inputs", value);
     }
 
     /// <summary>
     /// A unique key for this atom.
     /// </summary>
-    public TerraformValue<string> Key
+    public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
     /// <summary>
     /// Start time in seconds for the atom, relative to the input file timeline.  The default is &#39;0s&#39;.
     /// </summary>
-    public TerraformValue<string> StartTimeOffset
+    public TerraformValue<string>? StartTimeOffset
     {
-        get => new TerraformReference<string>(this, "start_time_offset");
+        get => GetArgument<TerraformValue<string>>("start_time_offset");
         set => SetArgument("start_time_offset", value);
     }
 
@@ -183,9 +183,9 @@ public class GoogleTranscoderJobTemplateConfigBlockElementaryStreamsBlock : Terr
     /// <summary>
     /// A unique key for this atom.
     /// </summary>
-    public TerraformValue<string> Key
+    public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -228,43 +228,43 @@ public class GoogleTranscoderJobTemplateConfigBlockElementaryStreamsBlockAudioSt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BitrateBps is required")]
     public required TerraformValue<double> BitrateBps
     {
-        get => new TerraformReference<double>(this, "bitrate_bps");
+        get => GetArgument<TerraformValue<double>>("bitrate_bps");
         set => SetArgument("bitrate_bps", value);
     }
 
     /// <summary>
     /// Number of audio channels. The default is &#39;2&#39;.
     /// </summary>
-    public TerraformValue<double> ChannelCount
+    public TerraformValue<double>? ChannelCount
     {
-        get => new TerraformReference<double>(this, "channel_count");
+        get => GetArgument<TerraformValue<double>>("channel_count");
         set => SetArgument("channel_count", value);
     }
 
     /// <summary>
     /// A list of channel names specifying layout of the audio channels.  The default is [&amp;quot;fl&amp;quot;, &amp;quot;fr&amp;quot;].
     /// </summary>
-    public TerraformList<string> ChannelLayout
+    public TerraformList<string>? ChannelLayout
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "channel_layout").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("channel_layout");
         set => SetArgument("channel_layout", value);
     }
 
     /// <summary>
     /// The codec for this audio stream. The default is &#39;aac&#39;.
     /// </summary>
-    public TerraformValue<string> Codec
+    public TerraformValue<string>? Codec
     {
-        get => new TerraformReference<string>(this, "codec");
+        get => GetArgument<TerraformValue<string>>("codec");
         set => SetArgument("codec", value);
     }
 
     /// <summary>
     /// The audio sample rate in Hertz. The default is &#39;48000&#39;.
     /// </summary>
-    public TerraformValue<double> SampleRateHertz
+    public TerraformValue<double>? SampleRateHertz
     {
-        get => new TerraformReference<double>(this, "sample_rate_hertz");
+        get => GetArgument<TerraformValue<double>>("sample_rate_hertz");
         set => SetArgument("sample_rate_hertz", value);
     }
 
@@ -310,25 +310,25 @@ public class GoogleTranscoderJobTemplateConfigBlockElementaryStreamsBlockVideoSt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BitrateBps is required")]
     public required TerraformValue<double> BitrateBps
     {
-        get => new TerraformReference<double>(this, "bitrate_bps");
+        get => GetArgument<TerraformValue<double>>("bitrate_bps");
         set => SetArgument("bitrate_bps", value);
     }
 
     /// <summary>
     /// Target CRF level. The default is &#39;21&#39;.
     /// </summary>
-    public TerraformValue<double> CrfLevel
+    public TerraformValue<double>? CrfLevel
     {
-        get => new TerraformReference<double>(this, "crf_level");
+        get => GetArgument<TerraformValue<double>>("crf_level");
         set => SetArgument("crf_level", value);
     }
 
     /// <summary>
     /// The entropy coder to use. The default is &#39;cabac&#39;.
     /// </summary>
-    public TerraformValue<string> EntropyCoder
+    public TerraformValue<string>? EntropyCoder
     {
-        get => new TerraformReference<string>(this, "entropy_coder");
+        get => GetArgument<TerraformValue<string>>("entropy_coder");
         set => SetArgument("entropy_coder", value);
     }
 
@@ -338,88 +338,88 @@ public class GoogleTranscoderJobTemplateConfigBlockElementaryStreamsBlockVideoSt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrameRate is required")]
     public required TerraformValue<double> FrameRate
     {
-        get => new TerraformReference<double>(this, "frame_rate");
+        get => GetArgument<TerraformValue<double>>("frame_rate");
         set => SetArgument("frame_rate", value);
     }
 
     /// <summary>
     /// Select the GOP size based on the specified duration. The default is &#39;3s&#39;.
     /// </summary>
-    public TerraformValue<string> GopDuration
+    public TerraformValue<string>? GopDuration
     {
-        get => new TerraformReference<string>(this, "gop_duration");
+        get => GetArgument<TerraformValue<string>>("gop_duration");
         set => SetArgument("gop_duration", value);
     }
 
     /// <summary>
     /// The height of the video in pixels.
     /// </summary>
-    public TerraformValue<double> HeightPixels
+    public TerraformValue<double>? HeightPixels
     {
-        get => new TerraformReference<double>(this, "height_pixels");
+        get => GetArgument<TerraformValue<double>>("height_pixels");
         set => SetArgument("height_pixels", value);
     }
 
     /// <summary>
     /// Pixel format to use. The default is &#39;yuv420p&#39;.
     /// </summary>
-    public TerraformValue<string> PixelFormat
+    public TerraformValue<string>? PixelFormat
     {
-        get => new TerraformReference<string>(this, "pixel_format");
+        get => GetArgument<TerraformValue<string>>("pixel_format");
         set => SetArgument("pixel_format", value);
     }
 
     /// <summary>
     /// Enforces the specified codec preset. The default is &#39;veryfast&#39;.
     /// </summary>
-    public TerraformValue<string> Preset
+    public TerraformValue<string>? Preset
     {
-        get => new TerraformReference<string>(this, "preset");
+        get => GetArgument<TerraformValue<string>>("preset");
         set => SetArgument("preset", value);
     }
 
     /// <summary>
     /// Enforces the specified codec profile.
     /// </summary>
-    public TerraformValue<string> Profile
+    public TerraformValue<string>? Profile
     {
-        get => new TerraformReference<string>(this, "profile");
+        get => GetArgument<TerraformValue<string>>("profile");
         set => SetArgument("profile", value);
     }
 
     /// <summary>
     /// Specify the mode. The default is &#39;vbr&#39;.
     /// </summary>
-    public TerraformValue<string> RateControlMode
+    public TerraformValue<string>? RateControlMode
     {
-        get => new TerraformReference<string>(this, "rate_control_mode");
+        get => GetArgument<TerraformValue<string>>("rate_control_mode");
         set => SetArgument("rate_control_mode", value);
     }
 
     /// <summary>
     /// Initial fullness of the Video Buffering Verifier (VBV) buffer in bits.
     /// </summary>
-    public TerraformValue<double> VbvFullnessBits
+    public TerraformValue<double>? VbvFullnessBits
     {
-        get => new TerraformReference<double>(this, "vbv_fullness_bits");
+        get => GetArgument<TerraformValue<double>>("vbv_fullness_bits");
         set => SetArgument("vbv_fullness_bits", value);
     }
 
     /// <summary>
     /// Size of the Video Buffering Verifier (VBV) buffer in bits.
     /// </summary>
-    public TerraformValue<double> VbvSizeBits
+    public TerraformValue<double>? VbvSizeBits
     {
-        get => new TerraformReference<double>(this, "vbv_size_bits");
+        get => GetArgument<TerraformValue<double>>("vbv_size_bits");
         set => SetArgument("vbv_size_bits", value);
     }
 
     /// <summary>
     /// The width of the video in pixels.
     /// </summary>
-    public TerraformValue<double> WidthPixels
+    public TerraformValue<double>? WidthPixels
     {
-        get => new TerraformReference<double>(this, "width_pixels");
+        get => GetArgument<TerraformValue<double>>("width_pixels");
         set => SetArgument("width_pixels", value);
     }
 
@@ -488,7 +488,7 @@ public class GoogleTranscoderJobTemplateConfigBlockEncryptionsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
     public required TerraformValue<string> Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -679,7 +679,7 @@ public class GoogleTranscoderJobTemplateConfigBlockEncryptionsBlockMpegCencBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scheme is required")]
     public required TerraformValue<string> Scheme
     {
-        get => new TerraformReference<string>(this, "scheme");
+        get => GetArgument<TerraformValue<string>>("scheme");
         set => SetArgument("scheme", value);
     }
 
@@ -715,7 +715,7 @@ public class GoogleTranscoderJobTemplateConfigBlockEncryptionsBlockSecretManager
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretVersion is required")]
     public required TerraformValue<string> SecretVersion
     {
-        get => new TerraformReference<string>(this, "secret_version");
+        get => GetArgument<TerraformValue<string>>("secret_version");
         set => SetArgument("secret_version", value);
     }
 
@@ -735,9 +735,9 @@ public class GoogleTranscoderJobTemplateConfigBlockInputsBlock : TerraformBlock
     /// <summary>
     /// A unique key for this input. Must be specified when using advanced mapping and edit lists.
     /// </summary>
-    public TerraformValue<string> Key
+    public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -745,9 +745,9 @@ public class GoogleTranscoderJobTemplateConfigBlockInputsBlock : TerraformBlock
     /// URI of the media. Input files must be at least 5 seconds in duration and stored in Cloud Storage (for example, gs://bucket/inputs/file.mp4).
     /// If empty, the value is populated from Job.input_uri.
     /// </summary>
-    public TerraformValue<string> Uri
+    public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -767,27 +767,27 @@ public class GoogleTranscoderJobTemplateConfigBlockManifestsBlock : TerraformBlo
     /// <summary>
     /// The name of the generated file. The default is &#39;manifest&#39;.
     /// </summary>
-    public TerraformValue<string> FileName
+    public TerraformValue<string>? FileName
     {
-        get => new TerraformReference<string>(this, "file_name");
+        get => GetArgument<TerraformValue<string>>("file_name");
         set => SetArgument("file_name", value);
     }
 
     /// <summary>
     /// List of user supplied MuxStream.key values that should appear in this manifest.
     /// </summary>
-    public TerraformList<string> MuxStreams
+    public TerraformList<string>? MuxStreams
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "mux_streams").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("mux_streams");
         set => SetArgument("mux_streams", value);
     }
 
     /// <summary>
     /// Type of the manifest. Possible values: [&amp;quot;MANIFEST_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;HLS&amp;quot;, &amp;quot;DASH&amp;quot;]
     /// </summary>
-    public TerraformValue<string> Type
+    public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -807,45 +807,45 @@ public class GoogleTranscoderJobTemplateConfigBlockMuxStreamsBlock : TerraformBl
     /// <summary>
     /// The container format. The default is &#39;mp4&#39;.
     /// </summary>
-    public TerraformValue<string> Container
+    public TerraformValue<string>? Container
     {
-        get => new TerraformReference<string>(this, "container");
+        get => GetArgument<TerraformValue<string>>("container");
         set => SetArgument("container", value);
     }
 
     /// <summary>
     /// List of ElementaryStream.key values multiplexed in this stream.
     /// </summary>
-    public TerraformList<string> ElementaryStreams
+    public TerraformList<string>? ElementaryStreams
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "elementary_streams").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("elementary_streams");
         set => SetArgument("elementary_streams", value);
     }
 
     /// <summary>
     /// Identifier of the encryption configuration to use.
     /// </summary>
-    public TerraformValue<string> EncryptionId
+    public TerraformValue<string>? EncryptionId
     {
-        get => new TerraformReference<string>(this, "encryption_id");
+        get => GetArgument<TerraformValue<string>>("encryption_id");
         set => SetArgument("encryption_id", value);
     }
 
     /// <summary>
     /// The name of the generated file.
     /// </summary>
-    public TerraformValue<string> FileName
+    public TerraformValue<string>? FileName
     {
-        get => new TerraformReference<string>(this, "file_name");
+        get => GetArgument<TerraformValue<string>>("file_name");
         set => SetArgument("file_name", value);
     }
 
     /// <summary>
     /// A unique key for this multiplexed stream.
     /// </summary>
-    public TerraformValue<string> Key
+    public TerraformValue<string>? Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -875,9 +875,9 @@ public class GoogleTranscoderJobTemplateConfigBlockMuxStreamsBlockSegmentSetting
     /// <summary>
     /// Duration of the segments in seconds. The default is &#39;6.0s&#39;.
     /// </summary>
-    public TerraformValue<string> SegmentDuration
+    public TerraformValue<string>? SegmentDuration
     {
-        get => new TerraformReference<string>(this, "segment_duration");
+        get => GetArgument<TerraformValue<string>>("segment_duration");
         set => SetArgument("segment_duration", value);
     }
 
@@ -897,9 +897,9 @@ public class GoogleTranscoderJobTemplateConfigBlockOutputBlock : TerraformBlock
     /// <summary>
     /// URI for the output file(s). For example, gs://my-bucket/outputs/.
     /// </summary>
-    public TerraformValue<string> Uri
+    public TerraformValue<string>? Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -974,9 +974,9 @@ public class GoogleTranscoderJobTemplateConfigBlockOverlaysBlockAnimationsBlockA
     /// <summary>
     /// The time to end the fade animation, in seconds.
     /// </summary>
-    public TerraformValue<string> EndTimeOffset
+    public TerraformValue<string>? EndTimeOffset
     {
-        get => new TerraformReference<string>(this, "end_time_offset");
+        get => GetArgument<TerraformValue<string>>("end_time_offset");
         set => SetArgument("end_time_offset", value);
     }
 
@@ -993,16 +993,16 @@ public class GoogleTranscoderJobTemplateConfigBlockOverlaysBlockAnimationsBlockA
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FadeType is required")]
     public required TerraformValue<string> FadeType
     {
-        get => new TerraformReference<string>(this, "fade_type");
+        get => GetArgument<TerraformValue<string>>("fade_type");
         set => SetArgument("fade_type", value);
     }
 
     /// <summary>
     /// The time to start the fade animation, in seconds.
     /// </summary>
-    public TerraformValue<string> StartTimeOffset
+    public TerraformValue<string>? StartTimeOffset
     {
-        get => new TerraformReference<string>(this, "start_time_offset");
+        get => GetArgument<TerraformValue<string>>("start_time_offset");
         set => SetArgument("start_time_offset", value);
     }
 
@@ -1032,18 +1032,18 @@ public class GoogleTranscoderJobTemplateConfigBlockOverlaysBlockAnimationsBlockA
     /// <summary>
     /// Normalized x coordinate.
     /// </summary>
-    public TerraformValue<double> X
+    public TerraformValue<double>? X
     {
-        get => new TerraformReference<double>(this, "x");
+        get => GetArgument<TerraformValue<double>>("x");
         set => SetArgument("x", value);
     }
 
     /// <summary>
     /// Normalized y coordinate.
     /// </summary>
-    public TerraformValue<double> Y
+    public TerraformValue<double>? Y
     {
-        get => new TerraformReference<double>(this, "y");
+        get => GetArgument<TerraformValue<double>>("y");
         set => SetArgument("y", value);
     }
 
@@ -1066,7 +1066,7 @@ public class GoogleTranscoderJobTemplateConfigBlockOverlaysBlockImageBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
     public required TerraformValue<string> Uri
     {
-        get => new TerraformReference<string>(this, "uri");
+        get => GetArgument<TerraformValue<string>>("uri");
         set => SetArgument("uri", value);
     }
 
@@ -1088,7 +1088,7 @@ public class GoogleTranscoderJobTemplateConfigBlockPubsubDestinationBlock : Terr
     /// </summary>
     public TerraformValue<string>? Topic
     {
-        get => new TerraformReference<string>(this, "topic");
+        get => GetArgument<TerraformValue<string>>("topic");
         set => SetArgument("topic", value);
     }
 
@@ -1111,7 +1111,7 @@ public class GoogleTranscoderJobTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1120,7 +1120,7 @@ public class GoogleTranscoderJobTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1129,7 +1129,7 @@ public class GoogleTranscoderJobTemplateTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1145,9 +1145,9 @@ public partial class GoogleTranscoderJobTemplate(string name) : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1157,7 +1157,7 @@ public partial class GoogleTranscoderJobTemplate(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobTemplateId is required")]
     public required TerraformValue<string> JobTemplateId
     {
-        get => new TerraformReference<string>(this, "job_template_id");
+        get => GetArgument<TerraformValue<string>>("job_template_id");
         set => SetArgument("job_template_id", value);
     }
 
@@ -1170,7 +1170,7 @@ public partial class GoogleTranscoderJobTemplate(string name) : TerraformResourc
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -1180,16 +1180,16 @@ public partial class GoogleTranscoderJobTemplate(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -1197,26 +1197,20 @@ public partial class GoogleTranscoderJobTemplate(string name) : TerraformResourc
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The resource name of the job template.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// Config block (nesting mode: list).

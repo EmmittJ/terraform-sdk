@@ -18,7 +18,7 @@ public class AwsProviderAssumeRoleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Duration
     {
-        get => new TerraformReference<string>(this, "duration");
+        get => GetArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsProviderAssumeRoleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ExternalId
     {
-        get => new TerraformReference<string>(this, "external_id");
+        get => GetArgument<TerraformValue<string>>("external_id");
         set => SetArgument("external_id", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsProviderAssumeRoleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsProviderAssumeRoleBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? PolicyArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "policy_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("policy_arns");
         set => SetArgument("policy_arns", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsProviderAssumeRoleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsProviderAssumeRoleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SessionName
     {
-        get => new TerraformReference<string>(this, "session_name");
+        get => GetArgument<TerraformValue<string>>("session_name");
         set => SetArgument("session_name", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsProviderAssumeRoleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SourceIdentity
     {
-        get => new TerraformReference<string>(this, "source_identity");
+        get => GetArgument<TerraformValue<string>>("source_identity");
         set => SetArgument("source_identity", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsProviderAssumeRoleBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsProviderAssumeRoleBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? TransitiveTagKeys
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "transitive_tag_keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("transitive_tag_keys");
         set => SetArgument("transitive_tag_keys", value);
     }
 
@@ -113,7 +113,7 @@ public class AwsProviderAssumeRoleWithWebIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Duration
     {
-        get => new TerraformReference<string>(this, "duration");
+        get => GetArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -122,7 +122,7 @@ public class AwsProviderAssumeRoleWithWebIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Policy
     {
-        get => new TerraformReference<string>(this, "policy");
+        get => GetArgument<TerraformValue<string>>("policy");
         set => SetArgument("policy", value);
     }
 
@@ -131,7 +131,7 @@ public class AwsProviderAssumeRoleWithWebIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? PolicyArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "policy_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("policy_arns");
         set => SetArgument("policy_arns", value);
     }
 
@@ -140,7 +140,7 @@ public class AwsProviderAssumeRoleWithWebIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RoleArn
     {
-        get => new TerraformReference<string>(this, "role_arn");
+        get => GetArgument<TerraformValue<string>>("role_arn");
         set => SetArgument("role_arn", value);
     }
 
@@ -149,7 +149,7 @@ public class AwsProviderAssumeRoleWithWebIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? SessionName
     {
-        get => new TerraformReference<string>(this, "session_name");
+        get => GetArgument<TerraformValue<string>>("session_name");
         set => SetArgument("session_name", value);
     }
 
@@ -158,7 +158,7 @@ public class AwsProviderAssumeRoleWithWebIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? WebIdentityToken
     {
-        get => new TerraformReference<string>(this, "web_identity_token");
+        get => GetArgument<TerraformValue<string>>("web_identity_token");
         set => SetArgument("web_identity_token", value);
     }
 
@@ -167,7 +167,7 @@ public class AwsProviderAssumeRoleWithWebIdentityBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? WebIdentityTokenFile
     {
-        get => new TerraformReference<string>(this, "web_identity_token_file");
+        get => GetArgument<TerraformValue<string>>("web_identity_token_file");
         set => SetArgument("web_identity_token_file", value);
     }
 
@@ -190,7 +190,7 @@ public class AwsProviderDefaultTagsBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -213,7 +213,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Accessanalyzer
     {
-        get => new TerraformReference<string>(this, "accessanalyzer");
+        get => GetArgument<TerraformValue<string>>("accessanalyzer");
         set => SetArgument("accessanalyzer", value);
     }
 
@@ -222,7 +222,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Account
     {
-        get => new TerraformReference<string>(this, "account");
+        get => GetArgument<TerraformValue<string>>("account");
         set => SetArgument("account", value);
     }
 
@@ -231,7 +231,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Acm
     {
-        get => new TerraformReference<string>(this, "acm");
+        get => GetArgument<TerraformValue<string>>("acm");
         set => SetArgument("acm", value);
     }
 
@@ -240,7 +240,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Acmpca
     {
-        get => new TerraformReference<string>(this, "acmpca");
+        get => GetArgument<TerraformValue<string>>("acmpca");
         set => SetArgument("acmpca", value);
     }
 
@@ -249,7 +249,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Amg
     {
-        get => new TerraformReference<string>(this, "amg");
+        get => GetArgument<TerraformValue<string>>("amg");
         set => SetArgument("amg", value);
     }
 
@@ -258,7 +258,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Amp
     {
-        get => new TerraformReference<string>(this, "amp");
+        get => GetArgument<TerraformValue<string>>("amp");
         set => SetArgument("amp", value);
     }
 
@@ -267,7 +267,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Amplify
     {
-        get => new TerraformReference<string>(this, "amplify");
+        get => GetArgument<TerraformValue<string>>("amplify");
         set => SetArgument("amplify", value);
     }
 
@@ -276,7 +276,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Apigateway
     {
-        get => new TerraformReference<string>(this, "apigateway");
+        get => GetArgument<TerraformValue<string>>("apigateway");
         set => SetArgument("apigateway", value);
     }
 
@@ -285,7 +285,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Apigatewayv2
     {
-        get => new TerraformReference<string>(this, "apigatewayv2");
+        get => GetArgument<TerraformValue<string>>("apigatewayv2");
         set => SetArgument("apigatewayv2", value);
     }
 
@@ -294,7 +294,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Appautoscaling
     {
-        get => new TerraformReference<string>(this, "appautoscaling");
+        get => GetArgument<TerraformValue<string>>("appautoscaling");
         set => SetArgument("appautoscaling", value);
     }
 
@@ -303,7 +303,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Appconfig
     {
-        get => new TerraformReference<string>(this, "appconfig");
+        get => GetArgument<TerraformValue<string>>("appconfig");
         set => SetArgument("appconfig", value);
     }
 
@@ -312,7 +312,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Appfabric
     {
-        get => new TerraformReference<string>(this, "appfabric");
+        get => GetArgument<TerraformValue<string>>("appfabric");
         set => SetArgument("appfabric", value);
     }
 
@@ -321,7 +321,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Appflow
     {
-        get => new TerraformReference<string>(this, "appflow");
+        get => GetArgument<TerraformValue<string>>("appflow");
         set => SetArgument("appflow", value);
     }
 
@@ -330,7 +330,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Appintegrations
     {
-        get => new TerraformReference<string>(this, "appintegrations");
+        get => GetArgument<TerraformValue<string>>("appintegrations");
         set => SetArgument("appintegrations", value);
     }
 
@@ -339,7 +339,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Appintegrationsservice
     {
-        get => new TerraformReference<string>(this, "appintegrationsservice");
+        get => GetArgument<TerraformValue<string>>("appintegrationsservice");
         set => SetArgument("appintegrationsservice", value);
     }
 
@@ -348,7 +348,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Applicationautoscaling
     {
-        get => new TerraformReference<string>(this, "applicationautoscaling");
+        get => GetArgument<TerraformValue<string>>("applicationautoscaling");
         set => SetArgument("applicationautoscaling", value);
     }
 
@@ -357,7 +357,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Applicationinsights
     {
-        get => new TerraformReference<string>(this, "applicationinsights");
+        get => GetArgument<TerraformValue<string>>("applicationinsights");
         set => SetArgument("applicationinsights", value);
     }
 
@@ -366,7 +366,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Applicationsignals
     {
-        get => new TerraformReference<string>(this, "applicationsignals");
+        get => GetArgument<TerraformValue<string>>("applicationsignals");
         set => SetArgument("applicationsignals", value);
     }
 
@@ -375,7 +375,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Appmesh
     {
-        get => new TerraformReference<string>(this, "appmesh");
+        get => GetArgument<TerraformValue<string>>("appmesh");
         set => SetArgument("appmesh", value);
     }
 
@@ -384,7 +384,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Appregistry
     {
-        get => new TerraformReference<string>(this, "appregistry");
+        get => GetArgument<TerraformValue<string>>("appregistry");
         set => SetArgument("appregistry", value);
     }
 
@@ -393,7 +393,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Apprunner
     {
-        get => new TerraformReference<string>(this, "apprunner");
+        get => GetArgument<TerraformValue<string>>("apprunner");
         set => SetArgument("apprunner", value);
     }
 
@@ -402,7 +402,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Appstream
     {
-        get => new TerraformReference<string>(this, "appstream");
+        get => GetArgument<TerraformValue<string>>("appstream");
         set => SetArgument("appstream", value);
     }
 
@@ -411,7 +411,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Appsync
     {
-        get => new TerraformReference<string>(this, "appsync");
+        get => GetArgument<TerraformValue<string>>("appsync");
         set => SetArgument("appsync", value);
     }
 
@@ -420,7 +420,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Arcregionswitch
     {
-        get => new TerraformReference<string>(this, "arcregionswitch");
+        get => GetArgument<TerraformValue<string>>("arcregionswitch");
         set => SetArgument("arcregionswitch", value);
     }
 
@@ -429,7 +429,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Athena
     {
-        get => new TerraformReference<string>(this, "athena");
+        get => GetArgument<TerraformValue<string>>("athena");
         set => SetArgument("athena", value);
     }
 
@@ -438,7 +438,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Auditmanager
     {
-        get => new TerraformReference<string>(this, "auditmanager");
+        get => GetArgument<TerraformValue<string>>("auditmanager");
         set => SetArgument("auditmanager", value);
     }
 
@@ -447,7 +447,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Autoscaling
     {
-        get => new TerraformReference<string>(this, "autoscaling");
+        get => GetArgument<TerraformValue<string>>("autoscaling");
         set => SetArgument("autoscaling", value);
     }
 
@@ -456,7 +456,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Autoscalingplans
     {
-        get => new TerraformReference<string>(this, "autoscalingplans");
+        get => GetArgument<TerraformValue<string>>("autoscalingplans");
         set => SetArgument("autoscalingplans", value);
     }
 
@@ -465,7 +465,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Backup
     {
-        get => new TerraformReference<string>(this, "backup");
+        get => GetArgument<TerraformValue<string>>("backup");
         set => SetArgument("backup", value);
     }
 
@@ -474,7 +474,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Batch
     {
-        get => new TerraformReference<string>(this, "batch");
+        get => GetArgument<TerraformValue<string>>("batch");
         set => SetArgument("batch", value);
     }
 
@@ -483,7 +483,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Bcmdataexports
     {
-        get => new TerraformReference<string>(this, "bcmdataexports");
+        get => GetArgument<TerraformValue<string>>("bcmdataexports");
         set => SetArgument("bcmdataexports", value);
     }
 
@@ -492,7 +492,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Beanstalk
     {
-        get => new TerraformReference<string>(this, "beanstalk");
+        get => GetArgument<TerraformValue<string>>("beanstalk");
         set => SetArgument("beanstalk", value);
     }
 
@@ -501,7 +501,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Bedrock
     {
-        get => new TerraformReference<string>(this, "bedrock");
+        get => GetArgument<TerraformValue<string>>("bedrock");
         set => SetArgument("bedrock", value);
     }
 
@@ -510,7 +510,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Bedrockagent
     {
-        get => new TerraformReference<string>(this, "bedrockagent");
+        get => GetArgument<TerraformValue<string>>("bedrockagent");
         set => SetArgument("bedrockagent", value);
     }
 
@@ -519,7 +519,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Bedrockagentcore
     {
-        get => new TerraformReference<string>(this, "bedrockagentcore");
+        get => GetArgument<TerraformValue<string>>("bedrockagentcore");
         set => SetArgument("bedrockagentcore", value);
     }
 
@@ -528,7 +528,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Billing
     {
-        get => new TerraformReference<string>(this, "billing");
+        get => GetArgument<TerraformValue<string>>("billing");
         set => SetArgument("billing", value);
     }
 
@@ -537,7 +537,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Budgets
     {
-        get => new TerraformReference<string>(this, "budgets");
+        get => GetArgument<TerraformValue<string>>("budgets");
         set => SetArgument("budgets", value);
     }
 
@@ -546,7 +546,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ce
     {
-        get => new TerraformReference<string>(this, "ce");
+        get => GetArgument<TerraformValue<string>>("ce");
         set => SetArgument("ce", value);
     }
 
@@ -555,7 +555,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Chatbot
     {
-        get => new TerraformReference<string>(this, "chatbot");
+        get => GetArgument<TerraformValue<string>>("chatbot");
         set => SetArgument("chatbot", value);
     }
 
@@ -564,7 +564,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Chime
     {
-        get => new TerraformReference<string>(this, "chime");
+        get => GetArgument<TerraformValue<string>>("chime");
         set => SetArgument("chime", value);
     }
 
@@ -573,7 +573,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Chimesdkmediapipelines
     {
-        get => new TerraformReference<string>(this, "chimesdkmediapipelines");
+        get => GetArgument<TerraformValue<string>>("chimesdkmediapipelines");
         set => SetArgument("chimesdkmediapipelines", value);
     }
 
@@ -582,7 +582,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Chimesdkvoice
     {
-        get => new TerraformReference<string>(this, "chimesdkvoice");
+        get => GetArgument<TerraformValue<string>>("chimesdkvoice");
         set => SetArgument("chimesdkvoice", value);
     }
 
@@ -591,7 +591,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cleanrooms
     {
-        get => new TerraformReference<string>(this, "cleanrooms");
+        get => GetArgument<TerraformValue<string>>("cleanrooms");
         set => SetArgument("cleanrooms", value);
     }
 
@@ -600,7 +600,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cloud9
     {
-        get => new TerraformReference<string>(this, "cloud9");
+        get => GetArgument<TerraformValue<string>>("cloud9");
         set => SetArgument("cloud9", value);
     }
 
@@ -609,7 +609,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cloudcontrol
     {
-        get => new TerraformReference<string>(this, "cloudcontrol");
+        get => GetArgument<TerraformValue<string>>("cloudcontrol");
         set => SetArgument("cloudcontrol", value);
     }
 
@@ -618,7 +618,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cloudcontrolapi
     {
-        get => new TerraformReference<string>(this, "cloudcontrolapi");
+        get => GetArgument<TerraformValue<string>>("cloudcontrolapi");
         set => SetArgument("cloudcontrolapi", value);
     }
 
@@ -627,7 +627,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cloudformation
     {
-        get => new TerraformReference<string>(this, "cloudformation");
+        get => GetArgument<TerraformValue<string>>("cloudformation");
         set => SetArgument("cloudformation", value);
     }
 
@@ -636,7 +636,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cloudfront
     {
-        get => new TerraformReference<string>(this, "cloudfront");
+        get => GetArgument<TerraformValue<string>>("cloudfront");
         set => SetArgument("cloudfront", value);
     }
 
@@ -645,7 +645,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cloudfrontkeyvaluestore
     {
-        get => new TerraformReference<string>(this, "cloudfrontkeyvaluestore");
+        get => GetArgument<TerraformValue<string>>("cloudfrontkeyvaluestore");
         set => SetArgument("cloudfrontkeyvaluestore", value);
     }
 
@@ -654,7 +654,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cloudhsm
     {
-        get => new TerraformReference<string>(this, "cloudhsm");
+        get => GetArgument<TerraformValue<string>>("cloudhsm");
         set => SetArgument("cloudhsm", value);
     }
 
@@ -663,7 +663,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cloudhsmv2
     {
-        get => new TerraformReference<string>(this, "cloudhsmv2");
+        get => GetArgument<TerraformValue<string>>("cloudhsmv2");
         set => SetArgument("cloudhsmv2", value);
     }
 
@@ -672,7 +672,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cloudsearch
     {
-        get => new TerraformReference<string>(this, "cloudsearch");
+        get => GetArgument<TerraformValue<string>>("cloudsearch");
         set => SetArgument("cloudsearch", value);
     }
 
@@ -681,7 +681,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cloudtrail
     {
-        get => new TerraformReference<string>(this, "cloudtrail");
+        get => GetArgument<TerraformValue<string>>("cloudtrail");
         set => SetArgument("cloudtrail", value);
     }
 
@@ -690,7 +690,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cloudwatch
     {
-        get => new TerraformReference<string>(this, "cloudwatch");
+        get => GetArgument<TerraformValue<string>>("cloudwatch");
         set => SetArgument("cloudwatch", value);
     }
 
@@ -699,7 +699,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cloudwatchevents
     {
-        get => new TerraformReference<string>(this, "cloudwatchevents");
+        get => GetArgument<TerraformValue<string>>("cloudwatchevents");
         set => SetArgument("cloudwatchevents", value);
     }
 
@@ -708,7 +708,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cloudwatchevidently
     {
-        get => new TerraformReference<string>(this, "cloudwatchevidently");
+        get => GetArgument<TerraformValue<string>>("cloudwatchevidently");
         set => SetArgument("cloudwatchevidently", value);
     }
 
@@ -717,7 +717,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cloudwatchlog
     {
-        get => new TerraformReference<string>(this, "cloudwatchlog");
+        get => GetArgument<TerraformValue<string>>("cloudwatchlog");
         set => SetArgument("cloudwatchlog", value);
     }
 
@@ -726,7 +726,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cloudwatchlogs
     {
-        get => new TerraformReference<string>(this, "cloudwatchlogs");
+        get => GetArgument<TerraformValue<string>>("cloudwatchlogs");
         set => SetArgument("cloudwatchlogs", value);
     }
 
@@ -735,7 +735,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cloudwatchobservabilityaccessmanager
     {
-        get => new TerraformReference<string>(this, "cloudwatchobservabilityaccessmanager");
+        get => GetArgument<TerraformValue<string>>("cloudwatchobservabilityaccessmanager");
         set => SetArgument("cloudwatchobservabilityaccessmanager", value);
     }
 
@@ -744,7 +744,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cloudwatchrum
     {
-        get => new TerraformReference<string>(this, "cloudwatchrum");
+        get => GetArgument<TerraformValue<string>>("cloudwatchrum");
         set => SetArgument("cloudwatchrum", value);
     }
 
@@ -753,7 +753,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Codeartifact
     {
-        get => new TerraformReference<string>(this, "codeartifact");
+        get => GetArgument<TerraformValue<string>>("codeartifact");
         set => SetArgument("codeartifact", value);
     }
 
@@ -762,7 +762,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Codebuild
     {
-        get => new TerraformReference<string>(this, "codebuild");
+        get => GetArgument<TerraformValue<string>>("codebuild");
         set => SetArgument("codebuild", value);
     }
 
@@ -771,7 +771,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Codecatalyst
     {
-        get => new TerraformReference<string>(this, "codecatalyst");
+        get => GetArgument<TerraformValue<string>>("codecatalyst");
         set => SetArgument("codecatalyst", value);
     }
 
@@ -780,7 +780,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Codecommit
     {
-        get => new TerraformReference<string>(this, "codecommit");
+        get => GetArgument<TerraformValue<string>>("codecommit");
         set => SetArgument("codecommit", value);
     }
 
@@ -789,7 +789,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Codeconnections
     {
-        get => new TerraformReference<string>(this, "codeconnections");
+        get => GetArgument<TerraformValue<string>>("codeconnections");
         set => SetArgument("codeconnections", value);
     }
 
@@ -798,7 +798,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Codedeploy
     {
-        get => new TerraformReference<string>(this, "codedeploy");
+        get => GetArgument<TerraformValue<string>>("codedeploy");
         set => SetArgument("codedeploy", value);
     }
 
@@ -807,7 +807,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Codeguruprofiler
     {
-        get => new TerraformReference<string>(this, "codeguruprofiler");
+        get => GetArgument<TerraformValue<string>>("codeguruprofiler");
         set => SetArgument("codeguruprofiler", value);
     }
 
@@ -816,7 +816,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Codegurureviewer
     {
-        get => new TerraformReference<string>(this, "codegurureviewer");
+        get => GetArgument<TerraformValue<string>>("codegurureviewer");
         set => SetArgument("codegurureviewer", value);
     }
 
@@ -825,7 +825,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Codepipeline
     {
-        get => new TerraformReference<string>(this, "codepipeline");
+        get => GetArgument<TerraformValue<string>>("codepipeline");
         set => SetArgument("codepipeline", value);
     }
 
@@ -834,7 +834,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Codestarconnections
     {
-        get => new TerraformReference<string>(this, "codestarconnections");
+        get => GetArgument<TerraformValue<string>>("codestarconnections");
         set => SetArgument("codestarconnections", value);
     }
 
@@ -843,7 +843,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Codestarnotifications
     {
-        get => new TerraformReference<string>(this, "codestarnotifications");
+        get => GetArgument<TerraformValue<string>>("codestarnotifications");
         set => SetArgument("codestarnotifications", value);
     }
 
@@ -852,7 +852,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cognitoidentity
     {
-        get => new TerraformReference<string>(this, "cognitoidentity");
+        get => GetArgument<TerraformValue<string>>("cognitoidentity");
         set => SetArgument("cognitoidentity", value);
     }
 
@@ -861,7 +861,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cognitoidentityprovider
     {
-        get => new TerraformReference<string>(this, "cognitoidentityprovider");
+        get => GetArgument<TerraformValue<string>>("cognitoidentityprovider");
         set => SetArgument("cognitoidentityprovider", value);
     }
 
@@ -870,7 +870,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cognitoidp
     {
-        get => new TerraformReference<string>(this, "cognitoidp");
+        get => GetArgument<TerraformValue<string>>("cognitoidp");
         set => SetArgument("cognitoidp", value);
     }
 
@@ -879,7 +879,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Comprehend
     {
-        get => new TerraformReference<string>(this, "comprehend");
+        get => GetArgument<TerraformValue<string>>("comprehend");
         set => SetArgument("comprehend", value);
     }
 
@@ -888,7 +888,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Computeoptimizer
     {
-        get => new TerraformReference<string>(this, "computeoptimizer");
+        get => GetArgument<TerraformValue<string>>("computeoptimizer");
         set => SetArgument("computeoptimizer", value);
     }
 
@@ -897,7 +897,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Config
     {
-        get => new TerraformReference<string>(this, "config");
+        get => GetArgument<TerraformValue<string>>("config");
         set => SetArgument("config", value);
     }
 
@@ -906,7 +906,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Configservice
     {
-        get => new TerraformReference<string>(this, "configservice");
+        get => GetArgument<TerraformValue<string>>("configservice");
         set => SetArgument("configservice", value);
     }
 
@@ -915,7 +915,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Connect
     {
-        get => new TerraformReference<string>(this, "connect");
+        get => GetArgument<TerraformValue<string>>("connect");
         set => SetArgument("connect", value);
     }
 
@@ -924,7 +924,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Connectcases
     {
-        get => new TerraformReference<string>(this, "connectcases");
+        get => GetArgument<TerraformValue<string>>("connectcases");
         set => SetArgument("connectcases", value);
     }
 
@@ -933,7 +933,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Controltower
     {
-        get => new TerraformReference<string>(this, "controltower");
+        get => GetArgument<TerraformValue<string>>("controltower");
         set => SetArgument("controltower", value);
     }
 
@@ -942,7 +942,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Costandusagereportservice
     {
-        get => new TerraformReference<string>(this, "costandusagereportservice");
+        get => GetArgument<TerraformValue<string>>("costandusagereportservice");
         set => SetArgument("costandusagereportservice", value);
     }
 
@@ -951,7 +951,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Costexplorer
     {
-        get => new TerraformReference<string>(this, "costexplorer");
+        get => GetArgument<TerraformValue<string>>("costexplorer");
         set => SetArgument("costexplorer", value);
     }
 
@@ -960,7 +960,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Costoptimizationhub
     {
-        get => new TerraformReference<string>(this, "costoptimizationhub");
+        get => GetArgument<TerraformValue<string>>("costoptimizationhub");
         set => SetArgument("costoptimizationhub", value);
     }
 
@@ -969,7 +969,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Cur
     {
-        get => new TerraformReference<string>(this, "cur");
+        get => GetArgument<TerraformValue<string>>("cur");
         set => SetArgument("cur", value);
     }
 
@@ -978,7 +978,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Customerprofiles
     {
-        get => new TerraformReference<string>(this, "customerprofiles");
+        get => GetArgument<TerraformValue<string>>("customerprofiles");
         set => SetArgument("customerprofiles", value);
     }
 
@@ -987,7 +987,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Databasemigration
     {
-        get => new TerraformReference<string>(this, "databasemigration");
+        get => GetArgument<TerraformValue<string>>("databasemigration");
         set => SetArgument("databasemigration", value);
     }
 
@@ -996,7 +996,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Databasemigrationservice
     {
-        get => new TerraformReference<string>(this, "databasemigrationservice");
+        get => GetArgument<TerraformValue<string>>("databasemigrationservice");
         set => SetArgument("databasemigrationservice", value);
     }
 
@@ -1005,7 +1005,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Databrew
     {
-        get => new TerraformReference<string>(this, "databrew");
+        get => GetArgument<TerraformValue<string>>("databrew");
         set => SetArgument("databrew", value);
     }
 
@@ -1014,7 +1014,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Dataexchange
     {
-        get => new TerraformReference<string>(this, "dataexchange");
+        get => GetArgument<TerraformValue<string>>("dataexchange");
         set => SetArgument("dataexchange", value);
     }
 
@@ -1023,7 +1023,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Datapipeline
     {
-        get => new TerraformReference<string>(this, "datapipeline");
+        get => GetArgument<TerraformValue<string>>("datapipeline");
         set => SetArgument("datapipeline", value);
     }
 
@@ -1032,7 +1032,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Datasync
     {
-        get => new TerraformReference<string>(this, "datasync");
+        get => GetArgument<TerraformValue<string>>("datasync");
         set => SetArgument("datasync", value);
     }
 
@@ -1041,7 +1041,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Datazone
     {
-        get => new TerraformReference<string>(this, "datazone");
+        get => GetArgument<TerraformValue<string>>("datazone");
         set => SetArgument("datazone", value);
     }
 
@@ -1050,7 +1050,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Dax
     {
-        get => new TerraformReference<string>(this, "dax");
+        get => GetArgument<TerraformValue<string>>("dax");
         set => SetArgument("dax", value);
     }
 
@@ -1059,7 +1059,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Deploy
     {
-        get => new TerraformReference<string>(this, "deploy");
+        get => GetArgument<TerraformValue<string>>("deploy");
         set => SetArgument("deploy", value);
     }
 
@@ -1068,7 +1068,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Detective
     {
-        get => new TerraformReference<string>(this, "detective");
+        get => GetArgument<TerraformValue<string>>("detective");
         set => SetArgument("detective", value);
     }
 
@@ -1077,7 +1077,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Devicefarm
     {
-        get => new TerraformReference<string>(this, "devicefarm");
+        get => GetArgument<TerraformValue<string>>("devicefarm");
         set => SetArgument("devicefarm", value);
     }
 
@@ -1086,7 +1086,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Devopsguru
     {
-        get => new TerraformReference<string>(this, "devopsguru");
+        get => GetArgument<TerraformValue<string>>("devopsguru");
         set => SetArgument("devopsguru", value);
     }
 
@@ -1095,7 +1095,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Directconnect
     {
-        get => new TerraformReference<string>(this, "directconnect");
+        get => GetArgument<TerraformValue<string>>("directconnect");
         set => SetArgument("directconnect", value);
     }
 
@@ -1104,7 +1104,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Directoryservice
     {
-        get => new TerraformReference<string>(this, "directoryservice");
+        get => GetArgument<TerraformValue<string>>("directoryservice");
         set => SetArgument("directoryservice", value);
     }
 
@@ -1113,7 +1113,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Dlm
     {
-        get => new TerraformReference<string>(this, "dlm");
+        get => GetArgument<TerraformValue<string>>("dlm");
         set => SetArgument("dlm", value);
     }
 
@@ -1122,7 +1122,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Dms
     {
-        get => new TerraformReference<string>(this, "dms");
+        get => GetArgument<TerraformValue<string>>("dms");
         set => SetArgument("dms", value);
     }
 
@@ -1131,7 +1131,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Docdb
     {
-        get => new TerraformReference<string>(this, "docdb");
+        get => GetArgument<TerraformValue<string>>("docdb");
         set => SetArgument("docdb", value);
     }
 
@@ -1140,7 +1140,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Docdbelastic
     {
-        get => new TerraformReference<string>(this, "docdbelastic");
+        get => GetArgument<TerraformValue<string>>("docdbelastic");
         set => SetArgument("docdbelastic", value);
     }
 
@@ -1149,7 +1149,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Drs
     {
-        get => new TerraformReference<string>(this, "drs");
+        get => GetArgument<TerraformValue<string>>("drs");
         set => SetArgument("drs", value);
     }
 
@@ -1158,7 +1158,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ds
     {
-        get => new TerraformReference<string>(this, "ds");
+        get => GetArgument<TerraformValue<string>>("ds");
         set => SetArgument("ds", value);
     }
 
@@ -1167,7 +1167,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Dsql
     {
-        get => new TerraformReference<string>(this, "dsql");
+        get => GetArgument<TerraformValue<string>>("dsql");
         set => SetArgument("dsql", value);
     }
 
@@ -1176,7 +1176,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Dynamodb
     {
-        get => new TerraformReference<string>(this, "dynamodb");
+        get => GetArgument<TerraformValue<string>>("dynamodb");
         set => SetArgument("dynamodb", value);
     }
 
@@ -1185,7 +1185,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ec2
     {
-        get => new TerraformReference<string>(this, "ec2");
+        get => GetArgument<TerraformValue<string>>("ec2");
         set => SetArgument("ec2", value);
     }
 
@@ -1194,7 +1194,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ecr
     {
-        get => new TerraformReference<string>(this, "ecr");
+        get => GetArgument<TerraformValue<string>>("ecr");
         set => SetArgument("ecr", value);
     }
 
@@ -1203,7 +1203,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ecrpublic
     {
-        get => new TerraformReference<string>(this, "ecrpublic");
+        get => GetArgument<TerraformValue<string>>("ecrpublic");
         set => SetArgument("ecrpublic", value);
     }
 
@@ -1212,7 +1212,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ecs
     {
-        get => new TerraformReference<string>(this, "ecs");
+        get => GetArgument<TerraformValue<string>>("ecs");
         set => SetArgument("ecs", value);
     }
 
@@ -1221,7 +1221,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Efs
     {
-        get => new TerraformReference<string>(this, "efs");
+        get => GetArgument<TerraformValue<string>>("efs");
         set => SetArgument("efs", value);
     }
 
@@ -1230,7 +1230,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Eks
     {
-        get => new TerraformReference<string>(this, "eks");
+        get => GetArgument<TerraformValue<string>>("eks");
         set => SetArgument("eks", value);
     }
 
@@ -1239,7 +1239,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Elasticache
     {
-        get => new TerraformReference<string>(this, "elasticache");
+        get => GetArgument<TerraformValue<string>>("elasticache");
         set => SetArgument("elasticache", value);
     }
 
@@ -1248,7 +1248,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Elasticbeanstalk
     {
-        get => new TerraformReference<string>(this, "elasticbeanstalk");
+        get => GetArgument<TerraformValue<string>>("elasticbeanstalk");
         set => SetArgument("elasticbeanstalk", value);
     }
 
@@ -1257,7 +1257,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Elasticloadbalancing
     {
-        get => new TerraformReference<string>(this, "elasticloadbalancing");
+        get => GetArgument<TerraformValue<string>>("elasticloadbalancing");
         set => SetArgument("elasticloadbalancing", value);
     }
 
@@ -1266,7 +1266,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Elasticloadbalancingv2
     {
-        get => new TerraformReference<string>(this, "elasticloadbalancingv2");
+        get => GetArgument<TerraformValue<string>>("elasticloadbalancingv2");
         set => SetArgument("elasticloadbalancingv2", value);
     }
 
@@ -1275,7 +1275,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Elasticsearch
     {
-        get => new TerraformReference<string>(this, "elasticsearch");
+        get => GetArgument<TerraformValue<string>>("elasticsearch");
         set => SetArgument("elasticsearch", value);
     }
 
@@ -1284,7 +1284,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Elasticsearchservice
     {
-        get => new TerraformReference<string>(this, "elasticsearchservice");
+        get => GetArgument<TerraformValue<string>>("elasticsearchservice");
         set => SetArgument("elasticsearchservice", value);
     }
 
@@ -1293,7 +1293,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Elastictranscoder
     {
-        get => new TerraformReference<string>(this, "elastictranscoder");
+        get => GetArgument<TerraformValue<string>>("elastictranscoder");
         set => SetArgument("elastictranscoder", value);
     }
 
@@ -1302,7 +1302,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Elb
     {
-        get => new TerraformReference<string>(this, "elb");
+        get => GetArgument<TerraformValue<string>>("elb");
         set => SetArgument("elb", value);
     }
 
@@ -1311,7 +1311,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Elbv2
     {
-        get => new TerraformReference<string>(this, "elbv2");
+        get => GetArgument<TerraformValue<string>>("elbv2");
         set => SetArgument("elbv2", value);
     }
 
@@ -1320,7 +1320,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Emr
     {
-        get => new TerraformReference<string>(this, "emr");
+        get => GetArgument<TerraformValue<string>>("emr");
         set => SetArgument("emr", value);
     }
 
@@ -1329,7 +1329,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Emrcontainers
     {
-        get => new TerraformReference<string>(this, "emrcontainers");
+        get => GetArgument<TerraformValue<string>>("emrcontainers");
         set => SetArgument("emrcontainers", value);
     }
 
@@ -1338,7 +1338,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Emrserverless
     {
-        get => new TerraformReference<string>(this, "emrserverless");
+        get => GetArgument<TerraformValue<string>>("emrserverless");
         set => SetArgument("emrserverless", value);
     }
 
@@ -1347,7 +1347,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Es
     {
-        get => new TerraformReference<string>(this, "es");
+        get => GetArgument<TerraformValue<string>>("es");
         set => SetArgument("es", value);
     }
 
@@ -1356,7 +1356,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Eventbridge
     {
-        get => new TerraformReference<string>(this, "eventbridge");
+        get => GetArgument<TerraformValue<string>>("eventbridge");
         set => SetArgument("eventbridge", value);
     }
 
@@ -1365,7 +1365,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Events
     {
-        get => new TerraformReference<string>(this, "events");
+        get => GetArgument<TerraformValue<string>>("events");
         set => SetArgument("events", value);
     }
 
@@ -1374,7 +1374,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Evidently
     {
-        get => new TerraformReference<string>(this, "evidently");
+        get => GetArgument<TerraformValue<string>>("evidently");
         set => SetArgument("evidently", value);
     }
 
@@ -1383,7 +1383,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Evs
     {
-        get => new TerraformReference<string>(this, "evs");
+        get => GetArgument<TerraformValue<string>>("evs");
         set => SetArgument("evs", value);
     }
 
@@ -1392,7 +1392,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Finspace
     {
-        get => new TerraformReference<string>(this, "finspace");
+        get => GetArgument<TerraformValue<string>>("finspace");
         set => SetArgument("finspace", value);
     }
 
@@ -1401,7 +1401,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Firehose
     {
-        get => new TerraformReference<string>(this, "firehose");
+        get => GetArgument<TerraformValue<string>>("firehose");
         set => SetArgument("firehose", value);
     }
 
@@ -1410,7 +1410,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Fis
     {
-        get => new TerraformReference<string>(this, "fis");
+        get => GetArgument<TerraformValue<string>>("fis");
         set => SetArgument("fis", value);
     }
 
@@ -1419,7 +1419,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Fms
     {
-        get => new TerraformReference<string>(this, "fms");
+        get => GetArgument<TerraformValue<string>>("fms");
         set => SetArgument("fms", value);
     }
 
@@ -1428,7 +1428,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Fsx
     {
-        get => new TerraformReference<string>(this, "fsx");
+        get => GetArgument<TerraformValue<string>>("fsx");
         set => SetArgument("fsx", value);
     }
 
@@ -1437,7 +1437,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Gamelift
     {
-        get => new TerraformReference<string>(this, "gamelift");
+        get => GetArgument<TerraformValue<string>>("gamelift");
         set => SetArgument("gamelift", value);
     }
 
@@ -1446,7 +1446,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Glacier
     {
-        get => new TerraformReference<string>(this, "glacier");
+        get => GetArgument<TerraformValue<string>>("glacier");
         set => SetArgument("glacier", value);
     }
 
@@ -1455,7 +1455,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Globalaccelerator
     {
-        get => new TerraformReference<string>(this, "globalaccelerator");
+        get => GetArgument<TerraformValue<string>>("globalaccelerator");
         set => SetArgument("globalaccelerator", value);
     }
 
@@ -1464,7 +1464,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Glue
     {
-        get => new TerraformReference<string>(this, "glue");
+        get => GetArgument<TerraformValue<string>>("glue");
         set => SetArgument("glue", value);
     }
 
@@ -1473,7 +1473,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Gluedatabrew
     {
-        get => new TerraformReference<string>(this, "gluedatabrew");
+        get => GetArgument<TerraformValue<string>>("gluedatabrew");
         set => SetArgument("gluedatabrew", value);
     }
 
@@ -1482,7 +1482,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Grafana
     {
-        get => new TerraformReference<string>(this, "grafana");
+        get => GetArgument<TerraformValue<string>>("grafana");
         set => SetArgument("grafana", value);
     }
 
@@ -1491,7 +1491,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Greengrass
     {
-        get => new TerraformReference<string>(this, "greengrass");
+        get => GetArgument<TerraformValue<string>>("greengrass");
         set => SetArgument("greengrass", value);
     }
 
@@ -1500,7 +1500,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Groundstation
     {
-        get => new TerraformReference<string>(this, "groundstation");
+        get => GetArgument<TerraformValue<string>>("groundstation");
         set => SetArgument("groundstation", value);
     }
 
@@ -1509,7 +1509,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Guardduty
     {
-        get => new TerraformReference<string>(this, "guardduty");
+        get => GetArgument<TerraformValue<string>>("guardduty");
         set => SetArgument("guardduty", value);
     }
 
@@ -1518,7 +1518,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Healthlake
     {
-        get => new TerraformReference<string>(this, "healthlake");
+        get => GetArgument<TerraformValue<string>>("healthlake");
         set => SetArgument("healthlake", value);
     }
 
@@ -1527,7 +1527,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Iam
     {
-        get => new TerraformReference<string>(this, "iam");
+        get => GetArgument<TerraformValue<string>>("iam");
         set => SetArgument("iam", value);
     }
 
@@ -1536,7 +1536,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Identitystore
     {
-        get => new TerraformReference<string>(this, "identitystore");
+        get => GetArgument<TerraformValue<string>>("identitystore");
         set => SetArgument("identitystore", value);
     }
 
@@ -1545,7 +1545,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Imagebuilder
     {
-        get => new TerraformReference<string>(this, "imagebuilder");
+        get => GetArgument<TerraformValue<string>>("imagebuilder");
         set => SetArgument("imagebuilder", value);
     }
 
@@ -1554,7 +1554,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Inspector
     {
-        get => new TerraformReference<string>(this, "inspector");
+        get => GetArgument<TerraformValue<string>>("inspector");
         set => SetArgument("inspector", value);
     }
 
@@ -1563,7 +1563,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Inspector2
     {
-        get => new TerraformReference<string>(this, "inspector2");
+        get => GetArgument<TerraformValue<string>>("inspector2");
         set => SetArgument("inspector2", value);
     }
 
@@ -1572,7 +1572,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Inspectorv2
     {
-        get => new TerraformReference<string>(this, "inspectorv2");
+        get => GetArgument<TerraformValue<string>>("inspectorv2");
         set => SetArgument("inspectorv2", value);
     }
 
@@ -1581,7 +1581,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Internetmonitor
     {
-        get => new TerraformReference<string>(this, "internetmonitor");
+        get => GetArgument<TerraformValue<string>>("internetmonitor");
         set => SetArgument("internetmonitor", value);
     }
 
@@ -1590,7 +1590,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Invoicing
     {
-        get => new TerraformReference<string>(this, "invoicing");
+        get => GetArgument<TerraformValue<string>>("invoicing");
         set => SetArgument("invoicing", value);
     }
 
@@ -1599,7 +1599,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Iot
     {
-        get => new TerraformReference<string>(this, "iot");
+        get => GetArgument<TerraformValue<string>>("iot");
         set => SetArgument("iot", value);
     }
 
@@ -1608,7 +1608,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ivs
     {
-        get => new TerraformReference<string>(this, "ivs");
+        get => GetArgument<TerraformValue<string>>("ivs");
         set => SetArgument("ivs", value);
     }
 
@@ -1617,7 +1617,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ivschat
     {
-        get => new TerraformReference<string>(this, "ivschat");
+        get => GetArgument<TerraformValue<string>>("ivschat");
         set => SetArgument("ivschat", value);
     }
 
@@ -1626,7 +1626,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Kafka
     {
-        get => new TerraformReference<string>(this, "kafka");
+        get => GetArgument<TerraformValue<string>>("kafka");
         set => SetArgument("kafka", value);
     }
 
@@ -1635,7 +1635,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Kafkaconnect
     {
-        get => new TerraformReference<string>(this, "kafkaconnect");
+        get => GetArgument<TerraformValue<string>>("kafkaconnect");
         set => SetArgument("kafkaconnect", value);
     }
 
@@ -1644,7 +1644,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Kendra
     {
-        get => new TerraformReference<string>(this, "kendra");
+        get => GetArgument<TerraformValue<string>>("kendra");
         set => SetArgument("kendra", value);
     }
 
@@ -1653,7 +1653,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Keyspaces
     {
-        get => new TerraformReference<string>(this, "keyspaces");
+        get => GetArgument<TerraformValue<string>>("keyspaces");
         set => SetArgument("keyspaces", value);
     }
 
@@ -1662,7 +1662,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Kinesis
     {
-        get => new TerraformReference<string>(this, "kinesis");
+        get => GetArgument<TerraformValue<string>>("kinesis");
         set => SetArgument("kinesis", value);
     }
 
@@ -1671,7 +1671,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Kinesisanalytics
     {
-        get => new TerraformReference<string>(this, "kinesisanalytics");
+        get => GetArgument<TerraformValue<string>>("kinesisanalytics");
         set => SetArgument("kinesisanalytics", value);
     }
 
@@ -1680,7 +1680,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Kinesisanalyticsv2
     {
-        get => new TerraformReference<string>(this, "kinesisanalyticsv2");
+        get => GetArgument<TerraformValue<string>>("kinesisanalyticsv2");
         set => SetArgument("kinesisanalyticsv2", value);
     }
 
@@ -1689,7 +1689,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Kinesisvideo
     {
-        get => new TerraformReference<string>(this, "kinesisvideo");
+        get => GetArgument<TerraformValue<string>>("kinesisvideo");
         set => SetArgument("kinesisvideo", value);
     }
 
@@ -1698,7 +1698,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Kms
     {
-        get => new TerraformReference<string>(this, "kms");
+        get => GetArgument<TerraformValue<string>>("kms");
         set => SetArgument("kms", value);
     }
 
@@ -1707,7 +1707,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Lakeformation
     {
-        get => new TerraformReference<string>(this, "lakeformation");
+        get => GetArgument<TerraformValue<string>>("lakeformation");
         set => SetArgument("lakeformation", value);
     }
 
@@ -1716,7 +1716,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Lambda
     {
-        get => new TerraformReference<string>(this, "lambda");
+        get => GetArgument<TerraformValue<string>>("lambda");
         set => SetArgument("lambda", value);
     }
 
@@ -1725,7 +1725,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Launchwizard
     {
-        get => new TerraformReference<string>(this, "launchwizard");
+        get => GetArgument<TerraformValue<string>>("launchwizard");
         set => SetArgument("launchwizard", value);
     }
 
@@ -1734,7 +1734,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Lex
     {
-        get => new TerraformReference<string>(this, "lex");
+        get => GetArgument<TerraformValue<string>>("lex");
         set => SetArgument("lex", value);
     }
 
@@ -1743,7 +1743,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Lexmodelbuilding
     {
-        get => new TerraformReference<string>(this, "lexmodelbuilding");
+        get => GetArgument<TerraformValue<string>>("lexmodelbuilding");
         set => SetArgument("lexmodelbuilding", value);
     }
 
@@ -1752,7 +1752,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Lexmodelbuildingservice
     {
-        get => new TerraformReference<string>(this, "lexmodelbuildingservice");
+        get => GetArgument<TerraformValue<string>>("lexmodelbuildingservice");
         set => SetArgument("lexmodelbuildingservice", value);
     }
 
@@ -1761,7 +1761,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Lexmodels
     {
-        get => new TerraformReference<string>(this, "lexmodels");
+        get => GetArgument<TerraformValue<string>>("lexmodels");
         set => SetArgument("lexmodels", value);
     }
 
@@ -1770,7 +1770,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Lexmodelsv2
     {
-        get => new TerraformReference<string>(this, "lexmodelsv2");
+        get => GetArgument<TerraformValue<string>>("lexmodelsv2");
         set => SetArgument("lexmodelsv2", value);
     }
 
@@ -1779,7 +1779,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Lexv2models
     {
-        get => new TerraformReference<string>(this, "lexv2models");
+        get => GetArgument<TerraformValue<string>>("lexv2models");
         set => SetArgument("lexv2models", value);
     }
 
@@ -1788,7 +1788,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Licensemanager
     {
-        get => new TerraformReference<string>(this, "licensemanager");
+        get => GetArgument<TerraformValue<string>>("licensemanager");
         set => SetArgument("licensemanager", value);
     }
 
@@ -1797,7 +1797,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Lightsail
     {
-        get => new TerraformReference<string>(this, "lightsail");
+        get => GetArgument<TerraformValue<string>>("lightsail");
         set => SetArgument("lightsail", value);
     }
 
@@ -1806,7 +1806,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -1815,7 +1815,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Locationservice
     {
-        get => new TerraformReference<string>(this, "locationservice");
+        get => GetArgument<TerraformValue<string>>("locationservice");
         set => SetArgument("locationservice", value);
     }
 
@@ -1824,7 +1824,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Logs
     {
-        get => new TerraformReference<string>(this, "logs");
+        get => GetArgument<TerraformValue<string>>("logs");
         set => SetArgument("logs", value);
     }
 
@@ -1833,7 +1833,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Lookoutmetrics
     {
-        get => new TerraformReference<string>(this, "lookoutmetrics");
+        get => GetArgument<TerraformValue<string>>("lookoutmetrics");
         set => SetArgument("lookoutmetrics", value);
     }
 
@@ -1842,7 +1842,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? M2
     {
-        get => new TerraformReference<string>(this, "m2");
+        get => GetArgument<TerraformValue<string>>("m2");
         set => SetArgument("m2", value);
     }
 
@@ -1851,7 +1851,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Macie2
     {
-        get => new TerraformReference<string>(this, "macie2");
+        get => GetArgument<TerraformValue<string>>("macie2");
         set => SetArgument("macie2", value);
     }
 
@@ -1860,7 +1860,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Managedgrafana
     {
-        get => new TerraformReference<string>(this, "managedgrafana");
+        get => GetArgument<TerraformValue<string>>("managedgrafana");
         set => SetArgument("managedgrafana", value);
     }
 
@@ -1869,7 +1869,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Mediaconnect
     {
-        get => new TerraformReference<string>(this, "mediaconnect");
+        get => GetArgument<TerraformValue<string>>("mediaconnect");
         set => SetArgument("mediaconnect", value);
     }
 
@@ -1878,7 +1878,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Mediaconvert
     {
-        get => new TerraformReference<string>(this, "mediaconvert");
+        get => GetArgument<TerraformValue<string>>("mediaconvert");
         set => SetArgument("mediaconvert", value);
     }
 
@@ -1887,7 +1887,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Medialive
     {
-        get => new TerraformReference<string>(this, "medialive");
+        get => GetArgument<TerraformValue<string>>("medialive");
         set => SetArgument("medialive", value);
     }
 
@@ -1896,7 +1896,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Mediapackage
     {
-        get => new TerraformReference<string>(this, "mediapackage");
+        get => GetArgument<TerraformValue<string>>("mediapackage");
         set => SetArgument("mediapackage", value);
     }
 
@@ -1905,7 +1905,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Mediapackagev2
     {
-        get => new TerraformReference<string>(this, "mediapackagev2");
+        get => GetArgument<TerraformValue<string>>("mediapackagev2");
         set => SetArgument("mediapackagev2", value);
     }
 
@@ -1914,7 +1914,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Mediapackagevod
     {
-        get => new TerraformReference<string>(this, "mediapackagevod");
+        get => GetArgument<TerraformValue<string>>("mediapackagevod");
         set => SetArgument("mediapackagevod", value);
     }
 
@@ -1923,7 +1923,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Mediastore
     {
-        get => new TerraformReference<string>(this, "mediastore");
+        get => GetArgument<TerraformValue<string>>("mediastore");
         set => SetArgument("mediastore", value);
     }
 
@@ -1932,7 +1932,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Memorydb
     {
-        get => new TerraformReference<string>(this, "memorydb");
+        get => GetArgument<TerraformValue<string>>("memorydb");
         set => SetArgument("memorydb", value);
     }
 
@@ -1941,7 +1941,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Mgn
     {
-        get => new TerraformReference<string>(this, "mgn");
+        get => GetArgument<TerraformValue<string>>("mgn");
         set => SetArgument("mgn", value);
     }
 
@@ -1950,7 +1950,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Mq
     {
-        get => new TerraformReference<string>(this, "mq");
+        get => GetArgument<TerraformValue<string>>("mq");
         set => SetArgument("mq", value);
     }
 
@@ -1959,7 +1959,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Msk
     {
-        get => new TerraformReference<string>(this, "msk");
+        get => GetArgument<TerraformValue<string>>("msk");
         set => SetArgument("msk", value);
     }
 
@@ -1968,7 +1968,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Mwaa
     {
-        get => new TerraformReference<string>(this, "mwaa");
+        get => GetArgument<TerraformValue<string>>("mwaa");
         set => SetArgument("mwaa", value);
     }
 
@@ -1977,7 +1977,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Neptune
     {
-        get => new TerraformReference<string>(this, "neptune");
+        get => GetArgument<TerraformValue<string>>("neptune");
         set => SetArgument("neptune", value);
     }
 
@@ -1986,7 +1986,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Neptunegraph
     {
-        get => new TerraformReference<string>(this, "neptunegraph");
+        get => GetArgument<TerraformValue<string>>("neptunegraph");
         set => SetArgument("neptunegraph", value);
     }
 
@@ -1995,7 +1995,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Networkfirewall
     {
-        get => new TerraformReference<string>(this, "networkfirewall");
+        get => GetArgument<TerraformValue<string>>("networkfirewall");
         set => SetArgument("networkfirewall", value);
     }
 
@@ -2004,7 +2004,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Networkflowmonitor
     {
-        get => new TerraformReference<string>(this, "networkflowmonitor");
+        get => GetArgument<TerraformValue<string>>("networkflowmonitor");
         set => SetArgument("networkflowmonitor", value);
     }
 
@@ -2013,7 +2013,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Networkmanager
     {
-        get => new TerraformReference<string>(this, "networkmanager");
+        get => GetArgument<TerraformValue<string>>("networkmanager");
         set => SetArgument("networkmanager", value);
     }
 
@@ -2022,7 +2022,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Networkmonitor
     {
-        get => new TerraformReference<string>(this, "networkmonitor");
+        get => GetArgument<TerraformValue<string>>("networkmonitor");
         set => SetArgument("networkmonitor", value);
     }
 
@@ -2031,7 +2031,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Notifications
     {
-        get => new TerraformReference<string>(this, "notifications");
+        get => GetArgument<TerraformValue<string>>("notifications");
         set => SetArgument("notifications", value);
     }
 
@@ -2040,7 +2040,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Notificationscontacts
     {
-        get => new TerraformReference<string>(this, "notificationscontacts");
+        get => GetArgument<TerraformValue<string>>("notificationscontacts");
         set => SetArgument("notificationscontacts", value);
     }
 
@@ -2049,7 +2049,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Oam
     {
-        get => new TerraformReference<string>(this, "oam");
+        get => GetArgument<TerraformValue<string>>("oam");
         set => SetArgument("oam", value);
     }
 
@@ -2058,7 +2058,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Observabilityadmin
     {
-        get => new TerraformReference<string>(this, "observabilityadmin");
+        get => GetArgument<TerraformValue<string>>("observabilityadmin");
         set => SetArgument("observabilityadmin", value);
     }
 
@@ -2067,7 +2067,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Odb
     {
-        get => new TerraformReference<string>(this, "odb");
+        get => GetArgument<TerraformValue<string>>("odb");
         set => SetArgument("odb", value);
     }
 
@@ -2076,7 +2076,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Opensearch
     {
-        get => new TerraformReference<string>(this, "opensearch");
+        get => GetArgument<TerraformValue<string>>("opensearch");
         set => SetArgument("opensearch", value);
     }
 
@@ -2085,7 +2085,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Opensearchingestion
     {
-        get => new TerraformReference<string>(this, "opensearchingestion");
+        get => GetArgument<TerraformValue<string>>("opensearchingestion");
         set => SetArgument("opensearchingestion", value);
     }
 
@@ -2094,7 +2094,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Opensearchserverless
     {
-        get => new TerraformReference<string>(this, "opensearchserverless");
+        get => GetArgument<TerraformValue<string>>("opensearchserverless");
         set => SetArgument("opensearchserverless", value);
     }
 
@@ -2103,7 +2103,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Opensearchservice
     {
-        get => new TerraformReference<string>(this, "opensearchservice");
+        get => GetArgument<TerraformValue<string>>("opensearchservice");
         set => SetArgument("opensearchservice", value);
     }
 
@@ -2112,7 +2112,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Organizations
     {
-        get => new TerraformReference<string>(this, "organizations");
+        get => GetArgument<TerraformValue<string>>("organizations");
         set => SetArgument("organizations", value);
     }
 
@@ -2121,7 +2121,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Osis
     {
-        get => new TerraformReference<string>(this, "osis");
+        get => GetArgument<TerraformValue<string>>("osis");
         set => SetArgument("osis", value);
     }
 
@@ -2130,7 +2130,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Outposts
     {
-        get => new TerraformReference<string>(this, "outposts");
+        get => GetArgument<TerraformValue<string>>("outposts");
         set => SetArgument("outposts", value);
     }
 
@@ -2139,7 +2139,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Paymentcryptography
     {
-        get => new TerraformReference<string>(this, "paymentcryptography");
+        get => GetArgument<TerraformValue<string>>("paymentcryptography");
         set => SetArgument("paymentcryptography", value);
     }
 
@@ -2148,7 +2148,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Pcaconnectorad
     {
-        get => new TerraformReference<string>(this, "pcaconnectorad");
+        get => GetArgument<TerraformValue<string>>("pcaconnectorad");
         set => SetArgument("pcaconnectorad", value);
     }
 
@@ -2157,7 +2157,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Pcs
     {
-        get => new TerraformReference<string>(this, "pcs");
+        get => GetArgument<TerraformValue<string>>("pcs");
         set => SetArgument("pcs", value);
     }
 
@@ -2166,7 +2166,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Pinpoint
     {
-        get => new TerraformReference<string>(this, "pinpoint");
+        get => GetArgument<TerraformValue<string>>("pinpoint");
         set => SetArgument("pinpoint", value);
     }
 
@@ -2175,7 +2175,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Pinpointsmsvoicev2
     {
-        get => new TerraformReference<string>(this, "pinpointsmsvoicev2");
+        get => GetArgument<TerraformValue<string>>("pinpointsmsvoicev2");
         set => SetArgument("pinpointsmsvoicev2", value);
     }
 
@@ -2184,7 +2184,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Pipes
     {
-        get => new TerraformReference<string>(this, "pipes");
+        get => GetArgument<TerraformValue<string>>("pipes");
         set => SetArgument("pipes", value);
     }
 
@@ -2193,7 +2193,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Polly
     {
-        get => new TerraformReference<string>(this, "polly");
+        get => GetArgument<TerraformValue<string>>("polly");
         set => SetArgument("polly", value);
     }
 
@@ -2202,7 +2202,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Pricing
     {
-        get => new TerraformReference<string>(this, "pricing");
+        get => GetArgument<TerraformValue<string>>("pricing");
         set => SetArgument("pricing", value);
     }
 
@@ -2211,7 +2211,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Prometheus
     {
-        get => new TerraformReference<string>(this, "prometheus");
+        get => GetArgument<TerraformValue<string>>("prometheus");
         set => SetArgument("prometheus", value);
     }
 
@@ -2220,7 +2220,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Prometheusservice
     {
-        get => new TerraformReference<string>(this, "prometheusservice");
+        get => GetArgument<TerraformValue<string>>("prometheusservice");
         set => SetArgument("prometheusservice", value);
     }
 
@@ -2229,7 +2229,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Qbusiness
     {
-        get => new TerraformReference<string>(this, "qbusiness");
+        get => GetArgument<TerraformValue<string>>("qbusiness");
         set => SetArgument("qbusiness", value);
     }
 
@@ -2238,7 +2238,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Qldb
     {
-        get => new TerraformReference<string>(this, "qldb");
+        get => GetArgument<TerraformValue<string>>("qldb");
         set => SetArgument("qldb", value);
     }
 
@@ -2247,7 +2247,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Quicksight
     {
-        get => new TerraformReference<string>(this, "quicksight");
+        get => GetArgument<TerraformValue<string>>("quicksight");
         set => SetArgument("quicksight", value);
     }
 
@@ -2256,7 +2256,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ram
     {
-        get => new TerraformReference<string>(this, "ram");
+        get => GetArgument<TerraformValue<string>>("ram");
         set => SetArgument("ram", value);
     }
 
@@ -2265,7 +2265,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Rbin
     {
-        get => new TerraformReference<string>(this, "rbin");
+        get => GetArgument<TerraformValue<string>>("rbin");
         set => SetArgument("rbin", value);
     }
 
@@ -2274,7 +2274,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Rds
     {
-        get => new TerraformReference<string>(this, "rds");
+        get => GetArgument<TerraformValue<string>>("rds");
         set => SetArgument("rds", value);
     }
 
@@ -2283,7 +2283,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Recyclebin
     {
-        get => new TerraformReference<string>(this, "recyclebin");
+        get => GetArgument<TerraformValue<string>>("recyclebin");
         set => SetArgument("recyclebin", value);
     }
 
@@ -2292,7 +2292,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Redshift
     {
-        get => new TerraformReference<string>(this, "redshift");
+        get => GetArgument<TerraformValue<string>>("redshift");
         set => SetArgument("redshift", value);
     }
 
@@ -2301,7 +2301,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Redshiftdata
     {
-        get => new TerraformReference<string>(this, "redshiftdata");
+        get => GetArgument<TerraformValue<string>>("redshiftdata");
         set => SetArgument("redshiftdata", value);
     }
 
@@ -2310,7 +2310,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Redshiftdataapiservice
     {
-        get => new TerraformReference<string>(this, "redshiftdataapiservice");
+        get => GetArgument<TerraformValue<string>>("redshiftdataapiservice");
         set => SetArgument("redshiftdataapiservice", value);
     }
 
@@ -2319,7 +2319,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Redshiftserverless
     {
-        get => new TerraformReference<string>(this, "redshiftserverless");
+        get => GetArgument<TerraformValue<string>>("redshiftserverless");
         set => SetArgument("redshiftserverless", value);
     }
 
@@ -2328,7 +2328,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Rekognition
     {
-        get => new TerraformReference<string>(this, "rekognition");
+        get => GetArgument<TerraformValue<string>>("rekognition");
         set => SetArgument("rekognition", value);
     }
 
@@ -2337,7 +2337,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Resiliencehub
     {
-        get => new TerraformReference<string>(this, "resiliencehub");
+        get => GetArgument<TerraformValue<string>>("resiliencehub");
         set => SetArgument("resiliencehub", value);
     }
 
@@ -2346,7 +2346,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Resourceexplorer2
     {
-        get => new TerraformReference<string>(this, "resourceexplorer2");
+        get => GetArgument<TerraformValue<string>>("resourceexplorer2");
         set => SetArgument("resourceexplorer2", value);
     }
 
@@ -2355,7 +2355,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Resourcegroups
     {
-        get => new TerraformReference<string>(this, "resourcegroups");
+        get => GetArgument<TerraformValue<string>>("resourcegroups");
         set => SetArgument("resourcegroups", value);
     }
 
@@ -2364,7 +2364,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Resourcegroupstagging
     {
-        get => new TerraformReference<string>(this, "resourcegroupstagging");
+        get => GetArgument<TerraformValue<string>>("resourcegroupstagging");
         set => SetArgument("resourcegroupstagging", value);
     }
 
@@ -2373,7 +2373,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Resourcegroupstaggingapi
     {
-        get => new TerraformReference<string>(this, "resourcegroupstaggingapi");
+        get => GetArgument<TerraformValue<string>>("resourcegroupstaggingapi");
         set => SetArgument("resourcegroupstaggingapi", value);
     }
 
@@ -2382,7 +2382,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Rolesanywhere
     {
-        get => new TerraformReference<string>(this, "rolesanywhere");
+        get => GetArgument<TerraformValue<string>>("rolesanywhere");
         set => SetArgument("rolesanywhere", value);
     }
 
@@ -2391,7 +2391,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Route53
     {
-        get => new TerraformReference<string>(this, "route53");
+        get => GetArgument<TerraformValue<string>>("route53");
         set => SetArgument("route53", value);
     }
 
@@ -2400,7 +2400,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Route53domains
     {
-        get => new TerraformReference<string>(this, "route53domains");
+        get => GetArgument<TerraformValue<string>>("route53domains");
         set => SetArgument("route53domains", value);
     }
 
@@ -2409,7 +2409,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Route53profiles
     {
-        get => new TerraformReference<string>(this, "route53profiles");
+        get => GetArgument<TerraformValue<string>>("route53profiles");
         set => SetArgument("route53profiles", value);
     }
 
@@ -2418,7 +2418,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Route53recoverycontrolconfig
     {
-        get => new TerraformReference<string>(this, "route53recoverycontrolconfig");
+        get => GetArgument<TerraformValue<string>>("route53recoverycontrolconfig");
         set => SetArgument("route53recoverycontrolconfig", value);
     }
 
@@ -2427,7 +2427,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Route53recoveryreadiness
     {
-        get => new TerraformReference<string>(this, "route53recoveryreadiness");
+        get => GetArgument<TerraformValue<string>>("route53recoveryreadiness");
         set => SetArgument("route53recoveryreadiness", value);
     }
 
@@ -2436,7 +2436,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Route53resolver
     {
-        get => new TerraformReference<string>(this, "route53resolver");
+        get => GetArgument<TerraformValue<string>>("route53resolver");
         set => SetArgument("route53resolver", value);
     }
 
@@ -2445,7 +2445,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Rum
     {
-        get => new TerraformReference<string>(this, "rum");
+        get => GetArgument<TerraformValue<string>>("rum");
         set => SetArgument("rum", value);
     }
 
@@ -2454,7 +2454,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? S3
     {
-        get => new TerraformReference<string>(this, "s3");
+        get => GetArgument<TerraformValue<string>>("s3");
         set => SetArgument("s3", value);
     }
 
@@ -2463,7 +2463,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? S3api
     {
-        get => new TerraformReference<string>(this, "s3api");
+        get => GetArgument<TerraformValue<string>>("s3api");
         set => SetArgument("s3api", value);
     }
 
@@ -2472,7 +2472,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? S3control
     {
-        get => new TerraformReference<string>(this, "s3control");
+        get => GetArgument<TerraformValue<string>>("s3control");
         set => SetArgument("s3control", value);
     }
 
@@ -2481,7 +2481,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? S3outposts
     {
-        get => new TerraformReference<string>(this, "s3outposts");
+        get => GetArgument<TerraformValue<string>>("s3outposts");
         set => SetArgument("s3outposts", value);
     }
 
@@ -2490,7 +2490,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? S3tables
     {
-        get => new TerraformReference<string>(this, "s3tables");
+        get => GetArgument<TerraformValue<string>>("s3tables");
         set => SetArgument("s3tables", value);
     }
 
@@ -2499,7 +2499,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? S3vectors
     {
-        get => new TerraformReference<string>(this, "s3vectors");
+        get => GetArgument<TerraformValue<string>>("s3vectors");
         set => SetArgument("s3vectors", value);
     }
 
@@ -2508,7 +2508,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Sagemaker
     {
-        get => new TerraformReference<string>(this, "sagemaker");
+        get => GetArgument<TerraformValue<string>>("sagemaker");
         set => SetArgument("sagemaker", value);
     }
 
@@ -2517,7 +2517,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Scheduler
     {
-        get => new TerraformReference<string>(this, "scheduler");
+        get => GetArgument<TerraformValue<string>>("scheduler");
         set => SetArgument("scheduler", value);
     }
 
@@ -2526,7 +2526,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Schemas
     {
-        get => new TerraformReference<string>(this, "schemas");
+        get => GetArgument<TerraformValue<string>>("schemas");
         set => SetArgument("schemas", value);
     }
 
@@ -2535,7 +2535,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Secretsmanager
     {
-        get => new TerraformReference<string>(this, "secretsmanager");
+        get => GetArgument<TerraformValue<string>>("secretsmanager");
         set => SetArgument("secretsmanager", value);
     }
 
@@ -2544,7 +2544,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Securityhub
     {
-        get => new TerraformReference<string>(this, "securityhub");
+        get => GetArgument<TerraformValue<string>>("securityhub");
         set => SetArgument("securityhub", value);
     }
 
@@ -2553,7 +2553,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Securitylake
     {
-        get => new TerraformReference<string>(this, "securitylake");
+        get => GetArgument<TerraformValue<string>>("securitylake");
         set => SetArgument("securitylake", value);
     }
 
@@ -2562,7 +2562,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Serverlessapplicationrepository
     {
-        get => new TerraformReference<string>(this, "serverlessapplicationrepository");
+        get => GetArgument<TerraformValue<string>>("serverlessapplicationrepository");
         set => SetArgument("serverlessapplicationrepository", value);
     }
 
@@ -2571,7 +2571,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Serverlessapprepo
     {
-        get => new TerraformReference<string>(this, "serverlessapprepo");
+        get => GetArgument<TerraformValue<string>>("serverlessapprepo");
         set => SetArgument("serverlessapprepo", value);
     }
 
@@ -2580,7 +2580,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Serverlessrepo
     {
-        get => new TerraformReference<string>(this, "serverlessrepo");
+        get => GetArgument<TerraformValue<string>>("serverlessrepo");
         set => SetArgument("serverlessrepo", value);
     }
 
@@ -2589,7 +2589,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Servicecatalog
     {
-        get => new TerraformReference<string>(this, "servicecatalog");
+        get => GetArgument<TerraformValue<string>>("servicecatalog");
         set => SetArgument("servicecatalog", value);
     }
 
@@ -2598,7 +2598,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Servicecatalogappregistry
     {
-        get => new TerraformReference<string>(this, "servicecatalogappregistry");
+        get => GetArgument<TerraformValue<string>>("servicecatalogappregistry");
         set => SetArgument("servicecatalogappregistry", value);
     }
 
@@ -2607,7 +2607,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Servicediscovery
     {
-        get => new TerraformReference<string>(this, "servicediscovery");
+        get => GetArgument<TerraformValue<string>>("servicediscovery");
         set => SetArgument("servicediscovery", value);
     }
 
@@ -2616,7 +2616,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Servicequotas
     {
-        get => new TerraformReference<string>(this, "servicequotas");
+        get => GetArgument<TerraformValue<string>>("servicequotas");
         set => SetArgument("servicequotas", value);
     }
 
@@ -2625,7 +2625,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ses
     {
-        get => new TerraformReference<string>(this, "ses");
+        get => GetArgument<TerraformValue<string>>("ses");
         set => SetArgument("ses", value);
     }
 
@@ -2634,7 +2634,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Sesv2
     {
-        get => new TerraformReference<string>(this, "sesv2");
+        get => GetArgument<TerraformValue<string>>("sesv2");
         set => SetArgument("sesv2", value);
     }
 
@@ -2643,7 +2643,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Sfn
     {
-        get => new TerraformReference<string>(this, "sfn");
+        get => GetArgument<TerraformValue<string>>("sfn");
         set => SetArgument("sfn", value);
     }
 
@@ -2652,7 +2652,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Shield
     {
-        get => new TerraformReference<string>(this, "shield");
+        get => GetArgument<TerraformValue<string>>("shield");
         set => SetArgument("shield", value);
     }
 
@@ -2661,7 +2661,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Signer
     {
-        get => new TerraformReference<string>(this, "signer");
+        get => GetArgument<TerraformValue<string>>("signer");
         set => SetArgument("signer", value);
     }
 
@@ -2670,7 +2670,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Sns
     {
-        get => new TerraformReference<string>(this, "sns");
+        get => GetArgument<TerraformValue<string>>("sns");
         set => SetArgument("sns", value);
     }
 
@@ -2679,7 +2679,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Sqs
     {
-        get => new TerraformReference<string>(this, "sqs");
+        get => GetArgument<TerraformValue<string>>("sqs");
         set => SetArgument("sqs", value);
     }
 
@@ -2688,7 +2688,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ssm
     {
-        get => new TerraformReference<string>(this, "ssm");
+        get => GetArgument<TerraformValue<string>>("ssm");
         set => SetArgument("ssm", value);
     }
 
@@ -2697,7 +2697,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ssmcontacts
     {
-        get => new TerraformReference<string>(this, "ssmcontacts");
+        get => GetArgument<TerraformValue<string>>("ssmcontacts");
         set => SetArgument("ssmcontacts", value);
     }
 
@@ -2706,7 +2706,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ssmincidents
     {
-        get => new TerraformReference<string>(this, "ssmincidents");
+        get => GetArgument<TerraformValue<string>>("ssmincidents");
         set => SetArgument("ssmincidents", value);
     }
 
@@ -2715,7 +2715,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ssmquicksetup
     {
-        get => new TerraformReference<string>(this, "ssmquicksetup");
+        get => GetArgument<TerraformValue<string>>("ssmquicksetup");
         set => SetArgument("ssmquicksetup", value);
     }
 
@@ -2724,7 +2724,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ssmsap
     {
-        get => new TerraformReference<string>(this, "ssmsap");
+        get => GetArgument<TerraformValue<string>>("ssmsap");
         set => SetArgument("ssmsap", value);
     }
 
@@ -2733,7 +2733,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Sso
     {
-        get => new TerraformReference<string>(this, "sso");
+        get => GetArgument<TerraformValue<string>>("sso");
         set => SetArgument("sso", value);
     }
 
@@ -2742,7 +2742,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Ssoadmin
     {
-        get => new TerraformReference<string>(this, "ssoadmin");
+        get => GetArgument<TerraformValue<string>>("ssoadmin");
         set => SetArgument("ssoadmin", value);
     }
 
@@ -2751,7 +2751,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Stepfunctions
     {
-        get => new TerraformReference<string>(this, "stepfunctions");
+        get => GetArgument<TerraformValue<string>>("stepfunctions");
         set => SetArgument("stepfunctions", value);
     }
 
@@ -2760,7 +2760,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Storagegateway
     {
-        get => new TerraformReference<string>(this, "storagegateway");
+        get => GetArgument<TerraformValue<string>>("storagegateway");
         set => SetArgument("storagegateway", value);
     }
 
@@ -2769,7 +2769,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Sts
     {
-        get => new TerraformReference<string>(this, "sts");
+        get => GetArgument<TerraformValue<string>>("sts");
         set => SetArgument("sts", value);
     }
 
@@ -2778,7 +2778,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Swf
     {
-        get => new TerraformReference<string>(this, "swf");
+        get => GetArgument<TerraformValue<string>>("swf");
         set => SetArgument("swf", value);
     }
 
@@ -2787,7 +2787,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Synthetics
     {
-        get => new TerraformReference<string>(this, "synthetics");
+        get => GetArgument<TerraformValue<string>>("synthetics");
         set => SetArgument("synthetics", value);
     }
 
@@ -2796,7 +2796,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Taxsettings
     {
-        get => new TerraformReference<string>(this, "taxsettings");
+        get => GetArgument<TerraformValue<string>>("taxsettings");
         set => SetArgument("taxsettings", value);
     }
 
@@ -2805,7 +2805,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Timestreaminfluxdb
     {
-        get => new TerraformReference<string>(this, "timestreaminfluxdb");
+        get => GetArgument<TerraformValue<string>>("timestreaminfluxdb");
         set => SetArgument("timestreaminfluxdb", value);
     }
 
@@ -2814,7 +2814,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Timestreamquery
     {
-        get => new TerraformReference<string>(this, "timestreamquery");
+        get => GetArgument<TerraformValue<string>>("timestreamquery");
         set => SetArgument("timestreamquery", value);
     }
 
@@ -2823,7 +2823,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Timestreamwrite
     {
-        get => new TerraformReference<string>(this, "timestreamwrite");
+        get => GetArgument<TerraformValue<string>>("timestreamwrite");
         set => SetArgument("timestreamwrite", value);
     }
 
@@ -2832,7 +2832,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Transcribe
     {
-        get => new TerraformReference<string>(this, "transcribe");
+        get => GetArgument<TerraformValue<string>>("transcribe");
         set => SetArgument("transcribe", value);
     }
 
@@ -2841,7 +2841,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Transcribeservice
     {
-        get => new TerraformReference<string>(this, "transcribeservice");
+        get => GetArgument<TerraformValue<string>>("transcribeservice");
         set => SetArgument("transcribeservice", value);
     }
 
@@ -2850,7 +2850,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Transfer
     {
-        get => new TerraformReference<string>(this, "transfer");
+        get => GetArgument<TerraformValue<string>>("transfer");
         set => SetArgument("transfer", value);
     }
 
@@ -2859,7 +2859,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Verifiedpermissions
     {
-        get => new TerraformReference<string>(this, "verifiedpermissions");
+        get => GetArgument<TerraformValue<string>>("verifiedpermissions");
         set => SetArgument("verifiedpermissions", value);
     }
 
@@ -2868,7 +2868,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Vpclattice
     {
-        get => new TerraformReference<string>(this, "vpclattice");
+        get => GetArgument<TerraformValue<string>>("vpclattice");
         set => SetArgument("vpclattice", value);
     }
 
@@ -2877,7 +2877,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Waf
     {
-        get => new TerraformReference<string>(this, "waf");
+        get => GetArgument<TerraformValue<string>>("waf");
         set => SetArgument("waf", value);
     }
 
@@ -2886,7 +2886,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Wafregional
     {
-        get => new TerraformReference<string>(this, "wafregional");
+        get => GetArgument<TerraformValue<string>>("wafregional");
         set => SetArgument("wafregional", value);
     }
 
@@ -2895,7 +2895,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Wafv2
     {
-        get => new TerraformReference<string>(this, "wafv2");
+        get => GetArgument<TerraformValue<string>>("wafv2");
         set => SetArgument("wafv2", value);
     }
 
@@ -2904,7 +2904,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Wellarchitected
     {
-        get => new TerraformReference<string>(this, "wellarchitected");
+        get => GetArgument<TerraformValue<string>>("wellarchitected");
         set => SetArgument("wellarchitected", value);
     }
 
@@ -2913,7 +2913,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Workmail
     {
-        get => new TerraformReference<string>(this, "workmail");
+        get => GetArgument<TerraformValue<string>>("workmail");
         set => SetArgument("workmail", value);
     }
 
@@ -2922,7 +2922,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Workspaces
     {
-        get => new TerraformReference<string>(this, "workspaces");
+        get => GetArgument<TerraformValue<string>>("workspaces");
         set => SetArgument("workspaces", value);
     }
 
@@ -2931,7 +2931,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Workspacesweb
     {
-        get => new TerraformReference<string>(this, "workspacesweb");
+        get => GetArgument<TerraformValue<string>>("workspacesweb");
         set => SetArgument("workspacesweb", value);
     }
 
@@ -2940,7 +2940,7 @@ public class AwsProviderEndpointsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Xray
     {
-        get => new TerraformReference<string>(this, "xray");
+        get => GetArgument<TerraformValue<string>>("xray");
         set => SetArgument("xray", value);
     }
 
@@ -2963,7 +2963,7 @@ public class AwsProviderIgnoreTagsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? KeyPrefixes
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "key_prefixes").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("key_prefixes");
         set => SetArgument("key_prefixes", value);
     }
 
@@ -2972,7 +2972,7 @@ public class AwsProviderIgnoreTagsBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? KeysAttribute
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("keys");
         set => SetArgument("keys", value);
     }
 
@@ -2993,7 +2993,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<string>? AccessKey
     {
-        get => new TerraformReference<string>(this, "access_key");
+        get => GetArgument<TerraformValue<string>>("access_key");
         set => SetArgument("access_key", value);
     }
 
@@ -3003,7 +3003,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformSet<string>? AllowedAccountIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_account_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("allowed_account_ids");
         set => SetArgument("allowed_account_ids", value);
     }
 
@@ -3013,7 +3013,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<string>? CustomCaBundle
     {
-        get => new TerraformReference<string>(this, "custom_ca_bundle");
+        get => GetArgument<TerraformValue<string>>("custom_ca_bundle");
         set => SetArgument("custom_ca_bundle", value);
     }
 
@@ -3023,7 +3023,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<string>? Ec2MetadataServiceEndpoint
     {
-        get => new TerraformReference<string>(this, "ec2_metadata_service_endpoint");
+        get => GetArgument<TerraformValue<string>>("ec2_metadata_service_endpoint");
         set => SetArgument("ec2_metadata_service_endpoint", value);
     }
 
@@ -3033,7 +3033,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<string>? Ec2MetadataServiceEndpointMode
     {
-        get => new TerraformReference<string>(this, "ec2_metadata_service_endpoint_mode");
+        get => GetArgument<TerraformValue<string>>("ec2_metadata_service_endpoint_mode");
         set => SetArgument("ec2_metadata_service_endpoint_mode", value);
     }
 
@@ -3043,7 +3043,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformSet<string>? ForbiddenAccountIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "forbidden_account_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("forbidden_account_ids");
         set => SetArgument("forbidden_account_ids", value);
     }
 
@@ -3053,7 +3053,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<string>? HttpProxy
     {
-        get => new TerraformReference<string>(this, "http_proxy");
+        get => GetArgument<TerraformValue<string>>("http_proxy");
         set => SetArgument("http_proxy", value);
     }
 
@@ -3063,7 +3063,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<string>? HttpsProxy
     {
-        get => new TerraformReference<string>(this, "https_proxy");
+        get => GetArgument<TerraformValue<string>>("https_proxy");
         set => SetArgument("https_proxy", value);
     }
 
@@ -3073,7 +3073,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<bool>? Insecure
     {
-        get => new TerraformReference<bool>(this, "insecure");
+        get => GetArgument<TerraformValue<bool>>("insecure");
         set => SetArgument("insecure", value);
     }
 
@@ -3085,7 +3085,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<double>? MaxRetries
     {
-        get => new TerraformReference<double>(this, "max_retries");
+        get => GetArgument<TerraformValue<double>>("max_retries");
         set => SetArgument("max_retries", value);
     }
 
@@ -3095,7 +3095,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<string>? NoProxy
     {
-        get => new TerraformReference<string>(this, "no_proxy");
+        get => GetArgument<TerraformValue<string>>("no_proxy");
         set => SetArgument("no_proxy", value);
     }
 
@@ -3106,7 +3106,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<string>? Profile
     {
-        get => new TerraformReference<string>(this, "profile");
+        get => GetArgument<TerraformValue<string>>("profile");
         set => SetArgument("profile", value);
     }
 
@@ -3117,7 +3117,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -3127,7 +3127,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<string>? RetryMode
     {
-        get => new TerraformReference<string>(this, "retry_mode");
+        get => GetArgument<TerraformValue<string>>("retry_mode");
         set => SetArgument("retry_mode", value);
     }
 
@@ -3137,7 +3137,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<string>? S3UsEast1RegionalEndpoint
     {
-        get => new TerraformReference<string>(this, "s3_us_east_1_regional_endpoint");
+        get => GetArgument<TerraformValue<string>>("s3_us_east_1_regional_endpoint");
         set => SetArgument("s3_us_east_1_regional_endpoint", value);
     }
 
@@ -3150,7 +3150,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<bool>? S3UsePathStyle
     {
-        get => new TerraformReference<bool>(this, "s3_use_path_style");
+        get => GetArgument<TerraformValue<bool>>("s3_use_path_style");
         set => SetArgument("s3_use_path_style", value);
     }
 
@@ -3161,7 +3161,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<string>? SecretKey
     {
-        get => new TerraformReference<string>(this, "secret_key");
+        get => GetArgument<TerraformValue<string>>("secret_key");
         set => SetArgument("secret_key", value);
     }
 
@@ -3171,7 +3171,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformList<string>? SharedConfigFiles
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "shared_config_files").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("shared_config_files");
         set => SetArgument("shared_config_files", value);
     }
 
@@ -3181,7 +3181,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformList<string>? SharedCredentialsFiles
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "shared_credentials_files").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("shared_credentials_files");
         set => SetArgument("shared_credentials_files", value);
     }
 
@@ -3191,7 +3191,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<bool>? SkipCredentialsValidation
     {
-        get => new TerraformReference<bool>(this, "skip_credentials_validation");
+        get => GetArgument<TerraformValue<bool>>("skip_credentials_validation");
         set => SetArgument("skip_credentials_validation", value);
     }
 
@@ -3201,7 +3201,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<string>? SkipMetadataApiCheck
     {
-        get => new TerraformReference<string>(this, "skip_metadata_api_check");
+        get => GetArgument<TerraformValue<string>>("skip_metadata_api_check");
         set => SetArgument("skip_metadata_api_check", value);
     }
 
@@ -3211,7 +3211,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<bool>? SkipRegionValidation
     {
-        get => new TerraformReference<bool>(this, "skip_region_validation");
+        get => GetArgument<TerraformValue<bool>>("skip_region_validation");
         set => SetArgument("skip_region_validation", value);
     }
 
@@ -3221,7 +3221,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<bool>? SkipRequestingAccountId
     {
-        get => new TerraformReference<bool>(this, "skip_requesting_account_id");
+        get => GetArgument<TerraformValue<bool>>("skip_requesting_account_id");
         set => SetArgument("skip_requesting_account_id", value);
     }
 
@@ -3232,7 +3232,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<string>? StsRegion
     {
-        get => new TerraformReference<string>(this, "sts_region");
+        get => GetArgument<TerraformValue<string>>("sts_region");
         set => SetArgument("sts_region", value);
     }
 
@@ -3243,7 +3243,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<string>? Token
     {
-        get => new TerraformReference<string>(this, "token");
+        get => GetArgument<TerraformValue<string>>("token");
         set => SetArgument("token", value);
     }
 
@@ -3253,7 +3253,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<double>? TokenBucketRateLimiterCapacity
     {
-        get => new TerraformReference<double>(this, "token_bucket_rate_limiter_capacity");
+        get => GetArgument<TerraformValue<double>>("token_bucket_rate_limiter_capacity");
         set => SetArgument("token_bucket_rate_limiter_capacity", value);
     }
 
@@ -3263,7 +3263,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<bool>? UseDualstackEndpoint
     {
-        get => new TerraformReference<bool>(this, "use_dualstack_endpoint");
+        get => GetArgument<TerraformValue<bool>>("use_dualstack_endpoint");
         set => SetArgument("use_dualstack_endpoint", value);
     }
 
@@ -3273,7 +3273,7 @@ public partial class AwsProvider(string name = "aws") : TerraformProvider(name)
     /// </summary>
     public TerraformValue<bool>? UseFipsEndpoint
     {
-        get => new TerraformReference<bool>(this, "use_fips_endpoint");
+        get => GetArgument<TerraformValue<bool>>("use_fips_endpoint");
         set => SetArgument("use_fips_endpoint", value);
     }
 

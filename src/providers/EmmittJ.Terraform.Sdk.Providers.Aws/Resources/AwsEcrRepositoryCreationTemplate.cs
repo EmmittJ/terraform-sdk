@@ -18,16 +18,16 @@ public class AwsEcrRepositoryCreationTemplateEncryptionConfigurationBlock : Terr
     /// </summary>
     public TerraformValue<string>? EncryptionType
     {
-        get => new TerraformReference<string>(this, "encryption_type");
+        get => GetArgument<TerraformValue<string>>("encryption_type");
         set => SetArgument("encryption_type", value);
     }
 
     /// <summary>
     /// The kms_key attribute.
     /// </summary>
-    public TerraformValue<string> KmsKey
+    public TerraformValue<string>? KmsKey
     {
-        get => new TerraformReference<string>(this, "kms_key");
+        get => GetArgument<TerraformValue<string>>("kms_key");
         set => SetArgument("kms_key", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsEcrRepositoryCreationTemplateImageTagMutabilityExclusionFilterBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     public required TerraformValue<string> Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsEcrRepositoryCreationTemplateImageTagMutabilityExclusionFilterBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterType is required")]
     public required TerraformValue<string> FilterType
     {
-        get => new TerraformReference<string>(this, "filter_type");
+        get => GetArgument<TerraformValue<string>>("filter_type");
         set => SetArgument("filter_type", value);
     }
 
@@ -80,7 +80,7 @@ public partial class AwsEcrRepositoryCreationTemplate(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppliedFor is required")]
     public required TerraformSet<string> AppliedFor
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "applied_for").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("applied_for");
         set => SetArgument("applied_for", value);
     }
 
@@ -89,7 +89,7 @@ public partial class AwsEcrRepositoryCreationTemplate(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? CustomRoleArn
     {
-        get => new TerraformReference<string>(this, "custom_role_arn");
+        get => GetArgument<TerraformValue<string>>("custom_role_arn");
         set => SetArgument("custom_role_arn", value);
     }
 
@@ -98,16 +98,16 @@ public partial class AwsEcrRepositoryCreationTemplate(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AwsEcrRepositoryCreationTemplate(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? ImageTagMutability
     {
-        get => new TerraformReference<string>(this, "image_tag_mutability");
+        get => GetArgument<TerraformValue<string>>("image_tag_mutability");
         set => SetArgument("image_tag_mutability", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AwsEcrRepositoryCreationTemplate(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? LifecyclePolicy
     {
-        get => new TerraformReference<string>(this, "lifecycle_policy");
+        get => GetArgument<TerraformValue<string>>("lifecycle_policy");
         set => SetArgument("lifecycle_policy", value);
     }
 
@@ -135,16 +135,16 @@ public partial class AwsEcrRepositoryCreationTemplate(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
     public required TerraformValue<string> Prefix
     {
-        get => new TerraformReference<string>(this, "prefix");
+        get => GetArgument<TerraformValue<string>>("prefix");
         set => SetArgument("prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -153,7 +153,7 @@ public partial class AwsEcrRepositoryCreationTemplate(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? RepositoryPolicy
     {
-        get => new TerraformReference<string>(this, "repository_policy");
+        get => GetArgument<TerraformValue<string>>("repository_policy");
         set => SetArgument("repository_policy", value);
     }
 
@@ -162,7 +162,7 @@ public partial class AwsEcrRepositoryCreationTemplate(string name) : TerraformRe
     /// </summary>
     public TerraformMap<string>? ResourceTags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "resource_tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("resource_tags");
         set => SetArgument("resource_tags", value);
     }
 
@@ -170,9 +170,7 @@ public partial class AwsEcrRepositoryCreationTemplate(string name) : TerraformRe
     /// The registry_id attribute.
     /// </summary>
     public TerraformValue<string> RegistryId
-    {
-        get => new TerraformReference<string>(this, "registry_id");
-    }
+        => AsReference("registry_id");
 
     /// <summary>
     /// EncryptionConfiguration block (nesting mode: list).

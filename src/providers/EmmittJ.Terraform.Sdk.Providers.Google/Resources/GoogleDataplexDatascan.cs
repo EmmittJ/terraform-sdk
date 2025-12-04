@@ -18,7 +18,7 @@ public class GoogleDataplexDatascanDataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Entity
     {
-        get => new TerraformReference<string>(this, "entity");
+        get => GetArgument<TerraformValue<string>>("entity");
         set => SetArgument("entity", value);
     }
 
@@ -28,7 +28,7 @@ public class GoogleDataplexDatascanDataBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Resource
     {
-        get => new TerraformReference<string>(this, "resource");
+        get => GetArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -84,7 +84,7 @@ public class GoogleDataplexDatascanDataDiscoverySpecBlockBigqueryPublishingConfi
     /// </summary>
     public TerraformValue<string>? ConnectionAttribute
     {
-        get => new TerraformReference<string>(this, "connection");
+        get => GetArgument<TerraformValue<string>>("connection");
         set => SetArgument("connection", value);
     }
 
@@ -93,7 +93,7 @@ public class GoogleDataplexDatascanDataDiscoverySpecBlockBigqueryPublishingConfi
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -102,7 +102,7 @@ public class GoogleDataplexDatascanDataDiscoverySpecBlockBigqueryPublishingConfi
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -111,7 +111,7 @@ public class GoogleDataplexDatascanDataDiscoverySpecBlockBigqueryPublishingConfi
     /// </summary>
     public TerraformValue<string>? TableType
     {
-        get => new TerraformReference<string>(this, "table_type");
+        get => GetArgument<TerraformValue<string>>("table_type");
         set => SetArgument("table_type", value);
     }
 
@@ -133,7 +133,7 @@ public class GoogleDataplexDatascanDataDiscoverySpecBlockStorageConfigBlock : Te
     /// </summary>
     public TerraformList<string>? ExcludePatterns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exclude_patterns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("exclude_patterns");
         set => SetArgument("exclude_patterns", value);
     }
 
@@ -142,7 +142,7 @@ public class GoogleDataplexDatascanDataDiscoverySpecBlockStorageConfigBlock : Te
     /// </summary>
     public TerraformList<string>? IncludePatterns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "include_patterns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("include_patterns");
         set => SetArgument("include_patterns", value);
     }
 
@@ -184,7 +184,7 @@ public class GoogleDataplexDatascanDataDiscoverySpecBlockStorageConfigBlockCsvOp
     /// </summary>
     public TerraformValue<string>? Delimiter
     {
-        get => new TerraformReference<string>(this, "delimiter");
+        get => GetArgument<TerraformValue<string>>("delimiter");
         set => SetArgument("delimiter", value);
     }
 
@@ -193,7 +193,7 @@ public class GoogleDataplexDatascanDataDiscoverySpecBlockStorageConfigBlockCsvOp
     /// </summary>
     public TerraformValue<string>? Encoding
     {
-        get => new TerraformReference<string>(this, "encoding");
+        get => GetArgument<TerraformValue<string>>("encoding");
         set => SetArgument("encoding", value);
     }
 
@@ -202,7 +202,7 @@ public class GoogleDataplexDatascanDataDiscoverySpecBlockStorageConfigBlockCsvOp
     /// </summary>
     public TerraformValue<double>? HeaderRows
     {
-        get => new TerraformReference<double>(this, "header_rows");
+        get => GetArgument<TerraformValue<double>>("header_rows");
         set => SetArgument("header_rows", value);
     }
 
@@ -211,7 +211,7 @@ public class GoogleDataplexDatascanDataDiscoverySpecBlockStorageConfigBlockCsvOp
     /// </summary>
     public TerraformValue<string>? Quote
     {
-        get => new TerraformReference<string>(this, "quote");
+        get => GetArgument<TerraformValue<string>>("quote");
         set => SetArgument("quote", value);
     }
 
@@ -220,7 +220,7 @@ public class GoogleDataplexDatascanDataDiscoverySpecBlockStorageConfigBlockCsvOp
     /// </summary>
     public TerraformValue<bool>? TypeInferenceDisabled
     {
-        get => new TerraformReference<bool>(this, "type_inference_disabled");
+        get => GetArgument<TerraformValue<bool>>("type_inference_disabled");
         set => SetArgument("type_inference_disabled", value);
     }
 
@@ -242,7 +242,7 @@ public class GoogleDataplexDatascanDataDiscoverySpecBlockStorageConfigBlockJsonO
     /// </summary>
     public TerraformValue<string>? Encoding
     {
-        get => new TerraformReference<string>(this, "encoding");
+        get => GetArgument<TerraformValue<string>>("encoding");
         set => SetArgument("encoding", value);
     }
 
@@ -251,7 +251,7 @@ public class GoogleDataplexDatascanDataDiscoverySpecBlockStorageConfigBlockJsonO
     /// </summary>
     public TerraformValue<bool>? TypeInferenceDisabled
     {
-        get => new TerraformReference<bool>(this, "type_inference_disabled");
+        get => GetArgument<TerraformValue<bool>>("type_inference_disabled");
         set => SetArgument("type_inference_disabled", value);
     }
 
@@ -274,7 +274,7 @@ public class GoogleDataplexDatascanDataProfileSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RowFilter
     {
-        get => new TerraformReference<string>(this, "row_filter");
+        get => GetArgument<TerraformValue<string>>("row_filter");
         set => SetArgument("row_filter", value);
     }
 
@@ -285,7 +285,7 @@ public class GoogleDataplexDatascanDataProfileSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SamplingPercent
     {
-        get => new TerraformReference<double>(this, "sampling_percent");
+        get => GetArgument<TerraformValue<double>>("sampling_percent");
         set => SetArgument("sampling_percent", value);
     }
 
@@ -339,7 +339,7 @@ public class GoogleDataplexDatascanDataProfileSpecBlockExcludeFieldsBlock : Terr
     /// </summary>
     public TerraformList<string>? FieldNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "field_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("field_names");
         set => SetArgument("field_names", value);
     }
 
@@ -363,7 +363,7 @@ public class GoogleDataplexDatascanDataProfileSpecBlockIncludeFieldsBlock : Terr
     /// </summary>
     public TerraformList<string>? FieldNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "field_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("field_names");
         set => SetArgument("field_names", value);
     }
 
@@ -409,7 +409,7 @@ public class GoogleDataplexDatascanDataProfileSpecBlockPostScanActionsBlockBigqu
     /// </summary>
     public TerraformValue<string>? ResultsTable
     {
-        get => new TerraformReference<string>(this, "results_table");
+        get => GetArgument<TerraformValue<string>>("results_table");
         set => SetArgument("results_table", value);
     }
 
@@ -432,7 +432,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? CatalogPublishingEnabled
     {
-        get => new TerraformReference<bool>(this, "catalog_publishing_enabled");
+        get => GetArgument<TerraformValue<bool>>("catalog_publishing_enabled");
         set => SetArgument("catalog_publishing_enabled", value);
     }
 
@@ -441,7 +441,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RowFilter
     {
-        get => new TerraformReference<string>(this, "row_filter");
+        get => GetArgument<TerraformValue<string>>("row_filter");
         set => SetArgument("row_filter", value);
     }
 
@@ -452,7 +452,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? SamplingPercent
     {
-        get => new TerraformReference<double>(this, "sampling_percent");
+        get => GetArgument<TerraformValue<double>>("sampling_percent");
         set => SetArgument("sampling_percent", value);
     }
 
@@ -527,7 +527,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockPostScanActionsBlockBigqu
     /// </summary>
     public TerraformValue<string>? ResultsTable
     {
-        get => new TerraformReference<string>(this, "results_table");
+        get => GetArgument<TerraformValue<string>>("results_table");
         set => SetArgument("results_table", value);
     }
 
@@ -631,7 +631,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockPostScanActionsBlockNotif
     /// </summary>
     public TerraformList<string>? Emails
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "emails").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("emails");
         set => SetArgument("emails", value);
     }
 
@@ -653,7 +653,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockPostScanActionsBlockNotif
     /// </summary>
     public TerraformValue<double>? ScoreThreshold
     {
-        get => new TerraformReference<double>(this, "score_threshold");
+        get => GetArgument<TerraformValue<double>>("score_threshold");
         set => SetArgument("score_threshold", value);
     }
 
@@ -675,7 +675,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Column
     {
-        get => new TerraformReference<string>(this, "column");
+        get => GetArgument<TerraformValue<string>>("column");
         set => SetArgument("column", value);
     }
 
@@ -685,7 +685,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -695,7 +695,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlock : TerraformBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dimension is required")]
     public required TerraformValue<string> Dimension
     {
-        get => new TerraformReference<string>(this, "dimension");
+        get => GetArgument<TerraformValue<string>>("dimension");
         set => SetArgument("dimension", value);
     }
 
@@ -704,7 +704,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<bool>? IgnoreNull
     {
-        get => new TerraformReference<bool>(this, "ignore_null");
+        get => GetArgument<TerraformValue<bool>>("ignore_null");
         set => SetArgument("ignore_null", value);
     }
 
@@ -717,7 +717,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -726,7 +726,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<bool>? Suspended
     {
-        get => new TerraformReference<bool>(this, "suspended");
+        get => GetArgument<TerraformValue<bool>>("suspended");
         set => SetArgument("suspended", value);
     }
 
@@ -735,7 +735,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<double>? Threshold
     {
-        get => new TerraformReference<double>(this, "threshold");
+        get => GetArgument<TerraformValue<double>>("threshold");
         set => SetArgument("threshold", value);
     }
 
@@ -860,7 +860,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlockRangeExpectatio
     /// </summary>
     public TerraformValue<string>? MaxValue
     {
-        get => new TerraformReference<string>(this, "max_value");
+        get => GetArgument<TerraformValue<string>>("max_value");
         set => SetArgument("max_value", value);
     }
 
@@ -869,7 +869,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlockRangeExpectatio
     /// </summary>
     public TerraformValue<string>? MinValue
     {
-        get => new TerraformReference<string>(this, "min_value");
+        get => GetArgument<TerraformValue<string>>("min_value");
         set => SetArgument("min_value", value);
     }
 
@@ -879,7 +879,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlockRangeExpectatio
     /// </summary>
     public TerraformValue<bool>? StrictMaxEnabled
     {
-        get => new TerraformReference<bool>(this, "strict_max_enabled");
+        get => GetArgument<TerraformValue<bool>>("strict_max_enabled");
         set => SetArgument("strict_max_enabled", value);
     }
 
@@ -889,7 +889,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlockRangeExpectatio
     /// </summary>
     public TerraformValue<bool>? StrictMinEnabled
     {
-        get => new TerraformReference<bool>(this, "strict_min_enabled");
+        get => GetArgument<TerraformValue<bool>>("strict_min_enabled");
         set => SetArgument("strict_min_enabled", value);
     }
 
@@ -912,7 +912,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlockRegexExpectatio
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Regex is required")]
     public required TerraformValue<string> Regex
     {
-        get => new TerraformReference<string>(this, "regex");
+        get => GetArgument<TerraformValue<string>>("regex");
         set => SetArgument("regex", value);
     }
 
@@ -935,7 +935,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlockRowConditionExp
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlExpression is required")]
     public required TerraformValue<string> SqlExpression
     {
-        get => new TerraformReference<string>(this, "sql_expression");
+        get => GetArgument<TerraformValue<string>>("sql_expression");
         set => SetArgument("sql_expression", value);
     }
 
@@ -958,7 +958,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlockSetExpectationB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
     public TerraformList<string>? ValuesAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("values");
         set => SetArgument("values", value);
     }
 
@@ -981,7 +981,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlockSqlAssertionBlo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlStatement is required")]
     public required TerraformValue<string> SqlStatement
     {
-        get => new TerraformReference<string>(this, "sql_statement");
+        get => GetArgument<TerraformValue<string>>("sql_statement");
         set => SetArgument("sql_statement", value);
     }
 
@@ -1004,7 +1004,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlockStatisticRangeE
     /// </summary>
     public TerraformValue<string>? MaxValue
     {
-        get => new TerraformReference<string>(this, "max_value");
+        get => GetArgument<TerraformValue<string>>("max_value");
         set => SetArgument("max_value", value);
     }
 
@@ -1014,7 +1014,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlockStatisticRangeE
     /// </summary>
     public TerraformValue<string>? MinValue
     {
-        get => new TerraformReference<string>(this, "min_value");
+        get => GetArgument<TerraformValue<string>>("min_value");
         set => SetArgument("min_value", value);
     }
 
@@ -1024,7 +1024,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlockStatisticRangeE
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Statistic is required")]
     public required TerraformValue<string> Statistic
     {
-        get => new TerraformReference<string>(this, "statistic");
+        get => GetArgument<TerraformValue<string>>("statistic");
         set => SetArgument("statistic", value);
     }
 
@@ -1034,7 +1034,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlockStatisticRangeE
     /// </summary>
     public TerraformValue<bool>? StrictMaxEnabled
     {
-        get => new TerraformReference<bool>(this, "strict_max_enabled");
+        get => GetArgument<TerraformValue<bool>>("strict_max_enabled");
         set => SetArgument("strict_max_enabled", value);
     }
 
@@ -1044,7 +1044,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlockStatisticRangeE
     /// </summary>
     public TerraformValue<bool>? StrictMinEnabled
     {
-        get => new TerraformReference<bool>(this, "strict_min_enabled");
+        get => GetArgument<TerraformValue<bool>>("strict_min_enabled");
         set => SetArgument("strict_min_enabled", value);
     }
 
@@ -1067,7 +1067,7 @@ public class GoogleDataplexDatascanDataQualitySpecBlockRulesBlockTableConditionE
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlExpression is required")]
     public required TerraformValue<string> SqlExpression
     {
-        get => new TerraformReference<string>(this, "sql_expression");
+        get => GetArgument<TerraformValue<string>>("sql_expression");
         set => SetArgument("sql_expression", value);
     }
 
@@ -1103,7 +1103,7 @@ public class GoogleDataplexDatascanExecutionSpecBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Field
     {
-        get => new TerraformReference<string>(this, "field");
+        get => GetArgument<TerraformValue<string>>("field");
         set => SetArgument("field", value);
     }
 
@@ -1185,7 +1185,7 @@ public class GoogleDataplexDatascanExecutionSpecBlockTriggerBlockScheduleBlock :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cron is required")]
     public required TerraformValue<string> Cron
     {
-        get => new TerraformReference<string>(this, "cron");
+        get => GetArgument<TerraformValue<string>>("cron");
         set => SetArgument("cron", value);
     }
 
@@ -1208,7 +1208,7 @@ public class GoogleDataplexDatascanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -1217,7 +1217,7 @@ public class GoogleDataplexDatascanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -1226,7 +1226,7 @@ public class GoogleDataplexDatascanTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -1245,7 +1245,7 @@ public partial class GoogleDataplexDatascan(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataScanId is required")]
     public required TerraformValue<string> DataScanId
     {
-        get => new TerraformReference<string>(this, "data_scan_id");
+        get => GetArgument<TerraformValue<string>>("data_scan_id");
         set => SetArgument("data_scan_id", value);
     }
 
@@ -1254,7 +1254,7 @@ public partial class GoogleDataplexDatascan(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -1263,16 +1263,16 @@ public partial class GoogleDataplexDatascan(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -1285,7 +1285,7 @@ public partial class GoogleDataplexDatascan(string name) : TerraformResource("go
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -1295,16 +1295,16 @@ public partial class GoogleDataplexDatascan(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -1312,74 +1312,56 @@ public partial class GoogleDataplexDatascan(string name) : TerraformResource("go
     /// The time when the scan was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Status of the data scan execution.
     /// </summary>
     public TerraformList<TerraformMap<object>> ExecutionStatus
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "execution_status").ResolveNodes(ctx));
-    }
+        => AsReference("execution_status");
 
     /// <summary>
     /// The relative resource name of the scan, of the form: projects/{project}/locations/{locationId}/dataScans/{datascan_id}, where project refers to a project_id or project_number and locationId refers to a GCP region.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// Current state of the DataScan.
     /// </summary>
     public TerraformValue<string> State
-    {
-        get => new TerraformReference<string>(this, "state");
-    }
+        => AsReference("state");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// The type of DataScan.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// System generated globally unique ID for the scan. This ID will be different if the scan is deleted and re-created with the same name.
     /// </summary>
     public TerraformValue<string> Uid
-    {
-        get => new TerraformReference<string>(this, "uid");
-    }
+        => AsReference("uid");
 
     /// <summary>
     /// The time when the scan was last updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Data block (nesting mode: list).

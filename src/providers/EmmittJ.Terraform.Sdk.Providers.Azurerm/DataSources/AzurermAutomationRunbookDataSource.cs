@@ -18,7 +18,7 @@ public class AzurermAutomationRunbookDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermAutomationRunbookDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
     public required TerraformValue<string> AutomationAccountName
     {
-        get => new TerraformReference<string>(this, "automation_account_name");
+        get => GetArgument<TerraformValue<string>>("automation_account_name");
         set => SetArgument("automation_account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermAutomationRunbookDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -66,7 +66,7 @@ public partial class AzurermAutomationRunbookDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -74,65 +74,49 @@ public partial class AzurermAutomationRunbookDataSource(string name) : Terraform
     /// The content attribute.
     /// </summary>
     public TerraformValue<string> Content
-    {
-        get => new TerraformReference<string>(this, "content");
-    }
+        => AsReference("content");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The log_activity_trace_level attribute.
     /// </summary>
     public TerraformValue<double> LogActivityTraceLevel
-    {
-        get => new TerraformReference<double>(this, "log_activity_trace_level");
-    }
+        => AsReference("log_activity_trace_level");
 
     /// <summary>
     /// The log_progress attribute.
     /// </summary>
     public TerraformValue<bool> LogProgress
-    {
-        get => new TerraformReference<bool>(this, "log_progress");
-    }
+        => AsReference("log_progress");
 
     /// <summary>
     /// The log_verbose attribute.
     /// </summary>
     public TerraformValue<bool> LogVerbose
-    {
-        get => new TerraformReference<bool>(this, "log_verbose");
-    }
+        => AsReference("log_verbose");
 
     /// <summary>
     /// The runbook_type attribute.
     /// </summary>
     public TerraformValue<string> RunbookType
-    {
-        get => new TerraformReference<string>(this, "runbook_type");
-    }
+        => AsReference("runbook_type");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

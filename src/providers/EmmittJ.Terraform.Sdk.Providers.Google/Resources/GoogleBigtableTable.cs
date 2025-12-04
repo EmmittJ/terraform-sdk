@@ -16,18 +16,18 @@ public class GoogleBigtableTableAutomatedBackupPolicyBlock : TerraformBlock
     /// <summary>
     /// How frequently automated backups should occur.
     /// </summary>
-    public TerraformValue<string> Frequency
+    public TerraformValue<string>? Frequency
     {
-        get => new TerraformReference<string>(this, "frequency");
+        get => GetArgument<TerraformValue<string>>("frequency");
         set => SetArgument("frequency", value);
     }
 
     /// <summary>
     /// How long the automated backups should be retained.
     /// </summary>
-    public TerraformValue<string> RetentionPeriod
+    public TerraformValue<string>? RetentionPeriod
     {
-        get => new TerraformReference<string>(this, "retention_period");
+        get => GetArgument<TerraformValue<string>>("retention_period");
         set => SetArgument("retention_period", value);
     }
 
@@ -51,7 +51,7 @@ public class GoogleBigtableTableColumnFamilyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Family is required")]
     public required TerraformValue<string> Family
     {
-        get => new TerraformReference<string>(this, "family");
+        get => GetArgument<TerraformValue<string>>("family");
         set => SetArgument("family", value);
     }
 
@@ -60,7 +60,7 @@ public class GoogleBigtableTableColumnFamilyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -83,7 +83,7 @@ public class GoogleBigtableTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -92,7 +92,7 @@ public class GoogleBigtableTableTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -108,27 +108,27 @@ public partial class GoogleBigtableTable(string name) : TerraformResource("googl
     /// <summary>
     /// Duration to retain change stream data for the table. Set to 0 to disable. Must be between 1 and 7 days.
     /// </summary>
-    public TerraformValue<string> ChangeStreamRetention
+    public TerraformValue<string>? ChangeStreamRetention
     {
-        get => new TerraformReference<string>(this, "change_stream_retention");
+        get => GetArgument<TerraformValue<string>>("change_stream_retention");
         set => SetArgument("change_stream_retention", value);
     }
 
     /// <summary>
     /// A field to make the table protected against data loss i.e. when set to PROTECTED, deleting the table, the column families in the table, and the instance containing the table would be prohibited. If not provided, currently deletion protection will be set to UNPROTECTED as it is the API default value.
     /// </summary>
-    public TerraformValue<string> DeletionProtection
+    public TerraformValue<string>? DeletionProtection
     {
-        get => new TerraformReference<string>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<string>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -138,7 +138,7 @@ public partial class GoogleBigtableTable(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceName is required")]
     public required TerraformValue<string> InstanceName
     {
-        get => new TerraformReference<string>(this, "instance_name");
+        get => GetArgument<TerraformValue<string>>("instance_name");
         set => SetArgument("instance_name", value);
     }
 
@@ -148,16 +148,16 @@ public partial class GoogleBigtableTable(string name) : TerraformResource("googl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -171,7 +171,7 @@ public partial class GoogleBigtableTable(string name) : TerraformResource("googl
     /// </summary>
     public TerraformValue<string>? RowKeySchema
     {
-        get => new TerraformReference<string>(this, "row_key_schema");
+        get => GetArgument<TerraformValue<string>>("row_key_schema");
         set => SetArgument("row_key_schema", value);
     }
 
@@ -180,7 +180,7 @@ public partial class GoogleBigtableTable(string name) : TerraformResource("googl
     /// </summary>
     public TerraformList<string>? SplitKeys
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "split_keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("split_keys");
         set => SetArgument("split_keys", value);
     }
 

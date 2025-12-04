@@ -18,7 +18,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlock : Terrafo
     /// </summary>
     public TerraformSet<string>? EnabledStandardArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "enabled_standard_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("enabled_standard_arns");
         set => SetArgument("enabled_standard_arns", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceEnabled is required")]
     public required TerraformValue<bool> ServiceEnabled
     {
-        get => new TerraformReference<bool>(this, "service_enabled");
+        get => GetArgument<TerraformValue<bool>>("service_enabled");
         set => SetArgument("service_enabled", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlockSecurityCo
     /// </summary>
     public TerraformSet<string>? DisabledControlIdentifiers
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "disabled_control_identifiers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("disabled_control_identifiers");
         set => SetArgument("disabled_control_identifiers", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlockSecurityCo
     /// </summary>
     public TerraformSet<string>? EnabledControlIdentifiers
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "enabled_control_identifiers").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("enabled_control_identifiers");
         set => SetArgument("enabled_control_identifiers", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlockSecurityCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityControlId is required")]
     public required TerraformValue<string> SecurityControlId
     {
-        get => new TerraformReference<string>(this, "security_control_id");
+        get => GetArgument<TerraformValue<string>>("security_control_id");
         set => SetArgument("security_control_id", value);
     }
 
@@ -136,7 +136,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlockSecurityCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -146,7 +146,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlockSecurityCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueType is required")]
     public required TerraformValue<string> ValueType
     {
-        get => new TerraformReference<string>(this, "value_type");
+        get => GetArgument<TerraformValue<string>>("value_type");
         set => SetArgument("value_type", value);
     }
 
@@ -249,7 +249,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlockSecurityCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<bool> Value
     {
-        get => new TerraformReference<bool>(this, "value");
+        get => GetArgument<TerraformValue<bool>>("value");
         set => SetArgument("value", value);
     }
 
@@ -272,7 +272,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlockSecurityCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => new TerraformReference<double>(this, "value");
+        get => GetArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -295,7 +295,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlockSecurityCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -318,7 +318,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlockSecurityCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public TerraformList<string>? Value
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "value").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -341,7 +341,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlockSecurityCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<double> Value
     {
-        get => new TerraformReference<double>(this, "value");
+        get => GetArgument<TerraformValue<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -364,7 +364,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlockSecurityCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public TerraformList<double>? Value
     {
-        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "value").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<double>>("value");
         set => SetArgument("value", value);
     }
 
@@ -387,7 +387,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlockSecurityCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -410,7 +410,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlockSecurityCo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public TerraformList<string>? Value
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "value").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -428,16 +428,16 @@ public partial class AwsSecurityhubConfigurationPolicy(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -447,16 +447,16 @@ public partial class AwsSecurityhubConfigurationPolicy(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -464,9 +464,7 @@ public partial class AwsSecurityhubConfigurationPolicy(string name) : TerraformR
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// ConfigurationPolicy block (nesting mode: list).

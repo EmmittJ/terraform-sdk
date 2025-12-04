@@ -17,17 +17,13 @@ public class AzurermNewRelicMonitorIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -35,7 +31,7 @@ public class AzurermNewRelicMonitorIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -58,7 +54,7 @@ public class AzurermNewRelicMonitorPlanBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BillingCycle
     {
-        get => new TerraformReference<string>(this, "billing_cycle");
+        get => GetArgument<TerraformValue<string>>("billing_cycle");
         set => SetArgument("billing_cycle", value);
     }
 
@@ -68,7 +64,7 @@ public class AzurermNewRelicMonitorPlanBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EffectiveDate is required")]
     public required TerraformValue<string> EffectiveDate
     {
-        get => new TerraformReference<string>(this, "effective_date");
+        get => GetArgument<TerraformValue<string>>("effective_date");
         set => SetArgument("effective_date", value);
     }
 
@@ -77,7 +73,7 @@ public class AzurermNewRelicMonitorPlanBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? PlanId
     {
-        get => new TerraformReference<string>(this, "plan_id");
+        get => GetArgument<TerraformValue<string>>("plan_id");
         set => SetArgument("plan_id", value);
     }
 
@@ -86,7 +82,7 @@ public class AzurermNewRelicMonitorPlanBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? UsageType
     {
-        get => new TerraformReference<string>(this, "usage_type");
+        get => GetArgument<TerraformValue<string>>("usage_type");
         set => SetArgument("usage_type", value);
     }
 
@@ -109,7 +105,7 @@ public class AzurermNewRelicMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -118,7 +114,7 @@ public class AzurermNewRelicMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -127,7 +123,7 @@ public class AzurermNewRelicMonitorTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -151,7 +147,7 @@ public class AzurermNewRelicMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
     public required TerraformValue<string> Email
     {
-        get => new TerraformReference<string>(this, "email");
+        get => GetArgument<TerraformValue<string>>("email");
         set => SetArgument("email", value);
     }
 
@@ -161,7 +157,7 @@ public class AzurermNewRelicMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirstName is required")]
     public required TerraformValue<string> FirstName
     {
-        get => new TerraformReference<string>(this, "first_name");
+        get => GetArgument<TerraformValue<string>>("first_name");
         set => SetArgument("first_name", value);
     }
 
@@ -171,7 +167,7 @@ public class AzurermNewRelicMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LastName is required")]
     public required TerraformValue<string> LastName
     {
-        get => new TerraformReference<string>(this, "last_name");
+        get => GetArgument<TerraformValue<string>>("last_name");
         set => SetArgument("last_name", value);
     }
 
@@ -181,7 +177,7 @@ public class AzurermNewRelicMonitorUserBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhoneNumber is required")]
     public required TerraformValue<string> PhoneNumber
     {
-        get => new TerraformReference<string>(this, "phone_number");
+        get => GetArgument<TerraformValue<string>>("phone_number");
         set => SetArgument("phone_number", value);
     }
 
@@ -199,25 +195,25 @@ public partial class AzurermNewRelicMonitor(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? AccountCreationSource
     {
-        get => new TerraformReference<string>(this, "account_creation_source");
+        get => GetArgument<TerraformValue<string>>("account_creation_source");
         set => SetArgument("account_creation_source", value);
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformValue<string> AccountId
+    public TerraformValue<string>? AccountId
     {
-        get => new TerraformReference<string>(this, "account_id");
+        get => GetArgument<TerraformValue<string>>("account_id");
         set => SetArgument("account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -226,7 +222,7 @@ public partial class AzurermNewRelicMonitor(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? IngestionKey
     {
-        get => new TerraformReference<string>(this, "ingestion_key");
+        get => GetArgument<TerraformValue<string>>("ingestion_key");
         set => SetArgument("ingestion_key", value);
     }
 
@@ -236,7 +232,7 @@ public partial class AzurermNewRelicMonitor(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -246,7 +242,7 @@ public partial class AzurermNewRelicMonitor(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -255,16 +251,16 @@ public partial class AzurermNewRelicMonitor(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? OrgCreationSource
     {
-        get => new TerraformReference<string>(this, "org_creation_source");
+        get => GetArgument<TerraformValue<string>>("org_creation_source");
         set => SetArgument("org_creation_source", value);
     }
 
     /// <summary>
     /// The organization_id attribute.
     /// </summary>
-    public TerraformValue<string> OrganizationId
+    public TerraformValue<string>? OrganizationId
     {
-        get => new TerraformReference<string>(this, "organization_id");
+        get => GetArgument<TerraformValue<string>>("organization_id");
         set => SetArgument("organization_id", value);
     }
 
@@ -274,7 +270,7 @@ public partial class AzurermNewRelicMonitor(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -283,7 +279,7 @@ public partial class AzurermNewRelicMonitor(string name) : TerraformResource("az
     /// </summary>
     public TerraformValue<string>? UserId
     {
-        get => new TerraformReference<string>(this, "user_id");
+        get => GetArgument<TerraformValue<string>>("user_id");
         set => SetArgument("user_id", value);
     }
 

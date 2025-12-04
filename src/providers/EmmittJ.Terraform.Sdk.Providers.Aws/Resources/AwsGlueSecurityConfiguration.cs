@@ -70,7 +70,7 @@ public class AwsGlueSecurityConfigurationEncryptionConfigurationBlockCloudwatchE
     /// </summary>
     public TerraformValue<string>? CloudwatchEncryptionMode
     {
-        get => new TerraformReference<string>(this, "cloudwatch_encryption_mode");
+        get => GetArgument<TerraformValue<string>>("cloudwatch_encryption_mode");
         set => SetArgument("cloudwatch_encryption_mode", value);
     }
 
@@ -79,7 +79,7 @@ public class AwsGlueSecurityConfigurationEncryptionConfigurationBlockCloudwatchE
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -101,7 +101,7 @@ public class AwsGlueSecurityConfigurationEncryptionConfigurationBlockJobBookmark
     /// </summary>
     public TerraformValue<string>? JobBookmarksEncryptionMode
     {
-        get => new TerraformReference<string>(this, "job_bookmarks_encryption_mode");
+        get => GetArgument<TerraformValue<string>>("job_bookmarks_encryption_mode");
         set => SetArgument("job_bookmarks_encryption_mode", value);
     }
 
@@ -110,7 +110,7 @@ public class AwsGlueSecurityConfigurationEncryptionConfigurationBlockJobBookmark
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -132,7 +132,7 @@ public class AwsGlueSecurityConfigurationEncryptionConfigurationBlockS3Encryptio
     /// </summary>
     public TerraformValue<string>? KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -141,7 +141,7 @@ public class AwsGlueSecurityConfigurationEncryptionConfigurationBlockS3Encryptio
     /// </summary>
     public TerraformValue<string>? S3EncryptionMode
     {
-        get => new TerraformReference<string>(this, "s3_encryption_mode");
+        get => GetArgument<TerraformValue<string>>("s3_encryption_mode");
         set => SetArgument("s3_encryption_mode", value);
     }
 
@@ -157,9 +157,9 @@ public partial class AwsGlueSecurityConfiguration(string name) : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -169,16 +169,16 @@ public partial class AwsGlueSecurityConfiguration(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 

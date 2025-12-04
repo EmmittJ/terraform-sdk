@@ -45,7 +45,7 @@ public class AwsGlueCatalogTableOpenTableFormatInputBlockIcebergInputBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetadataOperation is required")]
     public required TerraformValue<string> MetadataOperation
     {
-        get => new TerraformReference<string>(this, "metadata_operation");
+        get => GetArgument<TerraformValue<string>>("metadata_operation");
         set => SetArgument("metadata_operation", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsGlueCatalogTableOpenTableFormatInputBlockIcebergInputBlock : Ter
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsGlueCatalogTablePartitionIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
     public required TerraformValue<string> IndexName
     {
-        get => new TerraformReference<string>(this, "index_name");
+        get => GetArgument<TerraformValue<string>>("index_name");
         set => SetArgument("index_name", value);
     }
 
@@ -86,9 +86,7 @@ public class AwsGlueCatalogTablePartitionIndexBlock : TerraformBlock
     /// The index_status attribute.
     /// </summary>
     public TerraformValue<string> IndexStatus
-    {
-        get => new TerraformReference<string>(this, "index_status");
-    }
+        => AsReference("index_status");
 
     /// <summary>
     /// The keys attribute.
@@ -96,7 +94,7 @@ public class AwsGlueCatalogTablePartitionIndexBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeysAttribute is required")]
     public TerraformList<string>? KeysAttribute
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "keys").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("keys");
         set => SetArgument("keys", value);
     }
 
@@ -119,7 +117,7 @@ public class AwsGlueCatalogTablePartitionKeysBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Comment
     {
-        get => new TerraformReference<string>(this, "comment");
+        get => GetArgument<TerraformValue<string>>("comment");
         set => SetArgument("comment", value);
     }
 
@@ -129,7 +127,7 @@ public class AwsGlueCatalogTablePartitionKeysBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -138,7 +136,7 @@ public class AwsGlueCatalogTablePartitionKeysBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -147,7 +145,7 @@ public class AwsGlueCatalogTablePartitionKeysBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -170,7 +168,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AdditionalLocations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "additional_locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("additional_locations");
         set => SetArgument("additional_locations", value);
     }
 
@@ -179,7 +177,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? BucketColumns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "bucket_columns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("bucket_columns");
         set => SetArgument("bucket_columns", value);
     }
 
@@ -188,7 +186,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Compressed
     {
-        get => new TerraformReference<bool>(this, "compressed");
+        get => GetArgument<TerraformValue<bool>>("compressed");
         set => SetArgument("compressed", value);
     }
 
@@ -197,7 +195,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? InputFormat
     {
-        get => new TerraformReference<string>(this, "input_format");
+        get => GetArgument<TerraformValue<string>>("input_format");
         set => SetArgument("input_format", value);
     }
 
@@ -206,7 +204,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -215,7 +213,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? NumberOfBuckets
     {
-        get => new TerraformReference<double>(this, "number_of_buckets");
+        get => GetArgument<TerraformValue<double>>("number_of_buckets");
         set => SetArgument("number_of_buckets", value);
     }
 
@@ -224,7 +222,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OutputFormat
     {
-        get => new TerraformReference<string>(this, "output_format");
+        get => GetArgument<TerraformValue<string>>("output_format");
         set => SetArgument("output_format", value);
     }
 
@@ -233,7 +231,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -242,7 +240,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? StoredAsSubDirectories
     {
-        get => new TerraformReference<bool>(this, "stored_as_sub_directories");
+        get => GetArgument<TerraformValue<bool>>("stored_as_sub_directories");
         set => SetArgument("stored_as_sub_directories", value);
     }
 
@@ -312,7 +310,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlockColumnsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Comment
     {
-        get => new TerraformReference<string>(this, "comment");
+        get => GetArgument<TerraformValue<string>>("comment");
         set => SetArgument("comment", value);
     }
 
@@ -322,7 +320,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlockColumnsBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -331,7 +329,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlockColumnsBlock : TerraformBl
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -340,7 +338,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlockColumnsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -362,7 +360,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlockSchemaReferenceBlock : Ter
     /// </summary>
     public TerraformValue<string>? SchemaVersionId
     {
-        get => new TerraformReference<string>(this, "schema_version_id");
+        get => GetArgument<TerraformValue<string>>("schema_version_id");
         set => SetArgument("schema_version_id", value);
     }
 
@@ -372,7 +370,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlockSchemaReferenceBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaVersionNumber is required")]
     public required TerraformValue<double> SchemaVersionNumber
     {
-        get => new TerraformReference<double>(this, "schema_version_number");
+        get => GetArgument<TerraformValue<double>>("schema_version_number");
         set => SetArgument("schema_version_number", value);
     }
 
@@ -404,7 +402,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlockSchemaReferenceBlockSchema
     /// </summary>
     public TerraformValue<string>? RegistryName
     {
-        get => new TerraformReference<string>(this, "registry_name");
+        get => GetArgument<TerraformValue<string>>("registry_name");
         set => SetArgument("registry_name", value);
     }
 
@@ -413,7 +411,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlockSchemaReferenceBlockSchema
     /// </summary>
     public TerraformValue<string>? SchemaArn
     {
-        get => new TerraformReference<string>(this, "schema_arn");
+        get => GetArgument<TerraformValue<string>>("schema_arn");
         set => SetArgument("schema_arn", value);
     }
 
@@ -422,7 +420,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlockSchemaReferenceBlockSchema
     /// </summary>
     public TerraformValue<string>? SchemaName
     {
-        get => new TerraformReference<string>(this, "schema_name");
+        get => GetArgument<TerraformValue<string>>("schema_name");
         set => SetArgument("schema_name", value);
     }
 
@@ -444,7 +442,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlockSerDeInfoBlock : Terraform
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -453,7 +451,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlockSerDeInfoBlock : Terraform
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -462,7 +460,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlockSerDeInfoBlock : Terraform
     /// </summary>
     public TerraformValue<string>? SerializationLibrary
     {
-        get => new TerraformReference<string>(this, "serialization_library");
+        get => GetArgument<TerraformValue<string>>("serialization_library");
         set => SetArgument("serialization_library", value);
     }
 
@@ -484,7 +482,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlockSkewedInfoBlock : Terrafor
     /// </summary>
     public TerraformList<string>? SkewedColumnNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "skewed_column_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("skewed_column_names");
         set => SetArgument("skewed_column_names", value);
     }
 
@@ -493,7 +491,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlockSkewedInfoBlock : Terrafor
     /// </summary>
     public TerraformMap<string>? SkewedColumnValueLocationMaps
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "skewed_column_value_location_maps").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("skewed_column_value_location_maps");
         set => SetArgument("skewed_column_value_location_maps", value);
     }
 
@@ -502,7 +500,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlockSkewedInfoBlock : Terrafor
     /// </summary>
     public TerraformList<string>? SkewedColumnValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "skewed_column_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("skewed_column_values");
         set => SetArgument("skewed_column_values", value);
     }
 
@@ -525,7 +523,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlockSortColumnsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Column is required")]
     public required TerraformValue<string> Column
     {
-        get => new TerraformReference<string>(this, "column");
+        get => GetArgument<TerraformValue<string>>("column");
         set => SetArgument("column", value);
     }
 
@@ -535,7 +533,7 @@ public class AwsGlueCatalogTableStorageDescriptorBlockSortColumnsBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SortOrder is required")]
     public required TerraformValue<double> SortOrder
     {
-        get => new TerraformReference<double>(this, "sort_order");
+        get => GetArgument<TerraformValue<double>>("sort_order");
         set => SetArgument("sort_order", value);
     }
 
@@ -559,7 +557,7 @@ public class AwsGlueCatalogTableTargetTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogId is required")]
     public required TerraformValue<string> CatalogId
     {
-        get => new TerraformReference<string>(this, "catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -569,7 +567,7 @@ public class AwsGlueCatalogTableTargetTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -579,7 +577,7 @@ public class AwsGlueCatalogTableTargetTableBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -588,7 +586,7 @@ public class AwsGlueCatalogTableTargetTableBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -604,9 +602,9 @@ public partial class AwsGlueCatalogTable(string name) : TerraformResource("aws_g
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformValue<string> CatalogId
+    public TerraformValue<string>? CatalogId
     {
-        get => new TerraformReference<string>(this, "catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -616,7 +614,7 @@ public partial class AwsGlueCatalogTable(string name) : TerraformResource("aws_g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
@@ -625,16 +623,16 @@ public partial class AwsGlueCatalogTable(string name) : TerraformResource("aws_g
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -644,7 +642,7 @@ public partial class AwsGlueCatalogTable(string name) : TerraformResource("aws_g
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -653,7 +651,7 @@ public partial class AwsGlueCatalogTable(string name) : TerraformResource("aws_g
     /// </summary>
     public TerraformValue<string>? Owner
     {
-        get => new TerraformReference<string>(this, "owner");
+        get => GetArgument<TerraformValue<string>>("owner");
         set => SetArgument("owner", value);
     }
 
@@ -662,16 +660,16 @@ public partial class AwsGlueCatalogTable(string name) : TerraformResource("aws_g
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -680,7 +678,7 @@ public partial class AwsGlueCatalogTable(string name) : TerraformResource("aws_g
     /// </summary>
     public TerraformValue<double>? Retention
     {
-        get => new TerraformReference<double>(this, "retention");
+        get => GetArgument<TerraformValue<double>>("retention");
         set => SetArgument("retention", value);
     }
 
@@ -689,7 +687,7 @@ public partial class AwsGlueCatalogTable(string name) : TerraformResource("aws_g
     /// </summary>
     public TerraformValue<string>? TableType
     {
-        get => new TerraformReference<string>(this, "table_type");
+        get => GetArgument<TerraformValue<string>>("table_type");
         set => SetArgument("table_type", value);
     }
 
@@ -698,7 +696,7 @@ public partial class AwsGlueCatalogTable(string name) : TerraformResource("aws_g
     /// </summary>
     public TerraformValue<string>? ViewExpandedText
     {
-        get => new TerraformReference<string>(this, "view_expanded_text");
+        get => GetArgument<TerraformValue<string>>("view_expanded_text");
         set => SetArgument("view_expanded_text", value);
     }
 
@@ -707,7 +705,7 @@ public partial class AwsGlueCatalogTable(string name) : TerraformResource("aws_g
     /// </summary>
     public TerraformValue<string>? ViewOriginalText
     {
-        get => new TerraformReference<string>(this, "view_original_text");
+        get => GetArgument<TerraformValue<string>>("view_original_text");
         set => SetArgument("view_original_text", value);
     }
 
@@ -715,9 +713,7 @@ public partial class AwsGlueCatalogTable(string name) : TerraformResource("aws_g
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// OpenTableFormatInput block (nesting mode: list).

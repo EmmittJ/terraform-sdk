@@ -19,7 +19,7 @@ public class AwsChimesdkvoiceSipRuleTargetApplicationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsRegion is required")]
     public required TerraformValue<string> AwsRegion
     {
-        get => new TerraformReference<string>(this, "aws_region");
+        get => GetArgument<TerraformValue<string>>("aws_region");
         set => SetArgument("aws_region", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsChimesdkvoiceSipRuleTargetApplicationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
     public required TerraformValue<double> Priority
     {
-        get => new TerraformReference<double>(this, "priority");
+        get => GetArgument<TerraformValue<double>>("priority");
         set => SetArgument("priority", value);
     }
 
@@ -39,7 +39,7 @@ public class AwsChimesdkvoiceSipRuleTargetApplicationsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SipMediaApplicationId is required")]
     public required TerraformValue<string> SipMediaApplicationId
     {
-        get => new TerraformReference<string>(this, "sip_media_application_id");
+        get => GetArgument<TerraformValue<string>>("sip_media_application_id");
         set => SetArgument("sip_media_application_id", value);
     }
 
@@ -57,16 +57,16 @@ public partial class AwsChimesdkvoiceSipRule(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -76,16 +76,16 @@ public partial class AwsChimesdkvoiceSipRule(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -95,7 +95,7 @@ public partial class AwsChimesdkvoiceSipRule(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerType is required")]
     public required TerraformValue<string> TriggerType
     {
-        get => new TerraformReference<string>(this, "trigger_type");
+        get => GetArgument<TerraformValue<string>>("trigger_type");
         set => SetArgument("trigger_type", value);
     }
 
@@ -105,7 +105,7 @@ public partial class AwsChimesdkvoiceSipRule(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerValue is required")]
     public required TerraformValue<string> TriggerValue
     {
-        get => new TerraformReference<string>(this, "trigger_value");
+        get => GetArgument<TerraformValue<string>>("trigger_value");
         set => SetArgument("trigger_value", value);
     }
 

@@ -18,7 +18,7 @@ public class AzurermStorageObjectReplicationRulesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CopyBlobsCreatedAfter
     {
-        get => new TerraformReference<string>(this, "copy_blobs_created_after");
+        get => GetArgument<TerraformValue<string>>("copy_blobs_created_after");
         set => SetArgument("copy_blobs_created_after", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermStorageObjectReplicationRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationContainerName is required")]
     public required TerraformValue<string> DestinationContainerName
     {
-        get => new TerraformReference<string>(this, "destination_container_name");
+        get => GetArgument<TerraformValue<string>>("destination_container_name");
         set => SetArgument("destination_container_name", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermStorageObjectReplicationRulesBlock : TerraformBlock
     /// </summary>
     public TerraformSet<string>? FilterOutBlobsWithPrefix
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "filter_out_blobs_with_prefix").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("filter_out_blobs_with_prefix");
         set => SetArgument("filter_out_blobs_with_prefix", value);
     }
 
@@ -45,9 +45,7 @@ public class AzurermStorageObjectReplicationRulesBlock : TerraformBlock
     /// The name attribute.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The source_container_name attribute.
@@ -55,7 +53,7 @@ public class AzurermStorageObjectReplicationRulesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceContainerName is required")]
     public required TerraformValue<string> SourceContainerName
     {
-        get => new TerraformReference<string>(this, "source_container_name");
+        get => GetArgument<TerraformValue<string>>("source_container_name");
         set => SetArgument("source_container_name", value);
     }
 
@@ -78,7 +76,7 @@ public class AzurermStorageObjectReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -87,7 +85,7 @@ public class AzurermStorageObjectReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -96,7 +94,7 @@ public class AzurermStorageObjectReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -105,7 +103,7 @@ public class AzurermStorageObjectReplicationTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -124,16 +122,16 @@ public partial class AzurermStorageObjectReplication(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationStorageAccountId is required")]
     public required TerraformValue<string> DestinationStorageAccountId
     {
-        get => new TerraformReference<string>(this, "destination_storage_account_id");
+        get => GetArgument<TerraformValue<string>>("destination_storage_account_id");
         set => SetArgument("destination_storage_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -143,7 +141,7 @@ public partial class AzurermStorageObjectReplication(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceStorageAccountId is required")]
     public required TerraformValue<string> SourceStorageAccountId
     {
-        get => new TerraformReference<string>(this, "source_storage_account_id");
+        get => GetArgument<TerraformValue<string>>("source_storage_account_id");
         set => SetArgument("source_storage_account_id", value);
     }
 
@@ -151,17 +149,13 @@ public partial class AzurermStorageObjectReplication(string name) : TerraformRes
     /// The destination_object_replication_id attribute.
     /// </summary>
     public TerraformValue<string> DestinationObjectReplicationId
-    {
-        get => new TerraformReference<string>(this, "destination_object_replication_id");
-    }
+        => AsReference("destination_object_replication_id");
 
     /// <summary>
     /// The source_object_replication_id attribute.
     /// </summary>
     public TerraformValue<string> SourceObjectReplicationId
-    {
-        get => new TerraformReference<string>(this, "source_object_replication_id");
-    }
+        => AsReference("source_object_replication_id");
 
     /// <summary>
     /// Rules block (nesting mode: set).

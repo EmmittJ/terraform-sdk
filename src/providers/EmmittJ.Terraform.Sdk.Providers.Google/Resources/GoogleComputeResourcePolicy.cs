@@ -19,7 +19,7 @@ public class GoogleComputeResourcePolicyDiskConsistencyGroupPolicyBlock : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
     public required TerraformValue<bool> Enabled
     {
-        get => new TerraformReference<bool>(this, "enabled");
+        get => GetArgument<TerraformValue<bool>>("enabled");
         set => SetArgument("enabled", value);
     }
 
@@ -43,7 +43,7 @@ public class GoogleComputeResourcePolicyGroupPlacementPolicyBlock : TerraformBlo
     /// </summary>
     public TerraformValue<double>? AvailabilityDomainCount
     {
-        get => new TerraformReference<double>(this, "availability_domain_count");
+        get => GetArgument<TerraformValue<double>>("availability_domain_count");
         set => SetArgument("availability_domain_count", value);
     }
 
@@ -55,7 +55,7 @@ public class GoogleComputeResourcePolicyGroupPlacementPolicyBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Collocation
     {
-        get => new TerraformReference<string>(this, "collocation");
+        get => GetArgument<TerraformValue<string>>("collocation");
         set => SetArgument("collocation", value);
     }
 
@@ -64,7 +64,7 @@ public class GoogleComputeResourcePolicyGroupPlacementPolicyBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? GpuTopology
     {
-        get => new TerraformReference<string>(this, "gpu_topology");
+        get => GetArgument<TerraformValue<string>>("gpu_topology");
         set => SetArgument("gpu_topology", value);
     }
 
@@ -75,7 +75,7 @@ public class GoogleComputeResourcePolicyGroupPlacementPolicyBlock : TerraformBlo
     /// </summary>
     public TerraformValue<double>? VmCount
     {
-        get => new TerraformReference<double>(this, "vm_count");
+        get => GetArgument<TerraformValue<double>>("vm_count");
         set => SetArgument("vm_count", value);
     }
 
@@ -98,7 +98,7 @@ public class GoogleComputeResourcePolicyInstanceSchedulePolicyBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? ExpirationTime
     {
-        get => new TerraformReference<string>(this, "expiration_time");
+        get => GetArgument<TerraformValue<string>>("expiration_time");
         set => SetArgument("expiration_time", value);
     }
 
@@ -107,7 +107,7 @@ public class GoogleComputeResourcePolicyInstanceSchedulePolicyBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleComputeResourcePolicyInstanceSchedulePolicyBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
     public required TerraformValue<string> TimeZone
     {
-        get => new TerraformReference<string>(this, "time_zone");
+        get => GetArgument<TerraformValue<string>>("time_zone");
         set => SetArgument("time_zone", value);
     }
 
@@ -161,7 +161,7 @@ public class GoogleComputeResourcePolicyInstanceSchedulePolicyBlockVmStartSchedu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformValue<string> Schedule
     {
-        get => new TerraformReference<string>(this, "schedule");
+        get => GetArgument<TerraformValue<string>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -184,7 +184,7 @@ public class GoogleComputeResourcePolicyInstanceSchedulePolicyBlockVmStopSchedul
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     public required TerraformValue<string> Schedule
     {
-        get => new TerraformReference<string>(this, "schedule");
+        get => GetArgument<TerraformValue<string>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -254,7 +254,7 @@ public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlockRetentionPoli
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRetentionDays is required")]
     public required TerraformValue<double> MaxRetentionDays
     {
-        get => new TerraformReference<double>(this, "max_retention_days");
+        get => GetArgument<TerraformValue<double>>("max_retention_days");
         set => SetArgument("max_retention_days", value);
     }
 
@@ -264,7 +264,7 @@ public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlockRetentionPoli
     /// </summary>
     public TerraformValue<string>? OnSourceDiskDelete
     {
-        get => new TerraformReference<string>(this, "on_source_disk_delete");
+        get => GetArgument<TerraformValue<string>>("on_source_disk_delete");
         set => SetArgument("on_source_disk_delete", value);
     }
 
@@ -330,7 +330,7 @@ public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlockScheduleBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DaysInCycle is required")]
     public required TerraformValue<double> DaysInCycle
     {
-        get => new TerraformReference<double>(this, "days_in_cycle");
+        get => GetArgument<TerraformValue<double>>("days_in_cycle");
         set => SetArgument("days_in_cycle", value);
     }
 
@@ -342,7 +342,7 @@ public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlockScheduleBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformValue<string> StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -365,7 +365,7 @@ public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlockScheduleBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HoursInCycle is required")]
     public required TerraformValue<double> HoursInCycle
     {
-        get => new TerraformReference<double>(this, "hours_in_cycle");
+        get => GetArgument<TerraformValue<double>>("hours_in_cycle");
         set => SetArgument("hours_in_cycle", value);
     }
 
@@ -377,7 +377,7 @@ public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlockScheduleBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformValue<string> StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -426,7 +426,7 @@ public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlockScheduleBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<string> Day
     {
-        get => new TerraformReference<string>(this, "day");
+        get => GetArgument<TerraformValue<string>>("day");
         set => SetArgument("day", value);
     }
 
@@ -437,7 +437,7 @@ public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlockScheduleBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
     public required TerraformValue<string> StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -461,7 +461,7 @@ public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlockSnapshotPrope
     /// </summary>
     public TerraformValue<string>? ChainName
     {
-        get => new TerraformReference<string>(this, "chain_name");
+        get => GetArgument<TerraformValue<string>>("chain_name");
         set => SetArgument("chain_name", value);
     }
 
@@ -470,7 +470,7 @@ public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlockSnapshotPrope
     /// </summary>
     public TerraformValue<bool>? GuestFlush
     {
-        get => new TerraformReference<bool>(this, "guest_flush");
+        get => GetArgument<TerraformValue<bool>>("guest_flush");
         set => SetArgument("guest_flush", value);
     }
 
@@ -479,7 +479,7 @@ public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlockSnapshotPrope
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -489,7 +489,7 @@ public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlockSnapshotPrope
     /// </summary>
     public TerraformSet<string>? StorageLocations
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "storage_locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("storage_locations");
         set => SetArgument("storage_locations", value);
     }
 
@@ -512,7 +512,7 @@ public class GoogleComputeResourcePolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -521,7 +521,7 @@ public class GoogleComputeResourcePolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -530,7 +530,7 @@ public class GoogleComputeResourcePolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -554,7 +554,7 @@ public class GoogleComputeResourcePolicyWorkloadPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AcceleratorTopology
     {
-        get => new TerraformReference<string>(this, "accelerator_topology");
+        get => GetArgument<TerraformValue<string>>("accelerator_topology");
         set => SetArgument("accelerator_topology", value);
     }
 
@@ -564,7 +564,7 @@ public class GoogleComputeResourcePolicyWorkloadPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? MaxTopologyDistance
     {
-        get => new TerraformReference<string>(this, "max_topology_distance");
+        get => GetArgument<TerraformValue<string>>("max_topology_distance");
         set => SetArgument("max_topology_distance", value);
     }
 
@@ -574,7 +574,7 @@ public class GoogleComputeResourcePolicyWorkloadPolicyBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -592,16 +592,16 @@ public partial class GoogleComputeResourcePolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -617,25 +617,25 @@ public partial class GoogleComputeResourcePolicy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// Region where resource policy resides.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -643,9 +643,7 @@ public partial class GoogleComputeResourcePolicy(string name) : TerraformResourc
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// DiskConsistencyGroupPolicy block (nesting mode: list).

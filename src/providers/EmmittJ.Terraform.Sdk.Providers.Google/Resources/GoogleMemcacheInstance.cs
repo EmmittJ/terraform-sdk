@@ -19,9 +19,7 @@ public class GoogleMemcacheInstanceMaintenancePolicyBlock : TerraformBlock
     /// resolution and up to nine fractional digits
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Optional. Description of what this policy is for.
@@ -30,7 +28,7 @@ public class GoogleMemcacheInstanceMaintenancePolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -40,9 +38,7 @@ public class GoogleMemcacheInstanceMaintenancePolicyBlock : TerraformBlock
     /// resolution and up to nine fractional digits.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// WeeklyMaintenanceWindow block (nesting mode: list).
@@ -83,7 +79,7 @@ public class GoogleMemcacheInstanceMaintenancePolicyBlockWeeklyMaintenanceWindow
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
     public required TerraformValue<string> Day
     {
-        get => new TerraformReference<string>(this, "day");
+        get => GetArgument<TerraformValue<string>>("day");
         set => SetArgument("day", value);
     }
 
@@ -95,7 +91,7 @@ public class GoogleMemcacheInstanceMaintenancePolicyBlockWeeklyMaintenanceWindow
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
     public required TerraformValue<string> Duration
     {
-        get => new TerraformReference<string>(this, "duration");
+        get => GetArgument<TerraformValue<string>>("duration");
         set => SetArgument("duration", value);
     }
 
@@ -131,7 +127,7 @@ public class GoogleMemcacheInstanceMaintenancePolicyBlockWeeklyMaintenanceWindow
     /// </summary>
     public TerraformValue<double>? Hours
     {
-        get => new TerraformReference<double>(this, "hours");
+        get => GetArgument<TerraformValue<double>>("hours");
         set => SetArgument("hours", value);
     }
 
@@ -140,7 +136,7 @@ public class GoogleMemcacheInstanceMaintenancePolicyBlockWeeklyMaintenanceWindow
     /// </summary>
     public TerraformValue<double>? Minutes
     {
-        get => new TerraformReference<double>(this, "minutes");
+        get => GetArgument<TerraformValue<double>>("minutes");
         set => SetArgument("minutes", value);
     }
 
@@ -149,7 +145,7 @@ public class GoogleMemcacheInstanceMaintenancePolicyBlockWeeklyMaintenanceWindow
     /// </summary>
     public TerraformValue<double>? Nanos
     {
-        get => new TerraformReference<double>(this, "nanos");
+        get => GetArgument<TerraformValue<double>>("nanos");
         set => SetArgument("nanos", value);
     }
 
@@ -159,7 +155,7 @@ public class GoogleMemcacheInstanceMaintenancePolicyBlockWeeklyMaintenanceWindow
     /// </summary>
     public TerraformValue<double>? Seconds
     {
-        get => new TerraformReference<double>(this, "seconds");
+        get => GetArgument<TerraformValue<double>>("seconds");
         set => SetArgument("seconds", value);
     }
 
@@ -181,16 +177,14 @@ public class GoogleMemcacheInstanceMemcacheParametersBlock : TerraformBlock
     /// This is a unique ID associated with this set of parameters.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// User-defined set of parameters to use in the memcache process.
     /// </summary>
     public TerraformMap<string>? ParamsAttribute
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "params").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("params");
         set => SetArgument("params", value);
     }
 
@@ -214,7 +208,7 @@ public class GoogleMemcacheInstanceNodeConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CpuCount is required")]
     public required TerraformValue<double> CpuCount
     {
-        get => new TerraformReference<double>(this, "cpu_count");
+        get => GetArgument<TerraformValue<double>>("cpu_count");
         set => SetArgument("cpu_count", value);
     }
 
@@ -224,7 +218,7 @@ public class GoogleMemcacheInstanceNodeConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemorySizeMb is required")]
     public required TerraformValue<double> MemorySizeMb
     {
-        get => new TerraformReference<double>(this, "memory_size_mb");
+        get => GetArgument<TerraformValue<double>>("memory_size_mb");
         set => SetArgument("memory_size_mb", value);
     }
 
@@ -247,7 +241,7 @@ public class GoogleMemcacheInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -256,7 +250,7 @@ public class GoogleMemcacheInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -265,7 +259,7 @@ public class GoogleMemcacheInstanceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -282,9 +276,9 @@ public partial class GoogleMemcacheInstance(string name) : TerraformResource("go
     /// The full name of the GCE network to connect the instance to.  If not provided,
     /// &#39;default&#39; will be used.
     /// </summary>
-    public TerraformValue<string> AuthorizedNetwork
+    public TerraformValue<string>? AuthorizedNetwork
     {
-        get => new TerraformReference<string>(this, "authorized_network");
+        get => GetArgument<TerraformValue<string>>("authorized_network");
         set => SetArgument("authorized_network", value);
     }
 
@@ -298,25 +292,25 @@ public partial class GoogleMemcacheInstance(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<bool>? DeletionProtection
     {
-        get => new TerraformReference<bool>(this, "deletion_protection");
+        get => GetArgument<TerraformValue<bool>>("deletion_protection");
         set => SetArgument("deletion_protection", value);
     }
 
     /// <summary>
     /// A user-visible name for the instance.
     /// </summary>
-    public TerraformValue<string> DisplayName
+    public TerraformValue<string>? DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -329,7 +323,7 @@ public partial class GoogleMemcacheInstance(string name) : TerraformResource("go
     /// </summary>
     public TerraformMap<string>? Labels
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("labels");
         set => SetArgument("labels", value);
     }
 
@@ -340,7 +334,7 @@ public partial class GoogleMemcacheInstance(string name) : TerraformResource("go
     /// </summary>
     public TerraformValue<string>? MemcacheVersion
     {
-        get => new TerraformReference<string>(this, "memcache_version");
+        get => GetArgument<TerraformValue<string>>("memcache_version");
         set => SetArgument("memcache_version", value);
     }
 
@@ -350,7 +344,7 @@ public partial class GoogleMemcacheInstance(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -360,25 +354,25 @@ public partial class GoogleMemcacheInstance(string name) : TerraformResource("go
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeCount is required")]
     public required TerraformValue<double> NodeCount
     {
-        get => new TerraformReference<double>(this, "node_count");
+        get => GetArgument<TerraformValue<double>>("node_count");
         set => SetArgument("node_count", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
     /// <summary>
     /// The region of the Memcache instance. If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -389,7 +383,7 @@ public partial class GoogleMemcacheInstance(string name) : TerraformResource("go
     /// </summary>
     public TerraformList<string>? ReservedIpRangeId
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "reserved_ip_range_id").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("reserved_ip_range_id");
         set => SetArgument("reserved_ip_range_id", value);
     }
 
@@ -397,9 +391,9 @@ public partial class GoogleMemcacheInstance(string name) : TerraformResource("go
     /// Zones where memcache nodes should be provisioned.  If not
     /// provided, all zones will be used.
     /// </summary>
-    public TerraformSet<string> Zones
+    public TerraformSet<string>? Zones
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "zones").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("zones");
         set => SetArgument("zones", value);
     }
 
@@ -407,58 +401,44 @@ public partial class GoogleMemcacheInstance(string name) : TerraformResource("go
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Endpoint for Discovery API
     /// </summary>
     public TerraformValue<string> DiscoveryEndpoint
-    {
-        get => new TerraformReference<string>(this, "discovery_endpoint");
-    }
+        => AsReference("discovery_endpoint");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// Output only. Published maintenance schedule.
     /// </summary>
     public TerraformList<TerraformMap<object>> MaintenanceSchedule
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "maintenance_schedule").ResolveNodes(ctx));
-    }
+        => AsReference("maintenance_schedule");
 
     /// <summary>
     /// The full version of memcached server running on this instance.
     /// </summary>
     public TerraformValue<string> MemcacheFullVersion
-    {
-        get => new TerraformReference<string>(this, "memcache_full_version");
-    }
+        => AsReference("memcache_full_version");
 
     /// <summary>
     /// Additional information about the instance state, if available.
     /// </summary>
     public TerraformList<TerraformMap<object>> MemcacheNodes
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "memcache_nodes").ResolveNodes(ctx));
-    }
+        => AsReference("memcache_nodes");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
     /// <summary>
     /// MaintenancePolicy block (nesting mode: list).

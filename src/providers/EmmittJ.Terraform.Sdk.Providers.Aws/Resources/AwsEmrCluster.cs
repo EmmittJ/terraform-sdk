@@ -18,7 +18,7 @@ public class AwsEmrClusterAutoTerminationPolicyBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? IdleTimeout
     {
-        get => new TerraformReference<double>(this, "idle_timeout");
+        get => GetArgument<TerraformValue<double>>("idle_timeout");
         set => SetArgument("idle_timeout", value);
     }
 
@@ -41,7 +41,7 @@ public class AwsEmrClusterBootstrapActionBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Args
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "args").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("args");
         set => SetArgument("args", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsEmrClusterBootstrapActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -61,7 +61,7 @@ public class AwsEmrClusterBootstrapActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
     public required TerraformValue<string> Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -83,16 +83,14 @@ public class AwsEmrClusterCoreInstanceFleetBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -100,24 +98,20 @@ public class AwsEmrClusterCoreInstanceFleetBlock : TerraformBlock
     /// The provisioned_on_demand_capacity attribute.
     /// </summary>
     public TerraformValue<double> ProvisionedOnDemandCapacity
-    {
-        get => new TerraformReference<double>(this, "provisioned_on_demand_capacity");
-    }
+        => AsReference("provisioned_on_demand_capacity");
 
     /// <summary>
     /// The provisioned_spot_capacity attribute.
     /// </summary>
     public TerraformValue<double> ProvisionedSpotCapacity
-    {
-        get => new TerraformReference<double>(this, "provisioned_spot_capacity");
-    }
+        => AsReference("provisioned_spot_capacity");
 
     /// <summary>
     /// The target_on_demand_capacity attribute.
     /// </summary>
     public TerraformValue<double>? TargetOnDemandCapacity
     {
-        get => new TerraformReference<double>(this, "target_on_demand_capacity");
+        get => GetArgument<TerraformValue<double>>("target_on_demand_capacity");
         set => SetArgument("target_on_demand_capacity", value);
     }
 
@@ -126,7 +120,7 @@ public class AwsEmrClusterCoreInstanceFleetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? TargetSpotCapacity
     {
-        get => new TerraformReference<double>(this, "target_spot_capacity");
+        get => GetArgument<TerraformValue<double>>("target_spot_capacity");
         set => SetArgument("target_spot_capacity", value);
     }
 
@@ -167,7 +161,7 @@ public class AwsEmrClusterCoreInstanceFleetBlockInstanceTypeConfigsBlock : Terra
     /// </summary>
     public TerraformValue<string>? BidPrice
     {
-        get => new TerraformReference<string>(this, "bid_price");
+        get => GetArgument<TerraformValue<string>>("bid_price");
         set => SetArgument("bid_price", value);
     }
 
@@ -176,7 +170,7 @@ public class AwsEmrClusterCoreInstanceFleetBlockInstanceTypeConfigsBlock : Terra
     /// </summary>
     public TerraformValue<double>? BidPriceAsPercentageOfOnDemandPrice
     {
-        get => new TerraformReference<double>(this, "bid_price_as_percentage_of_on_demand_price");
+        get => GetArgument<TerraformValue<double>>("bid_price_as_percentage_of_on_demand_price");
         set => SetArgument("bid_price_as_percentage_of_on_demand_price", value);
     }
 
@@ -186,7 +180,7 @@ public class AwsEmrClusterCoreInstanceFleetBlockInstanceTypeConfigsBlock : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -195,7 +189,7 @@ public class AwsEmrClusterCoreInstanceFleetBlockInstanceTypeConfigsBlock : Terra
     /// </summary>
     public TerraformValue<double>? WeightedCapacity
     {
-        get => new TerraformReference<double>(this, "weighted_capacity");
+        get => GetArgument<TerraformValue<double>>("weighted_capacity");
         set => SetArgument("weighted_capacity", value);
     }
 
@@ -235,7 +229,7 @@ public class AwsEmrClusterCoreInstanceFleetBlockInstanceTypeConfigsBlockConfigur
     /// </summary>
     public TerraformValue<string>? Classification
     {
-        get => new TerraformReference<string>(this, "classification");
+        get => GetArgument<TerraformValue<string>>("classification");
         set => SetArgument("classification", value);
     }
 
@@ -244,7 +238,7 @@ public class AwsEmrClusterCoreInstanceFleetBlockInstanceTypeConfigsBlockConfigur
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -266,7 +260,7 @@ public class AwsEmrClusterCoreInstanceFleetBlockInstanceTypeConfigsBlockEbsConfi
     /// </summary>
     public TerraformValue<double>? Iops
     {
-        get => new TerraformReference<double>(this, "iops");
+        get => GetArgument<TerraformValue<double>>("iops");
         set => SetArgument("iops", value);
     }
 
@@ -276,7 +270,7 @@ public class AwsEmrClusterCoreInstanceFleetBlockInstanceTypeConfigsBlockEbsConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     public required TerraformValue<double> Size
     {
-        get => new TerraformReference<double>(this, "size");
+        get => GetArgument<TerraformValue<double>>("size");
         set => SetArgument("size", value);
     }
 
@@ -286,7 +280,7 @@ public class AwsEmrClusterCoreInstanceFleetBlockInstanceTypeConfigsBlockEbsConfi
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -295,7 +289,7 @@ public class AwsEmrClusterCoreInstanceFleetBlockInstanceTypeConfigsBlockEbsConfi
     /// </summary>
     public TerraformValue<double>? VolumesPerInstance
     {
-        get => new TerraformReference<double>(this, "volumes_per_instance");
+        get => GetArgument<TerraformValue<double>>("volumes_per_instance");
         set => SetArgument("volumes_per_instance", value);
     }
 
@@ -349,7 +343,7 @@ public class AwsEmrClusterCoreInstanceFleetBlockLaunchSpecificationsBlockOnDeman
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocationStrategy is required")]
     public required TerraformValue<string> AllocationStrategy
     {
-        get => new TerraformReference<string>(this, "allocation_strategy");
+        get => GetArgument<TerraformValue<string>>("allocation_strategy");
         set => SetArgument("allocation_strategy", value);
     }
 
@@ -372,7 +366,7 @@ public class AwsEmrClusterCoreInstanceFleetBlockLaunchSpecificationsBlockSpotSpe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocationStrategy is required")]
     public required TerraformValue<string> AllocationStrategy
     {
-        get => new TerraformReference<string>(this, "allocation_strategy");
+        get => GetArgument<TerraformValue<string>>("allocation_strategy");
         set => SetArgument("allocation_strategy", value);
     }
 
@@ -381,7 +375,7 @@ public class AwsEmrClusterCoreInstanceFleetBlockLaunchSpecificationsBlockSpotSpe
     /// </summary>
     public TerraformValue<double>? BlockDurationMinutes
     {
-        get => new TerraformReference<double>(this, "block_duration_minutes");
+        get => GetArgument<TerraformValue<double>>("block_duration_minutes");
         set => SetArgument("block_duration_minutes", value);
     }
 
@@ -391,7 +385,7 @@ public class AwsEmrClusterCoreInstanceFleetBlockLaunchSpecificationsBlockSpotSpe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeoutAction is required")]
     public required TerraformValue<string> TimeoutAction
     {
-        get => new TerraformReference<string>(this, "timeout_action");
+        get => GetArgument<TerraformValue<string>>("timeout_action");
         set => SetArgument("timeout_action", value);
     }
 
@@ -401,7 +395,7 @@ public class AwsEmrClusterCoreInstanceFleetBlockLaunchSpecificationsBlockSpotSpe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeoutDurationMinutes is required")]
     public required TerraformValue<double> TimeoutDurationMinutes
     {
-        get => new TerraformReference<double>(this, "timeout_duration_minutes");
+        get => GetArgument<TerraformValue<double>>("timeout_duration_minutes");
         set => SetArgument("timeout_duration_minutes", value);
     }
 
@@ -424,7 +418,7 @@ public class AwsEmrClusterCoreInstanceGroupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AutoscalingPolicy
     {
-        get => new TerraformReference<string>(this, "autoscaling_policy");
+        get => GetArgument<TerraformValue<string>>("autoscaling_policy");
         set => SetArgument("autoscaling_policy", value);
     }
 
@@ -433,7 +427,7 @@ public class AwsEmrClusterCoreInstanceGroupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BidPrice
     {
-        get => new TerraformReference<string>(this, "bid_price");
+        get => GetArgument<TerraformValue<string>>("bid_price");
         set => SetArgument("bid_price", value);
     }
 
@@ -441,16 +435,14 @@ public class AwsEmrClusterCoreInstanceGroupBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
     public TerraformValue<double>? InstanceCount
     {
-        get => new TerraformReference<double>(this, "instance_count");
+        get => GetArgument<TerraformValue<double>>("instance_count");
         set => SetArgument("instance_count", value);
     }
 
@@ -460,7 +452,7 @@ public class AwsEmrClusterCoreInstanceGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -469,7 +461,7 @@ public class AwsEmrClusterCoreInstanceGroupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -500,7 +492,7 @@ public class AwsEmrClusterCoreInstanceGroupBlockEbsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Iops
     {
-        get => new TerraformReference<double>(this, "iops");
+        get => GetArgument<TerraformValue<double>>("iops");
         set => SetArgument("iops", value);
     }
 
@@ -510,7 +502,7 @@ public class AwsEmrClusterCoreInstanceGroupBlockEbsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     public required TerraformValue<double> Size
     {
-        get => new TerraformReference<double>(this, "size");
+        get => GetArgument<TerraformValue<double>>("size");
         set => SetArgument("size", value);
     }
 
@@ -519,7 +511,7 @@ public class AwsEmrClusterCoreInstanceGroupBlockEbsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? Throughput
     {
-        get => new TerraformReference<double>(this, "throughput");
+        get => GetArgument<TerraformValue<double>>("throughput");
         set => SetArgument("throughput", value);
     }
 
@@ -529,7 +521,7 @@ public class AwsEmrClusterCoreInstanceGroupBlockEbsConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -538,7 +530,7 @@ public class AwsEmrClusterCoreInstanceGroupBlockEbsConfigBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? VolumesPerInstance
     {
-        get => new TerraformReference<double>(this, "volumes_per_instance");
+        get => GetArgument<TerraformValue<double>>("volumes_per_instance");
         set => SetArgument("volumes_per_instance", value);
     }
 
@@ -561,7 +553,7 @@ public class AwsEmrClusterEc2AttributesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AdditionalMasterSecurityGroups
     {
-        get => new TerraformReference<string>(this, "additional_master_security_groups");
+        get => GetArgument<TerraformValue<string>>("additional_master_security_groups");
         set => SetArgument("additional_master_security_groups", value);
     }
 
@@ -570,25 +562,25 @@ public class AwsEmrClusterEc2AttributesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AdditionalSlaveSecurityGroups
     {
-        get => new TerraformReference<string>(this, "additional_slave_security_groups");
+        get => GetArgument<TerraformValue<string>>("additional_slave_security_groups");
         set => SetArgument("additional_slave_security_groups", value);
     }
 
     /// <summary>
     /// The emr_managed_master_security_group attribute.
     /// </summary>
-    public TerraformValue<string> EmrManagedMasterSecurityGroup
+    public TerraformValue<string>? EmrManagedMasterSecurityGroup
     {
-        get => new TerraformReference<string>(this, "emr_managed_master_security_group");
+        get => GetArgument<TerraformValue<string>>("emr_managed_master_security_group");
         set => SetArgument("emr_managed_master_security_group", value);
     }
 
     /// <summary>
     /// The emr_managed_slave_security_group attribute.
     /// </summary>
-    public TerraformValue<string> EmrManagedSlaveSecurityGroup
+    public TerraformValue<string>? EmrManagedSlaveSecurityGroup
     {
-        get => new TerraformReference<string>(this, "emr_managed_slave_security_group");
+        get => GetArgument<TerraformValue<string>>("emr_managed_slave_security_group");
         set => SetArgument("emr_managed_slave_security_group", value);
     }
 
@@ -598,7 +590,7 @@ public class AwsEmrClusterEc2AttributesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceProfile is required")]
     public required TerraformValue<string> InstanceProfile
     {
-        get => new TerraformReference<string>(this, "instance_profile");
+        get => GetArgument<TerraformValue<string>>("instance_profile");
         set => SetArgument("instance_profile", value);
     }
 
@@ -607,34 +599,34 @@ public class AwsEmrClusterEc2AttributesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? KeyName
     {
-        get => new TerraformReference<string>(this, "key_name");
+        get => GetArgument<TerraformValue<string>>("key_name");
         set => SetArgument("key_name", value);
     }
 
     /// <summary>
     /// The service_access_security_group attribute.
     /// </summary>
-    public TerraformValue<string> ServiceAccessSecurityGroup
+    public TerraformValue<string>? ServiceAccessSecurityGroup
     {
-        get => new TerraformReference<string>(this, "service_access_security_group");
+        get => GetArgument<TerraformValue<string>>("service_access_security_group");
         set => SetArgument("service_access_security_group", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformValue<string> SubnetId
+    public TerraformValue<string>? SubnetId
     {
-        get => new TerraformReference<string>(this, "subnet_id");
+        get => GetArgument<TerraformValue<string>>("subnet_id");
         set => SetArgument("subnet_id", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformSet<string> SubnetIds
+    public TerraformSet<string>? SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -657,7 +649,7 @@ public class AwsEmrClusterKerberosAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AdDomainJoinPassword
     {
-        get => new TerraformReference<string>(this, "ad_domain_join_password");
+        get => GetArgument<TerraformValue<string>>("ad_domain_join_password");
         set => SetArgument("ad_domain_join_password", value);
     }
 
@@ -666,7 +658,7 @@ public class AwsEmrClusterKerberosAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AdDomainJoinUser
     {
-        get => new TerraformReference<string>(this, "ad_domain_join_user");
+        get => GetArgument<TerraformValue<string>>("ad_domain_join_user");
         set => SetArgument("ad_domain_join_user", value);
     }
 
@@ -675,7 +667,7 @@ public class AwsEmrClusterKerberosAttributesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? CrossRealmTrustPrincipalPassword
     {
-        get => new TerraformReference<string>(this, "cross_realm_trust_principal_password");
+        get => GetArgument<TerraformValue<string>>("cross_realm_trust_principal_password");
         set => SetArgument("cross_realm_trust_principal_password", value);
     }
 
@@ -685,7 +677,7 @@ public class AwsEmrClusterKerberosAttributesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KdcAdminPassword is required")]
     public required TerraformValue<string> KdcAdminPassword
     {
-        get => new TerraformReference<string>(this, "kdc_admin_password");
+        get => GetArgument<TerraformValue<string>>("kdc_admin_password");
         set => SetArgument("kdc_admin_password", value);
     }
 
@@ -695,7 +687,7 @@ public class AwsEmrClusterKerberosAttributesBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Realm is required")]
     public required TerraformValue<string> Realm
     {
-        get => new TerraformReference<string>(this, "realm");
+        get => GetArgument<TerraformValue<string>>("realm");
         set => SetArgument("realm", value);
     }
 
@@ -717,16 +709,14 @@ public class AwsEmrClusterMasterInstanceFleetBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -734,24 +724,20 @@ public class AwsEmrClusterMasterInstanceFleetBlock : TerraformBlock
     /// The provisioned_on_demand_capacity attribute.
     /// </summary>
     public TerraformValue<double> ProvisionedOnDemandCapacity
-    {
-        get => new TerraformReference<double>(this, "provisioned_on_demand_capacity");
-    }
+        => AsReference("provisioned_on_demand_capacity");
 
     /// <summary>
     /// The provisioned_spot_capacity attribute.
     /// </summary>
     public TerraformValue<double> ProvisionedSpotCapacity
-    {
-        get => new TerraformReference<double>(this, "provisioned_spot_capacity");
-    }
+        => AsReference("provisioned_spot_capacity");
 
     /// <summary>
     /// The target_on_demand_capacity attribute.
     /// </summary>
     public TerraformValue<double>? TargetOnDemandCapacity
     {
-        get => new TerraformReference<double>(this, "target_on_demand_capacity");
+        get => GetArgument<TerraformValue<double>>("target_on_demand_capacity");
         set => SetArgument("target_on_demand_capacity", value);
     }
 
@@ -760,7 +746,7 @@ public class AwsEmrClusterMasterInstanceFleetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? TargetSpotCapacity
     {
-        get => new TerraformReference<double>(this, "target_spot_capacity");
+        get => GetArgument<TerraformValue<double>>("target_spot_capacity");
         set => SetArgument("target_spot_capacity", value);
     }
 
@@ -801,7 +787,7 @@ public class AwsEmrClusterMasterInstanceFleetBlockInstanceTypeConfigsBlock : Ter
     /// </summary>
     public TerraformValue<string>? BidPrice
     {
-        get => new TerraformReference<string>(this, "bid_price");
+        get => GetArgument<TerraformValue<string>>("bid_price");
         set => SetArgument("bid_price", value);
     }
 
@@ -810,7 +796,7 @@ public class AwsEmrClusterMasterInstanceFleetBlockInstanceTypeConfigsBlock : Ter
     /// </summary>
     public TerraformValue<double>? BidPriceAsPercentageOfOnDemandPrice
     {
-        get => new TerraformReference<double>(this, "bid_price_as_percentage_of_on_demand_price");
+        get => GetArgument<TerraformValue<double>>("bid_price_as_percentage_of_on_demand_price");
         set => SetArgument("bid_price_as_percentage_of_on_demand_price", value);
     }
 
@@ -820,7 +806,7 @@ public class AwsEmrClusterMasterInstanceFleetBlockInstanceTypeConfigsBlock : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -829,7 +815,7 @@ public class AwsEmrClusterMasterInstanceFleetBlockInstanceTypeConfigsBlock : Ter
     /// </summary>
     public TerraformValue<double>? WeightedCapacity
     {
-        get => new TerraformReference<double>(this, "weighted_capacity");
+        get => GetArgument<TerraformValue<double>>("weighted_capacity");
         set => SetArgument("weighted_capacity", value);
     }
 
@@ -869,7 +855,7 @@ public class AwsEmrClusterMasterInstanceFleetBlockInstanceTypeConfigsBlockConfig
     /// </summary>
     public TerraformValue<string>? Classification
     {
-        get => new TerraformReference<string>(this, "classification");
+        get => GetArgument<TerraformValue<string>>("classification");
         set => SetArgument("classification", value);
     }
 
@@ -878,7 +864,7 @@ public class AwsEmrClusterMasterInstanceFleetBlockInstanceTypeConfigsBlockConfig
     /// </summary>
     public TerraformMap<string>? Properties
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "properties").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("properties");
         set => SetArgument("properties", value);
     }
 
@@ -900,7 +886,7 @@ public class AwsEmrClusterMasterInstanceFleetBlockInstanceTypeConfigsBlockEbsCon
     /// </summary>
     public TerraformValue<double>? Iops
     {
-        get => new TerraformReference<double>(this, "iops");
+        get => GetArgument<TerraformValue<double>>("iops");
         set => SetArgument("iops", value);
     }
 
@@ -910,7 +896,7 @@ public class AwsEmrClusterMasterInstanceFleetBlockInstanceTypeConfigsBlockEbsCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     public required TerraformValue<double> Size
     {
-        get => new TerraformReference<double>(this, "size");
+        get => GetArgument<TerraformValue<double>>("size");
         set => SetArgument("size", value);
     }
 
@@ -920,7 +906,7 @@ public class AwsEmrClusterMasterInstanceFleetBlockInstanceTypeConfigsBlockEbsCon
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -929,7 +915,7 @@ public class AwsEmrClusterMasterInstanceFleetBlockInstanceTypeConfigsBlockEbsCon
     /// </summary>
     public TerraformValue<double>? VolumesPerInstance
     {
-        get => new TerraformReference<double>(this, "volumes_per_instance");
+        get => GetArgument<TerraformValue<double>>("volumes_per_instance");
         set => SetArgument("volumes_per_instance", value);
     }
 
@@ -983,7 +969,7 @@ public class AwsEmrClusterMasterInstanceFleetBlockLaunchSpecificationsBlockOnDem
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocationStrategy is required")]
     public required TerraformValue<string> AllocationStrategy
     {
-        get => new TerraformReference<string>(this, "allocation_strategy");
+        get => GetArgument<TerraformValue<string>>("allocation_strategy");
         set => SetArgument("allocation_strategy", value);
     }
 
@@ -1006,7 +992,7 @@ public class AwsEmrClusterMasterInstanceFleetBlockLaunchSpecificationsBlockSpotS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocationStrategy is required")]
     public required TerraformValue<string> AllocationStrategy
     {
-        get => new TerraformReference<string>(this, "allocation_strategy");
+        get => GetArgument<TerraformValue<string>>("allocation_strategy");
         set => SetArgument("allocation_strategy", value);
     }
 
@@ -1015,7 +1001,7 @@ public class AwsEmrClusterMasterInstanceFleetBlockLaunchSpecificationsBlockSpotS
     /// </summary>
     public TerraformValue<double>? BlockDurationMinutes
     {
-        get => new TerraformReference<double>(this, "block_duration_minutes");
+        get => GetArgument<TerraformValue<double>>("block_duration_minutes");
         set => SetArgument("block_duration_minutes", value);
     }
 
@@ -1025,7 +1011,7 @@ public class AwsEmrClusterMasterInstanceFleetBlockLaunchSpecificationsBlockSpotS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeoutAction is required")]
     public required TerraformValue<string> TimeoutAction
     {
-        get => new TerraformReference<string>(this, "timeout_action");
+        get => GetArgument<TerraformValue<string>>("timeout_action");
         set => SetArgument("timeout_action", value);
     }
 
@@ -1035,7 +1021,7 @@ public class AwsEmrClusterMasterInstanceFleetBlockLaunchSpecificationsBlockSpotS
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeoutDurationMinutes is required")]
     public required TerraformValue<double> TimeoutDurationMinutes
     {
-        get => new TerraformReference<double>(this, "timeout_duration_minutes");
+        get => GetArgument<TerraformValue<double>>("timeout_duration_minutes");
         set => SetArgument("timeout_duration_minutes", value);
     }
 
@@ -1058,7 +1044,7 @@ public class AwsEmrClusterMasterInstanceGroupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? BidPrice
     {
-        get => new TerraformReference<string>(this, "bid_price");
+        get => GetArgument<TerraformValue<string>>("bid_price");
         set => SetArgument("bid_price", value);
     }
 
@@ -1066,16 +1052,14 @@ public class AwsEmrClusterMasterInstanceGroupBlock : TerraformBlock
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
     public TerraformValue<double>? InstanceCount
     {
-        get => new TerraformReference<double>(this, "instance_count");
+        get => GetArgument<TerraformValue<double>>("instance_count");
         set => SetArgument("instance_count", value);
     }
 
@@ -1085,7 +1069,7 @@ public class AwsEmrClusterMasterInstanceGroupBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
     public required TerraformValue<string> InstanceType
     {
-        get => new TerraformReference<string>(this, "instance_type");
+        get => GetArgument<TerraformValue<string>>("instance_type");
         set => SetArgument("instance_type", value);
     }
 
@@ -1094,7 +1078,7 @@ public class AwsEmrClusterMasterInstanceGroupBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1125,7 +1109,7 @@ public class AwsEmrClusterMasterInstanceGroupBlockEbsConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double>? Iops
     {
-        get => new TerraformReference<double>(this, "iops");
+        get => GetArgument<TerraformValue<double>>("iops");
         set => SetArgument("iops", value);
     }
 
@@ -1135,7 +1119,7 @@ public class AwsEmrClusterMasterInstanceGroupBlockEbsConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
     public required TerraformValue<double> Size
     {
-        get => new TerraformReference<double>(this, "size");
+        get => GetArgument<TerraformValue<double>>("size");
         set => SetArgument("size", value);
     }
 
@@ -1144,7 +1128,7 @@ public class AwsEmrClusterMasterInstanceGroupBlockEbsConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double>? Throughput
     {
-        get => new TerraformReference<double>(this, "throughput");
+        get => GetArgument<TerraformValue<double>>("throughput");
         set => SetArgument("throughput", value);
     }
 
@@ -1154,7 +1138,7 @@ public class AwsEmrClusterMasterInstanceGroupBlockEbsConfigBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -1163,7 +1147,7 @@ public class AwsEmrClusterMasterInstanceGroupBlockEbsConfigBlock : TerraformBloc
     /// </summary>
     public TerraformValue<double>? VolumesPerInstance
     {
-        get => new TerraformReference<double>(this, "volumes_per_instance");
+        get => GetArgument<TerraformValue<double>>("volumes_per_instance");
         set => SetArgument("volumes_per_instance", value);
     }
 
@@ -1181,7 +1165,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformValue<string>? AdditionalInfo
     {
-        get => new TerraformReference<string>(this, "additional_info");
+        get => GetArgument<TerraformValue<string>>("additional_info");
         set => SetArgument("additional_info", value);
     }
 
@@ -1190,7 +1174,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformSet<string>? Applications
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "applications").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("applications");
         set => SetArgument("applications", value);
     }
 
@@ -1199,7 +1183,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformValue<string>? AutoscalingRole
     {
-        get => new TerraformReference<string>(this, "autoscaling_role");
+        get => GetArgument<TerraformValue<string>>("autoscaling_role");
         set => SetArgument("autoscaling_role", value);
     }
 
@@ -1208,7 +1192,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformValue<string>? Configurations
     {
-        get => new TerraformReference<string>(this, "configurations");
+        get => GetArgument<TerraformValue<string>>("configurations");
         set => SetArgument("configurations", value);
     }
 
@@ -1217,7 +1201,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformValue<string>? ConfigurationsJson
     {
-        get => new TerraformReference<string>(this, "configurations_json");
+        get => GetArgument<TerraformValue<string>>("configurations_json");
         set => SetArgument("configurations_json", value);
     }
 
@@ -1226,7 +1210,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformValue<string>? CustomAmiId
     {
-        get => new TerraformReference<string>(this, "custom_ami_id");
+        get => GetArgument<TerraformValue<string>>("custom_ami_id");
         set => SetArgument("custom_ami_id", value);
     }
 
@@ -1235,25 +1219,25 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformValue<double>? EbsRootVolumeSize
     {
-        get => new TerraformReference<double>(this, "ebs_root_volume_size");
+        get => GetArgument<TerraformValue<double>>("ebs_root_volume_size");
         set => SetArgument("ebs_root_volume_size", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The keep_job_flow_alive_when_no_steps attribute.
     /// </summary>
-    public TerraformValue<bool> KeepJobFlowAliveWhenNoSteps
+    public TerraformValue<bool>? KeepJobFlowAliveWhenNoSteps
     {
-        get => new TerraformReference<bool>(this, "keep_job_flow_alive_when_no_steps");
+        get => GetArgument<TerraformValue<bool>>("keep_job_flow_alive_when_no_steps");
         set => SetArgument("keep_job_flow_alive_when_no_steps", value);
     }
 
@@ -1262,7 +1246,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformSet<string>? ListStepsStates
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "list_steps_states").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("list_steps_states");
         set => SetArgument("list_steps_states", value);
     }
 
@@ -1271,7 +1255,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformValue<string>? LogEncryptionKmsKeyId
     {
-        get => new TerraformReference<string>(this, "log_encryption_kms_key_id");
+        get => GetArgument<TerraformValue<string>>("log_encryption_kms_key_id");
         set => SetArgument("log_encryption_kms_key_id", value);
     }
 
@@ -1280,7 +1264,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformValue<string>? LogUri
     {
-        get => new TerraformReference<string>(this, "log_uri");
+        get => GetArgument<TerraformValue<string>>("log_uri");
         set => SetArgument("log_uri", value);
     }
 
@@ -1290,7 +1274,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -1299,7 +1283,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformValue<string>? OsReleaseLabel
     {
-        get => new TerraformReference<string>(this, "os_release_label");
+        get => GetArgument<TerraformValue<string>>("os_release_label");
         set => SetArgument("os_release_label", value);
     }
 
@@ -1308,16 +1292,16 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformList<TerraformMap<object>>? PlacementGroupConfig
     {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "placement_group_config").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<TerraformMap<object>>>("placement_group_config");
         set => SetArgument("placement_group_config", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -1327,16 +1311,16 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseLabel is required")]
     public required TerraformValue<string> ReleaseLabel
     {
-        get => new TerraformReference<string>(this, "release_label");
+        get => GetArgument<TerraformValue<string>>("release_label");
         set => SetArgument("release_label", value);
     }
 
     /// <summary>
     /// The scale_down_behavior attribute.
     /// </summary>
-    public TerraformValue<string> ScaleDownBehavior
+    public TerraformValue<string>? ScaleDownBehavior
     {
-        get => new TerraformReference<string>(this, "scale_down_behavior");
+        get => GetArgument<TerraformValue<string>>("scale_down_behavior");
         set => SetArgument("scale_down_behavior", value);
     }
 
@@ -1345,7 +1329,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformValue<string>? SecurityConfiguration
     {
-        get => new TerraformReference<string>(this, "security_configuration");
+        get => GetArgument<TerraformValue<string>>("security_configuration");
         set => SetArgument("security_configuration", value);
     }
 
@@ -1355,16 +1339,16 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRole is required")]
     public required TerraformValue<string> ServiceRole
     {
-        get => new TerraformReference<string>(this, "service_role");
+        get => GetArgument<TerraformValue<string>>("service_role");
         set => SetArgument("service_role", value);
     }
 
     /// <summary>
     /// The step attribute.
     /// </summary>
-    public TerraformList<TerraformMap<object>> Step
+    public TerraformList<TerraformMap<object>>? Step
     {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "step").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<TerraformMap<object>>>("step");
         set => SetArgument("step", value);
     }
 
@@ -1373,7 +1357,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformValue<double>? StepConcurrencyLevel
     {
-        get => new TerraformReference<double>(this, "step_concurrency_level");
+        get => GetArgument<TerraformValue<double>>("step_concurrency_level");
         set => SetArgument("step_concurrency_level", value);
     }
 
@@ -1382,25 +1366,25 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The termination_protection attribute.
     /// </summary>
-    public TerraformValue<bool> TerminationProtection
+    public TerraformValue<bool>? TerminationProtection
     {
-        get => new TerraformReference<bool>(this, "termination_protection");
+        get => GetArgument<TerraformValue<bool>>("termination_protection");
         set => SetArgument("termination_protection", value);
     }
 
@@ -1409,7 +1393,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformValue<bool>? UnhealthyNodeReplacement
     {
-        get => new TerraformReference<bool>(this, "unhealthy_node_replacement");
+        get => GetArgument<TerraformValue<bool>>("unhealthy_node_replacement");
         set => SetArgument("unhealthy_node_replacement", value);
     }
 
@@ -1418,7 +1402,7 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// </summary>
     public TerraformValue<bool>? VisibleToAllUsers
     {
-        get => new TerraformReference<bool>(this, "visible_to_all_users");
+        get => GetArgument<TerraformValue<bool>>("visible_to_all_users");
         set => SetArgument("visible_to_all_users", value);
     }
 
@@ -1426,25 +1410,19 @@ public partial class AwsEmrCluster(string name) : TerraformResource("aws_emr_clu
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The cluster_state attribute.
     /// </summary>
     public TerraformValue<string> ClusterState
-    {
-        get => new TerraformReference<string>(this, "cluster_state");
-    }
+        => AsReference("cluster_state");
 
     /// <summary>
     /// The master_public_dns attribute.
     /// </summary>
     public TerraformValue<string> MasterPublicDns
-    {
-        get => new TerraformReference<string>(this, "master_public_dns");
-    }
+        => AsReference("master_public_dns");
 
     /// <summary>
     /// AutoTerminationPolicy block (nesting mode: list).

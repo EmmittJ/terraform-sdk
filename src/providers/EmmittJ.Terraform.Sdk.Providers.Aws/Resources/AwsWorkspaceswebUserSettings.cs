@@ -50,7 +50,7 @@ public class AwsWorkspaceswebUserSettingsCookieSynchronizationConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => new TerraformReference<string>(this, "domain");
+        get => GetArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
@@ -59,7 +59,7 @@ public class AwsWorkspaceswebUserSettingsCookieSynchronizationConfigurationBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -68,7 +68,7 @@ public class AwsWorkspaceswebUserSettingsCookieSynchronizationConfigurationBlock
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -91,7 +91,7 @@ public class AwsWorkspaceswebUserSettingsCookieSynchronizationConfigurationBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
     public required TerraformValue<string> Domain
     {
-        get => new TerraformReference<string>(this, "domain");
+        get => GetArgument<TerraformValue<string>>("domain");
         set => SetArgument("domain", value);
     }
 
@@ -100,7 +100,7 @@ public class AwsWorkspaceswebUserSettingsCookieSynchronizationConfigurationBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -109,7 +109,7 @@ public class AwsWorkspaceswebUserSettingsCookieSynchronizationConfigurationBlock
     /// </summary>
     public TerraformValue<string>? Path
     {
-        get => new TerraformReference<string>(this, "path");
+        get => GetArgument<TerraformValue<string>>("path");
         set => SetArgument("path", value);
     }
 
@@ -132,7 +132,7 @@ public class AwsWorkspaceswebUserSettingsToolbarConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformList<string>? HiddenToolbarItems
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "hidden_toolbar_items").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("hidden_toolbar_items");
         set => SetArgument("hidden_toolbar_items", value);
     }
 
@@ -141,7 +141,7 @@ public class AwsWorkspaceswebUserSettingsToolbarConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? MaxDisplayResolution
     {
-        get => new TerraformReference<string>(this, "max_display_resolution");
+        get => GetArgument<TerraformValue<string>>("max_display_resolution");
         set => SetArgument("max_display_resolution", value);
     }
 
@@ -150,7 +150,7 @@ public class AwsWorkspaceswebUserSettingsToolbarConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? ToolbarType
     {
-        get => new TerraformReference<string>(this, "toolbar_type");
+        get => GetArgument<TerraformValue<string>>("toolbar_type");
         set => SetArgument("toolbar_type", value);
     }
 
@@ -159,7 +159,7 @@ public class AwsWorkspaceswebUserSettingsToolbarConfigurationBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? VisualMode
     {
-        get => new TerraformReference<string>(this, "visual_mode");
+        get => GetArgument<TerraformValue<string>>("visual_mode");
         set => SetArgument("visual_mode", value);
     }
 
@@ -177,7 +177,7 @@ public partial class AwsWorkspaceswebUserSettings(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? AdditionalEncryptionContext
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "additional_encryption_context").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("additional_encryption_context");
         set => SetArgument("additional_encryption_context", value);
     }
 
@@ -187,7 +187,7 @@ public partial class AwsWorkspaceswebUserSettings(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CopyAllowed is required")]
     public required TerraformValue<string> CopyAllowed
     {
-        get => new TerraformReference<string>(this, "copy_allowed");
+        get => GetArgument<TerraformValue<string>>("copy_allowed");
         set => SetArgument("copy_allowed", value);
     }
 
@@ -196,16 +196,16 @@ public partial class AwsWorkspaceswebUserSettings(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? CustomerManagedKey
     {
-        get => new TerraformReference<string>(this, "customer_managed_key");
+        get => GetArgument<TerraformValue<string>>("customer_managed_key");
         set => SetArgument("customer_managed_key", value);
     }
 
     /// <summary>
     /// The deep_link_allowed attribute.
     /// </summary>
-    public TerraformValue<string> DeepLinkAllowed
+    public TerraformValue<string>? DeepLinkAllowed
     {
-        get => new TerraformReference<string>(this, "deep_link_allowed");
+        get => GetArgument<TerraformValue<string>>("deep_link_allowed");
         set => SetArgument("deep_link_allowed", value);
     }
 
@@ -214,7 +214,7 @@ public partial class AwsWorkspaceswebUserSettings(string name) : TerraformResour
     /// </summary>
     public TerraformValue<double>? DisconnectTimeoutInMinutes
     {
-        get => new TerraformReference<double>(this, "disconnect_timeout_in_minutes");
+        get => GetArgument<TerraformValue<double>>("disconnect_timeout_in_minutes");
         set => SetArgument("disconnect_timeout_in_minutes", value);
     }
 
@@ -224,7 +224,7 @@ public partial class AwsWorkspaceswebUserSettings(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DownloadAllowed is required")]
     public required TerraformValue<string> DownloadAllowed
     {
-        get => new TerraformReference<string>(this, "download_allowed");
+        get => GetArgument<TerraformValue<string>>("download_allowed");
         set => SetArgument("download_allowed", value);
     }
 
@@ -233,7 +233,7 @@ public partial class AwsWorkspaceswebUserSettings(string name) : TerraformResour
     /// </summary>
     public TerraformValue<double>? IdleDisconnectTimeoutInMinutes
     {
-        get => new TerraformReference<double>(this, "idle_disconnect_timeout_in_minutes");
+        get => GetArgument<TerraformValue<double>>("idle_disconnect_timeout_in_minutes");
         set => SetArgument("idle_disconnect_timeout_in_minutes", value);
     }
 
@@ -243,7 +243,7 @@ public partial class AwsWorkspaceswebUserSettings(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PasteAllowed is required")]
     public required TerraformValue<string> PasteAllowed
     {
-        get => new TerraformReference<string>(this, "paste_allowed");
+        get => GetArgument<TerraformValue<string>>("paste_allowed");
         set => SetArgument("paste_allowed", value);
     }
 
@@ -253,16 +253,16 @@ public partial class AwsWorkspaceswebUserSettings(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrintAllowed is required")]
     public required TerraformValue<string> PrintAllowed
     {
-        get => new TerraformReference<string>(this, "print_allowed");
+        get => GetArgument<TerraformValue<string>>("print_allowed");
         set => SetArgument("print_allowed", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -271,7 +271,7 @@ public partial class AwsWorkspaceswebUserSettings(string name) : TerraformResour
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -281,7 +281,7 @@ public partial class AwsWorkspaceswebUserSettings(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UploadAllowed is required")]
     public required TerraformValue<string> UploadAllowed
     {
-        get => new TerraformReference<string>(this, "upload_allowed");
+        get => GetArgument<TerraformValue<string>>("upload_allowed");
         set => SetArgument("upload_allowed", value);
     }
 
@@ -289,25 +289,19 @@ public partial class AwsWorkspaceswebUserSettings(string name) : TerraformResour
     /// The associated_portal_arns attribute.
     /// </summary>
     public TerraformList<string> AssociatedPortalArns
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "associated_portal_arns").ResolveNodes(ctx));
-    }
+        => AsReference("associated_portal_arns");
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
     public TerraformMap<string> TagsAll
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
-    }
+        => AsReference("tags_all");
 
     /// <summary>
     /// The user_settings_arn attribute.
     /// </summary>
     public TerraformValue<string> UserSettingsArn
-    {
-        get => new TerraformReference<string>(this, "user_settings_arn");
-    }
+        => AsReference("user_settings_arn");
 
     /// <summary>
     /// CookieSynchronizationConfiguration block (nesting mode: list).

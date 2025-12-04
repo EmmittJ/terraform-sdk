@@ -18,7 +18,7 @@ public class AzurermMssqlManagedInstanceActiveDirectoryAdministratorTimeoutsBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermMssqlManagedInstanceActiveDirectoryAdministratorTimeoutsBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermMssqlManagedInstanceActiveDirectoryAdministratorTimeoutsBloc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermMssqlManagedInstanceActiveDirectoryAdministratorTimeoutsBloc
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,16 +63,16 @@ public partial class AzurermMssqlManagedInstanceActiveDirectoryAdministrator(str
     /// </summary>
     public TerraformValue<bool>? AzureadAuthenticationOnly
     {
-        get => new TerraformReference<bool>(this, "azuread_authentication_only");
+        get => GetArgument<TerraformValue<bool>>("azuread_authentication_only");
         set => SetArgument("azuread_authentication_only", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -82,7 +82,7 @@ public partial class AzurermMssqlManagedInstanceActiveDirectoryAdministrator(str
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginUsername is required")]
     public required TerraformValue<string> LoginUsername
     {
-        get => new TerraformReference<string>(this, "login_username");
+        get => GetArgument<TerraformValue<string>>("login_username");
         set => SetArgument("login_username", value);
     }
 
@@ -92,7 +92,7 @@ public partial class AzurermMssqlManagedInstanceActiveDirectoryAdministrator(str
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedInstanceId is required")]
     public required TerraformValue<string> ManagedInstanceId
     {
-        get => new TerraformReference<string>(this, "managed_instance_id");
+        get => GetArgument<TerraformValue<string>>("managed_instance_id");
         set => SetArgument("managed_instance_id", value);
     }
 
@@ -102,7 +102,7 @@ public partial class AzurermMssqlManagedInstanceActiveDirectoryAdministrator(str
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformValue<string> ObjectId
     {
-        get => new TerraformReference<string>(this, "object_id");
+        get => GetArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -112,7 +112,7 @@ public partial class AzurermMssqlManagedInstanceActiveDirectoryAdministrator(str
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 

@@ -18,7 +18,7 @@ public class AzurermDynatraceMonitorDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermDynatraceMonitorDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermDynatraceMonitorDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermDynatraceMonitorDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,65 +64,49 @@ public partial class AzurermDynatraceMonitorDataSource(string name) : TerraformD
     /// The environment_properties attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> EnvironmentProperties
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "environment_properties").ResolveNodes(ctx));
-    }
+        => AsReference("environment_properties");
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Identity
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "identity").ResolveNodes(ctx));
-    }
+        => AsReference("identity");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The marketplace_subscription attribute.
     /// </summary>
     public TerraformValue<string> MarketplaceSubscription
-    {
-        get => new TerraformReference<string>(this, "marketplace_subscription");
-    }
+        => AsReference("marketplace_subscription");
 
     /// <summary>
     /// The monitoring_enabled attribute.
     /// </summary>
     public TerraformValue<bool> MonitoringEnabled
-    {
-        get => new TerraformReference<bool>(this, "monitoring_enabled");
-    }
+        => AsReference("monitoring_enabled");
 
     /// <summary>
     /// The plan attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Plan
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "plan").ResolveNodes(ctx));
-    }
+        => AsReference("plan");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The user attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> User
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "user").ResolveNodes(ctx));
-    }
+        => AsReference("user");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

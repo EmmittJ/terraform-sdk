@@ -11,9 +11,9 @@ public partial class GoogleArtifactRegistryDockerImageDataSource(string name) : 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class GoogleArtifactRegistryDockerImageDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
     public required TerraformValue<string> ImageName
     {
-        get => new TerraformReference<string>(this, "image_name");
+        get => GetArgument<TerraformValue<string>>("image_name");
         set => SetArgument("image_name", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleArtifactRegistryDockerImageDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -42,7 +42,7 @@ public partial class GoogleArtifactRegistryDockerImageDataSource(string name) : 
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -52,7 +52,7 @@ public partial class GoogleArtifactRegistryDockerImageDataSource(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
     public required TerraformValue<string> RepositoryId
     {
-        get => new TerraformReference<string>(this, "repository_id");
+        get => GetArgument<TerraformValue<string>>("repository_id");
         set => SetArgument("repository_id", value);
     }
 
@@ -60,64 +60,48 @@ public partial class GoogleArtifactRegistryDockerImageDataSource(string name) : 
     /// The time, as a RFC 3339 string, this image was built.
     /// </summary>
     public TerraformValue<string> BuildTime
-    {
-        get => new TerraformReference<string>(this, "build_time");
-    }
+        => AsReference("build_time");
 
     /// <summary>
     /// Calculated size of the image in bytes.
     /// </summary>
     public TerraformValue<string> ImageSizeBytes
-    {
-        get => new TerraformReference<string>(this, "image_size_bytes");
-    }
+        => AsReference("image_size_bytes");
 
     /// <summary>
     /// Media type of this image.
     /// </summary>
     public TerraformValue<string> MediaType
-    {
-        get => new TerraformReference<string>(this, "media_type");
-    }
+        => AsReference("media_type");
 
     /// <summary>
     /// The fully qualified name of the fetched image.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The URI to access the image.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// All tags associated with the image.
     /// </summary>
     public TerraformList<string> Tags
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// The time, as a RFC 3339 string, this image was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// The time, as a RFC 3339 string, the image was uploaded.
     /// </summary>
     public TerraformValue<string> UploadTime
-    {
-        get => new TerraformReference<string>(this, "upload_time");
-    }
+        => AsReference("upload_time");
 
 }

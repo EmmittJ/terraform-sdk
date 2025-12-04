@@ -18,7 +18,7 @@ public class GoogleSccV2ProjectSccBigQueryExportTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleSccV2ProjectSccBigQueryExportTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleSccV2ProjectSccBigQueryExportTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleSccV2ProjectSccBigQueryExport(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BigQueryExportId is required")]
     public required TerraformValue<string> BigQueryExportId
     {
-        get => new TerraformReference<string>(this, "big_query_export_id");
+        get => GetArgument<TerraformValue<string>>("big_query_export_id");
         set => SetArgument("big_query_export_id", value);
     }
 
@@ -66,7 +66,7 @@ public partial class GoogleSccV2ProjectSccBigQueryExport(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Dataset
     {
-        get => new TerraformReference<string>(this, "dataset");
+        get => GetArgument<TerraformValue<string>>("dataset");
         set => SetArgument("dataset", value);
     }
 
@@ -75,7 +75,7 @@ public partial class GoogleSccV2ProjectSccBigQueryExport(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -108,16 +108,16 @@ public partial class GoogleSccV2ProjectSccBigQueryExport(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Filter
     {
-        get => new TerraformReference<string>(this, "filter");
+        get => GetArgument<TerraformValue<string>>("filter");
         set => SetArgument("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -126,16 +126,16 @@ public partial class GoogleSccV2ProjectSccBigQueryExport(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -145,18 +145,14 @@ public partial class GoogleSccV2ProjectSccBigQueryExport(string name) : Terrafor
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Email address of the user who last edited the BigQuery export.
     /// This field is set by the server and will be ignored if provided on export creation or update.
     /// </summary>
     public TerraformValue<string> MostRecentEditor
-    {
-        get => new TerraformReference<string>(this, "most_recent_editor");
-    }
+        => AsReference("most_recent_editor");
 
     /// <summary>
     /// The resource name of this export, in the format
@@ -164,17 +160,13 @@ public partial class GoogleSccV2ProjectSccBigQueryExport(string name) : Terrafor
     /// This field is provided in responses, and is ignored when provided in create requests.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// The service account that needs permission to create table and upload data to the BigQuery dataset.
     /// </summary>
     public TerraformValue<string> Principal
-    {
-        get => new TerraformReference<string>(this, "principal");
-    }
+        => AsReference("principal");
 
     /// <summary>
     /// The most recent time at which the BigQuery export was updated. This field is set by the server and will be ignored if provided on export creation or update.
@@ -182,9 +174,7 @@ public partial class GoogleSccV2ProjectSccBigQueryExport(string name) : Terrafor
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

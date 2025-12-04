@@ -19,7 +19,7 @@ public class AwsDatasyncLocationHdfsNameNodeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hostname is required")]
     public required TerraformValue<string> Hostname
     {
-        get => new TerraformReference<string>(this, "hostname");
+        get => GetArgument<TerraformValue<string>>("hostname");
         set => SetArgument("hostname", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsDatasyncLocationHdfsNameNodeBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
     public required TerraformValue<double> Port
     {
-        get => new TerraformReference<double>(this, "port");
+        get => GetArgument<TerraformValue<double>>("port");
         set => SetArgument("port", value);
     }
 
@@ -50,18 +50,18 @@ public class AwsDatasyncLocationHdfsQopConfigurationBlock : TerraformBlock
     /// <summary>
     /// The data_transfer_protection attribute.
     /// </summary>
-    public TerraformValue<string> DataTransferProtection
+    public TerraformValue<string>? DataTransferProtection
     {
-        get => new TerraformReference<string>(this, "data_transfer_protection");
+        get => GetArgument<TerraformValue<string>>("data_transfer_protection");
         set => SetArgument("data_transfer_protection", value);
     }
 
     /// <summary>
     /// The rpc_protection attribute.
     /// </summary>
-    public TerraformValue<string> RpcProtection
+    public TerraformValue<string>? RpcProtection
     {
-        get => new TerraformReference<string>(this, "rpc_protection");
+        get => GetArgument<TerraformValue<string>>("rpc_protection");
         set => SetArgument("rpc_protection", value);
     }
 
@@ -80,7 +80,7 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentArns is required")]
     public required TerraformSet<string> AgentArns
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "agent_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("agent_arns");
         set => SetArgument("agent_arns", value);
     }
 
@@ -89,7 +89,7 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? AuthenticationType
     {
-        get => new TerraformReference<string>(this, "authentication_type");
+        get => GetArgument<TerraformValue<string>>("authentication_type");
         set => SetArgument("authentication_type", value);
     }
 
@@ -98,16 +98,16 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<double>? BlockSize
     {
-        get => new TerraformReference<double>(this, "block_size");
+        get => GetArgument<TerraformValue<double>>("block_size");
         set => SetArgument("block_size", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -116,7 +116,7 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? KerberosKeytab
     {
-        get => new TerraformReference<string>(this, "kerberos_keytab");
+        get => GetArgument<TerraformValue<string>>("kerberos_keytab");
         set => SetArgument("kerberos_keytab", value);
     }
 
@@ -125,7 +125,7 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? KerberosKeytabBase64
     {
-        get => new TerraformReference<string>(this, "kerberos_keytab_base64");
+        get => GetArgument<TerraformValue<string>>("kerberos_keytab_base64");
         set => SetArgument("kerberos_keytab_base64", value);
     }
 
@@ -134,7 +134,7 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? KerberosKrb5Conf
     {
-        get => new TerraformReference<string>(this, "kerberos_krb5_conf");
+        get => GetArgument<TerraformValue<string>>("kerberos_krb5_conf");
         set => SetArgument("kerberos_krb5_conf", value);
     }
 
@@ -143,7 +143,7 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? KerberosKrb5ConfBase64
     {
-        get => new TerraformReference<string>(this, "kerberos_krb5_conf_base64");
+        get => GetArgument<TerraformValue<string>>("kerberos_krb5_conf_base64");
         set => SetArgument("kerberos_krb5_conf_base64", value);
     }
 
@@ -152,7 +152,7 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? KerberosPrincipal
     {
-        get => new TerraformReference<string>(this, "kerberos_principal");
+        get => GetArgument<TerraformValue<string>>("kerberos_principal");
         set => SetArgument("kerberos_principal", value);
     }
 
@@ -161,16 +161,16 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? KmsKeyProviderUri
     {
-        get => new TerraformReference<string>(this, "kms_key_provider_uri");
+        get => GetArgument<TerraformValue<string>>("kms_key_provider_uri");
         set => SetArgument("kms_key_provider_uri", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -179,7 +179,7 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<double>? ReplicationFactor
     {
-        get => new TerraformReference<double>(this, "replication_factor");
+        get => GetArgument<TerraformValue<double>>("replication_factor");
         set => SetArgument("replication_factor", value);
     }
 
@@ -188,7 +188,7 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? SimpleUser
     {
-        get => new TerraformReference<string>(this, "simple_user");
+        get => GetArgument<TerraformValue<string>>("simple_user");
         set => SetArgument("simple_user", value);
     }
 
@@ -197,7 +197,7 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     /// </summary>
     public TerraformValue<string>? Subdirectory
     {
-        get => new TerraformReference<string>(this, "subdirectory");
+        get => GetArgument<TerraformValue<string>>("subdirectory");
         set => SetArgument("subdirectory", value);
     }
 
@@ -206,16 +206,16 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -223,17 +223,13 @@ public partial class AwsDatasyncLocationHdfs(string name) : TerraformResource("a
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     public TerraformValue<string> Uri
-    {
-        get => new TerraformReference<string>(this, "uri");
-    }
+        => AsReference("uri");
 
     /// <summary>
     /// NameNode block (nesting mode: set).

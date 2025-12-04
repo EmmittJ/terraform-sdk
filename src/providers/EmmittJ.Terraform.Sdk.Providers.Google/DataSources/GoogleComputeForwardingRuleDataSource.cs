@@ -11,9 +11,9 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -35,7 +35,7 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -44,7 +44,7 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     /// </summary>
     public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -77,9 +77,7 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     /// true.
     /// </summary>
     public TerraformValue<bool> AllPorts
-    {
-        get => new TerraformReference<bool>(this, "all_ports");
-    }
+        => AsReference("all_ports");
 
     /// <summary>
     /// This field is used along with the &#39;backend_service&#39; field for
@@ -93,17 +91,13 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     /// internal load balancer.
     /// </summary>
     public TerraformValue<bool> AllowGlobalAccess
-    {
-        get => new TerraformReference<bool>(this, "allow_global_access");
-    }
+        => AsReference("allow_global_access");
 
     /// <summary>
     /// This is used in PSC consumer ForwardingRule to control whether the PSC endpoint can be accessed from another region.
     /// </summary>
     public TerraformValue<bool> AllowPscGlobalAccess
-    {
-        get => new TerraformReference<bool>(this, "allow_psc_global_access");
-    }
+        => AsReference("allow_psc_global_access");
 
     /// <summary>
     /// Identifies the backend service to which the forwarding rule sends traffic.
@@ -112,50 +106,38 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     /// must be omitted for all other load balancer types.
     /// </summary>
     public TerraformValue<string> BackendService
-    {
-        get => new TerraformReference<string>(this, "backend_service");
-    }
+        => AsReference("backend_service");
 
     /// <summary>
     /// [Output Only] The URL for the corresponding base Forwarding Rule. By base Forwarding Rule, we mean the Forwarding Rule that has the same IP address, protocol, and port settings with the current Forwarding Rule, but without sourceIPRanges specified. Always empty if the current Forwarding Rule does not have sourceIPRanges specified.
     /// </summary>
     public TerraformValue<string> BaseForwardingRule
-    {
-        get => new TerraformReference<string>(this, "base_forwarding_rule");
-    }
+        => AsReference("base_forwarding_rule");
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
     public TerraformValue<string> CreationTimestamp
-    {
-        get => new TerraformReference<string>(this, "creation_timestamp");
-    }
+        => AsReference("creation_timestamp");
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
     public TerraformMap<string> EffectiveLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
-    }
+        => AsReference("effective_labels");
 
     /// <summary>
     /// The unique identifier number for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<double> ForwardingRuleId
-    {
-        get => new TerraformReference<double>(this, "forwarding_rule_id");
-    }
+        => AsReference("forwarding_rule_id");
 
     /// <summary>
     /// IP address for which this forwarding rule accepts traffic. When a client
@@ -198,9 +180,7 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     /// address number.
     /// </summary>
     public TerraformValue<string> IpAddress
-    {
-        get => new TerraformReference<string>(this, "ip_address");
-    }
+        => AsReference("ip_address");
 
     /// <summary>
     /// Resource reference of a PublicDelegatedPrefix. The PDP must be a sub-PDP
@@ -214,9 +194,7 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     ///   * &#39;regions/{{region}}/publicDelegatedPrefixes/{{sub-pdp-name}}&#39;
     /// </summary>
     public TerraformValue<string> IpCollection
-    {
-        get => new TerraformReference<string>(this, "ip_collection");
-    }
+        => AsReference("ip_collection");
 
     /// <summary>
     /// The IP protocol to which this rule applies.
@@ -235,9 +213,7 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     /// A forwarding rule with &amp;quot;L3_DEFAULT&amp;quot; IPProtocal cannot be attached to a backend service with TCP or UDP. Possible values: [&amp;quot;TCP&amp;quot;, &amp;quot;UDP&amp;quot;, &amp;quot;ESP&amp;quot;, &amp;quot;AH&amp;quot;, &amp;quot;SCTP&amp;quot;, &amp;quot;ICMP&amp;quot;, &amp;quot;L3_DEFAULT&amp;quot;]
     /// </summary>
     public TerraformValue<string> IpProtocol
-    {
-        get => new TerraformReference<string>(this, "ip_protocol");
-    }
+        => AsReference("ip_protocol");
 
     /// <summary>
     /// The IP address version that will be used by this forwarding rule.
@@ -246,9 +222,7 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     /// If not set, the IPv4 address will be used by default. Possible values: [&amp;quot;IPV4&amp;quot;, &amp;quot;IPV6&amp;quot;]
     /// </summary>
     public TerraformValue<string> IpVersion
-    {
-        get => new TerraformReference<string>(this, "ip_version");
-    }
+        => AsReference("ip_version");
 
     /// <summary>
     /// Indicates whether or not this load balancer can be used as a collector for
@@ -260,18 +234,14 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     /// &#39;loadBalancingScheme&#39; set to &#39;INTERNAL&#39;.
     /// </summary>
     public TerraformValue<bool> IsMirroringCollector
-    {
-        get => new TerraformReference<bool>(this, "is_mirroring_collector");
-    }
+        => AsReference("is_mirroring_collector");
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
     /// internally during updates.
     /// </summary>
     public TerraformValue<string> LabelFingerprint
-    {
-        get => new TerraformReference<string>(this, "label_fingerprint");
-    }
+        => AsReference("label_fingerprint");
 
     /// <summary>
     /// Labels to apply to this forwarding rule.  A list of key-&amp;gt;value pairs.
@@ -281,9 +251,7 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
     public TerraformMap<string> Labels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
-    }
+        => AsReference("labels");
 
     /// <summary>
     /// Specifies the forwarding rule type.
@@ -296,9 +264,7 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     /// [Forwarding rule concepts](https://cloud.google.com/load-balancing/docs/forwarding-rule-concepts). Default value: &amp;quot;EXTERNAL&amp;quot; Possible values: [&amp;quot;EXTERNAL&amp;quot;, &amp;quot;EXTERNAL_MANAGED&amp;quot;, &amp;quot;INTERNAL&amp;quot;, &amp;quot;INTERNAL_MANAGED&amp;quot;]
     /// </summary>
     public TerraformValue<string> LoadBalancingScheme
-    {
-        get => new TerraformReference<string>(this, "load_balancing_scheme");
-    }
+        => AsReference("load_balancing_scheme");
 
     /// <summary>
     /// This field is not used for external load balancing.
@@ -313,9 +279,7 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     /// APIs, a network must be provided.
     /// </summary>
     public TerraformValue<string> Network
-    {
-        get => new TerraformReference<string>(this, "network");
-    }
+        => AsReference("network");
 
     /// <summary>
     /// This signifies the networking tier used for configuring
@@ -331,17 +295,13 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     /// networkTier of the Address. Possible values: [&amp;quot;PREMIUM&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
     public TerraformValue<string> NetworkTier
-    {
-        get => new TerraformReference<string>(this, "network_tier");
-    }
+        => AsReference("network_tier");
 
     /// <summary>
     /// This is used in PSC consumer ForwardingRule to control whether it should try to auto-generate a DNS zone or not. Non-PSC forwarding rules do not use this field.
     /// </summary>
     public TerraformValue<bool> NoAutomateDnsZone
-    {
-        get => new TerraformReference<bool>(this, "no_automate_dns_zone");
-    }
+        => AsReference("no_automate_dns_zone");
 
     /// <summary>
     /// The &#39;ports&#39;, &#39;portRange&#39;, and &#39;allPorts&#39; fields are mutually exclusive.
@@ -370,9 +330,7 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     /// @pattern: \d+(?:-\d+)?
     /// </summary>
     public TerraformValue<string> PortRange
-    {
-        get => new TerraformReference<string>(this, "port_range");
-    }
+        => AsReference("port_range");
 
     /// <summary>
     /// The &#39;ports&#39;, &#39;portRange&#39;, and &#39;allPorts&#39; fields are mutually exclusive.
@@ -399,41 +357,31 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     /// @pattern: \d+(?:-\d+)?
     /// </summary>
     public TerraformSet<string> Ports
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ports").ResolveNodes(ctx));
-    }
+        => AsReference("ports");
 
     /// <summary>
     /// The PSC connection id of the PSC Forwarding Rule.
     /// </summary>
     public TerraformValue<string> PscConnectionId
-    {
-        get => new TerraformReference<string>(this, "psc_connection_id");
-    }
+        => AsReference("psc_connection_id");
 
     /// <summary>
     /// The PSC connection status of the PSC Forwarding Rule. Possible values: &#39;STATUS_UNSPECIFIED&#39;, &#39;PENDING&#39;, &#39;ACCEPTED&#39;, &#39;REJECTED&#39;, &#39;CLOSED&#39;
     /// </summary>
     public TerraformValue<string> PscConnectionStatus
-    {
-        get => new TerraformReference<string>(this, "psc_connection_status");
-    }
+        => AsReference("psc_connection_status");
 
     /// <summary>
     /// This is used in PSC consumer ForwardingRule to make terraform recreate the ForwardingRule when the status is closed
     /// </summary>
     public TerraformValue<bool> RecreateClosedPsc
-    {
-        get => new TerraformReference<bool>(this, "recreate_closed_psc");
-    }
+        => AsReference("recreate_closed_psc");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Service Directory resources to register this forwarding rule with.
@@ -441,9 +389,7 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     /// Currently, only supports a single Service Directory resource.
     /// </summary>
     public TerraformList<TerraformMap<object>> ServiceDirectoryRegistrations
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "service_directory_registrations").ResolveNodes(ctx));
-    }
+        => AsReference("service_directory_registrations");
 
     /// <summary>
     /// An optional prefix to the service name for this Forwarding Rule.
@@ -460,9 +406,7 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     /// This field is only used for INTERNAL load balancing.
     /// </summary>
     public TerraformValue<string> ServiceLabel
-    {
-        get => new TerraformReference<string>(this, "service_label");
-    }
+        => AsReference("service_label");
 
     /// <summary>
     /// The internal fully qualified service name for this Forwarding Rule.
@@ -470,17 +414,13 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     /// This field is only used for INTERNAL load balancing.
     /// </summary>
     public TerraformValue<string> ServiceName
-    {
-        get => new TerraformReference<string>(this, "service_name");
-    }
+        => AsReference("service_name");
 
     /// <summary>
     /// If not empty, this Forwarding Rule will only forward the traffic when the source IP address matches one of the IP addresses or CIDR ranges set here. Note that a Forwarding Rule can only have up to 64 source IP ranges, and this field can only be used with a regional Forwarding Rule whose scheme is EXTERNAL. Each sourceIpRange entry should be either an IP address (for example, 1.2.3.4) or a CIDR range (for example, 1.2.3.0/24).
     /// </summary>
     public TerraformList<string> SourceIpRanges
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "source_ip_ranges").ResolveNodes(ctx));
-    }
+        => AsReference("source_ip_ranges");
 
     /// <summary>
     /// This field identifies the subnetwork that the load balanced IP should
@@ -492,9 +432,7 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     /// mode or when creating external forwarding rule with IPv6.
     /// </summary>
     public TerraformValue<string> Subnetwork
-    {
-        get => new TerraformReference<string>(this, "subnetwork");
-    }
+        => AsReference("subnetwork");
 
     /// <summary>
     /// The URL of the target resource to receive the matched traffic.  For
@@ -508,17 +446,13 @@ public partial class GoogleComputeForwardingRuleDataSource(string name) : Terraf
     /// For Private Service Connect forwarding rules that forward traffic to managed services, the target must be a service attachment.
     /// </summary>
     public TerraformValue<string> Target
-    {
-        get => new TerraformReference<string>(this, "target");
-    }
+        => AsReference("target");
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformMap<string> TerraformLabels
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
-    }
+        => AsReference("terraform_labels");
 
 }

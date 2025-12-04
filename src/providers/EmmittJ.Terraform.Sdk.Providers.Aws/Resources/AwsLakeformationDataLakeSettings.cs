@@ -16,18 +16,18 @@ public class AwsLakeformationDataLakeSettingsCreateDatabaseDefaultPermissionsBlo
     /// <summary>
     /// The permissions attribute.
     /// </summary>
-    public TerraformSet<string> Permissions
+    public TerraformSet<string>? Permissions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "permissions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("permissions");
         set => SetArgument("permissions", value);
     }
 
     /// <summary>
     /// The principal attribute.
     /// </summary>
-    public TerraformValue<string> Principal
+    public TerraformValue<string>? Principal
     {
-        get => new TerraformReference<string>(this, "principal");
+        get => GetArgument<TerraformValue<string>>("principal");
         set => SetArgument("principal", value);
     }
 
@@ -48,18 +48,18 @@ public class AwsLakeformationDataLakeSettingsCreateTableDefaultPermissionsBlock 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
-    public TerraformSet<string> Permissions
+    public TerraformSet<string>? Permissions
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "permissions").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("permissions");
         set => SetArgument("permissions", value);
     }
 
     /// <summary>
     /// The principal attribute.
     /// </summary>
-    public TerraformValue<string> Principal
+    public TerraformValue<string>? Principal
     {
-        get => new TerraformReference<string>(this, "principal");
+        get => GetArgument<TerraformValue<string>>("principal");
         set => SetArgument("principal", value);
     }
 
@@ -75,9 +75,9 @@ public partial class AwsLakeformationDataLakeSettings(string name) : TerraformRe
     /// <summary>
     /// The admins attribute.
     /// </summary>
-    public TerraformSet<string> Admins
+    public TerraformSet<string>? Admins
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "admins").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("admins");
         set => SetArgument("admins", value);
     }
 
@@ -86,7 +86,7 @@ public partial class AwsLakeformationDataLakeSettings(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? AllowExternalDataFiltering
     {
-        get => new TerraformReference<bool>(this, "allow_external_data_filtering");
+        get => GetArgument<TerraformValue<bool>>("allow_external_data_filtering");
         set => SetArgument("allow_external_data_filtering", value);
     }
 
@@ -95,16 +95,16 @@ public partial class AwsLakeformationDataLakeSettings(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? AllowFullTableExternalDataAccess
     {
-        get => new TerraformReference<bool>(this, "allow_full_table_external_data_access");
+        get => GetArgument<TerraformValue<bool>>("allow_full_table_external_data_access");
         set => SetArgument("allow_full_table_external_data_access", value);
     }
 
     /// <summary>
     /// The authorized_session_tag_value_list attribute.
     /// </summary>
-    public TerraformList<string> AuthorizedSessionTagValueList
+    public TerraformList<string>? AuthorizedSessionTagValueList
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "authorized_session_tag_value_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("authorized_session_tag_value_list");
         set => SetArgument("authorized_session_tag_value_list", value);
     }
 
@@ -113,61 +113,61 @@ public partial class AwsLakeformationDataLakeSettings(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? CatalogId
     {
-        get => new TerraformReference<string>(this, "catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
     /// <summary>
     /// The external_data_filtering_allow_list attribute.
     /// </summary>
-    public TerraformSet<string> ExternalDataFilteringAllowList
+    public TerraformSet<string>? ExternalDataFilteringAllowList
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "external_data_filtering_allow_list").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("external_data_filtering_allow_list");
         set => SetArgument("external_data_filtering_allow_list", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformMap<string> Parameters
+    public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
     /// <summary>
     /// The read_only_admins attribute.
     /// </summary>
-    public TerraformSet<string> ReadOnlyAdmins
+    public TerraformSet<string>? ReadOnlyAdmins
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "read_only_admins").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("read_only_admins");
         set => SetArgument("read_only_admins", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The trusted_resource_owners attribute.
     /// </summary>
-    public TerraformList<string> TrustedResourceOwners
+    public TerraformList<string>? TrustedResourceOwners
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "trusted_resource_owners").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("trusted_resource_owners");
         set => SetArgument("trusted_resource_owners", value);
     }
 

@@ -18,7 +18,7 @@ public class AzurermStackHciLogicalNetworkSubnetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? AddressPrefix
     {
-        get => new TerraformReference<string>(this, "address_prefix");
+        get => GetArgument<TerraformValue<string>>("address_prefix");
         set => SetArgument("address_prefix", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermStackHciLogicalNetworkSubnetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAllocationMethod is required")]
     public required TerraformValue<string> IpAllocationMethod
     {
-        get => new TerraformReference<string>(this, "ip_allocation_method");
+        get => GetArgument<TerraformValue<string>>("ip_allocation_method");
         set => SetArgument("ip_allocation_method", value);
     }
 
@@ -37,7 +37,7 @@ public class AzurermStackHciLogicalNetworkSubnetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? VlanId
     {
-        get => new TerraformReference<double>(this, "vlan_id");
+        get => GetArgument<TerraformValue<double>>("vlan_id");
         set => SetArgument("vlan_id", value);
     }
 
@@ -79,7 +79,7 @@ public class AzurermStackHciLogicalNetworkSubnetBlockIpPoolBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
     public required TerraformValue<string> End
     {
-        get => new TerraformReference<string>(this, "end");
+        get => GetArgument<TerraformValue<string>>("end");
         set => SetArgument("end", value);
     }
 
@@ -89,7 +89,7 @@ public class AzurermStackHciLogicalNetworkSubnetBlockIpPoolBlock : TerraformBloc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
     public required TerraformValue<string> Start
     {
-        get => new TerraformReference<string>(this, "start");
+        get => GetArgument<TerraformValue<string>>("start");
         set => SetArgument("start", value);
     }
 
@@ -112,7 +112,7 @@ public class AzurermStackHciLogicalNetworkSubnetBlockRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefix is required")]
     public required TerraformValue<string> AddressPrefix
     {
-        get => new TerraformReference<string>(this, "address_prefix");
+        get => GetArgument<TerraformValue<string>>("address_prefix");
         set => SetArgument("address_prefix", value);
     }
 
@@ -121,7 +121,7 @@ public class AzurermStackHciLogicalNetworkSubnetBlockRouteBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -131,7 +131,7 @@ public class AzurermStackHciLogicalNetworkSubnetBlockRouteBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextHopIpAddress is required")]
     public required TerraformValue<string> NextHopIpAddress
     {
-        get => new TerraformReference<string>(this, "next_hop_ip_address");
+        get => GetArgument<TerraformValue<string>>("next_hop_ip_address");
         set => SetArgument("next_hop_ip_address", value);
     }
 
@@ -154,7 +154,7 @@ public class AzurermStackHciLogicalNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -163,7 +163,7 @@ public class AzurermStackHciLogicalNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -172,7 +172,7 @@ public class AzurermStackHciLogicalNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -181,7 +181,7 @@ public class AzurermStackHciLogicalNetworkTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -200,7 +200,7 @@ public partial class AzurermStackHciLogicalNetwork(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomLocationId is required")]
     public required TerraformValue<string> CustomLocationId
     {
-        get => new TerraformReference<string>(this, "custom_location_id");
+        get => GetArgument<TerraformValue<string>>("custom_location_id");
         set => SetArgument("custom_location_id", value);
     }
 
@@ -209,16 +209,16 @@ public partial class AzurermStackHciLogicalNetwork(string name) : TerraformResou
     /// </summary>
     public TerraformList<string>? DnsServers
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dns_servers").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("dns_servers");
         set => SetArgument("dns_servers", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -228,7 +228,7 @@ public partial class AzurermStackHciLogicalNetwork(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -238,7 +238,7 @@ public partial class AzurermStackHciLogicalNetwork(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -248,7 +248,7 @@ public partial class AzurermStackHciLogicalNetwork(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -257,7 +257,7 @@ public partial class AzurermStackHciLogicalNetwork(string name) : TerraformResou
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -267,7 +267,7 @@ public partial class AzurermStackHciLogicalNetwork(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualSwitchName is required")]
     public required TerraformValue<string> VirtualSwitchName
     {
-        get => new TerraformReference<string>(this, "virtual_switch_name");
+        get => GetArgument<TerraformValue<string>>("virtual_switch_name");
         set => SetArgument("virtual_switch_name", value);
     }
 

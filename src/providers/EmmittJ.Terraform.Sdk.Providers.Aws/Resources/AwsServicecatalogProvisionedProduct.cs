@@ -19,7 +19,7 @@ public class AwsServicecatalogProvisionedProductProvisioningParametersBlock : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
     public required TerraformValue<string> Key
     {
-        get => new TerraformReference<string>(this, "key");
+        get => GetArgument<TerraformValue<string>>("key");
         set => SetArgument("key", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsServicecatalogProvisionedProductProvisioningParametersBlock : Te
     /// </summary>
     public TerraformValue<bool>? UsePreviousValue
     {
-        get => new TerraformReference<bool>(this, "use_previous_value");
+        get => GetArgument<TerraformValue<bool>>("use_previous_value");
         set => SetArgument("use_previous_value", value);
     }
 
@@ -37,7 +37,7 @@ public class AwsServicecatalogProvisionedProductProvisioningParametersBlock : Te
     /// </summary>
     public TerraformValue<string>? Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -60,7 +60,7 @@ public class AwsServicecatalogProvisionedProductStackSetProvisioningPreferencesB
     /// </summary>
     public TerraformList<string>? Accounts
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "accounts").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("accounts");
         set => SetArgument("accounts", value);
     }
 
@@ -69,7 +69,7 @@ public class AwsServicecatalogProvisionedProductStackSetProvisioningPreferencesB
     /// </summary>
     public TerraformValue<double>? FailureToleranceCount
     {
-        get => new TerraformReference<double>(this, "failure_tolerance_count");
+        get => GetArgument<TerraformValue<double>>("failure_tolerance_count");
         set => SetArgument("failure_tolerance_count", value);
     }
 
@@ -78,7 +78,7 @@ public class AwsServicecatalogProvisionedProductStackSetProvisioningPreferencesB
     /// </summary>
     public TerraformValue<double>? FailureTolerancePercentage
     {
-        get => new TerraformReference<double>(this, "failure_tolerance_percentage");
+        get => GetArgument<TerraformValue<double>>("failure_tolerance_percentage");
         set => SetArgument("failure_tolerance_percentage", value);
     }
 
@@ -87,7 +87,7 @@ public class AwsServicecatalogProvisionedProductStackSetProvisioningPreferencesB
     /// </summary>
     public TerraformValue<double>? MaxConcurrencyCount
     {
-        get => new TerraformReference<double>(this, "max_concurrency_count");
+        get => GetArgument<TerraformValue<double>>("max_concurrency_count");
         set => SetArgument("max_concurrency_count", value);
     }
 
@@ -96,7 +96,7 @@ public class AwsServicecatalogProvisionedProductStackSetProvisioningPreferencesB
     /// </summary>
     public TerraformValue<double>? MaxConcurrencyPercentage
     {
-        get => new TerraformReference<double>(this, "max_concurrency_percentage");
+        get => GetArgument<TerraformValue<double>>("max_concurrency_percentage");
         set => SetArgument("max_concurrency_percentage", value);
     }
 
@@ -105,7 +105,7 @@ public class AwsServicecatalogProvisionedProductStackSetProvisioningPreferencesB
     /// </summary>
     public TerraformList<string>? Regions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "regions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("regions");
         set => SetArgument("regions", value);
     }
 
@@ -128,7 +128,7 @@ public class AwsServicecatalogProvisionedProductTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -137,7 +137,7 @@ public class AwsServicecatalogProvisionedProductTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -146,7 +146,7 @@ public class AwsServicecatalogProvisionedProductTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -155,7 +155,7 @@ public class AwsServicecatalogProvisionedProductTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -173,16 +173,16 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? AcceptLanguage
     {
-        get => new TerraformReference<string>(this, "accept_language");
+        get => GetArgument<TerraformValue<string>>("accept_language");
         set => SetArgument("accept_language", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -191,7 +191,7 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// </summary>
     public TerraformValue<bool>? IgnoreErrors
     {
-        get => new TerraformReference<bool>(this, "ignore_errors");
+        get => GetArgument<TerraformValue<bool>>("ignore_errors");
         set => SetArgument("ignore_errors", value);
     }
 
@@ -201,7 +201,7 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -210,16 +210,16 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// </summary>
     public TerraformList<string>? NotificationArns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "notification_arns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("notification_arns");
         set => SetArgument("notification_arns", value);
     }
 
     /// <summary>
     /// The path_id attribute.
     /// </summary>
-    public TerraformValue<string> PathId
+    public TerraformValue<string>? PathId
     {
-        get => new TerraformReference<string>(this, "path_id");
+        get => GetArgument<TerraformValue<string>>("path_id");
         set => SetArgument("path_id", value);
     }
 
@@ -228,16 +228,16 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? PathName
     {
-        get => new TerraformReference<string>(this, "path_name");
+        get => GetArgument<TerraformValue<string>>("path_name");
         set => SetArgument("path_name", value);
     }
 
     /// <summary>
     /// The product_id attribute.
     /// </summary>
-    public TerraformValue<string> ProductId
+    public TerraformValue<string>? ProductId
     {
-        get => new TerraformReference<string>(this, "product_id");
+        get => GetArgument<TerraformValue<string>>("product_id");
         set => SetArgument("product_id", value);
     }
 
@@ -246,16 +246,16 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? ProductName
     {
-        get => new TerraformReference<string>(this, "product_name");
+        get => GetArgument<TerraformValue<string>>("product_name");
         set => SetArgument("product_name", value);
     }
 
     /// <summary>
     /// The provisioning_artifact_id attribute.
     /// </summary>
-    public TerraformValue<string> ProvisioningArtifactId
+    public TerraformValue<string>? ProvisioningArtifactId
     {
-        get => new TerraformReference<string>(this, "provisioning_artifact_id");
+        get => GetArgument<TerraformValue<string>>("provisioning_artifact_id");
         set => SetArgument("provisioning_artifact_id", value);
     }
 
@@ -264,16 +264,16 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// </summary>
     public TerraformValue<string>? ProvisioningArtifactName
     {
-        get => new TerraformReference<string>(this, "provisioning_artifact_name");
+        get => GetArgument<TerraformValue<string>>("provisioning_artifact_name");
         set => SetArgument("provisioning_artifact_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -282,7 +282,7 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// </summary>
     public TerraformValue<bool>? RetainPhysicalResources
     {
-        get => new TerraformReference<bool>(this, "retain_physical_resources");
+        get => GetArgument<TerraformValue<bool>>("retain_physical_resources");
         set => SetArgument("retain_physical_resources", value);
     }
 
@@ -291,16 +291,16 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -308,89 +308,67 @@ public partial class AwsServicecatalogProvisionedProduct(string name) : Terrafor
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The cloudwatch_dashboard_names attribute.
     /// </summary>
     public TerraformSet<string> CloudwatchDashboardNames
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "cloudwatch_dashboard_names").ResolveNodes(ctx));
-    }
+        => AsReference("cloudwatch_dashboard_names");
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
     public TerraformValue<string> CreatedTime
-    {
-        get => new TerraformReference<string>(this, "created_time");
-    }
+        => AsReference("created_time");
 
     /// <summary>
     /// The last_provisioning_record_id attribute.
     /// </summary>
     public TerraformValue<string> LastProvisioningRecordId
-    {
-        get => new TerraformReference<string>(this, "last_provisioning_record_id");
-    }
+        => AsReference("last_provisioning_record_id");
 
     /// <summary>
     /// The last_record_id attribute.
     /// </summary>
     public TerraformValue<string> LastRecordId
-    {
-        get => new TerraformReference<string>(this, "last_record_id");
-    }
+        => AsReference("last_record_id");
 
     /// <summary>
     /// The last_successful_provisioning_record_id attribute.
     /// </summary>
     public TerraformValue<string> LastSuccessfulProvisioningRecordId
-    {
-        get => new TerraformReference<string>(this, "last_successful_provisioning_record_id");
-    }
+        => AsReference("last_successful_provisioning_record_id");
 
     /// <summary>
     /// The launch_role_arn attribute.
     /// </summary>
     public TerraformValue<string> LaunchRoleArn
-    {
-        get => new TerraformReference<string>(this, "launch_role_arn");
-    }
+        => AsReference("launch_role_arn");
 
     /// <summary>
     /// The outputs attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> Outputs
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "outputs").ResolveNodes(ctx));
-    }
+        => AsReference("outputs");
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     public TerraformValue<string> Status
-    {
-        get => new TerraformReference<string>(this, "status");
-    }
+        => AsReference("status");
 
     /// <summary>
     /// The status_message attribute.
     /// </summary>
     public TerraformValue<string> StatusMessage
-    {
-        get => new TerraformReference<string>(this, "status_message");
-    }
+        => AsReference("status_message");
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     public TerraformValue<string> Type
-    {
-        get => new TerraformReference<string>(this, "type");
-    }
+        => AsReference("type");
 
     /// <summary>
     /// ProvisioningParameters block (nesting mode: list).

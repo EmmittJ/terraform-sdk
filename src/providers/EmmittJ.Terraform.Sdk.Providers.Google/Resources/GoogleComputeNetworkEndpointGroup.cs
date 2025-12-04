@@ -18,7 +18,7 @@ public class GoogleComputeNetworkEndpointGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleComputeNetworkEndpointGroupTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -46,7 +46,7 @@ public partial class GoogleComputeNetworkEndpointGroup(string name) : TerraformR
     /// </summary>
     public TerraformValue<double>? DefaultPort
     {
-        get => new TerraformReference<double>(this, "default_port");
+        get => GetArgument<TerraformValue<double>>("default_port");
         set => SetArgument("default_port", value);
     }
 
@@ -56,16 +56,16 @@ public partial class GoogleComputeNetworkEndpointGroup(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -81,7 +81,7 @@ public partial class GoogleComputeNetworkEndpointGroup(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -92,7 +92,7 @@ public partial class GoogleComputeNetworkEndpointGroup(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
     public required TerraformValue<string> Network
     {
-        get => new TerraformReference<string>(this, "network");
+        get => GetArgument<TerraformValue<string>>("network");
         set => SetArgument("network", value);
     }
 
@@ -109,16 +109,16 @@ public partial class GoogleComputeNetworkEndpointGroup(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? NetworkEndpointType
     {
-        get => new TerraformReference<string>(this, "network_endpoint_type");
+        get => GetArgument<TerraformValue<string>>("network_endpoint_type");
         set => SetArgument("network_endpoint_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -127,16 +127,16 @@ public partial class GoogleComputeNetworkEndpointGroup(string name) : TerraformR
     /// </summary>
     public TerraformValue<string>? Subnetwork
     {
-        get => new TerraformReference<string>(this, "subnetwork");
+        get => GetArgument<TerraformValue<string>>("subnetwork");
         set => SetArgument("subnetwork", value);
     }
 
     /// <summary>
     /// Zone where the network endpoint group is located.
     /// </summary>
-    public TerraformValue<string> Zone
+    public TerraformValue<string>? Zone
     {
-        get => new TerraformReference<string>(this, "zone");
+        get => GetArgument<TerraformValue<string>>("zone");
         set => SetArgument("zone", value);
     }
 
@@ -144,25 +144,19 @@ public partial class GoogleComputeNetworkEndpointGroup(string name) : TerraformR
     /// The uniquely generated identifier for the resource. This identifier is defined by the server.
     /// </summary>
     public TerraformValue<double> GeneratedId
-    {
-        get => new TerraformReference<double>(this, "generated_id");
-    }
+        => AsReference("generated_id");
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
     public TerraformValue<string> SelfLink
-    {
-        get => new TerraformReference<string>(this, "self_link");
-    }
+        => AsReference("self_link");
 
     /// <summary>
     /// Number of network endpoints in the network endpoint group.
     /// </summary>
     public TerraformValue<double> Size
-    {
-        get => new TerraformReference<double>(this, "size");
-    }
+        => AsReference("size");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

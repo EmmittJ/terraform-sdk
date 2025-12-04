@@ -18,7 +18,7 @@ public class AzurermIothubDpsDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermIothubDpsDataSource(string name) : TerraformDataSour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermIothubDpsDataSource(string name) : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermIothubDpsDataSource(string name) : TerraformDataSour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -65,7 +65,7 @@ public partial class AzurermIothubDpsDataSource(string name) : TerraformDataSour
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -73,41 +73,31 @@ public partial class AzurermIothubDpsDataSource(string name) : TerraformDataSour
     /// The allocation_policy attribute.
     /// </summary>
     public TerraformValue<string> AllocationPolicy
-    {
-        get => new TerraformReference<string>(this, "allocation_policy");
-    }
+        => AsReference("allocation_policy");
 
     /// <summary>
     /// The device_provisioning_host_name attribute.
     /// </summary>
     public TerraformValue<string> DeviceProvisioningHostName
-    {
-        get => new TerraformReference<string>(this, "device_provisioning_host_name");
-    }
+        => AsReference("device_provisioning_host_name");
 
     /// <summary>
     /// The id_scope attribute.
     /// </summary>
     public TerraformValue<string> IdScope
-    {
-        get => new TerraformReference<string>(this, "id_scope");
-    }
+        => AsReference("id_scope");
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     public TerraformValue<string> Location
-    {
-        get => new TerraformReference<string>(this, "location");
-    }
+        => AsReference("location");
 
     /// <summary>
     /// The service_operations_host_name attribute.
     /// </summary>
     public TerraformValue<string> ServiceOperationsHostName
-    {
-        get => new TerraformReference<string>(this, "service_operations_host_name");
-    }
+        => AsReference("service_operations_host_name");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

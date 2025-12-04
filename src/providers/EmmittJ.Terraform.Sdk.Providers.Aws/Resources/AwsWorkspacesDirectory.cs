@@ -19,7 +19,7 @@ public class AwsWorkspacesDirectoryActiveDirectoryConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsWorkspacesDirectoryActiveDirectoryConfigBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountSecretArn is required")]
     public required TerraformValue<string> ServiceAccountSecretArn
     {
-        get => new TerraformReference<string>(this, "service_account_secret_arn");
+        get => GetArgument<TerraformValue<string>>("service_account_secret_arn");
         set => SetArgument("service_account_secret_arn", value);
     }
 
@@ -52,16 +52,16 @@ public class AwsWorkspacesDirectoryCertificateBasedAuthPropertiesBlock : Terrafo
     /// </summary>
     public TerraformValue<string>? CertificateAuthorityArn
     {
-        get => new TerraformReference<string>(this, "certificate_authority_arn");
+        get => GetArgument<TerraformValue<string>>("certificate_authority_arn");
         set => SetArgument("certificate_authority_arn", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformValue<string> Status
+    public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -84,7 +84,7 @@ public class AwsWorkspacesDirectorySamlPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? RelayStateParameterName
     {
-        get => new TerraformReference<string>(this, "relay_state_parameter_name");
+        get => GetArgument<TerraformValue<string>>("relay_state_parameter_name");
         set => SetArgument("relay_state_parameter_name", value);
     }
 
@@ -93,7 +93,7 @@ public class AwsWorkspacesDirectorySamlPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Status
     {
-        get => new TerraformReference<string>(this, "status");
+        get => GetArgument<TerraformValue<string>>("status");
         set => SetArgument("status", value);
     }
 
@@ -102,7 +102,7 @@ public class AwsWorkspacesDirectorySamlPropertiesBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? UserAccessUrl
     {
-        get => new TerraformReference<string>(this, "user_access_url");
+        get => GetArgument<TerraformValue<string>>("user_access_url");
         set => SetArgument("user_access_url", value);
     }
 
@@ -125,7 +125,7 @@ public class AwsWorkspacesDirectorySelfServicePermissionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? ChangeComputeType
     {
-        get => new TerraformReference<bool>(this, "change_compute_type");
+        get => GetArgument<TerraformValue<bool>>("change_compute_type");
         set => SetArgument("change_compute_type", value);
     }
 
@@ -134,7 +134,7 @@ public class AwsWorkspacesDirectorySelfServicePermissionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? IncreaseVolumeSize
     {
-        get => new TerraformReference<bool>(this, "increase_volume_size");
+        get => GetArgument<TerraformValue<bool>>("increase_volume_size");
         set => SetArgument("increase_volume_size", value);
     }
 
@@ -143,7 +143,7 @@ public class AwsWorkspacesDirectorySelfServicePermissionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? RebuildWorkspace
     {
-        get => new TerraformReference<bool>(this, "rebuild_workspace");
+        get => GetArgument<TerraformValue<bool>>("rebuild_workspace");
         set => SetArgument("rebuild_workspace", value);
     }
 
@@ -152,7 +152,7 @@ public class AwsWorkspacesDirectorySelfServicePermissionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? RestartWorkspace
     {
-        get => new TerraformReference<bool>(this, "restart_workspace");
+        get => GetArgument<TerraformValue<bool>>("restart_workspace");
         set => SetArgument("restart_workspace", value);
     }
 
@@ -161,7 +161,7 @@ public class AwsWorkspacesDirectorySelfServicePermissionsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? SwitchRunningMode
     {
-        get => new TerraformReference<bool>(this, "switch_running_mode");
+        get => GetArgument<TerraformValue<bool>>("switch_running_mode");
         set => SetArgument("switch_running_mode", value);
     }
 
@@ -184,7 +184,7 @@ public class AwsWorkspacesDirectoryWorkspaceAccessPropertiesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? DeviceTypeAndroid
     {
-        get => new TerraformReference<string>(this, "device_type_android");
+        get => GetArgument<TerraformValue<string>>("device_type_android");
         set => SetArgument("device_type_android", value);
     }
 
@@ -193,7 +193,7 @@ public class AwsWorkspacesDirectoryWorkspaceAccessPropertiesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? DeviceTypeChromeos
     {
-        get => new TerraformReference<string>(this, "device_type_chromeos");
+        get => GetArgument<TerraformValue<string>>("device_type_chromeos");
         set => SetArgument("device_type_chromeos", value);
     }
 
@@ -202,7 +202,7 @@ public class AwsWorkspacesDirectoryWorkspaceAccessPropertiesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? DeviceTypeIos
     {
-        get => new TerraformReference<string>(this, "device_type_ios");
+        get => GetArgument<TerraformValue<string>>("device_type_ios");
         set => SetArgument("device_type_ios", value);
     }
 
@@ -211,7 +211,7 @@ public class AwsWorkspacesDirectoryWorkspaceAccessPropertiesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? DeviceTypeLinux
     {
-        get => new TerraformReference<string>(this, "device_type_linux");
+        get => GetArgument<TerraformValue<string>>("device_type_linux");
         set => SetArgument("device_type_linux", value);
     }
 
@@ -220,7 +220,7 @@ public class AwsWorkspacesDirectoryWorkspaceAccessPropertiesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? DeviceTypeOsx
     {
-        get => new TerraformReference<string>(this, "device_type_osx");
+        get => GetArgument<TerraformValue<string>>("device_type_osx");
         set => SetArgument("device_type_osx", value);
     }
 
@@ -229,7 +229,7 @@ public class AwsWorkspacesDirectoryWorkspaceAccessPropertiesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? DeviceTypeWeb
     {
-        get => new TerraformReference<string>(this, "device_type_web");
+        get => GetArgument<TerraformValue<string>>("device_type_web");
         set => SetArgument("device_type_web", value);
     }
 
@@ -238,7 +238,7 @@ public class AwsWorkspacesDirectoryWorkspaceAccessPropertiesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? DeviceTypeWindows
     {
-        get => new TerraformReference<string>(this, "device_type_windows");
+        get => GetArgument<TerraformValue<string>>("device_type_windows");
         set => SetArgument("device_type_windows", value);
     }
 
@@ -247,7 +247,7 @@ public class AwsWorkspacesDirectoryWorkspaceAccessPropertiesBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? DeviceTypeZeroclient
     {
-        get => new TerraformReference<string>(this, "device_type_zeroclient");
+        get => GetArgument<TerraformValue<string>>("device_type_zeroclient");
         set => SetArgument("device_type_zeroclient", value);
     }
 
@@ -270,7 +270,7 @@ public class AwsWorkspacesDirectoryWorkspaceCreationPropertiesBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? CustomSecurityGroupId
     {
-        get => new TerraformReference<string>(this, "custom_security_group_id");
+        get => GetArgument<TerraformValue<string>>("custom_security_group_id");
         set => SetArgument("custom_security_group_id", value);
     }
 
@@ -279,7 +279,7 @@ public class AwsWorkspacesDirectoryWorkspaceCreationPropertiesBlock : TerraformB
     /// </summary>
     public TerraformValue<string>? DefaultOu
     {
-        get => new TerraformReference<string>(this, "default_ou");
+        get => GetArgument<TerraformValue<string>>("default_ou");
         set => SetArgument("default_ou", value);
     }
 
@@ -288,7 +288,7 @@ public class AwsWorkspacesDirectoryWorkspaceCreationPropertiesBlock : TerraformB
     /// </summary>
     public TerraformValue<bool>? EnableInternetAccess
     {
-        get => new TerraformReference<bool>(this, "enable_internet_access");
+        get => GetArgument<TerraformValue<bool>>("enable_internet_access");
         set => SetArgument("enable_internet_access", value);
     }
 
@@ -297,7 +297,7 @@ public class AwsWorkspacesDirectoryWorkspaceCreationPropertiesBlock : TerraformB
     /// </summary>
     public TerraformValue<bool>? EnableMaintenanceMode
     {
-        get => new TerraformReference<bool>(this, "enable_maintenance_mode");
+        get => GetArgument<TerraformValue<bool>>("enable_maintenance_mode");
         set => SetArgument("enable_maintenance_mode", value);
     }
 
@@ -306,7 +306,7 @@ public class AwsWorkspacesDirectoryWorkspaceCreationPropertiesBlock : TerraformB
     /// </summary>
     public TerraformValue<bool>? UserEnabledAsLocalAdministrator
     {
-        get => new TerraformReference<bool>(this, "user_enabled_as_local_administrator");
+        get => GetArgument<TerraformValue<bool>>("user_enabled_as_local_administrator");
         set => SetArgument("user_enabled_as_local_administrator", value);
     }
 
@@ -322,45 +322,45 @@ public partial class AwsWorkspacesDirectory(string name) : TerraformResource("aw
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
-    public TerraformValue<string> DirectoryId
+    public TerraformValue<string>? DirectoryId
     {
-        get => new TerraformReference<string>(this, "directory_id");
+        get => GetArgument<TerraformValue<string>>("directory_id");
         set => SetArgument("directory_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The ip_group_ids attribute.
     /// </summary>
-    public TerraformSet<string> IpGroupIds
+    public TerraformSet<string>? IpGroupIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ip_group_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("ip_group_ids");
         set => SetArgument("ip_group_ids", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformSet<string> SubnetIds
+    public TerraformSet<string>? SubnetIds
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("subnet_ids");
         set => SetArgument("subnet_ids", value);
     }
 
@@ -369,25 +369,25 @@ public partial class AwsWorkspacesDirectory(string name) : TerraformResource("aw
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
     /// <summary>
     /// The user_identity_type attribute.
     /// </summary>
-    public TerraformValue<string> UserIdentityType
+    public TerraformValue<string>? UserIdentityType
     {
-        get => new TerraformReference<string>(this, "user_identity_type");
+        get => GetArgument<TerraformValue<string>>("user_identity_type");
         set => SetArgument("user_identity_type", value);
     }
 
@@ -396,7 +396,7 @@ public partial class AwsWorkspacesDirectory(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? WorkspaceDirectoryDescription
     {
-        get => new TerraformReference<string>(this, "workspace_directory_description");
+        get => GetArgument<TerraformValue<string>>("workspace_directory_description");
         set => SetArgument("workspace_directory_description", value);
     }
 
@@ -405,7 +405,7 @@ public partial class AwsWorkspacesDirectory(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? WorkspaceDirectoryName
     {
-        get => new TerraformReference<string>(this, "workspace_directory_name");
+        get => GetArgument<TerraformValue<string>>("workspace_directory_name");
         set => SetArgument("workspace_directory_name", value);
     }
 
@@ -414,7 +414,7 @@ public partial class AwsWorkspacesDirectory(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? WorkspaceType
     {
-        get => new TerraformReference<string>(this, "workspace_type");
+        get => GetArgument<TerraformValue<string>>("workspace_type");
         set => SetArgument("workspace_type", value);
     }
 
@@ -422,65 +422,49 @@ public partial class AwsWorkspacesDirectory(string name) : TerraformResource("aw
     /// The alias attribute.
     /// </summary>
     public TerraformValue<string> Alias
-    {
-        get => new TerraformReference<string>(this, "alias");
-    }
+        => AsReference("alias");
 
     /// <summary>
     /// The customer_user_name attribute.
     /// </summary>
     public TerraformValue<string> CustomerUserName
-    {
-        get => new TerraformReference<string>(this, "customer_user_name");
-    }
+        => AsReference("customer_user_name");
 
     /// <summary>
     /// The directory_name attribute.
     /// </summary>
     public TerraformValue<string> DirectoryName
-    {
-        get => new TerraformReference<string>(this, "directory_name");
-    }
+        => AsReference("directory_name");
 
     /// <summary>
     /// The directory_type attribute.
     /// </summary>
     public TerraformValue<string> DirectoryType
-    {
-        get => new TerraformReference<string>(this, "directory_type");
-    }
+        => AsReference("directory_type");
 
     /// <summary>
     /// The dns_ip_addresses attribute.
     /// </summary>
     public TerraformSet<string> DnsIpAddresses
-    {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "dns_ip_addresses").ResolveNodes(ctx));
-    }
+        => AsReference("dns_ip_addresses");
 
     /// <summary>
     /// The iam_role_id attribute.
     /// </summary>
     public TerraformValue<string> IamRoleId
-    {
-        get => new TerraformReference<string>(this, "iam_role_id");
-    }
+        => AsReference("iam_role_id");
 
     /// <summary>
     /// The registration_code attribute.
     /// </summary>
     public TerraformValue<string> RegistrationCode
-    {
-        get => new TerraformReference<string>(this, "registration_code");
-    }
+        => AsReference("registration_code");
 
     /// <summary>
     /// The workspace_security_group_id attribute.
     /// </summary>
     public TerraformValue<string> WorkspaceSecurityGroupId
-    {
-        get => new TerraformReference<string>(this, "workspace_security_group_id");
-    }
+        => AsReference("workspace_security_group_id");
 
     /// <summary>
     /// ActiveDirectoryConfig block (nesting mode: list).

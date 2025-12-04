@@ -18,7 +18,7 @@ public class GoogleNetworkSecurityTlsInspectionPolicyTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class GoogleNetworkSecurityTlsInspectionPolicyTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class GoogleNetworkSecurityTlsInspectionPolicyTimeoutsBlock : TerraformBl
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -55,7 +55,7 @@ public partial class GoogleNetworkSecurityTlsInspectionPolicy(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CaPool is required")]
     public required TerraformValue<string> CaPool
     {
-        get => new TerraformReference<string>(this, "ca_pool");
+        get => GetArgument<TerraformValue<string>>("ca_pool");
         set => SetArgument("ca_pool", value);
     }
 
@@ -64,7 +64,7 @@ public partial class GoogleNetworkSecurityTlsInspectionPolicy(string name) : Ter
     /// </summary>
     public TerraformList<string>? CustomTlsFeatures
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "custom_tls_features").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("custom_tls_features");
         set => SetArgument("custom_tls_features", value);
     }
 
@@ -73,7 +73,7 @@ public partial class GoogleNetworkSecurityTlsInspectionPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -82,16 +82,16 @@ public partial class GoogleNetworkSecurityTlsInspectionPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<bool>? ExcludePublicCaSet
     {
-        get => new TerraformReference<bool>(this, "exclude_public_ca_set");
+        get => GetArgument<TerraformValue<bool>>("exclude_public_ca_set");
         set => SetArgument("exclude_public_ca_set", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -100,7 +100,7 @@ public partial class GoogleNetworkSecurityTlsInspectionPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -109,7 +109,7 @@ public partial class GoogleNetworkSecurityTlsInspectionPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<string>? MinTlsVersion
     {
-        get => new TerraformReference<string>(this, "min_tls_version");
+        get => GetArgument<TerraformValue<string>>("min_tls_version");
         set => SetArgument("min_tls_version", value);
     }
 
@@ -119,16 +119,16 @@ public partial class GoogleNetworkSecurityTlsInspectionPolicy(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -137,7 +137,7 @@ public partial class GoogleNetworkSecurityTlsInspectionPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<string>? TlsFeatureProfile
     {
-        get => new TerraformReference<string>(this, "tls_feature_profile");
+        get => GetArgument<TerraformValue<string>>("tls_feature_profile");
         set => SetArgument("tls_feature_profile", value);
     }
 
@@ -146,7 +146,7 @@ public partial class GoogleNetworkSecurityTlsInspectionPolicy(string name) : Ter
     /// </summary>
     public TerraformValue<string>? TrustConfig
     {
-        get => new TerraformReference<string>(this, "trust_config");
+        get => GetArgument<TerraformValue<string>>("trust_config");
         set => SetArgument("trust_config", value);
     }
 
@@ -154,17 +154,13 @@ public partial class GoogleNetworkSecurityTlsInspectionPolicy(string name) : Ter
     /// The timestamp when the resource was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// The timestamp when the resource was updated.
     /// </summary>
     public TerraformValue<string> UpdateTime
-    {
-        get => new TerraformReference<string>(this, "update_time");
-    }
+        => AsReference("update_time");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

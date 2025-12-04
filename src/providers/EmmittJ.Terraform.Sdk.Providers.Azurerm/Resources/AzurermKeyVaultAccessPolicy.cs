@@ -18,7 +18,7 @@ public class AzurermKeyVaultAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermKeyVaultAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermKeyVaultAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermKeyVaultAccessPolicyTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -63,7 +63,7 @@ public partial class AzurermKeyVaultAccessPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformValue<string>? ApplicationId
     {
-        get => new TerraformReference<string>(this, "application_id");
+        get => GetArgument<TerraformValue<string>>("application_id");
         set => SetArgument("application_id", value);
     }
 
@@ -72,16 +72,16 @@ public partial class AzurermKeyVaultAccessPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformList<string>? CertificatePermissions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "certificate_permissions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("certificate_permissions");
         set => SetArgument("certificate_permissions", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AzurermKeyVaultAccessPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformList<string>? KeyPermissions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "key_permissions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("key_permissions");
         set => SetArgument("key_permissions", value);
     }
 
@@ -100,7 +100,7 @@ public partial class AzurermKeyVaultAccessPolicy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
     public required TerraformValue<string> KeyVaultId
     {
-        get => new TerraformReference<string>(this, "key_vault_id");
+        get => GetArgument<TerraformValue<string>>("key_vault_id");
         set => SetArgument("key_vault_id", value);
     }
 
@@ -110,7 +110,7 @@ public partial class AzurermKeyVaultAccessPolicy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
     public required TerraformValue<string> ObjectId
     {
-        get => new TerraformReference<string>(this, "object_id");
+        get => GetArgument<TerraformValue<string>>("object_id");
         set => SetArgument("object_id", value);
     }
 
@@ -119,7 +119,7 @@ public partial class AzurermKeyVaultAccessPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformList<string>? SecretPermissions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "secret_permissions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("secret_permissions");
         set => SetArgument("secret_permissions", value);
     }
 
@@ -128,7 +128,7 @@ public partial class AzurermKeyVaultAccessPolicy(string name) : TerraformResourc
     /// </summary>
     public TerraformList<string>? StoragePermissions
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "storage_permissions").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("storage_permissions");
         set => SetArgument("storage_permissions", value);
     }
 
@@ -138,7 +138,7 @@ public partial class AzurermKeyVaultAccessPolicy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
     public required TerraformValue<string> TenantId
     {
-        get => new TerraformReference<string>(this, "tenant_id");
+        get => GetArgument<TerraformValue<string>>("tenant_id");
         set => SetArgument("tenant_id", value);
     }
 

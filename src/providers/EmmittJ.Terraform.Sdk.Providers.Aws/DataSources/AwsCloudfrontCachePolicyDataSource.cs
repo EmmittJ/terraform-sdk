@@ -13,7 +13,7 @@ public partial class AwsCloudfrontCachePolicyDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -22,7 +22,7 @@ public partial class AwsCloudfrontCachePolicyDataSource(string name) : Terraform
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -30,56 +30,42 @@ public partial class AwsCloudfrontCachePolicyDataSource(string name) : Terraform
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
     public TerraformValue<string> Comment
-    {
-        get => new TerraformReference<string>(this, "comment");
-    }
+        => AsReference("comment");
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
     public TerraformValue<double> DefaultTtl
-    {
-        get => new TerraformReference<double>(this, "default_ttl");
-    }
+        => AsReference("default_ttl");
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
     public TerraformValue<string> Etag
-    {
-        get => new TerraformReference<string>(this, "etag");
-    }
+        => AsReference("etag");
 
     /// <summary>
     /// The max_ttl attribute.
     /// </summary>
     public TerraformValue<double> MaxTtl
-    {
-        get => new TerraformReference<double>(this, "max_ttl");
-    }
+        => AsReference("max_ttl");
 
     /// <summary>
     /// The min_ttl attribute.
     /// </summary>
     public TerraformValue<double> MinTtl
-    {
-        get => new TerraformReference<double>(this, "min_ttl");
-    }
+        => AsReference("min_ttl");
 
     /// <summary>
     /// The parameters_in_cache_key_and_forwarded_to_origin attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ParametersInCacheKeyAndForwardedToOrigin
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "parameters_in_cache_key_and_forwarded_to_origin").ResolveNodes(ctx));
-    }
+        => AsReference("parameters_in_cache_key_and_forwarded_to_origin");
 
 }

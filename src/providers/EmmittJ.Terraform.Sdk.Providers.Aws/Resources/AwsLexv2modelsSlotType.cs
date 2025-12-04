@@ -41,7 +41,7 @@ public class AwsLexv2modelsSlotTypeCompositeSlotTypeSettingBlockSubSlotsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -51,7 +51,7 @@ public class AwsLexv2modelsSlotTypeCompositeSlotTypeSettingBlockSubSlotsBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SlotTypeId is required")]
     public required TerraformValue<string> SlotTypeId
     {
-        get => new TerraformReference<string>(this, "slot_type_id");
+        get => GetArgument<TerraformValue<string>>("slot_type_id");
         set => SetArgument("slot_type_id", value);
     }
 
@@ -119,7 +119,7 @@ public class AwsLexv2modelsSlotTypeExternalSourceSettingBlockGrammarSlotTypeSett
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
     public required TerraformValue<string> KmsKeyArn
     {
-        get => new TerraformReference<string>(this, "kms_key_arn");
+        get => GetArgument<TerraformValue<string>>("kms_key_arn");
         set => SetArgument("kms_key_arn", value);
     }
 
@@ -129,7 +129,7 @@ public class AwsLexv2modelsSlotTypeExternalSourceSettingBlockGrammarSlotTypeSett
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
     public required TerraformValue<string> S3BucketName
     {
-        get => new TerraformReference<string>(this, "s3_bucket_name");
+        get => GetArgument<TerraformValue<string>>("s3_bucket_name");
         set => SetArgument("s3_bucket_name", value);
     }
 
@@ -139,7 +139,7 @@ public class AwsLexv2modelsSlotTypeExternalSourceSettingBlockGrammarSlotTypeSett
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3ObjectKey is required")]
     public required TerraformValue<string> S3ObjectKey
     {
-        get => new TerraformReference<string>(this, "s3_object_key");
+        get => GetArgument<TerraformValue<string>>("s3_object_key");
         set => SetArgument("s3_object_key", value);
     }
 
@@ -194,7 +194,7 @@ public class AwsLexv2modelsSlotTypeSlotTypeValuesBlockSampleValueBlock : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -217,7 +217,7 @@ public class AwsLexv2modelsSlotTypeSlotTypeValuesBlockSynonymsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -240,7 +240,7 @@ public class AwsLexv2modelsSlotTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -249,7 +249,7 @@ public class AwsLexv2modelsSlotTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -258,7 +258,7 @@ public class AwsLexv2modelsSlotTypeTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -282,7 +282,7 @@ public class AwsLexv2modelsSlotTypeValueSelectionSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResolutionStrategy is required")]
     public required TerraformValue<string> ResolutionStrategy
     {
-        get => new TerraformReference<string>(this, "resolution_strategy");
+        get => GetArgument<TerraformValue<string>>("resolution_strategy");
         set => SetArgument("resolution_strategy", value);
     }
 
@@ -322,7 +322,7 @@ public class AwsLexv2modelsSlotTypeValueSelectionSettingBlockAdvancedRecognition
     /// </summary>
     public TerraformValue<string>? AudioRecognitionStrategy
     {
-        get => new TerraformReference<string>(this, "audio_recognition_strategy");
+        get => GetArgument<TerraformValue<string>>("audio_recognition_strategy");
         set => SetArgument("audio_recognition_strategy", value);
     }
 
@@ -345,7 +345,7 @@ public class AwsLexv2modelsSlotTypeValueSelectionSettingBlockRegexFilterBlock : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
     public required TerraformValue<string> Pattern
     {
-        get => new TerraformReference<string>(this, "pattern");
+        get => GetArgument<TerraformValue<string>>("pattern");
         set => SetArgument("pattern", value);
     }
 
@@ -364,7 +364,7 @@ public partial class AwsLexv2modelsSlotType(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotId is required")]
     public required TerraformValue<string> BotId
     {
-        get => new TerraformReference<string>(this, "bot_id");
+        get => GetArgument<TerraformValue<string>>("bot_id");
         set => SetArgument("bot_id", value);
     }
 
@@ -374,7 +374,7 @@ public partial class AwsLexv2modelsSlotType(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotVersion is required")]
     public required TerraformValue<string> BotVersion
     {
-        get => new TerraformReference<string>(this, "bot_version");
+        get => GetArgument<TerraformValue<string>>("bot_version");
         set => SetArgument("bot_version", value);
     }
 
@@ -383,7 +383,7 @@ public partial class AwsLexv2modelsSlotType(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
@@ -393,7 +393,7 @@ public partial class AwsLexv2modelsSlotType(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocaleId is required")]
     public required TerraformValue<string> LocaleId
     {
-        get => new TerraformReference<string>(this, "locale_id");
+        get => GetArgument<TerraformValue<string>>("locale_id");
         set => SetArgument("locale_id", value);
     }
 
@@ -403,7 +403,7 @@ public partial class AwsLexv2modelsSlotType(string name) : TerraformResource("aw
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -412,16 +412,16 @@ public partial class AwsLexv2modelsSlotType(string name) : TerraformResource("aw
     /// </summary>
     public TerraformValue<string>? ParentSlotTypeSignature
     {
-        get => new TerraformReference<string>(this, "parent_slot_type_signature");
+        get => GetArgument<TerraformValue<string>>("parent_slot_type_signature");
         set => SetArgument("parent_slot_type_signature", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -429,17 +429,13 @@ public partial class AwsLexv2modelsSlotType(string name) : TerraformResource("aw
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The slot_type_id attribute.
     /// </summary>
     public TerraformValue<string> SlotTypeId
-    {
-        get => new TerraformReference<string>(this, "slot_type_id");
-    }
+        => AsReference("slot_type_id");
 
     /// <summary>
     /// CompositeSlotTypeSetting block (nesting mode: list).

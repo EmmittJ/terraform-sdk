@@ -14,7 +14,7 @@ public partial class AwsRdsClusterEndpoint(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterEndpointIdentifier is required")]
     public required TerraformValue<string> ClusterEndpointIdentifier
     {
-        get => new TerraformReference<string>(this, "cluster_endpoint_identifier");
+        get => GetArgument<TerraformValue<string>>("cluster_endpoint_identifier");
         set => SetArgument("cluster_endpoint_identifier", value);
     }
 
@@ -24,7 +24,7 @@ public partial class AwsRdsClusterEndpoint(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
     public required TerraformValue<string> ClusterIdentifier
     {
-        get => new TerraformReference<string>(this, "cluster_identifier");
+        get => GetArgument<TerraformValue<string>>("cluster_identifier");
         set => SetArgument("cluster_identifier", value);
     }
 
@@ -34,7 +34,7 @@ public partial class AwsRdsClusterEndpoint(string name) : TerraformResource("aws
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomEndpointType is required")]
     public required TerraformValue<string> CustomEndpointType
     {
-        get => new TerraformReference<string>(this, "custom_endpoint_type");
+        get => GetArgument<TerraformValue<string>>("custom_endpoint_type");
         set => SetArgument("custom_endpoint_type", value);
     }
 
@@ -43,25 +43,25 @@ public partial class AwsRdsClusterEndpoint(string name) : TerraformResource("aws
     /// </summary>
     public TerraformSet<string>? ExcludedMembers
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "excluded_members").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("excluded_members");
         set => SetArgument("excluded_members", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -70,7 +70,7 @@ public partial class AwsRdsClusterEndpoint(string name) : TerraformResource("aws
     /// </summary>
     public TerraformSet<string>? StaticMembers
     {
-        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "static_members").ResolveNodes(ctx));
+        get => GetArgument<TerraformSet<string>>("static_members");
         set => SetArgument("static_members", value);
     }
 
@@ -79,16 +79,16 @@ public partial class AwsRdsClusterEndpoint(string name) : TerraformResource("aws
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -96,16 +96,12 @@ public partial class AwsRdsClusterEndpoint(string name) : TerraformResource("aws
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     public TerraformValue<string> Endpoint
-    {
-        get => new TerraformReference<string>(this, "endpoint");
-    }
+        => AsReference("endpoint");
 
 }

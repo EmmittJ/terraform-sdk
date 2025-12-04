@@ -14,34 +14,34 @@ public partial class AwsEfsAccessPointDataSource(string name) : TerraformDataSou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessPointId is required")]
     public required TerraformValue<string> AccessPointId
     {
-        get => new TerraformReference<string>(this, "access_point_id");
+        get => GetArgument<TerraformValue<string>>("access_point_id");
         set => SetArgument("access_point_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformMap<string> Tags
+    public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
@@ -49,48 +49,36 @@ public partial class AwsEfsAccessPointDataSource(string name) : TerraformDataSou
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The file_system_arn attribute.
     /// </summary>
     public TerraformValue<string> FileSystemArn
-    {
-        get => new TerraformReference<string>(this, "file_system_arn");
-    }
+        => AsReference("file_system_arn");
 
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
     public TerraformValue<string> FileSystemId
-    {
-        get => new TerraformReference<string>(this, "file_system_id");
-    }
+        => AsReference("file_system_id");
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
     public TerraformValue<string> OwnerId
-    {
-        get => new TerraformReference<string>(this, "owner_id");
-    }
+        => AsReference("owner_id");
 
     /// <summary>
     /// The posix_user attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> PosixUser
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "posix_user").ResolveNodes(ctx));
-    }
+        => AsReference("posix_user");
 
     /// <summary>
     /// The root_directory attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> RootDirectory
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "root_directory").ResolveNodes(ctx));
-    }
+        => AsReference("root_directory");
 
 }

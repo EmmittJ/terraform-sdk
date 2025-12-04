@@ -18,7 +18,7 @@ public class AwsGluePartitionStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AdditionalLocations
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "additional_locations").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("additional_locations");
         set => SetArgument("additional_locations", value);
     }
 
@@ -27,7 +27,7 @@ public class AwsGluePartitionStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? BucketColumns
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "bucket_columns").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("bucket_columns");
         set => SetArgument("bucket_columns", value);
     }
 
@@ -36,7 +36,7 @@ public class AwsGluePartitionStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? Compressed
     {
-        get => new TerraformReference<bool>(this, "compressed");
+        get => GetArgument<TerraformValue<bool>>("compressed");
         set => SetArgument("compressed", value);
     }
 
@@ -45,7 +45,7 @@ public class AwsGluePartitionStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? InputFormat
     {
-        get => new TerraformReference<string>(this, "input_format");
+        get => GetArgument<TerraformValue<string>>("input_format");
         set => SetArgument("input_format", value);
     }
 
@@ -54,7 +54,7 @@ public class AwsGluePartitionStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -63,7 +63,7 @@ public class AwsGluePartitionStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<double>? NumberOfBuckets
     {
-        get => new TerraformReference<double>(this, "number_of_buckets");
+        get => GetArgument<TerraformValue<double>>("number_of_buckets");
         set => SetArgument("number_of_buckets", value);
     }
 
@@ -72,7 +72,7 @@ public class AwsGluePartitionStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? OutputFormat
     {
-        get => new TerraformReference<string>(this, "output_format");
+        get => GetArgument<TerraformValue<string>>("output_format");
         set => SetArgument("output_format", value);
     }
 
@@ -81,7 +81,7 @@ public class AwsGluePartitionStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -90,7 +90,7 @@ public class AwsGluePartitionStorageDescriptorBlock : TerraformBlock
     /// </summary>
     public TerraformValue<bool>? StoredAsSubDirectories
     {
-        get => new TerraformReference<bool>(this, "stored_as_sub_directories");
+        get => GetArgument<TerraformValue<bool>>("stored_as_sub_directories");
         set => SetArgument("stored_as_sub_directories", value);
     }
 
@@ -150,7 +150,7 @@ public class AwsGluePartitionStorageDescriptorBlockColumnsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Comment
     {
-        get => new TerraformReference<string>(this, "comment");
+        get => GetArgument<TerraformValue<string>>("comment");
         set => SetArgument("comment", value);
     }
 
@@ -160,7 +160,7 @@ public class AwsGluePartitionStorageDescriptorBlockColumnsBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -169,7 +169,7 @@ public class AwsGluePartitionStorageDescriptorBlockColumnsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -191,7 +191,7 @@ public class AwsGluePartitionStorageDescriptorBlockSerDeInfoBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -200,7 +200,7 @@ public class AwsGluePartitionStorageDescriptorBlockSerDeInfoBlock : TerraformBlo
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -209,7 +209,7 @@ public class AwsGluePartitionStorageDescriptorBlockSerDeInfoBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? SerializationLibrary
     {
-        get => new TerraformReference<string>(this, "serialization_library");
+        get => GetArgument<TerraformValue<string>>("serialization_library");
         set => SetArgument("serialization_library", value);
     }
 
@@ -231,7 +231,7 @@ public class AwsGluePartitionStorageDescriptorBlockSkewedInfoBlock : TerraformBl
     /// </summary>
     public TerraformList<string>? SkewedColumnNames
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "skewed_column_names").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("skewed_column_names");
         set => SetArgument("skewed_column_names", value);
     }
 
@@ -240,7 +240,7 @@ public class AwsGluePartitionStorageDescriptorBlockSkewedInfoBlock : TerraformBl
     /// </summary>
     public TerraformMap<string>? SkewedColumnValueLocationMaps
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "skewed_column_value_location_maps").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("skewed_column_value_location_maps");
         set => SetArgument("skewed_column_value_location_maps", value);
     }
 
@@ -249,7 +249,7 @@ public class AwsGluePartitionStorageDescriptorBlockSkewedInfoBlock : TerraformBl
     /// </summary>
     public TerraformList<string>? SkewedColumnValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "skewed_column_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("skewed_column_values");
         set => SetArgument("skewed_column_values", value);
     }
 
@@ -272,7 +272,7 @@ public class AwsGluePartitionStorageDescriptorBlockSortColumnsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Column is required")]
     public required TerraformValue<string> Column
     {
-        get => new TerraformReference<string>(this, "column");
+        get => GetArgument<TerraformValue<string>>("column");
         set => SetArgument("column", value);
     }
 
@@ -282,7 +282,7 @@ public class AwsGluePartitionStorageDescriptorBlockSortColumnsBlock : TerraformB
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SortOrder is required")]
     public required TerraformValue<double> SortOrder
     {
-        get => new TerraformReference<double>(this, "sort_order");
+        get => GetArgument<TerraformValue<double>>("sort_order");
         set => SetArgument("sort_order", value);
     }
 
@@ -298,9 +298,9 @@ public partial class AwsGluePartition(string name) : TerraformResource("aws_glue
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformValue<string> CatalogId
+    public TerraformValue<string>? CatalogId
     {
-        get => new TerraformReference<string>(this, "catalog_id");
+        get => GetArgument<TerraformValue<string>>("catalog_id");
         set => SetArgument("catalog_id", value);
     }
 
@@ -310,16 +310,16 @@ public partial class AwsGluePartition(string name) : TerraformResource("aws_glue
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
     public required TerraformValue<string> DatabaseName
     {
-        get => new TerraformReference<string>(this, "database_name");
+        get => GetArgument<TerraformValue<string>>("database_name");
         set => SetArgument("database_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -328,7 +328,7 @@ public partial class AwsGluePartition(string name) : TerraformResource("aws_glue
     /// </summary>
     public TerraformMap<string>? Parameters
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("parameters");
         set => SetArgument("parameters", value);
     }
 
@@ -338,16 +338,16 @@ public partial class AwsGluePartition(string name) : TerraformResource("aws_glue
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionValues is required")]
     public TerraformList<string>? PartitionValues
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "partition_values").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("partition_values");
         set => SetArgument("partition_values", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -357,7 +357,7 @@ public partial class AwsGluePartition(string name) : TerraformResource("aws_glue
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
     public required TerraformValue<string> TableName
     {
-        get => new TerraformReference<string>(this, "table_name");
+        get => GetArgument<TerraformValue<string>>("table_name");
         set => SetArgument("table_name", value);
     }
 
@@ -365,25 +365,19 @@ public partial class AwsGluePartition(string name) : TerraformResource("aws_glue
     /// The creation_time attribute.
     /// </summary>
     public TerraformValue<string> CreationTime
-    {
-        get => new TerraformReference<string>(this, "creation_time");
-    }
+        => AsReference("creation_time");
 
     /// <summary>
     /// The last_accessed_time attribute.
     /// </summary>
     public TerraformValue<string> LastAccessedTime
-    {
-        get => new TerraformReference<string>(this, "last_accessed_time");
-    }
+        => AsReference("last_accessed_time");
 
     /// <summary>
     /// The last_analyzed_time attribute.
     /// </summary>
     public TerraformValue<string> LastAnalyzedTime
-    {
-        get => new TerraformReference<string>(this, "last_analyzed_time");
-    }
+        => AsReference("last_analyzed_time");
 
     /// <summary>
     /// StorageDescriptor block (nesting mode: list).

@@ -78,7 +78,7 @@ public class GoogleBigqueryAnalyticsHubDataExchangeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -87,7 +87,7 @@ public class GoogleBigqueryAnalyticsHubDataExchangeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -96,7 +96,7 @@ public class GoogleBigqueryAnalyticsHubDataExchangeTimeoutsBlock : TerraformBloc
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -115,7 +115,7 @@ public partial class GoogleBigqueryAnalyticsHubDataExchange(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataExchangeId is required")]
     public required TerraformValue<string> DataExchangeId
     {
-        get => new TerraformReference<string>(this, "data_exchange_id");
+        get => GetArgument<TerraformValue<string>>("data_exchange_id");
         set => SetArgument("data_exchange_id", value);
     }
 
@@ -124,16 +124,16 @@ public partial class GoogleBigqueryAnalyticsHubDataExchange(string name) : Terra
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// Type of discovery on the discovery page for all the listings under this exchange. Cannot be set for a Data Clean Room. Updating this field also updates (overwrites) the discoveryType field for all the listings under this exchange. Possible values: [&amp;quot;DISCOVERY_TYPE_PRIVATE&amp;quot;, &amp;quot;DISCOVERY_TYPE_PUBLIC&amp;quot;]
     /// </summary>
-    public TerraformValue<string> DiscoveryType
+    public TerraformValue<string>? DiscoveryType
     {
-        get => new TerraformReference<string>(this, "discovery_type");
+        get => GetArgument<TerraformValue<string>>("discovery_type");
         set => SetArgument("discovery_type", value);
     }
 
@@ -143,7 +143,7 @@ public partial class GoogleBigqueryAnalyticsHubDataExchange(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
@@ -152,7 +152,7 @@ public partial class GoogleBigqueryAnalyticsHubDataExchange(string name) : Terra
     /// </summary>
     public TerraformValue<string>? Documentation
     {
-        get => new TerraformReference<string>(this, "documentation");
+        get => GetArgument<TerraformValue<string>>("documentation");
         set => SetArgument("documentation", value);
     }
 
@@ -161,16 +161,16 @@ public partial class GoogleBigqueryAnalyticsHubDataExchange(string name) : Terra
     /// </summary>
     public TerraformValue<string>? Icon
     {
-        get => new TerraformReference<string>(this, "icon");
+        get => GetArgument<TerraformValue<string>>("icon");
         set => SetArgument("icon", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -180,7 +180,7 @@ public partial class GoogleBigqueryAnalyticsHubDataExchange(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -189,7 +189,7 @@ public partial class GoogleBigqueryAnalyticsHubDataExchange(string name) : Terra
     /// </summary>
     public TerraformValue<bool>? LogLinkedDatasetQueryUserEmail
     {
-        get => new TerraformReference<bool>(this, "log_linked_dataset_query_user_email");
+        get => GetArgument<TerraformValue<bool>>("log_linked_dataset_query_user_email");
         set => SetArgument("log_linked_dataset_query_user_email", value);
     }
 
@@ -198,16 +198,16 @@ public partial class GoogleBigqueryAnalyticsHubDataExchange(string name) : Terra
     /// </summary>
     public TerraformValue<string>? PrimaryContact
     {
-        get => new TerraformReference<string>(this, "primary_contact");
+        get => GetArgument<TerraformValue<string>>("primary_contact");
         set => SetArgument("primary_contact", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -215,18 +215,14 @@ public partial class GoogleBigqueryAnalyticsHubDataExchange(string name) : Terra
     /// Number of listings contained in the data exchange.
     /// </summary>
     public TerraformValue<double> ListingCount
-    {
-        get => new TerraformReference<double>(this, "listing_count");
-    }
+        => AsReference("listing_count");
 
     /// <summary>
     /// The resource name of the data exchange, for example:
     /// &amp;quot;projects/myproject/locations/US/dataExchanges/123&amp;quot;
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// SharingEnvironmentConfig block (nesting mode: list).

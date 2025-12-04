@@ -19,7 +19,7 @@ public class GoogleBigqueryDataTransferConfigEmailPreferencesBlock : TerraformBl
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableFailureEmail is required")]
     public required TerraformValue<bool> EnableFailureEmail
     {
-        get => new TerraformReference<bool>(this, "enable_failure_email");
+        get => GetArgument<TerraformValue<bool>>("enable_failure_email");
         set => SetArgument("enable_failure_email", value);
     }
 
@@ -43,7 +43,7 @@ public class GoogleBigqueryDataTransferConfigEncryptionConfigurationBlock : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
     public required TerraformValue<string> KmsKeyName
     {
-        get => new TerraformReference<string>(this, "kms_key_name");
+        get => GetArgument<TerraformValue<string>>("kms_key_name");
         set => SetArgument("kms_key_name", value);
     }
 
@@ -70,7 +70,7 @@ public class GoogleBigqueryDataTransferConfigScheduleOptionsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<bool>? DisableAutoScheduling
     {
-        get => new TerraformReference<bool>(this, "disable_auto_scheduling");
+        get => GetArgument<TerraformValue<bool>>("disable_auto_scheduling");
         set => SetArgument("disable_auto_scheduling", value);
     }
 
@@ -82,7 +82,7 @@ public class GoogleBigqueryDataTransferConfigScheduleOptionsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? EndTime
     {
-        get => new TerraformReference<string>(this, "end_time");
+        get => GetArgument<TerraformValue<string>>("end_time");
         set => SetArgument("end_time", value);
     }
 
@@ -95,7 +95,7 @@ public class GoogleBigqueryDataTransferConfigScheduleOptionsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? StartTime
     {
-        get => new TerraformReference<string>(this, "start_time");
+        get => GetArgument<TerraformValue<string>>("start_time");
         set => SetArgument("start_time", value);
     }
 
@@ -118,7 +118,7 @@ public class GoogleBigqueryDataTransferConfigSensitiveParamsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? SecretAccessKey
     {
-        get => new TerraformReference<string>(this, "secret_access_key");
+        get => GetArgument<TerraformValue<string>>("secret_access_key");
         set => SetArgument("secret_access_key", value);
     }
 
@@ -127,7 +127,7 @@ public class GoogleBigqueryDataTransferConfigSensitiveParamsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<string>? SecretAccessKeyWo
     {
-        get => new TerraformReference<string>(this, "secret_access_key_wo");
+        get => GetArgument<TerraformValue<string>>("secret_access_key_wo");
         set => SetArgument("secret_access_key_wo", value);
     }
 
@@ -136,7 +136,7 @@ public class GoogleBigqueryDataTransferConfigSensitiveParamsBlock : TerraformBlo
     /// </summary>
     public TerraformValue<double>? SecretAccessKeyWoVersion
     {
-        get => new TerraformReference<double>(this, "secret_access_key_wo_version");
+        get => GetArgument<TerraformValue<double>>("secret_access_key_wo_version");
         set => SetArgument("secret_access_key_wo_version", value);
     }
 
@@ -159,7 +159,7 @@ public class GoogleBigqueryDataTransferConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -168,7 +168,7 @@ public class GoogleBigqueryDataTransferConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -177,7 +177,7 @@ public class GoogleBigqueryDataTransferConfigTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -199,7 +199,7 @@ public partial class GoogleBigqueryDataTransferConfig(string name) : TerraformRe
     /// </summary>
     public TerraformValue<double>? DataRefreshWindowDays
     {
-        get => new TerraformReference<double>(this, "data_refresh_window_days");
+        get => GetArgument<TerraformValue<double>>("data_refresh_window_days");
         set => SetArgument("data_refresh_window_days", value);
     }
 
@@ -209,7 +209,7 @@ public partial class GoogleBigqueryDataTransferConfig(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceId is required")]
     public required TerraformValue<string> DataSourceId
     {
-        get => new TerraformReference<string>(this, "data_source_id");
+        get => GetArgument<TerraformValue<string>>("data_source_id");
         set => SetArgument("data_source_id", value);
     }
 
@@ -218,7 +218,7 @@ public partial class GoogleBigqueryDataTransferConfig(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? DestinationDatasetId
     {
-        get => new TerraformReference<string>(this, "destination_dataset_id");
+        get => GetArgument<TerraformValue<string>>("destination_dataset_id");
         set => SetArgument("destination_dataset_id", value);
     }
 
@@ -227,7 +227,7 @@ public partial class GoogleBigqueryDataTransferConfig(string name) : TerraformRe
     /// </summary>
     public TerraformValue<bool>? Disabled
     {
-        get => new TerraformReference<bool>(this, "disabled");
+        get => GetArgument<TerraformValue<bool>>("disabled");
         set => SetArgument("disabled", value);
     }
 
@@ -237,16 +237,16 @@ public partial class GoogleBigqueryDataTransferConfig(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
     public required TerraformValue<string> DisplayName
     {
-        get => new TerraformReference<string>(this, "display_name");
+        get => GetArgument<TerraformValue<string>>("display_name");
         set => SetArgument("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -256,7 +256,7 @@ public partial class GoogleBigqueryDataTransferConfig(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -266,7 +266,7 @@ public partial class GoogleBigqueryDataTransferConfig(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? NotificationPubsubTopic
     {
-        get => new TerraformReference<string>(this, "notification_pubsub_topic");
+        get => GetArgument<TerraformValue<string>>("notification_pubsub_topic");
         set => SetArgument("notification_pubsub_topic", value);
     }
 
@@ -280,16 +280,16 @@ public partial class GoogleBigqueryDataTransferConfig(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParamsAttribute is required")]
     public required TerraformMap<string> ParamsAttribute
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "params").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("params");
         set => SetArgument("params", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformValue<string> Project
+    public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -306,7 +306,7 @@ public partial class GoogleBigqueryDataTransferConfig(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? Schedule
     {
-        get => new TerraformReference<string>(this, "schedule");
+        get => GetArgument<TerraformValue<string>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -317,7 +317,7 @@ public partial class GoogleBigqueryDataTransferConfig(string name) : TerraformRe
     /// </summary>
     public TerraformValue<string>? ServiceAccountName
     {
-        get => new TerraformReference<string>(this, "service_account_name");
+        get => GetArgument<TerraformValue<string>>("service_account_name");
         set => SetArgument("service_account_name", value);
     }
 
@@ -329,9 +329,7 @@ public partial class GoogleBigqueryDataTransferConfig(string name) : TerraformRe
     /// The name is ignored when creating a transfer config.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// EmailPreferences block (nesting mode: list).

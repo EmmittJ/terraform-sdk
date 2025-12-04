@@ -11,9 +11,9 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -24,7 +24,7 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     public required TerraformValue<string> Location
     {
-        get => new TerraformReference<string>(this, "location");
+        get => GetArgument<TerraformValue<string>>("location");
         set => SetArgument("location", value);
     }
 
@@ -33,7 +33,7 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// </summary>
     public TerraformValue<string>? Project
     {
-        get => new TerraformReference<string>(this, "project");
+        get => GetArgument<TerraformValue<string>>("project");
         set => SetArgument("project", value);
     }
 
@@ -43,7 +43,7 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerId is required")]
     public required TerraformValue<string> TriggerId
     {
-        get => new TerraformReference<string>(this, "trigger_id");
+        get => GetArgument<TerraformValue<string>>("trigger_id");
         set => SetArgument("trigger_id", value);
     }
 
@@ -53,57 +53,43 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// Any user with a Cloud Build Approver role for the project can approve a build.
     /// </summary>
     public TerraformList<TerraformMap<object>> ApprovalConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "approval_config").ResolveNodes(ctx));
-    }
+        => AsReference("approval_config");
 
     /// <summary>
     /// BitbucketServerTriggerConfig describes the configuration of a trigger that creates a build whenever a Bitbucket Server event is received.
     /// </summary>
     public TerraformList<TerraformMap<object>> BitbucketServerTriggerConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "bitbucket_server_trigger_config").ResolveNodes(ctx));
-    }
+        => AsReference("bitbucket_server_trigger_config");
 
     /// <summary>
     /// Contents of the build template. Either a filename or build template must be provided.
     /// </summary>
     public TerraformList<TerraformMap<object>> Build
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "build").ResolveNodes(ctx));
-    }
+        => AsReference("build");
 
     /// <summary>
     /// Time when the trigger was created.
     /// </summary>
     public TerraformValue<string> CreateTime
-    {
-        get => new TerraformReference<string>(this, "create_time");
-    }
+        => AsReference("create_time");
 
     /// <summary>
     /// Human-readable description of the trigger.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// Configuration for triggers that respond to Developer Connect events.
     /// </summary>
     public TerraformList<TerraformMap<object>> DeveloperConnectEventConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "developer_connect_event_config").ResolveNodes(ctx));
-    }
+        => AsReference("developer_connect_event_config");
 
     /// <summary>
     /// Whether the trigger is disabled or not. If true, the trigger will never result in a build.
     /// </summary>
     public TerraformValue<bool> Disabled
-    {
-        get => new TerraformReference<bool>(this, "disabled");
-    }
+        => AsReference("disabled");
 
     /// <summary>
     /// Path, from the source root, to a file whose contents is used for the template.
@@ -111,25 +97,19 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// When using Pub/Sub, Webhook or Manual set the file name using git_file_source instead.
     /// </summary>
     public TerraformValue<string> Filename
-    {
-        get => new TerraformReference<string>(this, "filename");
-    }
+        => AsReference("filename");
 
     /// <summary>
     /// A Common Expression Language string. Used only with Pub/Sub and Webhook.
     /// </summary>
     public TerraformValue<string> Filter
-    {
-        get => new TerraformReference<string>(this, "filter");
-    }
+        => AsReference("filter");
 
     /// <summary>
     /// The file source describing the local or remote Build template.
     /// </summary>
     public TerraformList<TerraformMap<object>> GitFileSource
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "git_file_source").ResolveNodes(ctx));
-    }
+        => AsReference("git_file_source");
 
     /// <summary>
     /// Describes the configuration of a trigger that creates a build whenever a GitHub event is received.
@@ -137,9 +117,7 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39; or &#39;webhook_config&#39; must be provided.
     /// </summary>
     public TerraformList<TerraformMap<object>> Github
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "github").ResolveNodes(ctx));
-    }
+        => AsReference("github");
 
     /// <summary>
     /// ignoredFiles and includedFiles are file glob matches using https://golang.org/pkg/path/filepath/#Match
@@ -153,9 +131,7 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// of the ignoredFiles globs, then we do not trigger a build.
     /// </summary>
     public TerraformList<string> IgnoredFiles
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ignored_files").ResolveNodes(ctx));
-    }
+        => AsReference("ignored_files");
 
     /// <summary>
     /// Build logs will be sent back to GitHub as part of the checkrun
@@ -163,9 +139,7 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// INCLUDE_BUILD_LOGS_WITH_STATUS Possible values: [&amp;quot;INCLUDE_BUILD_LOGS_UNSPECIFIED&amp;quot;, &amp;quot;INCLUDE_BUILD_LOGS_WITH_STATUS&amp;quot;]
     /// </summary>
     public TerraformValue<string> IncludeBuildLogs
-    {
-        get => new TerraformReference<string>(this, "include_build_logs");
-    }
+        => AsReference("include_build_logs");
 
     /// <summary>
     /// ignoredFiles and includedFiles are file glob matches using https://golang.org/pkg/path/filepath/#Match
@@ -181,17 +155,13 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// a build.
     /// </summary>
     public TerraformList<string> IncludedFiles
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "included_files").ResolveNodes(ctx));
-    }
+        => AsReference("included_files");
 
     /// <summary>
     /// Name of the trigger. Must be unique within the project.
     /// </summary>
     public TerraformValue<string> Name
-    {
-        get => new TerraformReference<string>(this, "name");
-    }
+        => AsReference("name");
 
     /// <summary>
     /// PubsubConfig describes the configuration of a trigger that creates
@@ -200,17 +170,13 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39; &#39;webhook_config&#39; or &#39;source_to_build&#39; must be provided.
     /// </summary>
     public TerraformList<TerraformMap<object>> PubsubConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "pubsub_config").ResolveNodes(ctx));
-    }
+        => AsReference("pubsub_config");
 
     /// <summary>
     /// The configuration of a trigger that creates a build whenever an event from Repo API is received.
     /// </summary>
     public TerraformList<TerraformMap<object>> RepositoryEventConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "repository_event_config").ResolveNodes(ctx));
-    }
+        => AsReference("repository_event_config");
 
     /// <summary>
     /// The service account used for all user-controlled operations including
@@ -222,9 +188,7 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// Format: projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_ID_OR_EMAIL}
     /// </summary>
     public TerraformValue<string> ServiceAccount
-    {
-        get => new TerraformReference<string>(this, "service_account");
-    }
+        => AsReference("service_account");
 
     /// <summary>
     /// The repo and ref of the repository from which to build.
@@ -235,25 +199,19 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39; &#39;webhook_config&#39; or &#39;source_to_build&#39; must be provided.
     /// </summary>
     public TerraformList<TerraformMap<object>> SourceToBuild
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "source_to_build").ResolveNodes(ctx));
-    }
+        => AsReference("source_to_build");
 
     /// <summary>
     /// Substitutions data for Build resource.
     /// </summary>
     public TerraformMap<string> Substitutions
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "substitutions").ResolveNodes(ctx));
-    }
+        => AsReference("substitutions");
 
     /// <summary>
     /// Tags for annotation of a BuildTrigger
     /// </summary>
     public TerraformList<string> Tags
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
     /// <summary>
     /// Template describing the types of source changes to trigger a build.
@@ -265,9 +223,7 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39;, &#39;webhook_config&#39; or &#39;source_to_build&#39; must be provided.
     /// </summary>
     public TerraformList<TerraformMap<object>> TriggerTemplate
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "trigger_template").ResolveNodes(ctx));
-    }
+        => AsReference("trigger_template");
 
     /// <summary>
     /// WebhookConfig describes the configuration of a trigger that creates
@@ -276,8 +232,6 @@ public partial class GoogleCloudbuildTriggerDataSource(string name) : TerraformD
     /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39; &#39;webhook_config&#39; or &#39;source_to_build&#39; must be provided.
     /// </summary>
     public TerraformList<TerraformMap<object>> WebhookConfig
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "webhook_config").ResolveNodes(ctx));
-    }
+        => AsReference("webhook_config");
 
 }

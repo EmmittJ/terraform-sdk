@@ -19,7 +19,7 @@ public class AwsElasticBeanstalkEnvironmentSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -29,7 +29,7 @@ public class AwsElasticBeanstalkEnvironmentSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceAttribute is required")]
     public required TerraformValue<string> NamespaceAttribute
     {
-        get => new TerraformReference<string>(this, "namespace");
+        get => GetArgument<TerraformValue<string>>("namespace");
         set => SetArgument("namespace", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsElasticBeanstalkEnvironmentSettingBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Resource
     {
-        get => new TerraformReference<string>(this, "resource");
+        get => GetArgument<TerraformValue<string>>("resource");
         set => SetArgument("resource", value);
     }
 
@@ -48,7 +48,7 @@ public class AwsElasticBeanstalkEnvironmentSettingBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
     public required TerraformValue<string> Value
     {
-        get => new TerraformReference<string>(this, "value");
+        get => GetArgument<TerraformValue<string>>("value");
         set => SetArgument("value", value);
     }
 
@@ -67,16 +67,16 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Application is required")]
     public required TerraformValue<string> Application
     {
-        get => new TerraformReference<string>(this, "application");
+        get => GetArgument<TerraformValue<string>>("application");
         set => SetArgument("application", value);
     }
 
     /// <summary>
     /// The cname_prefix attribute.
     /// </summary>
-    public TerraformValue<string> CnamePrefix
+    public TerraformValue<string>? CnamePrefix
     {
-        get => new TerraformReference<string>(this, "cname_prefix");
+        get => GetArgument<TerraformValue<string>>("cname_prefix");
         set => SetArgument("cname_prefix", value);
     }
 
@@ -85,16 +85,16 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Description
     {
-        get => new TerraformReference<string>(this, "description");
+        get => GetArgument<TerraformValue<string>>("description");
         set => SetArgument("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -104,16 +104,16 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The platform_arn attribute.
     /// </summary>
-    public TerraformValue<string> PlatformArn
+    public TerraformValue<string>? PlatformArn
     {
-        get => new TerraformReference<string>(this, "platform_arn");
+        get => GetArgument<TerraformValue<string>>("platform_arn");
         set => SetArgument("platform_arn", value);
     }
 
@@ -122,25 +122,25 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? PollInterval
     {
-        get => new TerraformReference<string>(this, "poll_interval");
+        get => GetArgument<TerraformValue<string>>("poll_interval");
         set => SetArgument("poll_interval", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The solution_stack_name attribute.
     /// </summary>
-    public TerraformValue<string> SolutionStackName
+    public TerraformValue<string>? SolutionStackName
     {
-        get => new TerraformReference<string>(this, "solution_stack_name");
+        get => GetArgument<TerraformValue<string>>("solution_stack_name");
         set => SetArgument("solution_stack_name", value);
     }
 
@@ -149,16 +149,16 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformMap<string>? Tags
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags");
         set => SetArgument("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformMap<string> TagsAll
+    public TerraformMap<string>? TagsAll
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("tags_all");
         set => SetArgument("tags_all", value);
     }
 
@@ -167,7 +167,7 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? TemplateName
     {
-        get => new TerraformReference<string>(this, "template_name");
+        get => GetArgument<TerraformValue<string>>("template_name");
         set => SetArgument("template_name", value);
     }
 
@@ -176,16 +176,16 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Tier
     {
-        get => new TerraformReference<string>(this, "tier");
+        get => GetArgument<TerraformValue<string>>("tier");
         set => SetArgument("tier", value);
     }
 
     /// <summary>
     /// The version_label attribute.
     /// </summary>
-    public TerraformValue<string> VersionLabel
+    public TerraformValue<string>? VersionLabel
     {
-        get => new TerraformReference<string>(this, "version_label");
+        get => GetArgument<TerraformValue<string>>("version_label");
         set => SetArgument("version_label", value);
     }
 
@@ -194,7 +194,7 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? WaitForReadyTimeout
     {
-        get => new TerraformReference<string>(this, "wait_for_ready_timeout");
+        get => GetArgument<TerraformValue<string>>("wait_for_ready_timeout");
         set => SetArgument("wait_for_ready_timeout", value);
     }
 
@@ -202,81 +202,61 @@ public partial class AwsElasticBeanstalkEnvironment(string name) : TerraformReso
     /// The all_settings attribute.
     /// </summary>
     public TerraformSet<TerraformMap<object>> AllSettings
-    {
-        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "all_settings").ResolveNodes(ctx));
-    }
+        => AsReference("all_settings");
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The autoscaling_groups attribute.
     /// </summary>
     public TerraformList<string> AutoscalingGroups
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "autoscaling_groups").ResolveNodes(ctx));
-    }
+        => AsReference("autoscaling_groups");
 
     /// <summary>
     /// The cname attribute.
     /// </summary>
     public TerraformValue<string> Cname
-    {
-        get => new TerraformReference<string>(this, "cname");
-    }
+        => AsReference("cname");
 
     /// <summary>
     /// The endpoint_url attribute.
     /// </summary>
     public TerraformValue<string> EndpointUrl
-    {
-        get => new TerraformReference<string>(this, "endpoint_url");
-    }
+        => AsReference("endpoint_url");
 
     /// <summary>
     /// The instances attribute.
     /// </summary>
     public TerraformList<string> Instances
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "instances").ResolveNodes(ctx));
-    }
+        => AsReference("instances");
 
     /// <summary>
     /// The launch_configurations attribute.
     /// </summary>
     public TerraformList<string> LaunchConfigurations
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "launch_configurations").ResolveNodes(ctx));
-    }
+        => AsReference("launch_configurations");
 
     /// <summary>
     /// The load_balancers attribute.
     /// </summary>
     public TerraformList<string> LoadBalancers
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "load_balancers").ResolveNodes(ctx));
-    }
+        => AsReference("load_balancers");
 
     /// <summary>
     /// The queues attribute.
     /// </summary>
     public TerraformList<string> Queues
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "queues").ResolveNodes(ctx));
-    }
+        => AsReference("queues");
 
     /// <summary>
     /// The triggers attribute.
     /// </summary>
     public TerraformList<string> Triggers
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "triggers").ResolveNodes(ctx));
-    }
+        => AsReference("triggers");
 
     /// <summary>
     /// Setting block (nesting mode: set).

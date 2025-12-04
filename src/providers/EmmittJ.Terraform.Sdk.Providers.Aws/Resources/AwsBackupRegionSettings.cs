@@ -11,27 +11,27 @@ public partial class AwsBackupRegionSettings(string name) : TerraformResource("a
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
     /// <summary>
     /// The resource_type_management_preference attribute.
     /// </summary>
-    public TerraformMap<bool> ResourceTypeManagementPreference
+    public TerraformMap<bool>? ResourceTypeManagementPreference
     {
-        get => TerraformMap<bool>.Lazy(ctx => new TerraformReference<TerraformMap<bool>>(this, "resource_type_management_preference").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<bool>>("resource_type_management_preference");
         set => SetArgument("resource_type_management_preference", value);
     }
 
@@ -41,7 +41,7 @@ public partial class AwsBackupRegionSettings(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypeOptInPreference is required")]
     public required TerraformMap<bool> ResourceTypeOptInPreference
     {
-        get => TerraformMap<bool>.Lazy(ctx => new TerraformReference<TerraformMap<bool>>(this, "resource_type_opt_in_preference").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<bool>>("resource_type_opt_in_preference");
         set => SetArgument("resource_type_opt_in_preference", value);
     }
 

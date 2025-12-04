@@ -18,7 +18,7 @@ public class AwsCognitoManagedLoginBrandingAssetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Bytes
     {
-        get => new TerraformReference<string>(this, "bytes");
+        get => GetArgument<TerraformValue<string>>("bytes");
         set => SetArgument("bytes", value);
     }
 
@@ -28,7 +28,7 @@ public class AwsCognitoManagedLoginBrandingAssetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
     public required TerraformValue<string> Category
     {
-        get => new TerraformReference<string>(this, "category");
+        get => GetArgument<TerraformValue<string>>("category");
         set => SetArgument("category", value);
     }
 
@@ -38,7 +38,7 @@ public class AwsCognitoManagedLoginBrandingAssetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColorMode is required")]
     public required TerraformValue<string> ColorMode
     {
-        get => new TerraformReference<string>(this, "color_mode");
+        get => GetArgument<TerraformValue<string>>("color_mode");
         set => SetArgument("color_mode", value);
     }
 
@@ -48,7 +48,7 @@ public class AwsCognitoManagedLoginBrandingAssetBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Extension is required")]
     public required TerraformValue<string> Extension
     {
-        get => new TerraformReference<string>(this, "extension");
+        get => GetArgument<TerraformValue<string>>("extension");
         set => SetArgument("extension", value);
     }
 
@@ -57,7 +57,7 @@ public class AwsCognitoManagedLoginBrandingAssetBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? ResourceId
     {
-        get => new TerraformReference<string>(this, "resource_id");
+        get => GetArgument<TerraformValue<string>>("resource_id");
         set => SetArgument("resource_id", value);
     }
 
@@ -76,16 +76,16 @@ public partial class AwsCognitoManagedLoginBranding(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
     public required TerraformValue<string> ClientId
     {
-        get => new TerraformReference<string>(this, "client_id");
+        get => GetArgument<TerraformValue<string>>("client_id");
         set => SetArgument("client_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -94,16 +94,16 @@ public partial class AwsCognitoManagedLoginBranding(string name) : TerraformReso
     /// </summary>
     public TerraformValue<string>? Settings
     {
-        get => new TerraformReference<string>(this, "settings");
+        get => GetArgument<TerraformValue<string>>("settings");
         set => SetArgument("settings", value);
     }
 
     /// <summary>
     /// The use_cognito_provided_values attribute.
     /// </summary>
-    public TerraformValue<bool> UseCognitoProvidedValues
+    public TerraformValue<bool>? UseCognitoProvidedValues
     {
-        get => new TerraformReference<bool>(this, "use_cognito_provided_values");
+        get => GetArgument<TerraformValue<bool>>("use_cognito_provided_values");
         set => SetArgument("use_cognito_provided_values", value);
     }
 
@@ -113,7 +113,7 @@ public partial class AwsCognitoManagedLoginBranding(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
     public required TerraformValue<string> UserPoolId
     {
-        get => new TerraformReference<string>(this, "user_pool_id");
+        get => GetArgument<TerraformValue<string>>("user_pool_id");
         set => SetArgument("user_pool_id", value);
     }
 
@@ -121,17 +121,13 @@ public partial class AwsCognitoManagedLoginBranding(string name) : TerraformReso
     /// The managed_login_branding_id attribute.
     /// </summary>
     public TerraformValue<string> ManagedLoginBrandingId
-    {
-        get => new TerraformReference<string>(this, "managed_login_branding_id");
-    }
+        => AsReference("managed_login_branding_id");
 
     /// <summary>
     /// The settings_all attribute.
     /// </summary>
     public TerraformValue<string> SettingsAll
-    {
-        get => new TerraformReference<string>(this, "settings_all");
-    }
+        => AsReference("settings_all");
 
     /// <summary>
     /// Asset block (nesting mode: set).

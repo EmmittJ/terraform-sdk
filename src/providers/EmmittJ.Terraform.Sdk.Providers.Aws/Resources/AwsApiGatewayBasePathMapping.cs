@@ -14,7 +14,7 @@ public partial class AwsApiGatewayBasePathMapping(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
     public required TerraformValue<string> ApiId
     {
-        get => new TerraformReference<string>(this, "api_id");
+        get => GetArgument<TerraformValue<string>>("api_id");
         set => SetArgument("api_id", value);
     }
 
@@ -23,7 +23,7 @@ public partial class AwsApiGatewayBasePathMapping(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? BasePath
     {
-        get => new TerraformReference<string>(this, "base_path");
+        get => GetArgument<TerraformValue<string>>("base_path");
         set => SetArgument("base_path", value);
     }
 
@@ -33,7 +33,7 @@ public partial class AwsApiGatewayBasePathMapping(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
     public required TerraformValue<string> DomainName
     {
-        get => new TerraformReference<string>(this, "domain_name");
+        get => GetArgument<TerraformValue<string>>("domain_name");
         set => SetArgument("domain_name", value);
     }
 
@@ -42,25 +42,25 @@ public partial class AwsApiGatewayBasePathMapping(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? DomainNameId
     {
-        get => new TerraformReference<string>(this, "domain_name_id");
+        get => GetArgument<TerraformValue<string>>("domain_name_id");
         set => SetArgument("domain_name_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -69,7 +69,7 @@ public partial class AwsApiGatewayBasePathMapping(string name) : TerraformResour
     /// </summary>
     public TerraformValue<string>? StageName
     {
-        get => new TerraformReference<string>(this, "stage_name");
+        get => GetArgument<TerraformValue<string>>("stage_name");
         set => SetArgument("stage_name", value);
     }
 

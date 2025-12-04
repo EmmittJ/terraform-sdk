@@ -45,7 +45,7 @@ public class AwsCloudfrontMonitoringSubscriptionMonitoringSubscriptionBlockRealt
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RealtimeMetricsSubscriptionStatus is required")]
     public required TerraformValue<string> RealtimeMetricsSubscriptionStatus
     {
-        get => new TerraformReference<string>(this, "realtime_metrics_subscription_status");
+        get => GetArgument<TerraformValue<string>>("realtime_metrics_subscription_status");
         set => SetArgument("realtime_metrics_subscription_status", value);
     }
 
@@ -64,16 +64,16 @@ public partial class AwsCloudfrontMonitoringSubscription(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DistributionId is required")]
     public required TerraformValue<string> DistributionId
     {
-        get => new TerraformReference<string>(this, "distribution_id");
+        get => GetArgument<TerraformValue<string>>("distribution_id");
         set => SetArgument("distribution_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 

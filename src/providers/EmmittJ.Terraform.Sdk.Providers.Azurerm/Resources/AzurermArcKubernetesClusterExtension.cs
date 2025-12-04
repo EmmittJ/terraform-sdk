@@ -17,17 +17,13 @@ public class AzurermArcKubernetesClusterExtensionIdentityBlock : TerraformBlock
     /// The principal_id attribute.
     /// </summary>
     public TerraformValue<string> PrincipalId
-    {
-        get => new TerraformReference<string>(this, "principal_id");
-    }
+        => AsReference("principal_id");
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     public TerraformValue<string> TenantId
-    {
-        get => new TerraformReference<string>(this, "tenant_id");
-    }
+        => AsReference("tenant_id");
 
     /// <summary>
     /// The type attribute.
@@ -35,7 +31,7 @@ public class AzurermArcKubernetesClusterExtensionIdentityBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -58,7 +54,7 @@ public class AzurermArcKubernetesClusterExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -67,7 +63,7 @@ public class AzurermArcKubernetesClusterExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -76,7 +72,7 @@ public class AzurermArcKubernetesClusterExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -85,7 +81,7 @@ public class AzurermArcKubernetesClusterExtensionTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -104,7 +100,7 @@ public partial class AzurermArcKubernetesClusterExtension(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
     public required TerraformValue<string> ClusterId
     {
-        get => new TerraformReference<string>(this, "cluster_id");
+        get => GetArgument<TerraformValue<string>>("cluster_id");
         set => SetArgument("cluster_id", value);
     }
 
@@ -113,7 +109,7 @@ public partial class AzurermArcKubernetesClusterExtension(string name) : Terrafo
     /// </summary>
     public TerraformMap<string>? ConfigurationProtectedSettings
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "configuration_protected_settings").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("configuration_protected_settings");
         set => SetArgument("configuration_protected_settings", value);
     }
 
@@ -122,7 +118,7 @@ public partial class AzurermArcKubernetesClusterExtension(string name) : Terrafo
     /// </summary>
     public TerraformMap<string>? ConfigurationSettings
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "configuration_settings").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("configuration_settings");
         set => SetArgument("configuration_settings", value);
     }
 
@@ -132,16 +128,16 @@ public partial class AzurermArcKubernetesClusterExtension(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExtensionType is required")]
     public required TerraformValue<string> ExtensionType
     {
-        get => new TerraformReference<string>(this, "extension_type");
+        get => GetArgument<TerraformValue<string>>("extension_type");
         set => SetArgument("extension_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -151,34 +147,34 @@ public partial class AzurermArcKubernetesClusterExtension(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// The release_namespace attribute.
     /// </summary>
-    public TerraformValue<string> ReleaseNamespace
+    public TerraformValue<string>? ReleaseNamespace
     {
-        get => new TerraformReference<string>(this, "release_namespace");
+        get => GetArgument<TerraformValue<string>>("release_namespace");
         set => SetArgument("release_namespace", value);
     }
 
     /// <summary>
     /// The release_train attribute.
     /// </summary>
-    public TerraformValue<string> ReleaseTrain
+    public TerraformValue<string>? ReleaseTrain
     {
-        get => new TerraformReference<string>(this, "release_train");
+        get => GetArgument<TerraformValue<string>>("release_train");
         set => SetArgument("release_train", value);
     }
 
     /// <summary>
     /// The target_namespace attribute.
     /// </summary>
-    public TerraformValue<string> TargetNamespace
+    public TerraformValue<string>? TargetNamespace
     {
-        get => new TerraformReference<string>(this, "target_namespace");
+        get => GetArgument<TerraformValue<string>>("target_namespace");
         set => SetArgument("target_namespace", value);
     }
 
@@ -187,7 +183,7 @@ public partial class AzurermArcKubernetesClusterExtension(string name) : Terrafo
     /// </summary>
     public TerraformValue<string>? Version
     {
-        get => new TerraformReference<string>(this, "version");
+        get => GetArgument<TerraformValue<string>>("version");
         set => SetArgument("version", value);
     }
 
@@ -195,9 +191,7 @@ public partial class AzurermArcKubernetesClusterExtension(string name) : Terrafo
     /// The current_version attribute.
     /// </summary>
     public TerraformValue<string> CurrentVersion
-    {
-        get => new TerraformReference<string>(this, "current_version");
-    }
+        => AsReference("current_version");
 
     /// <summary>
     /// Identity block (nesting mode: list).

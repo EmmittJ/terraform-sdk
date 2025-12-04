@@ -19,7 +19,7 @@ public class AzurermRouteMapRuleBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -28,7 +28,7 @@ public class AzurermRouteMapRuleBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? NextStepIfMatched
     {
-        get => new TerraformReference<string>(this, "next_step_if_matched");
+        get => GetArgument<TerraformValue<string>>("next_step_if_matched");
         set => SetArgument("next_step_if_matched", value);
     }
 
@@ -69,7 +69,7 @@ public class AzurermRouteMapRuleBlockActionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -100,7 +100,7 @@ public class AzurermRouteMapRuleBlockActionBlockParameterBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AsPath
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "as_path").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("as_path");
         set => SetArgument("as_path", value);
     }
 
@@ -109,7 +109,7 @@ public class AzurermRouteMapRuleBlockActionBlockParameterBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Community
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "community").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("community");
         set => SetArgument("community", value);
     }
 
@@ -118,7 +118,7 @@ public class AzurermRouteMapRuleBlockActionBlockParameterBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? RoutePrefix
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "route_prefix").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("route_prefix");
         set => SetArgument("route_prefix", value);
     }
 
@@ -140,7 +140,7 @@ public class AzurermRouteMapRuleBlockMatchCriterionBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? AsPath
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "as_path").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("as_path");
         set => SetArgument("as_path", value);
     }
 
@@ -149,7 +149,7 @@ public class AzurermRouteMapRuleBlockMatchCriterionBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? Community
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "community").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("community");
         set => SetArgument("community", value);
     }
 
@@ -159,7 +159,7 @@ public class AzurermRouteMapRuleBlockMatchCriterionBlock : TerraformBlock
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchCondition is required")]
     public required TerraformValue<string> MatchCondition
     {
-        get => new TerraformReference<string>(this, "match_condition");
+        get => GetArgument<TerraformValue<string>>("match_condition");
         set => SetArgument("match_condition", value);
     }
 
@@ -168,7 +168,7 @@ public class AzurermRouteMapRuleBlockMatchCriterionBlock : TerraformBlock
     /// </summary>
     public TerraformList<string>? RoutePrefix
     {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "route_prefix").ResolveNodes(ctx));
+        get => GetArgument<TerraformList<string>>("route_prefix");
         set => SetArgument("route_prefix", value);
     }
 
@@ -191,7 +191,7 @@ public class AzurermRouteMapTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -200,7 +200,7 @@ public class AzurermRouteMapTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -209,7 +209,7 @@ public class AzurermRouteMapTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -218,7 +218,7 @@ public class AzurermRouteMapTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -234,9 +234,9 @@ public partial class AzurermRouteMap(string name) : TerraformResource("azurerm_r
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -246,7 +246,7 @@ public partial class AzurermRouteMap(string name) : TerraformResource("azurerm_r
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -256,7 +256,7 @@ public partial class AzurermRouteMap(string name) : TerraformResource("azurerm_r
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
     public required TerraformValue<string> VirtualHubId
     {
-        get => new TerraformReference<string>(this, "virtual_hub_id");
+        get => GetArgument<TerraformValue<string>>("virtual_hub_id");
         set => SetArgument("virtual_hub_id", value);
     }
 

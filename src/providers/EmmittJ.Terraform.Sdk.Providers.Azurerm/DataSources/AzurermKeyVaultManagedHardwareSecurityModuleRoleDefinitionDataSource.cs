@@ -18,7 +18,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionDataSourc
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -34,9 +34,9 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -46,7 +46,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmId is required")]
     public required TerraformValue<string> ManagedHsmId
     {
-        get => new TerraformReference<string>(this, "managed_hsm_id");
+        get => GetArgument<TerraformValue<string>>("managed_hsm_id");
         set => SetArgument("managed_hsm_id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionD
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -64,49 +64,37 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionD
     /// The assignable_scopes attribute.
     /// </summary>
     public TerraformList<string> AssignableScopes
-    {
-        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "assignable_scopes").ResolveNodes(ctx));
-    }
+        => AsReference("assignable_scopes");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The permission attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> Permission
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "permission").ResolveNodes(ctx));
-    }
+        => AsReference("permission");
 
     /// <summary>
     /// The resource_manager_id attribute.
     /// </summary>
     public TerraformValue<string> ResourceManagerId
-    {
-        get => new TerraformReference<string>(this, "resource_manager_id");
-    }
+        => AsReference("resource_manager_id");
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
     public TerraformValue<string> RoleName
-    {
-        get => new TerraformReference<string>(this, "role_name");
-    }
+        => AsReference("role_name");
 
     /// <summary>
     /// The role_type attribute.
     /// </summary>
     public TerraformValue<string> RoleType
-    {
-        get => new TerraformReference<string>(this, "role_type");
-    }
+        => AsReference("role_type");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

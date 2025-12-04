@@ -18,7 +18,7 @@ public class AzurermOracleDbServersDataSourceTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -37,16 +37,16 @@ public partial class AzurermOracleDbServersDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureName is required")]
     public required TerraformValue<string> CloudExadataInfrastructureName
     {
-        get => new TerraformReference<string>(this, "cloud_exadata_infrastructure_name");
+        get => GetArgument<TerraformValue<string>>("cloud_exadata_infrastructure_name");
         set => SetArgument("cloud_exadata_infrastructure_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
@@ -56,7 +56,7 @@ public partial class AzurermOracleDbServersDataSource(string name) : TerraformDa
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
     public required TerraformValue<string> ResourceGroupName
     {
-        get => new TerraformReference<string>(this, "resource_group_name");
+        get => GetArgument<TerraformValue<string>>("resource_group_name");
         set => SetArgument("resource_group_name", value);
     }
 
@@ -64,9 +64,7 @@ public partial class AzurermOracleDbServersDataSource(string name) : TerraformDa
     /// The db_servers attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> DbServers
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "db_servers").ResolveNodes(ctx));
-    }
+        => AsReference("db_servers");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).

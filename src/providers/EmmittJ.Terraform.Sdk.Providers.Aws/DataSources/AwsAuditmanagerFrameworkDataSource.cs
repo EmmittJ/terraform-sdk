@@ -14,7 +14,7 @@ public partial class AwsAuditmanagerFrameworkDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrameworkType is required")]
     public required TerraformValue<string> FrameworkType
     {
-        get => new TerraformReference<string>(this, "framework_type");
+        get => GetArgument<TerraformValue<string>>("framework_type");
         set => SetArgument("framework_type", value);
     }
 
@@ -24,16 +24,16 @@ public partial class AwsAuditmanagerFrameworkDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -41,48 +41,36 @@ public partial class AwsAuditmanagerFrameworkDataSource(string name) : Terraform
     /// The arn attribute.
     /// </summary>
     public TerraformValue<string> Arn
-    {
-        get => new TerraformReference<string>(this, "arn");
-    }
+        => AsReference("arn");
 
     /// <summary>
     /// The compliance_type attribute.
     /// </summary>
     public TerraformValue<string> ComplianceType
-    {
-        get => new TerraformReference<string>(this, "compliance_type");
-    }
+        => AsReference("compliance_type");
 
     /// <summary>
     /// The control_sets attribute.
     /// </summary>
     public TerraformList<TerraformMap<object>> ControlSets
-    {
-        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "control_sets").ResolveNodes(ctx));
-    }
+        => AsReference("control_sets");
 
     /// <summary>
     /// The description attribute.
     /// </summary>
     public TerraformValue<string> Description
-    {
-        get => new TerraformReference<string>(this, "description");
-    }
+        => AsReference("description");
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
     public TerraformMap<string> Tags
-    {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
-    }
+        => AsReference("tags");
 
 }

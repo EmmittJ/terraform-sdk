@@ -16,27 +16,27 @@ public class AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock : Terra
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformValue<string> KmsKeyId
+    public TerraformValue<string>? KmsKeyId
     {
-        get => new TerraformReference<string>(this, "kms_key_id");
+        get => GetArgument<TerraformValue<string>>("kms_key_id");
         set => SetArgument("kms_key_id", value);
     }
 
     /// <summary>
     /// The opt_in_status attribute.
     /// </summary>
-    public TerraformValue<string> OptInStatus
+    public TerraformValue<string>? OptInStatus
     {
-        get => new TerraformReference<string>(this, "opt_in_status");
+        get => GetArgument<TerraformValue<string>>("opt_in_status");
         set => SetArgument("opt_in_status", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformValue<string> Type
+    public TerraformValue<string>? Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -57,9 +57,9 @@ public class AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock : Terrafor
     /// <summary>
     /// The opt_in_status attribute.
     /// </summary>
-    public TerraformValue<string> OptInStatus
+    public TerraformValue<string>? OptInStatus
     {
-        get => new TerraformReference<string>(this, "opt_in_status");
+        get => GetArgument<TerraformValue<string>>("opt_in_status");
         set => SetArgument("opt_in_status", value);
     }
 
@@ -80,9 +80,9 @@ public class AwsDevopsguruServiceIntegrationOpsCenterBlock : TerraformBlock
     /// <summary>
     /// The opt_in_status attribute.
     /// </summary>
-    public TerraformValue<string> OptInStatus
+    public TerraformValue<string>? OptInStatus
     {
-        get => new TerraformReference<string>(this, "opt_in_status");
+        get => GetArgument<TerraformValue<string>>("opt_in_status");
         set => SetArgument("opt_in_status", value);
     }
 
@@ -98,9 +98,9 @@ public partial class AwsDevopsguruServiceIntegration(string name) : TerraformRes
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformValue<string> Region
+    public TerraformValue<string>? Region
     {
-        get => new TerraformReference<string>(this, "region");
+        get => GetArgument<TerraformValue<string>>("region");
         set => SetArgument("region", value);
     }
 
@@ -109,9 +109,7 @@ public partial class AwsDevopsguruServiceIntegration(string name) : TerraformRes
     /// </summary>
     [Obsolete("This property is deprecated.")]
     public TerraformValue<string> Id
-    {
-        get => new TerraformReference<string>(this, "id");
-    }
+        => AsReference("id");
 
     /// <summary>
     /// KmsServerSideEncryption block (nesting mode: list).

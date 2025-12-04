@@ -18,7 +18,7 @@ public class AzurermStorageBlobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Create
     {
-        get => new TerraformReference<string>(this, "create");
+        get => GetArgument<TerraformValue<string>>("create");
         set => SetArgument("create", value);
     }
 
@@ -27,7 +27,7 @@ public class AzurermStorageBlobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Delete
     {
-        get => new TerraformReference<string>(this, "delete");
+        get => GetArgument<TerraformValue<string>>("delete");
         set => SetArgument("delete", value);
     }
 
@@ -36,7 +36,7 @@ public class AzurermStorageBlobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Read
     {
-        get => new TerraformReference<string>(this, "read");
+        get => GetArgument<TerraformValue<string>>("read");
         set => SetArgument("read", value);
     }
 
@@ -45,7 +45,7 @@ public class AzurermStorageBlobTimeoutsBlock : TerraformBlock
     /// </summary>
     public TerraformValue<string>? Update
     {
-        get => new TerraformReference<string>(this, "update");
+        get => GetArgument<TerraformValue<string>>("update");
         set => SetArgument("update", value);
     }
 
@@ -61,9 +61,9 @@ public partial class AzurermStorageBlob(string name) : TerraformResource("azurer
     /// <summary>
     /// The access_tier attribute.
     /// </summary>
-    public TerraformValue<string> AccessTier
+    public TerraformValue<string>? AccessTier
     {
-        get => new TerraformReference<string>(this, "access_tier");
+        get => GetArgument<TerraformValue<string>>("access_tier");
         set => SetArgument("access_tier", value);
     }
 
@@ -72,7 +72,7 @@ public partial class AzurermStorageBlob(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string>? CacheControl
     {
-        get => new TerraformReference<string>(this, "cache_control");
+        get => GetArgument<TerraformValue<string>>("cache_control");
         set => SetArgument("cache_control", value);
     }
 
@@ -81,7 +81,7 @@ public partial class AzurermStorageBlob(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string>? ContentMd5
     {
-        get => new TerraformReference<string>(this, "content_md5");
+        get => GetArgument<TerraformValue<string>>("content_md5");
         set => SetArgument("content_md5", value);
     }
 
@@ -90,7 +90,7 @@ public partial class AzurermStorageBlob(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string>? ContentType
     {
-        get => new TerraformReference<string>(this, "content_type");
+        get => GetArgument<TerraformValue<string>>("content_type");
         set => SetArgument("content_type", value);
     }
 
@@ -99,25 +99,25 @@ public partial class AzurermStorageBlob(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string>? EncryptionScope
     {
-        get => new TerraformReference<string>(this, "encryption_scope");
+        get => GetArgument<TerraformValue<string>>("encryption_scope");
         set => SetArgument("encryption_scope", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformValue<string> Id
+    public TerraformValue<string>? Id
     {
-        get => new TerraformReference<string>(this, "id");
+        get => GetArgument<TerraformValue<string>>("id");
         set => SetArgument("id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformMap<string> Metadata
+    public TerraformMap<string>? Metadata
     {
-        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        get => GetArgument<TerraformMap<string>>("metadata");
         set => SetArgument("metadata", value);
     }
 
@@ -127,7 +127,7 @@ public partial class AzurermStorageBlob(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
     public required TerraformValue<string> Name
     {
-        get => new TerraformReference<string>(this, "name");
+        get => GetArgument<TerraformValue<string>>("name");
         set => SetArgument("name", value);
     }
 
@@ -136,7 +136,7 @@ public partial class AzurermStorageBlob(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<double>? Parallelism
     {
-        get => new TerraformReference<double>(this, "parallelism");
+        get => GetArgument<TerraformValue<double>>("parallelism");
         set => SetArgument("parallelism", value);
     }
 
@@ -145,7 +145,7 @@ public partial class AzurermStorageBlob(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<double>? Size
     {
-        get => new TerraformReference<double>(this, "size");
+        get => GetArgument<TerraformValue<double>>("size");
         set => SetArgument("size", value);
     }
 
@@ -154,7 +154,7 @@ public partial class AzurermStorageBlob(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string>? Source
     {
-        get => new TerraformReference<string>(this, "source");
+        get => GetArgument<TerraformValue<string>>("source");
         set => SetArgument("source", value);
     }
 
@@ -163,7 +163,7 @@ public partial class AzurermStorageBlob(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string>? SourceContent
     {
-        get => new TerraformReference<string>(this, "source_content");
+        get => GetArgument<TerraformValue<string>>("source_content");
         set => SetArgument("source_content", value);
     }
 
@@ -172,7 +172,7 @@ public partial class AzurermStorageBlob(string name) : TerraformResource("azurer
     /// </summary>
     public TerraformValue<string>? SourceUri
     {
-        get => new TerraformReference<string>(this, "source_uri");
+        get => GetArgument<TerraformValue<string>>("source_uri");
         set => SetArgument("source_uri", value);
     }
 
@@ -182,7 +182,7 @@ public partial class AzurermStorageBlob(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
     public required TerraformValue<string> StorageAccountName
     {
-        get => new TerraformReference<string>(this, "storage_account_name");
+        get => GetArgument<TerraformValue<string>>("storage_account_name");
         set => SetArgument("storage_account_name", value);
     }
 
@@ -192,7 +192,7 @@ public partial class AzurermStorageBlob(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
     public required TerraformValue<string> StorageContainerName
     {
-        get => new TerraformReference<string>(this, "storage_container_name");
+        get => GetArgument<TerraformValue<string>>("storage_container_name");
         set => SetArgument("storage_container_name", value);
     }
 
@@ -202,7 +202,7 @@ public partial class AzurermStorageBlob(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
     public required TerraformValue<string> Type
     {
-        get => new TerraformReference<string>(this, "type");
+        get => GetArgument<TerraformValue<string>>("type");
         set => SetArgument("type", value);
     }
 
@@ -210,9 +210,7 @@ public partial class AzurermStorageBlob(string name) : TerraformResource("azurer
     /// The url attribute.
     /// </summary>
     public TerraformValue<string> Url
-    {
-        get => new TerraformReference<string>(this, "url");
-    }
+        => AsReference("url");
 
     /// <summary>
     /// Timeouts block (nesting mode: single).
